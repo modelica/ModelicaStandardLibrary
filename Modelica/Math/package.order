@@ -1,6 +1,8 @@
 Vectors
 Matrices
 Nonlinear
+Colors
+Interfaces
 sin
 cos
 tan
@@ -23,6 +25,5 @@ allTrue
 anyTrue
 oneTrue
 firstTrueIndex
-Interfaces
 tempInterpol1
 tempInterpol2

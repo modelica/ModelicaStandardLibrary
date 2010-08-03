@@ -6540,8 +6540,7 @@ only be used as basic building elements for models.
 "));
   end Interfaces;
 
-  package Icons "Icons for rotational package"
-    import Modelica;
+  package Icons "Icons for Rotational package"
     extends Modelica.Icons.Package;
     partial class Gear "Rotational gear icon"
 
@@ -6602,6 +6601,7 @@ This is the icon of a gear from the rotational package.
     end Gear;
 
     model Gearbox "Icon of gear box"
+
       annotation (Icon(graphics={
             Rectangle(
               extent={{-100,10},{-60,-10}},
@@ -6643,6 +6643,7 @@ This is the icon of a gear box from the rotational package.
     end Gearbox;
 
     model Clutch "Icon of a clutch"
+
       annotation (Icon(graphics={
             Rectangle(
               extent={{-100,10},{-30,-10}},

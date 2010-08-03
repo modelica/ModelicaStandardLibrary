@@ -475,4 +475,18 @@ extends Modelica.Icons.Library;
     ok := true;
   end Vectors;
 
+  function colorMapToSvg "Store all predefined color maps in svg"
+    import Modelica.Math.Colors.colorMapToSvg;
+    import Modelica.Math.Colors.ColorMaps.*;
+    import Modelica.Math.Colors.colorMapToSvg.HeaderType;
+  algorithm
+    colorMapToSvg(jet(),    x= 10, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="jet",   headerType=colorMapToSvg.HeaderType.svgBegin);
+    colorMapToSvg(hot(),    x= 30, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="hot",   headerType=colorMapToSvg.HeaderType.noHeader);
+    colorMapToSvg(gray(),   x= 50, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="gray",  headerType=colorMapToSvg.HeaderType.noHeader);
+    colorMapToSvg(spring(), x= 70, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="spring",headerType=colorMapToSvg.HeaderType.noHeader);
+    colorMapToSvg(summer(), x= 90, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="summer",headerType=colorMapToSvg.HeaderType.noHeader);
+    colorMapToSvg(autumn(), x=110, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="autumn",headerType=colorMapToSvg.HeaderType.noHeader);
+    colorMapToSvg(winter(), x=130, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, heading="winter",headerType=colorMapToSvg.HeaderType.svgEnd);
+
+  end colorMapToSvg;
 end Math;

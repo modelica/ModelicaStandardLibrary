@@ -3,7 +3,7 @@ package Visualizers "3-dimensional visual objects used for animation"
   extends Modelica.Icons.Package;
 
   model FixedShape
-    "Animation shape of a part with fixed shape type and dynamically varying shape definition"
+    "Visualize an elementary shape with dynamically varying shape attributes (has one frame connector)"
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
@@ -28,7 +28,7 @@ package Visualizers "3-dimensional visual objects used for animation"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
       "Color of shape"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.ShapeExtra extra=0.0
       "Additional data for cylinder, cone, pipe, gearwheel and spring"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -162,7 +162,7 @@ definition of the colors used in the MultiBody library
   end FixedShape;
 
   model FixedShape2
-    "Animation shape of a part with fixed shape type and dynamically varying shape definition with two frames"
+    "Visualize an elementary shape with dynamically varying shape attributes (has two frame connectors)"
 
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
@@ -201,7 +201,7 @@ definition of the colors used in the MultiBody library
       "Additional data for cylinder, cone, pipe, gearwheel and spring"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,128,255} "Color of shape"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -375,11 +375,11 @@ vector <b>r</b>.
       "Diameter of axes arrows" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.
         FrameColor "Color of x-arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
     input Types.Color color_y=color_x "Color of y-arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
     input Types.Color color_z=color_x "Color of z-arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -574,7 +574,7 @@ parameter menu.
   end FixedFrame;
 
   model FixedArrow
-    "Visualizing an arrow with dynamically varying size in frame_a"
+    "Visualize an arrow with dynamically varying size in frame_a"
 
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
@@ -591,7 +591,7 @@ parameter menu.
     input SI.Diameter diameter=world.defaultArrowDiameter
       " Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,0,255} " Color of arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -674,7 +674,7 @@ parameter menu.
   end FixedArrow;
 
   model SignalArrow
-    "Visualizing an arrow with dynamically varying size in frame_a based on input signal"
+    "Visualize an arrow with dynamically varying size in frame_a based on input signal"
 
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
@@ -689,7 +689,7 @@ parameter menu.
       annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255}
       "Color of arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -752,7 +752,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </HTML>"));
   end SignalArrow;
 
-   model Ground "Visualize ground (box in z=0)"
+   model Ground "Visualize the ground (box in z=0)"
       parameter Boolean animation=true
       "= true, if animation of ground shall be enabled";
       parameter Modelica.SIunits.Position length = 10
@@ -761,7 +761,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       "Height of box (upper surface is at z=0, lower surface is at z=-height)"
                                                                         annotation (Dialog(enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
-      "Color of box"    annotation (Dialog(enable=animation));
+      "Color of box"    annotation (Dialog(__Dymola_colorSelector=true, enable=animation));
 
       Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
         lengthDirection={1,0,0},
@@ -832,8 +832,291 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 This shape visualizes the x-y plane by a box
 </p>
 
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/Ground.png\">
+</blockquote>
 </html>"));
    end Ground;
+
+  model Torus "Visualize a torus"
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
+
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+
+    parameter Modelica.SIunits.Radius ri=0.5 "Inner radius of torus" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Radius ro=0.1 "Outer radius of torus (=width/2)"
+                                                                                 annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Angle startAngle=-3.1415926535898
+      "Start angle of torus slice" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Angle stopAngle=3.1415926535898
+      "End angle of torus slice" annotation(Dialog(enable=animation));
+    parameter Boolean wireframe=false
+      "= true: 3D model will be displayed without faces"
+      annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
+    input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
+      "Color of surface"  annotation(Dialog(enable=animation,__Dymola_colorSelector=true,group="Material properties", enable=not multiColoredSurface));
+    input Types.SpecularCoefficient specularCoefficient = 0.7
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
+    input Real transparency=0
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+                                 annotation(Dialog(enable=animation,group="Material properties"));
+    parameter Integer n_ri=40 "Number of points along ri" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_ro=20 "Number of points along ro" annotation(Dialog(enable=animation,tab="Discretization"));
+
+  protected
+    Advanced.Surface surface( redeclare function surfaceCharacteristic =
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
+          (   ri=ri, ro=ro, opening=opening, startAngle=startAngle, stopAngle=stopAngle),
+            nu=n_ri,
+            nv=n_ro,
+            multiColoredSurface=false,
+            wireframe=wireframe,
+            color=color,
+            specularCoefficient=specularCoefficient,
+            transparency=transparency,
+      R=frame_a.R,
+      r_0=frame_a.r_0) if world.enableAnimation and animation
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+  equation
+    // No forces and torques
+    frame_a.f = zeros(3);
+    frame_a.t = zeros(3);
+    annotation (Icon(graphics={Bitmap(extent={{-98,98},{98,-98}}, fileName=
+                "modelica://Modelica/Images/MultiBody/Visualizers/TorusIcon.png"),
+            Text(
+            extent={{-150,100},{150,140}},
+            lineColor={0,0,255},
+            textString="%name")}), Documentation(info="<html>
+<p>
+Model <b>Torus</b> visualizes a torus. The center of the torus is located at 
+connector frame_a (visualized by the red coordinate system in the figure below).
+The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<pre>
+  opening    =   45 degree
+  startAngle = -135 degree
+  stopAngle  =  135 degree
+</pre>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/Torus.png\">
+</blockquote>
+</html>", revisions="<html>
+  <ul>
+  <li> July 2010 by Martin Otter<br>
+       Adapted to the new Surface model.</li>
+  <li> July 2005 by Dirk Zimmer (practical training at DLR)<br>
+       First version to visualize a multi-level tyre wheel model.</li>
+  </ul>
+</html>"));
+  end Torus;
+
+  model VoluminousWheel "Visualize a voluminous wheel"
+    import SI = Modelica.SIunits;
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
+
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+
+    parameter SI.Radius rTire=0.25 "Radius of the tire";
+    parameter SI.Radius rRim= 0.14 "Radius of the rim";
+    parameter SI.Radius width=0.25 "Width of the tire";
+    parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
+
+    parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
+      "Color of tire"  annotation(Dialog(enable=animation,__Dymola_colorSelector=true,group="Material properties", enable=not multiColoredSurface));
+    parameter Types.SpecularCoefficient specularCoefficient = 0.5
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
+    parameter Integer n_rTire=40 "Number of points along rTire" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_rCurvature=20 "Number of points along rCurvature" annotation(Dialog(enable=animation,tab="Discretization"));
+
+  protected
+    parameter SI.Radius rw = (width/2);
+    parameter SI.Radius rCurvature2 = if rCurvature > rw then rCurvature else rw;
+    parameter SI.Radius h =     sqrt(1-(rw/rCurvature2)*(rw/rCurvature2))*rCurvature2;
+    parameter SI.Radius ri =    rTire-rCurvature2;
+    parameter SI.Radius rRim2 = if rRim < 0 then 0 else if rRim > ri+h then ri+h else rRim;
+
+      Visualizers.Advanced.Shape pipe(
+        shapeType="pipe",
+        color=color,
+        length= width,
+        width=2*(ri+h),
+        height=2*(ri+h),
+        lengthDirection={0,1,0},
+        widthDirection={0,0,1},
+        extra=(rRim2)/(ri+h),
+        r=frame_a.r_0,
+        r_shape= -{0,1,0}*(width/2),
+        R= frame_a.R,
+        specularCoefficient = specularCoefficient) if world.enableAnimation and animation
+            annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+
+      Visualizers.Advanced.Surface torus(redeclare function
+        surfaceCharacteristic =
+          Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
+          (     ri=ri,
+                ro=rCurvature2,
+                opening=Modelica.Constants.pi - Modelica.Math.asin(rw/rCurvature2)),
+            nu=n_rTire,
+            nv=n_rCurvature,
+            multiColoredSurface=false,
+            wireframe=false,
+            color=color,
+            specularCoefficient=specularCoefficient,
+            transparency=0,
+            R=frame_a.R,
+            r_0=frame_a.r_0) if world.enableAnimation and animation
+      annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
+
+  equation
+    // No forces and torques
+    frame_a.f = zeros(3);
+    frame_a.t = zeros(3);
+    annotation (Icon(graphics={
+            Text(
+            extent={{-150,100},{150,140}},
+            lineColor={0,0,255},
+            textString="%name"),
+          Bitmap(extent={{-96,96},{102,-96}}, fileName=
+                "modelica://Modelica/Images/MultiBody/Visualizers/VoluminousWheelIcon.png"),
+          Rectangle(
+            extent={{-96,8},{-18,-8}},
+            lineColor={95,95,95},
+            fillColor={215,215,215},
+            fillPattern=FillPattern.HorizontalCylinder)}),
+                                   Documentation(info="<html>
+<p>
+Model <b>VoluminousWheel</b> provides a simple visualization of a tire using
+a torus and a pipe shape object. The center of the wheel is located at 
+connector frame_a (visualized by the red coordinate system in the figure below).
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/VoluminousWheel.png\">
+</blockquote>
+</html>",   revisions="<html>
+  <ul>
+  <li> July 2010 by Martin Otter<br>
+       Adapted to the new Surface model.</li>
+  <li> July 2005 by Dirk Zimmer (practical training at DLR)<br>
+       First version to visualize a multi-level tyre wheel model.</li>
+  </ul>
+</html>"));
+
+  end VoluminousWheel;
+
+  model PipeWithScalarField
+    "Visualize a pipe with scalar field quantities along the pipe axis"
+    extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
+
+    parameter Boolean animation=true "= true, if animation shall be enabled";
+
+    parameter Modelica.SIunits.Radius rOuter "Outer radius of pipe" annotation(Dialog(enable=animation));
+    parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(enable=animation));
+
+    parameter Modelica.SIunits.Position x[:]
+      "[:] Position values along the pipe with x[1] = 0, x[end] = length" annotation(Dialog(enable=animation));
+    input Real T[size(x,1)]
+      "[:] Scalar values at position x (will be visualized by color)" annotation(Dialog(enable=animation));
+    input Real T_min=T[1]
+      "Minimum value of T that corresponds to colorMap[1,:]"                         annotation(Dialog(enable=animation));
+    input Real T_max=T[end]
+      "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(enable=animation));
+    replaceable function colorMap =
+        Modelica.Math.Colors.ColorMaps.jet
+          constrainedby Modelica.Math.Interfaces.partialColorMap
+      "Function defining the color map"
+            annotation(__Dymola_choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
+
+    parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(enable=animation,group="Color coding"));
+    parameter Types.SpecularCoefficient specularCoefficient = 0.7
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Color coding"));
+    parameter Real transparency=0
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+                                 annotation(Dialog(enable=animation,group="Color coding"));
+
+    parameter Integer n_rOuter=30 "Number of points along outer radius" annotation(Dialog(enable=animation,tab="Discretization"));
+    parameter Integer n_length=20 "Number of points along length" annotation(Dialog(enable=animation,tab="Discretization"));
+
+  protected
+    Advanced.PipeWithScalarField pipe(redeclare function colorMap = colorMap,
+           rOuter=rOuter,
+           length=length,
+           x=x,
+           T=T,
+           T_min=T_min,
+           T_max=T_max,
+           n_colors=n_colors,
+           n_rOuter=n_rOuter,
+           n_length=n_length,
+           specularCoefficient=specularCoefficient,
+           transparency=transparency,
+           R=frame_a.R,
+           r_0=frame_a.r_0) if world.enableAnimation and animation
+      annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
+  equation
+    // No forces and torques
+    frame_a.f = zeros(3);
+    frame_a.t = zeros(3);
+
+    annotation (Icon(graphics={
+            Text(
+            extent={{-150,50},{150,90}},
+            lineColor={0,0,255},
+            textString="%name"), Bitmap(extent={{-100,58},{98,-62}}, fileName=
+                "modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png")}),
+                                   Documentation(info="<html>
+<p>
+Model <b>PipeWithScalarField</b> visualizes a pipe and a scalar
+field along the pipe axis. The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href=\"modelica://Modelica.Math.Colors.ColorMaps\">Modelica.Math.Colors.ColorMaps</a>
+and can be selected via parameter \"colorMap\".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
+Connecter frame_a of this component is located in the center of the
+circle at the left end of the pipe and the pipe axis is oriented
+along the x-axis of frame_a, see figure below in which frame_a is visualized
+with a coordinate system:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarField.png\">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
+              height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
+</pre>
+</blockquote>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
+</blockquote>
+</html>", revisions="<html>
+  <ul>
+  <li> July 2010 by Martin Otter<br>
+       Adapted to the new Surface model.</li>
+  <li> July 2005 by Dirk Zimmer (practical training at DLR)<br>
+       First version to visualize a multi-level tyre wheel model.</li>
+  </ul>
+</html>"));
+  end PipeWithScalarField;
 
   package Advanced
     "Visualizers that require basic knowledge about Modelica in order to use them"
@@ -861,7 +1144,7 @@ This shape visualizes the x-y plane by a box
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-        "Color of arrow" annotation(Dialog);
+        "Color of arrow" annotation(Dialog(__Dymola_colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
@@ -976,7 +1259,7 @@ library (will be replaced by a color editor).
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-        "Color of double arrow" annotation(Dialog);
+        "Color of double arrow" annotation(Dialog(__Dymola_colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
@@ -1086,11 +1369,11 @@ library (will be replaced by a color editor).
     end DoubleArrow;
 
     model Shape
-      "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
+      "Animation of an elementary object with variable size; all data have to be set as modifiers (see info layer)"
 
+       extends ModelicaServices.Animation.Shape;
        extends
         Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
-       extends ModelicaServices.Animation.Shape;
 
         annotation (
          Icon(coordinateSystem(
@@ -1246,8 +1529,329 @@ since they all have frame connectors).
       <IMG src=\"modelica://Modelica/Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.Advanced.Shape\">
       </td>
   </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
+      <td valign=\"top\">Visualizes a moveable parameterized surface:<br>
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Surface_small.png\">
+      </td>
+  </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
+      <td valign=\"top\">Visualizes a pipe with a scalar field represented by a color coding:<br>
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
+      </td>
+  </tr>
 </table>
 </HTML>"));
+    model Surface
+      "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
+      extends Modelica.Mechanics.MultiBody.Icons.Surface;
+      extends
+        Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface;
+      extends ModelicaServices.Animation.Surface;
+    equation
+
+      annotation (Icon(graphics={Polygon(
+              points={{-102,40},{-98,92},{28,-8},{96,146},{104,-118},{-18,-34},{-52,
+                  -130},{-102,40}},
+              lineColor={0,0,255},
+              smooth=Smooth.Bezier,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name")}), Documentation(info="<html>
+<p>
+Model <b>Surface</b> defines a moveable, parametrized surface in 3-dim. space
+that is used for animation. This object is specified by: 
+</p>
+
+<ul>
+<li> The surface frame (orientation object \"R\" and origin \"r_0\")
+     in which the data is specified.</li>
+<li> A set of two parameters, one in u- and one in v-direction, 
+     that defines the control points. </li>
+<li> A time-varying position of each control point with respect to    
+     the surface frame.</li>
+</ul>
+
+<p> 
+The parameter values (u,v) are given by the ordinal numbers of the
+corresponding control point in u- or in v-direction, respectively.
+The surface is then defined by the replaceable function \"surfaceCharacteristic\" with the
+interface <a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic\">partialSurfaceCharacteristic</a>
+that returns the x-, y-, z- coordinate of every control point in form of 3 arrays X, Y, Z, and an optional color array C, if every control point shall have a different color:
+</p>
+
+<pre>
+  Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv];
+</pre>
+
+<p>
+An example of a parameterized surface with color coding is shown in the next figure:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/Surface.png\">
+</blockquote>
+
+<p>
+Models <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>,
+demonstrate how new visualizer objects can be constructed with the Surface model.<br>
+The direct usage of the Surface model, as well as of the Torus and the VoluminousWheel models, are demonstrated with example
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Examples.Elementary.Surfaces</a>.
+</p>
+</html>"));
+    end Surface;
+
+    model PipeWithScalarField "Visualize a pipe with a scalar field"
+      input Frames.Orientation R=Frames.nullRotation()
+        "Orientation object to rotate the world frame into the surface frame"
+        annotation(Dialog(group="Surface frame"));
+      input Modelica.SIunits.Position r_0[3]={0,0,0}
+        "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
+        annotation(Dialog(group="Surface frame"));
+
+      parameter Modelica.SIunits.Radius rOuter "Outer radius of pipe" annotation(Dialog(group="Surface properties"));
+      parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(group="Surface properties"));
+      parameter Integer n_rOuter=30 "Number of points along outer radius" annotation(Dialog(group="Surface properties"));
+      parameter Integer n_length=10 "Number of points along length" annotation(Dialog(group="Surface properties"));
+      parameter Types.SpecularCoefficient specularCoefficient = 0.7
+        "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(group="Surface properties"));
+      parameter Real transparency=0
+        "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+                                   annotation(Dialog(group="Surface properties"));
+
+      parameter Modelica.SIunits.Position x[:]
+        "[:] Position values along the pipe with x[1] = 0, x[end] = length" annotation(Dialog(group="Color coding"));
+      input Real T[size(x,1)]
+        "[:] Scalar values at position x (will be visualized by color)"                       annotation(Dialog(group="Color coding"));
+      input Real T_min=T[1]
+        "Minimum value of T that corresponds to colorMap[1,:]"                     annotation(Dialog(group="Color coding"));
+      input Real T_max=T[end]
+        "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(group="Color coding"));
+      parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
+      replaceable function colorMap =
+          Modelica.Math.Colors.ColorMaps.jet
+            constrainedby Modelica.Math.Interfaces.partialColorMap
+        "Function defining the color map"
+              annotation(__Dymola_choicesAllMatching=true, Dialog(group="Color coding"));
+    protected
+      parameter Real colorMapData[n_colors,3] = colorMap(n_colors) annotation(HideResult=true);
+      Surface surface(
+        R=R,
+        r_0=r_0,
+        nu=n_length,
+        nv=n_rOuter,
+        wireframe=false,
+        multiColoredSurface=true,
+        specularCoefficient=specularCoefficient,
+        transparency=transparency,
+        redeclare function surfaceCharacteristic =
+            Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField
+            (rOuter=rOuter,
+             length=length,
+             x=x,
+             T=T,
+             T_min=T_min,
+             T_max=T_max,
+             colorMap=colorMapData))
+        annotation (Placement(transformation(extent={{-20,2},{0,22}})));
+      annotation (Icon(graphics={Bitmap(extent={{-99,60},{99,-60}}, fileName=
+                  "modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png"),
+              Text(
+              extent={{-150,54},{150,94}},
+              lineColor={0,0,255},
+              textString="%name")}), Documentation(info="<html>
+<p>
+Model <b>PipeWithScalarField</b> visualizes a pipe and a scalar
+field along the pipe axis. The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href=\"modelica://Modelica.Math.Colors.ColorMaps\">Modelica.Math.Colors.ColorMaps</a>
+and can be selected via parameter \"colorMap\".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
+The position and orientation of the center of the
+circle at the left end of the pipe is defined via parameters
+\"r_0\" and \"R\", respectively. The pipe axis is oriented along
+the x-axis of the local coordinate system described by \"R\",
+see figure below:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarField.png\">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
+              height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
+</pre>
+</blockquote>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
+</blockquote>
+</html>"));
+    end PipeWithScalarField;
+
+    package SurfaceCharacteristics "Functions returning surface descriptions"
+        extends Modelica.Icons.Package;
+      function torus "Function defining the surface characteristic of a torus"
+        extends
+          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+                  final multiColoredSurface=false);
+        input Modelica.SIunits.Radius ri=1 "Inner radius of torus" annotation(Dialog);
+        input Modelica.SIunits.Radius ro=0.2 "Outer radius of torus (=width/2)"
+                                                                                annotation(Dialog);
+        input Modelica.SIunits.Angle opening=0 "Opening angle of torus" annotation(Dialog);
+        input Modelica.SIunits.Angle startAngle= -Modelica.Constants.pi
+          "Start angle of torus slice" annotation(Dialog);
+        input Modelica.SIunits.Angle stopAngle= Modelica.Constants.pi
+          "End angle of torus slice" annotation(Dialog);
+      protected
+        Modelica.SIunits.Angle alpha;
+        Modelica.SIunits.Angle beta;
+        Modelica.SIunits.Angle phi_start;
+        Modelica.SIunits.Angle phi_stop;
+      algorithm
+        phi_start :=-Modelica.Constants.pi + opening;
+        phi_stop  :=Modelica.Constants.pi - opening;
+        for i in 1:nu loop
+            alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
+            for j in 1:nv loop
+                beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
+                X[i,j] := (ri + ro*cos(beta))*sin(alpha);
+                Y[i,j] := ro*sin(beta);
+                Z[i,j] := (ri + ro*cos(beta))*cos(alpha);
+            end for;
+        end for;
+        annotation (Documentation(info="<html>
+<p>
+Function <b>torus</b> computes the X,Y,Z arrays to visualize a torus
+with model <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a>.
+The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<pre>
+  opening    =   45 degree
+  startAngle = -135 degree
+  stopAngle  =  135 degree
+</pre>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/Torus.png\">
+</blockquote>
+</html>"));
+      end torus;
+
+      function pipeWithScalarField
+        "Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis"
+        import C = Modelica.Constants;
+        extends
+          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
+                  final multiColoredSurface=true);
+        input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
+        input Modelica.SIunits.Length length "Length of cylinder"  annotation(Dialog);
+        input Modelica.SIunits.Position x[:]
+          "Geometrical nodes along the cylinder"                                     annotation(Dialog);
+        input Real T[size(x,1)] "Scalar field value at position x" annotation(Dialog);
+        input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
+        input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);
+        input Real colorMap[:,3]
+          "Color map to map scalar T to a corresponding color"                        annotation(Dialog);
+      protected
+        Real beta;
+        Modelica.SIunits.Position xi;
+        Real Ti;
+        Real Ci[3];
+        Integer k;
+      algorithm
+        k:=1;
+        for i in 1:nu loop
+           // Compute actual x-position along cylinder length
+           xi := length*(i-1)/(nu-1);
+
+           // Interpolate in x and T to determine the corresponding value of Ti(xi)
+           (Ti,k) := Modelica.Math.Vectors.interpolate(x,T,xi,k);
+
+           // Map the scalar field value Ti to a color value
+           Ci := Modelica.Math.Vectors.scalarToColor(Ti, T_min, T_max, colorMap);
+
+           // Determine outputs
+           for j in 1:nv loop
+              beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
+              X[i,j] := xi;
+              Y[i,j] := rOuter*sin(beta);
+              Z[i,j] := rOuter*cos(beta);
+              C[i,j,:] := Ci;
+           end for;
+        end for;
+        annotation (Documentation(info="<html>
+<p>
+Function <b>pipeWithScalarField</b> computes the X,Y,Z,C arrays in order to
+visualize a pipe and a scalar field along the pipe axis with model
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a>.
+The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<a href=\"modelica://Modelica.Math.Colors.ColorMaps\">Modelica.Math.Colors.ColorMaps</a>
+and can be selected via input argument \"colorMap\".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
+An example is shown in the next figure:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarField.png\">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
+              height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
+</pre>
+</blockquote>
+
+<blockquote>
+<img src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png\">
+</blockquote>
+</html>"));
+      end pipeWithScalarField;
+      annotation (Documentation(info="<html>
+<p>
+This package contains functions that are used to define
+parameterized surfaces for use with the
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a>
+model.
+</p>
+</html>"));
+    end SurfaceCharacteristics;
   end Advanced;
 
   package Internal
@@ -1283,7 +1887,7 @@ since they all have frame connectors).
         "Vector in direction of y-axis of 'lines' frame, resolved in frame_a."
         annotation (Dialog(group="if animation = true", enable=animation));
       input MultiBody.Types.Color color={0,128,255} " Color of cylinders"
-        annotation (Dialog(group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="if animation = true", enable=animation));
@@ -1393,7 +1997,7 @@ The diameter and color of all line cylinders are identical.
       annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
         "Color of cylinders"
-      annotation(Dialog);
+      annotation(Dialog(__Dymola_colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog);
@@ -1521,9 +2125,36 @@ animation features of the MultiBody library.
       a fixed sized arrow, model \"SignalArrow\" provides
       an arrow with dynamically varying length that is defined
       by an input signal vector:<br>
-      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\" \">
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/Arrow.png\">
       </td>
   </tr>
+
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Ground\">Ground</a></td>
+      <td valign=\"top\">Visualizes the x-y plane by a box:<br>
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/GroundSmall.png\">
+      </td>
+  </tr>
+
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
+      <td valign=\"top\">Visualizes a torus:<br>
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/TorusIcon.png\">
+      </td>
+  </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel\">VoluminousWheel</a></td>
+      <td valign=\"top\">Visualizes a wheel:<br>
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/VoluminousWheelIcon.png\">
+      </td>
+  </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a></td>
+      <td valign=\"top\">Visualizes a pipe with a scalar field represented by a color coding:<br>
+      <IMG src=\"modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
+      </td>
+  </tr>
+
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced\">Advanced</a></td>
       <td valign=\"top\"> <b>Package</b> that contains components to visualize
           3-dimensional shapes where all parts of the shape

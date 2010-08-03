@@ -386,7 +386,7 @@ to the original vector are given, such that sorted_v = v[indices].
 </HTML>"));
   end sort;
 
-  function find "Find element in vector"
+  function find "Find element in a vector"
     extends Modelica.Icons.Function;
     input Real e "Search for e";
     input Real v[:] "Integer vector";
@@ -436,13 +436,74 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </html>"));
   end find;
 
+  function interpolate "Interpolate in a vector"
+    input Real  x[:]
+      "Abszissa table vector (strict monotonically increasing values required)";
+    input Real  y[size(x,1)] "Ordinate table vector";
+    input Real  xi "Desired abszissa value";
+    input Integer iLast=1 "Index used in last search";
+    output Real yi "Ordinate value corresponding to xi";
+    output Integer iNew=1 "xi is in the interval x[iNew] <= xi < x[iNew+1]";
+  protected
+    Integer i;
+    Integer nx=size(x,1);
+    Real x1;
+    Real x2;
+    Real y1;
+    Real y2;
+  algorithm
+    assert(nx > 0, "The table vectors must have at least 1 entry.");
+    if nx == 1 then
+      yi := y[1];
+    else
+      // Search interval
+      i := min(max(iLast,1),nx-1);
+      if xi >= x[i] then
+         // search forward
+         while i < nx and xi >= x[i] loop
+            i := i + 1;
+         end while;
+         i := i - 1;
+      else
+         // search backward
+         while i > 1 and xi < x[i] loop
+            i := i - 1;
+         end while;
+      end if;
+
+      // Get interpolation data
+      x1 := x[i];
+      x2 := x[i+1];
+      y1 := y[i];
+      y2 := y[i+1];
+
+      assert(x2 > x1, "Abszissa table vector values must be increasing");
+      // Interpolate
+      yi := y1 + (y2 - y1)*(xi - x1)/(x2 - x1);
+      iNew :=i;
+    end if;
+
+  end interpolate;
+
+  function scalarToColor "Map a scalar to a color using a color map"
+    input Real T "Scalar value" annotation(Dialog);
+    input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
+    input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);
+    input Real colorMap[:,3] "Color map" annotation(Dialog);
+    output Real color[3] "Color of scalar value T";
+  algorithm
+    color :=colorMap[integer((size(colorMap, 1) - 1)/(T_max - T_min)*
+                              min((max(T,T_min) - T_min), T_max) + 1), :];
+    annotation(Inline=true);
+  end scalarToColor;
+
   package Utilities
     "Utility functions that should not be directly utilized by the user"
       extends Modelica.Icons.Package;
   function householderVector
       "Calculate a normalized householder vector to reflect vector a onto vector b"
 
-    import Modelica.Math.Vectors.norm;
+      import Modelica.Math.Vectors.norm;
 
     input Real a[:] "Real vector to be reflected";
     input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
@@ -582,7 +643,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
 
       encapsulated function roots
       "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
-        import Modelica.Math.Matrices;
+      import Modelica.Math.Matrices;
 
         input Real p[:]
         "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
@@ -2037,7 +2098,7 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
 
   function realSchur
     "Return the real Schur form (rsf) S of a square matrix A, A=QZ*S*QZ'"
-      import Modelica.Math.Matrices;
+    import Modelica.Math.Matrices;
 
     input Real A[:,size(A, 1)] "Square matrix";
 
@@ -10362,7 +10423,10 @@ functions are ordered according to categories and a typical
 call of the respective function is shown.
 Most functions are solely an interface to the external
 <a href=\"modelica://Modelica.Math.Matrices.LAPACK\">LAPACK</a> library.
-Note, A' is a short hand notation of transpose(A):
+</p>
+
+<p>
+Note: A' is a short hand notation of transpose(A):
 </p>
 
 <p><b>Basic Information</b></p>
@@ -10377,10 +10441,12 @@ Note, A' is a short hand notation of transpose(A):
 <p><b>Linear Equations</b></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.solve\">solve</a>(A,b)
-     - returns solution x of the linear equation A*x=b (where b is a vector, and A is a square matrix).</li>
+     - returns solution x of the linear equation A*x=b (where b is a vector, 
+       and A is a square matrix that must be regular).</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.solve2\">solve2</a>(A,B)
-     - returns solution X of the linear equation A*X=B (where B is a matrix, and A is a square matrix)</li>
+     - returns solution X of the linear equation A*X=B (where B is a matrix, 
+       and A is a square matrix that must be regular)</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)
      - returns solution x of the linear equation A*x=b in a least squares sense
@@ -10441,10 +10507,10 @@ Note, A' is a short hand notation of transpose(A):
 <p><b>Matrix Properties</b></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.trace\">trace</a>(A)
-     - returns trace of square matrix A, i.e., the sum of the diagonal elements.</li>
+     - returns the trace of square matrix A, i.e., the sum of the diagonal elements.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.det\">det</a>(A)
-     - returns determinant of square matrix A (using LU decomposition; try to avoid det(..))</li>
+     - returns the determinant of square matrix A (using LU decomposition; try to avoid det(..))</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.inv\">inv</a>(A)
      - returns the inverse of square matrix A (try to avoid, use instead \"solve2(..) with B=identity(..))</li>
@@ -10453,7 +10519,7 @@ Note, A' is a short hand notation of transpose(A):
      - returns the rank of square matrix A (computed with singular value decomposition)</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.conditionNumber\">conditionNumber</a>(A)
-     - returns the condition number norm(A)*norm(inv(A)) of a square matrix A in the range 1..%infty;.</li>
+     - returns the condition number norm(A)*norm(inv(A)) of a square matrix A in the range 1..&infin;.</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.rcond\">rcond</a>(A)
      - returns the reciprocal condition number 1/conditionNumber(A) of a square matrix A in the range 0..1.</li>
@@ -11894,6 +11960,7 @@ It is expected, that an x-axis is added and a plot of the function.
 </html>"));
 end baseIcon1;
 
+
 partial function baseIcon2
   "Basic icon for mathematical function with y-axis in middle"
 
@@ -11933,6 +12000,7 @@ It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
 end baseIcon2;
+
 
 function allTrue
   "Returns true, if all elements of the Boolean input vector are true ('and')"
@@ -12035,6 +12103,7 @@ algorithm
   result :=count == 1;
 end oneTrue;
 
+
 function firstTrueIndex
   "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
    input Boolean b[:];
@@ -12048,9 +12117,6 @@ algorithm
       end if;
    end for;
 end firstTrueIndex;
-
-
-
 
 
 function tempInterpol1

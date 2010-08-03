@@ -5934,6 +5934,232 @@ often possible to use the FreeMotion joint such that the singularity
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics));
     end Arrow;
+
+    model Torus "Test and show models Visualizers.Torus"
+
+      extends Modelica.Icons.Example;
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=false,
+          animateGravity=false)
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(
+          animation=false, r={2,0,0})
+        annotation (Placement(transformation(extent={{-26,50},{-6,70}})));
+      Modelica.Mechanics.MultiBody.Visualizers.Torus torus1(ro=0.2)
+        annotation (Placement(transformation(extent={{-20,20},{0,40}})));
+      Modelica.Mechanics.MultiBody.Visualizers.Torus torus2(
+        ro=0.2,
+        opening=0.78539816339745,
+        startAngle=-2.3561944901923,
+        stopAngle=2.3561944901923)
+        annotation (Placement(transformation(extent={{4,50},{24,70}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame(color_x={
+            255,0,0}, length=1)
+        annotation (Placement(transformation(extent={{-10,-30},{10,-10}})));
+      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame1(color_x={
+            255,0,0}, length=1)
+        annotation (Placement(transformation(extent={{12,76},{32,96}})));
+    equation
+
+      connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
+          points={{-40,30},{-32,30},{-32,60},{-26,60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, torus1.frame_a) annotation (Line(
+          points={{-40,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedTranslation.frame_b, torus2.frame_a) annotation (Line(
+          points={{-6,60},{4,60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedFrame.frame_a, torus1.frame_a) annotation (Line(
+          points={{-10,-20},{-32,-20},{-32,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedFrame1.frame_a, torus2.frame_a) annotation (Line(
+          points={{12,86},{0,86},{0,60},{4,60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (
+        Diagram(graphics),
+        experiment(StopTime=2),
+        experimentSetupOutput);
+    end Torus;
+
+    model VoluminousWheel
+      extends Modelica.Icons.Example;
+      Modelica.Mechanics.MultiBody.Visualizers.VoluminousWheel voluminousWheel
+        annotation (Placement(transformation(extent={{-20,20},{0,40}})));
+      inner Modelica.Mechanics.MultiBody.World world(axisColor_x={255,0,0},
+          animateGravity=false)
+        annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
+    equation
+
+      connect(world.frame_b, voluminousWheel.frame_a) annotation (Line(
+          points={{-40,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (Diagram(graphics));
+    end VoluminousWheel;
+
+    model ColorMaps "Show all color maps"
+
+      extends Modelica.Icons.Example;
+      inner Modelica.Mechanics.MultiBody.World world(
+          animateGravity=false, animateWorld=false)
+        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField jet(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5)
+        annotation (Placement(transformation(extent={{-20,60},{0,80}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField hot(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5,
+        redeclare function colorMap =
+            Modelica.Math.Colors.ColorMaps.hot)
+        annotation (Placement(transformation(extent={{-20,30},{0,50}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate2(animation=
+            false, r={0,0,-0.3})
+        annotation (Placement(transformation(extent={{-48,30},{-28,50}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField gray(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5,
+        redeclare function colorMap =
+            Modelica.Math.Colors.ColorMaps.gray)
+        annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate3(animation=
+            false, r={0,0,-0.6})
+        annotation (Placement(transformation(extent={{-48,0},{-28,20}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField spring(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5,
+        redeclare function colorMap =
+            Modelica.Math.Colors.ColorMaps.spring)
+        annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate4(animation=
+            false, r={0,0,-0.9})
+        annotation (Placement(transformation(extent={{-48,-30},{-28,-10}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField summer(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5,
+        redeclare function colorMap =
+            Modelica.Math.Colors.ColorMaps.summer)
+        annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate5(animation=
+            false, r={0,0,-1.2})
+        annotation (Placement(transformation(extent={{-48,-60},{-28,-40}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate6(animation=
+            false, r={0,0,-1.5})
+        annotation (Placement(transformation(extent={{-48,-90},{-28,-70}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField autumn(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5,
+        redeclare function colorMap =
+            Modelica.Math.Colors.ColorMaps.autumn)
+        annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate7(animation=
+            false, r={0,0,-1.8})
+        annotation (Placement(transformation(extent={{-48,-120},{-28,-100}})));
+      Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField winter(
+        rOuter=0.1,
+        length=0.5,
+        x=0:0.01:0.5,
+        T=0:0.01:0.5,
+        redeclare function colorMap =
+            Modelica.Math.Colors.ColorMaps.winter)
+        annotation (Placement(transformation(extent={{-20,-120},{0,-100}})));
+    equation
+
+      connect(world.frame_b, jet.frame_a) annotation (Line(
+          points={{-60,70},{-20,70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, translate2.frame_a) annotation (Line(
+          points={{-60,70},{-52,70},{-52,40},{-48,40}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(translate2.frame_b, hot.frame_a) annotation (Line(
+          points={{-28,40},{-20,40}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, translate3.frame_a) annotation (Line(
+          points={{-60,70},{-52,70},{-52,10},{-48,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(translate3.frame_b, gray.frame_a) annotation (Line(
+          points={{-28,10},{-20,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(translate4.frame_b, spring.frame_a) annotation (Line(
+          points={{-28,-20},{-20,-20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, translate4.frame_a) annotation (Line(
+          points={{-60,70},{-52,70},{-52,-20},{-48,-20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(translate5.frame_b, summer.frame_a) annotation (Line(
+          points={{-28,-50},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, translate5.frame_a) annotation (Line(
+          points={{-60,70},{-52,70},{-52,-50},{-48,-50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, translate6.frame_a) annotation (Line(
+          points={{-60,70},{-52,70},{-52,-80},{-48,-80}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(translate6.frame_b, autumn.frame_a) annotation (Line(
+          points={{-28,-80},{-20,-80}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, translate7.frame_a) annotation (Line(
+          points={{-60,70},{-52,70},{-52,-110},{-48,-110}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(translate7.frame_b, winter.frame_a) annotation (Line(
+          points={{-28,-110},{-20,-110}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-140},
+                {100,100}}),
+                graphics),
+        experiment(StopTime=0.1),
+        experimentSetupOutput);
+    end ColorMaps;
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"

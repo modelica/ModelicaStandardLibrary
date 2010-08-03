@@ -1,6 +1,8 @@
 within ;
-package ModelicaServices "(For: Dymola) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+package ModelicaServices "(target = \"Dymola\") Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
   extends Modelica.Icons.Package;
+  constant String target="Dymola"
+  "Target of this ModelicaServices implementation";
 
 
 package UsersGuide "User's Guide"
@@ -576,9 +578,13 @@ end ModelicaLicense2;
 class ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
-<h4>Version 1.0.1, 2010-07-23</h4>
+<h4>Version 1.1, 2010-07-30</h4>
 
 <ul>
+<li> New model <a href=\"modelica://ModelicaServices.Animation.Surface\">Surface</a>
+     to describe movable, parameterized surfaces.</li>
+<li> New string constant ModelicaServices.target to define the
+     target of the corresponding ModelicaServices implementation</li>
 <li> Package icons adapted to the icons of package Modelica, version 3.2.</li>
 <li> ModelicaServices library on the Modelica subversion server provided in three versions:
      <ol>
@@ -588,10 +594,9 @@ class ReleaseNotes "Release notes"
      <li> <b>Dymola/ModelicaServices</b><br>
           (a Dymola-specific implementation).</li>
 
-     <li> <b>Dymola-And-DLR-Visualization/ModelicaServices</b><br>
-          (Via a flag in the global Visualization library setting,
-           either provides the Dymola-specific implementation or uses
-           the DLR Visualization library).</li>
+     <li> <b>DymolaAndDLRVisualization/ModelicaServices</b><br>
+          (an implementation that uses the DLR Visualization library
+           in combination with Dymola).</li>
      </ol>
      </li>
 </ul>
@@ -651,10 +656,10 @@ model Shape
   extends
       Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
 
-  import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
-  import SI = Modelica.SIunits;
-  import Modelica.Mechanics.MultiBody.Frames;
-  import Modelica.Mechanics.MultiBody.Types;
+    import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
+    import SI = Modelica.SIunits;
+    import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
 
   protected
   Real abs_n_x(final unit="1") annotation (HideResult=true);
@@ -709,10 +714,7 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics={Text(
-          extent={{-154,-106},{150,-132}},
-          lineColor={255,0,0},
-            textString="Dymola")}),
+        grid={2,2}), graphics),
     Documentation(info="<html>
 <p>
 The interface of this model is documented at
@@ -720,7 +722,7 @@ The interface of this model is documented at
 </p>
 
 <p>
-The default implementation of this model is for Dymola. Here, the following data is stored on the
+This implementation is targeted for Dymola. Here, the following data is stored on the
 result file (using Dymola specific functions \"PackShape\" and \"PackMaterial\" to pack data
 on a Real number):
 </p>
@@ -741,23 +743,94 @@ object is defined (via variable \"Form\" and the possible values for Forms) and 
 the shape according to the follow-up data.
 </p>
 
-<p>
-Other tools may provide a totally different implementation. For example, the \"DLR Visualization\" library
-basically has one C-function call to get a unique \"id\" of the shape and with a second C-function call,
-the input variables of the \"shape\" are passed via a network protocol to an online renderer that also stores the
-visualization data on persistent storage.
-</p>
 
 </html>
 "));
 end Shape;
+
+  model Surface
+    import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Types;
+
+    input Frames.Orientation R=Frames.nullRotation()
+      "Orientation object to rotate the world frame into the surface frame"
+      annotation(Dialog(group="Surface frame"));
+    input Modelica.SIunits.Position r_0[3]={0,0,0}
+      "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
+      annotation(Dialog(group="Surface frame"));
+
+    parameter Integer nu=2 "Number of points in u-Dimension" annotation(Dialog(group="Surface properties"));
+    parameter Integer nv=2 "Number of points in v-Dimension" annotation(Dialog(group="Surface properties"));
+    replaceable function surfaceCharacteristic =
+        Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic
+      "Function defining the surface characteristic"
+            annotation(__Dymola_choicesAllMatching=true,Dialog(group="Surface properties"));
+
+    parameter Boolean wireframe=false "Not yet supported by Dymola"
+      annotation (Dialog(enable=false, group="Material properties"));
+    parameter Boolean multiColoredSurface=false "Not yet supported by Dymola"
+        annotation(Dialog(group="Material properties", enable=false));
+    input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(__Dymola_colorSelector=true,group="Material properties"));
+    input Types.SpecularCoefficient specularCoefficient = 0.7
+      "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(group="Material properties"));
+    input Real transparency=0
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
+                                 annotation(Dialog(group="Material properties"));
+  protected
+    Real ObjectType;
+    output Real Form = 987000 + ObjectType  annotation(HideResult=false);
+    output Real rxvisobj[3](each final unit="1")
+      "x-axis unit vector of surface, resolved in world frame"
+      annotation (HideResult=false);
+    output Real ryvisobj[3](each final unit="1")
+      "y-axis unit vector of surface, resolved in world frame"
+      annotation (HideResult=false);
+    output Modelica.SIunits.Position rvisobj[ 3]
+      "Position vector from world frame to surface frame, resolved in world frame"
+      annotation (HideResult=false);
+    output Real material annotation (HideResult=false);
+    output Real extra annotation (HideResult=false);
+    output Real alpha annotation(HideResult=false);
+    output Real NumberOfU annotation (HideResult=false);
+    output Real NumberOfV annotation (HideResult=false);
+    Real x[nu, nv] annotation (HideResult=false);
+    Real y[nu, nv] annotation (HideResult=false);
+    Real z[nu, nv] annotation (HideResult=false);
+  equation
+    (x, y, z) = surfaceCharacteristic(nu,nv,multiColoredSurface);
+
+    ObjectType = 77;
+    NumberOfU = nu;
+    NumberOfV = nv;
+    material = PackMaterial(
+      color[1]/255.0,
+      color[2]/255.0,
+      color[3]/255.0,
+      specularCoefficient);
+    extra = 0.0;
+    alpha = 1 - transparency;
+    rvisobj = r_0;
+    rxvisobj = R.T[1,1:3];
+    ryvisobj = R.T[2,1:3];
+    annotation (Icon(graphics), Documentation(info="<html>
+<p>
+The interface of this model is documented at
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.
+</p>
+
+<p>
+This implementation is targeted for Dymola.
+</p>
+
+</html>"));
+  end Surface;
 end Animation;
 
 
 annotation (__Dymola_Protection(hideFromBrowser=true),
 preferredView="info",
-version="1.0.1",
-versionDate="2010-07-23",
+version="1.1",
+versionDate="2010-07-30",
 versionBuild=0,
 revisionId="$Id::                                       $",
 uses(Modelica(version="3.2")),
@@ -770,12 +843,22 @@ These are:
 </p>
 
 <ul>
-<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>.
-     provides a 3-dim. visualization of
+<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>
+     provides a 3-dim. visualization of elementary
      mechanical objects. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
+
+<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">ModelicaServices.Animation.Surface</a>
+     provides a 3-dim. visualization of
+     moveable parameterized surface. It is used in
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
+     via inheritance.</li>
 </ul>
+
+<p>
+This implementation is targeted for Dymola.
+</p>
 
 <p>
 <b>Licensed by DLR and Dynasim under the Modelica License 2</b><br>

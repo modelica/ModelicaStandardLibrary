@@ -1962,7 +1962,6 @@ This model contains the mechanical components of the r3 robot
             grid={2,2}), graphics));
     end MechanicalStructure;
 
-
     annotation (Documentation(info="<html>
 <p>
 This library contains the different components

@@ -1,6 +1,8 @@
 within ;
-package ModelicaServices "(For: Dymola and DLR Visualization) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+package ModelicaServices "(target = \"DymolaAndDLRVisualization\") Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
   extends Modelica.Icons.Package;
+  constant String target="DymolaAndDLRVisualization"
+  "Target of this ModelicaServices implementation";
 
 
 package UsersGuide "User's Guide"
@@ -576,9 +578,13 @@ end ModelicaLicense2;
 class ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
-<h4>Version 1.0.1, 2010-07-23</h4>
+<h4>Version 1.1, 2010-07-30</h4>
 
 <ul>
+<li> New model <a href=\"modelica://ModelicaServices.Animation.Surface\">Surface</a>
+     to describe movable, parameterized surfaces.</li>
+<li> New string constant ModelicaServices.target to define the
+     target of the corresponding ModelicaServices implementation</li>
 <li> Package icons adapted to the icons of package Modelica, version 3.2.</li>
 <li> ModelicaServices library on the Modelica subversion server provided in three versions:
      <ol>
@@ -588,10 +594,9 @@ class ReleaseNotes "Release notes"
      <li> <b>Dymola/ModelicaServices</b><br>
           (a Dymola-specific implementation).</li>
 
-     <li> <b>Dymola-And-DLR-Visualization/ModelicaServices</b><br>
-          (Via a flag in the global Visualization library setting,
-           either provides the Dymola-specific implementation or uses
-           the DLR Visualization library).</li>
+     <li> <b>DymolaAndDLRVisualization/ModelicaServices</b><br>
+          (an implementation that uses the DLR Visualization library
+           in combination with Dymola).</li>
      </ol>
      </li>
 </ul>
@@ -660,7 +665,7 @@ model Shape
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.<br>
 The interface of this model is defined at
-<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShapee</a>.
+<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape</a>.
 </p>
 
 <p>
@@ -670,14 +675,39 @@ This implementation requires the commercial DLR library \"Visualization\".
 </html>
 "));
 end Shape;
+
+  model Surface
+    "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
+    extends Visualization.Internal.SurfaceDymolaAndSimVis;
+
+    annotation (
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2})),
+      Documentation(info="<html>
+<p>
+The interface of this model is documented at
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.<br>
+The interface of this model is defined at
+<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface</a>.
+</p>
+
+<p>
+This implementation requires the commercial DLR library \"Visualization\".
+</p>
+
+</html>
+"));
+  end Surface;
 end Animation;
 
 
 annotation (
 __Dymola_Protection(hideFromBrowser=true),
 preferredView="info",
-version="1.0.1",
-versionDate="2010-07-23",
+version="1.1",
+versionDate="2010-07-30",
 versionBuild=0,
 revisionId="$Id::                                       $",
 uses(Modelica(version="3.2")),
@@ -691,11 +721,21 @@ These are:
 
 <ul>
 <li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>.
-     provides a 3-dim. visualization of
+     provides a 3-dim. visualization of elementary
      mechanical objects. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
+
+<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">ModelicaServices.Animation.Surface</a>.
+     provides a 3-dim. visualization of
+     moveable parameterized surface. It is used in
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
+     via inheritance.</li>
 </ul>
+
+<p>
+This implementation requires the commercial DLR library \"Visualization\".
+</p>
 
 <p>
 <b>Licensed by DLR and Dynasim under the Modelica License 2</b><br>

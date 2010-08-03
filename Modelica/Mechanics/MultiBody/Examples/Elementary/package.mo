@@ -116,6 +116,13 @@ the usage of the MultiBody library
       <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field.  </td>
   </tr>
 
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Surfaces</a></td>
+      <td valign=\"top\"> Demonstrate the visualization of a sine surface, 
+       as well as a torus and a wheel constucted from a surface <br>
+      <img src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/Surfaces_small.png\">
+      </td>
+  </tr>
+
 </table>
 </HTML>"));
 end Elementary;
