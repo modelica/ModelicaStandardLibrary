@@ -10,7 +10,7 @@ a tool-specific implementation):
   An implementation for Dymola using Dymola-specific
   API-functions and variable naming.
 
-- Dymola-And-DLR-Visualization
+- DymolaAndDLRVisualization
   An implementation for Dymola, where the 3D visualiation is
   optionally performed with the DLR Visualization library.
 
