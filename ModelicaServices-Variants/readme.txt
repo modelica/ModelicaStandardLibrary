@@ -1,5 +1,5 @@
 This directory contains different implementations of the
-ModelicaServices library (which contains model that requires
+ModelicaServices library (which contains models that require
 a tool-specific implementation):
 
 - Default
