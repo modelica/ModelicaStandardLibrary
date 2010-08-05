@@ -2407,25 +2407,13 @@ class Version_3_2 "Version 3.2 (????, 2010)"
 <p>
 Version 3.2 is backward compatible to version 3.1, i.e., models developed with
 versions 3.0, 3.0.1, or 3.1 will work without any changes also with version 3.2.
-</p>
-
-<blockquote><p>
-A large part of the new classes have been developed with
-partial financial support by
-<a href=\"http://www.bmbf.de/en/index.php\">BMBF</a>
-(BMBF Förderkennzeichen: 01IS07022F)
-within the <a href=\"http://www.itea2.org\">ITEA2</a> project
-<a href=\"http://www.eurosyslib.com/\">EUROSYSLIB</a>.
-We highly appreciate this funding.
-</p></blockquote>
-
-<p>
 This version is a major improvement:
 </p>
 
 <ul>
-<li> <b>330</b> models and blocks and <b>270</b> functions are included
-     newly in this release.</li>
+<li> <b>330</b> models and blocks and <b>270</b> functions are newly included.</li>
+
+<li><b>7</b> new libraries are included.</li>
 
 <li> The icons of the library are newly designed to provide a modern, unified view,
      see <a href=\"modelica://Modelica.Icons\">Modelica.Icons</a>.</li>
@@ -2435,19 +2423,12 @@ This version is a major improvement:
      the dissipated energy is flowing, if activated.
      This will significantly improve design studies about the thermal efficiency
      of technical systems.</li>
-<li> Libraries
-     <a href=\"http://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
-     and
-     <a href=\"http://www.modelica.org/libraries/Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
-     are included in this version in an improved form.</li>
-<li> From library
-     <a href=\"http://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
-     the sublibraries
-     Math.Complex, Math.Vectors and Math.Matrices are included in this version
-     in an improved form.</li>
-<li> From library
-     <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
-     the sublibrary Blocks is included in this version in an improved form.</li>
+
+<li> All electrical machines in the
+     <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
+     library have now a \"Losses\" tab in the parameter menu to optionally
+     model machines losses such as frictional losses, stator core losses
+     or stray load losses, respectively.</li>
 </ul>
 
 <p>
@@ -2460,6 +2441,15 @@ the following new language elements (compared to Modelica Specification 3.1):
 <li> Functions as input arguments to functions.</li>
 </ul>
 
+<p>
+A large part of the new classes have been developed with
+partial financial support by
+<a href=\"http://www.bmbf.de/en/index.php\">BMBF</a>
+(BMBF Förderkennzeichen: 01IS07022F)
+within the <a href=\"http://www.itea2.org\">ITEA2</a> project
+<a href=\"http://www.eurosyslib.com/\">EUROSYSLIB</a>.
+We highly appreciate this funding.
+</p>
 
 <p>
 The following <b style=\"color:blue\">new libraries</b> have been added:
@@ -2941,6 +2931,24 @@ units are wrong or errors in documentation):
                       The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </tr>
 </table>
 
+
+<p>
+Note:
+<ul>
+<li> Libraries
+     <a href=\"http://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
+     and
+     <a href=\"http://www.modelica.org/libraries/Modelica_QuasiStationary\">Modelica_QuasiStationary</a>
+     are included in this version in an improved form.</li>
+<li> From library
+     <a href=\"http://www.modelica.org/libraries/Modelica_LinearSystems2\">Modelica_LinearSystems2</a>,
+     the sublibraries
+     Math.Complex, Math.Vectors and Math.Matrices are included in this version
+     in an improved form.</li>
+<li> From library
+     <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
+     the sublibrary Blocks is included in this version in an improved form.</li>
+</ul>
 </html>"));
 end Version_3_2;
 
