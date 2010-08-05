@@ -1,5 +1,6 @@
 within ;
-operator record Complex "Complex number with overloaded operators"
+//operator record Complex "Complex number with overloaded operators"
+record Complex "Complex number with overloaded operators"
   Real re "Real part of complex number" annotation(Dialog);
   Real im "Imaginary part of complex number" annotation(Dialog);
 
