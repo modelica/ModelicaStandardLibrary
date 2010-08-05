@@ -748,7 +748,7 @@ the shape according to the follow-up data.
 "));
 end Shape;
 
-  model Surface
+  model Surface "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
 
