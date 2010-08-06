@@ -437,10 +437,10 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   end find;
 
   function interpolate "Interpolate in a vector"
-    input Real  x[:]
+    input Real x[ :]
       "Abszissa table vector (strict monotonically increasing values required)";
-    input Real  y[size(x,1)] "Ordinate table vector";
-    input Real  xi "Desired abszissa value";
+    input Real y[ size(x,1)] "Ordinate table vector";
+    input Real xi "Desired abszissa value";
     input Integer iLast=1 "Index used in last search";
     output Real yi "Ordinate value corresponding to xi";
     output Integer iNew=1 "xi is in the interval x[iNew] <= xi < x[iNew+1]";
@@ -485,17 +485,6 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 
   end interpolate;
 
-  function scalarToColor "Map a scalar to a color using a color map"
-    input Real T "Scalar value" annotation(Dialog);
-    input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
-    input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);
-    input Real colorMap[:,3] "Color map" annotation(Dialog);
-    output Real color[3] "Color of scalar value T";
-  algorithm
-    color :=colorMap[integer((size(colorMap, 1) - 1)/(T_max - T_min)*
-                              min((max(T,T_min) - T_min), T_max) + 1), :];
-    annotation(Inline=true);
-  end scalarToColor;
 
   package Utilities
     "Utility functions that should not be directly utilized by the user"
@@ -1455,7 +1444,7 @@ has a unique solution.
     output Integer info "Information";
   protected
     Integer lda=max(1,size(A, 1));
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info)
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info) 
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -3590,7 +3579,7 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
         (T,V) := Modelica.Math.Matrices.realSchur(    B);
       end if;
 
-      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if
+      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if 
         BisSchur then transpose(U)*C else transpose(U)*C*V;
       (X,scale,info) := Matrices.LAPACK.dtrsyl(S, T, Chat);
       assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not sucessfull.\n
@@ -4721,7 +4710,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real work[lwork];
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation
@@ -4827,7 +4816,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
         annotation (Library="Lapack");
 
       annotation (
@@ -4929,7 +4918,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real dummy2[1,1];
 
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
             annotation (Library="Lapack");
       annotation (Documentation(info="Purpose
 =======
@@ -5630,7 +5619,7 @@ For details of the arguments, see documentation of dgesv.
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info)
+        diagwork, superdiagwork, X, size(B, 1), info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -5822,7 +5811,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -5936,7 +5925,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -6462,7 +6451,7 @@ INFO    (output) INTEGER
       Integer sdim=0;
       Boolean bwork[n];
 
-      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info)
+      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info) 
       annotation (Include="
 #include<f2c.h>
 #ifdef __cplusplus
@@ -7444,7 +7433,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       Integer lda=max(1,m);
       Real work[2*m];
 
-    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm)
+    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm) 
       annotation (Include="
   #include<f2c.h>
   #include <stdio.h>
@@ -8067,7 +8056,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
         work,
         lwork,
         iwork,
-        info)
+        info) 
         annotation (Library="lapack");
       annotation (Documentation(info="   Purpose
    =======

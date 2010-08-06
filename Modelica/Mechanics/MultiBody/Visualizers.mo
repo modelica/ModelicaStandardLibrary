@@ -1791,7 +1791,7 @@ settings:
            (Ti,k) := Modelica.Math.Vectors.interpolate(x,T,xi,k);
 
            // Map the scalar field value Ti to a color value
-           Ci := Modelica.Math.Vectors.scalarToColor(Ti, T_min, T_max, colorMap);
+           Ci := Modelica.Math.Colors.scalarToColor(Ti, T_min, T_max, colorMap);
 
            // Determine outputs
            for j in 1:nv loop
