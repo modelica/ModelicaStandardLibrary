@@ -170,7 +170,7 @@ With the optional
 second argument \"p\", any other p-norm can be computed:
 </p>
 <center>
-<IMG src=\"modelica://Modelica/Images/Math/vectorNorm.png\" ALT=\"function Vectors.norm\">
+<IMG src=\"modelica://Modelica/Images/Math/Vectors/vectorNorm.png\" ALT=\"function Vectors.norm\">
 </center>
 <p>
 Besides the Euclidean norm (p=2), also the 1-norm and the
