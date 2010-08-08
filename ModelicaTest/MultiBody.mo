@@ -6186,14 +6186,18 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField jet(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
-        T=0:0.01:0.5) 
+        xsi=0:0.01:0.5,
+        T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5) 
         annotation (Placement(transformation(extent={{-20,60},{0,80}})));
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField hot(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
+        xsi=0:0.02:1.0,
         T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5,
         redeclare function colorMap = 
             Modelica.Math.Colors.ColorMaps.hot) 
         annotation (Placement(transformation(extent={{-20,30},{0,50}})));
@@ -6203,8 +6207,10 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField gray(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
+        xsi=0:0.02:1.0,
         T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5,
         redeclare function colorMap = 
             Modelica.Math.Colors.ColorMaps.gray) 
         annotation (Placement(transformation(extent={{-20,0},{0,20}})));
@@ -6214,8 +6220,10 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField spring(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
+        xsi=0:0.02:1.0,
         T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5,
         redeclare function colorMap = 
             Modelica.Math.Colors.ColorMaps.spring) 
         annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
@@ -6225,8 +6233,10 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField summer(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
+        xsi=0:0.02:1.0,
         T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5,
         redeclare function colorMap = 
             Modelica.Math.Colors.ColorMaps.summer) 
         annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
@@ -6239,8 +6249,10 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField autumn(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
+        xsi=0:0.02:1.0,
         T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5,
         redeclare function colorMap = 
             Modelica.Math.Colors.ColorMaps.autumn) 
         annotation (Placement(transformation(extent={{-20,-90},{0,-70}})));
@@ -6250,8 +6262,10 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField winter(
         rOuter=0.1,
         length=0.5,
-        x=0:0.01:0.5,
+        xsi=0:0.02:1.0,
         T=0:0.01:0.5,
+        T_min=0,
+        T_max=0.5,
         redeclare function colorMap = 
             Modelica.Math.Colors.ColorMaps.winter) 
         annotation (Placement(transformation(extent={{-20,-120},{0,-100}})));

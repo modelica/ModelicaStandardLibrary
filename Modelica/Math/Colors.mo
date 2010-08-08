@@ -291,7 +291,7 @@ respective function:
         svgEnd,
         noHeader);
     import Modelica.Utilities.Streams.print;
-    input Real colorMap[:,3] "Color map to be stored in svg format"
+    input Real colorMap[:,3] "Color map to be stored in svg format" 
       annotation(choices( choice=Modelica.Math.Colors.ColorMaps.jet(),
                           choice=Modelica.Math.Colors.ColorMaps.hot(),
                           choice=Modelica.Math.Colors.ColorMaps.gray(),
@@ -313,7 +313,7 @@ respective function:
     input Real fontSize=11 "Font size in [pt]";
     input Real textWidth(unit="mm")=8
       "Numbers are right justified starting at x+width+textWidth";
-    input String heading="" "Heading above the map";
+    input String caption="" "Caption above the map";
     input HeaderType headerType=Colors.colorMapToSvg.HeaderType.svgBeginAndEnd
       "Type of header";
   protected
@@ -331,16 +331,16 @@ respective function:
     Real xHeading=x+width/2;
     Real yHeading=y-1.2*fontHeight;
   algorithm
-    if headerType==HeaderType.svgBeginAndEnd or
+    if headerType==HeaderType.svgBeginAndEnd or 
        headerType==HeaderType.svgBegin then
        Modelica.Utilities.Files.remove(fileName);
        print("... generating svg-file: " + Modelica.Utilities.Files.fullPathName(fileName));
     end if;
-    if heading<>"" then
-       print("... " + heading);
+    if caption<>"" then
+       print("... " + caption);
     end if;
 
-    if headerType==HeaderType.svgBeginAndEnd or
+    if headerType==HeaderType.svgBeginAndEnd or 
        headerType==HeaderType.svgBegin then
        print("<svg xmlns=\"http://www.w3.org/2000/svg\">", fileName);
     end if;
@@ -362,8 +362,8 @@ respective function:
     end for;
 
     // Print numbers
-    ni :=if nScalars == 1 then 2 else if nScalars < 1
-                          then 0 else nScalars;
+    ni :=if nScalars == 1 then 2 else if nScalars < 1 then 
+                               0 else nScalars;
     dy:=height/(ni-1);
     yy:=y - dy+0.3*fontHeight;
     for i in ni:-1:1 loop
@@ -377,17 +377,17 @@ respective function:
             "</text>", fileName);
     end for;
 
-    if heading <> "" then
+    if caption <> "" then
        print("   <text x=\"" + String(xHeading) +
              "mm\" y=\"" + String(yHeading) +
              "mm\" font-family=\"Fixedsys\" font-size=\"" + String(fontSize) +
-             "pt\" text-anchor=\"middle\">" + heading +
+             "pt\" text-anchor=\"middle\">" + caption +
              "</text>", fileName);
     end if;
 
     print("  </g>", fileName);
 
-    if headerType==HeaderType.svgBeginAndEnd or
+    if headerType==HeaderType.svgBeginAndEnd or 
        headerType==HeaderType.svgEnd then
        print("</svg>",fileName);
     end if;
@@ -407,7 +407,7 @@ Colors.<b>colorMapToSvg</b>(colorMap,
                      format     = \".3g\", 
                      fontSize   =  11,  // [pt] 
                      textWidth  =   8,  // [mm] 
-                     heading    = \"\", 
+                     caption    = \"\", 
                      headerType = Colors.colorMapToSvg.Header.svgBeginAndEnd)
                                                            // svgBegin
                                                            // svgEnd
@@ -418,14 +418,12 @@ Colors.<b>colorMapToSvg</b>(colorMap,
 This function saves the color map \"Real colorMap[:,3]\" on file \"fileName\"
 in svg format. The color map has a width of \"width\" and a height of \"height\" and
 the upper left corner is placed at coordinates \"(x,y)\".
-Over the color map, a heading \"heading\" is placed.
+Over the color map, a caption \"caption\" is placed.
 On the right side of the color map, a set of scalar field values T is
 displayed where \"T_min\" is placed at colorMap[1,:], 
 \"T_max\" is placed at colorMap[end,:] and \"nScalars\" values between
 \"T_min\" and \"T_max\" (including T_min and T_max) are shown.
-The printing format of the numbers is defined with \"format\" using
-printing definitions from format \"String(.., format=\"xx\")\" that
-are based on the C-formatting attributes of strings.
+The printing format of the numbers is defined with \"format\", see definition below.
 With argument \"headerType\" it is defined whether \"svg\" begin and end
 lines are printed. If the \"begin\" svg tag shall be printed, file \"fileName\"
 is deleted, if it already exists. Otherwise, all output is appended to the
@@ -436,15 +434,55 @@ file \"fileName\".
 A \"svg\" file can be displayed by a web browser, such as 
 <a href=\"http://www.mozilla.org/firefox\">Firefox</a> by dragging the
 file in the browser window.
-Alternatively, an svg-file can be loaded in a graphics program,
+Alternatively, a svg-file can be loaded in a graphics program,
 such as the free <a href=\"http://inkscape.org\">Incscape</a>,
-can be manipulated and can be exported in other graphics formats.
+can be manipulated and can be exported in other graphic formats.
 The following image was generated with a call to \"colorMapToSvg\", the
 generated file was loaded in Incscape and exported in \"png\" format:
 </p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Images/Math/Colors/jet.png\">
+</blockquote>
+
+<p>
+The \"format\" argument defines the string formating according to
+ANSI-C without \"%\" and \"*\" character<br>
+(e.g., \".6g\", \"14.5e\", \"+6f\"). In particular:
+</p>
+
+<p>
+format = \"[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;\"
+with
+</p>
+
+<blockquote>
+<table>
+<tr>
+  <td>&lt;flags&gt;</td>
+  <td> zero, one or more of<br>
+       \"-\": left adjustment of the converted number<br>
+       \"+\": number will always be printed with a sign<br>
+       \"0\": padding to the field width with leading zeros</td></tr>
+<tr>
+  <td>&lt;width&gt;</td>
+  <td> Minimum field width. The converted number will be printed in a field at<br>
+       least this wide and wider if necessary. If the converted number has <br>
+       fewer characters it will be padded on the left (or the right depending<br>
+       on &lt;flags&gt;) with blanks or 0 (depending on &lt;flags&gt;).</td></tr>
+<tr>
+  <td>&lt;precision&gt;</td>
+  <td> The number of digits to be printed after the decimal point for <br>
+       e, E, or f conversions, or the number of significant digits for <br>
+       g or G conversions.</td></tr>
+<tr>
+  <td> &lt;conversion&gt;</td>
+  <td> = \"e\": Exponential notation using a  lower case e<br>
+       = \"E\": Exponential notation using an upper case E<br>
+       = \"f\": Fixed point notation<br>
+       = \"g\": Either \"e\" or \"f\"<br>
+       = \"G\": Same as \"g\", but with upper case E</td></tr></table>
+</table>
 </blockquote>
 </html>"));
   end colorMapToSvg;

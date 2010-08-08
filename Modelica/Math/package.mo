@@ -71,8 +71,9 @@ The default values of \"name\" and \"significantDigits\" are \"\" and 6 respecti
 </pre></blockquote>
 
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Matrices.toString\">Matrices.toString</a>,
-
+</p>
 </HTML>",   revisions="<html>
 
 </html>"));
@@ -130,9 +131,11 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   result := Vectors.isEqual(v1,v3,0.1); // = <b>true</b>
 </pre></blockquote>
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Vectors.find\">Vectors.find</a>,
 <a href=\"modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
 <a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
+</p>
 </HTML>"));
   end isEqual;
 
@@ -203,7 +206,9 @@ Note, for any vector norm the following inequality holds:
   <b>norm</b>(v,Modelica.Constants.inf);  // = 4
 </pre></blockquote>
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
+</p>
 </HTML>"));
   end norm;
 
@@ -235,7 +240,9 @@ not the case with function norm(..).
   <b>length</b>(v);  // = 5
 </pre></blockquote>
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Vectors.norm\">Vectors.norm</a>
+</p>
 </html>"));
   end length;
 
@@ -278,7 +285,9 @@ possible.
   <b>normalize</b>({0,0,0});  // = {0,0,0}
 </pre></blockquote>
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Vectors.length\">Vectors.length</a>
+</p>
 </html>"));
   end normalize;
 
@@ -432,7 +441,9 @@ can be provided as third argument of the function. Default is \"eps = 0\".
   result := Vectors.find(e2,v,eps=0.1);  // = <b>3</b>
 </pre></blockquote>
 <h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
+<p>
+<a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>
+</p>
 </html>"));
   end find;
 
@@ -483,8 +494,137 @@ can be provided as third argument of the function. Default is \"eps = 0\".
       iNew :=i;
     end if;
 
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+// Real    x[:], y[:], xi, yi;
+// Integer iLast, iNew;
+        yi = Vectors.<b>interpolate</b>(x,y,xi);
+(yi, iNew) = Vectors.<b>interpolate</b>(x,y,xi,iLast=1);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Vectors.interpolate(x,y,xi)</code>\" interpolates in vectors
+(x,y) and returns the value yi that corresponds to xi. Vector x[:] must consist
+of strictly monotonocially increasing values. If xi &lt; x[1] or &gt; x[end], then
+extrapolation takes places through the first or last two x[:] values, respectively.
+The search for the interval x[iNew] &le; xi &lt; x[iNew+1] starts at the optional
+input argument \"iLast\". The index \"iNew\" is returned as output argument.
+The usage of \"iLast\" and \"iNew\" is useful to increase the efficiency of the call,
+if many interpolations take place.
+</p>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+  Real x[:] = { 0,  2,  4,  6,  8, 10};
+  Real y[:] = {10, 20, 30, 40, 50, 60};
+<b>algorithm</b>
+  (yi, iNew) := Vectors.interpolate(x,y,5);  // yi = 35, iNew=3
+</pre></blockquote>
+
+</html>"));
   end interpolate;
 
+  annotation (
+    preferedView = "info",
+    Documentation(info="<HTML>
+<h4>Library content</h4>
+<p>
+This library provides functions operating on vectors:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Math.Vectors.toString\">toString</a>(v)
+     - returns the string representation of vector v.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)
+     - returns true if vectors v1 and v2 have the same size and the same elements.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.norm\">norm</a>(v,p)
+     - returns the p-norm of vector v.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.length\">length</a>(v)
+     - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
+       symbolic manipulations)</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
+     - returns vector in direction of v with lenght = 1 and prevents
+       zero-division for zero vector.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
+     - reverses the vector elements of v. </li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
+     - sorts the elements of vector v in ascending or descending order.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.find\">find</a>(e, v)
+     - returns the index of the first occurence of scalar e in vector v.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.interpolate\">interpolate</a>(x, y, xi)
+     - returns the interpolated value in (x,y) that corresponds to xi.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.relNodePositions\">relNodePositions</a>(nNodes)
+     - returns a vector of relative node positions (0..1).</li>
+</ul>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
+</HTML>"));
+  function relNodePositions "Return vector of relative node positions (0..1)"
+    input Integer nNodes
+      "Number of nodes (including node at left and right position)";
+    output Real xsi[nNodes] "Relative node positions";
+  protected
+    Real delta;
+  algorithm
+    if nNodes >= 1 then
+       xsi[1] :=0;
+    end if;
+
+    if nNodes >= 2 then
+       xsi[nNodes] :=1;
+    end if;
+
+    if nNodes == 3 then
+       xsi[2] :=0.5;
+    elseif nNodes > 3 then
+       delta :=1/(nNodes - 2);
+       for i in 2:nNodes-1 loop
+          xsi[i] :=(i - 1.5)*delta;
+       end for;
+    end if;
+
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Vectors.<b>relNodePositions</b>(nNodes);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>relNodePositions(nNodes)</code>\" returns a vector
+with the relative positions of the nodes of a discretized pipe with nNodes nodes (including the node
+at the left and at the right side of the pipe), see next figure:
+</p>
+
+<blockquote><p>
+<img src=\"modelica://Modelica/Images/Math/Vectors/relNodePositions.png\">
+</p></blockquote>
+
+<h4>Example</h4>
+
+<blockquote><pre>
+  Real xsi[7];
+<b>algorithm</b>
+  xsi = relNodePositions(7);  // xsi = {0, 0.1, 0.3, 0.5, 0.7, 0.9, 1}
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">MultiBody.Visualizers.PipeWithScalarField</a>
+</p>
+</html>"));
+  end relNodePositions;
 
   package Utilities
     "Utility functions that should not be directly utilized by the user"
@@ -703,45 +843,6 @@ and matrix functions. These functions are usually not useful for an end-user.
 
 </html>"));
   end Utilities;
-  annotation (
-    preferedView = "info",
-    Documentation(info="<HTML>
-<h4>Library content</h4>
-<p>
-This library provides functions operating on vectors:
-</p>
-
-<ul>
-<li> <a href=\"modelica://Modelica.Math.Vectors.toString\">toString</a>(v)
-     - returns the string representation of vector v.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)
-     - returns true if vectors v1 and v2 have the same size and the same elements.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.norm\">norm</a>(v,p)
-     - returns the p-norm of vector v.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.length\">length</a>(v)
-     - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
-       symbolic manipulations)</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
-     - returns vector in direction of v with lenght = 1 and prevents
-       zero-division for zero vector.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
-     - reverses the vector elements of v. </li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
-     - sorts the elements of vector v in ascending or descending order.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.find\">find</a>(e, v)
-     - returns the index of the first occurence of scalar e in vector v.</li>
-</ul>
-
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
-</HTML>"));
 end Vectors;
 
 

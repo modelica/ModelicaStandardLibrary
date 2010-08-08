@@ -1017,13 +1017,14 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     parameter Modelica.SIunits.Radius rOuter "Outer radius of pipe" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(enable=animation));
 
-    parameter Modelica.SIunits.Position x[:]
-      "[:] Position values along the pipe with x[1] = 0, x[end] = length" annotation(Dialog(enable=animation));
-    input Real T[size(x,1)]
-      "[:] Scalar values at position x (will be visualized by color)" annotation(Dialog(enable=animation));
-    input Real T_min=T[1]
-      "Minimum value of T that corresponds to colorMap[1,:]"                         annotation(Dialog(enable=animation));
-    input Real T_max=T[end]
+    parameter Real xsi[:](min=0,max=1)= Modelica.Math.Vectors.relNodePositions(12)
+      "[:] Relative position along the pipe with x[1] = 0, x[end] = 1" 
+      annotation(Dialog(enable=animation));
+    input Real T[size(xsi,1)]
+      "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(enable=animation));
+    parameter Real T_min "Minimum value of T that corresponds to colorMap[1,:]"
+                                                                                    annotation(Dialog(enable=animation));
+    parameter Real T_max
       "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(enable=animation));
     replaceable function colorMap = 
         Modelica.Math.Colors.ColorMaps.jet 
@@ -1045,7 +1046,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     Advanced.PipeWithScalarField pipe(redeclare function colorMap = colorMap,
            rOuter=rOuter,
            length=length,
-           x=x,
+           xsi=xsi,
            T=T,
            T_min=T_min,
            T_max=T_max,
@@ -1071,7 +1072,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
                                    Documentation(info="<html>
 <p>
 Model <b>PipeWithScalarField</b> visualizes a pipe and a scalar
-field along the pipe axis. The latter is shown by mapping scalar
+field along the pipe axis. The latter is shown by mapping the scalar
 field to color values with a color map and utilizing this color
 at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
@@ -1083,7 +1084,7 @@ A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
 <a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
 Connecter frame_a of this component is located in the center of the
-circle at the left end of the pipe and the pipe axis is oriented
+circle at the left side of the pipe and the pipe axis is oriented
 along the x-axis of frame_a, see figure below in which frame_a is visualized
 with a coordinate system:
 </p>
@@ -1101,7 +1102,7 @@ using the following call:
 <blockquote>
 <pre>
 colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
-              height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
+              height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
 
@@ -1625,13 +1626,15 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)" 
                                    annotation(Dialog(group="Surface properties"));
 
-      parameter Modelica.SIunits.Position x[:]
-        "[:] Position values along the pipe with x[1] = 0, x[end] = length" annotation(Dialog(group="Color coding"));
-      input Real T[size(x,1)]
-        "[:] Scalar values at position x (will be visualized by color)"                       annotation(Dialog(group="Color coding"));
-      input Real T_min=T[1]
-        "Minimum value of T that corresponds to colorMap[1,:]"                     annotation(Dialog(group="Color coding"));
-      input Real T_max=T[end]
+      parameter Real xsi[:](min=0,max=1)= Modelica.Math.Vectors.relNodePositions(12)
+        "[:] Relative position along the pipe with x[1] = 0, x[end] = 1" 
+        annotation(Dialog(group="Color coding"));
+      input Real T[size(xsi,1)]
+        "[:] Scalar values at position xsi*length (will be visualized by color)"
+                                                                                                       annotation(Dialog(group="Color coding"));
+      parameter Real T_min
+        "Minimum value of T that corresponds to colorMap[1,:]"                    annotation(Dialog(group="Color coding"));
+      parameter Real T_max
         "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(group="Color coding"));
       parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
       replaceable function colorMap = 
@@ -1654,7 +1657,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
             Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField
             (rOuter=rOuter,
              length=length,
-             x=x,
+             xsi=xsi,
              T=T,
              T_min=T_min,
              T_max=T_max,
@@ -1699,7 +1702,7 @@ using the following call:
 <blockquote>
 <pre>
 colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
-              height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
+              height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
 
@@ -1768,27 +1771,27 @@ settings:
                   final multiColoredSurface=true);
         input Modelica.SIunits.Radius rOuter "Outer radius of cylinder" annotation(Dialog);
         input Modelica.SIunits.Length length "Length of cylinder"  annotation(Dialog);
-        input Modelica.SIunits.Position x[:]
-          "Geometrical nodes along the cylinder"                                     annotation(Dialog);
-        input Real T[size(x,1)] "Scalar field value at position x" annotation(Dialog);
+        input Modelica.SIunits.Position xsi[:]
+          "Relative position along the pipe with x[1] = 0, x[end] = 1"                                       annotation(Dialog);
+        input Real T[size(xsi,1)] "Scalar field value at position xsi*length" annotation(Dialog);
         input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
         input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);
         input Real colorMap[:,3]
-          "Color map to map scalar T to a corresponding color"                        annotation(Dialog);
+          "Color map to map scalar T to a corresponding color"                                                annotation(Dialog);
       protected
         Real beta;
-        Modelica.SIunits.Position xi;
+        Real xsi_i;
         Real Ti;
         Real Ci[3];
         Integer k;
       algorithm
         k:=1;
         for i in 1:nu loop
-           // Compute actual x-position along cylinder length
-           xi := length*(i-1)/(nu-1);
+           // Compute actual xsi-position along cylinder axis
+           xsi_i := (i-1)/(nu-1);
 
-           // Interpolate in x and T to determine the corresponding value of Ti(xi)
-           (Ti,k) := Modelica.Math.Vectors.interpolate(x,T,xi,k);
+           // Interpolate in xsi and T to determine the corresponding value of Ti(xsi_i)
+           (Ti,k) := Modelica.Math.Vectors.interpolate(xsi, T, xsi_i, k);
 
            // Map the scalar field value Ti to a color value
            Ci := Modelica.Math.Colors.scalarToColor(Ti, T_min, T_max, colorMap);
@@ -1796,7 +1799,7 @@ settings:
            // Determine outputs
            for j in 1:nv loop
               beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
-              X[i,j] := xi;
+              X[i,j] := length*xsi_i;
               Y[i,j] := rOuter*sin(beta);
               Z[i,j] := rOuter*cos(beta);
               C[i,j,:] := Ci;
