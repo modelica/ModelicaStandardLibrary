@@ -9,31 +9,31 @@ package Visualizers "3-dimensional visual objects used for animation"
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Types.ShapeType shapeType="box" "Type of shape" 
+    parameter Types.ShapeType shapeType="box" "Type of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Position r_shape[3]={0,0,0}
-      "Vector from frame_a to shape origin, resolved in frame_a" 
+      "Vector from frame_a to shape origin, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis lengthDirection={1,0,0}
-      "Vector in length direction of shape, resolved in frame_a" 
+      "Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
     input Types.Axis widthDirection={0,1,0}
-      "Vector in width direction of shape, resolved in frame_a" 
+      "Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
-    input SI.Distance length(start=1) "Length of shape" 
+    input SI.Distance length(start=1) "Length of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Distance width(start=0.1) "Width of shape" 
+    input SI.Distance width(start=0.1) "Width of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Distance height(start=0.1) "Height of shape" 
+    input SI.Distance height(start=0.1) "Height of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
-      "Color of shape" 
+      "Color of shape"
       annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.ShapeExtra extra=0.0
-      "Additional data for cylinder, cone, pipe, gearwheel and spring" 
+      "Additional data for cylinder, cone, pipe, gearwheel and spring"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -107,7 +107,10 @@ Via variable <b>extra</b> additional data can be defined:
 </tr>
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
-  <td valign=\"top\">extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
+If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along \"lengthDirection\", and usually:
+width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
   <td valign=\"top\">\"spring\"</td>
@@ -172,38 +175,38 @@ definition of the colors used in the MultiBody library
       "Coordinate system a (all shape definition vectors are resolved in this frame)"
        annotation (Placement(transformation(extent={{-116,-16},{-84,16}},
             rotation=0)));
-    Interfaces.Frame_b frame_b "Coordinate system b" 
+    Interfaces.Frame_b frame_b "Coordinate system b"
        annotation (Placement(transformation(extent={{84,-16},{116,16}},
             rotation=0)));
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Types.ShapeType shapeType="box" "Type of shape" 
+    parameter Types.ShapeType shapeType="box" "Type of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Position r[3]={1,0,0}
       "Vector from frame_a to frame_b resolved in frame_a";
     input SI.Position r_shape[3]={0,0,0}
-      "Vector from frame_a to shape origin, resolved in frame_a" 
+      "Vector from frame_a to shape origin, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis lengthDirection=r - r_shape
-      "Vector in length direction of shape, resolved in frame_a" 
+      "Vector in length direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
     input Types.Axis widthDirection={0,1,0}
-      "Vector in width direction of shape, resolved in frame_a" 
+      "Vector in width direction of shape, resolved in frame_a"
       annotation (Evaluate=true, Dialog(group="if animation = true", enable=animation));
     input SI.Length length=Modelica.Math.Vectors.length(
-                                         r - r_shape) "Length of shape" 
+                                         r - r_shape) "Length of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Distance width=0.1 "Width of shape" 
+    input SI.Distance width=0.1 "Width of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Distance height=width "Height of shape" 
+    input SI.Distance height=width "Height of shape"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.ShapeExtra extra=0.0
-      "Additional data for cylinder, cone, pipe, gearwheel and spring" 
+      "Additional data for cylinder, cone, pipe, gearwheel and spring"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color={0,128,255} "Color of shape" 
+    input Types.Color color={0,128,255} "Color of shape"
       annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
   protected
@@ -330,7 +333,10 @@ Via variable <b>extra</b> additional data can be defined:
 </tr>
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
-  <td valign=\"top\">extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
+If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along \"lengthDirection\", and usually:
+width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
   <td valign=\"top\">\"spring\"</td>
@@ -367,21 +373,21 @@ vector <b>r</b>.
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    parameter Boolean showLabels=true "= true, if labels shall be shown" 
+    parameter Boolean showLabels=true "= true, if labels shall be shown"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Distance length=0.5 "Length of axes arrows" 
+    input SI.Distance length=0.5 "Length of axes arrows"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Distance diameter=length/world.defaultFrameDiameterFraction
       "Diameter of axes arrows" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.
-        FrameColor "Color of x-arrow" 
+        FrameColor "Color of x-arrow"
       annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
-    input Types.Color color_y=color_x "Color of y-arrow" 
+    input Types.Color color_y=color_x "Color of y-arrow"
       annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
-    input Types.Color color_z=color_x "Color of z-arrow" 
+    input Types.Color color_z=color_x "Color of z-arrow"
       annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
   protected
     parameter Boolean animation2 = world.enableAnimation and animation;
@@ -581,19 +587,19 @@ parameter menu.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     input SI.Position r_tail[3]={0,0,0}
-      " Vector from frame_a to arrow tail, resolved in frame_a" 
+      " Vector from frame_a to arrow tail, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Axis n={1,0,0}
-      " Vector in arrow direction, resolved in frame_a" 
+      " Vector in arrow direction, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
-    input SI.Length length=0.1 " Length of complete arrow" 
+    input SI.Length length=0.1 " Length of complete arrow"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter
       " Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
-    input Types.Color color={0,0,255} " Color of arrow" 
+    input Types.Color color={0,0,255} " Color of arrow"
       annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
   protected
     SI.Length headLength=min(length, diameter*Types.Defaults.
@@ -682,20 +688,20 @@ parameter menu.
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     input SI.Position r_tail[3]={0,0,0}
-      "Vector from frame_a to arrow tail, resolved in frame_a" 
+      "Vector from frame_a to arrow tail, resolved in frame_a"
       annotation (Dialog(group="if animation = true", enable=animation));
     input SI.Diameter diameter=world.defaultArrowDiameter
-      "Diameter of arrow line" 
+      "Diameter of arrow line"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255}
-      "Color of arrow" 
+      "Color of arrow"
       annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-      "Reflection of ambient light (= 0: light is completely absorbed)" 
+      "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each
-        final unit =                                                                               "m")
+    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each final
+              unit =                                                                               "m")
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -758,7 +764,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       parameter Modelica.SIunits.Position length = 10
       "Length and width of box (center is at x=y=0)"                  annotation (Dialog(enable=animation));
       parameter Modelica.SIunits.Position height = 0.02
-      "Height of box (upper surface is at z=0, lower surface is at z=-height)" 
+      "Height of box (upper surface is at z=0, lower surface is at z=-height)"
                                                                         annotation (Dialog(enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
       "Color of box"    annotation (Dialog(__Dymola_colorSelector=true, enable=animation));
@@ -771,9 +777,9 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
         length=length,
         height=height,
         color=groundColor,
-        width=length) 
+        width=length)
         annotation (Placement(transformation(extent={{-20,0},{0,20}})));
-      Modelica.Mechanics.MultiBody.Parts.Fixed fixed 
+      Modelica.Mechanics.MultiBody.Parts.Fixed fixed
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
    equation
 
@@ -852,20 +858,20 @@ This shape visualizes the x-y plane by a box
     parameter Modelica.SIunits.Angle stopAngle=3.1415926535898
       "End angle of torus slice" annotation(Dialog(enable=animation));
     parameter Boolean wireframe=false
-      "= true: 3D model will be displayed without faces" 
+      "= true: 3D model will be displayed without faces"
       annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
     input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
       "Color of surface"  annotation(Dialog(enable=animation,__Dymola_colorSelector=true,group="Material properties", enable=not multiColoredSurface));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     input Real transparency=0
-      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)" 
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
                                  annotation(Dialog(enable=animation,group="Material properties"));
     parameter Integer n_ri=40 "Number of points along ri" annotation(Dialog(enable=animation,tab="Discretization"));
     parameter Integer n_ro=20 "Number of points along ro" annotation(Dialog(enable=animation,tab="Discretization"));
 
   protected
-    Advanced.Surface surface( redeclare function surfaceCharacteristic = 
+    Advanced.Surface surface( redeclare function surfaceCharacteristic =
           Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
           (   ri=ri, ro=ro, opening=opening, startAngle=startAngle, stopAngle=stopAngle),
             nu=n_ri,
@@ -876,7 +882,7 @@ This shape visualizes the x-y plane by a box
             specularCoefficient=specularCoefficient,
             transparency=transparency,
       R=frame_a.R,
-      r_0=frame_a.r_0) if world.enableAnimation and animation 
+      r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     // No forces and torques
@@ -951,11 +957,11 @@ settings:
         r=frame_a.r_0,
         r_shape= -{0,1,0}*(width/2),
         R= frame_a.R,
-        specularCoefficient = specularCoefficient) if world.enableAnimation and animation 
+        specularCoefficient = specularCoefficient) if world.enableAnimation and animation
             annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
 
       Visualizers.Advanced.Surface torus(redeclare function
-        surfaceCharacteristic = 
+        surfaceCharacteristic =
           Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus
           (     ri=ri,
                 ro=rCurvature2,
@@ -968,7 +974,7 @@ settings:
             specularCoefficient=specularCoefficient,
             transparency=0,
             R=frame_a.R,
-            r_0=frame_a.r_0) if world.enableAnimation and animation 
+            r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
 
   equation
@@ -1018,7 +1024,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(enable=animation));
 
     parameter Real xsi[:](min=0,max=1)= Modelica.Math.Vectors.relNodePositions(12)
-      "[:] Relative position along the pipe with x[1] = 0, x[end] = 1" 
+      "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
       annotation(Dialog(enable=animation));
     input Real T[size(xsi,1)]
       "[:] Scalar values at position xsi*length (will be visualized by color)" annotation(Dialog(enable=animation));
@@ -1026,17 +1032,17 @@ connector frame_a (visualized by the red coordinate system in the figure below).
                                                                                     annotation(Dialog(enable=animation));
     parameter Real T_max
       "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(enable=animation));
-    replaceable function colorMap = 
-        Modelica.Math.Colors.ColorMaps.jet 
+    replaceable function colorMap =
+        Modelica.Math.Colors.ColorMaps.jet
           constrainedby Modelica.Math.Interfaces.partialColorMap
-      "Function defining the color map" 
+      "Function defining the color map"
             annotation(__Dymola_choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
 
     parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(enable=animation,group="Color coding"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Color coding"));
     parameter Real transparency=0
-      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)" 
+      "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
                                  annotation(Dialog(enable=animation,group="Color coding"));
 
     parameter Integer n_rOuter=30 "Number of points along outer radius" annotation(Dialog(enable=animation,tab="Discretization"));
@@ -1056,7 +1062,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
            specularCoefficient=specularCoefficient,
            transparency=transparency,
            R=frame_a.R,
-           r_0=frame_a.r_0) if world.enableAnimation and animation 
+           r_0=frame_a.r_0) if world.enableAnimation and animation
       annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
   equation
     // No forces and torques
@@ -1155,7 +1161,7 @@ colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(),
       SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
       Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1.e-10 then {1,0,0} else r_head/length);
       Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
-        "X-axis unit vector of shape, resolved in world frame" 
+        "X-axis unit vector of shape, resolved in world frame"
           annotation (HideResult=true);
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
         "Position vector from world frame to shape frame, resolved in world frame"
@@ -1270,7 +1276,7 @@ library (will be replaced by a color editor).
       SI.Length length=Modelica.Math.Vectors.length(r_head) "Length of arrow";
       Real e_x[3](each final unit="1", start={1,0,0}) = noEvent(if length < 1.e-10 then {1,0,0} else r_head/length);
       Real rxvisobj[3](each final unit="1") = transpose(R.T)*e_x
-        "X-axis unit vector of shape, resolved in world frame" 
+        "X-axis unit vector of shape, resolved in world frame"
           annotation (HideResult=true);
       SI.Position rvisobj[3] = r + T.resolve1(R.T, r_tail)
         "Position vector from world frame to shape frame, resolved in world frame"
@@ -1466,7 +1472,10 @@ according to:
 </tr>
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
-  <td valign=\"top\">extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
+If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along \"lengthDirection\", and usually:
+width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
   <td valign=\"top\">\"spring\"</td>
@@ -1610,7 +1619,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
 
     model PipeWithScalarField "Visualizing a pipe with a scalar field"
       input Frames.Orientation R=Frames.nullRotation()
-        "Orientation object to rotate the world frame into the surface frame" 
+        "Orientation object to rotate the world frame into the surface frame"
         annotation(Dialog(group="Surface frame"));
       input Modelica.SIunits.Position r_0[3]={0,0,0}
         "Position vector from origin of world frame to origin of surface frame, resolved in world frame"
@@ -1623,11 +1632,11 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
       parameter Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(group="Surface properties"));
       parameter Real transparency=0
-        "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)" 
+        "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
                                    annotation(Dialog(group="Surface properties"));
 
       parameter Real xsi[:](min=0,max=1)= Modelica.Math.Vectors.relNodePositions(12)
-        "[:] Relative position along the pipe with x[1] = 0, x[end] = 1" 
+        "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
         annotation(Dialog(group="Color coding"));
       input Real T[size(xsi,1)]
         "[:] Scalar values at position xsi*length (will be visualized by color)"
@@ -1637,10 +1646,10 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
       parameter Real T_max
         "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(group="Color coding"));
       parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
-      replaceable function colorMap = 
-          Modelica.Math.Colors.ColorMaps.jet 
+      replaceable function colorMap =
+          Modelica.Math.Colors.ColorMaps.jet
             constrainedby Modelica.Math.Interfaces.partialColorMap
-        "Function defining the color map" 
+        "Function defining the color map"
               annotation(__Dymola_choicesAllMatching=true, Dialog(group="Color coding"));
     protected
       parameter Real colorMapData[n_colors,3] = colorMap(n_colors) annotation(HideResult=true);
@@ -1653,7 +1662,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         multiColoredSurface=true,
         specularCoefficient=specularCoefficient,
         transparency=transparency,
-        redeclare function surfaceCharacteristic = 
+        redeclare function surfaceCharacteristic =
             Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField
             (rOuter=rOuter,
              length=length,
@@ -1661,7 +1670,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
              T=T,
              T_min=T_min,
              T_max=T_max,
-             colorMap=colorMapData)) 
+             colorMap=colorMapData))
         annotation (Placement(transformation(extent={{-20,2},{0,22}})));
       annotation (Icon(graphics={Bitmap(extent={{-99,60},{99,-60}}, fileName=
                   "modelica://Modelica/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png"),
@@ -1872,27 +1881,27 @@ model.
 
       parameter Boolean animation=true "= true, if animation shall be enabled";
       input Real scale(min=0) = 1
-        "The 'lines' are visualized 'scale' times bigger" 
+        "The 'lines' are visualized 'scale' times bigger"
         annotation (Dialog(group="if animation = true", enable=animation));
       input SI.Position lines[:,2,2]={[0,0; 1,1],[0,1; 1,0]}
-        "List of start and end points of cylinders resolved along n_x and n_y" 
+        "List of start and end points of cylinders resolved along n_x and n_y"
         annotation (Dialog(group="if animation = true", enable=animation));
       input SI.Distance diameter(min=0) = 0.05
-        "Diameter of the cylinders defined by lines" 
+        "Diameter of the cylinders defined by lines"
         annotation (Dialog(group="if animation = true", enable=animation));
       input SI.Position r_lines[3]={0,0,0}
         "Position vector from origin of frame_a to the origin of the 'lines' frame, resolved in frame_a"
         annotation (Dialog(group="if animation = true", enable=animation));
       input Real n_x[3](each final unit="1")={1,0,0}
-        "Vector in direction of x-axis of 'lines' frame, resolved in frame_a." 
+        "Vector in direction of x-axis of 'lines' frame, resolved in frame_a."
         annotation (Dialog(group="if animation = true", enable=animation));
       input Real n_y[3](each final unit="1")={0,1,0}
-        "Vector in direction of y-axis of 'lines' frame, resolved in frame_a." 
+        "Vector in direction of y-axis of 'lines' frame, resolved in frame_a."
         annotation (Dialog(group="if animation = true", enable=animation));
-      input MultiBody.Types.Color color={0,128,255} " Color of cylinders" 
+      input MultiBody.Types.Color color={0,128,255} " Color of cylinders"
         annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="if animation = true", enable=animation));
 
     protected
@@ -1996,13 +2005,13 @@ The diameter and color of all line cylinders are identical.
         "List of start and end points of cylinders resolved in an x-y frame defined by n_x, n_y, e.g., {[0,0;1,1], [0,1;1,0], [2,0; 3,1]}"
       annotation(Dialog);
       input SI.Length diameter(min=0) = 0.05
-        "Diameter of the cylinders defined by lines" 
+        "Diameter of the cylinders defined by lines"
       annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
-        "Color of cylinders" 
+        "Color of cylinders"
       annotation(Dialog(__Dymola_colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7
-        "Reflection of ambient light (= 0: light is completely absorbed)" 
+        "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog);
     protected
       parameter Integer n=size(lines, 1) "Number of cylinders";
@@ -2014,7 +2023,7 @@ The diameter and color of all line cylinders are identical.
         lengthDirection={T.resolve1(R_rel, vector([lines[i, 2, :] - lines[i, 1,
              :]; 0])) for i in 1:n},
         length={Modelica.Math.Vectors.length(
-                                        lines[i, 2, :] - lines[i, 1, :]) for i in 
+                                        lines[i, 2, :] - lines[i, 1, :]) for i in
                 1:n},
         r={r_abs + T.resolve1(R_lines, vector([lines[i, 1, :]; 0])) for i in 1:
             n},
