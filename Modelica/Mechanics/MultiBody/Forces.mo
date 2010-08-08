@@ -1295,26 +1295,33 @@ clarity this is not shown in the animation):
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation"));
     parameter Types.ShapeType lineShapeType="cylinder"
-      " Type of shape visualizing the line from frame_a to frame_b"
+      "Type of shape visualizing the line from frame_a to frame_b"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
-    input SI.Length lineShapeWidth=world.defaultArrowDiameter " Width of shape"
+    input SI.Length lineShapeWidth=world.defaultArrowDiameter "Width of shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
-    input SI.Length lineShapeHeight=lineShapeWidth " Height of shape"
+    input SI.Length lineShapeHeight=lineShapeWidth "Height of shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
-    parameter Types.ShapeExtra lineShapeExtra=0.0 " Extra parameter for shape"
+    parameter Types.ShapeExtra lineShapeExtra=0.0 "Extra parameter for shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input Types.Color lineShapeColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
-      " Color of line shape"
+      "Color of line shape"
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input Real massDiameter=world.defaultBodyDiameter
-      " Diameter of point mass sphere"
+      "Diameter of point mass sphere"
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of point mass"
+      "Color of point mass"
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
     parameter SI.Position s_small=1.E-10
-      " Prevent zero-division if distance between frame_a and frame_b is zero"
+      "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
+    parameter Boolean fixedRotationAtFrame_a=false
+      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+    parameter Boolean fixedRotationAtFrame_b=false
+      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+
     SI.Distance length
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3]
@@ -1355,8 +1362,6 @@ clarity this is not shown in the animation):
       r_shape=e_rel_0*(length*lengthFraction - massDiameter/2),
       r=frame_a.r_0) if world.enableAnimation and animateMass and m > 0;
   equation
-    Connections.potentialRoot(frame_a.R, 100);
-    Connections.potentialRoot(frame_b.R, 100);
     assert(noEvent(length > s_small), "
 The distance between the origin of frame_a and the origin of frame_b
 of a LineForceWithMass component became smaller as parameter s_small
@@ -1436,13 +1441,15 @@ for this situation:
     end if;
 
     // Provide appropriate equations, if direct connections of line forces
-    if Connections.isRoot(frame_a.R) then
+    if fixedRotationAtFrame_a then
+      Connections.root(frame_a.R);
       frame_a.R = Frames.nullRotation();
     else
       frame_a.t = zeros(3);
     end if;
 
-    if Connections.isRoot(frame_b.R) then
+    if fixedRotationAtFrame_b then
+      Connections.root(frame_b.R);
       frame_b.R = Frames.nullRotation();
     else
       frame_b.t = zeros(3);
@@ -1503,7 +1510,17 @@ for this situation:
             extent={{-8,8},{8,-8}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid),
+          Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_a,
+            extent={{-62,50},{-140,30}},
+            lineColor={255,0,0},
+            textString="R=0"),
+          Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_b,
+            extent={{62,50},{140,30}},
+            lineColor={255,0,0},
+            textString="R=0")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1515,7 +1532,7 @@ for this situation:
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-22,100},{20,76}},
+            extent={{-50,93},{32,78}},
             textString="length",
             lineColor={0,0,255}),
           Ellipse(
@@ -1571,7 +1588,7 @@ for this situation:
           Line(points={{-60,16},{0,16}}, color={0,0,255}),
           Line(points={{0,0},{0,20}}, color={0,0,255}),
           Text(
-            extent={{-43,-8},{-7,-33}},
+            extent={{-49,-11},{-8,-21}},
             lineColor={0,0,0},
             textString="e_rel_0"),
           Polygon(points={{0,16},{-12,19},{-12,13},{0,16}}, lineColor={0,0,255}),
@@ -1671,6 +1688,13 @@ in the other flange connector.
     parameter SI.Position s_small=1.E-10
       " Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
+    parameter Boolean fixedRotationAtFrame_a=false
+      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+    parameter Boolean fixedRotationAtFrame_b=false
+      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+
     SI.Distance length
       "Distance between the origin of frame_a and the origin of frame_b";
     SI.Position r_rel_0[3]
@@ -1743,8 +1767,6 @@ in the other flange connector.
       r_shape=-e_rel_0*(L_b - massDiameter/2),
       r=frame_b.r_0) if animateMasses2;
   equation
-    Connections.potentialRoot(frame_a.R, 100);
-    Connections.potentialRoot(frame_b.R, 100);
     assert(noEvent(length > s_small), "
 The distance between the origin of frame_a and the origin of frame_b
 of a LineForceWithTwoMasses component became smaller as parameter s_small
@@ -1855,17 +1877,20 @@ for this situation:
     end if;
 
     // Provide appropriate equations, if direct connections of line forces
-    if Connections.isRoot(frame_a.R) then
+    if fixedRotationAtFrame_a then
+      Connections.root(frame_a.R);
       frame_a.R = Frames.nullRotation();
     else
       frame_a.t = zeros(3);
     end if;
 
-    if Connections.isRoot(frame_b.R) then
+    if fixedRotationAtFrame_b then
+      Connections.root(frame_b.R);
       frame_b.R = Frames.nullRotation();
     else
       frame_b.t = zeros(3);
     end if;
+
     annotation (
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1929,7 +1954,17 @@ for this situation:
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid),
           Line(points={{-60,0},{-29,0}}, color={0,0,0}),
-          Line(points={{29,0},{60,0}}, color={0,0,0})}),
+          Line(points={{29,0},{60,0}}, color={0,0,0}),
+          Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_a,
+            extent={{-62,50},{-140,30}},
+            lineColor={255,0,0},
+            textString="R=0"),
+          Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_b,
+            extent={{62,50},{140,30}},
+            lineColor={255,0,0},
+            textString="R=0")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1941,7 +1976,7 @@ for this situation:
             fillColor={0,0,255},
             fillPattern=FillPattern.Solid),
           Text(
-            extent={{-22,100},{20,76}},
+            extent={{-42,91},{30,79}},
             textString="length",
             lineColor={0,0,255}),
           Ellipse(
@@ -1998,7 +2033,7 @@ for this situation:
           Line(points={{-60,16},{-37,16}}, color={0,0,255}),
           Line(points={{-25,0},{-25,20}}, color={0,0,255}),
           Text(
-            extent={{-16,-19},{20,-44}},
+            extent={{-38,-20},{33,-35}},
             lineColor={0,0,0},
             textString="e_rel_0"),
           Polygon(points={{-25,16},{-37,19},{-37,13},{-25,16}}, lineColor={0,0,
@@ -2103,6 +2138,12 @@ in the other flange connector.
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       " Color of mass point" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
+    parameter Boolean fixedRotationAtFrame_a=false
+      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+    parameter Boolean fixedRotationAtFrame_b=false
+      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
     Forces.LineForceWithMass lineForce(
       animateLine=animation,
@@ -2116,7 +2157,9 @@ in the other flange connector.
       lineShapeColor=color,
       specularCoefficient=specularCoefficient,
       massDiameter=massDiameter,
-      massColor=massColor) annotation (Placement(transformation(extent={{-20,
+      massColor=massColor,
+      fixedRotationAtFrame_a=fixedRotationAtFrame_a,
+      fixedRotationAtFrame_b=fixedRotationAtFrame_b) annotation (Placement(transformation(extent={{-20,
               -20},{20,20}}, rotation=0)));
     Modelica.Mechanics.Translational.Components.Spring spring(
                                                    s_rel0=s_unstretched, c=c)
@@ -2139,8 +2182,8 @@ in the other flange connector.
       annotation (Line(points={{-8,50},{-12,50},{-12,20}}, color={0,191,0}));
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                      graphics={
           Line(
             points={{-100,0},{-58,0},{-43,-30},{-13,30},{17,-30},{47,30},{62,0},
                 {100,0}},
@@ -2149,7 +2192,7 @@ in the other flange connector.
             thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Text(
-            extent={{-150,50},{150,90}},
+            extent={{-150,56},{150,96}},
             textString="%name",
             lineColor={0,0,255}),
           Text(
@@ -2160,7 +2203,17 @@ in the other flange connector.
             extent={{-8,8},{8,-8}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid),
+          Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_a,
+            extent={{-62,50},{-140,30}},
+            lineColor={255,0,0},
+            textString="R=0"),
+          Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_b,
+            extent={{62,50},{140,30}},
+            lineColor={255,0,0},
+            textString="R=0")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
               graphics),

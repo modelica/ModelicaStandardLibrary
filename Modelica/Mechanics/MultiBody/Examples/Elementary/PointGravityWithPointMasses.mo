@@ -6,34 +6,36 @@ model PointGravityWithPointMasses
   inner Modelica.Mechanics.MultiBody.World world(
     mue=1,
     gravitySphereDiameter=0.1,
-    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity)
-                               annotation (Placement(transformation(extent={{
-            -20,-20},{0,0}}, rotation=0)));
+    gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.PointGravity) 
+                               annotation (Placement(transformation(extent={{-80,-20},
+            {-60,0}},        rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body1(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0,0.6,0}, fixed=true),
-    v_0(start={1,0,0}, fixed=true))
+    v_0(start={1,0,0}, fixed=true)) 
     annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body2(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0.6,0.6,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true))
+    v_0(start={0.6,0,0}, fixed=true)) 
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body3(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0,0.8,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true))
+    v_0(start={0.6,0,0}, fixed=true)) 
     annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Parts.PointMass body4(
     m=1,
     sphereDiameter=0.1,
     r_0(start={0.3,0.8,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true))
+    v_0(start={0.6,0,0}, fixed=true)) 
     annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
-  Forces.Spring spring(showMass=false, c=10) annotation (Placement(
+  Forces.Spring spring(showMass=false, c=10,
+    fixedRotationAtFrame_b=true,
+    fixedRotationAtFrame_a=true)             annotation (Placement(
         transformation(extent={{0,60},{20,80}}, rotation=0)));
 equation
 
@@ -46,8 +48,8 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
+    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}),
             graphics),
     experiment(StopTime=2),
     Documentation(info="<HTML>

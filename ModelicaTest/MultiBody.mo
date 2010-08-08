@@ -3849,7 +3849,9 @@ often possible to use the FreeMotion joint such that the singularity
         r_0(start={0.2,-0.5,0.1}, fixed=true),
         v_0(fixed=true),
         m=1,
-        r_CM={0,-0.3,0}) annotation (Placement(transformation(
+        r_CM={0,-0.3,0},
+        angles_fixed=true,
+        w_0_fixed=true)  annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={-60,-30})));
@@ -3867,7 +3869,9 @@ often possible to use the FreeMotion joint such that the singularity
         width=0.05,
         enforceStates=true,
         r_0(start={0.2,-0.5,0.1}, fixed=true),
-        v_0(fixed=true))                                 annotation (Placement(
+        v_0(fixed=true),
+        angles_fixed=true,
+        w_0_fixed=true)                                  annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
@@ -3895,7 +3899,9 @@ often possible to use the FreeMotion joint such that the singularity
         diameter=0.05,
         r_0(start={0.2,-0.5,0.1}, fixed=true),
         v_0(fixed=true),
-        enforceStates=true) annotation (Placement(transformation(
+        enforceStates=true,
+        angles_fixed=true,
+        w_0_fixed=true)     annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
             origin={-6,-30})));
@@ -3913,12 +3919,12 @@ often possible to use the FreeMotion joint such that the singularity
         coilWidth=0.005,
         numberOfWindings=5,
         c=20,
-        s_unstretched=0) annotation (Placement(transformation(
+        s_unstretched=0,
+        fixedRotationAtFrame_b=true) 
+                         annotation (Placement(transformation(
             origin={16,-2},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D 
-        annotation (Placement(transformation(extent={{-12,52},{8,72}})));
     equation
       connect(bar2.frame_a, world.frame_b) 
         annotation (Line(

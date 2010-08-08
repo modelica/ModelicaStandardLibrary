@@ -53,7 +53,9 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
     coilWidth=0.005,
     numberOfWindings=5,
     c=20,
-    animation=animation) annotation (Placement(transformation(extent={{-20,-42},
+    animation=animation,
+    fixedRotationAtFrame_b=true)
+                         annotation (Placement(transformation(extent={{-20,-42},
             {0,-22}}, rotation=0)));
 equation
   connect(world.frame_b, bar1.frame_a)
@@ -76,7 +78,7 @@ equation
       thickness=0.5));
   connect(spring2.frame_b, body1.frame_a)
     annotation (Line(
-      points={{30,-48},{30,-51},{30,-60}},
+      points={{30,-48},{30,-60},{30,-60}},
       color={0,0,0},
       thickness=0.5));
   connect(spring3.frame_b, spring1.frame_b)
@@ -107,6 +109,11 @@ a stiff spring and a small mass at the connection point.
 <p align=\"center\">
 <IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
 ALT=\"model Examples.Elementary.ThreeSprings\">
+</p>
+
+<p>
+For a more thorough explanation, see
+<a href=\"Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
 </p>
 </html>"));
 end ThreeSprings;

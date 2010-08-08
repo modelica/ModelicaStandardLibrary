@@ -580,6 +580,13 @@ to which this force element is connected.
     parameter SI.Position s_small=1.E-6
       " Prevent zero-division if relative distance s=0"
       annotation (Dialog(tab="Advanced"));
+    parameter Boolean fixedRotationAtFrame_a=false
+      "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+    parameter Boolean fixedRotationAtFrame_b=false
+      "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
+       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the force element with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
@@ -599,9 +606,6 @@ to which this force element is connected.
   protected
     outer Modelica.Mechanics.MultiBody.World world;
   equation
-    Connections.potentialRoot(frame_a.R, 100);
-    Connections.potentialRoot(frame_b.R, 100);
-
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of line force object is not connected");
     assert(cardinality(frame_b) > 0,
@@ -619,13 +623,15 @@ to which this force element is connected.
        frame_a.f);
 
     // Additional equations, if direct connections of line forces
-    if Connections.isRoot(frame_a.R) then
+    if fixedRotationAtFrame_a then
+      Connections.root(frame_a.R);
       frame_a.R = Frames.nullRotation();
     else
       frame_a.t = zeros(3);
     end if;
 
-    if Connections.isRoot(frame_b.R) then
+    if fixedRotationAtFrame_b then
+      Connections.root(frame_b.R);
       frame_b.R = Frames.nullRotation();
     else
       frame_b.t = zeros(3);
@@ -653,12 +659,22 @@ has to be defined. Example:
 </pre>
 </HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}), graphics={Text(
-            extent={{-136,44},{-100,19}},
+            extent={{-136,-44},{-100,-19}},
             lineColor={128,128,128},
             textString="a"), Text(
-            extent={{100,42},{136,17}},
+            extent={{100,-42},{136,-17}},
             lineColor={128,128,128},
-            textString="b")}));
+            textString="b"),
+          Ellipse(visible=fixedRotationAtFrame_a, extent={{-70,30},{-130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_a,
+            extent={{-62,50},{-140,30}},
+            lineColor={255,0,0},
+            textString="R=0"),
+          Ellipse(visible=fixedRotationAtFrame_b, extent={{70,30},{130,-30}}, lineColor={255,0,0}),
+          Text(visible=fixedRotationAtFrame_b,
+            extent={{62,50},{140,30}},
+            lineColor={255,0,0},
+            textString="R=0")}));
   end PartialLineForce;
 
   partial model PartialAbsoluteSensor
