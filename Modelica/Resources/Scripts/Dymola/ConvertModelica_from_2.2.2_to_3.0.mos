@@ -1,0 +1,1307 @@
+// Convert from Modelica 2.2.2 to Modelica 3.0
+
+// clear
+convertClear();
+
+
+// Change references to classes that are removed from Modelica Standard Library
+convertClass("Modelica.Icons.Enumeration",
+             "ObsoleteModelica3.Icons.Enumeration")
+convertClass("Modelica.Blocks.Math.UnitConversions.ConvertAllUnits",
+             "ObsoleteModelica3.Blocks.Math.UnitConversions.ConvertAllUnits");
+convertClass("Modelica.Blocks.Math.TwoInputs",
+             "ObsoleteModelica3.Blocks.Math.TwoInputs");
+convertClass("Modelica.Blocks.Math.TwoOutputs",
+             "ObsoleteModelica3.Blocks.Math.TwoOutputs");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorReal",
+             "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorReal");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorBoolean",
+             "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorBoolean");
+convertClass("Modelica.Blocks.Interfaces.Adaptors.AdaptorInteger",
+             "ObsoleteModelica3.Blocks.Interfaces.Adaptors.AdaptorInteger");
+convertClass("Modelica.Blocks.Interfaces.RealSignal",
+             "ObsoleteModelica3.Blocks.Interfaces.RealSignal");
+convertClass("Modelica.Blocks.Interfaces.IntegerSignal",
+             "ObsoleteModelica3.Blocks.Interfaces.IntegerSignal");
+convertClass("Modelica.Blocks.Interfaces.BooleanSignal",
+             "ObsoleteModelica3.Blocks.Interfaces.BooleanSignal");
+
+convertClass("Modelica.Blocks.Types.StateSelection.Temp",
+             "StateSelect")
+convertClass("Modelica.Blocks.Types.StateSelection.Never",
+             "StateSelect.never")
+convertClass("Modelica.Blocks.Types.StateSelection.Avoid",
+             "StateSelect.avoid")
+convertClass("Modelica.Blocks.Types.StateSelection.Default",
+             "StateSelect.default")
+convertClass("Modelica.Blocks.Types.StateSelection.Prefer",
+             "StateSelect.prefer")
+convertClass("Modelica.Blocks.Types.StateSelection.Always",
+             "StateSelect.always")
+
+convertClass("Modelica.Mechanics.MultiBody.Types.Init",
+             "ObsoleteModelica3.Mechanics.MultiBody.Types.Init")
+convertClass("Modelica.Mechanics.MultiBody.Types.AngularVelocity_degs",
+             "ObsoleteModelica3.Mechanics.MultiBody.Types.AngularVelocity_degs")
+convertClass("Modelica.Mechanics.MultiBody.Types.AngularAcceleration_degs2",
+             "ObsoleteModelica3.Mechanics.MultiBody.Types.AngularAcceleration_degs2")
+convertClass("Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
+             "ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor")
+convertClass("Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
+             "ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor")
+convertClass("Modelica.Mechanics.MultiBody.Interfaces.PartialCutForceSensor",
+             "ObsoleteModelica3.Mechanics.MultiBody.Interfaces.PartialCutForceSensor")
+
+
+convertClass("Modelica.Mechanics.Rotational.Types.Init",
+             "ObsoleteModelica3.Mechanics.Rotational.Types.Init")
+convertClass("Modelica.Mechanics.Rotational.Types.InitRel",
+             "ObsoleteModelica3.Mechanics.Rotational.Types.InitRel")
+
+
+// Remove "SignalType" from all RealInput and RealOutput modifiers
+convertModifiers("Modelica.Blocks.Interfaces.RealInput",{"SignalType"},fill("",0),true);
+convertModifiers("Modelica.Blocks.Interfaces.RealOutput",{"SignalType"},fill("",0),true);
+convertModifiers("Modelica.Blocks.Interfaces.RealSignal",{"SignalType"},fill("",0),true);
+
+
+// Change modifiers of PartialMedium.BaseProperties to equations in the equation section,
+// since the variable declarations of p,h,Xi have been changed to connectors
+// (in order that a BaseProperties model is "balanced")
+convertModifiers("Modelica.Media.Interfaces.PartialMedium.BaseProperties",{"p", "h" ,"Xi"}, {"equation"});
+
+
+// Rename references to classes that are moved
+convertClass("Modelica.Mechanics.MultiBody.Frames.length",
+             "Modelica.Math.Vectors.length")
+convertClass("Modelica.Mechanics.MultiBody.Frames.normalize",
+             "Modelica.Math.Vectors.normalize")
+
+// Change reference to CelsiusTemperature
+convertClass("Modelica.SIunits.CelsiusTemperature",
+             "Modelica.SIunits.Conversions.NonSIunits.Temperature_degC")
+
+
+// --------- Changing from emulated to real enumerations --------------------------------------
+// The enumerations in Modelica.Blocks.Types
+convertClass("Modelica.Blocks.Types.Extrapolation.Temp","Modelica.Blocks.Types.Extrapolation")
+convertClass("Modelica.Blocks.Types.Init.Temp","Modelica.Blocks.Types.Init")
+convertClass("Modelica.Blocks.Types.InitPID.Temp","Modelica.Blocks.Types.InitPID")
+convertClass("Modelica.Blocks.Types.SimpleController.Temp","Modelica.Blocks.Types.SimpleController")
+convertClass("Modelica.Blocks.Types.Smoothness.Temp","Modelica.Blocks.Types.Smoothness")
+convertClass("Modelica.Blocks.Types.StateSelection.Temp","StateSelect")
+
+// The enumerations in Modelica.Mechanics.MultiBody.Types
+convertClass("Modelica.Mechanics.MultiBody.Types.RotationTypes.Temp","Modelica.Mechanics.MultiBody.Types.RotationTypes")
+convertClass("Modelica.Mechanics.MultiBody.Types.GravityTypes.Temp","Modelica.Mechanics.MultiBody.Types.GravityTypes")
+convertClass("Modelica.Mechanics.MultiBody.Types.Init.Temp","Modelica.Mechanics.MultiBody.Types.Init")
+
+// The enumerations in Modelica.Media.Interfaces.PartialMedium.Choices
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Init.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Init")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEntropy")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.pd.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.pd")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Th.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Th")
+convertClass("Modelica.Media.Interfaces.PartialMedium.Choices.Explicit.Temp","Modelica.Media.Interfaces.PartialMedium.Choices.Explicit")
+
+// The enumerations in Modelica.Electrical.Digital.Interfaces
+convertClass("Modelica.Electrical.Digital.Interfaces.LogicValue","Modelica.Electrical.Digital.Interfaces.Logic")
+
+// The enumerations in Modelica.Utilities.Types
+convertClass("Modelica.Utilities.Types.Compare.Type"  ,"Modelica.Utilities.Types.Compare")
+convertClass("Modelica.Utilities.Types.FileType.Type" ,"Modelica.Utilities.Types.FileType")
+convertClass("Modelica.Utilities.Types.TokenType.Type","Modelica.Utilities.Types.TokenType")
+
+
+// --------- Changing from non-SI to SI units to allow stricter unit checking -------------------------
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox"     ,{"density"}, {"density=%density%*1000"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"density"}, {"density=%density%*1000"});
+
+
+// --------- Modelica.Blocks.Continuous.CriticalDamping - introduce value for new parameter normalized
+convertModifiers("Modelica.Blocks.Continuous.CriticalDamping",fill("",0), {"normalized=false"});
+
+
+// --------- Modelica.Blocks - Change of start values ---------------------------------------------------
+convertModifiers("Modelica.Blocks.Continuous.TransferFunction",{"b={1}", "a={1,1}"}, {"b=%b%", "a=%a%"});
+
+convertModifiers("Modelica.Blocks.Continuous.StateSpace",{"A=[1, 0; 0, 1]", "B=[1; 1]", "C=[1, 1]"},
+                                                         {"A=%A%", "B=%B%", "C=%C%"});
+
+convertModifiers("Modelica.Blocks.Discrete.TransferFunction",{"b={1}", "a={1,1}"}, {"b=%b%", "a=%a%"});
+
+convertModifiers("Modelica.Blocks.Discrete.StateSpace",{"A=[1, 0; 0, 1]", "B=[1; 1]", "C=[1, 1]"},
+                                                       {"A=%A%", "B=%B%", "C=%C%"});
+
+
+
+// --------- initialization of 1-dim. rotational systems with start values ------------------------------
+
+// Modelica.Mechanics.Rotational.Inertia
+convertElement  ("Modelica.Mechanics.Rotational.Inertia", "stateSelection", "stateSelect");
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"phi_start"}, {"phi.start=%phi_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"w_start"}  , {"w.start=%w_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"a_start"}  , {"a.start=%a_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Inertia",{"initType"} ,
+                 {"phi.fixed=if (%initType%==3 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7 or "+
+                                "%initType%==9) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==8 or "+
+                              "%initType%==9) then true else false",
+                  "a.fixed=if (%initType%==2 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7 or "+
+                              "%initType%==8 or "+
+                              "%initType%==9) then true else false"}, true);
+
+// Modelica.Mechanics.Rotational.SpringDamper
+convertElement  ("Modelica.Mechanics.Rotational.SpringDamper", "stateSelection", "stateSelect");
+convertModifiers("Modelica.Mechanics.Rotational.SpringDamper",{"phi_rel_start"}, {"phi_rel.start=%phi_rel_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.SpringDamper",{"w_rel_start"}  , {"w_rel.start=%w_rel_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.SpringDamper",{"initType"} ,
+                 {"phi_rel.fixed=if (%initType%==3 or "+
+                                    "%initType%==4) then true else false",
+                  "w_rel.fixed=if (%initType%==2 or "+
+                                  "%initType%==3 or "+
+                                  "%initType%==5) then true else false",
+                  "a_rel.fixed=if (%initType%==2) then true else false"}, true);
+
+// Modelica.Mechanics.Rotational.InitializeFlange
+convertElement("Modelica.Mechanics.Rotational.InitializeFlange", "stateSelection", "stateSelect");
+
+
+// Modelica.Mechanics.MultiBody.Parts.Rotor1D
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"initType"} ,
+                 {"phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Rotor1D",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.prefer else StateSelect.default"}, true);
+
+
+// --------- initialization of 1-dim. translational systems with start values -----------------------------
+
+// Modelica.Mechanics.Rotational.Inertia
+convertModifiers("Modelica.Mechanics.Translational.Speed"     ,{"s_start"}, {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.Translational.Accelerate",{"s_start"}, {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.Translational.Accelerate",{"v_start"}, {"v.start=%v_start%"});
+
+
+
+// --------- initialization of 3-dim. rotational systems with start values ------------------------------
+
+// Modelica.Mechanics.MultiBody.Joints.Internal.Revolute
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"initType"} ,
+                 {"phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Revolute",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+// Modelica.Mechanics.MultiBody.Joints.Revolute
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"initType"} ,
+                 {"phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Revolute",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+// Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"phi_offset"}, {"phi_offset=%phi_offset%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"a_start"}  , {"a.start=%a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"initType"} ,
+                 {"phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+// Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic",{"s_offset"} , {"s_offset=%s_offset%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic",{"s_start"}  , {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic",{"v_start"}  , {"v.start=%v_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic",{"a_start"}  , {"a.start=%a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic",{"initType"} ,
+                 {"s.fixed=if (%initType%==2 or "+
+                              "%initType%==4 or "+
+                              "%initType%==7) then true else false",
+                  "v.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Internal.Prismatic",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+// Modelica.Mechanics.MultiBody.Joints.Prismatic
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Prismatic",{"s_offset"} , {"s_offset=%s_offset%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Prismatic",{"s_start"}  , {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Prismatic",{"v_start"}  , {"v.start=%v_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Prismatic",{"a_start"}  , {"a.start=%a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Prismatic",{"initType"} ,
+                 {"s.fixed=if (%initType%==2 or "+
+                              "%initType%==4 or "+
+                              "%initType%==7) then true else false",
+                  "v.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Prismatic",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+
+// Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"s_offset"} , {"s_offset=%s_offset%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"s_start"}  , {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"v_start"}  , {"v.start=%v_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"a_start"}  , {"a.start=%a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"initType"} ,
+                 {"s.fixed=if (%initType%==2 or "+
+                              "%initType%==4 or "+
+                              "%initType%==7) then true else false",
+                  "v.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+// Modelica.Mechanics.MultiBody.Joints.Cylindrical
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"s_start"}  , {"s.start=%s_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"v_start"}  , {"v.start=%v_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"a_start"}  , {"a.start=%a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"wd_start"} , {"wd.start=%wd_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"initType"} ,
+                 {"s.fixed=if (%initType%==2 or "+
+                              "%initType%==4 or "+
+                              "%initType%==7) then true else false",
+                  "v.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "a.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "wd.fixed=if (%initType%==3 or "+
+                               "%initType%==6 or "+
+                               "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Cylindrical",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+
+// Modelica.Mechanics.MultiBody.Joints.Universal
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"phi_start_a"}, {"phi_a.start=%phi_start_a%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"w_start_a"}  , {"w_a.start=%w_start_a%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"a_start_a"}  , {"a_a.start=%a_start_a%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"phi_start_b"}, {"phi_b.start=%phi_start_b%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"w_start_b"}  , {"w_b.start=%w_start_b%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"a_start_b"}  , {"a_b.start=%a_start_b%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"initType"} ,
+                 {"phi_a.fixed=if (%initType%==2 or "+
+                                  "%initType%==4 or "+
+                                  "%initType%==7) then true else false",
+                  "w_a.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_a.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "phi_b.fixed=if (%initType%==2 or "+
+                                  "%initType%==4 or "+
+                                  "%initType%==7) then true else false",
+                  "w_b.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_b.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Universal",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+// Modelica.Mechanics.MultiBody.Joints.Planar
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"s_start_x"}, {"s_x.start=%s_start_x%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"v_start_x"}, {"v_x.start=%v_start_x%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"a_start_x"}, {"a_x.start=%a_start_x%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"s_start_y"}, {"s_y.start=%s_start_y%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"v_start_y"}, {"v_y.start=%v_start_y%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"a_start_y"}, {"a_y.start=%a_start_y%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"phi_start"}, {"phi.start=%phi_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"w_start"}  , {"w.start=%w_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"wd_start"} , {"wd.start=%wd_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"initType"} ,
+                 {"s_x.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_x.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_x.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "s_y.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_y.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_y.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "phi.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "w.fixed=if (%initType%==2 or "+
+                              "%initType%==3 or "+
+                              "%initType%==5 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false",
+                  "wd.fixed=if (%initType%==3 or "+
+                              "%initType%==6 or "+
+                              "%initType%==7) then true else false"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Planar",{"enforceStates"},
+                {"stateSelect=if (%enforceStates%) then StateSelect.always else StateSelect.prefer"}, true);
+
+
+// Modelica.Mechanics.MultiBody.Joints.Spherical
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"w_rel_a_start"}, {"w_rel_a_start=%w_rel_a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"z_rel_a_start"}, {"z_rel_a_start=%z_rel_a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.Spherical",{"initType"} ,
+                 {"angles_fixed=if (%initType%==2 or "+
+                                   "%initType%==4 or "+
+                                   "%initType%==7) then true else false",
+                  "w_rel_a_fixed=if (%initType%==2 or "+
+                                    "%initType%==3 or "+
+                                    "%initType%==5 or "+
+                                    "%initType%==6 or "+
+                                    "%initType%==7) then true else false",
+                  "z_rel_a_fixed=if (%initType%==3 or "+
+                                    "%initType%==6 or "+
+                                    "%initType%==7) then true else false"}, true);
+
+
+// Modelica.Mechanics.MultiBody.Joints.FreeMotion
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"r_rel_a_start"}, {"r_rel_a.start=%r_rel_a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"v_rel_a_start"}, {"v_rel_a.start=%v_rel_a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"a_rel_a_start"}, {"a_rel_a.start=%a_rel_a_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"w_rel_a_start"}, {"w_rel_a_start=%w_rel_a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"z_rel_a_start"}, {"z_rel_a_start=%z_rel_a_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Joints.FreeMotion",{"initType"} ,
+                 {"r_rel_a.fixed=if (%initType%==2 or "+
+                                    "%initType%==4 or "+
+                                    "%initType%==7) then true else false",
+                  "v_rel_a.fixed=if (%initType%==2 or "+
+                                    "%initType%==3 or "+
+                                    "%initType%==5 or "+
+                                    "%initType%==6 or "+
+                                    "%initType%==7) then true else false",
+                  "a_rel_a.fixed=if (%initType%==3 or "+
+                                    "%initType%==6 or "+
+                                    "%initType%==7) then true else false",
+                  "angles_fixed=if (%initType%==2 or "+
+                                   "%initType%==4 or "+
+                                   "%initType%==7) then true else false",
+                  "w_rel_a_fixed=if (%initType%==2 or "+
+                                    "%initType%==3 or "+
+                                    "%initType%==5 or "+
+                                    "%initType%==6 or "+
+                                    "%initType%==7) then true else false",
+                  "z_rel_a_fixed=if (%initType%==3 or "+
+                                    "%initType%==6 or "+
+                                    "%initType%==7) then true else false"}, true);
+
+
+// Modelica.Mechanics.MultiBody.Parts.Body
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"r_0_start"}, {"r_0.start=%r_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"v_0_start"}, {"v_0.start=%v_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"a_0_start"}, {"a_0.start=%a_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.Body",{"initType"} ,
+                 {"r_0.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_0.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_0.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "angles_fixed=if (%initType%==2 or "+
+                                   "%initType%==4 or "+
+                                   "%initType%==7) then true else false",
+                  "w_0_fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "z_0_fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false"}, true);
+
+// Modelica.Mechanics.MultiBody.Parts.BodyShape
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"r_0_start"}, {"r_0.start=%r_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"v_0_start"}, {"v_0.start=%v_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"a_0_start"}, {"a_0.start=%a_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyShape",{"initType"} ,
+                 {"r_0.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_0.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_0.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "angles_fixed=if (%initType%==2 or "+
+                                   "%initType%==4 or "+
+                                   "%initType%==7) then true else false",
+                  "w_0_fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "z_0_fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false"}, true);
+
+// Modelica.Mechanics.MultiBody.Parts.BodyBox
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"r_0_start"}, {"r_0.start=%r_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"v_0_start"}, {"v_0.start=%v_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"a_0_start"}, {"a_0.start=%a_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"angles_start"}, {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyBox",{"initType"} ,
+                 {"r_0.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_0.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_0.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "angles_fixed=if (%initType%==2 or "+
+                                   "%initType%==4 or "+
+                                   "%initType%==7) then true else false",
+                  "w_0_fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "z_0_fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false"}, true);
+
+
+// Modelica.Mechanics.MultiBody.Parts.BodyCylinder
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"r_0_start"}, {"r_0.start=%r_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"v_0_start"}, {"v_0.start=%v_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"a_0_start"}, {"a_0.start=%a_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"angles_start"} , {"angles_start=%angles_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"w_0_start"}, {"w_0_start=%w_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"z_0_start"}, {"z_0_start=%z_0_start%*(3.14159265358979323846/180)"}, true);
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.BodyCylinder",{"initType"} ,
+                 {"r_0.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_0.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_0.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "angles_fixed=if (%initType%==2 or "+
+                                   "%initType%==4 or "+
+                                   "%initType%==7) then true else false",
+                  "w_0_fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "z_0_fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false"}, true);
+
+
+
+// Modelica.Mechanics.MultiBody.Parts.PointMass
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"r_0_start"}, {"r_0.start=%r_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"v_0_start"}, {"v_0.start=%v_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"a_0_start"}, {"a_0.start=%a_0_start%"});
+convertModifiers("Modelica.Mechanics.MultiBody.Parts.PointMass",{"initType"} ,
+                 {"r_0.fixed=if (%initType%==2 or "+
+                                "%initType%==4 or "+
+                                "%initType%==7) then true else false",
+                  "v_0.fixed=if (%initType%==2 or "+
+                                "%initType%==3 or "+
+                                "%initType%==5 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false",
+                  "a_0.fixed=if (%initType%==3 or "+
+                                "%initType%==6 or "+
+                                "%initType%==7) then true else false"}, true);
+
+
+// --------- initialization of Thermal.HeatTransfer with start values ----------
+convertModifiers("Modelica.Thermal.HeatTransfer.HeatCapacitor",{"steadyState"} ,
+                 {"der_T.fixed=if %steadyState% then true else false"}, true);
+
+
+//--------- New design of Rotational -------------------------------------------
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Bearing",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.Bearing");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.TwoFlangesAndBearing");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.AbsoluteSensor");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.RelativeSensor",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.RelativeSensor");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Rigid",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.Rigid");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque",
+             "ObsoleteModelica3.Mechanics.Rotational.Interfaces.PartialSpeedDependentTorque");
+
+
+convertClass("Modelica.Mechanics.Rotational.Interfaces.Compliant",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialCompliant");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.TwoFlanges",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.FrictionBase",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialFriction");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor");
+convertClass("Modelica.Mechanics.Rotational.Interfaces.RelativeSensor",
+             "Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor");
+convertClass("Modelica.Mechanics.Rotational.GearEfficiency",
+             "ObsoleteModelica3.Mechanics.Rotational.GearEfficiency");
+convertClass("Modelica.Mechanics.Rotational.Gear",
+             "ObsoleteModelica3.Mechanics.Rotational.Gear");
+convertClass("Modelica.Mechanics.Rotational.Gear2",
+             "Modelica.Mechanics.Rotational.Gearbox");
+
+
+// bearing -> support
+convertElement({"Modelica.Mechanics.Rotational.IdealGear",
+                "Modelica.Mechanics.Rotational.BearingFriction",
+                "Modelica.Mechanics.Rotational.Brake",
+                "Modelica.Mechanics.Rotational.LossyGear",
+                "Modelica.Mechanics.Rotational.Gear2",
+                "Modelica.Mechanics.Rotational.Position",
+                "Modelica.Mechanics.Rotational.Speed",
+                "Modelica.Mechanics.Rotational.Accelerate",
+                "Modelica.Mechanics.Rotational.Move",
+                "Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.ConstantTorque",
+                "Modelica.Mechanics.Rotational.ConstantSpeed",
+                "Modelica.Mechanics.Rotational.TorqueStep"},
+                "bearing", "support");
+
+// bearingR -> supportR
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                "bearingR", "supportR");
+
+// tau_support -> support.tau
+convertElement({"Modelica.Mechanics.Rotational.IdealGear",
+                "Modelica.Mechanics.Rotational.IdealGearR2T",
+                "Modelica.Mechanics.Rotational.BearingFriction",
+                "Modelica.Mechanics.Rotational.Brake",
+                "Modelica.Mechanics.Rotational.LossyGear",
+                "Modelica.Mechanics.Rotational.Gear2",
+                "Modelica.Mechanics.Rotational.Position",
+                "Modelica.Mechanics.Rotational.Speed",
+                "Modelica.Mechanics.Rotational.Accelerate",
+                "Modelica.Mechanics.Rotational.Move",
+                "Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                "Modelica.Mechanics.Rotational.ConstantTorque",
+                "Modelica.Mechanics.Rotational.ConstantSpeed",
+                "Modelica.Mechanics.Rotational.TorqueStep"},
+                "tau_support", "support.tau");
+
+// flange_a -> flange
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AngleSensor",
+                "Modelica.Mechanics.Rotational.Sensors.SpeedSensor",
+                "Modelica.Mechanics.Rotational.Sensors.AccSensor"},
+                "flange_a", "flange");
+
+// flange_b -> flange
+convertElement({"Modelica.Mechanics.Rotational.Fixed",
+                "Modelica.Mechanics.Rotational.Position",
+                "Modelica.Mechanics.Rotational.Speed",
+                "Modelica.Mechanics.Rotational.Accelerate",
+                "Modelica.Mechanics.Rotational.Move",
+                "Modelica.Mechanics.Rotational.Torque"},
+                "flange_b", "flange");
+
+
+// if bearing is connected, set explicitly useSupport=true
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
+                  "Modelica.Mechanics.Rotational.BearingFriction",
+                  "Modelica.Mechanics.Rotational.Brake",
+                  "Modelica.Mechanics.Rotational.LossyGear",
+                  "Modelica.Mechanics.Rotational.Gear2",
+                  "Modelica.Mechanics.Rotational.Position",
+                  "Modelica.Mechanics.Rotational.Speed",
+                  "Modelica.Mechanics.Rotational.Accelerate",
+                  "Modelica.Mechanics.Rotational.Move",
+                  "Modelica.Mechanics.Rotational.Torque",
+                  "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.ConstantTorque",
+                  "Modelica.Mechanics.Rotational.ConstantSpeed",
+                  "Modelica.Mechanics.Rotational.TorqueStep"},
+                 {"cardinality(bearing)=1"},{"useSupport=true"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingR)=1"},{"useSupportR=true"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingT)=1"},{"useSupportT=true"});
+
+
+// if bearing is not connected, set explicitly useSupport=false
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGear",
+                  "Modelica.Mechanics.Rotational.BearingFriction",
+                  "Modelica.Mechanics.Rotational.Brake",
+                  "Modelica.Mechanics.Rotational.LossyGear",
+                  "Modelica.Mechanics.Rotational.Gear2",
+                  "Modelica.Mechanics.Rotational.Position",
+                  "Modelica.Mechanics.Rotational.Speed",
+                  "Modelica.Mechanics.Rotational.Accelerate",
+                  "Modelica.Mechanics.Rotational.Move",
+                  "Modelica.Mechanics.Rotational.Torque",
+                  "Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",
+                  "Modelica.Mechanics.Rotational.ConstantTorque",
+                  "Modelica.Mechanics.Rotational.ConstantSpeed",
+                  "Modelica.Mechanics.Rotational.TorqueStep"},
+                  {"cardinality(bearing)=0"},{"useSupport=false"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingR)=0"},{"useSupportR=false"});
+
+convertModifiers({"Modelica.Mechanics.Rotational.IdealGearR2T"},
+                 {"cardinality(bearingT)=0"},{"useSupportT=false"});
+
+
+// --------- MultiBody -----------------------------------------------------------
+
+
+convertModifiers("Modelica.Mechanics.MultiBody.World",{"driveTrainMechanics3D=false"}, {"driveTrainMechanics3D=%driveTrainMechanics3D%"});
+
+// Forces
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+                  "ObsoleteModelica3.Mechanics.MultiBody.Forces.WorldForceAndTorque");
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.FrameForce",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldForce");
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameForce"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameForce"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.FrameTorque",
+                  "Modelica.Mechanics.MultiBody.Forces.WorldTorque");
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameTorque"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.FrameTorque"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve"}, true);
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.FrameForceAndTorque",
+                  "ObsoleteModelica3.Mechanics.MultiBody.Forces.FrameForceAndTorque");
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Force"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Force"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve"}, true);
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Torque"},
+                 {"cardinality(frame_resolve)=0"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Forces.Torque"},
+                 {"cardinality(frame_resolve)=1"},
+                 {"resolveInFrame = Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve"}, true);
+
+convertClass     ("Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+                  "ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque");
+
+
+// Joints
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","false",
+               "Modelica.Mechanics.MultiBody.Joints.Revolute");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Revolute","planarCutJoint","true",
+               "Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint");
+
+convertElement({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
+                "bearing", "support");
+convertClass  ("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute",
+               "Modelica.Mechanics.MultiBody.Joints.Revolute");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute","planarCutJoint","true",
+               "Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint");
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
+                 {"cardinality(axis)=1"},{"useAxisFlange=true"});
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute"},
+                 {"cardinality(bearing)=1"},{"useAxisFlange=true"});
+
+
+convertClass     ("Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic",
+                  "Modelica.Mechanics.MultiBody.Joints.Prismatic");
+convertElement  ({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
+                  "bearing", "support");
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
+                 {"cardinality(axis)=1"},{"useAxisFlange=true"});
+convertModifiers({"Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic"},
+                 {"cardinality(bearing)=1"},{"useAxisFlange=true"});
+
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint","axisTorqueBalance","false",
+               "Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint","axisTorqueBalance","true",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
+convertClass  ("Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint","axisForceBalance","false",
+               "Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
+convertClassIf("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint","axisForceBalance","true",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
+convertClass  ("Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
+               "ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint");
+
+
+// Sensors
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
+                 {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
+                 {"resolveInFrame = if (%resolveInFrame_a%) then " +
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a else " +
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutForce"},
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve"});
+
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
+                 {"cardinality(frame_resolve)=0", "resolveInFrame_a=true"},
+                 {"resolveInFrame = if (%resolveInFrame_a%) then " +
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a else " +
+                                    "Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world"}, true);
+convertModifiers({"Modelica.Mechanics.MultiBody.Sensors.CutTorque"},
+                 {"cardinality(frame_resolve)=1"},{"resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve"});
+
+convertClass  ("Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+               "ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque");
+
+
+
+//-------- Electrical ------------------------------------------------------------
+convertElement({"Modelica.Electrical.Analog.Basic.EMF"}, "flange_b", "flange");
+
+convertClass  ("Modelica.Electrical.Analog.Basic.HeatingResistor",
+               "ObsoleteModelica3.Electrical.Analog.Basic.HeatingResistor");
+convertClassIf("Modelica.Electrical.Analog.Basic.HeatingResistor", "heatPort", "connect",
+               "Modelica.Electrical.Analog.Basic.HeatingResistor");
+
+
+//-------- Machines ------------------------------------------------------------
+// Convert Machines to 2.0.0 (MSL 3.0)
+// Revisions :
+// 2007/10/15: Anton Haumer
+//             first version
+// 2007/10/20: Anton Haumer
+//             extended version
+
+convertClass  ("Modelica.Electrical.Machines.Examples.Utilities", "Modelica.Electrical.Machines.Utilities");
+
+convertClass  ("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+               "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet");
+convertClass  ("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+               "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited");
+convertClass  ("Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+               "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor");
+
+convertClass  ("Modelica.Electrical.Machines.Sensors.RotorAngle", "Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle");
+convertClass  ("Modelica.Electrical.Machines.Sensors.VoltageRMSsensor", "Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor");
+convertClass  ("Modelica.Electrical.Machines.Sensors.CurrentRMSsensor", "Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor");
+
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.SwitchYD"},
+               "plug_NS", "plug_sn");
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.SwitchYD"},
+               "pug_PS", "plug_sp");
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.SwitchYD"},
+               "plug_P", "plugSupply");
+
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"},
+               "StarDelta", "terminalConnection");
+
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"},
+               "negativeMachinePlug", "plug_sn");
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"},
+               "positiveMachinePlug", "plug_sp");
+convertElement({"Modelica.Electrical.Machines.Examples.Utilities.TerminalBox"},
+               "plugToGrid", "plugSupply");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"},
+               "fNominal", "fsNominal");
+
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"},
+               "VsNom", "VsNominal");
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing"},
+               "Vr_LR", "VrLockedRotor");
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage"},
+               "V0", "VsOpenCircuit");
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"},
+               "VNominal", "VsNominal");
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage"},
+               "Ie0", "IeOpenCircuit");
+
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"},
+               "Lrsigma", "Lrsigmad");
+
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.Components.DamperCage"},
+               "Rr", "Rrd");
+
+convertElement({"Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage"},
+               "DamperCage", "useDamperCage");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+               "J_Rotor", "Jr");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+               "J_Stator", "Js");
+
+convertElement({"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited",
+                "Modelica.Electrical.Machines.BasicMachines.Components.ElectricalExcitation",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine"},
+               "TurnsRatio", "turnsRatio");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGap",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapS",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapR",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"},
+               "flange_a", "flange");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+               "phi_mechanical", "phiMechanical");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+               "w_mechanical", "wMechanical");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+               "rpm_mechanical", "rpmMechanical");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGap",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapS",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapR",
+                "Modelica.Electrical.Machines.BasicMachines.Components.PartialAirGapDC",
+                "Modelica.Electrical.Machines.BasicMachines.Components.AirGapDC"},
+               "tau_electrical", "tauElectrical");
+
+convertElement({"Modelica.Electrical.Machines.Interfaces.PartialBasicMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicInductionMachine",
+                "Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage",
+                "Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnetDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcitedDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotorDamperCage",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+               "tau_shaft", "tauShaft");
+
+convertModifiers({"Modelica.Electrical.Machines.Interfaces.PartialBasicDCMachine",
+                  "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_PermanentMagnet",
+                  "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_ElectricalExcited",
+                  "Modelica.Electrical.Machines.BasicMachines.DCMachines.DC_SeriesExcited"},
+                 {"rpmNominal"}, {"wNominal=%rpmNominal%*2*3.14159265358979323846/60"});
+
+// Conversions for Machines.Examples
+
+convertClass  ("Modelica.Electrical.Machines.Examples.AIMS_start", "Modelica.Electrical.Machines.Examples.AIMS_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.SMEE_Gen", "Modelica.Electrical.Machines.Examples.SMEE_Generator");
+convertClass  ("Modelica.Electrical.Machines.Examples.DCPM_start", "Modelica.Electrical.Machines.Examples.DCPM_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.DCEE_start", "Modelica.Electrical.Machines.Examples.DCEE_Start");
+convertClass  ("Modelica.Electrical.Machines.Examples.DCSE_start", "Modelica.Electrical.Machines.Examples.DCSE_Start");
+
+convertElement({"Modelica.Electrical.Machines.Examples.AIMC_DOL",
+                "Modelica.Electrical.Machines.Examples.AIMC_YD",
+                "Modelica.Electrical.Machines.Examples.AIMS_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMR_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMPM_Inverter",
+                "Modelica.Electrical.Machines.Examples.DCPM_Start",
+                "Modelica.Electrical.Machines.Examples.DCEE_Start",
+                "Modelica.Electrical.Machines.Examples.DCSE_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Steinmetz"},
+               "T_Load", "TLoad");
+
+convertElement({"Modelica.Electrical.Machines.Examples.AIMC_DOL",
+                "Modelica.Electrical.Machines.Examples.AIMC_YD",
+                "Modelica.Electrical.Machines.Examples.AIMS_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMR_Inverter",
+                "Modelica.Electrical.Machines.Examples.SMPM_Inverter",
+                "Modelica.Electrical.Machines.Examples.DCPM_Start",
+                "Modelica.Electrical.Machines.Examples.DCEE_Start",
+                "Modelica.Electrical.Machines.Examples.DCSE_Start",
+                "Modelica.Electrical.Machines.Examples.AIMC_Steinmetz"},
+               "J_Load", "JLoad");
+
+// End Convert Machines to 2.0.0 (MSL 3.0)
+//-------- Machines ------------------------------------------------------------
+//-------- FluidHeatFlow ------------------------------------------------------------
+// Convert FluidHeatFlow to 1.6.6 (MSL 3.0)
+// Revisions :
+// 2007/11/13: Anton Haumer
+//             first version
+
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.pSensor",      "Modelica.Thermal.FluidHeatFlow.Sensors.PressureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.TSensor",      "Modelica.Thermal.FluidHeatFlow.Sensors.TemperatureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.dpSensor",     "Modelica.Thermal.FluidHeatFlow.Sensors.RelPressureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.dTSensor",     "Modelica.Thermal.FluidHeatFlow.Sensors.RelTemperatureSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.m_flowSensor", "Modelica.Thermal.FluidHeatFlow.Sensors.MassFlowSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.V_flowSensor", "Modelica.Thermal.FluidHeatFlow.Sensors.VolumeFlowSensor");
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sensors.H_flowSensor", "Modelica.Thermal.FluidHeatFlow.Sensors.EnthalpyFlowSensor");
+
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction",
+                  "Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe",
+                  "Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"},
+                 "VolumeFlow", "volumeFlow");
+
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.IdealPump"}, "w_Nominal", "wNominal");
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.Ambient", "Modelica.Thermal.FluidHeatFlow.Sources.Ambient");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.Ambient"}, fill("",0), {"usePressureInput=false", "useTemperatureInput=false"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.Ambient"}, "p_Ambient", "constantAmbientPressure");
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.Ambient"}, "T_Ambient", "constantAmbientTemperature");
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient", "Modelica.Thermal.FluidHeatFlow.Sources.Ambient");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"}, fill("",0), {"usePressureInput=true", "useTemperatureInput=true"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"}, "p_Ambient", "ambientPressure");
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedAmbient"}, "T_Ambient", "ambientTemperature");
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.ConstantVolumeFlow", "Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantVolumeFlow"}, fill("",0), {"useVolumeFlowInput=false"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantVolumeFlow"}, "VolumeFlow", "constantVolumeFlow");
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow", "Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"}, fill("",0), {"useVolumeFlowInput=true"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedVolumeFlow"}, "VolumeFlow", "volumeFlow");
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.ConstantPressureIncrease", "Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantPressureIncrease"}, fill("",0), {"usePressureIncreaseInput=false"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.ConstantPressureIncrease"}, "PressureIncrease", "constantPressureIncrease");
+
+convertClass    ("Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncrease", "Modelica.Thermal.FluidHeatFlow.Sources.PressureIncrease");
+convertModifiers({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncrease"}, fill("",0), {"usePressureIncreaseInput=true"});
+convertElement  ({"Modelica.Thermal.FluidHeatFlow.Sources.PrescribedPressureIncrease"}, "PressureIncrease", "pressureIncrease");
+
+// End Convert FluidHeatFlow to 1.6.6 (MSL 3.0)
+//-------- FluidHeatFlow ------------------------------------------------------------
+//-------- HeatTransfer ------------------------------------------------------------
+// Convert HeatTransfer to 1.1.1 (MSL 3.0)
+// Revisions :
+// 2007/11/13: Anton Haumer
+//             first version
+
+
+convertClass  ("Modelica.Thermal.HeatTransfer.HeatCapacitor",         "Modelica.Thermal.HeatTransfer.Components.HeatCapacitor");
+convertClass  ("Modelica.Thermal.HeatTransfer.ThermalConductor",      "Modelica.Thermal.HeatTransfer.Components.ThermalConductor");
+convertClass  ("Modelica.Thermal.HeatTransfer.Convection",            "Modelica.Thermal.HeatTransfer.Components.Convection");
+convertClass  ("Modelica.Thermal.HeatTransfer.BodyRadiation",         "Modelica.Thermal.HeatTransfer.Components.BodyRadiation");
+
+convertClass  ("Modelica.Thermal.HeatTransfer.TemperatureSensor",     "Modelica.Thermal.HeatTransfer.Sensors.TemperatureSensor");
+convertClass  ("Modelica.Thermal.HeatTransfer.RelTemperatureSensor",  "Modelica.Thermal.HeatTransfer.Sensors.RelTemperatureSensor");
+convertClass  ("Modelica.Thermal.HeatTransfer.HeatFlowSensor",        "Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor");
+
+convertClass  ("Modelica.Thermal.HeatTransfer.FixedTemperature",      "Modelica.Thermal.HeatTransfer.Sources.FixedTemperature");
+convertClass  ("Modelica.Thermal.HeatTransfer.PrescribedTemperature", "Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature");
+convertClass  ("Modelica.Thermal.HeatTransfer.FixedHeatFlow",         "Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow");
+convertClass  ("Modelica.Thermal.HeatTransfer.PrescribedHeatFlow",    "Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow");
+
+// End Convert HeatTransfer to 1.1.1 (MSL 3.0)
+//-------- HeatTransfer ------------------------------------------------------------
+//-------- Rotational (sub-packages!) ------------------------------------------------------------
+// Convert Rotational (MSL 3.0)
+// Revisions :
+// 2007/11/16: Anton Haumer
+//             additional conversions due to structuring with sub-libraries
+
+
+convertClass  ("Modelica.Mechanics.Rotational.Position",    "Modelica.Mechanics.Rotational.Sources.Position");
+convertClass  ("Modelica.Mechanics.Rotational.Speed",       "Modelica.Mechanics.Rotational.Sources.Speed");
+convertClass  ("Modelica.Mechanics.Rotational.Accelerate",  "Modelica.Mechanics.Rotational.Sources.Accelerate");
+convertClass  ("Modelica.Mechanics.Rotational.Move",        "Modelica.Mechanics.Rotational.Sources.Move");
+convertClass  ("Modelica.Mechanics.Rotational.Torque",      "Modelica.Mechanics.Rotational.Sources.Torque");
+convertClass  ("Modelica.Mechanics.Rotational.Torque2",     "Modelica.Mechanics.Rotational.Sources.Torque2");
+convertClass  ("Modelica.Mechanics.Rotational.LinearSpeedDependentTorque",     "Modelica.Mechanics.Rotational.Sources.LinearSpeedDependentTorque");
+convertClass  ("Modelica.Mechanics.Rotational.QuadraticSpeedDependentTorque",  "Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque");
+convertClass  ("Modelica.Mechanics.Rotational.ConstantTorque",                 "Modelica.Mechanics.Rotational.Sources.ConstantTorque");
+convertClass  ("Modelica.Mechanics.Rotational.TorqueStep",                     "Modelica.Mechanics.Rotational.Sources.TorqueStep");
+convertClass  ("Modelica.Mechanics.Rotational.ConstantSpeed",                  "Modelica.Mechanics.Rotational.Sources.ConstantSpeed");
+convertClass  ("Modelica.Mechanics.Rotational.RelativeStates",                 "Modelica.Mechanics.Rotational.Components.RelativeStates");
+convertClass  ("Modelica.Mechanics.Rotational.Fixed",                          "Modelica.Mechanics.Rotational.Components.Fixed");
+convertClass  ("Modelica.Mechanics.Rotational.Inertia",                        "Modelica.Mechanics.Rotational.Components.Inertia");
+convertClass  ("Modelica.Mechanics.Rotational.Spring",                         "Modelica.Mechanics.Rotational.Components.Spring");
+convertClass  ("Modelica.Mechanics.Rotational.Damper",                         "Modelica.Mechanics.Rotational.Components.Damper");
+convertClass  ("Modelica.Mechanics.Rotational.SpringDamper",                   "Modelica.Mechanics.Rotational.Components.SpringDamper");
+convertClass  ("Modelica.Mechanics.Rotational.ElastoBacklash",                 "Modelica.Mechanics.Rotational.Components.ElastoBacklash");
+convertClass  ("Modelica.Mechanics.Rotational.BearingFriction",                "Modelica.Mechanics.Rotational.Components.BearingFriction");
+convertClass  ("Modelica.Mechanics.Rotational.Brake",                          "Modelica.Mechanics.Rotational.Components.Brake");
+convertClass  ("Modelica.Mechanics.Rotational.Clutch",                         "Modelica.Mechanics.Rotational.Components.Clutch");
+convertClass  ("Modelica.Mechanics.Rotational.OneWayClutch",                   "Modelica.Mechanics.Rotational.Components.OneWayClutch");
+convertClass  ("Modelica.Mechanics.Rotational.IdealGear",                      "Modelica.Mechanics.Rotational.Components.IdealGear");
+convertClass  ("Modelica.Mechanics.Rotational.LossyGear",                      "Modelica.Mechanics.Rotational.Components.LossyGear");
+convertClass  ("Modelica.Mechanics.Rotational.IdealPlanetary",                 "Modelica.Mechanics.Rotational.Components.IdealPlanetary");
+convertClass  ("Modelica.Mechanics.Rotational.Gear",                           "ObsoleteModelica3.Mechanics.Rotational.Gear");
+convertClass  ("Modelica.Mechanics.Rotational.Gear2",                          "Modelica.Mechanics.Rotational.Components.Gearbox");
+convertClass  ("Modelica.Mechanics.Rotational.IdealGearR2T",                   "Modelica.Mechanics.Rotational.Components.IdealGearR2T");
+convertClass  ("Modelica.Mechanics.Rotational.IdealRollingWheel",              "Modelica.Mechanics.Rotational.Components.IdealRollingWheel");
+convertClass  ("Modelica.Mechanics.Rotational.InitializeFlange",               "Modelica.Mechanics.Rotational.Components.InitializeFlange");
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_a", "flangeR");
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "flange_b", "flangeT");
+convertElement({"Modelica.Mechanics.Rotational.IdealGearR2T"}, "bearingT", "supportT");
+convertElement({"Modelica.Mechanics.Rotational.Accelerate"}, "a", "a_ref");
+convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"phi_start"}, {"phi.start=%phi_start%"});
+convertModifiers("Modelica.Mechanics.Rotational.Accelerate", {"w_start"},   {"w.start=%w_start%"});
+convertElement({"Modelica.Mechanics.Rotational.LossyGear"}, "i", "ratio");
+convertElement({"Modelica.Mechanics.Rotational.Gear2"},     "i", "ratio");
+
+
+// End Convert Rotational (MSL 3.0)
+//-------- Rotational (sub-packages!) ------------------------------------------------------------
+//-------- Translational ------------------------------------------------------------
+// Convert Translational to 1.1.0 (MSL 3.0)
+// annotation(conversion(from(version="x.x.x", script="Convert_Translational_to_1_1_0.mos")));
+// Revisions :
+// 2007/11/15: Anton Haumer
+//             first version
+
+convertClass  ("Modelica.Mechanics.Translational.Fixed",              "Modelica.Mechanics.Translational.Components.Fixed");
+convertClass  ("Modelica.Mechanics.Translational.Rod",                "Modelica.Mechanics.Translational.Components.Rod");
+convertClass  ("Modelica.Mechanics.Translational.SlidingMass",        "Modelica.Mechanics.Translational.Components.Mass");
+convertClass  ("Modelica.Mechanics.Translational.Spring",             "Modelica.Mechanics.Translational.Components.Spring");
+convertClass  ("Modelica.Mechanics.Translational.Damper",             "Modelica.Mechanics.Translational.Components.Damper");
+convertClass  ("Modelica.Mechanics.Translational.SpringDamper",       "Modelica.Mechanics.Translational.Components.SpringDamper");
+convertClass  ("Modelica.Mechanics.Translational.ElastoGap",          "Modelica.Mechanics.Translational.Components.ElastoGap");
+convertClass  ("Modelica.Mechanics.Translational.Position",           "Modelica.Mechanics.Translational.Sources.Position");
+convertClass  ("Modelica.Mechanics.Translational.Speed",              "Modelica.Mechanics.Translational.Sources.Speed");
+convertClass  ("Modelica.Mechanics.Translational.Accelerate",         "Modelica.Mechanics.Translational.Sources.Accelerate");
+convertClass  ("Modelica.Mechanics.Translational.Move",               "Modelica.Mechanics.Translational.Sources.Move");
+convertClass  ("Modelica.Mechanics.Translational.Force",              "Modelica.Mechanics.Translational.Sources.Force");
+convertClass  ("Modelica.Mechanics.Translational.RelativeStates",     "Modelica.Mechanics.Translational.Components.RelativeStates");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.Rigid",          "Modelica.Mechanics.Translational.Interfaces.PartialRigid");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.Compliant",      "Modelica.Mechanics.Translational.Interfaces.PartialCompliant");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.TwoFlanges",     "Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor", "Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.RelativeSensor", "Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor");
+convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor"}, "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},    "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},       "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},         "flange_a", "flange");
+convertElement({"Modelica.Mechanics.Translational.Position"},                "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Speed"},                   "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},              "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},              "a"       , "a_ref");
+convertElement({"Modelica.Mechanics.Translational.Move"},                    "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Fixed"},                   "flange_b", "flange");
+convertElement({"Modelica.Mechanics.Translational.Force"},                   "flange_b", "flange");
+convertClass  ("Modelica.Mechanics.Translational.Stop",
+               "Modelica.Mechanics.Translational.Components.MassWithStopAndFriction");
+convertClass  ("Modelica.Mechanics.Translational.Interfaces.FrictionBase",
+               "Modelica.Mechanics.Translational.Components.MassWithStopAndFriction.PartialFrictionWithStop");
+
+// End Convert Translational to 1.1.0 (MSL 3.0)
+//-------- Translational ------------------------------------------------------------

@@ -1,0 +1,2335 @@
+// Convert from Modelica 1.6 and earlier versions to Modelica 2.1 (and later)
+// This script requires Dymola version 5.3a or higher
+//
+// Revisions:
+//   Sep. 21: Further improvements by Hans Olsson
+//   Oct.  1: Further improvements by
+//              Christian Schweiger, Hans Olsson, Martin Otter.
+//   July 15: Bugs corrected in conversion of
+//              ModelicaAdditions.Blocks.Logical
+//              ModelicaAdditions.Blocks.Multiplexer
+//            Conversion introduced for
+//              ModelicaAdditions.MultiBody.CutJoints
+//              ModelicaAdditions.MultiBody.Sensors
+//              ModelicaAdditions.MultiBody.Visualizers
+//              ObsoleteMultiBodyAdditions
+//   June 30: Modelica and ModelicaAdditions conversion defined
+//            (for scalar signals the conversion should work)
+//   June 27: first version implemented (by Martin Otter)
+clear
+
+convertClear();
+
+// inPort.signal[1] -> u
+convertElement({"Modelica.Blocks.Interfaces.SISO",
+                "Modelica.Blocks.Interfaces.SIMO",
+                "Modelica.Blocks.Continuous.Integrator",
+                "Modelica.Blocks.Continuous.LimIntegrator",
+                "Modelica.Blocks.Continuous.Derivative",
+                "Modelica.Blocks.Continuous.FirstOrder",
+                "Modelica.Blocks.Continuous.SecondOrder",
+                "Modelica.Blocks.Continuous.PI",
+                "Modelica.Blocks.Continuous.PID",
+                "Modelica.Blocks.Continuous.LimPID",
+                "Modelica.Blocks.Continuous.TransferFunction",
+                "Modelica.Blocks.Continuous.Der",
+                "ModelicaAdditions.Blocks.Continuous.ButterLow",
+                "ModelicaAdditions.Blocks.Continuous.CritDamping",
+                "ModelicaAdditions.Blocks.Discrete.Interfaces.DiscreteSISO",
+                "ModelicaAdditions.Blocks.Discrete.Sampler",
+                "ModelicaAdditions.Blocks.Discrete.ZeroOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.FirstOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.UnitDelay",
+                "ModelicaAdditions.Blocks.Discrete.TransferFunction",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredMax",
+                "ModelicaAdditions.Blocks.Logical.NOT",
+                "ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                "ModelicaAdditions.Blocks.Logical.Boolean2Real",
+                "ModelicaAdditions.Blocks.Logical.GreaterThan",
+                "ModelicaAdditions.Blocks.Logical.GreaterEqual",
+                "ModelicaAdditions.Blocks.Logical.LessThan",
+                "ModelicaAdditions.Blocks.Logical.LessEqual",
+                "ModelicaAdditions.Blocks.Logical.Hysteresis",
+                "ModelicaAdditions.Blocks.Logical.ZeroCrossing",
+                "ModelicaAdditions.Blocks.Nonlinear.FixedDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.PadeDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.VarDelay",
+                "ModelicaAdditions.Tables.CombiTable1Ds"},
+                "inPort.signal[1]", "u");
+
+// inPort1.signal[1] -> u1
+convertElement({"Modelica.Blocks.Interfaces.SI2SO",
+                "ModelicaAdditions.Blocks.Logical.OR",
+                "ModelicaAdditions.Blocks.Logical.AND",
+                "ModelicaAdditions.Blocks.Logical.XOR",
+                "ModelicaAdditions.Blocks.Logical.NOR",
+                "ModelicaAdditions.Blocks.Logical.NAND",
+                "ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch",
+                "ModelicaAdditions.Blocks.Logical.Compare",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "inPort1.signal[1]", "u1");
+
+// inPort2.signal[1] -> u2
+convertElement({"Modelica.Blocks.Interfaces.SI2SO",
+                "ModelicaAdditions.Blocks.Logical.OR",
+                "ModelicaAdditions.Blocks.Logical.AND",
+                "ModelicaAdditions.Blocks.Logical.XOR",
+                "ModelicaAdditions.Blocks.Logical.NOR",
+                "ModelicaAdditions.Blocks.Logical.NAND",
+                "ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch",
+                "ModelicaAdditions.Blocks.Logical.Compare",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "inPort2.signal[1]", "u2");
+
+// inPort3.signal[1] -> u3
+convertElement({"ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch"},
+                "inPort3.signal[1]", "u3");
+
+// inPort -> u
+convertElement({"Modelica.Blocks.Interfaces.SISO",
+                "Modelica.Blocks.Interfaces.SIMO",
+                "Modelica.Blocks.Interfaces.MISO",
+                "Modelica.Blocks.Interfaces.MIMO",
+                "Modelica.Blocks.Interfaces.MIMOs",
+                "Modelica.Blocks.Interfaces.BooleanSISO",
+                "Modelica.Blocks.Interfaces.BooleanMIMOs",
+                "Modelica.Blocks.Interfaces.IntegerMIBooleanMOs",
+                "Modelica.Blocks.Continuous.Integrator",
+                "Modelica.Blocks.Continuous.LimIntegrator",
+                "Modelica.Blocks.Continuous.Derivative",
+                "Modelica.Blocks.Continuous.FirstOrder",
+                "Modelica.Blocks.Continuous.SecondOrder",
+                "Modelica.Blocks.Continuous.PI",
+                "Modelica.Blocks.Continuous.PID",
+                "Modelica.Blocks.Continuous.TransferFunction",
+                "Modelica.Blocks.Continuous.Der",
+                "Modelica.Blocks.Math.Gain",
+                "Modelica.Blocks.Math.Abs",
+                "Modelica.Blocks.Math.Sign",
+                "Modelica.Blocks.Math.Sqrt",
+                "Modelica.Blocks.Math.Sin",
+                "Modelica.Blocks.Math.Cos",
+                "Modelica.Blocks.Math.Tan",
+                "Modelica.Blocks.Math.Asin",
+                "Modelica.Blocks.Math.Acos",
+                "Modelica.Blocks.Math.Atan",
+                "Modelica.Blocks.Math.Sinh",
+                "Modelica.Blocks.Math.Cosh",
+                "Modelica.Blocks.Math.Sinh",
+                "Modelica.Blocks.Math.Tanh",
+                "Modelica.Blocks.Math.Exp",
+                "Modelica.Blocks.Math.Log",
+                "Modelica.Blocks.Math.Log10",
+                "Modelica.Blocks.Math.RealToInteger",
+                "Modelica.Blocks.Math.IntegerToReal",
+                "Modelica.Blocks.Math.Edge",
+                "Modelica.Blocks.Math.BooleanChange",
+                "Modelica.Blocks.Math.IntegerChange",
+                "Modelica.Blocks.Nonlinear.Limiter",
+                "Modelica.Blocks.Nonlinear.VariableLimiter",
+                "Modelica.Blocks.Nonlinear.DeadZone",
+                "Modelica.Blocks.Interfaces.BusAdaptors.SendReal",
+                "Modelica.Blocks.Interfaces.BusAdaptors.SendBoolean",
+                "Modelica.Blocks.Interfaces.BusAdaptors.SendInteger",
+                "ModelicaAdditions.Blocks.Continuous.ButterLow",
+                "ModelicaAdditions.Blocks.Continuous.CritDamping",
+                "ModelicaAdditions.Blocks.Discrete.Sampler",
+                "ModelicaAdditions.Blocks.Discrete.ZeroOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.FirstOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.UnitDelay",
+                "ModelicaAdditions.Blocks.Discrete.TransferFunction",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredMax",
+                "ModelicaAdditions.Blocks.Discrete.Interfaces.DiscreteSISO",
+                "ModelicaAdditions.Blocks.Logical.NOT",
+                "ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                "ModelicaAdditions.Blocks.Logical.Boolean2Real",
+                "ModelicaAdditions.Blocks.Logical.GreaterThan",
+                "ModelicaAdditions.Blocks.Logical.GreaterEqual",
+                "ModelicaAdditions.Blocks.Logical.LessThan",
+                "ModelicaAdditions.Blocks.Logical.LessEqual",
+                "ModelicaAdditions.Blocks.Logical.Hysteresis",
+                "ModelicaAdditions.Blocks.Logical.ZeroCrossing",
+                "ModelicaAdditions.Blocks.Nonlinear.FixedDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.PadeDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.VarDelay",
+                "ModelicaAdditions.Tables.CombiTable1D",
+                "ModelicaAdditions.Tables.CombiTable1Ds"},
+                "inPort", "u");
+
+// inPort1 -> u1
+convertElement({"Modelica.Blocks.Interfaces.SI2SO",
+                "Modelica.Blocks.Interfaces.MI2MO",
+                "Modelica.Blocks.Interfaces.MI2BooleanMOs",
+                "Modelica.Blocks.Math.TwoInputs",
+                "Modelica.Blocks.Math.Feedback",
+                "Modelica.Blocks.Math.Add",
+                "Modelica.Blocks.Math.Add3",
+                "Modelica.Blocks.Math.Product",
+                "Modelica.Blocks.Math.Division",
+                "Modelica.Blocks.Math.Atan2",
+                "Modelica.Blocks.Math.Max",
+                "Modelica.Blocks.Math.Min",
+                "ModelicaAdditions.Blocks.Logical.OR",
+                "ModelicaAdditions.Blocks.Logical.AND",
+                "ModelicaAdditions.Blocks.Logical.XOR",
+                "ModelicaAdditions.Blocks.Logical.NOR",
+                "ModelicaAdditions.Blocks.Logical.NAND",
+                "ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch",
+                "ModelicaAdditions.Blocks.Logical.Compare",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "inPort1", "u1");
+
+// inPort2 -> u2
+convertElement({"Modelica.Blocks.Interfaces.SI2SO",
+                "Modelica.Blocks.Interfaces.MI2MO",
+                "Modelica.Blocks.Interfaces.MI2BooleanMOs",
+                "Modelica.Blocks.Math.TwoInputs",
+                "Modelica.Blocks.Math.Feedback",
+                "Modelica.Blocks.Math.Add",
+                "Modelica.Blocks.Math.Add3",
+                "Modelica.Blocks.Math.Product",
+                "Modelica.Blocks.Math.Division",
+                "Modelica.Blocks.Math.Atan2",
+                "Modelica.Blocks.Math.Max",
+                "Modelica.Blocks.Math.Min",
+                "ModelicaAdditions.Blocks.Logical.OR",
+                "ModelicaAdditions.Blocks.Logical.AND",
+                "ModelicaAdditions.Blocks.Logical.XOR",
+                "ModelicaAdditions.Blocks.Logical.NOR",
+                "ModelicaAdditions.Blocks.Logical.NAND",
+                "ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch",
+                "ModelicaAdditions.Blocks.Logical.Compare",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "inPort2", "u2");
+
+// inPort3 -> u3
+convertElement({"Modelica.Blocks.Math.Add3"},
+                "inPort3", "u3");
+
+// inPort_s -> u_s
+convertElement({"Modelica.Blocks.Interfaces.SVcontrol",
+                "Modelica.Blocks.Interfaces.MVcontrol",
+                "Modelica.Blocks.Continuous.LimPID"},
+                "inPort_s", "u_s");
+
+// inPort_m -> u_m
+convertElement({"Modelica.Blocks.Interfaces.SVcontrol",
+                "Modelica.Blocks.Interfaces.MVcontrol",
+                "Modelica.Blocks.Continuous.LimPID"},
+                "inPort_m", "u_m");
+
+// inPort.signal -> u
+convertElement({"Modelica.Blocks.Continuous.StateSpace",
+                "Modelica.Blocks.Math.MatrixGain",
+                "Modelica.Blocks.Math.Sum",
+                "Modelica.Blocks.Interfaces.MIMO",
+                "Modelica.Blocks.Interfaces.MISO",
+                "Modelica.Blocks.Interfaces.MIMOs",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
+                "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+                "ModelicaAdditions.Blocks.Multiplexer.Extractor",
+               "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6",
+                "ModelicaAdditions.Tables.CombiTable1D"},
+              "inPort.signal", "u");
+
+// inPort1.signal -> {u1}
+convertElement("Modelica.Blocks.Math.Feedback",
+               "inPort1.signal", "{u1}");
+
+// inPort2.signal -> {u2}
+convertElement("Modelica.Blocks.Math.Feedback",
+               "inPort2.signal", "{u2}");
+
+// inPort1.signal -> u1
+convertElement("Modelica.Blocks.Interfaces.MI2MO",
+               "inPort1.signal", "u1");
+
+// inPort2.signal -> u2
+convertElement("Modelica.Blocks.Interfaces.MI2MO",
+               "inPort2.signal", "u2");
+
+// inPort -> u[1]
+convertElement({"Modelica.Blocks.Continuous.StateSpace",
+                "Modelica.Blocks.Math.MatrixGain",
+                "Modelica.Blocks.Math.Sum",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
+                "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+                "ModelicaAdditions.Blocks.Multiplexer.Extractor",
+               "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6",
+                "ModelicaAdditions.Tables.CombiTable1D"},
+                "inPort", "u[1]");
+
+// outPort.signal[1] -> y
+convertElement({"Modelica.Blocks.Continuous.FirstOrder",
+                "Modelica.Blocks.Continuous.PID",
+                "ModelicaAdditions.Blocks.Continuous.ButterLow",
+                "ModelicaAdditions.Blocks.Continuous.CritDamping",
+                "ModelicaAdditions.Blocks.Discrete.Interfaces.DiscreteSISO",
+                "ModelicaAdditions.Blocks.Discrete.Sampler",
+                "ModelicaAdditions.Blocks.Discrete.ZeroOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.FirstOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.UnitDelay",
+                "ModelicaAdditions.Blocks.Discrete.TransferFunction",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredMax",
+                "ModelicaAdditions.Blocks.Logical.NOT",
+                "ModelicaAdditions.Blocks.Logical.OR",
+                "ModelicaAdditions.Blocks.Logical.AND",
+                "ModelicaAdditions.Blocks.Logical.XOR",
+                "ModelicaAdditions.Blocks.Logical.NOR",
+                "ModelicaAdditions.Blocks.Logical.NAND",
+                "ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch",
+                "ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                "ModelicaAdditions.Blocks.Logical.Boolean2Real",
+                "ModelicaAdditions.Blocks.Logical.GreaterThan",
+                "ModelicaAdditions.Blocks.Logical.GreaterEqual",
+                "ModelicaAdditions.Blocks.Logical.LessThan",
+                "ModelicaAdditions.Blocks.Logical.LessEqual",
+                "ModelicaAdditions.Blocks.Logical.Hysteresis",
+                "ModelicaAdditions.Blocks.Logical.Compare",
+                "ModelicaAdditions.Blocks.Logical.ZeroCrossing",
+                "ModelicaAdditions.Blocks.Logical.OnOffController",
+                "ModelicaAdditions.Blocks.Nonlinear.FixedDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.PadeDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.VarDelay",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "outPort.signal[1]", "y");
+
+// outPort1.signal[1] -> y1
+
+// outPort2.signal[1] -> y2
+
+// outPort -> y
+convertElement({"Modelica.Blocks.Interfaces.SO",
+                "Modelica.Blocks.Interfaces.MO",
+                "Modelica.Blocks.Interfaces.SISO",
+                "Modelica.Blocks.Interfaces.SI2SO",
+                "Modelica.Blocks.Interfaces.SIMO",
+                "Modelica.Blocks.Interfaces.MISO",
+                "Modelica.Blocks.Interfaces.MIMO",
+                "Modelica.Blocks.Interfaces.MIMOs",
+                "Modelica.Blocks.Interfaces.MI2MO",
+                "Modelica.Blocks.Interfaces.SVcontrol",
+                "Modelica.Blocks.Interfaces.MVcontrol",
+                "Modelica.Blocks.Interfaces.BooleanSISO",
+                "Modelica.Blocks.Interfaces.BooleanMIMOs",
+                "Modelica.Blocks.Interfaces.MI2BooleanMOs",
+                "Modelica.Blocks.Interfaces.BooleanSignalSource",
+                "Modelica.Blocks.Interfaces.IntegerMO",
+                "Modelica.Blocks.Interfaces.IntegerMIBooleanMOs",
+                "Modelica.Blocks.Continuous.Integrator",
+                "Modelica.Blocks.Continuous.LimIntegrator",
+                "Modelica.Blocks.Continuous.Derivative",
+                "Modelica.Blocks.Continuous.FirstOrder",
+                "Modelica.Blocks.Continuous.SecondOrder",
+                "Modelica.Blocks.Continuous.PI",
+                "Modelica.Blocks.Continuous.PID",
+                "Modelica.Blocks.Continuous.LimPID",
+                "Modelica.Blocks.Continuous.TransferFunction",
+                "Modelica.Blocks.Continuous.Der",
+                "Modelica.Blocks.Math.Gain",
+                "Modelica.Blocks.Math.Sum",
+                "Modelica.Blocks.Math.Feedback",
+                "Modelica.Blocks.Math.Add",
+                "Modelica.Blocks.Math.Add3",
+                "Modelica.Blocks.Math.Product",
+                "Modelica.Blocks.Math.Division",
+                "Modelica.Blocks.Math.Abs",
+                "Modelica.Blocks.Math.Sign",
+                "Modelica.Blocks.Math.Sqrt",
+                "Modelica.Blocks.Math.Sin",
+                "Modelica.Blocks.Math.Cos",
+                "Modelica.Blocks.Math.Tan",
+                "Modelica.Blocks.Math.Asin",
+                "Modelica.Blocks.Math.Acos",
+                "Modelica.Blocks.Math.Atan",
+                "Modelica.Blocks.Math.Atan2",
+                "Modelica.Blocks.Math.Sinh",
+                "Modelica.Blocks.Math.Cosh",
+                "Modelica.Blocks.Math.Sinh",
+                "Modelica.Blocks.Math.Tanh",
+                "Modelica.Blocks.Math.Exp",
+                "Modelica.Blocks.Math.Log",
+                "Modelica.Blocks.Math.Log10",
+                "Modelica.Blocks.Math.RealToInteger",
+                "Modelica.Blocks.Math.IntegerToReal",
+                "Modelica.Blocks.Math.Max",
+                "Modelica.Blocks.Math.Min",
+                "Modelica.Blocks.Math.Edge",
+                "Modelica.Blocks.Math.BooleanChange",
+                "Modelica.Blocks.Math.IntegerChange",
+                "Modelica.Blocks.Nonlinear.Limiter",
+                "Modelica.Blocks.Nonlinear.VariableLimiter",
+                "Modelica.Blocks.Nonlinear.DeadZone",
+                "Modelica.Blocks.Sources.Clock",
+                "Modelica.Blocks.Sources.Constant",
+                "Modelica.Blocks.Sources.Step",
+                "Modelica.Blocks.Sources.Ramp",
+                "Modelica.Blocks.Sources.Sine",
+                "Modelica.Blocks.Sources.ExpSine",
+                "Modelica.Blocks.Sources.Exponentials",
+                "Modelica.Blocks.Sources.Pulse",
+                "Modelica.Blocks.Sources.SawTooth",
+                "Modelica.Blocks.Sources.Trapezoid",
+                "Modelica.Blocks.Sources.TimeTable",
+                "Modelica.Blocks.Sources.BooleanConstant",
+                "Modelica.Blocks.Sources.BooleanStep",
+                "Modelica.Blocks.Sources.BooleanPulse",
+                "Modelica.Blocks.Sources.SampleTrigger",
+                "Modelica.Blocks.Sources.IntegerConstant",
+                "Modelica.Blocks.Sources.IntegerStep",
+                "Modelica.Blocks.Interfaces.BusAdaptors.ReceiveReal",
+                "Modelica.Blocks.Interfaces.BusAdaptors.ReceiveBoolean",
+                "Modelica.Blocks.Interfaces.BusAdaptors.ReceiveInteger",
+                "Modelica.Electrical.Analog.Interfaces.AbsoluteSensor",
+                "Modelica.Electrical.Analog.Interfaces.RelativeSensor",
+                "ModelicaAdditions.Blocks.Continuous.ButterLow",
+                "ModelicaAdditions.Blocks.Continuous.CritDamping",
+                "ModelicaAdditions.Blocks.Discrete.Sampler",
+                "ModelicaAdditions.Blocks.Discrete.ZeroOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.FirstOrderHold",
+                "ModelicaAdditions.Blocks.Discrete.UnitDelay",
+                "ModelicaAdditions.Blocks.Discrete.TransferFunction",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+                "ModelicaAdditions.Blocks.Discrete.TriggeredMax",
+                "ModelicaAdditions.Blocks.Discrete.Interfaces.DiscreteSISO",
+                "ModelicaAdditions.Blocks.Logical.NOT",
+                "ModelicaAdditions.Blocks.Logical.OR",
+                "ModelicaAdditions.Blocks.Logical.AND",
+                "ModelicaAdditions.Blocks.Logical.XOR",
+                "ModelicaAdditions.Blocks.Logical.NOR",
+                "ModelicaAdditions.Blocks.Logical.NAND",
+                "ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch",
+                "ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                "ModelicaAdditions.Blocks.Logical.Boolean2Real",
+                "ModelicaAdditions.Blocks.Logical.GreaterThan",
+                "ModelicaAdditions.Blocks.Logical.GreaterEqual",
+                "ModelicaAdditions.Blocks.Logical.LessThan",
+                "ModelicaAdditions.Blocks.Logical.LessEqual",
+                "ModelicaAdditions.Blocks.Logical.Hysteresis",
+                "ModelicaAdditions.Blocks.Logical.Compare",
+                "ModelicaAdditions.Blocks.Logical.ZeroCrossing",
+                "ModelicaAdditions.Blocks.Logical.OnOffController",
+                "ModelicaAdditions.Blocks.Multiplexer.Extractor",
+                "ModelicaAdditions.Blocks.Nonlinear.FixedDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.PadeDelay",
+                "ModelicaAdditions.Blocks.Nonlinear.VarDelay",
+                "ModelicaAdditions.Tables.CombiTableTime",
+                "ModelicaAdditions.Tables.CombiTableTime2",
+                "ModelicaAdditions.Tables.CombiTable1D",
+                "ModelicaAdditions.Tables.CombiTable1Ds",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "outPort", "y");
+
+// outPort1 -> y1
+convertElement({"Modelica.Blocks.Math.TwoOutputs"},
+                "OutPort1", "y1");
+
+// outPort2 -> y2
+convertElement({"Modelica.Blocks.Math.TwoOutputs"},
+                "OutPort2", "y2");
+
+// outPort.signal -> y
+convertElement({"Modelica.Blocks.Continuous.StateSpace",
+                "Modelica.Blocks.Math.MatrixGain",
+                "Modelica.Blocks.Sources.KinematicPTP",
+                "Modelica.Blocks.Interfaces.MO",
+                "Modelica.Blocks.Interfaces.SIMO",
+                "Modelica.Blocks.Interfaces.MIMO",
+                "Modelica.Blocks.Interfaces.MIMOs",
+                "Modelica.Blocks.Interfaces.MI2MO",
+                "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
+                "ModelicaAdditions.Tables.CombiTableTime",
+                "ModelicaAdditions.Tables.CombiTableTime2",
+                "ModelicaAdditions.Tables.CombiTable1D",
+                "ModelicaAdditions.Tables.CombiTable1Ds",
+                "MultiBody.Interfaces.PartialAbsoluteSensor",
+                "MultiBody.Interfaces.PartialRelativeSensor",
+                "MultiBody.Sensors.AbsoluteSensor",
+                "MultiBody.Sensors.RelativeSensor"},
+                "outPort.signal", "y");
+
+// outPort.signal -> {y}
+convertElement({"Modelica.Blocks.Interfaces.SO",
+                "Modelica.Blocks.Interfaces.SISO",
+                "Modelica.Blocks.Interfaces.SI2SO",
+                "Modelica.Blocks.Interfaces.MISO",
+                "Modelica.Blocks.Interfaces.SVcontrol",
+                "Modelica.Blocks.Interfaces.MVcontrol",
+                "Modelica.Blocks.Interfaces.BooleanSISO",
+                "Modelica.Blocks.Interfaces.BooleanMIMOs",
+                "Modelica.Blocks.Interfaces.MI2BooleanMOs",
+                "Modelica.Blocks.Interfaces.BooleanSignalSource",
+                "Modelica.Blocks.Interfaces.IntegerMO",
+                "Modelica.Blocks.Interfaces.IntegerMIBooleanMOs",
+                "Modelica.Blocks.Continuous.Integrator",
+                "Modelica.Blocks.Continuous.LimIntegrator",
+                "Modelica.Blocks.Continuous.Derivative",
+                "Modelica.Blocks.Continuous.FirstOrder",
+                "Modelica.Blocks.Continuous.SecondOrder",
+                "Modelica.Blocks.Continuous.PI",
+                "Modelica.Blocks.Continuous.PID",
+                "Modelica.Blocks.Continuous.LimPID",
+                "Modelica.Blocks.Continuous.TransferFunction",
+                "Modelica.Blocks.Continuous.Der",
+                "Modelica.Blocks.Math.Gain",
+                "Modelica.Blocks.Math.Sum",
+                "Modelica.Blocks.Math.Feedback",
+                "Modelica.Blocks.Math.Add",
+                "Modelica.Blocks.Math.Add3",
+                "Modelica.Blocks.Math.Product",
+                "Modelica.Blocks.Math.Division",
+                "Modelica.Blocks.Math.Abs",
+                "Modelica.Blocks.Math.Sign",
+                "Modelica.Blocks.Math.Sqrt",
+                "Modelica.Blocks.Math.Sin",
+                "Modelica.Blocks.Math.Cos",
+                "Modelica.Blocks.Math.Tan",
+                "Modelica.Blocks.Math.Asin",
+                "Modelica.Blocks.Math.Acos",
+                "Modelica.Blocks.Math.Atan",
+                "Modelica.Blocks.Math.Atan2",
+                "Modelica.Blocks.Math.Sinh",
+                "Modelica.Blocks.Math.Cosh",
+                "Modelica.Blocks.Math.Sinh",
+                "Modelica.Blocks.Math.Tanh",
+                "Modelica.Blocks.Math.Exp",
+                "Modelica.Blocks.Math.Log",
+                "Modelica.Blocks.Math.Log10",
+                "Modelica.Blocks.Math.RealToInteger",
+                "Modelica.Blocks.Math.IntegerToReal",
+                "Modelica.Blocks.Math.Max",
+                "Modelica.Blocks.Math.Min",
+                "Modelica.Blocks.Math.Edge",
+                "Modelica.Blocks.Math.BooleanChange",
+                "Modelica.Blocks.Math.IntegerChange",
+                "Modelica.Blocks.Nonlinear.Limiter",
+                "Modelica.Blocks.Nonlinear.VariableLimiter",
+                "Modelica.Blocks.Nonlinear.DeadZone",
+                "Modelica.Blocks.Sources.Clock",
+                "Modelica.Blocks.Sources.Constant",
+                "Modelica.Blocks.Sources.Step",
+                "Modelica.Blocks.Sources.Ramp",
+                "Modelica.Blocks.Sources.Sine",
+                "Modelica.Blocks.Sources.ExpSine",
+                "Modelica.Blocks.Sources.Exponentials",
+                "Modelica.Blocks.Sources.Pulse",
+                "Modelica.Blocks.Sources.SawTooth",
+                "Modelica.Blocks.Sources.Trapezoid",
+                "Modelica.Blocks.Sources.TimeTable",
+                "Modelica.Blocks.Sources.BooleanConstant",
+                "Modelica.Blocks.Sources.BooleanStep",
+                "Modelica.Blocks.Sources.BooleanPulse",
+                "Modelica.Blocks.Sources.SampleTrigger",
+                "Modelica.Blocks.Sources.IntegerConstant",
+                "Modelica.Blocks.Sources.IntegerStep"},
+                "outPort.signal", "{y}");
+
+// outPort1.signal -> {y1}
+
+// outPort2.signal -> {y2}
+
+// outPort -> y[1]
+convertElement({"Modelica.Blocks.Continuous.StateSpace",
+                "Modelica.Blocks.Math.MatrixGain",
+                "Modelica.Blocks.Sources.KinematicPTP",
+                "ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6",
+                "ModelicaAdditions.Blocks.Discrete.StateSpace",
+                "ModelicaAdditions.Tables.CombiTableTime",
+                "ModelicaAdditions.Tables.CombiTableTime2",
+                "ModelicaAdditions.Tables.CombiTable1D",
+                "ModelicaAdditions.Tables.CombiTable1Ds",
+                "MultiBody.Interfaces.PartialAbsoluteSensor",
+                "MultiBody.Interfaces.PartialRelativeSensor",
+                "MultiBody.Sensors.AbsoluteSensor",
+                "MultiBody.Sensors.RelativeSensor"},
+                "outPort", "y[1]");
+
+
+// -----------------------------------------------------------------------------------
+
+convertModifiers({"Modelica.Blocks.Interfaces.BooleanInPort",
+                  "Modelica.Blocks.Interfaces.BooleanOutPort",
+                  "Modelica.Blocks.Interfaces.IntegerInPort",
+                  "Modelica.Blocks.Interfaces.IntegerOutPort",
+                  "Modelica.Blocks.Interfaces.InPort",
+                  "Modelica.Blocks.Interfaces.OutPort"},
+                  {"n=1"},{"size=%n%"});
+
+convertModifiers({"Modelica.Blocks.Continuous.Der",
+                  "Modelica.Blocks.Math.TwoInputs",
+                  "Modelica.Blocks.Math.TwoOutputs",
+                  "Modelica.Blocks.Math.Feedback",
+                  "Modelica.Blocks.Math.Add",
+                  "Modelica.Blocks.Math.Add3",
+                  "Modelica.Blocks.Math.Product",
+                  "Modelica.Blocks.Math.Division",
+                  "Modelica.Blocks.Math.Abs",
+                  "Modelica.Blocks.Math.Sign",
+                  "Modelica.Blocks.Math.Sqrt",
+                  "Modelica.Blocks.Math.Sin",
+                  "Modelica.Blocks.Math.Cos",
+                  "Modelica.Blocks.Math.Tan",
+                  "Modelica.Blocks.Math.Asin",
+                  "Modelica.Blocks.Math.Acos",
+                  "Modelica.Blocks.Math.Atan",
+                  "Modelica.Blocks.Math.Atan2",
+                  "Modelica.Blocks.Math.Sinh",
+                  "Modelica.Blocks.Math.Cosh",
+                  "Modelica.Blocks.Math.Tanh",
+                  "Modelica.Blocks.Math.Exp",
+                  "Modelica.Blocks.Math.Log",
+                  "Modelica.Blocks.Math.Log10",
+                  "Modelica.Blocks.Math.RealToInteger",
+                  "Modelica.Blocks.Math.IntegerToReal",
+                  "Modelica.Blocks.Math.Max",
+                  "Modelica.Blocks.Math.Min",
+                  "Modelica.Blocks.Math.Edge",
+                  "Modelica.Blocks.Math.BooleanChange",
+                  "Modelica.Blocks.Math.IntegerChange",
+                  "Modelica.Blocks.Nonlinear.VariableLimiter"},
+                  {"n=1"},{"size=%n%"});
+
+convertModifiers({"ModelicaAdditions.Blocks.Discrete.Sampler",
+                  "ModelicaAdditions.Blocks.Discrete.ZeroOrderHold",
+                  "ModelicaAdditions.Blocks.Discrete.FirstOrderHold",
+                  "ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+                  "ModelicaAdditions.Blocks.Discrete.TriggeredMax",
+                  "ModelicaAdditions.Blocks.Logical.Compare",
+                  "ModelicaAdditions.Blocks.Logical.Switch",
+                  "ModelicaAdditions.Blocks.Logical.ZeroCrossing",
+                  "ModelicaAdditions.Blocks.Logical.Boolean2Real"},
+                  {"n=1"},{"size=%n%"});
+
+convertElement({"MultiBody.Forces.WorldForce",
+                "MultiBody.Forces.FrameForce",
+                "MultiBody.Forces.Force"},
+                "inPort.signal", "force");
+
+convertElement({"MultiBody.Forces.WorldTorque",
+                "MultiBody.Forces.FrameTorque",
+                "MultiBody.Forces.Torque"},
+                "inPort.signal", "torque");
+
+convertElement({"MultiBody.Forces.ForceAndTorque",
+                "MultiBody.Forces.FrameForceAndTorque",
+                "MultiBody.Forces.ForceAndTorque"},
+                "inPort.signal", "load");
+
+convertElement({"MultiBody.Forces.WorldForce",
+                "MultiBody.Forces.FrameForce",
+                "MultiBody.Forces.Force"},
+                "inPort.signal", "force");
+
+convertElement({"MultiBody.Forces.WorldTorque",
+                "MultiBody.Forces.FrameTorque",
+                "MultiBody.Forces.Torque"},
+                "inPort.signal", "torque");
+
+convertElement({"MultiBody.Forces.ForceAndTorque",
+                "MultiBody.Forces.FrameForceAndTorque",
+                "MultiBody.Forces.ForceAndTorque"},
+                "inPort.signal", "load");
+
+convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
+                  "ModelicaAdditions.Tables.CombiTable1D",
+                  "ModelicaAdditions.Tables.CombiTable1Ds"},
+                  {"icol"},{"columns=integer(%icol%)"});
+
+//-----------------------------------------------------------------------------
+// Convert elements from old to new block connectors
+//-----------------------------------------------------------------------------
+convertElement({"Modelica.Blocks.Interfaces.InPort",
+                "Modelica.Blocks.Interfaces.OutPort",
+                "Modelica.Blocks.Interfaces.BooleanInPort",
+                "Modelica.Blocks.Interfaces.BooleanOutPort",
+                "Modelica.Blocks.Interfaces.IntegerInPort",
+                "Modelica.Blocks.Interfaces.IntegerOutPort"},
+                "signal[1]", "");
+
+
+
+//-----------------------------------------------------------------------------
+// Convert classes of Modelica.Blocks.Interfaces
+//-----------------------------------------------------------------------------
+
+convertClass("Modelica.Blocks.Interfaces.InPort",
+             "Modelica.Blocks.Interfaces.RealInput");
+
+convertClass("Modelica.Blocks.Interfaces.OutPort",
+             "Modelica.Blocks.Interfaces.RealOutput");
+
+convertClass("Modelica.Blocks.Interfaces.BooleanInPort",
+             "Modelica.Blocks.Interfaces.BooleanInput");
+
+convertClass("Modelica.Blocks.Interfaces.BooleanOutPort",
+             "Modelica.Blocks.Interfaces.BooleanOutput");
+
+convertClass("Modelica.Blocks.Interfaces.IntegerInPort",
+             "Modelica.Blocks.Interfaces.IntegerInput");
+
+convertClass("Modelica.Blocks.Interfaces.IntegerOutPort",
+             "Modelica.Blocks.Interfaces.IntegerOutput");
+
+convertClass("Modelica.Blocks.Interfaces.RealPort",
+             "Modelica.Blocks.Interfaces.RealSignal");
+
+convertClass("Modelica.Blocks.Interfaces.BooleanPort",
+             "Modelica.Blocks.Interfaces.BooleanSignal");
+
+convertClass("Modelica.Blocks.Interfaces.IntegerPort",
+             "Modelica.Blocks.Interfaces.IntegerSignal");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.SendReal",
+             "Modelica.Blocks.Interfaces.Adaptors.SendReal");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.SendBoolean",
+             "Modelica.Blocks.Interfaces.Adaptors.SendBoolean");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.SendInteger",
+             "Modelica.Blocks.Interfaces.Adaptors.SendInteger");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.ReceiveReal",
+             "Modelica.Blocks.Interfaces.Adaptors.ReceiveReal");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.ReceiveBoolean",
+             "Modelica.Blocks.Interfaces.Adaptors.ReceiveBoolean");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.ReceiveInteger",
+             "Modelica.Blocks.Interfaces.Adaptors.ReceiveInteger");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputReal",
+             "Modelica.Blocks.Interfaces.RealInput");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputBoolean",
+             "Modelica.Blocks.Interfaces.BooleanInput");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.Internal.InputInteger",
+             "Modelica.Blocks.Interfaces.IntegerInput");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputReal",
+             "Modelica.Blocks.Interfaces.RealOutput");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputBoolean",
+             "Modelica.Blocks.Interfaces.BooleanOutput");
+
+convertClass("Modelica.Blocks.Interfaces.BusAdaptors.Internal.OutputInteger",
+             "Modelica.Blocks.Interfaces.IntegerOutput");
+
+
+//-----------------------------------------------------------------------------
+// Convert rest of Modelica.Blocks.Continuous
+//-----------------------------------------------------------------------------
+
+convertModifiers("Modelica.Blocks.Continuous.Integrator",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.Integrator",
+                 {"y0={0}"},
+                 {"y_start=scalar(%y0%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.LimIntegrator",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.LimIntegrator",
+                 {"outMax={1}"},
+                 {"outMax=scalar(%outMax%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.LimIntegrator",
+                 {"outMin={-1}"},
+                 {"outMin=scalar(%outMin%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.LimIntegrator",
+                 {"y0={0}"},
+                 {"y_start=scalar(%y0%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.Derivative",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.Derivative",
+                 {"T={0.01}"},
+                 {"T=scalar(%T%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.FirstOrder",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.FirstOrder",
+                 {"T={1}"},
+                 {"T=scalar(%T%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.SecondOrder",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.SecondOrder",
+                 {"w={1}"},
+                 {"w=scalar(%w%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.SecondOrder",
+                 {"D={1}"},
+                 {"D=scalar(%D%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.PI",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Continuous.PI",
+                 {"T={1}"},
+                 {"T=scalar(%T%)"});
+
+
+//-----------------------------------------------------------------------------
+// Convert rest of Modelica.Blocks.Math and .Nonlinear
+//-----------------------------------------------------------------------------
+
+convertModifiers("Modelica.Blocks.Math.Gain",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Nonlinear.Limiter",
+                 {"uMax={1}"},
+                 {"uMax=scalar(%uMax%)"});
+
+convertModifiers("Modelica.Blocks.Nonlinear.Limiter",
+                 {"uMin={-1}"},
+                 {"uMin=scalar(%uMin%)"});
+
+convertModifiers("Modelica.Blocks.Nonlinear.DeadZone",
+                 {"uMax={1}"},
+                 {"uMax=scalar(%uMax%)"});
+
+convertModifiers("Modelica.Blocks.Nonlinear.DeadZone",
+                 {"uMin={-1}"},
+                 {"uMin=scalar(%uMin%)"});
+
+
+//-----------------------------------------------------------------------------
+// Convert rest of Modelica.Blocks.Sources
+//-----------------------------------------------------------------------------
+
+convertModifiers("Modelica.Blocks.Sources.Clock",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Clock",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Constant",
+                 {"k={1}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Step",
+                 {"height={1}"},
+                 {"height=scalar(%height%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Step",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Step",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Ramp",
+                 {"height={1}"},
+                 {"height=scalar(%height%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Ramp",
+                 {"duration={2}"},
+                 {"duration=scalar(%duration%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Ramp",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Ramp",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Sine",
+                 {"amplitude={1}"},
+                 {"amplitude=scalar(%amplitude%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Sine",
+                 {"freqHz={1}"},
+                 {"freqHz=scalar(%freqHz%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Sine",
+                 {"phase={0}"},
+                 {"phase=scalar(%phase%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Sine",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Sine",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.ExpSine",
+                 {"amplitude={1}"},
+                 {"amplitude=scalar(%amplitude%)"});
+
+convertModifiers("Modelica.Blocks.Sources.ExpSine",
+                 {"freqHz={1}"},
+                 {"freqHz=scalar(%freqHz%)"});
+
+convertModifiers("Modelica.Blocks.Sources.ExpSine",
+                 {"phase={0}"},
+                 {"phase=scalar(%phase%)"});
+
+convertModifiers("Modelica.Blocks.Sources.ExpSine",
+                 {"damping={1}"},
+                 {"damping=scalar(%damping%)"});
+
+convertModifiers("Modelica.Blocks.Sources.ExpSine",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.ExpSine",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Exponentials",
+                 {"outMax={1}"},
+                 {"outMax=scalar(%outMax%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Exponentials",
+                 {"riseTime={0.5}"},
+                 {"riseTime=scalar(%riseTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Exponentials",
+                 {"riseTimeConst={0.1}"},
+                 {"riseTimeConst=scalar(%riseTimeConst%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Exponentials",
+                 {"fallTimeConst={0.1}"},
+                 {"fallTimeConst=scalar(%fallTimeConst%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Exponentials",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Exponentials",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Pulse",
+                 {"amplitude={1}"},
+                 {"amplitude=scalar(%amplitude%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Pulse",
+                 {"width={50}"},
+                 {"width=scalar(%width%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Pulse",
+                 {"period={1}"},
+                 {"period=scalar(%period%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Pulse",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Pulse",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.SawTooth",
+                 {"amplitude={1}"},
+                 {"amplitude=scalar(%amplitude%)"});
+
+convertModifiers("Modelica.Blocks.Sources.SawTooth",
+                 {"period={1}"},
+                 {"period=scalar(%period%)"});
+
+convertModifiers("Modelica.Blocks.Sources.SawTooth",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.SawTooth",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"amplitude={1}"},
+                 {"amplitude=scalar(%amplitude%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"rising={0}"},
+                 {"rising=scalar(%rising%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"width={0.5}"},
+                 {"width=scalar(%width%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"falling={0}"},
+                 {"falling=scalar(%falling%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"period={1}"},
+                 {"period=scalar(%period%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"nperiod={-1}"},
+                 {"nperiod=scalar(%nperiod%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.Trapezoid",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.TimeTable",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.TimeTable",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.BooleanConstant",
+                 {"k={true}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Sources.BooleanStep",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.BooleanStep",
+                 {"startValue={false}"},
+                 {"startValue=scalar(%startValue%)"});
+
+convertModifiers("Modelica.Blocks.Sources.BooleanPulse",
+                 {"width={50}"},
+                 {"width=scalar(%width%)"});
+
+convertModifiers("Modelica.Blocks.Sources.BooleanPulse",
+                 {"period={1}"},
+                 {"period=scalar(%period%)"});
+
+convertModifiers("Modelica.Blocks.Sources.BooleanPulse",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.SampleTrigger",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertModifiers("Modelica.Blocks.Sources.SampleTrigger",
+                 {"period={1}"},
+                 {"period=scalar(%period%)"});
+
+convertModifiers("Modelica.Blocks.Sources.IntegerConstant",
+                 {"k={true}"},
+                 {"k=scalar(%k%)"});
+
+convertModifiers("Modelica.Blocks.Sources.IntegerStep",
+                 {"height={1}"},
+                 {"height=scalar(%height%)"});
+
+convertModifiers("Modelica.Blocks.Sources.IntegerStep",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("Modelica.Blocks.Sources.IntegerStep",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+//-----------------------------------------------------------------------------
+// Convert Modelica.Constants
+//-----------------------------------------------------------------------------
+
+convertClass("Modelica.Constants.E", "Modelica.Constants.e");
+convertClass("Modelica.Constants.PI", "Modelica.Constants.pi");
+convertClass("Modelica.Constants.EPS", "Modelica.Constants.eps");
+convertClass("Modelica.Constants.SMALL", "Modelica.Constants.small");
+convertClass("Modelica.Constants.INF", "Modelica.Constants.inf");
+convertClass("Modelica.Constants.INTEGER_INF", "Modelica.Constants.Integer_inf");
+convertClass("Modelica.Constants.C", "Modelica.Constants.c");
+convertClass("Modelica.Constants.H", "Modelica.Constants.h");
+convertClass("Modelica.Constants.K", "Modelica.Constants.k");
+convertClass("Modelica.Constants.R0", "Modelica.Constants.R");
+convertClass("Modelica.Constants.SIGMA", "Modelica.Constants.sigma");
+convertClass("Modelica.Constants.G_EARTH", "Modelica.Constants.g_n");
+convertClass("Modelica.Constants.T_ZERO", "Modelica.Constants.T_zero");
+
+//-----------------------------------------------------------------------------
+// Convert Modelica.Electrical.Analog and .MultiPhase
+//-----------------------------------------------------------------------------
+
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor",
+               {"firePort","firePort.signal[1]"}, {"fire","fire"});
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor",
+               {"firePort","firePort.signal[1]"},{"fire","fire"});
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor",
+               {"firePort","firePort.signal"},   {"fire[1]","fire"});
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor",
+               {"firePort","firePort.signal"},   {"fire[1]","fire"});
+
+convertElement("Modelica.Electrical.Analog.Sensors.PotentialSensor",
+               {"outPort","outPort.signal[1]"}, {"phi","phi"});
+convertElement("Modelica.Electrical.MultiPhase.Sensors.PotentialSensor",
+               {"outPort","outPort.signal"},    {"phi[1]","phi"});
+
+convertElement("Modelica.Electrical.Analog.Sensors.VoltageSensor",
+               {"outPort","outPort.signal[1]"}, {"v","v"});
+convertElement("Modelica.Electrical.MultiPhase.Sensors.VoltageSensor",
+               {"outPort","outPort.signal"},    {"v[1]","v"});
+
+convertElement("Modelica.Electrical.Analog.Sensors.CurrentSensor",
+               {"outPort","outPort.signal[1]"}, {"i","i"});
+convertElement("Modelica.Electrical.MultiPhase.Sensors.CurrentSensor",
+               {"outPort","outPort.signal"},    {"i[1]","i"});
+
+convertElement("Modelica.Electrical.Analog.Sources.SignalVoltage",
+               {"inPort","inPort.signal[1]"},   {"v","v"});
+convertElement("Modelica.Electrical.MultiPhase.Sources.SignalVoltage",
+               {"inPort","inPort.signal"},      {"v[1]","v"});
+
+convertElement("Modelica.Electrical.Analog.Sources.SignalCurrent",
+               {"inPort","inPort.signal[1]"},   {"i","i"});
+convertElement("Modelica.Electrical.MultiPhase.Sources.SignalCurrent",
+               {"inPort","inPort.signal"},   {"i[1]","i"});
+
+convertElement("Modelica.Electrical.Analog.Basic.VariableCapacitor",
+ {"C_Port","C_Port.signal[1]"},       {"C","C"});
+convertElement("Modelica.Electrical.Analog.Basic.VariableConductor",
+ {"G_Port","G_Port.signal[1]"},       {"G","G"});
+convertElement("Modelica.Electrical.Analog.Basic.VariableResistor",
+ {"R_Port","R_Port.signal[1]"},       {"R","R"});
+convertElement("Modelica.Electrical.Analog.Basic.VariableInductor",
+ {"L_Port","L_Port.signal[1]"},       {"L","L"});
+
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableCapacitor",
+ {"C_Port","C_Port.signal"},          {"C[1]","C"});
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableConductor",
+ {"G_Port","G_Port.signal"},          {"G[1]","G"});
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableResistor",
+ {"R_Port","R_Port.signal"},          {"R[1]","R"});
+convertElement("Modelica.Electrical.MultiPhase.Basic.VariableInductor",
+ {"L_Port","L_Port.signal"},          {"L[1]","L"});
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealSwitch",
+               "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealSwitch", "Gon" , "Goff");
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch",
+               "Modelica.Electrical.Analog.Ideal.ControlledIdealOpeningSwitch");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.ControlledIdealSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "off" , "control");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealDiode", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealDiode", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.Analog.Ideal.IdealGTOThyristor", "Gon" , "Goff");
+
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealOpener",
+               "Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch");
+convertClass  ("Modelica.Electrical.Analog.Ideal.IdealCloser",
+               "Modelica.Electrical.Analog.Ideal.IdealClosingSwitch");
+
+convertElement({"Modelica.Electrical.Analog.Ideal.IdealSwitch",
+  "Modelica.Electrical.Analog.Ideal.IdealOpener",
+  "Modelica.Electrical.Analog.Ideal.IdealCloser",
+  "Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch",
+  "Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch"},
+   "control.signal[1]", "control");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "off" , "control");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "off" , "control");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealDiode", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealDiode", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealThyristor", "Gon" , "Goff");
+
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Roff", "Ron");
+convertElement("Modelica.Electrical.MultiPhase.Ideal.IdealGTOThyristor", "Gon" , "Goff");
+
+convertClass  ("Modelica.Electrical.MultiPhase.Ideal.IdealOpener",
+               "Modelica.Electrical.MultiPhase.Ideal.IdealOpeningSwitch");
+convertClass  ("Modelica.Electrical.MultiPhase.Ideal.IdealCloser",
+               "Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch");
+
+convertElement({"Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"},
+   "control.signal", "control");
+convertElement({"Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealIntermediateSwitch",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealOpener",
+  "Modelica.Electrical.MultiPhase.Ideal.IdealCloser"},
+   "control", "control[1]");
+
+//-----------------------------------------------------------------------------
+// Convert Matrices to Modelica.Math.Matrices
+//-----------------------------------------------------------------------------
+
+convertClass("Matrices",
+             "Modelica.Math.Matrices");
+
+
+//-----------------------------------------------------------------------------
+// Convert MultiBody to Modelica.Mechanics.MultiBody
+//-----------------------------------------------------------------------------
+
+convertElement({"MultiBody.Forces.WorldForce",
+                "MultiBody.Forces.FrameForce",
+                "MultiBody.Forces.Force"},
+                "inPort", "force[1]");
+
+convertElement({"MultiBody.Forces.WorldTorque",
+                "MultiBody.Forces.FrameTorque",
+                "MultiBody.Forces.Torque"},
+                "inPort", "torque[1]");
+
+convertElement({"MultiBody.Forces.ForceAndTorque",
+                "MultiBody.Forces.FrameForceAndTorque",
+                "MultiBody.Forces.ForceAndTorque"},
+                "inPort", "load[1]");
+
+convertElement({"MultiBody.Interfaces.PartialAbsoluteSensor",
+                "MultiBody.Interfaces.PartialRelativeSensor",
+                "MultiBody.Sensors.AbsoluteSensor",
+                "MultiBody.Sensors.RelativeSensor"},
+                "outPort", "y[1]");
+
+convertElement({"MultiBody.Sensors.Distance"},
+                "outPort", "distance[1]");
+
+convertElement({"MultiBody.Sensors.CutForce"},
+                "outPort", "force[1]");
+
+convertElement({"MultiBody.Sensors.CutTorque"},
+                "outPort", "torque[1]");
+
+convertElement({"MultiBody.Sensors.CutForceAndTorque"},
+                "outPort", "load[1]");
+
+convertElement({"MultiBody.Sensors.Power"},
+                "outPort", "power");
+
+convertClass("MultiBody",
+             "Modelica.Mechanics.MultiBody");
+
+
+//-----------------------------------------------------------------------------
+// Convert Modelica.Mechanics.Rotational
+//-----------------------------------------------------------------------------
+
+convertElement({"Modelica.Mechanics.Rotational.Clutch",
+                "Modelica.Mechanics.Rotational.OneWayClutch",
+                "Modelica.Mechanics.Rotational.Brake"},
+                "inPort.signal[1]", "f_normalized");
+
+convertElement({"Modelica.Mechanics.Rotational.Clutch",
+                "Modelica.Mechanics.Rotational.OneWayClutch",
+                "Modelica.Mechanics.Rotational.Brake"},
+                "inPort", "f_normalized");
+
+convertElement({"Modelica.Mechanics.Rotational.Position"},
+                "inPort.signal[1]", "phi_ref");
+
+convertElement({"Modelica.Mechanics.Rotational.Position"},
+                "inPort", "phi_ref");
+
+convertElement({"Modelica.Mechanics.Rotational.Speed"},
+                "inPort.signal[1]", "w_ref");
+
+convertElement({"Modelica.Mechanics.Rotational.Speed"},
+                "inPort", "w_ref");
+
+convertElement({"Modelica.Mechanics.Rotational.Accelerate"},
+                "inPort.signal[1]", "a");
+
+convertElement({"Modelica.Mechanics.Rotational.Accelerate"},
+                "inPort", "a");
+
+convertElement("Modelica.Mechanics.Rotational.Move",
+                {"inPort","inPort.signal"},{"u[1]","u"});
+
+convertElement({"Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.Torque2"},
+                "inPort.signal[1]", "tau");
+
+convertElement({"Modelica.Mechanics.Rotational.Torque",
+                "Modelica.Mechanics.Rotational.Torque2"},
+                "inPort", "tau");
+
+convertElement({"Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+                "Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"},
+                "outPort.signal[1]", "y");
+
+convertElement({"Modelica.Mechanics.Rotational.Interfaces.AbsoluteSensor",
+                "Modelica.Mechanics.Rotational.Interfaces.RelativeSensor"},
+                "outPort", "y");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.TorqueSensor"},
+                "outPort.signal[1]", "tau");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.TorqueSensor"},
+                "outPort", "tau");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AngleSensor"},
+                "outPort.signal[1]", "phi");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AngleSensor"},
+                "outPort", "phi");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.SpeedSensor"},
+                "outPort.signal[1]", "w");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.SpeedSensor"},
+                "outPort", "w");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AccSensor"},
+                "outPort.signal[1]", "a");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.AccSensor"},
+                "outPort", "a");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"},
+                "outPort.signal[1]", "phi_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"},
+                "outPort", "phi_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"},
+                "outPort.signal[1]", "w_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"},
+                "outPort", "w_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAccSensor"},
+                "outPort.signal[1]", "a_rel");
+
+convertElement({"Modelica.Mechanics.Rotational.Sensors.RelAccSensor"},
+                "outPort", "a_rel");
+
+
+//-----------------------------------------------------------------------------
+// Convert Modelica.Mechanics.Translational
+//-----------------------------------------------------------------------------
+
+convertElement({"Modelica.Mechanics.Translational.Position"},
+                "inPort.signal[1]", "s_ref");
+
+convertElement({"Modelica.Mechanics.Translational.Position"},
+                "inPort", "s_ref");
+
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},
+                "inPort.signal[1]", "a");
+
+convertElement({"Modelica.Mechanics.Translational.Accelerate"},
+                "inPort", "a");
+
+convertElement({"Modelica.Mechanics.Translational.Move"},
+                "inPort.signal", "u");
+
+convertElement({"Modelica.Mechanics.Translational.Move"},
+                "inPort", "u[1]");
+
+convertElement({"Modelica.Mechanics.Translational.Force"},
+                "inPort.signal[1]", "f");
+
+convertElement({"Modelica.Mechanics.Translational.Force"},
+                "inPort", "f");
+
+convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor",
+                "Modelica.Mechanics.Translational.Interfaces.RelativeSensor"},
+                "outPort.signal[1]", "y");
+
+convertElement({"Modelica.Mechanics.Translational.Interfaces.AbsoluteSensor",
+                "Modelica.Mechanics.Translational.Interfaces.RelativeSensor"},
+                "outPort", "y");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.ForceSensor"},
+                "outPort.signal[1]", "f");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.ForceSensor"},
+                "outPort", "f");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},
+                "outPort.signal[1]", "s");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.PositionSensor"},
+                "outPort", "s");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},
+                "outPort.signal[1]", "v");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.SpeedSensor"},
+                "outPort", "v");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},
+                "outPort.signal[1]", "a");
+
+convertElement({"Modelica.Mechanics.Translational.Sensors.AccSensor"},
+                "outPort", "a");
+
+
+//-----------------------------------------------------------------------------
+// Convert Modelica.Thermal.HeatTransfer
+//-----------------------------------------------------------------------------
+
+convertElement({"Modelica.Thermal.HeatTransfer.ThermalConductor",
+                "Modelica.Thermal.HeatTransfer.Convection",
+                "Modelica.Thermal.HeatTransfer.BodyRadiation",
+                "Modelica.Thermal.HeatTransfer.FixedHeatFlow",
+                "Modelica.Thermal.HeatTransfer.PrescribedHeatFlow",
+                "Modelica.Thermal.HeatTransfer.Interfaces.HeatPort",
+                "Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a",
+                "Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_b",
+                "Modelica.Thermal.HeatTransfer.Interfaces.Element1D"},
+                "Q_dot", "Q_flow");
+
+convertElement({"Modelica.Thermal.HeatTransfer.HeatFlowSensor"},
+                "heat", "Q_flow");
+
+convertElement({"Modelica.Thermal.HeatTransfer.Convection"},
+                "G", "Gc");
+
+
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+// Convert classes of ModelicaAdditions
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------
+
+// ModelicaAdditions.Blocks and .Tables
+convertClass("ModelicaAdditions.Blocks.Continuous.ButterLow",
+             "Modelica.Blocks.Continuous.LowpassButterworth");
+
+convertClass("ModelicaAdditions.Blocks.Continuous.CritDamping",
+             "Modelica.Blocks.Continuous.CriticalDamping");
+
+convertModifiers("ModelicaAdditions.Blocks.Continuous.CritDamping",
+                 {"f=1"},
+                 {"f=2*Modelica.Constants.pi*%f%"});
+
+convertClass("ModelicaAdditions.Blocks.Discrete.Interfaces",
+             "Modelica.Blocks.Interfaces");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.Sampler",
+             "Modelica.Blocks.Discrete.Sampler");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.ZeroOrderHold",
+             "Modelica.Blocks.Discrete.ZeroOrderHold");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.FirstOrderHold",
+             "Modelica.Blocks.Discrete.FirstOrderHold");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.UnitDelay",
+             "Modelica.Blocks.Discrete.UnitDelay");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.TransferFunction",
+             "Modelica.Blocks.Discrete.TransferFunction");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.StateSpace",
+             "Modelica.Blocks.Discrete.StateSpace");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+             "Modelica.Blocks.Discrete.TriggeredSampler");
+
+convertClass("ModelicaAdditions.Blocks.Discrete.TriggeredMax",
+             "Modelica.Blocks.Discrete.TriggeredMax");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.BooleanSI2SO",
+             "Modelica.Blocks.Interfaces.partialBooleanSI2SO");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.Comparison",
+             "Modelica.Blocks.Interfaces.partialBooleanThresholdComparison");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.Comparision",
+             "Modelica.Blocks.Interfaces.partialBooleanThresholdComparison");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Interfaces.BooleanMIMOs",
+             "Modelica.Blocks.Interfaces.BooleanMIMOs");
+
+convertClass("ModelicaAdditions.Blocks.Logical.NOT",
+             "Modelica.Blocks.Logical.Not");
+
+convertClass("ModelicaAdditions.Blocks.Logical.OR",
+             "Modelica.Blocks.Logical.Or");
+
+convertClass("ModelicaAdditions.Blocks.Logical.AND",
+             "Modelica.Blocks.Logical.And");
+
+convertClass("ModelicaAdditions.Blocks.Logical.XOR",
+             "Modelica.Blocks.Logical.Xor");
+
+convertClass("ModelicaAdditions.Blocks.Logical.NOR",
+             "Modelica.Blocks.Logical.Nor");
+
+convertClass("ModelicaAdditions.Blocks.Logical.NAND",
+             "Modelica.Blocks.Logical.Nand");
+
+convertClass("ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+             "Modelica.Blocks.Logical.LogicalSwitch");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Switch",
+             "Modelica.Blocks.Logical.Switch");
+
+convertClass("ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+             "Modelica.Blocks.Logical.TriggeredTrapezoid");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Boolean2Real",
+             "Modelica.Blocks.Math.BooleanToReal");
+
+convertClass("ModelicaAdditions.Blocks.Logical.GreaterThan",
+             "Modelica.Blocks.Logical.GreaterThreshold");
+
+convertClass("ModelicaAdditions.Blocks.Logical.GreaterEqual",
+             "Modelica.Blocks.Logical.GreaterEqualThreshold");
+
+convertClass("ModelicaAdditions.Blocks.Logical.LessThan",
+             "Modelica.Blocks.Logical.LessThreshold");
+
+convertClass("ModelicaAdditions.Blocks.Logical.LessEqual",
+             "Modelica.Blocks.Logical.LessEqualThreshold");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Hysteresis",
+             "Modelica.Blocks.Logical.Hysteresis");
+
+convertClass("ModelicaAdditions.Blocks.Logical.OnOffController",
+             "Modelica.Blocks.Logical.OnOffController");
+
+convertClass("ModelicaAdditions.Blocks.Logical.Compare",
+             "Modelica.Blocks.Logical.Greater");
+
+convertClass("ModelicaAdditions.Blocks.Logical.ZeroCrossing",
+             "Modelica.Blocks.Logical.ZeroCrossing");
+
+convertClass("ModelicaAdditions.Blocks.Nonlinear.FixedDelay",
+             "Modelica.Blocks.Nonlinear.FixedDelay");
+
+convertClass("ModelicaAdditions.Blocks.Nonlinear.PadeDelay",
+             "Modelica.Blocks.Nonlinear.PadeDelay");
+
+convertClass("ModelicaAdditions.Blocks.Nonlinear.VarDelay",
+             "Modelica.Blocks.Nonlinear.VariableDelay");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.ExtractSignal",
+             "Modelica.Blocks.Routing.ExtractSignal");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.Extractor",
+             "Modelica.Blocks.Routing.Extractor");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
+             "Modelica.Blocks.Routing.Multiplex2");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+             "Modelica.Blocks.Routing.Multiplex3");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+             "Modelica.Blocks.Routing.Multiplex4");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+             "Modelica.Blocks.Routing.Multiplex5");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.Multiplex6",
+             "Modelica.Blocks.Routing.Multiplex6");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+             "Modelica.Blocks.Routing.DeMultiplex2");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+             "Modelica.Blocks.Routing.DeMultiplex3");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+             "Modelica.Blocks.Routing.DeMultiplex4");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+             "Modelica.Blocks.Routing.DeMultiplex5");
+
+convertClass("ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6",
+             "Modelica.Blocks.Routing.DeMultiplex6");
+
+convertClass("ModelicaAdditions.Tables.CombiTableTime",
+             "Modelica.Blocks.Sources.CombiTimeTable");
+
+convertClass("ModelicaAdditions.Tables.CombiTableTime2",
+             "Modelica.Blocks.Sources.CombiTimeTable");
+
+convertClass("ModelicaAdditions.Tables.CombiTable1D",
+             "Modelica.Blocks.Tables.CombiTable1D");
+
+convertClass("ModelicaAdditions.Tables.CombiTable1Ds",
+             "Modelica.Blocks.Tables.CombiTable1Ds");
+
+convertClass("ModelicaAdditions.Tables.CombiTable2D",
+             "Modelica.Blocks.Tables.CombiTable2D");
+
+// Preserve default table:
+convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
+    "ModelicaAdditions.Tables.CombiTableTime2",
+    "ModelicaAdditions.Tables.CombiTable1D",
+   "ModelicaAdditions.Tables.CombiTable1Ds"},
+  {"table=[0,0;1,1]",""},{"table=%table%"});
+
+convertModifiers({"ModelicaAdditions.Tables.CombiTable2D"},
+  {"table=[0,0,1;0,0,1;1,1,1]",""},{"table=%table%"});
+
+// New version requires a setting of tableOnFile.
+convertModifiers({"ModelicaAdditions.Tables.CombiTableTime",
+    "ModelicaAdditions.Tables.CombiTableTime2",
+    "ModelicaAdditions.Tables.CombiTable1D",
+   "ModelicaAdditions.Tables.CombiTable1Ds",
+   "ModelicaAdditions.Tables.CombiTable2D"},
+   {"tableName=\"NoName\""},
+   {"tableName=%tableName%","tableOnFile=%tableName%<>\"NoName\""});
+
+
+convertElement({"ModelicaAdditions.Blocks.Logical.OnOffController"},
+                "inPort1", "reference");
+
+convertElement({"ModelicaAdditions.Blocks.Logical.OnOffController"},
+                "inPort2", "u");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6"},
+                "inPort1", "u1[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.Multiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6"},
+                "inPort2", "u2[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch"},
+                "inPort3.signal[1]", "u3");
+
+convertElement({"ModelicaAdditions.Blocks.Logical.LogicalSwitch",
+                "ModelicaAdditions.Blocks.Logical.Switch"},
+                "inPort3", "u3");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.Multiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6"},
+                "inPort3", "u3[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.Multiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6"},
+                "inPort4", "u4[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.Multiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.Multiplex6"},
+                "inPort5", "u5[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.Multiplex6"},
+                "inPort6", "u6[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6"},
+                "outPort1", "y1[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.DeMultiplex2",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6"},
+                "outPort2", "y2[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.DeMultiplex3",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6"},
+                "outPort3", "y3[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.DeMultiplex4",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6"},
+                "outPort4", "y4[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.DeMultiplex5",
+                "ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6"},
+                "outPort5", "y5[1]");
+
+convertElement({"ModelicaAdditions.Blocks.Multiplexer.DeMultiplex6"},
+                "outPort6", "y6[1]");
+
+convertModifiers("ModelicaAdditions.Blocks.Discrete.UnitDelay",
+                 {"yStart={0}"},
+                 {"y_start=scalar(%yStart%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Discrete.TriggeredSampler",
+                 {"y0={0}"},
+                 {"y_start=scalar(%y0%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                 {"amplitude={1}"},
+                 {"amplitude=scalar(%amplitude%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                 {"rising={0}"},
+                 {"rising=scalar(%rising%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                 {"falling={0}"},
+                 {"falling=scalar(%falling%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Logical.TriggeredTrapezoid",
+                 {"offset={0}"},
+                 {"offset=scalar(%offset%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Logical.Hysteresis",
+                 {"uLow={0}"},
+                 {"uLow=scalar(%uLow%)"});
+
+convertModifiers("ModelicaAdditions.Blocks.Logical.Hysteresis",
+                 {"uHigh={1}"},
+                 {"uHigh=scalar(%uHigh%)"});
+
+convertModifiers("ModelicaAdditions.Tables.CombiTableTime2",
+                 {"extrapolation={1}"},
+                 {"extrapolation=scalar(%extrapolation%)"});
+
+convertModifiers("ModelicaAdditions.Tables.CombiTableTime2",
+                 {"startTime={0}"},
+                 {"startTime=scalar(%startTime%)"});
+
+convertElement({"ModelicaAdditions.Tables.CombiTableTime",
+                "ModelicaAdditions.Tables.CombiTable1D",
+                "ModelicaAdditions.Tables.CombiTable1Ds"},
+                "icol", "columns");
+
+convertElement({"ModelicaAdditions.Tables.CombiTableTime",
+                "ModelicaAdditions.Tables.CombiTableTime2",
+                "ModelicaAdditions.Tables.CombiTable1D",
+                "ModelicaAdditions.Tables.CombiTable1Ds",
+                "ModelicaAdditions.Tables.CombiTable2D"},
+                "smoothNess", "smoothness");
+
+// ModelicaAdditions.PetriNets Cannot yet be automatically converted.
+convertClass("ModelicaAdditions.PetriNets","ObsoletePetriNets.PetriNets");
+convertClass("ModelicaAdditions.PetriNets.Transition","ObsoletePetriNets.PetriNets.Transition");
+convertClass("ModelicaAdditions.PetriNets.Parallel","ObsoletePetriNets.PetriNets.Parallel");
+convertClass("ModelicaAdditions.PetriNets.Synchronize","ObsoletePetriNets.PetriNets.Synchronize");
+convertElement({"ModelicaAdditions.PetriNets.Transition",
+"ModelicaAdditions.PetriNets.Parallel",
+"ModelicaAdditions.PetriNets.Synchronize"},
+"conditionPort","condition");
+
+convertElement({"ModelicaAdditions.PetriNets.Transition",
+"ModelicaAdditions.PetriNets.Parallel",
+"ModelicaAdditions.PetriNets.Synchronize"},
+"conditionPort.signal[1]","condition");
+
+// ------------------- ModelicaAdditions.MultiBody ----------------------------
+// Conversion of ModelicaAdditions.MultiBody to Modelica.Mechanics.MultiBody
+//-----------------------------------------------------------------------------
+// Note:
+// All sublibraries are completely converted with exception of "Interfaces"
+// If just components of the ModelicaAdditions.MultiBody library are used,
+// the conversion should be automatic and complete.
+// If own base components have been implemented (i.e., using equations to
+// describe the component), it is most likely that the conversion is not complete
+// and has to be manually corrected.
+
+// If ModelicaAdditions.MultiBody is already converted to MultiBody,
+// convert also "ObsoleteMultiBodyAdditions" to the converted form
+convertElement({"ObsoleteMultiBodyAdditions.Forces.FrameLineForce",
+                "ObsoleteMultiBodyAdditions.Forces.FrameLineTorque"},
+                "inPort", "u");
+convertClass("ObsoleteMultiBodyAdditions", "ObsoleteMultiBodyAdditions2");
+
+// ------------------- ModelicaAdditions.MultiBody.Parts ----------------------
+
+// ModelicaAdditions.Parts.InertialSystem -> World
+convertClass("ModelicaAdditions.MultiBody.Parts.InertialSystem", "inner Modelica.Mechanics.MultiBody.World world");
+convertModifiers("ModelicaAdditions.MultiBody.Parts.InertialSystem",
+                 {"g=9.81"},
+                 {"g=%g%*MultiBody.Frames.length(%ng%)"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.InertialSystem",
+                 {"ng={0,-1,0}"},
+                 {"n=%ng%"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.InertialSystem",
+                 fill("",0), {"animateWorld=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.InertialSystem",
+                 fill("",0), {"animateGravity=false"});
+
+// ModelicaAdditions.Parts.FrameTranslation -> Parts.FixedTranslation
+convertClass("ModelicaAdditions.MultiBody.Parts.FrameTranslation",
+             "Modelica.Mechanics.MultiBody.Parts.FixedTranslation");
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameTranslation",
+                 fill("",0), {"animation=false"});
+
+// ModelicaAdditions.Parts.FrameRotation -> Parts.FixedRotation
+convertClass("ModelicaAdditions.MultiBody.Parts.FrameRotation",
+             "Modelica.Mechanics.MultiBody.Parts.FixedRotation");
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameRotation",
+                 {"label1=\"x\""},
+                 fill("",0));
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameRotation",
+                 {"label2=\"y\""},
+                 fill("",0));
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameRotation",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameRotation",
+                 fill("",0),
+                 {"rotationType=MultiBody.Types.RotationTypes.RotationAxis"});
+
+// ModelicaAdditions.Parts.FrameAxes -> Parts.FixedRotation
+convertClass("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+             "Modelica.Mechanics.MultiBody.Parts.FixedRotation");
+convertElement("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+               "nx", "n_x");
+convertElement("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+               "ny", "n_y");
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+                 {"label1=\"x\""},
+                 fill("",0));
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+                 {"label2=\"y\""},
+                 fill("",0));
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAxes",
+                 fill("",0),
+                 {"rotationType=MultiBody.Types.RotationTypes.TwoAxesVectors"});
+
+// ModelicaAdditions.Parts.FrameAngles -> Parts.FixedRotation
+convertClass("ModelicaAdditions.MultiBody.Parts.FrameAngles",
+             "Modelica.Mechanics.MultiBody.Parts.FixedRotation");
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAngles",
+                 {"label1=\"x\""},
+                 fill("",0));
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAngles",
+                 {"label2=\"y\""},
+                 fill("",0));
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAngles",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.FrameAngles",
+                 fill("",0),
+                 {"rotationType=MultiBody.Types.RotationTypes.PlanarRotationSequence"});
+
+
+// ModelicaAdditions.Parts.Body, .Body2., .BoxBody, .CylinderBody, ShapeBody, .Shape
+convertClass("ModelicaAdditions.MultiBody.Parts.Body",
+             "Modelica.Mechanics.MultiBody.Parts.Body");
+convertClass("ModelicaAdditions.MultiBody.Parts.Body2",
+             "Modelica.Mechanics.MultiBody.Parts.BodyShape");
+convertClass("ModelicaAdditions.MultiBody.Parts.BoxBody",
+             "Modelica.Mechanics.MultiBody.Parts.BodyBox");
+convertClass("ModelicaAdditions.MultiBody.Parts.CylinderBody",
+             "Modelica.Mechanics.MultiBody.Parts.BodyCylinder");
+convertClass("ModelicaAdditions.MultiBody.Parts.ShapeBody",
+             "Modelica.Mechanics.MultiBody.Parts.BodyShape");
+convertClass("ModelicaAdditions.MultiBody.Parts.Shape",
+             "Modelica.Mechanics.MultiBody.Visualizers.FixedShape");
+
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "rCM", "r_CM");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "I11", "I_11");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "I22", "I_22");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "I33", "I_33");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "I21", "I_21");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "I31", "I_31");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Body",
+                "ModelicaAdditions.MultiBody.Parts.Body2"},
+                "I32", "I_32");
+
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "Shape", "shapeType");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.CylinderBody",
+                "ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "r0", "r_shape");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "LengthDirection", "lengthDirection");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "WidthDirection", "widthDirection");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.CylinderBody",
+                "ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "Length", "length");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "Width", "width");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "Height", "height");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody"},
+                 "InnerWidth", "innerWidth");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody"},
+                 "InnerHeight", "innerHeight");
+convertElement({"ModelicaAdditions.MultiBody.Parts.CylinderBody"},
+                 "Axis", "lengthDirection");
+convertElement({"ModelicaAdditions.MultiBody.Parts.BoxBody",
+                "ModelicaAdditions.MultiBody.Parts.CylinderBody"},
+                 "rho", "density");
+convertElement({"ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                "ModelicaAdditions.MultiBody.Parts.Shape"},
+                 "Extra", "extra");
+convertModifiers("ModelicaAdditions.MultiBody.Parts.BoxBody",
+                 {"Material={1,0,0,0.5}"},
+                 {"color=integer([255,0,0,0;0,255,0,0;0,0,255,0]*%Material%)"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.CylinderBody",
+                 {"Radius=0.1"},
+                 {"diameter=2*%Radius%"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.CylinderBody",
+                 {"InnerRadius=0"},
+                 {"innerDiameter=2*%InnerRadius%"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.CylinderBody",
+                 {"Material={1,0,0,0.5}"},
+                 {"color=integer([255,0,0,0;0,255,0,0;0,0,255,0]*%Material%)"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                 {"Material={1,0,0,0.5}"},
+                 {"color=integer([255,0,0,0;0,255,0,0;0,0,255,0]*%Material%)"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.Shape",
+                 {"Material={1,0,0,0.5}"},
+                 {"color=integer([255,0,0,0;0,255,0,0;0,0,255,0]*%Material%)"});
+
+
+convertModifiers("ModelicaAdditions.MultiBody.Parts.Body",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.Body2",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Parts.ShapeBody",
+                 fill("",0),
+                 {"animateSphere=false"});
+
+
+// ------------------- ModelicaAdditions.MultiBody.Joints ---------------------
+
+// ModelicaAdditions.Joints.Revolute
+convertClass("ModelicaAdditions.MultiBody.Joints.Revolute", "Modelica.Mechanics.MultiBody.Joints.ActuatedRevolute");
+convertElement({"ModelicaAdditions.MultiBody.Joints.Revolute"},
+                 "q", "phi");
+convertElement({"ModelicaAdditions.MultiBody.Joints.Revolute"},
+                 "qd", "w");
+convertElement({"ModelicaAdditions.MultiBody.Joints.Revolute"},
+                 "qdd", "a");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Revolute",
+                 {"q0=0"},
+                 {"phi_offset=-%q0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Revolute",
+                 {"startValueFixed=false"},
+                 {"initType=(if %startValueFixed% then Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity else Modelica.Mechanics.MultiBody.Types.Init.Free)"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Revolute",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.Joints.Prismatic
+convertClass("ModelicaAdditions.MultiBody.Joints.Prismatic", "Modelica.Mechanics.MultiBody.Joints.ActuatedPrismatic");
+convertElement({"ModelicaAdditions.MultiBody.Joints.Prismatic"},
+                 "q", "s");
+convertElement({"ModelicaAdditions.MultiBody.Joints.Prismatic"},
+                 "qd", "v");
+convertElement({"ModelicaAdditions.MultiBody.Joints.Prismatic"},
+                 "qdd", "a");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Prismatic",
+                 {"q0=0"},
+                 {"s_offset=-%q0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Prismatic",
+                 {"startValueFixed=false"},
+                 {"initType=(if %startValueFixed% then Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity else Modelica.Mechanics.MultiBody.Types.Init.Free)"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Prismatic",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.Joints.Cylindrical
+convertClass("ModelicaAdditions.MultiBody.Joints.Cylindrical", "Modelica.Mechanics.MultiBody.Joints.Cylindrical");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Cylindrical",
+                 {"qt0=0"},
+                 {"prismatic.s_offset=-%qt0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Cylindrical",
+                 {"qr0=0"},
+                 {"revolute.phi_offset=-%qr0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Cylindrical",
+                 {"startValueFixed=false"},
+                 {"initType=(if %startValueFixed% then Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity else Modelica.Mechanics.MultiBody.Types.Init.Free)"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Cylindrical",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.Joints.Universal
+convertClass("ModelicaAdditions.MultiBody.Joints.Universal", "Modelica.Mechanics.MultiBody.Joints.Universal");
+convertElement("ModelicaAdditions.MultiBody.Joints.Universal",
+               "nx", "n_a");
+convertElement("ModelicaAdditions.MultiBody.Joints.Universal",
+               "ny", "n_b");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Universal",
+                 {"qx0=0"},
+                 {"revolute_a.phi_offset=-%qx0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Universal",
+                 {"qy0=0"},
+                 {"revolute_b.phi_offset=-%qy0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Universal",
+                 {"startValueFixed=false"},
+                 {"initType=(if %startValueFixed% then Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity else Modelica.Mechanics.MultiBody.Types.Init.Free)"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Universal",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.Joints.Planar
+convertClass("ModelicaAdditions.MultiBody.Joints.Planar", "Modelica.Mechanics.MultiBody.Joints.Planar");
+convertElement("ModelicaAdditions.MultiBody.Joints.Planar",
+               "nx", "n_x");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Planar",
+                 {"qx0=0"},
+                 {"prismatic_x.s_offset=-%qx0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Planar",
+                 {"qy0=0"},
+                 {"prismatic_y.s_offset=-%qy0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Planar",
+                 {"qr0=0"},
+                 {"revolute.phi_offset=-%qr0%"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Planar",
+                 {"startValueFixed=false"},
+                 {"initType=(if %startValueFixed% then Modelica.Mechanics.MultiBody.Types.Init.PositionVelocity else Modelica.Mechanics.MultiBody.Types.Init.Free)"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Planar",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.Joints.Spherical
+convertClass("ModelicaAdditions.MultiBody.Joints.Spherical", "Modelica.Mechanics.MultiBody.Joints.Spherical");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Spherical",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.Joints.Spherical",
+                 fill("",0),
+                 {"enforceStates=true"});
+
+// ModelicaAdditions.Joints.FreeMotion
+convertClass("ModelicaAdditions.MultiBody.Joints.FreeMotion", "Modelica.Mechanics.MultiBody.Joints.FreeMotion");
+convertElement("ModelicaAdditions.MultiBody.Joints.FreeMotion",
+               "r_rela", "r_rel_a");
+convertElement("ModelicaAdditions.MultiBody.Joints.FreeMotion",
+               "v_rela", "v_rel_a");
+convertElement("ModelicaAdditions.MultiBody.Joints.FreeMotion",
+               "w_rela", "w_rel_a");
+convertModifiers("ModelicaAdditions.MultiBody.Joints.FreeMotion",
+                 fill("",0),
+                 {"animation=false"});
+
+
+
+// ------------------- ModelicaAdditions.MultiBody.Forces ---------------------
+
+// ModelicaAdditions.MultiBody.Forces.ExtForce -> MultiBody.Forces.FrameForce
+convertClass("ModelicaAdditions.MultiBody.Forces.ExtForce",
+             "Modelica.Mechanics.MultiBody.Forces.FrameForce");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.ExtForce",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.ExtTorque -> MultiBody.Forces.FrameTorque
+convertClass("ModelicaAdditions.MultiBody.Forces.ExtTorque",
+             "Modelica.Mechanics.MultiBody.Forces.FrameTorque");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.ExtTorque",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.ExtLineForce -> ObsoleteMultiBodyAdditions2.Forces.FrameLineForce
+convertClass("ModelicaAdditions.MultiBody.Forces.ExtLineForce",
+             "ObsoleteMultiBodyAdditions2.Forces.FrameLineForce");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.ExtLineForce",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.ExtLineTorque -> ObsoleteMultiBodyAdditions2.Forces.FrameLineTorque
+convertClass("ModelicaAdditions.MultiBody.Forces.ExtLineTorque",
+             "ObsoleteMultiBodyAdditions2.Forces.FrameLineTorque");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.ExtLineTorque",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.Spring -> MultiBody.Forces.Spring
+convertClass("ModelicaAdditions.MultiBody.Forces.Spring",
+             "Modelica.Mechanics.MultiBody.Forces.Spring");
+convertElement("ModelicaAdditions.MultiBody.Forces.Spring",
+               "s0", "s_unstretched");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.Spring",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.Damper -> MultiBody.Forces.Damper
+convertClass("ModelicaAdditions.MultiBody.Forces.Damper",
+             "Modelica.Mechanics.MultiBody.Forces.Damper");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.Damper",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.SpringDamperPar -> MultiBody.Forces.SpringDamperParallel
+convertClass("ModelicaAdditions.MultiBody.Forces.SpringDamperPar",
+             "Modelica.Mechanics.MultiBody.Forces.SpringDamperParallel");
+convertElement("ModelicaAdditions.MultiBody.Forces.SpringDamperPar",
+               "s0", "s_unstretched");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.SpringDamperPar",
+                 fill("",0),
+                 {"animation=false"});
+
+// ModelicaAdditions.MultiBody.Forces.SpringDamperSer -> MultiBody.Forces.SpringDamperSeries
+convertClass("ModelicaAdditions.MultiBody.Forces.SpringDamperSer",
+             "Modelica.Mechanics.MultiBody.Forces.SpringDamperSeries");
+convertElement("ModelicaAdditions.MultiBody.Forces.SpringDamperSer",
+               "s0", "s_unstretched");
+convertModifiers("ModelicaAdditions.MultiBody.Forces.SpringDamperSer",
+                 fill("",0),
+                 {"animation=false"});
+
+
+
+// ------------------- ModelicaAdditions.MultiBody.CutJoints ------------------
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.ConnectingRod",
+             "Modelica.Mechanics.MultiBody.Joints.SphericalSpherical");
+convertElement({"ModelicaAdditions.MultiBody.CutJoints.ConnectingRod"},
+                 "L", "rodLength");
+convertElement({"ModelicaAdditions.MultiBody.CutJoints.ConnectingRod"},
+                 "fRod", "f_rod");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.ConnectingRod",
+                 fill("",0),
+                 {"animation=false"});
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.ConnectingRod2",
+             "Modelica.Mechanics.MultiBody.Joints.UniversalSpherical");
+convertElement({"ModelicaAdditions.MultiBody.CutJoints.ConnectingRod2"},
+                 "L", "rodLength");
+convertElement({"ModelicaAdditions.MultiBody.CutJoints.ConnectingRod2"},
+                 "na", "rRod_ia");
+convertElement({"ModelicaAdditions.MultiBody.CutJoints.ConnectingRod2"},
+                 "fRod", "f_rod");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.ConnectingRod2",
+                 fill("",0),
+                 {"animation=false"});
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.Spherical",
+             "Modelica.Mechanics.MultiBody.Joints.Spherical");
+convertElement({"ModelicaAdditions.MultiBody.CutJoints.Spherical"},
+                 "fc", "frame_a.f");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Spherical",
+                 fill("",0),
+                 {"animation=false"});
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.Revolute",
+             "Modelica.Mechanics.MultiBody.Joints.Revolute");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Revolute",
+                 fill("",0),
+                 {"animation=false"});
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.Revolute2Dloop",
+             "Modelica.Mechanics.MultiBody.Joints.Revolute");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Revolute2Dloop",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Revolute2Dloop",
+                 fill("",0),
+                 {"planarCutJoint=true"});
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.Prismatic",
+             "Modelica.Mechanics.MultiBody.Joints.Prismatic");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Prismatic",
+                 fill("",0),
+                 {"animation=false"});
+
+convertClass("ModelicaAdditions.MultiBody.CutJoints.Prismatic2Dloop",
+             "Modelica.Mechanics.MultiBody.Joints.Prismatic");
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Prismatic2Dloop",
+                 fill("",0),
+                 {"animation=false"});
+convertModifiers("ModelicaAdditions.MultiBody.CutJoints.Prismatic2Dloop",
+                 fill("",0),
+                 {"planarCutJoint=true"});
+
+
+// ------------------- ModelicaAdditions.MultiBody.Visualizers ----------------
+convertClass("ModelicaAdditions.MultiBody.Visualizers",
+             "ObsoleteMultiBodyAdditions2.Visualizers");
+
+// ------------------- ModelicaAdditions.MultiBody.Sensors --------------------
+convertClass("ModelicaAdditions.MultiBody.Sensors",
+             "ObsoleteMultiBodyAdditions2.Sensors");
+convertElement({"ModelicaAdditions.MultiBody.Sensors.LineSensor"},
+                 "outPort_s", "s");
+convertElement({"ModelicaAdditions.MultiBody.Sensors.LineSensor"},
+                 "outPort_sd", "sd");
+
+
+// ------------------- ModelicaAdditions.MultiBody.Interfaces -----------------
+// Conversion of this subpackage is NOT complete.
+//-----------------------------------------------------------------------------
+
+// ModelicaAdditions.MultiBody.Interfaces.Frame_a/.Frame_b -> Interfaces.Frame_a/Frame_b
+convertClass("ModelicaAdditions.MultiBody.Interfaces.Frame_a",
+             "Modelica.Mechanics.MultiBody.Interfaces.Frame_a");
+convertClass("ModelicaAdditions.MultiBody.Interfaces.Frame_b",
+             "Modelica.Mechanics.MultiBody.Interfaces.Frame_b");
+
+// ModelicaAdditions.MultiBody.Interfaces.TwoTreeFrames -> ObsoleteMultiBodyAdditions2.Interfaces.TwoTreeFrames
+// It might be that this conversion is not complete, because
+// a "defineBranch(..)" has to be added
+convertClass("ModelicaAdditions.MultiBody.Interfaces.TwoTreeFrames",
+             "ObsoleteMultiBodyAdditions2.Interfaces.TwoTreeFrames");
+
+// ModelicaAdditions.MultiBody.Interfaces.OneFrame_a -> ObsoleteMultiBodyAdditions2.Interfaces.OneFrame_a
+convertClass("ModelicaAdditions.MultiBody.Interfaces.OneFrame_a",
+             "ObsoleteMultiBodyAdditions2.Interfaces.OneFrame_a");
+
+// ModelicaAdditions.MultiBody.Interfaces.OneFrame_b -> ObsoleteMultiBodyAdditions2.Interfaces.OneFrame_b
+convertClass("ModelicaAdditions.MultiBody.Interfaces.OneFrame_b",
+             "ObsoleteMultiBodyAdditions2.Interfaces.OneFrame_b");
+
+// ModelicaAdditions.MultiBody.Interfaces.TwoTreeFrames -> ObsoleteMultiBodyAdditions2.Interfaces.TwoTreeFrames
+convertClass("ModelicaAdditions.MultiBody.Interfaces.TwoTreeFrames",
+             "ObsoleteMultiBodyAdditions2.Interfaces.TwoTreeFrames");
+
+// ModelicaAdditions.MultiBody.Interfaces.TwoNoTreeFrames -> ObsoleteMultiBodyAdditions2.Interfaces.TwoNoTreeFrames
+convertClass("ModelicaAdditions.MultiBody.Interfaces.TwoNoTreeFrames",
+             "ObsoleteMultiBodyAdditions2.Interfaces.TwoNoTreeFrames");
+
+// ModelicaAdditions.MultiBody.Interfaces.Interact -> ObsoleteMultiBodyAdditions2.Interfaces.Interact
+convertClass("ModelicaAdditions.MultiBody.Interfaces.Interact",
+             "ObsoleteMultiBodyAdditions2.Interfaces.Interact");
+
+// ModelicaAdditions.MultiBody.Interfaces.Interact2 -> ObsoleteMultiBodyAdditions2.Interfaces.Interact2
+convertClass("ModelicaAdditions.MultiBody.Interfaces.Interact2",
+             "ObsoleteMultiBodyAdditions2.Interfaces.Interact2");
+
+// ModelicaAdditions.MultiBody.Interfaces.LineForce -> ObsoleteMultiBodyAdditions2.Interfaces.LineForce
+convertClass("ModelicaAdditions.MultiBody.Interfaces.LineForce",
+             "ObsoleteMultiBodyAdditions2.Interfaces.LineForce");
+
+// ModelicaAdditions.MultiBody.Interfaces.TreeJoint -> ObsoleteMultiBodyAdditions2.Interfaces.TreeJoint
+convertClass("ModelicaAdditions.MultiBody.Interfaces.TreeJoint",
+             "ObsoleteMultiBodyAdditions2.Interfaces.TreeJoint");
+
+// ModelicaAdditions.MultiBody.Interfaces.CutJoint -> ObsoleteMultiBodyAdditions2.Interfaces.CutJoint
+convertClass("ModelicaAdditions.MultiBody.Interfaces.CutJoint",
+             "ObsoleteMultiBodyAdditions2.Interfaces.CutJoint");
+
+
+// -----------------------------------------------------------------------
+// Additional conversions that are not complete but may help
+// for further manual conversions
+//------------------------------------------------------------------------
+
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_a",
+               "r0", "r_0");
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_b",
+               "r0", "r_0");
+
+// The following conversions are incomplete and need to be
+// manually corrected:
+//          conversion               manually
+//    frameX.S -> frameX.transpose(R) -> transpose(frameX.R)
+//    frameX.v -> frameX.MultiBody.Frames.resolve2(frameXX.R, der(frameXX.r_0))
+//                    -> MultiBody.Frames.resolve2(frameX.R, der(frameX.r_0))
+
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_a",
+               "S", "transpose(R)");
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_a",
+               "v", "Modelica.Mechanics.MultiBody.Frames.resolve2(frame_aXX.R, der(frame_aXX.r_0))");
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_a",
+               "w", "Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_aXX.R, der(frame_aXX.R))");
+
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_b",
+               "S", "transpose(R)");
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_b",
+               "v", "Modelica.Mechanics.MultiBody.Frames.resolve2(frame_bYY.R, der(frame_bYY.r_0))");
+convertElement("ModelicaAdditions.MultiBody.Interfaces.Frame_b",
+               "w", "Modelica.Mechanics.MultiBody.Frames.angularVelocity2(frame_bYY.R, der(frame_bYY.R))");

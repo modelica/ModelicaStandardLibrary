@@ -1,0 +1,6 @@
+// Script generated: 06/21/00 15:01:45
+
+translateModel("Modelica.Mechanics.Rotational.Examples.CoupledClutches")
+experiment StopTime=1.2
+simulate
+plot({"J1.w","J2.w","J3.w","J4.w"});
