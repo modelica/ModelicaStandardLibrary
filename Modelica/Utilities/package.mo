@@ -103,8 +103,8 @@ First version implemented.
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Responsible for Library:</b>
-<dd>Dag Br&uuml;ck, Dynasim AB, Sweden.<br>
-    email: <A HREF=\"mailto:Dag@Dynasim.se\">Dag@Dynasim.se</A><br>
+<dd>Dag Br&uuml;ck, DS Lund AB, Sweden.<br>
+    email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br>
 </dl>
 <p><b>Acknowledgements:</b></p>
 <ul>
