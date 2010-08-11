@@ -162,7 +162,7 @@ how the temperature is measured:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Fluid/Examples/MeasuringTemperature1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MeasuringTemperature1.png\">
 </blockquote>
 
 <p>
@@ -192,7 +192,7 @@ present as for T_twoPort.T.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Fluid/Examples/MeasuringTemperature2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MeasuringTemperature2.png\">
 </blockquote>
 
 </html>"),
@@ -293,13 +293,13 @@ The total pressures offer an additional perspective on the model. After setting 
 
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\">
 </p>
 
 
 </html>"),
       __Dymola_Commands(file=
-            "Scripts/Fluid/MomentumBalanceFittings/Plot the model results.mos"
+            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/MomentumBalanceFittings/Plot the model results.mos"
           "Plot the model results"),
       experiment(StopTime=1.1));
   end MomentumBalanceFittings;

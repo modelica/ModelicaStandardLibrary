@@ -1538,7 +1538,7 @@ between Re = 1500 .. 4000, in order to get explicit equations without
 solving a non-linear equation.
 </p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFriction1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\">
 
 <p>
 Additionally to wall friction, this component properly implements static
@@ -1546,13 +1546,13 @@ head. With respect to the latter, two cases can be distinguished. In the case
 shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFrictionStaticHead_case-a.PNG\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-a.PNG\">
 
 <p>
 In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
 
 </html>"),    Diagram(coordinateSystem(
                   preserveAspectRatio=false,
@@ -3385,7 +3385,7 @@ between Re = 1500 .. 4000, in order to get explicit equations without
 solving a non-linear equation.
 </p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFriction1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\">
 
 <p>
 Additionally to wall friction, this component properly implements static
@@ -3393,13 +3393,13 @@ head. With respect to the latter, two cases can be distinguished. In the case
 shown next, the change of elevation with the path from a to b has the opposite
 sign of the change of density.</p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFrictionStaticHead_case-a.PNG\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-a.PNG\">
 
 <p>
 In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
 
 
 </html>"));
@@ -3520,7 +3520,7 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFriction1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\">
 
 <p>
 By default, the correlations are computed with media data
@@ -3582,7 +3582,7 @@ are used, where the friction loss factor &lambda; is shown
 in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Images/Fluid/Components/PipeFriction1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\">
 
 </html>"));
     end WallFriction;

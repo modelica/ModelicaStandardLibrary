@@ -44,7 +44,7 @@ x=0.7, y=0.3.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/DoublePendulumInitTip.png\">
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/DoublePendulumInitTip.png\">
 </blockquote>
 
 </html>"));

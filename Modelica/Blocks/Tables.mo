@@ -32,7 +32,7 @@ package Tables
     Integer tableID;
 
     function tableInit
-      "Initialize 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Initialize 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input String tableName;
       input String fileName;
       input Real table[ :, :];
@@ -45,7 +45,7 @@ package Tables
     end tableInit;
 
     function tableIpo
-      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Integer icol;
       input Real u;
@@ -280,7 +280,7 @@ Several matrices may be defined one after another.
     Integer tableID;
 
     function tableInit
-      "Initialize 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Initialize 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input String tableName;
       input String fileName;
       input Real table[ :, :];
@@ -293,7 +293,7 @@ Several matrices may be defined one after another.
     end tableInit;
 
     function tableIpo
-      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Interpolate 1-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Integer icol;
       input Real u;
@@ -525,7 +525,7 @@ Several matrices may be defined one after another.
     Integer tableID;
 
     function tableInit
-      "Initialize 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Initialize 2-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
 
       input String tableName;
       input String fileName;
@@ -539,7 +539,7 @@ Several matrices may be defined one after another.
     end tableInit;
 
     function tableIpo
-      "Interpolate 2-dim. table defined by matrix (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Interpolate 2-dim. table defined by matrix (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Real u1;
       input Real u2;

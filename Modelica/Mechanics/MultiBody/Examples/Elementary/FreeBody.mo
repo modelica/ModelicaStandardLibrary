@@ -83,7 +83,7 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/FreeBody.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/FreeBody.png\"
 ALT=\"model Examples.Elementary.FreeBody\">
 </p>
 </html>"));

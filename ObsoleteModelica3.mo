@@ -229,7 +229,7 @@ The desired conversion can be selected in the parameter menu
 </p>
 
 <p>
-<img src=\"modelica://ObsoleteModelica3/Modelica/Images/Blocks/ConvertAllUnits.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/ConvertAllUnits.png\">
 </p>
 
 </html>"));
@@ -2197,7 +2197,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://ObsoleteModelica3/Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
 </p>
 <p>
 If <b>frame_resolve</b> is connected to another frame, then the
@@ -2582,7 +2582,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://ObsoleteModelica3/Modelica/Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
 </p>
 <p>
 If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the

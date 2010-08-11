@@ -418,7 +418,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
 </p>
 
 <p>
@@ -922,7 +922,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
 </p>
 <p>
 Note, derivatives
@@ -2061,7 +2061,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/Distance.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/Distance.png\">
 </p>
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
@@ -2204,7 +2204,7 @@ and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/CutForce.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForce.png\">
 </p>
 </HTML>"));
   end CutForce;
@@ -2333,7 +2333,7 @@ and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/CutTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutTorque.png\">
 </p>
 </HTML>"));
   end CutTorque;
@@ -2518,7 +2518,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForceAndTorque.png\">
 </p>
 </HTML>"));
   end CutForceAndTorque;

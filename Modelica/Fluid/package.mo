@@ -125,7 +125,7 @@ fulfilled when 2 or more components are connected together at
 one point as shown in the next figure:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/UsersGuide/MixingConnections.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/MixingConnections.png\">
 </p>
 <p>
 In such a case the balance equations define <b>ideal mixing</b>,
@@ -202,7 +202,7 @@ In the simpler case of a one-to-one connections between port_a and port_b,
 inStream(port_a.h_outflow) just returns port_b.h_outflow. For multiple-way connections,
 mixing equations are generated, and special care is taken in order to avoid discontinuities
 around zero flow rates. For more details, see this
-<a href=\"modelica://Modelica//help/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">presentation</a>
+<a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">presentation</a>
 which illustrates the stream concept rationale and the underlying technicalities.
 </p>
 
@@ -369,16 +369,16 @@ equations hold
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td> Mass balance</td>
-      <td> <img src=\"modelica://Modelica/Images/Fluid/UsersGuide/massBalance.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/massBalance.png\"></td>
   </tr>
   <tr><td> Momentum balance</td>
-      <td> <img src=\"modelica://Modelica/Images/Fluid/UsersGuide/momentumBalance.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/momentumBalance.png\"></td>
   </tr>
   <tr><td> Energy balance 1</td>
-      <td> <img src=\"modelica://Modelica/Images/Fluid/UsersGuide/energyBalance1.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance1.png\"></td>
   </tr>
   <tr><td> Pipe friction</td>
-      <td> <img src=\"modelica://Modelica/Images/Fluid/UsersGuide/pipeFriction.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/pipeFriction.png\"></td>
   </tr>
   <tr><td></td>
       <td>x: independent spatial coordinate (flow is along coordinate x)<br>
@@ -403,7 +403,7 @@ the \"energy balance 2\":
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td> Energy balance 2</td>
-      <td> <img src=\"modelica://Modelica/Images/Fluid/UsersGuide/energyBalance2.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance2.png\"></td>
   </tr>
 </table>
 
@@ -561,7 +561,7 @@ are present, e.g., for turbulent flow in a pipe:
 A plot of this characteristic is shown in the next figure:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/UsersGuide/sqrt.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/sqrt.png\">
 </p>
 <p>
 The difficulty with this function is that the derivative at x=0 is infinity.
@@ -674,7 +674,7 @@ The first form with &lambda; is used and presented in textbooks,
 see \"blue\" curve in the next figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Images/Fluid/Components/PipeFriction1.png\" ALT=\"PipeFriction1\">
+<IMG src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction1.png\" ALT=\"PipeFriction1\">
 
 <p>
 This form is not suited for a simulation program since
@@ -687,7 +687,7 @@ The characteristic of &lambda;2 is shown in the next figure and is
 used in Modelica.Fluid:
 </p>
 
-<IMG src=\"modelica://Modelica/Images/Fluid/Components/PipeFriction2.png\" ALT=\"PipeFriction2\">
+<IMG src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFriction2.png\" ALT=\"PipeFriction2\">
 
 <p>
 The pressure loss characteristic is divided into three regions:
@@ -1736,7 +1736,7 @@ a simple heating system with a closed flow cycle. By just changing one configura
 </p>
 
 <blockquote>
-    <img src=\"modelica://Modelica/Images/Fluid/UsersGuide/HeatingSystem.png\" border=1>
+    <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=1>
 </blockquote>
 
 <p>
@@ -1745,7 +1745,7 @@ of the connectors has been changed in a non-backward compatible way,
 using the recently developed concept
 of stream connectors that results in much more reliable simulations
 (see an overview and a rationale
-<a href=\"modelica://Modelica//help/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">here</a>).
+<a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">here</a>).
 This extension was included in Modelica 3.1.
 As of Jan. 2009, the stream concept is supported in Dymola 7.1.
 It is recommended to use Dymola 7.2 (available since Feb. 2009), or a later Dymola version,

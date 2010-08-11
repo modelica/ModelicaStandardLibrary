@@ -107,7 +107,7 @@ This is advantageous since stiff systems can be avoided, say, due to
 a stiff spring and a small mass at the connection point.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
 ALT=\"model Examples.Elementary.ThreeSprings\">
 </p>
 

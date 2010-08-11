@@ -240,12 +240,12 @@ Pressure dynamics becomes present with a compressible medium model (e.g. Standar
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\">
 </p>
 
 </html>"),
     experiment(StopTime=5),
     __Dymola_Commands(file=
-          "Scripts/Fluid/IncompressibleFluidNetwork/plotJunctionPressuresAndValves.mos"
+          "modelica://Modelica/Resources/Scripts/Dymola/Fluid/IncompressibleFluidNetwork/plotJunctionPressuresAndValves.mos"
         "Plot junction pressures and valves"));
 end IncompressibleFluidNetwork;

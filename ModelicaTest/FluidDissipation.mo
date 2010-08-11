@@ -154,7 +154,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapLaminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapLaminar.mos"
                 "Verification of kc_evenGapLaminar"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -341,7 +341,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapLaminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapLaminar_KC.mos"
                 "Verification of kc_evenGapLaminar_KC"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -548,7 +548,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapOverall.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapOverall.mos"
                 "Verification of kc_evenGapOverall"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -756,7 +756,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapOverall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapOverall_KC.mos"
                 "Verification of kc_evenGapOverall_KC"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -888,7 +888,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapTurbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapTurbulent.mos"
                 "Verification of kc_evenGapTurbulent"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -983,7 +983,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_1[i], m_flow_IN_var_1[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapTurbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapTurbulent_KC.mos"
                 "Verification of kc_evenGapTurbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -1129,7 +1129,7 @@ extends Modelica.Icons.Library;
               m_flow_IN_con_3[i], m_flow_IN_var_3[i]);
           end for;
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/general/kc_approxForcedConvection.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/general/kc_approxForcedConvection.mos"
                 "Verification of kc_approxForcedConvection"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -1261,7 +1261,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/general/kc_approxForcedConvection_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/general/kc_approxForcedConvection_KC.mos"
                 "Verification of kc_approxForcedConvection_KC"),Diagram(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={Text(
@@ -1399,7 +1399,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_2, m_flow_IN_var_2);
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_flatTube.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_flatTube.mos"
                 "Verification of kc_flatTube"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
@@ -1535,7 +1535,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_2, m_flow_IN_var_2);
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_flatTube_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_flatTube_KC.mos"
                 "Verification of kc_flatTube_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
@@ -1737,7 +1737,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4, m_flow_IN_var_4);
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_roundTube.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_roundTube.mos"
                 "Verification of kc_roundTube"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
@@ -1952,7 +1952,7 @@ extends Modelica.Icons.Library;
           m_flow[3] = 1;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_roundTube_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_roundTube_KC.mos"
                 "Verification of kc_roundTube_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2110,7 +2110,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_laminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_laminar.mos"
                 "Verification of kc_laminar"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2246,7 +2246,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_laminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_laminar_KC.mos"
                 "Verification of kc_laminar_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2411,7 +2411,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (
-            Commands(file="./Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_overall.mos"
+            Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_overall.mos"
                 "Verification of kc_overall"),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -2537,7 +2537,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_overall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_overall_KC.mos"
                 "Verification of kc_overall_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2697,7 +2697,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_turbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_turbulent.mos"
                 "Verification of kc_turbulent"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2832,7 +2832,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_turbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_turbulent_KC.mos"
                 "Verification of kc_turbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2937,7 +2937,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/plate/kc_laminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_laminar.mos"
                 "Verification of kc_laminar"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -3007,7 +3007,7 @@ extends Modelica.Icons.Library;
             IN_con[i], IN_var[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/plate/kc_laminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_laminar_KC.mos"
                 "Verification of kc_laminar_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -3103,7 +3103,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (
-            Commands(file="./Resources/Scripts/Dymola/heatTransfer/plate/kc_overall.mos"
+            Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_overall.mos"
                 "Verification of kc_overall"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -3179,7 +3179,7 @@ extends Modelica.Icons.Library;
             IN_con[i], IN_var[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/plate/kc_overall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_overall_KC.mos"
                 "Verification of kc_overall_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -3274,7 +3274,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/plate/kc_turbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_turbulent.mos"
                 "Verification of kc_turbulent"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -3344,7 +3344,7 @@ extends Modelica.Icons.Library;
             IN_con[i], IN_var[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/plate/kc_turbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_turbulent_KC.mos"
                 "Verification of kc_turbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -3526,7 +3526,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_laminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_laminar.mos"
                 "Verification of kc_laminar"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -3686,7 +3686,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
           annotation (
             Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_laminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_laminar_KC.mos"
                 "Verification of kc_laminar_KC"),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -3879,7 +3879,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_overall.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_overall.mos"
                 "Verification of kc_overall"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4042,7 +4042,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_overall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_overall_KC.mos"
                 "Verification of kc_overall_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -4180,7 +4180,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_turbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_turbulent.mos"
                 "Verification of kc_turbulent"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4276,7 +4276,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_2[i], m_flow_IN_var_2[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_turbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_turbulent_KC.mos"
                 "Verification of kc_turbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4495,7 +4495,7 @@ extends Modelica.Icons.Library;
             Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC(
             IN_con_3[i], IN_var_3[i]) for i in 1:m};
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_twoPhaseOverall_KC.mos"),
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_twoPhaseOverall_KC.mos"),
               Diagram(graphics={Text(
                   extent={{-100,52},{100,77}},
                   lineColor={0,0,255},
@@ -4683,7 +4683,7 @@ extends Modelica.Icons.Library;
                     input_dp_2[i]) for i in 1:m};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/bend/dp_curvedOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/bend/dp_curvedOverall_DPMFLOW.mos"
                 "Verification of dp_overall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4807,7 +4807,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/bend/dp_edgedOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/bend/dp_edgedOverall_DPMFLOW.mos"
                 "Verification of dp_edgedOverall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4979,7 +4979,7 @@ extends Modelica.Icons.Library;
 
           annotation (
             Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/channel/dp_internalFlowOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/channel/dp_internalFlowOverall_DPMFLOW.mos"
                 "Verification of dp_internalFlowOverall_DP and dp_internalFlowOverall_MFLOW (inverse)"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -5103,7 +5103,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/general/dp_idealGas_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_idealGas_DPMFLOW.mos"
                 "Verification of dp_idealGas_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -5233,7 +5233,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/general/dp_nominalDensityViscosity_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_nominalDensityViscosity_DPMFLOW.mos"
                 "Verification of dp_nominalDensityViscosity_DPMFLOW"), Diagram(
                 coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -5366,7 +5366,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/general/dp_nominalPressureLossLawDensity_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_nominalPressureLossLawDensity_DPMFLOW.mos"
                 "Verification of dp_nominalPressureLossLawDensity_DPMFLOW"), Diagram(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={Text(
@@ -5465,7 +5465,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/general/dp_pressureLossCoefficient_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_pressureLossCoefficient_DPMFLOW.mos"
                 "Verification of dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"),
               Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -5568,7 +5568,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/general/dp_volumeFlowRate_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_volumeFlowRate_DPMFLOW.mos"
                 "Verification of dp_volumeFlowRate_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -5701,7 +5701,7 @@ extends Modelica.Icons.Library;
 
           annotation (
             Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/orifice/dp_suddenChange_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/orifice/dp_suddenChange_DPMFLOW.mos"
                 "Verification of dp_suddenChange_DPMFLOW"),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -5832,7 +5832,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/orifice/dp_thickEdgedOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/orifice/dp_thickEdgedOverall_DPMFLOW.mos"
                 "Verification of dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW"),
               Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -5959,7 +5959,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_laminar_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_laminar_DPMFLOW.mos"
                 "Verification of dp_laminar_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -6082,7 +6082,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_overall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_overall_DPMFLOW.mos"
                 "Verification of dp_overall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -6211,7 +6211,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_turbulent_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_turbulent_DPMFLOW.mos"
                 "Verification of dp_turbulent_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -6375,7 +6375,7 @@ extends Modelica.Icons.Library;
                     m_flow[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_twoPhaseOverall_DP.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_twoPhaseOverall_DP.mos"
                 "Verification of dp_twoPhaseOverall_DP"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -6608,7 +6608,7 @@ extends Modelica.Icons.Library;
 
           annotation (
             Commands(file=
-                  "./Resources/Scripts/Dymola/pressureLoss/valve/dp_severalGeometryOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/valve/dp_severalGeometryOverall_DPMFLOW.mos"
                 "Verification of dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW (inverse)"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(

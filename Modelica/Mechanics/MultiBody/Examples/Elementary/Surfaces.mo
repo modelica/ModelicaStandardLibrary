@@ -113,7 +113,7 @@ The following image shows a screen-shot of this example model:
 </p
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/Surfaces.png\">
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/Surfaces.png\">
 </blockquote>
 
 </html>"));

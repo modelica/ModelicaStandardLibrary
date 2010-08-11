@@ -19,7 +19,7 @@ Below the major design decisions of this library are summarized.
      to operate with the environment. As will become clear, it is usally
      required that a Modelica tool vendor provides an implementation
      of these C-functions that are suited for his environment.
-     In directory \"Modelica.Utilities\\C-Sources\" a reference implementation
+     In directory \"Modelica/Resources/C-Sources\" a reference implementation
      is given for Microsoft Windows Systems and for POSIX environments.
      The files \"ModelicaInternal.c\" and \"ModelicaStrings.c\" can be
      used as a basis for the integration in the vendors environment.<br>&nbsp;</li>

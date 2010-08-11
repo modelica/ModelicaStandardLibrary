@@ -79,12 +79,12 @@ concentration of the fresh air.
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
 </p>
 
 </html>"),
       __Dymola_Commands(file(ensureSimulated=true)=
-          "Scripts/Fluid/RoomCO2/plotConcentrations.mos" "plot concentrations"));
+          "modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2/plotConcentrations.mos" "plot concentrations"));
   end RoomCO2;
 
   model RoomCO2WithControls "Demonstrates a room volume with CO2 controls"
@@ -216,7 +216,7 @@ concentration of the fresh air.
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics),
       experiment(StopTime=86400, Tolerance=1e-006),
-      __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
+      __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
           "plot states and controls"),
       Documentation(info="<html>
 <p>
@@ -249,7 +249,7 @@ and hence its contribution to the volume's energy balance is negligible.
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
 </p>
 </html>"));
   end RoomCO2WithControls;

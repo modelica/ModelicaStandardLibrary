@@ -209,7 +209,7 @@ the LineForceWithTwoMasses component whereas the system on the right
 side in the back is the animation with the JointUPS component.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
 </p>
 </html>"),    Diagram);
 end LineForceWithTwoMasses;

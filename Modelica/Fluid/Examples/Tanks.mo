@@ -98,12 +98,12 @@ package Tanks "Library demonstrating the usage of the tank model"
                         graphics),
       experiment(StopTime=200),
       __Dymola_Commands(file=
-            "Scripts/Fluid/ThreeTanks/plot level and port.m_flow.mos"
+            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/ThreeTanks/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/ThreeTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/ThreeTanks.png\" border=\"1\">
 </p>
 
 </html>"));
@@ -230,7 +230,7 @@ package Tanks "Library demonstrating the usage of the tank model"
           initialScale=0.1), graphics),
       experiment(StopTime=25000, NumberOfIntervals=5000),
       __Dymola_Commands(file=
-            "Scripts/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
+            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
       Documentation(info="<html>
 <p align=justify>The mass flow rate to the upper tank is controlled by the static pressure at its bottom.
@@ -247,7 +247,7 @@ simulation accuracy could be increased in order to avoid errors.
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\">
 </p>
 
 </html>"));
@@ -306,12 +306,12 @@ simulation accuracy could be increased in order to avoid errors.
               100,100}}),
               graphics),
       experiment(StopTime=50),
-      __Dymola_Commands(file="Scripts/Fluid/EmptyTanks/plot level and port.p.mos"
+      __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/EmptyTanks/plot level and port.p.mos"
           "plot level and port.p"),
       Documentation(info="<html>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/EmptyTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/EmptyTanks.png\" border=\"1\">
 </p>
 </html>"));
   end EmptyTanks;

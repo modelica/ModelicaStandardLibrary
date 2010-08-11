@@ -416,8 +416,8 @@ is shown in the next figure.
 </p>
 
 <p><blockquote>
-<img src=\"modelica://Modelica/Images/MathBoolean/OnDelay1.png\"><br>
-<img src=\"modelica://Modelica/Images/MathBoolean/OnDelay2.png\">
+<img src=\"modelica://Modelica/Resources/Images/MathBoolean/OnDelay1.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/MathBoolean/OnDelay2.png\">
 </blockquote></p>
 
 <p>

@@ -254,7 +254,7 @@ The Real output y is a clock signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Clock.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Clock.png\">
 </p>
 </html>"));
       end Clock;
@@ -325,7 +325,7 @@ The Real output y is a constant signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Constant.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png\">
 </p>
 </html>"));
       end Constant;
@@ -432,7 +432,7 @@ The Real output y is a step signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Step.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\">
 </p>
 
 </html>"));
@@ -573,7 +573,7 @@ The Real output y is a ramp signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Ramp.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Ramp.png\">
 </p>
 </html>"));
       end Ramp;
@@ -686,7 +686,7 @@ The Real output y is a sine signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Sine.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Sine.png\">
 </p>
 </html>"));
       end Sine;
@@ -822,7 +822,7 @@ The Real output y is a sine signal with exponentially changing amplitude:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/ExpSine.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/ExpSine.png\">
 </p>
 </html>"));
       end ExpSine;
@@ -955,7 +955,7 @@ by a falling exponential signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Exponentials.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Exponentials.png\">
 </p>
 </html>"));
       end Exponentials;
@@ -1118,7 +1118,7 @@ The Real output y is a pulse signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Pulse.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
       end Pulse;
@@ -1256,7 +1256,7 @@ The Real output y is a saw tooth signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/SawTooth.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/SawTooth.png\">
 </p>
 </html>"));
       end SawTooth;
@@ -1481,7 +1481,7 @@ The Real output y is a trapezoid signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Trapezoid.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Trapezoid.png\">
 </p>
 </html>"));
       end Trapezoid;
@@ -1611,7 +1611,7 @@ as output:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/KinematicPTP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP.png\">
 </p>
 
 <p>
@@ -1940,7 +1940,7 @@ the <b>maximally</b> allowed <b>acceleration</b> qdd_max:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/KinematicPTP2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/KinematicPTP2.png\">
 </p>
 
 <p>
@@ -2198,7 +2198,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/TimeTable.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png\">
 </p>
 
 </HTML>
@@ -2267,7 +2267,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     Integer tableID;
 
     function tableTimeInit
-      "Initialize 1-dim. table where first column is time (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Initialize 1-dim. table where first column is time (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input String tableName;
       input String fileName;
       input Real table[ :, :];
@@ -2282,7 +2282,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end tableTimeInit;
 
     function tableTimeIpo
-      "Interpolate 1-dim. table where first column is time (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Interpolate 1-dim. table where first column is time (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       input Integer icol;
       input Real timeIn;
@@ -2293,7 +2293,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end tableTimeIpo;
 
     function tableTimeTmin
-      "Return minimum time value of 1-dim. table where first column is time (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Return minimum time value of 1-dim. table where first column is time (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       output Real Tmin "minimum time value in table";
     external "C" Tmin =
@@ -2302,7 +2302,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     end tableTimeTmin;
 
     function tableTimeTmax
-      "Return maximum time value of 1-dim. table where first column is time (for details see: Modelica/C-Sources/ModelicaTables.h)"
+      "Return maximum time value of 1-dim. table where first column is time (for details see: Modelica/Resources/C-Sources/ModelicaTables.h)"
       input Integer tableID;
       output Real Tmax "maximum time value in table";
     external "C" Tmax =
@@ -2338,7 +2338,7 @@ time points and the other columns contain the data to be interpolated.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/CombiTimeTable.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/CombiTimeTable.png\">
 </p>
 
 <p>
@@ -2611,7 +2611,7 @@ The Boolean output y is a constant signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/BooleanConstant.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanConstant.png\">
 </p>
 </html>"));
     end BooleanConstant;
@@ -2658,7 +2658,7 @@ The Boolean output y is a step signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/BooleanStep.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanStep.png\">
 </p>
 </html>"));
     end BooleanStep;
@@ -2755,7 +2755,7 @@ The Boolean output y is a pulse signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/Pulse.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Pulse.png\">
 </p>
 </html>"));
     end BooleanPulse;
@@ -2840,7 +2840,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/SampleTrigger.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/SampleTrigger.png\">
 </p>
 </html>"));
     end SampleTrigger;
@@ -2960,7 +2960,7 @@ changes its value to the negated value of the previous one.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/BooleanTable.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/BooleanTable.png\">
 </p>
 </html>"));
     end BooleanTable;
@@ -3032,7 +3032,7 @@ This gives the following result:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/RadioButtonSource.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/RadioButtonSource.png\">
 </blockquote>
 
 <p>
@@ -3104,7 +3104,7 @@ The Integer output y is a constant signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/IntegerConstant.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerConstant.png\">
 </p>
 </html>"));
   end IntegerConstant;
@@ -3205,7 +3205,7 @@ The Integer output y is a step signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/IntegerStep.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerStep.png\">
 </p>
 </html>"));
   end IntegerStep;
@@ -3382,7 +3382,7 @@ results in the following output:
 </p>
 
 <blockquote><p>
-<img src=\"modelica://Modelica/Images/Blocks/Sources/IntegerTable.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/IntegerTable.png\">
 </p></blockquote>
 
 </html>"));

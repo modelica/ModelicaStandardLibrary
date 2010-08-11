@@ -224,12 +224,12 @@ This example is based on
 </dl>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
 </p>
 
 </html>"),
       __Dymola_Commands(file=
-            "Scripts/Fluid/ControlledTanks/plot level and ports.m_flow.mos"
+            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/ControlledTanks/plot level and ports.m_flow.mos"
           "plot level and ports.m_flow"));
   end ControlledTanks;
 

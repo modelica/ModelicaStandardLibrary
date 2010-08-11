@@ -657,12 +657,12 @@ package AST_BatchPlant
               -300},{300,300}}),      graphics),
       experiment(StopTime=3600),
       __Dymola_Commands(file=
-            "Scripts/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
+            "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
       Documentation(info="<html>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
 </p>
 
 </html>"));
@@ -2201,9 +2201,9 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=100),
-        __Dymola_Commands(file="Scripts/Fluid/OneTank/plot level and port.p.mos"
+        __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/OneTank/plot level and port.p.mos"
             "plot level and port.p", file=
-              "Scripts/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
+              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
     end OneTank;
 
@@ -2257,7 +2257,7 @@ Implemented trace substances and missing equation for outflow of multi substance
                 -100},{100,100}}),
                           graphics),
         experiment(StopTime=70),
-        __Dymola_Commands(file="Scripts/Fluid/TwoTanks/plot level and port.p.mos"
+        __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/TwoTanks/plot level and port.p.mos"
             "plot level and port.p"));
     end TwoTanks;
 
@@ -2339,9 +2339,9 @@ Implemented trace substances and missing equation for outflow of multi substance
                           graphics),
         experiment(StopTime=35),
         __Dymola_Commands(file=
-              "Scripts/Fluid/TankWithEmptyingPipe1/plot level and port.p.mos"
+              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TankWithEmptyingPipe1/plot level and port.p.mos"
             "plot level and port.p", file=
-              "Scripts/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
+              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
     end TankWithEmptyingPipe1;
 
@@ -2418,7 +2418,7 @@ Implemented trace substances and missing equation for outflow of multi substance
                           graphics),
         experiment(StopTime=35),
         __Dymola_Commands(file=
-              "Scripts/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
+              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
             "plot level and port.p"));
     end TankWithEmptyingPipe2;
 
@@ -2527,7 +2527,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         experiment(StopTime=35),
         __Dymola_Commands(
           file=
-              "Scripts/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
+              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
             "plot level, port.p and port.m_flow"));
     end TanksWithEmptyingPipe1;
 
@@ -2663,7 +2663,7 @@ Implemented trace substances and missing equation for outflow of multi substance
                           graphics),
         experiment(StopTime=300),
         __Dymola_Commands(file=
-              "Scripts/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
+              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
             "plot level and port.m_flow"));
     end TanksWithEmptyingPipe2;
   end Test;
@@ -2679,7 +2679,7 @@ below.
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
 </p>
 
 <p>
@@ -2687,7 +2687,7 @@ The flow sheet diagram is shown in the next figure.
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
 </p>
 
 <p>

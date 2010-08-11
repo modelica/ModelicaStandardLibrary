@@ -30,7 +30,7 @@ some deficiences of StateCharts.
 The basic elements of StateGraphs are <b>steps</b> and <b>transitions</b>:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/StepAndTransition1.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition1.png\">
 </p>
 <p>
 <b>Steps</b> represent the possible states a StateGraph can have.
@@ -56,7 +56,7 @@ of the transition object. Clicking on object \"transition1\" in
 the above figure, results in the following menu:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/StepAndTransition2.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition2.png\">
 </p>
 <p>
 In the input field \"<b>condition</b>\", any type of time varying
@@ -94,7 +94,7 @@ menu of the transition. An example is given in the next
 figure:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/StepAndTransition3.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition3.png\">
 </p>
 <p>
 Component \"step\" is an instance of \"StepWithSignal\" that is
@@ -121,7 +121,7 @@ any type of logical expression can be defined in textual
 form, as shown in the next figure:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/StepAndTransition4.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition4.png\">
 </p>
 <p>
 With the block \"<b>SetBoolean</b>\", a time varying expression
@@ -258,7 +258,7 @@ can be defined by component <b>Alternative</b>.
 An example for both components is given in the next figure.
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/Parallel1.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel1.png\">
 </p>
 <p>
 Here, the branch from \"step2\" to \"step5\" is executed in parallel
@@ -287,7 +287,7 @@ connectors. The dimensions of these vectors are set in the
 corresponding parameter menu. E.g. in a \"Parallel\" component:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/Parallel2.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel2.png\">
 </p>
 <p>
 Currently in Dymola the following menu pops up, when a branch
@@ -295,7 +295,7 @@ is connected to a vector of components in order to define
 the vector index to which the component shall be connected:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/Parallel3.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel3.png\">
 </p>
 <h4><font color=\"#008000\">CompositeSteps, Suspend and Resume Port</font></h4>
 <p>
@@ -304,7 +304,7 @@ This is a component that inherits from <b>PartialCompositeStep</b>.
 An example is given in the next figure (from Examples.ControlledTanks):
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/UsersGuide/CompositeStep1.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/CompositeStep1.png\">
 </p>
 <p>
 The CompositeStep component contains a local StateGraph that is
@@ -364,7 +364,7 @@ In the following figure the top level of the model is shown.
 This model is available as StateGraph.Examples.ControlledTanks.
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/Examples/ControlledTanks1.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks1.png\">
 </p>
 <p>
 In the right part of the figure, two tanks are shown. At the top part,
@@ -418,7 +418,7 @@ The implementation of the <b>tankController</b> is shown in
 the next figure:
 </p>
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/StateGraph/Examples/ControlledTanks2.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2.png\">
 </p>
 <p>
 When the \"<b>start</b>\" button is pressed, the stateGraph is
@@ -3201,8 +3201,8 @@ system with a tank controller and on the right hand side the
 top-level part of the tank controller as a StateGraph is shown:
 </p>
 <p>
-<img src=\"modelica://Modelica/Images/StateGraph/Examples/ControlledTanks1_small.png\">
-<img src=\"modelica://Modelica/Images/StateGraph/Examples/ControlledTanks2_small.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks1_small.png\">
+<img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2_small.png\">
 </p>
 <p>
 The unique feature of the StateGraph library with respect to JGraphCharts,

@@ -168,7 +168,7 @@ modeling of one cylinder, see example
 An animation of the engine is shown in the figure below.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
 </p>
 
 <p>

@@ -19,7 +19,7 @@ main sub-libraries:
 <tr><th>Library Components</th> <th>Description</th></tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Electrical.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Electrical.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Electrical.Analog\">Analog</a><br>
@@ -30,7 +30,7 @@ main sub-libraries:
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Digital.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Digital.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Electrical.Digital\">Digital</a><br>
@@ -41,7 +41,7 @@ main sub-libraries:
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Machines.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Machines.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a><br>
@@ -51,7 +51,7 @@ main sub-libraries:
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-FluxTubes.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-FluxTubes.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
@@ -60,7 +60,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Translational.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Translational.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Mechanics.Translational\">Translational</a><br>
@@ -70,7 +70,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Rotational.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Rotational.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Mechanics.Rotational\">Rotational</a><br>
@@ -81,8 +81,8 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\" width=100>
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-MultiBody1.png\"><br>
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-MultiBody2.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody1.png\"><br>
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-MultiBody2.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Mechanics.MultiBody\">MultiBody</a>
@@ -95,7 +95,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Fluid.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Fluid.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Fluid\">Fluid</a><br>
@@ -107,7 +107,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Media.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Media.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Media\">Media</a><br>
@@ -125,7 +125,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Thermal.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Thermal.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Thermal.FluidHeatFlow\">FluidHeatFlow</a>,
@@ -138,8 +138,8 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Blocks1.png\"><br>
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-Blocks2.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Blocks1.png\"><br>
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-Blocks2.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Blocks\">Blocks</a><br>
@@ -151,7 +151,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 </tr>
 
 <tr><td valign=\"top\">
- <img src=\"modelica://Modelica/Images/UsersGuide/Lib-StateGraph.png\">
+ <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Lib-StateGraph.png\">
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.StateGraph\">StateGraph</a><br>
@@ -218,13 +218,13 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/ElectricalPins.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>electrical<br>multi-phase</b></td>
    <td colspan=\"3\">vector of electrical pins</td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.MultiPhase.Interfaces\">Modelica.Electrical.MultiPhase.Interfaces</a>
      <br>Plug, PositivePlug, NegativePlug</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>electrical <br>sphace phasor</b></td>
    <td valign=\"top\">2 electrical potentials</td>
@@ -232,7 +232,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
      <br>SpacePhasor</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/SpacePhasor.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>electrical <br>digital</b></td>
    <td valign=\"top\">Integer (1..9)</td>
@@ -240,7 +240,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
      <br>DigitalSignal, DigitalInput, DigitalOutput</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/Digital.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>magnetic</b></td>
    <td valign=\"top\">magnetic potential</td>
@@ -249,7 +249,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valign=\"top\">
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/MagneticPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MagneticPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>translational</b></td>
    <td valign=\"top\">distance</td>
@@ -257,7 +257,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>rotational</b></td>
    <td valign=\"top\">angle</td>
@@ -265,7 +265,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>3-dim.<br>mechanics</b></td>
    <td valign=\"top\">position vector<br>
@@ -275,7 +275,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
      <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>simple<br>fluid flow</b></td>
    <td valign=\"top\">pressure<br>
@@ -285,7 +285,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
      <br>FlowPort, FlowPort_a, FlowPort_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>thermo<br>fluid flow</b></td>
    <td valign=\"top\">pressure</td>
@@ -294,7 +294,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valign=\"top\">
 <a href=\"modelica://Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
      <br>FluidPort, FluidPort_a, FluidPort_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/FluidPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>heat<br>transfer</b></td>
    <td valign=\"top\">temperature</td>
@@ -302,7 +302,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
      <br>HeatPort, HeatPort_a, HeatPort_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>block<br>diagram</b></td>
    <td valign=\"top\">Real variable<br>
@@ -314,7 +314,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>RealSignal, RealInput, RealOutput<br>
       IntegerSignal, IntegerInput, IntegerOutput<br>
       BooleanSignal, BooleanInput, BooleanOutput</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/Signals.png\"></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Signals.png\"></tr>
 
 <tr><td valign=\"top\"><b>state<br>machine</b></td>
    <td valign=\"top\">Boolean variables<br>
@@ -324,7 +324,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
      <br>Step_in, Step_out, Transition_in, Transition_out</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
 
 
 <tr><td colspan=\"5\">&nbsp;<br><b>Connectors from other libraries</b></td></tr>
@@ -335,7 +335,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\">HyLibLight.Interfaces
      <br>Port_A, Port_b</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/HydraulicPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/HydraulicPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>pneumatic</b></td>
    <td valign=\"top\">pressure</td>
@@ -343,7 +343,7 @@ variables is explained in section \"Connector Equations\" below):
    <td valing=\"top\"></td>
    <td valign=\"top\">PneuLibLight.Interfaces
      <br>Port_1, Port_2</td>
-   <td valign=\"top\"><img src=\"modelica://Modelica/Images/UsersGuide/PneumaticPorts.png\"></td></tr>
+   <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/PneumaticPorts.png\"></td></tr>
 </table>
 
 <p>
@@ -522,12 +522,12 @@ In a more equation oriented case additional equations or code segments can be ad
 <ul>
   <li>if <code>usePolar == true</code>, assign magnitude and angle to output <br>
 
-  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
-  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
   </li>
   <li>if <code>usePolar == false</code>, assign cosine and sine to output <br>
-  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"> <br>
-  <img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\">
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"> <br>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\">
   </li>
 </ul>
 
@@ -604,15 +604,15 @@ or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs<
 <p>
 A typical equation, e.g. of a Fourier synthesis, could look like<br>
 <img
- src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
+ src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
 or <br>
 <img
- src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+ src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
 In an <code>alt</code> tag the original equation can be stored, e.g.</p>
 <pre>
 &lt;img
-&nbsp;src=&quot;modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+&nbsp;src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
 &nbsp;alt=&quot;y=a_1+a_2&quot;&gt;
 </pre>
 
@@ -634,7 +634,7 @@ as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such var
 &lt;table border=\"0\" cellspacing=\"10\" cellpadding=\"2\"&gt;
   &lt;tr&gt;
       &lt;td&gt;&lt;img
-      src=&quot;modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
+      src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
       alt=&quot;y=a_1+a_2&quot;&gt; &lt;/td&gt;
       &lt;td&gt;(1)&lt;/td&gt;
   &lt;/tr&gt;
@@ -646,7 +646,7 @@ as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such var
 <table border=\"0\" cellspacing=\"10\" cellpadding=\"2\">
   <tr>
     <td><img
-         src=\"modelica://Modelica/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
+         src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
          alt=\"y=a_1+a_2\"></td>
     <td>(1)</td>
   </tr>
@@ -680,7 +680,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <a href=\"modelica://Modelica.Blocks\">Blocks</a> package.</p>
 
 <pre>
-&lt;img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;</pre>
+&lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;</pre>
 
 <h5>Example 2</h5>
 
@@ -691,7 +691,7 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -707,7 +707,7 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
   &lt;caption align=\"bottom\"&gt;&lt;b&gt;Fig. 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -4323,7 +4323,7 @@ the following exceptions:
 An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
 differences in the documentation) are available
-<a href=\"modelica://Modelica//help/Documentation/Differences-Modelica-221-222.html\">here</a>.
+<a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-221-222.html\">here</a>.
 This comparison file was generated automatically with Dymolas
 ModelManagement.compare function.
 </p>
@@ -4332,7 +4332,7 @@ ModelManagement.compare function.
 In this version, <b>no</b> new libraries have been added. The <b>documentation</b>
 of the whole library was improved. Especially, the documentation is now also
 available as
-<a href=\"modelica://Modelica//help/Documentation/ModelicaStandardLibrary.pdf\">one pdf file</a>.
+<a href=\"modelica://Modelica/Resources/Documentation/ModelicaStandardLibrary.pdf\">one pdf file</a>.
 </p>
 
 
@@ -6752,10 +6752,10 @@ conversion(
  noneFromVersion="3.1",
  noneFromVersion="3.0.1",
  noneFromVersion="3.0",
- from(version="2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
- from(version="2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
- from(version="2.2.1", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos"),
- from(version="2.2.2", script="Scripts/ConvertModelica_from_2.2.2_to_3.0.mos")),
+ from(version="2.1", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2.1", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
+ from(version="2.2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos")),
 __Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Magnetic","Mechanics","Fluid","Media","Thermal",
       "Math","Utilities","Constants", "Icons", "SIunits"},
 Settings(NewStateSelection=true),
@@ -6772,7 +6772,7 @@ in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/UsersGuide/ModelicaLibraries.png\">
+<img src=\"modelica://Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
 </p>
 
 <p>
@@ -6786,7 +6786,7 @@ For an introduction, have especially a look at:
  summarizes the changes of new versions of this package.</li>
 <li> <a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
-<li> <a href=\"modelica://Modelica//help/Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
+<li> <a href=\"modelica://Modelica/Resources/Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
   is the complete documentation of the library in pdf format.
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>

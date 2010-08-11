@@ -61,7 +61,7 @@ object to <b>false</b> to switch off animation of all components.
 </p>
 
 <table border=0 cellspacing=0 cellpadding=0><tr><td valign=\"top\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/DoublePendulum.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/DoublePendulum.png\"
 ALT=\"model Examples.Elementary.DoublePendulum\">
 </td></tr></table>
 

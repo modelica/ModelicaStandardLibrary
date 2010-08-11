@@ -355,11 +355,11 @@ load inertia.
 <p>
 This is a detailed model of the robot. For animation CAD data
 is used. Translate and simulate with the default settings
-(default simulation time = 3 s). Use command script \"Scripts\\ExamplesfullRobotPlot.mos\"
+(default simulation time = 3 s). Use command script \"modelica://Modelica/Resources/Scripts/Dymola/ExamplesfullRobotPlot.mos\"
 to plot variables.
 </p>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
 </p>
 </HTML>"));
   end fullRobot;
@@ -1955,7 +1955,7 @@ This model contains the mechanical components of the r3 robot
               textString="6",
               lineColor={0,0,255}),
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
-                  "modelica://Modelica/Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
+                  "modelica://Modelica/Resources/Images/MultiBody/Examples/Systems/robot_kr15.bmp")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
@@ -1981,7 +1981,7 @@ models individually before composing them together.
 Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Systems/robot_kr15.bmp\"
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Systems/robot_kr15.bmp\"
 ALT=\"model Examples.Systems.RobotR3\">
 <p>
 The following models are available:

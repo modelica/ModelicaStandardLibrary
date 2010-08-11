@@ -129,7 +129,7 @@ can be utilized:
     This has the advantage to get a nice animation of the force component.</li>
 </ul>
 <p align=\"center\">
-<IMG src=\"modelica://Modelica/Images/MultiBody/Examples/Elementary/SpringMassSystem.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringMassSystem.png\"
 ALT=\"model Examples.Elementary.SpringMassSystem\">
 </p>
 </html>"));

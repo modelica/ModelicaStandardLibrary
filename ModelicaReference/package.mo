@@ -6229,7 +6229,7 @@ A detailed description of the stream keyword and the inStream operator is given
 in Chapter 15 and Appendix D of the
 <a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a>.
 An overview and a rational is provided in a
-<a href=\"modelica://Modelica/help/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
+<a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">slide set</a>.
 </p>
 
 <p>

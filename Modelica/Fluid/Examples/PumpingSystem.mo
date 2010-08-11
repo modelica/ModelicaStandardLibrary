@@ -152,7 +152,7 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/PumpingSystem.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/PumpingSystem.png\" border=\"1\">
 </p>
 
 </html>", revisions="<html>

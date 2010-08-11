@@ -110,7 +110,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   annotation (
-    __Dymola_Commands(file(ensureSimulated=true)="Scripts/Fluid/InverseParameterization/plotResults.mos"
+    __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}}),
@@ -142,7 +142,7 @@ to investigate a real controller or with a Pump with rotational shaft to investi
 </p>
 
 <p align=\"center\">
-<img src=\"modelica://Modelica/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\">
 </p>
 
 </html>"));

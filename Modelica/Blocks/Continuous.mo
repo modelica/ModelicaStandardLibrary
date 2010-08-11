@@ -1616,7 +1616,7 @@ different orders are shown in the next figure:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/Butterworth.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Butterworth.png\">
 </p>
 
 <p>
@@ -1765,11 +1765,11 @@ The critical damping filter is defined as
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/CriticalDampingNormalized.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNormalized.png\">
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/CriticalDampingNonNormalized.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNonNormalized.png\">
 </p>
 
 </html>
@@ -2023,7 +2023,7 @@ are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Blocks/LowPassOrder4Filters.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/LowPassOrder4Filters.png\">
 </blockquote>
 
 <p>
@@ -2032,7 +2032,7 @@ starting from a steady state initial filter with initial input = 0.2:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Blocks/LowPassOrder4FiltersStepResponse.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/LowPassOrder4FiltersStepResponse.png\">
 </blockquote>
 
 <p>
@@ -2052,7 +2052,7 @@ are shown in the next figure:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Blocks/HighPassOrder4Filters.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/HighPassOrder4Filters.png\">
 </blockquote>
 
 <p>
@@ -2060,7 +2060,7 @@ The corresponding step responses of these high pass filters are
 shown in the next figure:
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Images/Blocks/HighPassOrder4FiltersStepResponse.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/HighPassOrder4FiltersStepResponse.png\">
 </blockquote>
 
 <p>
@@ -2080,11 +2080,11 @@ CriticalDamping filters of order 1,2,3:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/CriticalDampingNormalized.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNormalized.png\">
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Images/Blocks/CriticalDampingNonNormalized.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNonNormalized.png\">
 </p>
 
 

@@ -39,7 +39,7 @@ Image of the \"jet\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/jet.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/jet.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -79,7 +79,7 @@ Image of the \"hot\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/hot.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/hot.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -115,7 +115,7 @@ Image of the \"gray\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/gray.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/gray.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -151,7 +151,7 @@ Image of the \"spring\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/spring.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/spring.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -187,7 +187,7 @@ Image of the \"summer\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/summer.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/summer.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -223,7 +223,7 @@ Image of the \"autumn\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/autumn.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/autumn.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -259,7 +259,7 @@ Image of the \"winter\" color map:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/winter.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/winter.png\">
 </blockquote>
 
 <h4>See also</h4>
@@ -278,7 +278,7 @@ respective function:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/ColorMaps.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/ColorMaps.png\">
 </blockquote>
 </html>"));
   end ColorMaps;
@@ -442,7 +442,7 @@ generated file was loaded in Incscape and exported in \"png\" format:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Images/Math/Colors/jet.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/Colors/jet.png\">
 </blockquote>
 
 <p>
