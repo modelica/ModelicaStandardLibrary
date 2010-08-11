@@ -700,8 +700,8 @@ parameter menu.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each final
-              unit =                                                                               "m")
+    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each
+        final unit =                                                                               "m")
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -1011,7 +1011,6 @@ connector frame_a (visualized by the red coordinate system in the figure below).
        First version to visualize a multi-level tyre wheel model.</li>
   </ul>
 </html>"));
-
   end VoluminousWheel;
 
   model PipeWithScalarField
@@ -1509,50 +1508,6 @@ model where a <b>Shape</b> instance is used, e.g., in the form
 "));
     end Shape;
 
-    annotation ( Documentation(info="<HTML>
-<p>
-Package <b>Visualizers.Advanced</b> contains components to visualize
-3-dimensional shapes with dynamical sizes. None of the components
-has a frame connector. The position and orientation is set via
-modifiers. Basic knowledge of Modelica
-is needed in order to utilize the components of this package.
-These components have also to be used for models,
-where the forces and torques in the frame connector are set via
-equations (in this case, the models of the Visualizers package cannot be used,
-since they all have frame connectors).
-<p>
-<h4>Content</h4>
-<table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
-      <td valign=\"top\">Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
-      </td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
-      <td valign=\"top\">Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
-      </td>
-  </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
-      <td valign=\"top\">Visualizing an elementary object with variable size.
-      The following shape types are supported:<br>&nbsp;<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.Advanced.Shape\">
-      </td>
-  </tr>
-
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
-      <td valign=\"top\">Visualizing a moveable parameterized surface:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Surface_small.png\">
-      </td>
-  </tr>
-
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
-      <td valign=\"top\">Visualizing a pipe with a scalar field represented by a color coding:<br>
-      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
-      </td>
-  </tr>
-</table>
-</HTML>"));
     model Surface
       "Visualizing a moveable, parameterized surface; the surface characteristic is provided by a function"
       extends Modelica.Mechanics.MultiBody.Icons.Surface;
@@ -1864,6 +1819,50 @@ model.
 </p>
 </html>"));
     end SurfaceCharacteristics;
+    annotation ( Documentation(info="<HTML>
+<p>
+Package <b>Visualizers.Advanced</b> contains components to visualize
+3-dimensional shapes with dynamical sizes. None of the components
+has a frame connector. The position and orientation is set via
+modifiers. Basic knowledge of Modelica
+is needed in order to utilize the components of this package.
+These components have also to be used for models,
+where the forces and torques in the frame connector are set via
+equations (in this case, the models of the Visualizers package cannot be used,
+since they all have frame connectors).
+<p>
+<h4>Content</h4>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
+      <td valign=\"top\">Visualizing an arrow where all parts of the arrow can vary dynamically:<br>
+      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Arrow.png\" ALT=\"model Visualizers.Advanced.Arrow\">
+      </td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.DoubleArrow\">DoubleArrow</a></td>
+      <td valign=\"top\">Visualizing a double arrow where all parts of the arrow can vary dynamically:<br>
+      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/DoubleArrow.png\" ALT=\"model Visualizers.Advanced.DoubleArrow\">
+      </td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Shape</a></td>
+      <td valign=\"top\">Visualizing an elementary object with variable size.
+      The following shape types are supported:<br>&nbsp;<br>
+      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/FixedShape.png\" ALT=\"model Visualizers.Advanced.Shape\">
+      </td>
+  </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Surface</a></td>
+      <td valign=\"top\">Visualizing a moveable parameterized surface:<br>
+      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Surface_small.png\">
+      </td>
+  </tr>
+
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField\">PipeWithScalarField</a></td>
+      <td valign=\"top\">Visualizing a pipe with a scalar field represented by a color coding:<br>
+      <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/PipeWithScalarFieldIcon.png\">
+      </td>
+  </tr>
+</table>
+</HTML>"));
   end Advanced;
 
   package Internal

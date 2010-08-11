@@ -9,9 +9,8 @@ model Surfaces
   parameter Real z_min=0 "Minimum value of z";
   parameter Real z_max=1 "Maximum value of z";
   Real wz = time;
-
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface surface(
-    redeclare function surfaceCharacteristic = 
+    redeclare function surfaceCharacteristic =
         Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface
         (  x_min=x_min,
            x_max=x_max,
@@ -22,28 +21,28 @@ model Surfaces
            wz=wz),
     multiColoredSurface=false,
     nu=50,
-    nv=50) 
+    nv=50)
     annotation (Placement(transformation(extent={{-72,-52},{-52,-32}})));
-  inner World world(axisLength=1, n={0,0,-1}) 
+  inner World world(axisLength=1, n={0,0,-1})
     annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-  Visualizers.Torus torus 
+  Visualizers.Torus torus
     annotation (Placement(transformation(extent={{32,20},{52,40}})));
   Joints.Prismatic prismatic(useAxisFlange=true, animation=false,
-    v(fixed=true)) 
+    v(fixed=true))
     annotation (Placement(transformation(extent={{-38,20},{-18,40}})));
-  Translational.Sources.Position position 
+  Translational.Sources.Position position
     annotation (Placement(transformation(extent={{-66,70},{-46,90}})));
-  Blocks.Sources.Sine sine(amplitude=2, freqHz=0.5) 
+  Blocks.Sources.Sine sine(amplitude=2, freqHz=0.5)
     annotation (Placement(transformation(extent={{-98,70},{-78,90}})));
-  Visualizers.Ground ground(          groundColor={215,215,215}, length=4) 
+  Visualizers.Ground ground(          groundColor={215,215,215}, length=4)
     annotation (Placement(transformation(extent={{-72,-16},{-52,4}})));
   Parts.FixedTranslation fixedTranslation1(r={0,-1.3,torus.ro + torus.ri},
-      animation=false) 
+      animation=false)
     annotation (Placement(transformation(extent={{-4,20},{16,40}})));
   Parts.FixedTranslation fixedTranslation2(
-      animation=false, r={0,-1.6,wheel.rTire}) 
+      animation=false, r={0,-1.6,wheel.rTire})
     annotation (Placement(transformation(extent={{-4,50},{16,70}})));
-  Visualizers.VoluminousWheel wheel 
+  Visualizers.VoluminousWheel wheel
     annotation (Placement(transformation(extent={{32,50},{52,70}})));
   Visualizers.PipeWithScalarField pipeWithScalarField(
     rOuter=0.3,
@@ -55,7 +54,7 @@ model Surfaces
     n_colors=32)
     annotation (Placement(transformation(extent={{14,-30},{34,-10}})));
   Parts.FixedTranslation fixedTranslation3(
-      animation=false, r={0,-2.2,0}) 
+      animation=false, r={0,-2.2,0})
     annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
 equation
   connect(world.frame_b, prismatic.frame_a) annotation (Line(
@@ -71,13 +70,13 @@ equation
       points={{-77,80},{-68,80}},
       color={0,0,127},
       smooth=Smooth.None));
-  connect(prismatic.frame_b, fixedTranslation1.frame_a) 
+  connect(prismatic.frame_b, fixedTranslation1.frame_a)
                                                        annotation (Line(
       points={{-18,30},{-4,30}},
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  connect(fixedTranslation1.frame_b, torus.frame_a) 
+  connect(fixedTranslation1.frame_b, torus.frame_a)
                                                    annotation (Line(
       points={{16,30},{32,30}},
       color={95,95,95},
@@ -90,6 +89,17 @@ equation
       smooth=Smooth.None));
   connect(fixedTranslation2.frame_b, wheel.frame_a) annotation (Line(
       points={{16,60},{32,60}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(world.frame_b, fixedTranslation3.frame_a) annotation (Line(
+      points={{-60,30},{-46,30},{-46,-20},{-20,-20}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(fixedTranslation3.frame_b, pipeWithScalarField.frame_a) annotation (
+      Line(
+      points={{0,-20},{14,-20}},
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
@@ -117,15 +127,4 @@ The following image shows a screen-shot of this example model:
 </blockquote>
 
 </html>"));
-  connect(world.frame_b, fixedTranslation3.frame_a) annotation (Line(
-      points={{-60,30},{-46,30},{-46,-20},{-20,-20}},
-      color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  connect(fixedTranslation3.frame_b, pipeWithScalarField.frame_a) annotation (
-      Line(
-      points={{0,-20},{14,-20}},
-      color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
 end Surfaces;

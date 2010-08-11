@@ -2,19 +2,18 @@ within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model DoublePendulumInitTip
   "Demonstrate how to initialize a double pendulum so that its tip starts at a predefined position"
   extends Modelica.Icons.Example;
-
   inner World world                              annotation (Placement(
         transformation(extent={{-100,0},{-80,20}},rotation=0)));
-  Joints.Revolute revolute1(                             useAxisFlange=true) 
+  Joints.Revolute revolute1(                             useAxisFlange=true)
                                                                  annotation (Placement(transformation(extent={{-60,0},
             {-40,20}}, rotation=0)));
-  Rotational.Components.Damper damper(        d=0.1) 
+  Rotational.Components.Damper damper(        d=0.1)
     annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=0)));
-  Parts.BodyBox boxBody1(                             r={0.5,0,0}, width=0.06) 
+  Parts.BodyBox boxBody1(                             r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{-22,0},{-2,20}}, rotation=0)));
   Joints.Revolute revolute2                              annotation (Placement(transformation(extent={{20,0},{
             40,20}}, rotation=0)));
-  Parts.BodyBox boxBody2(                             r={0.5,0,0}, width=0.06) 
+  Parts.BodyBox boxBody2(                             r={0.5,0,0}, width=0.06)
     annotation (Placement(transformation(extent={{62,0},{82,20}}, rotation=0)));
   Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit freeMotionScalarInit(
     use_r=true,
@@ -24,6 +23,41 @@ model DoublePendulumInitTip
     v_rel_a_1(fixed=true),
     v_rel_a_2(fixed=true))
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
+equation
+  connect(damper.flange_b,revolute1. axis) annotation (Line(points={{-40,50},{
+          -36,50},{-36,28},{-50,28},{-50,20}}, color={0,0,0}));
+  connect(revolute1.support,damper. flange_a) annotation (Line(points={{-56,20},
+          {-56,28},{-70,28},{-70,50},{-60,50}}, color={0,0,0}));
+  connect(revolute1.frame_b,boxBody1. frame_a)
+    annotation (Line(
+      points={{-40,10},{-22,10}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(revolute2.frame_b,boxBody2. frame_a)
+    annotation (Line(
+      points={{40,10},{62,10}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(boxBody1.frame_b,revolute2. frame_a)
+    annotation (Line(
+      points={{-2,10},{20,10}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(world.frame_b,revolute1. frame_a)
+    annotation (Line(
+      points={{-80,10},{-60,10}},
+      color={95,95,95},
+      thickness=0.5));
+  connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
+      points={{-80,10},{-66,10},{-66,-30},{-20,-30}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
+  connect(freeMotionScalarInit.frame_b, boxBody2.frame_b) annotation (Line(
+      points={{0,-30},{88,-30},{88,10},{82,10}},
+      color={95,95,95},
+      thickness=0.5,
+      smooth=Smooth.None));
   annotation (Diagram(graphics),
     experiment(StopTime=5),
     experimentSetupOutput,
@@ -48,39 +82,4 @@ x=0.7, y=0.3.
 </blockquote>
 
 </html>"));
-equation
-  connect(damper.flange_b,revolute1. axis) annotation (Line(points={{-40,50},{
-          -36,50},{-36,28},{-50,28},{-50,20}}, color={0,0,0}));
-  connect(revolute1.support,damper. flange_a) annotation (Line(points={{-56,20},
-          {-56,28},{-70,28},{-70,50},{-60,50}}, color={0,0,0}));
-  connect(revolute1.frame_b,boxBody1. frame_a) 
-    annotation (Line(
-      points={{-40,10},{-22,10}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(revolute2.frame_b,boxBody2. frame_a) 
-    annotation (Line(
-      points={{40,10},{62,10}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(boxBody1.frame_b,revolute2. frame_a) 
-    annotation (Line(
-      points={{-2,10},{20,10}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(world.frame_b,revolute1. frame_a) 
-    annotation (Line(
-      points={{-80,10},{-60,10}},
-      color={95,95,95},
-      thickness=0.5));
-  connect(world.frame_b, freeMotionScalarInit.frame_a) annotation (Line(
-      points={{-80,10},{-66,10},{-66,-30},{-20,-30}},
-      color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
-  connect(freeMotionScalarInit.frame_b, boxBody2.frame_b) annotation (Line(
-      points={{0,-30},{88,-30},{88,10},{82,10}},
-      color={95,95,95},
-      thickness=0.5,
-      smooth=Smooth.None));
 end DoublePendulumInitTip;
