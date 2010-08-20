@@ -309,26 +309,29 @@ The following nonlinear equations are solved:
 </html>"));
     end solveNonlinearEquations2;
 
-    model quadratureLobatto3
+    model quadratureLobatto3 "Integrate function in a model"
       extends Modelica.Icons.Example;
-      parameter Real A=1;
-      parameter Real wx=2;
-      parameter Real wt=3;
+      parameter Real A=1 "Amplitude of integrand of s";
+      parameter Real ws=2 "Angular frequency of integrand of s";
+      parameter Real wq=3 "Angular frequency of q";
       Real q(start=1, fixed=true);
-      Real qd;
-      final parameter Real s = Modelica.Math.Nonlinear.quadratureLobatto(
-                                  function UtilityFunctions.fun7(A=A, w=wx),0,1);
+      Real qd(start=0, fixed=true);
       Real x;
+      final parameter Real s = Modelica.Math.Nonlinear.quadratureLobatto(
+                                  function UtilityFunctions.fun7(A=A, w=ws),
+                                  0,1);
     equation
       qd = der(q);
-      der(qd) + wt*q = 0;
+      der(qd) + wq*q = 0;
       x = s*q;
       annotation (Documentation(info="<html>
 <p>
 This example demonstrates how to utilize a function as input argument
 to a function in a model.
 </p>
-</html>"));
+</html>"),
+        experiment(StopTime=5),
+        experimentSetupOutput);
     end quadratureLobatto3;
 
     package UtilityFunctions
@@ -405,13 +408,14 @@ arguments to the example functions.
     output Real integral "integral value";
 
   protected
+    constant Real x1=0.942882415695480;
+    constant Real x2=0.641853342345781;
+    constant Real x3=0.236383199662150;
+    constant Real eps=10*Modelica.Constants.eps;
     Real m;
     Real h;
     Real alpha;
     Real beta;
-    Real x1=0.942882415695480;
-    Real x2=0.641853342345781;
-    Real x3=0.236383199662150;
     Real x[13];
     Real y[13];
     Real fa;
@@ -423,7 +427,6 @@ arguments to the example functions.
     Real erri2;
     Real R;
     Real tol;
-    Real eps=10*Modelica.Constants.eps;
     Integer s;
 
     function quadStep "Recursive function used by quadrature"
@@ -462,7 +465,9 @@ arguments to the example functions.
       mr := m + beta*h;
       mrr := m + alpha*h;
       x := {mll,ml,m,mr,mrr};
-      y := f(x);
+      for i in 1:size(x,1) loop
+        y[i] := f(x[i]);
+      end for;
       fmll := y[1];
       fml := y[2];
       fm := y[3];
@@ -500,9 +505,22 @@ arguments to the example functions.
     h := (b - a)/2;
     alpha := sqrt(2/3);
     beta := 1/sqrt(5);
-    x := {a,m - x1*h,m - alpha*h,m - x2*h,m - beta*h,m - x3*h,m,m + x3*h,m +
-      beta*h,m + x2*h,m + alpha*h,m + x1*h,b};
-    y := f(x);
+    x := {a,
+          m - x1*h,
+          m - alpha*h,
+          m - x2*h,
+          m - beta*h,
+          m - x3*h,
+          m,
+          m + x3*h,
+          m + beta*h,
+          m + x2*h,
+          m + alpha*h,
+          m + x1*h,
+          b};
+    for i in 1:size(x,1) loop
+      y[i] := f(x[i]);
+    end for;
     fa := y[1];
     fb := y[13];
     i2 := (h/6)*(y[1] + y[13] + 5*(y[5] + y[9]));
@@ -750,6 +768,13 @@ a function, or solving a nonlinear algebraic equation system.
 The common feature of the functions in this package is
 that the nonlinear characteristics are passed as user defineable
 functions.
+</p>
+
+<p>
+For details about how to define and to use functions as input arguments
+to functions, see
+<a href=\"modelica://ModelicaReference.Classes.Function\">ModelicaReference.Classes.Function</a>
+or the Modelica Language  Specification, Chapter 12.4.2.
 </p>
 
 </html>", revisions="<html>

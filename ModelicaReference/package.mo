@@ -1497,7 +1497,10 @@ general Modelica class:
      array local variable [i.e., a non-input components] of a function must
      be either given by the input formal parameters, or given by constant
      or parameter expressions, or by expressions containing combinations
-     of those</li>
+     of those. If an output or a local array dimension is declared with (:), 
+     the size of the dimension can be changed in the function. A size change
+     takes place by assigning a full array with the respective sizes to the
+     dynamically sized array on the left hand side of an equal sign.</li>
 
 <li> The local variables of a function are not automatically initialized to
      the implicit default values of the data type [(e.g., 0.0 for Real)
@@ -1533,10 +1536,189 @@ Modelica functions have the following enhancements compared to a general Modelic
 
 <li> A function allows dimension sizes declared with (:) to be resized
      for non-input array variables (so the actual dimension need not to be known when
-     the function is translated).</li>.
+     the function is translated).</li>
 </ul>
 
+<p>
+A function may have a function as an input argument.
+The declared type of such an input formal parameter in a function can be 
+the class-name of a partial function that has no replaceable elements. 
+It cannot be the class-name of a record [i.e., <i>record constructor functions are not
+allowed in this context.</i>] Such an input formal parameter of function type 
+can also have an optional functional default value. Example:
+</p>
 
+<blockquote><pre>
+<b>function</b> quadrature \"Integrate function y=integrand(x) from x1 to x2\"
+  <b>input</b>  Real x1;
+  <b>input</b>  Real x2;
+  <b>input</b>  Integrand integrand;   // Integrand is a partial function, see below
+  // With default: input Integrand integrand := Modelica.Math.sin;
+  <b>output</b> Real integral;
+<b>algorithm</b>
+  integral :=(x2-x1)*(integrand(x1) + integrand(x2))/2;
+<b>end</b> quadrature;
+
+<b>partial function</b> Integrand
+  <b>input</b>  Real x;
+  <b>output</b> Real y;
+<b>end</b> Integrand;
+</pre></blockquote>
+
+<p>
+A functional argument can be provided in one of the following forms 
+to be passed to a formal parameter of function type in a function call
+(see examples below):
+</p>
+<ol>
+<li> as a function name,</li>
+<li> as a function partial application, </li>
+<li> as a function that is a component,</li>
+<li> as a function partial application of a function 
+     that is a component.<li>
+</ol>
+
+<p>
+In all cases the provided function must be \"function type compatible\" 
+to the corresponding formal parameter of function type. Example:
+</li>
+
+
+<blockquote><pre>
+// A function as a positional input argument according to case (a)
+<b>function</b> Parabola
+   <b>extends</b> Integrand;
+<b>algorithm</b>
+   y = x*x;
+<b>end</b> Parabola;
+
+area = quadrature(0, 1, Parabola);
+
+// The quadrature2 example below uses a function integrand that 
+// is a component as input argument according to case (c):
+<b>function</b> quadrature2 \"Integrate function y=integrand(x) from x1 to x2\"
+  <b>input</b>  Real x1;
+  <b>input</b>  Real x2;
+  <b>input</b>  Integrand integrand;   // Integrand is a partial function type
+  <b>output</b> Real integral;
+<b>algorithm</b>
+   integral := quadrature(x1,       (x1+x2)/2, integrand)+
+               quadrature((x1+x2)/2, x2,       integrand);
+<b>end</b> quadrature2;
+</pre></blockquote>
+
+<p>
+A function partial application is a function call with certain 
+formal parameters bound to expressions. A function partial application 
+returns a partially evaluated function that is also a function, 
+with the remaining not bound formal parameters still present in the 
+same order as in the original function declaration. A function partial 
+application is specified by the function keyword followed by a function 
+call to func_name giving named formal parameter associations for the
+formal parameters to be bound, e.g.:
+</p>
+
+<blockquote><pre>
+<b>function</b> func_name(..., formal_parameter_name = expr, ...)
+</pre></blockquote>
+
+<p>
+[<i>Note that the keyword function in a function partial application 
+differentiates the syntax from a normal function call where some 
+parameters have been left out, and instead supplied via default values.</i>]
+The function created by the function partial application acts as the 
+original function but with the bound formal input parameters(s) removed, 
+i.e., they cannot be supplied arguments at function call. The binding 
+occurs when the partially evaluated function is created. A partially 
+evaluated function is \"function compatible\" to the same function where 
+all bound arguments are removed [<i>thus, for checking function type 
+compatibility, bound formal parameters are ignored</i>].
+</p>
+
+<p>
+Example of function partial application as argument, positional argument passing, according to case (b) above:
+</p>
+
+<blockquote><pre>
+<b>model</b> Test
+   <b>parameter</b> Integer N;
+   Real area;
+<b>algorithm</b>
+   area := 0;
+   <b>for</b> i <b>in</b> 1:N <b>loop</b>
+     area  := area + quadrature(0, 1, <b>function</b> Sine(A=2, w=i*time));
+   <b>end for</b>;
+<b>end</b> Test;
+
+<b>function</b> Sine  \"y = Sine(x,A,w)\"
+  <b>extends</b> Integrand;
+  <b>input</b> Real A;
+  <b>input</b> Real w;
+<b>algorithm</b>
+  y:=A*Modelica.Math.sin(w*x);
+<b>end</b> Sine;
+
+//Call with function partial application as named input argument:
+area  := area + quadrature(0, 1, integrand = <b>function</b> Sine(A=2, w=i*time));
+</pre></blockquote>
+
+<p>
+Example showing that function types are matching after
+removing the bound arguments A and w in a function partial
+application:
+</p>
+
+<blockquote><pre>
+<b>function</b> Sine2  \"y = Sine2(A,w,x)\"
+  <b>input</b> Real A;
+  <b>input</b> Real w;
+  <b>input</b> Real x; // Note: x is now last in argument list.
+  <b>output</b> Real y;
+<b>algorithm</b>
+  y:=A*Modelica.Math.sin(w*x);
+<b>end</b> Sine2;
+
+// The partially evaluated Sine2 has only one argument: 
+// x - and is thus type compatible with Integrand.
+area = quadrature(0, 1, integrand = <b>function</b> Sine2(A=2, w=3));
+</pre></blockquote>
+
+<p>
+Example of a function partial application of a function that is
+a component, according to case (d) above:
+</p>
+
+<blockquote><pre>
+<b>partial function</b> SurfaceIntegrand
+   <b>input</b> Real x;
+   <b>input</b> Real y;
+   <b>output</b> Real z;
+<b>end</b> SurfaceIntegrand;
+
+<b>function</b> quadratureOnce
+  <b>input</b> Real x;
+  <b>input</b> Real y1;
+  <b>input</b> Real y2;
+  <b>inpu</b>t SurfaceIntegrand integrand;
+  <b>output</b> Real z;
+<b>algorithm</b>
+  // This is according to case (d) and needs to bind the 2nd argument
+  z := quadrature(y1, y2, <b>function</b> integrand(y=x));
+<b>end</b> quadratureOnce;
+
+<b>function</b> surfaceQuadrature
+  <b>input</b> Real x1;
+  <b>input</b> Real x2;
+  <b>input</b> Real y1;
+  <b>input</b> Real y2;
+  <b>input</b> SurfaceIntegrand integrand;
+  <b>output</b> Real integral;
+<b>algorithm</b>
+   // Case (b) and (c)
+   integral := quadrature(x1, x2, 
+     <b>function</b> quadratureOnce(y1=y1, y2=y2, integrand=integrand);
+<b>end</b> surfaceQuadrature;
+</pre></blockquote>
 </html>"));
   end Function;
 
@@ -1706,14 +1888,7 @@ Enhanced to extend from predefined types [No other specialized class has this pr
 
 </html>"));
   end Type;
-  annotation (Documentation(info="<html>
-<p>
-In this package specialized kinds of classes (earlier known as restricted classes) are
-described. They have the properties of a general class, apart from restrictions.
-Moreover, they have additional properties called enhancements.
-</p>
 
-</html>"));
   class ExternalObject "ExternalObject"
   extends Modelica.Icons.Information;
 
@@ -1843,6 +2018,14 @@ The external C-functions may be defined in the following way:
 </pre>
 </html>"));
   end ExternalObject;
+  annotation (Documentation(info="<html>
+<p>
+In this package specialized kinds of classes (earlier known as restricted classes) are
+described. They have the properties of a general class, apart from restrictions.
+Moreover, they have additional properties called enhancements.
+</p>
+
+</html>"));
 end Classes;
 
 
