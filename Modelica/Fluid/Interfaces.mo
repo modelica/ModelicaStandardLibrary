@@ -597,6 +597,8 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
       SI.Mass m "Mass of fluid";
       SI.Mass[Medium.nXi] mXi "Masses of independent components in the fluid";
       SI.Mass[Medium.nC] mC "Masses of trace substances in the fluid";
+      Real[Medium.nC] mC_scaled
+      "Scaled masses of trace substances in the fluid";
       // C need to be added here because unlike for Xi, which has medium.Xi,
       // there is no variable medium.C
       Medium.ExtraProperty C[Medium.nC] "Trace substance mixture content";
@@ -647,8 +649,9 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
       if traceDynamics == Dynamics.SteadyState then
         zeros(Medium.nC)  = mbC_flow;
       else
-        der(mC)  = mbC_flow;
+        der(mC_scaled) = mbC_flow./Medium.C_nominal;
       end if;
+        mC = mC_scaled.*Medium.C_nominal;
 
     initial equation
       // initialization of balances
@@ -877,6 +880,7 @@ partial model PartialDistributedVolume
   SI.Mass[n,Medium.nC] mCs "Trace substance mass";
   // C need to be added here because unlike for Xi, which has medium[:].Xi,
   // there is no variable medium[:].C
+  SI.Mass[n,Medium.nC] mCs_scaled "Scaled trace substance mass";
   Medium.ExtraProperty Cs[n, Medium.nC] "Trace substance mixture content";
 
   Medium.BaseProperties[n] mediums(
@@ -946,7 +950,8 @@ equation
     end for;
   else
     for i in 1:n loop
-      der(mCs[i, :])  = mbC_flows[i, :];
+      der(mCs_scaled[i, :])  = mbC_flows[i, :]./Medium.C_nominal;
+      mCs[i, :] = mCs_scaled[i, :].*Medium.C_nominal;
     end for;
   end if;
 
