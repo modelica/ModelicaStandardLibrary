@@ -741,8 +741,8 @@ Published: Oct 01, 1994.
 </p>
 <p><b>Known limits of validity:</b></br>
 The data is valid for
-temperatures between 200K and 6000K.  A few of the data sets for
-monatomic gases have a discontinuous 1st derivative at 1000K, but
+temperatures between 200 K and 6000 K.  A few of the data sets for
+monatomic gases have a discontinuous 1st derivative at 1000 K, but
 this never caused problems so far.
 </p>
 <p>
@@ -755,7 +755,7 @@ and adapted to the Modelica.Media package.
          graphics),
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}),
-            graphics));
+                graphics));
 end SingleGasNasa;
 
 
@@ -1447,6 +1447,12 @@ end lowPressureThermalConductivity;
   function T_hX "Return temperature from specific enthalpy and mass fraction"
     input SpecificEnthalpy h "specific enthalpy";
     input MassFraction[:] X "mass fractions of composition";
+     input Boolean exclEnthForm=excludeEnthalpyOfFormation
+      "If true, enthalpy of formation Hf is not included in specific enthalpy h";
+     input Choices.ReferenceEnthalpy refChoice=referenceChoice
+      "Choice of reference enthalpy";
+     input SI.SpecificEnthalpy h_off=h_offset
+      "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output Temperature T "temperature";
   protected
     MassFraction[nX] Xfull = if size(X,1) == nX then X else cat(1,X,{1-sum(X)});
@@ -1470,6 +1476,7 @@ end lowPressureThermalConductivity;
 
   algorithm
     T := Internal.solve(h, 200, 6000, 1.0e5, Xfull, data[1]);
+    annotation(inverse(h = h_TX(T,X,exclEnthForm,refChoice,h_off)));
   end T_hX;
 
   function T_psX
