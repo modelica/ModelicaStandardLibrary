@@ -2762,7 +2762,7 @@ is given to compare the approximation.
 </html>"),
         experiment(StopTime=1));
     end IdealGasN2Mix;
-    annotation (Documentation(info="<html>
+  annotation (Documentation(info="<html>
 
 </html>"));
   end TestOnly;
@@ -4073,7 +4073,8 @@ Modelica source.
     final constant Integer nC=size(extraPropertiesNames, 1)
       "Number of extra (outside of standard mass-balance) transported properties"
      annotation(Evaluate=true);
-
+    constant Real C_nominal[nC] = 1.0e-6*ones(nC)
+      "Default for the nominal values for the extra properties";
     replaceable record FluidConstants
       "critical, triple, molecular and other standard data of fluid"
       extends Modelica.Icons.Record;
@@ -4455,7 +4456,7 @@ Summing all mass fractions together results in
       output SpecificEnthalpy h_is "Isentropic enthalpy";
       annotation(Documentation(info="<html>
 <p>
-This function computes an isentropic state transformation:
+This function computes an isentropic state transformation: 
 </p>
 <ol>
 <li> A medium is in a particular state, refState.</li>
@@ -4567,8 +4568,21 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
       output SpecificEnthalpy h "Specific enthalpy";
     algorithm
       h := specificEnthalpy(setState_pTX(p,T,X));
-      annotation(Documentation(info="<html></html>"));
+      annotation(inverse(T = temperature_phX(p,h,X)),Documentation(info="<html></html>"));
     end specificEnthalpy_pTX;
+
+    replaceable function specificEntropy_pTX
+      "Return specific enthalpy from p, T, and X or Xi"
+      extends Modelica.Icons.Function;
+      input AbsolutePressure p "Pressure";
+      input Temperature T "Temperature";
+      input MassFraction X[:]=reference_X "Mass fractions";
+      output SpecificEntropy s "Specific entropy";
+    algorithm
+      s := specificEntropy(setState_pTX(p,T,X));
+
+      annotation(inverse(T = temperature_psX(p,s,X)),Documentation(info="<html></html>"));
+    end specificEntropy_pTX;
 
     replaceable function density_pTX "Return density from p, T, and X or Xi"
       extends Modelica.Icons.Function;
@@ -4613,7 +4627,8 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
       output Temperature T "Temperature";
     algorithm
       T := temperature(setState_psX(p,s,X));
-      annotation(Documentation(info="<html></html>"));
+      annotation(inverse(s = specificEntropy_pTX(p,T,X)),Documentation(info="<html></html>"),
+                 Documentation(info="<html></html>"));
     end temperature_psX;
 
     replaceable function density_psX "Return density from p, s, and X or Xi"
@@ -5126,11 +5141,11 @@ partial package PartialLinearFluid
 
     /* Previous wrong equation:
 
-protected
-  SpecificEntropy s_upstream = specificEntropy(refState)
+protected 
+  SpecificEntropy s_upstream = specificEntropy(refState) 
     "specific entropy at component inlet";
   ThermodynamicState downstreamState "state at downstream location";
-algorithm
+algorithm 
   downstreamState.p := p_downstream;
   downstreamState.T := reference_T*cp_const/
     (s_upstream -reference_s -(p_downstream-reference_p)*(-beta_const/reference_d) - cp_const);
@@ -5141,17 +5156,17 @@ algorithm
                         (refState.p-reference_p)*(-beta_const/reference_d)
         = reference_s + (state.T-reference_T)*cp_const/state.T +
                         (p_downstream-reference_p)*(-beta_const/reference_d);
-
-      (state.T-reference_T)*cp_const/state.T
+                        
+      (state.T-reference_T)*cp_const/state.T 
      = (refState.T-reference_T)*cp_const/refState.T + (refState.p-reference_p)*(-beta_const/reference_d)
        - (p_downstream-reference_p)*(-beta_const/reference_d)
      = (refState.T-reference_T)*cp_const/refState.T + (refState.p-p_downstream)*(-beta_const/reference_d)
-
+     
      (x - reference_T)/x = k
      x - reference_T = k*x
      (1-k)*x = reference_T
      x = reference_T/(1-k);
-
+     
      state.T = reference_T/(1 - ((refState.T-reference_T)*cp_const/refState.T + (refState.p-p_downstream)*(-beta_const/reference_d))/cp_const)
   */
 
