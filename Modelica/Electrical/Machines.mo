@@ -14318,16 +14318,7 @@ This package contains utility components for testing examples.
   end Utilities;
   annotation (preferredView="info",
    Documentation(info="<HTML>
-This package contains components to model electrical machines:
-<ul>
-<li>Examples: test examples</li>
-<li>BasicMachines: basic machine models</li>
-<li>Sensors: sensors, usefull when modelling machines</li>
-<li>SpacePhasors: an independent library for using space phasors</li>
-<li>Thermal: Couple machine models with simple thermal models</li>
-<li>Interfaces: Space phasor connector and partial machine models</li>
-<li>Utilities: Useful models used in Examples</li>
-</ul>
+<p>This package contains electric machine models and components for modeling these machines.</p>
 <b>Limitations and assumptions:</b>
 <ul>
 <li>number of phases (of induction machines) is limited to 3, therefore definition as a constant m=3</li>
@@ -14336,7 +14327,6 @@ This package contains components to model electrical machines:
 <li>only basic harmonics (in space) are taken into account</li>
 <li>waveform (with respect to time) of voltages and currents is not restricted</li>
 <li>constant parameters, i.e. no saturation, no skin effect</li>
-<li>core losses of induction machines not yet implemented</li>
 </ul>
 <p>
 You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>
