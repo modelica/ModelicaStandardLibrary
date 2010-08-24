@@ -597,8 +597,6 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
       SI.Mass m "Mass of fluid";
       SI.Mass[Medium.nXi] mXi "Masses of independent components in the fluid";
       SI.Mass[Medium.nC] mC "Masses of trace substances in the fluid";
-      Real[Medium.nC] mC_scaled
-      "Scaled masses of trace substances in the fluid";
       // C need to be added here because unlike for Xi, which has medium.Xi,
       // there is no variable medium.C
       Medium.ExtraProperty C[Medium.nC] "Trace substance mixture content";
@@ -617,6 +615,8 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
   protected
       parameter Boolean initialize_p = not Medium.singleState
       "= true to set up initial equations for pressure";
+      Real[Medium.nC] mC_scaled(min=fill(Modelica.Constants.eps, Medium.nC))
+      "Scaled masses of trace substances in the fluid";
     equation
       assert(not (energyDynamics<>Dynamics.SteadyState and massDynamics==Dynamics.SteadyState) or Medium.singleState,
              "Bad combination of dynamics options and Medium not conserving mass if fluidVolume is fixed.");
@@ -702,9 +702,9 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
       end if;
 
       if traceDynamics == Dynamics.FixedInitial then
-        C = C_start[1:Medium.nC];
+        mC_scaled = m*C_start[1:Medium.nC]./Medium.C_nominal;
       elseif traceDynamics == Dynamics.SteadyStateInitial then
-        der(C) = zeros(Medium.nC);
+        der(mC_scaled) = zeros(Medium.nC);
       end if;
 
       annotation (
