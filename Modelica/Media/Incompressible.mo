@@ -16,7 +16,6 @@ package Incompressible
       SI.Temperature T "temperature";
       SI.Pressure p "pressure";
       //    SI.Density d "density";
-      annotation(Documentation(info="<html></html>"));
     end BaseProps_Tpoly;
 
     //     record BaseProps_Tpoly_old "fluid state record"

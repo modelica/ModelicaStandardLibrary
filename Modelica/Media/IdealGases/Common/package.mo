@@ -1436,7 +1436,6 @@ end lowPressureThermalConductivity;
   algorithm
     dddX := {-state.p/(state.T*gasConstant(state))*molarMass(state)/data[
       i].MM for i in 1:nX};
-    annotation(Documentation(info="<html></html>"));
   end density_derX;
 
   redeclare function extends molarMass "Return molar mass of mixture"
