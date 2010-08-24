@@ -2411,7 +2411,7 @@ This version is a major improvement:
 </p>
 
 <ul>
-<li> <b>330</b> models and blocks and <b>270</b> functions are newly included.</li>
+<li> <b>357</b> models and blocks and <b>285</b> functions are newly included.</li>
 
 <li><b>7</b> new libraries are included.</li>
 
@@ -2492,16 +2492,16 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Spice3\">Modelica.Electrical.Spice3</a></td>
     <td valign=\"top\">
-    Library with components of the Berkely
+    Library with components of the Berkeley
     <a href=\"http://bwrc.eecs.berkeley.edu/Classes/IcBook/SPICE/\">SPICE3</a>
     simulator:<br>
     R, C, L, controlled and independent sources, semiconductor device models
     (MOSFET Level 1, Bipolar junction transistor, Diode, Semiconductor resistor).
     The components have been intensively tested with more than 1000 test models
     and compared with results from the SPICE3 simulator. All test models give identical
-    results in Dymola 7.4 with respect to the Berkely SPICE3 simulator up to the relative
+    results in Dymola 7.4 with respect to the Berkeley SPICE3 simulator up to the relative
     tolerance of the integrators.<br>
-    This library allows very detailed simulations of electronic circuits.
+    This library allows detailed simulations of electronic circuits.
     Work on Level 2 SPICE3 models, i.e., even more detailed models, is under way.
     Furthermore, a pre-processor is under development to transform automatically
     a SPICE netlist into a Modelica model, in order that the many available
@@ -2707,11 +2707,46 @@ to <b style=\"color:blue\">existing</b> libraries:
                       WiredX </td>
     <td valign=\"top\"> Transfer gates, buffers, inverters and wired node.</td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Joints.</b></td></tr>
+<tr><td valign=\"top\"> FreeMotionScalarInit </td>
+    <td valign=\"top\"> Free motion joint that allows initialization and state selection<br>
+                      of single elements of the relevant vectors<br>
+                      (e.g. initialize r_rel_a[2] but not the other elements of r_rel_a;<br>
+                      this new component fixes ticket 
+                      <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a>) </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.</b></td></tr>
+<tr><td valign=\"top\"> Torus </td>
+    <td valign=\"top\"> Visualizing a torus. </td> </tr>
+<tr><td valign=\"top\"> VoluminousWheel </td>
+    <td valign=\"top\"> Visualizing a voluminous wheel. </td> </tr>
+<tr><td valign=\"top\"> PipeWithScalarField </td>
+    <td valign=\"top\"> Visualizing a pipe with scalar field quantities along the pipe axis. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
+<tr><td valign=\"top\"> Surface </td>
+    <td valign=\"top\"> Visualizing a moveable, parameterized surface;<br>
+                      the surface characteristic is provided by a function<br>
+                      (this new component fixes ticket 
+                       <a href=\"https://trac.modelica.org/Modelica/ticket/181\">#181</a>)</td> </tr>
+<tr><td valign=\"top\"> PipeWithScalarField </td>
+    <td valign=\"top\"> Visualizing a pipe with a scalar field. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.</b></td></tr>
+<tr><td valign=\"top\"> torus </td>
+    <td valign=\"top\"> Function defining the surface characteristic of a torus. </td> </tr>
+<tr><td valign=\"top\"> pipeWithScalarField </td>
+    <td valign=\"top\"> Function defining the surface characteristic of a pipe<br>
+                      where a scalar field value is displayed with color along the pipe axis. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
 <tr><td valign=\"top\"> UserDefinedGravityField </td>
     <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field. </td> </tr>
+<tr><td valign=\"top\"> Surfaces </td>
+    <td valign=\"top\"> Demonstrate the visualization of a sine surface,<br>
+                      as well as a torus and a wheel constucted from a surface. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.</b></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
@@ -2737,6 +2772,10 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Find element in vector. </td> </tr>
 <tr><td valign=\"top\"> toString </td>
     <td valign=\"top\"> Convert a real vector to a string. </td> </tr>
+<tr><td valign=\"top\"> interpolate </td>
+    <td valign=\"top\"> Interpolate in a vector. </td> </tr>
+<tr><td valign=\"top\"> relNodePositions </td>
+    <td valign=\"top\"> Return vector of relative node positions (0..1). </td> </tr>
 
 
 <tr><td colspan=\"2\"><b>Modelica.Math.Vectors.Utilities</b></td></tr>
@@ -2832,6 +2871,23 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Examples that demonstrate the usage of the Modelica.Math.Nonlinear functions
                       to integrate over functions and to solve scalar nonlinear equations. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Math.Colors.ColorMaps.</b></td></tr>
+<tr><td valign=\"top\"> jet<br>
+                      hot<br>
+                      gray<br>
+                      spring<br>
+                      summer<br>
+                      autumn<br>
+                      winter </td>
+    <td valign=\"top\"> Functions returning different color maps. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.Colors.</b></td></tr>
+<tr><td valign=\"top\"> colorMapToSvg </td>
+    <td valign=\"top\"> Save a color map on file in svg (scalable vector graphics) format. </td> </tr>
+<tr><td valign=\"top\"> scalarToColor </td>
+    <td valign=\"top\"> Map a scalar to a color using a color map. </td> </tr>
+
+
 <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
 <tr><td valign=\"top\"> Information<br>
                       Contact<br>
@@ -2901,12 +2957,22 @@ that can lead to wrong simulation results):
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Parts.</b></td></tr>
 <tr><td valign=\"top\"> BodyBox<br>
                       BodyCylinder </td>
-    <td valign=\"top\"> Fixes ticket #373: The \"Center of Mass\" was calculated as normalize(r)*length/2. This is
+    <td valign=\"top\"> Fixes ticket
+                      <a href=\"https://trac.modelica.org/Modelica/ticket/373\">#373</a>:
+                      The \"Center of Mass\" was calculated as normalize(r)*length/2. This is
                       only correct if the box/cylinder is attached between frame_a and frame_b.
                       If this is not the case, the calculation is wrong.
                       The has been fixed by using the correct formula:<br>
                       r_shape + normalize(lengthDirection)*length/2</td>
+<tr><td valign=\"top\"> BodyShape<br>
+                      BodyBox<br>
+                      BodyCylinder </td>
+    <td valign=\"top\"> Fixes ticket
+                      <a href=\"https://trac.modelica.org/Modelica/ticket/300\">#300</a>:
+                      If parameter enforceStates=true, an error occured.
+                      This has been fixed.</td>
 </tr>
+
 </table>
 
 <p><br>
@@ -2931,7 +2997,387 @@ units are wrong or errors in documentation):
                       The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </tr>
 </table>
 
+<p><br>
+The following
+<a href=\"https://trac.modelica.org/Modelica\">trac tickets</a>
+have been fixed:
+</p>
 
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica</b></td></tr>
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/155\">#155</a></td>
+    <td valign=\"top\">Wrong usage of \"fillColor\" and \"fillPattern\" annotations for lines</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/211\">#211</a></td>
+    <td valign=\"top\">Undefined function realString used in MSL</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/216\">#216</a></td>
+    <td valign=\"top\">Make MSL version 3.2 more Modelica 3.1 conform</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/218\">#218</a></td>
+    <td valign=\"top\">Replace `Modelica://`-URIs by `modelica://`-URIs</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/271\">#271</a></td>
+    <td valign=\"t" + "op\">Documentation URI errors in MSL 3.1</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/292\">#292</a></td>
+    <td valign=\"top\">Remove empty \"Diagram(graphics)\" annotations\"</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/294\">#294</a></td>
+    <td valign=\"top\">Typo 'w.r.t' --> 'w.r.t.'</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/296\">#296</a></td>
+    <td valign=\"top\">Unify disclaimer message and improve bad style \"here\" links</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/333\">#333</a></td>
+    <td valign=\"top\">Fix real number formats of the form `.[0-9]+`</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/347\">#347</a></td>
+    <td valign=\"top\">invalid URI in MSL 3.2</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/355\">#355</a></td>
+    <td valign=\"top\">Non-standard annotations</td>
+</tr>
+
+
+<tr><td colspan=\"2\"><br><b>Modelica.Blocks</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/227\">#227</a></td>
+    <td valign=\"top\">Enhance unit deduction functionality by adding 'unit=\"1\"' to some blocks\"</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/349\">#349</a></td>
+    <td valign=\"top\">Incorrect annotation in Blocks/Continuous.mo</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/374\">#374</a></td>
+    <td valign=\"top\">Parameter with no value at all in Modelica.Blocks.Continuous.TransferFunction</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Constants</b></td></tr>
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/356\">#356</a></td>
+    <td valign=\"top\">Add Euler-Mascheroni constant to Modelica.Constants</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Electrical.Analog</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/346\">#346</a></td>
+    <td valign=\"top\">Multiple text in Modelica.Electrical.Analog.Basic.Conductor</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/363\">#363</a></td>
+    <td valign=\"top\">Mixture of Real and Integer in index expressions in Modelica.Electrical.Analog.Lines</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/384\">#384</a></td>
+    <td valign=\"top\">Incomplete annotations in some examples</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/396\">#396</a></td>
+    <td valign=\"top\">Bug in Modelica.Electrical.Analog.Ideal.ControlledIdealIntermediateSwitch</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Machines</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/276\">#276</a></td>
+    <td valign=\"top\">Improve/fix documentation of Modelica.Electrical.Machines</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/288\">#288</a></td>
+    <td valign=\"top\">Describe thermal concept of machines</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/301\">#301</a></td>
+    <td valign=\"top\">Documentation of Electrical.Machines.Examples needs update</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/306\">#306</a></td>
+    <td valign=\"top\">Merge content of `Modelica.Electrical.Machines.Icons` into `Modelica.Icons`</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/362\">#362</a></td>
+    <td valign=\"top\">Incomplete example model for DC machines</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/375\">#375</a></td>
+    <td valign=\"top\">Strangeness with final parameters with no value but a start value</td>
+</tr>
+
+
+<tr><td colspan=\"2\"><br><b>Modelica.Electrical.MultiPhase</b></td></tr>
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/173\">#173</a></td>
+    <td valign=\"top\">m-phase mutual inductor</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/200\">#200</a></td>
+    <td valign=\"top\">adjust Multiphase to Analog</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/277\">#277</a></td>
+    <td valign=\"top\">Improve/fix documentation of Modelica.Electrical.Multiphase</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/352\">#352</a></td>
+    <td valign=\"top\">Odd annotation in Modelica.Electrical.MultiPhase.Sources.SignalVoltage</td>
+</tr>
+
+
+<tr><td colspan=\"2\"><br><b>Modelica.Fluid</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/215\">#215</a></td>
+    <td valign=\"top\">Bug in Modelica.Fluid.Pipes.DynamicPipe</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/219\">#219</a></td>
+    <td valign=\"top\">Fluid.Examples.HeatExchanger: Heat transfer is switched off and cannot be enabled</td>
+</tr>
+
+
+<tr><td colspan=\"2\"><br><b>Modelica.Math</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/348\">#348</a></td>
+    <td valign=\"top\">Small error in documentation</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/371\">#371</a></td>
+    <td valign=\"top\">Modelica.Math functions declared as \"C\" not \"builtin\"\"</td>
+</tr>
+
+
+<tr><td colspan=\"2\"><br><b>Modelica.Mechanics.MultiBody</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/50\">#50</a></td>
+    <td valign=\"top\">Error in LineForce handling of potential root</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/71\">#71</a></td>
+    <td valign=\"top\">Make MultiBody.World replaceable</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/181\">#181</a></td>
+    <td valign=\"top\">3d surface visualisation</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/210\">#210</a></td>
+    <td valign=\"top\">Description of internal gear wheel missing</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/242\">#242</a></td>
+    <td valign=\"top\">Missing each qualifier for modifiers in MultiBody.</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/251\">#251</a></td>
+    <td valign=\"top\">Using enforceStates=true for BodyShape causes errors</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/255\">#255</a></td>
+    <td valign=\"top\">Error in Revolute's handling of non-normalized axis of rotations</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/268\">#268</a></td>
+    <td valign=\"top\">Non-standard annotation in MultiBody,Examples.Systems.RobotR3</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/269\">#269</a></td>
+    <td valign=\"top\">What is the purpose of MultiBody.Examples.Systems.RobotR3.Components.InternalConnectors?</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/272\">#272</a></td>
+    <td valign=\"top\">Function World.gravityAcceleration should not be protected</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a></td>
+    <td valign=\"top\">Convenient and mighty  initialization of frame kinematics</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/286\">#286</a></td>
+    <td valign=\"top\">Typo in Multibody/Frames.mo</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/300\">#300</a></td>
+    <td valign=\"top\">enforceStates parameter managed incorrectly in BodyShape, BodyBox, BodyCylinder</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/320\">#320</a></td>
+    <td valign=\"top\">Replace non-standard annotation by `showStartAttribute`</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/373\">#373</a></td>
+    <td valign=\"top\">Error in Modelica Mechanics</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/389\">#389</a></td>
+    <td valign=\"top\">Shape.rxvisobj wrongly referenced in Arrow/DoubleArrow</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Mechanics.Rotational</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/278\">#278</a></td>
+    <td valign=\"top\">Improve/fix documentation of Modelica.Mechanics.Rotational</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/381\">#381</a></td>
+    <td valign=\"top\">Bug in Modelica.Mechanics.Rotational.Gearbox</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Mechanics.Translational</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/279\">#279</a></td>
+    <td valign=\"top\">Improve/fix documentation of Modelica.Mechanics.Translational</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/310\">#310</a></td>
+    <td valign=\"top\">Erroneous image links in `Modelica.Mechanics.Translational`</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Media</b></td></tr>
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/72\">#72</a></td>
+    <td valign=\"top\">PartialMedium functions not provided for all media in  Modelica.Media</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/217\">#217</a></td>
+    <td valign=\"top\">Missing image file Air.png</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/224\">#224</a></td>
+    <td valign=\"top\">dpT calculation in waterBaseProp_dT</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.StateGraph</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/206\">#206</a></td>
+    <td valign=\"top\">Syntax error in StateGraph.mo</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/354\">#354</a></td>
+    <td valign=\"top\">Bad annotation in Modelica.StateGraph.Temporary.NumericValue</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Thermal.FluidHeatFlow</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/280\">#280</a></td>
+    <td valign=\"top\">Improve/fix documentation of Modelica.Thermal.FluidHeatFlow</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Thermal.HeatTransfer</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/281\">#281</a></td>
+    <td valign=\"top\">Improve/fix documentation of Modelica.Thermal.HeatTransfer</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.UsersGuide</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/198\">#198</a></td>
+    <td valign=\"top\">Name of components in MSL not according to naming conventions</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/204\">#204</a></td>
+    <td valign=\"top\">Minor correction to User's Guide's section on version management</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/244\">#244</a></td>
+    <td valign=\"top\">Update the contacts section of the User's Guide</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/267\">#267</a></td>
+    <td valign=\"top\">MSL-Documentation: Shouldn't equations be numbered on the right hand side?</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/299\">#299</a></td>
+    <td valign=\"top\">SVN keyword expansion messed up the User's guide section on version manangement</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>Modelica.Utilities</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/249\">#249</a></td>
+    <td valign=\"top\">Documentation error in ModelicaUtilities.h</td>
+</tr>
+
+<tr><td colspan=\"2\"><br><b>ModelicaServices</b></td></tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/248\">#248</a></td>
+    <td valign=\"top\">No uses statement on ModelicaServices in MSL 3.1</td>
+</tr>
+
+
+</table>
 <p>
 Note:
 <ul>
@@ -6796,8 +7242,8 @@ For an introduction, have especially a look at:
 This version of the Modelica Standard Library consists of
 </p>
 <ul>
-<li> <b>922</b> models and blocks, and</li>
-<li> <b>615</b> functions
+<li> <b>1280</b> models and blocks, and</li>
+<li> <b>900</b> functions
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
