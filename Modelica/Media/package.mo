@@ -4069,7 +4069,7 @@ Modelica source.
     final constant Integer nC=size(extraPropertiesNames, 1)
       "Number of extra (outside of standard mass-balance) transported properties"
      annotation(Evaluate=true);
-    constant Real C_nominal[nC] = 1.0e-6*ones(nC)
+    constant Real C_nominal[nC](min=fill(Modelica.Constants.eps, nC)) = 1.0e-6*ones(nC)
       "Default for the nominal values for the extra properties";
     replaceable record FluidConstants
       "critical, triple, molecular and other standard data of fluid"
