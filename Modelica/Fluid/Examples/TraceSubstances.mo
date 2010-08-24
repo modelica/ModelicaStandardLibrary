@@ -50,7 +50,7 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
         color={0,127,255},
         smooth=Smooth.None));
     connect(volume.ports[2], pipe.port_a)         annotation (Line(
-        points={{-8,-5.55112e-16},{-6,-5.55112e-16},{-6,-10},{20,-10}},
+        points={{-8,0},{-6,0},{-6,-10},{20,-10}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(traceVolume.port, pipe.port_a)                  annotation (Line(
@@ -58,7 +58,7 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
         color={0,127,255},
         smooth=Smooth.None));
     connect(boundary1.ports[1], volume.ports[1]) annotation (Line(
-        points={{-40,-8},{-12,-8},{-12,-5.55112e-16}},
+        points={{-40,-8},{-12,-8},{-12,0}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(boundary1.ports[2], traceSource.port)          annotation (Line(
@@ -225,15 +225,19 @@ of magnitude.
         color={0,127,255},
         smooth=Smooth.None));
     connect(volume.ports[4], traceVolume.port) annotation (Line(
-        points={{13,-20},{12,-20},{12,-26},{30,-26},{30,-5.55112e-16}},
+        points={{13,-20},{12,-20},{12,-26},{30,-26},{30,0}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(freshAir.ports[1], traceDuctIn.port) annotation (Line(
-        points={{-50,-26},{-44,-26},{-44,-5.55112e-16}},
+        points={{-50,-26},{-44,-26},{-44,0}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ductIn.port_a, freshAir.ports[2]) annotation (Line(
         points={{-30,-30},{-50,-30}},
+        color={0,127,255},
+        smooth=Smooth.None));
+    connect(traceDuctOut.port, ductIn.port_b) annotation (Line(
+        points={{-4,0},{-4,-30},{-10,-30}},
         color={0,127,255},
         smooth=Smooth.None));
     annotation (
@@ -281,9 +285,5 @@ of magnitude.
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
 </p>
 </html>"));
-    connect(traceDuctOut.port, ductIn.port_b) annotation (Line(
-        points={{-4,-5.55112e-16},{-4,-30},{-10,-30}},
-        color={0,127,255},
-        smooth=Smooth.None));
   end RoomCO2WithControls;
 end TraceSubstances;
