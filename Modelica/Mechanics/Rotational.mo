@@ -1036,6 +1036,72 @@ as component LossyGear includes the functionality of component BearingFriction
         experiment(StopTime=0.5));
     end LossyGearDemo2;
 
+    model LossyGearDemo3
+      "Example that failed in the previous version of the LossyGear version"
+      import SI = Modelica.SIunits;
+
+      extends Modelica.Icons.Example;
+      annotation (uses(Modelica(version="3.0.1")),
+        Diagram(graphics),
+        Documentation(info="<html>
+<p>
+This example demonstrates a situation where the driving side of the
+LossyGear model is not obvious.
+The version of LossyGear up to version 3.1 of package Modelica failed in this case
+(no convergence of the event iteration).
+</p>
+</html>"));
+
+      Modelica.Mechanics.Rotational.Components.LossyGear gear(
+                                ratio=
+                                  1, lossTable=[0,0.25,0.25,0.625,2.5],
+        useSupport=false)
+        annotation (Placement(transformation(extent={{-10,0},{10,20}}, rotation=0)));
+      Modelica.Mechanics.Rotational.Components.Inertia Inertia1(
+                                             w(start=10), J=0.001)
+                                  annotation (Placement(transformation(extent={{-40,0},
+                {-20,20}},    rotation=0)));
+      Modelica.Mechanics.Rotational.Sources.Torque torque1(
+                                        useSupport=false)
+                                annotation (Placement(transformation(extent={{-68,0},
+                {-48,20}}, rotation=0)));
+      Modelica.Mechanics.Rotational.Sources.Torque torque2(
+                                        useSupport=false)
+                                annotation (Placement(transformation(extent={{68,0},{
+                48,20}},  rotation=0)));
+      Modelica.Blocks.Sources.Step step(
+                        height=0) annotation (Placement(transformation(extent={{-100,0},
+                {-80,20}},    rotation=0)));
+      Modelica.Blocks.Sources.Step step1(
+        startTime=0.5,
+        height=1,
+        offset=0) annotation (Placement(transformation(
+            origin={90,10},
+            extent={{-10,-10},{10,10}},
+            rotation=180)));
+      Modelica.Mechanics.Rotational.Components.Inertia Inertia2(
+                                                          J=0.001,
+        phi(fixed=true, start=0),
+        w(start=10, fixed=true))  annotation (Placement(transformation(extent={{20,0},{
+                40,20}},     rotation=0)));
+    equation
+      connect(Inertia1.flange_b,gear. flange_a)
+        annotation (Line(points={{-20,10},{-16,10},{-10,10}},
+                                                     color={0,0,0}));
+      connect(torque1.flange,Inertia1.   flange_a)
+        annotation (Line(points={{-48,10},{-40,10}}, color={0,0,0}));
+      connect(step.y,torque1. tau)
+        annotation (Line(points={{-79,10},{-70,10}}, color={0,0,127}));
+      connect(gear.flange_b,Inertia2. flange_a)
+        annotation (Line(points={{10,10},{20,10}}, color={0,0,0}));
+      connect(Inertia2.flange_b,torque2.flange)
+        annotation (Line(points={{40,10},{48,10}}, color={0,0,0}));
+      connect(step1.y, torque2.tau) annotation (Line(
+          points={{79,10},{74.5,10},{74.5,10},{70,10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+    end LossyGearDemo3;
+
     model ElasticBearing "Example to show possible usage of support flange"
       extends Modelica.Icons.Example;
       Rotational.Components.Inertia shaft(        phi(fixed=true, start=0), w(
@@ -3158,6 +3224,8 @@ connected to other elements in an appropriate way.
       Real interpolation_result[1, size(lossTable, 2) - 1];
       Real eta_mf1;
       Real eta_mf2;
+      Real tau_bf_a;
+      Real tau_eta;
       Real tau_bf1;
       Real tau_bf2;
 
@@ -3166,13 +3234,21 @@ connected to other elements in an appropriate way.
       Real quadrant3;
       Real quadrant4;
 
+      // quadrant values for angular verlocities near zero
+      Real quadrant1_p; // w=0+
+      Real quadrant2_p; // w=0+
+      Real quadrant3_m; // w=0-
+      Real quadrant4_m; // w=0-
+
       SI.Torque tauLoss
         "Torque loss due to friction in the gear teeth and in the bearings";
       SI.Torque tauLossMax "Torque loss for positive speed";
       SI.Torque tauLossMin "Torque loss for negative speed";
 
-      Boolean tau_aPos(start=true)
-        "true, if torque of flange_a is not negative";
+      SI.Torque tauLossMax_p "Torque loss for positive speed";
+      SI.Torque tauLossMin_m "Torque loss for negative speed";
+
+      Boolean tau_etaPos(start=true) "true, if torque tau_eta is not negative";
       Boolean startForward(start=false) "true, if starting to roll forward";
       Boolean startBackward(start=false) "true, if starting to roll backward";
       Boolean locked(start=false) "true, if gear is locked";
@@ -3191,50 +3267,33 @@ connected to other elements in an appropriate way.
         start=Free,
         fixed=true);
 
+      SI.Torque tau_eta_p "tau_eta assuming positive omega";
+      SI.Torque tau_eta_m "tau_eta assuming negative omega";
     protected
       constant SI.AngularAcceleration unitAngularAcceleration = 1;
       constant SI.Torque unitTorque = 1;
-      function equal "Compare whether two Real matrices are identical"
 
-        extends Modelica.Icons.Function;
-        input Real A[:, :];
-        input Real B[:, :];
-        input Real eps=Modelica.Constants.eps
-          "Two numbers r1, r2 are identical if abs(r1-r2) <= eps";
-        output Boolean result;
-      algorithm
-        result := false;
-        if size(A, 1) == size(B, 1) and size(A, 2) == size(B, 2) then
-          result := true;
-          for i in 1:size(A, 1) loop
-            for j in 1:size(A, 2) loop
-              if abs(A[i, j] - B[i, j]) >= eps then
-                result := false;
-              end if;
-            end for;
-          end for;
-        end if;
-        annotation (Documentation(info="<HTML>
-<p>
-The function call
-</p>
-<pre>     equal(A1, A2);
-</pre>
-<p>
-returns <b>true</b>, if the two Real matrices A1 and A2 have the
-same dimensions and the same elements. Otherwise the function
-returns <b>false</b>. Two elements r1 and r2 of A1 and A2 respectively
-are checked on equality by the test 'eps >= abs(r1-r2)', where 'eps'
-can be provided as third argument of the function (the default is
-Modelica.Constants.eps).
-</p>
-</HTML>"));
-      end equal;
+      // get friction and eta information for omega=0
+      parameter Real interpolation_result_0[1, size(lossTable, 2) - 1] =  Modelica.Math.tempInterpol2(0, lossTable, {2,3,4,5});
+      parameter Real eta_mf1_0 = interpolation_result_0[1, 1];
+      parameter Real eta_mf2_0 = interpolation_result_0[1, 2];
+      parameter Real tau_bf1_0 = abs(interpolation_result_0[1, 3]);
+      parameter Real tau_bf2_0 = abs(interpolation_result_0[1, 4]);
+      parameter Real tau_bf_a_0= if Modelica.Math.isEqual(eta_mf1_0, 1.0, Modelica.Constants.eps) and
+                                    Modelica.Math.isEqual(eta_mf2_0, 1.0, Modelica.Constants.eps) then
+                                    tau_bf1_0/2 else
+                                    (tau_bf1_0-tau_bf2_0)/(eta_mf1_0-1.0/eta_mf2_0);
+                                 // For eta_mf1_0=eta_mf2_0=1 the given bearing
+                                 // friction can not be separated into a part
+                                 // on side A or B, so it is done arbitrarily.
+                                 // Calculate tau_bf_a_0 from the following equations
+                                 //  tau_bf1_0=eta_mf1_0*tau_bf_a_0 + 1/ratio a_0
+                                 //  tau_bf2_0=1/eta_mf2*tau_bf_a_0 + 1/ratio tau_bf_a_0
     equation
       assert(abs(ratio) > 0,
         "Error in initialization of LossyGear: ratio may not be zero");
 
-      ideal = equal(lossTable, [0, 1, 1, 0, 0]);
+      ideal = Modelica.Math.Matrices.isEqual(lossTable, [0, 1, 1, 0, 0], Modelica.Constants.eps);
 
       interpolation_result = if ideal then [1, 1, 0, 0] else
         Modelica.Math.tempInterpol2(noEvent(abs(w_a)), lossTable, {2,3,4,5});
@@ -3242,6 +3301,18 @@ Modelica.Constants.eps).
       eta_mf2 = interpolation_result[1, 2];
       tau_bf1 = noEvent(abs(interpolation_result[1, 3]));
       tau_bf2 = noEvent(abs(interpolation_result[1, 4]));
+
+      if Modelica.Math.isEqual(eta_mf1, 1.0, Modelica.Constants.eps) and
+         Modelica.Math.isEqual(eta_mf2, 1.0, Modelica.Constants.eps) then
+         // For eta_mf1=eta_mf2=1 the given bearing friction can not be
+         // separated into a part on side A or B, so it is done arbitrarily.
+         tau_bf_a = tau_bf1/2;
+      else
+        //calculate tau_bf_a from the following equations
+        //tau_bf1 = eta_mf1*tau_bf_a + tau_bf_b / ratio
+        //tau_bf2 = 1/eta_mf2*tau_bf_a + tau_bf_b / ratio
+        tau_bf_a=(tau_bf1-tau_bf2)/(eta_mf1-1.0/eta_mf2);
+      end if;
 
       phi_a = flange_a.phi - phi_support;
       phi_b = flange_b.phi - phi_support;
@@ -3254,19 +3325,41 @@ Modelica.Constants.eps).
       w_a = der(phi_a);
       a_a = der(w_a);
 
+      // Determine driving side
+         //assuming positive omega
+         tau_eta_p=flange_a.tau-tau_bf_a_0;
+         //assuming negative omega
+         tau_eta_m=flange_a.tau+tau_bf_a_0;
+
+      // assuming w>=0, take value at w=0 to decide rolling/stuck mode
+      quadrant1_p = (1 - eta_mf1_0)*flange_a.tau + tau_bf1_0;
+      quadrant2_p = (1 - 1/eta_mf2_0)*flange_a.tau + tau_bf2_0;
+      tauLossMax_p = if noEvent(tau_eta_p>0) then quadrant1_p else quadrant2_p;
+
+      // assuming w<=0, take value at w=0 to decide rolling/stuck mode
+      quadrant4_m = (1 - 1/eta_mf2_0)*flange_a.tau - tau_bf2_0;
+      quadrant3_m = (1 - eta_mf1_0)*flange_a.tau - tau_bf1_0;
+      tauLossMin_m = if noEvent(tau_eta_m>0) then quadrant4_m else quadrant3_m;
+
       quadrant1 = (1 - eta_mf1)*flange_a.tau + tau_bf1;
       quadrant2 = (1 - 1/eta_mf2)*flange_a.tau + tau_bf2;
       quadrant4 = (1 - 1/eta_mf2)*flange_a.tau - tau_bf2;
       quadrant3 = (1 - eta_mf1)*flange_a.tau - tau_bf1;
 
+      //tau eta: only for determination of driving side for calculation of tauloss
+      tau_eta = if ideal then flange_a.tau
+                else (if locked then flange_a.tau
+                else (if (startForward or pre(mode) == Forward) then flange_a.tau-tau_bf_a
+                else flange_a.tau+tau_bf_a));
+
       // Torque Losses
-      tau_aPos = ideal or (flange_a.tau >= 0);
-      tauLossMax = if tau_aPos then quadrant1 else quadrant2;
-      tauLossMin = if tau_aPos then quadrant4 else quadrant3;
+      tau_etaPos = tau_eta >= 0;
+      tauLossMax = if tau_etaPos then quadrant1 else quadrant2;
+      tauLossMin = if tau_etaPos then quadrant4 else quadrant3;
 
       // Determine rolling/stuck mode when w_rel = 0
-      startForward = pre(mode) == Stuck and sa > tauLossMax/unitTorque or initial() and w_a > 0;
-      startBackward = pre(mode) == Stuck and sa < tauLossMin/unitTorque or initial() and w_a < 0;
+      startForward = pre(mode) == Stuck and sa > tauLossMax_p/unitTorque or initial() and w_a > 0;
+      startBackward = pre(mode) == Stuck and sa < tauLossMin_m/unitTorque or initial() and w_a < 0;
       locked = not (ideal or pre(mode) == Forward or startForward or pre(mode) == Backward or startBackward);
 
       /* Parameterized curve description a_a = f1(sa), tauLoss = f2(sa)
@@ -3291,28 +3384,44 @@ Modelica.Constants.eps).
 This component models the gear ratio and the <b>losses</b> of
 a standard gear box in a <b>reliable</b> way including the stuck phases
 that may occur at zero speed. The gear boxes that can
-be handeled are fixed in the ground, have one input and one
+be handeled are fixed in the ground or on a moving support, have one input and one
 output shaft, and are essentially described by the equations:
 </p>
-<pre>     flange_a.phi  = i*flange_b.phi
-   (-flange_b.tau) = i*(eta_mf*flange_a.tau - tau_bf)
-</pre>
+<blockquote><pre>
+             flange_a.phi  = i*flange_b.phi;
+-(flange_b.tau - tau_bf_b) = i*eta_mf*(flange_a.tau - tau_bf_a);
+
+// or        -flange_b.tau = i*eta_mf*(flange_a.tau - tau_bf_a - tau_bf_b/(i*eta_mf));
+</pre></blockquote>
 <p>
 where
 </p>
+
 <ul>
-<li><b>i</b> is the constant <b>gear ratio</b>,</li>
-<li><b>eta_mf</b> = eta_mf(w) is the <b>mesh efficiency</b> due to the
-   friction between the teeth of the gear wheels, </li>
-<li><b>tau_bf</b> = tau_bf(w) is the <b>bearing friction torque</b>, and</li>
+<li> <b>i</b> is the constant <b>gear ratio</b>, </li>
+
+<li> <b>eta_mf</b> = eta_mf(w_a) is the <b>mesh efficiency</b> due to the
+     friction between the teeth of the gear wheels, </li>
+
+<li> <b>tau_bf_a</b> = tau_bf_a(w_a) is the <b>bearing friction torque</b>
+     on the flange_a side,</li>
+
+<li> <b>tau_bf_b</b> = tau_bf_b(w_a) is the <b>bearing friction torque</b>
+     on the flange_b side, and</li>
+
 <li><b>w_a</b> = der(flange_a.phi) is the speed of flange_a</li>
 </ul>
-<p>The loss terms \"eta_mf\" and \"tau_bf\" are functions of the
+
+<p>
+The loss terms \"eta_mf\", \"tau_bf_a\" and \"tau_bf_b\" are functions of the
 <i>absolute value</i> of the input shaft speed w_a and of the energy
 flow direction. They are defined by parameter <b>lossTable[:,5]
 </b> where the columns of this table have the following
-meaning:</p>
-<p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+meaning:
+</p>
+
+<p>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
       <td valign=\"top\">|w_a|</td>
@@ -3336,7 +3445,8 @@ meaning:</p>
       <td align=\"center\">...</td>
     </tr>
   </tbody>
-</table></p>
+</table>
+</p>
 <p>with</p>
 <p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
@@ -3346,19 +3456,25 @@ meaning:</p>
     </tr>
     <tr>
       <td valign=\"top\">eta_mf1</td>
-      <td valign=\"top\">Mesh efficiency in case of input shaft driving</td>
+      <td valign=\"top\">Mesh efficiency in case that flange_a is driving</td>
     </tr>
     <tr>
       <td valign=\"top\">eta_mf2</td>
-      <td valign=\"top\">Mesh efficiency in case of output shaft driving</td>
+      <td valign=\"top\">Mesh efficiency in case that flange_b is driving</td>
     </tr>
     <tr>
       <td valign=\"top\">|tau_bf1|</td>
-      <td valign=\"top\">Absolute bearing friction torque in case of input shaft driving</td>
+      <td valign=\"top\"> Absolute resultant bearing friction torque with respect to flange_a
+                        in case that flange_a is driving<br>
+                        (= |tau_bf_a*eta_mf1 + tau_bf_b/i|)
+                        </td>
     </tr>
     <tr>
       <td valign=\"top\">|tau_bf2|</td>
-      <td valign=\"top\">Absolute bearing friction torque in case of output shaft driving</td>
+      <td valign=\"top\"> Absolute resultant bearing friction torque with respect to flange_a
+                        in case that flange_b is driving<br>
+                        (= |tau_bf_a/eta_mf2 + tau_bf_b/i|)
+                        </td>
     </tr>
   </tbody>
 </table></p>
@@ -3366,17 +3482,24 @@ meaning:</p>
 With these variables, the mesh efficiency and the bearing friction
 are formally defined as:
 </p>
-<pre>  <b>if</b> flange_a.tau*w_a > 0 <b>or</b> flange_a.tau==0 <b>and</b> w_a > 0 <b>then</b>
-     eta_mf := eta_mf1
-     tau_bf := tau_bf1
-  <b>elseif</b> flange_a.tau*w_a &lt; 0 <b>or</b> flange_a.tau==0 <b>and</b> w_a &lt; 0 <b>then</b>
-     eta_mf := 1/eta_mf2
-     tau_bf := tau_bf2
-  <b>else</b> // w_a == 0
-     eta_mf and tau_bf are computed such that <b>der</b>(w_a) = 0
-  <b>end if</b>;
-</pre>
-<p>Note, that the losses are modeled in a physically meaningful way taking
+
+<blockquote><pre>
+<b>if</b> (flange_a.tau - tau_bf_a)*w_a &gt; 0 <b>or</b> 
+   (flange_a.tau - tau_bf_a) == 0 <b>and</b> w_a &gt; 0 <b>then</b>
+   eta_mf := eta_mf1
+   tau_bf := tau_bf1
+<b>elseif</b> (flange_a.tau - tau_bf_a)*w_a &lt; 0 <b>or</b> 
+       (flange_a.tau - tau_bf_a) == 0 <b>and</b> w_a &lt; 0 <b>then</b>
+   eta_mf := 1/eta_mf2
+   tau_bf := tau_bf2
+<b>else</b> // w_a == 0
+   eta_mf and tau_bf are computed such that <b>der</b>(w_a) = 0
+<b>end if</b>;
+-flange_b.tau = i*(eta_mf*flange_a.tau - tau_bf);
+</pre></blockquote>
+
+<p>
+Note, that the losses are modeled in a physically meaningful way taking
 into account that at zero speed the movement may be locked due
 to the friction in the gear teeth and/or in the bearings.
 Due to this important property, this component can be used in
@@ -3386,19 +3509,39 @@ Modelica.Mechanics.Rotational.GearEfficiency will fail because,
 e.g., chattering occurs when using the
 Modelica.Mechanics.Rotational.GearEfficiency model.
 </p>
-<p>
-<b>Acknowledgement:</b> The essential idea to model efficiency
-in this way is from Christoph Pelchen, ZF Friedrichshafen.
-</p>
-<p><b>For detailed information:</b></p>
-<p>Pelchen C.,
+
+<h4>Acknowledgement:</h4> 
+<ul>
+<li> The essential idea to model efficiency
+     in this way is from Christoph Pelchen, ZF Friedrichshafen.</li>
+<li> The article (Pelchen et.al. 2002), see Literature below,
+     and the first implementation of LossyGear (up to version 3.1 of package Modelica)
+     contained a bug leading to a non-converging solution in cases where the
+     driving side is not obvious.
+     This was pointed out by Christian Bertsch and Max Westenkirchner, Bosch,
+     and Christian Bertsch proposed a concrete solution how to fix this
+     bug, see Literature below.</li>
+</ul>
+
+<h4>Literature</h4>
+
+<ul>
+<li>Pelchen C.,
 <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Schweiger C.</a>,
 and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Otter M.</a>:
 &quot;<a href=\"http://www.modelica.org/Conference2002/papers/p33_Pelchen.pdf\">Modeling
 and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot; in
 <I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,
-Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</p>
+Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
+
+<li>Bertsch C. (2009):
+&quot;<a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">Problem
+with model LossyGear and a proposed solution</a>&quot;, 
+Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a>,
+Sept. 11, 2009.</li>
+</ul>
+
 </HTML>
 "),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
