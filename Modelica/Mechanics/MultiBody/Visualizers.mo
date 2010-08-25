@@ -700,8 +700,8 @@ parameter menu.
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
 
-    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each
-        final unit =                                                                               "m")
+    Modelica.Blocks.Interfaces.RealInput r_head[3](each final quantity="Position", each final
+              unit =                                                                               "m")
       "Position vector from origin of frame_a to head of arrow, resolved in frame_a"
       annotation (Placement(transformation(
           origin={0,-120},
@@ -895,7 +895,7 @@ This shape visualizes the x-y plane by a box
             lineColor={0,0,255},
             textString="%name")}), Documentation(info="<html>
 <p>
-Model <b>Torus</b> visualizes a torus. The center of the torus is located at 
+Model <b>Torus</b> visualizes a torus. The center of the torus is located at
 connector frame_a (visualized by the red coordinate system in the figure below).
 The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
 The right images below shows the torus with the additional parameter
@@ -996,7 +996,7 @@ settings:
                                    Documentation(info="<html>
 <p>
 Model <b>VoluminousWheel</b> provides a simple visualization of a tire using
-a torus and a pipe shape object. The center of the wheel is located at 
+a torus and a pipe shape object. The center of the wheel is located at
 connector frame_a (visualized by the red coordinate system in the figure below).
 </p>
 
@@ -1032,8 +1032,8 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     parameter Real T_max
       "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(enable=animation));
     replaceable function colorMap =
-        Modelica.Math.Colors.ColorMaps.jet
-          constrainedby Modelica.Math.Interfaces.partialColorMap
+        Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
+          constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
       "Function defining the color map"
             annotation(__Dymola_choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
 
@@ -1083,11 +1083,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href=\"modelica://Modelica.Math.Colors.ColorMaps\">Modelica.Math.Colors.ColorMaps</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via parameter \"colorMap\".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 Connecter frame_a of this component is located in the center of the
 circle at the left side of the pipe and the pipe axis is oriented
 along the x-axis of frame_a, see figure below in which frame_a is visualized
@@ -1100,13 +1100,13 @@ with a coordinate system:
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
@@ -1123,6 +1123,548 @@ colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(),
   </ul>
 </html>"));
   end PipeWithScalarField;
+
+  package Colors "Library of functions operating on color"
+    extends Modelica.Icons.Package;
+    package ColorMaps "Library of functions returning color maps"
+      extends Modelica.Icons.Package;
+
+      function jet "Returns the \"jet\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      protected
+         Real a=ceil(n_colors/4);
+         Real d=1/a;
+         Real v1[:]=if d >= 0.5 then {1} else if d >= 0.25 then  1-d:d:1 else 0.5+d:d:1;
+         Real v2[:]=0+d:d:1;
+         Real v3[:]=1-d:-d:0;
+         Real v4[:]=1-d:-d:0.5;
+         Real cm[integer(a)*4,3];
+      algorithm
+         cm:=255*[zeros(size(v1,1)),zeros(size(v1,1)),  v1;
+                  zeros(size(v2,1)), v2,  fill(1., size(v2,1));
+                  v2,              fill(1, size(v2,1)), v3;
+                  fill(1, size(v3,1)),v3, fill(0.,size(v3,1));
+                  v4, fill(0,size(v4,1)),fill(0.,size(v4,1))];
+         colorMap:=cm[1:n_colors,:];
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>jet</b>();
+ColorMaps.<b>jet</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"jet.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"jet\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/jet.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end jet;
+
+      function hot "Returns the \"hot\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      protected
+         Real a=ceil(n_colors/3);
+         Real d=1/a;
+         Real v1[:]=0+d:d:1;
+         Real cm[integer(a)*3,3];
+      algorithm
+       cm := 255*[v1, zeros(size(v1, 1)),zeros(size(v1, 1));
+                                fill(1., size(v1, 1)), v1,zeros(size(v1, 1));
+                                fill(1., size(v1, 1)),fill(1., size(v1, 1)),v1];
+       colorMap:=cm[1:n_colors,:];
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>hot</b>();
+ColorMaps.<b>hot</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"hot.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"hot\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/hot.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end hot;
+
+      function gray "Returns the \"gray\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      algorithm
+        if n_colors > 1 then
+          colorMap := 255*[linspace(0,1.,n_colors),linspace(0,1.,n_colors),linspace(0,1.,n_colors)];
+        else
+          colorMap:=[0,0,0];
+         end if;
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>gray</b>();
+ColorMaps.<b>gray</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"gray.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"gray\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/gray.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end gray;
+
+      function spring "Returns the \"spring\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      algorithm
+        if n_colors > 1 then
+           colorMap := 255*[fill(1,n_colors),linspace(0,1.,n_colors),linspace(1,0,n_colors)];
+         else
+          colorMap:=255*[1,0,1];
+         end if;
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>spring</b>();
+ColorMaps.<b>spring</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"spring.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"spring\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/spring.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end spring;
+
+      function summer "Returns the \"summer\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      algorithm
+        if n_colors > 1 then
+           colorMap := 255*[linspace(0,1.,n_colors),linspace(0.5,1.,n_colors),fill(0.4,n_colors)];
+         else
+          colorMap:=255*[0,0.5,0.4];
+         end if;
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>summer</b>();
+ColorMaps.<b>summer</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"summer.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"summer\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/summer.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end summer;
+
+      function autumn "Returns the \"autumn\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      algorithm
+        if n_colors > 1 then
+           colorMap := 255*[fill(1,n_colors),linspace(0,1.,n_colors),zeros(n_colors)];
+         else
+          colorMap:=255*[1,0,0];
+         end if;
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>autumn</b>();
+ColorMaps.<b>autumn</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"autumn.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"autumn\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/autumn.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end autumn;
+
+      function winter "Returns the \"winter\" color map"
+      extends Modelica.Mechanics.MultiBody.Interfaces.partialColorMap;
+      algorithm
+        if n_colors > 1 then
+           colorMap := 255*[zeros(n_colors),linspace(0,1,n_colors),linspace(1,0.5,n_colors)];
+         else
+          colorMap:=[0,0,255];
+         end if;
+
+        annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+ColorMaps.<b>winter</b>();
+ColorMaps.<b>winter</b>(n_colors=64);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns the color map \"winter.\" A color map
+is a Real[:,3] array where every row represents a color.
+With the optional argument \"n_colors\" the number of rows
+of the returned array can be defined. The default value is
+\"n_colors=64\" (it is usually best if n_colors is a multiple of 4).
+Image of the \"winter\" color map:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/winter.png\">
+</blockquote>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor\">scalarToColor</a>.
+</html>"));
+      end winter;
+
+      annotation (Documentation(info="<html>
+<p>
+This package contains functions that return color maps.
+A color map is a Real[:,3] array where every row represents a color.
+Currently the following color maps are returned from the
+respective function:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/ColorMaps.png\">
+</blockquote>
+</html>"));
+    end ColorMaps;
+
+    function colorMapToSvg
+      "Save a color map on file in svg (scalable vector graphics) format"
+     encapsulated type HeaderType = enumeration(
+          svgBeginAndEnd,
+          svgBegin,
+          svgEnd,
+          noHeader);
+      import Modelica.Utilities.Streams.print;
+      input Real colorMap[:,3] "Color map to be stored in svg format"
+        annotation(choices( choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet(),
+                            choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.hot(),
+                            choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.gray(),
+                            choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.spring(),
+                            choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.summer(),
+                            choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.autumn(),
+                            choice=Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.winter()));
+      input String fileName="colorMap.svg"
+        "File where the svg representation shall be stored";
+      input Real width(unit="mm")=10 "Width in svg-figure";
+      input Real height(unit="mm")=100 "Height in svg-figure";
+      input Real x(unit="mm")=20 "X-Coordinate of left upper corner";
+      input Real y(unit="mm")=10 "Y-Coordinate of left upper corner";
+      input Real T_min=0 "Value of scalar corresponding to colorMap[1,:]";
+      input Real T_max=100 "Value of scalar corresponding to colorMap[end,:]";
+      input Integer nScalars=11
+        "Number of scalars to be displayed at the right side";
+      input String format=".3g" "Format of the numbers";
+      input Real fontSize=11 "Font size in [pt]";
+      input Real textWidth(unit="mm")=8
+        "Numbers are right justified starting at x+width+textWidth";
+      input String caption="" "Caption above the map";
+      input HeaderType headerType=Colors.colorMapToSvg.HeaderType.svgBeginAndEnd
+        "Type of header";
+    protected
+      Integer nc = size(colorMap,1);
+      Real dy=height/nc;
+      Real yy=y-dy;
+      String strWidth=String(width);
+      String strHeight=String(dy);
+      Real T;
+      Integer ni;
+      constant Real ptToMm=127/360 "1 Point = ptToMm mm";
+      Real fontHeight(unit="mm") = fontSize*ptToMm;
+      Real xx=x+width+textWidth;
+      String strXX=String(xx);
+      Real xHeading=x+width/2;
+      Real yHeading=y-1.2*fontHeight;
+    algorithm
+      if headerType==HeaderType.svgBeginAndEnd or
+         headerType==HeaderType.svgBegin then
+         Modelica.Utilities.Files.remove(fileName);
+         print("... generating svg-file: " + Modelica.Utilities.Files.fullPathName(fileName));
+      end if;
+      if caption<>"" then
+         print("... " + caption);
+      end if;
+
+      if headerType==HeaderType.svgBeginAndEnd or
+         headerType==HeaderType.svgBegin then
+         print("<svg xmlns=\"http://www.w3.org/2000/svg\">", fileName);
+      end if;
+
+      print("  <g>", fileName);
+
+      // Print colors
+      for i in nc:-1:1 loop
+         // print:  <rect x="XXmm" y="XXmm" width="YYmm" height="ZZmm" style="fill:rgb(100,128,255);stroke:none"/>
+         yy :=yy + dy;
+         print("    <rect x=\"" + String(x) +
+               "mm\" y=\"" + String(yy) +
+               "mm\" width=\"" + strWidth +
+               "mm\" height=\"" + strHeight +
+               "mm\" style=\"fill:rgb(" + String(integer(colorMap[i,1])) + ","
+                                        + String(integer(colorMap[i,2])) + ","
+                                        + String(integer(colorMap[i,3])) +
+               ");stroke:none\"/>", fileName);
+      end for;
+
+      // Print numbers
+      ni :=if nScalars == 1 then 2 else if nScalars < 1 then
+                                 0 else nScalars;
+      dy:=height/(ni-1);
+      yy:=y - dy+0.3*fontHeight;
+      for i in ni:-1:1 loop
+        // print: <text x="22mm" y="12mm" font-family="Arial,sans-serif" font-size="11pt">1.2345</text>
+        yy :=yy + dy;
+        T := T_min + (T_max - T_min)*(i-1)/(ni-1);
+        print("    <text x=\"" + strXX +
+              "mm\" y=\"" + String(yy) +
+              "mm\" font-family=\"Fixedsys\" font-size=\"" + String(fontSize) +
+              "pt\" text-anchor=\"end\">" + String(T,format=format) +
+              "</text>", fileName);
+      end for;
+
+      if caption <> "" then
+         print("   <text x=\"" + String(xHeading) +
+               "mm\" y=\"" + String(yHeading) +
+               "mm\" font-family=\"Fixedsys\" font-size=\"" + String(fontSize) +
+               "pt\" text-anchor=\"middle\">" + caption +
+               "</text>", fileName);
+      end if;
+
+      print("  </g>", fileName);
+
+      if headerType==HeaderType.svgBeginAndEnd or
+         headerType==HeaderType.svgEnd then
+         print("</svg>",fileName);
+      end if;
+      annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+Colors.<b>colorMapToSvg</b>(colorMap);
+Colors.<b>colorMapToSvg</b>(colorMap,
+                     fileName   = \"colorMap.svg\",
+                     width      =  10,  // [mm]
+                     height     = 100,  // [mm]
+                     x          =  20,  // [mm]
+                     y          =  10,  // [mm]
+                     T_min      =   0,
+                     T_max      = 100,
+                     nScalars   =  11,
+                     format     = \".3g\",
+                     fontSize   =  11,  // [pt]
+                     textWidth  =   8,  // [mm]
+                     caption    = \"\",
+                     headerType = Colors.colorMapToSvg.Header.svgBeginAndEnd)
+                                                           // svgBegin
+                                                           // svgEnd
+                                                           // svgNoHeader
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function saves the color map \"Real colorMap[:,3]\" on file \"fileName\"
+in svg format. The color map has a width of \"width\" and a height of \"height\" and
+the upper left corner is placed at coordinates \"(x,y)\".
+Over the color map, a caption \"caption\" is placed.
+On the right side of the color map, a set of scalar field values T is
+displayed where \"T_min\" is placed at colorMap[1,:],
+\"T_max\" is placed at colorMap[end,:] and \"nScalars\" values between
+\"T_min\" and \"T_max\" (including T_min and T_max) are shown.
+The printing format of the numbers is defined with \"format\", see definition below.
+With argument \"headerType\" it is defined whether \"svg\" begin and end
+lines are printed. If the \"begin\" svg tag shall be printed, file \"fileName\"
+is deleted, if it already exists. Otherwise, all output is appended to the
+file \"fileName\".
+</p>
+
+<p>
+A \"svg\" file can be displayed by a web browser, such as
+<a href=\"http://www.mozilla.org/firefox\">Firefox</a> by dragging the
+file in the browser window.
+Alternatively, a svg-file can be loaded in a graphics program,
+such as the free <a href=\"http://inkscape.org\">Incscape</a>,
+can be manipulated and can be exported in other graphic formats.
+The following image was generated with a call to \"colorMapToSvg\", the
+generated file was loaded in Incscape and exported in \"png\" format:
+</p>
+
+<blockquote>
+<img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Colors/jet.png\">
+</blockquote>
+
+<p>
+The \"format\" argument defines the string formating according to
+ANSI-C without \"%\" and \"*\" character<br>
+(e.g., \".6g\", \"14.5e\", \"+6f\"). In particular:
+</p>
+
+<p>
+format = \"[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;\"
+with
+</p>
+
+<blockquote>
+<table>
+<tr>
+  <td>&lt;flags&gt;</td>
+  <td> zero, one or more of<br>
+       \"-\": left adjustment of the converted number<br>
+       \"+\": number will always be printed with a sign<br>
+       \"0\": padding to the field width with leading zeros</td></tr>
+<tr>
+  <td>&lt;width&gt;</td>
+  <td> Minimum field width. The converted number will be printed in a field at<br>
+       least this wide and wider if necessary. If the converted number has <br>
+       fewer characters it will be padded on the left (or the right depending<br>
+       on &lt;flags&gt;) with blanks or 0 (depending on &lt;flags&gt;).</td></tr>
+<tr>
+  <td>&lt;precision&gt;</td>
+  <td> The number of digits to be printed after the decimal point for <br>
+       e, E, or f conversions, or the number of significant digits for <br>
+       g or G conversions.</td></tr>
+<tr>
+  <td> &lt;conversion&gt;</td>
+  <td> = \"e\": Exponential notation using a  lower case e<br>
+       = \"E\": Exponential notation using an upper case E<br>
+       = \"f\": Fixed point notation<br>
+       = \"g\": Either \"e\" or \"f\"<br>
+       = \"G\": Same as \"g\", but with upper case E</td></tr></table>
+</table>
+</blockquote>
+</html>"));
+    end colorMapToSvg;
+
+    function scalarToColor "Map a scalar to a color using a color map"
+      input Real T "Scalar value" annotation(Dialog);
+      input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
+      input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);
+      input Real colorMap[:,3] "Color map" annotation(Dialog);
+      output Real color[3] "Color of scalar value T";
+    algorithm
+      color :=colorMap[integer((size(colorMap, 1) - 1)/(T_max - T_min)*
+                                min((max(T,T_min) - T_min), T_max) + 1), :];
+      annotation(Inline=true, Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+//Real T, T_min, T_max, colorMap[:,3];
+Colors.<b>scalarToColor</b>(T, T_min, T_max, colorMap);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+This function returns an rgb color Real[3] that corresponds to the value of \"T\".
+The color is selected from the colorMap by interpolation so that
+\"T_min\" corresponds to \"colorMap[1,:]\" and
+\"T_max\" corresponds to \"colorMap[end,:]\".
+</p>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">ColorMaps</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">colorMapToSvg</a>,
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>.
+
+</html>"));
+    end scalarToColor;
+    annotation (Documentation(info="<html>
+<p>
+This package contains functions to operate on colors.
+Note, a color is represented as a Real array with 3 elements where
+the elements are the red, green, blue values of the RGB color model.
+Every element must be in the range 0..255.
+The type of a color is Real and not Integer in order that a color
+can be used with less problems in a model, since in a model an Integer
+type could only be used in a when-clause. Typical declaration of a color value:
+</p>
+
+<blockquote>
+<pre>
+  Real color[3](each min=0, each max=255);
+</pre>
+</blockquote>
+
+<p>
+This definition is also available as type
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Types.RealColor\">Modelica.Mechanics.MultiBody.Types.RealColor</a>.
+</p>
+</html>"));
+  end Colors;
 
   package Advanced
     "Visualizers that require basic knowledge about Modelica in order to use them"
@@ -1529,19 +2071,19 @@ model where a <b>Shape</b> instance is used, e.g., in the form
               textString="%name")}), Documentation(info="<html>
 <p>
 Model <b>Surface</b> defines a moveable, parametrized surface in 3-dim. space
-that is used for animation. This object is specified by: 
+that is used for animation. This object is specified by:
 </p>
 
 <ul>
 <li> The surface frame (orientation object \"R\" and origin \"r_0\")
      in which the data is specified.</li>
-<li> A set of two parameters, one in u- and one in v-direction, 
+<li> A set of two parameters, one in u- and one in v-direction,
      that defines the control points. </li>
-<li> A time-varying position of each control point with respect to    
+<li> A time-varying position of each control point with respect to
      the surface frame.</li>
 </ul>
 
-<p> 
+<p>
 The parameter values (u,v) are given by the ordinal numbers of the
 corresponding control point in u- or in v-direction, respectively.
 The surface is then defined by the replaceable function \"surfaceCharacteristic\" with the
@@ -1550,7 +2092,7 @@ that returns the x-, y-, z- coordinate of every control point in form of 3 array
 </p>
 
 <pre>
-  Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv];
+  Real X[nu,nv], Y[nu,nv], Z[nu,nv], C[nu,nv,3];
 </pre>
 
 <p>
@@ -1602,8 +2144,9 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "Maximum value of T that corresponds to colorMap[end,:]"                       annotation(Dialog(group="Color coding"));
       parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(group="Color coding"));
       replaceable function colorMap =
-          Modelica.Math.Colors.ColorMaps.jet
-            constrainedby Modelica.Math.Interfaces.partialColorMap
+          Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
+            constrainedby
+        Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
         "Function defining the color map"
               annotation(__Dymola_choicesAllMatching=true, Dialog(group="Color coding"));
     protected
@@ -1641,11 +2184,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href=\"modelica://Modelica.Math.Colors.ColorMaps\">Modelica.Math.Colors.ColorMaps</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via parameter \"colorMap\".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 The position and orientation of the center of the
 circle at the left end of the pipe is defined via parameters
 \"r_0\" and \"R\", respectively. The pipe axis is oriented along
@@ -1659,13 +2202,13 @@ see figure below:
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
               height=50, nScalars=6, T_max=100, caption=\"Temperature in C\");
 </pre>
 </blockquote>
@@ -1758,7 +2301,8 @@ settings:
            (Ti,k) := Modelica.Math.Vectors.interpolate(xsi, T, xsi_i, k);
 
            // Map the scalar field value Ti to a color value
-           Ci := Modelica.Math.Colors.scalarToColor(Ti, T_min, T_max, colorMap);
+           Ci := Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor(
+                                                    Ti, T_min, T_max, colorMap);
 
            // Determine outputs
            for j in 1:nv loop
@@ -1780,11 +2324,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href=\"modelica://Modelica.Math.Colors.ColorMaps\">Modelica.Math.Colors.ColorMaps</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Color.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via input argument \"colorMap\".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Color.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 An example is shown in the next figure:
 </p>
 
@@ -1794,13 +2338,13 @@ An example is shown in the next figure:
 
 <p>
 The color coding is shown in the next figure. It was generated with
-<a href=\"modelica://Modelica.Math.Colors.colorMapToSvg\">Modelica.Math.Colors.colorMapToSvg</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a>
 using the following call:
 </p>
 
 <blockquote>
 <pre>
-colorMapToSvg(Modelica.Math.Colors.ColorMap.jet(), 
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
               height=50, nScalars=6, T_max=100, heading=\"Temperature in C\");
 </pre>
 </blockquote>

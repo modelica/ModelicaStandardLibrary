@@ -2399,7 +2399,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2 "Version 3.2 (????, 2010)"
+class Version_3_2 "Version 3.2 (Sept. 30, 2010)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2417,6 +2417,13 @@ This version is a major improvement:
 
 <li> The icons of the library are newly designed to provide a modern, unified view,
      see <a href=\"modelica://Modelica.Icons\">Modelica.Icons</a>.</li>
+
+<li> All non-Modelica files, such as images, pdf-files, C-source files,
+     scripts are moved to the new directory \"Modelica\\Resources\".
+     Furthermore, all file references are changed to URIs as introduced in
+     Modelica 3.1 (e.g. a file with the file name
+     \"Modelica/Resources/Images/xxx\" is referenced as
+     \"modelica://Modelica/Resources/Images/xxx\").</li>
 
 <li> All physical models that dissipate heat (such as electrical elements, electrical
      motors, bearings, dampers, etc.), have now an optional heat port to which
@@ -2707,12 +2714,22 @@ to <b style=\"color:blue\">existing</b> libraries:
                       WiredX </td>
     <td valign=\"top\"> Transfer gates, buffers, inverters and wired node.</td> </tr>
 
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
+<tr><td valign=\"top\"> HeatLosses </td>
+    <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
+<tr><td valign=\"top\"> UserDefinedGravityField </td>
+    <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field. </td> </tr>
+<tr><td valign=\"top\"> Surfaces </td>
+    <td valign=\"top\"> Demonstrate the visualization of a sine surface,<br>
+                      as well as a torus and a wheel constucted from a surface. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Joints.</b></td></tr>
 <tr><td valign=\"top\"> FreeMotionScalarInit </td>
     <td valign=\"top\"> Free motion joint that allows initialization and state selection<br>
                       of single elements of the relevant vectors<br>
                       (e.g. initialize r_rel_a[2] but not the other elements of r_rel_a;<br>
-                      this new component fixes ticket 
+                      this new component fixes ticket
                       <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a>) </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.</b></td></tr>
@@ -2723,11 +2740,28 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> PipeWithScalarField </td>
     <td valign=\"top\"> Visualizing a pipe with scalar field quantities along the pipe axis. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.ColorMaps.</b></td></tr>
+<tr><td valign=\"top\"> jet<br>
+                      hot<br>
+                      gray<br>
+                      spring<br>
+                      summer<br>
+                      autumn<br>
+                      winter </td>
+    <td valign=\"top\"> Functions returning different color maps. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Colors.</b></td></tr>
+<tr><td valign=\"top\"> colorMapToSvg </td>
+    <td valign=\"top\"> Save a color map on file in svg (scalable vector graphics) format. </td> </tr>
+<tr><td valign=\"top\"> scalarToColor </td>
+    <td valign=\"top\"> Map a scalar to a color using a color map. </td> </tr>
+
+
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Visualizers.Advanced.</b></td></tr>
 <tr><td valign=\"top\"> Surface </td>
     <td valign=\"top\"> Visualizing a moveable, parameterized surface;<br>
                       the surface characteristic is provided by a function<br>
-                      (this new component fixes ticket 
+                      (this new component fixes ticket
                        <a href=\"https://trac.modelica.org/Modelica/ticket/181\">#181</a>)</td> </tr>
 <tr><td valign=\"top\"> PipeWithScalarField </td>
     <td valign=\"top\"> Visualizing a pipe with a scalar field. </td> </tr>
@@ -2738,15 +2772,6 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> pipeWithScalarField </td>
     <td valign=\"top\"> Function defining the surface characteristic of a pipe<br>
                       where a scalar field value is displayed with color along the pipe axis. </td> </tr>
-
-<tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
-<tr><td valign=\"top\"> HeatLosses </td>
-    <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
-<tr><td valign=\"top\"> UserDefinedGravityField </td>
-    <td valign=\"top\"> Demonstrate the modeling of a user-defined gravity field. </td> </tr>
-<tr><td valign=\"top\"> Surfaces </td>
-    <td valign=\"top\"> Demonstrate the visualization of a sine surface,<br>
-                      as well as a torus and a wheel constucted from a surface. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Examples.</b></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
@@ -2871,23 +2896,6 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Examples that demonstrate the usage of the Modelica.Math.Nonlinear functions
                       to integrate over functions and to solve scalar nonlinear equations. </td> </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Math.Colors.ColorMaps.</b></td></tr>
-<tr><td valign=\"top\"> jet<br>
-                      hot<br>
-                      gray<br>
-                      spring<br>
-                      summer<br>
-                      autumn<br>
-                      winter </td>
-    <td valign=\"top\"> Functions returning different color maps. </td> </tr>
-
-<tr><td colspan=\"2\"><b>Modelica.Math.Colors.</b></td></tr>
-<tr><td valign=\"top\"> colorMapToSvg </td>
-    <td valign=\"top\"> Save a color map on file in svg (scalable vector graphics) format. </td> </tr>
-<tr><td valign=\"top\"> scalarToColor </td>
-    <td valign=\"top\"> Map a scalar to a color using a color map. </td> </tr>
-
-
 <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
 <tr><td valign=\"top\"> Information<br>
                       Contact<br>
@@ -2981,6 +2989,16 @@ that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.
 units are wrong or errors in documentation):
 </p>
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
+<tr><td valign=\"top\"> LossyGear</td>
+    <td valign=\"top\"> In cases where the driving flange is not obvious, the component could
+                      lead to a non-convergent event iteration. This has been fixed
+                      (a detailed description is provided in ticket 
+                      <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a>
+                      and in the 
+                      <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
+                      of this ticket).</td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK</b></td></tr>
 <tr><td valign=\"top\"> dgesv_vec<br>
                         dgesv<br>
@@ -2994,8 +3012,11 @@ units are wrong or errors in documentation):
                         dtrsyl</td>
     <td valign=\"top\"> Integer inputs to specify leading dimensions of matrices have got a lower bound 1 (e.g. lda=max(1,n))
                       to avoid incorrect values (e.g. lda=0) in the case of empty matrices.<br>
-                      The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </tr>
+                      The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </t"
+               + "r>
 </table>
+
+
 
 <p><br>
 The following
@@ -3027,7 +3048,7 @@ have been fixed:
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/271\">#271</a></td>
-    <td valign=\"t" + "op\">Documentation URI errors in MSL 3.1</td>
+    <td valign=\"top\">Documentation URI errors in MSL 3.1</td>
 </tr>
 
 <tr><td valign=\"top\">
@@ -3272,6 +3293,11 @@ have been fixed:
 <tr><td colspan=\"2\"><br><b>Modelica.Mechanics.Rotational</b></td></tr>
 
 <tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a></td>
+    <td valign=\"top\">Problem with model \"Lossy Gear\" and approach to a solution</td>
+</tr>
+
+<tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/278\">#278</a></td>
     <td valign=\"top\">Improve/fix documentation of Modelica.Mechanics.Rotational</td>
 </tr>
@@ -3309,11 +3335,22 @@ have been fixed:
     <td valign=\"top\">dpT calculation in waterBaseProp_dT</td>
 </tr>
 
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/393\">#393</a></td>
+    <td valign=\"top\">Provide C_nominal in Modelica.Media to allow propagating 
+                     value and avoid wrong numerical results</td>
+</tr>
+
 <tr><td colspan=\"2\"><br><b>Modelica.StateGraph</b></td></tr>
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/206\">#206</a></td>
     <td valign=\"top\">Syntax error in StateGraph.mo</td>
+</tr>
+
+<tr><td valign=\"top\">
+    <a href=\"https://trac.modelica.org/Modelica/ticket/261\">#261</a></td>
+    <td valign=\"top\">Modelica.StateGraph should mention the availability of Modelica_StateGraph2</td>
 </tr>
 
 <tr><td valign=\"top\">
@@ -7190,8 +7227,8 @@ annotation (
 preferredView="info",
 version="3.2",
 versionBuild=0,
-versionDate="2010-03-24",
-dateModified = "2010-03-15 00:00:00Z",
+versionDate="2010-09-30",
+dateModified = "2010-09-30 00:00:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.0"), ModelicaServices(version="1.0.1")),
 conversion(

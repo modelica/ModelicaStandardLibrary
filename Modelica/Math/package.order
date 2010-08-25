@@ -1,7 +1,6 @@
 Vectors
 Matrices
 Nonlinear
-Colors
 Interfaces
 sin
 cos
@@ -21,6 +20,7 @@ log
 log10
 baseIcon1
 baseIcon2
+isEqual
 allTrue
 anyTrue
 oneTrue
