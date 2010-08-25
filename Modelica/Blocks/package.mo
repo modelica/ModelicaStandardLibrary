@@ -564,7 +564,7 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
     Math.MultiProduct   product(nu=3)
       annotation (Placement(transformation(extent={{16,24},{28,36}})));
     Modelica.Blocks.Interaction.Show.RealValue
-                          showValue1(precision=2)
+                          showValue1(significantDigits=2)
       annotation (Placement(transformation(extent={{46,20},{66,40}})));
     Sources.BooleanPulse booleanPulse1(period=1)
       annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
@@ -577,7 +577,7 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
       annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
     Modelica.Blocks.Interaction.Show.RealValue
                           showValue3(use_numberPort=false, number=multiSwitch.y,
-      precision=1)
+     significantDigits=1)
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
     equation
     connect(booleanPulse1.y, multiSwitch.u[1])  annotation (Line(
@@ -1182,7 +1182,7 @@ just potential signals. The user might still add different signal names.
     extends Modelica.Icons.InterfacesPackage;
 
       expandable connector ControlBus
-        "Empty control bus that is adapted to the signals connected to it"
+        "Control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
         import SI = Modelica.SIunits;
         SI.AngularVelocity realSignal1 "First Real signal (angular velocity)";
@@ -1213,7 +1213,7 @@ are determined from the connections to this bus).
       end ControlBus;
 
       expandable connector SubControlBus
-        "Empty sub-control bus that is adapted to the signals connected to it"
+        "Sub-control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalSubBus;
         Real myRealSignal;
         Boolean myBooleanSignal;
