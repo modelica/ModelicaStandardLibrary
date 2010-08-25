@@ -465,7 +465,7 @@ If this library is not yet distributed with your Modelica tool, you can download
 it from <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">http://www.modelica.org/libraries/Modelica_StateGraph2</a>.
 Find below a comparison with respect to Modelica.StateGraph.
 It is not yet clear whether Modelica_StateGraph2 will be included in a
-future version of the Modelica package. Another option is to provide 
+future version of the Modelica package. Another option is to provide
 built-in support for state machines in a future Modelica language version
 which would allow an even more powerful treatment of state machines in Modelica.
 </p>
@@ -481,7 +481,7 @@ technique as described in this article. The StateGraph2
 library has the following improvements with respect to the StateGraph1
 library:
 </p>
- 
+
 <ul>
 <li> <b>3 Basic Components (Step, Transition, Parallel)</b><br>
      All multiple versions of a component are
@@ -489,15 +489,15 @@ library:
      This is easier to understand and more convenient to use.
      The \"Parallel\" component is both used as \"composite step\" (so only one branch),
      as well as \"parallel step\" (so several execution branches).<br>&nbsp;</li>
- 
+
 <li> <b>Conveniently connecting components</b><br>
-     Connecting components of a state machine in Modelica means to provide  
-     new vector dimensions and to provide a vector index to connect to. 
-     In StateGraph2, the new \"connectorSizing\" annotation is used and 
-     therefore all this is now performed automatically (from a users point 
-     of view, these actions are hidden; this is not the case in 
+     Connecting components of a state machine in Modelica means to provide
+     new vector dimensions and to provide a vector index to connect to.
+     In StateGraph2, the new \"connectorSizing\" annotation is used and
+     therefore all this is now performed automatically (from a users point
+     of view, these actions are hidden; this is not the case in
      StateGraph1 and makes the usage of the StateGraph1 library clumsy).<br>&nbsp;</li>
- 
+
 <li> <b>Safer state machines</b><br>
      It is no longer possible to construct a wrong state machine in the sense that properties
      of the graph are violated (e.g. two initial steps, or branching wrongly out of a parallel
@@ -505,7 +505,7 @@ library:
      error but to unexpected simulation results. Still, other desirable properties
      of a state machine,  such as \"no deadlock\" or \"lifeliness\" or \"every step reachable\",
      are not (yet) guaranteed with the current StateGraph2. <br>&nbsp;</li>
- 
+
 <li> <b>Composite, autonomous, synchronized, preempted subgraphs</b><br>
      Composite steps and parallel steps are described in a much better and more powerful
      way as in StateGraph1: Either by component \"Parallel\" or
@@ -525,7 +525,7 @@ library:
 <li> <b>No infinite looping</b>:<br>
      As in StateGraph1, there are two types of transitions: immediate transitions (during event
      iteration all immediate transitions fire until no transition condition is true anymore) and
-     delayed transitions (a transition fires only after a delay). Contrary to StateGraph1, 
+     delayed transitions (a transition fires only after a delay). Contrary to StateGraph1,
      in StateGraph2 every loop must have at least one delayed transition. If this is not the case
      a translation error occurs which states that the model contains an algebraic loop
      between Booleans with the name \"checkOneDelayedTransitionPerLoop\".<br>
@@ -540,12 +540,12 @@ library:
      important and the transition conditions are in a form that they cannot fire at the
      same time instant).</li>
 </ul>
- 
+
 <h4> Literature </h4>
 
 <p>
-The Modelica_StateGraph2 library is described in detail in 
-(Otter et. al. 2009, see below) and is additionally 
+The Modelica_StateGraph2 library is described in detail in
+(Otter et. al. 2009, see below) and is additionally
 based on the following references:
 </p>
 
@@ -554,12 +554,12 @@ based on the following references:
 <dd><a href=\"http://www.i3s.unice.fr/~map/WEBSPORTS/Documents/2003a2005/SSMsemantics.pdf\">
      Semantics of S.S.M (Safe State Machine).</a>.
      I3S Laboratory, UMR 6070 University of Nice-Sophia Antipolis / CNRS.<br>&nbsp;</dd>
- 
+
 <dt>Arzen K.-E. (2004):</dt>
 <dd> <b>JGrafchart User Manual. Version 1.5</b>.
      Department of Automatic Control, Lund Institute of Technology,
      Lund, Sweden, Feb. 13, 2004.<br>&nbsp;</dd>
- 
+
 <dt>Dressler I. (2004):</dt>
 <dd> <a href=\"http://www.control.lth.se/documents/2004/5726.pdf\">
      Code Generation From JGrafchart to Modelica.</a>.
@@ -571,33 +571,33 @@ based on the following references:
 <dd> <b>Object-Oriented and Hybrid Modeling in Modelica</b>.
      Journal Europeen des systemes automatises (JESA),
      Volume 35 - n. 1, 2001.<br>&nbsp;</dd>
- 
+
 <dt>Harel, D. (1987):</dt>
 <dd> <a href=\"http://www.inf.ed.ac.uk/teaching/courses/seoc1/2005_2006/resources/statecharts.pdf\">
-      A Visual Formalism for Complex Systems</a>. 
-      Science of Computer Programming 8, 231-274. Department of Applied Mathematics, 
+      A Visual Formalism for Complex Systems</a>.
+      Science of Computer Programming 8, 231-274. Department of Applied Mathematics,
       The Weizmann Institute of Science, Rehovot, Israel.<br>&nbsp;</dd>
- 
+
 <dt>Malmheden M. (2007):</dt>
 <dd> <a href=\"http://www.control.lth.se/documents/2007/5808.pdf\">
-      ModeGraph - A Mode-Automata-Based Modelica Library for Embedded Control</a>. 
+      ModeGraph - A Mode-Automata-Based Modelica Library for Embedded Control</a>.
       Master thesis, Department of Automatic Control, Lund University, Sweden.<br>&nbsp;
      </dd>
- 
+
 <dt>Malmheden M., Elmqvist H., Mattsson S.E., Henrisson D., Otter M. (2008):</dt>
 <dd> <a href=\"http://www.modelica.org/events/modelica2008/Proceedings/sessions/session3a3.pdf\">
       ModeGraph - A Modelica Library for Embedded Control based on Mode-Automata</a>.
       Modelica'2008 Conference, March 3-4, 2008.<br>&nbsp;
      </dd>
- 
+
 <dt>Maraninchi F., R�mond, Y. (2002):</dt>
-<dd> <a href=\"http://www-verimag.imag.fr/~maraninx/SCP2002.htm\">Mode-Automata: 
+<dd> <a href=\"http://www-verimag.imag.fr/~maraninx/SCP2002.htm\">Mode-Automata:
      A New Domain-Specific Construct for the Development of Safe Critical Systems</a>.<br>&nbsp;
      </dd>
 
 <dt>Mosterman P., Otter M., Elmqvist H. (1998):</dt>
 <dd><a href=\"http://www.modelica.org/publications/papers/scsc98fp.pdf\">
-     Modeling Petri Nets as Local Constraint Equations for 
+     Modeling Petri Nets as Local Constraint Equations for
      Hybrid Systems using Modelica</a>.
      SCSC'98, Reno, Nevada, USA,
      Society for Computer Simulation International, pp. 314-319, 1998.<br>&nbsp;
@@ -609,7 +609,7 @@ based on the following references:
       Modelica'2009 Conference, Como, Italy, Sept. 20-22, 2009.
      </dd>
 </dl>
- 
+
 
 </html>
 "));
@@ -1688,9 +1688,9 @@ buttons:
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}}, rotation=0)));
       Real level "Tank level in % of max height";
-      parameter Real A=1 "ground area of tank in m²";
-      parameter Real a=0.2 "area of drain hole in m²";
-      parameter Real hmax=1 "max height of tank in m";
+      parameter Real A=1 "Ground area of tank in m^2";
+      parameter Real a=0.2 "Area of drain hole in m^2";
+      parameter Real hmax=1 "Max height of tank in m";
       constant Real g=Modelica.Constants.g_n;
     equation
       der(level) = (inflow1.Fi - outflow1.Fo)/(hmax*A);
@@ -3339,9 +3339,9 @@ annotation (
 <p>
 Note, there is a much improved version of this library called
 \"Modelica_StateGraph2\". If this library is not yet distributed with your
-Modelica tool, you can download it from 
+Modelica tool, you can download it from
 <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">http://www.modelica.org/libraries/Modelica_StateGraph2</a>.
-In the 
+In the
 <a href=\"modelica://Modelica.StateGraph.UsersGuide.ComparisonWithStateGraph2\">Users Guide</a>
 a detailed comparison is given. It is highly recommended to use Modelica_StateGraph2 instead
 of Modelica.StateGraph.
