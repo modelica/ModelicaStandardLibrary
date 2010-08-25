@@ -444,7 +444,7 @@ end Conductor;
             extent={{-148,91},{152,51}},
             textString="%name",
             lineColor={0,0,255})}),                         Documentation(info="<html>
-<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e. the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
+<p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
 <p><ul>
 <li>Inom...nominal current</li>
 <li>Lnom...nominal inductance at nominal current</li>

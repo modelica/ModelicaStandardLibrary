@@ -1314,11 +1314,11 @@ results in the following transfer function:
   block StateSpace "Linear state space system"
     import Modelica.Blocks.Types.Init;
     parameter Real A[:, size(A, 1)]
-      "Matrix A of state space model (e.g. A=[1, 0; 0, 1])";
+      "Matrix A of state space model (e.g., A=[1, 0; 0, 1])";
     parameter Real B[size(A, 1), :]
-      "Matrix B of state space model (e.g. B=[1; 1])";
+      "Matrix B of state space model (e.g., B=[1; 1])";
     parameter Real C[:, size(A, 1)]
-      "Matrix C of state space model (e.g. C=[1, 1])";
+      "Matrix C of state space model (e.g., C=[1, 1])";
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";
     parameter Modelica.Blocks.Types.Init initType=Modelica.Blocks.Types.Init.NoInit
@@ -4181,7 +4181,7 @@ results from <blockquote><pre> a = -1/alpha </pre></blockquote> and
             output Real residue;
           protected
             constant Real beta= 10^(-3/20)
-              "Amplitude of -3db required, i.e. -3db = 20*log(beta)";
+              "Amplitude of -3db required, i.e., -3db = 20*log(beta)";
             Real cc1;
             Real cc2;
             Real p;
@@ -4691,7 +4691,7 @@ In many cases, the most useful initial condition is
 present. The drawback is that in combination with a non-linear
 plant, non-linear algebraic equations occur that might be
 difficult to solve if appropriate guess values for the
-iteration variables are not provided (i.e. start values with fixed=false).
+iteration variables are not provided (i.e., start values with fixed=false).
 However, it is often already useful to just initialize
 the linear blocks from the Continuous blocks library in SteadyState.
 This is uncritical, because only linear algebraic equations occur.

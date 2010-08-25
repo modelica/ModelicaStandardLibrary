@@ -788,7 +788,7 @@ The second graph shows the continous derivative of this regularization function:
     output Real y "Interpolated ordinate value";
   protected
     Real h "Distance between x1 and x2";
-    Real t "abscissa scaled with h, i.e. t=[0..1] within x=[x1..x2]";
+    Real t "abscissa scaled with h, i.e., t=[0..1] within x=[x1..x2]";
     Real h00 "Basis function 00 of cubic Hermite spline";
     Real h10 "Basis function 10 of cubic Hermite spline";
     Real h01 "Basis function 01 of cubic Hermite spline";
@@ -835,7 +835,7 @@ The second graph shows the continous derivative of this regularization function:
     output Real dy_dx "Derivative dy/dx at abscissa value x";
   protected
     Real h "Distance between x1 and x2";
-    Real t "abscissa scaled with h, i.e. t=[0..1] within x=[x1..x2]";
+    Real t "abscissa scaled with h, i.e., t=[0..1] within x=[x1..x2]";
     Real h00 "Basis function 00 of cubic Hermite spline";
     Real h10 "Basis function 10 of cubic Hermite spline";
     Real h01 "Basis function 01 of cubic Hermite spline";

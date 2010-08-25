@@ -35,7 +35,7 @@ extends Modelica.Icons.Package;
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g. the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
+<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
 <p>To parametrice more than one model two ways are possible:</p>
 <p><ol>
 <li>Apart record:<br/>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br/>&QUOT;inverterApartRecord&QUOT; this way is explained more in detail.</li>
@@ -105,9 +105,9 @@ extends Modelica.Icons.Package;
 <p><ol>
 <li>A name for the Modelica model has to be chosen. It could be taken from the first line of the SPICE3 netlist.</li>
 <li>The ground node has to be instantiated (Spice3.Basic.Ground).</li>
-<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g. the SPICE line<br/><br/>Vdrain 11 0 PULSE(0 5 0 1)<br/><br/>becomes the following Modelica line:<br/><br/>Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1); <br/></li>
+<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE line<br/><br/>Vdrain 11 0 PULSE(0 5 0 1)<br/><br/>becomes the following Modelica line:<br/><br/>Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1); <br/></li>
 <li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomes<br/><br/>protected Spice3.Interfaces.Pin n2;<br/><br/>in Modelica. The code letter (here n) is needed because a single number is no name in Modelica.<br/></li>
-<li>According to the netlist the internal pins have to be connected with the components, e.g. connect(Mp1.D, n11).</li>
+<li>According to the netlist the internal pins have to be connected with the components, e.g., connect(Mp1.D, n11).</li>
 <li>In the last step the external pins have to be allocated ant connected to the according internal pin. In table 1 this is done as follows: <br/><br/>Spice3.Interfaces.Pin p_in, p_out;<br/><br/>connect(p_in, n1); connect(p_out, n2); </li>
 </ol></p>
 </html>", revisions="<html>
@@ -118,7 +118,7 @@ extends Modelica.Icons.Package;
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g. resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
+<p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g., resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
 <p>A typical SPICE3 line could be:</p>
 <p><b>C</b>1 3 2 1pF</p>
 <p>The first letter is the code letter (here <b>C</b>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <b>C</b>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
@@ -1751,7 +1751,7 @@ is translated to Modelica:<br>
          library=1,
          autolayout=1),
   Documentation(info="<html>
-<p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g. <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
+<p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g., <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
 </html>",
      revisions="<html>
 <dl>
@@ -1822,7 +1822,7 @@ is translated to Modelica:<br>
       extends Modelica.Electrical.Spice3.Internal.ModelcardMOS;
       annotation (Documentation(info="<html>
 <p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
-<p><br/>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
+<p><br/>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 </html>"));
     end ModelcardMOS;
 
@@ -1881,7 +1881,7 @@ is translated to Modelica:<br>
     record ModelcardBJT "Record for the specification of modelcard parameters"
       extends Modelica.Electrical.Spice3.Internal.ModelcardBJT;
       annotation (Documentation(info="<html>
-<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
 </html>"));
     end ModelcardBJT;
@@ -1912,7 +1912,7 @@ is translated to Modelica:<br>
    record ModelcardDIODE "Record for the specification of modelcard parameters"
      extends Modelica.Electrical.Spice3.Internal.ModelcardDIODE;
       annotation (Documentation(info="<html>
-<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the junction diode model</p>
 </html>"));
    end ModelcardDIODE;
@@ -1941,7 +1941,7 @@ is translated to Modelica:<br>
       "Record for the specification of modelcard parameters"
       extends Modelica.Electrical.Spice3.Internal.ModelcardR;
       annotation (Documentation(info="<html>
-<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g. the temperature of a whole electrical circuit.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 <p><br/>Technology parameters of the semiconductor resistor model</p>
 </html>"));
     end ModelcardRESISTOR;
@@ -2329,7 +2329,7 @@ is translated to Modelica:<br>
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
-<p><code>    e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation).</code></p>
+<p><code>    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).</code></p>
 </html>",
        revisions="<html>
 </html>"));
@@ -2751,7 +2751,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
-<p><code>    e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation).</code></p>
+<p><code>    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).</code></p>
 </html>",
        revisions="<html>
 </html>"));
@@ -2836,7 +2836,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
   end Sources;
 
   package Additionals
-    "Some useful additional models, e.g. from SPICE2 the polynomial sources"
+    "Some useful additional models, e.g., from SPICE2 the polynomial sources"
     function poly "POLY function of SPICE2"
       input Real s[:] "Variables";
       input Real a[:] "Coefficients";
@@ -6045,8 +6045,8 @@ VN- -&GT; name.pc[N-1]
          intern.m_fNexp := ex.AF "Flicker-noise exponent (default 1)";
 
         annotation (Documentation(info="<html>
-<pre>This function mos1RenameParameters assigns the external (given by the user, e.g. RD) technology parameters
-to the internal parameters (e.g. m_drainResistance). It also does the analysis of the IsGiven values (level 1).</pre>
+<pre>This function mos1RenameParameters assigns the external (given by the user, e.g., RD) technology parameters
+to the internal parameters (e.g., m_drainResistance). It also does the analysis of the IsGiven values (level 1).</pre>
 </html>"));
       end mos1RenameParameters;
 
@@ -6860,8 +6860,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
          intern.m_fNexp := ex.AF;                        // flicker-noise exponent (default 1)
 
         annotation (Documentation(info="<html>
-<pre>This function mos2RenameParameters assigns the external (given by the user, e.g. RD) technology parameters
-to the internal parameters (e.g. m_drainResistance). It also does the analysis of the IsGiven values (level 2).</pre>
+<pre>This function mos2RenameParameters assigns the external (given by the user, e.g., RD) technology parameters
+to the internal parameters (e.g., m_drainResistance). It also does the analysis of the IsGiven values (level 2).</pre>
 </html>"));
       end mos2RenameParameters;
 
@@ -7244,8 +7244,8 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
          intern.m_conductance := if (ex.RS == 0) then  0 else 1/ex.RS;
 
         annotation (Documentation(info="<html>
-<pre>This function assigns the external (given by the user, e.g. IS) technology parameters
-to the internal parameters (e.g. m_satCur). It also does the analysis of the IsGiven values.</pre>
+<pre>This function assigns the external (given by the user, e.g., IS) technology parameters
+to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</pre>
 </html>"));
       end diodeRenameParameters;
 
@@ -7271,8 +7271,8 @@ to the internal parameters (e.g. m_satCur). It also does the analysis of the IsG
         dev.m_bSensArea := SENS_AREA;
 
         annotation (Documentation(info="<html>
-<pre>This function assigns the external (given by the user, e.g. AREA) device parameters
-to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</pre>
+<pre>This function assigns the external (given by the user, e.g., AREA) device parameters
+to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</pre>
 </html>"));
       end diodeRenameParametersDev;
 
@@ -7365,8 +7365,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
                 300.15;
 
         annotation (Documentation(info="<html>
-<pre>This function assigns the external (given by the user, e.g. N) technology parameters
-to the internal parameters (e.g. m_emissionCoeff). It also does the analysis of the IsGiven values.</pre>
+<pre>This function assigns the external (given by the user, e.g., N) technology parameters
+to the internal parameters (e.g., m_emissionCoeff). It also does the analysis of the IsGiven values.</pre>
 </html>"));
       end resistorRenameParameters;
 
@@ -7403,8 +7403,8 @@ to the internal parameters (e.g. m_emissionCoeff). It also does the analysis of 
                 300.15;
 
         annotation (Documentation(info="<html>
-<pre>This function assigns the external (given by the user, e.g. AREA) device parameters
-to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</pre>
+<pre>This function assigns the external (given by the user, e.g., AREA) device parameters
+to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</pre>
 </html>"));
       end resistorRenameParametersDev;
 
@@ -8254,8 +8254,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15;
 
         annotation (Documentation(info="<html>
-<p>This function assigns the external (given by the user, e.g. IS) technology parameters</p>
-<p>to the internal parameters (e.g. m_satCur). It also does the analysis of the IsGiven values.</p>
+<p>This function assigns the external (given by the user, e.g., IS) technology parameters</p>
+<p>to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</p>
 </html>"));
       end bjtRenameParameters;
 
@@ -8285,8 +8285,8 @@ to the internal parameters (e.g. m_area). It also does the analysis of the IsGiv
         dev.m_bSensArea := SENS_AREA;
 
         annotation (Documentation(info="<html>
-<p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
-<p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+<p>This function assigns the external (given by the user, e.g., AREA) device parameters</p>
+<p>to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</p>
 </html>"));
       end bjtRenameParametersDev;
 

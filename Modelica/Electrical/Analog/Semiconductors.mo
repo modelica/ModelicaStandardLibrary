@@ -1847,7 +1847,7 @@ public
 <p>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.</p>
 <p>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.</p>
 <p>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.</p>
-<p><b>Attention:</b> The model seems to be very sensitive with respect to the choice of some parameters (e.g. VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
+<p><b>Attention:</b> The model seems to be very sensitive with respect to the choice of some parameters (e.g., VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
 </html>",
      revisions="<html>
 <ul>

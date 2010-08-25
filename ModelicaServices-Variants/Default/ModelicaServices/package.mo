@@ -175,7 +175,7 @@ of the Original Work. This means especially that the (root-level)
 name of a Modelica package under this license must be changed if the
 package is modified (besides fixing of errors, adding vendor specific
 Modelica annotations, using a subset of the classes of a Modelica
-package, or using another representation, e.g. a binary
+package, or using another representation, e.g., a binary
 representation).</p>
 
 <p>
@@ -539,7 +539,7 @@ guide&rdquo; of the Modelica Standard Library):</b></p>
 <p>Yes.
 Extracting information from a Modelica package, and providing it in a
 human readable, suitable format, like html, doc or pdf format, where
-the content is significantly modified (e.g. tables with interface
+the content is significantly modified (e.g., tables with interface
 information are constructed from the declarations of the public
 variables) qualifies as Derivative Work and there are no restrictions
 to charge a fee for Derivative Work under alternative 2d).</p>
@@ -547,7 +547,7 @@ to charge a fee for Derivative Work under alternative 2d).</p>
 <p><b>Can
 I copy a text passage out of a Modelica document (under Modelica
 License 2) and use it </b><u><b>unmodified</b></u><b> in my document
-(e.g. the Modelica syntax description in the Modelica Specification)?</b></p>
+(e.g., the Modelica syntax description in the Modelica Specification)?</b></p>
 <p>Yes.
 In case you distribute your document, the copied parts are still
 under Modelica License 2 and you are not allowed to charge a license

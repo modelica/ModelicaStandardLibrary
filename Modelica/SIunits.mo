@@ -44,9 +44,9 @@ for a variable of type Real:
 </p>
 
 <ul>
-<li><b>quantity</b> to define the physical quantity (e.g. \"Length\", or \"Energy\").</li>
+<li><b>quantity</b> to define the physical quantity (e.g., \"Length\", or \"Energy\").</li>
 <li><b>unit</b> to define the unit that has to be used
-    in order that the equations are correct (e.g. \"N.m\").</li>
+    in order that the equations are correct (e.g., \"N.m\").</li>
 <li><b>displayUnit</b> to define the unit used in the graphical
     user interface as default display unit for input and/or output.</li>
 </ul>

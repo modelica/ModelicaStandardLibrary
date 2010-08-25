@@ -416,8 +416,8 @@ This base class extends PartialLumpedVolume with a vector of fluid ports and a r
 <p>
 The following modeling assumption are made:
 <ul>
-<li>homogenous medium, i.e. phase seperation is not taken into account,</li>
-<li>no kinetic energy in the fluid, i.e. kinetic energy dissipates into the internal energy,</li>
+<li>homogenous medium, i.e., phase seperation is not taken into account,</li>
+<li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
 <li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
 <li>outflow of ambient media is prevented at each port assuming check valve behavior.
     If <tt> fluidlevel &lt; portsData_height[i] </tt>and &nbsp; <tt> ports[i].p &lt; vessel_ps_static[i]</tt> massflow at the port is set to 0.</li>
@@ -432,7 +432,7 @@ The following variables need to be defined by an extending model:
 <ul>
 <li><tt>input fluidVolume</tt>, the volume of the fluid in the vessel,</li>
 <li><tt>vessel_ps_static[nPorts]</tt>, the static pressures inside the vessel at the height of the corresponding ports, at zero flow velocity, and</li>
-<li><tt>Wb_flow</tt>, work term of the energy balance, e.g. p*der(V) if the volume is not constant or stirrer power.</li>
+<li><tt>Wb_flow</tt>, work term of the energy balance, e.g., p*der(V) if the volume is not constant or stirrer power.</li>
 </ul>
 An extending model should define:
 <ul>

@@ -1176,7 +1176,7 @@ in the Blocks.Logical library.
                               Documentation(info="<html>
 <p>
 Block has one continuous Boolean input and one continuous Boolean output signal
-with a 3D icon (e.g. used in Blocks.Logical library).
+with a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1225,7 +1225,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
       Documentation(info="<html>
 <p>
 Block has two continuous Boolean input and one continuous Boolean output signal
-with a 3D icon (e.g. used in Blocks.Logical library).
+with a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1284,7 +1284,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
             fillPattern=FillPattern.Solid)}),
       Documentation(info="<html>
 Block has three continuous Boolean input and one continuous Boolean output signal
-with a 3D icon (e.g. used in Blocks.Logical library).
+with a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1308,7 +1308,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
                               Documentation(info="<html>
 <p>
 Block has one continuous Boolean input signal
-with a 3D icon (e.g. used in Blocks.Logical library).
+with a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1332,7 +1332,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
                               Documentation(info="<html>
 <p>
 Block has one continuous Boolean output signal
-with a 3D icon (e.g. used in Blocks.Logical library).
+with a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1393,7 +1393,7 @@ with a 3D icon (e.g. used in Blocks.Logical library).
 <p>
 Basic block for Boolean sources of package Blocks.Sources.
 This component has one continuous Boolean output signal y
-and a 3D icon (e.g. used in Blocks.Logical library).
+and a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1436,7 +1436,7 @@ and a 3D icon (e.g. used in Blocks.Logical library).
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
-as well as a 3D icon (e.g. used in Blocks.Logical library).
+as well as a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 
@@ -1479,7 +1479,7 @@ as well as a 3D icon (e.g. used in Blocks.Logical library).
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
 as a result of the comparision of the two input signals. The block
-has a 3D icon (e.g. used in Blocks.Logical library).
+has a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));
 

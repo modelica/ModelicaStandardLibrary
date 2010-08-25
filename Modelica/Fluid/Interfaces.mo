@@ -242,7 +242,7 @@ package Interfaces
       "Fluid connector b (positive design flow direction is from port_a to port_b)"
       annotation (Placement(transformation(extent={{110,-10},{90,10}}, rotation=
                0), iconTransformation(extent={{110,-10},{90,10}})));
-    // Model structure, e.g. used for visualization
+    // Model structure, e.g., used for visualization
   protected
     parameter Boolean port_a_exposesState = false
       "= true if port_a exposes the state of a fluid volume";
@@ -394,7 +394,7 @@ equation
     Documentation(info="<html>
 <p>
 This component transports fluid between its two ports, without storing mass or energy.
-Energy may be exchanged with the environment though, e.g. in the form of work.
+Energy may be exchanged with the environment though, e.g., in the form of work.
 <tt>PartialTwoPortTransport</tt> is intended as base class for devices like orifices, valves and simple fluid machines.
 <p>
 Three equations need to be added by an extending class using this component:
@@ -712,8 +712,8 @@ the boundary temperatures <tt>heatPorts[n].T</tt>, and the heat flow rates <tt>Q
 Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 <ul>
-<li><tt><b>Qb_flow</b></tt>, e.g. convective or latent heat flow rate across segment boundary, and</li>
-<li><tt><b>Wb_flow</b></tt>, work term, e.g. p*der(fluidVolume) if the volume is not constant.</li>
+<li><tt><b>Qb_flow</b></tt>, e.g., convective or latent heat flow rate across segment boundary, and</li>
+<li><tt><b>Wb_flow</b></tt>, work term, e.g., p*der(fluidVolume) if the volume is not constant.</li>
 </ul>
 The component volume <tt><b>fluidVolume</b></tt> is an input that needs to be set in the extending class to complete the model.
 <p>
@@ -1024,7 +1024,7 @@ Interface and base class for <tt><b>n</b></tt> ideally mixed fluid volumes with 
 It is inteded to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
 The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
 <ul>
-<li><tt><b>Qb_flows[n]</b></tt>, heat flow term, e.g. conductive heat flows across segment boundaries, and</li>
+<li><tt><b>Qb_flows[n]</b></tt>, heat flow term, e.g., conductive heat flows across segment boundaries, and</li>
 <li><tt><b>Wb_flows[n]</b></tt>, work term.</li>
 </ul>
 The component volumes <tt><b>fluidVolumes[n]</b></tt> are an input that needs to be set in an extending class to complete the model.

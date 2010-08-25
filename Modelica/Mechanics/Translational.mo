@@ -1815,7 +1815,7 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
 Please note that initialization might fail due to the nonlinear spring characteristic
 (spring force is zero for s_rel > s_rel0)
 if a positive force is acting on the element and no other force balances this force
-(e.g. when setting both initial velocity and acceleration to 0)
+(e.g., when setting both initial velocity and acceleration to 0)
 */
       Boolean contact "=true, if contact, otherwise no contact";
     protected
@@ -2119,7 +2119,7 @@ values. Friction is modelled in the following way:
 When the absolute velocity \"v\" is not zero, the friction force
 is a function of v and of a constant normal force. This dependency
 is defined via table f_pos and can be determined by measurements,
-e.g. by driving the gear with constant velocity and measuring the
+e.g., by driving the gear with constant velocity and measuring the
 needed driving force (= friction force).
 </p>
 <p>
@@ -4274,8 +4274,8 @@ The following variables are transported through this connector:
 </table>
 <p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it</p>
 <p><ul>
-<li>For models to be build graphically (i.e. the model is build up by drag-and-drop from elementary components):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
-<li>For models to be build textually (i.e. elementary models):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
+<li>For models to be build graphically (i.e., the model is build up by drag-and-drop from elementary components):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
+<li>For models to be build textually (i.e., elementary models):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
 </ul></p>
 </html>"));
     end Support;
@@ -4356,7 +4356,7 @@ the support force can always be accessed as internalSupport.f.
         Documentation(info="<html>
 <p>
 This is a 1D translational component with two flanges.
-It is used e.g. to built up parts of a drive train consisting
+It is used e.g., to built up parts of a drive train consisting
 of several base components.
 </p>
 
@@ -4396,7 +4396,7 @@ of several base components.
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with one flange and a support/housing.
-It is used e.g. to build up parts of a drive train graphically consisting
+It is used e.g., to build up parts of a drive train graphically consisting
 of several components.
 </p>
 
@@ -4473,7 +4473,7 @@ and instead the component is internally fixed to ground.
         Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with two flanges and a support/housing.
-It is used e.g. to build up parts of a drive train graphically consisting
+It is used e.g., to build up parts of a drive train graphically consisting
 of several components.
 </p>
 
@@ -4540,7 +4540,7 @@ and instead the component is internally fixed to ground.
 This is a 1-dim. translational component with two <i>rigidly</i> connected flanges.
 The fixed distance between the left and the right flange is defined by parameter \"L\".
 The forces at the right and left flange can be different.
-It is used e.g. to built up sliding masses.
+It is used e.g., to built up sliding masses.
 </p>
 </html>
 "),     Diagram(coordinateSystem(
@@ -4839,7 +4839,7 @@ and instead the component is internally fixed to ground.
       annotation (Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with two flanges and an additional support.
-It is used e.g. to build up elementary ideal gear components. The component
+It is used e.g., to build up elementary ideal gear components. The component
 contains the force balance, i.e., the sum of the forces of the connectors
 is zero (therefore, components that are based on PartialGear cannot have
 a mass). The support connector needs to be connected
@@ -4907,7 +4907,7 @@ connector is not connected).
       annotation (Documentation(info="<html>
 <p>
 This is a 1-dim. translational component with two flanges and an additional support.
-It is used e.g. to build up elementary ideal gear components. The component
+It is used e.g., to build up elementary ideal gear components. The component
 contains the force balance, i.e., the sum of the forces of the connectors
 is zero (therefore, components that are based on PartialGear cannot have
 a mass). The support connector needs to be connected
@@ -5243,7 +5243,7 @@ library can be usually connected together in an arbitrary way. E.g. it is
 possible to connect two springs or two sliding masses with inertia directly
 together.
 <p> The only <i>connection restriction</i> is that the Coulomb friction
-elements (e.g. MassWithStopAndFriction) should be only connected
+elements (e.g., MassWithStopAndFriction) should be only connected
 together provided a compliant element, such as a spring, is in between.
 The reason is that otherwise the frictional force is not uniquely
 defined if the elements are stuck at the same time instant (i.e., there
@@ -5280,7 +5280,7 @@ the following variables:
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
-(e.g. direct connection of two springs or two shafts with inertia).
+(e.g., direct connection of two springs or two shafts with inertia).
 As a consequence, most models lead to a system of
 differential-algebraic equations of <i>index 3</i> (= constraint
 equations have to be differentiated twice in order to arrive at
@@ -5288,7 +5288,7 @@ a state space representation) and the Modelica translator or
 the simulator has to cope with this system representation.
 According to our present knowledge, this requires that the
 Modelica translator is able to symbolically differentiate equations
-(otherwise it is e.g. not possible to provide consistent initial
+(otherwise it is e.g., not possible to provide consistent initial
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>

@@ -85,7 +85,7 @@ package SinglePhase "Single phase AC components"
       annotation ( Documentation(info="<html>
 <p>
 The frequency of the voltage source is varied by a ramp.
-Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
+Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
 </p>
 </html>"));
     end SeriesResonance;
@@ -182,7 +182,7 @@ Plot length and angle of the current phasor, i.e. complexToPolar.len and .phi, v
       annotation ( Documentation(info="<html>
 <p>
 The frequency of the current source is varied by a ramp.
-Plot length and angle of the voltage phasor, i.e. complexToPolar.len and .phi, versis time resp. frequency.
+Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
 </p>
 </html>"));
     end ParallelResonance;
@@ -342,7 +342,7 @@ This example demonstrates coupling a quasi stationary circuit with a DC circuit.
 The QS voltage is rectified (using an
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>), loaded by a variable load conductor.
-The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e. 1.
+The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e., 1.
 You may compare the quasi stationary results with that of a fully transient model (using a
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier\">
 Graetz rectifier</a>), plotting:
@@ -396,7 +396,7 @@ Examples to demonstrate the usage of quasistationary electric components.
         Documentation(info="<html>
 <p>
 Ground of a single phase circuit. The potential at the ground node is zero.
-Every electrical circuit, e.g. a series resonance
+Every electrical circuit, e.g., a series resonance
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
           example</a>, has to contain at least one ground object.
 </p>

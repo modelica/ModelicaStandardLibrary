@@ -1120,10 +1120,10 @@ model World
     "Default for the fixed width of a shape representing a joint"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceLength=nominalLength/10
-    "Default for the fixed length of a shape representing a force (e.g. damper)"
+    "Default for the fixed length of a shape representing a force (e.g., damper)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceWidth=nominalLength/20
-    "Default for the fixed width of a shape represening a force (e.g. spring, bushing)"
+    "Default for the fixed width of a shape represening a force (e.g., spring, bushing)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultBodyDiameter=nominalLength/9
     "Default for diameter of sphere representing the center of mass of a body"
@@ -1421,7 +1421,7 @@ ground. This model serves several purposes:
      <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.UserDefinedGravityField\">Examples.Elementary.UserDefinedGravityField</a>.
      </li>
 <li> It is used to define <b>default settings</b> of animation properties
-     (e.g. the diameter of a sphere representing by default
+     (e.g., the diameter of a sphere representing by default
      the center of mass of a body, or the diameters of the cylinders
      representing a revolute joint).</li>
 <li> It is used to define a <b>visual representation</b> of the

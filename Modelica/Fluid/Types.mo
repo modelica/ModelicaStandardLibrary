@@ -262,7 +262,7 @@ initial conditions is reduced by one).
 
 <p>
 The default option \"av_vb\" cannot be used, if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The modelStructure can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition
-(e.g. if the jumping pressure component is connected to port_a, use model structure
+(e.g., if the jumping pressure component is connected to port_a, use model structure
 ModelStructure.a_vb).
 </p>
 

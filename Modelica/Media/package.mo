@@ -78,7 +78,7 @@ In a component, the most basic usage of a medium model is as follows
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
                          \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
-    Medium.BaseProperties medium_a \"Medium properties at location a (e.g. port_a)\";
+    Medium.BaseProperties medium_a \"Medium properties at location a (e.g., port_a)\";
     // Use medium variables (medium_a.p, medium_a.T, medium_a.h, ...)
      ...
   <b>end</b> Pump;
@@ -114,7 +114,7 @@ The simple example that explained the basic usage of BaseProperties would then b
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
                          \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
-    Medium.ThermodynamicState state_a \"Thermodynamic state record at location a (e.g. port_a)\";
+    Medium.ThermodynamicState state_a \"Thermodynamic state record at location a (e.g., port_a)\";
     // Compute medium variables from thermodynamic state record (pressure(state_a), temperature(state_a),
     // specificEnthalpy(state_a), ...)
     ...
@@ -219,7 +219,7 @@ then via the medium it is defined how Xi is interpreted:
      numerical problems.</li>
 <li> If Xi = 0, then the reference value of composition reference_X is
      assumed. This case is useful to avoid composition states in all
-     the cases when the composition will always be constant, e.g. with
+     the cases when the composition will always be constant, e.g., with
      circuits having fixed composition sources.
 </ul>
 
@@ -785,7 +785,7 @@ elements</p>
 
   <tr><td valign=\"top\">Boolean</td>
       <td valign=\"top\">hasVapourPressureCurve</td>
-      <td valign=\"top\">true if vapour pressure data, e.g. Antoine coefficents are known</td></tr>
+      <td valign=\"top\">true if vapour pressure data, e.g., Antoine coefficents are known</td></tr>
 
   <tr><td valign=\"top\">Boolean</td>
       <td valign=\"top\">hasAcentricFactor</td>
@@ -1489,7 +1489,7 @@ independent variables, and the constraint sum(X) = 1 is never written explicitly
 Although this kind of model is heavier, as it provides one extra state variable,
 it can be less prone to numerical and/or symbolic problems, which can be
 caused by that constraint.
-<li> <i>Fixed-composition models</i>: fixedX = <b>true</b> and nXi = 0. In this case X = reference_X, i.e. all the elements of the composition vector are fixed.
+<li> <i>Fixed-composition models</i>: fixedX = <b>true</b> and nXi = 0. In this case X = reference_X, i.e., all the elements of the composition vector are fixed.
 </ul>
 <p> The medium implementor can declare the value reducedX as <b>final</b>. In
 this way only one implementation must be given. For instance,
@@ -1785,7 +1785,7 @@ states. This results in:
 <b>Example for a single substance medium</b>
 </p>
 <p>
-p, T are preferred states (i.e. StateSelect.prefer is set)
+p, T are preferred states (i.e., StateSelect.prefer is set)
 and there are three equations written in the form:
 </p>
 <pre>
@@ -2516,11 +2516,11 @@ for the medium model. In this scenario, that builds a new medium model
 with many more properties than the default, the standard BaseProperties
 is used as a basis. For additional properties, a user has to:<br>
 <ol>
-<li>Declare a new variable of the wanted type, e.g. <span
+<li>Declare a new variable of the wanted type, e.g., <span
 style=\"color: rgb(0, 0, 153);\">\"<span style=\"color: rgb(51, 51, 255);\">DynamicViscosity
 eta</span>\"</span>.</li>
 <li>Compute that variable by calling the function form the package,
-e.g. <span style=\"color: rgb(51, 51, 255);\">eta =
+e.g., <span style=\"color: rgb(51, 51, 255);\">eta =
 dynamicViscosity(state)</span>. Note that the instance of
 ThermodynamicState is used as an input to the function. This instance
 \"state\" is declared in PartialMedium and thus available in every medium
@@ -2545,18 +2545,18 @@ derivatives like cv are computed with are different on both sides of
 the boundaries. The ususal steps to compute properties on the phase
 boundary are: <br>
 <ol>
-<li>Declare an instance of ThermodynamicState, e.g. \"ThermodynamicState&nbsp; dew\".</li>
+<li>Declare an instance of ThermodynamicState, e.g., \"ThermodynamicState&nbsp; dew\".</li>
 <li>Compute the state, using an instance of SaturationProperties,
-e.g. dew = setDewState(sat)</li>
+e.g., dew = setDewState(sat)</li>
 <li>Compute properties on the phase boundary to your full desire,
-e.g. \"cp_d = specificHeatCapacityCp(dew)\". <br>
+e.g., \"cp_d = specificHeatCapacityCp(dew)\". <br>
 </li>
 </ol>
 <p>The sample model TestTwoPhaseStates test the extended properties</p>
 
 <p>
 The same procedure can be used to compute properties at other state
-points, e.g. when an isentropic reference state is computed.
+points, e.g., when an isentropic reference state is computed.
 </p>
 </html>
 "));
@@ -3822,13 +3822,13 @@ With the following examples we are going to demonstrate how to use the
 existing packages and functions in Modelica.Media to customize these
 models for advanced applications. The high level functions try to
 abstract as much as possible form the fact that different media are
-based on different variables, e.g. ideal gases need pressure and
+based on different variables, e.g., ideal gases need pressure and
 temperature, while many refrigerants are based on Helmholtz functions
 of density and temperature, and many water proeprties are based on
 pressure and specific enthalpy. Medium properties are needed in control
 volumes in the dynamic state equations and in many thermodynamic state
 locations that are independent of the dynamic states of a control
-volume, e.g. at a wall temperature, an isentropic reference state or at
+volume, e.g., at a wall temperature, an isentropic reference state or at
 a phase boundary. The general structure of the library is such that:<br>
 <ul>
 <li>Each medium has a model called BaseProperties. BaseProperties
@@ -3836,7 +3836,7 @@ contains the minimum set of medium properties needed in a dynamic
 control volume model.</li>
 <li>Each instance of BaseProperties contains a \"state\" record that is
 an input to all the functions to compute properties. If these functions
-need further inputs, like e.g. the molarMass, these are accessible as
+need further inputs, like e.g., the molarMass, these are accessible as
 constants in the package.</li>
 <li>The simplest way to compute properties at any other reference
 point is to declare an instance of ThermodynamicState and use that as
@@ -3940,7 +3940,7 @@ package Interfaces "Interfaces for media models"
      The record "ThermodynamicState" contains the input arguments
      of all the function and is defined together with the used
      type definitions in PartialMedium. The record most often contains two of the
-     variables "p, T, d, h" (e.g. medium.T)
+     variables "p, T, d, h" (e.g., medium.T)
   */
     redeclare replaceable record ThermodynamicState
       "a selction of variables that uniquely defines the thermodynamic state"
@@ -5340,7 +5340,7 @@ partial package PartialMixtureMedium
       Boolean hasAccurateConductivityData=false
         "true if accurate data for thermal conductivity is available";
       Boolean hasVapourPressureCurve=false
-        "true if vapour pressure data, e.g. Antoine coefficents are known";
+        "true if vapour pressure data, e.g., Antoine coefficents are known";
       Boolean hasAcentricFactor=false
         "true if Pitzer accentric factor is known";
       SpecificEnthalpy HCRIT0=0.0
@@ -5504,7 +5504,7 @@ end PartialMixtureMedium;
       Boolean hasAccurateConductivityData=false
         "true if accurate data for thermal conductivity is available";
       Boolean hasVapourPressureCurve=false
-        "true if vapour pressure data, e.g. Antoine coefficents are known";
+        "true if vapour pressure data, e.g., Antoine coefficents are known";
       Boolean hasAcentricFactor=false
         "true if Pitzer accentric factor is known";
       SpecificEnthalpy HCRIT0=0.0
@@ -5522,7 +5522,7 @@ end PartialMixtureMedium;
   redeclare replaceable record extends ThermodynamicState
       "Thermodynamic state of two phase medium"
       FixedPhase phase(min=0, max=2)
-        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+        "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use";
   end ThermodynamicState;
 
     replaceable record SaturationProperties
@@ -5533,7 +5533,7 @@ end PartialMixtureMedium;
     end SaturationProperties;
 
     type FixedPhase = Integer(min=0,max=2)
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g. interactive use";
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use";
 
     redeclare replaceable partial model extends BaseProperties
       "Base properties (p, d, T, h, u, R, MM, sat) of two phase medium"
@@ -6291,7 +6291,7 @@ This function computes the specific internal energy of the fluid, but neglects t
   end PartialSimpleMedium;
 
   partial package PartialSimpleIdealGasMedium
-    "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g. transport properties, are constant."
+    "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g., transport properties, are constant."
 
     extends Interfaces.PartialPureSubstance(
          ThermoStates = Choices.IndependentVariables.pT,

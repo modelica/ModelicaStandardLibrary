@@ -115,7 +115,7 @@ which provide simple models for a broad variety of applications.
 <p>
 In this section the design of the fluid connectors is
 explained.</p>
-<p>Fluid connectors represent the points in a device (e.g. the
+<p>Fluid connectors represent the points in a device (e.g., the
 flanges) through which a fluid can flow into or out of the component, carrying its
 thermodynamic properties; these flanges are assumed to be fixed in space.</p>
 <p>
@@ -317,7 +317,7 @@ of the main components of the fluid, and is used together with p and h to determ
 thermodynamic state of the fluid. The vector C contains the mass fraction of the trace components,
 which are accounted for in mass balances, but is ignored when computing the fluid properties. This
 allows to easily declare and use medium models with trace components starting from existing medium
-models (e.g. adding CO<sub>2</sub> traces to Moist Air for air conditioning models).
+models (e.g., adding CO<sub>2</sub> traces to Moist Air for air conditioning models).
 
 <h4><font color=\"#008000\">Approximations in balance equations at connection point</font></h4>
 <p>
@@ -482,7 +482,7 @@ with the following code fragment
     port_b_rho_inflow = Medium.density(port_b_state_inflow);
 
     // Pressure drop correlation (k_ab, k_ba are the loss factors for the two flow
-    // directions; e.g. for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
+    // directions; e.g., for a circular device: k = 8*zeta/(pi*diameter)^2)^2)
     m_flow = Utilities.regRoot2(port_a.p - port_b.p, dp_small,
                                 port_a_rho_inflow/k1, port_b_rho_inflow/k2);
 </pre>
@@ -1041,7 +1041,7 @@ components.
 </p>
 <p>
 The Assumptions | allowFlowReversal parameter determines whether reversing flow conditions
-(i.e. flow direction opposite to design direction) are modelled or not. By default,
+(i.e., flow direction opposite to design direction) are modelled or not. By default,
 reversing flow conditions are considered by the models, but this causes a significant increase
 of complexity in the equations, due to the conditional equations depending on the flow direction.
 If you know in advance that the flow in a certain component (or in the whole system) will always

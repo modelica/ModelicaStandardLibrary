@@ -277,7 +277,7 @@ variable <b>extra</b> is used as instance name:
 <tr><td valign=\"top\">PlanarRotationSequence</td>
     <td valign=\"top\">frame_b is defined by rotating the coordinate system along
         3 consecutive axes vectors with fixed rotation angles
-        (e.g. Cardan or Euler angle sequence rotation).</td></tr>
+        (e.g., Cardan or Euler angle sequence rotation).</td></tr>
 </table>
 </html>"));
 

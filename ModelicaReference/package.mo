@@ -6298,7 +6298,7 @@ inquired through the built-in operator actualStream().
 </p>
 
 <blockquote>
-<pre><b>model</b> IsenthalpicFlow \"No energy storage/losses, e.g. pressure drop, valve, ...\"
+<pre><b>model</b> IsenthalpicFlow \"No energy storage/losses, e.g., pressure drop, valve, ...\"
   <b>replaceable package</b> Medium=Modelica.Media.Interfaces.PartialMedium;
   FluidPort port_a, port_b:
   Medium.ThermodynamicState port_a_state_inflow \"State at port_a if inflowing\";

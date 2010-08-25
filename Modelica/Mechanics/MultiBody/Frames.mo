@@ -1016,7 +1016,7 @@ confused with Modelica \"parameters\".
    Calculation of quaternions from transformation matrix T:
    It is guaranteed that c1>=0, c2>=0, c3>=0, c4>=0 and
    that not all of them can be zero at the same time
-   (e.g. if 3 of them are zero, the 4th variable is 1).
+   (e.g., if 3 of them are zero, the 4th variable is 1).
    Since the sqrt(..) has to be performed on one of these variables,
    it is applied on a variable which is far enough from zero.
    This guarantees that the sqrt(..) is never taken near zero

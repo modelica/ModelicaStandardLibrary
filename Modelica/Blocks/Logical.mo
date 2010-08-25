@@ -975,10 +975,10 @@ output signal <b>y</b> represents a trapezoidal signal dependent on the
 input signal <b>u</b>.
 </p>
 <p>The behaviour is as follows: Assume the initial input to be false. In this
-case, the output will be <i>offset</i>. After a rising edge (i.e. the input
+case, the output will be <i>offset</i>. After a rising edge (i.e., the input
 changes from false to true), the output is rising during <i>rising</i> to the
 sum of <i>offset</i> and <i>amplitude</i>. In contrast, after a falling
-edge (i.e. the input changes from true to false), the output is falling
+edge (i.e., the input changes from true to false), the output is falling
 during <i>falling</i> to a value of <i>offset</i>.
 </p>
 <p>Note, that the case of edges before expiration of rising or falling is

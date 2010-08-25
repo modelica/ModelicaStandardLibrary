@@ -500,7 +500,7 @@ library:
 
 <li> <b>Safer state machines</b><br>
      It is no longer possible to construct a wrong state machine in the sense that properties
-     of the graph are violated (e.g. two initial steps, or branching wrongly out of a parallel
+     of the graph are violated (e.g., two initial steps, or branching wrongly out of a parallel
      component). Contrary to StateGraph2, in StateGraph1 such wrong graphs do not lead to an
      error but to unexpected simulation results. Still, other desirable properties
      of a state machine,  such as \"no deadlock\" or \"lifeliness\" or \"every step reachable\",
@@ -532,7 +532,7 @@ library:
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This property guarantees that an event
      iteration over a StateGraph2 converges after a
      finite number of iterations, provided the modeller does not introduce an unsafe construct
-     in the actions associated with a StateGraph2 (e.g. \"i = pre(i) + 1\" in the equation section
+     in the actions associated with a StateGraph2 (e.g., \"i = pre(i) + 1\" in the equation section
      outside of a when-clause will give an event iteration that never stops).<br>
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is possible to switch off this feature, by setting parameter
      \"loopCheck = <b>false</b>\" in one transition of a loop, instead of using a \"delayed transition\"

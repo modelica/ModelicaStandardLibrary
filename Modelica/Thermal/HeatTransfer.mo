@@ -596,8 +596,8 @@ equation for convection is
 </p>
 <pre>
    Q_flow = Gc*(solid.T - fluid.T);
-   Q_flow: Heat flow rate from connector 'solid' (e.g. a plate)
-      to connector 'fluid' (e.g. the surrounding air)
+   Q_flow: Heat flow rate from connector 'solid' (e.g., a plate)
+      to connector 'fluid' (e.g., the surrounding air)
 </pre>
 <p>
 Gc = G.signal[1] is an input signal to the component, since Gc is
@@ -607,7 +607,7 @@ Gc may be <i>calculated</i> according to
 </p>
 <pre>
    Gc = A*h
-   A: Convection area (e.g. perimeter*length of a box)
+   A: Convection area (e.g., perimeter*length of a box)
    h: Heat transfer coefficient
 </pre>
 <p>
@@ -2822,7 +2822,7 @@ constitutive equations for many types of heat transfer components.
     end Element1D;
 
     partial model PartialElementaryConditionalHeatPort
-      "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e. for elementary models"
+      "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models"
       parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15
@@ -2858,7 +2858,7 @@ If this model is used, the loss power has to be provided by an equation in the m
     end PartialElementaryConditionalHeatPort;
 
     partial model PartialElementaryConditionalHeatPortWithoutT
-      "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e. for elementary models"
+      "Partial model to include a conditional HeatPort in order to dissipate losses, used for textual modeling, i.e., for elementary models"
       parameter Boolean useHeatPort = false "=true, if heatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(
@@ -2885,7 +2885,7 @@ If this model is used, the loss power has to be provided by an equation in the m
     end PartialElementaryConditionalHeatPortWithoutT;
 
     partial model PartialConditionalHeatPort
-      "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e. for bulding modelsby drag-and-drop"
+      "Partial model to include a conditional HeatPort in order to dissipate losses, used for graphical modeling, i.e., for bulding modelsby drag-and-drop"
       parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
         annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
       parameter Modelica.SIunits.Temperature T=293.15

@@ -1917,12 +1917,12 @@ V0   |   +
 </pre></code>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
+Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
 When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately,
-i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
@@ -2051,12 +2051,12 @@ V0   |   +
 </pre></code>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
+Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
 When the Boolean input <code>control</code> signals to close the switch again, the switch is closed immediately,
-i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
@@ -2164,12 +2164,12 @@ V0   |   +
 </pre></code>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
+Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
 When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately,
-i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
@@ -2303,12 +2303,12 @@ V0   |   +
 </pre></code>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
-Once the arc is quenched, i.e. the current flowing through the switch gets zero, the equation for the off-state is activated
+Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
 <code>i=Goff*v</code>.
 </p>
 <p>
 When the control pin <code>control.v</code> signals to close the switch again, the switch is closed immediately,
-i.e. the equation for the on-state is activated <code>v=Ron*i</code>.
+i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
 Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
@@ -2561,7 +2561,7 @@ its value if the trigger signal <CODE> trig </CODE> of type Logic changes to '1'
 </P>
 
 <P>
-The output vector is a 'little-endian'. i.e. that the first bit y[1] is the least significant one (LSB).
+The output vector is a 'little-endian'. i.e., that the first bit y[1] is the least significant one (LSB).
 </P>
 
 <P>
@@ -2599,7 +2599,7 @@ Hence the output will change instantaniously when the trigger signal rises.
     annotation (Documentation(info="<html>
 <pre>Simple analog to digital converter with a variable resolution of N bits. It converts the input voltage p.v-n.v to an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by Rin. Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </pre>
 <pre>The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced stages of lenght Vlsb:=(VRefHigh-VRefLow)/(2^N-1). The output signal is the binary code of k as long as the input voltage takes values in the k-th stage, namely in the range from Vlsb*(k-0.5) to m*(k+0.5) . This is called mid-tread operation. Additionally the output can only change its value if the trigger signal trig of type Logic changes to &apos;1&apos; (forced or weak). </pre>
-<p>The output vector is a &apos;little-endian&apos;. i.e. that the first bit y[1] is the least significant one (LSB).</p>
+<p>The output vector is a &apos;little-endian&apos;. i.e., that the first bit y[1] is the least significant one (LSB).</p>
 <p>This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter. Hence the output will change instantaniously when the trigger signal rises.</p>
 </html>"));
   end AD_Converter;

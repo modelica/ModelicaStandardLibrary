@@ -840,7 +840,7 @@ gravity acceleration at this point, resolved in the world frame.
   end partialGravityAcceleration;
   annotation ( Documentation(info="<html>
 <p>
-This package contains connectors and partial models (i.e. models
+This package contains connectors and partial models (i.e., models
 that are only used to build other models) of the MultiBody library.
 </p>
 </html>"));

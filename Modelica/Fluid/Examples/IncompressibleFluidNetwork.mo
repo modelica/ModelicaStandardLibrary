@@ -236,7 +236,7 @@ balances remain independent in the connected pipe segments.
 </p>
 <p>
 The model does not contain pressure dynamics as an incompressible medium is used (Essotherm650).
-Pressure dynamics becomes present with a compressible medium model (e.g. StandardWater).
+Pressure dynamics becomes present with a compressible medium model (e.g., StandardWater).
 </p>
 
 <p align=\"center\">

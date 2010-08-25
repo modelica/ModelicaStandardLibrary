@@ -2699,8 +2699,8 @@ a thermal conductance between core and coolant.
 The coolant flow circuit consists of inlet, volume flow, a pipe connected to the core and the outlet.<br>
 <b>Please note:</b>
 <ul>
-<li>All unused heat ports of the thermal port (i.e. without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
-<li>The thermal capacitances (i.e. time constants) are unusual small to provide short simulation time!</li>
+<li>All unused heat ports of the thermal port (i.e., without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
+<li>The thermal capacitances (i.e., time constants) are unusual small to provide short simulation time!</li>
 <li>The coolant is a theoretical coolant with specific mass = 1 kg/m3 and cp = 1 J/kg.K.</li>
 <li>The thermal conductances as well as the coolant flow are parametrized such way, that:<li>
 </ul>
@@ -5027,7 +5027,7 @@ This package contains models of synchronous induction machines, based on space p
 <li>SM_ElectricalExcited: synchronous induction machine with electrical excitation
     and damper cage</li>
 <li>SM_ReluctanceRotor: induction machine with reluctance rotor and damper cage<br>
-i.e. a squirrel cage rotor with magnetic poles due to different airgap width</li>
+i.e., a squirrel cage rotor with magnetic poles due to different airgap width</li>
 </ul>
 These models use package SpacePhasors.
 <br><b>Please keep in mind:</b><br>
@@ -5850,10 +5850,10 @@ the only difference is that electrical transients are neglected.
 <h4>Please note:</h4>
 <p>
 Quasistationary DC machine models are basically different from quasistationary induction machine models:
-Quasistaionary DC machine models neglect electrical transients, i.e. setting <code>der(i) = 0</code>,
+Quasistaionary DC machine models neglect electrical transients, i.e., setting <code>der(i) = 0</code>,
 whereas quasistationary induction machine models are based on time phasor theory,
 see <a href=modelica://Modelica.Electrical.QuasiStationary>QuasiStationary Library</a>,
-where e.g. <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
+where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
 </HTML>
 ",     revisions="<HTML>
@@ -7829,8 +7829,8 @@ This package contains components to model technical threephase transformers:
 Transformers are modeled by an ideal transformer, adding primary and secondary winding resistances and stray inductances.<br>
 All transformers extend from the base model <i>PartialTransformer</i>, adding the primary and secondary connection.<br>
 <b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
-(i.e. the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
-e.g. Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
+(i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
+e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
 With the \"supermodel\" <i>Tranformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
@@ -7855,7 +7855,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <ul>
 <li>number of phases is limited to 3, therefore definition as a constant m=3</li>
 <li>symmetry of the 3 phases resp. limbs</li>
-<li>saturation is neglected, i.e. inductances are constant</li>
+<li>saturation is neglected, i.e., inductances are constant</li>
 <li>magnetizing current is neglected</li>
 <li>magnetizing losses are neglected</li>
 <li>additional (stray) losses are neglected</li>
@@ -8404,7 +8404,7 @@ Model of a permanent magnet excitation, characterized by an equivalent excitatio
         annotation (
           Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>.
-If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e. the voltage drop is zero.</p>
+If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the voltage drop is zero.</p>
 </html>"),Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -8543,7 +8543,7 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
           Documentation(info="<HTML>
 Linear model of the airgap (without saturation effects) of a DC machine, using only equations.<br>
 Induced excitation voltage is calculated from der(flux), where flux is defined by excitation inductance times excitation current.
-If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e. the induced excitation voltage is zero.<br>
+If <code>quasiStationary == false</code>, the electrical transients are neglected, i.e., the induced excitation voltage is zero.<br>
 Induced armature voltage is calculated from flux times angular velocity.
 </HTML>"));
       end PartialAirGapDC;
@@ -10384,7 +10384,7 @@ Model of voltage drop and losses of carbon brushes. This threephase model uses t
           Diagram(graphics),
           Documentation(info="<html>
 <p>
-Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e. they are dependent on square of current,
+Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
 but without scaling them to zero at no-load current.
 </p>
 <p>
@@ -10629,7 +10629,7 @@ If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code>
 <p>
 Calculates the voltage drop of carbon brushes, according to
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">Brush</a> losses,
-e.g. used for initial equations.
+e.g., used for initial equations.
 </p>
 </html>"));
       end brushVoltageDrop;
@@ -11727,7 +11727,7 @@ On the other hand, all losses are dissipated to this internal or external therma
 <p>
 The machine specific thermal connector contains <a href=modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a>heatPort</a>s
 for all relevant loss sources of the machine type, although some of the loss sources are not yet implemented;
-these heatPorts are left unconnceted inside the machine, i.e. the HeatFlowRate is zero,
+these heatPorts are left unconnceted inside the machine, i.e., the HeatFlowRate is zero,
 but they have to be connected to a constant temperature source in the internal or external thermal ambient.
 Simple machine-specific thermal ambients for constant temperatures (<code>useTemperatureInputs == false</code>)
 or temperatures prescribed via signal inputs (<code>useTemperatureInputs == true</code>) are provided in this package.
@@ -12023,9 +12023,9 @@ Base partial model DC machines:
 <li>mechanical shaft</li>
 <li>mechanical support</li>
 </ul>
-Besides the mechanical connector <i>flange</i> (i.e. the shaft) the machines have a second mechanical connector <i>support</i>.<br>
+Besides the mechanical connector <i>flange</i> (i.e., the shaft) the machines have a second mechanical connector <i>support</i>.<br>
 If <i>useSupport</i> = false, it is assumed that the stator is fixed.<br>
-Otherwise reaction torque (i.e. airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
+Otherwise reaction torque (i.e., airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
 One may also fix the the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -14326,7 +14326,7 @@ This package contains utility components for testing examples.
 <li>all values are used in physical units, no scaling to p.u. is done</li>
 <li>only basic harmonics (in space) are taken into account</li>
 <li>waveform (with respect to time) of voltages and currents is not restricted</li>
-<li>constant parameters, i.e. no saturation, no skin effect</li>
+<li>constant parameters, i.e., no saturation, no skin effect</li>
 </ul>
 <p>
 You may have a look at a short summary of space phasor theory at <a href=\"http://www.haumer.at/refimg/SpacePhasors.pdf\">http://www.haumer.at/refimg/SpacePhasors.pdf</a>

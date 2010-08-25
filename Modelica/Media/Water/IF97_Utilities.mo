@@ -1138,7 +1138,7 @@ package IF97_Utilities
         output Integer region "region (valid values: 1,2,3,4,5) in IF97";
         // If mode is different from 0, no checking for the region is done and
         // the mode is assumed to be the correct region. This can be used to
-        // implement e.g. water-only steamtables when mode == 1
+        // implement e.g., water-only steamtables when mode == 1
       protected
         Boolean hsubcrit;
         SI.Temperature Ttest;
@@ -1254,7 +1254,7 @@ package IF97_Utilities
         output Integer region "region (valid values: 1,2,3,4,5) in IF97";
         //  If mode is different from 0, no checking for the region is done and
         //    the mode is assumed to be the correct region. This can be used to
-        //    implement e.g. water-only steamtables when mode == 1
+        //    implement e.g., water-only steamtables when mode == 1
       protected
         Boolean ssubcrit;
         SI.Temperature Ttest;
@@ -4510,9 +4510,9 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
-        input SI.Density dguess "good guess density, e.g. from adjacent volume";
+        input SI.Density dguess "good guess density, e.g., from adjacent volume";
         input SI.Temperature Tguess
-          "good guess temperature, e.g. from adjacent volume";
+          "good guess temperature, e.g., from adjacent volume";
         input SI.Pressure delp=IterationData.DELP "relative error in p";
         input SI.SpecificEntropy dels=IterationData.DELS "relative error in s";
         output SI.SpecificEnthalpy h "specific enthalpy";
@@ -4620,9 +4620,9 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
-        input SI.Density dguess "good guess density, e.g. from adjacent volume";
+        input SI.Density dguess "good guess density, e.g., from adjacent volume";
         input SI.Temperature Tguess
-          "good guess temperature, e.g. from adjacent volume";
+          "good guess temperature, e.g., from adjacent volume";
         input Integer phase "1 for one phase, 2 for two phase";
         output SI.SpecificEnthalpy h "specific enthalpy";
       protected
@@ -5031,9 +5031,9 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
-        input SI.Density dguess "guess density, e.g. from adjacent volume";
+        input SI.Density dguess "guess density, e.g., from adjacent volume";
         input SI.Temperature Tguess
-          "guess temperature, e.g. from adjacent volume";
+          "guess temperature, e.g., from adjacent volume";
         input SI.Pressure delp "iteration accuracy";
         input SI.SpecificEntropy dels "iteration accuracy";
         output SI.Density d "density";
@@ -5239,7 +5239,7 @@ Ordinary Water Substance<br>
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
         input SI.Temperature Tguess
-          "guess temperature, e.g. from adjacent volume";
+          "guess temperature, e.g., from adjacent volume";
         input SI.SpecificEntropy relds "iteration accuracy";
         output SI.Temperature T "temperature (K)";
         output Integer error "error flag: iteration failed if different from 0";
@@ -7795,9 +7795,9 @@ public
     extends Modelica.Icons.Function;
     input SI.Pressure p "pressure";
     input SI.SpecificEntropy s "specific entropy";
-    input SI.Density dguess "good guess density, e.g. from adjacent volume";
+    input SI.Density dguess "good guess density, e.g., from adjacent volume";
     input SI.Temperature Tguess
-      "good guess temperature, e.g. from adjacent volume";
+      "good guess temperature, e.g., from adjacent volume";
     input Integer phase = 0 "2 for two-phase, 1 for one-phase, 0 if not known";
     output SI.SpecificEnthalpy h "specific enthalpy";
   algorithm

@@ -156,7 +156,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
  <td valign=\"top\">
  <a href=\"modelica://Modelica.StateGraph\">StateGraph</a><br>
  Hierarchical state machines with a similar modeling power as Statecharts.
- Modelica is used as synchronous action language, i.e. deterministic
+ Modelica is used as synchronous action language, i.e., deterministic
  behavior is guaranteed
  </td>
 </tr>
@@ -602,7 +602,7 @@ or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs<
 </p>
 
 <p>
-A typical equation, e.g. of a Fourier synthesis, could look like<br>
+A typical equation, e.g., of a Fourier synthesis, could look like<br>
 <img
  src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/fourier.png\"> <br>
 or <br>
@@ -1661,7 +1661,7 @@ situations are present:
 </li>
 
 <li> The parameter value is not changed in &gt; 95 % of the cases
-  (e.g. initialization or visualization parameters, or parameter phi_rel0
+  (e.g., initialization or visualization parameters, or parameter phi_rel0
   in the example above). In this case a default parameter value should be
   provided, in order that the model or function can be conveniently
   used by a modeler.
@@ -1887,7 +1887,7 @@ of the Original Work. This means especially that the (root-level)
 name of a Modelica package under this license must be changed if the
 package is modified (besides fixing of errors, adding vendor specific
 Modelica annotations, using a subset of the classes of a Modelica
-package, or using another representation, e.g. a binary
+package, or using another representation, e.g., a binary
 representation).</p>
 
 <p>
@@ -2251,7 +2251,7 @@ guide&rdquo; of the Modelica Standard Library):</b></p>
 <p>Yes.
 Extracting information from a Modelica package, and providing it in a
 human readable, suitable format, like html, doc or pdf format, where
-the content is significantly modified (e.g. tables with interface
+the content is significantly modified (e.g., tables with interface
 information are constructed from the declarations of the public
 variables) qualifies as Derivative Work and there are no restrictions
 to charge a fee for Derivative Work under alternative 2d).</p>
@@ -2259,7 +2259,7 @@ to charge a fee for Derivative Work under alternative 2d).</p>
 <p><b>Can
 I copy a text passage out of a Modelica document (under Modelica
 License 2) and use it </b><u><b>unmodified</b></u><b> in my document
-(e.g. the Modelica syntax description in the Modelica Specification)?</b></p>
+(e.g., the Modelica syntax description in the Modelica Specification)?</b></p>
 <p>Yes.
 In case you distribute your document, the copied parts are still
 under Modelica License 2 and you are not allowed to charge a license
@@ -2421,7 +2421,7 @@ This version is a major improvement:
 <li> All non-Modelica files, such as images, pdf-files, C-source files,
      scripts are moved to the new directory \"Modelica\\Resources\".
      Furthermore, all file references are changed to URIs as introduced in
-     Modelica 3.1 (e.g. a file with the file name
+     Modelica 3.1 (e.g., a file with the file name
      \"Modelica/Resources/Images/xxx\" is referenced as
      \"modelica://Modelica/Resources/Images/xxx\").</li>
 
@@ -2728,7 +2728,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> FreeMotionScalarInit </td>
     <td valign=\"top\"> Free motion joint that allows initialization and state selection<br>
                       of single elements of the relevant vectors<br>
-                      (e.g. initialize r_rel_a[2] but not the other elements of r_rel_a;<br>
+                      (e.g., initialize r_rel_a[2] but not the other elements of r_rel_a;<br>
                       this new component fixes ticket
                       <a href=\"https://trac.modelica.org/Modelica/ticket/274\">#274</a>) </td> </tr>
 
@@ -2957,7 +2957,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
@@ -2984,7 +2984,7 @@ that can lead to wrong simulation results):
 </table>
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
 that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
@@ -3010,8 +3010,8 @@ units are wrong or errors in documentation):
                         dorgqr<br>
                         dgesvx<br>
                         dtrsyl</td>
-    <td valign=\"top\"> Integer inputs to specify leading dimensions of matrices have got a lower bound 1 (e.g. lda=max(1,n))
-                      to avoid incorrect values (e.g. lda=0) in the case of empty matrices.<br>
+    <td valign=\"top\"> Integer inputs to specify leading dimensions of matrices have got a lower bound 1 (e.g., lda=max(1,n))
+                      to avoid incorrect values (e.g., lda=0) in the case of empty matrices.<br>
                       The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </t"
                + "r>
 </table>
@@ -3702,7 +3702,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
 that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
@@ -3888,7 +3888,7 @@ have been <b style=\"color:blue\">changed</b> (in a
 
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
@@ -3965,7 +3965,7 @@ that can lead to wrong simulation results):
 
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
 that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
@@ -4037,9 +4037,9 @@ The following changes are present for the whole library:
          (number of equations = number of unknown variables - unknown variables that have
          to be defined when using the component). A few models of the Modelica
          Standard Library did not fulfill these new restrictions and had
-         either to be moved to library ObsoleteModelica3 (e.g. Blocks.Math.TwoInputs)
+         either to be moved to library ObsoleteModelica3 (e.g., Blocks.Math.TwoInputs)
          or had to be differently implemented
-         (e.g. Media.Interfaces.PartialMedium.BaseProperties).
+         (e.g., Media.Interfaces.PartialMedium.BaseProperties).
          The Modelica Standard Library version 3.0 fulfills all the restrictions of
          the Modelica Language version 3.0.<br>&nbsp;
          </li>
@@ -4071,7 +4071,7 @@ The following changes are present for the whole library:
 
 <li> The operator \"cardinality\" will be removed in one of the next versions of the
          Modelica language, since it is a reflective operator and its usage significantly
-         reduces the possibilities of advanced model checks (e.g. to guarantee that a model
+         reduces the possibilities of advanced model checks (e.g., to guarantee that a model
          is \"balanced\", i.e., the number of equations and unknowns is identical,
          for all valid usages of the component). As a preparation for this change, all
          models that contain the \"cardinality(..)\" operator are rewritten: If possible
@@ -4096,7 +4096,7 @@ The following changes are present for the whole library:
                   (that need the relative speed) are by default defined with \"StateSelect.prefer\", i.e.,
                   to use these variables as preferred states. This improves the numerics if the
                   absolute angle or the absolute distance are continuously increasing during
-                  operation (e.g. driving shaft of the wheels of a car). The effect is that relative
+                  operation (e.g., driving shaft of the wheels of a car). The effect is that relative
                   angles/distances and speeds are used as states and the size of these variables is
                   limited. Previously, the default was to use the absolute angle/distance
                   and absolute speed of every inertia/mass which has the disadvantage that the absolute
@@ -4197,7 +4197,7 @@ are the new sublibrary names that are introduced in version 3.0):
 
 <tr><td colspan=\"2\"><b>Mechanics.Translational.Sensors</b></td></tr>
 <tr><td valign=\"top\">RelPositionSensor<br>RelSpeedSensor<br>RelAccSensor<br>PowerSensor</td>
-          <td valign=\"top\"> Relative position sensor, i.e. distance between two flanges<br>
+          <td valign=\"top\"> Relative position sensor, i.e., distance between two flanges<br>
                                                 Relative speed sensor<br>
                                                 Relative acceleration sensor<br>
                                                 Ideal power sensor</td> </tr>
@@ -4662,7 +4662,7 @@ have been <b style=\"color:blue\">improved</b> in a
 
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
@@ -4722,7 +4722,7 @@ that can lead to wrong simulation results):
 
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
 that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
@@ -4934,7 +4934,7 @@ to <b style=\"color:blue\">existing</b> libraries:
           <td valign=\"top\"> Return normalized vector such that length = 1 and prevent zero-division for zero vector
           </td></tr>
 <tr><td valign=\"top\"> reverse </td>
-          <td valign=\"top\"> Reverse vector elements (e.g. v[1] becomes last element)
+          <td valign=\"top\"> Reverse vector elements (e.g., v[1] becomes last element)
           </td></tr>
 <tr><td valign=\"top\"> sort </td>
           <td valign=\"top\"> Sort elements of vector in ascending or descending order
@@ -5362,7 +5362,7 @@ have been <b style=\"color:blue\">improved</b>:
 
 
 <p><br>
-The following <b style=\"color:red\">critical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
 
@@ -5474,7 +5474,7 @@ that can lead to wrong simulation results):
 
 
 <p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e. errors
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
 that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
 </p>
@@ -6145,7 +6145,7 @@ The following <b>errors</b> have been fixed:
 <tr><td valign=\"top\"> dynamicViscosityLowPressure</td>
           <td valign=\"top\"> Viscosity and thermal conductivity (which needs viscosity as input)
                    were computed wrong for polar gases and gas mixtures
-                   (i.e. if dipole moment not 0.0). This has been fixed in version 2.2.1.</td> </tr>
+                   (i.e., if dipole moment not 0.0). This has been fixed in version 2.2.1.</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Utilities.Streams.</b></td></tr>
 <tr><td valign=\"top\">readLine</td>
           <td valign=\"top\"> Depending on the C-implementation, the stream was not correctly closed.
@@ -6681,7 +6681,7 @@ Models not specifying parameter values did not generate trapezoids previously.
 <p><i>Modelica.Mechanics.Rotational.RelativeStates</i></p>
 <p>Bug corrected by using modifier <tt>stateSelect = StateSelect.prefer</tt> as implementation</p>
 <p><i>Modelica.Mechanics.Translational.Interfaces.flange_b</i></p>
-<p>Attribute <b>fillColor=7</b> added to Rectangle on Icon layer, i.e. it is now
+<p>Attribute <b>fillColor=7</b> added to Rectangle on Icon layer, i.e., it is now
 filled with white and not transparent any more.</p>
 <p><i>Modelica.Mechanics.Translational.Position</i></p>
 <p>Replaced <tt>reinit</tt> by <tt>initial equation</tt></p>

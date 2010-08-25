@@ -1380,7 +1380,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
-    e.g., time = 5.0, the voltage v = 23.0 (i.e. extrapolation). </pre>
+    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation). </pre>
 <p><br/>  Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>",
    revisions="<html>
@@ -2665,7 +2665,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
-    e.g., time = 5.0, the current i = 23.0 (i.e. extrapolation). </pre>
+    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation). </pre>
 <p><br/> Furthermore, an offset parameter is introduced, which is added to the value calculated by the blocks source. The startTime parameter allows to shift the blocks source behavior on the time axis.</p>
 </html>",
    revisions="<html>

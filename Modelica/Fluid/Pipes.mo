@@ -57,7 +57,7 @@ package Pipes "Devices for conveying fluid"
 
     annotation (defaultComponentName="pipe",
   Documentation(info="<html>
-<p>Model of a straight pipe with constant cross section and with steady-state mass, momentum and energy balances, i.e. the model does not store mass or energy.
+<p>Model of a straight pipe with constant cross section and with steady-state mass, momentum and energy balances, i.e., the model does not store mass or energy.
 There exist two thermodynamic states, one at each fluid port. The momentum balance is formulated for the two states, taking into account
 momentum flows, friction and gravity. The same result can be obtained by using <a href=\"modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> with
 steady-state dynamic settings. The intended use is to provide simple connections of vessels or other devices with storage, as it is done in:
@@ -669,7 +669,7 @@ Substance mass balances are added if the medium contains more than one component
 An extending model needs to define the geometry and the difference in heights between the flow segments (static head).
 Moreover it needs to define two vectors of source terms for the distributed energy balance:
 <ul>
-<li><tt><b>Qb_flows[nNodes]</b></tt>, the heat flow source terms, e.g. conductive heat flows across segment boundaries, and</li>
+<li><tt><b>Qb_flows[nNodes]</b></tt>, the heat flow source terms, e.g., conductive heat flows across segment boundaries, and</li>
 <li><tt><b>Wb_flows[nNodes]</b></tt>, the work source terms.</li>
 </ul>
 </p>
@@ -702,7 +702,7 @@ The options include (default: av_vb):
 <li><tt>a_vb</tt>: Unsymmetric setting with nNodes momentum balance, one between first volume and <tt>port_a</tt>, potential pressure state at <tt>port_b</tt></li>
 </ul></p>
 
-When connecting two components, e.g. two pipes, the momentum balance across the connection point reduces to
+When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
 </p>
 <pre>pipe1.port_b.p = pipe2.port_a.p</pre>
 <p>
@@ -1137,7 +1137,7 @@ This also allows for taking into account friction losses with respect to the act
           "= true, if rho_nominal is used, otherwise computed from medium"
                annotation(Dialog(group="Advanced"), Evaluate=true);
             parameter SI.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-          "Nominal density (e.g. rho_liquidWater = 995, rho_air = 1.2)"
+          "Nominal density (e.g., rho_liquidWater = 995, rho_air = 1.2)"
               annotation(Dialog(group="Advanced", enable=use_rho_nominal));
 
             parameter Boolean use_mu_nominal = false
@@ -1146,7 +1146,7 @@ This also allows for taking into account friction losses with respect to the act
             parameter SI.DynamicViscosity mu_nominal = Medium.dynamicViscosity(
                                                            Medium.setState_pTX(
                                                                Medium.p_default, Medium.T_default, Medium.X_default))
-          "Nominal dynamic viscosity (e.g. mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
+          "Nominal dynamic viscosity (e.g., mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
               annotation(Dialog(group="Advanced", enable=use_mu_nominal));
 
           equation
@@ -1202,7 +1202,7 @@ The <tt>m_flows_turbulent[n-1]</tt> resulting from <tt>Re_turbulent</tt> can opt
 Using the thermodynamic states[n] of the device segments, the densities rhos[n] and the dynamic viscosities mus[n]
 of the segments as well as the actual densities rhos_act[n-1] and the actual viscosities mus_act[n-1] of the flows are predefined
 in this base model. Note that no events are raised on flow reversal. This needs to be treated by an extending model,
-e.g. with numerical smoothing or by raising events as appropriate.
+e.g., with numerical smoothing or by raising events as appropriate.
 </p>
 </html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics={Line(
@@ -2150,7 +2150,7 @@ dp = k*m_flow, where \"k\" depends on density and dynamic viscosity.
 The roughness of the wall does not have an influence on the laminar
 flow and therefore argument roughness is ignored.
 Since this is a linear relationship, the occuring systems of equations
-are usually much simpler (e.g. either linear instead of non-linear).
+are usually much simpler (e.g., either linear instead of non-linear).
 By using nominal values for density and dynamic viscosity, the
 systems of equations can still further be reduced.
 </p>
@@ -3429,10 +3429,10 @@ b has the same sign of the change of density.</p>
         parameter SI.DynamicViscosity mu_nominal = Medium.dynamicViscosity(
                                                        Medium.setState_pTX(
                                                            Medium.p_default, Medium.T_default, Medium.X_default))
-          "Nominal dynamic viscosity (e.g. mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
+          "Nominal dynamic viscosity (e.g., mu_liquidWater = 1e-3, mu_air = 1.8e-5)"
                                                                                   annotation(Dialog(enable=use_nominal));
         parameter SI.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
-          "Nominal density (e.g. rho_liquidWater = 995, rho_air = 1.2)"
+          "Nominal density (e.g., rho_liquidWater = 995, rho_air = 1.2)"
                                                                    annotation(Dialog(enable=use_nominal));
 
         parameter Boolean show_Re = false

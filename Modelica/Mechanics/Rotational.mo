@@ -155,7 +155,7 @@ a <b>positive</b> direction of this line, called <b>axis of rotation</b>.
 In the top part of the figure this is characterized by an arrow
 defined as <tt>axis of rotation</tt>. The simple rule is now:
 If a variable of a component is positive and can be interpreted as
-the element of a vector (e.g. torque or angular velocity vector), the
+the element of a vector (e.g., torque or angular velocity vector), the
 corresponding vector is directed into the positive direction
 of the axis of rotation. In the following figure, the right-most
 inertias of the figure above are displayed with the positive
@@ -335,7 +335,7 @@ diagram and is therefore less convenient to use.
 <p>
 This library is designed in a fully object oriented way in order that
 components can be connected together in every meaningful combination
-(e.g. direct connection of two springs or two inertias).
+(e.g., direct connection of two springs or two inertias).
 As a consequence, most models lead to a system of
 differential-algebraic equations of <b>index 3</b> (= constraint
 equations have to be differentiated twice in order to arrive at
@@ -343,7 +343,7 @@ a state space representation) and the Modelica translator or
 the simulator has to cope with this system representation.
 According to our present knowledge, this requires that the
 Modelica translator is able to symbolically differentiate equations
-(otherwise it is e.g. not possible to provide consistent initial
+(otherwise it is e.g., not possible to provide consistent initial
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
@@ -2471,7 +2471,7 @@ values. Friction is modelled in the following way:
 When the absolute angular velocity \"w\" is not zero, the friction torque
 is a function of w and of a constant normal force. This dependency
 is defined via table tau_pos and can be determined by measurements,
-e.g. by driving the gear with constant velocity and measuring the
+e.g., by driving the gear with constant velocity and measuring the
 needed motor torque (= friction torque).
 </p>
 <p>
@@ -3572,7 +3572,7 @@ Sept. 11, 2009.</li>
 
     model IdealPlanetary "Ideal planetary gear box"
       parameter Real ratio(start=100/50)
-        "Number of ring_teeth/sun_teeth (e.g. ratio=100/50)";
+        "Number of ring_teeth/sun_teeth (e.g., ratio=100/50)";
 
       // kinematic relationship
       Interfaces.Flange_a sun "Flange of sun shaft"
@@ -3610,7 +3610,7 @@ The inertias of the planet wheels are always neglected.
 The icon of the planetary gear signals that the sun and carrier
 flanges are on the left side and the ring flange is on the right side
 of the gear box. However, this component is generic and is valid
-independantly how the flanges are actually placed (e.g. sun wheel
+independantly how the flanges are actually placed (e.g., sun wheel
 may be placed on the right side instead on the left side in reality).
 </p>
 <p>
@@ -5603,14 +5603,14 @@ It is most convenient to utilize it
 </p>
 
 <ul>
-<li> For models to be build graphically (i.e. the model is build up by drag-and-drop
+<li> For models to be build graphically (i.e., the model is build up by drag-and-drop
      from elementary components):<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">
      PartialOneFlangeAndSupport</a>,<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">
      PartialTwoFlangesAndSupport</a>, <br> &nbsp; </li>
 
-<li> For models to be build textually (i.e. elementary models):<br>
+<li> For models to be build textually (i.e., elementary models):<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
      PartialElementaryOneFlangeAndSupport</a>,<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
@@ -5734,7 +5734,7 @@ the support torque can always be accessed as internalSupport.tau.
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with two flanges.
-It is used e.g. to build up parts of a drive train consisting
+It is used e.g., to build up parts of a drive train consisting
 of several components.
 </p>
 
@@ -5774,7 +5774,7 @@ of several components.
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with one flange and a support/housing.
-It is used e.g. to build up parts of a drive train graphically consisting
+It is used e.g., to build up parts of a drive train graphically consisting
 of several components.
 </p>
 
@@ -5852,7 +5852,7 @@ and instead the component is internally fixed to ground.
         Documentation(info="<html>
 <p>
 This is a 1-dim. rotational component with two flanges and a support/housing.
-It is used e.g. to build up parts of a drive train graphically consisting
+It is used e.g., to build up parts of a drive train graphically consisting
 of several components.
 </p>
 

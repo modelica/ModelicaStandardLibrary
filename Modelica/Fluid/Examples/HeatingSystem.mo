@@ -222,11 +222,11 @@ in a steady-state simulation.
 </p>
 <p>
 Note that a closed flow cycle generally causes circular equalities for the mass flow rates and leaves the pressure undefined.
-This is why the tank.massDynamics, i.e. the tank level determining the port pressure, is modified locally to Types.Dynamics.FixedInitial.
+This is why the tank.massDynamics, i.e., the tank level determining the port pressure, is modified locally to Types.Dynamics.FixedInitial.
 </p>
 <p>
 Also note that the tank is thermally isolated againts its ambient. This way the temperature of the tank is also
-well defined for zero flow rate in the heating system, e.g. for valveOpening.offset=0 at the beginning of a simulation.
+well defined for zero flow rate in the heating system, e.g., for valveOpening.offset=0 at the beginning of a simulation.
 The pipe however is assumed to be perfectly isolated.
 If steady-state values shall be obtained with the valve fully closed, then a thermal
 coupling between the pipe and its ambient should be defined as well.
@@ -234,7 +234,7 @@ coupling between the pipe and its ambient should be defined as well.
 <p>
 Moreover it is worth noting that the idealized direct connection between the heater and the pipe, resulting in equal port pressures,
 is treated as high-index DAE, as opposed to a nonlinear equation system for connected pressure loss correlations. A pressure loss correlation
-could be additionally introduced to model the fitting between the heater and the pipe, e.g. to adapt different diameters.
+could be additionally introduced to model the fitting between the heater and the pipe, e.g., to adapt different diameters.
 </p>
 
 <p align=\"center\">

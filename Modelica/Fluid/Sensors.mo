@@ -72,7 +72,7 @@ ideal, i.e., it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the density of the fluid passing its port.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 <p>If using the one port sensor please read the <a href = Modelica.Fluid.Sensors>Information</a>  first.</p>
 
@@ -126,7 +126,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the density of the fluid flowing from port_a to port_b.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -147,7 +147,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
       Documentation(info="<HTML>
 <p>
 This component monitors the temperature of the fluid passing its port.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
@@ -295,7 +295,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the temperature of the passing fluid.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -330,7 +330,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the specific enthalpy of the fluid passing its port.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -373,7 +373,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the specific enthalpy of a passing fluid.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -408,7 +408,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the specific entropy of the fluid passing its port.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -458,7 +458,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the specific entropy of the passing fluid.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -510,7 +510,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the trace substances contained in the fluid passing its port.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -564,7 +564,7 @@ The sensor is ideal, i.e. it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the trace substance of the passing fluid.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -649,7 +649,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     Documentation(info="<HTML>
 <p>
 This component monitors the volume flow rate flowing from port_a to port_b.
-The sensor is ideal, i.e. it does not influence the fluid.
+The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 "));
@@ -1030,7 +1030,7 @@ simple example.
     by R;uumldiger Franke<br>
     <ul>
     <li>flow sensors based on Interfaces.PartialTwoPort</li>
-    <li>adapted docu to stream connectors, i.e. less need for two port sensors</li>
+    <li>adapted docu to stream connectors, i.e., less need for two port sensors</li>
     </ul>
 <li><i>4 Dec 2008</i>
     by Michael Wetter<br>

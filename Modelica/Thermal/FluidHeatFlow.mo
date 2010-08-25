@@ -2175,8 +2175,8 @@ Same as FlowPort, but icon allows to differentiate direction of flow.
         Q_friction = frictionLoss*volumeFlow*pressureDrop;
       annotation (Documentation(info="<HTML>
 Definition of relationship between pressure drop and volume flow rate:<br>
--V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar i.e. linear dependency of pressure drop on volume flow.<br>
--V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent i.e. quadratic dependency of pressure drop on volume flow.<br>
+-V_flowLaminar &lt; VolumeFlow &lt; +V_flowLaminar: laminar i.e., linear dependency of pressure drop on volume flow.<br>
+-V_flowLaminar &gt; VolumeFlow or VolumeFlow &lt; +V_flowLaminar: turbulent i.e., quadratic dependency of pressure drop on volume flow.<br>
 Linear and quadratic dependency are coupled smoothly at V_flowLaminar / dpLaminar.<br>
 Quadratic dependency is defined by nominal volume flow and pressure drop (V_flowNominal / dpNominal).<br>
 See also sketch at diagram layer.
@@ -2578,7 +2578,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   end Interfaces;
   annotation (
     Documentation(info="<HTML>
-This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g. of electric machines:
+This package contains very simple-to-use components to model coolant flows as needed to simulate cooling e.g., of electric machines:
 <ul>
 <li>Components: components like different types of pipe models</li>
 <li>Examples: some test examples</li>

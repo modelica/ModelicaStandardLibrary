@@ -30,7 +30,7 @@ package Icons "Library of icons"
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
-<p>This icon indicate classes containing only documentation, intended for general description of e.g. concepts and features of a package.</p>
+<p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 </html>"));
   end Information;
   extends Icons.Package;
@@ -938,7 +938,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
-<p>This icon indicate classes containing only documentation, intended for general description of e.g. concepts and features of a package.</p>
+<p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 <h5>Note</h5>
 <p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Informationrmationrmation\">Information</a> shall be used.</p></html>"));
   end Info;

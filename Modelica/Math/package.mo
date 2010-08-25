@@ -291,7 +291,7 @@ possible.
 </html>"));
   end normalize;
 
-  function reverse "Reverse vector elements (e.g. v[1] becomes last element)"
+  function reverse "Reverse vector elements (e.g., v[1] becomes last element)"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result[size(v, 1)] "Elements of vector v in reversed order";
@@ -656,7 +656,7 @@ Vectors.Utilities.<b>householderVector</b>(a,b);
 <h4>Description</h4>
 <p>
 The function call \"<code>householderVector(a, b)</code>\" returns the normalized Householder vector
-<b>u</b> for Householder reflection of input vector <b>a</b> onto vector <b>b</b>, i.e. Householder vector <b>u</b> is the normal
+<b>u</b> for Householder reflection of input vector <b>a</b> onto vector <b>b</b>, i.e., Householder vector <b>u</b> is the normal
 vector of the reflection plane. Algebraically, the reflection is performed by transformation matrix <b>Q</b>
 </p>
 <blockquote>
@@ -808,7 +808,7 @@ This function computes the roots of a polynomial P of x
   P = p[1]*x^n + p[2]*x^(n-1) + ... + p[n-1]*x + p[n+1];
 </pre></blockquote>
 <p>
-with the coefficient vector <b>p</b>. It is assumed that the first element of <b>p</b> is not zero, i.e. that the polynomial is of order size(p,1)-1.
+with the coefficient vector <b>p</b>. It is assumed that the first element of <b>p</b> is not zero, i.e., that the polynomial is of order size(p,1)-1.
 <p>
 To compute the roots, the eigenvalues of the corresponding companion matrix <b>C</b>
 <p>
@@ -2252,7 +2252,7 @@ are the elements of the diagonal (s11). The imaginary parts are the positive and
 </p>
 
 <p>
-The calculation in lapack.dgees is performed stepwise, i.e. using the internal methods of balancing and scaling of dgees.
+The calculation in lapack.dgees is performed stepwise, i.e., using the internal methods of balancing and scaling of dgees.
 </p>
 
 <h4>Example</h4>
@@ -2514,7 +2514,7 @@ which based on the balanc function from EISPACK.
 
 <h4>Description</h4>
 <p>
-This function computes the trace, i.e. the sum of the elements in the diagonal of matrix <b>A</b>.
+This function computes the trace, i.e., the sum of the elements in the diagonal of matrix <b>A</b>.
 </p>
 
 <h4>Example</h4>
@@ -2605,7 +2605,7 @@ invA = Matrices.<b>inv</b>(A);
 
 <h4>Description</h4>
 <p>
-This function returns the inverse of matrix A, i.e. A*inv(A) = identity(size(A,1))
+This function returns the inverse of matrix A, i.e., A*inv(A) = identity(size(A,1))
 computed by a LU decomposition with row pivoting.
 Usually, this function should not be used, because
 there are nearly always better numerical algorithms
@@ -2923,7 +2923,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
 
     input Real A[:,:] "Input matrix";
     output Real Z[size(A, 2),:] "Orthonormal nullspace of matrix A";
-    output Integer nullity "Nullity, i.e. the dimension of the nullspace";
+    output Integer nullity "Nullity, i.e., the dimension of the nullspace";
 
   protected
     Real V[size(A, 2),size(A, 2)] "Right orthogonal matrix ";
@@ -2960,7 +2960,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
 
 <h4>Description</h4>
 <p>
-This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e. <b>A</b>*<b>z</b>_i=<b>0</b>.
+This function calculates an orthonormal basis <b>Z</b>=[<b>z</b>_1, <b>z</b>_2, ...] of the nullspace of a matrix <b>A</b>, i.e., <b>A</b>*<b>z</b>_i=<b>0</b>.
 </p>
 
 <p>
@@ -3333,7 +3333,7 @@ is discribed in
       (phi,gamma) = Matrices.expIntegral(A,B,T)
                        A,phi: [n,n] square matrices
                      B,gamma: [n,m] input matrix
-                           T: scalar, e.g. sampling time
+                           T: scalar, e.g., sampling time
 </pre>
 <p>
 The Algorithm to calculate psi is taken from
@@ -3450,7 +3450,7 @@ is, e.g., described in
 
   protected
     Integer n=size(A, 1);
-    Real R[size(A, 1),size(A, 2)] "rsf of A', i.e. R=U'A'U";
+    Real R[size(A, 1),size(A, 2)] "rsf of A', i.e., R=U'A'U";
     Real U[size(A, 1),size(A, 2)] "transformation matrix U for R=U'A'U";
     Real D[size(A, 1),size(A, 2)] "Matrix D=U'*C*U";
     Real R11[size(A, 1),size(A, 2)];
@@ -3983,7 +3983,7 @@ X = [2.0, 1.0;
 
   protected
     Integer n=size(A, 1);
-    Real R[size(A, 1),size(A, 2)] "RSF of A', i.e. R=U'A'U";
+    Real R[size(A, 1),size(A, 2)] "RSF of A', i.e., R=U'A'U";
     Real U[size(A, 1),size(A, 2)] "Transformation matrix U for R=U'A'U";
     Real D[size(A, 1),size(A, 2)] "Matrix D=U'*C*U";
     Real R22[size(A, 1),size(A, 2)];
@@ -4152,9 +4152,9 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
   protected
     Integer n=size(A, 1);
     Integer m=size(B, 1);
-    Real H[n,n] "Hessenberg form  of A, i.e. H=U'AU";
+    Real H[n,n] "Hessenberg form  of A, i.e., H=U'AU";
     Real U[n,n] "Transformation matrix U for H=U'AU";
-    Real S[m,m] "RSF form  of B, i.e. S=Z'BZ";
+    Real S[m,m] "RSF form  of B, i.e., S=Z'BZ";
     Real Z[m,m] "Transformation matrix Z for S=Z'BZ";
     Real F[n,m] "Appropriate transformation of the right side C, F=U'*C*Z";
 
@@ -4214,7 +4214,7 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
           end for;
           X[:, k] := Matrices.solve(R22, w); // solve one column in X for one real eigenvalue
           k := k - 1;
-        else // pair of complex eigenvalues, i.e. 2x2 Schur bump
+        else // pair of complex eigenvalues, i.e., 2x2 Schur bump
           g := F[:, k-1] - H*X[:, k + 1:m]*S[k+1 :m,k-1];
           R22 := S[k, k]*H;
           R11 := S[k-1, k-1]*H;
@@ -4714,7 +4714,7 @@ to the original matrix are given, such that
 
 <h4>Description</h4>
 <p>
-Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e. <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
+Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b> with flipped columns, i.e., <b>A_flr</b>[:,i]=<b>A</b>[:,n-i+1], i=1,..., n.
 </p>
 
 <h4>Example</h4>
@@ -4760,7 +4760,7 @@ Function <b>flipLeftRight</b> computes from matrix <b>A</b> a matrix <b>A_flr</b
 
 <h4>Description</h4>
 <p>
-Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e. <b>A_fud</b>[i,:]=<b>A</b>[n-i+1,:], i=1,..., n.
+Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> with flipped rows, i.e., <b>A_fud</b>[i,:]=<b>A</b>[n-i+1,:], i=1,..., n.
 </p>
 
 <h4>Example</h4>
@@ -7526,7 +7526,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
     function dlange "Norm of a matrix"
 
       input Real A[:,:] "Real matrix A";
-      input String norm="1" "specifies the norm, i.e. 1, I, F, M";
+      input String norm="1" "specifies the norm, i.e., 1, I, F, M";
       output Real anorm "norm of A";
     protected
       Integer m=size(A, 1);
@@ -7990,7 +7990,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
            = 'N': Do not diagonally scale or permute;
            = 'P': Perform permutations to make the matrix more nearly
                   upper triangular. Do not diagonally scale;
-           = 'S': Diagonally scale the matrix, i.e. replace A by
+           = 'S': Diagonally scale the matrix, i.e., replace A by
                   D*A*D**(-1), where D is a diagonal matrix chosen
                   to make the rows and columns of A more equal in
                   norm. Do not permute;
@@ -9481,7 +9481,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       input Boolean upper=true "True if A is upper triangular";
       input Boolean trans=false "True if op(A) means transposed(A)";
       input Boolean unitTriangular=false
-        "True if A is unit triangular, i.e. all diagonal elements of A are equal to 1";
+        "True if A is unit triangular, i.e., all diagonal elements of A are equal to 1";
 
       output Real X[size(B,1),size(B,2)]=B
         "Matrix Bout=alpha*op( A )*B,   or   B := alpha*B*op( A )";
@@ -10059,9 +10059,9 @@ with
  <b>Q</b> = <b>I</b> -2*<b>u</b>*<b>u</b>'/(<b>u</b>'*<b>u</b>)
 </blockquote>
 <p>
-where <b>u</b> is Householder vector, i.e. the normal vector of the reflection plane.
+where <b>u</b> is Householder vector, i.e., the normal vector of the reflection plane.
 <p>
-Householder reflection is widely used in numerical linear algebra, e.g. to perform QR decompositions.
+Householder reflection is widely used in numerical linear algebra, e.g., to perform QR decompositions.
 </p>
 <h4>Example</h4>
 <blockquote><pre>

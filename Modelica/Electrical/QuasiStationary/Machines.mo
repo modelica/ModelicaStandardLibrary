@@ -1976,8 +1976,8 @@ This package contains components to model technical threephase transformers:
 Transformers are modeled by an ideal transformer, adding primary and secondary winding resistances and stray inductances.<br>
 All transformers extend from the base model <i>PartialTransformer</i>, adding the primary and secondary connection.<br>
 <b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
-(i.e. the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
-e.g. Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
+(i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
+e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
 With the \"supermodel\" <i>Tranformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
@@ -2002,7 +2002,7 @@ even though the source's and/or load's starpoint are grounded; you may use a rea
 <ul>
 <li>number of phases is limited to 3, therefore definition as a constant m=3</li>
 <li>symmetry of the 3 phases resp. limbs</li>
-<li>saturation is neglected, i.e. inductances are constant</li>
+<li>saturation is neglected, i.e., inductances are constant</li>
 <li>magnetizing current is neglected</li>
 <li>magnetizing losses are neglected</li>
 <li>additional (stray) losses are neglected</li>

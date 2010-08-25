@@ -264,7 +264,7 @@ The desired conversion can be selected in the parameter menu
               Documentation(info="<HTML>
 <p>
 This block is used to enable asignment of values to variables preliminary
-defined as outputs (e.g. useful for inverse model generation).
+defined as outputs (e.g., useful for inverse model generation).
 </p>
 
 </HTML>
@@ -305,7 +305,7 @@ defined as outputs (e.g. useful for inverse model generation).
 <HTML>
 <p>
 This block is used to enable calculation of values preliminary defined as inputs.
-(e.g. useful for inverse model generation).
+(e.g., useful for inverse model generation).
 </p>
 
 </HTML>
@@ -2951,7 +2951,7 @@ with negative sign at frame_a.
             Documentation(info="<html>
 <p>
 This is a 1D rotational component with two rigidly connected flanges,
-i.e., flange_a.phi = flange_b.phi. It is used e.g. to built up components
+i.e., flange_a.phi = flange_b.phi. It is used e.g., to built up components
 with inertia.
 </p>
 
@@ -3028,7 +3028,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
           Documentation(info="<html>
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
-It is used e.g. to build up equation-based parts of a drive train.</p>
+It is used e.g., to build up equation-based parts of a drive train.</p>
 
 </HTML>
 "));
@@ -3081,7 +3081,7 @@ It is used e.g. to build up equation-based parts of a drive train.</p>
         Documentation(info="<html>
 <p>
 This is a 1D rotational component with two flanges and an additional bearing flange.
-It is used e.g. to build up parts of a drive train consisting
+It is used e.g., to build up parts of a drive train consisting
 of several base components.</p>
 
 </HTML>

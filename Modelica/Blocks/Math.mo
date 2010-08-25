@@ -561,7 +561,7 @@ the result as output signal.
 <p>
 This package consists of blocks that convert an input signal
 with a specific unit to an output signal in another unit
-(e.g. conversion of an angle signal from \"deg\" to \"rad\").
+(e.g., conversion of an angle signal from \"deg\" to \"rad\").
 Block \"ConvertAllUnits\" converts between a set of units that
 can be selected in a pull-down menu of the parameter menu.
 All other blocks convert exactly between two different units.

@@ -95,8 +95,8 @@ dropped in the equation section of the <b> equation layer </b> of the model in S
 <h4><font color=\"#EF9B13\">Step 3: Choose corresponding pressure loss <b> records </b>
 </font></h4>
 The chosen function in Step 2 still needs its corresponding input values provided by
-records. These input records are spitted into one for input parameters (e.g. for
-geometry) and one for input variables (e.g. for fluid properties). The name of these
+records. These input records are spitted into one for input parameters (e.g., for
+geometry) and one for input variables (e.g., for fluid properties). The name of these
 input records are identical with the corresponding function but with the extension <b>
 _IN_con </b> for parameters and <b> _IN_var </b> for variables as input. These
 corresponding input record for the chosen function have to be dragged and dropped on the
@@ -197,8 +197,8 @@ functions:
         <li> Reduced amount of input records for compressible and incompressible
 functions as well as for their combinational one to improve usability of library.
         </li>
-        <li> Splitting input records of one function into one with parameters (e.g. for
-geometry) and one with variables (e.g. fluid properties) to ease work of IDE-solver.
+        <li> Splitting input records of one function into one with parameters (e.g., for
+geometry) and one with variables (e.g., fluid properties) to ease work of IDE-solver.
         </li>
 </ul>
 <li>
@@ -7990,7 +7990,7 @@ with
 </p>
 
 <p>
-Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g. measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
+Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
 </p>
 <p>
 Pressure loss due to local losses gives the following definition of <b> Km </b>:
@@ -8161,7 +8161,7 @@ with
 </p>
 
 <p>
-Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g. measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
+Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
 </p>
 <p>
 Pressure loss due to local losses gives the following definition of <b> Km </b>:
@@ -8299,7 +8299,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
                 IN_var,
                 DP)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g. nominal density, nominal dynamic viscosity) at an operation point via interpolation.
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
 The function can be used to calculate pressure loss at known mass flow rate <b> or </b>  mass flow rate at known pressure loss.
 </p>
@@ -8317,7 +8317,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation has to be simplified.
-This function uses nominal variables (e.g. nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
 
 The generic pressure loss <b> dp </b> is determined for:
@@ -8440,7 +8440,7 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g. nominal density, nominal dynamic viscosity) at an operation point via interpolation.
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
 </p>
 
@@ -8457,7 +8457,7 @@ Generally this  function is numerically best used for the <b> compressible case 
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation has to be simplified.
-This function uses nominal variables (e.g. nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
 
 The generic pressure loss <b> dp </b> is determined for:
@@ -8626,7 +8626,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
                 IN_var,
                 DP)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g. nominal density) via interpolation from an operation point.
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
 The function can be used to calculate pressure loss at known mass flow rate <b> or </b>  mass flow rate at known pressure loss.
 </p>
@@ -8644,7 +8644,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation have to be simplified.
-This function uses nominal variables (e.g. nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
 
 In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
@@ -8818,7 +8818,7 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g. nominal density) via interpolation from an operation point.
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
 The function can be used to calculate pressure loss at known mass flow rate <b> or </b>  mass flow rate at known pressure loss.
 </p>
@@ -8836,7 +8836,7 @@ Generally this  function is numerically best used for the <b> compressible case 
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation have to be simplified.
-This function uses nominal variables (e.g. nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
 
 In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
@@ -11924,7 +11924,7 @@ The void fraction is one of the most important parameter used to characterise tw
 </ul>
 <p>
 These approaches for the void fraction <b>epsilon</b> imply a correlation for the slip ratio. The slip ratio is defined as ratio of the velocity from the gaseous phase to the liquid phase at two phase flow.
-The effects of different fluid flow velocities of the phases on two phase pressure loss can be considered with the slip ratio in the heterogeneous approaches. The slip ratio for the homogeneous approach is unity, so that there is no difference in the velocities of the two phases (e.g. usable for bubble flow).
+The effects of different fluid flow velocities of the phases on two phase pressure loss can be considered with the slip ratio in the heterogeneous approaches. The slip ratio for the homogeneous approach is unity, so that there is no difference in the velocities of the two phases (e.g., usable for bubble flow).
 </p>
 
 <p>
@@ -13182,7 +13182,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
               "Hydraulic diameter";
 
             //SOURCE_2: p.Lba 4, sec. 3.3: Correlation based on constant mass flow rate quality (x_flow) for increment (dx)
-            //Pressure loss for total length (e.g. L=n*dx) can be achieved by discretisation
+            //Pressure loss for total length (e.g., L=n*dx) can be achieved by discretisation
             Real mdot_A=abs(m_flow)/A_cross "Mass flux";
             Real x_flow=max(0, min(1, abs(IN_var.x_flow)))
               "Mass flow rate quality";
@@ -13386,7 +13386,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 
             annotation (Documentation(info="<html>
 <p>
-The gaseous and the liquid part of a fluid in a two phase flow are often discontinuously distributed. This complex behaviour is simplified for engineering calculations. The two phase flow of different fluid flow situations (e.g. bubble or stratified flow) is modelled as if the gaseous and the liquid phase are continuously distributed.
+The gaseous and the liquid part of a fluid in a two phase flow are often discontinuously distributed. This complex behaviour is simplified for engineering calculations. The two phase flow of different fluid flow situations (e.g., bubble or stratified flow) is modelled as if the gaseous and the liquid phase are continuously distributed.
 </p>
 
 <p>
@@ -14063,7 +14063,7 @@ For |x| &gt; 1 both functions return identical results.
               height=0.6),
             Documentation(info="<html>
 <p>
-The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g. laminar and turbulent pressure drop or correlations for certain ranges.
+The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g., laminar and turbulent pressure drop or correlations for certain ranges.
 </p>
 <h4><font color=\"#EF9B13\">Function </font></h4>
 <p>
@@ -17422,7 +17422,7 @@ end Dissipation;
               //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
               //SOURCE_2: p.Lba 4, sec. 3.3: Correlation based on constant mass flow rate quality (x_flow) for increment (dx)
-              //Pressure loss for total length (e.g. L=n*dx) can be achieved by discretisation
+              //Pressure loss for total length (e.g., L=n*dx) can be achieved by discretisation
 
               //SOURCE_1: p.490 (Appendix): Characteristic numbers based on total mass flow rate flowing as liquid
 

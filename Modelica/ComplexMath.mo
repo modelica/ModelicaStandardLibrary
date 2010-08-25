@@ -175,7 +175,7 @@ possible.
 </html>"));
 end normalize;
 
-function reverse "Reverse vector elements (e.g. v[1] becomes last element)"
+function reverse "Reverse vector elements (e.g., v[1] becomes last element)"
 extends Modelica.Icons.Function;
 
   input Complex v[:] "Vector";
@@ -466,7 +466,7 @@ end Vectors;
   algorithm
     result := (c.re^2 + c.im^2)^0.5; //changed from sqrt
     annotation(Inline=true, Documentation(info="<html>
-<p>This function returns the Real absolute of the Complex input, i.e. it's length.</p>
+<p>This function returns the Real absolute of the Complex input, i.e., it's length.</p>
 </html>"));
   end 'abs';
 
@@ -481,7 +481,7 @@ end Vectors;
         c.re,
         phi0);
     annotation(Inline=true, Documentation(info="<html>
-<p>This function returns the Real argument of the Complex input, i.e. it's angle.</p>
+<p>This function returns the Real argument of the Complex input, i.e., it's angle.</p>
 </html>"));
   end arg;
 

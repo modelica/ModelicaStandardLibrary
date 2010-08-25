@@ -14,7 +14,7 @@ package FundamentalWave
 <h4>Overview of the concept of fundamental waves</h4>
 
 <p>
-The exact magnetic field in the air gap of an electric machine is usually determined by an electro magnetic finite element analysis. The waveform of the magnetic field, e.g. the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, consists of a spatial fundamental wave - with respect to one pole pair - and additional harmonic waves of different order. The fundamental wave is however dominant in the air gap of an electric machine.
+The exact magnetic field in the air gap of an electric machine is usually determined by an electro magnetic finite element analysis. The waveform of the magnetic field, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, consists of a spatial fundamental wave - with respect to one pole pair - and additional harmonic waves of different order. The fundamental wave is however dominant in the air gap of an electric machine.
 </p>
 
 <p>
@@ -42,7 +42,7 @@ In the fundamental wave theory only a pure sinusoidal distribution of magnetic q
 </table>
 
 <p>
-The waveforms of the magnetic field quantities, e.g. the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, can be represented by complex phasor, e.g., <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m.png\"> according to:
+The waveforms of the magnetic field quantities, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, can be represented by complex phasor, e.g., <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m.png\"> according to:
 </p>
 
 <p>
@@ -4816,7 +4816,7 @@ This partial model for induction machines contains elements common in all machin
 <p>
 Transforms instantaneous values into space phasors and zero system currents,
 rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
-i.e. with small derivatives.
+i.e., with small derivatives.
 </p>
 </html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={

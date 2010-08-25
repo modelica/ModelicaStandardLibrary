@@ -371,9 +371,9 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         massDynamics = Types.Dynamics.SteadyState,
         final p_start = p_b_start);
 
-    // Heat transfer through boundary, e.g. to add a housing
+    // Heat transfer through boundary, e.g., to add a housing
     parameter Boolean use_HeatTransfer = false
-        "= true to use a HeatTransfer model, e.g. for a housing"
+        "= true to use a HeatTransfer model, e.g., for a housing"
         annotation (Dialog(tab="Assumptions",group="Heat transfer"));
     replaceable model HeatTransfer =
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer

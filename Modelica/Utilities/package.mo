@@ -25,9 +25,9 @@ Below the major design decisions of this library are summarized.
      used as a basis for the integration in the vendors environment.<br>&nbsp;</li>
 <li> <b>Character Encoding</b><br>
      The representation of characters is different in operating systems.
-     The more modern ones (e.g. Windows-NT) use an early variant of
+     The more modern ones (e.g., Windows-NT) use an early variant of
      Unicode (16 bit per character)
-     other (e.g. Windows-ME) use 8-bit encoding. Also 32 bit per character
+     other (e.g., Windows-ME) use 8-bit encoding. Also 32 bit per character
      and multi-byte representations are in use. This is important, since e.g.,
      Japanese Modelica users need Unicode representation. The design in this
      library is done in such a way that a basic set of calls to the operating

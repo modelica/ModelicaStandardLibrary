@@ -89,7 +89,7 @@ partial package SingleGasNasa
     Boolean hasAccurateConductivityData=false
       "true if accurate data for thermal conductivity is available";
     Boolean hasVapourPressureCurve=false
-      "true if vapour pressure data, e.g. Antoine coefficents are known";
+      "true if vapour pressure data, e.g., Antoine coefficents are known";
     Boolean hasAcentricFactor=false "true if Pitzer accentric factor is known";
     SpecificEnthalpy HCRIT0=0.0
       "Critical specific enthalpy of the fundamental equation";

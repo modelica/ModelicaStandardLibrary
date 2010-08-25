@@ -2968,13 +2968,13 @@ where
           Medium.p_default,
           Medium.T_default,
           Medium.X_default))
-        "Nominal dynamic viscosity (e.g. eta_liquidWater = 1e-3, eta_air = 1.8e-5)"
+        "Nominal dynamic viscosity (e.g., eta_liquidWater = 1e-3, eta_air = 1.8e-5)"
         annotation (Dialog(enable=use_nominal, group="Fluid properties"));
       parameter SI.Density rho_nominal=Medium.density_pTX(
           Medium.p_default,
           Medium.T_default,
           Medium.X_default)
-        "Nominal density (e.g. d_liquidWater = 995, d_air = 1.2)" 
+        "Nominal density (e.g., d_liquidWater = 995, d_air = 1.2)" 
         annotation (Dialog(enable=use_nominal, group="Fluid properties"));
 
     /*
@@ -3041,7 +3041,7 @@ none of the models has a state. The basic correlations are implemented
 with functions of sublibrary
 <a href=\"modelica://Modelica.Fluid.PressureLosses.Utilities\">PressureLosses.Utilities</a>
 These functions might also be directly called
-(e.g. in another component implementation).
+(e.g., in another component implementation).
 </p>
 
 <p>

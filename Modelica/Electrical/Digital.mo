@@ -1573,7 +1573,7 @@ The simulation stop time has to be 5s.
                     -20},{20,20},{20,62},{0,62}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>RS is a basic component for e.g. the RS (set-reset) flipflop, which is built up by Nor gates according to the schematic. To avoid a numerical loop a small transport delay is inserted which delay time is a parameter of the RS component. Also its initial value can be set by parameter.</p>
+<p>RS is a basic component for e.g., the RS (set-reset) flipflop, which is built up by Nor gates according to the schematic. To avoid a numerical loop a small transport delay is inserted which delay time is a parameter of the RS component. Also its initial value can be set by parameter.</p>
 </html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
                     graphics),
@@ -4198,7 +4198,7 @@ To specify <i>setval</i>, the integer code has to be used.
 
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
-they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
 ",       revisions=
@@ -4282,7 +4282,7 @@ To specify the logic value parameters, the integer code has to be used.
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
-they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
 ",       revisions=
@@ -4367,7 +4367,7 @@ To specify the logic value parameters, the integer code has to be used.
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
-they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
 ",         revisions="<HTML>
@@ -4475,7 +4475,7 @@ To specify the logic value parameters, the integer code has to be used.
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
-they can be used to specify the parameter, e.g. <b>L.'0'</b> for forcing 0.
+they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
 ",         revisions=

@@ -1983,7 +1983,7 @@ a flange according to a given acceleration.
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
 
         parameter Real table[:, 2]
-      "Table matrix (time = first column; e.g. table=[0, 0; 1, 1; 2, 4])";
+      "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
         parameter Real offset=0 "Offset of output signal";
         parameter SIunits.Time startTime=0
       "Output = offset for time < startTime";
@@ -2193,7 +2193,7 @@ Example:
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
-    e.g., time = 5.0, the output y = 23.0 (i.e. extrapolation).
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
 </pre>
 
 
@@ -2231,7 +2231,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "= true, if table is defined on file or in function usertab"
       annotation(Dialog(group="table data definition"));
     parameter Real table[:, :] = fill(0.0,0,2)
-      "Table matrix (time = first column; e.g. table=[0,2])"
+      "Table matrix (time = first column; e.g., table=[0,2])"
          annotation(Dialog(group="table data definition", enable = not tableOnFile));
     parameter String tableName="NoName"
       "Table name on file or in function usertab (see docu)"
@@ -2401,7 +2401,7 @@ Example:
 If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the output y =  2.5,
     e.g., time = 2.0, the output y =  4.0,
-    e.g., time = 5.0, the output y = 23.0 (i.e. extrapolation via last 2 points).
+    e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation via last 2 points).
 </pre>
 <p>
 The table matrix can be defined in the following ways:
@@ -2430,7 +2430,7 @@ The table matrix can be defined in the following ways:
 <p>
 Table definition methods (1) and (3) do <b>not</b> allocate dynamic memory,
 and do not access files, whereas method (2) does. Therefore (1) and (3)
-are suited for hardware-in-the-loop simulation (e.g. with dSpace hardware).
+are suited for hardware-in-the-loop simulation (e.g., with dSpace hardware).
 When the constant \"NO_FILE\" is defined in \"usertab.c\", all parts of the
 source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
@@ -2851,7 +2851,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
       parameter Boolean startValue = false
       "Start value of y. At time = table[1], y changes to 'not startValue'";
       parameter Modelica.SIunits.Time table[:]
-      "Vector of time points. At every time point, the output y gets its opposite value (e.g. table={0,1})";
+      "Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})";
       extends Interfaces.partialBooleanSource;
 
   protected
