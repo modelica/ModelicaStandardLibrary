@@ -1545,7 +1545,7 @@ has a unique solution.
     output Integer info "Information";
   protected
     Integer lda=max(1,size(A, 1));
-    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info) 
+    external "FORTRAN 77" dgetrf(size(A, 1), size(A, 2), LU, lda, pivots, info)
       annotation (Library="Lapack");
 
     annotation ( Documentation(info="<HTML>
@@ -3680,7 +3680,7 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
         (T,V) := Modelica.Math.Matrices.realSchur(    B);
       end if;
 
-      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if 
+      Chat := if AisSchur and BisSchur then C else if AisSchur then C*V else if
         BisSchur then transpose(U)*C else transpose(U)*C*V;
       (X,scale,info) := Matrices.LAPACK.dtrsyl(S, T, Chat);
       assert(info == 0, "Solving of Sylvester equation with Matrices.continuousSylvester was not sucessfull.\n
@@ -4811,7 +4811,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real work[lwork];
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
-        eigenVectors, n, eigenVectors, n, work, size(work, 1), info) 
+        eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation
@@ -4917,7 +4917,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
 */
     external "Fortran 77" dgeev("N", "N", size(A, 1), Awork, size(A, 1),
         EigenReal, EigenImag, EigenvectorsL, size(EigenvectorsL, 1),
-        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info) 
+        EigenvectorsL, size(EigenvectorsL, 1), work, size(work, 1), info)
         annotation (Library="Lapack");
 
       annotation (
@@ -5019,7 +5019,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       Real dummy2[1,1];
 
       external "Fortran 77" dgegv("N", "N", n, Awork, n, Bwork, n, alphaReal, alphaImag, beta,
-                 dummy1, 1, dummy2, 1, work, size(work, 1), info) 
+                 dummy1, 1, dummy2, 1, work, size(work, 1), info)
             annotation (Library="Lapack");
       annotation (Documentation(info="Purpose
 =======
@@ -5720,7 +5720,7 @@ For details of the arguments, see documentation of dgesv.
       Real subdiagwork[size(subdiag, 1)]=subdiag;
 
     external "FORTRAN 77" dgtsv(size(diag, 1), size(B, 2), subdiagwork,
-        diagwork, superdiagwork, X, size(B, 1), info) 
+        diagwork, superdiagwork, X, size(B, 1), info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -5912,7 +5912,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -6026,7 +6026,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real work[lwork];
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
-        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info) 
+        A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
         annotation (Library="Lapack");
       annotation (
         Documentation(info="Lapack documentation:
@@ -6552,7 +6552,7 @@ INFO    (output) INTEGER
       Integer sdim=0;
       Boolean bwork[n];
 
-      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info) 
+      external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info)
       annotation (Include="
 #include<f2c.h>
 #ifdef __cplusplus
@@ -7534,7 +7534,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       Integer lda=max(1,m);
       Real work[2*m];
 
-    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm) 
+    external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm)
       annotation (Include="
   #include<f2c.h>
   #include <stdio.h>
@@ -8157,7 +8157,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
         work,
         lwork,
         iwork,
-        info) 
+        info)
         annotation (Library="lapack");
       annotation (Documentation(info="   Purpose
    =======
@@ -10531,11 +10531,11 @@ Note: A' is a short hand notation of transpose(A):
 <p><b>Linear Equations</b></p>
 <ul>
 <li> <a href=\"modelica://Modelica.Math.Matrices.solve\">solve</a>(A,b)
-     - returns solution x of the linear equation A*x=b (where b is a vector, 
+     - returns solution x of the linear equation A*x=b (where b is a vector,
        and A is a square matrix that must be regular).</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.solve2\">solve2</a>(A,B)
-     - returns solution X of the linear equation A*X=B (where B is a matrix, 
+     - returns solution X of the linear equation A*X=B (where B is a matrix,
        and A is a square matrix that must be regular)</li>
 
 <li> <a href=\"modelica://Modelica.Math.Matrices.leastSquares\">leastSquares</a>(A,b)
@@ -10683,6 +10683,48 @@ Note: A' is a short hand notation of transpose(A):
 "));
 end Matrices;
 
+function isEqual "Determine if two Real scalars are numerically identical"
+  extends Modelica.Icons.Function;
+  input Real s1 "First scalar";
+  input Real s2 "Second scalar";
+  input Real eps(min=0) = 0
+    "The two scalars are identical if abs(s1-s2) <= eps";
+  output Boolean result "= true, if scalars are identical";
+algorithm
+  result :=abs(s1 - s2) <= eps;
+  annotation (Inline=true, Documentation(info="<HTML>
+<h4>Syntax</h4>
+<blockquote><pre>
+Math.<b>isEqual</b>(s1, s2);
+Math.<b>isEqual</b>(s1, s2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>Math.isEqual(s1, s2)</code>\" returns <b>true</b>,
+if the two Real scalars s1 and s2 are identical. Otherwise the function
+returns <b>false</b>. The equality check is performed by
+\"abs(s1-s2) &le; eps\", where \"eps\"
+can be provided as third argument of the function. Default is \"eps = 0\".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real s1 = 2.0;
+  Real s2 = 2.0;
+  Real s3 = 2.000001;
+  Boolean result;
+<b>algorithm</b>
+  result := Math.isEqual(s1,s2);     // = <b>true</b>
+  result := Math.isEqual(s1,s3);     // = <b>false</b>
+  result := Math.isEqual(s1,s3,0.1); // = <b>true</b>
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.Vectors.isEqual\">Vectors.isEqual</a>,
+<a href=\"modelica://Modelica.Math.Matrices.isEqual\">Matrices.isEqual</a>,
+<a href=\"modelica://Modelica.Utilities.Strings.isEqual\">Strings.isEqual</a>
+</p>
+</HTML>"));
+end isEqual;
 
 function sin "Sine"
   extends baseIcon1;
