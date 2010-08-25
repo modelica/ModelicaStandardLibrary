@@ -1666,7 +1666,7 @@ Simple heat transfer correlation with constant heat transfer coefficient, used a
       mus=Medium.dynamicViscosity(states);
       lambdas=Medium.thermalConductivity(states);
       Prs = Medium.prandtlNumber(states);
-      Res = CharacteristicNumbers.ReynoldsNumber(vs/nParallel, ds, mus, diameters);
+      Res = CharacteristicNumbers.ReynoldsNumber(vs, ds, mus, diameters);
       Nus = CharacteristicNumbers.NusseltNumber(alphas, diameters, lambdas);
       Q_flows={alphas[i]*surfaceAreas[i]*(heatPorts[i].T - Ts[i])*nParallel for i in 1:n};
         annotation (Documentation(info="<html>

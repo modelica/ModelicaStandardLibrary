@@ -629,6 +629,19 @@ class Version_3_1_BugFixes "Version 3.1 with bug fixes"
 annotation (Documentation(info="<html>
 <p>
 In this section bug fixes are summarized that have been incorporated
+for version 3.1-<b>SVN</b>:
+</p>
+
+<blockquote>
+<p>
+Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialPipeFlowHeatTransfer: Corrected calculation of Reynolds numbers for the heat transfer through walls of nParallel&gt;1 parallel pipes. This partial model is used by LocalPipeFlowHeatTransfer for laminar and turbulent forced convection in pipes, local coefficients.
+</p>
+</blockquote>
+
+<hr>
+
+<p>
+In this section bug fixes are summarized that have been incorporated
 for version 3.1-<b>build 6</b>:
 </p>
 
