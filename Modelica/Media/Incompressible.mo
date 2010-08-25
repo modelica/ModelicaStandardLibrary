@@ -57,11 +57,11 @@ package Incompressible
     constant Integer npol=2 "degree of polynomial used for fitting";
     constant Integer neta=size(tableViscosity,1)
       "number of data points for viscosity";
-    constant Real[:,:] tableDensity "Table for rho(T)";
-    constant Real[:,:] tableHeatCapacity "Table for Cp(T)";
-    constant Real[:,:] tableViscosity "Table for eta(T)";
-    constant Real[:,:] tableVaporPressure "Table for pVap(T)";
-    constant Real[:,:] tableConductivity "Table for lambda(T)";
+    constant Real[:,2] tableDensity "Table for rho(T)";
+    constant Real[:,2] tableHeatCapacity "Table for Cp(T)";
+    constant Real[:,2] tableViscosity "Table for eta(T)";
+    constant Real[:,2] tableVaporPressure "Table for pVap(T)";
+    constant Real[:,2] tableConductivity "Table for lambda(T)";
     //    constant Real[:] TK=tableViscosity[:,1]+T0*ones(neta) "Temperature for Viscosity";
     constant Boolean TinK "true if T[K],Kelvin used for table temperatures";
     constant Boolean hasDensity = not (size(tableDensity,1)==0)
