@@ -1801,17 +1801,17 @@ The critical damping filter is defined as
       "= true, if amplitude at f_cut = -3db, otherwise unmodified filter";
     parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
       "Type of initialization (no init/steady state/initial state/initial output)"
-      annotation(Evaluate=true, Dialog(tab="Advanced options"));
+      annotation(Evaluate=true, Dialog(tab="Advanced"));
     final parameter Integer nx = if filterType == Modelica.Blocks.Types.FilterType.LowPass or
                                     filterType == Modelica.Blocks.Types.FilterType.HighPass then
                                     order else 2*order;
     parameter Real x_start[nx] = zeros(nx) "Initial or guess values of states"
-      annotation(Dialog(tab="Advanced options"));
+      annotation(Dialog(tab="Advanced"));
     parameter Real y_start = 0 "Initial value of output"
-      annotation(Dialog(tab="Advanced options"));
+      annotation(Dialog(tab="Advanced"));
     parameter Real u_nominal = 1.0
       "Nominal value of input (used for scaling the states)"
-    annotation(Dialog(tab="Advanced options"));
+    annotation(Dialog(tab="Advanced"));
     Modelica.Blocks.Interfaces.RealOutput x[nx] "Filter states";
 
   protected
@@ -2014,7 +2014,8 @@ using various filter characteristics:
 <p>
 By default, a filter block is initialized in <b>steady-state</b>, in order to
 avoid unwanted osciallations at the beginning. In special cases, it might be
-useful to select one of the other initialization options.
+useful to select one of the other initialization options under tab
+\"Advanced\".
 </p>
 
 <p>
@@ -2110,11 +2111,11 @@ The filters are implemented in the following, reliable way:
   <b>der</b>(x2) = b*x1 + a*x2;
        y  = x2;
      </pre>
-     The dc-gain from the input to the output of this blocks is one and the selected
+     The dc-gain from the input to the output of this block is one and the selected
      states are in the order of the input (if \"u\" is in the order of \"one\", then the
-     states are also in the order of \"one\"). In the \"Advanced Options\" tab, a \"nominal\" value for
+     states are also in the order of \"one\"). In the \"Advanced\" tab, a \"nominal\" value for
      the input \"u\" can be given. If appropriately selected, the states are in the order of \"one\" and
-     then step-size control is always suitable.</li>
+     then step-size control is always appropriate.</li>
 </ol>
 
 
