@@ -1815,7 +1815,7 @@ Integer type that can have the following values
 
     parameter Integer nPorts = 0
         "Number of inlet/outlet ports (on bottom and on the side)"
-       annotation(Dialog(__Dymola_connectorSizing=true));
+       annotation(Dialog(connectorSizing=true));
     parameter Modelica.Fluid.Vessels.BaseClasses.VesselPortsData portsData[
                                                                         nPorts]
         "Data of inlet/outlet ports at side and bottom of tank";
