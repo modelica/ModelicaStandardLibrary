@@ -2425,8 +2425,8 @@ This version is a major improvement:
      \"Modelica/Resources/Images/xxx\" is referenced as
      \"modelica://Modelica/Resources/Images/xxx\").</li>
 
-<li> All physical models that dissipate heat (such as electrical elements, 
-     electrical machines, bearings, dampers, etc.), have now an optional heat port 
+<li> All physical models that dissipate heat (such as electrical elements,
+     electrical machines, bearings, dampers, etc.), have now an optional heat port
      to which the dissipated energy is flowing, if activated.
      This will significantly improve design studies about the thermal efficiency
      of technical systems.</li>
@@ -2439,7 +2439,7 @@ This version is a major improvement:
 
 <li> All electrical machines in the
      <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
-     library have now a \"powerBalance\" result record, 
+     library have now a \"powerBalance\" result record,
      summarizing converted power and losses.</li>
 </ul>
 
@@ -2496,7 +2496,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a></td>
     <td valign=\"top\">
     Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
-    This library allows very fast simulations of electrical circuits with sinusoidal 
+    This library allows very fast simulations of electrical circuits with sinusoidal
     currents and voltages by only taking into account the quasi-stationary, periodic part
     and neglecting non-periodic transients.<br>
     (This library was developed by Anton Haumer and Christian Kral, AIT).
@@ -2559,6 +2559,11 @@ to <b style=\"color:blue\">existing</b> libraries:
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.UsersGuide</b></td></tr>
+<tr><td valign=\"top\"> Conventions
+                      </td>
+    <td valign=\"top\"> Considerably improved 'Conventions' for the Modelica Standard Library. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Examples</b></td></tr>
 <tr><td valign=\"top\"> Filter<br>
                       FilterWithDifferentation<br>
@@ -2735,7 +2740,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> Losses.* </td>
     <td valign=\"top\"> Parameter records and models for losses in electrical machines and transformers (where applicable): <br>
                       Friction losses <br>
-                      Brush losses <br> 
+                      Brush losses <br>
                       Stray Load losses <br>
                       Core losses (only eddy current losses but no hysteresis losses; not for transformers) </td> </tr>
 <tr><td valign=\"top\"> Thermal.* </td>
@@ -2785,8 +2790,8 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> RampedRheostat </td>
     <td valign=\"top\"> Ramped rheostat, used for starting asynchronous induction motors with slipring rotor. </td> </tr>
 <tr><td valign=\"top\"> SynchronousMachineData </td>
-    <td valign=\"top\"> The parameters of the synchronous machine model with electrical excitation (and damper) are calculated 
-                      from parameters normally given in a technical description, 
+    <td valign=\"top\"> The parameters of the synchronous machine model with electrical excitation (and damper) are calculated
+                      from parameters normally given in a technical description,
                       according to the standard EN 60034-4:2008 Appendix C. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
@@ -2856,15 +2861,8 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math</b></td></tr>
-<tr><td valign=\"top\"> allTrue </td>
-    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
-<tr><td valign=\"top\"> anyTrue </td>
-    <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
-<tr><td valign=\"top\"> oneTrue </td>
-    <td valign=\"top\"> Returns true, if exactly one element of the Boolean input vector is true. </td> </tr>
-<tr><td valign=\"top\"> firstTrueIndex </td>
-    <td valign=\"top\"> Returns the index of the first element of the Boolean vector that
-                      is true and returns 0, if no element is true </td> </tr>
+<tr><td valign=\"top\"> isEqual </td>
+    <td valign=\"top\"> Determine if two Real scalars are numerically identical. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math.Vectors</b></td></tr>
 <tr><td valign=\"top\"> find </td>
@@ -2970,13 +2968,25 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> Examples that demonstrate the usage of the Modelica.Math.Nonlinear functions
                       to integrate over functions and to solve scalar nonlinear equations. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
+<tr><td valign=\"top\"> allTrue </td>
+    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
+<tr><td valign=\"top\"> anyTrue </td>
+    <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
+<tr><td valign=\"top\"> oneTrue </td>
+    <td valign=\"top\"> Returns true, if exactly one element of the Boolean input vector is true. </td> </tr>
+<tr><td valign=\"top\"> firstTrueIndex </td>
+    <td valign=\"top\"> Returns the index of the first element of the Boolean vector that
+                      is true and returns 0, if no element is true </td> </tr>
+
+
 <tr><td colspan=\"2\"><b>Modelica.Icons.</b></td></tr>
 <tr><td valign=\"top\"> Information<br>
                       Contact<br>
                       ReleaseNotes<br>
                       References<br>
                       ExamplesPackage<br>
-                      Example<br>
+           " + "           Example<br>
                       Package<br>
                       BasesPackage<br>
                       VariantsPackage<br>
@@ -3010,7 +3020,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       ComplexAdmittance<br>
                       ComplexPower</td>
     <td valign=\"top\"> SIunits to be used in physical models using complex variables, e.g.,<br>
-                      <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>, 
+                      <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>,
                       <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> </td> </tr>
 
 </table>
@@ -3026,11 +3036,11 @@ have been <b style=\"color:blue\">improved</b> in a
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Electrical.</b></td></tr>
 <tr><td valign=\"top\"> MultiPhase.*</td>
-    <td valign=\"top\"> All dissipative components have now an optional heatPort connector 
+    <td valign=\"top\"> All dissipative components have now an optional heatPort connector
                       to which the dissipated losses are transported in form of heat.
                        </td> </tr>
 <tr><td valign=\"top\"> Machines.*</td>
-    <td valign=\"top\"> To all electric machines (asynchronous and synchronous induction machines, DC machines) 
+    <td valign=\"top\"> To all electric machines (asynchronous and synchronous induction machines, DC machines)
                       and transformers loss models have been added (where applicable): <br>
                       Temperature dependent resistances (ohmic losses) <br>
                       Friction losses <br>
@@ -3038,13 +3048,13 @@ have been <b style=\"color:blue\">improved</b> in a
                       Stray Load losses <br>
                       Core losses (only eddy current losses but no hysteresis losses; not for transformers) <br>
                       As default, temperature dependcy and losses are set to zero. <br><br>
-                      To all electric machines (asynchronous and synchronous induction machines, DC machines) 
-                      and transformers conditional thermal ports have been added, 
-                      to which the dissipated losses are flowing, if activated. 
-                      The thermal port contains a <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort\">HeatPort</a> 
+                      To all electric machines (asynchronous and synchronous induction machines, DC machines)
+                      and transformers conditional thermal ports have been added,
+                      to which the dissipated losses are flowing, if activated.
+                      The thermal port contains a <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort\">HeatPort</a>
                       for each loss source of the specific machine type. <br><br>
-                      To all electric machines (asynchronous and synchronous induction machines, DC machines) 
-                      a \"powerBalance\" result record has been added, summarizing converted power and losses. 
+                      To all electric machines (asynchronous and synchronous induction machines, DC machines)
+                      a \"powerBalance\" result record has been added, summarizing converted power and losses.
                        </td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.</b></td></tr>
 <tr><td valign=\"top\"> MultiBody.*<br>
@@ -3114,9 +3124,9 @@ units are wrong or errors in documentation):
 <tr><td valign=\"top\"> LossyGear</td>
     <td valign=\"top\"> In cases where the driving flange is not obvious, the component could
                       lead to a non-convergent event iteration. This has been fixed
-                      (a detailed description is provided in ticket 
+                      (a detailed description is provided in ticket
                       <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a>
-                      and in the 
+                      and in the
                       <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
                       of this ticket).</td> </tr>
 
@@ -3175,7 +3185,6 @@ have been fixed:
     <a href=\"https://trac.modelica.org/Modelica/ticket/292\">#292</a></td>
     <td valign=\"top\">Remove empty \"Diagram(graphics)\" annotations\"</td>
 </tr>
-
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/294\">#294</a></td>
     <td valign=\"top\">Typo 'w.r.t' --> 'w.r.t.'</td>
@@ -3533,10 +3542,11 @@ have been fixed:
     <td valign=\"top\">No uses statement on ModelicaServices in MSL 3.1</td>
 </tr>
 
-
 </table>
+
 <p>
 Note:
+</p>
 <ul>
 <li> Libraries
      <a href=\"http://www.modelica.org/libraries/Modelica_FundamentalWave\">Modelica_FundamentalWave</a>
@@ -3552,7 +3562,8 @@ Note:
      <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
-</html>"));
+
+"));
 end Version_3_2;
 
 class Version_3_1 "Version 3.1 (August 14, 2009)"
