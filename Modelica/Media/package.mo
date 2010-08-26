@@ -4679,18 +4679,18 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     type SpecificInternalEnergy = SpecificEnergy
       "Type for specific internal energy with medium specific attributes";
     type SpecificEnthalpy = SI.SpecificEnthalpy (
-        min=-1.0e8,
-        max=1.e8,
+        min=-1.0e10,
+        max=1.e10,
         nominal=1.e6)
       "Type for specific enthalpy with medium specific attributes";
     type SpecificEntropy = SI.SpecificEntropy (
-        min=-1.e6,
-        max=1.e6,
+        min=-1.e7,
+        max=1.e7,
         nominal=1.e3)
       "Type for specific entropy with medium specific attributes";
     type SpecificHeatCapacity = SI.SpecificHeatCapacity (
         min=0,
-        max=1.e6,
+        max=1.e7,
         nominal=1.e3,
         start=1.e3)
       "Type for specific heat capacity with medium specific attributes";
