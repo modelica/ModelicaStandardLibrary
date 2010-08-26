@@ -2043,7 +2043,7 @@ connected with continuous blocks or with sampled-data blocks.
     block ComplexExpression
       "Set output signal to a time varying Complex expression"
 
-      Modelica.ComplexBlocks.Interfaces.ComplexOutput y=Complex(0)
+      output Modelica.ComplexBlocks.Interfaces.ComplexOutput y=Complex(0)
         "Value of Complex output"
         annotation (                            Dialog(group=
               "Time varying output signal"), Placement(transformation(extent={{
