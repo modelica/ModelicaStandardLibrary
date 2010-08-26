@@ -2425,9 +2425,9 @@ This version is a major improvement:
      \"Modelica/Resources/Images/xxx\" is referenced as
      \"modelica://Modelica/Resources/Images/xxx\").</li>
 
-<li> All physical models that dissipate heat (such as electrical elements, electrical
-     motors, bearings, dampers, etc.), have now an optional heat port to which
-     the dissipated energy is flowing, if activated.
+<li> All physical models that dissipate heat (such as electrical elements, 
+     electrical machines, bearings, dampers, etc.), have now an optional heat port 
+     to which the dissipated energy is flowing, if activated.
      This will significantly improve design studies about the thermal efficiency
      of technical systems.</li>
 
@@ -2436,6 +2436,11 @@ This version is a major improvement:
      library have now a \"Losses\" tab in the parameter menu to optionally
      model machines losses such as frictional losses, stator core losses
      or stray load losses, respectively.</li>
+
+<li> All electrical machines in the
+     <a href=\"modelica://Modelica.Electrical.Machines\">Machines</a>
+     library have now a \"powerBalance\" result record, 
+     summarizing converted power and losses.</li>
 </ul>
 
 <p>
@@ -2466,7 +2471,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Complex\">Complex</a></td>
     <td valign=\"top\">
     This is a top-level record outside of the Modelica Standard Library.
-    It is used for complex numbers and contains overloaded operations.
+    It is used for complex numbers and contains overloaded operators.
     From a users point of view, Complex is used in a similar way as the
     built-in type Real. Example:<br>
     <code>&nbsp;  Real     a    = 2;</code><br>
@@ -2491,7 +2496,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a></td>
     <td valign=\"top\">
     Library for quasi-stationary electrical singlephase and multiphase AC simulation.<br>
-    This library allows very fast simulations of electrical circuits with periodic
+    This library allows very fast simulations of electrical circuits with sinusoidal 
     currents and voltages by only taking into account the quasi-stationary, periodic part
     and neglecting non-periodic transients.<br>
     (This library was developed by Anton Haumer and Christian Kral, AIT).
@@ -2714,6 +2719,75 @@ to <b style=\"color:blue\">existing</b> libraries:
                       WiredX </td>
     <td valign=\"top\"> Transfer gates, buffers, inverters and wired node.</td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Electrical.MultiPhase.Basic</b></td></tr>
+<tr><td valign=\"top\"> MutualInductor </td>
+    <td valign=\"top\"> Multi phase inductor providing a mutual inductance matrix model. </td> </tr>
+<tr><td valign=\"top\"> ZeroInductor </td>
+    <td valign=\"top\"> Multi phase zero sequence inductor. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines</b></td></tr>
+<tr><td valign=\"top\"> Examples </td>
+    <td valign=\"top\"> Structured according to machine types:<br>
+                      AsynchronousInductionMachines<br>
+                      SynchronousInductionMachines<br>
+                      DCMachines<br>
+                      Transformers </td> </tr>
+<tr><td valign=\"top\"> Losses.* </td>
+    <td valign=\"top\"> Parameter records and models for losses in electrical machines and transformers (where applicable): <br>
+                      Friction losses <br>
+                      Brush losses <br> 
+                      Stray Load losses <br>
+                      Core losses (only eddy current losses but no hysteresis losses; not for transformers) </td> </tr>
+<tr><td valign=\"top\"> Thermal.* </td>
+    <td valign=\"top\"> Simple thermal ambients, to be connected to the thermal ports of machines, <br>
+                      as well as material constants and utility functions. </td> </tr>
+<tr><td valign=\"top\"> Icons.* </td>
+    <td valign=\"top\"> Icons for transient and quasistationary electrical machines and transformers. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples</b></td></tr>
+<tr><td valign=\"top\"> AsynchronousInductionMachines.AIMC_withLosses </td>
+    <td valign=\"top\"> Asynchronous induction machine with squirrel cage with losses </td> </tr>
+<tr><td valign=\"top\"> AsynchronousInductionMachines.AIMC_Transformer </td>
+    <td valign=\"top\"> Asynchronous induction machine with squirrel cage - transformer starting </td> </tr>
+<tr><td valign=\"top\"> AsynchronousInductionMachines.AIMC_withLosses </td>
+    <td valign=\"top\"> Test example of an asynchronous induction machine with squirrel cage with losses </td> </tr>
+<tr><td valign=\"top\"> SynchronousInductionMachines.SMPM_CurrentSource </td>
+    <td valign=\"top\"> Permanent magnet synchronous induction machine fed by a current source </td> </tr>
+<tr><td valign=\"top\"> SynchronousInductionMachines.SMEE_LoadDump </td>
+    <td valign=\"top\"> Electrical excited synchronous induction machine with voltage controller </td> </tr>
+<tr><td valign=\"top\"> DCMachines.DCSE_SinglePhase </td>
+    <td valign=\"top\"> Series excited DC machine, fed by sinusoidal voltage </td> </tr>
+<tr><td valign=\"top\"> DCMachines.DCPM_Temperature </td>
+    <td valign=\"top\"> Permanent magnet DC machine, demonstration of varying tempoerature </td> </tr>
+<tr><td valign=\"top\"> DCMachines.DCPM_Cooling </td>
+    <td valign=\"top\"> Permanent magnet DC machine, coupled with a simple thermal model </td> </tr>
+<tr><td valign=\"top\"> DCMachines.DCPM_QuasiStationary </td>
+    <td valign=\"top\"> Permanent magnet DC machine, comparison between transient and quasistationary model </td> </tr>
+<tr><td valign=\"top\"> DCMachines.DCPM_Losses </td>
+    <td valign=\"top\"> Permanent magnet DC machine, comparison between model with and without losses </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines</b></td></tr>
+<tr><td valign=\"top\"> QuasiStationaryDCMachines.DC_PermanentMagnet <br>
+                      QuasiStationaryDCMachines.DC_ElectricalExcited <br>
+                      QuasiStationaryDCMachines.DC_SeriesExcited </td>
+    <td valign=\"top\"> QuasiStationary DC machines, i.e., neglecting electrical transients </td> </tr>
+<tr><td valign=\"top\"> Components.InductorDC </td>
+    <td valign=\"top\"> Inductor model which neglects der(i) if Boolean parameter quasiStationary = true </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Interfaces</b></td></tr>
+<tr><td valign=\"top\">  (Partial)ThermalPort* <br>
+                       (Partial)PowerBalance* </td>
+    <td valign=\"top\"> Thermal ports and power balances for electrical machines and transformers. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Utilities</b></td></tr>
+<tr><td valign=\"top\"> SwitchedRheostat </td>
+    <td valign=\"top\"> Switched rheostat, used for starting asynchronous induction motors with slipring rotor. </td> </tr>
+<tr><td valign=\"top\"> RampedRheostat </td>
+    <td valign=\"top\"> Ramped rheostat, used for starting asynchronous induction motors with slipring rotor. </td> </tr>
+<tr><td valign=\"top\"> SynchronousMachineData </td>
+    <td valign=\"top\"> The parameters of the synchronous machine model with electrical excitation (and damper) are calculated 
+                      from parameters normally given in a technical description, 
+                      according to the standard EN 60034-4:2008 Appendix C. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Examples.Elementary.</b></td></tr>
 <tr><td valign=\"top\"> HeatLosses </td>
@@ -2914,6 +2988,31 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> New icons to get a unified view on different categories
                       of packages. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.SIunits.</b></td></tr>
+<tr><td valign=\"top\"> ComplexCurrent<br>
+                      ComplexCurrentSlope<br>
+                      ComplexCurrentDensity<br>
+                      ComplexElectricPotential<br>
+                      ComplexPotentialDifference<br>
+                      ComplexVoltage<br>
+                      ComplexVoltageSlope<br>
+                      ComplexElectricFieldStrength<br>
+                      ComplexElectricFluxDensity<br>
+                      ComplexElectricFlux<br>
+                      ComplexMagneticFieldStrength<br>
+                      ComplexMagneticPotential<br>
+                      ComplexMagneticPotentialDifference<br>
+                      ComplexMagnetomotiveForce<br>
+                      ComplexMagneticFluxDensity<br>
+                      ComplexMagneticFlux<br>
+                      ComplexReluctance<br>
+                      ComplexImpedance<br>
+                      ComplexAdmittance<br>
+                      ComplexPower</td>
+    <td valign=\"top\"> SIunits to be used in physical models using complex variables, e.g.,<br>
+                      <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>, 
+                      <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> </td> </tr>
+
 </table>
 
 
@@ -2925,6 +3024,28 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Electrical.</b></td></tr>
+<tr><td valign=\"top\"> MultiPhase.*</td>
+    <td valign=\"top\"> All dissipative components have now an optional heatPort connector 
+                      to which the dissipated losses are transported in form of heat.
+                       </td> </tr>
+<tr><td valign=\"top\"> Machines.*</td>
+    <td valign=\"top\"> To all electric machines (asynchronous and synchronous induction machines, DC machines) 
+                      and transformers loss models have been added (where applicable): <br>
+                      Temperature dependent resistances (ohmic losses) <br>
+                      Friction losses <br>
+                      Brush losses <br>
+                      Stray Load losses <br>
+                      Core losses (only eddy current losses but no hysteresis losses; not for transformers) <br>
+                      As default, temperature dependcy and losses are set to zero. <br><br>
+                      To all electric machines (asynchronous and synchronous induction machines, DC machines) 
+                      and transformers conditional thermal ports have been added, 
+                      to which the dissipated losses are flowing, if activated. 
+                      The thermal port contains a <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort\">HeatPort</a> 
+                      for each loss source of the specific machine type. <br><br>
+                      To all electric machines (asynchronous and synchronous induction machines, DC machines) 
+                      a \"powerBalance\" result record has been added, summarizing converted power and losses. 
+                       </td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.</b></td></tr>
 <tr><td valign=\"top\"> MultiBody.*<br>
                       Rotational.*<br>
@@ -3012,8 +3133,7 @@ units are wrong or errors in documentation):
                         dtrsyl</td>
     <td valign=\"top\"> Integer inputs to specify leading dimensions of matrices have got a lower bound 1 (e.g., lda=max(1,n))
                       to avoid incorrect values (e.g., lda=0) in the case of empty matrices.<br>
-                      The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </t"
-               + "r>
+                      The Integer variable \"info\" to indicate the successful call of a LAPACK routine has been converted to an output where it had been a protected variable. </td> </tr>
 </table>
 
 
