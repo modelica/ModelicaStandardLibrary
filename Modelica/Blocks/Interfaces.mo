@@ -383,7 +383,7 @@ one continuous Real output signal.
       "Number of significant digits to be shown in dynamic diagram layer for y"
                                                                                 annotation(Dialog(tab="Advanced"));
     parameter Integer nu(min=0)=0 "Number of input connections"
-                                                              annotation(Dialog(__Dymola_connectorSizing=true), HideResult=true);
+                                                              annotation(Dialog(connectorSizing=true), HideResult=true);
     Modelica.Blocks.Interfaces.RealVectorInput u[nu]
       annotation (Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.RealOutput y

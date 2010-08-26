@@ -1804,7 +1804,7 @@ Integer type that can have the following values
 
     //Port definitions
     parameter Integer nTopPorts = 0 "Number of inlet ports above height (>= 1)"
-                                                  annotation(Dialog(__Dymola_connectorSizing=true));
+                                                  annotation(Dialog(connectorSizing=true));
 
     Vessels.BaseClasses.VesselFluidPorts_a topPorts[nTopPorts](redeclare
           package Medium = Medium, m_flow(each start=0, each min=0))

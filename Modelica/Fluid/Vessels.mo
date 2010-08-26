@@ -199,7 +199,7 @@ end OpenTank;
 
         // Port definitions
         parameter Integer nPorts=0 "Number of ports"
-          annotation(Evaluate=true, Dialog(__Dymola_connectorSizing=true, tab="General",group="Ports"));
+          annotation(Evaluate=true, Dialog(connectorSizing=true, tab="General",group="Ports"));
         VesselFluidPorts_b ports[nPorts](redeclare each package Medium = Medium)
         "Fluid inlets and outlets"
           annotation (Placement(transformation(extent={{-40,-10},{40,10}},

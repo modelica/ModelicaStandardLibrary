@@ -734,7 +734,7 @@ with exception of boundary flow rate, do not have an effect.
       "Partial component source with one fluid connector"
       import Modelica.Constants;
 
-    parameter Integer nPorts=0 "Number of ports" annotation(Dialog(__Dymola_connectorSizing=true));
+    parameter Integer nPorts=0 "Number of ports" annotation(Dialog(connectorSizing=true));
 
     replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium
