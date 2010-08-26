@@ -236,7 +236,7 @@ This component models the pressure loss in curved bends at overall flow regime f
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Bend;
-      parameter Bend.dp_edgedOverall_IN_con geometry "Geometry of edged bend" 
+      parameter Bend.dp_edgedOverall_IN_con geometry "Geometry of edged bend"
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
@@ -536,7 +536,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
       parameter Orifice.dp_thickEdgedOverall_IN_con geometry
-        "Geometry of curved bend" 
+        "Geometry of curved bend"
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
@@ -720,7 +720,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
       import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
       parameter Orifice.dp_suddenChange_IN_con geometry
-        "Geometry of sudden section change orifice" 
+        "Geometry of sudden section change orifice"
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
     /*
@@ -1088,7 +1088,7 @@ model SimpleGenericOrifice
     final momentumDynamics = Types.Dynamics.SteadyState);
 
   parameter SI.Diameter diameter "Diameter of orifice";
-  parameter Real zeta "Loss factor for flow of port_a -> port_b" 
+  parameter Real zeta "Loss factor for flow of port_a -> port_b"
     annotation(Dialog(enable=use_zeta));
   parameter Boolean use_zeta = true
       "= false to obtain zeta from dp_nominal and m_flow_nominal";
@@ -1098,10 +1098,10 @@ model SimpleGenericOrifice
   parameter SI.MassFlowRate m_flow_nominal = 1 "Mass flow rate for dp_nominal";
 
   parameter Boolean from_dp = true
-      "= true, use m_flow = f(dp) else dp = f(m_flow)" 
+      "= true, use m_flow = f(dp) else dp = f(m_flow)"
     annotation (Evaluate=true, Dialog(tab="Advanced"));
   parameter Medium.AbsolutePressure dp_small = system.dp_small
-      "Turbulent flow if |dp| >= dp_small" 
+      "Turbulent flow if |dp| >= dp_small"
     annotation(Dialog(tab="Advanced", enable=from_dp));
 
   // Variables
@@ -1299,8 +1299,8 @@ end SharpEdgedOrifice;
 
 model AbruptAdaptor
     "Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)"
-  extends BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea(final data
-        = BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(
+  extends BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea(final data=
+          BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion(
           diameter_a, diameter_b));
   parameter SI.Diameter diameter_a "Inner diameter of pipe at port_a";
   parameter SI.Diameter diameter_b "Inner diameter of pipe at port_b";
@@ -1374,16 +1374,16 @@ end AbruptAdaptor;
     replaceable package Medium=Modelica.Media.Interfaces.PartialMedium annotation(choicesAllMatching);
 
     // Ports
-    parameter Integer nPorts_b=1
+    parameter Integer nPorts_b=0
       "Number of outlet ports (mass is distributed evenly between the outlet ports"
-      annotation(Dialog(__Dymola_connectorSizing=true));
+      annotation(Dialog(connectorSizing=true));
 
     Modelica.Fluid.Interfaces.FluidPort_a port_a(
-      redeclare package Medium=Medium) 
+      redeclare package Medium=Medium)
       annotation (Placement(transformation(extent={{-50,-10},{-30,10}},
             rotation=0)));
     Modelica.Fluid.Interfaces.FluidPorts_b ports_b[nPorts_b](
-      redeclare each package Medium=Medium) 
+      redeclare each package Medium=Medium)
       annotation (Placement(transformation(extent={{30,40},{50,-40}},
                                   rotation=0)));
 
@@ -1611,10 +1611,10 @@ of the modeller.
           "Loss factors suited for Re >= Re_turbulent"                            annotation(Dialog);
       SI.Diameter D_Re "Diameter used to compute Re" annotation(Dialog);
       Boolean zeta1_at_a = true
-          "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)" 
+          "dp = zeta1*(if zeta1_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
                                                                         annotation(Dialog);
       Boolean zeta2_at_a = false
-          "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)" 
+          "dp = -zeta2*(if zeta2_at_a then rho_a*v_a^2/2 else rho_b*v_b^2/2)"
                                                                          annotation(Dialog);
       Boolean zetaLaminarKnown = false
           "= true, if zeta = c0/Re in laminar region"                              annotation(Dialog);
@@ -1869,13 +1869,13 @@ port_a to port_b as:
             Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData;
           import SI = Modelica.SIunits;
           input SI.Diameter diameter
-            "Inner diameter of pipe (= same at port_a and port_b)" 
+            "Inner diameter of pipe (= same at port_a and port_b)"
                                                                   annotation(Dialog);
-          input SI.Diameter leastDiameter "Smallest diameter of orifice" 
+          input SI.Diameter leastDiameter "Smallest diameter of orifice"
                                                                 annotation(Dialog);
-          input SI.Diameter length "Length of orifice" 
+          input SI.Diameter length "Length of orifice"
                                                  annotation(Dialog);
-          input NonSI.Angle_deg alpha "Angle of orifice" 
+          input NonSI.Angle_deg alpha "Angle of orifice"
                                                         annotation(Dialog);
           output LossFactorData data
             "Pressure loss factors for both flow directions";
@@ -2199,7 +2199,7 @@ Laminar region:
 */
          dp_turbulent :=(k1 + k2)/(rho_a + rho_b)*
                         ((mu_a + mu_b)*data.D_Re*pi/8)^2*data.Re_turbulent^2;
-         yd0 :=if data.zetaLaminarKnown then 
+         yd0 :=if data.zetaLaminarKnown then
                   (rho_a + rho_b)/(k0*(mu_a + mu_b)) else 0;
          m_flow := Utilities.regRoot2(dp, dp_turbulent, rho_a/k1, rho_b/k2,
                                                      data.zetaLaminarKnown, yd0);
@@ -2389,21 +2389,21 @@ The used sufficient criteria for monotonicity follows from:
 
         // Advanced
         parameter Boolean from_dp = true
-          "= true, use m_flow = f(dp) else dp = f(m_flow)" 
+          "= true, use m_flow = f(dp) else dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
         parameter Boolean use_Re = false
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         parameter Medium.AbsolutePressure dp_small = system.dp_small
-          "Turbulent flow if |dp| >= dp_small" 
+          "Turbulent flow if |dp| >= dp_small"
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-          "Turbulent flow if |m_flow| >= m_flow_small" 
+          "Turbulent flow if |m_flow| >= m_flow_small"
           annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
         // Diagnostics
         parameter Boolean show_Re = false
-          "= true, if Reynolds number is included for plotting" 
+          "= true, if Reynolds number is included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
               m_flow,
@@ -2421,20 +2421,20 @@ The used sufficient criteria for monotonicity follows from:
         F_p = A_mean*(Medium.pressure(state_b) - Medium.pressure(state_a));
         F_fg = A_mean*dp_fg;
         if from_dp then
-           m_flow = if use_Re then 
+           m_flow = if use_Re then
                        massFlowRate_dp_and_Re(
                           dp_fg, Medium.density(state_a), Medium.density(state_b),
                           Medium.dynamicViscosity(state_a),
                           Medium.dynamicViscosity(state_b),
-                          data) else 
+                          data) else
                        massFlowRate_dp(dp_fg, Medium.density(state_a), Medium.density(state_b), data, dp_small);
         else
-           dp_fg = if use_Re then 
+           dp_fg = if use_Re then
                    pressureLoss_m_flow_and_Re(
                        m_flow, Medium.density(state_a), Medium.density(state_b),
                        Medium.dynamicViscosity(state_a),
                        Medium.dynamicViscosity(state_b),
-                       data) else 
+                       data) else
                    pressureLoss_m_flow(m_flow, Medium.density(state_a), Medium.density(state_b), data, m_flow_small);
         end if;
 
@@ -2610,40 +2610,40 @@ The used sufficient criteria for monotonicity follows from:
         // Advanced
         /// Other settings than the final values are not yet implemented ///
         final parameter Boolean from_dp = false
-          "= true, use m_flow = f(dp) else dp = f(m_flow)" 
+          "= true, use m_flow = f(dp) else dp = f(m_flow)"
           annotation (Evaluate=true, Dialog(tab="Advanced"));
         final parameter Boolean use_Re = false
           "= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small"
           annotation(Evaluate=true, Dialog(tab="Advanced"));
         // End not yet implemented /////////////////////////////////////////
         parameter Medium.AbsolutePressure dp_small = system.dp_small
-          "Turbulent flow if |dp| >= dp_small" 
+          "Turbulent flow if |dp| >= dp_small"
           annotation(Dialog(tab="Advanced", enable=not use_Re and from_dp));
         parameter Medium.MassFlowRate m_flow_small = system.m_flow_small
-          "Turbulent flow if |m_flow| >= m_flow_small" 
+          "Turbulent flow if |m_flow| >= m_flow_small"
           annotation(Dialog(tab = "Advanced", enable=not from_dp));
 
         // Diagnostics
         parameter Boolean show_Re = false
-          "= true, if Reynolds number is included for plotting" 
+          "= true, if Reynolds number is included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
         SI.ReynoldsNumber Re = Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber_m_flow(
               m_flow,
               noEvent(if m_flow>0 then Medium.dynamicViscosity(state_a) else Medium.dynamicViscosity(state_b)),
               data.D_Re) if show_Re "Reynolds number at diameter data.D_Re";
         parameter Boolean show_totalPressures = false
-          "= true, if total pressures are included for plotting" 
+          "= true, if total pressures are included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
-        SI.AbsolutePressure p_total_a = port_a.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_a^2)^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if 
+        SI.AbsolutePressure p_total_a = port_a.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_a^2)^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if
              show_totalPressures "Total pressure at port_a";
-        SI.AbsolutePressure p_total_b = port_b.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_b^2)^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if 
+        SI.AbsolutePressure p_total_b = port_b.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_b^2)^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if
              show_totalPressures "Total pressure at port_a";
         parameter Boolean show_portVelocities = false
-          "= true, if port velocities are included for plotting" 
+          "= true, if port velocities are included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
-        SI.Velocity v_a = port_a.m_flow /(Modelica.Constants.pi/4 * data.diameter_a^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if 
+        SI.Velocity v_a = port_a.m_flow /(Modelica.Constants.pi/4 * data.diameter_a^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if
              show_portVelocities "Fluid velocity into port_a";
-        SI.Velocity v_b = port_b.m_flow /(Modelica.Constants.pi/4 * data.diameter_b^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if 
+        SI.Velocity v_b = port_b.m_flow /(Modelica.Constants.pi/4 * data.diameter_b^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if
              show_portVelocities "Fluid velocity into port_b";
 
         // Variables
@@ -2662,20 +2662,20 @@ The used sufficient criteria for monotonicity follows from:
         F_p = A_mean*(Medium.pressure(state_b) - Medium.pressure(state_a));
         F_fg = A_mean*dp_fg;
         if from_dp then
-           m_flow = if use_Re then 
+           m_flow = if use_Re then
                        massFlowRate_dp_and_Re(
                           dp_fg, Medium.density(state_a), Medium.density(state_b),
                           Medium.dynamicViscosity(state_a),
                           Medium.dynamicViscosity(state_b),
-                          data) else 
+                          data) else
                        massFlowRate_dp(dp_fg, Medium.density(state_a), Medium.density(state_b), data, dp_small);
         else
-           dp_fg = if use_Re then 
+           dp_fg = if use_Re then
                    pressureLoss_m_flow_and_Re(
                        m_flow, Medium.density(state_a), Medium.density(state_b),
                        Medium.dynamicViscosity(state_a),
                        Medium.dynamicViscosity(state_b),
-                       data) else 
+                       data) else
                    pressureLoss_m_flow_totalPressure(m_flow,
                      Medium.density(state_a),
                      Medium.density(state_b_des),
@@ -2837,8 +2837,8 @@ The used sufficient criteria for monotonicity follows from:
         SI.Area A_b = Modelica.Constants.pi * data.diameter_b^2/4
           "Cross section area at port_b";
       algorithm
-          dp := 1/2 * m_flow^2 *( if m_flow > 0 then 
-            data.zeta1/(if data.zeta1_at_a then rho_a_des    * A_a^2 else    rho_b_des * A_b^2) - 1/(rho_a_des    * A_a^2) + 1/(rho_b_des    * A_b^2) else 
+          dp := 1/2 * m_flow^2 *( if m_flow > 0 then
+            data.zeta1/(if data.zeta1_at_a then rho_a_des    * A_a^2 else    rho_b_des * A_b^2) - 1/(rho_a_des    * A_a^2) + 1/(rho_b_des    * A_b^2) else
             -data.zeta2/(if data.zeta2_at_a then rho_a_nondes * A_a^2 else rho_b_nondes * A_b^2) - 1/(rho_a_nondes * A_a^2) + 1/(rho_b_nondes * A_b^2));
         annotation (smoothOrder=1, Documentation(info="<html>
 <p>
@@ -2889,37 +2889,37 @@ where
       import Modelica.Fluid.Types.PortFlowDirection;
 
       replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
-        "Medium in the component" 
+        "Medium in the component"
         annotation (choicesAllMatching=true);
 
-      Modelica.Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium = 
-            Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then 
+      Modelica.Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium =
+            Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_1
-               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
+               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
-      Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium = 
-            Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then 
+      Modelica.Fluid.Interfaces.FluidPort_b port_2(redeclare package Medium =
+            Medium, m_flow(min=if (portFlowDirection_2 == PortFlowDirection.Entering) then
                     0.0 else -Modelica.Constants.inf, max=if (portFlowDirection_2
-               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
+               == PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=
                0)));
       Modelica.Fluid.Interfaces.FluidPort_a port_3(
         redeclare package Medium=Medium,
         m_flow(min=if (portFlowDirection_3==PortFlowDirection.Entering) then 0.0 else -Modelica.Constants.inf,
-        max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf)) 
+        max=if (portFlowDirection_3==PortFlowDirection.Leaving) then 0.0 else Modelica.Constants.inf))
         annotation (Placement(transformation(extent={{-10,90},{10,110}}, rotation=
                0)));
 
     protected
       parameter PortFlowDirection portFlowDirection_1=PortFlowDirection.Bidirectional
-        "Flow direction for port_1" 
+        "Flow direction for port_1"
        annotation(Dialog(tab="Advanced"));
       parameter PortFlowDirection portFlowDirection_2=PortFlowDirection.Bidirectional
-        "Flow direction for port_2" 
+        "Flow direction for port_2"
        annotation(Dialog(tab="Advanced"));
       parameter PortFlowDirection portFlowDirection_3=PortFlowDirection.Bidirectional
-        "Flow direction for port_3" 
+        "Flow direction for port_3"
        annotation(Dialog(tab="Advanced"));
 
       annotation(Icon(coordinateSystem(
@@ -2974,7 +2974,7 @@ where
           Medium.p_default,
           Medium.T_default,
           Medium.X_default)
-        "Nominal density (e.g., d_liquidWater = 995, d_air = 1.2)" 
+        "Nominal density (e.g., d_liquidWater = 995, d_air = 1.2)"
         annotation (Dialog(enable=use_nominal, group="Fluid properties"));
 
     /*
