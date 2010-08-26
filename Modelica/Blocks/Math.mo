@@ -570,7 +570,6 @@ All other blocks convert exactly between two different units.
 </html>"));
   end UnitConversions;
 
-
   block InverseBlockConstraints
     "Construct inverse model by requiring that two inputs and two outputs are identical (replaces the previously, unbalanced, TwoInputs and TwoOutputs blocks)"
 
@@ -842,7 +841,8 @@ block MultiSwitch
 initial equation
   pre(u) = fill(false,nu);
 equation
-  firstActiveIndex = Modelica.Math.firstTrueIndex(u);
+  firstActiveIndex = Modelica.Math.BooleanVectors.firstTrueIndex(
+                                                  u);
    y = if firstActiveIndex == 0 then y_default else expr[firstActiveIndex];
   annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{300,100}},

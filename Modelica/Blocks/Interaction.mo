@@ -3,7 +3,6 @@ package Interaction
   "Library of user interaction blocks to input and to show variables in a diagram animation"
   extends Modelica.Icons.Package;
 
-
   package Show "Library of blocks to show variables in a diagram animation"
     extends Modelica.Icons.Package;
 
@@ -37,7 +36,7 @@ package Interaction
                 fillPattern=FillPattern.Solid,
                 borderPattern=BorderPattern.Raised),
               Text(extent={{-94,-34},{96,34}}, textString=DynamicSelect("0.0",
-                    String(showNumber, significantDigits=2))),
+                    String(showNumber, significantDigits=significantDigits))),
               Text(
                 visible=not use_numberPort,
                 extent={{-150,-50},{150,-70}},

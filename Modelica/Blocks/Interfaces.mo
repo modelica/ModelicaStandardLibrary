@@ -379,7 +379,7 @@ one continuous Real output signal.
   partial block PartialRealMISO
     "Partial block with a RealVectorInput and a RealOutput signal"
 
-    parameter Integer precision(min=0) = 3
+    parameter Integer significantDigits(min=1) = 3
       "Number of significant digits to be shown in dynamic diagram layer for y"
                                                                                 annotation(Dialog(tab="Advanced"));
     parameter Integer nu(min=0)=0 "Number of input connections"
@@ -401,10 +401,7 @@ one continuous Real output signal.
           Text(
             extent={{110,-50},{300,-70}},
             lineColor={0,0,0},
-            textString=DynamicSelect(" ", realString(
-                    y,
-                    1,
-                    integer(precision)))),
+            textString=DynamicSelect(" ", String(y,significantDigits=significantDigits))),
           Text(
             extent={{-250,170},{250,110}},
             textString="%name",

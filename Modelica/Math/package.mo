@@ -10683,6 +10683,7 @@ Note: A' is a short hand notation of transpose(A):
 "));
 end Matrices;
 
+
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
   input Real s1 "First scalar";
@@ -10805,7 +10806,6 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </html>"), Library="ModelicaExternalC");
 end sin;
 
-
 function cos "Cosine"
   extends baseIcon1;
   input SI.Angle u;
@@ -10880,7 +10880,6 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end cos;
-
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends baseIcon2;
@@ -10959,7 +10958,6 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 </html>"), Library="ModelicaExternalC");
 end tan;
-
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends baseIcon2;
@@ -11040,7 +11038,6 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </html>"), Library="ModelicaExternalC");
 end asin;
 
-
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
@@ -11116,7 +11113,6 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </html>"), Library="ModelicaExternalC");
 end acos;
 
-
 function atan "Inverse tangent"
   extends baseIcon2;
   input Real u;
@@ -11185,7 +11181,6 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end atan;
-
 
 function atan2 "Four quadrant inverse tangent"
   extends baseIcon2;
@@ -11286,7 +11281,6 @@ u1 = sin(y) and u2 = cos(y):
 </HTML>
 "),        Library="ModelicaExternalC");
 end atan2;
-
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
@@ -11392,7 +11386,6 @@ shall be returned:
 "));
 end atan3;
 
-
 function sinh "Hyperbolic sine"
   extends baseIcon2;
   input Real u;
@@ -11473,7 +11466,6 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end sinh;
-
 
 function cosh "Hyperbolic cosine"
   extends baseIcon2;
@@ -11556,7 +11548,6 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </html>"), Library="ModelicaExternalC");
 end cosh;
 
-
 function tanh "Hyperbolic tangent"
   extends baseIcon2;
   input Real u;
@@ -11625,7 +11616,6 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end tanh;
-
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.baseIcon2;
@@ -11709,7 +11699,6 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 </html>"));
 end asinh;
-
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   import Modelica.Utilities.Streams.*;
@@ -11805,7 +11794,6 @@ can become close to 1:
 </html>"));
 end acosh;
 
-
 function exp "Exponential, base e"
   extends baseIcon2;
   input Real u;
@@ -11884,7 +11872,6 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end exp;
-
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends baseIcon1;
@@ -11967,7 +11954,6 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log;
 
-
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
@@ -12049,7 +12035,6 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log10;
 
-
 partial function baseIcon1
   "Basic icon for mathematical function with y-axis on left side"
 
@@ -12092,7 +12077,6 @@ It is expected, that an x-axis is added and a plot of the function.
 </html>"));
 end baseIcon1;
 
-
 partial function baseIcon2
   "Basic icon for mathematical function with y-axis in middle"
 
@@ -12134,121 +12118,26 @@ It is expected, that an x-axis is added and a plot of the function.
 end baseIcon2;
 
 
-function allTrue
-  "Returns true, if all elements of the Boolean input vector are true ('and')"
-  extends Modelica.Icons.Function;
-  input Boolean b[:] "Boolean vector";
-  output Boolean result "= true, if all elements of b are true";
-algorithm
-  result := true;
-  for i in 1:size(b,1) loop
-     result := result and b[i];
-  end for;
-    annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<b>allTrue</b>(b);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
-Otherwise the function returns <b>false</b>.
-</p>
-
-<h4>Example</h4>
-<blockquote><pre>
-  Boolean b1[3] = {true, true, true};
-  Boolean b2[3] = {false, true, false};
-  Boolean r1, r2;
-<b>algorithm</b>
-  r1 = allTrue(b1);  // r1 = true
-  r2 = allTrue(b2);  // r2 = false
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
-</p>
-
-</html>"));
-end allTrue;
 
 
-function anyTrue
-  "Returns true, if at least on element of the Boolean input vector is true ('or')"
-
-  extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Boolean result;
-algorithm
-  result := false;
-  for i in 1:size(b,1) loop
-     result := result or b[i];
-  end for;
-  annotation (Documentation(info="<html>
-<h4>Syntax</h4>
-<blockquote><pre>
-<b>anyTrue</b>(b);
-</pre></blockquote>
-
-<h4>Description</h4>
-<p>
-Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>.
-</p>
-
-<h4>Example</h4>
-<blockquote><pre>
-  Boolean b1[3] = {false, false, false};
-  Boolean b2[3] = {false, true, false};
-  Boolean r1, r2;
-<b>algorithm</b>
-  r1 = anyTrue(b1);  // r1 = false
-  r2 = anyTrue(b2);  // r2 = true
-</pre></blockquote>
-
-<h4>See also</h4>
-<p>
-<a href=\"modelica://Modelica.Math.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
-</p>
-</html>"));
-end anyTrue;
 
 
-function oneTrue
-  "Returns true, if exactly one element of the Boolean input vector is true ('xor')"
-
-  extends Modelica.Icons.Function;
-  input Boolean b[:];
-  output Boolean result;
-protected
-  Integer count = 0;
-algorithm
-  for i in 1:size(b,1) loop
-     count := if b[i] then count+1 else count;
-  end for;
-  result :=count == 1;
-end oneTrue;
 
 
-function firstTrueIndex
-  "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
-   input Boolean b[:];
-   output Integer index;
-algorithm
-   index :=0;
-   for i in 1:size(b,1) loop
-      if b[i] then
-         index :=i;
-         return;
-      end if;
-   end for;
-end firstTrueIndex;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 function tempInterpol1

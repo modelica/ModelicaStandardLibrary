@@ -28,7 +28,8 @@ block MultiSwitch
 initial equation
   pre(y) = y_default;
 equation
-  firstActiveIndex = Modelica.Math.firstTrueIndex(u);
+  firstActiveIndex = Modelica.Math.BooleanVectors.firstTrueIndex(
+                                                  u);
   y = if firstActiveIndex > 0 then expr[firstActiveIndex] else
       if use_pre_as_default then pre(y) else y_default;
   annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -178,7 +179,6 @@ The usage is demonstrated, e.g., in example
 
 </html>"));
   end Product;
-
 
   block TriggeredAdd
     "Add input to previous value of output, if rising edge of trigger port"

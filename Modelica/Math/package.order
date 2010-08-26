@@ -1,7 +1,9 @@
 Vectors
 Matrices
 Nonlinear
+BooleanVectors
 Interfaces
+isEqual
 sin
 cos
 tan
@@ -20,10 +22,5 @@ log
 log10
 baseIcon1
 baseIcon2
-isEqual
-allTrue
-anyTrue
-oneTrue
-firstTrueIndex
 tempInterpol1
 tempInterpol2

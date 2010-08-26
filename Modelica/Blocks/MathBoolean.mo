@@ -29,7 +29,8 @@ block MultiSwitch
   Integer firstActiveIndex;
 equation
     firstActiveIndex =
-      Modelica.Math.firstTrueIndex(u);
+      Modelica.Math.BooleanVectors.firstTrueIndex(
+                                   u);
    y = if firstActiveIndex == 0 then (if use_pre_as_default then pre(y) else y_default) else
                                      expr[firstActiveIndex];
   annotation (
@@ -104,7 +105,8 @@ end MultiSwitch;
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica.Math.allTrue(u);
+    y = Modelica.Math.BooleanVectors.allTrue(
+                              u);
     annotation (defaultComponentName="and1", Icon(graphics={Text(
               extent={{-76,40},{60,-40}},
               lineColor={0,0,0},
@@ -135,7 +137,8 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica.Math.anyTrue(u);
+    y = Modelica.Math.BooleanVectors.anyTrue(
+                              u);
     annotation (defaultComponentName="or1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
               lineColor={0,0,0},
@@ -166,7 +169,8 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = Modelica.Math.oneTrue(u);
+    y = Modelica.Math.BooleanVectors.oneTrue(
+                              u);
     annotation (defaultComponentName="xor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
               lineColor={0,0,0},
@@ -196,7 +200,8 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = not Modelica.Math.allTrue(u);
+    y = not Modelica.Math.BooleanVectors.allTrue(
+                                  u);
     annotation (defaultComponentName="nand1", Icon(graphics={Text(
               extent={{-78,36},{64,-30}},
               lineColor={0,0,0},
@@ -226,7 +231,8 @@ The usage is demonstrated, e.g., in example
     extends Modelica.Blocks.Interfaces.PartialBooleanMISO;
 
   equation
-    y = not Modelica.Math.anyTrue(u);
+    y = not Modelica.Math.BooleanVectors.anyTrue(
+                                  u);
     annotation (defaultComponentName="nor1", Icon(graphics={Text(
               extent={{-80,40},{60,-40}},
               lineColor={0,0,0},
