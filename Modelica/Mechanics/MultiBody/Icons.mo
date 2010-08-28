@@ -17,19 +17,19 @@ extends Modelica.Icons.Package;
             textString="%name")}), Documentation(info="<html>
 <p>
 Model <b>Surface</b> defines a moveable, parametrized surface in 3-dim. space
-that is used for animation. This object is specified by: 
+that is used for animation. This object is specified by:
 </p>
 
 <ul>
 <li> The surface frame (orientation object \"R\" and origin \"r_0\")
      in which the data is specified.</li>
-<li> A set of two parameters, one in u- and one in v-direction, 
+<li> A set of two parameters, one in u- and one in v-direction,
      that defines the control points. </li>
-<li> A time-varying position of each control point with respect to    
+<li> A time-varying position of each control point with respect to
      the surface frame.</li>
 </ul>
 
-<p> 
+<p>
 The parameter values (u,v) are given by the ordinal numbers of the
 corresponding control point in u- or in v-direction, respectively.
 The surface is then defined by the replaceable function \"surfaceCharacteristic\" with the

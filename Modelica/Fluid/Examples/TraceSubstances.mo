@@ -72,7 +72,7 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
       Documentation(info="<html>
 
 <p>
-This example consists of a volume with a carbon dioxide concentration that corresponds to 
+This example consists of a volume with a carbon dioxide concentration that corresponds to
 1.519E-3 kg/kg, which is equal to 1000 PPM.
 There is a fresh air stream with a carbon dioxide concentration of about 300 PPM.
 The fresh air stream is such that the air exchange rate is about 5 air changes per hour.

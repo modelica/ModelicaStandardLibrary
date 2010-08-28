@@ -3466,7 +3466,7 @@ have been fixed:
 
 <tr><td valign=\"top\">
     <a href=\"https://trac.modelica.org/Modelica/ticket/393\">#393</a></td>
-    <td valign=\"top\">Provide C_nominal in Modelica.Media to allow propagating 
+    <td valign=\"top\">Provide C_nominal in Modelica.Media to allow propagating
                      value and avoid wrong numerical results</td>
 </tr>
 

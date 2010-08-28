@@ -20,7 +20,7 @@ to a function, see, .e.g.,
 end partialScalarFunction;
   annotation (Documentation(info="<html>
 <p>
-Interface definitions of functions. The main purpose is to use functions 
+Interface definitions of functions. The main purpose is to use functions
 derived from these interface definitions as function arguments
 to a function, see, .e.g.,
 <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Math.Nonlinear.Examples</a>.

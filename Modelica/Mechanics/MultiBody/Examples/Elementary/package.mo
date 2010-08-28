@@ -117,7 +117,7 @@ the usage of the MultiBody library
   </tr>
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.Surfaces\">Surfaces</a></td>
-      <td valign=\"top\"> Demonstrate the visualization of a sine surface, 
+      <td valign=\"top\"> Demonstrate the visualization of a sine surface,
        as well as a torus and a wheel constucted from a surface <br>
       <img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/Surfaces_small.png\">
       </td>

@@ -997,7 +997,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Icon(coordinateSystem(
@@ -1126,7 +1126,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Icon(coordinateSystem(
@@ -1228,7 +1228,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Icon(coordinateSystem(
@@ -1321,7 +1321,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
 <p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not for fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),Icon(coordinateSystem(
             preserveAspectRatio=true,

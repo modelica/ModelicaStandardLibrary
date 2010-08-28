@@ -698,11 +698,11 @@ MultiBody library</a> summarizes the most important aspects.
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
 <p>
-Line force elements, such as a 
+Line force elements, such as a
 <a href=\"Modelica.Mechanics.MultiBody.Forces.Spring\">Spring</a>,
 are usually connected between two parts. In fact, this is the only possibility
 in most multi-body programs. In an equation based system like Modelica, more
-general connections are possible. In particular 
+general connections are possible. In particular
 <b>3-dimensional line force</b> elements can be connected together
 in <b>series</b> without having a body with mass at the
 connection point. This is advantageous since stiff systems can be avoided, say, due to
@@ -764,11 +764,11 @@ A typical example is shown in the next figure:
 </p></blockquote>
 
 <p>
-Here, spring3.frame_b.R is defined to be in parallel to the world frame. 
+Here, spring3.frame_b.R is defined to be in parallel to the world frame.
 However, this is then also the orientation of fixedTranslation.frame_a, and this
 in turn means that the left part of the fixedTranslation object is always in parallel
 to the world frame. Since this is not correct, this model
-will result in a <b>wrong simulation result</b> 
+will result in a <b>wrong simulation result</b>
 This system is mathematically not well-defined and does not have a solution.
 The only way to model such a system is by providing a mass and an inertia tensor
 to fixedTranslation. Then, the flags are not needed, because the \"connection\"
@@ -1157,7 +1157,7 @@ model World
                    Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity),
     Documentation(info="<html>
 <p>Replaceable function to define the gravity field.
-   Default is function 
+   Default is function
    <a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.Internal.standardGravityAcceleration\">standardGravityAcceleration</a>
    that provides some simple gravity fields (no gravity, constant parallel gravity field,
    point gravity field).

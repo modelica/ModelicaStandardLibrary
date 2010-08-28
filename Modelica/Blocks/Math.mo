@@ -770,7 +770,7 @@ y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
 The input connector is a vector of Real input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -804,7 +804,7 @@ y = u[1]*u[2]* ... *u[N];
 The input connector is a vector of Real input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -884,7 +884,7 @@ This block has a vector of Boolean input signals u[nu] and a vector of
 set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
 false, y is set to parameter \"y_default\".
 </p>
- 
+
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
@@ -895,7 +895,7 @@ false, y is set to parameter \"y_default\".
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 

@@ -1497,7 +1497,7 @@ general Modelica class:
      array local variable [i.e., a non-input components] of a function must
      be either given by the input formal parameters, or given by constant
      or parameter expressions, or by expressions containing combinations
-     of those. If an output or a local array dimension is declared with (:), 
+     of those. If an output or a local array dimension is declared with (:),
      the size of the dimension can be changed in the function. A size change
      takes place by assigning a full array with the respective sizes to the
      dynamically sized array on the left hand side of an equal sign.</li>
@@ -1541,10 +1541,10 @@ Modelica functions have the following enhancements compared to a general Modelic
 
 <p>
 A function may have a function as an input argument.
-The declared type of such an input formal parameter in a function can be 
-the class-name of a partial function that has no replaceable elements. 
+The declared type of such an input formal parameter in a function can be
+the class-name of a partial function that has no replaceable elements.
 It cannot be the class-name of a record [i.e., <i>record constructor functions are not
-allowed in this context.</i>] Such an input formal parameter of function type 
+allowed in this context.</i>] Such an input formal parameter of function type
 can also have an optional functional default value. Example:
 </p>
 
@@ -1566,7 +1566,7 @@ can also have an optional functional default value. Example:
 </pre></blockquote>
 
 <p>
-A functional argument can be provided in one of the following forms 
+A functional argument can be provided in one of the following forms
 to be passed to a formal parameter of function type in a function call
 (see examples below):
 </p>
@@ -1574,12 +1574,12 @@ to be passed to a formal parameter of function type in a function call
 <li> as a function name,</li>
 <li> as a function partial application, </li>
 <li> as a function that is a component,</li>
-<li> as a function partial application of a function 
+<li> as a function partial application of a function
      that is a component.<li>
 </ol>
 
 <p>
-In all cases the provided function must be \"function type compatible\" 
+In all cases the provided function must be \"function type compatible\"
 to the corresponding formal parameter of function type. Example:
 </li>
 
@@ -1594,7 +1594,7 @@ to the corresponding formal parameter of function type. Example:
 
 area = quadrature(0, 1, Parabola);
 
-// The quadrature2 example below uses a function integrand that 
+// The quadrature2 example below uses a function integrand that
 // is a component as input argument according to case (c):
 <b>function</b> quadrature2 \"Integrate function y=integrand(x) from x1 to x2\"
   <b>input</b>  Real x1;
@@ -1608,12 +1608,12 @@ area = quadrature(0, 1, Parabola);
 </pre></blockquote>
 
 <p>
-A function partial application is a function call with certain 
-formal parameters bound to expressions. A function partial application 
-returns a partially evaluated function that is also a function, 
-with the remaining not bound formal parameters still present in the 
-same order as in the original function declaration. A function partial 
-application is specified by the function keyword followed by a function 
+A function partial application is a function call with certain
+formal parameters bound to expressions. A function partial application
+returns a partially evaluated function that is also a function,
+with the remaining not bound formal parameters still present in the
+same order as in the original function declaration. A function partial
+application is specified by the function keyword followed by a function
 call to func_name giving named formal parameter associations for the
 formal parameters to be bound, e.g.:
 </p>
@@ -1623,15 +1623,15 @@ formal parameters to be bound, e.g.:
 </pre></blockquote>
 
 <p>
-[<i>Note that the keyword function in a function partial application 
-differentiates the syntax from a normal function call where some 
+[<i>Note that the keyword function in a function partial application
+differentiates the syntax from a normal function call where some
 parameters have been left out, and instead supplied via default values.</i>]
-The function created by the function partial application acts as the 
-original function but with the bound formal input parameters(s) removed, 
-i.e., they cannot be supplied arguments at function call. The binding 
-occurs when the partially evaluated function is created. A partially 
-evaluated function is \"function compatible\" to the same function where 
-all bound arguments are removed [<i>thus, for checking function type 
+The function created by the function partial application acts as the
+original function but with the bound formal input parameters(s) removed,
+i.e., they cannot be supplied arguments at function call. The binding
+occurs when the partially evaluated function is created. A partially
+evaluated function is \"function compatible\" to the same function where
+all bound arguments are removed [<i>thus, for checking function type
 compatibility, bound formal parameters are ignored</i>].
 </p>
 
@@ -1678,7 +1678,7 @@ application:
   y:=A*Modelica.Math.sin(w*x);
 <b>end</b> Sine2;
 
-// The partially evaluated Sine2 has only one argument: 
+// The partially evaluated Sine2 has only one argument:
 // x - and is thus type compatible with Integrand.
 area = quadrature(0, 1, integrand = <b>function</b> Sine2(A=2, w=3));
 </pre></blockquote>
@@ -1715,7 +1715,7 @@ a component, according to case (d) above:
   <b>output</b> Real integral;
 <b>algorithm</b>
    // Case (b) and (c)
-   integral := quadrature(x1, x2, 
+   integral := quadrature(x1, x2,
      <b>function</b> quadratureOnce(y1=y1, y2=y2, integrand=integrand);
 <b>end</b> surfaceQuadrature;
 </pre></blockquote>

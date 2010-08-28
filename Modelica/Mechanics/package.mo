@@ -36,7 +36,7 @@ of 1-dim. rotational, 1-dim. translational, and
 
 <p>
 Note, all <b>dissipative</b> components of the Modelica.Mechanics library have
-an optional <b>heatPort</b> connector to which the 
+an optional <b>heatPort</b> connector to which the
 dissipated energy is transported in form of heat. This connector is enabled
 via parameter \"useHeatPort\". If the heatPort connector is enabled,
 it must be connected, and if it is not enabled, it must not be connected.

@@ -2852,7 +2852,7 @@ numerical methods. The method is described in: </P>
 
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
-<dd><i>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>. 
+<dd><i>Hybrid Modeling in Modelica based on the Synchronous Data Flow Principle</i>.
     CACSD'99, Aug. 22.-26, Hawaii. </dd>
 </dl>
 
@@ -2878,12 +2878,12 @@ Armstrong B. (1991):</dt>
 
 <h4>Optional heatPort</h4>
 <p>
-The dissipated energy is transported in form of heat to the optional heatPort connector 
+The dissipated energy is transported in form of heat to the optional heatPort connector
 that can be enabled via parameter \"useHeatPort\". Independently whether the heatPort is
 or is not enabled, the dissipated power is defined with variable \"lossPower\".
 If contact occurs at the hard stops, the lossPower is not correctly modelled
 at this time instant, because the hard stop would introduce a dirac impulse
-in the lossPower due to the discontinuously changing kinetic energy of the mass 
+in the lossPower due to the discontinuously changing kinetic energy of the mass
 (lossPower is the derivative of the kinetic energy at the time instant of the impact).
 </p>
 
@@ -5295,7 +5295,7 @@ numerical DAE integrators can cope at most with index 2 DAEs).
 
 <p>
 In version 3.2 of the Modelica Standard Library, all <b>dissipative</b> components
-of the Translational library got an optional <b>heatPort</b> connector to which the 
+of the Translational library got an optional <b>heatPort</b> connector to which the
 dissipated energy is transported in form of heat. This connector is enabled
 via parameter \"useHeatPort\". If the heatPort connector is enabled,
 it must be connected, and if it is not enabled, it must not be connected.
@@ -5353,7 +5353,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Universit&aum
 <li><i>Version 1.2.0 2010-07-22</i>
        by Anton Haumer and Martin Otter<br>
        heatPort introduced for all dissipative elements, and
-       text in icons improved. 
+       text in icons improved.
        <br></li>
 
 <li><i>Version 1.1.0 2007-11-16</i>

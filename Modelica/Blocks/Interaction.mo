@@ -51,7 +51,7 @@ The number to be visualized can be defined in the following ways:
 <li> If useNumberPort = <b>true</b> (which is the default), a Real
      input is present and this input variable is shown.</li>
 
-<li> If useNumberPort = <b>false</b> no input connector is present. 
+<li> If useNumberPort = <b>false</b> no input connector is present.
      Instead, a Real input field is activated in the parameter menu
      and the Real expression from this input menu is shown.</li>
 </ul>
@@ -110,7 +110,7 @@ The number to be visualized can be defined in the following ways:
 <li> If useNumberPort = <b>true</b> (which is the default), an Integer
      input is present and this input variable is shown.</li>
 
-<li> If useNumberPort = <b>false</b> no input connector is present. 
+<li> If useNumberPort = <b>false</b> no input connector is present.
      Instead, an Integer input field is activated in the parameter menu
      and the Integer expression from this input menu is shown.</li>
 </ul>
@@ -168,7 +168,7 @@ The Boolean variable to be visualized can be defined in the following ways:
 <li> If useActivePort = <b>true</b> (which is the default), a Boolean
      input is present and this input variable is shown.</li>
 
-<li> If useActivePort = <b>false</b> no input connector is present. 
+<li> If useActivePort = <b>false</b> no input connector is present.
      Instead, a Boolean input field is activated in the parameter menu
      and the Boolean expression from this input menu is shown.</li>
 </ul>

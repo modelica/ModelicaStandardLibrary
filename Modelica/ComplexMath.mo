@@ -620,7 +620,7 @@ end Vectors;
 
   annotation (Documentation(info="<html>
 <p>
-This package contains <b>basic mathematical functions</b> 
+This package contains <b>basic mathematical functions</b>
 operating on complex numbers (such as sin(..)),
 as well as functions operating on vectors of complex numbers.
 </p>

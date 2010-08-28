@@ -3484,11 +3484,11 @@ are formally defined as:
 </p>
 
 <blockquote><pre>
-<b>if</b> (flange_a.tau - tau_bf_a)*w_a &gt; 0 <b>or</b> 
+<b>if</b> (flange_a.tau - tau_bf_a)*w_a &gt; 0 <b>or</b>
    (flange_a.tau - tau_bf_a) == 0 <b>and</b> w_a &gt; 0 <b>then</b>
    eta_mf := eta_mf1
    tau_bf := tau_bf1
-<b>elseif</b> (flange_a.tau - tau_bf_a)*w_a &lt; 0 <b>or</b> 
+<b>elseif</b> (flange_a.tau - tau_bf_a)*w_a &lt; 0 <b>or</b>
        (flange_a.tau - tau_bf_a) == 0 <b>and</b> w_a &lt; 0 <b>then</b>
    eta_mf := 1/eta_mf2
    tau_bf := tau_bf2
@@ -3510,7 +3510,7 @@ e.g., chattering occurs when using the
 Modelica.Mechanics.Rotational.GearEfficiency model.
 </p>
 
-<h4>Acknowledgement:</h4> 
+<h4>Acknowledgement:</h4>
 <ul>
 <li> The essential idea to model efficiency
      in this way is from Christoph Pelchen, ZF Friedrichshafen.</li>
@@ -3537,7 +3537,7 @@ Deutsches Zentrum f&uuml;r Luft- und Raumfahrt e. V., March 18-19, 2002.</li>
 
 <li>Bertsch C. (2009):
 &quot;<a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">Problem
-with model LossyGear and a proposed solution</a>&quot;, 
+with model LossyGear and a proposed solution</a>&quot;,
 Ticket <a href=\"https://trac.modelica.org/Modelica/ticket/108\">#108</a>,
 Sept. 11, 2009.</li>
 </ul>

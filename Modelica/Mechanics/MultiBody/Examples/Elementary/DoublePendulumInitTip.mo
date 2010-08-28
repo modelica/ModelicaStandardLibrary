@@ -69,7 +69,7 @@ The absolute position of the pendulum tip, and its absolute speed
 shall be initially defined. This can be performed with the
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.FreeMotionScalarInit\">Joints.FreeMotionScalarInit</a>
 joint that allows to initialize individual elements of its relative vectors.
-In this case, the x-, and y-coordinates of the relative position vector 
+In this case, the x-, and y-coordinates of the relative position vector
 (visualized by the yellow arrow in the figure below) and of its
 derivative shall have a defined value at initial time.
 The configuration of the double pendulum at the initial time is

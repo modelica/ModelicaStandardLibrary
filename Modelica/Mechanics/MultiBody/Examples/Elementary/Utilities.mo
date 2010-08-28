@@ -42,7 +42,7 @@ package Utilities
     gravity :={0,-gh,0};
     annotation (Documentation(info="<html>
 <p>
-Function that computes the theoretical gravity of the 
+Function that computes the theoretical gravity of the
 <a href=\"http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf\">WGS84 ellipsoid earth model</a> at and close to the earth ellipsoid surface, for the
 given \"geodeticLatitude\" and the given \"height=r[2]\" over the
 ellipsoid surface.

@@ -3013,7 +3013,7 @@ changes its value to the negated value of the previous one.
                                     graphics),
         Documentation(info="<html>
 <p>
-Boolean signal source that mimics a radio button: 
+Boolean signal source that mimics a radio button:
 Via a table, a radio button is pressed (i.e., the output 'on' is set to true) and is reset when an element of the Boolean vector
 'reset' becomes true. If both appear at the same time instant, setting
 the button according to the table has a higher priority as reseting
@@ -3036,7 +3036,7 @@ This gives the following result:
 </blockquote>
 
 <p>
-This example is also available in 
+This example is also available in
 <a href=\"Modelica.Blocks.Examples.Interaction1\">Modelica.Blocks.Examples.Interaction1</a>
 </p>
 
@@ -3372,9 +3372,9 @@ then the output y = table[end,2].
 Example:
 </p>
 <pre>
-   table = [  0, 1; 
-              1, 4; 
-            1.5, 5; 
+   table = [  0, 1;
+              1, 4;
+            1.5, 5;
               2, 6];
 </pre>
 <p>

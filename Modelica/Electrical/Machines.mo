@@ -1522,9 +1522,9 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
-A synchronous induction machine with permanent magnets is driven with constant speed. 
-The rms values of d- and q-current in rotor fixed coordinate system are converted to threephase currents, 
-and fed to the machine. The result shows that the torque is influenced by the q-current, 
+A synchronous induction machine with permanent magnets is driven with constant speed.
+The rms values of d- and q-current in rotor fixed coordinate system are converted to threephase currents,
+and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.<br>
 Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
 </HTML>"));
@@ -13789,7 +13789,7 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
         Documentation(info="<HTML>
 Simple Current-Controller.<br>
 The desired rms values of d- and q-component of the space phasor in rotor fixed coordinate system are given by inputs \"id_rms\" and \"iq_rms\".
-Using the given rotor position (input \"phi\"), the correct threephase currents (output \"i[3]\")are calculated. 
+Using the given rotor position (input \"phi\"), the correct threephase currents (output \"i[3]\")are calculated.
 They can be used to feed a current source which in turn feeds an induction machine.
 </HTML>"));
     end CurrentController;

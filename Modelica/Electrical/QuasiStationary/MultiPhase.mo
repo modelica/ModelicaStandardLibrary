@@ -1314,7 +1314,7 @@ Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStatio
 </p>
 <p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -1438,7 +1438,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
 </p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
@@ -1509,7 +1509,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
 </p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
@@ -1579,7 +1579,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
 </p>
 <b>Use with care:</b>
-This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation. 
+This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,

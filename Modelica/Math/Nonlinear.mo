@@ -496,9 +496,9 @@ arguments to the example functions.
         Lobatto rule.
         see Walter Gander: Adaptive Quadrature - Revisited, 1998
                         ftp.inf.ethz.ch in doc/tech-reports/1998/306.ps
-                        
+
         x[:] are the nodes
-        y[:] = f(x[:]) are function values at the nodes 
+        y[:] = f(x[:]) are function values at the nodes
         */
     tol := tolerance;
     m := (a + b)/2;
@@ -726,12 +726,12 @@ algorithms for this purpose. As input, the nonlinear function f(u)
 has to be given, as well as an interval u_min, u_max that
 contains the solution, i.e., \"f(u_min)\" and \"f(u_max)\" must
 have a different sign. The function computes a smaller interval
-in which a sign change is present using the relative tolerance 
+in which a sign change is present using the relative tolerance
 \"tolerance\" that can be given as 4th input argument.
 </p>
 
 <p>
-The interval reduction is performed using 
+The interval reduction is performed using
 inverse quadratic interpolation (interpolating with a quadratic polynomial
 through the last 3 points and computing the zero). If this fails,
 bisection is used, which always reduces the interval by a factor of 2.

@@ -125,7 +125,7 @@ This component models the pressure loss in curved bends at overall flow regime f
 <li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number: <br/><br/></li>
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
-<pre> 
+<pre>
       k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
