@@ -1041,16 +1041,6 @@ as component LossyGear includes the functionality of component BearingFriction
       import SI = Modelica.SIunits;
 
       extends Modelica.Icons.Example;
-      annotation (uses(Modelica(version="3.0.1")),
-        Diagram(graphics),
-        Documentation(info="<html>
-<p>
-This example demonstrates a situation where the driving side of the
-LossyGear model is not obvious.
-The version of LossyGear up to version 3.1 of package Modelica failed in this case
-(no convergence of the event iteration).
-</p>
-</html>"));
 
       Modelica.Mechanics.Rotational.Components.LossyGear gear(
                                 ratio=
@@ -1100,6 +1090,16 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
           points={{79,10},{74.5,10},{74.5,10},{70,10}},
           color={0,0,127},
           smooth=Smooth.None));
+      annotation (uses(Modelica(version="3.0.1")),
+        Diagram(graphics),
+        Documentation(info="<html>
+<p>
+This example demonstrates a situation where the driving side of the
+LossyGear model is not obvious.
+The version of LossyGear up to version 3.1 of package Modelica failed in this case
+(no convergence of the event iteration).
+</p>
+</html>"));
     end LossyGearDemo3;
 
     model ElasticBearing "Example to show possible usage of support flange"
@@ -1523,7 +1523,8 @@ is present in variable convection.fluid.
         annotation (Placement(transformation(extent={{-10,0},{10,-20}})));
       Modelica.Mechanics.Rotational.Components.Inertia load(J=10)
         annotation (Placement(transformation(extent={{30,-20},{50,0}})));
-      Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque quadraticSpeedDependentTorque(
+      Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+        quadraticSpeedDependentTorque(
         w_nominal(displayUnit="rpm")=10.471975511966, tau_nominal=-20)
         annotation (Placement(transformation(extent={{80,-20},{60,0}})));
       Modelica.Mechanics.Rotational.Components.Clutch clutch(cgeo=2, fn_max=100)
@@ -2653,7 +2654,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       // Friction torque
       tau = if locked then sa*unitTorque else
-            if free   then 0 else
+            if free then   0 else
             cgeo*fn*(if startForward then         Modelica.Math.tempInterpol1( w, mue_pos, 2) else
                      if startBackward then       -Modelica.Math.tempInterpol1(-w, mue_pos, 2) else
                      if pre(mode) == Forward then Modelica.Math.tempInterpol1( w, mue_pos, 2) else
@@ -2854,7 +2855,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       // Friction torque
       tau = if locked then sa*unitTorque else
-            if free   then 0 else
+            if free then   0 else
             cgeo*fn*(if startForward then         Modelica.Math.tempInterpol1( w_rel, mue_pos, 2) else
                      if startBackward then       -Modelica.Math.tempInterpol1(-w_rel, mue_pos, 2) else
                      if pre(mode) == Forward then Modelica.Math.tempInterpol1( w_rel, mue_pos, 2) else
@@ -3347,10 +3348,10 @@ connected to other elements in an appropriate way.
       quadrant3 = (1 - eta_mf1)*flange_a.tau - tau_bf1;
 
       //tau eta: only for determination of driving side for calculation of tauloss
-      tau_eta = if ideal then flange_a.tau
-                else (if locked then flange_a.tau
-                else (if (startForward or pre(mode) == Forward) then flange_a.tau-tau_bf_a
-                else flange_a.tau+tau_bf_a));
+      tau_eta = if ideal then flange_a.tau else
+                     (if locked then flange_a.tau else
+                     (if (startForward or pre(mode) == Forward) then flange_a.tau-tau_bf_a else
+                     flange_a.tau+tau_bf_a));
 
       // Torque Losses
       tau_etaPos = tau_eta >= 0;
@@ -3809,7 +3810,8 @@ in the flanges, are along the axis vector displayed in the icon.
       Modelica.SIunits.AngularAcceleration a_rel(start=0) = der(w_rel)
         "Relative angular acceleration over gear elasticity (= der(w_rel))";
 
-      Rotational.Components.LossyGear lossyGear(final ratio=ratio, final lossTable=lossTable,
+      Rotational.Components.LossyGear lossyGear(final ratio=ratio, final
+          lossTable =                                                              lossTable,
         final useSupport=true,
         final useHeatPort=true)
         annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
@@ -4720,7 +4722,8 @@ Modelica.Blocks library.
         "If exact=false, Angular velocity of flange with respect to support else dummy";
       SI.AngularAcceleration a(start=0)
         "If exact=false, Angular acceleration of flange with respect to support else dummy";
-      Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit="rad", displayUnit="deg")
+      Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit
+          =                                                                           "rad", displayUnit="deg")
         "Reference angle of flange with respect to support as input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));

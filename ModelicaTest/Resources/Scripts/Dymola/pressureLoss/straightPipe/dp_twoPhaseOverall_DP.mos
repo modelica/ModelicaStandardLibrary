@@ -37,9 +37,9 @@ y = {"DP_1[1]",
  online = false,
  filename = "dp_twoPhaseOverall_DP.mat",
  legends = {
-	"t=0 캜",
-	"t=10 캜",
-	"t=20 캜"
+	"t=0 째C",
+	"t=10 째C",
+	"t=20 째C"
 	},
  leftTitle = "Pressure loss [bar]",
  bottomTitle ="Mass flow rate quality [-]");
@@ -50,7 +50,7 @@ createPlot(id = 2,
  y = {"DP_1[4]",
 	  "DP_1[2]",
 	  "DP_1[5]"},
- heading = "Straight pipe: Pressure loss (Friedel) for two phase flow (CO2, t=10캜)",
+ heading = "Straight pipe: Pressure loss (Friedel) for two phase flow (CO2, t=10째C)",
 range = {0, 1, 0, 0.2},
  autoscale = true,
  autoerase = true,
@@ -87,9 +87,9 @@ y = {"DP_2[1]",
  online = false,
 filename = "dp_twoPhaseOverall_DP.mat",
  legends = {
-	"t=0 캜",
-	"t=10 캜",
-	"t=20 캜"
+	"t=0 째C",
+	"t=10 째C",
+	"t=20 째C"
 	},
  leftTitle = "Pressure loss [bar]",
  bottomTitle ="Mass flow rate quality [-]");
@@ -100,7 +100,7 @@ createPlot(id = 4,
  y = {"DP_2[4]",
 	  "DP_2[2]",
 	  "DP_2[5]"},
- heading = "Straight pipe: Pressure loss (Chisholm) for two phase flow (CO2, t=10캜)",
+ heading = "Straight pipe: Pressure loss (Chisholm) for two phase flow (CO2, t=10째C)",
 range = {0, 1, 0, 0.2},
  autoscale = true,
  autoerase = true,

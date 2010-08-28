@@ -342,7 +342,7 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="캜")}));
+              textString="째C")}));
     end to_degC;
 
     function from_degC "Convert from 째Celsius to Kelvin"
@@ -359,7 +359,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="캜"),  Text(
+              textString="째C"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
@@ -378,7 +378,7 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="캟")}));
+              textString="째F")}));
     end to_degF;
 
     function from_degF "Convert from 째Fahrenheit to Kelvin"
@@ -397,7 +397,7 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="캟")}));
+              textString="째F")}));
     end from_degF;
 
     function to_degRk "Convert from Kelvin to 째Rankine"
@@ -413,7 +413,7 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-32},{-18,-100}},
               lineColor={0,0,0},
-              textString="캲k")}));
+              textString="째Rk")}));
     end to_degRk;
 
     function from_degRk "Convert from 째Rankine to Kelvin"
@@ -426,7 +426,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,42}},
               lineColor={0,0,0},
-              textString="캲k"),  Text(
+              textString="째Rk"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));

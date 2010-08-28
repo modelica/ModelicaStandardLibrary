@@ -2457,7 +2457,7 @@ the following new language elements (compared to Modelica Specification 3.1):
 A large part of the new classes have been developed with
 partial financial support by
 <a href=\"http://www.bmbf.de/en/index.php\">BMBF</a>
-(BMBF Förderkennzeichen: 01IS07022F)
+(BMBF FÃ¶rderkennzeichen: 01IS07022F)
 within the <a href=\"http://www.itea2.org\">ITEA2</a> project
 <a href=\"http://www.eurosyslib.com/\">EUROSYSLIB</a>.
 We highly appreciate this funding.
@@ -6976,7 +6976,7 @@ class Contact "Contact"
 </tr>
 
 <tr><td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
-   <td valign=\"top\"> Thomas Bödrich, Dresden, Germany<br>
+   <td valign=\"top\"> Thomas B&ouml;drich, Dresden, Germany<br>
                                (Dresden University of Technology,<br>
                                Institute of Electromechanical and Electronic Design)
 </td>
@@ -7056,7 +7056,7 @@ class Contact "Contact"
 <tr><td valign=\"top\"> Modelica.Utilities </td>
    <td valign=\"top\"> DLR Institute of Robotics and Mechatronics, Oberpfaffenhofen, Germany<br>
       (Martin Otter)<br>
-      Dassault Systèmes AB, Lund, Sweden (Hans Olsson)</td>
+      Dassault Syst&egrave;mes AB, Lund, Sweden (Hans Olsson)</td>
 </tr>
 </table>
 
@@ -7081,13 +7081,13 @@ of the Modelica package (many more people have contributed to the design):
    <td valign=\"top\"> Modelica.Mechanics.Translational </td>
 </tr>
 
-<tr><td valign=\"top\"><b>Thomas Bödrich</b> </td
+<tr><td valign=\"top\"><b>Thomas B&ouml;drich</b> </td
    <td valign=\"top\"> Dresden University of Technology, Germany</td>
    <td valign=\"top\"> Modelica.Magnetic.FluxTubes </td>
 
 
 <tr><td valign=\"top\"><b>Dag Br&uuml;ck</b> </td
-   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Utilities</td>
 </tr>
 
@@ -7109,7 +7109,7 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Hilding Elmqvist</b> </td
-   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Mechanics.MultiBody<br>
                    Modelica.Fluid<br>
      Modelica.Media<br>
@@ -7170,11 +7170,11 @@ of the Modelica package (many more people have contributed to the design):
 </tr>
 
 <tr><td valign=\"top\"><b>Sven Erik Mattsson</b> </td
-   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Mechanics.MultiBody</td>
 </tr>
 <tr><td valign=\"top\"><b>Hans Olsson</b> </td
-   <td valign=\"top\"> Dassault Systèmes AB, Lund, Sweden</td>
+   <td valign=\"top\"> Dassault Syst&egrave;mes AB, Lund, Sweden</td>
    <td valign=\"top\"> Modelica.Blocks<br>
      Modelica.Math.Matrices<br>
      Modelica.Utilities<br>
@@ -7274,7 +7274,7 @@ of the Modelica package (many more people have contributed to the design):
    <td valign=\"top\"> Modelica.Fluid</td>
 </tr>
 
-<tr><td valign=\"top\"><b>Hans-Jürg Wiesmann</b> </td
+<tr><td valign=\"top\"><b>Hans-J&uuml;rg Wiesmann</b> </td
    <td valign=\"top\"> Switzerland</td>
    <td valign=\"top\"> Modelica.ComplexMath</td>
 </tr>

@@ -550,7 +550,7 @@ based on the following references:
 </p>
 
 <dl>
-<dt>André, C. (2003):</dt>
+<dt>Andr&eacute;, C. (2003):</dt>
 <dd><a href=\"http://www.i3s.unice.fr/~map/WEBSPORTS/Documents/2003a2005/SSMsemantics.pdf\">
      Semantics of S.S.M (Safe State Machine).</a>.
      I3S Laboratory, UMR 6070 University of Nice-Sophia Antipolis / CNRS.<br>&nbsp;</dd>
@@ -590,7 +590,7 @@ based on the following references:
       Modelica'2008 Conference, March 3-4, 2008.<br>&nbsp;
      </dd>
 
-<dt>Maraninchi F., Rémond, Y. (2002):</dt>
+<dt>Maraninchi F., R&eacute;mond, Y. (2002):</dt>
 <dd> <a href=\"http://www-verimag.imag.fr/~maraninx/SCP2002.htm\">Mode-Automata:
      A New Domain-Specific Construct for the Development of Safe Critical Systems</a>.<br>&nbsp;
      </dd>

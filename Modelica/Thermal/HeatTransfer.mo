@@ -1572,7 +1572,7 @@ in order to simulate temperature dependent losses (which are given an reference 
               extent={{-62,-38},{-141,-97}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캜"),
+              textString="째C"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
@@ -1619,7 +1619,7 @@ and provide is as output signal.
             Text(
               extent={{122,-48},{38,-109}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -1674,7 +1674,7 @@ and provides is as output signal.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1709,7 +1709,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -1742,7 +1742,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{0,0},{-100,-100}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
@@ -1867,7 +1867,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{150,-22},{30,-92}},
               lineColor={0,0,0},
-              textString="캜"),
+              textString="째C"),
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
@@ -1906,7 +1906,7 @@ Example:
               100}}), graphics={Text(
             extent={{30,52},{-70,-48}},
             lineColor={0,0,255},
-            textString="캜")}));
+            textString="째C")}));
   end Celsius;
 
   package Fahrenheit "Components with Fahrenheit input and/or output"
@@ -1968,7 +1968,7 @@ Example:
               extent={{-42,-44},{-153,-91}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캟")}),
+              textString="째F")}),
         Documentation(info="<HTML>
 <p>
 This component converts a input signal from degree Fahrenheit to Kelvin
@@ -2016,7 +2016,7 @@ and provides is as output signal.
               extent={{138,-52},{27,-99}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캟")}),
+              textString="째F")}),
         Diagram(graphics={
             Ellipse(
               extent={{-40,40},{40,-40}},
@@ -2085,7 +2085,7 @@ and provides them as output signals.
             Text(
               extent={{58,-22},{-90,-86}},
               lineColor={0,0,0},
-              textString="캟")}),
+              textString="째F")}),
         Documentation(info="<HTML>
 <p>
 This model defines a fixed temperature T at its port in [degF],
@@ -2158,7 +2158,7 @@ i.e., it defines a fixed temperature as a boundary condition.
             Text(
               extent={{54,-20},{-94,-84}},
               lineColor={0,0,0},
-              textString="캟")}),
+              textString="째F")}),
         Documentation(info="<HTML>
 <p>
 This model represents a variable temperature boundary condition
@@ -2276,7 +2276,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{150,-28},{38,-76}},
               lineColor={0,0,0},
-              textString="캟")}),
+              textString="째F")}),
         Documentation(info="<HTML>
 <p>
 This is an ideal absolute temperature sensor which returns
@@ -2363,7 +2363,7 @@ Example:
               extent={{-44,-42},{-155,-89}},
               lineColor={0,0,0},
               lineThickness=1,
-              textString="캲k"),
+              textString="째Rk"),
             Line(points={{-41,0},{-100,0}}, color={0,0,255}),
             Line(points={{100,0},{40,0}}, color={0,0,255}),
             Text(
@@ -2410,7 +2410,7 @@ and provides them as output signals.
             Text(
               extent={{142,-48},{26,-91}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Line(points={{-40,0},{-100,0}}, color={0,0,255}),
             Line(points={{40,0},{100,0}}, color={0,0,255})}),
         Diagram(graphics={
@@ -2464,7 +2464,7 @@ and provides them as output signals.
             Text(
               extent={{48,-22},{-100,-86}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Polygon(
               points={{52,-20},{52,20},{90,0},{52,-20}},
               lineColor={191,0,0},
@@ -2533,7 +2533,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
             Text(
               extent={{56,-34},{-100,-100}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Text(
               extent={{-150,150},{150,110}},
               textString="%name",
@@ -2656,7 +2656,7 @@ as required to keep the temperature at the specified value.
             Text(
               extent={{144,-34},{32,-82}},
               lineColor={0,0,0},
-              textString="캲k"),
+              textString="째Rk"),
             Text(
               extent={{-150,135},{150,95}},
               textString="%name",
@@ -2695,7 +2695,7 @@ Example:
               100}}), graphics={Text(
             extent={{64,34},{-86,-30}},
             lineColor={0,0,255},
-            textString="캲k")}));
+            textString="째Rk")}));
   end Rankine;
 
   package Interfaces "Connectors and partial models"
