@@ -3001,7 +3001,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled voltage source. The &QUOT;right&QUOT; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &QUOT;left&QUOT; port vector of voltages at the pin vector pc[:] via</p>
-<pre>    p2.v - n2.v = f(pc[2].v - pc[1].v, pc[4].v - pc[3].v,...)</pre>
+<pre>    p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
 <pre>f = a0 +
@@ -3015,10 +3015,13 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[2].v - pc[1].v, s2=pc[4].v - pc[3].v, s3=...</p>
+<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
+<p><br/><br/>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
 <p>The corresponding SPICE description of the VCV polynomial source is the following:</p>
 <pre>    Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
-<p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped,</p><p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p><p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
+<p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped,</p>
+<p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
+<p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
 <pre>Ename -&GT; E_VCV_POLY name
 A1, A2 -&GT; pins name.p2, name.p1
@@ -3097,7 +3100,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
-<pre>    p2.i = f(pc[2].v - pc[1].v, pc[4].v - pc[3].v,...)</pre>
+<pre>    p2.i = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
 <pre>f = a0 +
@@ -3111,9 +3114,13 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[2].v - pc[1].v, s2=pc[4].v - pc[3].v, s3=...</p><p><br/><br/>The corresponding SPICE description of the VCC polynomial source is the following:</p>
+<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
+<p><br/><br/>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
+<p><br/><br/>The corresponding SPICE description of the VCC polynomial source is the following:</p>
 <pre>    Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
-<p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated,</p><p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p><p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
+<p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated,</p>
+<p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
+<p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p><br/>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
 <pre>Gname -&GT; G_VCC_POLY name
 A1, A2 -&GT; pins name.p2, name.p1
