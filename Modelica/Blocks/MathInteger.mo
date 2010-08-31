@@ -78,12 +78,12 @@ This block has a vector of Boolean input signals u[nu] and a vector of
 set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
 false, y is set to parameter \"y_default\" or the last value is kept, if use_pre_as_default = <b>true</b>.
 </p>
-
+ 
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
-                                          <b>else</b> y_default)
+  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y) 
+                                          <b>else</b> y_default) 
       <b>else</b> expr[i];
 </pre></blockquote>
 
@@ -91,7 +91,7 @@ false, y is set to parameter \"y_default\" or the last value is kept, if use_pre
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the
+connected to this new free index (thanks to the 
 connectorSizing annotation).
 </p>
 
@@ -107,8 +107,11 @@ end MultiSwitch;
      extends Modelica.Blocks.Interfaces.PartialIntegerMISO;
      parameter Integer k[nu] = fill(1,nu) "Input gains";
   equation
-    y = k*u;
-
+    if size(u,1) > 0 then
+       y = k*u;
+    else
+       y = 0;
+    end if;
     annotation (Icon(graphics={Text(
               extent={{-200,-110},{200,-140}},
               lineColor={0,0,0},
@@ -132,7 +135,7 @@ y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
 The input connector is a vector of Integer input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the
+connected to this new free index (thanks to the 
 connectorSizing annotation).
 </p>
 
@@ -141,13 +144,21 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to zero: y=0.
+</p>
 </html>"));
   end Sum;
 
   block Product "Product of Integer: y = u[1]*u[2]* ... *u[n]"
      extends Modelica.Blocks.Interfaces.PartialIntegerMISO;
   equation
-    y = product(u);
+    if size(u,1) > 0 then
+       y = product(u);
+    else
+       y = 0;
+    end if;
 
     annotation (Icon(graphics={Text(
               extent={{-74,50},{94,-94}},
@@ -167,7 +178,7 @@ y = u[1]*u[2]* ... *u[N];
 The input connector is a vector of Integer input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the
+connected to this new free index (thanks to the 
 connectorSizing annotation).
 </p>
 
@@ -176,7 +187,10 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
-
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to zero: y=0.
+</p>
 </html>"));
   end Product;
 
@@ -273,12 +287,12 @@ The optional inputs can be activated with the \"use_reset\" and
 
 <p>
 The input \"u\" is added to the previous value of the
-output \"y\" if the \"trigger\" port has a rising edge. At the start of the
+output \"y\" if the \"trigger\" port has a rising edge. At the start of the 
 simulation \"y = y_start\".
 </p>
 
 <p>
-If the \"reset\" port is enabled, then the output \"y\" is reset to \"set\"
+If the \"reset\" port is enabled, then the output \"y\" is reset to \"set\" 
 or to \"y_start\" (if the \"set\" port is not enabled), whenever the \"reset\"
 port has a rising edge.
 </p>

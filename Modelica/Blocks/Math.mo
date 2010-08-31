@@ -745,7 +745,11 @@ Example:
      extends Modelica.Blocks.Interfaces.PartialRealMISO;
      parameter Real k[nu] = fill(1,nu) "Input gains";
   equation
-    y = k*u;
+    if size(u,1) > 0 then
+       y = k*u;
+    else
+       y = 0;
+    end if;
 
     annotation (Icon(graphics={Text(
               extent={{-200,-110},{200,-140}},
@@ -778,13 +782,23 @@ connectorSizing annotation).
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
+
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to zero: y=0.
+</p>
+
 </html>"));
   end MultiSum;
 
   block MultiProduct "Product of Reals: y = u[1]*u[2]* ... *u[n]"
      extends Modelica.Blocks.Interfaces.PartialRealMISO;
   equation
-    y = product(u);
+    if size(u,1) > 0 then
+       y = product(u);
+    else
+       y = 0;
+    end if;
 
     annotation (Icon(graphics={Text(
               extent={{-74,50},{94,-94}},
@@ -811,6 +825,11 @@ connectorSizing annotation).
 <p>
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
+</p>
+
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to zero: y=0.
 </p>
 </html>"));
   end MultiProduct;

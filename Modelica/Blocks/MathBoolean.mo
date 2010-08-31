@@ -130,6 +130,10 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to <b>false</b>: y=false.
+</p>
 </html>"));
   end And;
 
@@ -161,6 +165,12 @@ connectorSizing annotation).
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
+
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to <b>false</b>: y=false.
+</p>
+
 </html>"));
   end Or;
 
@@ -193,6 +203,12 @@ connectorSizing annotation).
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
+
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to <b>false</b>: y=false.
+</p>
+
 </html>"));
   end Xor;
 
@@ -224,6 +240,12 @@ connectorSizing annotation).
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
+
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to <b>false</b>: y=false.
+</p>
+
 </html>"));
   end Nand;
 
@@ -254,6 +276,11 @@ connectorSizing annotation).
 <p>
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
+</p>
+
+<p>
+If no connection to the input connector \"u\" is present, 
+the output is set to <b>false</b>: y=false.
 </p>
 </html>"));
   end Nor;
