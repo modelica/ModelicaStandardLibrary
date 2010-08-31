@@ -7481,15 +7481,12 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
         T(displayUnit="degC") = 303.15,
         use_p_in=true,
         nPorts=1)
-        annotation (Placement(transformation(extent={{-62,32},{-42,52}})));
+        annotation (Placement(transformation(extent={{-62,30},{-42,50}})));
 
       Modelica.Fluid.Fittings.Bends.CurvedBend bend1(
-        redeclare package Medium = Modelica.Media.Air.DryAirNasa,
-        geometry(d_hyd=0.1),
-        use_nominal=true,
-        eta_nominal=1.8e-5,
-        rho_nominal=1.2) "Calculate mass flow rate from pressure loss"
-        annotation (Placement(transformation(extent={{0,22},{40,62}})));
+        redeclare package Medium = Modelica.Media.Air.DryAirNasa, geometry=geometry)
+        "Calculate mass flow rate from pressure loss"
+        annotation (Placement(transformation(extent={{0,30},{20,50}})));
 
       Modelica.Fluid.Sources.Boundary_pT source_right(
         nPorts=2,
@@ -7497,55 +7494,54 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
         use_p_in=false,
         T(displayUnit="degC") = 293.15,
         p(displayUnit="Pa") = 3*system.p_ambient)
-        annotation (Placement(transformation(extent={{80,30},{60,50}})));
+        annotation (Placement(transformation(extent={{78,28},{58,48}})));
       Modelica.Blocks.Sources.Ramp ramp(
         duration=1,
         offset=system.p_ambient,
         height=4*system.p_ambient)
         annotation (Placement(transformation(extent={{-94,40},{-74,60}})));
       Modelica.Fluid.Fittings.Bends.CurvedBend bend2(
-        redeclare package Medium = Modelica.Media.Air.DryAirNasa,
-        geometry(d_hyd=0.1),
-        use_nominal=true,
-        eta_nominal=1.8e-5,
-        rho_nominal=1.2) "Calculate mass flow rate from pressure loss"
-        annotation (Placement(transformation(extent={{-2,-50},{38,-10}})));
+        redeclare package Medium = Modelica.Media.Air.DryAirNasa, geometry=geometry)
+        "Calculate mass flow rate from pressure loss"
+        annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
       Modelica.Fluid.Sources.MassFlowSource_T boundary(
          redeclare package Medium = Modelica.Media.Air.DryAirNasa, nPorts=1, use_m_flow_in=true,
         T=303.15)
         annotation (Placement(transformation(extent={{-44,-40},{-24,-20}})));
       Modelica.Fluid.Sensors.MassFlowRate sensor(redeclare package Medium =
             Modelica.Media.Air.DryAirNasa)
-        annotation (Placement(transformation(extent={{-32,52},{-12,32}})));
+        annotation (Placement(transformation(extent={{-32,50},{-12,30}})));
+      Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry geometry(d_hyd=0.1,
+          R_0=0.2) annotation (Placement(transformation(extent={{-20,72},{0,92}})));
     equation
       connect(bend1.port_b, source_right.ports[1])
                                               annotation (Line(
-          points={{40,42},{60,42}},
+          points={{20,40},{58,40}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(ramp.y, source_left.p_in) annotation (Line(
-          points={{-73,50},{-64,50}},
+          points={{-73,50},{-68,50},{-68,48},{-64,48}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(boundary.ports[1], bend2.port_a)
                                               annotation (Line(
-          points={{-24,-30},{-2,-30}},
+          points={{-24,-30},{0,-30}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(bend1.port_a, sensor.port_b) annotation (Line(
-          points={{0,42},{-12,42}},
+          points={{0,40},{-12,40}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(sensor.port_a, source_left.ports[1]) annotation (Line(
-          points={{-32,42},{-42,42}},
+          points={{-32,40},{-42,40}},
           color={0,127,255},
           smooth=Smooth.None));
       connect(sensor.m_flow, boundary.m_flow_in) annotation (Line(
-          points={{-22,31},{-22,-4},{-60,-4},{-60,-22},{-44,-22}},
+          points={{-22,29},{-22,-4},{-60,-4},{-60,-22},{-44,-22}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(bend2.port_b, source_right.ports[2]) annotation (Line(
-          points={{38,-30},{50,-30},{50,38},{60,38}},
+          points={{20,-30},{50,-30},{50,36},{58,36}},
           color={0,127,255},
           smooth=Smooth.None));
       annotation (
