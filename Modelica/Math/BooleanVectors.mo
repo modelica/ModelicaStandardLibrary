@@ -7,7 +7,7 @@ function allTrue
   input Boolean b[:] "Boolean vector";
   output Boolean result "= true, if all elements of b are true";
 algorithm
-  result := true;
+  result := size(b,1) > 0;
   for i in 1:size(b,1) loop
      result := result and b[i];
   end for;
@@ -20,7 +20,8 @@ algorithm
 <h4>Description</h4>
 <p>
 Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
-Otherwise the function returns <b>false</b>.
+Otherwise the function returns <b>false</b>. If b is an empty vector, 
+i.e., size(b,1)=0, the function returns <b>false</b>. 
 </p>
 
 <h4>Example</h4>
@@ -35,9 +36,9 @@ Otherwise the function returns <b>false</b>.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.anyTrue\">anyTrue</a>,
-<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>.
 </p>
 
 </html>"));
@@ -63,7 +64,8 @@ algorithm
 <h4>Description</h4>
 <p>
 Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>.
+Otherwise the function returns <b>false</b>. If b is an empty vector, 
+i.e., size(b,1)=0, the function returns <b>false</b>. 
 </p>
 
 <h4>Example</h4>
@@ -78,9 +80,9 @@ Otherwise the function returns <b>false</b>.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.allTrue\">allTrue</a>,
-<a href=\"modelica://Modelica.Math.oneTrue\">oneTrue</a>,
-<a href=\"modelica://Modelica.Math.firstTrueIndex\">firstTrueIndex</a>.
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>.
 </p>
 </html>"));
 end anyTrue;
@@ -98,6 +100,38 @@ algorithm
      count := if b[i] then count+1 else count;
   end for;
   result :=count == 1;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>oneTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if exactly one element of the input Boolean vector b is <b>true</b>.
+Otherwise the function returns <b>false</b>. If b is an empty vector, 
+i.e., size(b,1)=0, the function returns <b>false</b>. 
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[3] = {false, true, true};
+  Boolean r1, r2, r3;
+<b>algorithm</b>
+  r1 = oneTrue(b1);  // r1 = false
+  r2 = oneTrue(b2);  // r2 = true
+  r3 = oneTrue(b3);  // r3 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.firstTrueIndex\">firstTrueIndex</a>.
+</p>
+</html>"));
 end oneTrue;
 
 function firstTrueIndex
@@ -112,6 +146,38 @@ algorithm
          return;
       end if;
    end for;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>firstTrueIndex</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns the index of the first element of the Boolean vector b 
+that is <b>true</b> and returns 0, if no element is <b>true</b>\"
+If b is an empty vector, i.e., size(b,1)=0, the function returns 0. 
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[4] = {false, true, false, true};
+  Integer r1, r2, r3;
+<b>algorithm</b>
+  r1 = firstTrueIndex(b1);  // r1 = 0
+  r2 = firstTrueIndex(b2);  // r2 = 2
+  r3 = firstTrueIndex(b3);  // r3 = 2
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Math.BooleanVectors.allTrue\">allTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.anyTrue\">anyTrue</a>,
+<a href=\"modelica://Modelica.Math.BooleanVectors.oneTrue\">oneTrue</a>.
+</p>
+</html>"));
 end firstTrueIndex;
   annotation (Documentation(info="<html>
 <p>
