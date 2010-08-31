@@ -2,13 +2,67 @@ within Modelica.Fluid;
 package Types "Common types for fluid models"
   extends Modelica.Icons.Package;
 
-  type HydraulicConductance =Real (
+  type HydraulicConductance = Modelica.Icons.TypeReal (
       final quantity="HydraulicConductance",
       final unit="kg/(s.Pa)") "Real type for hydraulic conductance";
-  type HydraulicResistance =Real (
+  type HydraulicResistance = Modelica.Icons.TypeReal (
       final quantity="HydraulicResistance",
       final unit="Pa.s/kg") "Real type for hydraulic resistance";
 
+  type Roughness = Modelica.Icons.TypeReal (final quantity="Length", final unit="m", displayUnit="mm")
+    "Real type for roughness of a pipe"
+    annotation (Documentation(info="<html>
+<p>
+This Real type defines the absolute roughness of the inner surface of a
+pipe or fitting, i.e., the absolute average height of surface asperities.
+It has usually to
+be estimated. In <i>[Idelchik 1994, pp. 105-109,
+Table 2-5; Miller 1990, p. 190, Table 8-1]</i> many examples are given.
+As a short summary:
+</p>
+
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td colspan=\"2\" align=\"center\"><b>Type of pipe</b></td>
+      <td align=\"center\">Roughness</td></tr>
+
+  <tr><td><b>Smooth pipes</b></td>
+      <td>Drawn brass, coper, aluminium, glass, etc.</td>
+      <td> 0.0025 mm</td>
+  </tr>
+  <tr><td rowspan=\"3\"><b>Steel pipes</b></td>
+      <td>New smooth pipes</td>
+      <td>0.025 mm</td>
+  </tr>
+  <tr><td>Mortar lined, average finish</td>
+      <td>0.1 mm</td>
+  </tr>
+  <tr><td>Heavy rust</td>
+      <td>1 mm</td>
+  </tr>
+  <tr><td rowspan=\"3\"><b>Concrete pipes</b></td>
+      <td>Steel forms, first class workmanship</td>
+      <td>0.025 mm</td>
+  </tr>
+  <tr><td>Steel forms, average workmanship</td>
+      <td>0.1 mm</td>
+  </tr>
+  <tr><td>Block linings</td>
+      <td>1 mm</td>
+  </tr>
+</table>
+
+<h4>References</h4>
+
+<dl>
+    <dt>Idelchik I.E. (1994):</dt>
+    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook
+        of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
+        0-8493-9908-4</dd>
+    <dt>Miller D. S. (1990):</dt>
+    <dd><b>Internal flow systems</b>.
+    2nd edition. Cranfield:BHRA(Information Services).</dd>
+</dl>
+</html>"));
   type Dynamics = enumeration(
       DynamicFreeInitial
         "DynamicFreeInitial -- Dynamic balance, Initial guess value",
@@ -64,7 +118,7 @@ tables:
          <b>else</b> <b>der</b>(p)=0 </td></tr>
 
 <tr><td> SteadyState</td>
-    <td> <b>der</b>(m)=0  </td></tr>
+    <td> <b>der</b>(m)=0  </td>
     <td> no initial conditions </td></tr>
 </table>
 
@@ -90,7 +144,7 @@ tables:
     <td> <b>der</b>(T)=0 or <b>der</b>(h)=0 </td></tr>
 
 <tr><td> SteadyState</td>
-    <td> <b>der</b>(U)=0  </td></tr>
+    <td> <b>der</b>(U)=0  </td>
     <td> no initial conditions </td></tr>
 </table>
 
@@ -117,7 +171,7 @@ tables:
     <td> <b>der</b>(m_flow)=0 </td></tr>
 
 <tr><td> SteadyState</td>
-    <td> <b>der</b>(m_flow)=0 </td></tr>
+    <td> <b>der</b>(m_flow)=0 </td>
     <td> no initial conditions </td></tr>
 </table>
 
@@ -268,6 +322,8 @@ ModelStructure.a_vb).
 
 
 </html>"));
+
+
   annotation (preferedView="info",
               Documentation(info="<html>
 

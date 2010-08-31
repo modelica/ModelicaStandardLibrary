@@ -6,525 +6,99 @@ package Fittings
     model CurvedBend "Curved bend flow model"
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
-      import Modelica.Fluid.Dissipation.PressureLoss.Bend;
-      parameter Bend.dp_curvedOverall_IN_con geometry "Geometry of curved bend"
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
-    /*
-  Bend.dp_curvedOverall_IN_var
-    properties(final eta=eta, final rho=rho) "Properties of medium"
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
-*/
+      parameter Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry geometry
+        "Geometry of curved bend"
+          annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+
     protected
-      parameter Medium.AbsolutePressure dp_small= Bend.dp_curvedOverall_DP(
-                    geometry, Bend.dp_curvedOverall_IN_var(
-                      rho=Medium.density(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X)),
-                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X))),
+      parameter Medium.AbsolutePressure dp_small=
+                 Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP(
+                    geometry,
+                    Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var(
+                      rho=Medium.density(state_dp_small),
+                      eta=Medium.dynamicViscosity(state_dp_small)),
                     m_flow_small)
         "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
 
-    partial function dp_curvedOverall_fixedInterface
-       input Bend.dp_curvedOverall_IN_con geometry "Geometry of bend";
-       input Medium.ThermodynamicState state_a
-          "State for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-          "State for medium inflowing through port_b";
-       input SI.AbsolutePressure dp_small;
-       input SI.MassFlowRate m_flow_small;
-    end dp_curvedOverall_fixedInterface;
-
-    function dp_curvedOverall_MFLOW
-      extends dp_curvedOverall_fixedInterface;
-      input SI.Pressure dp "Pressure drop";
-      output SI.MassFlowRate m_flow "Mass flow rate";
-    algorithm
-       m_flow := Bend.dp_curvedOverall_MFLOW(
-                   geometry,
-                   Bend.dp_curvedOverall_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                   dp);
-
-       annotation(Inline=false, LateInline=true,
-                  inverse(dp=dp_curvedOverall_DP(
-                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
-    end dp_curvedOverall_MFLOW;
-
-    function dp_curvedOverall_DP
-       extends dp_curvedOverall_fixedInterface;
-       input SI.MassFlowRate m_flow "Mass flow rate";
-       output SI.Pressure dp "Pressure drop";
-    algorithm
-       dp := Bend.dp_curvedOverall_DP(
-                   geometry,
-                   Bend.dp_curvedOverall_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
-                   m_flow);
-    end dp_curvedOverall_DP;
-
     equation
-      if use_nominal then
-         m_flow = Bend.dp_curvedOverall_MFLOW(
-                    geometry, Bend.dp_curvedOverall_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
-      elseif not allowFlowReversal then
-         m_flow = Bend.dp_curvedOverall_MFLOW(
-                    geometry, Bend.dp_curvedOverall_IN_var(
-                                rho=Medium.density(state_a),
-                                eta=Medium.dynamicViscosity(state_a)), dp);
+      if allowFlowReversal then
+         m_flow = Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.massFlowRate(
+                    dp, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small);
       else
-         m_flow = dp_curvedOverall_MFLOW(
-                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+         m_flow = Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
+                    geometry,
+                    Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var(rho=d_a, eta=eta_a), dp);
       end if;
 
       annotation (Documentation(info="<html>
 <p>
-This component models the pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. In the model neither mass nor energy is stored.
+This component models a curved bend. It is assumed that neither mass nor energy is stored
+in this component. The details of the model are described in package:
 </p>
 
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend\">Fittings.BaseClasses.Bends.CurvedBend</a>
+</p></blockquote>
 
-<p><h4><font color=\"#ef9b13\">Restriction</font></h4></p>
-<p>This function shall be used inside of the restricted limits according to the referenced literature. </p>
-<p><ul>
-<li><h4>circular cross sectional area </h4></li>
-<li><b>0.5 &le; curvature radius / diameter &le; 3 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
-<li><b>length of bend along curved axis / diameter &ge; 10 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
-<li><b>angle of curvature smaller than 180&deg; (delta &le; 180) </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
-</ul></p>
-<p><b><font style=\"color: #ef9b13; \">Geometry</font></b> </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\"/> </p>
-<p><h4><font color=\"#ef9b13\">Calculation</font></h4></p>
-<p>The pressure loss <b>dp </b>for curved bends is determined by: </p>
-<pre>dp = zeta_TOT * (rho/2) * velocity^2 </pre>
-<p>with </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>rho </h4></p></td>
-<td><p>as density of fluid [kg/m3],</p></td>
-</tr>
-<tr>
-<td><p><h4>velocity </h4></p></td>
-<td><p>as mean velocity [m/s],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_TOT </h4></p></td>
-<td><p>as pressure loss coefficient [-].</p></td>
-</tr>
-</table>
-<p><br/><b>Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b>according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i> </p>
-<p>The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows: </p>
-<p><ul>
-<li><b>Laminar regime (Re &le; Re_lam_leave)</b>: <br/><br/></li>
-<pre>      zeta_LOC = A2/Re + A1*B1*C1</pre>
-<li><b>Transition regime (Re_lam_leave &le; 4e4)</b> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime. </li>
-<li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number: <br/><br/></li>
-<pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
-<p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
-<pre>
-      k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
-      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
-      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
-<li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number <br/><br/></li>
-</ul></p>
-<pre>      zeta_LOC = A1*B1*C1</pre>
-<p>with </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>A1 </h4></p></td>
-<td><p>as coefficient considering effect of angle of turning (delta) [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>A2 </h4></p></td>
-<td><p>as coefficient considering effect for laminar regime [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>B1 </h4></p></td>
-<td><p>as coefficient considering effect of relative curvature radius (R_0/d_hyd) [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>C1=1 </h4></p></td>
-<td><p>as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>k_Re </h4></p></td>
-<td><p>as coefficient considering influence of laminar regime in transition regime [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>Re </h4></p></td>
-<td><p>as Reynolds number [-].</p></td>
-</tr>
-</table>
-<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
-<pre>    zeta_TOT = CF*zeta_LOC </pre>
-<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
-<pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
-<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
-<pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
-<p>with </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>delta </h4></p></td>
-<td><p>as curvature radiant [rad],</p></td>
-</tr>
-<tr>
-<td><p><h4>d_hyd </h4></p></td>
-<td><p>as hydraulic diameter [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>K </h4></p></td>
-<td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>lambda_FRI_rough </h4></p></td>
-<td><p>as darcy friction factor[-],</p></td>
-</tr>
-<tr>
-<td><p><h4>Re </h4></p></td>
-<td><p>as Reynolds number [m],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_LOC </h4></p></td>
-<td><p>as local resistance coefficient [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>zeta_TOT </h4></p></td>
-<td><p>as pressure loss coefficient [-].</p></td>
-</tr>
-</table>
-<p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
-<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as: </p>
-<pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
-<p>with </p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>k = K /d_hyd </h4></p></td>
-<td><p>as relative roughness [-],</p></td>
-</tr>
-<tr>
-<td><p><h4>Re_lam_leave </h4></p></td>
-<td><p>as Reynolds number for leaving laminar regime [-].</p></td>
-</tr>
-</table>
-<p><br/><br/>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
-<p><b><font style=\"color: #ef9b13; \">Verification</font></b> </p>
-<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
-<p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
-<p><b>Incompressible case </b>[Pressure loss = f(m_flow)]: </p>
-<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
-<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
-<p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
-<p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
-<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
-<dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
-<dt>Idelchik,I.E.: </dt>
-<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
-<dt>Miller,D.S.: </dt>
-<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984. </dd>
-<dt>Samoilenko,L.A.: </dt>
-<dd><b>Investigation of the hydraulic resistance of pipelines in the zone of transition from laminar into turbulent motion</b>. PhD thesis, Leningrad State University, 1968.</dd>
-<dt>VDI: </dt>
-<dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. Springer Verlag, 9th edition, 2002. </dd>
-</dl></html>"));
+<p>
+In the model basically a function is called to compute the mass flow rate as a function
+of pressure loss for a curved bend. Also the inverse of this function is defined, and a tool
+might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
+</p>
+</html>"));
     end CurvedBend;
 
     model EdgedBend "Edged bend flow model"
       extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
-      import Modelica.Fluid.Dissipation.PressureLoss.Bend;
-      parameter Bend.dp_edgedOverall_IN_con geometry "Geometry of edged bend"
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
-    /*
-  Bend.dp_edgedOverall_IN_var
-    properties(final eta=eta, final rho=rho) "Properties of medium"
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
-*/
+      parameter Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry geometry
+        "Geometry of curved bend"
+          annotation (Placement(transformation(extent={{-20,0},{0,20}})));
+
     protected
-      parameter Medium.AbsolutePressure dp_small= Bend.dp_edgedOverall_DP(
-                    geometry, Bend.dp_edgedOverall_IN_var(
-                      rho=Medium.density(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X)),
-                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X))),
+      parameter Medium.AbsolutePressure dp_small=
+                 Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
+                   Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con(
+                       d_hyd=geometry.d_hyd,
+                       delta=geometry.delta,
+                       K=geometry.K),
+                    Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var(
+                      rho=Medium.density(state_dp_small),
+                      eta=Medium.dynamicViscosity(state_dp_small)),
                     m_flow_small)
         "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
 
-    partial function dp_edgedOverall_fixedInterface
-       input Bend.dp_edgedOverall_IN_con geometry "Geometry of bend";
-       input Medium.ThermodynamicState state_a
-          "State for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-          "State for medium inflowing through port_b";
-       input SI.AbsolutePressure dp_small;
-       input SI.MassFlowRate m_flow_small;
-    end dp_edgedOverall_fixedInterface;
-
-    function dp_edgedOverall_MFLOW
-      extends dp_edgedOverall_fixedInterface;
-      input SI.Pressure dp "Pressure drop";
-      output SI.MassFlowRate m_flow "Mass flow rate";
-    algorithm
-       m_flow := Bend.dp_edgedOverall_MFLOW(
-                   geometry,
-                   Bend.dp_edgedOverall_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                   dp);
-
-       annotation(Inline=false, LateInline=true,
-                  inverse(dp=dp_edgedOverall_DP(
-                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
-    end dp_edgedOverall_MFLOW;
-
-    function dp_edgedOverall_DP
-       extends dp_edgedOverall_fixedInterface;
-       input SI.MassFlowRate m_flow "Mass flow rate";
-       output SI.Pressure dp "Pressure drop";
-    algorithm
-       dp := Bend.dp_edgedOverall_DP(
-                   geometry,
-                   Bend.dp_edgedOverall_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
-                   m_flow);
-    end dp_edgedOverall_DP;
-
     equation
-      if use_nominal then
-         m_flow = Bend.dp_edgedOverall_MFLOW(
-                    geometry, Bend.dp_edgedOverall_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
-      elseif not allowFlowReversal then
-         m_flow = Bend.dp_edgedOverall_MFLOW(
-                    geometry, Bend.dp_edgedOverall_IN_var(
-                                rho=Medium.density(state_a),
-                                eta=Medium.dynamicViscosity(state_a)), dp);
+      if allowFlowReversal then
+         m_flow = Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate(
+                    dp, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small);
       else
-         m_flow = dp_edgedOverall_MFLOW(
-                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+         m_flow = Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW(
+                   Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con(
+                       d_hyd=geometry.d_hyd,
+                       delta=geometry.delta,
+                       K=geometry.K),
+                    Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var(rho=d_a, eta=eta_a), dp);
       end if;
 
       annotation (Documentation(info="<html>
 <p>
-This component models the pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. In the model neither mass nor energy is stored.
+This component models an edged bend. It is assumed that neither mass nor energy is stored
+in this component. The details of the model are described in package:
 </p>
 
-<p>
-There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
-</p>
-
-<h4><font color=\"#EF9B13\">Restriction</font></h4>
-This function shall be used inside of the restricted limits according to the referenced literature.
-<ul>
- <li>
-      <b> circular cross sectional area </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
- </li>
- <li>
-      <b> edged bend with sharp corners at turning </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
- </li>
- <li>
-      <b> 0&deg; &le; angle of turning &le; 180&deg; </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
- </li>
- <li>
-      <b> length of edged bend along edged axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
- </li>
-</ul>
-
-<h4><font color=\"#EF9B13\">Geometry</font></h4>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">Calculation</font></h4>
-The pressure loss <b> dp </b> for edged bends is determined by:
-<p>
-<pre>
-    dp = zeta_TOT * (rho/2) * velocity^2
-</pre>
-</p>
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend\">Fittings.BaseClasses.Bends.EdgedBend</a>
+</p></blockquote>
 
 <p>
-with
+In the model basically a function is called to compute the mass flow rate as a function
+of pressure loss for a curved bend. Also the inverse of this function is defined, and a tool
+might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
 </p>
-
-<p>
-<table>
-<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
-<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
-</table>
-</p>
-
-The pressure loss coefficient <b> zeta_TOT </b> of an edged bend can be calculated for different angles of turning <b> delta </b> by:
-<p>
-<pre>
-    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <i>[Idelchik 2006, p. 366, diag. 6-7] </i> and <i>[Miller 1984, p. 149, sec. 9.4]</i>
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> A              </b></td><td> as coefficient considering effect for angle of turning [-],</td></tr>
-<tr><td><b> C1             </b></td><td> as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td></tr>
-<tr><td><b> CF_Fri         </b></td><td> as correction factor considering surface roughness [-],</td></tr>
-<tr><td><b> CF_Re          </b></td><td> as correction factor considering Reynolds number [-],</td></tr>
-<tr><td><b> delta          </b></td><td> as angle of turning [deg].</td></tr>
-</table>
-</p>
-
-The correction factor <b> CF_Fri </b> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
-</p>
-<pre>
-    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
-</pre>
-
-<p>
-and the Darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
-</p>
-<pre>
-    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
-</pre>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
-<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
-<tr><td><b> lambda_FRI         </b></td><td> as Darcy friction factor[-],</td></tr>
-<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
-<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
-</table>
-</p>
-
-<p>
-Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45&deg; according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
-</p>
-
-<p>
-The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
-</p>
-
-<p>
-Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
-<pre>
-    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
-<tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
-</table>
-</p>
-
-<p>
-Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b> according to <i>[VDI 2002, p. Lac 6, fig. 16]</i>
-</p>
-
-<p>
-In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:
-</p>
-
-<p>
-<pre>
-CF_Re = B/Re^exp for Re &le; Re_lam_leave
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
-<tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
-<tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
-<tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
-</table>
-</p>
-
-<p>
-Note that the coefficient <b> B </b> considers the influence of the angle of turning <b> delta </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime according to <i>[Idelchik 2006, p. 340, sec. 28]</i>.
-</p>
-
-<p>
-Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
-</p>
-
-<h4><font color=\"#EF9B13\">Verification</font></h4>
-<p>
-The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
-</p>
-
-<p>
-Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
-</p>
-
-<p>
-The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
-<ul>
- <li>
-      <b> laminar regime </b> for Re &le; 4e2
- <li>
-      <b> transition regime </b> for 4e2 &le; Re &le; 2e3
- <li>
-      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
- <li>
-      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
-</ul>
-</p>
-
-<p>
-<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
-</p>
-<p>
-The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">References</font></h4>
-<dl>
-<dt>Idelchik,I.E.:</dt>
-    <dd><b>Handbook of hydraulic resistance</b>.
-    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
-<dt>Miller,D.S.:</dt>
-    <dd><b>Internal flow systems</b>.
-    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
- <dt>Samoilenko,L.A.:</dt>
-    <dd><b>Investigation of the hydraulic resistance of pipelines in the
-        zone of transition from laminar into turbulent motion</b>.
-        PhD thesis, Leningrad State University, 1968.</dd>
-<dt>VDI:</dt>
-    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
-    Springer Verlag, 9th edition, 2002.</dd>
-</dl>
-</html>
-"));
+</html>"));
     end EdgedBend;
   end Bends;
 
@@ -2953,72 +2527,37 @@ where
     end PartialTeeJunction;
 
     partial model PartialPressureLoss
-      "Base flow model for pressure loss functions"
-      import SI = Modelica.SIunits;
-
-      //interfaces
+      "Base flow model for pressure loss functions with the same area at port_a and at port_b"
       extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
-
-      //fluid properties
-      parameter Boolean use_nominal=false
-        "= true, if eta_nominal and rho_nominal are used, otherwise computed from medium"
-        annotation (Evaluate=true, Dialog(group="Fluid properties"));
-      parameter SI.DynamicViscosity eta_nominal=Medium.dynamicViscosity(
-          Medium.setState_pTX(
-          Medium.p_default,
-          Medium.T_default,
-          Medium.X_default))
-        "Nominal dynamic viscosity (e.g., eta_liquidWater = 1e-3, eta_air = 1.8e-5)"
-        annotation (Dialog(enable=use_nominal, group="Fluid properties"));
-      parameter SI.Density rho_nominal=Medium.density_pTX(
-          Medium.p_default,
-          Medium.T_default,
-          Medium.X_default)
-        "Nominal density (e.g., d_liquidWater = 995, d_air = 1.2)"
-        annotation (Dialog(enable=use_nominal, group="Fluid properties"));
-
-    /*
-  Medium.ThermodynamicState state
-    "Upstream medium state for computation of pressure loss characteristics (smoothed around zero flow with state_a and state_b)";
-  SI.Density rho
-    "Upstream density (smoothed around zero flow with state_a and state_b)";
-  SI.DynamicViscosity eta
-    "Upstream dynamic viscosity (smoothed around zero flow with state_a and state_b)";
-*/
+    protected
+      parameter Medium.ThermodynamicState state_dp_small=Medium.setState_pTX(
+                           Medium.reference_p,
+                           Medium.reference_T,
+                           Medium.reference_X)
+        "Medium state to compute dp_small"                                        annotation(HideResult=true);
+      Medium.Density d_a
+        "Density at port_a when fluid is flowing from port_a to port_b";
+      Medium.Density d_b
+        "If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a";
+      Medium.DynamicViscosity eta_a
+        "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+      Medium.DynamicViscosity eta_b
+        "If allowFlowReversal=true then Dynamic viscosity at port_b when fluid is flowing from port_b to port_a else eta_a";
     equation
-      //isenthalpic state transformation (no storage and no loss of energy)
+      // Isenthalpic state transformation (no storage and no loss of energy)
       port_a.h_outflow = inStream(port_b.h_outflow);
       port_b.h_outflow = inStream(port_a.h_outflow);
 
-      // Upstream properties for pressure loss characteristic calculation
-
-    /*
-  if allowFlowReversal then
-    if from_dp then
-      state = Medium.setSmoothState(
-        dp,
-        state_a,
-        state_b,
-        dp_small);
-    else
-      state = Medium.setSmoothState(
-        m_flow,
-        state_a,
-        state_b,
-        m_flow_small);
-    end if;
-  else
-    state = state_a;
-  end if;
-
-  if use_nominal then
-     rho = rho_nominal;
-     eta = eta_nominal;
-  else
-     rho = Medium.density(state);
-     eta = Medium.dynamicViscosity(state);
-  end if;
-*/
+      // Medium properties
+      d_a   = Medium.density(state_a);
+      eta_a = Medium.dynamicViscosity(state_a);
+      if allowFlowReversal then
+        d_b   = Medium.density(state_b);
+        eta_b = Medium.dynamicViscosity(state_b);
+      else
+        d_b   = d_a;
+        eta_b = eta_a;
+      end if;
 
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true,
@@ -3029,6 +2568,678 @@ where
             grid={1,1}), graphics));
     end PartialPressureLoss;
 
+    package Bends "Pressure loss functions for bends"
+      extends Modelica.Icons.VariantsPackage;
+
+      package CurvedBend "Pressure loss functions for curved bends"
+          extends Modelica.Icons.Package;
+        import Modelica.Fluid.Dissipation.PressureLoss.Bend;
+
+      function massFlowRate
+          "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
+          import SI = Modelica.SIunits;
+        input SI.Pressure dp "Pressure loss";
+        input Geometry geometry "Geometry of bend";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.DynamicViscosity eta_a
+            "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+        input SI.DynamicViscosity eta_b
+            "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+      algorithm
+         m_flow := Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
+                     geometry,
+                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(dp, d_a, d_b, dp_small),
+                         eta=Modelica.Fluid.Utilities.regStep(dp, eta_a, eta_b, dp_small)),
+                     dp);
+
+         annotation(Inline=false, LateInline=true,
+                    inverse(dp=Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.pressureLoss(
+                                  m_flow, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small)),
+            Documentation(info="<html>
+<p>
+This function returns the mass flow rate m_flow as function of pressure loss dp for a curved bend.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend\">Fittings.BaseClasses.Bends.CurvedBend</a>
+</p></blockquote>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+
+</html>"));
+      end massFlowRate;
+
+      function pressureLoss
+          "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
+
+          import SI = Modelica.SIunits;
+        input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+        input Geometry geometry "Geometry of bend";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.DynamicViscosity eta_a
+            "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+        input SI.DynamicViscosity eta_b
+            "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.Pressure dp "Pressure loss";
+      algorithm
+         dp := Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP(
+                     geometry,
+                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(m_flow, d_a, d_b, m_flow_small),
+                         eta=Modelica.Fluid.Utilities.regStep(m_flow, eta_a, eta_b, m_flow_small)),
+                     m_flow);
+
+         annotation(Inline=true, Documentation(info="<html>
+<p>
+This function returns the pressure loss dp as function of mass flow rate m_flow for a curved bend.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend\">Fittings.BaseClasses.Bends.CurvedBend</a>
+</p></blockquote>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+</html>"));
+      end pressureLoss;
+
+        record Geometry "Geometric data for a curved bend"
+          import SI = Modelica.SIunits;
+          extends Modelica.Icons.Record;
+
+          SI.Diameter d_hyd "Hydraulic diameter"
+            annotation (Dialog);
+          SI.Radius R_0 "Curvature radius" annotation (Dialog);
+          SI.Angle delta=1.5707963267949 "Angle of turning" annotation (Dialog);
+          Modelica.Fluid.Types.Roughness K=2.5e-5
+            "Absolute roughness, with a default for a smooth steel pipe"
+            annotation (Dialog);
+          annotation (Documentation(info="<html>
+<p>
+This record is used to define the geometric (constant) data of a curved bend.
+The details of the record are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend\">Fittings.BaseClasses.Bends.CurvedBend</a>
+</p></blockquote>
+</html>"));
+        end Geometry;
+        annotation (Documentation(info="<html>
+<p>
+This is the documentation of the following components that model curved bends:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.Bends.CurvedBend\">Fittings.Bends.CurvedBend</a>
+     is a model of the curved bend, using the following utility components:</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.massFlowRate\">Fittings.BaseClasses.Bends.CurvedBend.massFlowRate</a>
+     is a function that returns the mass flow rate as function of pressure loss.</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.pressureLoss\">Fittings.BaseClasses.Bends.CurvedBend.pressureLoss</a>
+     is a function that returns the pressure loss as function of the mass flow rate.</li>
+<li> <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry\">Fittings.BaseClasses.Bends.CurvedBend.Geometry</a>
+     is a record that defines the geometric data of a curved bend.</li>
+</ul>
+
+<p>
+These components model the pressure loss in curved bends in the overall flow regime
+for incompressible and single-phase fluid flow through circular cross sectional area
+considering surface roughness. It is expected that also compressible fluid flow 
+can be handled up to about Ma = 0.3. The model and the functions assume that
+no mass and no energy is stored in the curved bend.
+</p>
+
+
+<h4><font color=\"#ef9b13\">Restriction</font></h4>
+
+<p>This component shall be used inside of the restricted limits according to the referenced literature. </p>
+<ul>
+<li><b>circular cross sectional area </b></li>
+<li><b>0.5 &le; curvature radius / diameter &le; 3 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+<li><b>length of bend along curved axis / diameter &ge; 10 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+<li><b>angle of curvature smaller than 180&deg; (delta &le; 180) </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+</ul>
+
+<p><b><font style=\"color: #ef9b13; \">Geometry</font></b> </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\"/> </p>
+
+<h4><font color=\"#ef9b13\">Calculation</font></h4>
+
+<p>The pressure loss <b>dp </b>for curved bends is determined by: </p>
+<pre>dp = zeta_TOT * (rho/2) * velocity^2 </pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><b>rho </b></td>
+<td>as density of fluid [kg/m3],</td>
+</tr>
+<tr>
+<td><b>velocity </b></td>
+<td>as mean velocity [m/s],</td>
+</tr>
+<tr>
+<td><b>zeta_TOT </b></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+
+<p><br/><b>Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b>according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i> </p>
+<p>The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows: </p>
+
+<ul>
+<li><b>Laminar regime (Re &le; Re_lam_leave)</b>:</li>
+<pre>      zeta_LOC = A2/Re + A1*B1*C1</pre>
+<li><b>Transition regime (Re_lam_leave &le; 4e4)</b> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime. </li>
+<li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number:</li>
+<pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
+where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
+<pre>      k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
+      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
+      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
+<li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number
+<pre>      zeta_LOC = A1*B1*C1</pre>
+</li>
+</ul>
+
+
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><b>A1 </b></td>
+<td>as coefficient considering effect of angle of turning (delta) [-],</td>
+</tr>
+<tr>
+<td><b>A2 </b></td>
+<td>as coefficient considering effect for laminar regime [-],</td>
+</tr>
+<tr>
+<td><b>B1 </b></td>
+<td>as coefficient considering effect of relative curvature radius (R_0/d_hyd) [-],</td>
+</tr>
+<tr>
+<td><b>C1=1 </b></td>
+<td>as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td>
+</tr>
+<tr>
+<td><b>k_Re </b></td>
+<td>as coefficient considering influence of laminar regime in transition regime [-],</td>
+</tr>
+<tr>
+<td><b>Re </b></td>
+<td>as Reynolds number [-].</td>
+</tr>
+</table>
+
+<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
+<pre>    zeta_TOT = CF*zeta_LOC </pre>
+<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
+<pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
+<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
+<pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><b>delta </b></td>
+<td>as curvature radiant [rad],</td>
+</tr>
+<tr>
+<td><b>d_hyd </b></td>
+<td>as hydraulic diameter [m],</td>
+</tr>
+<tr>
+<td><b>K </b></td>
+<td>as absolute roughness (average height of surface asperities) [m],</td>
+</tr>
+<tr>
+<td><b>lambda_FRI_rough </b></td>
+<td>as darcy friction factor[-],</td>
+</tr>
+<tr>
+<td><b>Re </b></td>
+<td>as Reynolds number [m],</td>
+</tr>
+<tr>
+<td><b>zeta_LOC </b></td>
+<td>as local resistance coefficient [-],</td>
+</tr>
+<tr>
+<td><b>zeta_TOT </b></td>
+<td>as pressure loss coefficient [-].</td>
+</tr>
+</table>
+<p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
+<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as: </p>
+<pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><b>k = K /d_hyd </b></td>
+<td><p>as relative roughness [-],</p></td>
+</tr>
+<tr>
+<td><b>Re_lam_leave </b></td>
+<td><p>as Reynolds number for leaving laminar regime [-].</p></td>
+</tr>
+</table>
+<p><br/><br/>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
+
+<h4><font style=\"color: #ef9b13; \">Verification</font></h4>
+
+<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
+<p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
+<p><b>Incompressible case </b>[Pressure loss = f(m_flow)]: </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
+<p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
+<p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
+<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.: </dt>
+<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.: </dt>
+<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984. </dd>
+<dt>Samoilenko,L.A.: </dt>
+<dd><b>Investigation of the hydraulic resistance of pipelines in the zone of transition from laminar into turbulent motion</b>. PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI: </dt>
+<dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. Springer Verlag, 9th edition, 2002. </dd>
+</dl>
+</html>"));
+      end CurvedBend;
+
+      package EdgedBend "Pressure loss functions for edged bends"
+          extends Modelica.Icons.Package;
+        import Modelica.Fluid.Dissipation.PressureLoss.Bend;
+
+      function massFlowRate
+          "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
+        import SI = Modelica.SIunits;
+        input SI.Pressure dp "Pressure loss";
+        input Geometry geometry "Geometry of bend";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.DynamicViscosity eta_a
+            "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+        input SI.DynamicViscosity eta_b
+            "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+      algorithm
+         m_flow := Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW(
+                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con(
+                         d_hyd=geometry.d_hyd,
+                         delta=geometry.delta,
+                         K=geometry.K),
+                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(dp, d_a, d_b, dp_small),
+                         eta=Modelica.Fluid.Utilities.regStep(dp, eta_a, eta_b, dp_small)),
+                     dp);
+
+         annotation(Inline=false, LateInline=true,
+                    inverse(dp=Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss(
+                                  m_flow, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small)),
+          Documentation(info="<html>
+<p>
+This function returns the mass flow rate m_flow as function of pressure loss dp for an edged bend.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend\">Fittings.BaseClasses.Bends.EdgedBend</a>
+</p></blockquote>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+
+</html>"));
+      end massFlowRate;
+
+      function pressureLoss
+          "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
+
+        import SI = Modelica.SIunits;
+        input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+        input Geometry geometry "Geometry of bend";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.DynamicViscosity eta_a
+            "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+        input SI.DynamicViscosity eta_b
+            "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.Pressure dp "Pressure loss";
+      algorithm
+         dp := Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
+                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con(
+                         d_hyd=geometry.d_hyd,
+                         delta=geometry.delta,
+                         K=geometry.K),
+                     Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(m_flow, d_a, d_b, m_flow_small),
+                         eta=Modelica.Fluid.Utilities.regStep(m_flow, eta_a, eta_b, m_flow_small)),
+                     m_flow);
+
+         annotation(Inline=true, Documentation(info="<html>
+<p>
+This function returns the pressure loss dp as function of mass flow rate m_flow for an edged bend.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend\">Fittings.BaseClasses.Bends.EdgedBend</a>
+</p></blockquote>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+</html>"));
+      end pressureLoss;
+
+        record Geometry "Geometric data for a curved bend"
+          import SI = Modelica.SIunits;
+          extends Modelica.Icons.Record;
+
+          SI.Diameter d_hyd "Hydraulic diameter"
+            annotation (Dialog);
+          SI.Angle delta "Angle of turning" annotation (Dialog);
+          Modelica.Fluid.Types.Roughness K=2.5e-5
+            "Absolute roughness, with a default for a smooth steel pipe"
+            annotation (Dialog);
+          annotation (Documentation(info="<html>
+<p>
+This record is used to define the geometric (constant) data of an edged bend.
+The details of the record are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend\">Fittings.BaseClasses.Bends.EdgedBend</a>
+</p></blockquote>
+</html>"));
+        end Geometry;
+        annotation (Documentation(info="<html>
+<p>
+This is the documentation of the following components that model curved bends:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.Bends.EdgedBend\">Fittings.Bends.EdgedBend</a>
+     is a model of the edged bend, using the following utility components:</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.massFlowRate\">Fittings.BaseClasses.Bends.EdgedBend.massFlowRate</a>
+     is a function that returns the mass flow rate as function of pressure loss.</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss\">Fittings.BaseClasses.Bends.EdgedBend.pressureLoss</a>
+     is a function that returns the pressure loss as function of the mass flow rate.</li>
+<li> <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry\">Fittings.BaseClasses.Bends.EdgedBend.Geometry</a>
+     is a record that defines the geometric data of an edged bend.</li>
+</ul>
+
+<p>
+These components model the pressure loss in edged bends with sharp corners in the overall flow regime
+for incompressible and single-phase fluid flow through circular cross sectional area
+considering surface roughness. It is expected that also compressible fluid flow 
+can be handled up to about Ma = 0.3. The model and the functions assume that
+no mass and no energy is stored in the curved bend.
+</p>
+
+<p>
+There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
+</p>
+
+<h4><font color=\"#EF9B13\">Restriction</font></h4>
+This function shall be used inside of the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> edged bend with sharp corners at turning </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> 0° &le; angle of turning &le; 180° </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
+ </li>
+ <li>
+      <b> length of edged bend along edged axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+</ul>
+
+<h4><font color=\"#EF9B13\">Geometry</font></h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+The pressure loss <b> dp </b> for edged bends is determined by:
+<p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+The pressure loss coefficient <b> zeta_TOT </b> of an edged bend can be calculated for different angles of turning <b> delta </b> by:
+<p>
+<pre>
+    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <i>[Idelchik 2006, p. 366, diag. 6-7] </i> and <i>[Miller 1984, p. 149, sec. 9.4]</i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A              </b></td><td> as coefficient considering effect for angle of turning [-],</td></tr>
+<tr><td><b> C1             </b></td><td> as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td></tr>
+<tr><td><b> CF_Fri         </b></td><td> as correction factor considering surface roughness [-],</td></tr>
+<tr><td><b> CF_Re          </b></td><td> as correction factor considering Reynolds number [-],</td></tr>
+<tr><td><b> delta          </b></td><td> as angle of turning [deg].</td></tr>
+</table>
+</p>
+
+The correction factor <b> CF_Fri </b> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
+</p>
+<pre>
+    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+
+<p>
+and the Darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+</p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
+<tr><td><b> lambda_FRI         </b></td><td> as Darcy friction factor[-],</td></tr>
+<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
+<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45° according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
+</p>
+
+<p>
+Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
+<pre>
+    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b> according to <i>[VDI 2002, p. Lac 6, fig. 16]</i>
+</p>
+
+<p>
+In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:
+</p>
+
+<p>
+<pre>
+CF_Re = B/Re^exp for Re &le; Re_lam_leave
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
+<tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the coefficient <b> B </b> considers the influence of the angle of turning <b> delta </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime according to <i>[Idelchik 2006, p. 340, sec. 28]</i>.
+</p>
+
+<p>
+Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
+</p>
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
+</p>
+
+<p>
+Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
+</p>
+
+<p>
+The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
+<ul>
+ <li>
+      <b> laminar regime </b> for Re &le; 4e2
+ <li>
+      <b> transition regime </b> for 4e2 &le; Re &le; 2e3
+ <li>
+      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
+ <li>
+      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
+</ul>
+</p>
+
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+ <dt>Samoilenko,L.A.:</dt>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the
+        zone of transition from laminar into turbulent motion</b>.
+        PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>"));
+      end EdgedBend;
+    end Bends;
   end BaseClasses;
   annotation (Documentation(info="<html>
 

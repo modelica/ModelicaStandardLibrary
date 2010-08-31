@@ -1830,7 +1830,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties
           annotation (Dialog(group="Fluid properties"));
-        SI.DynamicViscosity eta_wall
+        SI.DynamicViscosity eta_wall=1e-3
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
                 "Fluid properties", enable=if target == 2 then true else false));
 
@@ -1840,12 +1840,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC </a>.
-</html>", revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
 </html>"));
       end kc_approxForcedConvection_IN_var;
     end General;
@@ -6200,7 +6194,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number: <br/><br/></li>
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
-<pre>
+<pre> 
       k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
@@ -6472,52 +6466,52 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
-
+ 
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
+This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known 
 variable (dp or m_flow).
 </p>
-
+ 
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\">dp_curvedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
-</p>
-
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\">dp_curvedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. 
+</p> 
+ 
 <h4><font color=\"#EF9B13\">Restriction</font></h4>
 This function shall be used inside of the restricted limits according to the referenced literature.
 <ul>
  <li>
       <b> circular cross sectional area </b>
  </li>
- <li>
+ <li> 
       <b> 0.5 &le; curvature radius / diameter &le; 3 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
- </li>
- <li>
+ </li> 
+ <li> 
       <b> length of bend along curved axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
  </li>
-  <li>
+  <li> 
       <b> angle of curvature smaller than 180° (delta &le; 180) </b> <i>[Idelchik 2006, p. 357, diag. 6-1] </i>
- </li>
+ </li>  
 </ul>
-
-<p>
-<h4><font color=\"#EF9B13\">Geometry</font></h4>
+ 
+<p> 
+<h4><font color=\"#EF9B13\">Geometry</font></h4> 
 </p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\">
 </p>
-
+ 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The pressure loss <b> dp </b> for curved bends is determined by:
 <p>
 <pre>
-    dp = zeta_TOT * (rho/2) * velocity^2
+    dp = zeta_TOT * (rho/2) * velocity^2 
 </pre>
 </p>
-
+ 
 <p>
 with
 </p>
-
+ 
 <p>
 <table>
 <tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
@@ -6525,8 +6519,8 @@ with
 <tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
 </p>
-
-<b> Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b> according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i>
+ 
+<b> Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b> according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i> 
 <p>
 The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows:
 </p>
@@ -6537,14 +6531,14 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
       zeta_LOC = A2/Re + A1*B1*C1
      </pre>
   <li> <b>Transition regime (Re_lam_leave &le; 4e4)</b>
-        This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime.
+        This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime. 
   <li> <b>Turbulent regime (4e4 &le; 3e5) with dependence </b> of local resistance coefficient on Reynolds number:
      <br><br>
      <pre>
       zeta_LOC = k_Re * (A1*B1*C1)
-     </pre>
+     </pre> 
        where <b>k_Re</b> depends on the relative curvature radius <b> R_0/d_hyd </b>
-     <pre>
+     <pre> 
       k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00
@@ -6555,11 +6549,11 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
       zeta_LOC = A1*B1*C1
      </pre>
 </ul>
-
+ 
 <p>
 with
 </p>
-
+ 
 <p>
 <table>
 <tr><td><b> A1            </b></td><td> as coefficient considering effect of angle of turning (delta) [-],</td></tr>
@@ -6570,7 +6564,7 @@ with
 <tr><td><b> Re            </b></td><td> as Reynolds number [-].</td></tr>
 </table>
 </p>
-
+ 
 <p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
 <p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
@@ -6608,62 +6602,62 @@ with
 </tr>
 </table>
 <p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
-
+ 
 <p>
-Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
+Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as: 
 <pre>
     Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
 </pre>
-</p>
-
+</p> 
+ 
 <p>
 with
 </p>
-
+ 
 <p>
 <table>
 <tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
 <tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
 </table>
 </p>
-
+ 
 <p>
-Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b>.
-</p>
-
-<h4><font color=\"#EF9B13\">Verification</font></h4>
+Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b>. 
+</p> 
+ 
+<h4><font color=\"#EF9B13\">Verification</font></h4>      
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a curved bend in dependence of the Reynolds number <b> Re </b> for different relative curvature radii <b> R_0/d_hyd </b> and different angles of turning <b> delta </b> is shown in the figures below.
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
 </p>
-
-<p>
-There are deviations of the pressure loss coefficient <b> zeta_TOT </b> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b> zeta_TOT </b> for the same geometry can be adjusted via variing the average height of surface asperities <b> K </b> for calibration.
+ 
+<p> 
+There are deviations of the pressure loss coefficient <b> zeta_TOT </b> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b> zeta_TOT </b> for the same geometry can be adjusted via variing the average height of surface asperities <b> K </b> for calibration. 
 </p>
-
+ 
 <p>
-<b> Compressible case </b> [Mass flow rate = f(dp)]:
-</p>
-<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]: 
+</p> 
+<p> 
 The mass flow rate in dependence of the pressure loss of water of water is shown for different relative curvature radii:
 </p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
 </p>
-
-<p>
+ 
+<p> 
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
 </p>
-
-<p>
+ 
+<p> 
 Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility.
 </p>
-
-<h4><font color=\"#EF9B13\">References</font></h4>
+ 
+<h4><font color=\"#EF9B13\">References</font></h4> 
 <dl>
  <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
@@ -6679,8 +6673,8 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
     <dd><b>Investigation of the hydraulic resistance of pipelines in the
         zone of transition from laminar into turbulent motion</b>.
         PhD thesis, Leningrad State University, 1968.</dd>
-<dt>VDI:</dt>
-    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+<dt>VDI:</dt> 
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. 
     Springer Verlag, 9th edition, 2002.</dd>
 </dl>
 </html>
@@ -9224,19 +9218,13 @@ This record is used as <b> input record </b> for the pressure loss function <a h
           annotation (Dialog(group="Generic variables"));
 
         //fluid property variables
-        SI.Density rho "Density of fluid" 
+        SI.Density rho=1e3 "Density of fluid"
           annotation (Dialog(group="FluidProperties"));
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient\"> dp_pressureLossCoefficient </a>,
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\"> dp_pressureLossCoefficient_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\"> dp_pressureLossCoefficient_MFLOW </a>.
-</html>", revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
 </html>"));
       end dp_pressureLossCoefficient_IN_var;
 
@@ -12786,7 +12774,7 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
         SI.MassFlowRate m_flow_nominal=opening_nominal*Av*(rho_nominal*dp_nominal)^
             0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=if
                 valveCoefficient == 4 then true else false));
-        SI.Density rho_nominal "Nominal inlet density" annotation (Dialog(group=
+        SI.Density rho_nominal=1e3 "Nominal inlet density" annotation (Dialog(group=
                 "Valve", enable=if valveCoefficient == 4 then true else false));
         Real opening_nominal=0.5 "Nominal opening" annotation (Dialog(group="Valve",
               enable=if valveCoefficient == 4 then true else false));
@@ -12806,12 +12794,6 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\"> dp_severalGeometryOverall </a>,
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\"> dp_severalGeometryOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall_MFLOW </a>.
-</html>", revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
 </html>"));
       end dp_severalGeometryOverall_IN_con;
 
@@ -12825,21 +12807,15 @@ This record is used as <b> input record </b> for the pressure loss function <a h
           annotation (Dialog(group="Valve"));
 
         //fluid property variables
-        SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
+        SI.DynamicViscosity eta=1e-3 "Dynamic viscosity of fluid"
           annotation (Dialog(group="Fluid properties"));
-        SI.Density rho "Density of fluid" 
+        SI.Density rho=1e3 "Density of fluid"
           annotation (Dialog(group="Fluid properties"));
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\"> dp_severalGeometryOverall </a>,
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\"> dp_severalGeometryOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall_MFLOW </a>.
-</html>", revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
 </html>"));
       end dp_severalGeometryOverall_IN_var;
     end Valve;
@@ -13003,9 +12979,9 @@ This record is used as <b> input record </b> for the pressure loss function <a h
               annotation (Dialog(group="Geometry"));
 
             //fluid properties
-            input SI.Density rho_g(min=Modelica.Constants.eps)
+            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
               "Density of gaseous phase" annotation (Dialog(group="Fluid properties"));
-            input SI.Density rho_l(min=Modelica.Constants.eps)
+            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
               "Density of liquid phase" annotation (Dialog(group="Fluid properties"));
             input Real x_flow(
               min=0,
@@ -13029,13 +13005,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
             DP_geo := (eps*rho_g + (1 - eps)*rho_l)*9.81*length*sin(min(PI/2, max(0, abs(
               phi))));
 
-            annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
           end dp_twoPhaseGeodetic_DP;
 
           function dp_twoPhaseMomentum_DP
@@ -13069,10 +13038,10 @@ This record is used as <b> input record </b> for the pressure loss function <a h
               annotation (Dialog(group="Geometry"));
 
             //fluid properties
-            input SI.Density rho_g(min=Modelica.Constants.eps) "Density of gas"
+            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
+              "Density of gas"
               annotation (Dialog(group="Fluid properties"));
             input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
-            input SI.Density rho_l(min=Modelica.Constants.eps)
               "Density of liquid" annotation (Dialog(group="Fluid properties"));
             input Real x_flow_end(
               min=0,
@@ -13180,13 +13149,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
               0.05,
               0)*abs(1/max(MIN, rho_end) - 1/max(MIN, rho_sta));
 
-            annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
           end dp_twoPhaseMomentum_DP;
 
           function TwoPhaseMultiplierFriedel
@@ -13466,9 +13428,9 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "true == cross sectional averaged void fraction | false == volumetric"
               annotation (Dialog);
 
-            input SI.Density rho_g(min=Modelica.Constants.eps)
+            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
               "Density of gaseous phase" annotation (Dialog);
-            input SI.Density rho_l(min=Modelica.Constants.eps)
+            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
               "Density of liquid phase" annotation (Dialog);
             input Real x_flow(
               min=0,
@@ -13495,13 +13457,6 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             epsilon := if crossSectionalAveraged then epsilon_A else epsilon_A/((1/max(
               MIN, SR))*(1 - epsilon_A) + epsilon_A);
             slipRatio := SR;
-            annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
           end VoidFraction;
 
           function SlipRatio "Calculation of (analytical/empirical) slip ratio"
@@ -13515,9 +13470,9 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               voidFractionApproach=Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
-            input SI.Density rho_g(min=Modelica.Constants.eps)
+            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
               "Density of gaseous phase" annotation (Dialog);
-            input SI.Density rho_l(min=Modelica.Constants.eps)
+            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
               "Density of liquid phase" annotation (Dialog);
             input Real x_flow=0 "Mass flow rate quality" annotation (Dialog);
 
@@ -13544,13 +13499,6 @@ The heterogeneous approaches are analytically derived by minimising the momentum
                     SR_mom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy then
                     SR_kin else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Chisholm then
                     SR_chi else 1;
-            annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
           end SlipRatio;
         end TwoPhase;
       end PressureLoss;
@@ -15799,25 +15747,18 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record FluidProperties "Base record for fluid properties"
           extends Modelica.Icons.Record;
 
-          SI.SpecificHeatCapacityAtConstantPressure cp
+          SI.SpecificHeatCapacityAtConstantPressure cp=4.19e3
             "Specific heat capacity of fluid at constant pressure"
             annotation (Dialog(group="Fluid properties"));
 
-          SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
+          SI.DynamicViscosity eta=1e-3 "Dynamic viscosity of fluid"
             annotation (Dialog(group="Fluid properties"));
 
-          SI.ThermalConductivity lambda "Thermal conductivity of fluid" 
+          SI.ThermalConductivity lambda=0.58 "Thermal conductivity of fluid"
             annotation (Dialog(group="Fluid properties"));
 
-          SI.Density rho "Density of fluid" 
+          SI.Density rho=1e3 "Density of fluid"
             annotation (Dialog(group="Fluid properties"));
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end FluidProperties;
 
         record IdealGas_con
@@ -15826,42 +15767,25 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           Real exp=2 "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
-          SI.SpecificHeatCapacity R_s
-            "Specific gas constant of ideal gas (e.g., 287 J/(kg.K) for dry air)"
+          SI.SpecificHeatCapacity R_s=287 "Specific gas constant of ideal gas"
             annotation (Dialog(group="Fluid properties"));
           Real Km=6824.86
             "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]"
             annotation (Dialog(group="Generic variables"));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>
-"));
         end IdealGas_con;
 
         record IdealGas_var
           "Base record for generic pressure loss function | ideal gas | mean density"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_m
-            "Mean density of ideal gas (e.g., 1.189 kg/m3 for dry air at normal conditions)"
+          SI.Density rho_m=1.189 "Mean density of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas" 
+          SI.Temp_K T_m=(293 + 293)/2 "Mean temperature of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
-          SI.Pressure p_m "Mean pressure of ideal gas" 
+          SI.Pressure p_m=(1e5 + 1e5)/2 "Mean pressure of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end IdealGas_var;
 
         record NominalDensityViscosity
@@ -15877,22 +15801,15 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
-          SI.Density rho_nom
-            "Nominal density (at nominal values of mass flow rate and pressure loss; e.g., 1000 kg/m3 for water at normal conditions)"
+          SI.Density rho_nom=1e3
+            "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
           Real exp_eta=1 "Exponent for dynamic viscosity dependence"
             annotation (Dialog(group="Generic variables"));
-          SI.DynamicViscosity eta_nom
+          SI.DynamicViscosity eta_nom=1e-3
             "Dynamic viscosity at nominal pressure loss"
             annotation (Dialog(group="Generic variables"));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end NominalDensityViscosity;
 
         record NominalPressureLossLawDensity_con
@@ -15926,21 +15843,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables",enable=target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.VolumeFlowRate));
-          SI.Density rho_nom
-            "Nominal density (at nominal values of mass flow rate and pressure loss; e.g. 1000 kg/m3 for water at normal conditions)"
+          SI.Density rho_nom=1e3
+            "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
 
           Types.PressureLossCoefficient zeta_TOT_nom=0.02*1/0.1
             "Nominal pressure loss coefficient (for nominal values)"
             annotation (Dialog(group="Generic variables"));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end NominalPressureLossLawDensity_con;
 
         record NominalPressureLossLawDensity_var
@@ -15980,27 +15890,20 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow_var "Base record for two phase flow"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_g "Density of gas" 
+          SI.Density rho_g=1.1220 "Density of gas"
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_l "Density of liquid" 
+          SI.Density rho_l=943.11 "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" 
+          SI.DynamicViscosity eta_g=12.96e-6 "Dynamic viscosity of gas"
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
+          SI.DynamicViscosity eta_l=232.1e-6 "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.SurfaceTension sigma "Surface tension" 
+          SI.SurfaceTension sigma=54.97e-3 "Surface tension"
             annotation (Dialog(group="Fluid properties"));
 
           //input variables
           Real x_flow=0 "Mean mass flow rate quality over length"
             annotation (Dialog(group="Input"));
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end TwoPhaseFlow_var;
 
         record IdealGas
@@ -16010,8 +15913,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           parameter Real exp(min=Modelica.Constants.eps) = 2
             "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
-          parameter SI.SpecificHeatCapacity R_s(min=1)
-            "Specific gas constant of ideal gas (e.g., 287 J/kg for dry air)" 
+          parameter SI.SpecificHeatCapacity R_s(min=1) = 287
+            "Specific gas constant of ideal gas"
             annotation (Dialog(group="Fluid properties"));
 
           Real Km(min=Modelica.Constants.eps) = R_s*(2e3)/((10)^exp/rho_m)
@@ -16019,18 +15922,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas" 
+          SI.Temp_K T_m=(293 + 293)/2 "Mean temperature of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
-          SI.Pressure p_m "Mean pressure of ideal gas" 
+          SI.Pressure p_m=(1e5 + 1e5)/2 "Mean pressure of ideal gas"
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end IdealGas;
 
         record NominalPressureLossLawDensity
@@ -16065,8 +15961,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables",enable=not (target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)));
-          SI.Density rho_nom(min=Modelica.Constants.eps)
-            "Nominal density (at nominal values of mass flow rate and pressure loss; e.g., 1000 kg/m3 for water at normal conditions)"
+          SI.Density rho_nom(min=Modelica.Constants.eps) = 1e3
+            "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
 
           Types.PressureLossCoefficient zeta_TOT=zeta_TOT_nom
@@ -16075,40 +15971,26 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Nominal pressure loss coefficient (for nominal values)"
             annotation (Dialog(group="Generic variables"));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end NominalPressureLossLawDensity;
 
         record TwoPhaseFlow "base record for two phase Flow"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_l "Density of liquid" 
+          SI.Density rho_l=958 "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_g "Density of gas" annotation (Dialog(group=
+          SI.Density rho_g=0.6 "Density of gas" annotation (Dialog(group=
                   "Fluid properties", enable=if KC == 1 or KC == 2 then true else false));
-          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
+          SI.DynamicViscosity eta_l=282e-6 "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
+          SI.DynamicViscosity eta_g=12.7e-6 "Dynamic viscosity of gas" annotation (
               Dialog(group="Fluid properties", enable=if KC == 1 or KC == 2 then true else
                         false));
           SI.MassFraction x=0.5 "Vapour fraction"
             annotation (Dialog(group="Fluid properties"));
-          SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
+          SI.SurfaceTension sigma=59e-3 "Surface Tension" annotation (Dialog(group=
                   "Fluid properties", enable=if DP_fric == 1 then true else false));
           Real n=0.25 "Exponent in Blasius equation (0.2-0.25)" annotation (Dialog(
                 group="others", enable=if DP_fric == 2 then true else false));
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end TwoPhaseFlow;
       end General;
 
@@ -16198,20 +16080,13 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Length perimeter=Modelica.Constants.pi*0.1 "Wettet perimeter"
             annotation (Dialog(group="Geometry"));
 
-          SI.MolarMass MM "Molar mass of fluid" annotation (Dialog(group=
+          SI.MolarMass MM=18.02 "Molar mass of fluid" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
                         true else false));
-          SI.Pressure p_crit "Critical pressure of fluid" 
+          SI.Pressure p_crit=220.89e5 "Critical pressure of fluid"
             annotation (Dialog(group="Fluid properties"));
 
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end TwoPhaseFlowHT_IN_con;
 
         record TwoPhaseFlowHT_IN_var
@@ -16226,27 +16101,27 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Choices"));
 
           //fluid properties
-          SI.SpecificHeatCapacityAtConstantPressure cp_l
+          SI.SpecificHeatCapacityAtConstantPressure cp_l=4.19e3
             "Specific heat capacity of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.ThermalConductivity lambda_l "Thermal conductivity of liquid" 
+          SI.ThermalConductivity lambda_l=0.58 "Thermal conductivity of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_g "Density of gas" annotation (Dialog(group=
+          SI.Density rho_g=1.1220 "Density of gas" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
                         true else false));
-          SI.Density rho_l "Density of liquid" 
+          SI.Density rho_l=943.11 "Density of liquid"
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
+          SI.DynamicViscosity eta_g=12.96e-6 "Dynamic viscosity of gas" annotation (
               Dialog(group="Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
                         true else false));
-          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
+          SI.DynamicViscosity eta_l=232.1e-6 "Dynamic viscosity of liquid"
             annotation (Dialog(group="Fluid properties"));
 
-          SI.Pressure pressure "Mean pressure of fluid" 
+          SI.Pressure pressure=2e5 "Mean pressure of fluid"
             annotation (Dialog(group="Fluid properties"));
-          SI.SpecificEnthalpy dh_lg "Evaporation enthalpy of fluid" 
+          SI.SpecificEnthalpy dh_lg=2202.08e3 "Evaporation enthalpy of fluid"
             annotation (Dialog(group="Fluid properties", enable=if target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
@@ -16260,13 +16135,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                         true else false));
 
           Real x_flow=0 "Mass flow rate quality" annotation (Dialog(group="Input"));
-          annotation (Documentation(revisions="<html>
-<ul>
-<li><i>August 28, 2010</i>
-       by <a href=\"mailto:Stefan.Wischhusen@xrg-simulation.de\">Stefan Wischhusen</a>:<br>
-       Removed fluid property depending default values.</li>
-</ul>
-</html>"));
         end TwoPhaseFlowHT_IN_var;
       end HeatTransfer;
 
@@ -16276,18 +16144,22 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record Bend "Input for bend"
           extends Modelica.Icons.Record;
 
-          Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
-            "Choice of considering surface roughness" annotation (Dialog(group="Bend"));
-
-          SI.Angle delta=90*PI/180 "Angle of turning" annotation (Dialog(group="Bend"));
+        /*
+  Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered 
+    "Choice of considering surface roughness" annotation (Dialog(group="Bend"));
+*/
           SI.Diameter d_hyd(min=Modelica.Constants.eps) = 0.1
             "Hydraulic diameter"
             annotation (Dialog(group="Bend"));
-          SI.Length K=0 "Roughness (average height of surface asperities)" annotation (
-              Dialog(group="Bend", enable=roughness == Modelica.Fluid.Dissipation.Utilities.Types.Roughness.considered));
-          SI.Length L=10*d_hyd "Length of bend along axis"
-            annotation (Dialog(group="Bend"));
           SI.Radius R_0=0.5*d_hyd "Curvature radius" annotation (Dialog(group="Bend"));
+          SI.Angle delta=90*PI/180 "Angle of turning" annotation (Dialog(group="Bend"));
+          SI.Length K=0
+            "Roughness (absolute average height of surface asperities)"             annotation (Dialog(group="Bend"));
+
+        /*  
+  SI.Length L=10*d_hyd "Length of bend along axis"
+    annotation (Dialog(group="Bend"));
+*/
 
         end Bend;
 
@@ -16615,1103 +16487,1103 @@ Germany<br>
       graphics));
 end Dissipation;
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-            //icon
+              //icon
 
-            //input records
-            //output variables
+              //input records
+              //output variables
 
-            //variables for mean Nusselt number
-            //SOURCE: p.Gb 7, eq. 36/37
-            //SOURCE: p.Gb 7, eq. 38
-            //SOURCE: p.Gb 7, eq. 42
+              //variables for mean Nusselt number
+              //SOURCE: p.Gb 7, eq. 36/37
+              //SOURCE: p.Gb 7, eq. 38
+              //SOURCE: p.Gb 7, eq. 42
 
-            //Documentation
+              //Documentation
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-            //icon
+              //icon
 
-            // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
+              // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //even gap variables
+              //even gap variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (mass flow rate)
+              //input variable (mass flow rate)
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE: p.Ga 5, eq. 27
+              //SOURCE: p.Ga 5, eq. 27
 
-            //SOURCE: p.Gb 5, eq. 26
-            //assumption according to Gb 7, sec. 2.4
+              //SOURCE: p.Gb 5, eq. 26
+              //assumption according to Gb 7, sec. 2.4
 
-            //Documentation
+              //Documentation
 
-            //SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley & Sons, 2nd edition, 2003. (p.424 ff)
-            //Notation of equations according to SOURCE
+              //SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley & Sons, 2nd edition, 2003. (p.424 ff)
+              //Notation of equations according to SOURCE
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //failure status
+              //failure status
 
-            //SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley & Sons, 2nd edition, 2003. (p.424 ff)
-            //Notation of equations according to SOURCE
+              //SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley & Sons, 2nd edition, 2003. (p.424 ff)
+              //Notation of equations according to SOURCE
 
-            //type =
+              //type =
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //generic variables
+              //generic variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (mass flow rate)
+              //input variable (mass flow rate)
 
-            //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
+              //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
+              //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
 
-            //icon
+              //icon
 
-            // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
+              // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (mass flow rate)
+              //input variable (mass flow rate)
 
-            //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
+              //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            /*SI.Length D_h=
+              /*SI.Length D_h=
     if IN_con.geometry==2 then
       4*A_c/(IN_con.A_fr*(2*(IN_con.P_t-IN_con.D_c+IN_con.F_p)/(IN_con.F_p*(IN_con.P_t-IN_con.D_c)))) else
       0 "Hydraulic diameter";*/
 
-            //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
+              //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            /*SI.Length D_h=
+              /*SI.Length D_h=
     if IN_con.geometry==2 then
       4*A_c/(IN_con.A_fr*(2*(IN_con.P_t-IN_con.D_c+IN_con.F_p-IN_con.delta_f)/(IN_con.F_p*IN_con.P_t))) else
       0 "Hydraulic diameter";*/
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (mass flow rate)
+              //input variable (mass flow rate)
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
-            //output variables
+              //input records
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //helical pipe variables
+              //helical pipe variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (mass flow rate)
+              //input variable (mass flow rate)
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
-            //output variables
+              //input records
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //plate variables
+              //plate variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (fluid flow velocity)
+              //input variable (fluid flow velocity)
 
-            //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
-            //Notation of equations according to SOURCE
+              //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
+              //Notation of equations according to SOURCE
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //straight pipe variables
+              //straight pipe variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input variable (mass flow rate)
+              //input variable (mass flow rate)
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //failure status
+              //failure status
 
-            //Documentation
+              //Documentation
 
-            //failure status
+              //failure status
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
-            //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
+              //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
+              //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
+              //Notation of equations according to SOURCES
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
+              //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
 
-            //SOURCE_1: p.357, diag. 6-1: coefficients for local resistance coefficient [zeta_LOC]:
-            //IN_con.R_0/IN_con.d_hyd <= 3
+              //SOURCE_1: p.357, diag. 6-1: coefficients for local resistance coefficient [zeta_LOC]:
+              //IN_con.R_0/IN_con.d_hyd <= 3
 
-            //mass flow rate boundaries for w.r.t. flow regimes
+              //mass flow rate boundaries for w.r.t. flow regimes
 
-            //SOURCE_1: p.357, diag. 6-1, sec. 2 / p.336, sec. 15 (turbulent regime + hydraulically rough):
-            //IN_con.R_0/IN_con.d_hyd < 3
+              //SOURCE_1: p.357, diag. 6-1, sec. 2 / p.336, sec. 15 (turbulent regime + hydraulically rough):
+              //IN_con.R_0/IN_con.d_hyd < 3
 
-            //SOURCE_1: p.357, diag. 6-1
-            //IN_con.R_0/IN_con.d_hyd < 3
+              //SOURCE_1: p.357, diag. 6-1
+              //IN_con.R_0/IN_con.d_hyd < 3
 
-            //SOURCE_2: p.191, eq. 8.4: considering surface roughness
-            //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
+              //SOURCE_2: p.191, eq. 8.4: considering surface roughness
+              //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
 
-            //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
+              //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
+              //Notation of equations according to SOURCES
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
+              //SOURCE_1: p.336, sec.15: definition of flow regime boundaries
 
-            //SOURCE_1: p.357, diag. 6-1: coefficients for local resistance coefficient [zeta_LOC]:
-            //IN_con.R_0/IN_con.d_hyd <= 3
+              //SOURCE_1: p.357, diag. 6-1: coefficients for local resistance coefficient [zeta_LOC]:
+              //IN_con.R_0/IN_con.d_hyd <= 3
 
-            //SOURCE_1: p.357, diag. 6-1: pressure loss boundaries for w.r.t flow regimes
-            //IN_con.R_0/d_hyd <=3
+              //SOURCE_1: p.357, diag. 6-1: pressure loss boundaries for w.r.t flow regimes
+              //IN_con.R_0/d_hyd <=3
 
-            //SOURCE_1: p.357, diag. 6-1: mean velocities for assumed flow regime
-            //IN_con.R_0/d_hyd <=3
+              //SOURCE_1: p.357, diag. 6-1: mean velocities for assumed flow regime
+              //IN_con.R_0/d_hyd <=3
 
-            //mean velocity under smooth conditions w.r.t flow regime
+              //mean velocity under smooth conditions w.r.t flow regime
 
-            //SOURCE_2: p.191, eq. 8.4: considering surface roughness
-            //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
+              //SOURCE_2: p.191, eq. 8.4: considering surface roughness
+              //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
 
-            //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
+              //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
 
-            //bend variables
+              //bend variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //definition of flow regime boundaries
-            //SOURCE_2: p.207, sec. 9.2.4
-            //SOURCE_3: p.Lac 6, fig. 16
+              //definition of flow regime boundaries
+              //SOURCE_2: p.207, sec. 9.2.4
+              //SOURCE_3: p.Lac 6, fig. 16
 
-            //SOURCE_1: p. 81, sec. 2-2-21: start of transition regime
+              //SOURCE_1: p. 81, sec. 2-2-21: start of transition regime
 
-            //SOURCE_1: p.366, diag. 6-7
+              //SOURCE_1: p.366, diag. 6-7
 
-            //SOURCE_1: p.366, diag. 6-7
+              //SOURCE_1: p.366, diag. 6-7
 
-            //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
+              //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
 
-            //SOURCE_2: p.191, eq. 8.4: considering surface roughness
-            //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
+              //SOURCE_2: p.191, eq. 8.4: considering surface roughness
+              //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
 
-            //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-            //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45°
+              //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
+              //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45°
 
-            //SOURCE_2: p.208, diag. 9.3: Correction w.r.t. effect of Reynolds number
+              //SOURCE_2: p.208, diag. 9.3: Correction w.r.t. effect of Reynolds number
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //definition of flow regime boundaries
-            //SOURCE_2: p.207, sec. 9.2.4
-            //SOURCE_3: p.Lac 6, fig. 16
+              //definition of flow regime boundaries
+              //SOURCE_2: p.207, sec. 9.2.4
+              //SOURCE_3: p.Lac 6, fig. 16
 
-            //SOURCE_1: p. 81, sec. 2-2-21: start of transition regime
+              //SOURCE_1: p. 81, sec. 2-2-21: start of transition regime
 
-            //SOURCE_1: p.366, diag. 6-7
+              //SOURCE_1: p.366, diag. 6-7
 
-            //SOURCE_1: p.366, diag. 6-7
+              //SOURCE_1: p.366, diag. 6-7
 
-            //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
+              //SOURCE_1: p.344, sec. 39/29: Correction w.r.t. effect of Reynolds number in laminar regime
 
-            //mean velocity under smooth conditions w.r.t. flow regime
+              //mean velocity under smooth conditions w.r.t. flow regime
 
-            //SOURCE_2: p.191, eq. 8.4: considering surface roughness
-            //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
+              //SOURCE_2: p.191, eq. 8.4: considering surface roughness
+              //restriction of lambda_FRI at maximum Reynolds number Re=1e6 (SOURCE_2: p.207, sec. 9.2.4)
 
-            //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-            //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45°
+              //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
+              //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45°
 
-            //Documentation
+              //Documentation
 
-            //bend variables
+              //bend variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 1978.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 1978.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_2: p.138, sec 8.5
+              //SOURCE_2: p.138, sec 8.5
 
-            //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
+              //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
 
-            //Adapted mass flow rate for function dp_turbulent of a straight pipe
+              //Adapted mass flow rate for function dp_turbulent of a straight pipe
 
-            //Documentation
+              //Documentation
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_2: p.138, sec 8.5
+              //SOURCE_2: p.138, sec 8.5
 
-            //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
+              //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
 
-            //determining darcy friction factor out of pressure loss calulation for straight pipe:
-            //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
+              //determining darcy friction factor out of pressure loss calulation for straight pipe:
+              //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
 
-            //SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime
+              //SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime
 
-            //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
+              //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
 
-            //determine actual flow regime
-            //determine Re for transition regime
-            //determine actual Re
+              //determine actual flow regime
+              //determine Re for transition regime
+              //determine actual Re
 
-            //Documentation
+              //Documentation
 
-            //channel variables
+              //channel variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //generic variables
+              //generic variables
 
-            //linearisation
+              //linearisation
 
-            //generic variables
+              //generic variables
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //generic variables
+              //generic variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //generic variables
+              //generic variables
 
-            //generic variables
+              //generic variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //generic variables
+              //generic variables
 
-            //linearisation
+              //linearisation
 
-            //generic variables
+              //generic variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //generic variables
+              //generic variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //restriction of local resistance coefficient zeta_LOC >> numerical improvement
+              //restriction of local resistance coefficient zeta_LOC >> numerical improvement
 
-            //sudden expansion  :  SOURCE_1, section 4, diagram 4-1, page 208
-            //assumption of Re >= 3.3e3 for sudden expansion
+              //sudden expansion  :  SOURCE_1, section 4, diagram 4-1, page 208
+              //assumption of Re >= 3.3e3 for sudden expansion
 
-            //sudden contraction:  SOURCE_1, section 4, diagram 4-9, page 216 / 217
-            //assumption of Re >= 1.0e4 for sudden contraction
+              //sudden contraction:  SOURCE_1, section 4, diagram 4-9, page 216 / 217
+              //assumption of Re >= 1.0e4 for sudden contraction
 
-            //determine Reynolds number for small cross sectional area of orifice
+              //determine Reynolds number for small cross sectional area of orifice
 
-            //actual local resistance coefficient
+              //actual local resistance coefficient
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //restriction of local resistance coefficient zeta_LOC >> numerical improvement
+              //restriction of local resistance coefficient zeta_LOC >> numerical improvement
 
-            //sudden expansion  :  SOURCE_1, section 4, diagram 4-1, page 208
-            //assumption of Re >= 3.3e3 for sudden expansion
+              //sudden expansion  :  SOURCE_1, section 4, diagram 4-1, page 208
+              //assumption of Re >= 3.3e3 for sudden expansion
 
-            //sudden contraction:  SOURCE_1, section 4, diagram 4-9, page 216 / 217
-            //assumption of Re >= 1.0e4 for sudden contraction
+              //sudden contraction:  SOURCE_1, section 4, diagram 4-9, page 216 / 217
+              //assumption of Re >= 1.0e4 for sudden contraction
 
-            //actual local resistance coefficient
+              //actual local resistance coefficient
 
-            //Documentation
+              //Documentation
 
-            //orifice variables
+              //orifice variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1, section 4, diagram 4-15, page 222:
+              //SOURCE_1, section 4, diagram 4-15, page 222:
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //Notation of equations according to SOURCES
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //Notation of equations according to SOURCES
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1, section 4, diagram 4-15, page 222:
+              //SOURCE_1, section 4, diagram 4-15, page 222:
 
-            //Documentation
+              //Documentation
 
-            //orifice variables
+              //orifice variables
 
-            //linearisation
+              //linearisation
 
-            //fluid property variables
+              //fluid property variables
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
+              //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
 
-            //Documentation
+              //Documentation
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
+              //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
 
-            //determining darcy friction factor out of pressure loss calulation for straight pipe:
-            //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
+              //determining darcy friction factor out of pressure loss calulation for straight pipe:
+              //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
 
-            //SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime (Blasius)
+              //SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime (Blasius)
 
-            //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
+              //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
 
-            //determine actual flow regime
-            //determine Re for transition regime
-            //determine actual Re
+              //determine actual flow regime
+              //determine Re for transition regime
+              //determine actual Re
 
-            //Documentation
+              //Documentation
 
-            //straight pipe variables
+              //straight pipe variables
 
-            //fluid property variables
+              //fluid property variables
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
+              //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
 
-            //SOURCE_2: p.191, eq. 8.4: determining darcy friction factor
-            //assuming lambda_FRI == lambda_FRI_calc/Re^2
-            //here with lambda_FRI_rough == lambda_FRI*Re^2
+              //SOURCE_2: p.191, eq. 8.4: determining darcy friction factor
+              //assuming lambda_FRI == lambda_FRI_calc/Re^2
+              //here with lambda_FRI_rough == lambda_FRI*Re^2
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
-            //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
-            //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
+              //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
+              //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
+              //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
 
-            //icon
-            //input records
+              //icon
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
+              //SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries
 
-            //determining darcy friction factor out of pressure loss calulation for straight pipe:
-            //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
+              //determining darcy friction factor out of pressure loss calulation for straight pipe:
+              //dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2
 
-            //SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime (Hagen-Poiseuille)
+              //SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime (Hagen-Poiseuille)
 
-            //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
+              //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
 
-            //determine actual flow regime
-            //determine Re for transition regime
-            //determine actual Re
+              //determine actual flow regime
+              //determine Re for transition regime
+              //determine actual Re
 
-            //determine velocity
+              //determine velocity
 
-            //Documentation
+              //Documentation
 
-            //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
-            //SOURCE_2: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
-            //SOURCE_3: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
-            //SOURCE 4: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
-            //SOURCE_5: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
+              //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
+              //SOURCE_2: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
+              //SOURCE_3: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+              //SOURCE 4: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
+              //SOURCE_5: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //SOURCE_5: p.17-1 to 17-5, sec. 17.1 to 17.2: Considering cross sectional void fraction [epsilon=A_g/(A_g+A_l)]
+              //SOURCE_5: p.17-1 to 17-5, sec. 17.1 to 17.2: Considering cross sectional void fraction [epsilon=A_g/(A_g+A_l)]
 
-            //SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel
-            //SOURCE_2: Considering frictional pressrue loss w.r.t. to correlation of Chisholm
+              //SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel
+              //SOURCE_2: Considering frictional pressrue loss w.r.t. to correlation of Chisholm
 
-            //SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
-            //Evaporation >> positive momentum pressure loss (assumed vice versa at condenstation)
+              //SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
+              //Evaporation >> positive momentum pressure loss (assumed vice versa at condenstation)
 
-            //SOURCE_3: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
+              //SOURCE_3: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
 
-            //Documentation
+              //Documentation
 
-            //choices
+              //choices
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //icon
+              //icon
 
-            //input records
+              //input records
 
-            //output variables
+              //output variables
 
-            //Documentation
+              //Documentation
 
-            //valve variables
+              //valve variables
 
-            //numerical aspects
+              //numerical aspects
 
-            //valve variables
+              //valve variables
 
-            //fluid property variables
+              //fluid property variables
 
-                //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
+                  //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
 
-                //icon
+                  //icon
 
-                //records
+                  //records
 
-                //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
-                //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
+                  //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
-                //icon
+                  //icon
 
-                //records
+                  //records
 
-                //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
-                //geometry
+                  //geometry
 
-                //fluid properties
+                  //fluid properties
 
-                //SOURCE_1: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
+                  //SOURCE_1: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
 
-                //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
-                //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
-                //SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
+                  //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
+                  //SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
 
-                //choices
+                  //choices
 
-                //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
+                  //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
 
-                //geometry
+                  //geometry
 
-                //fluid properties
+                  //fluid properties
 
-                //SOURCE_2: Considering void fraction approaches
+                  //SOURCE_2: Considering void fraction approaches
 
-                //SOURCE_2: p.17-6, eq. 17.3.3: Considering mean two phase density at end and start of length
+                  //SOURCE_2: p.17-6, eq. 17.3.3: Considering mean two phase density at end and start of length
 
-                //SOURCE 3: p.15, eq. 2.26: Considering velocity difference for heterogeneous approach using slip ratio
+                  //SOURCE 3: p.15, eq. 2.26: Considering velocity difference for heterogeneous approach using slip ratio
 
-                //SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogenous approach
+                  //SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogenous approach
 
-                //SOURCE 3: p.53, eq. 4.13: Calculation of heterogeneous approach with correction of mass flow rate for considering velocity difference between fluid phases
+                  //SOURCE 3: p.53, eq. 4.13: Calculation of heterogeneous approach with correction of mass flow rate for considering velocity difference between fluid phases
 
-                //SOURCE_1: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
-                //Momentum pressure loss occurs for a changing mass flow rate quality due to condensation or evaporation
-                //At evaporation the liquid phase with a slow velocity has to be accelerated to the higher velocity of the gas
-                //The difference in static pressure at the outlet and the inlet causes a positiv momentum pressure loss at evaporation (assumed vice versa for condensation)
+                  //SOURCE_1: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
+                  //Momentum pressure loss occurs for a changing mass flow rate quality due to condensation or evaporation
+                  //At evaporation the liquid phase with a slow velocity has to be accelerated to the higher velocity of the gas
+                  //The difference in static pressure at the outlet and the inlet causes a positiv momentum pressure loss at evaporation (assumed vice versa for condensation)
 
-                //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
-                //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
+                  //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
-                //SOURCE_2: p.Lba 4, sec. 3.3: Correlation based on constant mass flow rate quality (x_flow) for increment (dx)
-                //Pressure loss for total length (e.g., L=n*dx) can be achieved by discretisation
+                  //SOURCE_2: p.Lba 4, sec. 3.3: Correlation based on constant mass flow rate quality (x_flow) for increment (dx)
+                  //Pressure loss for total length (e.g., L=n*dx) can be achieved by discretisation
 
-                //SOURCE_1: p.490 (Appendix): Characteristic numbers based on total mass flow rate flowing as liquid
+                  //SOURCE_1: p.490 (Appendix): Characteristic numbers based on total mass flow rate flowing as liquid
 
-                //SOURCE_1: p.490 (Appendix): Smoothing for sudden change from assumed laminar to assumed turbulent regime (numerical improvement at Re=1055)
+                  //SOURCE_1: p.490 (Appendix): Smoothing for sudden change from assumed laminar to assumed turbulent regime (numerical improvement at Re=1055)
 
-                //SOURCE_2: p.Lbb 2, eq. 9-10: Considering influence of Reynolds number on Darcy friction factor for smooth straight pipes
-                //Correlation based on neglection of surface roughness
-                //Correlation based on assumption that total mass flow rate is flowing as gas
-                //Correlation based on assumption that total mass flow rate is flowing as liquid
+                  //SOURCE_2: p.Lbb 2, eq. 9-10: Considering influence of Reynolds number on Darcy friction factor for smooth straight pipes
+                  //Correlation based on neglection of surface roughness
+                  //Correlation based on assumption that total mass flow rate is flowing as gas
+                  //Correlation based on assumption that total mass flow rate is flowing as liquid
 
-                //SOURCE_1: p.490 (Appendix): Two phase multiplier for vertical downflow for future usage
+                  //SOURCE_1: p.490 (Appendix): Two phase multiplier for vertical downflow for future usage
 
-                //SOURCE_1: p.490 (Appendix): Two phase multiplier for horizontal and vertical upflow (failure in SOURCE_2)
+                  //SOURCE_1: p.490 (Appendix): Two phase multiplier for horizontal and vertical upflow (failure in SOURCE_2)
 
-                //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
-                //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
+                  //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
-                //SOURCE_1: p.357, Appendix 1: Considering Darcy friction factor (lambda_FRI) of smooth pipes for overall flow regime
+                  //SOURCE_1: p.357, Appendix 1: Considering Darcy friction factor (lambda_FRI) of smooth pipes for overall flow regime
 
-                //SOURCE_1: p.349, eq. 21: Considering effect of physical properties (failure in SOURCE_2)
+                  //SOURCE_1: p.349, eq. 21: Considering effect of physical properties (failure in SOURCE_2)
 
-                //SOURCE: p. 353, tab. 2: Considering effect of mass flux on two phase multiplier
+                  //SOURCE: p. 353, tab. 2: Considering effect of mass flux on two phase multiplier
 
-                //SOURCE_1: p. 350, eq. 24/26: Considering two phase multiplier w.r.t. Chisholm
+                  //SOURCE_1: p. 350, eq. 24/26: Considering two phase multiplier w.r.t. Chisholm
 
-                //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
-                //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
+                  //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
 
-                //SOURCE_1: p.Lba 3, eq. 17: Mean two phase density assuming homogeneous approach
-                //SOURCE_1: p.Lbb 7, tab. 2: Mean two phase density assuming momentum flux approach
-                //SOURCE_1: p.Lbb 7, tab. 2: Mean two phase density assuming kinetic energy flow approach from Zivi (corrected formula!)
+                  //SOURCE_1: p.Lba 3, eq. 17: Mean two phase density assuming homogeneous approach
+                  //SOURCE_1: p.Lbb 7, tab. 2: Mean two phase density assuming momentum flux approach
+                  //SOURCE_1: p.Lbb 7, tab. 2: Mean two phase density assuming kinetic energy flow approach from Zivi (corrected formula!)
 
-                //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
-                //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
+                  //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
 
-                //SOURCE_2: p.17-5, eq. 17.2.5: (Heterogeneous) cross sectional void fraction [epsilon_A=A_g/(A_g+A_l)]
+                  //SOURCE_2: p.17-5, eq. 17.2.5: (Heterogeneous) cross sectional void fraction [epsilon_A=A_g/(A_g+A_l)]
 
-                //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
-                //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
-                //SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
+                  //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
+                  //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
+                  //SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
 
-                //SOURCE_1: p.Lba 3, sec. 3.2
-                //SOURCE_1: p.17-6, eq. 17.3.4
-                //SOURCE_1: p.17-6, eq. 17.3.13
-                //SOURCE_1: p.17-6, eq. 17.3.13
+                  //SOURCE_1: p.Lba 3, sec. 3.2
+                  //SOURCE_1: p.17-6, eq. 17.3.4
+                  //SOURCE_1: p.17-6, eq. 17.3.13
+                  //SOURCE_1: p.17-6, eq. 17.3.13
 
-                //SOURCE_1: M.M. Shah. A general correlation for heat transfer during film condensation inside pipes.Int. J. Heat Mass Transfer, Vol.22, p.547-556, 1979.
+                  //SOURCE_1: M.M. Shah. A general correlation for heat transfer during film condensation inside pipes.Int. J. Heat Mass Transfer, Vol.22, p.547-556, 1979.
 
-                //records
+                  //records
 
-                //SOURCE_1: p.548, eq. 8: Considering two phase multiplier for condensation w.r.t. Shah
+                  //SOURCE_1: p.548, eq. 8: Considering two phase multiplier for condensation w.r.t. Shah
 
-                //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
-                //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
+                  //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
+                  //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-                //records
+                  //records
 
-                //SOURCE_1: p.674, sec. 9.8.3: Considering nucleate and convective boiling w.r.t. equation of Gungor-Winterton
+                  //SOURCE_1: p.674, sec. 9.8.3: Considering nucleate and convective boiling w.r.t. equation of Gungor-Winterton
 
-                //SOURCE_1: p.674, eq. 9.98: Considering effect of heat flux on nucleate boiling with Boiling number
-                //Boiling number (Bo) is defined as ratio of actual heat flux to maximum heat flux necessary for complete evaporation of liquid
-                //SOURCE_1: p.673, eq. 9.94: Considering of Martinelli parameter w.r.t. equation of Chen
+                  //SOURCE_1: p.674, eq. 9.98: Considering effect of heat flux on nucleate boiling with Boiling number
+                  //Boiling number (Bo) is defined as ratio of actual heat flux to maximum heat flux necessary for complete evaporation of liquid
+                  //SOURCE_1: p.673, eq. 9.94: Considering of Martinelli parameter w.r.t. equation of Chen
 
-                //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of of Gungor-Winterton
-                //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of of Gungor-Winterton
+                  //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of of Gungor-Winterton
+                  //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of of Gungor-Winterton
 
-                //SOURCE_1: p.672, eq. 9.91: Considering effect of forced convective boiling ew.r.t. equation of Dittus-Boelter
-                //SOURCE_1: p.675, eq. 9.107: Considering effect of nucleate boiling w.r.t. equation of Cooper
+                  //SOURCE_1: p.672, eq. 9.91: Considering effect of forced convective boiling ew.r.t. equation of Dittus-Boelter
+                  //SOURCE_1: p.675, eq. 9.107: Considering effect of nucleate boiling w.r.t. equation of Cooper
 
-                //SOURCE_2: p.354, sec. final equations: Calculation of two phase heat transfer coefficient for vertical pipes w.r.t. equation of Gungor-Winterton
+                  //SOURCE_2: p.354, sec. final equations: Calculation of two phase heat transfer coefficient for vertical pipes w.r.t. equation of Gungor-Winterton
 
-                //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
-                //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
+                  //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
+                  //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-                //records
+                  //records
 
-                //SOURCE_1: p.674, sec. 9.8.3: Considering nucleate and convective boiling w.r.t. equation of Gungor-Winterton
-                //SOURCE_1: p.352, sec. Nomenclature: Considering effect of stratification w.r.t. Froude number
+                  //SOURCE_1: p.674, sec. 9.8.3: Considering nucleate and convective boiling w.r.t. equation of Gungor-Winterton
+                  //SOURCE_1: p.352, sec. Nomenclature: Considering effect of stratification w.r.t. Froude number
 
-                //SOURCE_1: p.674, eq. 9.98: Considering effect of heat flux on nucleate boiling with Boiling number
-                //Boiling number (Bo) is defined as ratio of actual heat flux to maximum heat flux necessary for complete evaporation of liquid
-                //SOURCE_1: p.673, eq. 9.94: Considering of Martinelli parameter w.r.t. equation of Chen
+                  //SOURCE_1: p.674, eq. 9.98: Considering effect of heat flux on nucleate boiling with Boiling number
+                  //Boiling number (Bo) is defined as ratio of actual heat flux to maximum heat flux necessary for complete evaporation of liquid
+                  //SOURCE_1: p.673, eq. 9.94: Considering of Martinelli parameter w.r.t. equation of Chen
 
-                //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of Gungor-Winterton
-                //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of Gungor-Winterton
-                //SOURCE_1: p.680, eq. 9.123: Considering correction of convection enhancement factor for horizontal pipes
-                //SOURCE_1: p.680, eq. 9.124: Considering correction of boiling suppression factor for horizontal pipes
+                  //SOURCE_1: p.675, eq. 9.105: Considering of convection enhancement factor w.r.t. equation of Gungor-Winterton
+                  //SOURCE_1: p.675, eq. 9.105: Considering of boiling suppression factor w.r.t. equation of Gungor-Winterton
+                  //SOURCE_1: p.680, eq. 9.123: Considering correction of convection enhancement factor for horizontal pipes
+                  //SOURCE_1: p.680, eq. 9.124: Considering correction of boiling suppression factor for horizontal pipes
 
-                //SOURCE_1: p.672, eq. 9.91: Considering effect of forced convective boiling ew.r.t. equation of Dittus-Boelter
-                //SOURCE_1: p.675, eq. 9.107: Considering effect of nucleate boiling w.r.t. equation of Cooper
+                  //SOURCE_1: p.672, eq. 9.91: Considering effect of forced convective boiling ew.r.t. equation of Dittus-Boelter
+                  //SOURCE_1: p.675, eq. 9.107: Considering effect of nucleate boiling w.r.t. equation of Cooper
 
-                //SOURCE_2: p.354, sec. final equations: Calculation of two phase heat transfer coefficient for horizontal pipes w.r.t. equation of Gungor-Winterton
+                  //SOURCE_2: p.354, sec. final equations: Calculation of two phase heat transfer coefficient for horizontal pipes w.r.t. equation of Gungor-Winterton
 
-              // point lg(lambda2(Re1)) with derivative at lg(Re1)
+                // point lg(lambda2(Re1)) with derivative at lg(Re1)
 
-              // Point lg(lambda2(Re2)) with derivative at lg(Re2)
+                // Point lg(lambda2(Re2)) with derivative at lg(Re2)
 
-              // Constants: Cubic polynomial between lg(Re1) and lg(Re2)
+                // Constants: Cubic polynomial between lg(Re1) and lg(Re2)
 
-              // point lg(lambda2(Re1)) with derivative at lg(Re1)
+                // point lg(lambda2(Re1)) with derivative at lg(Re1)
 
-              // Point lg(lambda2(Re2)) with derivative at lg(Re2)
+                // Point lg(lambda2(Re2)) with derivative at lg(Re2)
 
-              // Constants: Cubic polynomial between lg(Re1) and lg(Re2)
+                // Constants: Cubic polynomial between lg(Re1) and lg(Re2)
 
-              /*Real wTimesExpW;
+                /*Real wTimesExpW;
   Real wPlusOneTimesExpW;*/
 
-                /*wTimesExpW := w*Modelica.Math.exp(w);
+                  /*wTimesExpW := w*Modelica.Math.exp(w);
                 wPlusOneTimesExpW := (w+1)*Modelica.Math.exp(w);
                 w := w-(wTimesExpW-y)/(wPlusOneTimesExpW-(w+2)*(wTimesExpW-y)/(2*w+2));
                 dev := abs((y-wTimesExpW)/wPlusOneTimesExpW);
                 i := i+1;*/
 
-                //dev := abs(dw)/(2+abs(w));
+                  //dev := abs(dw)/(2+abs(w));
 
-              //fluid properties
+                //fluid properties
 
-              //geometry
+                //geometry
 
-              //fluid properties
+                //fluid properties
 
-              //NominalMassFlowRate
+                //NominalMassFlowRate
 
-              //input variables
+                //input variables
 
-              //NominalMassFlowRate
+                //NominalMassFlowRate
 
-              //choices
+                //choices
 
-              //choices
+                //choices
 
-              //geometry
+                //geometry
 
-              //choices
+                //choices
 
-              //choices
+                //choices
 
-              //choices
+                //choices
 
-              //fluid properties
+                //fluid properties
 
-              //input variables
+                //input variables
 
-              //geometry variables
-              //annular(1)
-              //circular(2)
-              //elliptical(3)
-              //rectangular(4)
-              //triangular(5)
+                //geometry variables
+                //annular(1)
+                //circular(2)
+                //elliptical(3)
+                //rectangular(4)
+                //triangular(5)
 
-              //target variables
+                //target variables
 
-              //T-junction variables
+                //T-junction variables
 
-              //restrictions
+                //restrictions
 
-              //numerical aspects
+                //numerical aspects
 
