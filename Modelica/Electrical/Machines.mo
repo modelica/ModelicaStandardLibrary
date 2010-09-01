@@ -1389,7 +1389,8 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
 
-        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet smpm
+        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet smpm(
+            useDamperCage=false)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
         MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
           annotation (Placement(transformation(
@@ -1437,12 +1438,22 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=90,
-              origin={10,2})));
+              origin={10,0})));
         Mechanics.Rotational.Sensors.TorqueSensor torqueSensor
-          annotation (Placement(transformation(extent={{40,-50},{60,-30}})));
-        Mechanics.Rotational.Sources.ConstantSpeed constantSpeed(w_fixed(displayUnit="rpm")=
+          annotation (Placement(transformation(extent={{10,10},{-10,-10}},
+              rotation=180,
+              origin={40,-60})));
+        Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (Placement(
+              transformation(
+              extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={30,0})));
+        Mechanics.Rotational.Components.Inertia inertiaLoad(J=0.29)
+          annotation (Placement(transformation(extent={{50,-50},{70,-30}})));
+        Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
+          quadraticSpeedDependentTorque(tau_nominal=-181.4, w_nominal(displayUnit="rpm")=
                157.07963267949)
-          annotation (Placement(transformation(extent={{90,-50},{70,-30}})));
+          annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1467,11 +1478,11 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,255},
             smooth=Smooth.None));
         connect(angleSensor.flange, rotorDisplacementAngle.flange) annotation (Line(
-            points={{10,-8},{10,-40}},
+            points={{10,-10},{10,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(angleSensor.phi, currentController.phi) annotation (Line(
-            points={{10,13},{10,20},{-40,20},{-40,30}},
+            points={{10,11},{10,20},{-40,20},{-40,30}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(signalCurrent.plug_n, terminalBox.plugSupply) annotation (Line(
@@ -1491,11 +1502,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,255},
             smooth=Smooth.None));
         connect(smpm.flange, torqueSensor.flange_a) annotation (Line(
-            points={{0,-40},{40,-40}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(constantSpeed.flange, torqueSensor.flange_b) annotation (Line(
-            points={{70,-40},{60,-40}},
+            points={{0,-40},{30,-40},{30,-60}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(voltageQuasiRMSSensor.plug_p, terminalBox.plugSupply) annotation (
@@ -1515,19 +1522,32 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             points={{-29,40},{-17,40}},
             color={0,0,127},
             smooth=Smooth.None));
+        connect(speedSensor.flange, smpm.flange) annotation (Line(
+            points={{30,-10},{30,-40},{0,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(quadraticSpeedDependentTorque.flange, inertiaLoad.flange_b)
+          annotation (Line(
+            points={{80,-40},{70,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(torqueSensor.flange_b, inertiaLoad.flange_a) annotation (Line(
+            points={{50,-60},{50,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                  100}}),
                   graphics),
-          experiment(StopTime=1.5, Interval=0.001),
+          experiment(StopTime=2, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
-A synchronous induction machine with permanent magnets is driven with constant speed.
+A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill. 
 The rms values of d- and q-current in rotor fixed coordinate system are converted to threephase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.<br>
 Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
-</HTML>"));
+</HTML>"),experimentSetupOutput);
       end SMPM_CurrentSource;
 
       model SMEE_Generator
