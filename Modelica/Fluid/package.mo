@@ -1744,8 +1744,7 @@ With respect to previous versions, the design
 of the connectors has been changed in a non-backward compatible way,
 using the recently developed concept
 of stream connectors that results in much more reliable simulations
-(see an overview and a rationale
-<a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\">here</a>).
+(see also <a href=\"modelica://Modelica/Resources/Documentation/Fluid/Stream-Connectors-Overview-Rationale.pdf\"> Stream-Connectors-Overview-Rationale.pdf</a>).
 This extension was included in Modelica 3.1.
 As of Jan. 2009, the stream concept is supported in Dymola 7.1.
 It is recommended to use Dymola 7.2 (available since Feb. 2009), or a later Dymola version,

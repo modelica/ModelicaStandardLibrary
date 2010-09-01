@@ -1722,10 +1722,9 @@ class ModelicaLicense2 "Modelica License 2"
 
 <p>All files in this directory (Modelica) and in all
 subdirectories, especially all files that build package \"Modelica\" and all
-files in \"Modelica\\C-sources\", \"Modelica\\help\",
-\"Modelica\\Images\" are licensed by the <b><u>Modelica Association</u></b> under the
+files in \"Modelica/Resources/*\" are licensed by the <b><u>Modelica Association</u></b> under the
 <b><u>Modelica License 2</u></b> (with exception of files
-\"Modelica\\C-sources\\win32_dirent.*\").&nbsp;</p>
+\"Modelica/Resources/C-Sources/win32_dirent.*\").&nbsp;</p>
 
 <p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
 Modelica Association<br>
@@ -4936,8 +4935,8 @@ the following exceptions:
 <p>
 An overview of the differences between version 2.2.2 and the previous
 version 2.2.1 is given below. The exact differences (but without
-differences in the documentation) are available
-<a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-221-222.html\">here</a>.
+differences in the documentation) are available in
+<a href=\"modelica://Modelica/Resources/Documentation/Differences-Modelica-221-222.html\">Differences-Modelica-221-222.html</a>.
 This comparison file was generated automatically with Dymolas
 ModelManagement.compare function.
 </p>
@@ -6902,8 +6901,8 @@ end Version_1_4;
 
 <p>
 This section summarizes the changes that have been performed
-on the Modelica standard library. Furthermore, it is explained
-<a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">here</a>
+on the Modelica standard library. Furthermore, it is explained in
+<a href=\"modelica://Modelica.UsersGuide.ReleaseNotes.VersionManagement\">Modelica.UsersGuide.ReleaseNotes.VersionManagement</a>
 how the versions are managed with the subversion management systems.
 This is especially important for maintenance (bug-fix) releases where the
 main version number is not changed.
