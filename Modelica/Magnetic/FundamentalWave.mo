@@ -139,7 +139,7 @@ for contributing his source code to this library.
 
       annotation (Documentation(info="<html>
 
-<h5>Version 1.7.1, 2010-06-25</h5>
+<h5>Version 1.7.1, 2010-09-03</h5>
 
 <ul>
 <li>Naming and documentation of
@@ -151,7 +151,8 @@ PartialTwoPortElementary</a> to match the naming conventions of
 Rotational.Interfaces</a>
 and <a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">
 Translational.Interfaces</a></li>
-<li>Fixed a broken link in the documentation of User's Guide</li>
+<li>Fixed a broken link and updated documentation</li>
+<li>Adaptions to Complex SIunits</li>
 </ul>
 
 <h5>Version 1.7.0, 2010-05-31</h5>
@@ -4962,8 +4963,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.1</td><td>4008</td>  <td>2010-07-23</td>  <td>A. Haumer</td>  <td>Adaptions to Complex SIunits</td></tr>
-<tr><td>1.7.1</td><td>3999</td>  <td>2010-07-21</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
+<tr><td>1.7.1</td><td>4106</td>  <td>2010-09-03</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
