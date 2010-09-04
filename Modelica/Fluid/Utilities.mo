@@ -253,8 +253,12 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
        Real w1;
        Real w2;
     algorithm
-       x2 :=-x1*(k2/k1);
-       //x2 :=-x1;
+       if k2 > 0 then
+          x2 :=-x1*(k2/k1);
+       else
+          x2 := -x1;
+       end if;
+
        if x <= x2 then
           y := -sqrt(k2*abs(x));
        else
@@ -272,10 +276,10 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
            Basic equations:
               y_right = a1*(x/x1) + a2*(x/x1)^2 + a3*(x/x1)^3
               y_left  = b1*(x/x2) + b2*(x/x2)^2 + b3*(x/x2)^3
-              yrho_right*x1 = a1 + 2*a2*(x/x1) + 3*a3*(x/x1)^2
-              yrho_left *x2 = b1 + 2*b2*(x/x2) + 3*b3*(x/x2)^2
-              ydrho_right*x1^2 = 2*a2 + 6*a3*(x/x1)
-              ydrho_left *x2^2 = 2*b2 + 6*b3*(x/x2)
+              yd_right*x1 = a1 + 2*a2*(x/x1) + 3*a3*(x/x1)^2
+              yd_left *x2 = b1 + 2*b2*(x/x2) + 3*b3*(x/x2)^2
+              ydd_right*x1^2 = 2*a2 + 6*a3*(x/x1)
+              ydd_left *x2^2 = 2*b2 + 6*b3*(x/x2)
            _
            Conditions (6 equations for 6 unknowns):
                      y1 = a1 + a2 + a3
@@ -325,16 +329,16 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
        annotation(smoothOrder=2);
     end regRoot2_utility;
   algorithm
-    y := smooth(2,if x >= x_small then sqrt(k1*x) else
-                  if x <= -x_small then -sqrt(k2*abs(x)) else
-                  if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else
-                                  -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
+    y := smooth(2, if x >= x_small then sqrt(k1*x) else
+                   if x <= -x_small then -sqrt(k2*abs(x)) else
+                   if k1 >= k2 then regRoot2_utility(x,x_small,k1,k2,use_yd0,yd0) else
+                                   -regRoot2_utility(-x,x_small,k2,k1,use_yd0,yd0));
     annotation(smoothOrder=2, Documentation(info="<html>
 <p>
 Approximates the function
 </p>
 <pre>
-   y = <b>if</b> x &ge; 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 > 0
+   y = <b>if</b> x &ge; 0 <b>then</b> <b>sqrt</b>(k1*x) <b>else</b> -<b>sqrt</b>(k2*<b>abs</b>(x)), with k1, k2 &ge; 0
 </pre>
 <p>
 in such a way that within the region -x_small &le; x &le; x_small,
@@ -386,6 +390,9 @@ k1=1, k2=3 is shown in the next figure:
 </dl>
 </html>", revisions="<html>
 <ul>
+<li><i>Sept., 2019</i>
+    by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
+    Improved so that k1=0 and/or k2=0 is also possible.</li>
 <li><i>Nov., 2005</i>
     by <a href=\"mailto:Martin.Otter@DLR.de\">Martin Otter</a>:<br>
     Designed and implemented.</li>
