@@ -2215,8 +2215,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{40,62},
                 {60,82}}, rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1(
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort,
@@ -2229,8 +2228,7 @@ Implemented trace substances and missing equation for outflow of multi substance
             diameter=0.1, height=0)})
         annotation (Placement(transformation(extent={{-80,0},{-40,40}}, rotation=
                 0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2(
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort,
@@ -2295,8 +2293,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       Modelica.Blocks.Sources.BooleanConstant open(k=false)
         annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
               rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1(
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
@@ -2309,8 +2306,7 @@ Implemented trace substances and missing equation for outflow of multi substance
             Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(
                                                             diameter=0.1,
             height=1)},
-        stiffCharacteristicForEmptyPort=true,
-        nTopPorts=1)
+        stiffCharacteristicForEmptyPort=true)
         annotation (Placement(transformation(extent={{-40,-20},{0,20}}, rotation=
                 0)));
       Modelica.Fluid.Pipes.StaticPipe pipe(
@@ -2332,8 +2328,8 @@ Implemented trace substances and missing equation for outflow of multi substance
       connect(valveDiscrete.port_b, tank1.ports[1]) annotation (Line(points={{-20,-40},
               {-20,-30},{-20,-21},{-22,-21}},
                                color={0,127,255}));
-      connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,
-              -28},{-18,-28},{-18,-20},{-18,-20},{-18,-21}}, color={0,127,255}));
+      connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,-28},
+              {-18,-28},{-18,-20},{-18,-21}},                color={0,127,255}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}),
                           graphics),
@@ -2360,8 +2356,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         T=system.T_ambient)
         annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
               rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1(
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
@@ -2437,8 +2432,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         T=system.T_ambient)
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
               rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1(
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
@@ -2480,8 +2474,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         T=system.T_ambient)
         annotation (Placement(transformation(extent={{0,-80},{20,-60}}, rotation=
                 0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2(
         redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater,
         crossArea=1,
@@ -2563,8 +2556,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       Modelica.Blocks.Sources.BooleanConstant open(k=false)
         annotation (Placement(transformation(extent={{-98,-88},{-78,-68}},
               rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank3
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank3(
         redeclare package Medium = Medium,
         crossArea=1,
         V0=0.1,
@@ -2580,8 +2572,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
         annotation (Placement(transformation(extent={{-80,-50},{-40,-10}},
               rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank1(
         redeclare package Medium = Medium,
         crossArea=1,
         V0=0.1,
@@ -2592,8 +2583,7 @@ Implemented trace substances and missing equation for outflow of multi substance
         level_start=9,
         stiffCharacteristicForEmptyPort = stiffCharacteristicForEmptyPort)
         annotation (Placement(transformation(extent={{50,50},{90,90}}, rotation=0)));
-      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2
-        (
+      Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.TankWithTopPorts tank2(
         redeclare package Medium = Medium,
         crossArea=1,
         V0=0.1,
