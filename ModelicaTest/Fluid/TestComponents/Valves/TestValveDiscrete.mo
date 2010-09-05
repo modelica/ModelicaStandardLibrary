@@ -44,7 +44,7 @@ equation
           -26,-12}},
         color={0,127,255}));
   connect(downstreamPressure.y, SinkP1.p_in) annotation (Line(
-      points={{35,30},{60,30},{60,-6},{48,-6}},
+      points={{35,30},{60,30},{60,-4},{48,-4}},
       color={0,0,127},
       smooth=Smooth.None));
   connect(Opening.y, V1.open) annotation (Line(

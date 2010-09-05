@@ -5,3 +5,6 @@ TestValveIncompressible
 TestValveLinear
 TestValvesReverse
 TestValveVaporizing
+TestCheckValve
+TestDelayedValve
+TestValveCharacteristics
