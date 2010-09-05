@@ -2563,7 +2563,7 @@ points, e.g., when an isentropic reference state is computed.
   end TwoPhaseWater;
 
   package TestOnly "examples for testing purposes: move for final version "
-    extends Modelica.Icons.Package;
+    extends Modelica.Icons.ExamplesPackage;
     model MixIdealGasAir "Ideal gas air medium model"
       extends Modelica.Icons.Example;
       package Medium = IdealGases.MixtureGases.CombustionAir "Medium model";
@@ -3572,6 +3572,7 @@ no mass or energy is stored in the pipe.
 
   package SolveOneNonlinearEquation
     "Demonstrate how to solve one non-linear algebraic equation in one unknown"
+    extends Modelica.Icons.ExamplesPackage;
 
    model Inverse_sine "Solve y = A*sin(w*x) for x, given y"
       import Modelica.Utilities.Streams.print;
@@ -6607,21 +6608,21 @@ package Common "data structures and fundamental functions for fluid properties"
 protected
   type Rate = Real (final quantity="Rate", final unit="s-1");
   type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit="mol/s");
-  type MolarReactionRate = Real (final quantity="MolarReactionRate", final unit
-        ="mol/(m3.s)");
+  type MolarReactionRate = Real (final quantity="MolarReactionRate", final unit=
+         "mol/(m3.s)");
   type MolarEnthalpy = Real (final quantity="MolarEnthalpy", final unit="J/mol");
-  type DerDensityByEntropy = Real (final quantity="DerDensityByEntropy", final unit
-        =    "kg2.K/(m3.J)");
-  type DerEnergyByPressure = Real (final quantity="DerEnergyByPressure", final unit
-        =    "J/Pa");
+  type DerDensityByEntropy = Real (final quantity="DerDensityByEntropy", final unit=
+             "kg2.K/(m3.J)");
+  type DerEnergyByPressure = Real (final quantity="DerEnergyByPressure", final unit=
+             "J/Pa");
   type DerEnergyByMoles = Real (final quantity="DerEnergyByMoles", final unit=
           "J/mol");
   type DerEntropyByTemperature = Real (final quantity="DerEntropyByTemperature",
          final unit="J/K2");
   type DerEntropyByPressure = Real (final quantity="DerEntropyByPressure",
         final unit="J/(K.Pa)");
-  type DerEntropyByMoles = Real (final quantity="DerEntropyByMoles", final unit
-        ="J/(mol.K)");
+  type DerEntropyByMoles = Real (final quantity="DerEntropyByMoles", final unit=
+         "J/(mol.K)");
   type DerPressureByDensity = Real (final quantity="DerPressureByDensity",
         final unit="Pa.m3/kg");
   type DerPressureBySpecificVolume = Real (final quantity=
@@ -6630,8 +6631,8 @@ protected
           "DerPressureByTemperature", final unit="Pa/K");
   type DerVolumeByTemperature = Real (final quantity="DerVolumeByTemperature",
         final unit="m3/K");
-  type DerVolumeByPressure = Real (final quantity="DerVolumeByPressure", final unit
-        =    "m3/Pa");
+  type DerVolumeByPressure = Real (final quantity="DerVolumeByPressure", final unit=
+             "m3/Pa");
   type DerVolumeByMoles = Real (final quantity="DerVolumeByMoles", final unit=
           "m3/mol");
   type IsenthalpicExponent = Real (final quantity="IsenthalpicExponent", unit=
