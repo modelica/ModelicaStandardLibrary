@@ -154,7 +154,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapLaminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapLaminar.mos"
                 "Verification of kc_evenGapLaminar"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -341,7 +341,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapLaminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapLaminar_KC.mos"
                 "Verification of kc_evenGapLaminar_KC"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -548,7 +548,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapOverall.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapOverall.mos"
                 "Verification of kc_evenGapOverall"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -756,7 +756,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapOverall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapOverall_KC.mos"
                 "Verification of kc_evenGapOverall_KC"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -888,7 +888,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapTurbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapTurbulent.mos"
                 "Verification of kc_evenGapTurbulent"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -983,7 +983,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_1[i], m_flow_IN_var_1[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/channel/kc_evenGapTurbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/channel/kc_evenGapTurbulent_KC.mos"
                 "Verification of kc_evenGapTurbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -1129,7 +1129,7 @@ extends Modelica.Icons.Library;
               m_flow_IN_con_3[i], m_flow_IN_var_3[i]);
           end for;
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/general/kc_approxForcedConvection.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/general/kc_approxForcedConvection.mos"
                 "Verification of kc_approxForcedConvection"),Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -1261,7 +1261,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/general/kc_approxForcedConvection_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/general/kc_approxForcedConvection_KC.mos"
                 "Verification of kc_approxForcedConvection_KC"),Diagram(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={Text(
@@ -1399,7 +1399,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_2, m_flow_IN_var_2);
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_flatTube.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_flatTube.mos"
                 "Verification of kc_flatTube"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
@@ -1535,7 +1535,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_2, m_flow_IN_var_2);
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_flatTube_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_flatTube_KC.mos"
                 "Verification of kc_flatTube_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
@@ -1737,7 +1737,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4, m_flow_IN_var_4);
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_roundTube.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_roundTube.mos"
                 "Verification of kc_roundTube"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                 Text(
@@ -1952,7 +1952,7 @@ extends Modelica.Icons.Library;
           m_flow[3] = 1;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/heatExchanger/kc_roundTube_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/heatExchanger/kc_roundTube_KC.mos"
                 "Verification of kc_roundTube_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2110,7 +2110,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_laminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_laminar.mos"
                 "Verification of kc_laminar"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2246,7 +2246,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_laminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_laminar_KC.mos"
                 "Verification of kc_laminar_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2411,7 +2411,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (
-            Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_overall.mos"
+            Commands(file="modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_overall.mos"
                 "Verification of kc_overall"),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -2537,7 +2537,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_overall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_overall_KC.mos"
                 "Verification of kc_overall_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2697,7 +2697,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_turbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_turbulent.mos"
                 "Verification of kc_turbulent"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2832,7 +2832,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/helicalPipe/kc_turbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/helicalPipe/kc_turbulent_KC.mos"
                 "Verification of kc_turbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -2937,7 +2937,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_laminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/plate/kc_laminar.mos"
                 "Verification of kc_laminar"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -3007,7 +3007,7 @@ extends Modelica.Icons.Library;
             IN_con[i], IN_var[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_laminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/plate/kc_laminar_KC.mos"
                 "Verification of kc_laminar_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -3103,7 +3103,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (
-            Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_overall.mos"
+            Commands(file="modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/plate/kc_overall.mos"
                 "Verification of kc_overall"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -3179,7 +3179,7 @@ extends Modelica.Icons.Library;
             IN_con[i], IN_var[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_overall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/plate/kc_overall_KC.mos"
                 "Verification of kc_overall_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -3274,7 +3274,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_turbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/plate/kc_turbulent.mos"
                 "Verification of kc_turbulent"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -3344,7 +3344,7 @@ extends Modelica.Icons.Library;
             IN_con[i], IN_var[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/plate/kc_turbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/plate/kc_turbulent_KC.mos"
                 "Verification of kc_turbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -3526,7 +3526,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_laminar.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_laminar.mos"
                 "Verification of kc_laminar"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -3686,7 +3686,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
           annotation (
             Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_laminar_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_laminar_KC.mos"
                 "Verification of kc_laminar_KC"),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -3879,7 +3879,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_overall.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_overall.mos"
                 "Verification of kc_overall"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4042,7 +4042,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_overall_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_overall_KC.mos"
                 "Verification of kc_overall_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -4180,7 +4180,7 @@ extends Modelica.Icons.Library;
           end for;
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_turbulent.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_turbulent.mos"
                 "Verification of kc_turbulent"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4276,7 +4276,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con_2[i], m_flow_IN_var_2[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_turbulent_KC.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_turbulent_KC.mos"
                 "Verification of kc_turbulent_KC"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4495,7 +4495,7 @@ extends Modelica.Icons.Library;
             Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC(
             IN_con_3[i], IN_var_3[i]) for i in 1:m};
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/heatTransfer/straightPipe/kc_twoPhaseOverall_KC.mos"),
+                  "modelica://Modelica/Resources/Scripts/Dymola/heatTransfer/straightPipe/kc_twoPhaseOverall_KC.mos"),
               Diagram(graphics={Text(
                   extent={{-100,52},{100,77}},
                   lineColor={0,0,255},
@@ -4527,8 +4527,6 @@ extends Modelica.Icons.Library;
           parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           parameter Modelica.SIunits.Length K=0
             "Roughness (average height of surface asperities)";
-          parameter Modelica.SIunits.Length L=d_hyd*10
-            "Length of bend along axis";
           parameter Modelica.SIunits.Radius R_0[2]={2.26,11.71}*d_hyd
             "Curvature radius";
 
@@ -4570,7 +4568,6 @@ extends Modelica.Icons.Library;
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
             m_flow_IN_con_1[n](
             each d_hyd=d_hyd,
-            each L=L,
             each delta=delta[3],
             R_0=R_0,
             each K=K) annotation (extent=[-60, 12; -40, 32], Placement(transformation(
@@ -4584,7 +4581,6 @@ extends Modelica.Icons.Library;
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
             m_flow_IN_con_2[m](
             each d_hyd=d_hyd,
-            each L=L,
             each K=K,
             delta=delta,
             each R_0=2.26*d_hyd) annotation (extent=[-60, 12; -40, 32], Placement(
@@ -4599,7 +4595,6 @@ extends Modelica.Icons.Library;
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
             dp_IN_con_1[n](
             each d_hyd=d_hyd,
-            each L=L,
             each delta=delta[3],
             each K=K,
             R_0=R_0) annotation (extent=[40, 12; 60, 32], Placement(transformation(
@@ -4615,7 +4610,6 @@ extends Modelica.Icons.Library;
             delta=delta,
             each d_hyd=d_hyd,
             each K=K,
-            each L=L,
             each R_0=2.26*d_hyd) annotation (extent=[40, 12; 60, 32], Placement(
                 transformation(extent={{60,20},{80,40}})));
 
@@ -4683,7 +4677,7 @@ extends Modelica.Icons.Library;
                     input_dp_2[i]) for i in 1:m};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/bend/dp_curvedOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/bend/dp_curvedOverall_DPMFLOW.mos"
                 "Verification of dp_overall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4725,8 +4719,6 @@ extends Modelica.Icons.Library;
           parameter Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
           parameter Modelica.SIunits.Length K=2e-5
             "Roughness (average height of surface asperities)";
-          parameter Modelica.SIunits.Length L=d_hyd*10
-            "Length of bend along axis";
 
           //fluid property variables
           Modelica.SIunits.DynamicViscosity eta=1e-3
@@ -4753,8 +4745,7 @@ extends Modelica.Icons.Library;
             m_flow_IN_con[n](
             delta=delta,
             each d_hyd=d_hyd,
-            each K=K,
-            each L=L) annotation (extent=[-60, 12; -40, 32], Placement(transformation(
+            each K=K) annotation (extent=[-60, 12; -40, 32], Placement(transformation(
                   extent={{-70,20},{-50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var
@@ -4767,8 +4758,7 @@ extends Modelica.Icons.Library;
             dp_IN_con[n](
             delta=delta,
             each d_hyd=d_hyd,
-            each K=K,
-            each L=L) annotation (extent=[40, 12; 60, 32], Placement(transformation(
+            each K=K) annotation (extent=[40, 12; 60, 32], Placement(transformation(
                   extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var
@@ -4807,7 +4797,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/bend/dp_edgedOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/bend/dp_edgedOverall_DPMFLOW.mos"
                 "Verification of dp_edgedOverall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -4979,7 +4969,7 @@ extends Modelica.Icons.Library;
 
           annotation (
             Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/channel/dp_internalFlowOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/channel/dp_internalFlowOverall_DPMFLOW.mos"
                 "Verification of dp_internalFlowOverall_DP and dp_internalFlowOverall_MFLOW (inverse)"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -5103,7 +5093,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_idealGas_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/general/dp_idealGas_DPMFLOW.mos"
                 "Verification of dp_idealGas_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -5233,7 +5223,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_nominalDensityViscosity_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/general/dp_nominalDensityViscosity_DPMFLOW.mos"
                 "Verification of dp_nominalDensityViscosity_DPMFLOW"), Diagram(
                 coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -5366,7 +5356,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_nominalPressureLossLawDensity_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/general/dp_nominalPressureLossLawDensity_DPMFLOW.mos"
                 "Verification of dp_nominalPressureLossLawDensity_DPMFLOW"), Diagram(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={Text(
@@ -5465,7 +5455,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_pressureLossCoefficient_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/general/dp_pressureLossCoefficient_DPMFLOW.mos"
                 "Verification of dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"),
               Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -5568,7 +5558,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/general/dp_volumeFlowRate_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/general/dp_volumeFlowRate_DPMFLOW.mos"
                 "Verification of dp_volumeFlowRate_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -5701,7 +5691,7 @@ extends Modelica.Icons.Library;
 
           annotation (
             Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/orifice/dp_suddenChange_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/orifice/dp_suddenChange_DPMFLOW.mos"
                 "Verification of dp_suddenChange_DPMFLOW"),
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                     100}}), graphics={Text(
@@ -5832,7 +5822,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/orifice/dp_thickEdgedOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/orifice/dp_thickEdgedOverall_DPMFLOW.mos"
                 "Verification of dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW"),
               Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -5959,7 +5949,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_laminar_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_laminar_DPMFLOW.mos"
                 "Verification of dp_laminar_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -6082,7 +6072,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_overall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_overall_DPMFLOW.mos"
                 "Verification of dp_overall_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -6211,7 +6201,7 @@ extends Modelica.Icons.Library;
                     input_dp[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_turbulent_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_turbulent_DPMFLOW.mos"
                 "Verification of dp_turbulent_DPMFLOW"), Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Text(
@@ -6375,7 +6365,7 @@ extends Modelica.Icons.Library;
                     m_flow[i]) for i in 1:n};
 
           annotation (Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/straightPipe/dp_twoPhaseOverall_DP.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/straightPipe/dp_twoPhaseOverall_DP.mos"
                 "Verification of dp_twoPhaseOverall_DP"), Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics={
                    Text(
@@ -6608,7 +6598,7 @@ extends Modelica.Icons.Library;
 
           annotation (
             Commands(file=
-                  "modelica://Modelica/Resources/Scripts/Dymola/Dymola/pressureLoss/valve/dp_severalGeometryOverall_DPMFLOW.mos"
+                  "modelica://Modelica/Resources/Scripts/Dymola/pressureLoss/valve/dp_severalGeometryOverall_DPMFLOW.mos"
                 "Verification of dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW (inverse)"),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                     100,100}}), graphics={Text(
@@ -6708,12 +6698,13 @@ extends Modelica.Icons.Library;
         Modelica.Fluid.Fittings.Bends.CurvedBend from_dp(
                                                         redeclare package
             Medium =
-              Modelica.Media.Air.DryAirNasa)
+              Modelica.Media.Air.DryAirNasa, geometry(d_hyd=0.1, R_0=0.2))
           "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{-24,-4},{24,44}})));
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_mflow(
-                     redeclare package Medium = Modelica.Media.Air.DryAirNasa)
+                     redeclare package Medium = Modelica.Media.Air.DryAirNasa,
+            geometry(d_hyd=0.1, R_0=0.2))
           "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-24,-64},{24,-16}})));
       equation
@@ -6764,125 +6755,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
                     "set record parameters for chosen pressure loss function (inside flow model)")}));
       end Bend;
 
-      model General "Test cases of generic pressure loss functions"
-
-        inner Modelica.Fluid.System system(
-          p_ambient(displayUnit="Pa") = 100000,
-          m_flow_small=0.01,
-          dp_small(displayUnit="Pa") = 0) annotation (extent=[80, -100; 100, -80]);
-
-      public
-        Modelica.Blocks.Sources.Sine input_mflow(
-          freqHz=1,
-          offset=0,
-          amplitude=10) annotation (extent=[-100, -52; -80, -32],Placement(
-              transformation(extent={{-100,-50},{-80,-30}})));
-
-      public
-        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p)
-          annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{-100,
-                  10},{-80,30}})));
-        Modelica.Fluid.Sources.Boundary_pT IN_p(
-          nPorts=1,
-          T(displayUnit="K") = system.T_ambient,
-          p(displayUnit="Pa") = system.p_ambient,
-          use_p_in=true,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
-
-        Modelica.Fluid.Sources.FixedBoundary OUT_dp(
-          p=system.p_ambient,
-          T=system.T_ambient,
-          nPorts=1,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={90,20})));
-
-        Modelica.Fluid.Sources.FixedBoundary OUT_mflow(
-          p=system.p_ambient,
-          T=system.T_ambient,
-          nPorts=1,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={90,-40})));
-
-        Modelica.Fluid.Sources.MassFlowSource_T IN_mflow(
-          T=system.T_ambient,
-          nPorts=1,
-          use_m_flow_in=true,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=0,
-              origin={-50,-40})));
-
-        Modelica.Fluid.Fittings.GenericResistances.NominalDensityViscosity
-          from_dp(redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate mass flow rate from pressure loss"
-          annotation (Placement(transformation(extent={{-24,-4},{24,44}})));
-
-        Modelica.Fluid.Fittings.GenericResistances.NominalDensityViscosity
-          from_mflow(redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate pressure loss from mass flow rate"
-          annotation (Placement(transformation(extent={{-24,-64},{24,-16}})));
-
-      equation
-        connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
-            points={{-40,20},{-24,20}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_dp.port_b, OUT_dp.ports[1]) annotation (Line(
-            points={{24,20},{80,20}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_mflow.port_b, OUT_mflow.ports[1]) annotation (Line(
-            points={{24,-40},{80,-40}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_mflow.port_a, IN_mflow.ports[1]) annotation (Line(
-            points={{-24,-40},{-40,-40}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(input_mflow.y, IN_mflow.m_flow_in) annotation (Line(
-            points={{-79,-40},{-70,-40},{-70,-32},{-60,-32}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        connect(input_p.y, IN_p.p_in) annotation (Line(
-            points={{-79,20},{-72,20},{-72,28},{-62,28}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        annotation (
-          Documentation(info="<html>
-<p>
-Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid bend </b> using <b> Fluid.Dissipation pressure loss calculations </b>.
-</p>
-
-<p>
-This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
-</p>
-</html>
-"),       experiment(StopTime=1.01, NumberOfIntervals=5000),
-          experimentSetupOutput,
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}}), graphics={Text(
-                extent={{-94,120},{88,58}},
-                lineColor={0,0,255},
-                textString="Test: Generic functions"), Text(
-                extent={{-56,-2},{60,-18}},
-                lineColor={255,0,0},
-                textString=
-                    "set record parameters for chosen pressure loss function (inside flow model)")}));
-      end General;
 
       model Orifice "Test cases of pressure loss functions for orifice"
 
@@ -7067,71 +6939,18 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 
         Modelica.Fluid.Fittings.Bends.EdgedBend from_dp(redeclare package
             Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
+              Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(d_hyd=
+                0.1, delta=3.1415926535898))
           "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{76,144},{124,192}})));
 
         Modelica.Fluid.Fittings.Bends.EdgedBend from_mflow(redeclare package
             Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
+              Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(d_hyd=
+                0.1, delta=3.1415926535898))
           "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{76,104},{124,152}})));
 
-      public
-        Modelica.Blocks.Sources.RealExpression input_p1(y=from_mflow1.port_a.p)
-          annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{-198,
-                  76},{-178,96}})));
-        Modelica.Fluid.Sources.Boundary_pT IN_p1(
-          nPorts=1,
-          T(displayUnit="K") = system.T_ambient,
-          p(displayUnit="Pa") = system.p_ambient,
-          use_p_in=true,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(extent={{-158,78},{-138,98}})));
-        Modelica.Fluid.Sources.FixedBoundary OUT_dp1(
-          p=system.p_ambient,
-          T=system.T_ambient,
-          nPorts=1,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={-8,88})));
-        Modelica.Fluid.Sources.FixedBoundary OUT_mflow1(
-          p=system.p_ambient,
-          T=system.T_ambient,
-          nPorts=1,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={-8,48})));
-        Modelica.Fluid.Sources.MassFlowSource_T IN_mflow1(
-          T=system.T_ambient,
-          nPorts=1,
-          use_m_flow_in=true,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=0,
-              origin={-148,48})));
-        Modelica.Fluid.Fittings.Orifices.SuddenChangeOrifice from_dp1(
-                                                         redeclare package
-            Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate mass flow rate from pressure loss"
-          annotation (Placement(transformation(extent={{-122,64},{-74,112}})));
-
-        Modelica.Fluid.Fittings.Orifices.SuddenChangeOrifice from_mflow1(
-                                                            redeclare package
-            Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate pressure loss from mass flow rate"
-          annotation (Placement(transformation(extent={{-122,24},{-74,72}})));
 
       public
         Modelica.Blocks.Sources.RealExpression input_p2(y=from_mflow2.port_a.p)
@@ -7175,18 +6994,20 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={50,-32})));
-        Modelica.Fluid.Fittings.GenericResistances.NominalVolumeFlowRate
+        Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate
           from_dp2(                                         redeclare package
             Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate mass flow rate from pressure loss"
+              Modelica.Media.Water.ConstantPropertyLiquidWater,
+          a=1,
+          b=0) "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{76,-16},{124,32}})));
 
-        Modelica.Fluid.Fittings.GenericResistances.NominalVolumeFlowRate
+        Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate
           from_mflow2(                                         redeclare
             package Medium =
-                     Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate pressure loss from mass flow rate"
+                     Modelica.Media.Water.ConstantPropertyLiquidWater,
+          a=1,
+          b=0) "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{76,-56},{124,-8}})));
 
       public
@@ -7233,71 +7054,19 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               origin={-150,-110})));
         Modelica.Fluid.Fittings.Bends.CurvedBend from_dp3(       redeclare
             package Medium =
-                     Modelica.Media.Water.ConstantPropertyLiquidWater)
+                     Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(
+              d_hyd=0.1, R_0=0.2))
           "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{-124,-94},{-76,-46}})));
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_mflow3(       redeclare
             package Medium =
-                     Modelica.Media.Water.ConstantPropertyLiquidWater)
+                     Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(
+              d_hyd=0.1, R_0=0.2))
           "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-124,-134},{-76,-86}})));
 
-      public
-        Modelica.Blocks.Sources.RealExpression input_p4(y=from_mflow4.port_a.p)
-          annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{0,
-                  -160},{20,-140}})));
-        Modelica.Fluid.Sources.Boundary_pT IN_p4(
-          nPorts=1,
-          T(displayUnit="K") = system.T_ambient,
-          p(displayUnit="Pa") = system.p_ambient,
-          use_p_in=true,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(extent={{40,-158},{60,-138}})));
-        Modelica.Fluid.Sources.FixedBoundary OUT_dp4(
-          p=system.p_ambient,
-          T=system.T_ambient,
-          nPorts=1,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={190,-148})));
-        Modelica.Fluid.Sources.FixedBoundary OUT_mflow4(
-          p=system.p_ambient,
-          T=system.T_ambient,
-          nPorts=1,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=180,
-              origin={190,-188})));
-        Modelica.Fluid.Sources.MassFlowSource_T IN_mflow4(
-          T=system.T_ambient,
-          nPorts=1,
-          use_m_flow_in=true,
-          redeclare package Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          annotation (Placement(transformation(
-              extent={{-10,-10},{10,10}},
-              rotation=0,
-              origin={50,-188})));
-        Modelica.Fluid.Fittings.GenericResistances.NominalDensityViscosity
-          from_dp4(                                       redeclare package
-            Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate mass flow rate from pressure loss"
-          annotation (Placement(transformation(extent={{76,-172},{124,-124}})));
 
-        Modelica.Fluid.Fittings.GenericResistances.NominalDensityViscosity
-          from_mflow4(                                       redeclare package
-            Medium =
-              Modelica.Media.Water.ConstantPropertyLiquidWater)
-          "Calculate pressure loss from mass flow rate"
-          annotation (Placement(transformation(extent={{76,-212},{124,-164}})));
 
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
@@ -7318,26 +7087,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
             smooth=Smooth.None));
         connect(input_p.y, IN_p.p_in) annotation (Line(
             points={{21,166},{28,166},{28,176},{38,176}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        connect(IN_p1.ports[1], from_dp1.port_a) annotation (Line(
-            points={{-138,88},{-122,88}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_dp1.port_b, OUT_dp1.ports[1]) annotation (Line(
-            points={{-74,88},{-18,88}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_mflow1.port_b, OUT_mflow1.ports[1]) annotation (Line(
-            points={{-74,48},{-18,48}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_mflow1.port_a, IN_mflow1.ports[1]) annotation (Line(
-            points={{-122,48},{-138,48}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(input_p1.y, IN_p1.p_in) annotation (Line(
-            points={{-177,86},{-170,86},{-170,96},{-160,96}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(IN_p2.ports[1], from_dp2.port_a) annotation (Line(
@@ -7380,32 +7129,8 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
             points={{-179,-72},{-172,-72},{-172,-62},{-162,-62}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(IN_p4.ports[1], from_dp4.port_a) annotation (Line(
-            points={{60,-148},{76,-148}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_dp4.port_b, OUT_dp4.ports[1]) annotation (Line(
-            points={{124,-148},{180,-148}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_mflow4.port_b, OUT_mflow4.ports[1]) annotation (Line(
-            points={{124,-188},{180,-188}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(from_mflow4.port_a, IN_mflow4.ports[1]) annotation (Line(
-            points={{76,-188},{60,-188}},
-            color={0,127,255},
-            smooth=Smooth.None));
-        connect(input_p4.y, IN_p4.p_in) annotation (Line(
-            points={{21,-150},{28,-150},{28,-140},{38,-140}},
-            color={0,0,127},
-            smooth=Smooth.None));
         connect(input_mflow.y, IN_mflow.m_flow_in) annotation (Line(
             points={{-179,-2},{-174,-2},{-174,136},{40,136}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        connect(input_mflow.y, IN_mflow1.m_flow_in) annotation (Line(
-            points={{-179,-2},{-174,-2},{-174,56},{-158,56}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(input_mflow.y, IN_mflow2.m_flow_in) annotation (Line(
@@ -7414,10 +7139,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
             smooth=Smooth.None));
         connect(input_mflow.y, IN_mflow3.m_flow_in) annotation (Line(
             points={{-179,-2},{-174,-2},{-174,-102},{-160,-102}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        connect(input_mflow.y, IN_mflow4.m_flow_in) annotation (Line(
-            points={{-179,-2},{-174,-2},{-174,-180},{40,-180}},
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
@@ -7443,21 +7164,13 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
                 lineColor={0,0,255},
                 textString="EdgedBend"),
               Text(
-                extent={{16,72},{98,58}},
-                lineColor={0,0,255},
-                textString="SuddenChange"),
-              Text(
                 extent={{-100,-6},{-18,-20}},
                 lineColor={0,0,255},
                 textString="RectangularChannel"),
               Text(
                 extent={{10,-83},{92,-97}},
                 lineColor={0,0,255},
-                textString="StraightPipe"),
-              Text(
-                extent={{-84,-165},{-2,-179}},
-                lineColor={0,0,255},
-                textString="BallValve")}),
+                textString="StraightPipe")}),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-200},{200,
                   200}})));
       end SeveralTestCases;
