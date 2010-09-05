@@ -478,7 +478,8 @@ extends Modelica.Icons.Library;
   function colorMapToSvg "Store all predefined color maps in svg"
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.*;
-    import Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.HeaderType;
+    import
+      Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg.HeaderType;
   algorithm
     colorMapToSvg(jet(),    x= 10, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, caption="jet",   headerType=colorMapToSvg.HeaderType.svgBegin);
     colorMapToSvg(hot(),    x= 30, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, caption="hot",   headerType=colorMapToSvg.HeaderType.noHeader);
