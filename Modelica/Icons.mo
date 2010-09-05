@@ -152,7 +152,7 @@ package Icons "Library of icons"
 
   partial model Example "Icon for runnable examples"
 
-    annotation (experiment(StopTime=0.99),Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(extent={{-100,100},{100,-100}},
               lineColor={95,95,95},
             fillColor={255,255,255},
