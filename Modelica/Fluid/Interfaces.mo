@@ -1154,4 +1154,45 @@ The lengths along the flow path <tt><b>pathLengths[m]</b></tt> are an input that
 </li>
 </ul>
 </html>"));
+  partial model PartialPressureLoss
+    "Base flow model for pressure loss functions with the same area at port_a and at port_b"
+    extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+  protected
+    parameter Medium.ThermodynamicState state_dp_small=Medium.setState_pTX(
+                         Medium.reference_p,
+                         Medium.reference_T,
+                         Medium.reference_X) "Medium state to compute dp_small"
+                                                                                annotation(HideResult=true);
+    Medium.Density d_a
+      "Density at port_a when fluid is flowing from port_a to port_b";
+    Medium.Density d_b
+      "If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a";
+    Medium.DynamicViscosity eta_a
+      "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+    Medium.DynamicViscosity eta_b
+      "If allowFlowReversal=true then Dynamic viscosity at port_b when fluid is flowing from port_b to port_a else eta_a";
+  equation
+    // Isenthalpic state transformation (no storage and no loss of energy)
+    port_a.h_outflow = inStream(port_b.h_outflow);
+    port_b.h_outflow = inStream(port_a.h_outflow);
+
+    // Medium properties
+    d_a   = Medium.density(state_a);
+    eta_a = Medium.dynamicViscosity(state_a);
+    if allowFlowReversal then
+      d_b   = Medium.density(state_b);
+      eta_b = Medium.dynamicViscosity(state_b);
+    else
+      d_b   = d_a;
+      eta_b = eta_a;
+    end if;
+
+    annotation (Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics), Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics));
+  end PartialPressureLoss;
 end Interfaces;

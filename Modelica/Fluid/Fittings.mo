@@ -4,8 +4,8 @@ package Fittings
   package Bends "Flow models for bends"
     extends Modelica.Icons.VariantsPackage;
     model CurvedBend "Curved bend flow model"
-      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
+      extends Modelica.Fluid.Interfaces.PartialPressureLoss;
 
       parameter Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry geometry
         "Geometry of curved bend"
@@ -50,8 +50,8 @@ might use this inverse function instead, in order to avoid the solution of a non
     end CurvedBend;
 
     model EdgedBend "Edged bend flow model"
-      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Bend_i;
+      extends Modelica.Fluid.Interfaces.PartialPressureLoss;
 
       parameter Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry geometry
         "Geometry of curved bend"
@@ -106,327 +106,140 @@ might use this inverse function instead, in order to avoid the solution of a non
     extends Modelica.Icons.VariantsPackage;
 
     model ThickEdgedOrifice "Thicked edged orifice flow model"
-      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
       extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
-      import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
-      parameter Orifice.dp_thickEdgedOverall_IN_con geometry
-        "Geometry of curved bend"
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+      extends Modelica.Fluid.Interfaces.PartialPressureLoss;
 
-    /*
-  Orifice.dp_thickEdgedOverall_IN_var
-    properties(final eta=eta, final rho=rho) "Properties of medium"
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
-*/
+      parameter
+        Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry
+                                                                                geometry
+        "Geometry of thick edged orifice"
+          annotation (Placement(transformation(extent={{-20,0},{0,20}})),
+          choices(
+          choice=Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.circular(),
+          choice=Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.rectangular(),
+          choice=Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Choices.general()));
+
     protected
-      parameter Medium.AbsolutePressure dp_small= Orifice.dp_thickEdgedOverall_DP(
-                    geometry, Orifice.dp_thickEdgedOverall_IN_var(
-                      rho=Medium.density(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X)),
-                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X))),
+      parameter Medium.AbsolutePressure dp_small=
+                 Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP(
+                 Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con(
+                       A_0=geometry.venaCrossArea,
+                       A_1=geometry.crossArea,
+                       C_0=geometry.venaPerimeter,
+                       C_1=geometry.perimeter,
+                       L=geometry.venaLength,
+                       dp_smooth=1e-10),
+                    Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var(
+                      rho=Medium.density(state_dp_small),
+                      eta=Medium.dynamicViscosity(state_dp_small)),
                     m_flow_small)
         "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
-
-    partial function dp_thickEdgedOverall_fixedInterface
-       input Orifice.dp_thickEdgedOverall_IN_con geometry "Geometry of bend";
-       input Medium.ThermodynamicState state_a
-          "State for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-          "State for medium inflowing through port_b";
-       input SI.AbsolutePressure dp_small;
-       input SI.MassFlowRate m_flow_small;
-    end dp_thickEdgedOverall_fixedInterface;
-
-    function dp_thickEdgedOverall_MFLOW
-      extends dp_thickEdgedOverall_fixedInterface;
-      input SI.Pressure dp "Pressure drop";
-      output SI.MassFlowRate m_flow "Mass flow rate";
-    algorithm
-       m_flow := Orifice.dp_thickEdgedOverall_MFLOW(
-                   geometry,
-                   Orifice.dp_thickEdgedOverall_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                   dp);
-
-       annotation(Inline=false, LateInline=true,
-                  inverse(dp=dp_thickEdgedOverall_DP(
-                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
-    end dp_thickEdgedOverall_MFLOW;
-
-    function dp_thickEdgedOverall_DP
-       extends dp_thickEdgedOverall_fixedInterface;
-       input SI.MassFlowRate m_flow "Mass flow rate";
-       output SI.Pressure dp "Pressure drop";
-    algorithm
-       dp := Orifice.dp_thickEdgedOverall_DP(
-                   geometry,
-                   Orifice.dp_thickEdgedOverall_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
-                   m_flow);
-    end dp_thickEdgedOverall_DP;
-
     equation
-      if use_nominal then
-         m_flow = Orifice.dp_thickEdgedOverall_MFLOW(
-                    geometry, Orifice.dp_thickEdgedOverall_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
-      elseif not allowFlowReversal then
-         m_flow = Orifice.dp_thickEdgedOverall_MFLOW(
-                    geometry, Orifice.dp_thickEdgedOverall_IN_var(
-                                rho=Medium.density(state_a),
-                                eta=Medium.dynamicViscosity(state_a)), dp);
+      if allowFlowReversal then
+         m_flow = Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate(
+                    dp, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small);
       else
-         m_flow = dp_thickEdgedOverall_MFLOW(
-                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+         m_flow = Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW(
+                     Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con(
+                       A_0=geometry.venaCrossArea,
+                       A_1=geometry.crossArea,
+                       C_0=geometry.venaPerimeter,
+                       C_1=geometry.perimeter,
+                       L=geometry.venaLength,
+                       dp_smooth=dp_small),
+                    Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var(rho=d_a, eta=eta_a), dp);
       end if;
 
       annotation (Documentation(info="<html>
 <p>
-This component models the pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness. In the model neither mass nor energy is stored.
+This component models a thick edged orifice. It is assumed that neither mass nor energy is stored
+in this component. The details of the model are described in package:
 </p>
 
-<h4><font color=\"#EF9B13\">Restriction</font></h4>
-This function shall be used within the restricted limits according to the referenced literature.
-<ul>
- <li>
-      <b> Reynolds number (for vena contraction) Re &gt 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
- <li>
-      <b> Relative length of vena contraction (L/d_hyd_0) &gt 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
- <li>
-      <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
-</ul>
-
-<h4><font color=\"#EF9B13\">Geometry</font></h4>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">Calculation</font></h4>
-The pressure loss <b> dp </b> for a thick edged orifice is determined by:
-<p>
-<pre>
-dp = zeta_TOT * (rho/2) * (velocity_1)^2
-</pre>
-</p>
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice</a>
+</p></blockquote>
 
 <p>
-with
+In the model basically a function is called to compute the mass flow rate as a function
+of pressure loss for a thick edged orifice. Also the inverse of this function is defined, and a tool
+might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
 </p>
-
-<p>
-<table>
-<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
-<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
-</table>
-</p>
-
-The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
-<p>
-<pre>
-zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
-<tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
-<tr><td><b> d_hyd_0   </b></td><td> hydraulic diameter of vena contraction [m],</td></tr>
-<tr><td><b> lambda_FRI</b></td><td> as constant Darcy friction factor [-],</td></tr>
-<tr><td><b> l_bar     </b></td><td> relative length of orifice [-],</td></tr>
-<tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
-<tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
-</table>
-</p>
-
-<p>
-The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
-</p>
-
-<p>
-<pre>
-tau = (2.4 - l_bar)*10^(-phi)
-phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
-</pre>
-</p>
-
-<h4><font color=\"#EF9B13\">Verification</font></h4>
-The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
-</p>
-
-<p>
-<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
-</p>
-The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">References</font></h4>
-<dl>
- <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
-    <dd><b>Inline integration: A new mixed
-symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
-<dt>Idelchik,I.E.:</dt>
-    <dd><b>Handbook of hydraulic resistance</b>.
-    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
-</dl>
-</html>
-"));
+</html>"));
     end ThickEdgedOrifice;
 
-    model SuddenChangeOrifice "Sudden section change orifice flow model"
-      extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Orifice_i;
-      import Modelica.Fluid.Dissipation.PressureLoss.Orifice;
-      parameter Orifice.dp_suddenChange_IN_con geometry
-        "Geometry of sudden section change orifice"
-          annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+  end Orifices;
 
-    /*
-  Orifice.dp_suddenChange_IN_var
-    properties(final eta=eta, final rho=rho) "Properties of medium"
-    annotation (Placement(transformation(extent={{-46,20},{-26,40}})));
-*/
+  package GenericResistances "Flow models for generic resistances"
+  extends Modelica.Icons.VariantsPackage;
+
+    model VolumeFlowRate
+      "Flow model for generic resistance parameterized with the volume flow rate"
+
+      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.General_i;
+      extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+
+      parameter Real a(unit="(Pa.s2)/m6") "Coefficient for quadratic term"
+        annotation(Dialog(group="dp = a*V_flow^2 + b*V_flow"));
+      parameter Real b(unit="(Pa.s)/m3") "Coefficient for linear term"
+        annotation(Dialog(group="dp = a*V_flow^2 + b*V_flow"));
+
     protected
-      parameter Medium.AbsolutePressure dp_small= Orifice.dp_suddenChange_DP(
-                    geometry, Orifice.dp_suddenChange_IN_var(
-                      rho=Medium.density(Medium.setState_pTX(
+      parameter Medium.ThermodynamicState state_dp_small=Medium.setState_pTX(
                            Medium.reference_p,
                            Medium.reference_T,
-                           Medium.reference_X)),
-                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X))),
+                           Medium.reference_X)
+        "Medium state to compute dp_small"                                        annotation(HideResult=true);
+      parameter Medium.AbsolutePressure dp_small=
+                 Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
+                   Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
+                       a=a,
+                       b=b,
+                       dp_min=1e-10),
+                    Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var(
+                      rho=Medium.density(state_dp_small)),
                     m_flow_small)
         "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
-
-    partial function dp_suddenChange_fixedInterface
-       input Orifice.dp_suddenChange_IN_con geometry "Geometry of bend";
-       input Medium.ThermodynamicState state_a
-          "State for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-          "State for medium inflowing through port_b";
-       input SI.AbsolutePressure dp_small;
-       input SI.MassFlowRate m_flow_small;
-    end dp_suddenChange_fixedInterface;
-
-    function dp_suddenChange_MFLOW
-      extends dp_suddenChange_fixedInterface;
-      input SI.Pressure dp "Pressure drop";
-      output SI.MassFlowRate m_flow "Mass flow rate";
-    algorithm
-       m_flow := Orifice.dp_suddenChange_MFLOW(
-                   geometry,
-                   Orifice.dp_suddenChange_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                   dp);
-
-       annotation(Inline=false, LateInline=true,
-                  inverse(dp=dp_suddenChange_DP(
-                                geometry, state_a, state_b, dp_small, m_flow_small, m_flow)));
-    end dp_suddenChange_MFLOW;
-
-    function dp_suddenChange_DP
-       extends dp_suddenChange_fixedInterface;
-       input SI.MassFlowRate m_flow "Mass flow rate";
-       output SI.Pressure dp "Pressure drop";
-    algorithm
-       dp := Orifice.dp_suddenChange_DP(
-                   geometry,
-                   Orifice.dp_suddenChange_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
-                   m_flow);
-    end dp_suddenChange_DP;
+      Medium.Density d_a
+        "Density at port_a when fluid is flowing from port_a to port_b";
+      Medium.Density d_b
+        "If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a";
 
     equation
-      if use_nominal then
-         m_flow = Orifice.dp_suddenChange_MFLOW(
-                    geometry, Orifice.dp_suddenChange_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
-      elseif not allowFlowReversal then
-         m_flow = Orifice.dp_suddenChange_MFLOW(
-                    geometry, Orifice.dp_suddenChange_IN_var(
-                                rho=Medium.density(state_a),
-                                eta=Medium.dynamicViscosity(state_a)), dp);
+      // Isenthalpic state transformation (no storage and no loss of energy)
+      port_a.h_outflow = inStream(port_b.h_outflow);
+      port_b.h_outflow = inStream(port_a.h_outflow);
+
+      // Medium properties
+      d_a = Medium.density(state_a);
+      if allowFlowReversal then
+        d_b = Medium.density(state_b);
       else
-         m_flow = dp_suddenChange_MFLOW(
-                    geometry, state_a, state_b, dp_small, m_flow_small, dp);
+        d_b = d_a;
+      end if;
+
+      if allowFlowReversal then
+         m_flow = Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate.massFlowRate(
+                    dp, a, b, d_a, d_b, dp_small, m_flow_small);
+      else
+         m_flow = Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
+                   Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
+                       a=a,
+                       b=b,
+                       dp_min=dp_small),
+                    Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var(rho=d_a), dp);
       end if;
 
       annotation (Documentation(info="<html>
 <p>
-This component models local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered. In the model neither mass nor energy is stored.
+This component models a generic resistance parameterized
+with the volume flow rate:
 </p>
 
-<h4><font color=\"#EF9B13\">Restriction</font></h4>
-This function shall be used within the restricted limits according to the referenced literature.
-<ul>
- <li>
-      <b>Smooth surface</b>
- <li>
-      <b>Turbulent flow regime</b>
- <li>
-      <b>Reynolds number for sudden expansion Re &gt 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
- <li>
-      <b>Reynolds number for sudden contraction Re &gt 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
-</ul>
-
-<h4><font color=\"#EF9B13\">Geometry </font></h4>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">Calculation</font></h4>
-The local pressure loss <b> dp </b> is generally determinated by:
-<p>
 <pre>
-dp = 0.5 * zeta_LOC * rho * |v_1|*v_1
+    V_flow = m_flow / rho
+        dp = a*V_flow^2 + b*V_flow
 </pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> rho              </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> v_1             </b></td><td> as average flow velocity in small cross sectional area [m/s].</td></tr>
-<tr><td><b> zeta_LOC         </b></td><td> as local resistance coefficient [-],</td></tr>
-</table>
-</p>
-
-The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion can be calculated for different ratios of cross sectional areas by:
-<p>
-<pre>
-zeta_LOC = (1 - A_1/A_2)^2  <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
-</pre>
-</p>
-
-
-and for sudden contraction:
-<p>
-<pre>
-zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
-</pre>
-</p>
 
 
 <p>
@@ -435,219 +248,40 @@ with
 
 <p>
 <table>
-<tr><td><b> A_1       </b></td><td> small cross sectional area [m^2],</td></tr>
-<tr><td><b> A_2       </b></td><td> large cross sectional area [m^2]</td></tr>.
-
+<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
 </table>
 </p>
 
-<h4><font color=\"#EF9B13\">Verification</font></h4>
-The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
+It is assumed that neither mass nor energy is stored
+in this component. The details of the model are described in package:
 </p>
 
-The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate\">Fittings.BaseClasses.GenericResistances.VolumeFlowRate</a>
+</p></blockquote>
+
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
+In the model basically a function is called to compute the mass flow rate as a function
+of pressure loss. Also the inverse of this function is defined, and a tool
+might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
 </p>
-
-
-<h4><font color=\"#EF9B13\">References</font></h4>
-<dl>
-<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
-    <dd><b>Inline integration: A new mixed
-    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
-    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
-
-<dt>Idelchik,I.E.:</dt>
-    <dd><b>Handbook of hydraulic resistance</b>.
-    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
-</dl>
-</html>
-"));
-    end SuddenChangeOrifice;
-  end Orifices;
-
-  package GenericResistances
-    "Static geometry independent flow resistance components "
-  extends Modelica.Icons.VariantsPackage;
-
-    model NominalDensityViscosity
-      "Component model for geometry independent flow resistance parameterized with nominal density and nominal viscosity"
-        extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
-      import Modelica.Fluid.Dissipation.PressureLoss.General;
-      parameter General.dp_nominalDensityViscosity_IN_con coefficients annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-
-      //icon
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.General_i;
-
-      replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-        "Medium in the component" annotation (choicesAllMatching=true);
-
-    protected
-      parameter Medium.AbsolutePressure dp_small= General.dp_nominalDensityViscosity_DP(
-                    coefficients, General.dp_nominalDensityViscosity_IN_var(
-                    rho=Medium.density(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X)),
-                      eta=Medium.dynamicViscosity(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X))), m_flow_small)
-        "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
-
-    partial function dp_nominalDensityViscosity_fixedInterface
-       input General.dp_nominalDensityViscosity_IN_con coefficients
-          "Parameterization";
-       input Medium.ThermodynamicState state_a
-          "State for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-          "State for medium inflowing through port_b";
-       input SI.AbsolutePressure dp_small;
-       input SI.MassFlowRate m_flow_small;
-    end dp_nominalDensityViscosity_fixedInterface;
-
-    function dp_nominalDensityViscosity_MFLOW
-      extends dp_nominalDensityViscosity_fixedInterface;
-      input SI.Pressure dp "Pressure drop";
-      output SI.MassFlowRate m_flow "Mass flow rate";
-    algorithm
-       m_flow := General.dp_nominalDensityViscosity_MFLOW(
-                   coefficients,
-                   General.dp_nominalDensityViscosity_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                   dp);
-
-       annotation(Inline=false, LateInline=true,
-                  inverse(dp=dp_nominalDensityViscosity_DP(
-                                coefficients, state_a, state_b, dp_small, m_flow_small, m_flow)));
-    end dp_nominalDensityViscosity_MFLOW;
-
-    function dp_nominalDensityViscosity_DP
-       extends dp_nominalDensityViscosity_fixedInterface;
-       input SI.MassFlowRate m_flow "Mass flow rate";
-       output SI.Pressure dp "Pressure drop";
-    algorithm
-       dp := General.dp_nominalDensityViscosity_DP(
-                   coefficients,
-                   General.dp_nominalDensityViscosity_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small)),
-                       eta=Medium.dynamicViscosity(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
-                   m_flow);
-    end dp_nominalDensityViscosity_DP;
-
-    equation
-      if use_nominal then
-         m_flow = General.dp_nominalDensityViscosity_MFLOW(
-                    coefficients, General.dp_nominalDensityViscosity_IN_var(rho=rho_nominal, eta=eta_nominal), dp);
-      elseif not allowFlowReversal then
-         m_flow = General.dp_nominalDensityViscosity_MFLOW(
-                    coefficients, General.dp_nominalDensityViscosity_IN_var(
-                                rho=Medium.density(state_a),
-                                eta=Medium.dynamicViscosity(state_a)), dp);
-      else
-         m_flow = dp_nominalDensityViscosity_MFLOW(
-                    coefficients, state_a, state_b, dp_small, m_flow_small, dp);
-      end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-150,92},{150,52}},
-              lineColor={0,0,255},
-              fillPattern=FillPattern.Sphere,
-              fillColor={0,0,255},
-              textString="%name")}), Diagram(coordinateSystem(preserveAspectRatio=
-                true, extent={{-100,-100},{100,100}}), graphics),
-        Documentation(info="<html>
-<p>This component models dissipative pressure loss from a nominal operating point with given density and viscosity, using the functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\">dp_nominalDensityViscosity_DP</a> and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">dp_nominalDensityViscosity_MFLOW</a>, respectively. Neither mass nor energy is stored in the model. </p>
 </html>"));
-    end NominalDensityViscosity;
-
-    model NominalVolumeFlowRate "Component model for geometry independent flow resistance parameterized with nominal volume flow rate and
-  characterictic dependency"
-        extends Modelica.Fluid.Fittings.BaseClasses.PartialPressureLoss;
-      import Modelica.Fluid.Dissipation.PressureLoss.General;
-      parameter General.dp_volumeFlowRate_IN_con coefficients annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-
-      //icon
-      extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.General_i;
-
-      replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-        "Medium in the component" annotation (choicesAllMatching=true);
-
-    protected
-      parameter Medium.AbsolutePressure dp_small= General.dp_volumeFlowRate_DP(
-                    coefficients, General.dp_volumeFlowRate_IN_var(
-                    rho=Medium.density(Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X))), m_flow_small)
-        "Default small pressure drop for regularization of laminar and zero flow (calculated from m_flow_small)";
-
-    partial function dp_volumeFlowRate_fixedInterface
-       input General.dp_volumeFlowRate_IN_con coefficients "Parameterization";
-       input Medium.ThermodynamicState state_a
-          "State for medium inflowing through port_a";
-       input Medium.ThermodynamicState state_b
-          "State for medium inflowing through port_b";
-       input SI.AbsolutePressure dp_small;
-       input SI.MassFlowRate m_flow_small;
-    end dp_volumeFlowRate_fixedInterface;
-
-    function dp_volumeFlowRate_MFLOW
-      extends dp_volumeFlowRate_fixedInterface;
-      input SI.Pressure dp "Pressure drop";
-      output SI.MassFlowRate m_flow "Mass flow rate";
-    algorithm
-       m_flow := General.dp_volumeFlowRate_MFLOW(
-                   coefficients,
-                   General.dp_volumeFlowRate_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(dp, state_a, state_b, dp_small))),
-                   dp);
-
-       annotation(Inline=false, LateInline=true,
-                  inverse(dp=dp_volumeFlowRate_DP(
-                                coefficients, state_a, state_b, dp_small, m_flow_small, m_flow)));
-    end dp_volumeFlowRate_MFLOW;
-
-    function dp_volumeFlowRate_DP
-       extends dp_volumeFlowRate_fixedInterface;
-       input SI.MassFlowRate m_flow "Mass flow rate";
-       output SI.Pressure dp "Pressure drop";
-    algorithm
-       dp := General.dp_volumeFlowRate_DP(
-                   coefficients,
-                   General.dp_volumeFlowRate_IN_var(
-                       rho=Medium.density(Medium.setSmoothState(m_flow, state_a, state_b, m_flow_small))),
-                   m_flow);
-    end dp_volumeFlowRate_DP;
-
-    equation
-      if use_nominal then
-         m_flow = General.dp_volumeFlowRate_MFLOW(
-                    coefficients, General.dp_volumeFlowRate_IN_var(rho=rho_nominal), dp);
-      elseif not allowFlowReversal then
-         m_flow = General.dp_volumeFlowRate_MFLOW(
-                    coefficients, General.dp_volumeFlowRate_IN_var(
-                                rho=Medium.density(state_a)), dp);
-      else
-         m_flow = dp_volumeFlowRate_MFLOW(
-                    coefficients, state_a, state_b, dp_small, m_flow_small, dp);
-      end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-150,92},{150,52}},
-              lineColor={0,0,255},
-              fillPattern=FillPattern.Sphere,
-              fillColor={0,0,255},
-              textString="%name")}), Diagram(coordinateSystem(preserveAspectRatio=
-                true, extent={{-100,-100},{100,100}}), graphics),
-        Documentation(info="<html>
-<p>This component models dissipative pressure loss from a nominal operating point given as , using the functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a>, respectively. Neither mass nor energy is stored in the model. </p>
+    end VolumeFlowRate;
+    annotation (Documentation(info="<html>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss
+calculations are often not exactly known. Therefore the modelling of the detailed
+pressure loss calculation has to be simplified. 
+In this package components are present that provide different forms of
+such approximations.
+</p>
 </html>"));
-    end NominalVolumeFlowRate;
   end GenericResistances;
 
      extends Modelica.Icons.VariantsPackage;
@@ -2526,54 +2160,12 @@ where
             grid={1,1}), graphics));
     end PartialTeeJunction;
 
-    partial model PartialPressureLoss
-      "Base flow model for pressure loss functions with the same area at port_a and at port_b"
-      extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
-    protected
-      parameter Medium.ThermodynamicState state_dp_small=Medium.setState_pTX(
-                           Medium.reference_p,
-                           Medium.reference_T,
-                           Medium.reference_X)
-        "Medium state to compute dp_small"                                        annotation(HideResult=true);
-      Medium.Density d_a
-        "Density at port_a when fluid is flowing from port_a to port_b";
-      Medium.Density d_b
-        "If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a";
-      Medium.DynamicViscosity eta_a
-        "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
-      Medium.DynamicViscosity eta_b
-        "If allowFlowReversal=true then Dynamic viscosity at port_b when fluid is flowing from port_b to port_a else eta_a";
-    equation
-      // Isenthalpic state transformation (no storage and no loss of energy)
-      port_a.h_outflow = inStream(port_b.h_outflow);
-      port_b.h_outflow = inStream(port_a.h_outflow);
-
-      // Medium properties
-      d_a   = Medium.density(state_a);
-      eta_a = Medium.dynamicViscosity(state_a);
-      if allowFlowReversal then
-        d_b   = Medium.density(state_b);
-        eta_b = Medium.dynamicViscosity(state_b);
-      else
-        d_b   = d_a;
-        eta_b = eta_a;
-      end if;
-
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics), Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
-    end PartialPressureLoss;
 
     package Bends "Pressure loss functions for bends"
       extends Modelica.Icons.VariantsPackage;
 
       package CurvedBend "Pressure loss functions for curved bends"
           extends Modelica.Icons.Package;
-        import Modelica.Fluid.Dissipation.PressureLoss.Bend;
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
@@ -2855,15 +2447,34 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 <p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
 <p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
 <p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
-<p><b>Incompressible case </b>[Pressure loss = f(m_flow)]: </p>
+
+<p>
+<b> Mass flow rate = f(dp) </b>: 
+</p> 
+<p> 
+The mass flow rate in dependence of the pressure loss of water is shown for different relative curvature radii:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
+</p>
+ 
+<p> 
+The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
+</p>
+
+
+<p><b> Pressure loss = f_inv(m_flow)</b>: </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
 <p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
 <p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
-<p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
+<p>Note that there is a small deviation between the f(dp) and f_inv(m_flow) 
+calculation due to the lack of a direct analytical inverse. </p>
 <p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
-<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
-<dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dl>
 <dt>Idelchik,I.E.: </dt>
 <dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
 <dt>Miller,D.S.: </dt>
@@ -2878,7 +2489,6 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 
       package EdgedBend "Pressure loss functions for edged bends"
           extends Modelica.Icons.Package;
-        import Modelica.Fluid.Dissipation.PressureLoss.Bend;
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
@@ -3197,7 +2807,7 @@ Pressure loss calculation of edged bends is complex and there are large differen
 </p>
 
 <p>
-The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
+The validation of the pressure loss coefficient for an edged bend shows four possible flow regimes:
 <ul>
  <li>
       <b> laminar regime </b> for Re &le; 4e2
@@ -3211,7 +2821,17 @@ The validation of the pressure loss coefficient for an edged bends shows four po
 </p>
 
 <p>
-<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+<b> Mass flow rate = f(dp) </b>:
+</p>
+<p>
+The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
+</p>
+
+<p>
+<b> Pressure loss = f(m_flow) </b>:
 </p>
 <p>
 The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
@@ -3240,6 +2860,602 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
 </html>"));
       end EdgedBend;
     end Bends;
+
+    package Orifices "Pressure loss functions for orifices"
+        extends Modelica.Icons.VariantsPackage;
+      package ThickEdgedOrifice
+        "Pressure loss functions for thick edged orifices"
+          extends Modelica.Icons.Package;
+
+      function massFlowRate
+          "Return mass flow rate m_flow as function of pressure loss dp for a thick edged orifice"
+          import SI = Modelica.SIunits;
+        input SI.Pressure dp "Pressure loss";
+        input Geometry geometry "Geometry of bend";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.DynamicViscosity eta_a
+            "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+        input SI.DynamicViscosity eta_b
+            "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+      algorithm
+         m_flow := Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW(
+                     Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con(
+                         A_0=geometry.venaCrossArea,
+                         A_1=geometry.crossArea,
+                         C_0=geometry.venaPerimeter,
+                         C_1=geometry.perimeter,
+                         L=geometry.venaLength,
+                         dp_smooth=dp_small),
+                     Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(dp, d_a, d_b, dp_small),
+                         eta=Modelica.Fluid.Utilities.regStep(dp, eta_a, eta_b, dp_small)),
+                     dp);
+         annotation(Inline=false, LateInline=true,
+                    inverse(dp=Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss(
+                                  m_flow, geometry, d_a, d_b, eta_a, eta_b, dp_small, m_flow_small)),
+            Documentation(info="<html>
+<p>
+This function returns the mass flow rate m_flow as function of pressure loss dp for a thick edged orifice.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice</a>
+</p></blockquote>
+
+<p>
+The orifice characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+
+</html>"));
+      end massFlowRate;
+
+      function pressureLoss
+          "Return pressure loss dp as function of mass flow rate m_flow for a thick edged orifice"
+
+          import SI = Modelica.SIunits;
+        input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+        input Geometry geometry "Geometry of bend";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.DynamicViscosity eta_a
+            "Dynamic viscosity at port_a when fluid is flowing from port_a to port_b";
+        input SI.DynamicViscosity eta_b
+            "Dynamic viscosity at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.Pressure dp "Pressure loss";
+      algorithm
+         dp := Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP(
+                 Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con(
+                         A_0=geometry.venaCrossArea,
+                         A_1=geometry.crossArea,
+                         C_0=geometry.venaPerimeter,
+                         C_1=geometry.perimeter,
+                         L=geometry.venaLength,
+                         dp_smooth=dp_small),
+                     Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(m_flow, d_a, d_b, m_flow_small),
+                         eta=Modelica.Fluid.Utilities.regStep(m_flow, eta_a, eta_b, m_flow_small)),
+                     m_flow);
+
+         annotation(Inline=true, Documentation(info="<html>
+<p>
+This function returns the pressure loss dp as function of mass flow rate m_flow for a thick edged orifice.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice</a>
+</p></blockquote>
+
+<p>
+The orifice characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+</html>"));
+      end pressureLoss;
+
+        record Geometry "Geometric data for a thick edged orifice"
+          import SI = Modelica.SIunits;
+          extends Modelica.Icons.Record;
+
+          SI.Area crossArea "Inner cross sectional area"
+            annotation(Dialog);
+          SI.Length perimeter "Inner perimeter"
+            annotation(Dialog);
+
+          SI.Area venaCrossArea "Cross sectional area of vena contraction"
+            annotation(Dialog);
+          SI.Length venaPerimeter "Perimeter of vena contraction"
+            annotation(Dialog);
+          SI.Length venaLength "Length of vena contraction"
+            annotation (Dialog);
+
+          annotation (Documentation(info="<html>
+<p>
+This record is used to define the geometric (constant) data of a thick edged orifice.
+The details of the record are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice</a>
+</p></blockquote>
+</html>"));
+        end Geometry;
+        annotation (Documentation(info="<html>
+<p>
+This is the documentation of the following components that model thick edged orifices:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice\">Fittings.Orifices.ThickEdgedOrifice</a>
+     is a model of the thick edged orifice, using the following utility components:</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate</a>
+     is a function that returns the mass flow rate as function of pressure loss.</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss</a>
+     is a function that returns the pressure loss as function of the mass flow rate.</li>
+<li> <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry</a>
+     is a record that defines the geometric data of a thick edged orifice.</li>
+</ul>
+
+<p>
+These component model the pressure loss in thick edged orifices with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness. It is expected that also compressible fluid flow 
+can be handled up to about Ma = 0.3. The model and the functions assume that
+no mass and no energy is stored in the thick edged orifice.
+</p>
+
+<p>
+Below the following notation is used, where \"geometry\" is the corresponding parameter of a model or the input argument of a function:
+</p>
+
+<blockquote><pre>
+A_0     = geometry.venaCrossArea
+C_0     = geometry.venaPerimeter
+A_1     = geometry.crossArea
+L       = geometry.venaLength
+d_hyd_0 = 4*A_0/C_0
+</pre></blockquote>
+
+<h4><font color=\"#EF9B13\">Restriction</font></h4>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> Reynolds number (for vena contraction) Re &gt; 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
+</ul>
+
+<h4><font color=\"#EF9B13\">Geometry</font></h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+The pressure loss <b> dp </b> for a thick edged orifice is determined by:
+<p>
+<pre>
+dp = zeta_TOT * (rho/2) * (velocity_1)^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
+<p>
+<pre>
+zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
+<tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
+<tr><td><b> d_hyd_0   </b></td><td> hydraulic diameter of vena contraction [m],</td></tr>
+<tr><td><b> lambda_FRI</b></td><td> as constant Darcy friction factor [-],</td></tr>
+<tr><td><b> l_bar     </b></td><td> relative length of orifice [-],</td></tr>
+<tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
+<tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
+</table>
+</p>
+
+<p>
+The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
+</p>
+
+<p>
+<pre>
+tau = (2.4 - l_bar)*10^(-phi)
+phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+</pre>
+</p>
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+</p>
+
+<p>
+<b> Mass flow rate = f(dp) </b>:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
+</p>
+
+<p>
+<b> Pressure loss = f(m_flow)</b>:
+</p>
+The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+</dl>
+</html>"));
+        package Choices "Choices for Geometry"
+          extends Modelica.Icons.Package;
+
+          function circular "Circular cross section"
+            import SI = Modelica.SIunits;
+            import Modelica.Constants.pi;
+
+            input SI.Diameter diameter "Inner diameter of circular orifice"
+              annotation(Dialog);
+            input SI.Diameter venaDiameter "Diameter of vena contraction"
+              annotation(Dialog);
+            input SI.Length venaLength "Length of vena contraction"
+              annotation (Dialog);
+
+             output ThickEdgedOrifice.Geometry geometry
+              "Geometry of circular thick edged orifice";
+          algorithm
+             geometry.crossArea := diameter^2*pi/4;
+             geometry.perimeter := pi*diameter;
+             geometry.venaCrossArea := venaDiameter^2*pi/4;
+             geometry.venaPerimeter := pi*venaDiameter;
+             geometry.venaLength := venaLength;
+            annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+                    extent={{-100,-100},{100,100}}),
+                                graphics),
+                                 Icon(coordinateSystem(preserveAspectRatio=false,
+                             extent={{-100,-100},{100,100}}), graphics={Ellipse(
+                    extent={{-80,80},{80,-80}},
+                    lineColor={0,0,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid)}),
+              DymolaStoredErrors,
+              Documentation(revisions="",
+                  info="<html>
+<p>
+Function that returns the ThickEdgedOrifice.Geometry for a circular
+cross section of the orifice.
+</p>
+</html>"));
+          end circular;
+
+          function rectangular "Rectangular cross section"
+            import SI = Modelica.SIunits;
+            import Modelica.Constants.pi;
+
+            input SI.Length width "Inner width of rectangular orifice"
+              annotation(Dialog);
+            input SI.Length height "Inner height of rectangular orifice"
+              annotation(Dialog);
+            input SI.Length venaWidth "Width of vena contraction"
+              annotation(Dialog);
+            input SI.Length venaHeight "Height of vena contraction"
+              annotation(Dialog);
+            input SI.Length venaLength "Length of vena contraction"
+              annotation (Dialog);
+
+             output ThickEdgedOrifice.Geometry geometry
+              "Geometry of circular thick edged orifice";
+          algorithm
+             geometry.crossArea := width*height;
+             geometry.perimeter := 2*width + 2*height;
+             geometry.venaCrossArea := venaWidth*venaHeight;
+             geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
+             geometry.venaLength := venaLength;
+            annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+                    extent={{-100,-100},{100,100}}),
+                                graphics),
+                                 Icon(coordinateSystem(preserveAspectRatio=true,
+                             extent={{-100,-100},{100,100}}), graphics={Rectangle(
+                    extent={{-80,60},{80,-60}},
+                    lineColor={0,0,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid)}),
+              DymolaStoredErrors,
+              Documentation(revisions="",
+                  info="<html>
+<p>
+Function that returns the ThickEdgedOrifice.Geometry for a rectangular
+cross section of the orifice.
+</p>
+</html>"));
+          end rectangular;
+
+          function general "General cross section"
+            import SI = Modelica.SIunits;
+            import Modelica.Constants.pi;
+
+            input SI.Area crossArea "Inner cross sectional area"
+              annotation(Dialog);
+            input SI.Length perimeter "Inner perimeter"
+              annotation(Dialog);
+
+            input SI.Area venaCrossArea
+              "Cross sectional area of vena contraction"
+              annotation(Dialog);
+            input SI.Length venaPerimeter "Perimeter of vena contraction"
+              annotation(Dialog);
+            input SI.Length venaLength "Length of vena contraction"
+              annotation (Dialog);
+
+             output ThickEdgedOrifice.Geometry geometry
+              "Geometry of circular thick edged orifice";
+          algorithm
+             geometry.crossArea := crossArea;
+             geometry.perimeter := perimeter;
+             geometry.venaCrossArea := venaCrossArea;
+             geometry.venaPerimeter := venaPerimeter;
+             geometry.venaLength := venaLength;
+            annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+                    extent={{-100,-100},{100,100}}),
+                                graphics),
+                                 Icon(coordinateSystem(preserveAspectRatio=false,
+                             extent={{-100,-100},{100,100}}), graphics={
+                                                   Polygon(
+                    points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},
+                    lineColor={0,0,0},
+                    fillColor={255,255,255},
+                    fillPattern=FillPattern.Solid)}),
+              DymolaStoredErrors,
+              Documentation(revisions="",
+                  info="<html>
+<p>
+Function that returns the ThickEdgedOrifice.Geometry for a general
+cross section of the orifice.
+</p>
+</html>"));
+          end general;
+        end Choices;
+      end ThickEdgedOrifice;
+    end Orifices;
+
+    package GenericResistances
+      "Pressure loss functions for generic, geometry independent flow resistances"
+        extends Modelica.Icons.VariantsPackage;
+      package VolumeFlowRate
+        "Pressure loss functions for generic resistances parameterized with the volume flow rate"
+          extends Modelica.Icons.Package;
+
+      function massFlowRate
+          "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
+          import SI = Modelica.SIunits;
+        input SI.Pressure dp "Pressure loss";
+        input Real a(unit="(Pa.s2)/m6")
+            "Coefficient for quadratic term (dp = a*V_flow^2 + b*V_flow)";
+        input Real b(unit="(Pa.s)/m3")
+            "Coefficient for linear term (dp = a*V_flow^2 + b*V_flow)";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+      algorithm
+         m_flow := Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
+                     Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
+                         a=a,
+                         b=b,
+                         dp_min=dp_small),
+                     Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(dp, d_a, d_b, dp_small)),
+                     dp);
+
+         annotation(LateInline=true,
+                    inverse(dp=Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate.pressureLoss(
+                                  m_flow, a, b, d_a, d_b, dp_small, m_flow_small)),
+          Documentation(info="<html>
+<p>
+This function returns the mass flow rate m_flow as function of pressure loss dp for an edged bend.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate\">Fittings.BaseClasses.GenericResistances.VolumeFlowRate</a>
+</p></blockquote>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+
+</html>"));
+      end massFlowRate;
+
+      function pressureLoss
+          "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
+
+          import SI = Modelica.SIunits;
+        input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
+        input Real a(unit="(Pa.s2)/m6")
+            "Coefficient for quadratic term (dp = a*V_flow^2 + b*V_flow)";
+        input Real b(unit="(Pa.s)/m3")
+            "Coefficient for linear term (dp = a*V_flow^2 + b*V_flow)";
+        input SI.Density d_a
+            "Density at port_a when fluid is flowing from port_a to port_b";
+        input SI.Density d_b
+            "Density at port_b when fluid is flowing from port_b to port_a";
+        input SI.AbsolutePressure dp_small
+            "Small pressure drop used for regularization if m_flow=f(...,dp_small,..,dp)";
+        input SI.MassFlowRate m_flow_small
+            "Small mass flow rate used for regularization if dp=f_inv(...,m_flow_small,m_flow)";
+        output SI.Pressure dp "Pressure loss";
+      algorithm
+         dp := Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
+                     Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con(
+                         a=a,
+                         b=b,
+                         dp_min=dp_small),
+                     Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var(
+                         rho=Modelica.Fluid.Utilities.regStep(m_flow, d_a, d_b, m_flow_small)),
+                     m_flow);
+
+         annotation(Inline=true, Documentation(info="<html>
+<p>
+This function returns the pressure loss dp as function of mass flow rate m_flow for an edged bend.
+The details of the function are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate\">Fittings.BaseClasses.GenericResistances.VolumeFlowRate</a>
+</p></blockquote>
+
+<p>
+The bend characteristic is valid for constant density and constant dynamic viscosity. 
+It can be approximately also used for compressible media. This is performed by providing
+the upstream density and upstream dynamic viscosity. In order to be able to regularize density
+and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
+fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to port_a
+(d_b, eta_b).
+</p>
+</html>"));
+      end pressureLoss;
+
+        annotation (Documentation(info="<html>
+<p>
+This is the documentation of the following components that model
+generic resistances parameterized with the volume flow rate:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate\">Fittings.GenericResistances.VolumeFlowRate</a>
+     is a model of the generic resistance parameterized with the volume flow rate, using the following utility components:</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate.massFlowRate\">Fittings.BaseClasses.GenericResistances.VolumeFlowRate.massFlowRate</a>
+     is a function that returns the mass flow rate as function of pressure loss.</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.GenericResistances.VolumeFlowRate.pressureLoss\">Fittings.BaseClasses.GenericResistances.VolumeFlowRate.pressureLoss</a>
+     is a function that returns the pressure loss as function of the mass flow rate.</li>
+</ul>
+
+<p>
+The geometry parameters of energy devices necessary for the pressure loss
+calculations are often not exactly known. Therefore the modelling of the detailed
+pressure loss calculation has to be simplified. These components use a
+linear and a quadratic dependence of the pressure loss on the volume flow rate.
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+
+<p>
+The pressure loss <b> dp </b> is determined to <i> [see Wischhusen] </i>:
+<pre>
+    V_flow = m_flow / rho
+        dp = a*V_flow^2 + b*V_flow
+</pre>
+
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
+</table>
+</p>
+
+Note that the coefficients <b> a,b </b> have to be positive values so that there will be a positive (linear or quadratic) pressure loss for a given positive volume flow rate.
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+
+<p>
+<b> Mass flow rate = f(dp) </b>:
+</p>
+
+<p>
+The generic pressure loss <b> dp </b> for different coefficients <b> a </b>
+as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in
+the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
+</p>
+
+<p>
+<b> Pressure loss = f(m_flow) </b>:
+</p>
+The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+</html>"));
+      end VolumeFlowRate;
+    end GenericResistances;
   end BaseClasses;
   annotation (Documentation(info="<html>
 
