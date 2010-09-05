@@ -2566,6 +2566,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Examples</b></td></tr>
 <tr><td valign=\"top\"> Filter<br>
                       FilterWithDifferentation<br>
+                      FilterWithRiseTime<br>
                       RealNetwork1<br>
                       IntegerNetwork1<br>
                       BooleanNetwork1<br>
@@ -2859,6 +2860,19 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> HeatLosses </td>
     <td valign=\"top\"> Demonstrate the modeling of heat losses. </td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Fittings.Bends</b></td></tr>
+<tr><td valign=\"top\"> CurvedBend<br>
+                      EdgedBend</td>
+    <td valign=\"top\"> New fitting (pressure loss) components. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Fittings.Orifices.</b></td></tr>
+<tr><td valign=\"top\"> ThickEdgedOrifice</td>
+    <td valign=\"top\"> New fitting (pressure loss) component. </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Fittings.GenericResistances.</b></td></tr>
+<tr><td valign=\"top\"> VolumeFlowRate</td>
+    <td valign=\"top\"> New fitting (pressure loss) component. </td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Math</b></td></tr>
 <tr><td valign=\"top\"> isEqual </td>
     <td valign=\"top\"> Determine if two Real scalars are numerically identical. </td> </tr>
@@ -2971,7 +2985,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> allTrue </td>
     <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
-    <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
+    <td valign=\"top\"> Returns true, if at least on element of the Boo" + "lean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
     <td valign=\"top\"> Returns true, if exactly one element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> firstTrueIndex </td>
@@ -2985,7 +2999,7 @@ to <b style=\"color:blue\">existing</b> libraries:
                       ReleaseNotes<br>
                       References<br>
                       ExamplesPackage<br>
-           " + "           Example<br>
+                      Example<br>
                       Package<br>
                       BasesPackage<br>
                       VariantsPackage<br>
@@ -3072,6 +3086,29 @@ have been <b style=\"color:blue\">improved</b> in a
     <td valign=\"top\"> Function gravityAcceleration is made replaceable, so that redeclaration
                       yields user-defined gravity fields.
                        </td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Valves.</b></td></tr>
+<tr><td valign=\"top\"> ValveIncompressible<br>
+                      ValveVaporizing<br>
+                      ValveCompressible</td>
+    <td valign=\"top\"> Optional filtering of opening signal introduced to model
+                      the delay time of the opening/closing drive. 
+                      Improved regularization in some cases so that the characteristic
+                      is twice differentiable (smooth=2), instead of continuous (smooth=0).</td>
+                      </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.</b></td></tr>
+<tr><td valign=\"top\"> PartialMedium </td>
+    <td valign=\"top\"> The min/max values of types SpecificEnthaly, SpecificEntropy,
+                      SpecificHeatCapacity increased, due to reported user problems.<br>
+                      New constant C_nominal introduced to provide nominal values for
+                      trace substances (utilized in Modelica.Fluid to avoid numerical problems;
+                      this fixes ticket
+                      <a href=\"https://trac.modelica.org/Modelica/ticket/393\">#393</a>).</td>
+                      </tr>
+
+
+
 <tr><td colspan=\"2\"><b>Modelica.Thermal.</b></td></tr>
 <tr><td valign=\"top\"> HeatTransfer.*</td>
     <td valign=\"top\"> All icons are unified according to the
@@ -3111,14 +3148,6 @@ that can lead to wrong simulation results):
                       This has been fixed.</td>
 </tr>
 
-</table>
-
-<p><br>
-The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
-that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
-units are wrong or errors in documentation):
-</p>
-<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
 <tr><td valign=\"top\"> LossyGear</td>
     <td valign=\"top\"> In cases where the driving flange is not obvious, the component could
@@ -3129,6 +3158,32 @@ units are wrong or errors in documentation):
                       <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
                       of this ticket).</td> </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Pipes.</b></td></tr>
+<tr><td valign=\"top\"> DynamicPipe</td>
+    <td valign=\"top\"> Bug fix for dynamic mass, energy and momentum balances 
+                      for pipes with nParallel&gt;1.</td> </tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.</b></td></tr>
+<tr><td valign=\"top\"> PartialPipeFlowHeatTransfer</td>
+    <td valign=\"top\"> Calculation of Reynolds numbers for the heat transfer through 
+                      walls corrected, if nParallel&gt;1. 
+                      This partial model is used by LocalPipeFlowHeatTransfer 
+                      for laminar and turbulent forced convection in pipes.</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialLinearFluid</b></td></tr>
+<tr><td valign=\"top\"> setState_psX</td>
+    <td valign=\"top\"> Sign error fixed.</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Media.CompressibleLiquids.</b></td></tr>
+<tr><td valign=\"top\"> LinearColdWater</td>
+    <td valign=\"top\"> Fixed wrong values for thermal conductivity and viscosity.</td> </tr>
+
+</table>
+
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+units are wrong or errors in documentation):
+</p>
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.LAPACK</b></td></tr>
 <tr><td valign=\"top\"> dgesv_vec<br>
                         dgesv<br>
