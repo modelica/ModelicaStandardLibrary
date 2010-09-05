@@ -32,7 +32,7 @@ extends Modelica.Icons.Library;
 
   function BooleanFunctions
     import Modelica.Utilities.Streams;
-    import Modelica.Math;
+    import Modelica.Math.BooleanVectors;
     input String logFile = "ModelicaTestLog.txt"
       "Filename where the log is stored";
     output Boolean ok;
@@ -45,22 +45,22 @@ extends Modelica.Icons.Library;
     ok:=false;
     Streams.print("... Test of Modelica.Math.<Boolean functions>", logFile);
 
-    assert(Math.allTrue(b1) == true,  "allTrue is wrong at (1)");
-    assert(Math.allTrue(b2) == false, "allTrue is wrong at (2)");
-    assert(Math.allTrue(b3) == false, "allTrue is wrong at (3)");
+    assert(BooleanVectors.allTrue(b1) == true,  "allTrue is wrong at (1)");
+    assert(BooleanVectors.allTrue(b2) == false, "allTrue is wrong at (2)");
+    assert(BooleanVectors.allTrue(b3) == false, "allTrue is wrong at (3)");
 
-    assert(Math.anyTrue(b1) == true,  "anyTrue is wrong at (1)");
-    assert(Math.anyTrue(b2) == false, "anyTrue is wrong at (2)");
-    assert(Math.anyTrue(b3) == true,  "anyTrue is wrong at (3)");
+    assert(BooleanVectors.anyTrue(b1) == true,  "anyTrue is wrong at (1)");
+    assert(BooleanVectors.anyTrue(b2) == false, "anyTrue is wrong at (2)");
+    assert(BooleanVectors.anyTrue(b3) == true,  "anyTrue is wrong at (3)");
 
-    assert(Math.oneTrue(b1) == false, "oneTrue is wrong at (1)");
-    assert(Math.oneTrue(b2) == false, "oneTrue is wrong at (2)");
-    assert(Math.oneTrue(b3) == false, "oneTrue is wrong at (3)");
-    assert(Math.oneTrue(b4) == true,  "oneTrue is wrong at (4)");
+    assert(BooleanVectors.oneTrue(b1) == false, "oneTrue is wrong at (1)");
+    assert(BooleanVectors.oneTrue(b2) == false, "oneTrue is wrong at (2)");
+    assert(BooleanVectors.oneTrue(b3) == false, "oneTrue is wrong at (3)");
+    assert(BooleanVectors.oneTrue(b4) == true,  "oneTrue is wrong at (4)");
 
-    assert(Math.firstTrueIndex(b1) == 1, "firstTrueIndex is wrong at (1)");
-    assert(Math.firstTrueIndex(b2) == 0, "firstTrueIndex is wrong at (2)");
-    assert(Math.firstTrueIndex(b3) == 2, "firstTrueIndex is wrong at (3)");
+    assert(BooleanVectors.firstTrueIndex(b1) == 1, "firstTrueIndex is wrong at (1)");
+    assert(BooleanVectors.firstTrueIndex(b2) == 0, "firstTrueIndex is wrong at (2)");
+    assert(BooleanVectors.firstTrueIndex(b3) == 2, "firstTrueIndex is wrong at (3)");
 
     ok:=true;
   end BooleanFunctions;
