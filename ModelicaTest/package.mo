@@ -34,7 +34,7 @@ algorithm
   result := ModelicaTest.Math.Vectors();
   result := ModelicaTest.Utilities.testAll(logFile);
   result := ModelicaTest.ComplexMath.ComplexFunctions(logFile);
-  result := ModelicaTest.ComplexMath.ComplexOperations;
+  result := ModelicaTest.ComplexMath.ComplexOperations();
 
   ok := true;
 end testAllFunctions;
