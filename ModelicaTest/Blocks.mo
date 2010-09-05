@@ -396,6 +396,7 @@ extends Modelica.Icons.Library;
   end IntegerTable;
 
   package FilterTests "Test of Blocks.Continuous.Filter"
+    extends Modelica.Icons.Library;
     block AllOptions
       "Simulates 264 filter blocks and varies all possible options systematically for different orders and different cut-off frequencies"
       extends Modelica.Icons.Example;
@@ -407,6 +408,7 @@ extends Modelica.Icons.Library;
         annotation (Placement(transformation(extent={{-20,40},{0,60}})));
       annotation (experiment(StopTime=1.1), experimentSetupOutput);
     end AllOptions;
+
 
   model Basic
     extends Modelica.Blocks.Interfaces.BlockIcon;
