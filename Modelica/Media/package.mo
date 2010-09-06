@@ -6608,21 +6608,21 @@ package Common "data structures and fundamental functions for fluid properties"
 protected
   type Rate = Real (final quantity="Rate", final unit="s-1");
   type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit="mol/s");
-  type MolarReactionRate = Real (final quantity="MolarReactionRate", final unit
-        ="mol/(m3.s)");
+  type MolarReactionRate = Real (final quantity="MolarReactionRate", final unit=
+         "mol/(m3.s)");
   type MolarEnthalpy = Real (final quantity="MolarEnthalpy", final unit="J/mol");
-  type DerDensityByEntropy = Real (final quantity="DerDensityByEntropy", final unit
-        =    "kg2.K/(m3.J)");
-  type DerEnergyByPressure = Real (final quantity="DerEnergyByPressure", final unit
-        =    "J/Pa");
+  type DerDensityByEntropy = Real (final quantity="DerDensityByEntropy", final unit=
+             "kg2.K/(m3.J)");
+  type DerEnergyByPressure = Real (final quantity="DerEnergyByPressure", final unit=
+             "J/Pa");
   type DerEnergyByMoles = Real (final quantity="DerEnergyByMoles", final unit=
           "J/mol");
   type DerEntropyByTemperature = Real (final quantity="DerEntropyByTemperature",
          final unit="J/K2");
   type DerEntropyByPressure = Real (final quantity="DerEntropyByPressure",
         final unit="J/(K.Pa)");
-  type DerEntropyByMoles = Real (final quantity="DerEntropyByMoles", final unit
-        ="J/(mol.K)");
+  type DerEntropyByMoles = Real (final quantity="DerEntropyByMoles", final unit=
+         "J/(mol.K)");
   type DerPressureByDensity = Real (final quantity="DerPressureByDensity",
         final unit="Pa.m3/kg");
   type DerPressureBySpecificVolume = Real (final quantity=
@@ -6631,8 +6631,8 @@ protected
           "DerPressureByTemperature", final unit="Pa/K");
   type DerVolumeByTemperature = Real (final quantity="DerVolumeByTemperature",
         final unit="m3/K");
-  type DerVolumeByPressure = Real (final quantity="DerVolumeByPressure", final unit
-        =    "m3/Pa");
+  type DerVolumeByPressure = Real (final quantity="DerVolumeByPressure", final unit=
+             "m3/Pa");
   type DerVolumeByMoles = Real (final quantity="DerVolumeByMoles", final unit=
           "m3/mol");
   type IsenthalpicExponent = Real (final quantity="IsenthalpicExponent", unit=
@@ -8173,8 +8173,12 @@ Summing all mass fractions together results in
        output Real x_zero "f_nonlinear(x_zero) = y_zero";
     protected
        constant Real eps = Modelica.Constants.eps "machine epsilon";
-       Real a = x_min "Current best minimum interval value";
-       Real b = x_max "Current best maximum interval value";
+       constant Real x_eps = 1e-10
+        "Slight modification of x_min, x_max, since x_min, x_max are usually exactly at the borders T_min/h_min and then small numeric noise may make the interval invalid";
+       Real x_min2 = x_min - x_eps;
+       Real x_max2 = x_max + x_eps;
+       Real a = x_min2 "Current best minimum interval value";
+       Real b = x_max2 "Current best maximum interval value";
        Real c "Intermediate point a <= c <= b";
        Real d;
        Real e "b - a";
@@ -8190,15 +8194,15 @@ Summing all mass fractions together results in
        Boolean found = false;
     algorithm
        // Check that f(x_min) and f(x_max) have different sign
-       fa :=f_nonlinear(x_min, pressure, X, f_nonlinear_data) - y_zero;
-       fb :=f_nonlinear(x_max, pressure, X, f_nonlinear_data) - y_zero;
+       fa :=f_nonlinear(x_min2, pressure, X, f_nonlinear_data) - y_zero;
+       fb :=f_nonlinear(x_max2, pressure, X, f_nonlinear_data) - y_zero;
        fc := fb;
        if fa > 0.0 and fb > 0.0 or
           fa < 0.0 and fb < 0.0 then
           error("The arguments x_min and x_max to OneNonLinearEquation.solve(..)\n" +
                 "do not bracket the root of the single non-linear equation:\n" +
-                "  x_min  = " + String(x_min) + "\n" +
-                "  x_max  = " + String(x_max) + "\n" +
+                "  x_min  = " + String(x_min2) + "\n" +
+                "  x_max  = " + String(x_max2) + "\n" +
                 "  y_zero = " + String(y_zero) + "\n" +
                 "  fa = f(x_min) - y_zero = " + String(fa) + "\n" +
                 "  fb = f(x_max) - y_zero = " + String(fb) + "\n" +
