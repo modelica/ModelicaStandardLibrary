@@ -3702,9 +3702,9 @@ output window.
           Modelica.Media.Incompressible.Examples.Glycol47 "Medium model"
                         annotation (__Dymola_choicesAllMatching=true);
 
-     parameter SI.Temperature T_min = Medium.T_min + 1e-3
+     parameter SI.Temperature T_min = Medium.T_min
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
-     parameter SI.Temperature T_max = Medium.T_max -1e-3
+     parameter SI.Temperature T_max = Medium.T_max
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
      parameter SI.Pressure p = 1.0e5 "Fixed pressure in model";
      final parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.T_min)
