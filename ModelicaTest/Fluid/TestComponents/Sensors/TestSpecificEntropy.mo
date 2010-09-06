@@ -1,6 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestSpecificEntropy
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   inner Modelica.Fluid.System system  annotation (Placement(transformation(
           extent={{-100,-100},{-80,-80}}, rotation=0)));
   Modelica.Fluid.Sources.Boundary_ph boundary_prescriberho_1(nPorts=1,

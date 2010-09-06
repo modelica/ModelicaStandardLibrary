@@ -1,6 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestPressure
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   Modelica.Fluid.Sensors.Pressure pressure1(redeclare package Medium =
         Modelica.Media.Water.StandardWater) annotation (Placement(
         transformation(extent={{-20,0},{0,20}}, rotation=0)));

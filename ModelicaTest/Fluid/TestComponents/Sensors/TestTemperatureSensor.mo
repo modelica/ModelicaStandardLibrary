@@ -2,6 +2,7 @@ within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestTemperatureSensor "Test and compare case for the difference between using one port with
    and without explicit junction model and two port sensor for fluid temperature meassuring"
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   Modelica.Fluid.Sensors.Temperature Temperature(redeclare package Medium =
                        Modelica.Media.Water.StandardWater)
     annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));

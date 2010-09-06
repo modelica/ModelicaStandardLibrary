@@ -1,6 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestOnePortSensors2
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   package Medium = Modelica.Media.Water.StandardWater;
   Modelica.Fluid.Vessels.ClosedVolume MixingVolume1(
     V=1e-3,

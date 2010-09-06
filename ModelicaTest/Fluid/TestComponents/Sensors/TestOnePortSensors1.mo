@@ -1,6 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestOnePortSensors1
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   package Medium = Modelica.Media.Water.StandardWater;
   parameter Real diameter_a = 0.1;
   parameter Real diameter_b = 0.2;

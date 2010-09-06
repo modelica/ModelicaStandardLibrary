@@ -1,6 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestFlowRate
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   Modelica.Fluid.Fittings.SimpleGenericOrifice simpleGenericOrifice(
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     zeta=2,

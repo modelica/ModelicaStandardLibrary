@@ -1,6 +1,7 @@
 within ModelicaTest.Fluid.TestComponents.Sensors;
 model TestTraceSubstances
   import Modelica.Fluid;
+  extends Modelica.Icons.Example;
   replaceable package Medium=Modelica.Media.Air.MoistAir(extraPropertiesNames={"CO2"});
   inner Modelica.Fluid.System system  annotation (Placement(transformation(
           extent={{-100,-100},{-80,-80}}, rotation=0)));
