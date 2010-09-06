@@ -1,6 +1,6 @@
 within ModelicaTest;
 package Translational
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
 
   model AllComponents
 

@@ -1,8 +1,8 @@
 within ModelicaTest;
 package Media
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
   package TestAllProperties
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model PartialMediumFunctions
       import SI = Modelica.SIunits;
        replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
@@ -211,7 +211,7 @@ extends Modelica.Icons.Library;
     end SimpleAir;
 
     package IncompleteMedia
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
       model MoistAir
         extends PartialMediumFunctions(redeclare package Medium =
               Modelica.Media.Air.MoistAir);

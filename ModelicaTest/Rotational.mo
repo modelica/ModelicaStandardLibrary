@@ -1,9 +1,9 @@
 within ModelicaTest;
 package Rotational "Test models for Modelica.Mechanics.Rotational"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
 
   package ForUsersGuide "Models used as screenshot for the users guide"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
   model SimpleDriveTrain
 
@@ -601,7 +601,7 @@ extends Modelica.Icons.Library;
   end ForUsersGuide;
 
   package InitializationConversion
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model Inertia
 
       Modelica.Mechanics.Rotational.Components.Inertia inertia1(phi(start=

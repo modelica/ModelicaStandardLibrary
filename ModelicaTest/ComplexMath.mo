@@ -1,6 +1,6 @@
 within ModelicaTest;
 package ComplexMath
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
   function ComplexFunctions
     import Complex;
     input String logFile = "ModelicaTestLog.txt"

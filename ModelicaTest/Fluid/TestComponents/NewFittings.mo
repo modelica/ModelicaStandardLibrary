@@ -1,6 +1,6 @@
 within ModelicaTest.Fluid.TestComponents;
 package NewFittings "New Fitting components and functions"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
   partial model PartialFittingTest "Partial model for fitting component test"
 
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
@@ -89,7 +89,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
   end PartialFittingTest;
 
   package Bends
-    extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model CurvedBend
       extends Modelica.Icons.Example;
       parameter Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend.Geometry geometry(d_hyd=0.1, R_0=0.2) annotation (Placement(transformation(extent={{12,72},{32,92}})));
@@ -111,7 +111,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
   end Bends;
 
   package Orifices
-    extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model ThickEdgedOrifice
       extends Modelica.Icons.Example;
       parameter
@@ -126,7 +126,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
   end Orifices;
 
   package GenericResistances
-    extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model VolumeFlowRate
       extends Modelica.Icons.Example;
       parameter Real a=1;

@@ -1,7 +1,7 @@
 within ModelicaTest.Fluid;
 package TestCriticalCases
   "Collection of test cases which might be critical for the solvers"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
   model IdealMixing1 "Test properties of ideal mixing"
     // package Medium =  Modelica.Fluid.Media.Water.ConstantPropertyLiquidWater;
     // Modelica.Media.IdealGases.MixtureGases.FlueGasSixComponents,package Medium = Modelica.Media.Air.DryAirNasa;

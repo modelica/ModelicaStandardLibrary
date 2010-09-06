@@ -1,6 +1,6 @@
 within ModelicaTest;
 package MultiBody "Test models for Modelica.Mechanics.MultiBody"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
 
   encapsulated model SphericalDoublePendulum
     "Double pendulum with two spherical joints and two bodies"
@@ -169,7 +169,7 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
   end SphericalDoublePendulum;
 
   package FourbarVariants "Test joints and assembly joints with four bar loop"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model SphericalAndUniversal
       "One kinematic loop with four bars (with Spherical and Universal joint)"
 
@@ -1013,7 +1013,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
   end FourbarVariants;
 
   package Frames "Test functions of package Frames"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.ExamplesPackage;
     model AngularVelocity "Test angular velocity functions"
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Frames.*;
@@ -1106,7 +1106,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
   end Frames;
 
   package Forces
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model DifferentiationOfForces
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
@@ -2363,7 +2363,7 @@ a linear damper is connected here.
   end Forces;
 
   package Joints "Test MultiBody.Joints"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model Revolute
 
       inner Modelica.Mechanics.MultiBody.World world(
@@ -3528,7 +3528,7 @@ a linear damper is connected here.
   end Joints;
 
   package Parts "Test MultiBody.Parts"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model FixedTranslation
       import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.*;
@@ -4511,7 +4511,7 @@ often possible to use the FreeMotion joint such that the singularity
   end Parts;
 
   package Sensors "Test MultiBody.Sensors"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
     encapsulated model AbsoluteSensor
       "Simple pendulum with one revolute joint and one body"
@@ -5917,7 +5917,7 @@ often possible to use the FreeMotion joint such that the singularity
   end Sensors;
 
   package Visualizers "Test MultiBody.Visualizers"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
     encapsulated model Shapes "Test and show models Visualizers.FixedShape"
       import Modelica.Icons;
@@ -6352,7 +6352,7 @@ often possible to use the FreeMotion joint such that the singularity
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     model Rotor1D
 
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D1

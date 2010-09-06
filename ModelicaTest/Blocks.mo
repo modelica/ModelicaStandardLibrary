@@ -1,8 +1,8 @@
 within ModelicaTest;
 package Blocks "Test models for Modelica.Blocks"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
   model Continuous
-
+    extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
              0)));
@@ -162,7 +162,7 @@ extends Modelica.Icons.Library;
   end Continuous_InitialOutput;
 
   model Limiters
-
+    extends Modelica.Icons.Example;
     Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false)
       annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
@@ -196,7 +196,7 @@ extends Modelica.Icons.Library;
   end Limiters;
 
   model KinematicPTP
-
+    extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.KinematicPTP kinematicPTP1a(
       qd_max={3},
       qdd_max={4},
@@ -233,7 +233,7 @@ extends Modelica.Icons.Library;
   end KinematicPTP;
 
   model UnitDeduction "Test unit deduction"
-
+    extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{0,30},{20,50}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=1))
@@ -378,11 +378,12 @@ extends Modelica.Icons.Library;
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{300,100}}),
-                        graphics), Icon(coordinateSystem(preserveAspectRatio=
-              true, extent={{-100,-100},{300,100}})));
+                        graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+                    extent={{-100,-100},{100,100}})));
   end UnitDeduction;
 
   model IntegerTable
+    extends Modelica.Icons.Example;
     Modelica.Blocks.Sources.IntegerTable integerTable(table=[0,1; 1,4; 1.5,5; 2,
           6]) annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Blocks.Sources.IntegerTable integerTable2(table=[0,-1])
@@ -396,7 +397,7 @@ extends Modelica.Icons.Library;
   end IntegerTable;
 
   package FilterTests "Test of Blocks.Continuous.Filter"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.ExamplesPackage;
     model AllOptions
       "Simulates 264 filter blocks and varies all possible options systematically for different orders and different cut-off frequencies"
       extends Modelica.Icons.Example;

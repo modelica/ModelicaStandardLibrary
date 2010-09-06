@@ -1,6 +1,6 @@
 within ;
 package ModelicaTest "Library to test components of library Modelica "
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
 
 
 function testAllFunctions "Runs all test cases for functions"

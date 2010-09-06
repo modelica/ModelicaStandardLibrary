@@ -1,7 +1,7 @@
 within ModelicaTest.Fluid;
 package TestOverdeterminedInitial
   "Contains test cases to test overdetermined systems of initial equations"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
   model DynamicPipeLumpedPressureInitialization
     "Steady-state initialization of a dynamic pipe using lumped pressure states"
 

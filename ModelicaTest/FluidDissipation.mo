@@ -1,15 +1,15 @@
 within ModelicaTest;
 package FluidDissipation
   "Test cases for heat transfer and pressure loss correlations"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
 
   package Verifications
     "verification package of heat transfer and pressure loss correlations"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
     package HeatTransfer "Verification package for heat transfer functions"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.ExamplesPackage;
       package Channel "Verification package for channel correlations"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
         model kc_evenGapLaminar "Verification of function kc_evenGapLaminar"
 
           parameter Integer n=size(cp, 1);
@@ -1009,7 +1009,7 @@ extends Modelica.Icons.Library;
       end Channel;
 
       package General "Verification package for general correlations"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
         model kc_approxForcedConvection
           "Verification of function kc_approxForcedConvection"
           parameter Integer n=size(cp, 1);
@@ -1284,7 +1284,7 @@ extends Modelica.Icons.Library;
 
       package HeatExchanger
         "Verification package for heat exchanger correlations"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
 
         model kc_flatTube "Verification of function kc_flatTube"
 
@@ -1978,7 +1978,7 @@ extends Modelica.Icons.Library;
       end HeatExchanger;
 
       package HelicalPipe "Verification package for helical pipe correlations"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
         model kc_laminar "Verification of function kc_laminar"
 
           parameter Integer n=size(cp, 1);
@@ -2860,7 +2860,7 @@ extends Modelica.Icons.Library;
       end HelicalPipe;
 
       package Plate "Verification models for plate heat transfer"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
         model kc_laminar "Verification of function kc_laminar"
 
           parameter Integer n=size(cp, 1);
@@ -3365,7 +3365,7 @@ extends Modelica.Icons.Library;
 
       package StraightPipe
         "Verification package for straight pipe correlations"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
         model kc_laminar "Verification of function kc_laminar"
 
           parameter Integer n=size(cp, 1);
@@ -4507,9 +4507,9 @@ extends Modelica.Icons.Library;
     end HeatTransfer;
 
     package PressureLoss "Verification package for pressure loss functions"
-    extends Modelica.Icons.Library;
+    extends Modelica.Icons.ExamplesPackage;
       package Bend
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
 
         model dp_curvedOverall_DPMFLOW
           "Verification of function dp_curvedOverall_DP AND dp_curvedOverall_MFLOW"
@@ -4816,7 +4816,7 @@ extends Modelica.Icons.Library;
       end Bend;
 
       package Channel
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
 
         model dp_internalFlowOverall_DPMFLOW
           "Verification of function dp_internalFlowOverall_DP AND dp_internalFlowOverall_MFLOW"
@@ -4991,7 +4991,7 @@ extends Modelica.Icons.Library;
       end Channel;
 
       package General
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
 
         model dp_idealGas_DPMFLOW
           "Verification of function dp_idealGas_DP and dp_idealGas_MFLOW"
@@ -5585,7 +5585,7 @@ extends Modelica.Icons.Library;
       end General;
 
       package Orifice
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
 
         model dp_suddenChange_DPMFLOW
           "Verification of function dp_suddenChange_DP AND dp_suddenChange_MFLOW"
@@ -5849,7 +5849,7 @@ extends Modelica.Icons.Library;
       end Orifice;
 
       package StraightPipe
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
 
         model dp_laminar_DPMFLOW
           "Verification of function dp_laminar_DP AND dp_laminar_MFLOW"
@@ -6381,7 +6381,7 @@ extends Modelica.Icons.Library;
       end StraightPipe;
 
       package Valve "Verification of valve functions"
-      extends Modelica.Icons.Library;
+      extends Modelica.Icons.ExamplesPackage;
         model dp_severalGeometryOverall_DPMFLOW
           "Verification of function dp_severalGeometryOverall_DP AND dp_severalGeometryOverall_MFLOW"
 
@@ -6635,7 +6635,7 @@ extends Modelica.Icons.Library;
   end Verifications;
 
   package TestCases "package for implemented test cases ready for simulation"
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.ExamplesPackage;
 
     package PressureLoss
       "Test package for pressure loss models implemented in Modelica.Fluid"

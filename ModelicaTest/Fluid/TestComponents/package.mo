@@ -1,6 +1,6 @@
 within ModelicaTest.Fluid;
 package TestComponents "Models to test components of the library"
-extends Modelica.Icons.Library;
+extends Modelica.Icons.ExamplesPackage;
 
 
 annotation (
