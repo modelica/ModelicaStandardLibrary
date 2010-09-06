@@ -3834,10 +3834,6 @@ in the flanges, are along the axis vector displayed in the icon.
       connect(elastoBacklash.flange_b, flange_b)
         annotation (Line(points={{60,0},{70,0},{70,1.77636e-015},{80,
               1.77636e-015},{80,0},{100,0}},      color={0,0,0}));
-      connect(lossyGear.support, support) annotation (Line(
-          points={{-40,-20},{-40,-40},{0,-40},{0,-100}},
-          color={0,0,0},
-          smooth=Smooth.None));
       connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
           points={{20,-20},{20,-60},{-100,-60},{-100,-80}},
           color={191,0,0},
@@ -3845,6 +3841,10 @@ in the flanges, are along the axis vector displayed in the icon.
       connect(lossyGear.heatPort, internalHeatPort) annotation (Line(
           points={{-60,-20},{-60,-60},{-100,-60},{-100,-80}},
           color={191,0,0},
+          smooth=Smooth.None));
+      connect(lossyGear.support, internalSupport) annotation (Line(
+          points={{-40,-20},{-40,-40},{0,-40},{0,-80}},
+          color={0,0,0},
           smooth=Smooth.None));
       annotation (
         Documentation(info="<html>
@@ -4722,8 +4722,7 @@ Modelica.Blocks library.
         "If exact=false, Angular velocity of flange with respect to support else dummy";
       SI.AngularAcceleration a(start=0)
         "If exact=false, Angular acceleration of flange with respect to support else dummy";
-      Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit
-          =                                                                           "rad", displayUnit="deg")
+      Modelica.Blocks.Interfaces.RealInput phi_ref(final quantity="Angle", final unit="rad", displayUnit="deg")
         "Reference angle of flange with respect to support as input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
