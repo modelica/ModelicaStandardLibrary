@@ -6755,7 +6755,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
                     "set record parameters for chosen pressure loss function (inside flow model)")}));
       end Bend;
 
-
       model Orifice "Test cases of pressure loss functions for orifice"
 
         inner Modelica.Fluid.System system(p_ambient(displayUnit="Pa") = 100000,
@@ -6951,7 +6950,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{76,104},{124,152}})));
 
-
       public
         Modelica.Blocks.Sources.RealExpression input_p2(y=from_mflow2.port_a.p)
           annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{0,
@@ -7065,8 +7063,6 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               d_hyd=0.1, R_0=0.2))
           "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-124,-134},{-76,-86}})));
-
-
 
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
