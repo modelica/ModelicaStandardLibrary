@@ -1118,42 +1118,7 @@ The lengths along the flow path <tt><b>pathLengths[m]</b></tt> are an input that
 </p>
 </html>"));
       end PartialDistributedFlow;
-  annotation (Documentation(info="<html>
 
-</html>", revisions="<html>
-<ul>
-<li><i>June 9th, 2008</i>
-       by Michael Sielemann: Introduced stream keyword after decision at 57th Design Meeting (Lund).</li>
-<li><i>May 30, 2007</i>
-       by Christoph Richter: moved everything back to its original position in Modelica.Fluid.</li>
-<li><i>Apr. 20, 2007</i>
-       by Christoph Richter: moved parts of the original package from Modelica.Fluid
-       to the development branch of Modelica 2.2.2.</li>
-<li><i>Nov. 2, 2005</i>
-       by Francesco Casella: restructured after 45th Design Meeting.</li>
-<li><i>Nov. 20-21, 2002</i>
-       by Hilding Elmqvist, Mike Tiller, Allan Watson, John Batteh, Chuck Newman,
-       Jonas Eborn: Improved at the 32nd Modelica Design Meeting.
-<li><i>Nov. 11, 2002</i>
-       by Hilding Elmqvist, Martin Otter: improved version.</li>
-<li><i>Nov. 6, 2002</i>
-       by Hilding Elmqvist: first version.</li>
-<li><i>Aug. 11, 2002</i>
-       by Martin Otter: Improved according to discussion with Hilding
-       Elmqvist and Hubertus Tummescheit.<br>
-       The PortVicinity model is manually
-       expanded in the base models.<br>
-       The Volume used for components is renamed
-       PartialComponentVolume.<br>
-       A new volume model \"Fluid.Components.PortVolume\"
-       introduced that has the medium properties of the port to which it is
-       connected.<br>
-       Fluid.Interfaces.PartialTwoPortTransport is a component
-       for elementary two port transport elements, whereas PartialTwoPort
-       is a component for a container component.</li>
-</li>
-</ul>
-</html>"));
   partial model PartialPressureLoss
     "Base flow model for pressure loss functions with the same area at port_a and at port_b"
     extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
@@ -1195,4 +1160,42 @@ The lengths along the flow path <tt><b>pathLengths[m]</b></tt> are an input that
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));
   end PartialPressureLoss;
+
+  annotation (Documentation(info="<html>
+
+</html>", revisions="<html>
+<ul>
+<li><i>June 9th, 2008</i>
+       by Michael Sielemann: Introduced stream keyword after decision at 57th Design Meeting (Lund).</li>
+<li><i>May 30, 2007</i>
+       by Christoph Richter: moved everything back to its original position in Modelica.Fluid.</li>
+<li><i>Apr. 20, 2007</i>
+       by Christoph Richter: moved parts of the original package from Modelica.Fluid
+       to the development branch of Modelica 2.2.2.</li>
+<li><i>Nov. 2, 2005</i>
+       by Francesco Casella: restructured after 45th Design Meeting.</li>
+<li><i>Nov. 20-21, 2002</i>
+       by Hilding Elmqvist, Mike Tiller, Allan Watson, John Batteh, Chuck Newman,
+       Jonas Eborn: Improved at the 32nd Modelica Design Meeting.
+<li><i>Nov. 11, 2002</i>
+       by Hilding Elmqvist, Martin Otter: improved version.</li>
+<li><i>Nov. 6, 2002</i>
+       by Hilding Elmqvist: first version.</li>
+<li><i>Aug. 11, 2002</i>
+       by Martin Otter: Improved according to discussion with Hilding
+       Elmqvist and Hubertus Tummescheit.<br>
+       The PortVicinity model is manually
+       expanded in the base models.<br>
+       The Volume used for components is renamed
+       PartialComponentVolume.<br>
+       A new volume model \"Fluid.Components.PortVolume\"
+       introduced that has the medium properties of the port to which it is
+       connected.<br>
+       Fluid.Interfaces.PartialTwoPortTransport is a component
+       for elementary two port transport elements, whereas PartialTwoPort
+       is a component for a container component.</li>
+</li>
+</ul>
+</html>"));
+
 end Interfaces;

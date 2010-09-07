@@ -526,51 +526,7 @@ if many interpolations take place.
 </html>"));
   end interpolate;
 
-  annotation (
-    preferedView = "info",
-    Documentation(info="<HTML>
-<h4>Library content</h4>
-<p>
-This library provides functions operating on vectors:
-</p>
 
-<ul>
-<li> <a href=\"modelica://Modelica.Math.Vectors.toString\">toString</a>(v)
-     - returns the string representation of vector v.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)
-     - returns true if vectors v1 and v2 have the same size and the same elements.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.norm\">norm</a>(v,p)
-     - returns the p-norm of vector v.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.length\">length</a>(v)
-     - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
-       symbolic manipulations)</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
-     - returns vector in direction of v with lenght = 1 and prevents
-       zero-division for zero vector.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
-     - reverses the vector elements of v. </li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
-     - sorts the elements of vector v in ascending or descending order.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.find\">find</a>(e, v)
-     - returns the index of the first occurence of scalar e in vector v.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.interpolate\">interpolate</a>(x, y, xi)
-     - returns the interpolated value in (x,y) that corresponds to xi.</li>
-
-<li> <a href=\"modelica://Modelica.Math.Vectors.relNodePositions\">relNodePositions</a>(nNodes)
-     - returns a vector of relative node positions (0..1).</li>
-</ul>
-
-<h4>See also</h4>
-<a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
-</HTML>"));
   function relNodePositions "Return vector of relative node positions (0..1)"
     input Integer nNodes
       "Number of nodes (including node at left and right position)";
@@ -843,6 +799,52 @@ and matrix functions. These functions are usually not useful for an end-user.
 
 </html>"));
   end Utilities;
+
+  annotation (
+    preferedView = "info",
+    Documentation(info="<HTML>
+<h4>Library content</h4>
+<p>
+This library provides functions operating on vectors:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Math.Vectors.toString\">toString</a>(v)
+     - returns the string representation of vector v.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.isEqual\">isEqual</a>(v1, v2)
+     - returns true if vectors v1 and v2 have the same size and the same elements.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.norm\">norm</a>(v,p)
+     - returns the p-norm of vector v.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.length\">length</a>(v)
+     - returns the length of vector v (= norm(v,2), but inlined and therefore usable in
+       symbolic manipulations)</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.normalize\">normalize</a>(v)
+     - returns vector in direction of v with lenght = 1 and prevents
+       zero-division for zero vector.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.reverse\">reverse</a>(v)
+     - reverses the vector elements of v. </li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.sort\">sort</a>(v)
+     - sorts the elements of vector v in ascending or descending order.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.find\">find</a>(e, v)
+     - returns the index of the first occurence of scalar e in vector v.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.interpolate\">interpolate</a>(x, y, xi)
+     - returns the interpolated value in (x,y) that corresponds to xi.</li>
+
+<li> <a href=\"modelica://Modelica.Math.Vectors.relNodePositions\">relNodePositions</a>(nNodes)
+     - returns a vector of relative node positions (0..1).</li>
+</ul>
+
+<h4>See also</h4>
+<a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
+</HTML>"));
 end Vectors;
 
 

@@ -669,30 +669,7 @@ analytically. There are the following sub-chapters:
 </ol>
 </HTML>"));
     end LoopStructures;
-    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
-<p>
-This tutorial provides an introduction into the
-MultiBody library.
-</p>
-<ol>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
-MultiBody library</a> summarizes the most important aspects.
-</li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
-  describes in detail all the steps to build a simple pendulum model.
-</li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
-  explains how to model kinematic loops, especially by analytically
-  solving non-linear equations.
-</li>
-<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">ConnectionOfLineForces</a>
-  explains how to connect line force components directly together.
-</li>
-</ol>
-</HTML>"));
+
 
     class ConnectionOfLineForces "Connection of LineForces"
       extends Modelica.Icons.Information;
@@ -778,6 +755,31 @@ orientation matrix of the body-fixed coordinate system are used as states.
 
 </html>"));
     end ConnectionOfLineForces;
+
+    annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
+<p>
+This tutorial provides an introduction into the
+MultiBody library.
+</p>
+<ol>
+<li>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
+MultiBody library</a> summarizes the most important aspects.
+</li>
+<li>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
+  describes in detail all the steps to build a simple pendulum model.
+</li>
+<li>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
+  explains how to model kinematic loops, especially by analytically
+  solving non-linear equations.
+</li>
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">ConnectionOfLineForces</a>
+  explains how to connect line force components directly together.
+</li>
+</ol>
+</HTML>"));
   end Tutorial;
 
   class Upgrade "Upgrade from Former Versions"

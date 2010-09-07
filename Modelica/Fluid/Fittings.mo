@@ -277,7 +277,7 @@ might use this inverse function instead, in order to avoid the solution of a non
 <p>
 The geometry parameters of energy devices necessary for the pressure loss
 calculations are often not exactly known. Therefore the modelling of the detailed
-pressure loss calculation has to be simplified. 
+pressure loss calculation has to be simplified.
 In this package components are present that provide different forms of
 such approximations.
 </p>
@@ -2207,7 +2207,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The bend characteristic is valid for constant density and constant dynamic viscosity. 
+The bend characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -2256,7 +2256,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The bend characteristic is valid for constant density and constant dynamic viscosity. 
+The bend characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -2307,7 +2307,7 @@ This is the documentation of the following components that model curved bends:
 <p>
 These components model the pressure loss in curved bends in the overall flow regime
 for incompressible and single-phase fluid flow through circular cross sectional area
-considering surface roughness. It is expected that also compressible fluid flow 
+considering surface roughness. It is expected that also compressible fluid flow
 can be handled up to about Ma = 0.3. The model and the functions assume that
 no mass and no energy is stored in the curved bend.
 </p>
@@ -2449,16 +2449,16 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 <p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
 
 <p>
-<b> Mass flow rate = f(dp) </b>: 
-</p> 
-<p> 
+<b> Mass flow rate = f(dp) </b>:
+</p>
+<p>
 The mass flow rate in dependence of the pressure loss of water is shown for different relative curvature radii:
 </p>
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
 </p>
- 
-<p> 
+
+<p>
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
 <p>
@@ -2471,7 +2471,7 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 <p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
 <p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
-<p>Note that there is a small deviation between the f(dp) and f_inv(m_flow) 
+<p>Note that there is a small deviation between the f(dp) and f_inv(m_flow)
 calculation due to the lack of a direct analytical inverse. </p>
 <p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
 <dl>
@@ -2533,7 +2533,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The bend characteristic is valid for constant density and constant dynamic viscosity. 
+The bend characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -2585,7 +2585,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The bend characteristic is valid for constant density and constant dynamic viscosity. 
+The bend characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -2635,7 +2635,7 @@ This is the documentation of the following components that model curved bends:
 <p>
 These components model the pressure loss in edged bends with sharp corners in the overall flow regime
 for incompressible and single-phase fluid flow through circular cross sectional area
-considering surface roughness. It is expected that also compressible fluid flow 
+considering surface roughness. It is expected that also compressible fluid flow
 can be handled up to about Ma = 0.3. The model and the functions assume that
 no mass and no energy is stored in the curved bend.
 </p>
@@ -2912,7 +2912,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The orifice characteristic is valid for constant density and constant dynamic viscosity. 
+The orifice characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -2967,7 +2967,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The orifice characteristic is valid for constant density and constant dynamic viscosity. 
+The orifice characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -2993,149 +2993,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
           SI.Length venaLength "Length of vena contraction"
             annotation (Dialog);
 
-          annotation (Documentation(info="<html>
-<p>
-This record is used to define the geometric (constant) data of a thick edged orifice.
-The details of the record are described in package:
-</p>
-
-<blockquote><p>
-<a href=\"Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice</a>
-</p></blockquote>
-</html>"));
-        end Geometry;
-        annotation (Documentation(info="<html>
-<p>
-This is the documentation of the following components that model thick edged orifices:
-</p>
-
-<ul>
-<li> <a href=\"modelica://Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice\">Fittings.Orifices.ThickEdgedOrifice</a>
-     is a model of the thick edged orifice, using the following utility components:</li>
-<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate</a>
-     is a function that returns the mass flow rate as function of pressure loss.</li>
-<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss</a>
-     is a function that returns the pressure loss as function of the mass flow rate.</li>
-<li> <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry</a>
-     is a record that defines the geometric data of a thick edged orifice.</li>
-</ul>
-
-<p>
-These component model the pressure loss in thick edged orifices with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness. It is expected that also compressible fluid flow 
-can be handled up to about Ma = 0.3. The model and the functions assume that
-no mass and no energy is stored in the thick edged orifice.
-</p>
-
-<p>
-Below the following notation is used, where \"geometry\" is the corresponding parameter of a model or the input argument of a function:
-</p>
-
-<blockquote><pre>
-A_0     = geometry.venaCrossArea
-C_0     = geometry.venaPerimeter
-A_1     = geometry.crossArea
-L       = geometry.venaLength
-d_hyd_0 = 4*A_0/C_0
-</pre></blockquote>
-
-<h4><font color=\"#EF9B13\">Restriction</font></h4>
-This function shall be used within the restricted limits according to the referenced literature.
-<ul>
- <li>
-      <b> Reynolds number (for vena contraction) Re &gt; 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
- <li>
-      <b> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
- <li>
-      <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
-</ul>
-
-<h4><font color=\"#EF9B13\">Geometry</font></h4>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">Calculation</font></h4>
-The pressure loss <b> dp </b> for a thick edged orifice is determined by:
-<p>
-<pre>
-dp = zeta_TOT * (rho/2) * (velocity_1)^2
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
-<tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
-<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
-</table>
-</p>
-
-The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
-<p>
-<pre>
-zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
-</pre>
-</p>
-
-<p>
-with
-</p>
-
-<p>
-<table>
-<tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
-<tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
-<tr><td><b> d_hyd_0   </b></td><td> hydraulic diameter of vena contraction [m],</td></tr>
-<tr><td><b> lambda_FRI</b></td><td> as constant Darcy friction factor [-],</td></tr>
-<tr><td><b> l_bar     </b></td><td> relative length of orifice [-],</td></tr>
-<tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
-<tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
-</table>
-</p>
-
-<p>
-The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
-</p>
-
-<p>
-<pre>
-tau = (2.4 - l_bar)*10^(-phi)
-phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
-</pre>
-</p>
-
-<h4><font color=\"#EF9B13\">Verification</font></h4>
-The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
-</p>
-
-<p>
-<b> Mass flow rate = f(dp) </b>:
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
-</p>
-
-<p>
-<b> Pressure loss = f(m_flow)</b>:
-</p>
-The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
-<p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
-</p>
-
-<h4><font color=\"#EF9B13\">References</font></h4>
-<dl>
-<dt>Idelchik,I.E.:</dt>
-    <dd><b>Handbook of hydraulic resistance</b>.
-    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
-</dl>
-</html>"));
         package Choices "Choices for Geometry"
           extends Modelica.Icons.Package;
 
@@ -3264,6 +3121,151 @@ cross section of the orifice.
 </html>"));
           end general;
         end Choices;
+
+
+          annotation (Documentation(info="<html>
+<p>
+This record is used to define the geometric (constant) data of a thick edged orifice.
+The details of the record are described in package:
+</p>
+
+<blockquote><p>
+<a href=\"Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice</a>
+</p></blockquote>
+</html>"));
+        end Geometry;
+        annotation (Documentation(info="<html>
+<p>
+This is the documentation of the following components that model thick edged orifices:
+</p>
+
+<ul>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice\">Fittings.Orifices.ThickEdgedOrifice</a>
+     is a model of the thick edged orifice, using the following utility components:</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.massFlowRate</a>
+     is a function that returns the mass flow rate as function of pressure loss.</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.pressureLoss</a>
+     is a function that returns the pressure loss as function of the mass flow rate.</li>
+<li> <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry\">Fittings.BaseClasses.Orifices.ThickEdgedOrifice.Geometry</a>
+     is a record that defines the geometric data of a thick edged orifice.</li>
+</ul>
+
+<p>
+These component model the pressure loss in thick edged orifices with sharp corners in the overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness. It is expected that also compressible fluid flow
+can be handled up to about Ma = 0.3. The model and the functions assume that
+no mass and no energy is stored in the thick edged orifice.
+</p>
+
+<p>
+Below the following notation is used, where \"geometry\" is the corresponding parameter of a model or the input argument of a function:
+</p>
+
+<blockquote><pre>
+A_0     = geometry.venaCrossArea
+C_0     = geometry.venaPerimeter
+A_1     = geometry.crossArea
+L       = geometry.venaLength
+d_hyd_0 = 4*A_0/C_0
+</pre></blockquote>
+
+<h4><font color=\"#EF9B13\">Restriction</font></h4>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> Reynolds number (for vena contraction) Re &gt; 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
+</ul>
+
+<h4><font color=\"#EF9B13\">Geometry</font></h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">Calculation</font></h4>
+The pressure loss <b> dp </b> for a thick edged orifice is determined by:
+<p>
+<pre>
+dp = zeta_TOT * (rho/2) * (velocity_1)^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
+<p>
+<pre>
+zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
+<tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
+<tr><td><b> d_hyd_0   </b></td><td> hydraulic diameter of vena contraction [m],</td></tr>
+<tr><td><b> lambda_FRI</b></td><td> as constant Darcy friction factor [-],</td></tr>
+<tr><td><b> l_bar     </b></td><td> relative length of orifice [-],</td></tr>
+<tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
+<tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
+</table>
+</p>
+
+<p>
+The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
+</p>
+
+<p>
+<pre>
+tau = (2.4 - l_bar)*10^(-phi)
+phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+</pre>
+</p>
+
+<h4><font color=\"#EF9B13\">Verification</font></h4>
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+</p>
+
+<p>
+<b> Mass flow rate = f(dp) </b>:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
+</p>
+
+<p>
+<b> Pressure loss = f(m_flow)</b>:
+</p>
+The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
+</p>
+
+<h4><font color=\"#EF9B13\">References</font></h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+</dl>
+</html>"));
       end ThickEdgedOrifice;
     end Orifices;
 
@@ -3315,7 +3317,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The bend characteristic is valid for constant density and constant dynamic viscosity. 
+The bend characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if
@@ -3365,7 +3367,7 @@ The details of the function are described in package:
 </p></blockquote>
 
 <p>
-The bend characteristic is valid for constant density and constant dynamic viscosity. 
+The bend characteristic is valid for constant density and constant dynamic viscosity.
 It can be approximately also used for compressible media. This is performed by providing
 the upstream density and upstream dynamic viscosity. In order to be able to regularize density
 and dynamic viscosity around zero mass flow rate, the two quantities have to be given if

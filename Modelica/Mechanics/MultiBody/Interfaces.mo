@@ -838,12 +838,7 @@ gravity acceleration at this point, resolved in the world frame.
 </p>
 </html>"));
   end partialGravityAcceleration;
-  annotation ( Documentation(info="<html>
-<p>
-This package contains connectors and partial models (i.e., models
-that are only used to build other models) of the MultiBody library.
-</p>
-</html>"));
+
   partial function partialSurfaceCharacteristic
      input Integer nu "Number of points in u-Dimension";
      input Integer nv "Number of points in v-Dimension";
@@ -872,4 +867,11 @@ a color map. Predefined color map functions are defined in package
 </p>
 </html>"));
   end partialColorMap;
+
+  annotation ( Documentation(info="<html>
+<p>
+This package contains connectors and partial models (i.e., models
+that are only used to build other models) of the MultiBody library.
+</p>
+</html>"));
 end Interfaces;
