@@ -76,8 +76,7 @@ load inertia.
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics),
       experiment(StopTime=1.6),
-      __Dymola_Commands(file=
-            "Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
+      __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
   end oneAxis;
 
@@ -348,8 +347,9 @@ load inertia.
           grid={0.5,0.5}), graphics),
       experiment(StopTime=2),
       __Dymola_Commands(
-        file="Mechanics/MultiBody/Examples/Systems/Run.mos" "Simulate",
-        file="Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
+        file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/Run.mos"
+          "Simulate",
+        file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos"
           "Plot result of axis 3 + animate"),
       Documentation(info="<HTML>
 <p>
