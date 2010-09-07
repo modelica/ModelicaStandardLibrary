@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.2)"
+package Modelica "Modelica Standard Library (Version 3.2 Beta 1)"
 extends Modelica.Icons.Package;
 
 
@@ -3035,7 +3035,9 @@ to <b style=\"color:blue\">existing</b> libraries:
     <td valign=\"top\"> SIunits to be used in physical models using complex variables, e.g.,<br>
                       <a href=\"modelica://Modelica.Electrical.QuasiStationary\">Modelica.Electrical.QuasiStationary</a>,
                       <a href=\"modelica://Modelica.Magnetic.FundamentalWave\">Modelica.Magnetic.FundamentalWave</a> </td> </tr>
-
+<tr><td valign=\"top\"> ImpulseFlowRate<br>
+                      AngularImpulseFlowRate</td>
+    <td valign=\"top\"> New SIunits for mechanics.</td> </tr>
 </table>
 
 
@@ -3092,7 +3094,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       ValveVaporizing<br>
                       ValveCompressible</td>
     <td valign=\"top\"> Optional filtering of opening signal introduced to model
-                      the delay time of the opening/closing drive. 
+                      the delay time of the opening/closing drive.
                       Improved regularization in some cases so that the characteristic
                       is twice differentiable (smooth=2), instead of continuous (smooth=0).</td>
                       </tr>
@@ -3158,16 +3160,21 @@ that can lead to wrong simulation results):
                       <a href=\"modelica://Modelica/Resources/Documentation/Mechanics/Lossy-Gear-Bug_Solution.pdf\">attachment</a>
                       of this ticket).</td> </tr>
 
+<tr><td valign=\"top\"> Gearbox</td>
+    <td valign=\"top\"> If useSupport=false, the support flange of the internal LossyGear
+                      model was connected to the (disabled) support connector. As a result, the
+                      LossyGear was \"free floating\". This has been corrected.</td> </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Fluid.Pipes.</b></td></tr>
 <tr><td valign=\"top\"> DynamicPipe</td>
-    <td valign=\"top\"> Bug fix for dynamic mass, energy and momentum balances 
+    <td valign=\"top\"> Bug fix for dynamic mass, energy and momentum balances
                       for pipes with nParallel&gt;1.</td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.</b></td></tr>
 <tr><td valign=\"top\"> PartialPipeFlowHeatTransfer</td>
-    <td valign=\"top\"> Calculation of Reynolds numbers for the heat transfer through 
-                      walls corrected, if nParallel&gt;1. 
-                      This partial model is used by LocalPipeFlowHeatTransfer 
+    <td valign=\"top\"> Calculation of Reynolds numbers for the heat transfer through
+                      walls corrected, if nParallel&gt;1.
+                      This partial model is used by LocalPipeFlowHeatTransfer
                       for laminar and turbulent forced convection in pipes.</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.PartialLinearFluid</b></td></tr>
 <tr><td valign=\"top\"> setState_psX</td>

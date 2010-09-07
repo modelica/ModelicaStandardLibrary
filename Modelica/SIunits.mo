@@ -1025,6 +1025,8 @@ argument):</p>
   type Torque = Real (final quantity="Torque", final unit="N.m");
   type ElectricalTorqueConstant = Real(final quantity="ElectricalTorqueConstant", final unit= "N.m/A");
   type MomentOfForce = Torque;
+  type ImpulseFlowRate = Real (final quantity="ImpulseFlow Rate", final unit="N");
+  type AngularImpulseFlowRate = Real (final quantity="AngularImpulseFlowRate", final unit= "N.m");
   type RotationalSpringConstant=Real(final quantity="RotationalSpringConstant", final unit="N.m/rad");
   type RotationalDampingConstant=Real(final quantity="RotationalDampingConstant", final unit="N.m.s/rad");
   type Pressure = Real (
