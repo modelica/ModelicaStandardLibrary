@@ -18,11 +18,10 @@ typographic conventions are used:
 
 <ul>
 <li>Keywords are set in <b>boldface</b>.</li>
-<li>Literals other than keywords are <font color=green>\"</font><tt>quoted-monospaced</tt><font color=green>\"</font> text.</li>
-<li>Non-terminals are set in <i>italics</i>, with <font color=#003399><i>blue italics</i></font> used for links.</li>
-<li>EBNF meta-characters are <font color=green>green</font>.</li>
+<li>Literals other than keywords are <font color=\"green\">\"</font><tt>quoted-monospaced</tt><font color=\"green\">\"</font> text.</li>
+<li>Non-terminals are set in <i>italics</i>, with <font color=\"#003399\"><i>blue italics</i></font> used for links.</li>
+<li>EBNF meta-characters are <font color=\"green\">green</font>.</li>
 </ul>
-
 
 <h4>Stored Definition</h4>
 <p><a name=\"stored_definition\" class=NAME><i>stored_definition</i></a>:
@@ -145,8 +144,8 @@ typographic conventions are used:
 <p><a name=\"for_equation\" class=NAME><i>for_equation</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
 <p><a name=\"for_statement\" class=NAME><i>for_statement</i></a>:
-<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class"
-           + "=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices"
+           + "\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
 <p><a name=\"for_indices\" class=NAME><i>for_indices</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>}</font>
 <p><a name=\"for_index\" class=NAME><i>for_index</i></a>:
@@ -201,6 +200,7 @@ typographic conventions are used:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><a href=\"#output_expression_list\" class=HREF><i>output_expression_list</i></a><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>[</tt><font color=green>\"</font><tt> </tt><a href=\"#expression_list\" class=HREF><i>expression_list</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><a href=\"#expression_list\" class=HREF><i>expression_list</i></a><tt> </tt><font color=green size=+1>}</font><tt> </tt><font color=green>\"</font><tt>]</tt><font color=green>\"</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><font color=green>\"</font><tt>{</tt><font color=green>\"</font><tt> </tt><a href=\"#function_arguments\" class=HREF><i>function_arguments</i></a><tt> </tt><font color=green>\"</font><tt>}</tt><font color=green>\"</font>
+<br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>function</b><tt> </tt><a href=\"#component_reference\" class=HREF><i>component_reference</i></a><tt> </tt><font color=green>\"</font><tt>(</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>[</font><tt> </tt><a href=\"#named_arguments\" class=HREF><i>named_arguments</i></a><tt> </tt><font color=green size=+1>]</font><tt> </tt><font color=green>\"</font><tt>)</tt><font color=green>\"</font>
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>|</font><tt> </tt><b>end</b>
 <p><a name=\"name\" class=NAME><i>name</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=+1>[</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>]</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>.</tt><font color=green>\"</font><tt> </tt><i>IDENT</i><tt> </tt><font color=green size=+1>}</font>
