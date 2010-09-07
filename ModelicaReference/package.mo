@@ -145,7 +145,7 @@ typographic conventions are used:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#equation\" class=HREF><i>equation</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
 <p><a name=\"for_statement\" class=NAME><i>for_statement</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>for</b><tt> </tt><a href=\"#for_indices"
-           + "\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
+             + "\" class=HREF><i>for_indices</i></a><tt> </tt><b>loop</b><tt> </tt><font color=green size=+1>{</font><tt> </tt><a href=\"#statement\" class=HREF><i>statement</i></a><tt> </tt><font color=green>\"</font><tt>;</tt><font color=green>\"</font><tt> </tt><font color=green size=+1>}</font><tt> </tt><b>end</b><tt> </tt><b>for</b>
 <p><a name=\"for_indices\" class=NAME><i>for_indices</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>{</font><tt> </tt><font color=green>\"</font><tt>,</tt><font color=green>\"</font><tt> </tt><a href=\"#for_index\" class=HREF><i>for_index</i></a><tt> </tt><font color=green size=+1>}</font>
 <p><a name=\"for_index\" class=NAME><i>for_index</i></a>:
@@ -6823,7 +6823,7 @@ end Contact;
 
 
 annotation (__Dymola_DocumentationClass=true,
-     dateModified="2010-03-19 21:19:00Z",
+     dateModified="2010-09-07 21:44:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
@@ -6847,6 +6847,13 @@ It is based on the
       <th>Date</th>
       <th>Author</th>
       <th>Comment</th>
+    </tr>
+    <tr>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4145/Modelica\">r4145</a></td>
+      <td valign=\"top\">2010-09-07</td>
+      <td valign=\"top\"><a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">Dietmar Winkler</a></td>
+      <td valign=\"top\">Added an update of the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica 3.2 grammar</a>
+                       from Stefan Vorkoetter (Maplesoft).</td>
     </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/3742/Modelica\">r3742</a></td>
