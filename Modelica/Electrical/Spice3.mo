@@ -1179,12 +1179,12 @@ extends Modelica.Icons.Package;
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,20})));
-      Semiconductors.Q_NPNBJT T1(mod(CJE=1e-9, CJC=1e-9))
+      Semiconductors.Q_NPNBJT T1(modelcard(CJE=1e-9, CJC=1e-9))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
             origin={-30,-24})));
-      Semiconductors.Q_NPNBJT T2(mod(CJE=1e-9, CJC=1e-9))
+      Semiconductors.Q_NPNBJT T2(modelcard(CJE=1e-9, CJC=1e-9))
         annotation (Placement(transformation(extent={{30,-40},{50,-20}})));
       Basic.Ground ground1
         annotation (Placement(transformation(extent={{-78,-34},{-58,-14}})));
@@ -1828,7 +1828,7 @@ is translated to Modelica:<br>
 
     model Q_NPNBJT "Bipolar junction transistor"
      extends Modelica.Electrical.Spice3.Internal.BJT(
-                            mod(final TBJT=1));
+                            final TBJT=1);
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -1854,7 +1854,7 @@ is translated to Modelica:<br>
 
     model Q_PNPBJT "Bipolar junction transistor"
      extends Modelica.Electrical.Spice3.Internal.BJT(
-                            mod(final TBJT=-1));
+                            final TBJT=-1);
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
@@ -3824,6 +3824,7 @@ VN- -&GT; name.pc[N-1]
         annotation (Placement(transformation(extent={{10,-108},{30,-88}}),
             iconTransformation(extent={{20,-110},{40,-90}})));
 
+      parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
       parameter Real AREA = 1.0 "Area factor";
       parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
@@ -3835,9 +3836,9 @@ VN- -&GT; name.pc[N-1]
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
-      parameter ModelcardBJT mod "BJT modelcard"                                              annotation(Evaluate=true);
+      parameter ModelcardBJT modelcard "BJT modelcard"                                              annotation(Evaluate=true);
 
-      final parameter Bjt3.BjtModelLineParams p=Bjt3.bjtRenameParameters(mod,
+      final parameter Bjt3.BjtModelLineParams p=Bjt3.bjtRenameParameters(modelcard,
           Con) "Model line parameters"                                                                                                     annotation(Evaluate=true);
       constant SpiceConstants Con "General constants of SPICE simulator";
       final parameter Bjt3.Bjt p1=Bjt3.bjtRenameParametersDev(
@@ -3849,6 +3850,7 @@ VN- -&GT; name.pc[N-1]
                    annotation(Evaluate=true);
       final parameter Model.Model m=Bjt3.bjtRenameParametersDevTemp(TEMP)
         "Renamed parameters"                                                                                                     annotation(Evaluate=true);
+      final parameter Bjt3.BjtModelLineParams p2=Bjt3.bjtRenameParametersType(TBJT);
       final parameter Bjt3.BjtModelLineVariables vl=
           Bjt3.bjtModelLineInitEquations(p) "Model line variables";
       final parameter Bjt3.Bjt3Calc c=Bjt3.bjt3CalcTempDependencies(
@@ -3952,7 +3954,6 @@ VN- -&GT; name.pc[N-1]
 
     record ModelcardBJT "Record with technological parameters (.model)"
 
-      parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
       parameter SI.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
       parameter SI.Current IS = 1e-16 "Transport saturation current";
@@ -7502,7 +7503,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           "RC, Collector resistance";
         Modelica.SIunits.Current m_baseCurrentHalfResist( start = 0.0)
           "IRB, Current for base resistance=(rb+rbm)/2";
-        Modelica.SIunits.Current m_baseResist( start = 0.0)
+        Modelica.SIunits.Resistance m_baseResist( start = 0.0)
           "RB, Zero bias base resistance";
         Modelica.SIunits.Resistance m_minBaseResist( start = 0.0)
           "RBM, Minimum base resistance";
@@ -8202,7 +8203,6 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           "Output record with Bjt model line parameters";
       algorithm
 
-        intern.m_type := ex.TBJT;
         intern.m_satCur := ex.IS;
         intern.m_betaF := ex.BF;
         intern.m_emissionCoeffF := ex.NF;
@@ -8312,6 +8312,18 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       annotation (Documentation(info="<html>
 <p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
 </html>"));
+      function bjtRenameParametersType "Type"
+
+       input Real TBJT "Type";
+       output BjtModelLineParams dev_type "Outputrecord Bjt3";
+      algorithm
+        dev_type.m_type := TBJT;
+
+        annotation (Documentation(info="<html>
+<p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
+<p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+</html>"));
+      end bjtRenameParametersType;
     end Bjt3;
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
