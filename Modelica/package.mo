@@ -2450,7 +2450,7 @@ the following new language elements (compared to Modelica Specification 3.1):
 A large part of the new classes have been developed with
 partial financial support by
 <a href=\"http://www.bmbf.de/en/index.php\">BMBF</a>
-(BMBF Förderkennzeichen: 01IS07022F)
+(BMBF F&ouml;rderkennzeichen: 01IS07022F)
 within the <a href=\"http://www.itea2.org\">ITEA2</a> project
 <a href=\"http://www.eurosyslib.com/\">EUROSYSLIB</a>.
 We highly appreciate this funding.
@@ -7352,9 +7352,9 @@ preferredView="info",
 version="3.2",
 versionBuild=2,
 versionDate="2010-09-30",
-dateModified = "2010-09-08 09:00:00Z",
+dateModified = "2010-09-10 15:00:00Z",
 revisionId="$Id::                                       $",
-uses(Complex(version="1.0"), ModelicaServices(version="1.0.1")),
+uses(Complex(version="1.0"), ModelicaServices(version="1.1")),
 conversion(
  noneFromVersion="3.1",
  noneFromVersion="3.0.1",
