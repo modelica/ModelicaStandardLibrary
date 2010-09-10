@@ -2891,7 +2891,7 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
 <li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified </i> </li>
-<li><i>October 11, 2001, by Hans Olsson, Dynasim, modified assert to handle start at stops,
+<li><i>October 11, 2001, by Hans Olsson, Dassault Syst&egrave;mes AB, modified assert to handle start at stops,
 modified event logic such if you have friction parameters equal to zero you do not get events
 between the stops.</i> </li>
 <li><i>June 10, 2002 by P. Beater, StateSelect.always for variables s and v (instead of fixed=true). </i> </li>

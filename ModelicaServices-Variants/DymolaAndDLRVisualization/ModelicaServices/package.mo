@@ -25,7 +25,7 @@ email: Board@Modelica.org<br>
 web&nbsp; : http://www.Modelica.org</p>
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b></p>
 <div style=\"margin-left: 40px;\">Copyright &copy; 1998-2010,
-DLR, Dynasim.<br>
+DLR, Dassault Syst&egrave;mes AB.<br>
 </div>
 <br>
 </p>
@@ -635,7 +635,7 @@ class Contact "Contact"
 <p><b>Acknowledgements:</b></p>
 
 <p>
-The design of the Animation.Shape component is from Hilding Elmqvist, Dynasim AB.
+The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
 </p>
 
 </html>
@@ -733,8 +733,8 @@ This implementation requires the commercial DLR library \"Visualization\".
 </p>
 
 <p>
-<b>Licensed by DLR and Dynasim under the Modelica License 2</b><br>
-Copyright &copy; 2009-2010, DLR and Dynasim.
+<b>Licensed by DLR and Dassault Syst&egrave;mes AB under the Modelica License 2</b><br>
+Copyright &copy; 2009-2010, DLR and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>

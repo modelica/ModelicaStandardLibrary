@@ -102,16 +102,16 @@ First version implemented.
     annotation (Documentation(info="<html>
 <dl>
 <dt><b>Responsible for Library:</b>
-<dd>Dag Br&uuml;ck, DS Lund AB, Sweden.<br>
+<dd>Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden.<br>
     email: <A HREF=\"mailto:Dag.BRUCK@3ds.com\">Dag.BRUCK@3ds.com</A><br>
 </dl>
 <p><b>Acknowledgements:</b></p>
 <ul>
 <li> This library has been designed by:<br>
      <blockquote>
-     Dag Br&uuml;ck, Dynasim AB, Sweden <br>
-     Hilding Elmqvist, Dynasim AB, Sweden <br>
-     Hans Olsson, Dynasim AB, Sweden <br>
+     Dag Br&uuml;ck, Dassault Syst&egrave;mes AB, Sweden <br>
+     Hilding Elmqvist, Dassault Syst&egrave;mes AB, Sweden <br>
+     Hans Olsson, Dassault Syst&egrave;mes AB, Sweden <br>
      Martin Otter, DLR Oberpfaffenhofen, Germany.
      </blockquote></li>
 <li> The library including the C reference implementation has
@@ -196,7 +196,7 @@ The following main sublibraries are available:
 </ul>
 
 <p>
-Copyright &copy; 1998-2010, Modelica Association, DLR and Dynasim.
+Copyright &copy; 1998-2010, Modelica Association, DLR, and Dassault Syst&egrave;mes AB.
 </p>
 
 <p>

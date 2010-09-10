@@ -971,7 +971,7 @@ dynamical effects is described in:
 <li> The central idea to handle a certain class of overdetermined, consistent
      set of differential algebraic equations (i.e., there are more equations than
      unknowns) with symbolic transformation algorithms was developed together
-     with Hilding Elmqvist and Sven Erik Mattsson from Dynasim AB, Lund, Sweden.
+     with Hilding Elmqvist and Sven Erik Mattsson from Dassault Syst&egrave;mes AB, Lund, Sweden.
      The MultiBody library is heavily relying on this feature which is a
      prerequiste for a truely \"object-oriented\" multi-body systems library,
      where components can be connected together in any meaningful way.<li>

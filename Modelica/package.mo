@@ -1732,7 +1732,7 @@ web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
 <p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br>
 Copyright &copy; 1998-2010,
-ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, A.&nbsp;Haumer, Modelon,
+ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.<br>
 <br>
 </p>
@@ -7412,7 +7412,7 @@ that are directly usable (= number of public, non-partial classes).
 
 <p>
 <b>Licensed by the Modelica Association under the Modelica License 2</b><br>
-Copyright &copy; 1998-2010, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dynasim, Fraunhofer, A.Haumer, Modelon,
+Copyright &copy; 1998-2010, ABB, AIT, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.Haumer, Modelon,
 TU Hamburg-Harburg, Politecnico di Milano.
 </p>
 

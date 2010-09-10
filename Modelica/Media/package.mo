@@ -8317,7 +8317,7 @@ function. The solver function is a direct mapping of the Algol 60 procedure
 Due to current limitations of the
 Modelica language (not possible to pass a function reference to a function),
 the construction to use this solver on a user-defined function is a bit
-complicated (this method is from Hans Olsson, Dynasim AB). A user has to
+complicated (this method is from Hans Olsson, Dassault Syst&egrave;mes AB). A user has to
 provide a package in the following way:
 </p>
 

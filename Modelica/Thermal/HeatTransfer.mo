@@ -3044,7 +3044,7 @@ Several helpful remarks from the following persons are acknowledged:
 John Batteh, Ford Motors, Dearborn, U.S.A;
 <a href=\"http://www.haumer.at/\">Anton Haumer</a>, Technical Consulting &amp; Electrical Engineering, Austria;
 Ludwig Marvan, VA TECH ELIN EBG Elektronik GmbH, Wien, Austria;
-Hans Olsson, Dynasim AB, Sweden;
+Hans Olsson, Dassault Syst&egrave;mes AB, Sweden;
 Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 </p>
 <dl>
