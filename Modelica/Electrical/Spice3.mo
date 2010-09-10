@@ -8309,9 +8309,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 <p>This function calculates device parameters wehich are temperature dependent.</p>
 </html>"));
       end bjtRenameParametersDevTemp;
-      annotation (Documentation(info="<html>
-<p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
-</html>"));
+
       function bjtRenameParametersType "Type"
 
        input Real TBJT "Type";
@@ -8324,6 +8322,10 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 <p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
 </html>"));
       end bjtRenameParametersType;
+
+      annotation (Documentation(info="<html>
+<p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
+</html>"));
     end Bjt3;
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
