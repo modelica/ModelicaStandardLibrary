@@ -1162,7 +1162,7 @@ Quasi stationary theory can be found in the
               lineColor={0,0,255})}),
       Documentation(info="<html>
 <p>
-This model describes <i>m</m> simple idle branches considering the complex currents <i><u>i</u></i> = 0;
+This model describes <i>m</i> simple idle branches considering the complex currents <i><u>i</u></i> = 0;
 it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Idle\">single phase idle branches</a>.
 </p>
 
