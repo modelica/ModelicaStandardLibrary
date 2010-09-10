@@ -347,7 +347,6 @@ model from R to G</li>
         Springer-Verlag, Berlin, Heidelberg, New York, 1973.</td>
     </tr>
 
-
 </table>
 </html>
 "));

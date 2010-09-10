@@ -4,7 +4,6 @@ package ModelicaServices "(Default implementation) Models and functions used in 
   constant String target="Default"
   "Target of this ModelicaServices implementation";
 
-
 package UsersGuide "User's Guide"
 extends Modelica.Icons.Info;
 class ModelicaLicense2 "Modelica License 2"
@@ -601,8 +600,6 @@ class ReleaseNotes "Release notes"
      </li>
 </ul>
 
-
-
 <h4>Version 1.0, 2009-06-21</h4>
 
 <p>
@@ -635,7 +632,6 @@ class Contact "Contact"
 </tr>
 </table>
 
-
 <p><b>Acknowledgements:</b></p>
 
 <p>
@@ -648,7 +644,6 @@ The design of the Animation.Shape component is from Hilding Elmqvist, Dynasim AB
 end Contact;
   annotation(__Dymola_DocumentationClass=true);
 end UsersGuide;
-
 
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
@@ -670,7 +665,6 @@ model Shape
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
-
 
 </html>
 "));
@@ -697,7 +691,6 @@ The interface of this model is defined at
 "));
   end Surface;
 end Animation;
-
 
 annotation (__Dymola_Protection(hideFromBrowser=true),
 preferredView="info",
@@ -727,7 +720,6 @@ These are:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
      via inheritance.</li>
 </ul>
-
 
 <p>
 This is the default implementation, if no tool-specific implementation is available.

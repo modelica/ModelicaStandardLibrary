@@ -2,9 +2,7 @@ within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
 import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Package;
-
 
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
@@ -526,7 +524,6 @@ if many interpolations take place.
 </html>"));
   end interpolate;
 
-
   function relNodePositions "Return vector of relative node positions (0..1)"
     input Integer nNodes
       "Number of nodes (including node at left and right position)";
@@ -647,7 +644,6 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
 </HTML>
-
 
 ",   revisions="<html>
 <ul>
@@ -847,7 +843,6 @@ This library provides functions operating on vectors:
 </HTML>"));
 end Vectors;
 
-
 package Matrices "Library of functions operating on matrices"
   package Examples
     "Examples demonstrating the usage of the Math.Matrices functions"
@@ -955,7 +950,6 @@ string representation of matrix <b>A</b>.
 With the optional arguments \"name\" and \"significantDigits\", a name and the number of the digits are defined.
 The default values of name and significantDigits are \"\" and 6 respectively. If name==\"\" then the
 prefix \"&lt;name&gt; =\" is leaved out.
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -1270,7 +1264,6 @@ minimum norm |x| is selected. This gives a unique solution that minimizes both
       both |A*x - b| and |x|.</li>
 </ul>
 
-
 <p>
 Note, the solution is computed with the LAPACK function \"dgelsx\",
 i.e., QR or LQ factorization of A with column pivoting.
@@ -1419,7 +1412,6 @@ minimum norm |X| is selected. This gives a unique solution that minimizes both
       both |A*X - B| and |X|.</li>
 </ul>
 
-
 <p>
 Note, the solution is computed with the LAPACK function \"dgelsx\",
 i.e., QR or LQ factorization of A with column pivoting.
@@ -1465,7 +1457,6 @@ The minimum-norm solution is then
 <p>
 where Q1 consists of the first \"rank\" columns of Q.
 </p>
-
 
 <h4>See also</h4>
 
@@ -2148,7 +2139,6 @@ by function \"Utilities.toUpperHessenberg()\". The transformation matrix <b>U</b
 <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dorghr\">LAPACK.dorghr</a>.
 </p>
 
-
 <h4>Example</h4>
 <blockquote><pre>
  A  = [1, 2,  3;
@@ -2374,7 +2364,6 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
                     1.0, -4.0,   9.0] //=S
 
 </pre></blockquote>
-
 
 </html>", revisions="<html>
 <ul>
@@ -2719,7 +2708,6 @@ In the case of 2-norm the result is the ratio of the largest to the smallest sin
 For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">http://en.wikipedia.org/wiki/Condition_number</a>.
 </p>
 
-
 <h4>Example</h4>
 <blockquote><pre>
   A = [1, 2;
@@ -2789,7 +2777,6 @@ If rcond(A) is near 1.0, <b>A</b> is well conditioned and <b>A</b> is ill condit
 
   r = 0.3333
 </pre></blockquote>
-
 
 <h4>See also</h4>
 <p>
@@ -2906,7 +2893,6 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
 
 </pre></blockquote>
 
-
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Math.Matrices.norm\">Matrices.norm</a>
@@ -3007,7 +2993,6 @@ with
  n = number of columns of matrix <b>A</b>
  r = rank(<b>A</b>)
 </pre></blockquote>
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -3136,7 +3121,6 @@ e.g., the sampling time.
 to compute the solution of a linear system of differential equations</p>
 <pre>    der(<b>x</b>) = <b>A</b>*<b>x</b>   ->   <b>x</b>(t0 + T) = e^(<b>A</b>T)*x(t0)
 </pre>
-
 
 <h4>Algorithmic details:</h4>
 
@@ -3607,7 +3591,6 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
       Comm. ACM., Vol. 15, pp. 820-826, 1972.
 </pre>
 
-
 <h4>Example</h4>
 <blockquote><pre>
   A = [1, 2,  3,  4;
@@ -3935,7 +3918,6 @@ of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPAC
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
 </PRE>
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -4289,7 +4271,6 @@ The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
       A Hessenberg-Schur method for the problem AX + XB = C.
       IEEE Transaction on Automatic Control, AC-24, no. 6, pp. 909-913, 1979.
 
-
 </PRE>
 
 <h4>Example</h4>
@@ -4298,11 +4279,9 @@ The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
        6.0,   7.0,   8.0;
        9.0,   2.0,   3.0];
 
-
   B = [7.0,   2.0,   3.0;
        2.0,   1.0,   2.0;
        3.0,   4.0,   1.0];
-
 
   C = [271.0,   135.0,   147.0;
        923.0,   494.0,   482.0;
@@ -4316,7 +4295,6 @@ The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
        5.0,   3.0,   2.0];
 
 </pre></blockquote>
-
 
 <h4>See also</h4>
 <p>
@@ -4520,7 +4498,6 @@ of the closed loop system) and <a href=\"modelica://Modelica.Math.Matrices.LAPAC
       A Schur Method for Solving Algebraic Riccati equations.
       IEEE Trans. Auto. Contr., AC-24, pp. 913-921, 1979.
 </PRE>
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -6567,7 +6544,6 @@ logical select_(doublereal *par1, doublereal *par2)
 return false;
 };
 
-
 extern  int dgees_(char *, char *, L_fp2, integer *, doublereal *, integer *, integer *, doublereal *, doublereal *,
                    doublereal *, integer *, doublereal *, integer *, logical *, integer *);
 extern logical select_(doublereal *par1, doublereal *par2);
@@ -6576,11 +6552,9 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
         doublereal *wi, doublereal *z, integer *ldz, logical *bwork, integer *info)
 {
 
-
   doublereal *work;
   integer nn=*n;
   integer lwork=-1;
-
 
    work = (doublereal *) malloc((3*nn+1)*sizeof(doublereal));
    dgees_(jobvs, sort, (L_fp2)select_, n, a, lda, sdim, wr, wi, z, ldz, work, &lwork, bwork, info);
@@ -7326,8 +7300,6 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
 
     =====================================================================
 
-
-
    DTRSEN first collects the selected eigenvalues by computing an
    orthogonal transformation Z to move them to the top left corner of T.
    In other words, the selected eigenvalues are the eigenvalues of T11
@@ -7552,7 +7524,6 @@ int dlange2_(char *norm, integer *m, integer *n, doublereal *a, integer *lda, do
   *anorm=dlange_(norm, m, n, a, lda, work);
 
 fprintf(fileptr,\"anorm=%f \\n\",*anorm);
-
 
   fclose(fileptr);
 
@@ -8355,7 +8326,6 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    where u(j)**H is the conjugate-transpose of u(j).
 
-
    Arguments
    =========
 
@@ -8547,7 +8517,6 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
                     u(j)**H * A  = lambda(j) * u(j)**H * B.
 
    where u(j)**H is the conjugate-transpose of u(j).
-
 
    Arguments
    =========
@@ -9795,7 +9764,6 @@ with
 </pre></blockquote>
 <p>
 
-
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
 <p>
@@ -9805,9 +9773,7 @@ of order <tt>n</tt> (n is the order of the Riccati equation) is to be solved at 
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.<br>
 
-
 The algorithm is taken from [1] and [2].
-
 
 <h4>References</h4>
 <PRE>
@@ -9818,7 +9784,6 @@ The algorithm is taken from [1] and [2].
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
 </PRE>
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -9852,8 +9817,6 @@ The algorithm is taken from [1] and [2].
     (,r) = Matrices.Utilities.continuousRiccatiIterative(A, B, R, Q, X0,4);
 
    // r =  0.0004;
-
-
 
 <br>
 </pre></blockquote>
@@ -9962,14 +9925,12 @@ The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. Th
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
 <p>
 
-
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
 order <tt>n</tt> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.
 
 The algorithm is taken from [1] and [2].
-
 
 <h4>References</h4>
 <PRE>
@@ -9980,8 +9941,6 @@ The algorithm is taken from [1] and [2].
       Numerical Methods for Linear Control Systems
       Elsevier Academic Press, 2004.
 </PRE>
-
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10228,7 +10187,6 @@ Function <b>toUpperHessenberg</b> computes a upper Hessenberg form <b>H</b> of a
 With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
 <p>
-
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10481,7 +10439,6 @@ by calculating the zeros of the derivation d f_k/d t_k. It is known that the fun
 With t_k_min the norm of the next residual of the algorithm will be minimized.<br>
 See [1] for more information
 
-
 <h4>References</h4>
 <PRE>
   [1] Benner, P., Byers, R.
@@ -10677,14 +10634,12 @@ Note: A' is a short hand notation of transpose(A):
      - returns matrix M so that the rows of M are flipped in up/down direction.</li>
 </ul>
 
-
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Vectors\">Vectors</a>
 
 </HTML>
 "));
 end Matrices;
-
 
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
@@ -10728,7 +10683,6 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
 </HTML>"));
 end isEqual;
-
 
 function sin "Sine"
   extends baseIcon1;
@@ -10809,7 +10763,6 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </html>"), Library="ModelicaExternalC");
 end sin;
 
-
 function cos "Cosine"
   extends baseIcon1;
   input SI.Angle u;
@@ -10884,7 +10837,6 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end cos;
-
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends baseIcon2;
@@ -10963,7 +10915,6 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 </html>"), Library="ModelicaExternalC");
 end tan;
-
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends baseIcon2;
@@ -11044,7 +10995,6 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </html>"), Library="ModelicaExternalC");
 end asin;
 
-
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
@@ -11120,7 +11070,6 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </html>"), Library="ModelicaExternalC");
 end acos;
 
-
 function atan "Inverse tangent"
   extends baseIcon2;
   input Real u;
@@ -11189,7 +11138,6 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end atan;
-
 
 function atan2 "Four quadrant inverse tangent"
   extends baseIcon2;
@@ -11290,7 +11238,6 @@ u1 = sin(y) and u2 = cos(y):
 </HTML>
 "),        Library="ModelicaExternalC");
 end atan2;
-
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
@@ -11396,7 +11343,6 @@ shall be returned:
 "));
 end atan3;
 
-
 function sinh "Hyperbolic sine"
   extends baseIcon2;
   input Real u;
@@ -11477,7 +11423,6 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end sinh;
-
 
 function cosh "Hyperbolic cosine"
   extends baseIcon2;
@@ -11560,7 +11505,6 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </html>"), Library="ModelicaExternalC");
 end cosh;
 
-
 function tanh "Hyperbolic tangent"
   extends baseIcon2;
   input Real u;
@@ -11629,7 +11573,6 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end tanh;
-
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.baseIcon2;
@@ -11713,7 +11656,6 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 </html>"));
 end asinh;
-
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   import Modelica.Utilities.Streams.*;
@@ -11809,7 +11751,6 @@ can become close to 1:
 </html>"));
 end acosh;
 
-
 function exp "Exponential, base e"
   extends baseIcon2;
   input Real u;
@@ -11888,7 +11829,6 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end exp;
-
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends baseIcon1;
@@ -11971,7 +11911,6 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log;
 
-
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
@@ -12053,7 +11992,6 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log10;
 
-
 partial function baseIcon1
   "Basic icon for mathematical function with y-axis on left side"
 
@@ -12096,7 +12034,6 @@ It is expected, that an x-axis is added and a plot of the function.
 </html>"));
 end baseIcon1;
 
-
 partial function baseIcon2
   "Basic icon for mathematical function with y-axis in middle"
 
@@ -12136,7 +12073,6 @@ It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
 end baseIcon2;
-
 
 function tempInterpol1
   "Temporary function for linear interpolation (will be removed)"
@@ -12194,7 +12130,6 @@ algorithm
 
 </html>"));
 end tempInterpol1;
-
 
 function tempInterpol2
   "Temporary function for vectorized linear interpolation (will be removed)"
@@ -12254,7 +12189,6 @@ algorithm
 
 </html>"));
 end tempInterpol2;
-
 
 annotation (
   Invisible=true,

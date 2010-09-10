@@ -1510,7 +1510,6 @@ This relationship is only valid for large Reynolds numbers.
 The turbulent pressure loss correlation might be useful to optimize models that are only facing turbular flow.
 </p>
 
-
 </html>"));
           end TurbulentPipeFlow;
 
@@ -3400,7 +3399,6 @@ In the case illustrated second, the change of elevation with the path from a to
 b has the same sign of the change of density.</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/PipeFrictionStaticHead_case-b.PNG\">
-
 
 </html>"));
       end Detailed;

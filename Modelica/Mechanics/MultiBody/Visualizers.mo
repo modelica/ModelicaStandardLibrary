@@ -2685,13 +2685,11 @@ animation features of the MultiBody library.
       </td>
   </tr>
 
-
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Ground\">Ground</a></td>
       <td valign=\"top\">Visualizing the x-y plane by a box:<br>
       <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/GroundSmall.png\">
       </td>
   </tr>
-
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Torus\">Torus</a></td>
       <td valign=\"top\">Visualizing a torus:<br>

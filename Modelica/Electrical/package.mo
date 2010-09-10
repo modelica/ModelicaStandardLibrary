@@ -2,7 +2,6 @@ within Modelica;
 package Electrical "Library of electrical models (analog, digital, machines, multi-phase)"
 extends Modelica.Icons.Package;
 
-
 annotation (
   Documentation(info="<html>
 <p>

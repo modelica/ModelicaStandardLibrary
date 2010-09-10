@@ -366,7 +366,6 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
 
-
 </html>"));
   end FallingEdge;
 
@@ -398,7 +397,6 @@ time instant. At all other time instants, y = <b>false</b>.
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
-
 
 </html>"));
   end ChangingEdge;
@@ -457,7 +455,6 @@ is shown in the next figure.
 The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.BooleanNetwork1\">Modelica.Blocks.Examples.BooleanNetwork1</a>.
 </p>
-
 
 </html>"));
   end OnDelay;

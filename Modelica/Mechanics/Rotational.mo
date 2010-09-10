@@ -223,7 +223,6 @@ which are defined in sublibrary Interfaces:
 </td>
 </tr>
 
-
 <tr>
   <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport2\">PartialElementaryTwoFlangesAndSupport2</a>
 </td>
@@ -2520,7 +2519,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-
 
 </HTML>
 "),     Icon(coordinateSystem(
@@ -5719,7 +5717,6 @@ Note, the support angle can always be accessed as internalSupport.phi, and
 the support torque can always be accessed as internalSupport.tau.
 </p>
 
-
 </html>"));
     end InternalSupport;
 
@@ -6358,7 +6355,6 @@ and needs to be connected.<br>
 If <i>useSupportT=false</i>, the translational support connector is conditionally disabled
 and instead the translational part is internally fixed to ground.
 </p>
-
 
 </html>
 "),     Icon(coordinateSystem(

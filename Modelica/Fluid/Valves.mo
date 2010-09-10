@@ -148,7 +148,6 @@ The parameters of this model are explained in detail in
 (the base model for valves).
 </p>
 
-
 <p>The model operating range includes choked flow operation, which takes place for low outlet pressures due to flashing in the vena contracta; otherwise, non-choking conditions are assumed.
 <p>This model requires a two-phase medium model, to describe the liquid and (possible) two-phase conditions.
 <p>The default liquid pressure recovery coefficient <tt>Fl</tt> is constant and given by the parameter <tt>Fl_nominal</tt>. The relative change (per unit) of the recovery coefficient can be specified as a given function of the valve opening by replacing the <tt>FlCharacteristic</tt> function.
@@ -247,7 +246,6 @@ The parameters of this model are explained in detail in
 <a href=\"modelica://Modelica.Fluid.Valves.BaseClasses.PartialValve\">PartialValve</a>
 (the base model for valves).
 </p>
-
 
 <p>This model can be used with gases and vapours, with arbitrary pressure ratio between inlet and outlet.</p>
 
@@ -635,7 +633,6 @@ m_flow =    sqrt(2/zeta_TOT) * Av * sqrt(rho * dp)
 m_flow = valveCharacteristic * Av * sqrt(rho * dp)
 m_flow =                  rc * Av * sqrt(rho * dp)
 </pre></blockquote>
-
 
 </html>"));
     end baseFun;

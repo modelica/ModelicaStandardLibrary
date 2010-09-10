@@ -169,7 +169,6 @@ as illustraed in the phasor diagram of Fig. 2.
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\">
 </p>
 
-
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">
           Introduction</a>,
@@ -231,7 +230,6 @@ Therefore, the instantaneous power is
 <p>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/p_r.png\">
 </p>
-
 
 <h5>Power of an inductor</h5>
 

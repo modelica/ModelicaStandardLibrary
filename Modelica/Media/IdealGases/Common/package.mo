@@ -2,7 +2,6 @@ within Modelica.Media.IdealGases;
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Package;
 
-
 record DataRecord
   "Coefficient data record for properties of ideal gases based on NASA source"
   extends Modelica.Icons.Record;
@@ -42,7 +41,6 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
-
 
 partial package SingleGasNasa
   "Medium model of an ideal gas based on NASA source"
@@ -757,7 +755,6 @@ and adapted to the Modelica.Media package.
             100}}),
                 graphics));
 end SingleGasNasa;
-
 
 partial package MixtureGasNasa
   "Medium model of a mixture of ideal gases based on NASA source"
@@ -1566,7 +1563,6 @@ It has been developed by Hubertus Tummescheit.
             {100,100}}),
                 graphics));
 end MixtureGasNasa;
-
 
 annotation (Documentation(info="<html>
 

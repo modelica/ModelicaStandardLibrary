@@ -3,9 +3,7 @@ package MultiBody "Library to model 3-dimensional mechanical systems"
 
 import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Package;
-
 
 package UsersGuide "User's Guide of MultiBody Library"
   extends Modelica.Icons.Information;
@@ -670,7 +668,6 @@ analytically. There are the following sub-chapters:
 </HTML>"));
     end LoopStructures;
 
-
     class ConnectionOfLineForces "Connection of LineForces"
       extends Modelica.Icons.Information;
       annotation (Documentation(info="<html>
@@ -1027,7 +1024,6 @@ gives an introduction into the most important aspects of the library.
 </ol>
 </HTML>"));
 end UsersGuide;
-
 
 model World
   "World coordinate system + gravity field + default animation definition"
@@ -1467,7 +1463,6 @@ of these axes can be set via parameters.
 </HTML>
 "));
 end World;
-
 
 annotation (
   Documentation(info="<HTML>

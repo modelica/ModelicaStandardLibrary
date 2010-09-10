@@ -2,9 +2,7 @@ within Modelica.Electrical;
 package Analog "Library for analog electrical models"
 import SI = Modelica.SIunits;
 
-
 extends Modelica.Icons.Package;
-
 
 annotation (
     __Dymola_classOrder={"Examples", "*"},
@@ -33,7 +31,6 @@ Christoph Clau&szlig;
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden</dd>
 </dl>
-
 
 <p>
 Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.

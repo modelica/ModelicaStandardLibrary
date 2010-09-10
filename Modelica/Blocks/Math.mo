@@ -923,7 +923,6 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
 
-
 </html>"));
 end MultiSwitch;
 

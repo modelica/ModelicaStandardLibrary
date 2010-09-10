@@ -3,7 +3,6 @@ package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Med
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
-
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
 
@@ -617,7 +616,6 @@ and 0.0025% around x=1.
 
     annotation (Documentation(info="<html>
 
-
 <p>
 One important special case for a pressure loss is the friction at the
 wall of a pipe under the assumption of quasi steady state flow (i.e., the
@@ -820,7 +818,6 @@ pressure drop equation is actually evaluated (<b>default</b> is from_dp = <b>tru
 \"from_dp\" can be useful to avoid nonlinear systems of equations
 in cases where the inverse pressure loss function is needed.
 </p>
-
 
 <h4><font color=\"#008000\">Summary</font></h4>
 
@@ -1214,7 +1211,6 @@ Modelica_Fluid was refactored and finalized for the release:
 
 </ul>
 
-
 <h4><font color=\"#008000\">Version 1.0 Streams Beta 3, 2008-10-12</font></h4>
 
 <p>
@@ -1332,8 +1328,6 @@ with the exceptions:
      So, this is a principal problem that these models do not simulate.</li>
 </ul>
 
-
-
 <h4><font color=\"#008000\">Version 1.0 Streams Beta 2, 2008-10-08</font></h4>
 
 <p>
@@ -1393,7 +1387,6 @@ library 3.0 (by automatic conversion). Further changes:
      No default or start values for \"parameter LossFactorData data\"
      Changed the model to \"partial model\" to avoid warning messages</li>
 </ul>
-
 
 <h4><font color=\"#008000\">Version 1.0 Streams Beta 1, 2008-05-02</font></h4>
 
@@ -1469,8 +1462,6 @@ Other changes:
      VersionBuild/VersionDate</li>
 </ul>
 
-
-
 <h4><font color=\"#008000\">Version 1.0 Beta 4, 2008-04-26</font></h4>
 
 <p>
@@ -1479,7 +1470,6 @@ last beta version. This version is used to \"freeze\" the current
 development, in order to change to a version with a new
 connector design using stream variables.
 </p>
-
 
 <h4><font color=\"#008000\">Version 1.0 Beta 3, 2007-06-05</font></h4>
 
@@ -1492,14 +1482,12 @@ new package Test, many more test models, etc.
 This version is slightly non-backward compatible to version 1.0 Beta 2.
 </p>
 
-
 <h4><font color=\"#008000\">Version 1.0 Beta 2, 2006-08-28</font></h4>
 
 <p>
 Package considerably restructured and some new components added.
 New examples (ControlledTankSystem, AST_BatchPlant).
 </p>
-
 
 <h4><font color=\"#008000\">Version 0.96, 2006-01-08</font></h4>
 
@@ -1695,7 +1683,6 @@ and many have contributed.
      <a href=\"http://www.itea2.org/public/project_leaflets/EUROSYSLIB_profile_oct-07.pdf\">EUROSYSLIB</a>
      is highly appreciated.</p>
 
-
 </html>"));
 end Contact;
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
@@ -1712,7 +1699,6 @@ substance medium with one or more phases might be used.
 </p>
 </HTML>"));
 end UsersGuide;
-
 
 annotation (
   preferedView="info",

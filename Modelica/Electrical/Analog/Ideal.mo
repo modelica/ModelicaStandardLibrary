@@ -2142,7 +2142,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 
-
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span.
 If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
@@ -2280,7 +2279,6 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
-
 
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span.
@@ -2568,7 +2566,6 @@ The output vector is a 'little-endian'. i.e., that the first bit y[1] is the lea
 This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
 Hence the output will change instantaniously when the trigger signal rises.
 </P>
-
 
 </HTML>
 ", revisions="<html>

@@ -2,7 +2,6 @@ within Modelica;
 package Utilities "Library of utility functions dedicated to scripting (operating on files, streams, strings, system)"
   extends Modelica.Icons.Package;
 
-
 package UsersGuide "User's Guide of Utilities Library"
   extends Modelica.Icons.Information;
 
@@ -160,7 +159,6 @@ in Modelica that will allow to catch errors at a defined place.
 </p>
 </HTML>"));
 end UsersGuide;
-
 
     annotation (
 Documentation(info="<html>

@@ -2,7 +2,6 @@ within ;
 package ModelicaReference "Modelica Reference"
   extends Modelica.Icons.Information;
 
-
 class ModelicaGrammar "Modelica Grammar"
   extends Modelica.Icons.Information;
 
@@ -232,7 +231,6 @@ typographic conventions are used:
 </html>"));
 end ModelicaGrammar;
 
-
 package Annotations "Annotations"
   extends Modelica.Icons.Information;
   class choices "choices"
@@ -273,8 +271,6 @@ Define graphical layout of choices in a parameter menu
 A a(x=3 \"PID\");
 </pre>
 
-
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -297,7 +293,6 @@ Default name when dragging component
 
 <pre>   <b>annotation</b>\"(\" defaultComponentName \"=\" STRING \")\"
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -328,7 +323,6 @@ Default prefixes when dragging component
 <pre>   <b>annotation</b>\"(\" defaultComponentPrefixes \"=\" STRING \")\"
 </pre>
 
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -352,8 +346,6 @@ Define derivative of function
 <b>function</b> foo1 <b>annotation</b>(derivative(order=2)=foo2); <b>end</b> foo1;
 <b>function</b> foo2 <b>end</b> foo2;
 </pre>
-
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -644,7 +636,6 @@ The level of a tank is animated by a rectangle expanding in vertical direction a
 );
 </pre></blockquote>
 
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -670,7 +661,6 @@ Annotation for code generation (evaluate parameter value)
 
 <pre>   <b>annotation</b>\"(\" Evaluate \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -706,7 +696,6 @@ Define default experiment parameters
 <pre><b>annotation</b>(experiment(StartTime=0, StopTime=5, Tolerance=1e-6))
 </pre>
 
-
 <h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>experiment_annotation:
@@ -717,7 +706,6 @@ experimentOption:
    StopTime   \"=\" [\"+\" | \"-\"] UNSIGNED_NUMBER |
    Tolerance  \"=\" UNSIGNED_NUMBER
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -773,7 +761,6 @@ Annotation for code generation (hide result)
 <pre>   <b>annotation</b>\"(\" HideResult \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
 
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -803,7 +790,6 @@ Annotation for code generation (inline function body)
 
 <pre>   <b>annotation</b>\"(\" Inline \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -839,7 +825,6 @@ Annotation for code generation (inline function body after symbolic processing)
 
 <pre>   <b>annotation</b>\"(\" LateInline \"=\" ( <b>false</b> | <b>true</b> ) \")
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -885,7 +870,6 @@ Warning message, if inner declaration is missing
 <pre>   <b>annotation</b>\"(\" missingInnerMessage \"=\" STRING \")\"
 </pre>
 
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -908,7 +892,6 @@ Define default view when selecting class
 <pre>preferred view_annotation:
    <b>annotation</b>\"(\" preferredView \"=\" (\"info\" | \"diagram\" | \"text\") \")\"
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -956,7 +939,6 @@ The preferredView annotation defines the default view when selecting the class. 
 Define differentiability of function body
 </p>
 
-
 <h4><font color=\"#008000\">Examples</font></h4>
 
 <pre><b>function</b> SpecialPolynomial
@@ -978,13 +960,10 @@ Define differentiability of function body
 <b>end</b> TestSpecialPolynomial;
 </pre>
 
-
-
 <h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" smoothOrder \"=\" UNSIGNED_INTEGER \")\"
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -1194,12 +1173,10 @@ PlanarCutJoint=true in the Advanced menu.
 <b>end</b> Frame;
 </pre>
 
-
 <h4><font color=\"#008000\">Syntax</font></h4>
 
 <pre>   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
 </pre>
-
 
 <h4><font color=\"#008000\">Description</font></h4>
 
@@ -1217,7 +1194,6 @@ Annotations are intended for storing extra information about a model, such as gr
 
 </html>"));
 end Annotations;
-
 
 package Classes "Classes (model, function, ...)"
   extends Modelica.Icons.Information;
@@ -1312,7 +1288,6 @@ In most cases, it is recommended to use specialized classes as
 \"class\" should only be used to define
 <a href=\"modelica://ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s.
 </p>
-
 
 </html>"));
   end Class;
@@ -1583,7 +1558,6 @@ In all cases the provided function must be \"function type compatible\"
 to the corresponding formal parameter of function type. Example:
 </li>
 
-
 <blockquote><pre>
 // A function as a positional input argument according to case (a)
 <b>function</b> Parabola
@@ -1784,7 +1758,6 @@ Define specialized class <i>package</i>
     ...
   <b>end</b> B;
 <b>end</b> Library;</pre>
-
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 <PRE>   [ <B>encapsulated</B> ][ <B>partial </B>] <B>package</B>
@@ -2027,7 +2000,6 @@ Moreover, they have additional properties called enhancements.
 
 </html>"));
 end Classes;
-
 
 package Operators "Operators (+, der, size, ...)"
   extends Modelica.Icons.Information;
@@ -2500,8 +2472,6 @@ The acos function can also be accessed as Modelica.Math.acos.
 <img src=\"modelica://ModelicaReference/Images/acos.png\">
 </p>
 
-
-
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>acos</b>(0)
  = 1.5707963267949</pre>
@@ -2528,8 +2498,6 @@ The asin function can also be accessed as Modelica.Math.asin.
 <p>
 <img src=\"modelica://ModelicaReference/Images/asin.png\">
 </p>
-
-
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>asin</b>(0)
@@ -2618,8 +2586,6 @@ The atan function can also be accessed as Modelica.Math.atan.
 <img src=\"modelica://ModelicaReference/Images/atan.png\">
 </p>
 
-
-
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>atan</b>(1)
  = 0.785398163397448</pre>
@@ -2651,8 +2617,6 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
 <p>
 <img src=\"modelica://ModelicaReference/Images/atan2.png\">
 </p>
-
-
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>atan2</b>(1,0)
@@ -2794,8 +2758,6 @@ The cosh function can also be accessed as Modelica.Math.cosh.
 <img src=\"modelica://ModelicaReference/Images/cosh.png\">
 </p>
 
-
-
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>cosh</b>(1)
   = 1.54308063481524</pre>
@@ -2895,7 +2857,6 @@ and may only be used as declarations of functions.
 The semantics is that a function [and only a function] can be specified in this form, defining that it is the partial derivative of the function to the right of the equal sign (looked up in the same way as a short class definition - the looked up name must be a function), and partially differentiated with respect to each IDENT in order (starting from the first one). The IDENT must be Real inputs to the function.
 The comment allows a user to comment the function (in the info-layer and as one-line description, and as icon).
 </p>
-
 
 <h4><font color=\"#008000\">Examples</font></h4>
 
@@ -3271,7 +3232,6 @@ Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre>  <b>type</b> Size = enumeration(small, medium, large, xlarge);
   <b>Integer</b>(Size.large) = 3</pre>
-
 
 </html>"));
   end IntegerUpperCase;
@@ -4001,8 +3961,6 @@ The sine function can also be accessed as Modelica.Math.sin.
 <img src=\"modelica://ModelicaReference/Images/sin.png\">
 </p>
 
-
-
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sin</b>(3.14159265358979)
  = 0.0</pre>
@@ -4028,8 +3986,6 @@ The sinh function can also be accessed as Modelica.Math.sinh.
 <p>
 <img src=\"modelica://ModelicaReference/Images/sinh.png\">
 </p>
-
-
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sinh</b>(1)
@@ -4340,8 +4296,6 @@ The tanh function can also be accessed as Modelica.Math.tanh.
 <img src=\"modelica://ModelicaReference/Images/tanh.png\">
 </p>
 
-
-
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>tanh</b>(1)
   = 0.761594155955765</pre>
@@ -4467,7 +4421,6 @@ log, log10 that are provided for convenience as built-in functions).
 </html>"));
 end Operators;
 
-
 class BalancedModel "balanced model"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -4513,7 +4466,6 @@ In Modelica 2.2, model Broken will work with some models. However, by just redec
 In Modelica 3.0, model UseCorrelation is no longer allowed and the translator will give an error. In fact, it is guaranteed that a redeclaration cannot lead to an unbalanced model any more.
 </p>
 
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -4537,7 +4489,6 @@ The local number of unknowns of a model or block class is the sum based on the c
 
 <li> For each declared component of specialized class block or model, it is the \"sum of the number of inputs and flow variables\" in the (top level) public connector components of these components (and counting the elements after expanding all records and arrays to a set of scalars of primitive types).</li>
 </ul>
-
 
 <p>
 <b>Definition 2: Local Equation Size </b>
@@ -4571,7 +4522,6 @@ Here \"u\" and \"u2\" are top-level inputs and not connectors. The variable u2 h
 A model or block class is \"locally balanced\" if the \"local number of unknowns\" is identical to the \"local equation size\" for all legal values of constants and parameters [respecting final bindings and min/max-restrictions. A tool shall verify the \"locally balanced\" property for the actual values of parameters and constants in the simulation model. It is a quality of implementation  for a tool to verify this property in general, due to arrays of (locally) undefined sizes, conditional declarations, for loops, etc.].
 </p>
 
-
 <p>
 <b>Definition 4: Globally Balanced</b>
 </p>
@@ -4600,7 +4550,6 @@ The following restrictions hold:
 <p>
 Based on these restrictions, the following strong guarantee can be given for simulation models and blocks:
 </p>
-
 
 <p>
 <b>Proposition 1: All simulation models and blocks are globally balanced.</b><br>
@@ -4868,7 +4817,6 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 </html>"));
 end BalancedModel;
 
-
 class Connect "connect"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -4897,7 +4845,6 @@ Connect objects
 <B>equation</B>
   y=A*u;
 <B>end</B> MatrixGain;
-
 
   sin sinSource[5];
   MatrixGain gain(A=5*identity(5));
@@ -4970,7 +4917,6 @@ connected as a pair of scalar connectors.</P>
 </html>"));
 end Connect;
 
-
 class Encapsulated "encapsulated"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5011,7 +4957,6 @@ abs cannot be redefined in the global scope, because an existing class
 cannot be redefined at the same level.]</i></p>
 </html>"));
 end Encapsulated;
-
 
 class Extends "extends"
   extends Modelica.Icons.Information;
@@ -5127,7 +5072,6 @@ equivalent to equations in the instantiated parent class are discarded.
 <I>[Note: equations that are mathematically equivalent but not
 syntactically equivalent are not discarded, hence yield an
 overdetermined system of equations.]</I></P>
-
 
 <p><span>Since
 specialized classes of different
@@ -5591,10 +5535,8 @@ package can only be base class for packages. All other kinds of classes
 can use
 the import statement to use the contents of a package)</i>]<i>.</i></span></p>
 
-
 </html>"));
 end Extends;
-
 
 class Flow "flow"
   extends Modelica.Icons.Information;
@@ -5681,7 +5623,6 @@ type_prefix :
 whereas variables without the flow prefix are identical in a connection.</p>
 </html>"));
 end Flow;
-
 
 class For "for"
   extends Modelica.Icons.Information;
@@ -5784,7 +5725,6 @@ prepending the reduction-expression with <tt>'function-name('</tt>.</p>
 </html>"));
 end For;
 
-
 class If "if"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5869,7 +5809,6 @@ type of the if-expression. If-expressions with <B>elseif</B> are defined by repl
 </html>"));
 end If;
 
-
 class Import "import"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5941,7 +5880,6 @@ The generated import names are:</p>
 </ul>
 </html>"));
 end Import;
-
 
 class Input "input"
   extends Modelica.Icons.Information;
@@ -6068,7 +6006,6 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 
 </html>"));
 end Input;
-
 
 class Output "output"
   extends Modelica.Icons.Information;
@@ -6197,7 +6134,6 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 </html>"));
 end Output;
 
-
 class Partial "partial"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6248,7 +6184,6 @@ class_specifier :
    | \"=\" base_prefix name [ array_subscripts ] [ class_modification ] comment
    | \"=\" <B>enumeration</B> \"(\" ( [enum_list] | \":\" ) \")\" comment</PRE>
 
-
 <h4><font color=\"#008000\">Description</font></h4>
 
 <p>
@@ -6265,7 +6200,6 @@ or in a \"constrained\" clause to define the constraints of a replaceable class.
 
 </html>"));
 end Partial;
-
 
 class Stream "stream"
   extends Modelica.Icons.Information;
@@ -6356,7 +6290,6 @@ operators inside the components provide the \"ideal mixing\" equations:
 // within dp2:
   <b>inStream</b>(dp2.port_a.h_outflow) := dp1.port_b.h_outflow;
 </pre></blockquote>
-
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
@@ -6487,7 +6420,6 @@ c1.p = c3.p;
 <b>inStream</b>(c2.h) = <b>if</b> c2.m_flow > 0 <b>then</b> h_mix <b>else</b> &lt;undefined&gt;;
 <b>inStream</b>(c3.h) = <b>if</b> c3.m_flow > 0 <b>then</b> h_mix <b>else</b> &lt;undefined&gt;;
 
-
 </pre></blockquote>
 
 <p>
@@ -6518,7 +6450,6 @@ For further details, see the definition of the
 
 </html>"));
 end Stream;
-
 
 class Time "time"
   extends Modelica.Icons.Information;
@@ -6553,7 +6484,6 @@ the time instant at which the simulation is started.</P>
 
 </html>"));
 end Time;
-
 
 class When "when"
   extends Modelica.Icons.Information;
@@ -6641,7 +6571,6 @@ the equations within the when-clause have one of the following forms:</P>
    <B>when</B> condition <B>then</B>
       2*x + y = 7;         // error: not valid Modelica
    <B>end when</B>;</PRE>
-
 
 <P><I>When the equations of the when-clause are not activated it is not clear which
 variable to hold constant, either x or y. A corrected version of this example is:</I></P>
@@ -6740,7 +6669,6 @@ parameter variable. The start-values of the special functions
 </html>"));
 end When;
 
-
 class While "while"
   extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6779,7 +6707,6 @@ and is formally defined as follows</P>
 
 </html>"));
 end While;
-
 
 class Contact "Contact"
   extends Modelica.Icons.Contact;
@@ -6820,7 +6747,6 @@ class Contact "Contact"
 </html>"));
 
 end Contact;
-
 
 annotation (__Dymola_DocumentationClass=true,
      dateModified="2010-09-07 21:44:00Z",

@@ -2,7 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples;
 package Elementary "Elementary examples to demonstrate various features of the MultiBody library"
 extends Modelica.Icons.ExamplesPackage;
 
-
 annotation ( Documentation(info="<HTML>
 <p>
 This package contains elementary example models to demonstrate
@@ -71,20 +70,17 @@ the usage of the MultiBody library
       </td>
   </tr>
 
-
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetDriving\">RollingWheelSetDriving</a></td>
       <td valign=\"top\"> Rolling wheel set that is driven by torques driving the wheels <br>
       <img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/RollingWheelSetDriving.png\">
       </td>
   </tr>
 
-
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.RollingWheelSetPulling\">RollingWheelSetPulling</a></td>
       <td valign=\"top\"> Rolling wheel set that is pulled by a force <br>
       <img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/RollingWheelSetPulling.png\">
       </td>
   </tr>
-
 
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.SpringDamperSystem\">SpringDamperSystem</a></td>
       <td valign=\"top\"> Spring/damper system with a prismatic joint and

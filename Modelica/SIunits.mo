@@ -217,7 +217,6 @@ in the declaration as in the example at the beginning.
     email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A><br>
 </dl>
 
-
 <p><b>Acknowledgements:</b></p>
 <ul>
 <li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger

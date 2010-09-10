@@ -2,7 +2,6 @@ within Modelica.Media;
 package IdealGases "Data and models of ideal gases (single, fixed and dynamic mixtures) from NASA source"
   extends Modelica.Icons.MaterialPropertiesPackage;
 
-
 annotation (
   __Dymola_classOrder={"Common", "SingleGases", "MixtureGases"},
 Documentation(info="<HTML>

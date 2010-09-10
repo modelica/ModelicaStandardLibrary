@@ -241,7 +241,6 @@ with the volume flow rate:
         dp = a*V_flow^2 + b*V_flow
 </pre>
 
-
 <p>
 with
 </p>
@@ -2160,7 +2159,6 @@ where
             grid={1,1}), graphics));
     end PartialTeeJunction;
 
-
     package Bends "Pressure loss functions for bends"
       extends Modelica.Icons.VariantsPackage;
 
@@ -2312,7 +2310,6 @@ can be handled up to about Ma = 0.3. The model and the functions assume that
 no mass and no energy is stored in the curved bend.
 </p>
 
-
 <h4><font color=\"#ef9b13\">Restriction</font></h4>
 
 <p>This component shall be used inside of the restricted limits according to the referenced literature. </p>
@@ -2362,7 +2359,6 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 <pre>      zeta_LOC = A1*B1*C1</pre>
 </li>
 </ul>
-
 
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
@@ -2464,7 +2460,6 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
 </p>
-
 
 <p><b> Pressure loss = f_inv(m_flow)</b>: </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
@@ -3122,7 +3117,6 @@ cross section of the orifice.
           end general;
         end Choices;
 
-
           annotation (Documentation(info="<html>
 <p>
 This record is used to define the geometric (constant) data of a thick edged orifice.
@@ -3407,7 +3401,6 @@ The pressure loss <b> dp </b> is determined to <i> [see Wischhusen] </i>:
     V_flow = m_flow / rho
         dp = a*V_flow^2 + b*V_flow
 </pre>
-
 
 <p>
 with

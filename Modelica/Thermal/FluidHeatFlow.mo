@@ -1,6 +1,5 @@
 within Modelica.Thermal;
 
-
 package FluidHeatFlow
   "Simple components for 1-dimensional incompressible thermo-fluid flow models"
   extends Modelica.Icons.Package;

@@ -578,13 +578,11 @@ using the adaptive Lobatto rule according to:
 </dl>
 </blockquote>
 
-
 <h4>Example</h4>
 
 <p>
 See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Modelica.Math.Nonlinear.Examples</a>.
 </p>
-
 
 </html>"));
   end quadratureLobatto;

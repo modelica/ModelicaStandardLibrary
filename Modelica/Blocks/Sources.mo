@@ -1,6 +1,5 @@
 within Modelica.Blocks;
 
-
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
   import Modelica.Blocks.Interfaces;
@@ -2195,7 +2194,6 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
     e.g., time = 2.0, the output y =  4.0,
     e.g., time = 5.0, the output y = 23.0 (i.e., extrapolation).
 </pre>
-
 
 <p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/TimeTable.png\">

@@ -4,7 +4,6 @@ package ModelicaServices "(target = \"DymolaAndDLRVisualization\") Models and fu
   constant String target="DymolaAndDLRVisualization"
   "Target of this ModelicaServices implementation";
 
-
 package UsersGuide "User's Guide"
 extends Modelica.Icons.Info;
 class ModelicaLicense2 "Modelica License 2"
@@ -601,7 +600,6 @@ class ReleaseNotes "Release notes"
      </li>
 </ul>
 
-
 <h4>Version 1.0, 2009-06-21</h4>
 
 <p>
@@ -634,7 +632,6 @@ class Contact "Contact"
 </tr>
 </table>
 
-
 <p><b>Acknowledgements:</b></p>
 
 <p>
@@ -647,7 +644,6 @@ The design of the Animation.Shape component is from Hilding Elmqvist, Dynasim AB
 end Contact;
   annotation(__Dymola_DocumentationClass=true);
 end UsersGuide;
-
 
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
@@ -701,7 +697,6 @@ This implementation requires the commercial DLR library \"Visualization\".
 "));
   end Surface;
 end Animation;
-
 
 annotation (
 __Dymola_Protection(hideFromBrowser=true),

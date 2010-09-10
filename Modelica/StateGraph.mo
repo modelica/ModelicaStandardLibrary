@@ -610,7 +610,6 @@ based on the following references:
      </dd>
 </dl>
 
-
 </html>
 "));
   end ComparisonWithStateGraph2;
@@ -3346,7 +3345,6 @@ In the
 a detailed comparison is given. It is highly recommended to use Modelica_StateGraph2 instead
 of Modelica.StateGraph.
 </p>
-
 
 <p>
 Library <b>StateGraph</b> is a <b>free</b> Modelica package providing

@@ -614,8 +614,6 @@ If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle
   </tr>
 </table>
 
-
-
 <h4><font color=\"#008000\">Inlet Coefficients</font></h4>
 
 <p>
@@ -651,7 +649,6 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
      <th>&zeta;</th> <td> 1.04 </td><td> 0.84 </td><td> 0.67  </td><td> 0.39  </td><td> 0.18  </td><td>      0.06     </td>
   </tr>
 </table>
-
 
 <h4><font color=\"#008000\">References</font></h4>
 

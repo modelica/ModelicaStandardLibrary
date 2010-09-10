@@ -225,7 +225,6 @@ combination). In this case the system is not at rest.
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/Fig.translational.examples.InitialConditions.png\">
 </p>
 
-
 </html>
 "),     experiment(StopTime=5),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2167,7 +2166,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-
 
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
@@ -4337,7 +4335,6 @@ Note, the support position can always be accessed as internalSupport.s, and
 the support force can always be accessed as internalSupport.f.
 </p>
 
-
 </html>"));
     end InternalSupport;
 
@@ -5304,7 +5301,6 @@ the dissipated power is available from the new variable \"<b>lossPower</b>\" (wh
 positive if heat is flowing out of the heatPort). For an example, see
 <a href=\"modelica://Modelica.Mechanics.Translational.Examples.HeatLosses\">Examples.HeatLosses</a>.
 </p>
-
 
 <dl>
 <dt><b>Library Officer</b>

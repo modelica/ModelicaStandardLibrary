@@ -3,7 +3,6 @@ package Media "Library of media property models"
 extends Modelica.Icons.Package;
 import SI = Modelica.SIunits;
 
-
 package UsersGuide "User's Guide of Media Library"
   extends Modelica.Icons.Information;
 
@@ -682,7 +681,6 @@ then constants \"Medium.mediumName\", \"Medium.nX\", etc. are defined:
 <p>
 The record FluidConstants that is defined in PartialMedium contains the following elements
 </p>
-
 
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Type</b></td>
@@ -2174,7 +2172,6 @@ This User's Guide has the following main parts:
 </ul>
 </HTML>"));
 end UsersGuide;
-
 
 package Examples
   "Demonstrate usage of property models (currently: simple tests)"
@@ -3855,7 +3852,6 @@ Modelica.Media.Examples.Tests.MediaTestModels.
 </html>
 "));
 end Examples;
-
 
 package Interfaces "Interfaces for media models"
 
@@ -6601,7 +6597,6 @@ kind of media.
 </HTML>"));
 end Interfaces;
 
-
 package Common "data structures and fundamental functions for fluid properties"
 
   extends Modelica.Icons.Package;
@@ -8376,7 +8371,6 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
-
 
 annotation (
   Documentation(info="<HTML>

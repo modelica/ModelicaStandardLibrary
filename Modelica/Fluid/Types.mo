@@ -124,7 +124,6 @@ tables:
 
 &nbsp;<br>
 
-
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td colspan=\"3\"><b>Energy balance</b> </td>
 <tr><td><b>Dynamics.</b></td>
@@ -150,8 +149,6 @@ tables:
 
 &nbsp;<br>
 
-
-
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><td colspan=\"3\"><b>Momentum balance</b> </td>
 <tr><td><b>Dynamics.</b></td>
@@ -174,7 +171,6 @@ tables:
     <td> <b>der</b>(m_flow)=0 </td>
     <td> no initial conditions </td></tr>
 </table>
-
 
 <p>
 In the tables above, the equations are given for one-substance fluids. For multiple-substance
@@ -320,9 +316,7 @@ The default option \"av_vb\" cannot be used, if the dynamic pipe is connected to
 ModelStructure.a_vb).
 </p>
 
-
 </html>"));
-
 
   annotation (preferedView="info",
               Documentation(info="<html>

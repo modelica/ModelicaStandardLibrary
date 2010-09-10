@@ -75,7 +75,6 @@ Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechan
 where <i>n<sub>linear</sub></i> is the number of flux tube elements with constant relative permeability that change its permeance <i>G<sub>m i</sub></i> with armature position (index <i>i</i>), <i>V<sub>m i</sub></i> the magnetic voltage across each respective flux tube and <i>dG<sub>m i</sub>/dx</i> the derivative of the respective permeances with respect to armature position. Transition from the general formula based on magnetic co-energy to the latter one is outlined in <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ka08]</a> for the reciprocal of the permeance, i.e., for the magnetic reluctance <i>R<sub>m</sub></i>. Note that
 </p>
 
-
 <p><IMG src=\"modelica://Modelica/Resources/Images/Magnetic/FluxTubes/UsersGuide/ReluctanceForceCalculation/eq_transition_forceReluctancePermeance.png\" ALT=\"Transition from force calculation based on reluctance to calculation based on permeance\"></p>
 
 <p>with <i>&Phi;<sub>i</sub></i> being the magnetic flux through each respective flux tube element.</p>
@@ -87,7 +86,6 @@ Flux tube elements with <i>non-linear</i> material characteristics <i>&mu;<sub>r
 <p>
 The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> contains flux tube shapes typical for leakage flux around prismatic or cylindrical poles. Since the permeance of these flux tubes does not change with armature position, they do not contribute to a reluctance actuator's thrust.
 </p>
-
 
 </html>
 "));
@@ -1114,7 +1112,6 @@ The magnetic flux through the armature and the actuator's static inductance both
     simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
     advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
     comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
-
 
     simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
     advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model

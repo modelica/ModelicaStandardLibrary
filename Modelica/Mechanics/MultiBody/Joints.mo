@@ -706,7 +706,6 @@ treated as known with value equal to zero; for standard revolute joints,
 this force is an unknown quantity).
 </p>
 
-
 </HTML>
 "));
   end RevolutePlanarLoopConstraint;

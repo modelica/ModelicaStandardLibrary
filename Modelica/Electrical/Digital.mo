@@ -2625,7 +2625,6 @@ The simulation stop time has to be 5s.
   <tr><td valign=\"top\">'-'</td> <td valign=\"top\">Don't care</td></tr>
 </table>
 
-
 </html>"));
 
         type UX01 = enumeration(

@@ -160,7 +160,6 @@ sureLossInput_con
     roughness=roughness,
     K=K);
 
-
 Fluid.Dissipation.Examples.Applications.PressureLoss.BaseClasses.StraightPipe.Overall.Pres
 sureLossInput_var
     IN_var(
@@ -1386,7 +1385,6 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 </p>
 </ul>
 
-
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
 <dt>VDI:</dt>
@@ -1534,7 +1532,6 @@ The mean Nusselt number <b> Nu_turb </b> representing the mean convective heat t
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\">
 </p>
 </ul>
-
 
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulentRoughness\">kc_evenGapTurbulentRoughness</a> is also valid for this inverse calculation due to using the same functions.
 
@@ -3150,8 +3147,6 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
 </dl>
 </html>
 
-
-
 "));
       end kc_overall;
 
@@ -3346,7 +3341,6 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
 </dl>
 </html>
 
-
 "));
       end kc_overall_KC;
 
@@ -3533,7 +3527,6 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
 </dl>
 </html>
 
-
 "));
       end kc_turbulent;
 
@@ -3701,7 +3694,6 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
     In 8th International Heat Transfer Conference, volume 6, pages 2847?2854, Washington,1986. Hemisphere.</dd>
 </dl>
 </html>
-
 
 "));
       end kc_turbulent_KC;
@@ -4724,7 +4716,6 @@ This verification has been done with the fluid properties of Water (Prandtl numb
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar.png\">
 </p>
 
-
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
  <dt>Bejan,A.:</dt>
@@ -5610,7 +5601,6 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 Note that the higher the Prandtl number <b> Pr </b> there is a higher difference in Nusselt numbers <b> Nu </b> comparing the neglect and consideration of pressure loss.
 </p>
 
-
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
   <dt>Bejan,A.:</dt>
@@ -5779,7 +5769,6 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
 <p>
 Note that the higher the Prandtl number <b> Pr </b> there is a higher difference in Nusselt numbers <b> Nu </b> comparing the neglect and consideration of pressure loss.
 </p>
-
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -5986,7 +5975,6 @@ Here the validation of the two phase heat transfer coefficient is shown for cond
 <dl><dt>Shah, M.M.: </dt>
 <dd><b>A general correlation for heat transfer during film condensation inside pipes</b>. Int. J. Heat Mass Transfer, Vol.22, p.547-556, 1979.</dd>
 </dl></html>
-
 
 "));
       end kc_twoPhaseOverall_KC;
@@ -7628,7 +7616,6 @@ with
 </table>
 </p>
 
-
 <p>
 Note that the beginning of the laminar regime depends on the chosen surface roughness of the channel and cannot be beneath <b>Re &le; 1e3</b>.
 </p>
@@ -7641,7 +7628,6 @@ The Darcy friction factor (<b>lambda_FRI</b>) of a channel with different shapes
 </p>
 
 The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been obtained at the same hydraulic diameter and the same mean velocity of the internal flow. Note that there is no difference of the Darcy friction factor in the turbulent regime if using the same hydraulic diameter for all geometries. Roughness can be considered but it is not used for this validation.
-
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dt>Miller,D.S.:</dt>
@@ -8685,7 +8671,6 @@ The fraction of mean flow velocities (v/v_nom) can be calculated through its cor
     v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
 </pre>
 
-
 <p>
 with
 </p>
@@ -8877,7 +8862,6 @@ The fraction of mean flow velocities (v/v_nom) can be calculated through its cor
     v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
 </pre>
 
-
 <p>
 with
 </p>
@@ -8950,7 +8934,6 @@ The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b
 </p>
 
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressureLossLawDensity_DP</a> is also valid for this inverse calculation due to using the same functions.
-
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -9046,7 +9029,6 @@ variable (dp or m_flow).
 <p>
 Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.
 </p>
-
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The generic pressure loss <b> dp </b> is determined by:
@@ -9170,7 +9152,6 @@ The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b
 </p>
 
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
-
 
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
 
@@ -9298,7 +9279,6 @@ The pressure loss <b> dp </b> for the incompressible case [Pressure loss = f(m_f
 <pre>
     dp = a*V_flow^2 + b*V_flow
 </pre>
-
 
 <p>
 with
@@ -9429,7 +9409,6 @@ The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as p
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
 </p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is also valid for this inverse calculation due to using the same functions.
-
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -9648,14 +9627,12 @@ zeta_LOC = (1 - A_1/A_2)^2  <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
 </pre>
 </p>
 
-
 and for sudden contraction:
 <p>
 <pre>
 zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
 </pre>
 </p>
-
 
 <p>
 with
@@ -9679,7 +9656,6 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
 <p>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
 </p>
-
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -9829,14 +9805,12 @@ zeta_LOC = (1 - A_1/A_2)^2  <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
 </pre>
 </p>
 
-
 and for sudden contraction:
 <p>
 <pre>
 zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
 </pre>
 </p>
-
 
 <p>
 with
@@ -9861,7 +9835,6 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
 </p>
 
-
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
 <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
@@ -9874,7 +9847,6 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
     Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
 </dl>
 </html>
-
 
 "));
       end dp_suddenChange_MFLOW;

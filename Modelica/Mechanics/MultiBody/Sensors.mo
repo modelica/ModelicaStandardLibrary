@@ -950,7 +950,6 @@ v_rel is additionally transformed to:
    v_rel = resolve1(frame_b.R, <b>der</b>(r_rel))
 </pre>
 
-
 <p>
 The cut-force and the cut-torque in frame_resolve are
 always zero, whether frame_resolve is connected or not.
@@ -2325,7 +2324,6 @@ which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
 
-
 <p>
 In the following figure the animation of a CutTorque
 sensor is shown. The dark blue coordinate system is frame_b,
@@ -2508,7 +2506,6 @@ If resolveInFrame = Types.ResolveInFrameAB.frame_resolve, the conditional connec
 which frame_resolve is connected. Note, if this connector is enabled, it must
 be connected.
 </p>
-
 
 <p>
 In the following figure the animation of a CutForceAndTorque

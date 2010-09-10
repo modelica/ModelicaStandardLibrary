@@ -829,7 +829,6 @@ The solution is to not initialize u or the variable that is used
 to compute u by an algebraic equation.
 </p>
 
-
 </HTML>
 "),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -1625,7 +1624,6 @@ should be initialized in steady state (e.g., using option
 initType=Modelica.Blocks.Types.Init.SteadyState).
 </p>
 
-
 </html>
 "));
   end LowpassButterworth;
@@ -2088,7 +2086,6 @@ CriticalDamping filters of order 1,2,3:
 <img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNonNormalized.png\">
 </p>
 
-
 <h4>Implementation</h4>
 
 <p>
@@ -2117,8 +2114,6 @@ The filters are implemented in the following, reliable way:
      the input \"u\" can be given. If appropriately selected, the states are in the order of \"one\" and
      then step-size control is always appropriate.</li>
 </ol>
-
-
 
 <h4>References</h4>
 
@@ -2407,7 +2402,6 @@ The development of this block was partially funded by BMBF within the
 
         annotation (Documentation(info="<html>
 
-
 </html> "));
       end lowPass;
 
@@ -2459,7 +2453,6 @@ The development of this block was partially funded by BMBF within the
         end for;
 
         annotation (Documentation(info="<html>
-
 
 </html> "));
       end highPass;
@@ -2552,7 +2545,6 @@ The development of this block was partially funded by BMBF within the
           cn :=w_band*w_cut;
 
         annotation (Documentation(info="<html>
-
 
 </html> "));
       end bandPass;
@@ -2667,7 +2659,6 @@ The development of this block was partially funded by BMBF within the
 
         annotation (Documentation(info="<html>
 
-
 </html> "));
       end bandStop;
       end coefficients;
@@ -2772,7 +2763,6 @@ This representation has the following transfer function:
                      = -(a/b)*u
 </pre>
 
-
 </html> "));
       end lowPass;
 
@@ -2839,8 +2829,6 @@ The goal is to implement the filter in the following form:
                = (a^2 - b^2) / (a^2 + b^2)
                = (1 - (b/a)^2) / (1 + (b/a)^2)
 
-
-
 </pre>
 <p>
 This representation has the following transfer function:
@@ -2888,7 +2876,6 @@ This representation has the following transfer function:
     a: real part of eigenvalue
     b: imaginary part of eigenvalue
 </pre>
-
 
 </html> "));
       end highPass;
@@ -2984,7 +2971,6 @@ This representation has the following transfer function:
     b: imaginary part of eigenvalue
 </pre>
 
-
 </html> "));
       end bandPass;
 
@@ -3079,7 +3065,6 @@ This representation has the following transfer function:
     a: real part of eigenvalue
     b: imaginary part of eigenvalue
 </pre>
-
 
 </html> "));
       end bandStop;
@@ -4128,7 +4113,6 @@ results from <blockquote><pre> a = -1/alpha </pre></blockquote> and
 <blockquote><pre> b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
 </pre></blockquote>
 </p>
-
 
 </html>
 "));
