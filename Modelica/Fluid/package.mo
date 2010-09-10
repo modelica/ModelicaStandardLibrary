@@ -904,7 +904,7 @@ US:
 </pre>
 
 <p>
-In both cases rho0 is the density of cold water at 4 °C, 999 kg/m3. Note that these equations use relative, not absolute densities.
+In both cases rho0 is the density of cold water at 4 &deg;C, 999 kg/m3. Note that these equations use relative, not absolute densities.
 </p>
 
 <p>

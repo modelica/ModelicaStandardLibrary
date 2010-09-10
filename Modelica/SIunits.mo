@@ -328,7 +328,7 @@ still kept in Modelica.SIunits.</p>
               textString="[km/h]")}));
     end NonSIunits;
 
-    function to_degC "Convert from Kelvin to °Celsius"
+    function to_degC "Convert from Kelvin to degCelsius"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
@@ -341,10 +341,10 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="°C")}));
+              textString="degC")}));
     end to_degC;
 
-    function from_degC "Convert from °Celsius to Kelvin"
+    function from_degC "Convert from degCelsius to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
@@ -358,13 +358,13 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="°C"),  Text(
+              textString="degC"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
     end from_degC;
 
-    function to_degF "Convert from Kelvin to °Fahrenheit"
+    function to_degF "Convert from Kelvin to degFahrenheit"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
@@ -377,10 +377,10 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
-              textString="°F")}));
+              textString="degF")}));
     end to_degF;
 
-    function from_degF "Convert from °Fahrenheit to Kelvin"
+    function from_degF "Convert from degFahrenheit to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
@@ -390,16 +390,16 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="°F"), Text(
+              textString="degF"), Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K"), Text(
               extent={{-20,100},{-100,20}},
               lineColor={0,0,0},
-              textString="°F")}));
+              textString="degF")}));
     end from_degF;
 
-    function to_degRk "Convert from Kelvin to °Rankine"
+    function to_degRk "Convert from Kelvin to degRankine"
       extends ConversionIcon;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
@@ -412,10 +412,10 @@ still kept in Modelica.SIunits.</p>
               textString="K"), Text(
               extent={{100,-32},{-18,-100}},
               lineColor={0,0,0},
-              textString="°Rk")}));
+              textString="degRk")}));
     end to_degRk;
 
-    function from_degRk "Convert from °Rankine to Kelvin"
+    function from_degRk "Convert from degRankine to Kelvin"
       extends ConversionIcon;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
@@ -425,7 +425,7 @@ still kept in Modelica.SIunits.</p>
                 -100},{100,100}}), graphics={Text(
               extent={{-8,100},{-100,42}},
               lineColor={0,0,0},
-              textString="°Rk"),  Text(
+              textString="degRk"),  Text(
               extent={{100,-20},{20,-100}},
               lineColor={0,0,0},
               textString="K")}));
