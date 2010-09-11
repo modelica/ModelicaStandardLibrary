@@ -1200,7 +1200,7 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
             Line(points={{91,0},{-90,0}})}),
       Documentation(info="<html>
 <p>
-This model describes <i>m</m> simple short branches considering the complex voltages <i><u>v</u></i> = 0;
+This model describes <i>m</i> simple short branches considering the complex voltages <i><u>v</u></i> = 0;
 it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.Short\">single phase short branches</a>.
 </p>
 

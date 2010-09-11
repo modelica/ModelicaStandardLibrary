@@ -8348,25 +8348,25 @@ annotation(preferedView="info", Window(
 <li>Semiconductor resistor</li>
 </ul></p>
 <p><br/>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 user's manual</a> which modelling relied on.</p>
-<p><br/><b>Open issues</b>:</p>
-<p><ul>
+<p><b>Open issues</b>:
+<ul>
 <li>devices from SPICE3 that are not modelled yet: </li>
-<li><ul>
+<li>
+<ul>
 <li>MESFETs </li>
 <li>JFETs </li>
 <li>MOSFET Level 2,3,6, BSIM </li>
 <li>Line models </li>
 <li>Semiconductor C </li>
-</ul></li>
+</ul>
+</li>
 <li>unit check (at the moment many parameters of type Real) </li>
 <li>tests</li>
 <li>not supported analyse types (AC, DCTransfer, ...)</li>
 </ul></p>
-<p><br/><br/><b>Copyright:</b></p>
-<p><br/><br/>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
-<p><i>The Modelica package is </i><i><b>free</b></i><i> software; it can be redistributed and/or modified </i></p>
-<p>under the terms of the <i><b>Modelica license</b></i><i>, see the license conditions and the </i></p>
-<p><br/>accompanying <i><b>disclaimer</b></i><i> in the documentation of package Modelica in file &QUOT;Modelica/package.mo&QUOT;.</i></p>
+<p><b>Copyright:</b></p>
+<p>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
+<p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &QUOT;Modelica/package.mo&QUOT;.</i></p>
 </html>",
    revisions="<html>
 <p><ul>

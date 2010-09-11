@@ -951,26 +951,27 @@ end HeatingDiode;
 <p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.</p>
 <p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.</p>
 <p>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
+<p>
 <pre>  W       L      Beta        Vt       K2      K5       DW         DL
   m       m      A/V^2       V        -       -        m          m
-  12.e-6  4.e-6  0.062e-3   -4.5      0.24     0.61     -1.2e-6     -.9e-6      depletion
-  60.e-6  3.e-6  0.048e-3     0.1      0.08     0.68     -1.2e-6     -.9e-6      enhancement
-  12.e-6  4.e-6  0.0625e-3   -.8      0.21     0.78     -1.2e-6     -.9e-6      zero
-  50.e-6  8.e-6  0.0299e-3    0.24    1.144    0.7311   -5.4e-6    -4.e-6
-  20.e-6  6.e-6  0.041e-3     0.8     1.144    0.7311   -2.5e-6    -1.5e-6
-  30.e-6  9.e-6  0.025e-3   -4.       0.861    0.878    -3.4e-6    -1.74e-6
-  30.e-6  5.e-6  0.031e-3     0.6     1.5      0.72      0         -3.9e-6
-  50.e-6  6.e-6  0.0414e-3  -3.8      0.34     0.8      -1.6e-6    -2.e-6       depletion
-  50.e-6  5.e-6  0.03e-3      0.37     0.23     0.86     -1.6e-6    -2.e-6       enhancement
-  50.e-6  6.e-6  0.038e-3    -.9      0.23     0.707    -1.6e-6    -2.e-6       zero
-  20.e-6  4.e-6  0.06776e-3   0.5409   0.065    0.71      -.8e-6     -.2e-6
-  20.e-6  4.e-6  0.06505e-3   0.6209   0.065    0.71      -.8e-6     -.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.6909   0.03     0.8       -.3e-6     -.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.4909   0.03     0.8       -.3e-6     -.2e-6
-  12.e-6  4.e-6  0.023e-3   -4.5      0.29     0.6       0          0           depletion
-  60.e-6  3.e-6  0.022e-3     0.1      0.11     0.65      0          0           enhancement
-  12.e-6  4.e-6  0.038e-3    -.8      0.33     0.6       0          0           zero
-  20.e-6  6.e-6  0.022e-3     0.8     1        0.66      0          0</pre>
+  12.e-6  4.e-6  0.062e-3    -4.5     0.24    0.61     -1.2e-6    -0.9e-6    depletion
+  60.e-6  3.e-6  0.048e-3     0.1     0.08    0.68     -1.2e-6    -0.9e-6    enhancement
+  12.e-6  4.e-6  0.0625e-3   -0.8     0.21    0.78     -1.2e-6    -0.9e-6    zero
+  50.e-6  8.e-6  0.0299e-3    0.24    1.144   0.7311   -5.4e-6    -4.e-6
+  20.e-6  6.e-6  0.041e-3     0.8     1.144   0.7311   -2.5e-6    -1.5e-6
+  30.e-6  9.e-6  0.025e-3    -4.0     0.861   0.878    -3.4e-6    -1.74e-6
+  30.e-6  5.e-6  0.031e-3     0.6     1.5     0.72      0         -3.9e-6
+  50.e-6  6.e-6  0.0414e-3   -3.8     0.34    0.8      -1.6e-6    -2.e-6     depletion
+  50.e-6  5.e-6  0.03e-3      0.37    0.23    0.86     -1.6e-6    -2.e-6     enhancement
+  50.e-6  6.e-6  0.038e-3    -0.9     0.23    0.707    -1.6e-6    -2.e-6     zero
+  20.e-6  4.e-6  0.06776e-3   0.5409  0.065   0.71     -0.8e-6    -0.2e-6
+  20.e-6  4.e-6  0.06505e-3   0.6209  0.065   0.71     -0.8e-6    -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.6909  0.03    0.8      -0.3e-6    -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.4909  0.03    0.8      -0.3e-6    -0.2e-6
+  12.e-6  4.e-6  0.023e-3    -4.5     0.29    0.6       0          0         depletion
+  60.e-6  3.e-6  0.022e-3     0.1     0.11    0.65      0          0         enhancement
+  12.e-6  4.e-6  0.038e-3    -0.8     0.33    0.6       0          0         zero
+  20.e-6  6.e-6  0.022e-3     0.8     1       0.66      0          0</pre></p>
 <p><b>References:</b></p>
 <p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
 </html>",  revisions="<html>
