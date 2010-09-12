@@ -1001,7 +1001,6 @@ with components of the Modelica.Blocks library.
 Also more realistic sensor models can be built, by further
 processing (e.g., by attaching block Modelica.Blocks.FirstOrder to
 model the time constant of the sensor).
-
 </p>
 
 <p align = justify>For the thermodynamic state variables temperature, specific entalpy, specific entropy and density

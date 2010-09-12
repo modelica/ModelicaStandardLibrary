@@ -123,9 +123,9 @@ connected and that the important balance equations are automatically
 fulfilled when 2 or more components are connected together at
 one point as shown in the next figure:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/MixingConnections.png\">
-</p>
+
 <p>
 In such a case the balance equations define <b>ideal mixing</b>,
 i.e., the upstream discretization scheme of each component uses
@@ -559,9 +559,9 @@ are present, e.g., for turbulent flow in a pipe:
 <p>
 A plot of this characteristic is shown in the next figure:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/sqrt.png\">
-</p>
+
 <p>
 The difficulty with this function is that the derivative at x=0 is infinity.
 In reality, such a function does not exist. E.g., for pipe flow,
@@ -1064,7 +1064,6 @@ It is then possible to neglect the storage of mass, momentum, and energy in the 
 (or just in parts of it) just by a few mouse clicks in a GUI, and also to change the type of
 initialization when considering dynamic models. Please note that some combinations of the
 options might be contradictory, and will therefore trigger compilation errors.
-
 </p>
 </html>"));
     end CustomizingModel;
@@ -1721,9 +1720,7 @@ In the next figure, several features of the library are demonstrated with
 a simple heating system with a closed flow cycle. By just changing one configuration parameter in the system object the equations are changed between steady-state and dynamic simulation with fixed or steady-state initial conditions.
 </p>
 
-<blockquote>
-    <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=1>
-</blockquote>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=1>
 
 <p>
 With respect to previous versions, the design

@@ -649,15 +649,14 @@ then a force of 350 N is displayed as an arrow of length 3.5 m.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque1.png\">
-</p>
+
 <p>
 This leads to the following animation
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque2.png\">
-</p>
 </HTML>
 "),         Coordsys(
               extent=[-100, -100; 100, 100],
@@ -842,15 +841,14 @@ then a force of 350 N is displayed as an arrow of length 3.5 m.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque1.png\">
-</p>
+
 <p>
 This leads to the following animation
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque2.png\">
-</p>
 </HTML>
 "),         Coordsys(
               extent=[-100, -100; 100, 100],
@@ -1060,9 +1058,9 @@ the force and torque balance between frame_a and frame_b is fulfilled.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque1.png\">
-</p>
+
 <p>
 This leads to the following animation (the yellow cylinder
 characterizes the line between frame_a and frame_b of the
@@ -1071,9 +1069,8 @@ negative sign
 also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque2.png\">
-</p>
 </HTML>
 "),         Coordsys(
               extent=[-100, -100; 100, 100],
@@ -2196,9 +2193,9 @@ In the following figure the animation of an AbsoluteSensor
 component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
-</p>
+
 <p>
 If <b>frame_resolve</b> is connected to another frame, then the
 provided absolute kinematic vectors are resolved in this frame.
@@ -2581,9 +2578,9 @@ component is shown. The light blue coordinate system is
 frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
-</p>
+
 <p>
 If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
 provided relative kinematic vectors of frame_b with respect to
@@ -2833,9 +2830,8 @@ and the green arrows are the cut force and the cut torque,
 respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Sensors/CutForceAndTorque.png\">
-</p>
 </HTML>"));
         end CutForceAndTorque;
       end Sensors;

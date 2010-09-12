@@ -106,10 +106,10 @@ connection point (as usually required by multi-body programs).
 This is advantageous since stiff systems can be avoided, say, due to
 a stiff spring and a small mass at the connection point.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
 ALT=\"model Examples.Elementary.ThreeSprings\">
-</p>
+
 
 <p>
 For a more thorough explanation, see

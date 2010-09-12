@@ -210,9 +210,8 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {1,1,0}).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/Prismatic.png\">
-</p>
 
 </HTML>
 "));
@@ -506,9 +505,8 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the translation axis
 (here: n = {0,0,1}, phi.start = 45<sup>o</sup>).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/Revolute.png\">
-</p>
 
 </html>
 "));
@@ -819,9 +817,8 @@ frame_b of the joint. The black arrow is parameter
 vector \"n\" defining the cylinder axis
 (here: n = {0,0,1}).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/Cylindrical.png\">
-</p>
 </HTML>
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -958,9 +955,8 @@ frame_b of the joint
 (here: n_a = {0,0,1}, n_b = {0,1,0}, phi_a.start = 90<sup>o</sup>,
 phi_b.start = 45<sup>o</sup>).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/Universal.png\">
-</p>
 </HTML>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1200,9 +1196,8 @@ vectors \"n\" and \"n_x\"
 (here: n = {0,1,0}, n_x = {0,0,1}, s_x.start = 0.5,
 s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/Planar.png\">
-</p>
 </HTML>
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1474,9 +1469,8 @@ frame_a and the dark blue coordinate system is
 frame_b of the joint.
 (here: angles_start = {45, 45, 45}<sup>o</sup>).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/Spherical.png\">
-</p>
 </html>
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1831,9 +1825,8 @@ frame_a and the dark blue coordinate system is
 frame_b of the joint.
 (here: r_rel_a_start = {0.5, 0, 0.5}, angles_start = {45, 45, 45}<sup>o</sup>).
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/FreeMotion.png\">
-</p>
 </HTML>
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2184,9 +2177,7 @@ frame_b of the joint.
        angle_1(start = 45<sup>o</sup>), angle_2(start = 45<sup>o</sup>), angle_3(start = 45<sup>o</sup>)).
 </p>
 
-<blockquote>
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/FreeMotion.png\">
-</blockquote>
 
 <p>
 A example to use this joint for the initialization of a planar double pendulum by providing
@@ -2595,9 +2586,10 @@ In the following default animation figure, the two spherical joints are
 represented by two red spheres, the connecting rod by a grey cylinder
 and the point mass in the middle of the rod by a light blue sphere:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/SphericalSpherical.png\" ALT=\"model Joints.SphericalSpherical\">
-</p>
+
+<p>
 This joint introduces <b>one constraint</b> defining that the distance between
 the origin of frame_a and the origin of frame_b is constant (= rodLength).
 It is highly recommended to use this joint in loops
@@ -2941,9 +2933,9 @@ a <b>spherical joint</b> at frame_b that are connected together with
 a <b>rigid rod</b>, see default aimation figure (the arrows are not
 part of the default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/UniversalSpherical.png\" ALT=\"model Joints.UniversalSpherical\">
-</p>
+
 <p>
 This joint aggregation has no mass and no inertia and introduces the constraint
 that the distance between the origin of frame_a and the origin of frame_b is constant
@@ -4103,9 +4095,9 @@ line connecting the origin of frame_a and the origin of frame_b,
 see the default animation in the following figure (the axes vectors
 are not part of the default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointUPS.png\" ALT=\"model Joints.Assemblies.JointUPS\">
-</p>
+
 <p>
 This joint aggregation has no mass and no inertia and
 introduces neither constraints nor potential state variables.
@@ -4746,9 +4738,9 @@ to the universal and via <b>rod2</b> to the revolute joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointUSR.png\" ALT=\"model Joints.Assemblies.JointUSR\">
-</p>
+
 <p>
 This joint aggregation has no mass and no inertia and
 introduces neither constraints nor potential state variables.
@@ -5256,9 +5248,9 @@ to the universal and via <b>rod2</b> to the prismatic joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointUSP.png\" ALT=\"model Joints.Assemblies.JointUSP\">
-</p>
+
 <p>
 This joint aggregation has no mass and no inertia and
 introduces neither constraints nor potential state variables.
@@ -5762,9 +5754,9 @@ to the spherical joint 1 and via rod 2 to the revolute joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointSSR.png\" ALT=\"model Joints.Assemblies.JointSSR\">
-</p>
+
 <p>
 Besides an optional point mass in the middle of rod 1,
 this joint aggregation has no mass and no inertia,
@@ -6129,9 +6121,9 @@ to the spherical joint 1 and via rod 2 to the prismatic joint, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointSSP.png\" ALT=\"model Joints.Assemblies.JointSSP\">
-</p>
+
 <p>
 Besides an optional point mass in the middle of rod 1,
 this joint aggregation has no mass and no inertia,
@@ -6469,9 +6461,9 @@ axes of rotation that are connected together by two rods, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointRRR.png\" ALT=\"model Joints.Assemblies.JointRRR\">
-</p>
+
 <p>
 This joint aggregation introduces neither constraints nor state variables and
 should therefore be used in kinematic loops whenever possible to
@@ -6813,9 +6805,9 @@ axis that is orthogonal to the revolute joint axes, see the default
 animation in the following figure (the axes vectors are not part of the
 default animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Joints/JointRRP.png\" ALT=\"model Joints.Assemblies.JointRRP\">
-</p>
+
 <p>
 This joint aggregation introduces neither constraints nor state variables and
 should therefore be used in kinematic loops whenever possible to

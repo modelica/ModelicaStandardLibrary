@@ -239,10 +239,7 @@ The model does not contain pressure dynamics as an incompressible medium is used
 Pressure dynamics becomes present with a compressible medium model (e.g., StandardWater).
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/IncompressibleFluidNetwork.png\" border=\"1\">
-</p>
-
 </html>"),
     experiment(StopTime=5),
     __Dymola_Commands(file=

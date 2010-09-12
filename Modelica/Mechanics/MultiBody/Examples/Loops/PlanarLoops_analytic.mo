@@ -189,10 +189,7 @@ In the following figure the parameter vectors of this example are visualized in 
 animation view.
 </p>
 
-<p align=\"center\">
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/PlanarLoops2.png\" ALT=\"model Examples.Loops.PlanarLoops2\">
-</p>
-
 </html>"),
     Diagram(coordinateSystem(
         preserveAspectRatio=true,

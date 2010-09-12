@@ -70,9 +70,9 @@ solves the non-linear system of equations in an aggregation of 3 revolution
 joints <b>analytically</b> and only one body is used that holds the total
 mass of the crank shaft:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/EngineV6_CAD_small.png\">
-</p>
+
 <p>
 This model is about 20 times faster as the EngineV6 example and <b>no</b> linear or
 non-linear system of equations occur. In contrast, the \"EngineV6\" example

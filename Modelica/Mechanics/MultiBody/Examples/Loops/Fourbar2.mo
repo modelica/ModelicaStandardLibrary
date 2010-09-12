@@ -95,9 +95,9 @@ equation
 <p>
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
-</p>
+
 <p>
 In this case
 the three revolute joints on the left top-side and the two revolute

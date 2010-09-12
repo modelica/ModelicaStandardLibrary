@@ -358,9 +358,9 @@ is used. Translate and simulate with the default settings
 (default simulation time = 3 s). Use command script \"modelica://Modelica/Resources/Scripts/Dymola/ExamplesfullRobotPlot.mos\"
 to plot variables.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Systems/r3_fullRobot.png\" ALT=\"model Examples.Loops.Systems.RobotR3.fullRobot\">
-</p>
+
 </HTML>"));
   end fullRobot;
   extends Modelica.Icons.ExamplesPackage;
@@ -1981,8 +1981,10 @@ models individually before composing them together.
 Furthermore, it is shown how CAD data can be used
 for animation.
 </p>
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Systems/robot_kr15.bmp\"
 ALT=\"model Examples.Systems.RobotR3\">
+
 <p>
 The following models are available:
 </p>

@@ -41,9 +41,8 @@ point mass between the two points where the spring is attached.
 In the animation, this point mass is represented by a small,
 light blue, sphere.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringWithMass.png\"
 ALT=\"model Examples.Elementary.SpringWithMass\">
-</p>
 </html>"));
 end SpringWithMass;

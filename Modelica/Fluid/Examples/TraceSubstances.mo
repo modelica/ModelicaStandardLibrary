@@ -85,10 +85,7 @@ This scales the residual equations that are used by the solver to the right orde
 of magnitude.
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2.png\" border=\"1\">
-</p>
-
 </html>"),
       __Dymola_Commands(file(ensureSimulated=true)=
           "modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2/plotConcentrations.mos"
@@ -281,9 +278,7 @@ This scales the residual equations that are used by the solver to the right orde
 of magnitude.
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/RoomCO2WithControls.png\" border=\"1\">
-</p>
 </html>"));
   end RoomCO2WithControls;
 end TraceSubstances;

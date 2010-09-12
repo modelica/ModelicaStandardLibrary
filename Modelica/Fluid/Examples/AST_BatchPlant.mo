@@ -661,10 +661,7 @@ package AST_BatchPlant
           "plot level"),
       Documentation(info="<html>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
-</p>
-
 </html>"));
   end BatchPlant_StandardWater;
 
@@ -2668,17 +2665,13 @@ control system. A picture of the batch plant is shown in the figure
 below.
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant1.jpg\" border=\"1\">
-</p>
 
 <p>
 The flow sheet diagram is shown in the next figure.
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/AST_BatchPlant2.png\" border=\"1\">
-</p>
 
 <p>
 Pure water from tank B1 and concentrated sodium chloride

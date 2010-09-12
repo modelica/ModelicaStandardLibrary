@@ -134,9 +134,9 @@ This example demonstrates:
     can be defined with the \"Initialization\" menu as shown with the
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
 ALT=\"model Examples.Elementary.SpringDamperSystem\">
-</p>
+
 </html>"));
 end SpringDamperSystem;

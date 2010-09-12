@@ -148,9 +148,7 @@ derivative because the input pressure is changing disontinuously and its
 derivative would be a dirac impulse.
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
-</p>
 </html>"),    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),

@@ -221,10 +221,7 @@ but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
 </p>
 
-<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/Fig.translational.examples.InitialConditions.png\">
-</p>
-
 </html>
 "),     experiment(StopTime=5),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -925,25 +922,17 @@ the ElastoGap elements this design can be modelled easily.
 Drawing of spool.
 </p>
 
-<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad.png\">
-</p>
 
-<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad3.png\">
-</p>
 
-<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad4.png\">
-</p>
 
 <p>
 Spool position s as a function of working force f.
 </p>
 
-<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad2.png\">
-</p>
 </html>
 
 "),     experiment(StopTime=100));
@@ -1936,9 +1925,7 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Translational/ElastoGap1.png\">
-</p>
 </html>"),        Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2815,8 +2802,11 @@ The surface is fixed and there is friction between sliding mass and surface.
 The frictional force f is given for positive velocity v by:</P>
 <i><uL>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
+</p>
+
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/Stribeck.png\">
-<br><br>
+
+<p>
 The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
 the two flanges.</p>
@@ -3095,7 +3085,9 @@ in the following way:
 <p>
 An example is given in the next figure
 </p>
+
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
+
 <p>
 Here, the relative position and the relative velocity between
 the two masses are used as state variables. Additionally, the

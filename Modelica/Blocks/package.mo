@@ -150,10 +150,9 @@ to initialize the angle and the angular acceleration of \"inertia1\".
 In the following figure, results of a typical simulation are shown:
 </p>
 
-<p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller.png\"><br>
+
 <img src=\"modelica://Modelica/Resources/Images/Blocks/PID_controller2.png\">
-</p>
 
 <p>
 In the upper figure the reference speed (= integrator.y) and
@@ -263,10 +262,7 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 2 Hz resulting in the following outputs:
 </p>
 
-<p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Filter1.png\">
-</p>
-
 </html>"));
 end Filter;
 
@@ -380,9 +376,7 @@ the results of a simulation of this example model
 (riseTime = 2 s, fac=3, 4, and 5):
 </p>
 
-<blockquote><p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/FilterWithRiseTime.png\">
-</p></blockquote>
 
 <p>
 Since the step starts at 1 s, and the rise time is 2 s, the filter output y
@@ -529,9 +523,7 @@ Modelica model. The basic construction mechanism is explained at hand
 of this example:
 </p>
 
-<p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModelSchematic.png\">
-</p>
 
 <p>
 Here the first order block \"firstOrder1\" shall be inverted. This is performed
@@ -554,10 +546,7 @@ is zero. The higher the cut-off frequency of the filter, the closer is the
 agreement. A typical simulation result is shown in the next figure:
 </p>
 
-<p>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModel.png\">
-</p>
-
 </html>"));
   end InverseModel;
 
@@ -1176,9 +1165,7 @@ to use a \"signal bus\" concept also in a Modelica model. This is demonstrated
 at hand of this model (Modelica.Blocks.Examples.BusUsage):
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage.png\">
-</p>
 
 <ul>
 <li> Connector instance \"controlBus\" is a hierarchical connector that is
@@ -1222,9 +1209,7 @@ For example, if \"sine.y\" is connected to the \"controlBus\", the following
 menu pops-up in Dymola:
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage2.png\">
-</p>
 
 <p>
 The \"Add variable/New name\" field allows the user to define the name of the signal on
@@ -1260,9 +1245,9 @@ For example \"Internal.ControlBus\" is defined as:
 Consequently, when connecting now from \"sine.y\" to \"controlBus\", the menu
 looks differently:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/Blocks/BusUsage3.png\">
-</p>
+
 <p>
 Note, even if the signals from \"Internal.StandardControlBus\" are listed, these are
 just potential signals. The user might still add different signal names.

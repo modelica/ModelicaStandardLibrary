@@ -2321,7 +2321,8 @@ no mass and no energy is stored in the curved bend.
 </ul>
 
 <p><b><font style=\"color: #ef9b13; \">Geometry</font></b> </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\"/> </p>
+
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\">
 
 <h4><font color=\"#ef9b13\">Calculation</font></h4>
 
@@ -2441,7 +2442,9 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 <h4><font style=\"color: #ef9b13; \">Verification</font></h4>
 
 <p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
+
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
+
 <p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
 
 <p>
@@ -2450,22 +2453,24 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 <p>
 The mass flow rate in dependence of the pressure loss of water is shown for different relative curvature radii:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
-</p>
 
 <p>
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
-</p>
 
 <p><b> Pressure loss = f_inv(m_flow)</b>: </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
+
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/>
+
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
-<p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
+
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/>
+
 <p>Note that there is a small deviation between the f(dp) and f_inv(m_flow)
 calculation due to the lack of a direct analytical inverse. </p>
 <p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
@@ -2657,9 +2662,8 @@ This function shall be used inside of the restricted limits according to the ref
 </ul>
 
 <h4><font color=\"#EF9B13\">Geometry</font></h4>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
-</p>
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The pressure loss <b> dp </b> for edged bends is determined by:
@@ -2793,9 +2797,8 @@ Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is i
 <h4><font color=\"#EF9B13\">Verification</font></h4>
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
-</p>
 
 <p>
 Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
@@ -2821,9 +2824,8 @@ The validation of the pressure loss coefficient for an edged bend shows four pos
 <p>
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
-</p>
 
 <p>
 <b> Pressure loss = f(m_flow) </b>:
@@ -2831,9 +2833,8 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 <p>
 The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
-</p>
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -3174,9 +3175,8 @@ This function shall be used within the restricted limits according to the refere
 </ul>
 
 <h4><font color=\"#EF9B13\">Geometry</font></h4>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
-</p>
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The pressure loss <b> dp </b> for a thick edged orifice is determined by:
@@ -3234,24 +3234,21 @@ phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
 
 <h4><font color=\"#EF9B13\">Verification</font></h4>
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
-</p>
 
 <p>
 <b> Mass flow rate = f(dp) </b>:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
-</p>
 
 <p>
 <b> Pressure loss = f(m_flow)</b>:
 </p>
 The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
-</p>
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -3430,17 +3427,15 @@ The generic pressure loss <b> dp </b> for different coefficients <b> a </b>
 as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in
 the figure below.
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
-</p>
 
 <p>
 <b> Pressure loss = f(m_flow) </b>:
 </p>
 The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
-</p>
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>

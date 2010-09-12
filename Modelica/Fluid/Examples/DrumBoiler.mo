@@ -179,9 +179,8 @@ package DrumBoiler
             textString="boiler")}),
       experiment(StopTime=5400),
       Documentation(info="<html>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
-</p>
 </html>"));
   end DrumBoiler;
 

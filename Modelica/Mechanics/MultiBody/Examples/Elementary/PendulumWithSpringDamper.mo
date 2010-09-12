@@ -88,9 +88,8 @@ A body is attached on a revolute and prismatic joint.
 A 3-dim. spring and a 3-dim. damper are connected between the body
 and a point fixed in the world frame:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/PendulumWithSpringDamper.png\"
 ALT=\"model Examples.Elementary.PendulumWithSpringDamper\">
-</p>
 </html>"));
 end PendulumWithSpringDamper;

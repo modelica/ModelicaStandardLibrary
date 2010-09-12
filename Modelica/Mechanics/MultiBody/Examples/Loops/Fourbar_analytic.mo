@@ -82,9 +82,9 @@ equation
 <p>
 This is a third version of the \"four-bar\" mechanism, see figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/Fourbar_analytic.png\" ALT=\"model Examples.Loops.Fourbar_analytic\">
-</p>
+
 <p>
 In this case
 the three revolute joints on the left top-side and the two revolute

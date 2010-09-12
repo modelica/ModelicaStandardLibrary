@@ -291,10 +291,7 @@ To do so, two additional sudden expansions / contractions are included in the mo
 The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <b>total</b> pressure <i>always</i> reduces along the flow direction, even in the upper model.
 </p>
 
-<p align=\"center\">
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\">
-</p>
-
 </html>"),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/MomentumBalanceFittings/Plot the model results.mos"

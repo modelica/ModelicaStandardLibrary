@@ -265,8 +265,7 @@ velocity as potential states.
 The two systems should move exactly in the same way. The system with the PointMasses
 object visulizes the point masses in \"red\", whereas the \"referenceSystem\" shows
 its bodies in \"blue\".
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
-</p>
 </html>"));
 end PointGravityWithPointMasses2;

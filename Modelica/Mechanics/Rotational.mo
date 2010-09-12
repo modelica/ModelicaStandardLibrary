@@ -36,7 +36,9 @@ systems are available in the simulation tool, the simulation of
 (dynamically) coupled friction elements of this library is
 <b>efficient</b> and <b>reliable</b>.
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive1.png\" ALT=\"drive1\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive1.png\" ALT=\"drive1\">
+
 <p>
 A simple example of the usage of this library is given in the
 figure above. This drive consists of a shaft with inertia J1=0.2 which
@@ -64,8 +66,10 @@ library can be <b>connected</b> together in an <b>arbitrary</b> way. E.g., it is
 possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections1.png\" ALT=\"driveConnections1\"></p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections2.png\" ALT=\"driveConnections2\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections1.png\" ALT=\"driveConnections1\">
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections2.png\" ALT=\"driveConnections2\">
 
 </HTML>"));
 
@@ -115,7 +119,7 @@ the ground via spring-damper-systems (cf. example
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
 </p>
 
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/bearing.png\" ALT=\"bearing\"></p>
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/bearing.png\" ALT=\"bearing\">
 
 <p>
 Depending on the setting of <b>useSupport</b>, the icon of the corresponding
@@ -123,7 +127,7 @@ component is changing, to either show the support flange or a ground mounting.
 For example, the two implementations in the following figure give
 identical results.</p>
 
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/bearing2.png\" ALT=\"bearing2\"></p>
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/bearing2.png\" ALT=\"bearing2\">
 
 </HTML>"));
 
@@ -141,7 +145,9 @@ of <b>vectors</b>, i.e., have a direction, the question arises how the
 signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive2.png\" ALT=\"drive2\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive2.png\" ALT=\"drive2\">
+
 <p>
 In the figure, three identical drive trains are shown. The only
 difference is that the gear of the middle drive train and the
@@ -161,7 +167,9 @@ of the axis of rotation. In the following figure, the right-most
 inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive3.png\" ALT=\"drive3\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive3.png\" ALT=\"drive3\">
+
 <p>
 The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
 of the right inertias are all identical and are directed into the
@@ -171,7 +179,9 @@ are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive4.png\" ALT=\"drive4\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive4.png\" ALT=\"drive4\">
+
 <p>
 In the upper part of the figure, two variants of the connection of an
 external torque and an inertia are shown. In both cases, a positive
@@ -278,7 +288,9 @@ velocities have to be expressed according to this definition.
 Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveAxis.png\" ALT=\"driveAxis\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveAxis.png\" ALT=\"driveAxis\">
+
 <p>
 As can be seen, all vectors are directed into the direction
 of the rotation axis. The angles in the flanges are defined
@@ -292,7 +304,9 @@ On first view, one may assume that the selected local
 coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/inertias.png\" ALT=\"inertias\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/inertias.png\" ALT=\"inertias\">
+
 <p>
 In the figure the <b>local</b> axes of rotation of the components
 are shown. The connection of two inertias in the left and in the
@@ -360,7 +374,9 @@ simulation. Currently, this type of problem can occur with the
 Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
 the elements become stuck:
 </p>
-<p><IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections3.png\" ALT=\"driveConnections3\"></p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections3.png\" ALT=\"driveConnections3\">
+
 <p>
 In the figure above two typical situations are shown: In the upper part of
 the figure, the series connection of rigidly attached BearingFriction and
@@ -2216,9 +2232,9 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/Rotational/elastoBacklash1.png\">
-</p>
+
 </html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -3419,7 +3435,6 @@ flow direction. They are defined by parameter <b>lossTable[:,5]
 meaning:
 </p>
 
-<p>
 <table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
@@ -3445,9 +3460,9 @@ meaning:
     </tr>
   </tbody>
 </table>
-</p>
+
 <p>with</p>
-<p><table BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<table BORDER=1 CELLSPACING=0 CELLPADDING=2>
   <tbody>
     <tr>
       <td valign=\"top\">|w_a|</td>
@@ -3476,7 +3491,7 @@ meaning:
                         </td>
     </tr>
   </tbody>
-</table></p>
+</table>
 <p>
 With these variables, the mesh efficiency and the bearing friction
 are formally defined as:
@@ -4296,7 +4311,9 @@ in the following way:
 <p>
 An example is given in the next figure
 </p>
+
 <IMG src=\"modelica://Modelica/Resources/Images/Rotational/relativeStates.png\" ALT=\"relativeStates\">
+
 <p>
 Here, the relative angle and the relative angular velocity between
 the two inertias are used as state variables. Additionally, the
@@ -6835,7 +6852,7 @@ drive trains with frictional losses. A typical, simple example is shown
 in the next figure:
 </p>
 
-<p><img src=\"modelica://Modelica/Resources/Images/Rotational/driveExample.png\"></p>
+<img src=\"modelica://Modelica/Resources/Images/Rotational/driveExample.png\">
 
 <p>
 For an introduction, have especially a look at:

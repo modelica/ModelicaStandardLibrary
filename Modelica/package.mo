@@ -7378,9 +7378,7 @@ standardized interface definitions. Some typical examples are shown
 in the next figure:
 </p>
 
-<p>
 <img src=\"modelica://Modelica/Resources/Images/UsersGuide/ModelicaLibraries.png\">
-</p>
 
 <p>
 For an introduction, have especially a look at:

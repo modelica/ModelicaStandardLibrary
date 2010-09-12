@@ -128,9 +128,8 @@ can be utilized:
     that a 3-dimensional spring from the Modelica.Mechanics.MultiBody.Forces library is used.
     This has the advantage to get a nice animation of the force component.</li>
 </ul>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringMassSystem.png\"
 ALT=\"model Examples.Elementary.SpringMassSystem\">
-</p>
 </html>"));
 end SpringMassSystem;

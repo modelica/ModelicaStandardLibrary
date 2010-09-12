@@ -38,9 +38,8 @@ equation
 This simple model demonstrates that by just dragging components
 default animation is defined that shows the structure of the
 assembled system.
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/Pendulum.png\"
 ALT=\"model Examples.Elementary.Pendulum\">
-</p>
 </html>"));
 end Pendulum;

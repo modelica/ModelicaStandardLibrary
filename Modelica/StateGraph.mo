@@ -29,9 +29,9 @@ some deficiences of StateCharts.
 <p>
 The basic elements of StateGraphs are <b>steps</b> and <b>transitions</b>:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition1.png\">
-</p>
+
 <p>
 <b>Steps</b> represent the possible states a StateGraph can have.
 If a step is active the Boolean variable <b>active</b> of
@@ -55,9 +55,9 @@ The transition <b>condition</b> is defined via the parameter menu
 of the transition object. Clicking on object \"transition1\" in
 the above figure, results in the following menu:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition2.png\">
-</p>
+
 <p>
 In the input field \"<b>condition</b>\", any type of time varying
 Boolean expression can be given (in Modelica notation, this is
@@ -93,9 +93,9 @@ can be provided as Boolean input signal, instead as entry in the
 menu of the transition. An example is given in the next
 figure:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition3.png\">
-</p>
+
 <p>
 Component \"step\" is an instance of \"StepWithSignal\" that is
 a usual step where the active flag is available as Boolean
@@ -120,9 +120,9 @@ in the figure above, or via the \"SetBoolean\" component
 any type of logical expression can be defined in textual
 form, as shown in the next figure:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/StepAndTransition4.png\">
-</p>
+
 <p>
 With the block \"<b>SetBoolean</b>\", a time varying expression
 can be provided as modification to the output signal <b>y</b>
@@ -257,9 +257,9 @@ component <b>Parallel</b> and alternative activities
 can be defined by component <b>Alternative</b>.
 An example for both components is given in the next figure.
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel1.png\">
-</p>
+
 <p>
 Here, the branch from \"step2\" to \"step5\" is executed in parallel
 to \"step1\". A transition connected to the output of a parallel
@@ -286,26 +286,26 @@ Parallel, Alternative and Step components have vectors of
 connectors. The dimensions of these vectors are set in the
 corresponding parameter menu. E.g. in a \"Parallel\" component:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel2.png\">
-</p>
+
 <p>
 Currently in Dymola the following menu pops up, when a branch
 is connected to a vector of components in order to define
 the vector index to which the component shall be connected:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel3.png\">
-</p>
+
 <h4><font color=\"#008000\">CompositeSteps, Suspend and Resume Port</font></h4>
 <p>
 A StateGraph can be hierarchically structured by using a <b>CompositeStep</b>.
 This is a component that inherits from <b>PartialCompositeStep</b>.
 An example is given in the next figure (from Examples.ControlledTanks):
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/CompositeStep1.png\">
-</p>
+
 <p>
 The CompositeStep component contains a local StateGraph that is
 entered by one or more input transitions and that is left
@@ -363,9 +363,9 @@ of Isolde Dressler
 In the following figure the top level of the model is shown.
 This model is available as StateGraph.Examples.ControlledTanks.
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks1.png\">
-</p>
+
 <p>
 In the right part of the figure, two tanks are shown. At the top part,
 a large fluid source is present from which fluid can be filled in
@@ -417,9 +417,9 @@ buttons:
 The implementation of the <b>tankController</b> is shown in
 the next figure:
 </p>
-<p align=\"center\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2.png\">
-</p>
+
 <p>
 When the \"<b>start</b>\" button is pressed, the stateGraph is
 within the CompositeStep \"<b>makeProduct</b>\". During normal
@@ -3373,10 +3373,11 @@ in the next figure where on the left hand side a two-tank
 system with a tank controller and on the right hand side the
 top-level part of the tank controller as a StateGraph is shown:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks1_small.png\">
+
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/Examples/ControlledTanks2_small.png\">
-</p>
+
 <p>
 The unique feature of the StateGraph library with respect to JGraphCharts,
 Grafcet, Sequential Function Charts, and StateCharts, is Modelica's

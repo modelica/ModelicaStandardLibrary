@@ -24,9 +24,11 @@ with appropriate default sizes and colors. A typical screenshot of the
 animation of a double pendulum is shown in the figure below, together
 with its schematic.
 </p>
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/DoublePendulumSmall.png\"> &nbsp;&nbsp;
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/DoublePendulumDiagramSmall.png\"
-  ALT=\"double pendulum (diagram layer)\">
+
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
+
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/DoublePendulumDiagramSmall.png\" ALT=\"double pendulum (diagram layer)\">
+
 <p>
 Note, that all components - the coordinate system of the world frame,
 the gravity acceleration vector, the revolute joints and the
@@ -153,18 +155,18 @@ A simple pendulum consisting of a <b>body</b> and a <b>revolute</b> joint
 with <b>linear damping</b> in the joint, is first build-up as
 Modelica composition diagram, resulting in:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/PenulumSchematic1.png\"
 ALT=\"Modelica composition diagram of simple pendulum\">
-</p>
+
 <p>
 In the following figure the location of the used
 model components is shown. Drag these components in the diagram layer
 and connect them according to the figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/PenulumSchematic2.png\">
-</p>
+
 <p>
 Every model that uses model components from the MultiBody library
 must have an instance of the Modelica.Mechanics.MultiBody.World model on highest level.
@@ -198,12 +200,11 @@ revolute joint is zero, when the body is on the x-axis).
 In the following figures the definition of this reference configuration
 is shown in the parameter menus of the revolute joint and the body:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/ActuatedRevolute.png\">
-</p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/Body.png\">
-</p>
+
 <p>
 Translate and simulate the model, e.g., with Dymola.
 Automatically, all defined components are visualized in
@@ -216,9 +217,9 @@ above). The default size of the cylinder is defined relatively
 to the size of the sphere (half of the sphere size).
 With default settings, the following animation is defined:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/Pendulum.png\">
-</p>
+
 <p>
 The world coordinate system is visualized as coordinate system
 with axes labels. The direction of the gravity acceleration
@@ -245,9 +246,9 @@ An example is presented in the figure below. It is available as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Fourbar1\">
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/Fourbar1a.png\">
-</p>
+
 <p>
 This mechanism consists of 6 revolute joints, 1 prismatic joint and forms a
 kinematical loop.
@@ -256,9 +257,9 @@ is shown. Note, that the axes of the revolute joints are represented by the
 red cylinders and that the axis of the prismatic joint is represented by the
 red box on the lower right side.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/Fourbar1b.png\" width=\"205\" height=\"107\">
-</p>
+
 <p>
 Whenever loop structures occur, non-linear algebraic
 equations are present on \"position level\". It is then usually not possible by
@@ -306,18 +307,18 @@ shown that has a simple combustion model. It is available as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.EngineV6\">
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_1.png\">
-</p>
+
 <p>
 The Modelica schematic of one cylinder
 is given in the figure below. Connecting 6 instances of this
 cylinder appropriately together results in the engine schematic displayed
 above.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_2.png\">
-</p>
+
 <p>
 In the next figure the animation of the engine is
 shown. Every cylinder consists essentially of 1 prismatic and 2 revolute
@@ -326,9 +327,9 @@ parallel to each other and the axis of the prismatic joint is orthogonal to
 the revolute joint axes. All 6 cylinders together form a coupled set of 6
 loops that have together 1 degree of freedom.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
-</p>
+
 <p>
 All planar loops, and especially the engine, result in
 a DAE (= Differential-Algebraic Equation system)
@@ -433,9 +434,9 @@ as one object that either have <b>6</b> degrees of freedom or
 As an example, a variant of the four bar mechanism is given in
 the figure below.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/FourbarAnalytic1.png\">
-</p>
+
 <p>
 Here, the mechanism is modeled with one revolute
 joint, two spherical joints and one prismatic joint.
@@ -445,9 +446,9 @@ called \"jointSSP\" from
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSP\">
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/FourbarAnalytic2.png\">
-</p>
+
 <p>
 The JointSSP joint aggregation has a frame at the
 left side of the left spherical joint (frame_a) and a frame at the right side
@@ -557,9 +558,121 @@ and inertia of the rod is not significant.
 Let us discuss item (a) in more detail: The
 MacPherson suspension in the next figure
 is from the Modelica VehicleDynamics library.
-<p align=\"center\">
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/MacPherson1.png\">
+
+<p>
+The JointSSP joint aggregation has a frame at the
+left side of the left spherical joint (frame_a) and a frame at the right side
+of the prismatic joint (frame_b). JointSSP, as all other objects from the
+Joints.Assemblies package, has the property, that the <b>generalized
+coordinates, and all other frames
+defined in the assembly, can be calculated given the movement of frame_a and
+of frame_b</b>. This is performed by <b>analytically</b> solving non-linear
+systems of equations (details are given in section xxx). From a
+structural point of view, the equations in an assembly object are written in
+the form
 </p>
+<p align=\"center\">
+  <b>q</b> = <b>
+  f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
+  <b>R</b><sup>b</sup>)
+</p>
+<p>
+where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
+r</b><sup>b</sup>, <b>R</b><sup>b</sup><b> </b>are the variables defining the
+position and orientation of the frame_a and frame_b connector,
+<b>q</b> are the generalized positional coordinates inside the
+assembly, e.g., the angle of a revolute joint. Given angle
+<span style=\"font-family:Symbol\">j</span> of revolute joint j1 from the four
+bar mechanism, frame_a and frame_b of the assembly object can be computed by a
+forward recursion
+</p>
+<p align=\"center\">
+(<b>r</b><sup>a</sup>,
+<b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
+</p>
+<p>
+Since this is a structural property, the
+symbolic algorithms can automatically select <span style=\"font-family:Symbol\">
+j</span> and its derivative as states and then all positional variables can be
+computed in a forwards sequence. It is now understandable that a Modelica
+translator, such as Dymola, can
+transform the equations of the four bar mechanism to a recursive sequence of
+statements that has no non-linear algebraic loops anymore(remember,
+the previous \"straightforward\" solution with 6 revolute joints and 1
+prismatic joint has a nonlinear system of equations of order 5).
+</p>
+<p>
+The aggregated joint
+objects consist of a combination of either a revolute or prismatic joint and
+of a rod that has either two spherical joints at its two ends or a spherical
+and a universal joint, respectively. For all combinations, analytic solutions
+can be determined. For planar loops, combinations of 1, 2 or 3 revolute joints
+with parallel axes and of 2 or 1 prismatic joint with axes that are orthogonal
+to the revolute joints can be treated analytically. The currently supported
+combinations are listed in the table below.
+The missing combinations (such as JointSUP
+or Joint RPP) will be added in one of the next releases.
+</p>
+<div align=\"center\">
+    <table border=\"1\" cellspacing=\"0\" cellpadding=\"0\">
+      <tr>
+        <td colspan=\"2\"> <b>3-dimensional Loops:</b></td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointSSR</td>
+        <td valign=\"top\">Spherical - Spherical - Revolute</td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointSSP</td>
+        <td valign=\"top\">Spherical - Spherical - Prismatic</td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointUSR</td>
+        <td valign=\"top\">Universal - Spherical - Revolute</td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointUSP</td>
+        <td valign=\"top\">Universal - Spherical - Prismatic</td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointUPS</td>
+        <td valign=\"top\">Universal - Prismatic - Spherical</td>
+      </tr>
+      <tr>
+        <td colspan=\"2\"><b>Planar Loops:</b></td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointRRR</td>
+        <td valign=\"top\">Revolute - Revolute - Revolute</td>
+      </tr>
+      <tr>
+        <td valign=\"top\">JointRRP</td>
+        <td valign=\"top\">Revolute - Revolute - Prismatic</td>
+      </tr>
+</table>
+</div>
+<p>
+On first view this seems to be quite restrictive. However, mechanical devices are usually built up with rods connected by spherical joints on each end,
+and additionally with revolute and prismatic joints.
+Therefore, the combinations of the above table occur frequently.
+The universal joint is usually not present in actual devices but is used
+(a) if two JointXXX components can be connected such that a revolute
+and a universal joint together form a spherical joint
+and (b) if the orientation of the connecting rod between two
+spherical joints is needed, e.g., since a body shall be attached.
+In this case one of the spherical joints might be replaced by a
+universal joint. This approximation is fine as long as the mass
+and inertia of the rod is not significant.
+</p>
+<p>
+Let us discuss item (a) in more detail: The
+MacPherson suspension in the next figure
+is from the Modelica VehicleDynamics library.
+</p>
+
+<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/MacPherson1.png\">
+
+<p>
 It has three frame
 connectors. The lower left one (frame_C) is fixed in the vehicle chassis. The
 upper left one (frame_S) is driven by the steering mechanism, i.e., the
@@ -594,21 +707,19 @@ Another example is the model of the V6 engine,
 see next figure for an animation view and the original definition
 of one cylinder with elementary joints.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
-</p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_2.png\">
-</p>
 
 <p>
 It is sufficient to rewrite the basic cylinder model
 by replacing the joints with a JointRRP object that has two
 revolute and one prismatic joint, see next figure.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_4.png\">
-</p>
+
 <p>
 Since 6
 cylinders are connected together, 6 coupled loops with 6 JointRRP objects are
@@ -620,9 +731,9 @@ MultiBody.Examples.Loops.EngineV6_analytic</a>.
 The composition diagram of the connected 6 cylinders is
 shown in the next figure
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_1.png\">
-</p>
+
 <p>
 It can be seen that the revolute joint
 of the crank shaft (joint \"bearing\" in left part of figure) might be
@@ -685,9 +796,7 @@ For an example, see model
 <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings\">ThreeSprings</a>:
 </p>
 
-<blockquote><p>
 <img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ThreeSprings.png\">
-</p></blockquote>
 
 <p>
 Here, three springs are connected together at one point, without having a body
@@ -711,9 +820,7 @@ frame in the line force icon is marked with a red circle and with the text \"R=0
 This is shown in the next figure, where this option is selected for spring3.frame_b:
 </p>
 
-<blockquote><p>
 <img src=\"modelica://Modelica/Resources/Images/MultiBody/UsersGuide/ThreeSpringsDiagramLayer.png\">
-</p></blockquote>
 
 <p>
 Note, if this flag is not set to <b>true</b>, a translation error will occur.
@@ -733,9 +840,7 @@ on the orientation object that was arbitrarily set in parallel to the world fram
 A typical example is shown in the next figure:
 </p>
 
-<blockquote><p>
 <img src=\"modelica://Modelica/Resources/Images/MultiBody/UsersGuide/ThreeSprings2DiagramLayer.png\">
-</p></blockquote>
 
 <p>
 Here, spring3.frame_b.R is defined to be in parallel to the world frame.
@@ -1473,9 +1578,9 @@ Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 Typical animations generated with this library are shown
 in the next figure:
 </p>
-<p>
+
 <img src=\"modelica://Modelica/Resources/Images/MultiBody/MultiBody.png\">
-</p>
+
 <p>
 For an introduction, have especially a look at:
 </p>

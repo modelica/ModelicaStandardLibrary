@@ -1408,7 +1408,7 @@ Define specialized class <i>function</i>
   y = <b>if abs</b>(x) &lt; Modelica.Constants.eps <b>then</b> 1 <b>else</b> Modelica.Math.sin(x)/x;
 <b>end</b> si;</pre>
 
-<p align=\"center\"><img src=\"modelica://ModelicaReference/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
+<img src=\"modelica://ModelicaReference/Images/function.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 
 <h4><font color=\"#008000\">Syntax</font></h4>
 
@@ -2468,9 +2468,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The acos function can also be accessed as Modelica.Math.acos.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/acos.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>acos</b>(0)
@@ -2495,9 +2493,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The asin function can also be accessed as Modelica.Math.asin.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/asin.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>asin</b>(0)
@@ -2582,9 +2578,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The atan function can also be accessed as Modelica.Math.atan.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/atan.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>atan</b>(1)
@@ -2614,9 +2608,7 @@ Arguments u1 and u2 need to be Integer or Real expressions.
 The atan2 function can also be accessed as Modelica.Math.atan2.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/atan2.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>atan2</b>(1,0)
@@ -2708,7 +2700,8 @@ The same restrictions as for the pre() operator apply.</P>
     i = <b>pre</b>(i) + 1;
   <b>end when</b>;
 <b>end</b> BothEdges;</pre>
-<p align=\"center\"><img src=\"modelica://ModelicaReference/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
+
+<img src=\"modelica://ModelicaReference/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end Change;
 
@@ -2728,9 +2721,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The cosine function can also be accessed as Modelica.Math.cos.
 </p>
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/cos.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>cos</b>(3.14159265358979)
@@ -2754,9 +2745,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The cosh function can also be accessed as Modelica.Math.cosh.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/cosh.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>cosh</b>(1)
@@ -2826,7 +2815,8 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
   der</b>(x) = 2;
   y = <b>delay</b>(x, 1);
 <b>end</b> Delay;</pre>
-<p align=\"center\"><img src=\"modelica://ModelicaReference/Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
+
+<img src=\"modelica://ModelicaReference/Images/delay.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end Delay;
 
@@ -2959,7 +2949,8 @@ classes).</P>
     i = <b>pre</b>(i) + 1;
   <b>end when</b>;
 <b>end</b> RisingEdge;</pre>
-<p align=\"center\"><img src=\"modelica://ModelicaReference/Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
+
+<img src=\"modelica://ModelicaReference/Images/edge.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end Edge;
 
@@ -2979,9 +2970,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The exponential function can also be accessed as Modelica.Math.exp.
 </p>
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/exp.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>exp</b>(1)
@@ -3381,9 +3370,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The natural logarithm can also be accessed as Modelica.Math.log.
 </p>
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/log.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>log</b>(1)
@@ -3407,9 +3394,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The base 10 logarithm can also be accessed as Modelica.Math.log10.
 </p>
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/log10.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>log10</b>(1)
@@ -3674,7 +3659,8 @@ model equations.]</I></p>
   u = Modelica.Math.sin(<b>time</b>);
   y = u &gt; 0.5 or <b>pre</b>(y) and u &gt;= -0.5;
 <b>end</b> Hysteresis;</pre>
-<p align=\"center\"><img src=\"modelica://ModelicaReference/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
+
+<img src=\"modelica://ModelicaReference/Images/pre.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end Pre;
 
@@ -3804,7 +3790,8 @@ expressions and need to be a subtype of Real or Integer.
     i = <b>pre</b>(i) + 1;
   <b>end when</b>;
 <b>end</b> Sampling;</pre>
-<p align=\"center\"><img src=\"modelica://ModelicaReference/Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\"></p>
+
+<img src=\"modelica://ModelicaReference/Images/sample.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end Sample;
 
@@ -3957,9 +3944,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The sine function can also be accessed as Modelica.Math.sin.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/sin.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sin</b>(3.14159265358979)
@@ -3983,9 +3968,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The sinh function can also be accessed as Modelica.Math.sinh.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/sinh.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>sinh</b>(1)
@@ -4265,9 +4248,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The tangent function can also be accessed as Modelica.Math.tan.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/tan.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>tan</b>(3.14159265358979)
@@ -4292,9 +4273,7 @@ Argument u needs to be an Integer or Real expression.</p>
 The tanh function can also be accessed as Modelica.Math.tanh.
 </p
 
-<p>
 <img src=\"modelica://ModelicaReference/Images/tanh.png\">
-</p>
 
 <h4><font color=\"#008000\">Examples</font></h4>
 <pre><b>tanh</b>(1)

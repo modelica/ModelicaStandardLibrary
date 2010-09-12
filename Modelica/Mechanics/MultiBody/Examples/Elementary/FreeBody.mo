@@ -82,9 +82,8 @@ This example demonstrates:
     can be defined with the \"Initialization\" menu as shown with the
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/FreeBody.png\"
 ALT=\"model Examples.Elementary.FreeBody\">
-</p>
 </html>"));
 end FreeBody;

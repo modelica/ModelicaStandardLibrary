@@ -5795,11 +5795,12 @@ Common.mo. There are a few extensions from the version of IF97 as
 documented in <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> in order to improve performance for
 dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
+</p>
 <hr size=3 width=\"70%\">
 <p><a name=\"regions\"><h4>1. Structure and Regions of IAPWS-IF97</h4></a>
 <P>The IAPWS Industrial Formulation 1997 consists of
 a set of equations for different regions which cover the following range
-of validity:
+of validity:</p>
 <table border=0 cellpadding=4 align=center>
 <tr>
 <td valign=\"top\">273,15 K &lt; <I>T</I> &lt; 1073,15 K</td>
@@ -5809,7 +5810,8 @@ of validity:
 <td valign=\"top\">1073,15 K &lt; <I>T</I> &lt; 2273,15 K</td>
 <td valign=\"top\"><I>p</I> &lt; 10 MPa</td>
 </tr>
-</table><br>
+</table>
+<p>
 Figure 1 shows the 5 regions into which the entire range of validity of
 IAPWS-IF97 is divided. The boundaries of the regions can be directly taken
 from Fig. 1 except for the boundary between regions 2 and 3; this boundary,
@@ -5825,9 +5827,17 @@ equation <nobr><I>p</I><FONT SIZE=-1><sub>s</sub></FONT>(<I>T</I>)</nobr>. The h
 region 5 is also covered by a <nobr><I>g</I>(<I> p</I>,<I>T </I>)</nobr> equation. These
 5 equations, shown in rectangular boxes in Fig. 1, form the so-called <I>basic
 equations</I>.
-      <p>
-      <img src=\"modelica://Modelica/Resources/Images/Media/Water/if97.png\" alt=\"Regions and equations of IAPWS-IF97\"></p>
-      <p align=center>Figure 1: Regions and equations of IAPWS-IF97</p>
+</p>
+
+<table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
+  <caption align=\"bottom\">Figure 1: Regions and equations of IAPWS-IF97</caption>
+  <tr>
+    <td>
+    <img src=\"modelica://Modelica/Resources/Images/Media/Water/if97.png\" alt=\"Regions and equations of IAPWS-IF97\">
+    </td>
+  </tr>
+</table>
+
 <P>In addition to these basic equations, so-called <I>backward
 equations</I> are provided for regions 1, 2, and 4 in form of
 <nobr><I>T </I>(<I> p</I>,<I>h </I>)</nobr> and <nobr><I>T </I>(<I>

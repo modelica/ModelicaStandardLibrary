@@ -417,9 +417,8 @@ In the following figure the animation of an AbsoluteSensor
 component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
-</p>
 
 <p>
 Velocity, acceleration, angular velocity and angular acceleration are
@@ -921,9 +920,9 @@ component is shown. The light blue coordinate system is
 frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
-</p>
+
 <p>
 Note, derivatives
 of relative kinematic quantities are always performed with
@@ -2059,9 +2058,9 @@ sensor is shown. The light blue coordinate system is
 frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/Distance.png\">
-</p>
+
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
 it is approximated such that its derivative is
@@ -2202,9 +2201,8 @@ sensor is shown. The dark blue coordinate system is frame_b,
 and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForce.png\">
-</p>
 </HTML>"));
   end CutForce;
 
@@ -2330,9 +2328,8 @@ sensor is shown. The dark blue coordinate system is frame_b,
 and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutTorque.png\">
-</p>
 </HTML>"));
   end CutTorque;
 
@@ -2514,9 +2511,8 @@ and the green arrows are the cut force and the cut torque,
 respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForceAndTorque.png\">
-</p>
 </HTML>"));
   end CutForceAndTorque;
 

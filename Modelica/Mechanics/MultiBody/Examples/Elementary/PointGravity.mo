@@ -47,9 +47,8 @@ these bodies are selected such that one body rotates on a circle and
 the other body rotates on an ellipse around the center of the
 point gravity field.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/PointGravity.png\"
 ALT=\"model Examples.Elementary.PointGravity\">
-</p>
 </HTML>"));
 end PointGravity;

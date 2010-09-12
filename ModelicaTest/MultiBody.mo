@@ -159,10 +159,10 @@ to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
 object to <b>false</b> to switch off animation of all components.
 </p>
 
-<p align=\"center\">
+
 <IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/DoublePendulum.png\"
 ALT=\"model Examples.Elementary.DoublePendulum\">
-</p>
+
 
 </HTML>"),
       uses);
@@ -268,9 +268,9 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
 <p>
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ModelicaTest/Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
-</p>
+
 <p>
 In this case
 the three revolute joints on the left top-side and the two revolute
@@ -1972,10 +1972,10 @@ joint to build up a force element with masses and inertias (note, Modelica.Mecha
 is a default line force element with a point mass to approximate the mass properties of the
 component):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/ForceWithMasses.png\"
 ALT=\"model Examples.Elementary.ForceWithMasses\">
-</p>
+
 <p>
 A JointUPS consists of
 a universal, prismatic and spherical joint aggregation that approximates

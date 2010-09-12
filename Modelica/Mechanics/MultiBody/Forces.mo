@@ -154,15 +154,15 @@ then a force of 350 N is displayed as an arrow of length 3.5 m.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldForce1.png\">
-</p>
+
 <p>
 This leads to the following animation
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldForce2.png\">
-</p>
+
 
 </HTML>
 "));
@@ -296,15 +296,15 @@ then a torque of 350 Nm is displayed as an arrow of length 3.5 m.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldTorque1.png\">
-</p>
+
 <p>
 This leads to the following animation
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldTorque2.png\">
-</p>
+
 </HTML>
 "),   Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -557,15 +557,15 @@ then a force of 350 N is displayed as an arrow of length 3.5 m.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldForceAndTorque1.png\">
-</p>
+
 <p>
 This leads to the following animation
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldForceAndTorque2.png\">
-</p>
+
 </HTML>
 "),   Coordsys(
         extent=[-100, -100; 100, 100],
@@ -765,9 +765,9 @@ the force and torque balance between frame_a and frame_b is fulfilled.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/Force1.png\">
-</p>
+
 <p>
 This leads to the following animation (the yellow cylinder
 characterizes the line between frame_a and frame_b of the
@@ -775,9 +775,9 @@ Force component, i.e., the force acts with negative sign
 also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/Force2.png\">
-</p>
+
 </html>
 "));
   end Force;
@@ -966,9 +966,9 @@ as the cut-torque at frame_b (frame_b.t) but with opposite sign.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/Torque1.png\">
-</p>
+
 <p>
 This leads to the following animation (the yellow cylinder
 characterizes the line between frame_a and frame_b of the
@@ -976,9 +976,9 @@ Torque component, i.e., the torque acts with negative sign
 also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/Torque2.png\">
-</p>
+
 </HTML>
 "));
   end Torque;
@@ -1243,9 +1243,9 @@ the force and torque balance between frame_a and frame_b is fulfilled.
 An example how to use this model is given in the
 following figure:
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/ForceAndTorque1.png\">
-</p>
+
 <p>
 This leads to the following animation (the yellow cylinder
 characterizes the line between frame_a and frame_b of the
@@ -1254,9 +1254,9 @@ negative sign
 also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/ForceAndTorque2.png\">
-</p>
+
 </HTML>
 "));
   end ForceAndTorque;
@@ -2083,7 +2083,9 @@ MultiBody.Joints.Assemblies.JointUPS</a> component.
 The composition diagram of this example
 is displayed in the figure below.
 </p>
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses1.png\">
+
 <p>
 The animation view at time = 0 is shown in the next figure.
 The system on the left side in the front is the animation with
@@ -2092,7 +2094,9 @@ side in the back is the animation with the JointUPS component.
 Both implementations yield the same result. However, the implementation
 with the LineForceWithTwoMasses component is simpler.
 </p>
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/LineForceWithTwoMasses2.png\">
+
 <p>
 In the translational library there is the implicit assumption that
 forces of components that have only one flange connector act with
@@ -2242,10 +2246,10 @@ In the following figure a typical animation of the
 spring is shown. The blue sphere in the middle of the
 spring characterizes the location of the point mass.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringWithMass.png\"
 ALT=\"model Examples.Elementary.SpringWithMass\">
-</p>
+
 </HTML>"));
   end Spring;
 
@@ -2323,9 +2327,9 @@ and der(s) is the time derivative of \"s\".
 In the following figure a typical animation is shown
 where a mass is hanging on a damper.
 </p>
-<p align=\"center\">
+
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/Damper.png\">
-</p>
+
 </HTML>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
