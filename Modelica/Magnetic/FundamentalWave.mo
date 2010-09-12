@@ -42,7 +42,7 @@ In the fundamental wave theory only a pure sinusoidal distribution of magnetic q
 </table>
 
 <p>
-The waveforms of the magnetic field quantities, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, can be represented by complex phasor, e.g., <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/V_m.png\"> according to:
+The waveforms of the magnetic field quantities, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, can be represented by complex phasor, e.g., <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\"> according to:
 </p>
 
 <p>
@@ -161,7 +161,7 @@ Translational.Interfaces</a></li>
 <li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model</li>
   <ul>
       <li>Added zero sequence inductance based on
-          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</li>
+          <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</a></li>
       <li>Replaced electrical model of stray
           <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.Inductor\">inductor</a> by stray
           <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">reluctance</a> model</li>
@@ -169,11 +169,7 @@ Translational.Interfaces</a></li>
           and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
   </ul>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
-  <li>Renamed heat ports of
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
-      single phase winding</a> and
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">
-      symmetric multi phase winding</a>
+  <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a>
      </li>
   <li>Relocated core losses between zero inductor and stray reluctance model in the magntic domain</li>
   <li>Renamed instances of stator and rotor (winding) models in each machines</li>
@@ -184,11 +180,8 @@ Translational.Interfaces</a></li>
   <li>Added machine specific output records to summarize power and loss balance</li>
   <li>Updated images of Users Guide</li>
   <li>Improved performance due to <code>annotation(Evaluate=true)</code> added to the parameters of the
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">
-      single phase winding</a>
-  <li>Reduced number of states in
-      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
-      symmetric cage</a> model by introducing an additional non-grounded star connection</li>
+      <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a>
+  <li>Reduced number of states in <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">symmetric cage</a> model by introducing an additional non-grounded star connection</li>
 </ul>
 
 <h5>Version 1.6.0, 2010-05-05</h5>
@@ -202,15 +195,11 @@ Translational.Interfaces</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation\">symmetricOrientation</a></li>
 </ul>
 <li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
-<li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">
-    HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
-    <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">
-    Analog.Interfaces.ConditionalHeatPort</a> in
-    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">
-    EddyCurrent</a> </li>
+<li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
+    <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">Analog.Interfaces.ConditionalHeatPort</a> in
+    <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a> </li>
 <li>Added <code>modelica://</code> to all Modelica hyper links</li>
-<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">
-    EddyCurrent</a> </li>
+<li>Fixed bug in displayed parameters of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">EddyCurrent</a> </li>
 <li>Updated some images (and renamed image file <code>LossPower.png</code> to <code>lossPower.png</code>)</li>
 <li>Exchanged positive and negative stator ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 model, adapted equations accordingly and updated code documentation.</li>
@@ -1728,7 +1717,7 @@ Grounding of the complex magnetic potential. Each magnetic circuit has to be gro
                                                        Documentation(info="<html>
 <p>
 The salient reluctance models the relationship between the complex magnetic potential difference
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Phi.png\">,
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\"> and the complex magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">,
 </p>
 
 <p>
@@ -1821,13 +1810,13 @@ and the magnetic flux and magnetic potential difference phasor is
 </p>
 
 <p>
-&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/vPhi\">,<br>
+&nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/vPhi.png\">,<br>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Components/iV_m.png\">,
 </p>
 
 <p>
-where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k\">
-and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k\">
+where <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/v_k.png\">
+and <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">
 are the phase voltages and currents, respectively.
 </p>
 
@@ -1954,7 +1943,7 @@ relationship of the voltage and current space phasor.
               textString="%name")}),
       Documentation(info="<html>
 <p>
-The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i.png\">.
+The single phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\"> and a respective orientation of the winding, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation.png\">. The current in winding is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i.png\">.
 </p>
 
 <p>
@@ -2080,7 +2069,7 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
         Documentation(info="<html>
 
 <p>
-Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/i_k.png\">.
+Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
 </p>
 
 <p>
@@ -2443,8 +2432,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">
-   SynchronousInductionMachines</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines\">SynchronousInductionMachines</a>
 </p>
 </html>"));
     end AsynchronousInductionMachines;
@@ -2610,10 +2598,8 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
-   SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
-   SM_ReluctanceRotor</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
 </html>"),Diagram(graphics));
       end SM_PermanentMagnet;
@@ -2833,10 +2819,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
-   SM_PermanentMagnet</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">
-   SM_ReluctanceRotor</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
 </html>"),Diagram(graphics));
       end SM_ElectricalExcited;
@@ -2963,10 +2947,8 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">
-   SM_ElectricalExcited</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">
-   SM_PermanentMagnet</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 </p>
 </html>"),Diagram(graphics));
       end SM_ReluctanceRotor;
@@ -2976,8 +2958,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <h4>See also</h4>
 
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines\">
-   AsynchronousInductionMachines</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines\">AsynchronousInductionMachines</a>
 </p>
 </html>"));
     end SynchronousInductionMachines;
@@ -3111,10 +3092,8 @@ The single phase winding consists of a
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
-   SymmetricMultiPhaseCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">
-   SaliencyCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"),Diagram(graphics));
@@ -3297,10 +3276,8 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
-   SymmetricMultiPhaseCageWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">
-   SaliencyCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"),Diagram(graphics));
@@ -3483,10 +3460,8 @@ according to the following figure.
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
-   SymmetricMultiPhaseCageWinding</a>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">
-   SaliencyCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 </p>
 
 </html>"));
@@ -3652,7 +3627,7 @@ according to the following figure.
 </p>
 <p>
 The symmetric rotor cage model of this library does not consist of rotor bars and end rings. Instead the symmetric cage is modeled by an equivalent symmetrical winding. The rotor cage model consists of
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns, <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/effectiveTurns.png\">, has to be chosen equivalent to the effective number of stator turns.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. If the cage is modeled by equivalent stator winding parameters, the number of effective turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns.png\">, has to be chosen equivalent to the effective number of stator turns.
 </p>
 
 <h4>See also</h4>
@@ -3825,8 +3800,7 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>,
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">
-   SymmetricMultiPhaseCageWinding</a>
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
 </html>"),Diagram(graphics));
@@ -3867,7 +3841,7 @@ This package contains components for
       annotation (Documentation(info="<html>
 <p>
 This function determines the orientation of the symmetrical winding with <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phases. For an odd number of phases the difference of the windings angles of two adjacent phases is
-<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/pi_over_2m.png\">.
+<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/2pi_over_m.png\">. In case of an even number of phases the aligned orientation of winding is not modeled since they do not add any information. Instead the <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> windings are divided into two different groups. The first group refers to the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_le_m_over_2.png\">. The second group covers the indices <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k_gt_m_over_2.png\">. The difference of the windings angles of two adjacent phases - of both the first and the second group, respectively - is <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/4pi_over_m.png\">. The phase shift of the two groups <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/pi_over_2m.png\">.
 </p>
 </html>"));
       end symmetricOrientation;
@@ -3934,8 +3908,7 @@ Source of constant magneto motive force.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">
-   SignalMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalMagneticPotentialDifference\">SignalMagneticPotentialDifference</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
@@ -3990,8 +3963,7 @@ Source of magneto motive force with complex signal input.
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">
-   ConstantMagneticPotentialDifference</a>,
+<a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantMagneticPotentialDifference\">ConstantMagneticPotentialDifference</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.ConstantFlux\">ConstantFlux</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Sources.SignalFlux\">SignalFlux</a>
 </p>
@@ -4316,7 +4288,7 @@ This package provides sensors for the magnetic potential difference and the magn
 
     annotation (Documentation(info="<html>
 <p>
-The potential quantity of the magnetic port is the complex magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\">. The corresponding flow quantity is the magnetic flux <img src=\"modelica://Modelica/Images/Magnetic/FundamentalWave/Phi.png\">.
+The potential quantity of the magnetic port is the complex magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m.png\">. The corresponding flow quantity is the magnetic flux <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/Phi.png\">.
 </p>
 
 <h4>See also</h4>
