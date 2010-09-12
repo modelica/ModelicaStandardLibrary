@@ -712,40 +712,53 @@ equation
           extent={{-100,-100},{100,100}}),
                                     graphics),
 Documentation(info="<html>
-<p><br/><br/><br/><br/>The model <i>M_Transformer </i>is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p><p><br/><br/><br/><br/>An example shows that approach:</p><p><br/><br/><br/><br/>The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N </b></i>has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L </i>. The length <i>dimL </i>of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2 </b></i></p><p><br/><br/><br/><br/>The following example shows how the parameter vector is used to fill in the inductance matrix. For example: To specify the inductance matrix of a three inductances transformer (<i> N=3 </i>), e.g.</p>
-<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td></td>
-<td></td>
-<td><p><br/><br/>1</p></td>
-<td><p>0.1</p></td>
-<td><p>0.2</p></td>
-</tr>
-<tr>
-<td><p>Lm</p></td>
-<td><p>=</p></td>
-<td><p>0.1</p></td>
-<td><p>2</p></td>
-<td><p>0.3</p></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td><p><br/><br/>0.2</p></td>
-<td><p>0.3</p></td>
-<td><p>3</p></td>
-</tr>
-</table>
-<p><br/><br/>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p><p><br/><br/>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
+<p>The model <i>M_Transformer</i> is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
+
+<p>An example shows that approach:<br/>
+The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N</b></i> has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L</i>. The length <i>dimL</i> of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2</b></i></p>
+
+<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<i>N=3</i>):</p>
+<p>
+<img
+ src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png\"
+ alt=\"L_m\">
+</p>
+
+<p>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p>
+<p>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
 </html>",
-        revisions="
+revisions="
 <html>
-<ul>
-<li><i> November 24, 2008   </i> docu added, K. Majetta
-       </li>
-<li><i> September 16, 2008   </i>
-       by Kristin Majetta<br> initially implemented<br>
-       </li>
-</ul>
+<table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
+    <tr>
+      <th>Version</th>
+      <th>Revision</th>
+      <th>Date</th>
+      <th>Author</th>
+      <th>Comment</th>
+    </tr>
+   <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">4163</td>
+      <td valign=\"top\">2010-09-11</td>
+      <td valign=\"top\">Dietmar Winkler</td>
+      <td valign=\"top\">Documentation corrected according to documentation guidelines.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2008-11-24</td>
+      <td valign=\"top\">Kristin Majetta</td>
+      <td valign=\"top\">Documentation added.</td>
+    </tr>
+    <tr>
+      <td valign=\"top\"></td>
+      <td valign=\"top\"></td>
+      <td valign=\"top\">2008-11-16</td>
+      <td valign=\"top\">Kristin Majetta</td>
+      <td valign=\"top\">Initially implemented</td>
+    </tr>
+</table>
 </html>
 "));
 end M_Transformer;
