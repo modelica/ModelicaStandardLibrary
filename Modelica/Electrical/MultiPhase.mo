@@ -2699,9 +2699,9 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
 This package contains time-dependend and controlled multiphase voltage and current sources:
 <ul>
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
-<li>SineVoltage : phase shift between consecutive voltages by default <tt>= pi/m</tt></li>
+<li>SineVoltage : phase shift between consecutive voltages by default <code>= pi/m</code></li>
 <li>SignalCurrent: fed by Modelica.Blocks.Sources arbitrary waveforms of currents are possible</li>
-<li>SineCurrent : phase shift between consecutive currents by default <tt>= pi/m</tt></li>
+<li>SineCurrent : phase shift between consecutive currents by default <code>= pi/m</code></li>
 </ul>
 </p>
 
@@ -2977,7 +2977,7 @@ This package is intended to be used the same way as Modelica.Electrical.Analog
 but to make design of multiphase models easier.<br>
 The package is based on the plug: a composite connector containing m pins.<br>
 It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
-Potentials may be accessed as <tt>plug.pin[].v</tt>, currents may be accessed as <tt>plug.pin[].i</tt>.
+Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <tt>plug.pin[].i</tt>.
 </p>
 <p>
 Further development:

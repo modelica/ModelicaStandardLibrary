@@ -484,7 +484,7 @@ The design flow direction with positive m_flow variables is counterflow.
        Model added to the Fluid library</li>
 </ul>
 </html>",     info="<html>
-Simple model of circular (or any other closed shape) wall to be used for pipe (or duct) models. Heat conduction is regarded one dimensional, capacitance is lumped at the arithmetic mean temperature. The spatial discretization (parameter <tt>n</tt>) is meant to correspond to a connected fluid model discretization.
+Simple model of circular (or any other closed shape) wall to be used for pipe (or duct) models. Heat conduction is regarded one dimensional, capacitance is lumped at the arithmetic mean temperature. The spatial discretization (parameter <code>n</code>) is meant to correspond to a connected fluid model discretization.
 </html>"));
     end WallConstProps;
   end BaseClasses;

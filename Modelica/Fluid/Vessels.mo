@@ -40,7 +40,7 @@ Ideal heat transfer is assumed per default; the thermal port temperature is equa
 </p>
 <p>
 If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
-The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on
+The hydraulic resistances <code>portsData.zeta_in</code> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on
 the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 </html>"),
@@ -142,7 +142,7 @@ initial equation
       Documentation(info="<HTML>
 <p>
 Model of a tank that is open to the ambient at the fixed pressure
-<tt>p_ambient</tt>.
+<code>p_ambient</code>.
 </p>
 <p>
 The vector of connectors <b>ports</b> represents fluid ports at configurable heights, relative to the bottom of tank.
@@ -156,11 +156,11 @@ The following assumptions are made:
 </ul>
 <p>
 The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
-The hydraulic resistances <tt>portsData.zeta_in</tt> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on
+The hydraulic resistances <code>portsData.zeta_in</code> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on
 the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 <p>
-With the setting <tt>use_portsData=false</tt>, the port pressure represents the static head
+With the setting <code>use_portsData=false</code>, the port pressure represents the static head
 at the height of the respective port.
 The relationship between pressure drop and mass flow rate at the port must then be provided by connected components;
 Heights of ports as well as kinetic and potential energy of fluid enering or leaving are not taken into account anymore.
@@ -420,38 +420,38 @@ The following modeling assumption are made:
 <li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
 <li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
 <li>outflow of ambient media is prevented at each port assuming check valve behavior.
-    If <tt> fluidlevel &lt; portsData_height[i] </tt>and &nbsp; <tt> ports[i].p &lt; vessel_ps_static[i]</tt> massflow at the port is set to 0.</li>
+    If <code> fluidlevel &lt; portsData_height[i] </code>and &nbsp; <tt> ports[i].p &lt; vessel_ps_static[i]</tt> massflow at the port is set to 0.</li>
 </ul>
 </p>
-Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the &nbsp;<b><tt>portsData</tt></b> record.
-Alternatively the impact of port geometries can be neglected with <tt>use_portsData=false</tt>. This might be useful for early
+Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the &nbsp;<b><code>portsData</code></b> record.
+Alternatively the impact of port geometries can be neglected with <code>use_portsData=false</code>. This might be useful for early
 design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel.
 Pressure drops and heights of the ports as well as kinetic and potential energy fluid entering or leaving the vessel are neglected then.
 <p>
 The following variables need to be defined by an extending model:
 <ul>
-<li><tt>input fluidVolume</tt>, the volume of the fluid in the vessel,</li>
-<li><tt>vessel_ps_static[nPorts]</tt>, the static pressures inside the vessel at the height of the corresponding ports, at zero flow velocity, and</li>
-<li><tt>Wb_flow</tt>, work term of the energy balance, e.g., p*der(V) if the volume is not constant or stirrer power.</li>
+<li><code>input fluidVolume</code>, the volume of the fluid in the vessel,</li>
+<li><code>vessel_ps_static[nPorts]</code>, the static pressures inside the vessel at the height of the corresponding ports, at zero flow velocity, and</li>
+<li><code>Wb_flow</code>, work term of the energy balance, e.g., p*der(V) if the volume is not constant or stirrer power.</li>
 </ul>
 An extending model should define:
 <ul>
-<li><tt>parameter vesselArea</tt> (default: Modelica.Constants.inf m2), the area of the vessel, to be related to cross flow areas of the ports for the consideration of dynamic pressure effects.</li>
+<li><code>parameter vesselArea</code> (default: Modelica.Constants.inf m2), the area of the vessel, to be related to cross flow areas of the ports for the consideration of dynamic pressure effects.</li>
 </ul>
-Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <tt>portsData_height[nPorts]</tt>.
+Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <code>portsData_height[nPorts]</code>.
 This is why an extending model with varying fluid level needs to define:
 <ul>
-<li><tt>input fluidLevel (default: 0m)</tt>, the level the fluid in the vessel, and</li>
-<li><tt>parameter fluidLevel_max (default: 1m)</tt>, the maximum level that must not be exceeded. Ports at or above fluidLevel_max can only receive inflow.</li>
+<li><code>input fluidLevel (default: 0m)</code>, the level the fluid in the vessel, and</li>
+<li><code>parameter fluidLevel_max (default: 1m)</code>, the maximum level that must not be exceeded. Ports at or above fluidLevel_max can only receive inflow.</li>
 </ul>
-An extending model should not access the <tt>portsData</tt> record defined in the configuration dialog,
-as an access to <tt>portsData</tt> may fail for <tt>use_portsData=false</tt> or <tt>nPorts=0</tt>.
+An extending model should not access the <code>portsData</code> record defined in the configuration dialog,
+as an access to <code>portsData</code> may fail for <tt>use_portsData=false</tt> or <tt>nPorts=0</tt>.
 Instead the predefined variables
 <ul>
-<li><tt>portsData_diameter[nPorts]</tt></li>,
-<li><tt>portsData_height[nPorts]</tt></li>,
-<li><tt>portsData_zeta_in[nPorts]</tt></li>, and
-<li><tt>portsData_zeta_out[nPorts]</tt></li>
+<li><code>portsData_diameter[nPorts]</code></li>,
+<li><code>portsData_height[nPorts]</code></li>,
+<li><code>portsData_zeta_in[nPorts]</code></li>, and
+<li><code>portsData_zeta_out[nPorts]</code></li>
 </ul>
 should be used if these values are needed.
 </p>

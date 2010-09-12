@@ -214,10 +214,10 @@ into the respective components, so that the heating system can be regulated with
 the pump controls the pressure, the burner controls the temperature.
 </p>
 <p>
-One can investigate the temperatures and flows for different settings of <tt>system.energyDynamics</tt>
+One can investigate the temperatures and flows for different settings of <code>system.energyDynamics</code>
 (see Assumptions tab of the system object).
-With <tt>system.energyDynamics==Types.Dynamics.SteadyState</tt> all but one dynamic states are eliminated.
-The left state <tt>tank.m</tt> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
+With <code>system.energyDynamics==Types.Dynamics.SteadyState</code> all but one dynamic states are eliminated.
+The left state <code>tank.m</code> is to account for the closed flow cycle. It is constant as outflow and inflow are equal
 in a steady-state simulation.
 </p>
 <p>

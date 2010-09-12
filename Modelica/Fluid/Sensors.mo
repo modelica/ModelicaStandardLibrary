@@ -942,7 +942,7 @@ the two ports of this component and is provided as output signal.
       annotation (Documentation(info="<html>
 <p>
 Partial component to model an <b>absolute sensor</b>. Can be used for pressure sensor models.
-Use for other properties such as temperature or density is discouraged, because the enthalpy at the connector can have different meanings, depending on the connection topology. Use <tt>PartialFlowSensor</tt> instead.
+Use for other properties such as temperature or density is discouraged, because the enthalpy at the connector can have different meanings, depending on the connection topology. Use <code>PartialFlowSensor</code> instead.
 as signal.
 </p>
 </html>"),

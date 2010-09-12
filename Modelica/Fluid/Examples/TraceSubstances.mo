@@ -80,7 +80,7 @@ After 1 hour of ventilation, the volume's carbon dioxide concentration is close 
 concentration of the fresh air.
 </p>
 <p>
-The nominal value for the trace substance is set to <tt>C_nominal={1.519E-3}</tt>.
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
 This scales the residual equations that are used by the solver to the right order
 of magnitude.
 </p>
@@ -249,18 +249,18 @@ This example illustrates a room volume with a CO2 source and a fresh air supply 
 control.
 The CO2 emission rate is proportional to the room occupancy, which is defined by a schedule.
 The fresh air flow rate is controlled such that the room CO2
-concentration does not exceed <tt>1000 PPM (=1.519E-3 kg/kg)</tt>.
-The fresh air has a CO2 concentration of <tt>300 PPM</tt> which corresponds to a typical
+concentration does not exceed <code>1000 PPM (=1.519E-3 kg/kg)</code>.
+The fresh air has a CO2 concentration of <code>300 PPM</code> which corresponds to a typical
 CO2 concentration in the outside air.
 </p>
 
 <p>
 The CO2 emission from the occupants is implemented as a mass flow source.
-Depending on the activity and size, a person emits about <tt>8.18E-6 kg/s</tt> CO2. In the model,
+Depending on the activity and size, a person emits about <code>8.18E-6 kg/s</code> CO2. In the model,
 this value is multiplied by the number of occupants.
 Since the mass flow rate associate with the CO2 source model contributes to the volume's energy balance,
 this mass flow rate should be kept small. Thus, in the source model, we set the
-CO2 concentration to <tt>C={100} kg/kg</tt>, and scaled the mass flow rate using
+CO2 concentration to <code>C={100} kg/kg</code>, and scaled the mass flow rate using
 </p>
 
 <pre>
@@ -268,12 +268,12 @@ CO2 concentration to <tt>C={100} kg/kg</tt>, and scaled the mass flow rate using
 </pre>
 
 <p>
-where <tt>nPeo</tt> is the number of people in the room.
+where <code>nPeo</code> is the number of people in the room.
 This results in a mass flow rate that is about 5 orders of magnitudes smaller than the supply air flow rate,
 and hence its contribution to the volume's energy balance is negligible.
 </p>
 <p>
-The nominal value for the trace substance is set to <tt>C_nominal={1.519E-3}</tt>.
+The nominal value for the trace substance is set to <code>C_nominal={1.519E-3}</code>.
 This scales the residual equations that are used by the solver to the right order
 of magnitude.
 </p>

@@ -1981,8 +1981,8 @@ has the same size as matrix A with nonnegative diagonal elements
 in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
-in vector <tt>sigma</tt> and the orthogonal matrices in
-matrices <tt>U</tt> and <tt>V</tt>.
+in vector <code>sigma</code> and the orthogonal matrices in
+matrices <code>U</code> and <tt>V</tt>.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -3899,7 +3899,7 @@ with dimenstions according to <b>S</b>, the solution <b>X</b> is calculated by
 </pre></blockquote>
 
 <p>
-With optional input <tt>refinement=true</tt> a subsequent iterative refinement based on Newton's method with exact line search is applied.
+With optional input <code>refinement=true</code> a subsequent iterative refinement based on Newton's method with exact line search is applied.
 See <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a>
 for more information.
 </p>
@@ -9744,7 +9744,7 @@ This package contains a direct interface to the LAPACK subroutines
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving continuous algebraic Riccati equations (care). It utilizes Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <tt>i</tt> a Newton step <tt><b>delta</b>_i</tt>
+convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <tt><b>delta</b>_i</tt>
 </p>
 <blockquote><pre>
   <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
@@ -9769,7 +9769,7 @@ maxSteps iteration steps have been performed or the relative change <b>delta</b>
 <p>
 
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach within a few iteration steps. Although a Lyapunov equation
-of order <tt>n</tt> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
+of order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.<br>
 
@@ -9899,7 +9899,7 @@ The algorithm is taken from [1] and [2].
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving discrete-time algebraic Riccati equations. It uses Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <tt>i</tt> a Newton step <tt><b>delta</b>_i</tt>
+convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <tt><b>delta</b>_i</tt>
 </p>
 <blockquote><pre>
   <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
@@ -9919,14 +9919,14 @@ with
 </pre></blockquote>
 <p>
 
-Output <tt>r</tt> is the norm of the residual of the last iteration.<br>
+Output <code>r</code> is the norm of the residual of the last iteration.<br>
 <p>
 The inputs \"maxSteps\" and \"eps\" specify the termination of the iteration. The iteration is terminated if either
 maxSteps iteration steps have been performed or the relative change <b>delta</b>_i/<b>X</b>_i became smaller than eps.
 <p>
 
 With an appropriate initial value <b>X</b>0 a sufficiently accurate solution might be reach with a few iteration steps. Although a Lyapunov equation of
-order <tt>n</tt> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
+order <code>n</code> (n is the order of the Riccati equation) is to be solved at each iteration step, the algorithm might be faster
 than a direct method like <a href=\"modelica://Modelica.Math.Matrices.discreteRiccati\">Matrices.discreteRiccati</a>, since direct methods have to solve the 2*n-order Hamiltonian
 system equation.
 
@@ -10254,7 +10254,7 @@ This step can be skipped if the matrix has already Hessenberg form.
 </p>
 
 <p>
-The function uses the LAPACK-routine dhseqr. Output <tt>info</tt> is 0 for a successful call of this
+The function uses the LAPACK-routine dhseqr. Output <code>info</code> is 0 for a successful call of this
 function.<br>
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.dhseqr</a> for details
 </p>
@@ -10426,7 +10426,7 @@ See also <a href=\"modelica://Modelica.Math.Matrices.realSchur\">Matrices.realSc
 </pre></blockquote>
 <h4>Description</h4>
 <p>
-Function <tt>findLocal_tk()</tt> is an auxiliary function called in iterative solver for algebraic Riccati equation based on Newton's method with
+Function <code>findLocal_tk()</code> is an auxiliary function called in iterative solver for algebraic Riccati equation based on Newton's method with
 exact line search like <a href=\"modelica://Modelica.Math.Matrices.Utilities.continuousRiccatiIterative\">continuousRiccatiIterative</a><br>
 and <a href=\"modelica://Modelica.Math.Matrices.Utilities.discreteRiccatiIterative\">discreteRiccatiIterative</a>.<br>
 The function computes the local minimum of the function f_k(t_k)

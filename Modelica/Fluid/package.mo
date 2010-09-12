@@ -967,7 +967,7 @@ Please note that the design of the connectors has been changed with respect to t
 
 <p>
 The Modelica.Fluid library is designed so that each model of a system must
-include an instance <tt>system</tt> of the <tt>System</tt> component at the top level, in the same way as the <tt>World</tt> model of the MultiBody Library. The System component contains the parameters that
+include an instance <code>system</code> of the <tt>System</tt> component at the top level, in the same way as the <tt>World</tt> model of the MultiBody Library. The System component contains the parameters that
 describe the environment surrounding the components (ambient pressure and
 temperature, gravity acceleration), and also provides default settings
 for many parameters which are used consistently by the models in the library.
@@ -995,7 +995,7 @@ the advanced settings of some components.</i>
 </ul>
 <p>
 Remember to <b>always add a System component</b> at the top level of
-your system model, otherwise you will get errors when compiling the model. The tool will automatically name it <tt>system</tt>, so that it
+your system model, otherwise you will get errors when compiling the model. The tool will automatically name it <code>system</code>, so that it
 is recognised by all other components.
 </p>
 </html>"));
@@ -1013,7 +1013,7 @@ used, provided they extend the interfaces defined in
 Modelica.Media.Interfaces.
 </p>
 <p>
-All the components in Modelica.Fluid use a <i>replaceable</i> medium package, called <tt>Medium</tt>: the model is written for a generic fluid, and a specific fluid model can then be specified when building a system model by redeclaring the package. This can be done in different ways:
+All the components in Modelica.Fluid use a <i>replaceable</i> medium package, called <code>Medium</code>: the model is written for a generic fluid, and a specific fluid model can then be specified when building a system model by redeclaring the package. This can be done in different ways:
 <ul>
 <li>
 If several components use the same medium, it is possible to select

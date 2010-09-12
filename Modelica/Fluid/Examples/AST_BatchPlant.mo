@@ -2070,7 +2070,7 @@ end for;
         Documentation(info="<HTML>
 <p>
 Model of a tank that is open to the environment at the fixed pressure
-<tt>p_ambient</tt>.
+<code>p_ambient</code>.
 The tank is filled with a single or multiple-substance liquid,
 assumed to have uniform temperature and mass fractions.
 </p>

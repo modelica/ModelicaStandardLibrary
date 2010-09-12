@@ -1380,7 +1380,7 @@ temperature rise defined by storing heat in medium's mass.
     annotation (Documentation(info="<HTML>
 Simple controlled valve.<br>
 Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),<br>
-<tt>
+<code>
 <ul>
 <li>either linear : Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</li>
 <li>or exponential: Kv/Kv1 = Kv0/Kv1 * exp[ln(Kv1/Kv0) * y/Y1]</li>
@@ -1391,9 +1391,9 @@ where:
 <li>Y1 .... max. valve opening</li>
 <li>Kv1 ... max. flow @ y = Y1</li>
 </ul>
-</tt>
+</code>
 Flow resistance under real conditions is calculated by<br>
-<tt>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</tt>
+<code>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</code>
 </HTML>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={

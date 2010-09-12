@@ -57,8 +57,8 @@ and placed at the right side of the component in the \"design view\".
 The two connectors are completely <b>identical</b>, with the only
 exception that the graphical layout is a little bit different in order
 to distinguish them for easier access of the connector variables.
-For example, <tt>J1.flange_a.tau</tt> is the cut-torque in the connector
-<tt>flange_a</tt> of component <tt>J1</tt>.
+For example, <code>J1.flange_a.tau</code> is the cut-torque in the connector
+<code>flange_a</code> of component <tt>J1</tt>.
 </p>
 <p>
 The components of this
@@ -92,9 +92,9 @@ Both connector classes contain the following variables:
    <b>flow</b> Modelica.SIunits.Torque tau  \"Cut-torque in the flange\";
 </pre>
 <p>
-If needed, the angular velocity <tt>w</tt> and the
-angular acceleration <tt>a</tt> of a flange connector can be
-determined by differentiation of the flange angle <tt>phi</tt>:
+If needed, the angular velocity <code>w</code> and the
+angular acceleration <code>a</code> of a flange connector can be
+determined by differentiation of the flange angle <code>phi</code>:
 </p>
 <pre>
      w = <b>der</b>(phi);    a = <b>der</b>(w);
@@ -159,7 +159,7 @@ basically connected together along one line (more complicated
 cases are discussed below). First, one has to define
 a <b>positive</b> direction of this line, called <b>axis of rotation</b>.
 In the top part of the figure this is characterized by an arrow
-defined as <tt>axis of rotation</tt>. The simple rule is now:
+defined as <code>axis of rotation</code>. The simple rule is now:
 If a variable of a component is positive and can be interpreted as
 the element of a vector (e.g., torque or angular velocity vector), the
 corresponding vector is directed into the positive direction
@@ -171,10 +171,10 @@ vector direction displayed according to this rule:
 <IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive3.png\" ALT=\"drive3\">
 
 <p>
-The cut-torques <tt>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</tt>
+The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
 of the right inertias are all identical and are directed into the
 direction of rotation if the values are positive. Similiarily,
-the angular velocities <tt>J2.w, J4.w, J6.w</tt> of the right inertias
+the angular velocities <code>J2.w, J4.w, J6.w</code> of the right inertias
 are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
@@ -186,14 +186,14 @@ cases are shown in the next figure:
 In the upper part of the figure, two variants of the connection of an
 external torque and an inertia are shown. In both cases, a positive
 signal input into the torque component accelerates the inertias
-<tt>inertia1, inertia2</tt> into the positive axis of rotation,
-i.e., the angular accelerations <tt>inertia1.a, inertia2.a</tt>
+<code>inertia1, inertia2</code> into the positive axis of rotation,
+i.e., the angular accelerations <code>inertia1.a, inertia2.a</code>
 are positive and are directed along the \"axis of rotation\" arrow.
 In the lower part of the figure the connection of inertias with
 a planetary gear is shown. Note, that the three flanges of the
 planetary gearbox are located along the axis of rotation and that
 the axis direction determines the positive rotation along these
-flanges. As a result, the positive rotation for <tt>inertia4, inertia6</tt>
+flanges. As a result, the positive rotation for <code>inertia4, inertia6</code>
 is as indicated with the additional grey arrows.
 </p>
 </HTML>"));
@@ -294,7 +294,7 @@ for an inertia component and a planetary gearbox:
 <p>
 As can be seen, all vectors are directed into the direction
 of the rotation axis. The angles in the flanges are defined
-correspondingly. For example, the angle <tt>sun.phi</tt> in the
+correspondingly. For example, the angle <code>sun.phi</code> in the
 flange of the sun wheel of the planetary gearbox is positive,
 if rotated in mathematical positive direction (= counter clock
 wise) along the axis of rotation.
@@ -317,12 +317,12 @@ made identical and the (automatically) generated connection equations
 (= angles are identical, cut-torques sum-up to zero) are also
 expressed in this common coordinate system. Therefore, even if in
 the left figure it seems to be that the angular velocity vector of
-<tt>J2</tt> goes from right to left, in reality it goes from
+<code>J2</code> goes from right to left, in reality it goes from
 left to right as shown in the right part of the figure, where the
 local coordinate systems are drawn such that they are aligned.
 Note, that the simple rule stated in section 4 (Sign conventions)
 also determines that
-the angular velocity of <tt>J2</tt> in the left part of the
+the angular velocity of <code>J2</code> in the left part of the
 figure is directed from left to right.
 </p>
 <p>
@@ -1187,8 +1187,8 @@ The gearbox is not connected rigidly to the ground, but by
 a spring-damper-system. This allows examination of the gearbox
 housing dynamics.</p>
 <p>
-Simulate for about 10 seconds and plot the angular velocities of the inertias <tt>housing.w</tt>,
-<tt>shaft.w</tt> and <tt>load.w</tt>.</p>
+Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
+<code>shaft.w</code> and <tt>load.w</tt>.</p>
 </html>
 "));
     end ElasticBearing;

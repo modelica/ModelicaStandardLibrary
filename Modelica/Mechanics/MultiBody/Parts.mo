@@ -1870,14 +1870,14 @@ are forced to be used as states.
 <p>This component is used to acquire support torques from a 1-dim.-rotational
 mechanical system (e.g., components from Modelica.Mechanics.Rotational)
 and to propagate them to a carrier body.</p>
-<p>The 1-dim. support torque at <tt>flange_b</tt> is transformed into 3-dim. space under
-consideration of the rotation axis, parameter <tt>n</tt>, which has to be given in the
-local coordinate system of <tt>frame_a</tt>.</p>
+<p>The 1-dim. support torque at <code>flange_b</code> is transformed into 3-dim. space under
+consideration of the rotation axis, parameter <code>n</code>, which has to be given in the
+local coordinate system of <code>frame_a</code>.</p>
 <p>All components of a 1-dim.-rotational mechanical system that are connected to <b>a</b> common
 <b>Mounting1D</b> element need to have the same axis of rotation
-along parameter vector <tt>n</tt>. This means that, e.g., bevel
-gears where the axis of rotation of <tt>flange_a</tt> and
-<tt>flange_b</tt> are different cannot be described properly by
+along parameter vector <code>n</code>. This means that, e.g., bevel
+gears where the axis of rotation of <code>flange_a</code> and
+<code>flange_b</code> are different cannot be described properly by
 connecting to the <b>Mounting1D</b> component. In this case, a combination of several
 <b>Mounting1D</b> components or the component <b>BevelGear1D</b> should be used.</p>
 <p><b>Reference</b><br>
@@ -2062,16 +2062,16 @@ This component is used to model the gyroscopic torques exerted by a 1-dim.
 inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
 appear, if the vector of the carrier body's angular velocity is not parallel
 to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
-the parameter <tt>n</tt>, which has to be given in the local coordinate system
-of <tt>frame_a</tt>. The default animation of this component is
+the parameter <code>n</code>, which has to be given in the local coordinate system
+of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
       <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
-<p>The Boolean parameter <tt>exact</tt> was introduced due to performance
-reasons. If <tt>exact</tt> is set to <b>false</b>, the influence of the carrier body
+<p>The Boolean parameter <code>exact</code> was introduced due to performance
+reasons. If <code>exact</code> is set to <b>false</b>, the influence of the carrier body
 motion on the angular velocity of the rotor is neglected. This influence is usually
 negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
 e.g., the case in vehicle powertrains). The essential advantage is
@@ -2191,16 +2191,16 @@ November 3-4, 2003, pp. 149-158</p>
 inertia (so called <i>rotor</i>) on its 3-dim. carrier body. Gyroscopic torques
 appear, if the vector of the carrier body's angular velocity is not parallel
 to the vector of the rotor's axis. The axis of rotation of the rotor is defined by
-the parameter <tt>n</tt>, which has to be given in the local coordinate system
-of <tt>frame_a</tt>. The default animation of this component is
+the parameter <code>n</code>, which has to be given in the local coordinate system
+of <code>frame_a</code>. The default animation of this component is
 shown in the figure below.</p>
       <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Parts/Rotor1D.png\" ALT=\"model Parts.Rotor1D\">
 <p>This component is a replacement for
 <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Modelica.Mechanics.Rotational.Components.Inertia</a>
 for the case, that a 1-dim.-rotational mechanical system should be attached with a 3-dim.
 carrier body.</p>
-<p>The Boolean parameter <tt>exact</tt> was introduced due to performance
-reasons. If <tt>exact</tt> is set to <b>false</b>, the influence of the carrier body
+<p>The Boolean parameter <code>exact</code> was introduced due to performance
+reasons. If <code>exact</code> is set to <b>false</b>, the influence of the carrier body
 motion on the angular velocity of the rotor is neglected. This influence is usually
 negligible if the 1-dim.-rotational mechanical system accelerates much faster as the base body (this is,
 e.g., the case in vehicle powertrains). The essential advantage is
@@ -2364,10 +2364,10 @@ November 3-4, 2003, pp. 149-158</p>
         Documentation(
           info="<html>
 <p>This component is used to model a 1-dim. gearbox
-with non-parallel axes (defined by parameters <tt>n_a</tt>, <tt>n_b</tt>).
-A 3-dim. <tt>bearing</tt> frame is necessary to reflect the
-correct support torque, as the axes of rotation of <tt>flange_a</tt> and
-<tt>flange_b</tT> and the direction of the support torque vector
+with non-parallel axes (defined by parameters <code>n_a</code>, <tt>n_b</tt>).
+A 3-dim. <code>bearing</code> frame is necessary to reflect the
+correct support torque, as the axes of rotation of <code>flange_a</code> and
+<code>flange_b</tT> and the direction of the support torque vector
 are different in general.</p>
 <p>Note: The name BevelGear1D is kept only for simplicity. Regardless,
 this component could be used to model any kind of gearbox with non-parallel axes.</p>

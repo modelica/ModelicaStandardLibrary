@@ -3361,8 +3361,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             textString="%ratio")}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
-frames <tt>frame_a</tt> and <tt>frame_b</tt>. The axes of rotation
-of <tt>frame_a</tt> and <tt>frame_b</tt> may be arbitrary.</p>
+frames <code>frame_a</code> and <tt>frame_b</tt>. The axes of rotation
+of <code>frame_a</code> and <tt>frame_b</tt> may be arbitrary.</p>
 <p><b>Reference</b><br>
 <span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;
 <span style=\"font-variant:small-caps\">Otter</span>, Martin:

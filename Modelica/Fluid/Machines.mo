@@ -127,8 +127,8 @@ package Machines
               100,100}}),
             graphics),
     Documentation(info="<HTML>
-<p>This model describes a centrifugal pump (or a group of <tt>nParallel</tt> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <tt>nParallel</tt> pumps, the mechanical connector is relative to a single pump.
-<p>The model extends <tt>PartialPump</tt>
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <tt>nParallel</tt> pumps, the mechanical connector is relative to a single pump.
+<p>The model extends <code>PartialPump</code>
  </HTML>",
        revisions="<html>
 <ul>
@@ -224,12 +224,12 @@ package Machines
               {100,100}}),graphics),
       Documentation(info="<HTML>
 <p>
-This model describes a centrifugal pump (or a group of <tt>nParallel</tt> pumps)
+This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps)
 with ideally controlled mass flow rate or pressure.
 </p>
 <p>
 Nominal values are used to predefine an exemplary pump characteristics and to define the operation of the pump.
-The input connectors <tt>m_flow_set</tt> or <tt>p_set</tt> can optionally be enabled to provide time varying set points.
+The input connectors <code>m_flow_set</code> or <tt>p_set</tt> can optionally be enabled to provide time varying set points.
 </p>
 <p>
 Use this model if the pump characteristics is of secondary interest.
@@ -285,9 +285,9 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
               {100,100}}),graphics),
       Documentation(info="<HTML>
-<p>This model describes a centrifugal pump (or a group of <tt>nParallel</tt> pumps) with prescribed speed, either fixed or provided by an external signal.
-<p>The model extends <tt>PartialPump</tt>
-<p>If the <tt>N_in</tt> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <tt>n_const</tt> (which can be different from <tt>N_nominal</tt>) is assumed.</p>
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
+<p>The model extends <code>PartialPump</code>
+<p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <tt>n_const</tt> (which can be different from <tt>N_nominal</tt>) is assumed.</p>
 </HTML>",
         revisions="<html>
 <ul>
@@ -517,24 +517,24 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
               graphics),
       Documentation(info="<HTML>
 <p>This is the base model for pumps.
-<p>The model describes a centrifugal pump, or a group of <tt>nParallel</tt> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
+<p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
 
 <p><b>Pump characteristics</b></p>
-<p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the the replaceable function <tt>flowCharacteristic</tt>.
+<p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the the replaceable function <code>flowCharacteristic</code>.
 <p> The pump energy balance can be specified in two alternative ways:
 <ul>
-<li><tt>use_powerCharacteristic = false</tt> (default option): the replaceable function <tt>efficiencyCharacteristic</tt> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
+<li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <tt>efficiencyCharacteristic</tt> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
     The default is a constant efficiency of 0.8.</li>
-<li><tt>use_powerCharacteristic = true</tt>: the replaceable function <tt>powerCharacteristic</tt> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
-    Use <tt>powerCharacteristic</tt> to specify a non-zero power consumption for zero flow rate.
+<li><code>use_powerCharacteristic = true</code>: the replaceable function <tt>powerCharacteristic</tt> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
+    Use <code>powerCharacteristic</code> to specify a non-zero power consumption for zero flow rate.
 </ul>
 <p>
-Several functions are provided in the package <tt>PumpCharacteristics</tt> to specify the characteristics as a function of some operating points at nominal conditions.
-<p>Depending on the value of the <tt>checkValve</tt> parameter, the model either supports reverse flow conditions, or includes a built-in check valve to avoid flow reversal.
+Several functions are provided in the package <code>PumpCharacteristics</code> to specify the characteristics as a function of some operating points at nominal conditions.
+<p>Depending on the value of the <code>checkValve</code> parameter, the model either supports reverse flow conditions, or includes a built-in check valve to avoid flow reversal.
 </p>
-<p>It is possible to take into account the heat capacity of the fluid inside the pump by specifying its volume <tt>V</tt>;
+<p>It is possible to take into account the heat capacity of the fluid inside the pump by specifying its volume <code>V</code>;
 this is necessary to avoid singularities in the computation of the outlet enthalpy in case of zero flow rate.
-If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <tt>V = 0</tt>, thus avoiding a fast state variable in the model.
+If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <code>V = 0</code>, thus avoiding a fast state variable in the model.
 </p>
 
 <p><b>Dynamics options</b></p>
@@ -543,14 +543,14 @@ Steady-state mass and energy balances are assumed per default, neglecting the ho
 Dynamic mass and energy balance can be used by setting the corresponding dynamic parameters.
 This might be desirable if the pump is assembled together with valves before port_a and behind port_b.
 If both valves are closed, then the fluid is useful to define the thermodynamic state and in particular the absolute pressure in the pump.
-Note that the <tt>flowCharacteristic</tt> only specifies a pressure difference.
+Note that the <code>flowCharacteristic</code> only specifies a pressure difference.
 </p>
 
 <p><b>Heat transfer</b></p>
 <p>
-The boolean paramter <tt>use_HeatTransfer</tt> can be set to true if heat exchanged with the environment
+The boolean paramter <code>use_HeatTransfer</code> can be set to true if heat exchanged with the environment
 should be taken into account or to model a housing. This might be desirable if a pump with realistic
-<tt>powerCharacteristic</tt> for zero flow operates while a valve prevents fluid flow.
+<code>powerCharacteristic</code> for zero flow operates while a valve prevents fluid flow.
 </p>
 
 <p><b>Diagnostics of Cavitation</b></p>

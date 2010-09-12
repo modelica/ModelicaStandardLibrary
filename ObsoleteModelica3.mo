@@ -427,7 +427,7 @@ meaning <b>X*1.e-6 [1/K]</b>. Resistors are available for 1 .. 7000 ppm/K,
 i.e., alpha = 1e-6 .. 7e-3 1/K;</p>
 <p>When connector <b>heatPort</b> is <b>not</b> connected, the temperature
 dependent behaviour is switched off by setting heatPort.T = T_ref.
-Additionally, the equation <tt>heatPort.Q_flow = 0</tt> is implicitly present
+Additionally, the equation <code>heatPort.Q_flow = 0</code> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
 </HTML>
