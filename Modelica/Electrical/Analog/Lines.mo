@@ -284,7 +284,7 @@ equation
             lineColor={0,0,255})}),
     Documentation(
         info="<html>
-<p><br/><br/>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+<p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 <p align=\"center\"><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"/></p>
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
 <p align=\"center\"><pre>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</pre></p>

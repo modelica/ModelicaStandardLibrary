@@ -6176,17 +6176,17 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p><br/><b>Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b>according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i> </p>
 <p>The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows: </p>
 <p><ul>
-<li><b>Laminar regime (Re &le; Re_lam_leave)</b>: <br/><br/></li>
+<li><b>Laminar regime (Re &le; Re_lam_leave)</b>: </li>
 <pre>      zeta_LOC = A2/Re + A1*B1*C1</pre>
 <li><b>Transition regime (Re_lam_leave &le; 4e4)</b> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime. </li>
-<li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number: <br/><br/></li>
+<li><b>Turbulent regime (4e4 &le; 3e5) with dependence </b>of local resistance coefficient on Reynolds number: </li>
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
 <pre>
       k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
-<li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number <br/><br/></li>
+<li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number </li>
 </ul></p>
 <pre>      zeta_LOC = A1*B1*C1</pre>
 <p>with </p>
@@ -6215,7 +6215,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <td><p>as Reynolds number [-].</p></td>
 </tr>
 </table>
-<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
+<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
 <p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
 <pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
@@ -6264,7 +6264,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <td><p>as Reynolds number for leaving laminar regime [-].</p></td>
 </tr>
 </table>
-<p><br/><br/>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
+<p>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
 <p><b><font style=\"color: #ef9b13; \">Verification</font></b> </p>
 <p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
 <p><img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
@@ -6553,7 +6553,7 @@ with
 </table>
 </p>
 
-<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
+<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
 <p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
 <pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>

@@ -2387,7 +2387,7 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 </tr>
 </table>
 
-<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
+<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
 <pre>    zeta_TOT = CF*zeta_LOC </pre>
 <p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
 <pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
@@ -2436,7 +2436,7 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 <td><p>as Reynolds number for leaving laminar regime [-].</p></td>
 </tr>
 </table>
-<p><br/><br/>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
+<p>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
 
 <h4><font style=\"color: #ef9b13; \">Verification</font></h4>
 

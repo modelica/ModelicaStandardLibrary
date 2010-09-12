@@ -61,15 +61,15 @@ extends Modelica.Icons.Package;
 <p>Mp2 11 13 2 11 MPmos</p>
 <p>Mn1 13 1 0 0 MNmos</p>
 <p>Mn2 2 13 0 0 MNmos</p>
-<p><br/><br/></p>
+<p></p>
 <p>Vgate 1 0 PULSE(0 5 2s 1s)</p>
 <p>Vdrain 11 0 PULSE(0 5 0s 1s)</p>
-<p><br/><br/></p>
+<p></p>
 <p>.model MPmos PMOS (gamma=0.37)</p>
 <p>.model MNmos NMOS (gamma=0.37 lambda=0.02)</p>
-<p><br/><br/></p>
+<p></p>
 <p>.tran 0.01 5</p>
-<p><br/><br/></p>
+<p></p>
 <p>.end</p></code></td>
 <td valign=\"top\"><code><p>model inverter</p>
 <p>&nbsp; Spice3.Basic.Ground g;</p>
@@ -105,10 +105,10 @@ extends Modelica.Icons.Package;
 <p><ol>
 <li>A name for the Modelica model has to be chosen. It could be taken from the first line of the SPICE3 netlist.</li>
 <li>The ground node has to be instantiated (Spice3.Basic.Ground).</li>
-<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE line<br/><br/>Vdrain 11 0 PULSE(0 5 0 1)<br/><br/>becomes the following Modelica line:<br/><br/>Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1); <br/></li>
-<li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomes<br/><br/>protected Spice3.Interfaces.Pin n2;<br/><br/>in Modelica. The code letter (here n) is needed because a single number is no name in Modelica.<br/></li>
+<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE lineVdrain 11 0 PULSE(0 5 0 1)becomes the following Modelica line:Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1); <br/></li>
+<li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomesprotected Spice3.Interfaces.Pin n2;in Modelica. The code letter (here n) is needed because a single number is no name in Modelica.<br/></li>
 <li>According to the netlist the internal pins have to be connected with the components, e.g., connect(Mp1.D, n11).</li>
-<li>In the last step the external pins have to be allocated ant connected to the according internal pin. In table 1 this is done as follows: <br/><br/>Spice3.Interfaces.Pin p_in, p_out;<br/><br/>connect(p_in, n1); connect(p_out, n2); </li>
+<li>In the last step the external pins have to be allocated ant connected to the according internal pin. In table 1 this is done as follows: Spice3.Interfaces.Pin p_in, p_out;connect(p_in, n1); connect(p_out, n2); </li>
 </ol></p>
 </html>", revisions="<html>
 </html>"));
@@ -214,19 +214,19 @@ extends Modelica.Icons.Package;
 <dd>Design Automation Division</dd>
 <dd>Zeunerstrasse 38</dd>
 <dd>01069 Dresden, Germany</dd>
-<dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a><br/><br/></dd>
+<dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
 <dd>Christoph Clauss</dd>
 <dd>Fraunhofer Institute Integrated Circuits</dd>
 <dd>Design Automation Division</dd>
 <dd>Zeunerstrasse 38</dd>
 <dd>01069 Dresden, Germany</dd>
-<dd>email: <a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a><br/><br/></dd>
+<dd>email: <a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a></dd>
 <dd>Sandra Boehme</dd>
 <dd>Fraunhofer Institute Integrated Circuits</dd>
 <dd>Design Automation Division</dd>
 <dd>Zeunerstrasse 38</dd>
 <dd>01069 Dresden, Germany</dd>
-<dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a><br/><br/></dd>
+<dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
 </dl><p><h4>Acknowledgements:</h4></p>
 <p><ul>
 <li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR. </li>
@@ -897,7 +897,7 @@ extends Modelica.Icons.Package;
 <td><p>0</p></td>
 </tr>
 </table>
-<p><br/><br/><br/><br/><br/>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high.</p>
+<p><br/>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high.</p>
 </html>", revisions="<html>
 <p><ul>
 <li><i>May 2009 </i>by Kristin Majetta initially implemented</li>
@@ -1056,7 +1056,7 @@ extends Modelica.Icons.Package;
 <td><p>0</p></td>
 </tr>
 </table>
-<p><br/><br/><br/><br/><br/>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v.</p>
+<p><br/>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v.</p>
 <p>The output value in the example shows a behaviour &QUOT;near&QUOT; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
 </html>", revisions="<html>
 <p><ul>
@@ -2683,7 +2683,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <p><br/><h4>Note:</h4></p>
 <p><ul>
 <li>All parameters of sources should be set explicitly.</li>
-<li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.<br/><br/></li>
+<li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.</li>
 </ul></p>
 </html>"));
     end I_pulse;
@@ -3015,8 +3015,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
-<p><br/><br/>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
+<p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
+<p>In connection with the VCV, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
 <p>The corresponding SPICE description of the VCV polynomial source is the following:</p>
 <pre>    Ename A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
 <p>where Ename is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped,</p>
@@ -3114,9 +3114,9 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
-<p><br/><br/>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
-<p><br/><br/>The corresponding SPICE description of the VCC polynomial source is the following:</p>
+<p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p>
+<p>In connection with the VCC, s1...sN are the voltages of the controlling side: s1=pc[1].v - pc[2].v, s2=pc[3].v - pc[4].v, s3=...</p>
+<p>The corresponding SPICE description of the VCC polynomial source is the following:</p>
 <pre>    Gname A1 A2 POLY(N) E11 E21 ... E1N E2N P0 P1...</pre>
 <p>where Gname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated,</p>
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
@@ -3216,7 +3216,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In Modelica the controlling pins have to be connected to the CCV in that way, that the required currents flow through the according pins of the CCV:</p><p><br/><br/>s1 = pc[2].i, s2 = pc[4].i, s3 = pc[6].i,...</p><p><br/><br/>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCV polynomial source is the following:</p>
+<p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p>In Modelica the controlling pins have to be connected to the CCV in that way, that the required currents flow through the according pins of the CCV:</p><p>s1 = pc[2].i, s2 = pc[4].i, s3 = pc[6].i,...</p><p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCV polynomial source is the following:</p>
 <pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre>
 <p>where Hname is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p><br/>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
@@ -3319,7 +3319,7 @@ VN- -&GT; name.pc[N-1]
     a(.)s1s2&sup2; + a(.)s1s2s3 + ... + a(.)s1s2sN +
     ... +
     a(.)sN&sup3; + ... </pre>
-<p><br/><br/>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p><br/><br/>In Modelica the controlling pins have to be connected to the CCC in that way, that the required currents flow through the according pins of the CCC:</p><p><br/><br/>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p><p><br/><br/>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCC polynomial source is the following:</p>
+<p>The Coefficients a(.) are counted in this order. Reaching M, the particular sum is canceled.</p><p>In Modelica the controlling pins have to be connected to the CCC in that way, that the required currents flow through the according pins of the CCC:</p><p>s1=pc[2].i, s2=pc[4].i, s3=pc[6].i,...</p><p>The pairs pc[1].i and pc[2].i, pc[3].i and pc[4].i...form ports with pc[2].i + pc[1].i = 0, pc[4].i + pc[3].i = 0, ...</p><p><br/><br/>The corresponding SPICE description of the CCC polynomial source is the following:</p>
 <pre>    Fname A1 A2 POLY(N) V1...VN P0 P1...</pre>
 <p>where Fname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p><br/>To describe the SPICE line in Modelica, the following explanation would be useful:</p>

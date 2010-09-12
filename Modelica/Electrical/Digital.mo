@@ -2078,7 +2078,7 @@ The simulation stop time has to be 5s.
 <td valign=\"top\"><p>1</p></td>
 </tr>
 </table>
-<p><br/><br/>The parameter delayTime is the delay time (tLH=tHL) of both the components.</p>
+<p>The parameter delayTime is the delay time (tLH=tHL) of both the components.</p>
 </html>"));
                   end HalfAdder;
 
