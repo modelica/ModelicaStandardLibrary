@@ -245,7 +245,6 @@ with the volume flow rate:
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
 <tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
@@ -254,7 +253,6 @@ with
 <tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
 <tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
 </table>
-</p>
 
 <p>
 It is assumed that neither mass nor energy is stored
@@ -2628,8 +2626,7 @@ This is the documentation of the following components that model curved bends:
      is a function that returns the mass flow rate as function of pressure loss.</li>
 <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.pressureLoss\">Fittings.BaseClasses.Bends.EdgedBend.pressureLoss</a>
      is a function that returns the pressure loss as function of the mass flow rate.</li>
-<li> <li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry\">Fittings.BaseClasses.Bends.EdgedBend.Geometry</a>
-     is a record that defines the geometric data of an edged bend.</li>
+<li> <a href=\"modelica://Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend.Geometry\">Fittings.BaseClasses.Bends.EdgedBend.Geometry</a> is a record that defines the geometric data of an edged bend.</li>
 </ul>
 
 <p>
@@ -2777,14 +2774,12 @@ CF_Re = B/Re^exp for Re &le; Re_lam_leave
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
 <tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
 <tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
 <tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
 </table>
-</p>
 
 <p>
 Note that the coefficient <b> B </b> considers the influence of the angle of turning <b> delta </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime according to <i>[Idelchik 2006, p. 340, sec. 28]</i>.
@@ -2812,9 +2807,9 @@ The validation of the pressure loss coefficient for an edged bend shows four pos
  <li>
       <b> transition regime </b> for 4e2 &le; Re &le; 2e3
  <li>
-      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
+      <b> dependent turbulent regime on Reynolds number</b> for 2e3 &le; Re &le; 1e5
  <li>
-      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
+      <b> independent turbulent regime of Reynolds number</b> for Re &ge; 1e5
 </ul>
 </p>
 
@@ -3190,13 +3185,11 @@ dp = zeta_TOT * (rho/2) * (velocity_1)^2
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
 <tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
 <tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
-</p>
 
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
 <p>
@@ -3209,7 +3202,6 @@ zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 +
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
 <tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
@@ -3219,7 +3211,6 @@ with
 <tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
 <tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
 </table>
-</p>
 
 <p>
 The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
@@ -3403,7 +3394,6 @@ The pressure loss <b> dp </b> is determined to <i> [see Wischhusen] </i>:
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
 <tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
@@ -3412,7 +3402,6 @@ with
 <tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
 <tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
 </table>
-</p>
 
 Note that the coefficients <b> a,b </b> have to be positive values so that there will be a positive (linear or quadratic) pressure loss for a given positive volume flow rate.
 
