@@ -227,7 +227,8 @@ extends Modelica.Icons.Package;
 <dd>Zeunerstrasse 38</dd>
 <dd>01069 Dresden, Germany</dd>
 <dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
-</dl><p><h4>Acknowledgements:</h4></p>
+</dl>
+<h4>Acknowledgements:</h4>
 <p><ul>
 <li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR. </li>
 <li>For his contribution we thank Mr. Jonathan Gerbet.</li>

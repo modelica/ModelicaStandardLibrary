@@ -502,7 +502,7 @@ such that
      reduced in order that the polynomials are strict monotonically
      increasing <i>[Fritsch and Carlson, 1980]</i>.</li>
 </ul>
-</ul>
+
 <p>
 A typical screenshot for k1=1, k2=3 is shown in the next figure:
 </p>

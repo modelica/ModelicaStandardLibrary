@@ -6917,7 +6917,7 @@ class Contact "Contact"
 
  annotation (Documentation(info="<html>
 <dl><dt>The Modelica Standard Library (this Modelica package) is developed by many people from different organizations (see list below). It is licensed under the <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica License 2</a> by:</dt>
-<dl><dt>&nbsp;</dt>
+<dt>&nbsp;</dt>
 <dd>Modelica Association</dd>
 <dd>(Ideella F&ouml;reningar 822003-8858 in Link&ouml;ping)</dd>
 <dd>c/o PELAB, IDA, Link&ouml;pings Universitet</dd>
@@ -6926,7 +6926,7 @@ class Contact "Contact"
 <dd>email: <a href=\"mailto:Board@Modelica.org\">Board@Modelica.org</a></dd>
 <dd>web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></dd>
 <dd>&nbsp;&nbsp;</dd>
-<dl><dt>The development of this Modelica package is organized by:</dt>
+<dt>The development of this Modelica package is organized by:</dt>
 <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a></dd>
 <dd>Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)</dd>
 <dd>Institut f&uuml;r Robotik und Mechatronik</dd>

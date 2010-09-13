@@ -5883,14 +5883,14 @@ Here the validation of the two phase heat transfer coefficient is shown for cond
 
 <p><b><font style=\"color: #ef9b13; \">References</font></b></p>
 <dl><dt>Bejan,A.: </dt>
-<dd><b>Heat transfer handbook</b>. Wiley, 2003. </dd>
-<dl><dt>M.K. Dobson and J.C. Chato: </dt>
-<dd><b>Condensation in smooth horizontal tubes</b>. Journal of HeatTransfer, Vol.120, p.193-213, 1998. </dd>
-<dl><dt>Gungor, K.E. and R.H.S. Winterton: </dt>
-<dd><b>A general correlation for flow boiling in tubes and annuli</b>, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986. </dd>
-<dl><dt>N. Kattan and J.R. Thome: </dt>
-<dd><b>Flow boiling in horizontal pipes: Part 2 - new heat transfer data for five refrigerants.</b>. Journal of Heat Transfer, Vol.120. p.148-155, 1998. </dd>
-<dl><dt>Shah, M.M.: </dt>
+        <dd><b>Heat transfer handbook</b>. Wiley, 2003. </dd>
+    <dt>M.K. Dobson and J.C. Chato: </dt>
+        <dd><b>Condensation in smooth horizontal tubes</b>. Journal of HeatTransfer, Vol.120, p.193-213, 1998. </dd>
+    <dt>Gungor, K.E. and R.H.S. Winterton: </dt>
+        <dd><b>A general correlation for flow boiling in tubes and annuli</b>, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986. </dd>
+    <dt>N. Kattan and J.R. Thome: </dt>
+        <dd><b>Flow boiling in horizontal pipes: Part 2 - new heat transfer data for five refrigerants.</b>. Journal of Heat Transfer, Vol.120. p.148-155, 1998. </dd>
+    <dt>Shah, M.M.: </dt>
 <dd><b>A general correlation for heat transfer during film condensation inside pipes</b>. Int. J. Heat Mass Transfer, Vol.22, p.547-556, 1979.</dd>
 </dl></html>
 
@@ -6202,16 +6202,17 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
 <p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
 <p><b><font style=\"color: #ef9b13; \">References</font></b> </p>
-<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
-<dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dl>
+<dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
+    <dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Idelchik,I.E.: </dt>
-<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+    <dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
 <dt>Miller,D.S.: </dt>
-<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984. </dd>
+    <dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984. </dd>
 <dt>Samoilenko,L.A.: </dt>
-<dd><b>Investigation of the hydraulic resistance of pipelines in the zone of transition from laminar into turbulent motion</b>. PhD thesis, Leningrad State University, 1968.</dd>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the zone of transition from laminar into turbulent motion</b>. PhD thesis, Leningrad State University, 1968.</dd>
 <dt>VDI: </dt>
-<dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. Springer Verlag, 9th edition, 2002. </dd>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. Springer Verlag, 9th edition, 2002. </dd>
 </dl></html>"));
       end dp_curvedOverall_DP;
 
@@ -6922,9 +6923,9 @@ The validation of the pressure loss coefficient for an edged bends shows four po
  <li>
       <b> transition regime </b> for 4e2 &le; Re &le; 2e3
  <li>
-      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
+      <b> dependent turbulent regime on Reynolds number </b> for 2e3 &le; Re &le; 1e5
  <li>
-      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
+      <b> independent turbulent regime of Reynolds number </b> for Re &ge; 1e5
 </ul>
 </p>
 
@@ -7084,9 +7085,11 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
 Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
 
+<p>
 There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
+</p>
 
-<<p>
+<p>
 This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
 variable (dp or m_flow).
 </p>
@@ -7263,9 +7266,9 @@ The validation of the pressure loss coefficient for an edged bends shows four po
  <li>
       <b> transition regime </b> for 4e2 &le; Re &le; 2e3
  <li>
-      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
+      <b> dependent turbulent regime on Reynolds number </b> for 2e3 &le; Re &le; 1e5
  <li>
-      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
+      <b> independent turbulent regime of Reynolds number </b> for Re &ge; 1e5
 </ul>
 </p>
 
@@ -7501,7 +7504,10 @@ with
 </table>
 </p>
 
+<p>
 <b> Channels with different shape of its cross sectional area are calculated </b> according to <i>[Miller 1978, p. 138, fig. 8.5-8-6]</i>
+</p>
+
 <p>
 The pressure loss of these channels is similar to its calculation in straight pipes. There are three different flow regimes observed (laminar,transition,turbulent). The pressure loss coefficient (<b>zeta_TOT</b>) of a channel is calculated in dependence of the flow regime as follows:
 </p>
@@ -11591,13 +11597,13 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 <b>Horizontal fluid flow</b> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_horizontal.png\">
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_horizontal.png\">
 
 <p>
 <b>Vertical fluid flow</b> [(a) bubble flow, (b) plug slug flow, (c) foam flow, (d) annular streak flow, (e) annular flow]:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\">
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_vertical.png\">
 
 
 <h4><font color=\"#EF9B13\">Restriction</font></h4>
@@ -11607,8 +11613,8 @@ This function shall be used within the restricted limits according to the refere
  <li> <b> neglecting of surface roughness </b> </li>
  <li> <b> horizontal flow or vertical upflow </b> </li>
  <li> <b> usage of mass flow rate quality (see Calculation) </b> </li>
- <li> <b> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </li>
- <li> <b> usage of two phase pressure loss function for discretisation at boiling or condensation considering variable mass flow rate quality </li>
+ <li> <b> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </b> </li>
+ <li> <b> usage of two phase pressure loss function for discretisation at boiling or condensation considering variable mass flow rate quality </b></li>
 </ul>
 
 <h4><font color=\"#EF9B13\">Geometry </font></h4>
@@ -11810,13 +11816,13 @@ with
 The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Friedel </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_1.png\">
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_1.png\">
 
 <p>
 The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Chisholm </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_4.png\">
+<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_4.png\">
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -13944,7 +13950,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 <dt>Wischhusen, St.</dt>
     <dd><b>Simulation von K&auml;ltemaschinen-Prozessen mit MODELICA / DYMOLA</b>.
     Diploma thesis, Hamburg University of Technology, Institute of Thermofluiddynamics, 2000.</dd>
-</html>"),  smoothOrder=5);
+</dl></html>"),  smoothOrder=5);
         end Stepsmoother;
 
         function Stepsmoother_der "Derivative of function Stepsmoother"
