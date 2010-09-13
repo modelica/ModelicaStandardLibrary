@@ -686,8 +686,7 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxM.plug_sp,             aimcM.plug_sp)
           annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n)
-          annotation (Line(points={{6.10623e-16,-8},{-1.33731e-15,-8},{
-                -1.33731e-15,20}},
+          annotation (Line(points={{0,-8},{-1.83697e-015,-8},{-1.83697e-015,20}},
               color={0,0,255}));
         connect(aimcE.flange,   loadInertiaE.flange_a)
           annotation (Line(points={{10,-80},{10,-80},{50,-80}},
@@ -699,15 +698,14 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxE.plug_sp,             aimcE.plug_sp)
           annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)
-          annotation (Line(points={{-60,20},{-60,-60},{6.10623e-16,-60},{
-                6.10623e-16,-68}},
+          annotation (Line(points={{-60,20},{-60,-60},{0,-60},{0,-68}},
               color={0,0,255}));
         connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
-            points={{-20,90},{2.33651e-15,90},{2.33651e-15,70}},
+            points={{-20,90},{1.83697e-015,90},{1.83697e-015,70}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,40}},
+            points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(booleanStep.y, idealCloser.control) annotation (Line(
@@ -715,7 +713,7 @@ In this example the eddy current losses are implemented in two different ways. C
             color={255,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n) annotation (Line(
-            points={{-60,40},{0,40},{0,50},{-1.33731e-15,50}},
+            points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -901,7 +899,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply)
           annotation (
             Line(
-            points={{-1.33731e-15,10},{6.10623e-16,10},{6.10623e-16,-8}},
+            points={{-1.83697e-015,10},{0,10},{0,-8}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(rheostatM.plug_p, aimsM.plug_rp) annotation (Line(
@@ -914,20 +912,20 @@ Simulate for 1.5 seconds and plot (versus time):
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply)
           annotation (Line(
-            points={{-60,10},{-60,-60},{6.10623e-16,-60},{6.10623e-16,-68}},
+            points={{-60,10},{-60,-60},{0,-60},{0,-68}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,30}},
+            points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,30}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n)
           annotation (Line(
-            points={{-60,30},{-1.33731e-15,30},{-1.33731e-15,50}},
+            points={{-60,30},{-1.83697e-015,30},{-1.83697e-015,50}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
-            points={{2.33651e-15,70},{0,70},{0,90},{-20,90}},
+            points={{1.83697e-015,70},{0,70},{0,90},{-20,90}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -1093,7 +1091,7 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
       equation
         connect(signalVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{1.22629e-15,70},{1.22629e-15,90},{-50,90}},
+          annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
               color={0,0,255}));
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1104,7 +1102,8 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}, color={0,0,0}));
         connect(signalVoltage.plug_p,currentRMSsensorM. plug_p)  annotation (Line(
-              points={{-2.44753e-15,50},{0,50},{0,40},{2.33651e-15,40}},color={0,0,
+              points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},
+                                                                        color={0,0,
                 255}));
         connect(rotorAngleM.plug_n, smpmM.plug_sn)  annotation (Line(points={{36,-10},
                 {36,0},{-6,0},{-6,-10}},                       color={0,0,255}));
@@ -1121,8 +1120,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(terminalBoxM.plug_sp, smpmM.plug_sp)  annotation (Line(
               points={{6,-10},{6,-10}},                           color={0,0,255}));
         connect(terminalBoxM.plugSupply,currentRMSsensorM. plug_n) annotation (Line(
-              points={{6.10623e-16,-8},{6.10623e-16,20},{-1.33731e-15,20}},
-                                                           color={0,0,255}));
+              points={{0,-8},{0,20},{-1.83697e-015,20}},   color={0,0,255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
         connect(rotorAngleE.plug_n, smpmE.plug_sn)  annotation (Line(points={{36,-70},
@@ -1139,10 +1137,9 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{6,-70},{6,-70}},   color={0,0,255}));
 
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)   annotation (Line(
-              points={{-60,20},{-60,-50},{6.10623e-16,-50},{6.10623e-16,-68}},
-                                                               color={0,0,255}));
+              points={{-60,20},{-60,-50},{0,-50},{0,-68}},     color={0,0,255}));
         connect(currentRMSsensorE.plug_p, signalVoltage.plug_p) annotation (Line(
-            points={{-60,40},{0,40},{0,50},{-2.44753e-15,50}},
+            points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -1376,7 +1373,7 @@ and accelerate the inertias.</p>
 
         connect(electricalPowerSensorM.plug_p, sineVoltage.plug_p) annotation (
             Line(
-            points={{2.44753e-15,40},{0,40},{0,90},{-20,90}},
+            points={{1.83697e-015,40},{0,40},{0,90},{-20,90}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_p, sineVoltage.plug_p) annotation (
@@ -1386,12 +1383,12 @@ and accelerate the inertias.</p>
             smooth=Smooth.None));
         connect(electricalPowerSensorM.plug_ni, terminalBoxM.plugSupply)
           annotation (Line(
-            points={{-1.22629e-15,20},{6.10623e-16,20},{6.10623e-16,-8}},
+            points={{-1.83697e-015,20},{0,20},{0,-8}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_ni, terminalBoxE.plugSupply)
           annotation (Line(
-            points={{-60,20},{-60,-50},{6.10623e-16,-50},{6.10623e-16,-68}},
+            points={{-60,20},{-60,-50},{0,-50},{0,-68}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_nv, star.plug_p) annotation (Line(
@@ -1562,7 +1559,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
       equation
         connect(signalVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{1.22629e-15,70},{1.22629e-15,90},{-50,90}},
+          annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
               color={0,0,255}));
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1585,8 +1582,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         connect(terminalBoxE.plug_sn,            smrE. plug_sn)  annotation (Line(
               points={{-6,-70},{-6,-70}},   color={0,0,255}));
         connect(terminalBoxE.plugSupply,currentRMSsensorE. plug_n) annotation (Line(
-              points={{6.10623e-16,-68},{6.10623e-16,-50},{-60,-50},{-60,10}},
-                                                               color={0,0,255}));
+              points={{0,-68},{0,-50},{-60,-50},{-60,10}},     color={0,0,255}));
         connect(smrM.flange,   loadInertiaM.flange_a) annotation (Line(points={{10,-20},
                 {50,-20}},      color={0,0,0}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
@@ -1603,13 +1599,14 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         connect(terminalBoxM.plug_sn,             smrM.plug_sn)  annotation (Line(
               points={{-6,-10},{-6,-10}},                    color={0,0,255}));
         connect(currentRMSsensorM.plug_n,terminalBoxM.plugSupply)  annotation (Line(
-              points={{-1.33731e-15,10},{-1.33731e-15,-8},{6.10623e-16,-8}},
+              points={{-1.83697e-015,10},{-1.83697e-015,-8},{0,-8}},
                                          color={0,0,255}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p) annotation (Line(
-              points={{-2.44753e-15,50},{-2.44753e-15,30},{2.33651e-15,30}},
+              points={{-1.83697e-015,50},{-1.83697e-015,30},{1.83697e-015,30}},
                                                                    color={0,0,255}));
         connect(signalVoltage.plug_p, currentRMSsensorE.plug_p) annotation (Line(
-              points={{-2.44753e-15,50},{0,50},{0,30},{-60,30}},color={0,0,255}));
+              points={{-1.83697e-015,50},{0,50},{0,30},{-60,30}},
+                                                                color={0,0,255}));
 
         annotation (
           experiment(
@@ -2154,8 +2151,8 @@ This is a simple idle running branch.
       extends Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort;
 
     equation
-      connect(port_p, port_n) annotation (Line(points={{-100,5.55112e-16},{-1,
-              5.55112e-16},{-1,5.55112e-16},{100,5.55112e-16}}, color={255,128,0}));
+      connect(port_p, port_n) annotation (Line(points={{-100,0},{-1,0},{-1,0},{
+              100,0}},                                          color={255,128,0}));
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics={
             Text(
@@ -2261,14 +2258,22 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
           annotation (Line(
-            points={{-6.10623e-16,-40},{-40,-40},{-40,-90}},
+            points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",Icon(graphics),
         Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account.
+Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
 </p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
 
 <h4>See also</h4>
 <p>
@@ -2417,8 +2422,16 @@ Resistances and stray inductances of the machine refer to the stator phases. The
                     {-60,-20}}, color={0,0,255})}),
         Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine always refer to either stator or rotor phases. The symmetry of the stator and rotor is assumed. Only losses in stator and rotor resistances are taken into account.
+Resistances and stray inductances of the machine always refer to either stator or rotor phases. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
 </p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent rotor winding resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
 
 <h4>See also</h4>
 <p>
@@ -2593,8 +2606,17 @@ Resistances and stray inductances of the machine always refer to either stator o
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
-Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. Only losses in stator and rotor resistance are taken into account.
+Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
 
 <h4>See also</h4>
 <p>
@@ -2814,8 +2836,17 @@ Resistances and stray inductances of the machine refer to the stator phases. The
                     0,255})}),
         Documentation(info="<html>
 <p>
-The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. Only losses in stator and rotor resistance are taken into account.
+The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent excitation winding resistance</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
 
 <h4>See also</h4>
 <p>
@@ -2942,8 +2973,16 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
         Documentation(info="<html>
 <p>
-The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. Only losses in stator and rotor resistance are taken into account.
+The symmetry of the stator is assumed. For rotor asymmetries can be taken into account by different resistances and stray inductances in the d- and q-axis. The machine models take the following loss effects into account:
 </p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
 
 <h4>See also</h4>
 <p>
@@ -3043,8 +3082,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
           annotation (Line(points={{10,-10},{10,-100},{100,-100}}, color={255,128,0}));
         connect(heatPortWinding, resistor.heatPort)
           annotation (Line(
-            points={{5.55112e-16,-100},{5.55112e-16,-60},{-40,-60},{-40,70},{
-                -20,70}},
+            points={{0,-100},{0,-60},{-40,-60},{-40,70},{-20,70}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(resistor.n, electroMagneticConverter.pin_p) annotation (Line(
@@ -3547,10 +3585,10 @@ according to the following figure.
 
       equation
         connect(port_p, winding.port_p) annotation (Line(
-              points={{-100,5.55112e-16},{-10,5.55112e-16},{-10,1.16747e-15}},
+              points={{-100,0},{-10,0},{-10,0}},
               color={255,128,0}));
         connect(winding.port_n, port_n) annotation (Line(
-              points={{10,-5.72459e-17},{100,-5.72459e-17},{100,5.55112e-16}},
+              points={{10,0},{100,0},{100,0}},
               color={255,128,0}));
         connect(ground.p,star. pin_n) annotation (Line(points={{60,-20},{56,-20},
                 {50,-20}},
@@ -3571,7 +3609,7 @@ according to the following figure.
             smooth=Smooth.None));
         connect(thermalCollector.port_b, heatPortWinding)
           annotation (Line(
-            points={{-40,-90},{-40,-100},{5.55112e-16,-100}},
+            points={{-40,-90},{-40,-100},{0,-100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(resistor.plug_n, starAuxiliary.plug_p) annotation (Line(
@@ -3716,10 +3754,10 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
       equation
 
         connect(port_p, winding.port_p)                            annotation (Line(
-              points={{-100,5.55112e-16},{-10,5.55112e-16},{-10,1.16747e-15}},
+              points={{-100,0},{-10,0},{-10,0}},
                                color={255,128,0}));
         connect(winding.port_n, port_n)                            annotation (Line(
-              points={{10,-5.72459e-17},{100,-5.72459e-17},{100,5.55112e-16}},
+              points={{10,0},{100,0},{100,0}},
                                color={255,128,0}));
         connect(ground.p,star. pin_n) annotation (Line(points={{60,-80},{50,-80}},
               color={0,0,255}));
@@ -3740,7 +3778,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
             smooth=Smooth.None));
         connect(thermalCollector.port_b, heatPortWinding)
                                                    annotation (Line(
-            points={{-40,-90},{-40,-100},{5.55112e-16,-100}},
+            points={{-40,-90},{-40,-100},{0,-100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(resistor.heatPort, thermalCollector.port_a) annotation (Line(
@@ -4619,7 +4657,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalPort,internalThermalPort)  annotation (Line(
-          points={{5.55112e-16,-100},{5.55112e-16,-90},{-40,-90}},
+          points={{0,-100},{0,-90},{-40,-90}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort,internalThermalPort)  annotation (Line(
@@ -4627,8 +4665,8 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-        annotation (Line(points={{90,-1.72421e-15},{102,-1.72421e-15},{102,
-              5.55112e-16},{100,5.55112e-16}},
+        annotation (Line(points={{90,-1.22465e-015},{102,-1.22465e-015},{102,0},
+              {100,0}},
           color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
@@ -4642,12 +4680,12 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
           color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.33731e-15},{40,-1.33731e-15},{40,7.25006e-16},{70,
-              7.25006e-16}},
+          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
+              1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,2.33651e-15},{-60,2.33651e-15},{-60,-70},{60,-70},{60,
+          points={{-10,1.83697e-015},{-60,1.83697e-015},{-60,-70},{60,-70},{60,
               -100}},
           color={0,0,0},
           smooth=Smooth.None));
@@ -4675,11 +4713,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.72421e-15}},
+          points={{50,80},{90,80},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.72421e-15}},
+          points={{90,-20},{90,-1.22465e-015}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
@@ -4934,7 +4972,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.1</td><td>4106</td>  <td>2010-09-03</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
+<tr><td>1.7.1</td><td>4169</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
 <tr><td>1.5.0</td><td>3802</td>  <td>2010-04-28</td>  <td>C. Kral</td>  <td>Added stator core, friction, stray load and brush loss models and changed parameter of EddyCurrent model</td></tr>
