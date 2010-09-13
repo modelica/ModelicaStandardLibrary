@@ -1,5 +1,6 @@
 within Modelica.Electrical;
 
+
 package Machines "Library for electric machines"
   extends Modelica.Icons.Package;
 
@@ -3628,9 +3629,20 @@ This package contains test examples of electric machines.
             smooth=Smooth.None));
         annotation (defaultComponentName="aimc",
           Documentation(info="<HTML>
-<b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<p><b>Model of a three phase asynchronous induction machine with squirrel cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a stator-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+
+<p><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -3922,9 +3934,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             smooth=Smooth.None));
         annotation (defaultComponentName="aims",
           Documentation(info="<HTML>
-<b>Model of a three phase asynchronous induction machine with slipring rotor.</b><br>
-Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-<br><b>Default values for machine's parameters (a realistic example) are:</b><br>
+<p><b>Model of a three phase asynchronous induction machine with slipring rotor.</b><br>
+Resistance and stray inductance of stator and rotor are modeled directly in stator respectively rotor phases, then using space phasor transformation and a stator-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent rotor winding resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
 <td valign=\"top\">number of pole pairs p</td>
@@ -4244,9 +4266,19 @@ These models use package SpacePhasors.
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
-<b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. Only losses in stator and damper resistance are taken into account.
-<br>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
+<p><b>Model of a three phase permanent magnet synchronous induction machine.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding the d-axis. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
@@ -4610,9 +4642,21 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               Line(points={{-100,-50},{-100,-20},{-70,-20},{-70,-2}}, color={0,
                     0,255})}),
           Documentation(info="<HTML>
-<b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. Only losses in stator, damper and excitation resistance are taken into account.
-<br>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
+<p><b>Model of a three phase electrical excited synchronous induction machine with damper cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation and a rotor-fixed <i>AirGap</i> model. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Electrical excitation is modelled by converting excitation current and voltage to d-axis space phasors. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>heat losses in the temperature dependent excitation winding resistance</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>brush losses in the excitation circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
@@ -4907,9 +4951,19 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 fillPattern=FillPattern.Solid),
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255})}),
           Documentation(info="<HTML>
-<b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
-Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. Only losses in stator and rotor resistance are taken into account.
-<br>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
+<p><b>Model of a three phase synchronous induction machine with reluctance rotor and damper cage.</b><br>
+Resistance and stray inductance of stator is modeled directly in stator phases, then using space phasor transformation. Resistance and stray inductance of rotor's squirrel cage is modeled in two axis of the rotor-fixed ccordinate system. Both together connected via a rotor-fixed <i>AirGap</i> model. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent stator winding resistances</li>
+<li>optional, when enabled: heat losses in the temperature dependent damper cage resistances</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
@@ -5190,8 +5244,19 @@ These models use package SpacePhasors.
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid)}),
           Documentation(info="<HTML>
-<b>Model of a DC Machine with permanent magnets.</b><br>
-Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding AirGapDC. Only losses in armature resistance are taken into account. No saturation is modelled.
+<p><b>Model of a DC Machine with permanent magnets.</b><br>
+Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model. Permanent magnet excitation is modelled by a constant equivalent excitation current feeding AirGapDC. The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent armature winding resistance</li>
+<li>brush losses in the armature circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p>No saturation is modelled.
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
 <tr>
@@ -5415,9 +5480,20 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
               Line(points={{-100,50},{-100,20},{-130,20},{-130,-4}}, color={0,0,
                     255})}),
           Documentation(info="<HTML>
-<b>Model of a DC Machine with electrical shunt or separate excitation.</b><br>
+<p><b>Model of a DC Machine with electrical shunt or separate excitation.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
-Only losses in armature and excitation resistance are taken into account. No saturation is modelled.<br>
+The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent armature winding resistance</li>
+<li>brush losses in the armature circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p>No saturation is modelled.<br>
 Shunt or separate excitation is defined by the user's external circuit.
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
@@ -5678,9 +5754,20 @@ Armature current does not cover excitation current of a shunt excitation; in thi
               Line(points={{-100,50},{-100,30}}, color={0,0,255}),
               Line(points={{-100,-30},{-100,-50}}, color={0,0,255})}),
           Documentation(info="<HTML>
-<b>Model of a DC Machine with series excitation.</b><br>
+<p><b>Model of a DC Machine with series excitation.</b><br>
 Armature resistance and inductance are modeled directly after the armature pins, then using a <i>AirGapDC</i> model.<br>
-Only losses in armature and excitation resistance are taken into account. No saturation is modelled.<br>
+The machine models take the following loss effects into account:
+</p>
+
+<ul>
+<li>heat losses in the temperature dependent armature winding resistance</li>
+<li>brush losses in the armature circuit</li>
+<li>friction losses</li>
+<li>core losses (only eddy current losses, no hysteresis losses)</li>
+<li>stray load losses</li>
+</ul>
+
+<p>No saturation is modelled.<br>
 Series excitation has to be connected by the user's external circuit.
 <br><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
