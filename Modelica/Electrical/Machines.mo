@@ -5487,6 +5487,7 @@ The machine models take the following loss effects into account:
 
 <ul>
 <li>heat losses in the temperature dependent armature winding resistance</li>
+<li>heat losses in the temperature dependent excitation winding resistance</li>
 <li>brush losses in the armature circuit</li>
 <li>friction losses</li>
 <li>core losses (only eddy current losses, no hysteresis losses)</li>
@@ -5761,6 +5762,7 @@ The machine models take the following loss effects into account:
 
 <ul>
 <li>heat losses in the temperature dependent armature winding resistance</li>
+<li>heat losses in the temperature dependent excitation winding resistance</li>
 <li>brush losses in the armature circuit</li>
 <li>friction losses</li>
 <li>core losses (only eddy current losses, no hysteresis losses)</li>
