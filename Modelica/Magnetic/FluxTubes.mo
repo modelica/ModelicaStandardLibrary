@@ -97,8 +97,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
     annotation (Documentation(info="<html>
 <h3><font color=\"#008000\" size=5>Literature</font></h3>
 <ul>
-<li>
-Usage of the Modelica Magnetic library is described in:
+<li> Usage of the Modelica Magnetic library is described in:
 <dl>
 <dt>[B&ouml;08] B&ouml;drich, T.:</dt>
 <dd> <b>Electromagnetic Actuator Modelling with the Extended Modelica Magnetic Library</b>.
@@ -109,8 +108,7 @@ Usage of the Modelica Magnetic library is described in:
      </dd>
 </dl>
 </li>
-<li>
-The method of magnetic flux tubes as well as derivation of the permeance of many flux tube shapes is explained in detail in:
+<li> The method of magnetic flux tubes as well as derivation of the permeance of many flux tube shapes is explained in detail in:
 <dl>
 <dt>[Ro41] Roters, H.:</dt>
 <dd> <b>Electromagnetic Devices</b>.
@@ -129,8 +127,7 @@ New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
     Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German)</dd>
 </dl>
 </li>
-<li>
-Application of the method of magnetic flux tubes to the design of rotational electrical machines is explained for example in:
+<li> Application of the method of magnetic flux tubes to the design of rotational electrical machines is explained for example in:
 <dl>
 <dt>[HM94] Hendershot, J.R. Jr.; Miller, T.J.E.:</dt>
 <dd> <b>Design of Brushless Permanent-Magnet Motors</b>.
