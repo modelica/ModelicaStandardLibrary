@@ -377,7 +377,7 @@ voltages and currents. The main characteristics of the library are:
 <p>
 The main intention of this library is the modeling of quasi stationary behavior
 of single and multi phase
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.ACCircuit\">AC circuits</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">AC circuits</a>
 with fixed and variable frequency. Quasi stationary theory and applications can be
 found in
 [<a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">Dorf1993</a>],

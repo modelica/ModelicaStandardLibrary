@@ -573,7 +573,7 @@ using the adaptive Lobatto rule according to:
 <dl>
 <dt>Walter Gander:</dt>
 <dd> <b>Adaptive Quadrature - Revisited</b>. 1998.
-     <a href=\"ftp.inf.ethz.ch in doc/tech-reports/1998/306.ps\">ftp.inf.ethz.ch in doc/tech-reports/1998/306.ps</a>
+     <a href=\"ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps\">ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps</a>
      </dd>
 </dl>
 </blockquote>

@@ -131,7 +131,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 </html>"));
@@ -167,7 +167,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 
@@ -205,7 +205,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 
@@ -242,7 +242,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 
@@ -279,7 +279,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to <b>false</b>: y=false.
 </p>
 </html>"));
@@ -446,10 +446,9 @@ Simulation results of a typical example with a delay time of 0.1 s
 is shown in the next figure.
 </p>
 
-<p><blockquote>
-<img src=\"modelica://Modelica/Resources/Images/MathBoolean/OnDelay1.png\"><br>
-<img src=\"modelica://Modelica/Resources/Images/MathBoolean/OnDelay2.png\">
-</blockquote></p>
+<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay1.png\"><br>
+
+<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay2.png\">
 
 <p>
 The usage is demonstrated, e.g., in example

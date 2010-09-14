@@ -355,7 +355,7 @@ load inertia.
 <p>
 This is a detailed model of the robot. For animation CAD data
 is used. Translate and simulate with the default settings
-(default simulation time = 3 s). Use command script \"modelica://Modelica/Resources/Scripts/Dymola/ExamplesfullRobotPlot.mos\"
+(default simulation time = 3 s). Use command script \"modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/fullRobotPlot.mos\"
 to plot variables.
 </p>
 

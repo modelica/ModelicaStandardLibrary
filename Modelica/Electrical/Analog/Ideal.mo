@@ -436,8 +436,16 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<html>
-<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2. <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png\"/> </p>
-<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron. <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png\"/> </p>
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.
+</p>
+
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png\"/>
+
+<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
+</p>
+
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png\"/>
+
 <p><br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
 <p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
 </html>",
@@ -1195,7 +1203,7 @@ Due to this equations, the DC offset of secondary voltages and currents decremen
 </p>
 <p>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
-compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer/\">basic transformer</a>
+compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
 </p>
 <pre><code>

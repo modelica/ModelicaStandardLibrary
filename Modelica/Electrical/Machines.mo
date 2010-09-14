@@ -1542,7 +1542,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           experiment(StopTime=2, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
-A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill. 
+A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
 The rms values of d- and q-current in rotor fixed coordinate system are converted to threephase currents,
 and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.<br>
@@ -10608,14 +10608,14 @@ The current implementation has thus the drawback over a model that considers <co
 </ul>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
   </tr>
 </table>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/CoreLossesPcw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
@@ -10853,14 +10853,14 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
 </p>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/CoreLossesVw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
   </tr>
 </table>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/CoreLossesPcw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
