@@ -110,7 +110,6 @@ a stiff spring and a small mass at the connection point.
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ThreeSprings.png\"
 ALT=\"model Examples.Elementary.ThreeSprings\">
 
-
 <p>
 For a more thorough explanation, see
 <a href=\"Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.

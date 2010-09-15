@@ -2232,7 +2232,6 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-
 <img src=\"modelica://Modelica/Resources/Images/Rotational/elastoBacklash1.png\">
 
 </html>

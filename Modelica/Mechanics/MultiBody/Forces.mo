@@ -163,7 +163,6 @@ This leads to the following animation
 
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/WorldForce2.png\">
 
-
 </HTML>
 "));
   end WorldForce;

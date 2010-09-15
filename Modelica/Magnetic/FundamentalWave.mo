@@ -2617,7 +2617,6 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 <li>stray load losses</li>
 </ul>
 
-
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,

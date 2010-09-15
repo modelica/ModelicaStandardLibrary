@@ -375,7 +375,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
 
-
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
 
@@ -1301,7 +1300,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
 
-
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
 
@@ -1767,7 +1765,6 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 <b>Gnielinski</b> (Target = 3)
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\">
-
 
 Note that all fluid properties shall be calculated with the mean temperature of the fluid between the entrance and the outlet of the generic device.
 
@@ -2691,7 +2688,6 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 <h4><font color=\"#EF9B13\">Geometry </font></h4>
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
-
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Gc 2, eq. 5]</i> :
@@ -4016,7 +4012,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 <h4><font color=\"#EF9B13\">Geometry </font></h4>
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
-
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
@@ -11605,7 +11600,6 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_vertical.png\">
 
-
 <h4><font color=\"#EF9B13\">Restriction</font></h4>
 This function shall be used within the restricted limits according to the referenced literature.
 <ul>
@@ -12165,7 +12159,6 @@ The pressure loss of different valves at a constant opening of 50% in dependence
 <p>
 
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_DPvsMFLOW.png\">
-
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -16293,7 +16286,6 @@ annotation (
   classOrder={"UsersGuide","Examples","HeatTransfer","PressureLoss","Utilities"},
   Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/FD2.png\">
-
 
 <h2> <font color=\"#EF9B13\"> Library description </font></h2>
 

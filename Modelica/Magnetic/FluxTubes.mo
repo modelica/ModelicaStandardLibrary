@@ -1510,7 +1510,6 @@ A voltage step is applied to both solenoid models at time t=0. The armatures of 
 Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 0.05 s</b>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <b>vs. time</b> (each quantity in one common plot window):
 </p>
 
-
 <pre>
 Plot window for current:
     simpleSolenoid.p.i          // rapid current rise indicates low inductance of simple network model

@@ -159,10 +159,8 @@ to <b>false</b> or by setting <b>enableAnimation</b> in the <b>world</b>
 object to <b>false</b> to switch off animation of all components.
 </p>
 
-
 <IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/DoublePendulum.png\"
 ALT=\"model Examples.Elementary.DoublePendulum\">
-
 
 </HTML>"),
       uses);

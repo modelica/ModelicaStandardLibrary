@@ -1,6 +1,5 @@
 within Modelica.Electrical;
 
-
 package Machines "Library for electric machines"
   extends Modelica.Icons.Package;
 
@@ -3640,7 +3639,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <li>core losses (only eddy current losses, no hysteresis losses)</li>
 <li>stray load losses</li>
 </ul>
-
 
 <p><b>Default values for machine's parameters (a realistic example) are:</b><br>
 <table>
