@@ -5622,18 +5622,13 @@ It is most convenient to utilize it
 <ul>
 <li> For models to be build graphically (i.e., the model is build up by drag-and-drop
      from elementary components):<br>
-     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">
-     PartialOneFlangeAndSupport</a>,<br>
-     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">
-     PartialTwoFlangesAndSupport</a>, <br> &nbsp; </li>
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br>
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br> &nbsp; </li>
 
 <li> For models to be build textually (i.e., elementary models):<br>
-     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">
-     PartialElementaryOneFlangeAndSupport</a>,<br>
-     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
-     PartialElementaryTwoFlangesAndSupport</a>,<br>
-     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
-     PartialElementaryRotationalToTranslational</a>.</li>
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br>
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br>
+     <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>.</li>
 </ul>
 
 </html>"),     Icon(coordinateSystem(

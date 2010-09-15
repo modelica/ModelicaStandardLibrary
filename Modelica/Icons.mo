@@ -940,7 +940,7 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
                               Documentation(info="<html>
 <p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
 <h5>Note</h5>
-<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Informationrmationrmation\">Information</a> shall be used.</p></html>"));
+<p>This icon will be removed in future versions of the Modelica Standard Library. Instead the icon <a href=\"modelica://Modelica.Icons.Information\">Information</a> shall be used.</p></html>"));
   end Info;
   annotation(Documentation(__Dymola_DocumentationClass=true, info="<html>
 <p>This package contains definitions for the graphical layout of components which may be used in different libraries. The icons can be utilized by inheriting them in the desired class using &QUOT;extends&QUOT; or by directly copying the &QUOT;icon&QUOT; layer. </p>

@@ -461,7 +461,7 @@ systems of equations (details are given in section xxx). From a
 structural point of view, the equations in an assembly object are written in
 the form
 </p>
-<p align=\"center\">
+<p align=\"left\">
   <b>q</b> = <b>
   f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
   <b>R</b><sup>b</sup>)
@@ -476,7 +476,7 @@ assembly, e.g., the angle of a revolute joint. Given angle
 bar mechanism, frame_a and frame_b of the assembly object can be computed by a
 forward recursion
 </p>
-<p align=\"center\">
+<p align=\"left\">
 (<b>r</b><sup>a</sup>,
 <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
 </p>
@@ -503,7 +503,7 @@ combinations are listed in the table below.
 The missing combinations (such as JointSUP
 or Joint RPP) will be added in one of the next releases.
 </p>
-<div align=\"center\">
+<div align=\"left\">
     <table border=\"1\" cellspacing=\"0\" cellpadding=\"0\">
       <tr>
         <td colspan=\"2\"> <b>3-dimensional Loops:</b></td>
@@ -571,7 +571,7 @@ systems of equations (details are given in section xxx). From a
 structural point of view, the equations in an assembly object are written in
 the form
 </p>
-<p align=\"center\">
+<p align=\"left\">
   <b>q</b> = <b>
   f</b><sub>1</sub>(<b>r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>,
   <b>R</b><sup>b</sup>)
@@ -586,7 +586,7 @@ assembly, e.g., the angle of a revolute joint. Given angle
 bar mechanism, frame_a and frame_b of the assembly object can be computed by a
 forward recursion
 </p>
-<p align=\"center\">
+<p align=\"left\">
 (<b>r</b><sup>a</sup>,
 <b>R</b><sup>a</sup>,<b> r</b><sup>b</sup>, <b>R</b><sup>b</sup>) = <b>f</b>(<span style=\"font-family:Symbol\">j)</span>
 </p>
@@ -613,7 +613,7 @@ combinations are listed in the table below.
 The missing combinations (such as JointSUP
 or Joint RPP) will be added in one of the next releases.
 </p>
-<div align=\"center\">
+<div align=\"left\">
     <table border=\"1\" cellspacing=\"0\" cellpadding=\"0\">
       <tr>
         <td colspan=\"2\"> <b>3-dimensional Loops:</b></td>
@@ -766,14 +766,11 @@ occuring non-linear algebraic equation systems are solved
 analytically. There are the following sub-chapters:
 </p>
 <ol>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction\">Introduction</a>
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.Introduction\">Introduction</a>
 </li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">Planar loops</a>.
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">Planar loops</a>.
 </li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>.
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.AnalyticLoopHandling\">Analytic loop handling</a>.
 </li>
 </ol>
 </HTML>"));
@@ -864,16 +861,13 @@ This tutorial provides an introduction into the
 MultiBody library.
 </p>
 <ol>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.OverView\">Overview of
 MultiBody library</a> summarizes the most important aspects.
 </li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.FirstExample\">A first example</a>
   describes in detail all the steps to build a simple pendulum model.
 </li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
+<li><a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures\">Loop structures</a>
   explains how to model kinematic loops, especially by analytically
   solving non-linear equations.
 </li>
@@ -1008,8 +1002,7 @@ calls in 0.99 should be changed:
 
     annotation (Documentation(info="<html>
 <ul>
-<li>
-Technical details of this library are described in the
+<li>Technical details of this library are described in the
 20 page paper:
 <dl>
 <dt>Otter M., Elmqvist H., and Mattsson S.E.:</dt>
@@ -1021,8 +1014,7 @@ Technical details of this library are described in the
      </dd>
 </dl>
 </li>
-<li>
-The method how to describe drive trains with 1-dimensional mechanics
+<li>The method how to describe drive trains with 1-dimensional mechanics
 and to mount them on 3-dimensional components without neglecting
 dynamical effects is described in:
 <dl>
@@ -1079,7 +1071,7 @@ dynamical effects is described in:
      with Hilding Elmqvist and Sven Erik Mattsson from Dassault Syst&egrave;mes AB, Lund, Sweden.
      The MultiBody library is heavily relying on this feature which is a
      prerequiste for a truely \"object-oriented\" multi-body systems library,
-     where components can be connected together in any meaningful way.<li>
+     where components can be connected together in any meaningful way.</li>
 <li> The Examples.Loops.EngineV6 demo of a six cylinder V6 engine with
      6 planar loops and 1 degree of freedom is from Hilding Elmqvist and
      Sven Erik Mattsson.</li>
@@ -1107,22 +1099,18 @@ Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
 This package contains the User's Guide for the MultiBody library.
 </p>
 <ol>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
+<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial\">Tutorial</a>
 gives an introduction into the most important aspects of the library.
 </li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">Upgrade</a> describes
+<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Upgrade\">Upgrade</a> describes
   how to upgrade from former versions, especially from the \"old\"
   ModelicaAdditions.MultiBody library.
 </li>
 
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
+<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
   references that have been used to design and implement this library.
 </li>
-<li>
-<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
+<li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Contact\">Contact</a> provides
   information about the author of the library as well as
   acknowledgments.
 </li>

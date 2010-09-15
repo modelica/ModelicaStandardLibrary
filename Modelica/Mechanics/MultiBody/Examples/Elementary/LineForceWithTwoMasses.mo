@@ -171,8 +171,7 @@ that shall have mass properties. Two alternative implementations
 are given:
 </p>
 <ul>
-<li> With
-     <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a>:<br>
+<li> With <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS\">JointUPS</a>:<br>
      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS is an aggregation
      of a universal, a prismatic and a spherical joint that approximates
      a real force component, such as a hydraulic cylinder. At the two
@@ -182,8 +181,7 @@ are given:
      connecting frame_a and frame_b of the jointUPS component.
      Both bodies have the same mass and the inertia tensor is set to zero,
      i.e., the two bodies are treated as point masses.</li>
-<li> With <a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">
-     LineForceWithTwoMasses</a>:<br>
+<li> With <a href=\"modelica://Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses\">LineForceWithTwoMasses</a>:<br>
      Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses is a line force component
      with the built-in property that two point masses are located
      on the line on which the line force is acting.

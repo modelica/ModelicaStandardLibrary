@@ -1224,7 +1224,7 @@ is generated and the \"controlBus\" contains the new signal \"realSignal1\". Mod
 may give more support in order to list potential signals for a connection.
 For example, in Dymola all variables are listed in the menu that are contained in
 connectors which are derived by inheritance from \"controlBus\". Therefore, in
-<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces.InternalConnectors\">BusUsage_Utilities.Interfaces.InternalConnectors</a>
+<a href=\"modelica://Modelica.Blocks.Examples.BusUsage_Utilities.Interfaces\">BusUsage_Utilities.Interfaces</a>
 the expected implementation of the \"ControlBus\" and of the \"SubControlBus\" are given.
 For example \"Internal.ControlBus\" is defined as:
 </p>
