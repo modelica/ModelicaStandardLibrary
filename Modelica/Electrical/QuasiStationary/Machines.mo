@@ -276,7 +276,7 @@ Examples to demonstrate the usage of quasistationary electric components.
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy0
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"),            Diagram(coordinateSystem(preserveAspectRatio=true,
                   extent={{-100,-100},{100,100}}),
                               graphics));
@@ -325,7 +325,7 @@ Transformer Yy0
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy2
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy02;
 
@@ -372,7 +372,7 @@ Transformer Yy2
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy4
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy04;
 
@@ -414,7 +414,7 @@ Transformer Yy4
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy6
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy06;
 
@@ -461,7 +461,7 @@ Transformer Yy6
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy8
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy08;
 
@@ -508,7 +508,7 @@ Transformer Yy8
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yy10
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yy10;
         annotation (Documentation(info="<HTML>
@@ -572,7 +572,7 @@ This package contains transformers primary Y connected / secondary y connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd1
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd01;
 
@@ -614,7 +614,7 @@ Transformer Yd1
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd3
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd03;
 
@@ -651,7 +651,7 @@ Transformer Yd3
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd5
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd05;
 
@@ -688,7 +688,7 @@ Transformer Yd5
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd7
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd07;
 
@@ -730,7 +730,7 @@ Transformer Yd7
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd9
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd09;
 
@@ -767,7 +767,7 @@ Transformer Yd9
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yd11
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yd11;
         annotation (Documentation(info="<HTML>
@@ -849,7 +849,7 @@ This package contains transformers primary Y connected / secondary d connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz1
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz01;
 
@@ -905,7 +905,7 @@ Transformer Yz1
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz3
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz03;
 
@@ -954,7 +954,7 @@ Transformer Yz3
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz5
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz05;
 
@@ -1003,7 +1003,7 @@ Transformer Yz5
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz7
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz07;
 
@@ -1059,7 +1059,7 @@ Transformer Yz7
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz9
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz09;
 
@@ -1115,7 +1115,7 @@ Transformer Yz9
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Yz11
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Yz11;
         annotation (Documentation(info="<HTML>
@@ -1184,7 +1184,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy1
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy01;
 
@@ -1226,7 +1226,7 @@ Transformer Dy1
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy3
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy03;
 
@@ -1263,7 +1263,7 @@ Transformer Dy3
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy5
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy05;
 
@@ -1305,7 +1305,7 @@ Transformer Dy5
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy7
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy07;
 
@@ -1347,7 +1347,7 @@ Transformer Dy7
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy9
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy09;
 
@@ -1384,7 +1384,7 @@ Transformer Dy9
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dy11
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dy11;
         annotation (Documentation(info="<HTML>
@@ -1443,7 +1443,7 @@ This package contains transformers primary D connected / secondary y connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd0
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd00;
 
@@ -1480,7 +1480,7 @@ Transformer Dd0
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd2
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd02;
 
@@ -1512,7 +1512,7 @@ Transformer Dd2
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd4
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd04;
 
@@ -1544,7 +1544,7 @@ Transformer Dd4
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd6
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd06;
 
@@ -1581,7 +1581,7 @@ Transformer Dd6
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd8
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd08;
 
@@ -1613,7 +1613,7 @@ Transformer Dd8
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dd10
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dd10;
         annotation (Documentation(info="<HTML>
@@ -1691,7 +1691,7 @@ This package contains transformers primary D connected / secondary d connected i
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz0
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz00;
 
@@ -1742,7 +1742,7 @@ Transformer Dz0
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz2
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz02;
 
@@ -1786,7 +1786,7 @@ Transformer Dz2
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz4
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz04;
 
@@ -1830,7 +1830,7 @@ Transformer Dz4
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz6
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz06;
 
@@ -1881,7 +1881,7 @@ Transformer Dz6
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz8
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz08;
 
@@ -1932,7 +1932,7 @@ Transformer Dz8
           annotation (defaultComponentName="transformer", Documentation(info="<html>
 Transformer Dz10
 <br>Typical parameters see:
-<a href=modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer>PartialBasicTransformer</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
 </html>"));
         end Dz10;
         annotation (Documentation(info="<HTML>

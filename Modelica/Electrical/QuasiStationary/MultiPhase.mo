@@ -307,7 +307,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
 </p>
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta>Delta</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Delta\">Delta</a>
 </p>
 </html>"));
     end Star;
@@ -361,7 +361,7 @@ Delta (polygon) connection of a multi phase circuit.
 </p>
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star>Star</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Star\">Star</a>
 </p>
 </html>"));
     end Delta;
@@ -409,9 +409,9 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
 </p>
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlutToPins_p</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">PlutToPins_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"));
     end PlugToPin_p;
@@ -459,9 +459,9 @@ Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) 
 </p>
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlutToPins_p</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">PlutToPins_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"));
     end PlugToPin_n;
@@ -506,9 +506,9 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
 </p>
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n>PlugToPins_n</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
 </html>"),
         Diagram(graphics));
@@ -554,9 +554,9 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
 </p>
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p>PlugToPin_p</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n>PlugToPin_n</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p>PlugToPins_p</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_p\">PlugToPin_p</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_p\">PlugToPins_p</a>
 </p>
 </html>"));
     end PlugToPins_n;
@@ -612,7 +612,7 @@ Connects all <i>m</i> single phase (negative) pins of the multi phase (negative)
 <p>
 The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor>single phase Resistors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">single phase Resistors</a>.
 </p>
 
 <p>
@@ -623,14 +623,14 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end Resistor;
@@ -684,7 +684,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <p>
 The linear resistor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*G = <u>i</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor>single phase Conductors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">single phase Conductors</a>.
 </p>
 
 <p>
@@ -695,14 +695,14 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end Conductor;
@@ -745,19 +745,19 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <p>
 The linear capacitor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*j*&omega;*C = <u>i</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor>single phase Capacitors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">single phase Capacitors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end Capacitor;
@@ -801,19 +801,19 @@ using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhas
 <p>
 The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>single phase Inductors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">single phase Inductors</a>.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end Inductor;
@@ -878,7 +878,7 @@ using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhas
 <p>
 The linear resistor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>single phase variable Resistors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">single phase variable Resistors</a>.
 The resistances <i>R</i> are given as <i>m</i> input signals.
 </p>
 
@@ -890,14 +890,14 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor>VariableResistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableResistor\">VariableResistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end VariableResistor;
@@ -961,7 +961,7 @@ A linear temperature dependency of the resistances for enabled heat ports is als
 <p>
 The linear resistor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*G = <u>i</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor>single phase variable Conductors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">single phase variable Conductors</a>.
 The conductances <i>G</i> are given as <i>m</i> input signals.
 </p>
 
@@ -973,14 +973,14 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor>VariableConductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableConductor\">VariableConductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end VariableConductor;
@@ -1031,20 +1031,20 @@ A linear temperature dependency of the conductances for enabled heat ports is al
 <p>
 The linear capacitor connects the complex currents <i><u>i</u></i> with the complex
 voltages <i><u>v</u></i> by <i><u>v</u>*j*&omega;*C = <u>i</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor>single phase variable Capacitors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">single phase variable Capacitors</a>.
 The capacitances <i>C</i> are given as <i>m</i> input signals.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor>VariableCapacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor>Variable inductor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableCapacitor\">VariableCapacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableInductor\">Variable inductor</a>
 </p>
 </html>"));
     end VariableCapacitor;
@@ -1096,20 +1096,20 @@ The capacitances <i>C</i> are given as <i>m</i> input signals.
 <p>
 The linear inductor connects the complex voltages <i><u>v</u></i> with the complex
 currents <i><u>i</u></i> by <i><u>i</u>*j*&omega;*L = <u>v</u></i>,
-using <i>m</i> <a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor>single phase variable Inductors</a>.
+using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.VariableInductor\">single phase variable Inductors</a>.
 The inductances <i>L</i> are given as <i>m</i> input signals.
 </p>
 
 <h4>See also</h4>
 <p>
-<a href=modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor>Resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor>Conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor>Capacitor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor>Inductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor>Variable resistor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor>Variable conductor</a>,
-<a href=modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor>Variable capacitor</a>
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor\">Resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Conductor\">Conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Capacitor\">Capacitor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor\">Inductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableResistor\">Variable resistor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableConductor\">Variable conductor</a>,
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.VariableCapacitor\">Variable capacitor</a>
 </p>
 </html>"));
     end VariableInductor;
