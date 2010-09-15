@@ -2330,7 +2330,8 @@ is translated to Modelica:<br>
 If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the voltage v =  2.5,
     e.g., time = 2.0, the voltage v =  4.0,
-<p><code>    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).</code></p>
+    e.g., time = 5.0, the voltage v = 23.0 (i.e., extrapolation).
+</pre>
 </html>",
        revisions="<html>
 </html>"));
@@ -2734,14 +2735,18 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             grid={1,1}), graphics),
         Documentation(info="<html>
 <p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
-<p><ul>
+
+<p>
+<ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
 <li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independantly of the actual time instant, i.e., this is a constant current source.</li>
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
 <li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
-</ul></p>
+</ul>
+</p>
+
 <p>Example:</p>
 <pre>   table = [0  0
             1  0
@@ -2752,7 +2757,8 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     e.g., time = 1.5, the current i =  2.5,
     e.g., time = 2.0, the current i =  4.0,
-<p><code>    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).</code></p>
+    e.g., time = 5.0, the current i = 23.0 (i.e., extrapolation).
+</pre>
 </html>",
        revisions="<html>
 </html>"));
