@@ -1,0 +1,96 @@
+<html>
+<p>
+Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
+</p>
+
+<h4><font color="#EF9B13">Functions <b>kc_approxForcedConvection</b> and <b>kc_approxForcedConvection_KC</b></font></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_approxForcedConvection</b> is using <b>kc_approxForcedConvection_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_approxForcedConvection_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_approxForcedConvection_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+
+<h4><font color="#EF9B13">Restriction</font></h4>
+<ul>
+<li> Constant wall temperature <b> or </b> constant heat flux
+<li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)
+<li> Prandtl number 0.5 &le; Pr &le; 500
+</ul>
+
+<h4><font color="#EF9B13">Calculation</font></h4>
+The mean convective heat transfer coefficient <b> kc </b> is approximated through different Nusselt number <b> Nu </b> correlations out of <i>[Bejan 2003, p. 424 ff]</i>. <br>
+Roughest approximation according to Dittus/Boelter (1930):
+<pre>
+    Nu_1 = 0.023 * Re^(4/5) * Pr^(exp_Pr)
+</pre>
+
+Middle approximation according to Sieder/Tate (1936) considering the temperature dependence of the fluid properties:
+<pre>
+    Nu_2 = 0.023 * Re^(4/5) * Pr^(1/3) * (eta/eta_wall)^(0.14)
+</pre>
+
+Finest approximation according to Gnielinski (1976):
+<pre>
+    Nu_3 = 0.0214 * [Re^(0.8) - 100] * Pr^(0.4) for Pr &le; 1.5
+         = 0.012 * [Re^(0.87) - 280] * Pr^(0.4) for Pr &gt; 1.5
+</pre>
+
+<p>
+The mean convective heat transfer coefficient <b> kc </b> is calculated by:
+</p
+<p>
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> eta                          </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> eta_wall                     </b></td><td> as dynamic viscosity of fluid at wall temperature [Pa.s],</td></tr>
+<tr><td><b> exp_Pr                       </b></td><td> as exponent for Prandtl number w.r.t. Dittus/Boelter (0.4 for heating or 0.3 for cooling) [-],</td></tr>
+<tr><td><b> kc                           </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda                       </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> d_hyd                        </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> Nu_1/2/3                     </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr                           </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re                           </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4><font color="#EF9B13">Verification</font></h4>
+
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. <br>
+<b>Dittus/Boelter</b> (Target = 1)
+<p>
+<img src="../../../../../Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png">
+</p>
+<b>Sieder/Tate</b> (Target = 2)
+<p>
+<img src="../../../../../Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png">
+</p>
+<b>Gnielinski</b> (Target = 3)
+<p>
+<img src="../../../../../Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png">
+</p>
+
+Note that all fluid properties shall be calculated with the mean temperature of the fluid between the entrance and the outlet of the generic device.
+
+<h4><font color="#EF9B13">References</font></h4>
+<dl>
+<dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+</dl>
+
+</html>

@@ -1,0 +1,215 @@
+<html>
+<p>
+Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
+</p>
+<h4><font color="#EF9B13">Restriction</font></h4>
+This function shall be used inside of the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> edged bend with sharp corners at turning </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> 0° &le; angle of turning &le; 180° </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
+ </li>
+ <li>
+      <b> length of edged bend along edged axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+</ul>
+
+<h4><font color="#EF9B13">Geometry</font></h4>
+<p>
+<img src="../../../../../Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png">
+</p>
+
+<h4><font color="#EF9B13">Calculation</font></h4>
+The pressure loss <b> dp </b> for edged bends is determined by:
+<p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+The pressure loss coefficient <b> zeta_TOT </b> of an edged bend can be calculated for different angles of turning <b> delta </b> by:
+<p>
+<pre>
+    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <i>[Idelchik 2006, p. 366, diag. 6-7] </i> and <i>[Miller 1984, p. 149, sec. 9.4]</i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A              </b></td><td> as coefficient considering effect for angle of turning [-],</td></tr>
+<tr><td><b> C1             </b></td><td> as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td></tr>
+<tr><td><b> CF_Fri         </b></td><td> as correction factor considering surface roughness [-],</td></tr>
+<tr><td><b> CF_Re          </b></td><td> as correction factor considering Reynolds number [-],</td></tr>
+<tr><td><b> delta          </b></td><td> as angle of turning [deg].</td></tr>
+</table>
+</p>
+
+The correction factor <b> CF_Fri </b> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
+</p>
+<pre>
+    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+
+<p>
+and the Darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+</p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
+<tr><td><b> lambda_FRI         </b></td><td> as Darcy friction factor[-],</td></tr>
+<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
+<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45° according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
+</p>
+
+<p>
+Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
+<pre>
+    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b> according to <i>[VDI 2002, p. Lac 6, fig. 16]</i>
+</p>
+
+<p>
+In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:
+</p>
+
+<p>
+<pre>
+CF_Re = B/Re^exp for Re &le; Re_lam_leave
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
+<tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the coefficient <b> B </b> considers the influence of the angle of turning <b> delta </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime according to <i>[Idelchik 2006, p. 340, sec. 28]</i>.
+</p>
+
+<p>
+Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
+</p>
+
+<h4><font color="#EF9B13">Verification</font></h4>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
+<p>
+<img src="../../../../../Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png">
+</p>
+
+<p>
+Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
+</p>
+
+<p>
+The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
+<ul>
+ <li>
+      <b> laminar regime </b> for Re &le; 4e2
+ <li>
+      <b> transition regime </b> for 4e2 &le; Re &le; 2e3
+ <li>
+      <b> dependent turbulent regime on Reynolds number for 2e3 &le; Re &le; 1e5
+ <li>
+      <b> independent turbulent regime of Reynolds number for Re &ge; 1e5
+</ul>
+</p>
+
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
+</p>
+<p>
+<img src="../../../../../Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png">
+</p>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
+</p>
+<p>
+<img src="../../../../../Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png">
+</p>
+<h4><font color="#EF9B13">References</font></h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+ <dt>Samoilenko,L.A.:</dt>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the
+        zone of transition from laminar into turbulent motion</b>.
+        PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
