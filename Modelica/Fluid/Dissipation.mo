@@ -267,6 +267,28 @@ Initial release of Fluid.Dissipation.
     end ReleaseNotes;
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 </html>"));
+  class Contact "Contact"
+    extends Modelica.Icons.Contact;
+      annotation (Documentation(info="<html>
+<dl>
+<dt><h2><font color=\"#EF9B13\">Maintainer and co-author </font></h2>
+<dd>Stefan Wischhusen<br>
+    XRG Simulation GmbH<br>
+    Hamburg, Germany<br>
+    email: <A HREF=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</A><br>
+</dl>
+<h2> <font color=\"#EF9B13\"> Acknowledgements </font></h2>
+The following people contributed to the Modelica.Fluid.Dissipation library (alphabetical list):
+J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan 
+Wischhusen. 
+ 
+<p>
+The development of the Modelica.Fluid.Dissipation library was founded within the ITEA research 
+project EuroSysLib-D by German Federal Ministry of Education and Research (promotional 
+reference 01IS07022B). The project is started in October 2007 and ended in June 2010. 
+</p>
+</html>"));
+  end Contact;
   end UsersGuide;
 
   package HeatTransfer "Package for calculation of heat transfer"
@@ -1965,7 +1987,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties 
           annotation (Dialog(group="Fluid properties"));
-        SI.DynamicViscosity eta_wall=1e-3
+        SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
                 "Fluid properties", enable=if target == 2 then true else false));
 
@@ -6454,7 +6476,6 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
           2)/max(MIN, (IN_var.rho*A_cross)^2);
       annotation(preferedView="info", Documentation(info="<html>
 <p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. </p>
-<p>This function can be used to calculate both the pressure loss at known mass flow rate <b>or </b>mass flow rate at known pressure loss within one function in dependence of the known variable (dp or m_flow). </p>
 <p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall.html\">See more information</a>. </p>
 </html>"),smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
           inverse(m_flow=FD.dp_curvedOverall_MFLOW(
@@ -6777,12 +6798,6 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
 <p>
 Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\">dp_curvedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
 <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall.html\">See more information</a> .</p>
@@ -7015,7 +7030,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
         extends Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Bend;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall\"> dp_curvedOverall </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\"> dp_curvedOverall_DP </a>
 and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\"> dp_curvedOverall_MFLOW </a>.
 </html>"));
@@ -7029,7 +7044,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall\"> dp_curvedOverall </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\"> dp_curvedOverall_DP </a>
 and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\"> dp_curvedOverall_MFLOW </a>.
 </html>"));
@@ -7155,14 +7170,9 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
 <p>
 Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
-
-There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
+There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
 </p>
-
 <p>
 Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\">dp_edgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.
 <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall.html\">See more information</a> .</p>
@@ -7512,14 +7522,9 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
 <p>
 Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
-
+<p>
 There are larger pressure losses in an edged bend compared to a curved bend under the same conditions. The effect of a sharp corner in an edged bend on the pressure loss is much larger than the influence of surface roughness.
-
-<<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
 </p>
-
 <p>
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\">dp_edgedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
 <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall.html\">See more information</a> .</p>
@@ -7757,7 +7762,7 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
         extends Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Bend(final R_0=0);
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the  pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall\"> dp_edgedOverall </a>,
+This record is used as <b> input record </b> for the  pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\"> dp_edgedOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\"> dp_edgedOverall_MFLOW </a>.
 </html>"));
@@ -7770,7 +7775,7 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the  pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall\"> dp_edgedOverall </a>,
+This record is used as <b> input record </b> for the  pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\"> dp_edgedOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\"> dp_edgedOverall_MFLOW </a>.
 </html>"));
@@ -7778,6 +7783,19 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
     end Bend;
 
     package Channel "Package for pressure loss calculation of channels"
+      class Channel_Documentation
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+<p><b><font style=\"font-size: 17pt; \" color=\"#ef9b13\">Channel</font></b></p>
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Internal overall flow</font></b></p>
+<p>
+Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall.html\">See more information</a>.
+</p>
+</html>
+"),              __Dymola_DocumentationClass=true);
+      end Channel_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_internalFlowOverall_DP
@@ -7902,16 +7920,10 @@ This record is used as <b> input record </b> for the  pressure loss function <a 
                 m_flow_turb);
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss for an internal flow through different geometries at overall flow regime for incompressible and single-phase fluid flow considering surface roughness.
+Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\">dp_internalFlowOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\">dp_internalFlowOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -8167,19 +8179,10 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
                 dp);
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss for an internal flow through different geometries at overall flow regime for incompressible and single-phase fluid flow considering surface roughness.
+Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. </p> 
-
-<p>
-The pressure loss calculation for internal fluid flow in different geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> or <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall_DP.html\">see here for more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall.html\">See more information</a>.
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=FD.dp_internalFlowOverall_DP(
@@ -8255,6 +8258,44 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     end Channel;
 
     package General "Package for generic pressure loss calculations"
+      class General_Documentation
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+<p><b><font style=\"font-size: 17pt; \" color=\"#ef9b13\">General</font></b></p>
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">General pressure loss for ideal gas</font></b></p>
+<p>
+Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_DP.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Generic pressure loss depending on density and viscosity </font></b></p>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
+This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Generic pressure loss depending on density</font></b></p>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_DP.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Generic pressure loss depending on pressure loss coefficient</font></b></p>
+<p>
+Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
+ <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_DP.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Generic pressure loss depending on volume flow rate</font></b></p>
+<p>
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+ <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_DP.html\">See more information</a>.
+</p>
+</html>
+"),              __Dymola_DocumentationClass=true);
+      end General_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_idealGas_DP
@@ -8298,12 +8339,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <p>
 Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\">dp_idealGas_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_DP.html\">See more information</a>.
 </p>
@@ -8481,12 +8516,6 @@ The generic pressure loss <b> dp </b> for different coefficients <b> Km </b> as 
 <p>
 Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\">dp_idealGas_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_MFLOW.html\">See more information</a>.
 </p>
@@ -8634,7 +8663,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
       end dp_idealGas_MFLOW;
 
       record dp_idealGas_IN_con
-        "Input record for function dp_idealGas, dp_idealGas_DP and dp_idealGas_MFLOW"
+        "Input record for function dp_idealGas_DP and dp_idealGas_MFLOW"
 
         //generic variables
         extends
@@ -8646,7 +8675,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\"> dp_idealGas </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\"> dp_idealGas_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\"> dp_idealGas_MFLOW </a>.
 </html>"));
@@ -8654,14 +8683,14 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_idealGas_IN_con;
 
       record dp_idealGas_IN_var
-        "Input record for function dp_idealGas, dp_idealGas_DP and dp_idealGas_MFLOW"
+        "Input record for function dp_idealGas_DP and dp_idealGas_MFLOW"
 
         //generic variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.IdealGas_var;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\"> dp_idealGas </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\"> dp_idealGas_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\"> dp_idealGas_MFLOW </a>.
 </html>"));
@@ -8708,14 +8737,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
-The function can be used to calculate pressure loss at known mass flow rate <b> or </b>  mass flow rate at known pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
 </p>
@@ -8865,12 +8887,6 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\">dp_genericDensityViscosity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
 </p>
@@ -8986,28 +9002,28 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
       end dp_nominalDensityViscosity_MFLOW;
 
       record dp_nominalDensityViscosity_IN_con
-        "Output record for function dp_nominalDensityViscosity, dp_nominalDensityViscosity_DP and dp_nominalDensityViscosity_MFLOW"
+        "Output record for function dp_nominalDensityViscosity_DP and dp_nominalDensityViscosity_MFLOW"
 
         //generic variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.NominalDensityViscosity;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\"> dp_nominalDensityViscosity </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\"> dp_nominalDensityViscosity_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\"> dp_nominalDensityViscosity_MFLOW </a>.
 </html>"));
       end dp_nominalDensityViscosity_IN_con;
 
       record dp_nominalDensityViscosity_IN_var
-        "Output record for function dp_nominalDensityViscosity, dp_nominalDensityViscosity_DP and dp_nominalDensityViscosity_MFLOW"
+        "Output record for function dp_nominalDensityViscosity_DP and dp_nominalDensityViscosity_MFLOW"
 
         //fluid property variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\"> dp_nominalDensityViscosity </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\"> dp_nominalDensityViscosity_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\"> dp_nominalDensityViscosity_MFLOW </a>.
 </html>"));
@@ -9066,14 +9082,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
-The function can be used to calculate pressure loss at known mass flow rate <b> or </b>  mass flow rate at known pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_DP.html\">See more information</a>.
 </p>
@@ -9271,14 +9280,7 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
-The function can be used to calculate pressure loss at known mass flow rate <b> or </b>  mass flow rate at known pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_MFLOW.html\">See more information</a>.
 </p>
@@ -9437,21 +9439,21 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
       end dp_nominalPressureLossLawDensity_MFLOW;
 
       record dp_nominalPressureLossLawDensity_IN_con
-        "Input record for function dp_nominalPressureLossLawDensity, dp_nominalPressureLossLawDensity_DP and dp_nominalPressureLossLawDensity_MFLOW"
+        "Input record for function dp_nominalPressureLossLawDensity_DP and dp_nominalPressureLossLawDensity_MFLOW"
 
         //generic variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.NominalPressureLossLawDensity_con;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity\"> dp_nominalPressureLosslawDensity </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\"> dp_nominalPressureLosslawDensity_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\"> dp_nominalPressureLosslawDensity_MFLOW </a>.
 </html>"));
       end dp_nominalPressureLossLawDensity_IN_con;
 
       record dp_nominalPressureLossLawDensity_IN_var
-        "Input record for function dp_nominalPressureLossLawDensity, dp_nominalPressureLossLawDensity_DP and dp_nominalPressureLossLawDensity_MFLOW"
+        "Input record for function dp_nominalPressureLossLawDensity_DP and dp_nominalPressureLossLawDensity_MFLOW"
 
         //generic variables
         extends
@@ -9463,7 +9465,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
           final eta=0);
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity\"> dp_nominalPressureLosslawDensity </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\"> dp_nominalPressureLosslawDensity_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\"> dp_nominalPressureLosslawDensity_MFLOW </a>.
 </html>"));
@@ -9502,12 +9504,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <p>
 Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_DP.html\">See more information</a>.
 </p>
@@ -9603,16 +9599,10 @@ The pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b
                 0.5)/(0.5*IN_var.zeta_TOT*IN_var.rho)^0.5;
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of a generic pressure loss in dependence of  a pressure loss coefficient.
+Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_MFLOW.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_MFLOW.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -9684,7 +9674,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
       end dp_pressureLossCoefficient_MFLOW;
 
       record dp_pressureLossCoefficient_IN_con
-        "Input record for function dp_pressureLossCoefficient, dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"
+        "Input record for function dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"
         extends Modelica.Icons.Record;
 
         //generic variables
@@ -9697,14 +9687,14 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient\"> dp_pressureLossCoefficient </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\"> dp_pressureLossCoefficient_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\"> dp_pressureLossCoefficient_MFLOW </a>.
 </html>"));
       end dp_pressureLossCoefficient_IN_con;
 
       record dp_pressureLossCoefficient_IN_var
-        "Input record for function dp_pressureLossCoefficient, dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"
+        "Input record for function dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"
         extends Modelica.Icons.Record;
 
         //generic variables
@@ -9713,11 +9703,11 @@ This record is used as <b> input record </b> for the pressure loss function <a h
           annotation (Dialog(group="Generic variables"));
 
         //fluid property variables
-        SI.Density rho=1e3 "Density of fluid" 
+        SI.Density rho "Density of fluid" 
           annotation (Dialog(group="FluidProperties"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient\"> dp_pressureLossCoefficient </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\"> dp_pressureLossCoefficient_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\"> dp_pressureLossCoefficient_MFLOW </a>.
 </html>"));
@@ -9765,14 +9755,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       annotation(preferedView="info", Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
-The function can be used to calculate pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_DP.html\">See more information</a>.
 </p>
@@ -9884,14 +9867,7 @@ The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as p
       annotation(preferedView="info", Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
-The function can be used to calculate pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_MFLOW.html\">See more information</a>.
 </p>
@@ -9969,7 +9945,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
       end dp_volumeFlowRate_MFLOW;
 
       record dp_volumeFlowRate_IN_con
-        "Input record for function dp_volumeFlowRate, dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
+        "Input record for function dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
 
         //generic variables
         extends
@@ -9979,7 +9955,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           "Start of approximation for decreasing pressure loss";
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\"> dp_volumeFlowRate </a>,
+This record is used as <b> input record </b> for the pressure loss function 
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\"> dp_volumeFlowRate_DP </a> and
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\"> dp_volumeFlowRate_MFLOW </a>.
 </html>"));
@@ -9987,7 +9963,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_volumeFlowRate_IN_con;
 
       record dp_volumeFlowRate_IN_var
-        "Input record for function dp_volumeFlowRate, dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
+        "Input record for function dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
 
         //fluid property variables
         extends
@@ -9995,7 +9971,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
           final eta=0);
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\"> dp_volumeFlowRate </a>,
+This record is used as <b> input record </b> for the pressure loss function 
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\"> dp_volumeFlowRate_DP </a> and
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\"> dp_volumeFlowRate_MFLOW </a>.
 </html>"));
@@ -10003,24 +9979,30 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_volumeFlowRate_IN_var;
     end General;
 
-    package HeatExchanger
-      "Package for pressure loss calculation of heat exchangers"
-    extends Modelica.Icons.VariantsPackage;
 
-    annotation (preferedView="info", Documentation(info="<html>
-Note that the intention is to enhance the Fluid.Dissipation library by editing this package in future.
-</html>"));
-    end HeatExchanger;
-
-    package Junction "Package for pressure loss calculation of junctions"
-    extends Modelica.Icons.VariantsPackage;
-
-    annotation (preferedView="info", Documentation(info="<html>
-Note that the intention is to enhance the Fluid.Dissipation library by editing this package in future.
-</html>"));
-    end Junction;
 
     package Orifice "Package for pressure loss calculation of orifices"
+      class Orifice_Documentation
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+<p><b><font style=\"font-size: 17pt; \" color=\"#ef9b13\">Orifice</font></b></p>
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Sudden change</font></b></p>
+<p>
+Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Orifice/dp_suddenChange.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Thick edged orifice</font></b></p>
+<p>
+Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Orifice/dp_thickEdgedOverall.html\">See more information</a>.
+</p>
+
+
+</html>
+"),              __Dymola_DocumentationClass=true);
+      end Orifice_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_suddenChange_DP
@@ -10111,14 +10093,8 @@ Note that the intention is to enhance the Fluid.Dissipation library by editing t
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10300,14 +10276,8 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\">dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\">dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange.html\">See more information</a>.
 </p>
 </html>
 
@@ -10431,7 +10401,7 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
           final L=0);
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange\"> dp_suddenChange </a>,
+This record is used as <b> input record </b> for the pressure loss functions 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\"> dp_suddenChange_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\"> dp_suddenChange_MFLOW </a>.
 </html>"));
@@ -10445,7 +10415,7 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange\"> dp_suddenChange </a>,
+This record is used as <b> input record </b> for the pressure loss functions 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\"> dp_suddenChange_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\"> dp_suddenChange_MFLOW </a>.
 </html>"));
@@ -10524,14 +10494,8 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\">dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\">dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10714,14 +10678,8 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\">dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\">dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10853,7 +10811,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall\"> dp_thickEdgedOverall </a>,
+This record is used as <b> input record </b> for the pressure loss functions 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\"> dp_thickEdgedOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\"> dp_thickEdgedOverall_MFLOW </a>.
 </html>"));
@@ -10867,7 +10825,7 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall\"> dp_thickEdgedOverall </a>,
+This record is used as <b> input record </b> for the pressure loss functions
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\"> dp_thickEdgedOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\"> dp_thickEdgedOverall_MFLOW </a>.
 </html>"));
@@ -10876,6 +10834,37 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
 
     package StraightPipe
       "Package for pressure loss calculation of straight pipes"
+      class StraightPipe_Documentation
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+<p><b><font style=\"font-size: 17pt; \" color=\"#ef9b13\">Straight Pipe</font></b></p>
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Laminar flow</font></b></p>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Turbulent flow</font></b></p>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Overall flow</font></b></p>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall.html\">See more information</a>.
+</p>
+<-- ---------------------------------------------------------------------------------------------------------------------- -->
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Two phase overall flow</font></b></p>
+<p>
+Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+ <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_twoPhaseOverall_DP.html\">See more information</a>.
+</p>
+</html>
+"),              __Dymola_DocumentationClass=true);
+      end StraightPipe_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_laminar_DP
@@ -10918,16 +10907,10 @@ This record is used as <b> input record </b> for the pressure loss functions <a 
         DP := 32*IN_var.eta*velocity*IN_con.L/d_hyd^2;
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of an incompressible and single-phase fluid flow only.
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\">dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\">dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -11088,16 +11071,10 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
         M_FLOW := IN_var.rho*A_cross*(dp*d_hyd^2/(32*IN_var.eta*IN_con.L));
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of an incompressible and single-phase fluid flow only.
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -11222,14 +11199,14 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
       end dp_laminar_MFLOW;
 
       record dp_laminar_IN_con
-        "Input record for function dp_laminar, dp_laminar_DP and dp_laminar_MFLOW"
+        "Input record for function dp_laminar_DP and dp_laminar_MFLOW"
 
         extends
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con(      final
             roughness=1, final K=0);
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\"> dp_laminar </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\"> dp_laminar_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\"> dp_laminar_MFLOW </a>.
 </html>"));
@@ -11237,13 +11214,13 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_laminar_IN_con;
 
       record dp_laminar_IN_var
-        "Input record for function dp_laminar, dp_laminar_DP and dp_laminar_MFLOW"
+        "Input record for function dp_laminar_DP and dp_laminar_MFLOW"
 
         extends
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\"> dp_laminar </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\"> dp_laminar_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\"> dp_laminar_MFLOW </a>.
 </html>"));
@@ -11318,16 +11295,10 @@ This record is used as <b> input record </b> for the pressure loss function <a h
                 m_flow);
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss in a straight pipe for <b> overall </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\">dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\">dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall.html\">See more information</a>.
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_overall_MFLOW(
@@ -11574,16 +11545,10 @@ The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass
                 dp);
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss in a straight pipe for <b> overall </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\">dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\">dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -11742,7 +11707,7 @@ The mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the
       end dp_overall_MFLOW;
 
       record dp_overall_IN_con
-        "Input record for function dp_overall, dp_overall_DP and dp_overall_MFLOW"
+        "Input record for function dp_overall_DP and dp_overall_MFLOW"
 
         Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Neglected
           "Choice of considering surface roughness" 
@@ -11753,7 +11718,7 @@ The mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the
           Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall </a>,
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\"> dp_overall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\"> dp_overall_MFLOW </a>.
 </html>"));
@@ -11761,14 +11726,14 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_overall_IN_con;
 
       record dp_overall_IN_var
-        "Input record for function dp_overall, dp_overall_DP and dp_overall_MFLOW"
+        "Input record for function dp_overall_DP and dp_overall_MFLOW"
 
         //fluid property variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall </a>,
+This record is used as <b> input record </b> for the pressure loss function 
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\"> dp_overall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\"> dp_overall_MFLOW </a>.
 </html>"));
@@ -11861,16 +11826,10 @@ This record is used as <b> input record </b> for the pressure loss function <a h
                 2);
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent.html\">See more information</a>.
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_turbulent_MFLOW(
@@ -12087,16 +12046,10 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
         M_FLOW := IN_var.rho*A_cross*velocity;
       annotation(preferedView="info", Documentation(info="<html>
 <p>
-Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
-
 <p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP\">dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP\">dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -12230,7 +12183,7 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
       end dp_turbulent_MFLOW;
 
       record dp_turbulent_IN_con
-        "Input record for function dp_turbulent, function dp_turbulent_DP and dp_turbulent_MFLOW"
+        "Input record for function dp_turbulent_DP and dp_turbulent_MFLOW"
 
         extends
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con;
@@ -12243,7 +12196,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_turbulent_IN_con;
 
       record dp_turbulent_IN_var
-        "Input record for function function dp_turbulent, dp_turbulent_DP and dp_turbulent_MFLOW"
+        "Input record for function dp_turbulent_DP and dp_turbulent_MFLOW"
 
         extends
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var;
@@ -12371,7 +12324,7 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 <img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\">  
 </p>
 <p>
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_twoPhaseOverall_DP.html\">See more information</a>.
+ <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_twoPhaseOverall.html\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -12688,6 +12641,20 @@ This record is used as <b> input record </b> for the pressure loss function <a h
     end StraightPipe;
 
     package Valve "Package for pressure loss calculation of valves"
+      class Valve_Documentation
+        extends Modelica.Icons.Information;
+
+        annotation (Documentation(info="<html>
+<p><b><font style=\"font-size: 17pt; \" color=\"#ef9b13\">Valve</font></b></p>
+<p><b><font style=\"font-size: 12pt;\"  color=\"#ef9b13\">Several geometries</font></b></p>
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_DP.html\">See more information</a>.
+</p>
+
+</html>
+"),              __Dymola_DocumentationClass=true);
+      end Valve_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_severalGeometryOverall_DP
@@ -12791,12 +12758,6 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 <p>
 Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">dp_severalGeometryOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_DP.html\">See more information</a>.
 </p>
@@ -13211,12 +13172,6 @@ The pressure loss of different valves at a constant opening of 50% in dependence
 <p>
 Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
 <p>
 Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_MFLOW.html\">See more information</a>.
 </p>
@@ -13432,7 +13387,7 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
       end dp_severalGeometryOverall_MFLOW;
 
       record dp_severalGeometryOverall_IN_con
-        "Input record for function dp_severalGeometryOverall, dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW"
+        "Input record for function dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW"
 
         extends Modelica.Icons.Record;
 
@@ -13456,7 +13411,7 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
         SI.MassFlowRate m_flow_nominal=opening_nominal*Av*(rho_nominal*dp_nominal)^
             0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=if 
                 valveCoefficient == 4 then true else false));
-        SI.Density rho_nominal=1e3 "Nominal inlet density" annotation (Dialog(group=
+        SI.Density rho_nominal "Nominal inlet density" annotation (Dialog(group=
                 "Valve", enable=if valveCoefficient == 4 then true else false));
         Real opening_nominal=0.5 "Nominal opening" annotation (Dialog(group="Valve",
               enable=if valveCoefficient == 4 then true else false));
@@ -13480,7 +13435,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       end dp_severalGeometryOverall_IN_con;
 
       record dp_severalGeometryOverall_IN_var
-        "Input record for function dp_severalGeometryOverall, dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW"
+        "Input record for function dp_severalGeometryOverall_DP and dp_severalGeometryOverall_MFLOW"
 
         extends Modelica.Icons.Record;
 
@@ -13489,9 +13444,9 @@ This record is used as <b> input record </b> for the pressure loss function <a h
           annotation (Dialog(group="Valve"));
 
         //fluid property variables
-        SI.DynamicViscosity eta=1e-3 "Dynamic viscosity of fluid" 
+        SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
           annotation (Dialog(group="Fluid properties"));
-        SI.Density rho=1e3 "Density of fluid" 
+        SI.Density rho "Density of fluid" 
           annotation (Dialog(group="Fluid properties"));
 
         annotation (Documentation(info="<html>
@@ -13661,9 +13616,9 @@ This record is used as <b> input record </b> for the pressure loss function <a h
               annotation (Dialog(group="Geometry"));
 
             //fluid properties
-            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
+            input SI.Density rho_g(min=Modelica.Constants.eps)
               "Density of gaseous phase" annotation (Dialog(group="Fluid properties"));
-            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
+            input SI.Density rho_l(min=Modelica.Constants.eps)
               "Density of liquid phase" annotation (Dialog(group="Fluid properties"));
             input Real x_flow(
               min=0,
@@ -13720,10 +13675,9 @@ This record is used as <b> input record </b> for the pressure loss function <a h
               annotation (Dialog(group="Geometry"));
 
             //fluid properties
-            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
-              "Density of gas" 
+            input SI.Density rho_g(min=Modelica.Constants.eps) "Density of gas"
               annotation (Dialog(group="Fluid properties"));
-            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
+            input SI.Density rho_l(min=Modelica.Constants.eps)
               "Density of liquid" annotation (Dialog(group="Fluid properties"));
             input Real x_flow_end(
               min=0,
@@ -14110,9 +14064,9 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "true == cross sectional averaged void fraction | false == volumetric"
               annotation (Dialog);
 
-            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
+            input SI.Density rho_g(min=Modelica.Constants.eps)
               "Density of gaseous phase" annotation (Dialog);
-            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
+            input SI.Density rho_l(min=Modelica.Constants.eps)
               "Density of liquid phase" annotation (Dialog);
             input Real x_flow(
               min=0,
@@ -14152,9 +14106,9 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               voidFractionApproach=Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
-            input SI.Density rho_g(min=Modelica.Constants.eps) = 1.1220
+            input SI.Density rho_g(min=Modelica.Constants.eps)
               "Density of gaseous phase" annotation (Dialog);
-            input SI.Density rho_l(min=Modelica.Constants.eps) = 943.11
+            input SI.Density rho_l(min=Modelica.Constants.eps)
               "Density of liquid phase" annotation (Dialog);
             input Real x_flow=0 "Mass flow rate quality" annotation (Dialog);
 
@@ -16434,17 +16388,17 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record FluidProperties "Base record for fluid properties"
           extends Modelica.Icons.Record;
 
-          SI.SpecificHeatCapacityAtConstantPressure cp=4.19e3
+          SI.SpecificHeatCapacityAtConstantPressure cp
             "Specific heat capacity of fluid at constant pressure" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.DynamicViscosity eta=1e-3 "Dynamic viscosity of fluid" 
+          SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.ThermalConductivity lambda=0.58 "Thermal conductivity of fluid" 
+          SI.ThermalConductivity lambda "Thermal conductivity of fluid" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.Density rho=1e3 "Density of fluid" 
+          SI.Density rho "Density of fluid" 
             annotation (Dialog(group="Fluid properties"));
         end FluidProperties;
 
@@ -16454,7 +16408,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           Real exp=2 "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
-          SI.SpecificHeatCapacity R_s=287 "Specific gas constant of ideal gas" 
+          SI.SpecificHeatCapacity R_s "Specific gas constant of ideal gas" 
             annotation (Dialog(group="Fluid properties"));
           Real Km=6824.86
             "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]" 
@@ -16466,11 +16420,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           "Base record for generic pressure loss function | ideal gas | mean density"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_m=1.189 "Mean density of ideal gas" 
+          SI.Density rho_m "Mean density of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m=(293 + 293)/2 "Mean temperature of ideal gas" 
+          SI.Temp_K T_m "Mean temperature of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
-          SI.Pressure p_m=(1e5 + 1e5)/2 "Mean pressure of ideal gas" 
+          SI.Pressure p_m "Mean pressure of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
 
         end IdealGas_var;
@@ -16488,12 +16442,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
-          SI.Density rho_nom=1e3
+          SI.Density rho_nom
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
           Real exp_eta=1 "Exponent for dynamic viscosity dependence" 
             annotation (Dialog(group="Generic variables"));
-          SI.DynamicViscosity eta_nom=1e-3
+          SI.DynamicViscosity eta_nom
             "Dynamic viscosity at nominal pressure loss" 
             annotation (Dialog(group="Generic variables"));
 
@@ -16530,7 +16484,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables",enable=target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.VolumeFlowRate));
-          SI.Density rho_nom=1e3
+          SI.Density rho_nom
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
 
@@ -16577,15 +16531,15 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow_var "Base record for two phase flow"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_g=1.1220 "Density of gas" 
+          SI.Density rho_g "Density of gas" 
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_l=943.11 "Density of liquid" 
+          SI.Density rho_l "Density of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g=12.96e-6 "Dynamic viscosity of gas" 
+          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" 
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_l=232.1e-6 "Dynamic viscosity of liquid" 
+          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.SurfaceTension sigma=54.97e-3 "Surface tension" 
+          SI.SurfaceTension sigma "Surface tension" 
             annotation (Dialog(group="Fluid properties"));
 
           //input variables
@@ -16600,7 +16554,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           parameter Real exp(min=Modelica.Constants.eps) = 2
             "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
-          parameter SI.SpecificHeatCapacity R_s(min=1) = 287
+          parameter SI.SpecificHeatCapacity R_s(min=1)
             "Specific gas constant of ideal gas" 
             annotation (Dialog(group="Fluid properties"));
 
@@ -16609,9 +16563,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Generic variables"));
           SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m=(293 + 293)/2 "Mean temperature of ideal gas" 
+          SI.Temp_K T_m "Mean temperature of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
-          SI.Pressure p_m=(1e5 + 1e5)/2 "Mean pressure of ideal gas" 
+          SI.Pressure p_m "Mean pressure of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
 
         end IdealGas;
@@ -16648,7 +16602,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables",enable=not (target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate)));
-          SI.Density rho_nom(min=Modelica.Constants.eps) = 1e3
+          SI.Density rho_nom(min=Modelica.Constants.eps)
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
 
@@ -16663,18 +16617,18 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow "base record for two phase Flow"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_l=958 "Density of liquid" 
+          SI.Density rho_l "Density of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_g=0.6 "Density of gas" annotation (Dialog(group=
+          SI.Density rho_g "Density of gas" annotation (Dialog(group=
                   "Fluid properties", enable=if KC == 1 or KC == 2 then true else false));
-          SI.DynamicViscosity eta_l=282e-6 "Dynamic viscosity of liquid" 
+          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g=12.7e-6 "Dynamic viscosity of gas" annotation (
+          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
               Dialog(group="Fluid properties", enable=if KC == 1 or KC == 2 then true else 
                         false));
           SI.MassFraction x=0.5 "Vapour fraction" 
             annotation (Dialog(group="Fluid properties"));
-          SI.SurfaceTension sigma=59e-3 "Surface Tension" annotation (Dialog(group=
+          SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
                   "Fluid properties", enable=if DP_fric == 1 then true else false));
           Real n=0.25 "Exponent in Blasius equation (0.2-0.25)" annotation (Dialog(
                 group="others", enable=if DP_fric == 2 then true else false));
@@ -16767,11 +16721,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Length perimeter=Modelica.Constants.pi*0.1 "Wettet perimeter" 
             annotation (Dialog(group="Geometry"));
 
-          SI.MolarMass MM=18.02 "Molar mass of fluid" annotation (Dialog(group=
+          SI.MolarMass MM "Molar mass of fluid" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
-          SI.Pressure p_crit=220.89e5 "Critical pressure of fluid" 
+          SI.Pressure p_crit "Critical pressure of fluid" 
             annotation (Dialog(group="Fluid properties"));
 
         end TwoPhaseFlowHT_IN_con;
@@ -16788,27 +16742,27 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Choices"));
 
           //fluid properties
-          SI.SpecificHeatCapacityAtConstantPressure cp_l=4.19e3
+          SI.SpecificHeatCapacityAtConstantPressure cp_l
             "Specific heat capacity of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.ThermalConductivity lambda_l=0.58 "Thermal conductivity of liquid"
+          SI.ThermalConductivity lambda_l "Thermal conductivity of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_g=1.1220 "Density of gas" annotation (Dialog(group=
+          SI.Density rho_g "Density of gas" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
-          SI.Density rho_l=943.11 "Density of liquid" 
+          SI.Density rho_l "Density of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g=12.96e-6 "Dynamic viscosity of gas" annotation (
+          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
               Dialog(group="Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
-          SI.DynamicViscosity eta_l=232.1e-6 "Dynamic viscosity of liquid" 
+          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.Pressure pressure=2e5 "Mean pressure of fluid" 
+          SI.Pressure pressure "Mean pressure of fluid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.SpecificEnthalpy dh_lg=2202.08e3 "Evaporation enthalpy of fluid" 
+          SI.SpecificEnthalpy dh_lg "Evaporation enthalpy of fluid" 
             annotation (Dialog(group="Fluid properties", enable=if target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
@@ -16831,10 +16785,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record Bend "Input for bend"
           extends Modelica.Icons.Record;
 
-        /*
-  Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
-    "Choice of considering surface roughness" annotation (Dialog(group="Bend"));
-*/
           SI.Diameter d_hyd(min=Modelica.Constants.eps) = 0.1
             "Hydraulic diameter" 
             annotation (Dialog(group="Bend"));
@@ -16842,11 +16792,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Angle delta=90*PI/180 "Angle of turning" annotation (Dialog(group="Bend"));
           SI.Length K=0
             "Roughness (absolute average height of surface asperities)"             annotation (Dialog(group="Bend"));
-
-        /*
-  SI.Length L=10*d_hyd "Length of bend along axis"
-    annotation (Dialog(group="Bend"));
-*/
 
         end Bend;
 
