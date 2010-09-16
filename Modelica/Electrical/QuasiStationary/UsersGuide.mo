@@ -87,7 +87,7 @@ to sinusoidal currents.</p>
       annotation (Documentation(info="<html>
 <p>
 A simple
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance\">
           example</a> of a series connection of a resistor, an inductor and a capacitor
 as depicted in Fig. 1 should be explained in the following. For various frequencies,
 the voltage drops across the resistor, the inductor and the capacitor should be determined.
@@ -151,7 +151,7 @@ add up to the total voltage
 </p>
 
 <p>
-as illustraed in the phasor diagram of Fig. 2.
+as illustrated in the phasor diagram of Fig. 2.
 </p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
@@ -192,7 +192,7 @@ Yet, there is instantaneous power exchanged with connecting network.
 </p>
 
 The
-<a href=\"modelica://Modelica.Electrical.QuasiStationary.Examples.SeriesResonance\">
+<a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance\">
           series resonance circuit</a> which was also adressed in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>
@@ -370,7 +370,7 @@ voltages and currents. The main characteristics of the library are:
       since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>The connectors contain the real and the imaginary part of the voltage and the current
-      <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Phasor\">RMS phasors</a></li>
+      <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.Introduction\">RMS phasors</a></li>
 
 </ul>
 

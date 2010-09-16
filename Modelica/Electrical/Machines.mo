@@ -1,5 +1,6 @@
 within Modelica.Electrical;
 
+
 package Machines "Library for electric machines"
   extends Modelica.Icons.Package;
 
@@ -10215,7 +10216,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Friction\">Friction</a> losses.
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.Friction\">Friction</a> losses.
 </p>
 </html>"));
     end FrictionParameters;
@@ -10275,8 +10276,8 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
-Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.AirGapRwithLosses\">core losses of induction machines</a>
-and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.AirGapDCwithLosses\">core losses of DC machines</a>.
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.Core\">core losses of induction machines</a>
+and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">core losses of DC machines</a>.
 </p>
 </html>"));
     end CoreParameters;
