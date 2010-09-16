@@ -1,19 +1,7 @@
 <html>
-<!-- 
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
-The function can be used to calculate pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss.
 </p>
-
-<p>
-This function can be used to calculate both the pressure loss at known mass flow rate <b> or </b> mass flow rate at known pressure loss within one function in dependence of the known
-variable (dp or m_flow).
-</p>
-
-<p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href="modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP">dp_volumeFlowRate_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
-</p>
--->
 <h4><font color="#EF9B13">Calculation</font></h4>
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
@@ -23,7 +11,7 @@ quadratic dependence of the pressure loss on the volume flow rate.
 
 The mass flow rate <b> m_flow </b> for the compressible case [Mass flow rate = f(dp)] is determined to <i> [see Wischhusen] </i>:
 <pre>
- m_flow:= rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5] ;
+ m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
 </pre>
 
 <p>
