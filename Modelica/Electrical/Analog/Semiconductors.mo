@@ -106,9 +106,9 @@ package Semiconductors
 <p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
-<br/>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow.
-<br/>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.
-<br/>The thermal power is calculated by <i>i*v</i>. <b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow.</p>
+<p><br/>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.</p>
+<p>The thermal power is calculated by <i>i*v</i>.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -210,7 +210,8 @@ equation
 The PMOS model is a simple model of a p-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
 For more details please care for H. Spiro.
-<br/>
+</P>
+<P>
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
 <br/><br/>
@@ -550,10 +551,14 @@ A typical parameter set is:
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
-<br/><br/>
-<b>References:</b>
-<br/>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983, on page 317 ff.
+
+<P>
+<DL>
+<DT><b>References:</b>
+<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983
+on page 317 ff.
+</DL>
 <P>
 </HTML>
 ",
@@ -821,7 +826,6 @@ resistance <i>R</i>. The diode formula is:
 </PRE>
 where vt_t depends on the temperature of the heat port:
 <PRE>
-
   vt_t = k*temp/q
 </PRE>
 <P>

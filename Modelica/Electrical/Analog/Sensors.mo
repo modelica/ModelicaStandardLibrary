@@ -246,7 +246,7 @@ equation
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics),
     Documentation(info="<html>
-<pre>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</pre>
+<p>This power sensor measures instantaneous electrical power of a singlephase system and has a separated voltage and current path. The pins of the voltage path are pv and nv, the pins of the current path are pc and nc. The internal resistance of the current path is zero, the internal resistance of the voltage path is infinite.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>January 12, 2006</i> by Anton Haumer implemented</li>

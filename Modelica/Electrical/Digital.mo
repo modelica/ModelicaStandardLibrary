@@ -4596,16 +4596,16 @@ any delay according to IEEE 1164 To_X01 function.
 </P>
 <p><b>Conversion Table:</b></p>
 <pre>
-                          input                  output
-                          'U' (coded by 1)       'X'  (coded by 2)
-                          'X' (coded by 2)       'X'  (coded by 2)
-                          '0' (coded by 3)       '0'  (coded by 3)
-                          '1' (coded by 4)       '1'  (coded by 4)
-                          'Z' (coded by 5)       'X'  (coded by 2)
-                          'W' (coded by 6)       'X'  (coded by 2)
-                          'L' (coded by 7)       '0'  (coded by 3)
-                          'H' (coded by 8)       '1'  (coded by 4)
-                          '-' (coded by 9)       'X'  (coded by 2)
+  input                  output
+  'U' (coded by 1)       'X'  (coded by 2)
+  'X' (coded by 2)       'X'  (coded by 2)
+  '0' (coded by 3)       '0'  (coded by 3)
+  '1' (coded by 4)       '1'  (coded by 4)
+  'Z' (coded by 5)       'X'  (coded by 2)
+  'W' (coded by 6)       'X'  (coded by 2)
+  'L' (coded by 7)       '0'  (coded by 3)
+  'H' (coded by 8)       '1'  (coded by 4)
+  '-' (coded by 9)       'X'  (coded by 2)
 </pre>
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
