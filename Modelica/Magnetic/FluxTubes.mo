@@ -2507,7 +2507,7 @@ In translatory actuators with limited stroke, the armature with its inertia can 
         parameter SI.Temperature T_op = 293.15
           "Operating temperature of winding";
 
-        final parameter SI.Resistivity rho = rho_20 * (1 + alpha_20 *(T_op - (20 + Modelica.Constants.T_zero)))
+        final parameter SI.Resistivity rho = rho_20 * (1 + alpha_20 *(T_op - (20 - Modelica.Constants.T_zero)))
           "Resistivity at operating temperature";
 
         parameter SI.Length h_w "Height of winding cross-section";
