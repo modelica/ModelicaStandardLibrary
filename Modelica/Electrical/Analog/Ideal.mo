@@ -34,7 +34,7 @@ package Ideal
               Documentation(info="<html>
 This is an ideal thyristor model which is<br><br>
 <b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
-<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.<br>
+<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.
 </P>
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
@@ -177,7 +177,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
               Documentation(info="<html>
 This is an ideal GTO thyristor model which is<br><br>
 <b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
-<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.<br>
+<b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.
 </P>
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
@@ -437,16 +437,14 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     annotation (
       Documentation(info="<html>
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.
-</p>
-
+<br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png\"/>
-
-<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
-</p>
-
+<br/>
+In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
+<br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png\"/>
 
-<p><br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
+<br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
 <p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
 </html>",
    revisions="<html>
@@ -658,9 +656,13 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<html>
-<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2. <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png\"/> </p>
-<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron. <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png\"/> </p>
-<p><br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2. 
+<br/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png\"/> 
+<br/>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron. 
+<br/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png\"/> 
+<br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
 <p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
 </html>",
    revisions="<html>
@@ -1047,8 +1049,7 @@ If the input voltage is vin > 0, the output voltage is out.v = VMax.
 This is an ideal switch which is<br><br>
 <b>open </b>(off), if it is reversed biased (voltage drop less than 0)<br>
 <b>closed</b> (on), if it is conducting (current > 0).<br>
-</P>
-<p>
+<br/>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
 with zero resistance and zero cinductance is not possible.
@@ -1179,39 +1180,31 @@ behavior is <b> not </b> modelled.
 <p>
 The ideal transformer is a two-port circuit element;
 in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
-</p>
-<pre><code>
- i2 = -i1*n;
- v2 =  v1/n;
-</code></pre>
-<p>
+
+<pre><code> i2 = -i1*n;
+ v2 =  v1/n;</code></pre>
+<br/>
 where <code>n</code> is a real number called the turns ratio.
 Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
-</p>
-<p>
+<br/>
 In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
-</p>
-<pre><code>
- im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
+<br/>
+<pre><code> im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
  psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";
  v1 = der(psim1)  \"Primary voltage\";
- v2 = v1/n        \"Secondary voltage\";
-</code></pre>
-<p>
+ v2 = v1/n        \"Secondary voltage\";</code></pre>
+<br/>
 where <code>Lm</code> denotes the magnetizing inductance.
 Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
-</p>
-<p>
+<br/>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
 compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
-</p>
-<pre><code>
-  L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
-  L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
-  M  = Lm1/n         \"Mutual inductance\";
-</code></pre>
-<p>
+<br/>
+<pre><code> L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
+ L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
+  M  = Lm1/n         \"Mutual inductance\"; </code></pre>
+<br/>
 For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
 </p>
 </html>", revisions="<html>
@@ -2487,7 +2480,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <li>gate electrode are activated with (positive) impulse (called thyristor/triac firing), after firing thyristor path holds itself in state of low resistance or conductive state up to holding voltage is fallen below, it follows change to off state and next thyristor path can fire </li>
 <li>in particular by switching of inductive components triacs generate harmonic waves, whose frequency ranges into broadcast sector and could there cause transmission disturbances; therefore triacs have to eliminate interference by inductors and capacitors </li>
 </ul></p>
-<p><br/>Applications:</p>
+<p>Applications:</p>
 <p><ul>
 <li>any stepless exposure (dimmer) </li>
 <li>engine speed adjustment of electric motors </li>

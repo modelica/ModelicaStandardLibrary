@@ -163,8 +163,13 @@ equation
 </ul>
 </html>",
         info="<html>
-<p>This example is to demonstrate the behaviour of transformer models. The Basic.Transformer, which consists of mutual coupled inductors,</p><p>is compared with the ideal transformer model. If the ideal model is used with considerMagnetization=true eakage inductances are taken</p><p>into account, otherwise not.</p>
-<p>The example is constructed in such a way that the ideal transformer circuit with considerMagnetization=true shows the same behaviour as the basic transformer.</p>
-<p>Simulate until T=50 s with both considerMagnetization=false and</p><p>considerMagnetization=true of the ideal transformer.</p><p>Plot in separate windows for comparison:</p><p>basicTransformer.p1.v and idealTransformer.p1.v</p><p><br/><br/>basicTransformer.p1.i and idealTransformer.p1.i </p><p><br/><br/>basicTransformer.p2.v and idealTransformer.p2.v </p><p><br/><br/>basicTransformer.p2.i and idealTransformer.p2.i </p>
+<p>This example is to demonstrate the behaviour of transformer models. The Basic.Transformer, which consists of mutual coupled inductors, is compared with the ideal transformer model. If the ideal model is used with considerMagnetization=true leakage inductances are taken into account, otherwise not.
+The example is constructed in such a way that the ideal transformer circuit with considerMagnetization=true shows the same behaviour as the basic transformer.</p>
+<p>Simulate until T=50 s with both considerMagnetization=false and considerMagnetization=true of the ideal transformer. 
+Plot in separate windows for comparison:
+<br/>basicTransformer.p1.v and idealTransformer.p1.v
+<br/>basicTransformer.p1.i and idealTransformer.p1.i
+<br/>basicTransformer.p2.v and idealTransformer.p2.v 
+basicTransformer.p2.i and idealTransformer.p2.i </p>
 </html>"));
 end CompareTransformers;

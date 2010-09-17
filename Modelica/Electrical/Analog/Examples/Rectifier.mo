@@ -117,34 +117,31 @@ equation
     IdealDiode3.v*IdealDiode3.i + IdealDiode4.v*IdealDiode4.i +
     IdealDiode5.v*IdealDiode5.i + IdealDiode6.v*IdealDiode6.i;
   connect(SineVoltage1.n, SineVoltage2.n)
-    annotation (Line(points={{-90,20},{-90,6.10623e-16}},
-                                                color={0,0,255}));
+    annotation (Line(points={{-90,20},{-90,0}}, color={0,0,255}));
   connect(SineVoltage2.n, SineVoltage3.n)
-    annotation (Line(points={{-90,6.10623e-16},{-90,-20}},
-                                                 color={0,0,255}));
+    annotation (Line(points={{-90,0},{-90,-20}}, color={0,0,255}));
   connect(SineVoltage1.p, Inductor1.p)
     annotation (Line(points={{-70,20},{-60,20}}, color={0,0,255}));
   connect(SineVoltage2.p, Inductor2.p)
-    annotation (Line(points={{-70,6.10623e-16},{-67.5,6.10623e-16},{-67.5,
-          1.22125e-15},{-65,1.22125e-15},{-65,0},{-60,0}},
-                                               color={0,0,255}));
+    annotation (Line(points={{-70,0},{-67.5,0},{-67.5,1.22125e-015},{-65,
+          1.22125e-015},{-65,0},{-60,0}},      color={0,0,255}));
   connect(SineVoltage3.p, Inductor3.p)
     annotation (Line(points={{-70,-20},{-60,-20}}, color={0,0,255}));
   connect(IdealDiode1.p, IdealDiode4.n)
     annotation (Line(points={{-20,30},{-20,-30}}, color={0,0,255}));
   connect(IdealDiode2.p, IdealDiode5.n)
-    annotation (Line(points={{-1.12703e-16,30},{-1.12703e-16,16},{0,0},{0,-30},
-          {1.1119e-15,-30}},   color={0,0,255}));
+    annotation (Line(points={{-6.12323e-016,30},{-6.12323e-016,16},{0,0},{0,-30},
+          {6.12323e-016,-30}}, color={0,0,255}));
   connect(IdealDiode3.p, IdealDiode6.n)
     annotation (Line(points={{20,30},{20,-30}}, color={0,0,255}));
   connect(IdealDiode1.n, IdealDiode2.n)
-    annotation (Line(points={{-20,50},{1.1119e-15,50}},   color={0,0,255}));
+    annotation (Line(points={{-20,50},{6.12323e-016,50}}, color={0,0,255}));
   connect(IdealDiode2.n, IdealDiode3.n)
-    annotation (Line(points={{1.1119e-15,50},{20,50}},   color={0,0,255}));
+    annotation (Line(points={{6.12323e-016,50},{20,50}}, color={0,0,255}));
   connect(IdealDiode4.p, IdealDiode5.p)
-    annotation (Line(points={{-20,-50},{-1.12703e-16,-50}},  color={0,0,255}));
+    annotation (Line(points={{-20,-50},{-6.12323e-016,-50}}, color={0,0,255}));
   connect(IdealDiode5.p, IdealDiode6.p)
-    annotation (Line(points={{-1.12703e-16,-50},{20,-50}},  color={0,0,255}));
+    annotation (Line(points={{-6.12323e-016,-50},{20,-50}}, color={0,0,255}));
   connect(Capacitor2.n, IdealDiode6.p)
     annotation (Line(points={{40,-50},{20,-50}}, color={0,0,255}));
   connect(IdealDiode3.n, Capacitor1.p)
@@ -158,14 +155,13 @@ equation
   connect(SignalCurrent1.n, Capacitor2.n)
     annotation (Line(points={{60,-10},{60,-50},{40,-50}}, color={0,0,255}));
   connect(Constant1.y, SignalCurrent1.i)
-    annotation (Line(points={{79,6.10623e-16},{79,-8.41747e-16},{67,
-          -8.41747e-16}},                                                 color=
+    annotation (Line(points={{79,0},{79,-1.28588e-015},{67,-1.28588e-015}},
+                                                                          color=
          {0,0,255}));
   connect(Inductor1.n, IdealDiode1.p)
     annotation (Line(points={{-40,20},{-20,20},{-20,30}}, color={0,0,255}));
   connect(Inductor2.n, IdealDiode2.p)
-    annotation (Line(points={{-40,6.10623e-16},{-1.12703e-16,6.10623e-16},{
-          -1.12703e-16,30}},
+    annotation (Line(points={{-40,0},{-6.12323e-016,0},{-6.12323e-016,30}},
         color={0,0,255}));
   connect(Inductor3.n, IdealDiode3.p)
     annotation (Line(points={{-40,-20},{20,-20},{20,30}}, color={0,0,255}));
@@ -193,9 +189,13 @@ annotation (
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<html>
-<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.</p><p>DC capacitors start at ideal no-load voltage, thus making easier initial transient.</p>
-<p>Simulate until T=0.1 s.</p><p>Plot in separate windows:</p><p>uDC ... DC-voltage</p><p>iAC ... AC-currents 1..3</p><p><br/><br/>uAC ... AC-voltages 1..3 (distorted)</p><p><br/><br/>Try different load currents iDC = 0..approximately 500 A.</p>
-<p>You may watch Losses (of the whole diode bridge) trying different diode parameters.</p>
+<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current. 
+DC capacitors start at ideal no-load voltage, thus making easier initial transient.</p>
+<p>Simulate until T=0.1 s. Plot in separate windows:
+<br/>uDC ... DC-voltage
+<br/>iAC ... AC-currents 1..3
+<br/>uAC ... AC-voltages 1..3 (distorted)
+<br/>Try different load currents iDC = 0..approximately 500 A. You may watch losses (of the whole diode bridge) trying different diode parameters.</p>
 </html>",
    revisions="<html>
 <p><b>Release Notes:</b></p>

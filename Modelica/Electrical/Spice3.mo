@@ -55,46 +55,60 @@ extends Modelica.Icons.Package;
 <p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
 <p>
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\"><tr>
-<td valign=\"top\"><code><p>inverter</p>
-<p><br/></p>
-<p>Mp1 11 1 13 11 MPmos</p>
-<p>Mp2 11 13 2 11 MPmos</p>
-<p>Mn1 13 1 0 0 MNmos</p>
-<p>Mn2 2 13 0 0 MNmos</p>
-<p></p>
-<p>Vgate 1 0 PULSE(0 5 2s 1s)</p>
-<p>Vdrain 11 0 PULSE(0 5 0s 1s)</p>
-<p></p>
-<p>.model MPmos PMOS (gamma=0.37)</p>
-<p>.model MNmos NMOS (gamma=0.37 lambda=0.02)</p>
-<p></p>
-<p>.tran 0.01 5</p>
-<p></p>
-<p>.end</p></code></td>
-<td valign=\"top\"><code><p>model inverter</p>
-<p>&nbsp; Spice3.Basic.Ground g;</p>
-<p>&nbsp; Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));</p>
-<p>&nbsp; Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));</p>
-<p>&nbsp; Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));</p>
-<p>&nbsp; Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));</p>
-<p>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</p>
-<p>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</p>
-<p>&nbsp; Spice3.Interfaces.Pin p_in, p_out;</p>
-<p>protected</p>
-<p>&nbsp; Spice3.Interfaces.Pin n0, n1, n2, n11, n13;</p>
-<p>equation</p>
-<p>&nbsp; connect(p_in, n1);&nbsp;&nbsp;&nbsp;connect(p_out, n2);</p>
-<p>&nbsp; connect(g.p, n0);</p>
-<p>&nbsp; connect(vdrain.n,n0);&nbsp;&nbsp;&nbsp;connect(vdrain.p,n11);</p>
-<p>&nbsp; connect(Mp1.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp1.D, n11);</p>
-<p>&nbsp; connect(Mp1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mp1.S, n13);</p>
-<p>&nbsp; connect(Mp2.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp2.D, n11);</p>
-<p>&nbsp; connect(Mp2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mp2.S, n2);</p>
-<p>&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn1.D, n13);</p>
-<p>&nbsp; connect(Mn1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mn1.S, n0);</p>
-<p>&nbsp; connect(Mn2.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn2.D, n2);</p>
-<p>&nbsp; connect(Mn2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mn2.S, n0);</p>
-<p>end inverter;</p>
+<td valign=\"top\"><code><p>inverter
+<br/>
+<br/>Mp1 11 1 13 11 MPmos
+<br/>Mp2 11 13 2 11 MPmos
+<br/>Mn1 13 1 0 0 MNmos
+<br/>Mn2 2 13 0 0 MNmos
+<br/>Vgate 1 0 PULSE(0 5 2s 1s)
+<br/>Vdrain 11 0 PULSE(0 5 0s 1s)
+<br/>.model MPmos PMOS (gamma=0.37)
+<br/>.model MNmos NMOS (gamma=0.37 lambda=0.02)
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>.tran 0.01 5
+<br/>.end</code></td>
+<td valign=\"top\"><code><p>model inverter
+<br/>&nbsp; Spice3.Basic.Ground g;
+<br/>&nbsp; Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));
+<br/>&nbsp; Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));
+<br/>&nbsp; Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));
+<br/>&nbsp; Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));
+<br/>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+<br/>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+<br/>
+<br/>
+<br/>&nbsp; Spice3.Interfaces.Pin p_in, p_out;
+<br/>protected
+<br/>&nbsp; Spice3.Interfaces.Pin n0, n1, n2, n11, n13;
+<br/>equation
+<br/>&nbsp; connect(p_in, n1);&nbsp;&nbsp;&nbsp;connect(p_out, n2);
+<br/>&nbsp; connect(g.p, n0);
+<br/>&nbsp; connect(vdrain.n,n0);&nbsp;&nbsp;&nbsp;connect(vdrain.p,n11);
+<br/>&nbsp; connect(Mp1.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp1.D, n11);
+<br/>&nbsp; connect(Mp1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mp1.S, n13);
+<br/>&nbsp; connect(Mp2.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp2.D, n11);
+<br/>&nbsp; connect(Mp2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mp2.S, n2);
+<br/>&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn1.D, n13);
+<br/>&nbsp; connect(Mn1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mn1.S, n0);
+<br/>&nbsp; connect(Mn2.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn2.D, n2);
+<br/>&nbsp; connect(Mn2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mn2.S, n0);
+<br/>
+<br/>end inverter;
 </code></td>
 </tr>
 </table>
@@ -8371,6 +8385,19 @@ annotation(preferedView="info", Window(
 <li>tests</li>
 <li>not supported analyse types (AC, DCTransfer, ...)</li>
 </ul></p>
+<dl>
+<dt>
+<b>Main Authors:</b></dt>
+<dd>
+Christoph Clau&szlig;
+    &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
+    Andr&eacute; Schneider
+    &lt;<a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin.Majetta@eas.iis.fraunhofer.de</a>&gt;<br>
+    Fraunhofer Institute for Integrated Circuits<br>
+    Design Automation Department<br>
+    Zeunerstra&szlig;e 38<br>
+    D-01069 Dresden</dd>
+</dl>
 <p><b>Copyright:</b></p>
 <p>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
 <p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &QUOT;Modelica/package.mo&QUOT;.</i></p>

@@ -1848,9 +1848,10 @@ end M_Transformer;
         LossPower = v*i;
         annotation (
           Documentation(info="<html>
-<p><br/>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i*R = v</b></i></p>
-<p>The Resistance <i>R</i> is given as input signal.</p>
-<p><br/><b>Attention!!!</b></p><p><br/>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by 
+<br/><i><b>i*R = v</b></i>
+<br/>The Resistance <i>R</i> is given as input signal.
+<br/><br/><b>Attention!!!</b><br/>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>",revisions="<html>
 <ul>
 <li><i> August 07, 2009   </i>
@@ -1918,9 +1919,11 @@ end M_Transformer;
         LossPower = v*i;
         annotation (
           Documentation(info="<html>
-<p><br/>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i = G*v</b></i></p>
-<p>The Conductance <i>G</i> is given as input signal.</p>
-<p><br/><b>Attention!!!</b></p><p><br/>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
+<br/><i><b>i = G*v</b></i>
+<br/>The Conductance <i>G</i> is given as input signal.
+<br/><br/><b>Attention!!!</b>
+<br/>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>",revisions="<html>
 <ul>
 <li><i> August 07, 2009   </i>
@@ -1982,9 +1985,11 @@ end M_Transformer;
           i = der(Q);
           annotation (
             Documentation(info="<html>
-<p><br/>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.</p>
-<p>The capacitance <i>C</i> is given as input signal.</p>
-<p>It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,</p><p>C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
+<p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
+<br/><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.
+<br/>The capacitance <i>C</i> is given as input signal. 
+It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system, 
+C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>
 <ul>
@@ -2047,9 +2052,10 @@ end M_Transformer;
           v = der(Psi);
           annotation (
             Documentation(info="<html>
-<p><br/>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by</p><p><br/><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.</p>
-<p>The inductance <i>L</i> is as input signal.</p>
-<p>It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system,</p><p>L = Lmin, if 0 &le; L &LT; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
+<p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
+<br/><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.
+<br/>The inductance <i>L</i> is as input signal.
+It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &LT; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>
 <ul>

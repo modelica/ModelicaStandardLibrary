@@ -38,7 +38,7 @@ equation
   annotation (Line(points={{0,50},{20,50}}, color={0,0,255}));
   connect(HeatingDiode1.heatPort, ThermalConductor1.port_a)
                                                           annotation (Line(
-        points={{-20,40},{-20,0},{-20,0}},            color={191,0,0}));
+        points={{-10,40},{-10,0},{-20,0}},            color={191,0,0}));
   connect(ThermalConductor1.port_b, HeatCapacitor1.port)
                                                        annotation (Line(points={{-20,-20},
           {-20,-25.75},{-20,-40}},
@@ -55,8 +55,10 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           lineColor={0,0,255})}),
                                 Documentation(info="<html>
 <p>The heating rectifier shows a heat flow always if the electrical capacitor is loaded.</p>
-<p>Simulate until T=5 s.</p>
-<p>Plot in separate windows:</p><p>SineVoltage1.v and Capacitor1.p.v</p><p>HeatCapacitor1.port.T and HeatingDiode1.heatPort.T</p><p>HeatingDiode1.heatPort.Q_flow</p>
+<p>Simulate until T=5 s.Plot in separate windows:
+<br/>SineVoltage1.v and Capacitor1.p.v
+<br/>HeatCapacitor1.port.T and HeatingDiode1.heatPort.T
+<br/>HeatingDiode1.heatPort.Q_flow</p>
 </html>",
    revisions="<html>
 <p><b>Release Notes:</b></p>

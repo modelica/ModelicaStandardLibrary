@@ -53,9 +53,10 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
           extent={{-96,100},{98,60}},
           textString="Characteristic Thyristors",
           lineColor={0,0,255})}),        Documentation(info="<html>
-<p><br/>Two examples of thyristors are shown:</p><p><br/>the <b>ideal thyristor</b></p><p><br/>and the <b>ideal GTO thyristor</b> with <i>Vknee=5</i></p>
-<p>Simulate until T=2 s.</p>
-<p>Plot in separate windows:</p><p>IdealThyristor1.i and IdealGTOThyristor1.i</p><p>IdealThyristor1.v and IdealGTOThyristor1.v</p>
+<p>Two examples of thyristors are shown: the <b>ideal thyristor</b> and the <b>ideal GTO thyristor</b> with <i>Vknee=5</i></p>
+<p>Simulate until T=2 s. Plot in separate windows:<br>
+IdealThyristor1.i and IdealGTOThyristor1.i<br/>
+IdealThyristor1.v and IdealGTOThyristor1.v</p>
 </html>",
    revisions="<html>
 <p><b>Release Notes:</b></p>

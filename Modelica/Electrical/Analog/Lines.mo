@@ -54,11 +54,16 @@ package Lines
     annotation (
       Documentation(info="<html>
 <p>Lossy Transmission Line. As can be seen in the picture below, the lossy transmission line OLine consists of segments of lumped resistances and inductances in series and conductances and capacitances that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
-<p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1)</p><p>The two new resistors and inductors have the half of the resistance/inductance the original resistor/inductor had.</p><p>The resistor R1/inductor L1 are at the beginning of the line and R_Nplus1/L_Nplu1 are at the end of the line.</p>
+<p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). The two new resistors and inductors have the half of the resistance/inductance the original resistor/inductor had. The resistor R1/inductor L1 are at the beginning of the line and R_Nplus1/L_Nplu1 are at the end of the line.</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"/>
 
-<p>The values of the capacitances are calculated with: C=c*length/N with c given by the user, &QUOT;lenght=length of line&QUOT; and &QUOT;N=number of segments&QUOT;.</p><p>The values of the conductances are calculated in the same way the capacitances are, but with g instead of c.</p><p>The values of the resistors and inductors are calculated with :R=r*length/(N+1) and L=l*length/(N+1).</p><p>For all capacitances, conductances, resistors and inductances the values of each segment are the same exept</p><p>of the first and last resistor and inductor, that only have the half of the value of the rest.</p><p>Note, this is different to the lumped line model of SPICE.</p>
+<p>The values of the capacitances are calculated with: C=c*length/N with c given by the user, &QUOT;lenght=length of line&QUOT; and &QUOT;N=number of segments&QUOT;.
+<br/> The values of the conductances are calculated in the same way the capacitances are, but with g instead of c.
+<br/> The values of the resistors and inductors are calculated with :R=r*length/(N+1) and L=l*length/(N+1).
+<br/> For all capacitances, conductances, resistors and inductances the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the value of the rest. 
+<br/>
+<br/>Note, this is different to the lumped line model of SPICE.</p>
 <dl><dt><b>References:</b> </dt>
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&apos;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
 </dl></html>",
@@ -286,34 +291,36 @@ equation
             lineColor={0,0,255})}),
     Documentation(
         info="<html>
-<p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+<p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):
+<br/>
 
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"/>
 
-<p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
+<br/>
+The complete multi line consists of N segments and an auxiliary segment_last:</p>
 <p align=\"center\"><pre>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</pre></p>
 
-<p>In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
-
+<p>In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:
+<br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment_last.png\"/>
-
-<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<br/>
+The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
 <p>Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are build out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
-<p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix</p>
-
+<p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix
+<br/><br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
-
-<p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>]</p>
-<p>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be</p>
-
+<br/><br/>
+the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>]
+<br/>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be
+<br/><br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
-
-<p>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:</p>
-
+<br/><br/>
+For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:
+<br/><br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
-
-<p>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:</p>
-
+<br/><br/>
+For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:
+<br/><br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
 </html>",revisions="<HTML>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
@@ -398,12 +405,15 @@ end M_OLine;
     connect(R[N + 1].n, p2);
     annotation (
       Documentation(info="<html>
-<p>As can be seen in the picture below, the lossy RC line ULine consists of segments of lumped series resistances and capacitances that are connected with the reference pin p3.</p><p>The precision of the model depends on the number N of lumped segments.</p>
-<p>To get a symmetric line model, the first Resistor is cut into two parts (R1 and R_Nplus1)</p><p>The two new resistors have the half of the resistance of the original Resistor had. The Resistor R1</p><p>is at the beginning of the line and R_Nplus1 is at the end of the line.</p>
-
+<p>As can be seen in the picture below, the lossy RC line ULine consists of segments of lumped series resistances and capacitances that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
+<br/>To get a symmetric line model, the first Resistor is cut into two parts (R1 and R_Nplus1). The two new resistors have the half of the resistance of the original Resistor had. The Resistor R1 is at the beginning of the line and R_Nplus1 is at the end of the line.
+<br/>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"/>
-
-<p>The values of the capacitances are calculated with: C=c*length/N with c given by the user, &QUOT;lenght=length of line&QUOT; and &QUOT;N=number of segments&QUOT;.</p><p>The values of the resistors are calculated with :R=r*length/(N+1).</p><p>For all capacitances and resistors the values of each segment are the same exept</p><p>of the first and last resistor, that only hase the half of the value of the other resistors.</p><p>Note, this is different to the lumped line model of SPICE.</p>
+<br/>
+The values of the capacitances are calculated with: C=c*length/N with c given by the user, &QUOT;lenght=length of line&QUOT; and &QUOT;N=number of segments&QUOT;.
+<br/>The values of the resistors are calculated with :R=r*length/(N+1).
+<br/>For all capacitances and resistors the values of each segment are the same exept of the first and last resistor, that only hase the half of the value of the other resistors.
+<br/><br/>Note, this is different to the lumped line model of SPICE.</p>
 <p><b>References</b></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
 <dd>SPICE3 Version 3e User&apos;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>

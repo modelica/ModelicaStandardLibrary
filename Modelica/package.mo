@@ -2,6 +2,7 @@ within ;
 package Modelica "Modelica Standard Library (Version 3.2 Beta 1)"
 extends Modelica.Icons.Package;
 
+
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
 
@@ -7095,7 +7096,8 @@ of the Modelica package (many more people have contributed to the design):
 <tr><td valign=\"top\"><b>Christoph Clauss</b> </td
    <td valign=\"top\"> Fraunhofer Institute for Integrated Circuits,<br> Dresden, Germany</td>
    <td valign=\"top\"> Modelica.Electrical.Analog<br>
-     Modelica.Electrical.Digital</td>
+     Modelica.Electrical.Digital<br>
+     Modelica.Electrical.Spice3</td>
 </tr>
 
 <tr><td valign=\"top\"><b>Jonas Eborn</b> </td
@@ -7346,6 +7348,7 @@ User's Guides that can be accessed by the following links:
 
 </html>"));
 end UsersGuide;
+
 
 annotation (
 preferredView="info",

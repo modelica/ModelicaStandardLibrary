@@ -23,7 +23,7 @@ package Semiconductors
 <p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:</p>
 <pre>                v/vt
   i  =  ids ( e      - 1).</pre>
-<p><br/>If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly continued to avoid overflow.</p><p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<p>If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly continued to avoid overflow.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -103,12 +103,12 @@ package Semiconductors
     LossPower = v*i;
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
-<p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:</p>
+<p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
-<p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow.</p>
-<p><br/>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.</p>
-<p>The thermal power is calculated by <i>i*v</i>.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<br/>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow.
+<br/>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.
+<br/>The thermal power is calculated by <i>i*v</i>. <b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -210,12 +210,11 @@ equation
 The PMOS model is a simple model of a p-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
 For more details please care for H. Spiro.
-</P>
-<P>
+<br/>
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
-<br> <br>
-<b>Please note:</b>
+<br/><br/>
+<b>Please note: </b>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 </P>
@@ -228,15 +227,15 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
 Some typical parameter sets are:
 </P>
 <PRE>
-  W       L      Beta        Vt       K2       K5       DW         DL
-  m       m      A/V^2       V        -        -        m          m
-  50.e-6  8.e-6  0.0085e-3   -.15     0.41      0.839    -3.8e-6    -4.0e-6
-  20.e-6  6.e-6  0.0105e-3  -1.0      0.41      0.839    -2.5e-6    -2.1e-6
-  30.e-6  5.e-6  0.0059e-3   -.3      0.98     1.01      0         -3.9e-6
-  30.e-6  5.e-6  0.0152e-3   -.69     0.104    1.1       -.8e-6     -.4e-6
-  30.e-6  5.e-6  0.0163e-3   -.69     0.104    1.1       -.8e-6     -.4e-6
-  30.e-6  5.e-6  0.0182e-3   -.69     0.086    1.06      -.1e-6     -.6e-6
-  20.e-6  6.e-6  0.0074e-3  -1.       0.4       0.59      0          0
+  W       L      Beta        Vt    K2     K5      DW       DL
+  m       m      A/V^2       V     -      -       m        m
+  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
+  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
+  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
+  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
+  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
 </PRE>
 
 </HTML>
@@ -365,26 +364,26 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
 </P>
 <P>
 <PRE>
-  W       L      Beta        Vt       K2      K5       DW         DL
-  m       m      A/V^2       V        -       -        m          m
-  12.e-6  4.e-6  0.062e-3   -4.5      0.24     0.61     -1.2e-6     -.9e-6      depletion
-  60.e-6  3.e-6  0.048e-3     0.1      0.08     0.68     -1.2e-6     -.9e-6      enhancement
-  12.e-6  4.e-6  0.0625e-3   -.8      0.21     0.78     -1.2e-6     -.9e-6      zero
-  50.e-6  8.e-6  0.0299e-3    0.24    1.144    0.7311   -5.4e-6    -4.e-6
-  20.e-6  6.e-6  0.041e-3     0.8     1.144    0.7311   -2.5e-6    -1.5e-6
-  30.e-6  9.e-6  0.025e-3   -4.       0.861    0.878    -3.4e-6    -1.74e-6
-  30.e-6  5.e-6  0.031e-3     0.6     1.5      0.72      0         -3.9e-6
-  50.e-6  6.e-6  0.0414e-3  -3.8      0.34     0.8      -1.6e-6    -2.e-6       depletion
-  50.e-6  5.e-6  0.03e-3      0.37     0.23     0.86     -1.6e-6    -2.e-6       enhancement
-  50.e-6  6.e-6  0.038e-3    -.9      0.23     0.707    -1.6e-6    -2.e-6       zero
-  20.e-6  4.e-6  0.06776e-3   0.5409   0.065    0.71      -.8e-6     -.2e-6
-  20.e-6  4.e-6  0.06505e-3   0.6209   0.065    0.71      -.8e-6     -.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.6909   0.03     0.8       -.3e-6     -.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.4909   0.03     0.8       -.3e-6     -.2e-6
-  12.e-6  4.e-6  0.023e-3   -4.5      0.29     0.6       0          0           depletion
-  60.e-6  3.e-6  0.022e-3     0.1      0.11     0.65      0          0           enhancement
-  12.e-6  4.e-6  0.038e-3    -.8      0.33     0.6       0          0           zero
-  20.e-6  6.e-6  0.022e-3     0.8     1        0.66      0          0
+  W       L      Beta         Vt      K2     K5       DW       DL
+  m       m      A/V^2        V       -      -        m        m
+  12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
+  60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
+  12.e-6  4.e-6  0.0625e-3   -0.8     0.21   0.78    -1.2e-6  -0.9e-6      zero
+  50.e-6  8.e-6  0.0299e-3    0.24    1.144  0.7311  -5.4e-6  -4.e-6
+  20.e-6  6.e-6  0.041e-3     0.8     1.144  0.7311  -2.5e-6  -1.5e-6
+  30.e-6  9.e-6  0.025e-3    -4.0     0.861  0.878   -3.4e-6  -1.74e-6
+  30.e-6  5.e-6  0.031e-3     0.6     1.5    0.72     0       -3.9e-6
+  50.e-6  6.e-6  0.0414e-3   -3.8     0.34   0.8     -1.6e-6  -2.e-6       depletion
+  50.e-6  5.e-6  0.03e-3      0.37    0.23   0.86    -1.6e-6  -2.e-6       enhancement
+  50.e-6  6.e-6  0.038e-3    -0.9     0.23   0.707   -1.6e-6  -2.e-6       zero
+  20.e-6  4.e-6  0.06776e-3   0.5409  0.065  0.71    -0.8e-6  -0.2e-6
+  20.e-6  4.e-6  0.06505e-3   0.6209  0.065  0.71    -0.8e-6  -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.6909  0.03   0.8     -0.3e-6  -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.4909  0.03   0.8     -0.3e-6  -0.2e-6
+  12.e-6  4.e-6  0.023e-3    -4.5     0.29   0.6      0        0           depletion
+  60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
+  12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
+  20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </PRE>
 
 <P>
@@ -551,14 +550,10 @@ A typical parameter set is:
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
-
-<P>
-<DL>
-<DT><b>References:</b>
-<DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
-Van Nostrand Reinhold, New York 1983
-on page 317 ff.
-</DL>
+<br/><br/>
+<b>References:</b>
+<br/>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
+Van Nostrand Reinhold, New York 1983, on page 317 ff.
 <P>
 </HTML>
 ",
@@ -822,9 +817,11 @@ resistance <i>R</i>. The diode formula is:
 <PRE>
                 v/vt_t
   i  =  ids ( e        - 1).
+
 </PRE>
 where vt_t depends on the temperature of the heat port:
 <PRE>
+
   vt_t = k*temp/q
 </PRE>
 <P>
@@ -948,30 +945,34 @@ end HeatingDiode;
           LossPower = D.i*(D.v - S.v);
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
-<p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.</p>
-<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.</p>
-<p>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
-<p>
-<pre>  W       L      Beta        Vt       K2      K5       DW         DL
-  m       m      A/V^2       V        -       -        m          m
-  12.e-6  4.e-6  0.062e-3    -4.5     0.24    0.61     -1.2e-6    -0.9e-6    depletion
-  60.e-6  3.e-6  0.048e-3     0.1     0.08    0.68     -1.2e-6    -0.9e-6    enhancement
-  12.e-6  4.e-6  0.0625e-3   -0.8     0.21    0.78     -1.2e-6    -0.9e-6    zero
-  50.e-6  8.e-6  0.0299e-3    0.24    1.144   0.7311   -5.4e-6    -4.e-6
-  20.e-6  6.e-6  0.041e-3     0.8     1.144   0.7311   -2.5e-6    -1.5e-6
-  30.e-6  9.e-6  0.025e-3    -4.0     0.861   0.878    -3.4e-6    -1.74e-6
-  30.e-6  5.e-6  0.031e-3     0.6     1.5     0.72      0         -3.9e-6
-  50.e-6  6.e-6  0.0414e-3   -3.8     0.34    0.8      -1.6e-6    -2.e-6     depletion
-  50.e-6  5.e-6  0.03e-3      0.37    0.23    0.86     -1.6e-6    -2.e-6     enhancement
-  50.e-6  6.e-6  0.038e-3    -0.9     0.23    0.707    -1.6e-6    -2.e-6     zero
-  20.e-6  4.e-6  0.06776e-3   0.5409  0.065   0.71     -0.8e-6    -0.2e-6
-  20.e-6  4.e-6  0.06505e-3   0.6209  0.065   0.71     -0.8e-6    -0.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.6909  0.03    0.8      -0.3e-6    -0.2e-6
-  20.e-6  4.e-6  0.05365e-3   0.4909  0.03    0.8      -0.3e-6    -0.2e-6
-  12.e-6  4.e-6  0.023e-3    -4.5     0.29    0.6       0          0         depletion
-  60.e-6  3.e-6  0.022e-3     0.1     0.11    0.65      0          0         enhancement
-  12.e-6  4.e-6  0.038e-3    -0.8     0.33    0.6       0          0         zero
-  20.e-6  6.e-6  0.022e-3     0.8     1       0.66      0          0</pre></p>
+<p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
+<br/> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br/>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
+<br/>
+<PRE>
+  W       L      Beta         Vt      K2     K5       DW       DL
+  m       m      A/V^2        V       -      -        m        m
+  12.e-6  4.e-6  0.062e-3    -4.5     0.24   0.61    -1.2e-6  -0.9e-6      depletion
+  60.e-6  3.e-6  0.048e-3     0.1     0.08   0.68    -1.2e-6  -0.9e-6      enhancement
+  12.e-6  4.e-6  0.0625e-3   -0.8     0.21   0.78    -1.2e-6  -0.9e-6      zero
+  50.e-6  8.e-6  0.0299e-3    0.24    1.144  0.7311  -5.4e-6  -4.e-6
+  20.e-6  6.e-6  0.041e-3     0.8     1.144  0.7311  -2.5e-6  -1.5e-6
+  30.e-6  9.e-6  0.025e-3    -4.0     0.861  0.878   -3.4e-6  -1.74e-6
+  30.e-6  5.e-6  0.031e-3     0.6     1.5    0.72     0       -3.9e-6
+  50.e-6  6.e-6  0.0414e-3   -3.8     0.34   0.8     -1.6e-6  -2.e-6       depletion
+  50.e-6  5.e-6  0.03e-3      0.37    0.23   0.86    -1.6e-6  -2.e-6       enhancement
+  50.e-6  6.e-6  0.038e-3    -0.9     0.23   0.707   -1.6e-6  -2.e-6       zero
+  20.e-6  4.e-6  0.06776e-3   0.5409  0.065  0.71    -0.8e-6  -0.2e-6
+  20.e-6  4.e-6  0.06505e-3   0.6209  0.065  0.71    -0.8e-6  -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.6909  0.03   0.8     -0.3e-6  -0.2e-6
+  20.e-6  4.e-6  0.05365e-3   0.4909  0.03   0.8     -0.3e-6  -0.2e-6
+  12.e-6  4.e-6  0.023e-3    -4.5     0.29   0.6      0        0           depletion
+  60.e-6  3.e-6  0.022e-3     0.1     0.11   0.65     0        0           enhancement
+  12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
+  20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
+</PRE>
+
+</p>
 <p><b>References:</b></p>
 <p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
 </html>",  revisions="<html>
@@ -1101,21 +1102,23 @@ end HeatingDiode;
           LossPower = D.i*(D.v - S.v);
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
-<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.</p>
-<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.</p>
-<p>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
+<p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
+<br/>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br/>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
 <dl><dt><b>References:</b> </dt>
 <dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
 </dl><p>Some typical parameter sets are:</p>
-<pre>  W       L      Beta        Vt       K2       K5       DW         DL
-  m       m      A/V^2       V        -        -        m          m
-  50.e-6  8.e-6  0.0085e-3   -.15     0.41      0.839    -3.8e-6    -4.0e-6
-  20.e-6  6.e-6  0.0105e-3  -1.0      0.41      0.839    -2.5e-6    -2.1e-6
-  30.e-6  5.e-6  0.0059e-3   -.3      0.98     1.01      0         -3.9e-6
-  30.e-6  5.e-6  0.0152e-3   -.69     0.104    1.1       -.8e-6     -.4e-6
-  30.e-6  5.e-6  0.0163e-3   -.69     0.104    1.1       -.8e-6     -.4e-6
-  30.e-6  5.e-6  0.0182e-3   -.69     0.086    1.06      -.1e-6     -.6e-6
-  20.e-6  6.e-6  0.0074e-3  -1.       0.4       0.59      0          0 </pre>
+<PRE>
+  W       L      Beta        Vt    K2     K5      DW       DL
+  m       m      A/V^2       V     -      -       m        m
+  50.e-6  8.e-6  0.0085e-3  -0.15  0.41   0.839  -3.8e-6  -4.0e-6
+  20.e-6  6.e-6  0.0105e-3  -1.0   0.41   0.839  -2.5e-6  -2.1e-6
+  30.e-6  5.e-6  0.0059e-3  -0.3   0.98   1.01    0       -3.9e-6
+  30.e-6  5.e-6  0.0152e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0163e-3  -0.69  0.104  1.1    -0.8e-6  -0.4e-6
+  30.e-6  5.e-6  0.0182e-3  -0.69  0.086  1.06   -0.1e-6  -0.6e-6
+  20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
+</PRE>
 </html>",  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -1289,9 +1292,9 @@ end HeatingDiode;
           LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
-<p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll.</p>
-<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.</p>
-<p>A typical parameter set is (the parameter Vt is no longer used):</p>
+<p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll.
+<br/>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br/>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
@@ -1465,9 +1468,9 @@ end HeatingDiode;
           LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
-<p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll.</p>
-<p>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.</p>
-<p>A typical parameter set is (the parameter Vt is no longer used):</p>
+<p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll.
+<br/>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br/>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
@@ -1615,8 +1618,8 @@ public
 
    annotation (
      Documentation(info="<html>
-<p><br/>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:</p><p><br/>conducting, blocking and reverse breakthrough.</p>
-<p><br/>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH).</p><p><br/>But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode.</p><p><br/>The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate.</p><p><br/>If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. </p>
+<p>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:conducting, blocking and reverse breakthrough.
+<br/>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. </p>
 <p>The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.</p>
 </html>",
     revisions=
@@ -1844,10 +1847,10 @@ public
               100}}), graphics),
       DymolaStoredErrors,
       Documentation(info="<html>
-<p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.</p>
-<p>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.</p>
-<p>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.</p>
-<p>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.</p>
+<p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.
+<br/>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.
+<br/>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.
+<br/>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.
 <p><b>Attention:</b> The model seems to be very sensitive with respect to the choice of some parameters (e.g., VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
 </html>",
      revisions="<html>
@@ -1866,8 +1869,10 @@ public
 <li>diode</li>
 <li>MOS transistors</li>
 <li>bipolar transistors</li>
+<li>thyristor</li>
+<li>triac</li>
 </ul></p>
-<p>All semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal pot temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used.</p>
+<p>Most of the semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal port temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used.</p>
 </html>",
    revisions="<html>
 <dl>
