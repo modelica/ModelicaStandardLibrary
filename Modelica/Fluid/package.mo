@@ -74,8 +74,7 @@ This library has the following main features:
      or junction should be used if these are important for the specific problem at hand.
      In all circuits where friction dominates, or components such as pumps determine the flow rate,
      kinetic pressure is typically irrelevant. You can consider the
-     <a href=\"modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">
-     Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a> model (and its documentation)
+     <a href=\"modelica://Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings\">Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings</a> model (and its documentation)
      to see one case where the momentum balance essentially depends on kinetic pressure,
      so it is necessary to use explicit fittings in order to obtain correct results.
      <br>&nbsp;</li>
@@ -840,9 +839,7 @@ It is valid for incompressible and compressible flow up to a Mach number of 0.6.
          region between the smooth and rough pipe laws</b>.
          J. Inst. Civ. Eng. no. 4, 14-25.</dd>
     <dt>Idelchik I.E. (1994):</dt>
-    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook
-        of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
-        0-8493-9908-4</dd>
+    <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN 0-8493-9908-4</dd>
     <dt>Miller D. S. (1990):</dt>
     <dd><b>Internal flow systems</b>.
     2nd edition. Cranfield:BHRA(Information Services).</dd>
@@ -980,17 +977,13 @@ which will only influence the system components from that level down.
 <p>All the parameters defined in the System model are used as default values for the parameters of the individual components of the system model. Note that it is always possible to ovverride these defaults locally by changing the value of the parameters in the specific component instance.
 </p>
 <ul>
-<li>
-The <i>General</i> tab of the System model allows to set the default enviroment variables (pressure, temperature and gravity)
+<li> The <i>General</i> tab of the System model allows to set the default enviroment variables (pressure, temperature and gravity)
 used by all the components.
 </li>
-<li>
-The <i>Assumptions</i> tab allows to change the default modelling assumptions
+<li> The <i>Assumptions</i> tab allows to change the default modelling assumptions
 used by all the components (see the section <i>Customizing a system model later</i>)</li>
-<li>
-The <i>Initialization</i> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values. </li>
-<li>
-The <i>Advanced</i> tab contains default values for parameters used in
+<li> The <i>Initialization</i> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values. </li>
+<li> The <i>Advanced</i> tab contains default values for parameters used in
 the advanced settings of some components.</i>
 </ul>
 <p>
@@ -1641,30 +1634,29 @@ The development of this library has been a collaborative effort
 and many have contributed.
 </p>
 <ul>
-<li> The previous design of this library (until beginning of 2008) was based on the paper
+<li>The previous design of this library (until beginning of 2008) was based on the paper
      Elmqvist H., Tummescheit H., and Otter M.:
-     <a href=\"http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">
-     Object-Oriented Modeling of Thermo-Fluid Systems</a>.
+     <a href=\"http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">Object-Oriented Modeling of Thermo-Fluid Systems</a>.
      Modelica 2003 Conference, Link&ouml;ping, Sweden, pp. 269-286, Nov. 3-4, 2003.<br>
      This design has been partly changed, especially by the introduction of the streams
      concept.</li>
 
-<li> The Fluid library development was organized in 2002-2004 by Martin
+<li>The Fluid library development was organized in 2002-2004 by Martin
      Otter, since 2004 it is organized by Francesco Casella, and
      since 2008 it is organized jointly by Francesco Casella and R&uuml;diger Franke.</li>
 
-<li> Francesco Casella included several components of his ThermoPower
+<li>Francesco Casella included several components of his ThermoPower
      library with some rewriting. The stream connector concept used in Modelica.Fluid is
      based on a similar concept developed by him for the ThermoPower library.</li>
 
-<li> R&uuml;diger Franke initiated the stream connector concept as an extension
+<li>R&uuml;diger Franke initiated the stream connector concept as an extension
      and improved version of the ThermoPower concept. In Nov. 2008 - Jan. 2009 he
      greatly restructured and improved the library.<li>
 
-<li> Michael Wetter introduced trace constituents in Modelica.Fluid consistently and
+<li>Michael Wetter introduced trace constituents in Modelica.Fluid consistently and
      provided corresponding examples under Examples.TraceSubstances.</li>
 
-<li> The following people contributed to the fluid component models,
+<li>The following people contributed to the fluid component models,
      examples, and the further design of the library
      (alphabetical list):<br>
      John Batteh,

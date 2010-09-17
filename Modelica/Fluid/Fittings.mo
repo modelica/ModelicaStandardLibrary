@@ -3191,11 +3191,12 @@ with
 <tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
 
+<p>
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
 <p>
 <pre>
-zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
-</pre>
+zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2</pre>
+<i>[Idelchik 2006, p. 222, diag. 4-15] </i>
 </p>
 
 <p>

@@ -468,6 +468,7 @@ form:
    <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium;
    Medium.ThermodynamicState state;
 </pre>
+
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Function call</b></td>
       <td valign=\"top\"><b>Unit</b></td>
@@ -598,9 +599,6 @@ etc. are defined in PartialMedium. Whenever possible, these medium
 specific types should be used in a model in order that medium information,
 e.g., about nominal or start values, are automatically utilized.
 </p>
-
-</pre>
-
 </HTML>"));
     end OptionalProperties;
 
@@ -1094,9 +1092,7 @@ exist:
      equations and provide start values for these variables.
      In the Modelica simulation environment Dymola, the iteration
      variables can be determined by setting the command
-     <pre>
-     Advanced.OutputModelicaCode = <b>true</b>
-     </pre>
+     <code>Advanced.OutputModelicaCode = <b>true</b></code>
      and by inspection of the file \"dsmodel.mof\" that is generated
      when this option is set (search for \"nonlinear\").</li>
 </ul>
@@ -1108,20 +1104,13 @@ exist:
 Content:
 </p>
 <ol>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BasicUsage\">
-      Basic usage of medium model</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BalanceVolume\">
-      Medium model for a balance volume</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.ShortPipe\">
-      Medium model for a pressure loss</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">
-     Optional medium properties</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Constants\">
-     Constants provided by medium model</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
-     Two-phase media</a></li>
-<li> <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Initialization\">
-     Initialization</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BasicUsage\">Basic usage of medium model</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.BalanceVolume\">Medium model for a balance volume</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.ShortPipe\">Medium model for a pressure loss</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.OptionalProperties\">Optional medium properties</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Constants\">Constants provided by medium model</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">Two-phase media</a></li>
+<li><a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.Initialization\">Initialization</a></li>
 </ol>
 
 <p>

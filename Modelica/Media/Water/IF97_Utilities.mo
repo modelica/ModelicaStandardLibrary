@@ -5765,9 +5765,7 @@ Ordinary Water Substance<br>
         industrial use. This new industrial standard is called \"IAPWS Industrial
         Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
         The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.
-        <P>Based on this new formulation, a new steam table, titled \"<a
-        href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties
-        of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
+        <P>Based on this new formulation, a new steam table, titled \"<a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
         the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
         steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
         German) and contains a complete description of the equations of
@@ -5781,7 +5779,7 @@ Ordinary Water Substance<br>
         the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/visc.pdf\">visc.pdf</a>)
         and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/thcond.pdf\">thcond.pdf</a>)
         and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/surf.pdf\">surf.pdf</a>)
-        are also implemented in this library and included for reference.
+        are also implemented in this library and included for reference.</p>
         <P>
         The functions in BaseIF97.mo are low level functions which should
         only be used in those exceptions when the standard user level
@@ -5801,7 +5799,7 @@ only implemented for a limited number of variable pairs which make sense as dyna
 <P>The IAPWS Industrial Formulation 1997 consists of
 a set of equations for different regions which cover the following range
 of validity:</p>
-<table border=0 cellpadding=4 align=center>
+<table border=0 cellpadding=4>
 <tr>
 <td valign=\"top\">273,15 K &lt; <I>T</I> &lt; 1073,15 K</td>
 <td valign=\"top\"><I>p</I> &lt; 100 MPa</td>

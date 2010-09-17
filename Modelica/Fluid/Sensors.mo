@@ -1007,12 +1007,11 @@ model the time constant of the sensor).
 the fluid library provides two different types of sensors: <b>regular one port</b> and <b>two port</b> sensors.</p>
 
 <ul>
-<li>
-The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
+<li>The <b>regular one port</b> sensors have the advantage of easy introduction and removal from a model, as no connections have to be broken.
 A potential drawback is that the obtained value jumps as flow reverts.
 </li>
 
-<li> The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
+<li>The <b>two port</b> sensors offer the advantages of an adjustable regularized step function around zero flow.
 Moreover the obtained result is restricted to the value flowing into port_a if allowFlowReversal is false.</li>
 </ul>
 
