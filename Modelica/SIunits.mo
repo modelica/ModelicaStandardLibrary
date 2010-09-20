@@ -349,11 +349,7 @@ still kept in Modelica.SIunits.</p>
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
     algorithm
-      /* Due to a bug in the code generation of a Modelica tool, the
-     following statement is replaced by a literal value of T_zero
-    Kelvin := Celsius - Modelica.Constants.T_zero;
-  */
-      Kelvin := Celsius + 273.15;
+      Kelvin := Celsius - Modelica.Constants.T_zero;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,20}},
