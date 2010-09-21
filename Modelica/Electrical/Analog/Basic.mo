@@ -714,17 +714,16 @@ equation
 Documentation(info="<html>
 <p>The model <i>M_Transformer</i> is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
-<p>An example shows that approach:<br/>
+<p>An example shows that approach:<br>
 The user chooses a model with <b>three</b> inductors, that means the parameter <i><b>N</b></i> has to be <b>3</b>. Then he has to specify the inductances of the three inductors and the three coupling inductances. The coupling inductances are no real existing devices, but effects that occur between two inductors. The inductivities (main diagonal of the inductance matrix) and the coupling inductivities have to be specified in the parameter vector <i>L</i>. The length <i>dimL</i> of the parameter vector is calculated as follows: <i><b>dimL=(N*(N+1))/2</b></i></p>
 
-<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<i>N=3</i>):</p>
-<p>
+<p>The following example shows how the parameter vector is used to fill in the inductance matrix. To specify the inductance matrix of a three inductances transformer (<i>N=3</i>):<br>
+
 <img
  src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Basic/M_Transformer-eq.png\"
  alt=\"L_m\">
-</p>
 
-<p>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p>
+<br>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p>
 <p>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
 </html>",
 revisions="
@@ -1849,9 +1848,9 @@ end M_Transformer;
         annotation (
           Documentation(info="<html>
 <p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by 
-<br/><i><b>i*R = v</b></i>
-<br/>The Resistance <i>R</i> is given as input signal.
-<br/><br/><b>Attention!!!</b><br/>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<br><i><b>i*R = v</b></i>
+<br>The Resistance <i>R</i> is given as input signal.
+<br><br><b>Attention!!!</b><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>",revisions="<html>
 <ul>
 <li><i> August 07, 2009   </i>
@@ -1920,10 +1919,10 @@ end M_Transformer;
         annotation (
           Documentation(info="<html>
 <p>The linear conductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br/><i><b>i = G*v</b></i>
-<br/>The Conductance <i>G</i> is given as input signal.
-<br/><br/><b>Attention!!!</b>
-<br/>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
+<br><i><b>i = G*v</b></i>
+<br>The Conductance <i>G</i> is given as input signal.
+<br><br><b>Attention!!!</b>
+<br>It is recommended that the G signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
 </html>",revisions="<html>
 <ul>
 <li><i> August 07, 2009   </i>
@@ -1986,8 +1985,8 @@ end M_Transformer;
           annotation (
             Documentation(info="<html>
 <p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br/><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.
-<br/>The capacitance <i>C</i> is given as input signal. 
+<br><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.
+<br>The capacitance <i>C</i> is given as input signal. 
 It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system, 
 C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
@@ -2053,8 +2052,8 @@ C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Mo
           annotation (
             Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br/><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.
-<br/>The inductance <i>L</i> is as input signal.
+<br><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.
+<br>The inductance <i>L</i> is as input signal.
 It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &LT; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>

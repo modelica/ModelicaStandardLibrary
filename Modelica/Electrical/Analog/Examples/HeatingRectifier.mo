@@ -56,9 +56,10 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                                 Documentation(info="<html>
 <p>The heating rectifier shows a heat flow always if the electrical capacitor is loaded.</p>
 <p>Simulate until T=5 s.Plot in separate windows:
-<br/>SineVoltage1.v and Capacitor1.p.v
-<br/>HeatCapacitor1.port.T and HeatingDiode1.heatPort.T
-<br/>HeatingDiode1.heatPort.Q_flow</p>
+<br>SineVoltage1.v and Capacitor1.p.v
+<br>HeatCapacitor1.port.T and HeatingDiode1.heatPort.T
+<br>HeatingDiode1.heatPort.Q_flow
+</p>
 </html>",
    revisions="<html>
 <p><b>Release Notes:</b></p>

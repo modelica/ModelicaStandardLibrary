@@ -2,7 +2,9 @@ within Modelica.Electrical;
 package Analog "Library for analog electrical models"
 import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Package;
+
 
 annotation (
     __Dymola_classOrder={"Examples", "*"},
@@ -29,7 +31,7 @@ Christoph Clau&szlig;
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden</dd>
+    D-01069 Dresden, Germany</dd>
 </dl>
 
 <p>

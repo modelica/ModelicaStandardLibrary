@@ -32,7 +32,7 @@ package Ideal
             LossPower = v*i;
             annotation (
               Documentation(info="<html>
-This is an ideal thyristor model which is<br><br>
+<p>This is an ideal thyristor model which is<br><br>
 <b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
 <b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.
 </P>
@@ -175,7 +175,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             LossPower = v*i;
             annotation (
               Documentation(info="<html>
-This is an ideal GTO thyristor model which is<br><br>
+<p>This is an ideal GTO thyristor model which is<br><br>
 <b>open </b>(off), if the voltage drop is less than 0 or fire is false<br>
 <b>closed</b> (on), if the voltage drop is greater or equal 0  and fire is true.
 </P>
@@ -436,16 +436,16 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     LossPower = p1.i * p1.v + p2.i * p2.v + n1.i *n1.v + n2.i * n2.v;
     annotation (
       Documentation(info="<html>
-<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.
-<br/>
+<p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the input signal control. If control is true, the pin p1 is connected to the pin n2, and the pin p2 is connected to the pin n1. Otherwise,if control is false, the pin p1 is connected to n1, and the pin p2 is connected to n2.</p>
+
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch1.png\"/>
-<br/>
-In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.
-<br/>
+
+<p>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron.</p>
+
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/IdealIntermediateSwitch2.png\"/>
 
-<br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+<p>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
+<p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
 </html>",
    revisions="<html>
 <ul>
@@ -657,13 +657,13 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     annotation (
       Documentation(info="<html>
 <p>The intermediate switch has four switching contact pins p1, p2, n1, and n2. The switching behaviour is controlled by the control pin. If its voltage exceeds the value of the parameter level, the pin p1 is connected to pin n2, and the pin p2 is connected to the pin n1. Otherwise, the pin p1 is connected to the pin n1, and the pin p2 is connected to the pin n2. 
-<br/>
+<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch1.png\"/> 
-<br/>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron. 
-<br/>
+<br>In order to prevent singularities during switching, the opened switch has a (very low) conductance Goff and the closed switch has a (very low) resistance Ron. 
+<br>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ControlledIdealIntermediateSwitch2.png\"/> 
-<br/>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
-<p><br/><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
+<br>The limiting case is also allowed, i.e., the resistance Ron of the closed switch could be exactly zero and the conductance Goff of the open switch could be also exactly zero. Note, there are circuits, where a description with zero Ron or zero Goff is not possible. </p>
+<p><br><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled. The parameters are not temperature dependent. </p>
 </html>",
    revisions="<html>
 <ul>
@@ -946,10 +946,10 @@ are possible.
       Documentation(info="<HTML>
 <P>
 The ideal OpAmp with limitation behaves like an ideal OpAmp without limitation,
-if the output voltage is within the limits (VMin < out.v < VMax). In this case
-the input voltage vin=in_p.v - in_n.v is zero.
-If the input voltage is vin < 0, the output voltage is out.v = VMin.
-If the input voltage is vin > 0, the output voltage is out.v = VMax.
+if the output voltage is within the limits VMin and VMax. In this case
+the input voltage vin = in_p.v - in_n.v is zero.
+If the input voltage vin less than 0, the output voltage is out.v = VMin.
+If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 </P>
 </HTML>
 ", revisions="<html>
@@ -1179,32 +1179,32 @@ behavior is <b> not </b> modelled.
       Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element;
-in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
+in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:<br><br>
 
-<pre><code> i2 = -i1*n;
- v2 =  v1/n;</code></pre>
-<br/>
+<code> i2 = -i1*n;<br>
+ v2 =  v1/n;</code>
+<br><br>
 where <code>n</code> is a real number called the turns ratio.
 Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
-<br/>
+<br>
 In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
-<br/>
-<pre><code> im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
- psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";
- v1 = der(psim1)  \"Primary voltage\";
- v2 = v1/n        \"Secondary voltage\";</code></pre>
-<br/>
+<br><br>
+<code> im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";<br>
+ psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";<br>
+ v1 = der(psim1)  \"Primary voltage\";<br>
+ v2 = v1/n        \"Secondary voltage\";</code>
+<br><br>
 where <code>Lm</code> denotes the magnetizing inductance.
 Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
-<br/>
+<br>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
 compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
-<br/>
-<pre><code> L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
- L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
-  M  = Lm1/n         \"Mutual inductance\"; </code></pre>
-<br/>
+<br><br>
+<code> L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";<br>
+ L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";<br>
+  M  = Lm1/n         \"Mutual inductance\"; </code>
+<br><br>
 For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
 </p>
 </html>", revisions="<html>
@@ -1272,14 +1272,14 @@ For the backward conversion, one has to decide about the partitioning of the lea
     i2 = -G*v1;
     annotation (
       Documentation(info="<html>
-<P>
+<p>
 A gyrator is an ideal two-port element defined by the following equations:
-</P>
-<PRE>
-    i1 =  G * v2
-    i2 = -G * v1
-</PRE>
-<P>
+<br><br>
+<code>
+    i1 =  G * v2<br>
+    i2 = -G * v1<br>
+</code>
+<br>
 where the constant <i>G</i> is called the gyration conductance.
 </P>
 </HTML>
@@ -1461,9 +1461,8 @@ The ideal opening switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the input signal control.
 If control is true, pin p is not connected
 with negative pin n. Otherwise, pin p is connected
-with negative pin n.
-</P>
-<P>
+with negative pin n.<br><br>
+
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1555,9 +1554,8 @@ The ideal closing switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by input signal control.
 If control is true, pin p is connected
 with negative pin n. Otherwise, pin p is not connected
-with negative pin n.
-</P>
-<P>
+with negative pin n.<br><br>
+
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1648,16 +1646,14 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 
     LossPower = (p.v - n.v)*p.i;
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<HTML>
 <P>
 The ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the control pin.
 If its voltage exceeds the voltage of the parameter level,
 pin p is not connected with negative pin n.
-Otherwise, pin p is connected with negative pin n.
-</P>
-<P>
+Otherwise, pin p is connected with negative pin n.<br><br>
+
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1754,9 +1750,8 @@ The closing ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the control pin.
 If its voltage exceeds the voltage of the parameter level,
 pin p is connected with negative pin n.
-Otherwise, pin p is not connected with negative pin n.
-</P>
-<P>
+Otherwise, pin p is not connected with negative pin n.<br><br>
+
 In order to prevent singularities during switching, the opened
 switch has a (very low) conductance Goff
 and the closed switch has a (very low) resistance Ron.
@@ -1907,7 +1902,7 @@ When the Boolean input <code>control</code> signals to open the switch, a voltag
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre><code>
+<pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -1915,7 +1910,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre></code>
+</pre>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
@@ -2041,7 +2036,7 @@ When the Boolean input <code>control</code> signals to open the switch, a voltag
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre><code>
+<pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -2049,7 +2044,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre></code>
+</pre>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
@@ -2153,7 +2148,7 @@ When the control pin voltage <code>control.v</code> signals to open the switch, 
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre><code>
+<pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -2161,7 +2156,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre></code>
+</pre>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
@@ -2291,7 +2286,7 @@ When the control pin voltage <code>control.v</code> signals to open the switch, 
 This voltage starts with <code>V0</code> (simulating the voltage drop of the arc roots), then rising with slope <code>dVdt</code>
 (simulating the rising voltage of an extending arc) until a maximum voltage <code>Vmax</code> is reached.
 </p>
-<pre><code>
+<pre>
      | voltage
 Vmax |      +-----
      |     /
@@ -2299,7 +2294,7 @@ Vmax |      +-----
 V0   |   +
      |   |
      +---+-------- time
-</pre></code>
+</pre>
 <p>
 This arc voltage tends to lower the current following through the switch; it depends on the connected circuit, when the arc is quenched.
 Once the arc is quenched, i.e., the current flowing through the switch gets zero, the equation for the off-state is activated
@@ -2470,10 +2465,15 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       DymolaStoredErrors,
       Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
+
 <p>Two ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor) are contrarily connected in parallel and additionally eliminated interference with a resistor (Rdis=100) and a capacitor (Cdis=0.005), which are connected in series.</p>
+
 <p>The electrical component triac (TRIode Alternating Current switch) is, due to whose complex structure, a multifunctional applicable construction unit. The application area of this element is the manipulation of alternating current signals in frequency, voltage and/or current and also general blocking or filtering. However, compared to a thyristor the triac is only applied for substantial lesser currents, what is justified by whose sensitive structure. Generally one is limited to maximal voltages from 800 volt and currents from 40 ampere. For comparison maximal voltages of a thyristor are 8.000 volt and currents 5.000 ampere.</p>
+
 <p>Structure and functionality:</p>
+
 <p>Functionality of a triac is in principle the same like functionality of a thyristor, even connecting through of current starting from a certain voltage (knee voltage), but only if the current at anode and cathode is caused by a impulse current in the gate electrode. In case of the triac this process is also possible with reverse polarity, wherefore it is possible to control both half-waves of alternating currents. By means of gate electrodes, which are connected in a triac and why only one gate electrode is necessary, the point of time can be determined, at which the triac lets the alternating current signal pass. Thereby it is possible to affect the phase, at which the alternating current signal is cut. One speaks also of phase-angle control. Also depending on doping and specific structure knee voltage and maximal current carrying are alterable.</p>
+
 <p>Characteristics:</p>
 <p><ul>
 <li>high switching times between on-state and off state up to activation of the reverse current phase </li>
@@ -2594,12 +2594,32 @@ Hence the output will change instantaniously when the trigger signal rises.
             textString="ADC")}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics));
-    annotation (Documentation(info="<html>
-<pre>Simple analog to digital converter with a variable resolution of N bits. It converts the input voltage p.v-n.v to an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by Rin. Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </pre>
-<pre>The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced stages of lenght Vlsb:=(VRefHigh-VRefLow)/(2^N-1). The output signal is the binary code of k as long as the input voltage takes values in the k-th stage, namely in the range from Vlsb*(k-0.5) to m*(k+0.5) . This is called mid-tread operation. Additionally the output can only change its value if the trigger signal trig of type Logic changes to &apos;1&apos; (forced or weak). </pre>
-<p>The output vector is a &apos;little-endian&apos;. i.e., that the first bit y[1] is the least significant one (LSB).</p>
-<p>This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter. Hence the output will change instantaniously when the trigger signal rises.</p>
-</html>"));
+    annotation (Documentation(info="
+<HTML>
+<p>
+Simple analog to digital converter with a variable resolution of n bits.
+It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
+(9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
+Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </p>
+
+<p>
+The input singnal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of lenght Vlsb:=(VRefHi-VRefLo)/(2^n-1).
+The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from
+<code> Vlsb*(k-0.5) </code> to <code> m*(k+0.5) </code>. This is called mid-tread operation. Additionally the output can only change
+its value if the trigger signal <code> trig </code> of type Logic changes to '1' (forced or weak).
+</p>
+
+<p>
+The output vector is a 'little-endian'. i.e., that the first bit y[1] is the least significant one (LSB).
+</p>
+
+<p>
+This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
+Hence the output will change instantaniously when the trigger signal rises.
+</p>
+
+</HTML>
+"));
   end AD_Converter;
 
   model DA_Converter "Simple digital to analog converter"

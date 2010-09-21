@@ -107,7 +107,7 @@ package Semiconductors
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
 <p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow.</p>
-<p><br/>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.</p>
+<p><br>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.</p>
 <p>The thermal power is calculated by <i>i*v</i>.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
 <ul>
@@ -214,7 +214,7 @@ For more details please care for H. Spiro.
 <P>
 The model does not consider capacitances. A high drain-source resistance RDS
 is included to avoid numerical difficulties.
-<br/><br/>
+<br><br>
 <b>Please note: </b>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
@@ -950,9 +950,9 @@ end HeatingDiode;
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
-<br/> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
-<br/>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
-<br/>
+<br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
+<br>
 <PRE>
   W       L      Beta         Vt      K2     K5       DW       DL
   m       m      A/V^2        V       -      -        m        m
@@ -1107,8 +1107,8 @@ end HeatingDiode;
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
-<br/>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
-<br/>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.</p>
 <dl><dt><b>References:</b> </dt>
 <dd>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990. </dd>
 </dl><p>Some typical parameter sets are:</p>
@@ -1297,8 +1297,8 @@ end HeatingDiode;
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll.
-<br/>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
-<br/>A typical parameter set is (the parameter Vt is no longer used):</p>
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
@@ -1473,8 +1473,8 @@ end HeatingDiode;
           annotation (__Dymola_structurallyIncomplete=true,
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll.
-<br/>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
-<br/>A typical parameter set is (the parameter Vt is no longer used):</p>
+<br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
+<br>A typical parameter set is (the parameter Vt is no longer used):</p>
 <pre>  Bf  Br  Is     Vak  Tauf    Taur  Ccs   Cje     Cjc     Phie  Me   PHic   Mc     Gbc    Gbe
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15</pre>
@@ -1623,7 +1623,7 @@ public
    annotation (
      Documentation(info="<html>
 <p>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:conducting, blocking and reverse breakthrough.
-<br/>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. </p>
+<br>As long as the thyristor is in blocking mode it behaves like a linear resistance Roff=VDRM^2/(VTM*IH). But if the voltage between anode and cathode exceeds VDRM or a positive gate current flows for a sufficient time the mode changes to conducting mode. The model stays in conducting mode until the anode current falls below the holding current IH. There is no way to switch off the thyristor via the gate. If the voltage between anode and cathode is negative, the model represents a diode (parameters Vt, Nbv) with reverse breakthrough voltage VRRM. </p>
 <p>The dV/dt switch on is not taken into account in this model. The gate circuit is not influenced by the main circuit.</p>
 </html>",
     revisions=
@@ -1852,9 +1852,9 @@ public
       DymolaStoredErrors,
       Documentation(info="<html>
 <p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.
-<br/>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.
-<br/>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.
-<br/>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.
+<br>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.
+<br>Further information regarding the electrical component TRIAC can be detected in documentation of the ideal TRIAC model.
+<br>As an additional information: this model is based on the Modelica.Electrical.Analog.Semiconductors.Thyristor.</p>
 <p><b>Attention:</b> The model seems to be very sensitive with respect to the choice of some parameters (e.g., VDRM, VRRM). This is caused by the thyristor model. Further investigations are necessary.</p>
 </html>",
      revisions="<html>
