@@ -288,7 +288,7 @@ The magnetisation characteristics of the flux tube element representing the ferr
 <h4>Note</h4>
 
 <p>
-If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e., source.phase set to zero instead of pi/2), then the inrush current that is typical for switching of inductive loads can be observed.
+If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e., source.phase set to zero instead of &pi;/2), then the inrush current that is typical for switching of inductive loads can be observed.
 </p>
 </html>"),Icon(coordinateSystem(
           preserveAspectRatio=false,

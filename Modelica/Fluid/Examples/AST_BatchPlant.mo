@@ -660,7 +660,6 @@ package AST_BatchPlant
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
       Documentation(info="<html>
-
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\">
 </html>"));
   end BatchPlant_StandardWater;
@@ -1247,13 +1246,14 @@ handled properly.</p>
                       significantDigits=2)))}),
         Documentation(info="<HTML>
 <p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
-(Assumption: The gas is condensed emidiatly afterwards so that a liquid boiling fluid is created.)
-<p>The tank can be initialized with the following options:
+(Assumption: The gas is condensed emidiatly afterwards so that a liquid boiling fluid is created.)</p>
+<p>The tank can be initialized with the following options:</p>
 <ul>
 <li>GuessValues: no explicit initial conditions
 <li>InitialValues: initial values of temperature (or specific enthalpy), composition and level are specified
 <li>SteadyStateHydraulic: initial values of temperature (or specific enthalpy) and composition are specified; the initial level is determined so that levels and pressure are at steady state.
 </ul>
+<p>
 Full steady state initialization is not supported, because the corresponding intial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
 </p>
 </HTML>"),
