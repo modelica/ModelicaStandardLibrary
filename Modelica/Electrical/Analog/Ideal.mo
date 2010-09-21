@@ -1179,32 +1179,39 @@ behavior is <b> not </b> modelled.
       Documentation(info="<html>
 <p>
 The ideal transformer is a two-port circuit element;
-in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:<br><br>
-
-<code> i2 = -i1*n;<br>
+in case of Boolean parameter <code>considerMagnetization = false</code> it is characterized by the following equations:
+</p>
+<pre> i2 = -i1*n;
  v2 =  v1/n;</code>
-<br><br>
+</pre>
+<p>
 where <code>n</code> is a real number called the turns ratio.
 Due to this equations, also DC voltages and currents are transformed - which is not the case for technical transformers.
-<br>
+</p>
+<p>
 In case of Boolean parameter <code>considerMagnetization = true</code> it is characterized by the following equations:
-<br><br>
-<code> im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";<br>
- psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";<br>
- v1 = der(psim1)  \"Primary voltage\";<br>
- v2 = v1/n        \"Secondary voltage\";</code>
-<br><br>
+</p>
+<pre>
+ im1  = i1 + i2/n \"Magnetizing current w.r.t. primary side\";
+ psim1= Lm1*im1   \"Magnetic flux w.r.t. primary side\";
+ v1 = der(psim1)  \"Primary voltage\";
+ v2 = v1/n        \"Secondary voltage\";
+</pre>
+<p>
 where <code>Lm</code> denotes the magnetizing inductance.
 Due to this equations, the DC offset of secondary voltages and currents decrement according to the time constant defined by the connected circuit.
-<br>
+</p>
+<p>
 Taking primary <code>L1sigma</code> and secondary <code>L2ssigma</code> leakage inductances into account,
 compared with the <a href=\"modelica://Modelica.Electrical.Analog.Basic.Transformer\">basic transformer</a>
 the following parameter conversion can be applied (which leads to identical results):
-<br><br>
-<code> L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";<br>
- L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";<br>
-  M  = Lm1/n         \"Mutual inductance\"; </code>
-<br><br>
+</p>
+<pre>
+ L1 = L1sigma + M*n \"Primary inductance at secondary no-load\";
+ L2 = L2sigma + M/n \"Secondary inductance at primary no-load\";
+  M  = Lm1/n         \"Mutual inductance\";
+</pre>
+<p>
 For the backward conversion, one has to decide about the partitioning of the leakage to primary and secondary side.
 </p>
 </html>", revisions="<html>
@@ -2594,32 +2601,16 @@ Hence the output will change instantaniously when the trigger signal rises.
             textString="ADC")}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}), graphics));
-    annotation (Documentation(info="
-<HTML>
+    annotation (Documentation(info="<html>
 <p>
-Simple analog to digital converter with a variable resolution of n bits.
-It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
-(9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by <code>Rin</code>.
-Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </p>
-
-<p>
-The input singnal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of lenght Vlsb:=(VRefHi-VRefLo)/(2^n-1).
-The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from
-<code> Vlsb*(k-0.5) </code> to <code> m*(k+0.5) </code>. This is called mid-tread operation. Additionally the output can only change
-its value if the trigger signal <code> trig </code> of type Logic changes to '1' (forced or weak).
+Simple analog to digital converter with a variable resolution of N bits. It converts the input voltage p.v-n.v to an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by Rin. Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.
 </p>
-
 <p>
-The output vector is a 'little-endian'. i.e., that the first bit y[1] is the least significant one (LSB).
+The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced stages of lenght Vlsb:=(VRefHigh-VRefLow)/(2^N-1). The output signal is the binary code of k as long as the input voltage takes values in the k-th stage, namely in the range from Vlsb*(k-0.5) to m*(k+0.5) . This is called mid-tread operation. Additionally the output can only change its value if the trigger signal trig of type Logic changes to &apos;1&apos; (forced or weak).
 </p>
-
-<p>
-This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
-Hence the output will change instantaniously when the trigger signal rises.
-</p>
-
-</HTML>
-"));
+<p>The output vector is a &apos;little-endian&apos;. i.e., that the first bit y[1] is the least significant one (LSB).</p>
+<p>This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter. Hence the output will change instantaniously when the trigger signal rises.</p>
+</html>"));
   end AD_Converter;
 
   model DA_Converter "Simple digital to analog converter"
@@ -2665,7 +2656,8 @@ Hence the output will change instantaniously when the trigger signal rises.
 </p>
 <pre>       N
   y = SUM ( x[i]*2^(i-1) )*Vref/(2^N-1),
-      i=1</pre>
+      i=1
+</pre>
 <p>where x[i], i=1,...,N is 1 or 0. and Vref is the reference value. Therefore, the first bit in the input vector x[1] is the least significant one (LSB) and x[N] is the most significant bit (MSB).</p>
 <p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaniously when the trigger signal rises.</p>
 </html>",
