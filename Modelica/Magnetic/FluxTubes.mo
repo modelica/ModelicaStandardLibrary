@@ -149,9 +149,7 @@ Magna Physics Publishing and Oxford University Press 1994
 <h3><font color=\"#008000\" size=5>Contact</font></h3>
 
 <dl>
-<dt>
-<b>Main Author:</b></dt>
-<br>
+<dt><b>Main Author:</b></dt>
 <dd>
     <a href=\"http://www.ifte.de/mitarbeiter/boedrich.html\">Thomas B&ouml;drich</a><br>
     Dresden University of Technology<br>
@@ -161,7 +159,7 @@ Magna Physics Publishing and Oxford University Press 1994
     Fax: +49 - 351 - 463 37183<br>
     email: <A HREF=\"mailto:Thomas.Boedrich@mailbox.tu-dresden.de\">Thomas.Boedrich@mailbox.tu-dresden.de</A><br></dd>
 </dl>
-<br>
+
 <p><b>Acknowledgements:</b></p>
 <ul>
 <li> The magnetisation characteristics of the included soft magnetic materials were compiled and measured respectively by Thomas Roschke, now with Johnson Electric. Provision of this data is highly appreciated. He also formulated the approximation function used for description of the magnetisation characteristics of these materials.

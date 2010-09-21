@@ -360,7 +360,7 @@ Modelica translator is able to symbolically differentiate equations
 conditions; even if consistent initial conditions are present, most
 numerical DAE integrators can cope at most with index 2 DAEs).
 </p>
-</p>
+<p>
 The elements of this library can be connected together in an
 arbitrary way. However, difficulties may occur, if the elements which can <b>lock</b> the
 <b>relative motion</b> between two flanges are connected <b>rigidly</b>

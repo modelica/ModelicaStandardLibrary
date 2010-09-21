@@ -390,6 +390,7 @@ for such systems.
         extends Modelica.Icons.Information;
 
         annotation (Documentation(info="<HTML>
+<p>
 It is well known that the non-linear
 algebraic equations of most mechanical loops in technical devices can be
 solved analytically. It is, however, difficult to perform this fully
@@ -1106,7 +1107,6 @@ gives an introduction into the most important aspects of the library.
   how to upgrade from former versions, especially from the \"old\"
   ModelicaAdditions.MultiBody library.
 </li>
-
 <li> <a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Literature\">Literature</a> provides
   references that have been used to design and implement this library.
 </li>
