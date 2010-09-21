@@ -1533,7 +1533,7 @@ The corresponding SPICE description
 <pre>
     Ename N+ N- NC+ NC- VALUE
 </pre>
-is translated to Modelica:<br>
+<p>is translated to Modelica:</p>
 <pre>
     Ename -> Spice3.Basic.E_VCV Ename
     (Ename is the name of the Modelica instance)
@@ -1598,7 +1598,7 @@ The corresponding SPICE description
 <pre>
     Gname N+ N- NC+ NC- VALUE
 </pre>
-is translated to Modelica:<br>
+<p>is translated to Modelica:</p>
 <pre>
 
     Gname -> Spice3.Basic.G_VCC Gname
@@ -3259,7 +3259,8 @@ V1- -&GT; name.pc[1]
 ...
 VN_AD -&GT; name.pc[N]
 VN- -&GT; name.pc[N-1]
-<p><code>P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </code></p>
+P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre>
 </html>", revisions="<html>
 <p><ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -3362,7 +3363,8 @@ V1- -&GT; name.pc[1]
 ...
 VN_AD -&GT; name.pc[N]
 VN- -&GT; name.pc[N-1]
-<p><code>P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </code></p>
+P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
+</pre>
 </html>", revisions="<html>
 <p><ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
