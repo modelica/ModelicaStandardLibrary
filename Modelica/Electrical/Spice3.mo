@@ -56,61 +56,63 @@ extends Modelica.Icons.Package;
 <p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
 
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\"><tr>
-<td valign=\"top\"><code><p>inverter
-<br>
-<br>Mp1 11 1 13 11 MPmos
-<br>Mp2 11 13 2 11 MPmos
-<br>Mn1 13 1 0 0 MNmos
-<br>Mn2 2 13 0 0 MNmos
-<br>Vgate 1 0 PULSE(0 5 2s 1s)
-<br>Vdrain 11 0 PULSE(0 5 0s 1s)
-<br>.model MPmos PMOS (gamma=0.37)
-<br>.model MNmos NMOS (gamma=0.37 lambda=0.02)
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>.tran 0.01 5
-<br>.end</code></td>
-<td valign=\"top\"><code><p>model inverter
-<br>&nbsp; Spice3.Basic.Ground g;
-<br>&nbsp; Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));
-<br>&nbsp; Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));
-<br>&nbsp; Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));
-<br>&nbsp; Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));
-<br>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
-<br>&nbsp; Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
-<br>
-<br>
-<br>&nbsp; Spice3.Interfaces.Pin p_in, p_out;
-<br>protected
-<br>&nbsp; Spice3.Interfaces.Pin n0, n1, n2, n11, n13;
-<br>equation
-<br>&nbsp; connect(p_in, n1);&nbsp;&nbsp;&nbsp;connect(p_out, n2);
-<br>&nbsp; connect(g.p, n0);
-<br>&nbsp; connect(vdrain.n,n0);&nbsp;&nbsp;&nbsp;connect(vdrain.p,n11);
-<br>&nbsp; connect(Mp1.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp1.D, n11);
-<br>&nbsp; connect(Mp1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mp1.S, n13);
-<br>&nbsp; connect(Mp2.B,n11);&nbsp;&nbsp;&nbsp;connect(Mp2.D, n11);
-<br>&nbsp; connect(Mp2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mp2.S, n2);
-<br>&nbsp; connect(Mn1.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn1.D, n13);
-<br>&nbsp; connect(Mn1.G, n1);&nbsp;&nbsp;&nbsp;connect(Mn1.S, n0);
-<br>&nbsp; connect(Mn2.B,n0);&nbsp;&nbsp;&nbsp;connect(Mn2.D, n2);
-<br>&nbsp; connect(Mn2.G, n13);&nbsp;&nbsp;&nbsp;connect(Mn2.S, n0);
-<br>
-<br>end inverter;
-</code></td>
+<td valign=\"top\"><pre>
+inverter
+
+Mp1 11 1 13 11 MPmos
+Mp2 11 13 2 11 MPmos
+Mn1 13 1 0 0 MNmos
+Mn2 2 13 0 0 MNmos
+Vgate 1 0 PULSE(0 5 2s 1s)
+Vdrain 11 0 PULSE(0 5 0s 1s)
+.model MPmos PMOS (gamma=0.37)
+.model MNmos NMOS (gamma=0.37 lambda=0.02)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tran 0.01 5
+.end</pre></td>
+<td valign=\"top\"><pre>
+model inverter
+  Spice3.Basic.Ground g;
+  Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));
+  Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));
+  Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));
+  Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));
+  Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+  Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+
+
+  Spice3.Interfaces.Pin p_in, p_out;
+protected
+  Spice3.Interfaces.Pin n0, n1, n2, n11, n13;
+equation
+  connect(p_in, n1);    connect(p_out, n2);
+  connect(g.p, n0);
+  connect(vdrain.n,n0); connect(vdrain.p,n11);
+  connect(Mp1.B,n11);   connect(Mp1.D, n11);
+  connect(Mp1.G, n1);   connect(Mp1.S, n13);
+  connect(Mp2.B,n11);   connect(Mp2.D, n11);
+  connect(Mp2.G, n13);  connect(Mp2.S, n2);
+  connect(Mn1.B,n0);    connect(Mn1.D, n13);
+  connect(Mn1.G, n1);   connect(Mn1.S, n0);
+  connect(Mn2.B,n0);    connect(Mn2.D, n2);
+  connect(Mn2.G, n13);  connect(Mn2.S, n0);
+
+end inverter;
+</pre></td>
 </tr>
 </table>
 <caption>Table1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
