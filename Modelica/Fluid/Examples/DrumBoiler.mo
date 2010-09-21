@@ -417,9 +417,10 @@ package DrumBoiler
     Modified after the 45th Design Meeting</li>
 </ul>
 </html>",     info="<html>
-Model of a simple evaporator with two states. The model assumes two-phase equilibrium inside the component; saturated steam goes out of the steam outlet.
 <p>
-References: Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378
+Model of a simple evaporator with two states. The model assumes two-phase equilibrium inside the component; saturated steam goes out of the steam outlet.</p>
+<p>
+References: Astroem, Bell: Drum-boiler dynamics, Automatica 36, 2000, pp.363-378</p>
 </html>"));
     end EquilibriumDrumBoiler;
   end BaseClasses;

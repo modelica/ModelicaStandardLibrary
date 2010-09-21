@@ -472,10 +472,7 @@ This example is based on
               {119,0}}, color={0,0,0}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -150,-150},{150,150}}),
-                          graphics),
-                           Documentation(info="<html>
-
-</html>"));
+                          graphics));
     end NormalOperation;
 
     block RadioButton
@@ -518,10 +515,7 @@ This example is based on
                               on, true)}),
                               Diagram(coordinateSystem(preserveAspectRatio=false,
                        extent={{-100,-100},{100,100}}),
-                                      graphics),
-          Documentation(info="<html>
-
-</html>"));
+                                      graphics));
     end RadioButton;
   end Utilities;
 end ControlledTankSystem;

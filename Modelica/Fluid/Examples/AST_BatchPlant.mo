@@ -1246,7 +1246,6 @@ handled properly.</p>
                       minimumLenght=1,
                       significantDigits=2)))}),
         Documentation(info="<HTML>
-<p>
 <p>This tank has the same geometric variables as TankWith3InletOutletArrays plus the feature of a HeatPort and the possibility of evaporation.
 (Assumption: The gas is condensed emidiatly afterwards so that a liquid boiling fluid is created.)
 <p>The tank can be initialized with the following options:

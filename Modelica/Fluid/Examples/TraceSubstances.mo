@@ -70,7 +70,6 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
               100,100}}), graphics),
       experiment(StopTime=3600),
       Documentation(info="<html>
-
 <p>
 This example consists of a volume with a carbon dioxide concentration that corresponds to
 1.519E-3 kg/kg, which is equal to 1000 PPM.

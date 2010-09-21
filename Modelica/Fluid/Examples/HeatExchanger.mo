@@ -407,10 +407,10 @@ package HeatExchanger "Demo of a heat exchanger model"
               fillColor={0,128,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-Simple model of a heat exchanger consisting of two pipes and one wall in between.
+<p>Simple model of a heat exchanger consisting of two pipes and one wall in between.
 For both fluids geometry parameters, such as heat transfer area and cross section as well as heat transfer and pressure drop correlations may be chosen.
 The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
-The design flow direction with positive m_flow variables is counterflow.
+The design flow direction with positive m_flow variables is counterflow.</p>
 </html>"));
     end BasicHX;
 

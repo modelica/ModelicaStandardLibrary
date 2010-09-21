@@ -222,8 +222,10 @@ equation
                        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics),
          Documentation(info="<html>
+<p>
 This example demonstrates two aspects: the efficient treatment of multi-way connections
 and the usage of an incompressible medium model.
+</p>
 <p>
 Normally one would expect bad equation systems in multi-way connections
 and possibly introduce mixing volumes to work around this.

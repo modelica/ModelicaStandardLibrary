@@ -75,9 +75,7 @@ This component monitors the density of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 <p>If using the one port sensor please read the <a href = Modelica.Fluid.Sensors>Information</a>  first.</p>
-
-</HTML>
-"));
+</HTML>"));
   end Density;
 
   model DensityTwoPort "Ideal two port density sensor"
@@ -1020,9 +1018,8 @@ Moreover the obtained result is restricted to the value flowing into port_a if a
 demonstrates the differences between one- and two-port sensor at hand of a
 simple example.
 </p>
-
 </html>
-",    revisions="<html>
+", revisions="<html>
 <ul>
 <li><i>22 Dec 2008</i>
     by R;uumldiger Franke<br>
