@@ -408,7 +408,7 @@ end M_OLine;
 <p>As can be seen in the picture below, the lossy RC line ULine consists of segments of lumped series resistances and capacitances that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
 <br>To get a symmetric line model, the first Resistor is cut into two parts (R1 and R_Nplus1). The two new resistors have the half of the resistance of the original Resistor had. The Resistor R1 is at the beginning of the line and R_Nplus1 is at the end of the line.
 <br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine2.png\"/>
 <br>
 The values of the capacitances are calculated with: C=c*length/N with c given by the user, &QUOT;lenght=length of line&QUOT; and &QUOT;N=number of segments&QUOT;.
 <br>The values of the resistors are calculated with :R=r*length/(N+1).
