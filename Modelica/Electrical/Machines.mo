@@ -1780,9 +1780,9 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           annotation (Placement(transformation(extent={{0,-20},{20,0}},    rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
-              origin={-20,-10},
+              origin={-90,0},
               extent={{-10,-10},{10,10}},
-              rotation=270)));
+              rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Speed speed
           annotation (Placement(transformation(extent={{50,-40},{30,-20}})));
         Modelica.Blocks.Sources.Ramp speedRamp(height=wNominal, duration=1)
@@ -1806,7 +1806,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           Ti=Ti,
           yMax=2.5*Ve0,
           yMin=0)
-          annotation (Placement(transformation(extent={{-70,-40},{-50,-20}})));
+          annotation (Placement(transformation(extent={{-70,-20},{-50,-40}})));
         Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage annotation (Placement(
               transformation(
               extent={{10,-10},{-10,10}},
@@ -1841,10 +1841,6 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             smooth=Smooth.None));
         connect(terminalBox.plug_sp, smee.plug_sp)   annotation (Line(
             points={{16,-20},{16,-20}},
-            color={0,0,255},
-            smooth=Smooth.None));
-        connect(ground.p, terminalBox.starpoint) annotation (Line(
-            points={{-10,-10},{-10,-18},{1,-18}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(excitationVoltage.p, smee.pin_ep) annotation (Line(
@@ -1895,8 +1891,7 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             smooth=Smooth.None));
         connect(voltageQuasiRMSSensor.V, voltageController.u_m)
                                                   annotation (Line(
-            points={{-11,2.02067e-015},{-90,2.02067e-015},{-90,-52},{-60,-52},{
-                -60,-42}},
+            points={{-11,2.02067e-015},{-60,2.02067e-015},{-60,-18}},
             color={0,0,127},
             smooth=Smooth.None));
 
@@ -1934,9 +1929,13 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             points={{-19,80},{-10,80},{-10,57}},
             color={255,0,255},
             smooth=Smooth.None));
+        connect(star.pin_n, ground.p) annotation (Line(
+            points={{-90,20},{-90,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}}),
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                  {100,100}}),
                   graphics),
           experiment(StopTime=10, Interval=0.001),
           Documentation(info="<html>
