@@ -4522,7 +4522,7 @@ X = [14.5623, 9.7082;
 
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Math.Matrices.continousRiccati\">Matrices.continuousRiccati</a>
+<a href=\"modelica://Modelica.Math.Matrices.continuousRiccati\">Matrices.continuousRiccati</a>
 </p>
 </html>", revisions="<html>
 <ul>

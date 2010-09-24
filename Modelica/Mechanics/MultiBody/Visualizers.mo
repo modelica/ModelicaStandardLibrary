@@ -2324,11 +2324,11 @@ at the perimeter associated with the corresponding axis location.
 Typically the scalar field value is a temperature, but might
 be also another quantity.
 Predefined color maps are available from
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Color.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps\">MultiBody.Visualizers.Colors.ColorMaps</a>
 and can be selected via input argument \"colorMap\".
 A color map with the corresponding scalar field values can be exported
 as vector-graphics in svg-format with function
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Color.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg\">MultiBody.Visualizers.Colors.colorMapToSvg</a>.
 An example is shown in the next figure:
 </p>
 
