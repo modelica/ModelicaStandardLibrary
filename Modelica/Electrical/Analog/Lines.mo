@@ -56,13 +56,13 @@ package Lines
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine3.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"/>
 
 <p>The capacitances are calculated with: C=c*length/N.
 <br> The conductances are calculated with: G=g*length/N.
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
-<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest. 
+<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
 <br>
 <br>Note, this is different to the lumped line model of SPICE.</p>
 <dl><dt><b>References:</b> </dt>
@@ -409,7 +409,7 @@ end M_OLine;
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
 <br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
 <br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine3.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"/>
 <br>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
