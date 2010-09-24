@@ -414,7 +414,7 @@ partial package WaterIF97_base
       annotation (Documentation(info="<html>
                                 <p>In the two phase region this function returns the interpolated heat capacity between the
                                 liquid and vapour state heat capacities.</p>
-                          <html>"));
+				</html>"));
   end specificHeatCapacityCp;
 
   redeclare function extends specificHeatCapacityCv

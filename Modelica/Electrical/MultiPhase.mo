@@ -1899,7 +1899,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
 <p>
 Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
 </p><
-/HTML>"),
+</HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
                 graphics));

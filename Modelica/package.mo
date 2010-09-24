@@ -3600,8 +3600,7 @@ Note:
      <a href=\"http://www.modelica.org/libraries/Modelica_StateGraph2\">Modelica_StateGraph2</a>,
      the sublibrary Blocks is included in this version in an improved form.</li>
 </ul>
-
-"));
+</html>"));
 end Version_3_2;
 
 class Version_3_1 "Version 3.1 (August 14, 2009)"
