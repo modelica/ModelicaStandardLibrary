@@ -8393,12 +8393,15 @@ annotation(preferedView="info", Window(
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
-    Andr&eacute; Schneider
+Kristin Majetta
     &lt;<a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin.Majetta@eas.iis.fraunhofer.de</a>&gt;<br>
+Sandra  Boehme
+    &lt;<a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a>&gt;<br>
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden</dd>
+    D-01069 Dresden<br>
+    Germany</dd>
 </dl>
 <p><b>Copyright:</b></p>
 <p>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
