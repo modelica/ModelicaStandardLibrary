@@ -3938,7 +3938,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
         ibegmin = SpiceConstants.CKTgmin * (Binternal - Einternal);
         C.i = irc;
         E.i = ire;
-        B.i = irb + cc.capbx;
+        B.i = irb + icapbx;
         //current sum at inner nodes
         0 =  ibcgmin + irc -cc.iCC + cc.iBCN + cc.iBC + icapbc + icapbx;  //current sum for inner node Cinternal
         0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Einternal
@@ -4244,12 +4244,11 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
        constant Real EPSOX =      3.453133e-11;
        constant SI.Charge CHARGE =     (1.6021918e-19);
        constant SI.Temp_K CONSTCtoK =  (273.15);
-       constant Real CONSTboltz(  final unit= "J/K") =  (1.3806226e-23);
        constant SI.Temp_K REFTEMP =    300.15;  /* 27 deg C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
-       constant Real CONSTvt0(   final unit= "(J/K)/(A.s)") =   CONSTboltz * (27 + CONSTCtoK)  / CHARGE; // deg C
-       constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= CONSTboltz / CHARGE;
+       constant Real CONSTvt0(   final unit= "(J/K)/(A.s)") = Modelica.Constants.k * Modelica.SIunits.Conversions.from_degC(27)  / CHARGE; // deg C
+       constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= Modelica.Constants.k / CHARGE;
        constant Real CONSTe =      exp(1.0);
 
        // options
@@ -4368,8 +4367,8 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
       function junctionParamDepTempSPICE3
         "Temperature dependency of junction parameters"
 
-        input Modelica.SIunits.Voltage phi0;
-        input Modelica.SIunits.Capacitance cap0;
+        input Real phi0;
+        input Real cap0;
         input Real mcoeff;
         input Modelica.SIunits.Temp_K temp "Device temperature";
         input Modelica.SIunits.Temp_K tnom "Nominal temperature";
@@ -4378,10 +4377,10 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
         output Real jucntioncap "Junction capacitance";
 
       protected
-        Modelica.SIunits.Voltage phibtemp;
-        Modelica.SIunits.Voltage phibtnom;
-        Modelica.SIunits.Voltage vt;
-        Modelica.SIunits.Voltage vtnom;
+        Real phibtemp;
+        Real phibtnom;
+        Real vt;
+        Real vtnom;
         Real arg;
         Real fact2;
         Real pbfact;
@@ -4397,12 +4396,12 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
         phibtnom    := energyGapDepTemp( tnom);
         vt          := SpiceConstants.CONSTKoverQ * temp;
         vtnom       := SpiceConstants.CONSTKoverQ * tnom;
-        arg         := -phibtemp/(2*SpiceConstants.CONSTboltz*temp) +
-                       1.1150877/(SpiceConstants.CONSTboltz*(2*SpiceConstants.REFTEMP));
+        arg         := -phibtemp/(2*Modelica.Constants.k*temp) +
+                       1.1150877/(Modelica.Constants.k*(2*SpiceConstants.REFTEMP));
         fact2       := temp/SpiceConstants.REFTEMP;
         pbfact      := -2*vt*(1.5*Modelica.Math.log(fact2)+SpiceConstants.CHARGE*arg);
-        arg1        := -phibtnom/(SpiceConstants.CONSTboltz*2*tnom) +
-                       1.1150877/(2*SpiceConstants.CONSTboltz*SpiceConstants.REFTEMP);
+        arg1        := -phibtnom/(Modelica.Constants.k*2*tnom) +
+                       1.1150877/(2*Modelica.Constants.k*SpiceConstants.REFTEMP);
         fact1       := tnom/SpiceConstants.REFTEMP;
         pbfact1     := -2 * vtnom*(1.5*Modelica.Math.log(fact1)+SpiceConstants.CHARGE*arg1);
         pbo         := (phi0-pbfact1)/fact1;
@@ -4544,7 +4543,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
       input Real emissioncoeff;
-      input Modelica.SIunits.Voltage energygap;
+      input Real energygap;
       input Real satcurexp;
 
       output Modelica.SIunits.Current ret "Output value";
@@ -4753,14 +4752,14 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
     input Modelica.SIunits.Resistance resist "Input resistance";
     input Modelica.SIunits.Temp_K temp "Device temperature";
     input Modelica.SIunits.Temp_K tnom "Nominal temperature";
-    input Real tc1( final unit="1/K");
-    input Real tc2( final unit="1/(K.K)");
+    input Real tc1;
+    input Real tc2;
 
     output Modelica.SIunits.Conductance conduct "Output conductance";
     output Real dCond_dTemp "Output value";
 
       protected
-      Modelica.SIunits.Temp_K difference;
+      Real difference;
       Real factor;
 
     algorithm
@@ -5475,9 +5474,9 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
 
       protected
         Modelica.SIunits.Voltage vds;
-        Modelica.SIunits.Voltage vddif;
-        Modelica.SIunits.Voltage vddif1;
-        Modelica.SIunits.Voltage vddif2;
+        Real vddif;
+        Real vddif1;
+        Real vddif2;
         Modelica.SIunits.Voltage vgst;
 
       algorithm
@@ -5939,7 +5938,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
 
       protected
         Real arg;
-        Real betap( final unit = "A/(V.V)");
+        Real betap;
         Real sarg;
         Modelica.SIunits.Voltage vgst;
 
@@ -7592,9 +7591,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Current m_leakBEcurrent;
         Modelica.SIunits.Current m_leakBCcurrent;
         Modelica.SIunits.Resistance m_minBaseResist;
-        Modelica.SIunits.Voltage m_invEarlyVoltF;
+        Real m_invEarlyVoltF;
         Real m_invRollOffF;
-        Modelica.SIunits.Voltage m_invEarlyVoltR;
+        Real m_invEarlyVoltR;
         Real m_invRollOffR;
         Modelica.SIunits.Conductance m_collectorConduct;
         Modelica.SIunits.Conductance m_emitterConduct;
@@ -7793,8 +7792,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         egfet  := 1.16 - (7.02e-4 * m.m_dTemp * m.m_dTemp) / (m.m_dTemp + 1108);
 
-        arg := -egfet/(2*SpiceConstants.CONSTboltz*m.m_dTemp) + 1.1150877/(
-          SpiceConstants.CONSTboltz*(SpiceConstants.REFTEMP + SpiceConstants.REFTEMP));
+        arg := -egfet/(2*Modelica.Constants.k*m.m_dTemp) + 1.1150877/(
+          Modelica.Constants.k*(SpiceConstants.REFTEMP + SpiceConstants.REFTEMP));
         pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + SpiceConstants.CHARGE*
           arg);
 
