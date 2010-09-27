@@ -532,18 +532,15 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 Several functions are provided in the package <code>PumpCharacteristics</code> to specify the characteristics as a function of some operating points at nominal conditions.
 <p>Depending on the value of the <code>checkValve</code> parameter, the model either supports reverse flow conditions, or includes a built-in check valve to avoid flow reversal.
 </p>
-<p>It is possible to take into account the heat capacity of the fluid inside the pump by specifying its volume <code>V</code>;
-this is necessary to avoid singularities in the computation of the outlet enthalpy in case of zero flow rate.
-If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <code>V = 0</code>, thus avoiding a fast state variable in the model.
+<p>It is possible to take into account the mass and energy storage of the fluid inside the pump by specifying its volume <code>V</code>, and by selecting appropriate dynamic mass and energy balance assumptions (see below);
+this is recommended to avoid singularities in the computation of the outlet enthalpy in case of zero flow rate.
+If zero flow rate conditions are always avoided, this dynamic effect can be neglected by leaving the default value <code>V = 0</code>, thus avoiding fast state variables in the model.
 </p>
 
 <p><b>Dynamics options</b></p>
 <p>
-Steady-state mass and energy balances are assumed per default, neglecting the holdup of fluid in the pump.
-Dynamic mass and energy balance can be used by setting the corresponding dynamic parameters.
-This might be desirable if the pump is assembled together with valves before port_a and behind port_b.
-If both valves are closed, then the fluid is useful to define the thermodynamic state and in particular the absolute pressure in the pump.
-Note that the <code>flowCharacteristic</code> only specifies a pressure difference.
+Steady-state mass and energy balances are assumed per default, neglecting the holdup of fluid in the pump; this configuration works well if the flow rate is always positive.
+Dynamic mass and energy balance can be used by setting the corresponding dynamic parameters. This is recommended to avoid singularities at zero or reversing mass flow rate. If the initial conditions imply non-zero mass flow rate, it is possible to use the <code>SteadyStateInitial</code> condition, otherwise it is recommended to use <code>FixedInitial</code> in order to avoid undetermined initial conditions.
 </p>
 
 <p><b>Heat transfer</b></p>
