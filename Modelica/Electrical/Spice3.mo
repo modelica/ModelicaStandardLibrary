@@ -124,7 +124,7 @@ end inverter;
 <li>According to the netlist the internal pins have to be connected with the components, e.g., connect(Mp1.D, n11).</li>
 <li>In the last step the external pins have to be allocated ant connected to the according internal pin. In table 1 this is done as follows: Spice3.Interfaces.Pin p_in, p_out;connect(p_in, n1); connect(p_out, n2); </li>
 </ol>
-</html>");
+</html>"));
   end Spicenetlist;
 
   class NamingPrinciple "Naming principle"
@@ -8339,7 +8339,7 @@ annotation(preferedView="info", Window(
 <li>Diode </li>
 <li>Semiconductor resistor</li>
 </ul>
-<p>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"http://bear.cwru.edu/eecs_cad/man_spice3.pdf\">SPICE3 user's manual</a> which modelling relied on.</p>
+<p>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf\">SPICE3 user's manual</a> which modelling relied on.</p>
 <p><b>Open issues</b>:
 <ul>
 <li>devices from SPICE3 that are not modelled yet: </li>
