@@ -3,18 +3,18 @@
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
 </p>
-<h4><font color="#EF9B13">Calculation</font></h4>
+<h4>Calculation</h4>
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation have to be simplified.
 This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
-
+<p>
 In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
 <pre>
-   dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
+    dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
 </pre>
-
+</p>
 <p>
 with
 </p>
@@ -34,20 +34,18 @@ with
 <tr><td><b> zeta_TOT_nom   </b></td><td> as nominal pressure loss coefficient [-].</td></tr>
 </table>
 </p>
-
+<p>
 The fraction of mean flow velocities (v/v_nom) can be calculated through its corresponding <b> mass flow rates </b>, densities and cross sectional areas:
 <pre>
-   v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
+    v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
 </pre>
-
+</p>
 <p>
 <b> or </b> through its corresponding <b> volume flow rates </b>, densities and cross sectional areas:
-</p>
-
 <pre>
     v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
 </pre>
-
+</p>
 
 <p>
 with
@@ -65,11 +63,10 @@ with
 <tr><td><b> V_flow_nom     </b></td><td> as nominal volume flow rate [m3/s].</td></tr>
 </table>
 </p>
-
-Here the <b> incompressible case </b> [Pressure loss = f(m_flow)] calculates the unknown pressure loss out of a given mass flow rate:
 <p>
+Here the <b> incompressible case </b> [Pressure loss = f(m_flow)] calculates the unknown pressure loss out of a given mass flow rate:
 <pre>
-   dp = dp_nom*(zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)^(exp_density)*(A_cross_nom/A_cross)^(exp)*(m_flow/m_flow_nom)^(exp)
+    dp = dp_nom*(zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)^(exp_density)*(A_cross_nom/A_cross)^(exp)*(m_flow/m_flow_nom)^(exp)
 </pre>
 </p>
 
@@ -79,7 +76,7 @@ where the exponent for the fraction of densities is determined w.r.t. the chosen
 
 <p>
 <pre>
-  exp_density = if NominalMassFlowRate == 1 then 1-exp else 1
+    exp_density = if NominalMassFlowRate == 1 then 1-exp else 1
 </pre>
 </p>
 
@@ -94,11 +91,10 @@ with
 <tr><td><b> exp_density            </b></td><td> as exponent for density [-].</td></tr>
 </table>
 </p>
-
-To avoid numerical difficulties this pressure loss function is linear smoothed for small mass flow rates, with
 <p>
+To avoid numerical difficulties this pressure loss function is linear smoothed for small mass flow rates, with
 <pre>
-   m_flow &le [0.01*(zeta_TOT_nom/zeta_TOT)*(rho_nom/rho)^(exp_density)*(A_cross/A_cross_nom)^(exp)*m_flow_nom]^(1/exp);
+    m_flow &le [0.01*(zeta_TOT_nom/zeta_TOT)*(rho_nom/rho)^(exp_density)*(A_cross/A_cross_nom)^(exp)*m_flow_nom]^(1/exp);
 </pre>
 </p>
 
@@ -110,15 +106,17 @@ Note that the input and output arguments for functions throughout this library a
 Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its mean flow velocities (v,v_nom) in the pressure loss law to obtain its corresponding pressure loss.
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
-<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+<h4>Verification</h4>
+<p><b> Incompressible case </b> [Pressure loss = f(m_flow)]:
 </p>
+<p>
 The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities as parameter is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalPressureLosslawDensity_DPvsMFLOW.png">
 </p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed

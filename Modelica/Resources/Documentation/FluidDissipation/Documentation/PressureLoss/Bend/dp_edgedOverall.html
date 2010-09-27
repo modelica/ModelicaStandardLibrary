@@ -2,8 +2,10 @@
 <p>
 Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
-<h4><font color="#EF9B13">Restriction</font></h4>
+<h4>Restriction</h4>
+<p>
 This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
 <ul>
  <li>
       <b> circular cross sectional area </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
@@ -19,13 +21,14 @@ This function shall be used inside of the restricted limits according to the ref
  </li>
 </ul>
 
-<h4><font color="#EF9B13">Geometry</font></h4>
+<h4>Geometry</h4>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png">
 </p>
 
-<h4><font color="#EF9B13">Calculation</font></h4>
-The pressure loss <b> dp </b> for edged bends is determined by:
+<h4>Calculation</h4>
+<p>The pressure loss <b> dp </b> for edged bends is determined by:
+</p>
 <p>
 <pre>
     dp = zeta_TOT * (rho/2) * velocity^2
@@ -44,7 +47,9 @@ with
 </table>
 </p>
 
+<p>
 The pressure loss coefficient <b> zeta_TOT </b> of an edged bend can be calculated for different angles of turning <b> delta </b> by:
+</p>
 <p>
 <pre>
     zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <i>[Idelchik 2006, p. 366, diag. 6-7] </i> and <i>[Miller 1984, p. 149, sec. 9.4]</i>
@@ -64,7 +69,7 @@ with
 <tr><td><b> delta          </b></td><td> as angle of turning [deg].</td></tr>
 </table>
 </p>
-
+<p>
 The correction factor <b> CF_Fri </b> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
 </p>
 <pre>
@@ -128,7 +133,7 @@ In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pres
 
 <p>
 <pre>
-CF_Re = B/Re^exp for Re &le; Re_lam_leave
+   CF_Re = B/Re^exp for Re &le; Re_lam_leave
 </pre>
 </p>
 
@@ -153,9 +158,10 @@ Note that the coefficient <b> B </b> considers the influence of the angle of tur
 Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png">
 </p>
@@ -168,13 +174,13 @@ Pressure loss calculation of edged bends is complex and there are large differen
 The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
 <ul>
  <li>
-      <b> laminar regime </b> for Re &le; 4e2
+      <b> laminar regime </b> for Re &le; 4e2</li>
  <li>
-      <b> transition regime </b> for 4e2 &le; Re &le; 2e3
+      <b> transition regime </b> for 4e2 &le; Re &le; 2e3</li>
  <li>
-      <b> turbulent regime dependent on Reynolds number </b> for 2e3 &le; Re &le; 1e5
+      <b> turbulent regime dependent on Reynolds number </b> for 2e3 &le; Re &le; 1e5</li>
  <li>
-      <b> turbulent regime independent of Reynolds number </b> for Re &ge; 1e5
+      <b> turbulent regime independent of Reynolds number </b> for Re &ge; 1e5</li>
 </ul>
 </p>
 
@@ -196,14 +202,14 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png">
 </p>
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Idelchik,I.E.:</dt>
     <dd><b>Handbook of hydraulic resistance</b>.
     Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
 <dt>Miller,D.S.:</dt>
     <dd><b>Internal flow systems</b>.
-    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.</dd>
  <dt>Samoilenko,L.A.:</dt>
     <dd><b>Investigation of the hydraulic resistance of pipelines in the
         zone of transition from laminar into turbulent motion</b>.

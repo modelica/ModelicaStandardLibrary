@@ -3,7 +3,7 @@
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 </p>
 
-<h4><font color="#EF9B13">Functions <b>kc_approxForcedConvection</b> and <b>kc_approxForcedConvection_KC</b></font></h4>
+<h4>Functions <b>kc_approxForcedConvection</b> and <b>kc_approxForcedConvection_KC</b></h4>
 <p>
 There are basically three differences:
 <ul>
@@ -15,36 +15,38 @@ Generally the  function <b>kc_approxForcedConvection_KC</b> is numerically best 
 You can perform an inverse calculation from <b>kc_approxForcedConvection_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-
-<h4><font color="#EF9B13">Restriction</font></h4>
+</p>
+<h4>Restriction</h4>
+<p>
 <ul>
 <li> Constant wall temperature <b> or </b> constant heat flux
 <li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)
 <li> Prandtl number 0.5 &le; Pr &le; 500
 </ul>
-
-<h4><font color="#EF9B13">Calculation</font></h4>
+</p>
+<h4>Calculation</h4>
+<p>
 The mean convective heat transfer coefficient <b> kc </b> is approximated through different Nusselt number <b> Nu </b> correlations out of <i>[Bejan 2003, p. 424 ff]</i>. <br>
 Roughest approximation according to Dittus/Boelter (1930):
 <pre>
     Nu_1 = 0.023 * Re^(4/5) * Pr^(exp_Pr)
 </pre>
-
+</p>
+<p>
 Middle approximation according to Sieder/Tate (1936) considering the temperature dependence of the fluid properties:
 <pre>
     Nu_2 = 0.023 * Re^(4/5) * Pr^(1/3) * (eta/eta_wall)^(0.14)
 </pre>
-
+</p>
+<p>
 Finest approximation according to Gnielinski (1976):
 <pre>
     Nu_3 = 0.0214 * [Re^(0.8) - 100] * Pr^(0.4) for Pr &le; 1.5
          = 0.012 * [Re^(0.87) - 280] * Pr^(0.4) for Pr &gt; 1.5
 </pre>
-
+</p>
 <p>
 The mean convective heat transfer coefficient <b> kc </b> is calculated by:
-</p
-<p>
 <pre>
     kc =  Nu * lambda / d_hyd
 </pre>
@@ -68,25 +70,31 @@ with
 </table>
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
-
-The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. <br>
-<b>Dittus/Boelter</b> (Target = 1)
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. </p>
+<p><b>Dittus/Boelter</b> (Target = 1)
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png">
 </p>
+<p>
 <b>Sieder/Tate</b> (Target = 2)
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png">
 </p>
+<p>
 <b>Gnielinski</b> (Target = 3)
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png">
 </p>
-
+<p>
 Note that all fluid properties shall be calculated with the mean temperature of the fluid between the entrance and the outlet of the generic device.
+</p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Bejan,A.:</dt>
     <dd><b>Heat transfer handbook</b>.

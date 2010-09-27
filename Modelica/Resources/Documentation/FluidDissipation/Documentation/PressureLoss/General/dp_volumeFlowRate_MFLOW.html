@@ -2,18 +2,18 @@
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
 </p>
-<h4><font color="#EF9B13">Calculation</font></h4>
+<h4>Calculation</h4>
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation has to be simplified. This function uses as
 quadratic dependence of the pressure loss on the volume flow rate.
 </p>
-
+<p>
 The mass flow rate <b> m_flow </b> for the compressible case [Mass flow rate = f(dp)] is determined to <i> [see Wischhusen] </i>:
 <pre>
  m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
 </pre>
-
+</p>
 <p>
 with
 </p>
@@ -27,19 +27,22 @@ with
 <tr><td><b> rho            </b></td><td> as density of fluid [kg/m3].</td></tr>
 </table>
 </p>
-
+<p>
 Note that the coefficients <b> a,b </b> have to be positive values so that there will be a positive (linear or quadratic) pressure loss at positive volume flow rate and vice versa.
-
-<h4><font color="#EF9B13">Verification</font></h4>
-<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<h4>Verification</h4>
+<p><b> Compressible case </b> [Mass flow rate = f(dp)]:</p>
+<p>
 The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png">
 </p>
+<p>
 Note that the verification for <a href="dp_volumeFlowRate_DP.html">dp_volumeFlowRate_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
 
-
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed

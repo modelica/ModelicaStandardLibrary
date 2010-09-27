@@ -2,7 +2,7 @@
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
 </p>
-<h4><font color="#EF9B13">Functions <u>kc_evenGapLaminar</u> and <u>kc_evenGapLaminar_KC</u></font></h4>
+<h4>Functions <b>kc_evenGapLaminar</b> and <b>kc_evenGapLaminar_KC</b></h4>
 <p>
 There are basically three differences:
 <ul>
@@ -14,50 +14,48 @@ Generally the  function <b>kc_evenGapLaminar_KC</b> is numerically best used for
 You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-
 </p>
-<h4><font color="#EF9B13">Restriction</font></h4>
+
+<h4>Restriction</h4>
+<p>
 <ul>
-<li> laminar regime (Reynolds number &le; 2200)
+<li> laminar regime (Reynolds number &le; 2200)</li>
 <li> developed fluid flow</li>
    <ul>
-   <li> heat transfer from one side of the gap (target=1)
-   <li> heat transfer from both sides of the gap (target=2)
+   <li> heat transfer from one side of the gap (target=1)</li>
+   <li> heat transfer from both sides of the gap (target=2)</li>
    </ul>
-<li> undeveloped fluid flow
+<li> undeveloped fluid flow</li>
    <ul>
-   <li> heat transfer from one side of the gap (target=3)
+   <li> heat transfer from one side of the gap (target=3)</li>
        <ul>
        <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
        </ul>
-   <li> heat transfer from both sides of the gap (target=4)
-   <ul>
-       <li> Prandtl number 0.1 &le; Pr &le; 1000
+   <li> heat transfer from both sides of the gap (target=4)</li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000</li>
        </ul>
    </ul>
 </ul>
-
-<h4><font color="#EF9B13"><a name="Geometry"> Geometry </a> </font></h4>
+</p>
+<h4><a name="geometry">Geometry</h4>
 <p><img src="../../../../../Images/FluidDissipation/heatTransfer/channel/pic_gap.png" alt=""></p>
 
-
-<h4><font color="#EF9B13"><a name="calculation">Calculation </a></font></h4>
+<h4><a name="calculation">Calculation </a></h4>
+<p>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
-
 <pre>
     Nu_lam = [(Nu_1)^3 + (Nu_2)^3 + (Nu_3)^3]^(1/3)
 </pre>
-
+</p>
 <p>
 with the corresponding mean convective heat transfer coefficient <b> kc </b> :
 </p>
-
 <p>
 <pre>
     kc =  Nu_lam * lambda / d_hyd
 </pre>
 </p>
-
 <p>
 with
 </p>
@@ -79,46 +77,46 @@ with
 <tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s].</td></tr>
 </table>
 </p>
-
+<p>
 The summands for the mean Nusselt number <b> Nu_lam </b> at a chosen fluid flow and heat transfer situation are calculated as follows:
 <ul>
-<li> developed fluid flow
+<li> developed fluid flow</li>
    <ul>
-   <li> heat transfer from one side of the gap (target=1)
+   <li> heat transfer from one side of the gap (target=1) </li>
         <ul>
-            <li> Nu_1 = 4.861
-            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)
-            <li> Nu_3 = 0
+            <li> Nu_1 = 4.861</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = 0</li>
         </ul>
-   <li> heat transfer from both sides of the gap (target=2)
+   <li> heat transfer from both sides of the gap (target=2)</li>
         <ul>
-            <li> Nu_1 = 7.541
-            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)
-            <li> Nu_3 = 0
+            <li> Nu_1 = 7.541</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = 0</li>
         </ul>
    </ul>
-<li> undeveloped fluid flow
+<li> undeveloped fluid flow</li>
    <ul>
-   <li> heat transfer from one side of the gap (target=3)
+   <li> heat transfer from one side of the gap (target=3)</li>
         <ul>
-            <li> Nu_1 = 4.861
-            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)
-            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)
+            <li> Nu_1 = 4.861</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)</li>
         </ul>
-   <li> heat transfer from both sides of the gap (target=4)
+   <li> heat transfer from both sides of the gap (target=4)</li>
         <ul>
-            <li> Nu_1 = 7.541
-            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)
-            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)
+            <li> Nu_1 = 7.541</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)</li>
         </ul>
    </ul>
 </ul>
-
+</p>
 <p>
 Note that the fluid properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 The mean Nusselt number <b> Nu_lam </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
 the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
@@ -127,7 +125,7 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 <img src="../../../../../Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar.png">
 </p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Bejan,A.:</dt>
     <dd><b>Heat transfer handbook</b>.

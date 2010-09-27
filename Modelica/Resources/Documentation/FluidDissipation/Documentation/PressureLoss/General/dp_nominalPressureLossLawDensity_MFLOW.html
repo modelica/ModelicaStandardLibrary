@@ -3,18 +3,18 @@
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
 </p>
-<h4><font color="#EF9B13">Calculation</font></h4>
+<h4>Calculation</h4>
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation have to be simplified.
 This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
-
+<p>
 In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
 <pre>
    dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
 </pre>
-
+</p>
 <p>
 with
 </p>
@@ -34,25 +34,21 @@ with
 <tr><td><b> zeta_TOT_nom   </b></td><td> as nominal pressure loss coefficient [-].</td></tr>
 </table>
 </p>
-
+<p>
 The fraction of mean flow velocities (v/v_nom) can be calculated through its corresponding <b> mass flow rates </b>, densities and cross sectional areas:
 <pre>
    v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
 </pre>
-
+</p>
 <p>
 <b> or </b> through its corresponding <b> volume flow rates </b>, densities and cross sectional areas:
-</p>
-
 <pre>
     v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
 </pre>
-
-
+</p>
 <p>
 with
 </p>
-
 <p>
 <table>
 <tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
@@ -65,9 +61,8 @@ with
 <tr><td><b> V_flow_nom     </b></td><td> as nominal volume flow rate [m3/s].</td></tr>
 </table>
 </p>
-
-Here the <b> compressible case </b> [Mass flow rate = f(dp)] determines the unknown mass flow rate out of a given pressure loss:
 <p>
+Here the <b> compressible case </b> [Mass flow rate = f(dp)] determines the unknown mass flow rate out of a given pressure loss:
 <pre>
    m_flow = m_flow_nom*(A_cross/A_cross_nom)*(rho_nom/rho)^(exp_density/exp)*[(dp/dp_nom)*(zeta_TOT_nom/zeta_TOT)]^(1/exp);
 </pre>
@@ -94,9 +89,8 @@ with
 <tr><td><b> exp_density            </b></td><td> as exponent for density [-].</td></tr>
 </table>
 </p>
-
-To avoid numerical difficulties this pressure loss function is linear smoothed for small pressure losses, with
 <p>
+To avoid numerical difficulties this pressure loss function is linear smoothed for small pressure losses, with
 <pre>
    dp &le; 0.01*dp_nom
 </pre>
@@ -110,20 +104,21 @@ Note that the input and output arguments for functions throughout this library a
 Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its mean flow velocities (v,v_nom) in the pressure loss law to obtain its corresponding pressure loss.
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
-
+<p>
 The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png">
 </p>
-
+<p>
 Note that the verification for <a href="dp_nominalPressureLossLawDensity_DP.html">dp_nominalPressureLossLawDensity_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
 
-
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed

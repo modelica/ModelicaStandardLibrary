@@ -2,18 +2,16 @@
 <p>
 Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
 </p>
-<h4><font color="#EF9B13">Calculation</font></h4>
-The mass flow rate <b> m_flow </b> is determined by:
+<h4>Calculation</h4>
 <p>
+The mass flow rate <b> m_flow </b> is determined by:
 <pre>
     m_flow = rho*A_cross*(dp/(zeta_TOT *(rho/2))^0.5
 </pre>
 </p>
-
 <p>
 with
 </p>
-
 <p>
 <table>
 <tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
@@ -24,19 +22,21 @@ with
 </table>
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
+<p>
 The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png">
 </p>
-
+<p>
 Note that the verification for <a href="dp_pressureLossCoefficient_DP.html">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
 
-
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
  <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed

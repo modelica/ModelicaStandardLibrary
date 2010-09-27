@@ -1,6 +1,9 @@
 <html>
-<h4><font color="#EF9B13">Restriction</font></h4>
+<h4>Restriction</h4>
+<p>
 This function shall be used within the restricted limits according to the referenced literature.
+</p>
+<p>
 <ul>
  <li>
       <b> Reynolds number (for vena contraction) Re &gt 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
@@ -9,17 +12,17 @@ This function shall be used within the restricted limits according to the refere
  <li>
       <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
 </ul>
-
-<h4><font color="#EF9B13">Geometry</font></h4>
+</p>
+<h4>Geometry</h4>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png">
 </p>
 
-<h4><font color="#EF9B13">Calculation</font></h4>
-The pressure loss <b> dp </b> for a thick edged orifice is determined by:
+<h4>Calculation</h4>
 <p>
+The pressure loss <b> dp </b> for a thick edged orifice is determined by:
 <pre>
-dp = zeta_TOT * (rho/2) * (velocity_1)^2
+    dp = zeta_TOT * (rho/2) * (velocity_1)^2
 </pre>
 </p>
 
@@ -34,11 +37,10 @@ with
 <tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
 </p>
-
-The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
 <p>
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
 <pre>
-zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+    zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
 </pre>
 </p>
 
@@ -64,13 +66,15 @@ The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, dia
 
 <p>
 <pre>
-tau = (2.4 - l_bar)*10^(-phi)
-phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+    tau = (2.4 - l_bar)*10^(-phi)
+    phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
 </pre>
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
+<p>
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png">
 </p>
@@ -78,7 +82,9 @@ The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in depe
 <p>
 <b> Incompressible case </b> [Pressure loss = f(m_flow)]:
 </p>
+<p>
 The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png">
 </p>
@@ -88,7 +94,7 @@ The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mas
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png">
 </p>
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
  <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed
@@ -96,6 +102,6 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Idelchik,I.E.:</dt>
     <dd><b>Handbook of hydraulic resistance</b>.
-    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+    Jaico Publishing House,Mumbai, 3rd edition, 2006.</dd>
 </dl>
 </html>

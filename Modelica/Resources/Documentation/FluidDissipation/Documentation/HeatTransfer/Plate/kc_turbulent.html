@@ -2,8 +2,7 @@
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface.
 </p>
-<h4><font color="#EF9B13">Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></font></h4>
-
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
 <p>
 There are basically three differences:
 <ul>
@@ -15,40 +14,36 @@ Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the 
 You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-
-<h4><font color="#EF9B13">Restriction</font></h4>
+</p>
+<h4>Restriction</h4>
+<p>
 <ul>
-<li> constant wall temperature
-<li> turbulent regime (Reynolds number 5e5 &lt; Re &lt; 1e7)
-<li> Prandtl number 0.6 &le; Pr &le; 2000
+<li> constant wall temperature</li>
+<li> turbulent regime (Reynolds number 5e5 &lt; Re &lt; 1e7)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
 </ul>
-
-<h4><font color="#EF9B13">Geometry </font></h4>
+</p>
+<h4>Geometry </h4>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/plate/pic_plate.png">
 </p>
 
-<h4><font color="#EF9B13">Calculation</font></h4>
-The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i>[VDI 2002, p. Gd 1, eq. 2]</i> :
-
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i>[VDI 2002, p. Gd 1, eq. 2]</i>:
 <pre>
     Nu_turb = (0.037 * Re^0.8 * Pr) / (1 + 2.443/Re^0.1 * (Pr^(2/3)-1))
 </pre>
-
-<p>
-and the corresponding mean convective heat transfer coefficient <b> kc </b> :
 </p>
-
 <p>
+and the corresponding mean convective heat transfer coefficient <b> kc </b>:
 <pre>
     kc =  Nu_turb * lambda / L
 </pre>
 </p>
-
 <p>
 with
 </p>
-
 <p>
 <table>
 <tr><td><b> cp          </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
@@ -62,15 +57,15 @@ with
 <tr><td><b> Re = v*rho*L/eta    </b></td><td> as Reynolds number [-].</td></tr>
 </table>
 </p>
-
-<h4><font color="#EF9B13">Verification</font></h4>
-
+<h4>Verification</h4>
+<p>
 The mean Nusselt number in turbulent regime <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_turbulent.png">
 </p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 
 <dt>VDI:</dt>

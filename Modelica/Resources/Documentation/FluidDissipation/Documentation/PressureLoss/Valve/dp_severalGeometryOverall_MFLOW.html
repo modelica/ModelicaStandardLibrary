@@ -2,7 +2,8 @@
 <p>
 Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
 </p>
-<h4><font color="#EF9B13">Restriction</font></h4>
+<h4>Restriction</h4>
+<p>
 This function shall be used inside of the restricted limits according to the referenced literature.
 <ul>
  <li>
@@ -24,10 +25,9 @@ This function shall be used inside of the restricted limits according to the ref
       <b> sluice valve </b>
  </li>
 </ul>
-
-<p>
-<h4><font color="#EF9B13">Geometry</font></h4>
 </p>
+<h4>Geometry</h4>
+<p>
 Wide variations in valve geometry are possible and a manufacturer will not necessarily maintain geometric similarity between valves of the same type but of different size. Here pressure loss can be estimated for the following types of a valve:
 <ul>
  <li>
@@ -46,10 +46,10 @@ Wide variations in valve geometry are possible and a manufacturer will not neces
       <b> sluice valve </b>
  </li>
 </ul>
-
-<h4><font color="#EF9B13">Calculation</font></h4>
-The mass flow rate <b> m_flow </b> for valves out of pressure loss is determined by:
+</p>
+<h4>Calculation</h4>
 <p>
+The mass flow rate <b> m_flow </b> for valves out of pressure loss is determined by:
 <pre>
     m_flow = [rho * dp * Av^2 / (zeta_TOT/2]^0.5
     m_flow = (2/zeta_TOT)^0.5 * Av * (rho * dp)^0.5
@@ -76,12 +76,13 @@ with
 The <b>valveCharacteristic</b> is determined out of a correlation for the pressure loss coefficient (<b>zeta_TOT</b>) in dependence of its opening. The reason for introducing an additional variable
 <b>valveCharacteristic</b> is a different definition of the following pressure loss correlations of valves.
 </p>
-
+<p>
 The pressure loss calculation for valves of several geometries is further documented <a href="dp_severalGeometryOverall_DP.html">dp_severalGeometryOverall_DP</a>.
-
-<h4><font color="#EF9B13">Verification</font></h4>
+</p>
+<h4>Verification</h4>
 <p>
 The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png">
 </p>
@@ -92,15 +93,15 @@ leakage mass flow rate can often be neglected in system simulation with valves, 
 </p>
 <p>
 The mass flow rate of different valves at a constant opening of 50% in dependence of pressure loss is shown in the figure below.
-<p>
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png">
 </p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Miller,D.S.:</dt>
     <dd><b>Internal flow systems</b>.
-    Volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1978.
+    Volume 5th of BHRA Fluid Engineering Series. BHRA Fluid Engineering, 1978.</dd>
 </dl>
 </html>

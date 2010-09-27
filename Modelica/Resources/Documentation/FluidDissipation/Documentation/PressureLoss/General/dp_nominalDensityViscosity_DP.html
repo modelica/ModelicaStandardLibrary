@@ -3,13 +3,13 @@
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
 </p>
-<h4><font color="#EF9B13">Calculation</font></h4>
+<h4>Calculation</h4>
 <p>
 The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
 Therefore the modelling of the detailed pressure loss calculation has to be simplified.
 This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
 </p>
-
+<p>
 The generic pressure loss <b> dp </b> is determined for:
 <ul>
  <li>
@@ -45,45 +45,51 @@ with
 <tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3].</td></tr>
 </table>
 </p>
-
+<p>
 To avoid numerical difficulties this pressure loss function is linear smoothed for
+</p>
 <ul>
  <li>
  small mass flow rates, where
  <pre>
-  m_flow &le; (0.01*rho/rho_nom*(1/eta*eta_nom)^(exp_eta))^(1/exp) and
+    m_flow &le; (0.01*rho/rho_nom*(1/eta*eta_nom)^(exp_eta))^(1/exp) and
   </pre>
  </li>
  <li> small pressure losses, where
  <pre>
- dp &le; 0.01*dp_nom)
+    dp &le; 0.01*dp_nom)
  </pre>
  </li>
 </ul>
-
+<p>
 Note that the density (rho) and dynamic viscosity (eta) of the fluid are defined through the defintion of the kinematic viscosity (nue).
 <pre>
     nue = eta / rho
 </pre>
+</p>
+<p>
 Therefore if you set both the exponent of dynamic viscosity (exp_eta == 1) and additionally a relation of density and dynamic viscosity there will be no difference for varying densities because the dynamic viscosities will vary in the same manner.
-
-<h4><font color="#EF9B13">Verification</font></h4>
+</p>
+<h4>Verification</h4>
 <p>
 <b> Incompressible case </b> [Pressure loss = f(m_flow)]:
 </p>
+<p>
 The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities and dynamic viscosity dependence as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png">
 </p>
 <p>
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
-
+<p>
 The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> at different fluid densities and dynamic viscosity as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png">
 </p>
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
     <dd><b>Inline integration: A new mixed

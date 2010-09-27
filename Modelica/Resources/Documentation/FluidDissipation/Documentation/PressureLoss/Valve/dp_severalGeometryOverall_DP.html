@@ -2,7 +2,8 @@
 <p>
 Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
 </p>
-<h4><font color="#EF9B13">Restriction</font></h4>
+<h4>Restriction</h4>
+<p>
 This function shall be used inside of the restricted limits according to the referenced literature.
 <ul>
  <li>
@@ -24,10 +25,9 @@ This function shall be used inside of the restricted limits according to the ref
       <b> sluice valve </b>
  </li>
 </ul>
-
-<p>
-<h4><font color="#EF9B13">Geometry</font></h4>
 </p>
+<h4>Geometry</h4>
+<p>
 Wide variations in valve geometry are possible and a manufacturer will not necessarily maintain geometric similarity between valves of the same type but of different size. Here pressure loss can be estimated for the following types of a valve:
 <ul>
  <li>
@@ -46,10 +46,10 @@ Wide variations in valve geometry are possible and a manufacturer will not neces
       <b> sluice valve </b>
  </li>
 </ul>
-
-<h4><font color="#EF9B13">Calculation</font></h4>
-The pressure loss <b> dp </b> for valves is determined by:
+</p>
+<h4>Calculation</h4>
 <p>
+The pressure loss <b> dp </b> for valves is determined by:
 <pre>
     dp = (zeta_TOT/2) * rho * velocity^2
     dp = 1/(valveCharacteristic^2)* rho * velocity^2
@@ -76,55 +76,51 @@ with
 The <b>valveCharacteristic</b> is determined out of a correlation for the pressure loss coefficient (<b>zeta_TOT</b>) in dependence of its opening. The reason for introducing an additional variable
 <b>valveCharacteristic</b> is a different definition of the following pressure loss correlations of valves.
 </p>
-
+<p>
 <ul>
-  <li> Using coefficient Av with [Av]=m^2 and [V_flow]=m^3/s, [dp]=Pa:
-     <br>
+  <li> Using coefficient Av with [Av]=m^2 and [V_flow]=m^3/s, [dp]=Pa:</li>
      <pre>
       V_flow = Av * (dp/rho)^0.5
      </pre>
-  <li> Using coefficient Kv with [Kv]=m^3/(h*bar^0.5) and [V_flow]=m^3/h, [dp]=bar :
-     <br>
+  <li> Using coefficient Kv with [Kv]=m^3/(h*bar^0.5) and [V_flow]=m^3/h, [dp]=bar:</li>
      <pre>
       V_flow = Kv * [dp/(rho/rho0)]^0.5
      </pre>
-  <li> Using coefficient Cv with [Cv]=USG/(min*psi^0.5) and [V_flow]=USG/min, [dp]=psi :
-     <br>
+  <li> Using coefficient Cv with [Cv]=USG/(min*psi^0.5) and [V_flow]=USG/min, [dp]=psi:</li>
      <pre>
       V_flow = Cv * [dp/(rho/rho0)]^0.5
      </pre>
 </ul>
+</p>
+<p>
 The different flow coefficients <b>Kv and Cv</b> are often given in manufacturer data instead of <b>Av</b> to describe pressure loss of valves. Here a geometry of a valve can be chosen and the specific manufacturer data for the flow coefficients can be used. Then values for given <b>Kv and Cv</b> are converted into <b>Av</b> used in pressure loss calculation
-(see <a href="modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristics">User's Guide</a> for detailed discussion).
-
+(see <b>Modelica.Fluid.UsersGuide.ComponentDefinition.ValveCharacteristicsUser</b> for detailed discussion).
+</p>
+<p>
 The pressure loss coefficient (<b>zeta_TOT</b>) for several geometries of valves is calculated according to <i>[Miller 1978, sec. 14.6, p. 270ff]</i> :
 <ul>
-  <li> <b>Ball valve</b>:
-     <br>
+  <li> <b>Ball valve</b>:</li>
      <pre>
       zeta_TOT = 10^(-3.8397 * opening + 2.9449)
      </pre>
-  <li> <b>Diaphragm valve</b>
-      <br>
+  <li> <b>Diaphragm valve</b></li>
      <pre>
       zeta_TOT = 10^[2.2596*exp(-1.8816 * opening)]
      </pre>
- <li> <b>Butterfly valve</b>
-      <br>
+ <li> <b>Butterfly valve</b></li>
      <pre>
-     zeta_TOT = 619.81*exp(-7.3211*opening)
+      zeta_TOT = 619.81*exp(-7.3211*opening)
      </pre>
- <li> <b>Gate valve</b>
-      <br>
+ <li> <b>Gate valve</b></li>
      <pre>
-     zeta_TOT = 51.45*exp(-6.046*opening)
+      zeta_TOT = 51.45*exp(-6.046*opening)
      </pre>
- <li> <b>Sluice valve</b>
-      <br>
+ <li> <b>Sluice valve</b></li>
      <pre>
      zeta_TOT = 248.89*exp(-7.8265*opening)
      </pre>
 </ul>
+</p>
 <p>
 with
 </p>
@@ -139,9 +135,10 @@ with
 Note that the pressure loss coefficients for an overall fluid flow are obtained out of the turbulent regime.
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png">
 </p>
@@ -152,15 +149,15 @@ leakage mass flow rate can often be neglected in system simulation with valves, 
 </p>
 <p>
 The pressure loss of different valves at a constant opening of 50% in dependence of mass flow rate is shown in the figure below.
-<p>
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_DPvsMFLOW.png">
 </p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>Miller,D.S.:</dt>
     <dd><b>Internal flow systems</b>.
-    Volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1978.
+    Volume 5th of BHRA Fluid Engineering Series. BHRA Fluid Engineering, 1978.</dd>
 </dl>
 </html>

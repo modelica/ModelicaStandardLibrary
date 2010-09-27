@@ -2,39 +2,38 @@
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
 </p>
-<h4><font color="#EF9B13">Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></font></h4>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
 
 <p>
 There are basically three differences:
 <ul>
 <li>
-The function <b>kc_turbulent</b> is using <b>kc_turbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+The function <b>kc_turbulent</b> is using <b>kc_turbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).
+</li>
 <li>
 Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
 <li>
 You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-
+</p>
+<p>
 The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its mean curvature diameter. The smaller the mean curvature diameter of the helical pipe <b> d_mean </b>, the earlier the turbulent regime will start due to vortexes out of higher centrifugal forces.
-
-<h4><font color="#EF9B13">Geometry </font></h4>
+</p>
+<h4>Geometry </h4>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png">
 </p>
 
-<h4><font color="#EF9B13">Calculation</font></h4>
+<h4>Calculation</h4>
+<p>
 The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
-
 <pre>
     Nu = (zeta_TOT/8)*Re*Pr/{1 + 12.7*(zeta_TOT/8)^0.5*[Pr^(2/3)-1]},
 </pre>
-
+</p>
 <p>
 where the influence of the pressure loss on the heat transfer calculation is considered through
-</p>
-
-<p>
 <pre>
     zeta_TOT = 0.3164*Re^(-0.25) + 0.03*(d_hyd/d_coil)^(0.5) and
 </pre>
@@ -42,14 +41,10 @@ where the influence of the pressure loss on the heat transfer calculation is con
 
 <p>
 and the resulting mean convective heat transfer coefficient <b> kc </b>
-</p>
-
-<p>
 <pre>
     kc =  Nu * lambda / d_hyd
 </pre>
 </p>
-<p>
 
 <p>
 with
@@ -71,7 +66,7 @@ with
 </table>
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
@@ -88,7 +83,7 @@ The convective heat transfer of a helical pipe is enhanced compared to a straigh
 Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_hyd/L </b> has no remarkable influence on the coefficient of heat transfer <b> kc </b>.
 </p>
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
  <dt>GNIELINSKI, V.:</dt>
     <dd><b>Heat transfer and pressure drop in helically coiled tubes.</b>.

@@ -2,7 +2,7 @@
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence.
 </p>
-<h4><font color="#EF9B13">Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></font></h4>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
 <p>
 There are basically three differences:
 <ul>
@@ -14,7 +14,9 @@ Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the 
 You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-<h4><font color="#EF9B13">Restriction</font></h4>
+</p>
+<h4>Restriction</h4>
+<p>
 <ul>
 <li> circular cross sectional area </li>
 <li> hydrodynamically developed fluid flow </li>
@@ -22,22 +24,22 @@ You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unk
 <li> 0.6 &le; Prandtl number &le; 1000 </li>
 <li> turbulent flow regime (1e4 &le; Reynolds number &le; 1e6) </li>
 </ul>
-
-<h4><font color="#EF9B13">Geometry </font></h4>
+</p>
+<h4>Geometry </h4>
 <p>
 <img src="../../../../../Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png">
 </p>
 
-<h4><font color="#EF9B13">Calculation</font></h4>
+<h4>Calculation</h4>
 <p>
 <b>Neglect pressure loss influence (roughness == 1):</b>
 </p>
-
+<p>
 The mean convective heat transfer coefficient <b> kc </b> for smooth straight pipes is calculated through its corresponding Nusselt number <b> Nu </b> according to <i> [Dittus and Boelter in Bejan 2003, p. 424, eq. 5.76]</i>
-
 <pre>
     Nu = 0.023 * Re^(4/5) * Pr^(1/3).
 </pre>
+</p>
 
 <p>
 <b>Consider pressure loss influence (roughness == 2):</b>
@@ -45,27 +47,18 @@ The mean convective heat transfer coefficient <b> kc </b> for smooth straight pi
 
 <p>
 The mean convective heat transfer coefficient <b> kc </b> for rough straight pipes is calculated through its corresponding Nusselt number <b> Nu </b> according to <i>[Gnielinski in VDI 2002, p. Ga 5, eq. 26]</i>
-</p>
-
 <pre>
     Nu = (zeta/8)*Re*Pr/(1 + 12.7*(zeta/8)^0.5*(Pr^(2/3)-1))*(1+(d_hyd/L)^(2/3)),
 </pre>
-
+</p>
 <p>
 where the influence of the pressure loss on the heat transfer calculation is considered through
-</p>
-
-<p>
 <pre>
     zeta =  (1.8*log10(Re)-1.5)^-2.
 </pre>
 </p>
-
 <p>
 The mean convective heat transfer coefficient <b> kc </b> in dependence of the chosen calculation (neglecting or considering of pressure loss influence) results into:
-</p>
-
-<p>
 <pre>
     kc =  Nu * lambda / d_hyd
 </pre>
@@ -93,9 +86,10 @@ with
 Note that there is no significant difference for the calculation of the mean Nusselt number <b> Nu </b> at a uniform wall temperature (UWT) or a uniform heat flux (UHF) as heat transfer boundary in the turbulent regime (Bejan 2003, p.303).
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
+<p>
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figures below.
-
+</p>
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_turbulent.png">
 </p>
@@ -105,7 +99,7 @@ Note that the higher the Prandtl number <b> Pr </b> there is a higher difference
 </p>
 
 
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
   <dt>Bejan,A.:</dt>
     <dd><b>Heat transfer handbook</b>.

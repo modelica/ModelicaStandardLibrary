@@ -2,7 +2,7 @@
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides.
 </p>
-<h4><font color="#EF9B13">Functions <b>kc_evenGapTurbulent</b> and <b>kc_evenGapTurbulent_KC</b></font></h4>
+<h4>Functions <b>kc_evenGapTurbulent</b> and <b>kc_evenGapTurbulent_KC</b></h4>
 <p>
 There are basically three differences:
 <ul>
@@ -14,32 +14,33 @@ Generally the  function <b>kc_evenGapTurbulent_KC</b> is numerically best used f
 You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
+</p>
 
-<h4><font color="#EF9B13">Restriction</font></h4>
+<h4>Restriction</h4>
+<p>
 <ul>
-<li> identical and constant wall tempertures
-<li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1
+<li> identical and constant wall tempertures</li>
+<li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1</li>
 <li> 0.5 &le; Prandtl number Pr &le; 100) </li>
-<li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)
+<li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
 <li> developed fluid flow</li>
-<li> heat transfer from both sides of the gap (Target = 2)
+<li> heat transfer from both sides of the gap (Target = 2)</li>
 </ul>
+</p>
 
-<h4><font color="#EF9B13"><a name="Geometry"> Geometry </a> </font></h4>
+<h4><a name="Geometry"> Geometry </a> </h4>
 <p><img src="../../../../../Images/FluidDissipation/heatTransfer/channel/pic_gap.png" alt=""></p>
 
-<h4><font color="#EF9B13"><a name="calculation">Calculation </a></font></h4>
+<h4><a name="calculation">Calculation </a></h4>
+<p>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
-
 <pre>
     Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
 </pre>
-
-<p>
-where the pressure loss coefficient <b> zeta </b> according to <i> Konakov in [VDI 2002, p. Ga 5, eq. 27]</i> is determined by
 </p>
 
 <p>
+where the pressure loss coefficient <b> zeta </b> according to <i> Konakov in [VDI 2002, p. Ga 5, eq. 27]</i> is determined by
 <pre>
     zeta =  1/[1.8*log10(Re) - 1.5]^2
 </pre>
@@ -47,9 +48,6 @@ where the pressure loss coefficient <b> zeta </b> according to <i> Konakov in [V
 
 <p>
 resulting to the corresponding mean convective heat transfer coefficient <b> kc </b>
-</p>
-
-<p>
 <pre>
     kc =  Nu_turb * lambda / d_hyd
 </pre>
@@ -81,21 +79,20 @@ with
 Note that the fluid flow properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
 </p>
 
-<h4><font color="#EF9B13">Verification</font></h4>
+<h4>Verification</h4>
 <p>
 The mean Nusselt number <b> Nu_turb </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
 the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
+<ul>
+   <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
+</ul>
 </p>
 
-<ul>
-   <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap
 <p>
 <img src="../../../../../Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png">
 </p>
-</ul>
 
-
-<h4><font color="#EF9B13">References</font></h4>
+<h4>References</h4>
 <dl>
 <dt>VDI:</dt>
     <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
