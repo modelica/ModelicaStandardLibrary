@@ -187,7 +187,7 @@ end inverter;
 </tr>
 <tr>
 <td valign=\"top\"><p>[Johnson1991]</p></td>
-<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&apos;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991)</p></td>
+<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&apos;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991) <a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf\">SPICE3 user's manual</a></p></td>
 <td></td>
 </tr>
 <tr>
