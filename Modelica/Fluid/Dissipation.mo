@@ -17707,7 +17707,7 @@ For |x| &gt; 1 both functions return identical results.
 <dl>
 <dt>ThermoFluid Library</dt>
     <dd><b><a href=\"http://sourceforge.net/projects/thermofluid/\"> http://sourceforge.net/projects/thermofluid/</b>.</dd>
-
+</dl>
 </html>"));
         end SmoothPower;
 

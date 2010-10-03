@@ -3076,7 +3076,6 @@ This representation has the following transfer function:
           "Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB"
 
           import Modelica.Utilities.Streams;
-          import Modelica_LinearSystems2;
           input Integer order "Order of filter in the range 1..41";
           output Real c1[mod(order, 2)]
             "[p] coefficients of Bessel denominator polynomials (a*p + 1)";
