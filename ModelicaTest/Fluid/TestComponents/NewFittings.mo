@@ -121,7 +121,8 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =
             Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice(geometry=geometry));
-      annotation (experiment(StopTime=1.01), experimentSetupOutput);
+      annotation (experiment(StopTime=1.01), experimentSetupOutput,
+        Diagram(graphics));
     end ThickEdgedOrifice;
   end Orifices;
 
