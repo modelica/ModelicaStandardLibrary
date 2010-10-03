@@ -74,7 +74,7 @@ ideal, i.e., it does not influence the fluid.
 This component monitors the density of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-<p>If using the one port sensor please read the <a href = Modelica.Fluid.Sensors>Information</a>  first.</p>
+
 </HTML>"));
   end Density;
 

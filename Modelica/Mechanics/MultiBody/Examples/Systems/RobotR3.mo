@@ -2011,7 +2011,7 @@ The robot model is described in detail in
        Systeme am Beispiel geregelter Roboter. Dissertation,
        Fortschrittberichte VDI, Reihe 20, Nr. 147, VDI-Verlag 1995.
        This report can be downloaded as compressed postscript file
-       from: <a href=\"http://www.robotic.dlr.de/Martin.Otter/publications.html\">http://www.robotic.dlr.de/Martin.Otter/publications.html</a>.
+       from: <a href=\"http://www.robotic.dlr.de/Martin.Otter\">http://www.robotic.dlr.de/Martin.Otter</a>.
 </pre>
 <p>
 The path planning is performed in a simple way by using essentially

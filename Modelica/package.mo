@@ -726,11 +726,11 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 </ol>
 <h5>Example 1</h5>
 <pre>
-&lt;a href=\"modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
-         MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
+&lt;a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\"&gt;
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops&lt;/a&gt;</pre>
 <p>appears as</p>
-<a href=\"modelica://MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
-         MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops\">
+         Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.LoopStructures.PlanarLoops</a>
 <h5>Example 2</h5>
 <pre>
 &lt;p&gt;
@@ -7393,8 +7393,6 @@ For an introduction, have especially a look at:
  summarizes the changes of new versions of this package.</li>
 <li> <a href=\"modelica://Modelica.UsersGuide.Contact\">Contact</a>
   lists the contributors of the Modelica Standard Library.</li>
-<li> <a href=\"modelica://Modelica/Resources/Documentation/ModelicaStandardLibrary.pdf\">ModelicaStandardLibrary.pdf</a>
-  is the complete documentation of the library in pdf format.
 <li> The <b>Examples</b> packages in the various libraries, demonstrate
   how to use the components of the corresponding sublibrary.</li>
 </ul>

@@ -10709,7 +10709,7 @@ The voltage drop <code>v</code> is the total voltage drop of all series connecte
 </p>
 <h4>See also</h4>
 <p>
-<a href=\"modelica://Modelica.Electrical.Machines.Losses.BrushParamters\">BrushParameters</a>
+<a href=\"modelica://Modelica.Electrical.Machines.Losses.BrushParameters\">BrushParameters</a>
 </p>
 <p>
 If it is desired to neglect brush losses, set <code>brushParameters.V = 0</code> (this is the default).

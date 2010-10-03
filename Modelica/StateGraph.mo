@@ -591,7 +591,7 @@ based on the following references:
      </dd>
 
 <dt>Maraninchi F., R&eacute;mond, Y. (2002):</dt>
-<dd> <a href=\"http://www-verimag.imag.fr/~maraninx/SCP2002.htm\">Mode-Automata:
+<dd> <a href=\"http://www.sciencedirect.com/science?_ob=MImg&_imagekey=B6V17-461XK2H-2-1&_cdi=5667&_user=100058&_pii=S016764230200093X&_origin=search&_coverDate=03%2F31%2F2003&_sk=999539996&view=c&wchp=dGLzVlz-zSkWA&md5=7ef5d0b715e52fa5deec5cca6e0a4d99&ie=/sdarticle.pdf\">Mode-Automata:
      A New Domain-Specific Construct for the Development of Safe Critical Systems</a>.<br>&nbsp;
      </dd>
 
