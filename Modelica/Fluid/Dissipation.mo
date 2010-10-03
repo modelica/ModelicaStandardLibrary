@@ -288,13 +288,13 @@ Initial release of Fluid.Dissipation.
 <h4>  Acknowledgements </h4>
 <p>
 The following people contributed to the Modelica.Fluid.Dissipation library (alphabetical list):
-J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan 
-Wischhusen. 
+J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan
+Wischhusen.
 </p>
 <p>
-The development of the Modelica.Fluid.Dissipation library was founded within the ITEA research 
-project EuroSysLib-D by German Federal Ministry of Education and Research (promotional 
-reference 01IS07022B). The project is started in October 2007 and ended in June 2010. 
+The development of the Modelica.Fluid.Dissipation library was founded within the ITEA research
+project EuroSysLib-D by German Federal Ministry of Education and Research (promotional
+reference 01IS07022B). The project is started in October 2007 and ended in June 2010.
 </p>
 </html>"));
   end Contact;
@@ -306,24 +306,6 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
   extends Modelica.Icons.VariantsPackage;
     package Channel
     extends Modelica.Icons.VariantsPackage;
-      class Channel_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Even gap</h4>
-<h5>Laminar flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapLaminar.html\">See more information.</a> </p>
-
-<!-- ---------------------------------------------------------------- -->
-<h5>Turbulent flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapTurbulent.html\">See more information.</a></p>
-
-<!-- ---------------------------------------------------------------- -->
-<h5>Overall flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapOverall.html\">See more information.</a></p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end Channel_Documentation;
 
       function kc_evenGapLaminar
         "Mean heat transfer coefficient of even gap | laminar flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures"
@@ -396,10 +378,9 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation(Documentation(info="<html>
 <p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapLaminar.html\">See more information.</a> 
-<a href=\"modelica://Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapLaminar.html\" > </a> </p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     Documentation(info="<html>
 <p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
@@ -585,17 +566,17 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
         //Documentation
       algorithm
         kc := Nu*((IN_var.lambda/max(MIN, d_hyd)));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation(Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapLaminar.html\">See more information.</a> 
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a>
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
-<a href=\"../Resources/Images/FluidDissipation/Documentation/kc_evenGapLaminar.html\">See more information.</a> 
+<a href=\"../Resources/Images/FluidDissipation/Documentation/kc_evenGapLaminar.html\">See more information.</a>
 </p>
 <!--
 <p>
@@ -625,7 +606,7 @@ Generally this  function is numerically best used for the calculation of the mea
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
@@ -713,25 +694,25 @@ Here the figures are calculated for an (unintended) inverse calculation, where a
 <ul>
    <li> Target 1: Developed fluid flow and heat transfer from one side of the gap </li>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target1_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target1_KC.png\">
 </ul>
 
 <ul>
    <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap </li>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target2_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target2_KC.png\">
 </p>
 </ul>
 
 <ul>
   <li> Target 3: Undeveloped fluid flow and heat transfer from one side of the gap </li>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target3_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target3_KC.png\">
 </ul>
 
 <ul>
  <li> Target 4: Undeveloped fluid flow and heat transfer from both sides of the gap </li>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target4_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar_target4_KC.png\">
 </ul>
 
 <p>
@@ -852,9 +833,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           end if;
         end for;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapOverall.html\">See more information.</a> 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -886,7 +867,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Gb 6-7]</i> :
@@ -1004,7 +985,7 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 
 The verification for all targets is shown in the following figure w.r.t. the reference:
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png\">
 
 <h4>References</h4>
 <dl>
@@ -1071,9 +1052,9 @@ The verification for all targets is shown in the following figure w.r.t. the ref
                 laminar,
                 Re)*Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC(
           IN_con, IN_var);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapOverall.html\">See more information.</a> 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -1109,7 +1090,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Gb 6-7]</i> :
@@ -1217,22 +1198,22 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 
 <ul>
    <li> Target 1: Developed fluid flow and heat transfer from one side of the gap </li>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target1_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target1_KC.png\">
 </ul>
 
 <ul>
    <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap </li>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target2_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target2_KC.png\">
 </ul>
 
 <ul>
   <li> Target 3: Undeveloped fluid flow and heat transfer from one side of the gap </li>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target3_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target3_KC.png\">
 </ul>
 
 <ul>
  <li> Target 4: Undeveloped fluid flow and heat transfer from both sides of the gap </li>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target4_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall_target4_KC.png\">
 </ul>
 
 <p>
@@ -1356,9 +1337,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapTurbulent.html\">See more information.</a> 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -1379,7 +1360,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
@@ -1442,7 +1423,7 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
 
 <ul>
    <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\">
 </ul>
 
 <h4>References</h4>
@@ -1503,9 +1484,9 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
       algorithm
         kc := Nu*(IN_var.lambda/max(MIN, d_hyd));
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapTurbulent.html\">See more information.</a> 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -1530,7 +1511,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/pic_gap.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
@@ -1593,7 +1574,7 @@ The mean Nusselt number <b> Nu_turb </b> representing the mean convective heat t
 <ul>
    <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap <(li>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\">
 </ul>
 
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulentRoughness\">kc_evenGapTurbulentRoughness</a> is also valid for this inverse calculation due to using the same functions.
@@ -1638,20 +1619,22 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC\"> kc_evenGapTurbulent_KC</a>.
 </html>"));
       end kc_evenGapTurbulent_IN_var;
-    annotation(preferedView="info");
+    annotation (preferedView="info", Documentation(info="<html>
+<h4>Even gap</h4>
+<h5>Laminar flow</h5>
+<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapLaminar.html\">See more information.</a> </p>
+
+<!-- ---------------------------------------------------------------- -->
+<h5>Turbulent flow</h5>
+<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapTurbulent.html\">See more information.</a></p>
+
+<!-- ---------------------------------------------------------------- -->
+<h5>Overall flow</h5>
+<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/evenGap/kc_evenGapOverall.html\">See more information.</a></p>
+</html>"));
     end Channel;
 
     package General
-      class General_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>General heat transfer</h4>
-<h5>Approximated forced convection</h5>
-<p>Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/General/kc_approxForcedConvection.html\">See more information.</a> </p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end General_Documentation;
     extends Modelica.Icons.VariantsPackage;
       function kc_approxForcedConvection
         "Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow"
@@ -1732,15 +1715,15 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           end if;
         end for;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 </p>
 
 </p>
-A detailled documentation for this convective heat transfer calculation can be found in its underlying function 
+A detailled documentation for this convective heat transfer calculation can be found in its underlying function
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\">kc_approxForcedConvection_KC</a> .
-Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/General/kc_approxForcedConvection.html\">See more information</a> .
+Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     Documentation(info="<html>
@@ -1799,12 +1782,12 @@ Note that additionally a failure status is observed in this function to check if
 
         //Documentation
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/General/kc_approxForcedConvection.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection.html\">See more information</a> .
 </p>
-</html>"),       preferedView="info", Documentation(info="<html>
+</html>"),        Documentation(info="<html>
 <p>
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/General/kc_approxForcedConvection_KC.html\">See more information</a> .
@@ -1867,15 +1850,15 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. <br>
 <b>Dittus/Boelter</b> (Target = 1)
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\">
 </p>
 <b>Sieder/Tate</b> (Target = 2)
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\">
 </p>
 <b>Gnielinski</b> (Target = 3)
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\">
 </p>
 
 Note that all fluid properties shall be calculated with the mean temperature of the fluid between the entrance and the outlet of the generic device.
@@ -1950,15 +1933,15 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. <br>
 <b>Dittus/Boelter</b> (Target = 1)
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\">
 
 <b>Sieder/Tate</b> (Target = 2)
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\">
 
 <b>Gnielinski</b> (Target = 3)
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\">
 
 Note that all fluid properties shall be calculated with the mean temperature of the fluid between the entrance and the outlet of the generic device.
 
@@ -1983,7 +1966,7 @@ Note that all fluid properties shall be calculated with the mean temperature of 
           annotation (Dialog(group="Generic variables",enable=if target == 1 then 
                 true else false));
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
 </html>"),          Documentation(info="<html>
@@ -2005,7 +1988,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
 </html>"),          Documentation(info="<html>
@@ -2013,30 +1996,14 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC </a>.
 </html>"));
       end kc_approxForcedConvection_IN_var;
-    annotation(preferedView="info");
+    annotation (preferedView="info", Documentation(info="<html>
+<h4>General heat transfer</h4>
+<h5>Approximated forced convection</h5>
+<p>Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information.</a> </p>
+</html>"));
     end General;
 
     package HeatExchanger
-      class HeatExchanger_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Heat exchanger</h4>
-<h5>Flat tube heat exchanger</h5>
-<p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HeatExchanger/kc_flatTube.html\">See more information</a> .
-</p>
-
-<!-- ---------------------------------------------------------------- -->
-<h5>Round tube heat exchanger</h5>
-<p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HeatExchanger/kc_roundTube.html\">See more information</a> .
-</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end HeatExchanger_Documentation;
     extends Modelica.Icons.VariantsPackage;
       function kc_flatTube
 
@@ -2101,10 +2068,10 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
            > 3000 then 1 else 0 else if IN_con.geometry == TYP.RectangularFin then 
           if Re < 300 or Re > 5000 then 1 else 0 else 0;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HeatExchanger/kc_flatTube.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube.html\">See more information</a> .
 </p>
 
 </html>
@@ -2121,7 +2088,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/pic_flatTube.png\", width=850>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_flatTube.png\", width=850>
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for heat exchanger is calculated through the corresponding Coulburn factor <b> j </b>:
@@ -2173,7 +2140,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different fin geometries at similar dimensions.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/fig_flatTube_kc.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_flatTube_kc.png\">
 
 <h4>References</h4>
 <dl>
@@ -2257,10 +2224,10 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 
         end if;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HeatExchanger/kc_flatTube.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube.html\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder=5, Documentation(info="<html>
@@ -2276,7 +2243,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/pic_flatTube.png\", width=850>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_flatTube.png\", width=850>
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for heat exchanger is calculated through the corresponding Coulburn factor <b> j </b>:
@@ -2327,7 +2294,7 @@ with
 
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for the several fin geometries is shown in the figure below. Here the figures are calculated for an (unintended) inverse calculation, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/fig_flatTube_kc_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_flatTube_kc_KC.png\">
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube\"> kc_flatTube </a> is also valid for this inverse calculation due to using the same functions.
@@ -2482,10 +2449,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           if Re < 400 or Re > 7000 then 1 else 0 else if IN_con.geometry == TYP.WavyFin then 
                 if Re < 350 or Re > 7000 then 1 else 0 else 0;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HeatExchanger/kc_roundTube.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder=5, Documentation(info="<html>
@@ -2501,7 +2468,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/pic_roundTube.png\", width=850>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_roundTube.png\", width=850>
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for heat exchanger is calculated through the corresponding Coulburn factor <b> j </b>:
@@ -2540,7 +2507,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different fin geometries at similar dimensions.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/fig_roundTube_kc.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_roundTube_kc.png\">
 
 <h4>References</h4>
 <dl>
@@ -2692,9 +2659,9 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 
         end if;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HeatExchanger/kc_roundTube.html\">See more information</a> .
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube.html\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder=5, Documentation(info="<html>
@@ -2710,7 +2677,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/pic_roundTube.png\", width=800>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_roundTube.png\", width=800>
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for heat exchanger is calculated through the corresponding Coulburn factor <b> j </b>:
@@ -2749,7 +2716,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for the plain and wavy fin heat exchanger is shown in the figure below. Here the figures are calculated for an (unintended) inverse calculation, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>. The calculation for the louver and slit fin are too complex for inverting.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/fig_roundTube_kc_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_roundTube_kc_KC.png\">
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube\"> kc_roundTube </a> is also valid for this inverse calculation due to using the same functions.
@@ -2837,31 +2804,25 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 </html>"));
 
       end kc_roundTube_IN_var;
-    annotation(preferedView="info");
+    annotation (preferedView="info", Documentation(info="<html>
+<h4>Heat exchanger</h4>
+<h5>Flat tube heat exchanger</h5>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
+</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h5>Round tube heat exchanger</h5>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
+</p>
+</html>
+"));
     end HeatExchanger;
 
     package HelicalPipe
-      class HelicalPipe_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Helical pipe</h4>
-<h5>Laminar flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_laminar.html\">See more information</a>.</p>
-
-<!-- ---------------------------------------------------------------- -->
-<h5>Turbulent flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_turbulent.html\">See more information</a>.</p>
-
-<!-- ---------------------------------------------------------------- -->
-<h5>Overall flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_overall.html\">See more information</a>.</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end HelicalPipe_Documentation;
     extends Modelica.Icons.VariantsPackage;
       function kc_laminar
         "Mean heat transfer coefficient of helical pipe | laminar flow regime"
@@ -2931,10 +2892,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_laminar.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -2954,7 +2915,7 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Gc 2, eq. 5]</i> :
@@ -3008,7 +2969,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar.png\">
 
 <p>
 The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
@@ -3076,10 +3037,10 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
       algorithm
         kc := (IN_var.lambda/IN_con.d_hyd)*(3.66 + 0.08*(1 + 0.8*(IN_con.d_hyd/d_coil)
           ^0.9)*Re^(m)*Pr^(1/3));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_laminar.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -3103,7 +3064,7 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Gc 2, eq. 5]</i> :
@@ -3157,7 +3118,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar_KC_cpr.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar_KC_cpr.png\">
 
 <p>
 The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe. Therefore there have to be a higher mass flow rate for lower number of turns to achieve the same Nusselt number <b> Nu </b> at inverse calculation.
@@ -3167,7 +3128,7 @@ The convective heat transfer of a helical pipe is enhanced compared to a straigh
 The dependence of the mean Nusselt number <b> Nu </b> on fluid properties is shown for different Prandtl numbers <b> Pr </b> in the following figure.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar_KC_cnt.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar_KC_cnt.png\">
 
 <p>
 Note that a minimum mean Nusselt number <b> Nu </b> is necessary for a successful inverse
@@ -3202,8 +3163,7 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
@@ -3215,8 +3175,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
@@ -3269,10 +3228,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Re := max(MIN, IN_var.rho*velocity*IN_con.d_hyd/max(MIN, IN_var.eta));
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC(IN_con, IN_var);
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_overall.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
 </html>
 
@@ -3295,7 +3254,7 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
 
 <h4>Calculation</h4>
 <b> Laminar regime:</b>
@@ -3371,7 +3330,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall.png\">
 
 <p>
 The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
@@ -3451,10 +3410,10 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
                 Re_crit,
                 Re)*Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC(IN_con,
           IN_var);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_overall.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
 </html>
 
@@ -3477,7 +3436,7 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
 
 <h4>Calculation</h4>
 <b> Laminar regime:</b>
@@ -3553,7 +3512,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall_KC_cpr.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall_KC_cpr.png\">
 
 <p>
 The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe. Therefore there have to be a higher mass flow rate for lower number of turns to achieve the same Nusselt number <b> Nu </b> at inverse calculation.
@@ -3563,7 +3522,7 @@ The convective heat transfer of a helical pipe is enhanced compared to a straigh
 The dependence of the mean Nusselt number <b> Nu </b> on fluid properties is shown for different Prandtl numbers <b> Pr </b> in the following figure.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall_KC_cnt.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall_KC_cnt.png\">
 
 <p>
 Note that a minimum mean Nusselt number <b> Nu </b> is necessary for a successful inverse
@@ -3600,8 +3559,7 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.HelicalPipe;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -3617,8 +3575,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall\"> kc_overall</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -3686,10 +3643,10 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_turbulent.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>
 
@@ -3711,7 +3668,7 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
@@ -3766,7 +3723,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent.png\">
 
 <p>
 The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
@@ -3837,10 +3794,10 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
       algorithm
         kc := (IN_var.lambda/IN_con.d_hyd)*(zeta_TOT/8)*Re*Pr/(1 + 12.7*sqrt(zeta_TOT
           /8)*(Pr^(2/3) - 1));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/HelicalPipe/kc_turbulent.html\">See more information</a> .
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>
 
@@ -3868,7 +3825,7 @@ The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its m
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
@@ -3923,7 +3880,7 @@ with
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent_KC_cpr.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent_KC_cpr.png\">
 
 <p>
 The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe. Therefore there have to be a higher mass flow rate for lower number of turns to achieve the same Nusselt number <b> Nu </b> at inverse calculation.
@@ -3933,7 +3890,7 @@ The convective heat transfer of a helical pipe is enhanced compared to a straigh
 The dependence of the mean Nusselt number <b> Nu </b> on fluid properties is shown for different Prandtl numbers <b> Pr </b> in the following figure.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent_KC_cnt.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent_KC_cnt.png\">
 
 <p>
 Note that a minimum mean Nusselt number <b> Nu </b> is necessary for a successful inverse
@@ -3968,8 +3925,7 @@ Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
@@ -3980,36 +3936,30 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
       end kc_turbulent_IN_var;
-    annotation(preferedView="info");
-    end HelicalPipe;
-
-    package Plate
-      class Plate_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Even plate</h4>
+    annotation (preferedView="info", Documentation(info="<html>
+<h4>Helical pipe</h4>
 <h5>Laminar flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_laminar.html\">See more information</a> .</p>
+<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a>.</p>
 
 <!-- ---------------------------------------------------------------- -->
 <h5>Turbulent flow</h5>
-<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_turbulent.html\">See more information</a>.</p>
+<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a>.</p>
 
 <!-- ---------------------------------------------------------------- -->
 <h5>Overall flow</h5>
-<p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for an laminar and turbulent fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_overall.html\">See more information</a>.
-</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end Plate_Documentation;
+<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a>.</p>
+</html>"));
+    end HelicalPipe;
+
+    package Plate
     extends Modelica.Icons.VariantsPackage;
 
       function kc_laminar
@@ -4069,9 +4019,9 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_laminar.html\">See more information</a> .
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4088,7 +4038,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
@@ -4130,7 +4080,7 @@ with
 The mean Nusselt number <b> Nu </b> in the laminar regime representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_laminar.png\" width=\"600\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_laminar.png\" width=\"600\">
 
 Note that this function is best used in the laminar regime up to a Reynolds number <b> Re </b> smaller than 2300. There is a deviation w.r.t. literature due to the neglect of the turbulence influence in the transition regime even though this function is used inside its cited restrictions for a higher Reynolds number. The function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_mean_overall\">  kc_mean_overall </a> is recommended for the simulation of a Reynolds number higher than 2300.
 
@@ -4183,11 +4133,11 @@ Note that this function is best used in the laminar regime up to a Reynolds numb
         //Documentation
       algorithm
         kc := (lambda/L)*(0.664*abs(Re)^0.5*Pr^(1/3));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface.
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_laminar.html\">See more information</a> .
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4204,7 +4154,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
@@ -4246,7 +4196,7 @@ with
 The mean Nusselt number for the laminar regime <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. Here the figures are calculated for an (unintended) inverse calculation, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_mean_laminar_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_mean_laminar_KC.png\">
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar\"> kc_laminar </a> is also valid for this inverse calculation due to using the same functions.
@@ -4272,8 +4222,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
         "Input record for function kc_laminar and kc_laminar_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar\">  kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC\">  kc_laminar_KC</a>.
 </html>"));
@@ -4283,8 +4232,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Input record for function kc_laminar and kc_laminar_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar\">  kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_KC\">  kc_laminar_KC</a>.
 </html>"));
@@ -4347,9 +4295,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_overall.html\">See more information</a> .
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4367,7 +4315,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
@@ -4417,7 +4365,7 @@ with
 The mean Nusselt number <b> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_overall.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_overall.png\">
 
 <h4>References</h4>
 <dl>
@@ -4460,11 +4408,11 @@ The mean Nusselt number <b> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </b> representing th
         //Documentation
       algorithm
         kc := sqrt((kc_lam)^2 + (kc_turb)^2);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface. 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface.
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_overall.html\">See more information</a> .
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4486,7 +4434,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
@@ -4537,7 +4485,7 @@ The mean Nusselt number <b> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </b> representing th
 Here the figures are calculated for an (unintended) inverse calculation, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_mean_overall_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_mean_overall_KC.png\">
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall\"> kc_overall </a> is also valid for this inverse calculation due to using the same functions.
@@ -4564,8 +4512,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
         //plate variables
         extends Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.Plate;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -4580,8 +4527,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (fluid flow velocity)
         Modelica.SIunits.Velocity velocity annotation (Dialog(group="Input"));
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -4645,9 +4591,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_turbulent.html\">See more information</a> .
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4665,7 +4611,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i>[VDI 2002, p. Gd 1, eq. 2]</i> :
@@ -4707,7 +4653,7 @@ with
 The mean Nusselt number in turbulent regime <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_turbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_turbulent.png\">
 
 <h4>References</h4>
 <dl>
@@ -4760,11 +4706,11 @@ The mean Nusselt number in turbulent regime <b> Nu </b> representing the mean co
       algorithm
         kc := abs((lambda/L))*(0.037*Re^0.8*Pr)/(1 + 2.443/(max(Re^0.1, 1e-6))*(Pr^(2
           /3) - 1));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface. 
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface.
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_turbulent.html\">See more information</a> .
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4786,7 +4732,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/pic_plate.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i>[VDI 2002, p. Gd 1, eq. 2]</i> :
@@ -4829,7 +4775,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 Here the figures are calculated for an (unintended) inverse calculation, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/fig_plate_kc_mean_turbulent_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_mean_turbulent_KC.png\">
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent\"> kc_turbulent </a> is also valid for this inverse calculation due to using the same functions.
@@ -4855,8 +4801,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
         "Input record for function kc_turbulent and kc_turbulent_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
@@ -4866,34 +4811,29 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Input record for function kc_turbulent and kc_turbulent_KC"
         extends Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent\">  kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
       end kc_turbulent_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>Even plate</h4>
+<h5>Laminar flow</h5>
+<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_laminar.html\">See more information</a> .</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h5>Turbulent flow</h5>
+<p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_turbulent.html\">See more information</a>.</p>
+
+<!-- ---------------------------------------------------------------- -->
+<h5>Overall flow</h5>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for an laminar and turbulent fluid flow over an even surface. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/Plate/kc_overall.html\">See more information</a>.
+</p>
+</html>"));
     end Plate;
 
     package StraightPipe
-      class StraightPipe_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<p><h4>Straight pipe</h4></p>
-<p><h5>Laminar flow</h5></p>
-<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_laminar.html\">See more information</a>.
-<!-- ---------------------------------------------------------------- -->
-<h5>Turbulent flow</h5>
-<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_turbulent.html\">See more information</a>.</p>
-<!-- ---------------------------------------------------------------- -->
-<h5>Overall flow</h5>
-<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped laminar and turbulent fluid flow with neglect <b> or </b> consideration of pressure loss influence. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_overall.html\">See more information</a>.</p>
-<!-- ---------------------------------------------------------------- -->
-<h5>Overall two phase flow</h5>
-<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_twoPhaseOverall_KC.html\">See more information</a>.</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end StraightPipe_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function kc_laminar
@@ -4953,9 +4893,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_laminar.html\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -4975,7 +4915,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> of a straight pipe in the laminar regime can be calculated for the following four heat transfer boundary conditions through its corresponding Nusselt number <b> Nu </b>:
@@ -5046,7 +4986,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 This verification has been done with the fluid properties of Water (Prandtl number Pr = 7) and a diameter to pipe length fraction of 0.1.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar.png\">
 
 <h4>References</h4>
 <dl>
@@ -5114,9 +5054,9 @@ This verification has been done with the fluid properties of Water (Prandtl numb
         //Documentation
       algorithm
         kc := Nu*IN_var.lambda/max(MIN, IN_con.d_hyd);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_laminar.html\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -5140,7 +5080,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The mean convective heat transfer coefficient <b> kc </b> of a straight pipe in the laminar regime can be calculated for the following four heat transfer boundary conditions through its corresponding Nusselt number <b> Nu </b>:
@@ -5211,25 +5151,25 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 <b> Uniform wall temperature in developed fluid flow (heatTransferBoundary = 1)</b> :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UWTwithDFF_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UWTwithDFF_KC.png\">
 
 <p>
 <b> Uniform heat flux in developed fluid flow (heatTransferBoundary = 2)</b>  :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UHFwithDFF_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UHFwithDFF_KC.png\">
 
 <p>
 <b> Uniform wall temperature in undeveloped fluid flow (heatTransferBoundary = 3)</b> :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UWTwithUFF_KC.png\" width=600>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UWTwithUFF_KC.png\" width=600>
 
 <p>
 <b> Uniform heat flux in developed fluid flow (heatTransferBoundary = 4)</b> :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UHFwithUFF_KC.png\" width=600>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar_UHFwithUFF_KC.png\" width=600>
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar\"> kc_laminar </a> is also valid for this inverse calculation due to using the same functions.
@@ -5251,12 +5191,14 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
 
       record kc_laminar_IN_con
         "Input record for function kc_laminar and kc_laminar_KC"
-        extends
-          Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con(      final
-            roughness=1);
+        extends Utilities.Records.HeatTransfer.StraightPipe;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+          //choices
+        Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary target=Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF
+          "Choice of heat transfer boundary condition" 
+          annotation (Dialog(group="Choices"));
+
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
@@ -5267,8 +5209,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar\"> kc_laminar</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC\"> kc_laminar_KC</a>.
 </html>"));
@@ -5344,9 +5285,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_overall.html\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -5366,7 +5307,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 <p>
@@ -5483,7 +5424,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 The following verification considers pressure loss influence (roughness =2).
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall.png\">
 
 <h4>References</h4>
 <dl>
@@ -5543,9 +5484,9 @@ The following verification considers pressure loss influence (roughness =2).
                 Re)*Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC(
           IN_con, IN_var);
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_overall.html\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -5569,7 +5510,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 <p>
@@ -5689,25 +5630,25 @@ The following verification considers pressure loss influence (roughness =2).
 <b> Uniform wall temperature in developed fluid flow (heatTransferBoundary = 1)</b> :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UWTwithDFF_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UWTwithDFF_KC.png\">
 
 <p>
 <b> Uniform heat flux in developed fluid flow (heatTransferBoundary = 2)</b>  :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UHFwithDFF_KC.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UHFwithDFF_KC.png\">
 
 <p>
 <b> Uniform wall temperature in undeveloped fluid flow (heatTransferBoundary = 3)</b> :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UWTwithUFF_KC.png\" width=600>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UWTwithUFF_KC.png\" width=600>
 
 <p>
 <b> Uniform heat flux in developed fluid flow (heatTransferBoundary = 4)</b> :
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UHFwithUFF_KC.png\" width=600>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall_UHFwithUFF_KC.png\" width=600>
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall\"> kc_overall </a> is also valid for this inverse calculation due to using the same functions.
@@ -5729,13 +5670,15 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
 
       record kc_overall_IN_con
         "Input record for function kc_overall and kc_overall_KC"
-        //straight pipe variables
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.StraightPipe(      final K=
-             0);
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+          //choices
+        Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary target=Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF
+          "Choice of heat transfer boundary condition" 
+          annotation (Dialog(group="Choices"));
+
+        extends kc_turbulent_IN_con;
+
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -5750,8 +5693,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input variable (mass flow rate)
         SI.MassFlowRate m_flow annotation (Dialog(group="Input"));
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall\"> kc_overall</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC\"> kc_overall_KC</a>.
 </html>"));
@@ -5827,9 +5769,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             failureStatus := 1;
           end if;
         end for;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_turbulent.html\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -5849,7 +5791,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 <p>
@@ -5921,7 +5863,7 @@ Note that there is no significant difference for the calculation of the mean Nus
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figures below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_straightPipe_kc_turbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_turbulent.png\">
 
 <p>
 Note that the higher the Prandtl number <b> Pr </b> there is a higher difference in Nusselt numbers <b> Nu </b> comparing the neglect and consideration of pressure loss.
@@ -5979,9 +5921,9 @@ Note that the higher the Prandtl number <b> Pr </b> there is a higher difference
           IN_var.lambda/IN_con.d_hyd)*(abs(zeta)/8)*abs(Re)*abs(Pr)/(1 + 12.7*(abs(
           zeta)/8)^0.5*(abs(Pr)^(2/3) - 1))*(1 + (IN_con.d_hyd/IN_con.L)^(2/3)) else 
           0;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
-Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_turbulent.html\">See more information</a> .
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -6005,7 +5947,7 @@ Generally this function is numerically best used for the calculation of the mean
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 <p>
@@ -6079,13 +6021,13 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
 <b>Neglecting pressure loss influence (roughness == 1):</b>
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_turbulent_KC_wopl.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_turbulent_KC_wopl.png\">
 
 <p>
 <b>Considering pressure loss influence (roughness == 2):</b>
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_turbulent_KC_wipl.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_turbulent_KC_wipl.png\">
 
 <p>
 Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent\"> kc_turbulent </a> is also valid for this inverse calculation due to using the same functions.
@@ -6115,12 +6057,16 @@ Note that the higher the Prandtl number <b> Pr </b> there is a higher difference
 
       record kc_turbulent_IN_con
         "Input record for function kc_turbulent and kc_turbulent_KC"
-        extends
-          Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con(      final
-            target=Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF);
+        extends Utilities.Records.HeatTransfer.StraightPipe;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+        Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
+          "Choice of considering surface roughness" 
+          annotation (Dialog(group="Choices"));
+
+        SI.Length K=0 "Roughness (average height of surface asperities)" annotation (
+            Dialog(group="Straight pipe", enable=roughness == Modelica.Fluid.Dissipation.Utilities.Types.Roughness.considered));
+
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent\">kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC\">kc_turbulent_KC</a>.
 </html>"));
@@ -6131,8 +6077,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent\">kc_turbulent</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_KC\">kc_turbulent_KC</a>.
 </html>"));
@@ -6167,8 +6112,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           IN_con, IN_var) else if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor then 
           Modelica.Fluid.Dissipation.Utilities.Functions.HeatTransfer.TwoPhase.kc_twoPhase_condensationHorizontal_KC(
           IN_con, IN_var) else MIN;
-      annotation(preferedView="info", Documentation(info="<html>
-<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/HeatTransfer/StraightPipe/kc_twoPhaseOverall_KC.html\">See more information</a> .</p>
+      annotation (Documentation(info="<html>
+<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall\">See more information</a> .</p>
 </html>
 
 
@@ -6187,7 +6132,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
 <p><h4>Geometry </h4></p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <p><b><font style=\"color: #ef9b13; \">Calculation</b></p>
 <p><b>Boiling in a horizontal pipe (target = 1):</b></p>
@@ -6279,7 +6224,7 @@ with
 Here the validation of the two phase heat transfer coefficient is shown for boiling in a horizontal straight pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png\"/>
 
 <p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Gungor/Winterton</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Kattan/Thome</i> for R134a as medium.</p>
 <p>
@@ -6291,7 +6236,7 @@ The two phase heat transfer coefficient increases with increasing mass flow rate
 Here the validation of the two phase heat transfer coefficient is shown for condensation in a horizontal straight pipe.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png\"/>
 
 <p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Shah</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Dobson/Chato</i> for R134a as medium.</p>
 
@@ -6316,8 +6261,7 @@ Here the validation of the two phase heat transfer coefficient is shown for cond
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_con;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC\"> kc_twoPhaseOverall_KC</a>.
 </html>"));
       end kc_twoPhaseOverall_KC_IN_con;
@@ -6327,11 +6271,24 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.TwoPhaseFlowHT_IN_var;
 
-      annotation(preferedView="info",
-                    Documentation(info="<html>
+      annotation (  Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC\"> kc_twoPhaseOverall_KC</a>.
 </html>"));
       end kc_twoPhaseOverall_KC_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<p><h4>Straight pipe</h4></p>
+<p><h5>Laminar flow</h5></p>
+<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a>.
+<!-- ---------------------------------------------------------------- -->
+<h5>Turbulent flow</h5>
+<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a>.</p>
+<!-- ---------------------------------------------------------------- -->
+<h5>Overall flow</h5>
+<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped laminar and turbulent fluid flow with neglect <b> or </b> consideration of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a>.</p>
+<!-- ---------------------------------------------------------------- -->
+<h5>Overall two phase flow</h5>
+<p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall\">See more information</a>.</p>
+</html>"));
     end StraightPipe;
   annotation(preferedView="info");
   end HeatTransfer;
@@ -6340,23 +6297,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
   extends Modelica.Icons.VariantsPackage;
 
     package Bend "Package for pressure loss calculation of bends"
-      class Bend_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Bend</h4>
-<h5>Curved bend overall flow</h5>
-<p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall.html\">See more information</a>. </p>
-
-<!-- ---------------------------------------------------------------- -->
-<h5>Edged bend overall flow</h5>
-<p>
-Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall.html\">See more information</a> .</p>
-
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end Bend_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_curvedOverall_DP
@@ -6485,9 +6425,9 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
           m_flow,
           m_flow_smooth,
           2)/max(MIN, (IN_var.rho*A_cross)^2);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. </p>
-<p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall.html\">See more information</a>. </p>
+<p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>. </p>
 </html>"),smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
           inverse(m_flow=FD.dp_curvedOverall_MFLOW(
                 IN_con,
@@ -6496,7 +6436,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
           Documentation(info="<html>
 <p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. </p>
 <p>This function can be used to calculate both the pressure loss at known mass flow rate <b>or </b>mass flow rate at known pressure loss within one function in dependence of the known variable (dp or m_flow). </p>
-<p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall_DP.html\">See more information</a>. </p>
+<p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>. </p>
 <!--
 <p><h4>Restriction</h4></p>
 <p>This function shall be used inside of the restricted limits according to the referenced literature. </p>
@@ -6508,7 +6448,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
 </ul></p>
 <p><b><font style=\"color: #ef9b13; \">Geometry</b> </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png\"/>
 
 <p><h4>Calculation</h4></p>
 <p>The pressure loss <b>dp </b>for curved bends is determined by: </p>
@@ -6622,17 +6562,17 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
 <p><b><font style=\"color: #ef9b13; \">Verification</b> </p>
 <p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/>
 
 <p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
 <p><b>Incompressible case </b>[Pressure loss = f(m_flow)]: </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/>
 
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/>
 
 <p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
 <p><b><font style=\"color: #ef9b13; \">References</b> </p>
@@ -6805,13 +6745,13 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
       algorithm
         M_FLOW := sign(dp)*IN_var.rho*A_cross*abs(velocity);
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
 <p>
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\">dp_curvedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall.html\">See more information</a> .</p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a> .</p>
 </html>
 "),       smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
           inverse(dp=FD.dp_curvedOverall_DP(
@@ -6830,7 +6770,7 @@ variable (dp or m_flow).
 
 <p>
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\">dp_curvedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_curvedOverall_DP.html\">See more information</a> .</p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall_DP\">See more information</a> .</p>
 <!--
 <h4>Restriction</h4>
 This function shall be used inside of the restricted limits according to the referenced literature.
@@ -6853,7 +6793,7 @@ This function shall be used inside of the restricted limits according to the ref
 <h4>Geometry</h4>
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png\"/>
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for curved bends is determined by:
@@ -6984,7 +6924,7 @@ Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a curved bend in dependence of the Reynolds number <b> Re </b> for different relative curvature radii <b> R_0/d_hyd </b> and different angles of turning <b> delta </b> is shown in the figures below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
 
 <p>
 There are deviations of the pressure loss coefficient <b> zeta_TOT </b> comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b> zeta_TOT </b> for the same geometry can be adjusted via variing the average height of surface asperities <b> K </b> for calibration.
@@ -6997,13 +6937,13 @@ There are deviations of the pressure loss coefficient <b> zeta_TOT </b> comparin
 The mass flow rate in dependence of the pressure loss of water of water is shown for different relative curvature radii:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
 
 <p>
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
 
 <p>
 Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility.
@@ -7035,27 +6975,27 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
       end dp_curvedOverall_MFLOW;
 
       record dp_curvedOverall_IN_con
-        "Input record for function dp_curvedOverall, dp_curvedOverall_DP and dp_curvedOverall_MFLOW"
+        "Input record for function dp_curvedOverall_DP and dp_curvedOverall_MFLOW"
 
         //bend variables
         extends Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Bend;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\"> dp_curvedOverall_DP </a>
 and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\"> dp_curvedOverall_MFLOW </a>.
 </html>"));
       end dp_curvedOverall_IN_con;
 
       record dp_curvedOverall_IN_var
-        "Input record for function dp_curvedOverall, dp_curvedOverall_DP and dp_curvedOverall_MFLOW"
+        "Input record for function dp_curvedOverall_DP and dp_curvedOverall_MFLOW"
 
         //fluid property variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP\"> dp_curvedOverall_DP </a>
 and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\"> dp_curvedOverall_MFLOW </a>.
 </html>"));
@@ -7177,7 +7117,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
                 velocity,
                 v_min,
                 2);
-       annotation(preferedView="info", Documentation(info="<html>
+       annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
@@ -7186,7 +7126,7 @@ There are larger pressure losses in an edged bend compared to a curved bend unde
 </p>
 <p>
 Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\">dp_edgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall.html\">See more information</a> .</p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">See more information</a> .</p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_edgedOverall_MFLOW(
@@ -7206,7 +7146,7 @@ variable (dp or m_flow).
 
 <p>
 Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\">dp_edgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall_DP.html\">See more information</a> .</p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall_DP\">See more information</a> .</p>
 <!--
 <h4>Restriction</h4>
 This function shall be used inside of the restricted limits according to the referenced literature.
@@ -7227,7 +7167,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Geometry</h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_edgedBend.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for edged bends is determined by:
@@ -7362,7 +7302,7 @@ Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is i
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
 
 <p>
 Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
@@ -7389,7 +7329,7 @@ The validation of the pressure loss coefficient for an edged bends shows four po
 The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
 
 <h4>References</h4>
 <dl>
@@ -7529,7 +7469,7 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
       algorithm
         M_FLOW := sign(dp)*IN_var.rho*A_cross*velocity;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
 </p>
@@ -7538,7 +7478,7 @@ There are larger pressure losses in an edged bend compared to a curved bend unde
 </p>
 <p>
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\">dp_edgedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall.html\">See more information</a> .</p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">See more information</a> .</p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=FD.dp_edgedOverall_DP(
@@ -7560,7 +7500,7 @@ variable (dp or m_flow).
 
 <p>
 Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\">dp_edgedOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_edgedOverall_DP.html\">See more information</a> .</p>
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall_DP\">See more information</a> .</p>
 <!--
 <h4>Restriction</h4>
 This function shall be used inside of the restricted limits according to the referenced literature.
@@ -7581,7 +7521,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Geometry</h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_edgedBend.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for edged bends is determined by:
@@ -7716,7 +7656,7 @@ Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is i
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
 
 <p>
 Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
@@ -7743,7 +7683,7 @@ The validation of the pressure loss coefficient for an edged bends shows four po
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
 
 <h4>References</h4>
 <dl>
@@ -7781,33 +7721,32 @@ This record is used as <b> input record </b> for the  pressure loss function
       end dp_edgedOverall_IN_con;
 
       record dp_edgedOverall_IN_var
-        "Input record for function dp_edgedOverall, dp_edgedOverall_DP and  dp_edgedOverall_MFLOW"
+        "Input record for function dp_edgedOverall_DP and  dp_edgedOverall_MFLOW"
 
         //fluid property variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the  pressure loss function 
+This record is used as <b> input record </b> for the  pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP\"> dp_edgedOverall_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\"> dp_edgedOverall_MFLOW </a>.
 </html>"));
       end dp_edgedOverall_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>Bend</h4>
+<h5>Curved bend overall flow</h5>
+<p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>. </p>
+
+<!-- ---------------------------------------------------------------- -->
+<h5>Edged bend overall flow</h5>
+<p>
+Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">See more information</a> .</p>
+
+</html>"));
     end Bend;
 
     package Channel "Package for pressure loss calculation of channels"
-      class Channel_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Channel</h4>
-<h5>Internal overall flow</h5>
-<p>
-Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall.html\">See more information</a>.
-</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end Channel_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_internalFlowOverall_DP
@@ -7930,12 +7869,12 @@ Calculation of pressure loss for an internal flow through different geometries a
                 IN_2_con,
                 IN_2_var,
                 m_flow_turb);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation(Documentation(info="<html>
 <p>
 Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
 </p>
 <p>
-Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\">dp_internalFlowOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\">dp_internalFlowOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -7953,7 +7892,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\">dp_internalFlowOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\">dp_internalFlowOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall_DP\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -7968,7 +7907,7 @@ This function shall be used inside of the restricted limits according to the ref
 <h4>Geometry</h4>
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/channel/pic-pLchannel.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/pic-pLchannel.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for channels is determined by:
@@ -8031,7 +7970,7 @@ Note that the beginning of the laminar regime depends on the chosen surface roug
 <p>
 The Darcy friction factor (<b>lambda_FRI</b>) of a channel with different shapes of its cross sectional area are shown in dependence of the Reynolds number (<b>Re</b>) in the figures below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/channel/fig_channel_dp_internalFlowOverall_lambdaVsRe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/fig_channel_dp_internalFlowOverall_lambdaVsRe.png\">
 
 The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been obtained at the same hydraulic diameter and the same mean velocity of the internal flow. Note that there is no difference of the Darcy friction factor in the turbulent regime if using the same hydraulic diameter for all geometries. Roughness can be considered but it is not used for this validation.
 
@@ -8189,12 +8128,12 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
                 IN_2_con,
                 IN_2_var,
                 dp);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation(Documentation(info="<html>
 <p>
 Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
 </p>
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Channel/dp_internalFlowOverall.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall\">See more information</a>.
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=FD.dp_internalFlowOverall_DP(
@@ -8211,10 +8150,10 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. </p> 
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall\">dp_internalFlowOverall_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. </p>
 
 <p>
-The pressure loss calculation for internal fluid flow in different geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> or <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Bend/dp_internalFlowOverall_DP.html\">see here for more information</a>.
+The pressure loss calculation for internal fluid flow in different geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a> or <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_internalFlowOverall\">see here for more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -8229,7 +8168,7 @@ This function shall be used inside of the restricted limits according to the ref
 <h4>Geometry</h4>
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/channel/pic-pLchannel.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/pic-pLchannel.png\">
 
 <h4>Calculation</h4>
 The pressure loss calculation for internal fluid flow in different geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP\">dp_internalFlowOverall_DP</a>.
@@ -8238,7 +8177,7 @@ The pressure loss calculation for internal fluid flow in different geometries is
       end dp_internalFlowOverall_MFLOW;
 
       record dp_internalFlowOverall_IN_con
-        "Input record for function dp_internalFlowOverall"
+        "Input record for function dp_internalFlowOverall_DP and dp_internalFlowOverall_MFLOW"
 
         //channel variables
         Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
@@ -8267,47 +8206,17 @@ This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\"> dp_internalFlowOverall_MFLOW</a>.
 </html>"));
       end dp_internalFlowOverall_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>Channel</h4>
+<h5>Internal overall flow</h5>
+<p>
+Calculation of pressure loss for an internal flow through different geometries at laminar and turbulent flow regime considering surface roughness.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Channel.dp_internalFlowOverall\">See more information</a>.
+</p>
+</html>"));
     end Channel;
 
     package General "Package for generic pressure loss calculations"
-      class General_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>General</h4>
-<h5>General pressure loss for ideal gas</h5>
-<p>
-Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_DP.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Generic pressure loss depending on density and viscosity </h5>
-<p>
-Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
-This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Generic pressure loss depending on density</h5>
-<p>
-Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_DP.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Generic pressure loss depending on pressure loss coefficient</h5>
-<p>
-Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_DP.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Generic pressure loss depending on volume flow rate</h5>
-<p>
-Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_DP.html\">See more information</a>.
-</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end General_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_idealGas_DP
@@ -8347,13 +8256,133 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
                 V_flow,
                 V_flow_min,
                 IN_con.exp);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\">dp_idealGas_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\">dp_idealGas_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  
 </p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<p>
+<ul>
+ <li>
+    <b> ideal gas </b>
+ </li>
+ <li>
+    mean density of ideal gas
+ </li>
+</ul>
+</p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified.
+</p>
+<p>
+The pressure loss <b> dp </b> for the incompressible case [Pressure loss = f(m_flow)] is determined by:
+<pre>
+    dp = (Km/R_s)*(rho_m)^(IN.exp - 1)*V_flow^exp, Eq.1 with [dp] = Pa, [V_flow = m_flow / rho_m] = m^3/s
+</pre>
+</p>
+<p>
+for the underlying base equation using ideal gas law as follows:
+<pre>
+    dp^2 = p_2^2 - p_1^2 = Km*m_flow^exp*(T_2 + T_1)
+    dp   = p_2 - p_1     = Km*m_flow^exp*T_m/p_m, Eq.2 with [dp] = Pa, [m_flow] = kg/s
+</pre>
+</p>
+<p>
+so that the coefficient <b> Km </b> is calculated out of Eq.2:
+<pre>
+    Km = dp*R_s*rho_m / m_flow^exp , [Km] = [Pa^2/{(kg/s)^exp*K}]
+</pre>
+</p>
+<p>
+where the mean density <b> rho_m </b> is calculated according to the ideal gas law out of an arithmetic mean pressure and temperature:
+</p>
+<p>
+<pre>
+   rho_m = p_m / (R_s*T_m) , p_m = (p_1 + p_2)/2 and T_m = (T_1 + T_2)/2.
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> exp                    </b></td><td> as exponent of pressure loss law [-],</td></tr>
+<tr><td><b> dp                     </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> Km                     </b></td><td> as coefficient w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><b> m_flow                 </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> p_m = (p_2 + p_1)/2    </b></td><td> as mean pressure of ideal gas [Pa],</td></tr>
+<tr><td><b> T_m = (T_2 + T_1)/2    </b></td><td> as mean temperature of ideal gas [K],</td></tr>
+<tr><td><b> rho_m = p_m/(R_s*T_m)  </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><b> R_s                    </b></td><td> as specific gas constant of ideal gas [J/(kgK)],</td></tr>
+<tr><td><b> V_flow                 </b></td><td> as volume flow rate of ideal gas [m^3/s].</td></tr>
+</table>
+</p>
+
+<p>
+Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
+</p>
+<p>
+Pressure loss due to local losses gives the following definition of <b> Km </b>:
+<pre>
+    dp        = zeta_LOC * (rho_m/2)*velocity^2 is leading to
+      Km,LOC  = (8/&Pi^2)*R_s*zeta_LOC/(d_hyd)^4, considering the cross sectional area of pipes.
+</pre>
+</p>
+
+<p>
+and pressure loss due to friction is leading to
+<pre>
+    dp        = lambda_FRI*L/d_hyd * (rho_m/2)*velocity^2
+      Km,FRI  = (8/&Pi^2)*R_s*lambda_FRI*L/(d_hyd)^5, considering the cross sectional area of pipes.
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp                    </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> d_hyd                 </b></td><td> as hydraulic diameter of pipe [m],</td></tr>
+<tr><td><b> Km,i                  </b></td><td> as coefficients w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><b> lambda_FRI            </b></td><td> as darcy friction factor [-],</td></tr>
+<tr><td><b> L                     </b></td><td> as length of pipe [m],</td></tr>
+<tr><td><b> rho_m = p_m/(R_s*T_m) </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><b> velocity              </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_LOC              </b></td><td> as local resistance coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the variables of this function are delivered in SI units so that the coefficient Km shall be given in SI units too.
+</p>
+<h4>Verification</h4>
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The generic pressure loss <b> dp </b> for different coefficients <b> Km </b> as parameter is shown in dependence of the mass flow rate <b> m_flow </b> in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_DPvsMFLOW.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+</dl>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_idealGas_MFLOW(
                 IN_con,
@@ -8369,7 +8398,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\">dp_idealGas_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\">dp_idealGas_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -8479,7 +8508,7 @@ Note that the variables of this function are delivered in SI units so that the c
 </p>
 The generic pressure loss <b> dp </b> for different coefficients <b> Km </b> as parameter is shown in dependence of the mass flow rate <b> m_flow </b> in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_idealGas_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -8524,13 +8553,132 @@ The generic pressure loss <b> dp </b> for different coefficients <b> Km </b> as 
                 dp,
                 IN_con.dp_smooth,
                 1/IN_con.exp);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\">dp_idealGas_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\">dp_idealGas_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. 
 </p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+    <b> ideal gas </b>
+ </li>
+ <li>
+    mean density of ideal gas
+ </li>
+</ul>
+
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified.
+</p>
+<p>
+The pressure loss <b> dp </b> for the compressible case [Mass flow rate = f(dp)] is determined by (Eq.1):
+<pre>
+    m_flow = (R_s/Km)^(1/exp)*(rho_m)^(1/exp)*dp^(1/exp)
+</pre>
+</p>
+<p>
+for the underlying base equation using ideal gas law as follows:
+<pre>
+    dp^2 = p_2^2 - p_1^2 = Km*m_flow^exp*(T_2 + T_1)
+    dp   = p_2 - p_1     = Km*m_flow^exp*T_m/p_m, Eq.2 with [dp] = Pa, [m_flow] = kg/s
+</pre>
+</p>
+<p>
+so that the coefficient <b> Km </b> is calculated out of Eq.2:
+<pre>
+    Km = dp*R_s*rho_m / m_flow^exp , [Km] = [Pa^2/{(kg/s)^exp*K}]
+</pre>
+</p>
+<p>
+where the mean density <b> rho_m </b> is calculated according to the ideal gas law out of an arithmetic mean pressure and temperature:
+<pre>
+   rho_m = p_m / (R_s*T_m) , p_m = (p_1 + p_2)/2 and T_m = (T_1 + T_2)/2.
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> exp                    </b></td><td> as exponent of pressure loss law [-],</td></tr>
+<tr><td><b> dp                     </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> Km                     </b></td><td> as coefficient w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><b> m_flow                 </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> p_m = (p_2 + p_1)/2    </b></td><td> as mean pressure of ideal gas [Pa],</td></tr>
+<tr><td><b> T_m = (T_2 + T_1)/2    </b></td><td> as mean temperature of ideal gas [K],</td></tr>
+<tr><td><b> rho_m = p_m/(R_s*T_m)  </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><b> R_s                    </b></td><td> as specific gas constant of ideal gas [J/(kgK)],</td></tr>
+<tr><td><b> V_flow                 </b></td><td> as volume flow rate of ideal gas [m^3/s].</td></tr>
+</table>
+</p>
+
+<p>
+Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
+</p>
+<p>
+Pressure loss due to local losses gives the following definition of <b> Km </b>:
+<pre>
+    dp        = zeta_LOC * (rho_m/2)*velocity^2 is leading to
+      Km,LOC  = (8/&Pi^2)*R_s*zeta_LOC/(d_hyd)^4, considering the cross sectional area of pipes.
+</pre>
+</p>
+<p>
+and pressure loss due to friction is leading to
+<pre>
+    dp        = lambda_FRI*L/d_hyd * (rho_m/2)*velocity^2
+      Km,FRI  = (8/&Pi^2)*R_s*lambda_FRI*L/(d_hyd)^5, considering the cross sectional area of pipes.
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp                    </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> d_hyd                 </b></td><td> as hydraulic diameter of pipe [m],</td></tr>
+<tr><td><b> Km,i                  </b></td><td> as coefficients w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><b> lambda_FRI            </b></td><td> as darcy friction factor [-],</td></tr>
+<tr><td><b> L                     </b></td><td> as length of pipe [m],</td></tr>
+<tr><td><b> rho_m = p_m/(R_s*T_m) </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><b> velocity              </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_LOC              </b></td><td> as local resistance coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the variables of this function are delivered in SI units so that the coefficient Km shall be given in SI units too.
+</p>
+<h4>Verification</h4>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate <b> m_flow </b> for different coefficients <b> Km </b> as parameter is shown in dependence of its pressure loss <b> dp </b> in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas_DP\">dp_idealGas_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+</dl>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=FD.dp_idealGas_DP(
                 IN_con,
@@ -8546,7 +8694,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\">dp_idealGas_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_idealGas_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\">dp_idealGas_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -8658,10 +8806,10 @@ Note that the variables of this function are delivered in SI units so that the c
 The mass flow rate <b> m_flow </b> for different coefficients <b> Km </b> as parameter is shown in dependence of its pressure loss <b> dp </b> in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_idealGas_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_MFLOWvsDP.png\">
 
 <p>
-Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\">dp_idealGas_DP</a> is also valid for this inverse calculation due to using the same functions.</p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas\">dp_idealGas_DP</a> is also valid for this inverse calculation due to using the same functions.</p>
 
 <h4>References</h4>
 <dl>
@@ -8687,7 +8835,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\"> dp_idealGas_DP </a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\"> dp_idealGas_MFLOW </a>.
 </html>"));
@@ -8702,7 +8850,7 @@ This record is used as <b> input record </b> for the pressure loss function
           Modelica.Fluid.Dissipation.Utilities.Records.General.IdealGas_var;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP\"> dp_idealGas_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW\"> dp_idealGas_MFLOW</a>.
 </html>"));
@@ -8745,13 +8893,13 @@ This record is used as <b> input record </b> for the pressure loss function
           /IN_var.rho*IN_con.dp_nom*(1/IN_con.m_flow_nom)^(IN_con.exp) else 
           m_flow/IN_con.m_flow_nom*(IN_var.eta/IN_con.eta_nom)^IN_con.exp_eta*
           IN_con.rho_nom/IN_var.rho*IN_con.dp_nom;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -8771,7 +8919,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">dp_nominalDensityViscosity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity\">See more information</a>.
 </p>
 
 <!--
@@ -8845,7 +8993,7 @@ Therefore if you set both the exponent of dynamic viscosity (exp_eta == 1) and a
 </p>
 The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities and dynamic viscosity dependence as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -8894,13 +9042,13 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
           IN_con.exp)*(1/IN_con.dp_nom*IN_var.rho/IN_con.rho_nom)^(1/IN_con.exp)
           *IN_con.m_flow_nom else dp/IN_con.dp_nom*(IN_con.eta_nom/IN_var.eta)^
           (IN_con.exp_eta)*IN_var.rho/IN_con.rho_nom*IN_con.m_flow_nom;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
 This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\">dp_genericDensityViscosity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\">dp_genericDensityViscosity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -8919,7 +9067,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\">dp_genericDensityViscosity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalDensityViscosity_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\">dp_genericDensityViscosity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Calculation</h4>
@@ -8992,10 +9140,10 @@ Therefore if you set both the exponent of dynamic viscosity (exp_eta == 1) and a
 
 The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> at different fluid densities and dynamic viscosity as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png\">
 
 <p>
-Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\">dp_nominalDensityViscosity_DP</a> is also valid for this inverse calculation due to using the same functions.
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity\">dp_nominalDensityViscosity_DP</a> is also valid for this inverse calculation due to using the same functions.
 </p>
 
 <h4>References</h4>
@@ -9021,7 +9169,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           Modelica.Fluid.Dissipation.Utilities.Records.General.NominalDensityViscosity;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\"> dp_nominalDensityViscosity_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\"> dp_nominalDensityViscosity_MFLOW</a>.
 </html>"));
@@ -9035,7 +9183,7 @@ This record is used as <b> input record </b> for the pressure loss function
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP\"> dp_nominalDensityViscosity_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW\"> dp_nominalDensityViscosity_MFLOW</a>.
 </html>"));
@@ -9090,15 +9238,140 @@ This record is used as <b> input record </b> for the pressure loss function
           exp_density)*(IN_con.A_cross_nom/IN_con.A_cross)^(1)*(m_flow/IN_con.m_flow_nom)
           ^(1);
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.
 </p>
-</html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation have to be simplified.
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+</p>
+<p>
+In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
+<pre>
+    dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> dp_nom         </b></td><td> as nominal pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> m_flow_nom     </b></td><td> as nominal mass flow rate [kg/s],</td></tr>
+<tr><td><b> exp            </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3],</td></tr>
+<tr><td><b> v              </b></td><td> as mean flow velocity [m/s],</td></tr>
+<tr><td><b> v_nom          </b></td><td> as nominal mean flow velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-],</td></tr>
+<tr><td><b> zeta_TOT_nom   </b></td><td> as nominal pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+The fraction of mean flow velocities (v/v_nom) can be calculated through its corresponding <b> mass flow rates </b>, densities and cross sectional areas:
+<pre>
+    v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
+</pre>
+</p>
+<p>
+<b> or </b> through its corresponding <b> volume flow rates </b>, densities and cross sectional areas:
+<pre>
+    v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
+<tr><td><b> A_cross_nom    </b></td><td> as nominal cross sectional area [m2],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3],</td></tr>
+<tr><td><b> v              </b></td><td> as mean flow velocity [m/s],</td></tr>
+<tr><td><b> v_nom          </b></td><td> as nominal mean flow velocity [m/s],</td></tr>
+<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s],</td></tr>
+<tr><td><b> V_flow_nom     </b></td><td> as nominal volume flow rate [m3/s].</td></tr>
+</table>
+</p>
+<p>
+Here the <b> incompressible case </b> [Pressure loss = f(m_flow)] calculates the unknown pressure loss out of a given mass flow rate:
+<pre>
+    dp = dp_nom*(zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)^(exp_density)*(A_cross_nom/A_cross)^(exp)*(m_flow/m_flow_nom)^(exp)
+</pre>
+</p>
+
+<p>
+where the exponent for the fraction of densities is determined w.r.t. the chosen nominal mass flow rate or nominal volume flow rate to:
+</p>
+
+<p>
+<pre>
+    exp_density = if NominalMassFlowRate == 1 then 1-exp else 1
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> NominalMassFlowRate    </b></td><td> as reference of pressure loss law (mass flow rate of volume flow rate),</td></tr>
+<tr><td><b> exp                    </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> exp_density            </b></td><td> as exponent for density [-].</td></tr>
+</table>
+</p>
+<p>
+To avoid numerical difficulties this pressure loss function is linear smoothed for small mass flow rates, with
+<pre>
+    m_flow &le [0.01*(zeta_TOT_nom/zeta_TOT)*(rho_nom/rho)^(exp_density)*(A_cross/A_cross_nom)^(exp)*m_flow_nom]^(1/exp);
+</pre>
+</p>
+
+<p>
+Note that the input and output arguments for functions throughout this library always use mass flow rates. Here you can choose <b> NominalMassFlowRate == 1 </b> for using a nominal mass flow rate or <b> NominalMassFlowRate == 2 </b> for using a nominal volume flow rate. The output argument will always be a mass flow rate for further use as flow model in a thermo-hydraulic framework.
+</p>
+
+<p>
+Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its mean flow velocities (v,v_nom) in the pressure loss law to obtain its corresponding pressure loss.
+</p>
+
+<h4>Verification</h4>
+<p><b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities as parameter is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLosslawDensity_DPvsMFLOW.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+
+</html>
+"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_nominalPressureLossLawDensity_MFLOW(
                 IN_con,
                 IN_var,
@@ -9115,7 +9388,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">dp_nominalPressureLossLawDensity_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity\">See more information</a>.
 </p>
 
 <!--
@@ -9230,7 +9503,7 @@ Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its me
 </p>
 The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities as parameter is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalPressureLosslawDensity_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLosslawDensity_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -9288,14 +9561,140 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
           *(IN_con.A_cross/IN_con.A_cross_nom)*(IN_con.rho_nom/IN_var.rho)^(
           exp_density/1)*((dp/IN_con.dp_nom)*(IN_con.zeta_TOT_nom/IN_var.zeta_TOT))
           ^(1/1);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
 This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_MFLOW.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. 
 </p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified.
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+</p>
+<p>
+In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
+<pre>
+   dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> dp_nom         </b></td><td> as nominal pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> m_flow_nom     </b></td><td> as nominal mass flow rate [kg/s],</td></tr>
+<tr><td><b> exp            </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3],</td></tr>
+<tr><td><b> v              </b></td><td> as mean flow velocity [m/s],</td></tr>
+<tr><td><b> v_nom          </b></td><td> as nominal mean flow velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-],</td></tr>
+<tr><td><b> zeta_TOT_nom   </b></td><td> as nominal pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+The fraction of mean flow velocities (v/v_nom) can be calculated through its corresponding <b> mass flow rates </b>, densities and cross sectional areas:
+<pre>
+   v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
+</pre>
+</p>
+<p>
+<b> or </b> through its corresponding <b> volume flow rates </b>, densities and cross sectional areas:
+<pre>
+    v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
+<tr><td><b> A_cross_nom    </b></td><td> as nominal cross sectional area [m2],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3],</td></tr>
+<tr><td><b> v              </b></td><td> as mean flow velocity [m/s],</td></tr>
+<tr><td><b> v_nom          </b></td><td> as nominal mean flow velocity [m/s],</td></tr>
+<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s],</td></tr>
+<tr><td><b> V_flow_nom     </b></td><td> as nominal volume flow rate [m3/s].</td></tr>
+</table>
+</p>
+<p>
+Here the <b> compressible case </b> [Mass flow rate = f(dp)] determines the unknown mass flow rate out of a given pressure loss:
+<pre>
+   m_flow = m_flow_nom*(A_cross/A_cross_nom)*(rho_nom/rho)^(exp_density/exp)*[(dp/dp_nom)*(zeta_TOT_nom/zeta_TOT)]^(1/exp);
+</pre>
+</p>
+
+<p>
+where the exponent for the fraction of densities is determined w.r.t. the chosen nominal mass flow rate or nominal volume flow rate to:
+</p>
+
+<p>
+<pre>
+  exp_density = if NominalMassFlowRate == 1 then 1-exp else 1
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> NominalMassFlowRate    </b></td><td> as reference for pressure loss law (mass flow rate of volume flow rate),</td></tr>
+<tr><td><b> exp                    </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> exp_density            </b></td><td> as exponent for density [-].</td></tr>
+</table>
+</p>
+<p>
+To avoid numerical difficulties this pressure loss function is linear smoothed for small pressure losses, with
+<pre>
+   dp &le; 0.01*dp_nom
+</pre>
+</p>
+
+<p>
+Note that the input and output arguments for functions throughout this library always use mass flow rates. Here you can choose <b> NominalMassFlowRate == 1 </b> for using a nominal mass flow rate or <b> NominalMassFlowRate == 2 </b> for using a nominal volume flow rate. The output argument will always be a mass flow rate for further use as flow model in a thermo-hydraulic framework.
+</p>
+
+<p>
+Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its mean flow velocities (v,v_nom) in the pressure loss law to obtain its corresponding pressure loss.
+</p>
+
+<h4>Verification</h4>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressureLossLawDensity_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=FD.dp_nominalPressureLossLawDensity_DP(
                 IN_con,
@@ -9313,7 +9712,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_nominalPressureLossLawDensity_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity\">dp_nominalPressurelosslawDensity_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\">See more information</a>.
 </p>
 
 <!--
@@ -9430,10 +9829,10 @@ Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its me
 
 The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\">
 
 <p>
-Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\">dp_nominalPressureLossLawDensity_DP</a> is also valid for this inverse calculation due to using the same functions.
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity\">dp_nominalPressureLossLawDensity_DP</a> is also valid for this inverse calculation due to using the same functions.
 </p>
 
 <h4>References</h4>
@@ -9458,7 +9857,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           Modelica.Fluid.Dissipation.Utilities.Records.General.NominalPressureLossLawDensity_con;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\"> dp_nominalPressureLosslawDensity_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\"> dp_nominalPressureLosslawDensity_MFLOW</a>.
 </html>"));
@@ -9472,12 +9871,11 @@ This record is used as <b> input record </b> for the pressure loss function
           Modelica.Fluid.Dissipation.Utilities.Records.General.NominalPressureLossLawDensity_var;
 
         //fluid property variables
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss(
-          final eta=0);
+        SI.Density rho "Density of fluid" 
+          annotation (Dialog(group="Fluid properties"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP\"> dp_nominalPressureLosslawDensity_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW\"> dp_nominalPressureLosslawDensity_MFLOW</a>.
 </html>"));
@@ -9512,13 +9910,55 @@ This record is used as <b> input record </b> for the pressure loss function
                 (IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))^0.5*IN_var.rho
             *IN_con.A_cross,
                 2)/(IN_var.rho*(IN_con.A_cross)^2);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient\">See more information</a>.
 </p>
+<h4>Calculation</h4>
+<p>
+The generic pressure loss <b> dp </b> is determined by:
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_DPvsMFLOW.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+ <dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_pressureLossCoefficient_MFLOW(
                 IN_con,
@@ -9534,7 +9974,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">dp_pressureLossCoefficient_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient\">See more information</a>.
 </p>
 
 <!--
@@ -9565,7 +10005,7 @@ with
 </p>
 The pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -9609,14 +10049,59 @@ The pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b
                 dp,
                 IN_con.dp_smooth,
                 0.5)/(0.5*IN_var.zeta_TOT*IN_var.rho)^0.5;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
 </p>
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_MFLOW.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">See more information</a>.
 </p>
+<h4>Calculation</h4>
+<p>
+The mass flow rate <b> m_flow </b> is determined by:
+<pre>
+    m_flow = rho*A_cross*(dp/(zeta_TOT *(rho/2))^0.5
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+ <dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
 </html>
+
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=dp_pressureLossCoefficient_DP(
                 IN_con,
@@ -9632,7 +10117,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_pressureLossCoefficient_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient\">dp_pressureLossCoefficient_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\">See more information</a>.
 </p>
 
 <!--
@@ -9664,11 +10149,11 @@ with
 </p>
 The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\">
 
-Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
 
-Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient\">dp_pressureLossCoefficient_DP</a> is also valid for this inverse calculation due to using the same functions.
 
 <h4>References</h4>
 <dl>
@@ -9699,7 +10184,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\"> dp_pressureLossCoefficient_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\"> dp_pressureLossCoefficient_MFLOW</a>.
 </html>"));
@@ -9719,7 +10204,7 @@ This record is used as <b> input record </b> for the pressure loss function
           annotation (Dialog(group="FluidProperties"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP\"> dp_pressureLossCoefficient_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW\"> dp_pressureLossCoefficient_MFLOW</a>.
 </html>"));
@@ -9764,13 +10249,62 @@ This record is used as <b> input record </b> for the pressure loss function
                 V_flow,
                 V_flow_smooth,
                 2) + b*V_flow;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified. This function uses as
+quadratic dependence of the pressure loss on the volume flow rate.
+</p>
+
+The pressure loss <b> dp </b> for the incompressible case [Pressure loss = f(m_flow)] is determined to <i> [see Wischhusen] </i>:
+<pre>
+    dp = a*V_flow^2 + b*V_flow
+</pre>
+
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s].</td></tr>
+</table>
+</p>
+
+Note that the coefficients <b> a,b </b> have to be positive values so that there will be a positive (linear or quadratic) pressure loss for a given positive volume flow rate.
+
+<h4>Verification</h4>
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_volumeFlowRate_MFLOW(
                 IN_con,
@@ -9787,7 +10321,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">dp_volumeFlowRate_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
 </p>
 <!--
 <h4>Calculation</h4>
@@ -9825,7 +10359,7 @@ Note that the coefficients <b> a,b </b> have to be positive values so that there
 </p>
 The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -9876,14 +10410,65 @@ The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as p
                 (b/(2*a))^2 + (1/a)*dp,
                 (b/(2*a))^2 + (1/a)*dp_min,
                 0.5));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">See more information</a>.
 </p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified. This function uses as
+quadratic dependence of the pressure loss on the volume flow rate.
+</p>
+<p>
+The mass flow rate <b> m_flow </b> for the compressible case [Mass flow rate = f(dp)] is determined to <i> [see Wischhusen] </i>:
+<pre>
+ m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3].</td></tr>
+</table>
+</p>
+<p>
+Note that the coefficients <b> a,b </b> have to be positive values so that there will be a positive (linear or quadratic) pressure loss at positive volume flow rate and vice versa.
+</p>
+<h4>Verification</h4>
+<p><b> Compressible case </b> [Mass flow rate = f(dp)]:</p>
+<p>
+The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
 </html>
+
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(dp=FD.dp_volumeFlowRate_DP(
                 IN_con,
@@ -9900,7 +10485,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/General/dp_volumeFlowRate_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\">dp_volumeFlowRate_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate_MFLOW\">See more information</a>.
 </p>
 
 <!--
@@ -9936,10 +10521,10 @@ Note that the coefficients <b> a,b </b> have to be positive values so that there
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
 
 <p>
-Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\">dp_volumeFlowRate_DP</a> is also valid for this inverse calculation due to using the same functions.</p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate\">dp_volumeFlowRate_DP</a> is also valid for this inverse calculation due to using the same functions.</p>
 
 <h4>References</h4>
 <dl>
@@ -9967,7 +10552,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
           "Start of approximation for decreasing pressure loss";
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\"> dp_volumeFlowRate_DP</a> and
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\"> dp_volumeFlowRate_MFLOW</a>.
 </html>"));
@@ -9980,36 +10565,48 @@ This record is used as <b> input record </b> for the pressure loss function
         SI.Density rho "Density of fluid" 
           annotation (Dialog(group="Fluid properties"));
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
+This record is used as <b> input record </b> for the pressure loss function
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP\"> dp_volumeFlowRate_DP</a> and
  <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW\"> dp_volumeFlowRate_MFLOW</a>.
 </html>"));
 
       end dp_volumeFlowRate_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>General</h4>
+<h5>General pressure loss for ideal gas</h5>
+<p>
+Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Generic pressure loss depending on density and viscosity </h5>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
+This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Generic pressure loss depending on density</h5>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Generic pressure loss depending on pressure loss coefficient</h5>
+<p>
+Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Generic pressure loss depending on volume flow rate</h5>
+<p>
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
+</p>
+</html>"));
     end General;
 
     package Orifice "Package for pressure loss calculation of orifices"
-      class Orifice_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Orifice</h4>
-<h5>Sudden change</h5>
-<p>
-Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Orifice/dp_suddenChange.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Thick edged orifice</h5>
-<p>
-Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Orifice/dp_thickEdgedOverall.html\">See more information</a>.
-</p>
-
-
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end Orifice_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_suddenChange_DP
@@ -10096,12 +10693,12 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
                 Re_min,
                 2);
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10119,7 +10716,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">dp_suddenChange_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -10137,7 +10734,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
 
 <h4>Calculation</h4>
 The local pressure loss <b> dp </b> is generally determinated by:
@@ -10188,11 +10785,11 @@ with
 <h4>Verification</h4>
 The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
 
 The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
 
 <h4>References</h4>
 <dl>
@@ -10279,12 +10876,12 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
                 dp,
                 dp_min,
                 0.5)*(max(MIN, 2/(IN_var.rho*zeta_LOC)))^0.5;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface. The flow direction determines the type of the transition. In case of the design flow a sudden expansion will be considered. At flow reversal a sudden contraction will be considered.
 </p>
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\">dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\">dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange\">See more information</a>.
 </p>
 </html>
 
@@ -10303,7 +10900,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\">dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_suddenChange_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange\">dp_suddenChange_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -10321,7 +10918,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
 
 <h4>Calculation</h4>
 The local pressure loss <b> dp </b> is generally determinated by:
@@ -10372,12 +10969,12 @@ with
 <h4>Verification</h4>
 The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
 <p>
 The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
 
 <h4>References</h4>
 <dl>
@@ -10397,32 +10994,28 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
       end dp_suddenChange_MFLOW;
 
       record dp_suddenChange_IN_con
-        "Input record for function dp_suddenChange, dp_suddenChange_DP and dp_suddenChange_MFLOW"
+        "Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW"
 
         //orifice variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice(
-          final A_0=0,
-          final C_0=0,
-          final K=0,
-          final L=0);
+          Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.SuddenChange;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions 
+This record is used as <b> input record </b> for the pressure loss functions
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\"> dp_suddenChange_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\"> dp_suddenChange_MFLOW</a>.
 </html>"));
       end dp_suddenChange_IN_con;
 
       record dp_suddenChange_IN_var
-        "Input record for function dp_suddenChange, dp_suddenChange_DP and dp_suddenChange_MFLOW"
+        "Input record for function dp_suddenChange_DP and dp_suddenChange_MFLOW"
 
         //fluid property variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions 
+This record is used as <b> input record </b> for the pressure loss functions
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP\"> dp_suddenChange_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW\"> dp_suddenChange_MFLOW</a>.
 </html>"));
@@ -10497,12 +11090,12 @@ This record is used as <b> input record </b> for the pressure loss functions
                 Re,
                 Re_min,
                 2)*(d_hyd_1/d_hyd_0*A_0/A_1)^2;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\">dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\">dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10520,7 +11113,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\">dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\">dp_thickEdgedOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -10536,7 +11129,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry</h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_thickEdged.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for a thick edged orifice is determined by:
@@ -10595,14 +11188,14 @@ phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
 <h4>Verification</h4>
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
 
 <p>
 <b> Incompressible case </b> [Pressure loss = f(m_flow)]:
 </p>
 The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -10681,12 +11274,12 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
                 dp,
                 IN_con.dp_smooth,
                 0.5)/(0.5*IN_var.rho*zeta_TOT_1)^0.5;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\">dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOverall.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\">dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10704,7 +11297,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\">dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/orifice/dp_thickEdgedOveralll_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall\">dp_thickEdgedOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOveralll_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -10720,7 +11313,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry</h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_thickEdged.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for a thick edged orifice is determined by:
@@ -10779,13 +11372,13 @@ phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
 <h4>Verification</h4>
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
 
 <p>
 <b> Compressible case </b> [Mass flow rate = f(dp)]:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
 
 <h4>References</h4>
 <dl>
@@ -10803,14 +11396,11 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
       end dp_thickEdgedOverall_MFLOW;
 
       record dp_thickEdgedOverall_IN_con
-        "Input record for function dp_thickEdgedOverall, dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW"
+        "Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW"
 
         //orifice variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice(
-          final A_2=A_1,
-          final K=0,
-          final C_2=C_1);
+          Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Orifice;
 
         //linearisation
         SI.Pressure dp_smooth(min=Modelica.Constants.eps) = 1
@@ -10818,14 +11408,14 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss functions 
+This record is used as <b> input record </b> for the pressure loss functions
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP\"> dp_thickEdgedOverall_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\"> dp_thickEdgedOverall_MFLOW</a>.
 </html>"));
       end dp_thickEdgedOverall_IN_con;
 
       record dp_thickEdgedOverall_IN_var
-        "Input record for function dp_thickEdgedOverall, dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW"
+        "Input record for function dp_thickEdgedOverall_DP and dp_thickEdgedOverall_MFLOW"
 
         //fluid property variables
         extends
@@ -10837,41 +11427,26 @@ This record is used as <b> input record </b> for the pressure loss functions
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\"> dp_thickEdgedOverall_MFLOW </a>.
 </html>"));
       end dp_thickEdgedOverall_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>Orifice</h4>
+<h5>Sudden change</h5>
+<p>
+Calculation of the local pressure loss at a sudden change of the cross sectional areas (sudden expansion or sudden contraction) with sharp corners at turbulent flow regime for incompressible and single-phase fluid flow through arbitrary shaped cross sectional area (square, circular, etc.) considering a smooth surface.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_suddenChange\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Thick edged orifice</h5>
+<p>
+Calculation of pressure loss in thick edged orifices with sharp corners at overall flow regime for incompressible and single-phase fluid flow through an arbitrary shaped cross sectional area (square, circular, etc.) considering constant influence of surface roughness.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Orifice.dp_thickEdgedOverall\">See more information</a>.
+</p>
+
+
+</html>"));
     end Orifice;
 
     package StraightPipe
       "Package for pressure loss calculation of straight pipes"
-      class StraightPipe_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Straight Pipe</h4>
-<h5>Laminar flow</h5>
-<p>
-Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Turbulent flow</h5>
-<p>
-Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Overall flow</b></h5>
-<p>
-Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall.html\">See more information</a>.
-</p>
-<!-- ---------------------------------------------------------------------------------------------------------------------- -->
-<h5>Two phase overall flow</h5>
-<p>
-Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_twoPhaseOverall_DP.html\">See more information</a>.
-</p>
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end StraightPipe_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_laminar_DP
@@ -10912,12 +11487,12 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
 
       algorithm
         DP := 32*IN_var.eta*velocity*IN_con.L/d_hyd^2;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
 </p>
 <p>
-Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\">dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\">dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -10935,7 +11510,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\">dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\">dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -10949,7 +11524,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for straight pipes is determined by:
@@ -11007,13 +11582,13 @@ A higher relative roughness <b> k </b> than 0.007 leads to an earlier leaving of
 The darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\">
 
 <p>
 The pressure loss <b> dp </b> for the laminar regime in dependence of the mass flow rate of water is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png\">
 
 <p>
 Note that this pressure loss function shall not be used for the modelling outside of the laminar flow regime at <b> Re </b> &gt; 2000</li> even though it could be used for that.
@@ -11076,12 +11651,12 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
 
       algorithm
         M_FLOW := IN_var.rho*A_cross*(dp*d_hyd^2/(32*IN_var.eta*IN_con.L));
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\">dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -11099,7 +11674,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\">dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_laminar_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\">dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -11113,7 +11688,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for straight pipes is determined by:
@@ -11170,13 +11745,13 @@ A higher relative roughness <b> k </b> than 0.007 leads to an earlier leaving of
 The darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\">
 
 <p>
 The mass flow rate for the laminar regime in dependence of the pressure loss of water is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_MFLOWvsDP.png\">
 
 <p>
 Note that this pressure loss function shall not be used for the modelling outside of the laminar flow regime at <b> Re </b> &gt; 2000</li> even though it could be used for that.
@@ -11207,14 +11782,11 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
 
       record dp_laminar_IN_con
         "Input record for function dp_laminar_DP and dp_laminar_MFLOW"
-
-        extends
-          Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con(      final
-            roughness=1, final K=0);
+        extends Utilities.Records.PressureLoss.StraightPipe;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\"> dp_laminar_DP</a> and
+This record is used as <b> input record </b> for the pressure loss function
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\"> dp_laminar_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\"> dp_laminar_MFLOW</a>.
 </html>"));
 
@@ -11227,8 +11799,8 @@ This record is used as <b> input record </b> for the pressure loss function
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP\"> dp_laminar_DP</a> and
+This record is used as <b> input record </b> for the pressure loss function
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar\"> dp_laminar_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW\"> dp_laminar_MFLOW</a>.
 </html>"));
 
@@ -11300,12 +11872,12 @@ This record is used as <b> input record </b> for the pressure loss function
                 IN_con,
                 IN_var,
                 m_flow);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\">dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\">dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall\">See more information</a>.
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_overall_MFLOW(
@@ -11322,7 +11894,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\">dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\">dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -11334,7 +11906,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for straight pipes is determined by:
@@ -11433,13 +12005,13 @@ with
 The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\">
 
 <p>
 The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass flow rate of water is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -11550,12 +12122,12 @@ The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass
                 IN_con,
                 IN_var,
                 dp);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\">dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\">dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -11573,7 +12145,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\">dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_overall_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\">dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -11585,7 +12157,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for straight pipes is determined by:
@@ -11684,13 +12256,13 @@ with
 The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\">
 
 <p>
 The mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the pressure loss of water is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png\">
 
 <h4>References</h4>
 <dl>
@@ -11716,17 +12288,12 @@ The mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the
       record dp_overall_IN_con
         "Input record for function dp_overall_DP and dp_overall_MFLOW"
 
-        Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Neglected
-          "Choice of considering surface roughness" 
-          annotation (Dialog(group="Straight pipe"));
-
         //straight pipe variables
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe;
+        extends dp_turbulent_IN_con;
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\"> dp_overall_DP</a> and
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\"> dp_overall_MFLOW</a>.
 </html>"));
 
@@ -11740,8 +12307,8 @@ This record is used as <b> input record </b> for the pressure loss function
           Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss;
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function 
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP\"> dp_overall_DP</a> and
+This record is used as <b> input record </b> for the pressure loss function
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall\"> dp_overall_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW\"> dp_overall_MFLOW</a>.
 </html>"));
 
@@ -11831,12 +12398,12 @@ This record is used as <b> input record </b> for the pressure loss function
                 velocity,
                 v_min,
                 2);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent\">See more information</a>.
 </p>
 </html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
                     inverse(m_flow=FD.dp_turbulent_MFLOW(
@@ -11853,7 +12420,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent_DP.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -11867,7 +12434,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for straight pipes is determined by:
@@ -11944,7 +12511,7 @@ with
 The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\">
 
 <p>
 Note that this pressure loss function shall not be used for the modelling outside of the turbulent flow regime at <b> Re </b> &lt; 4e3 even though it could be used for that.
@@ -12051,12 +12618,12 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
 
       algorithm
         M_FLOW := IN_var.rho*A_cross*velocity;
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
 </p>
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP\">dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent\">dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -12074,7 +12641,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP\">dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_turbulent_MFLOW.html\">See more information</a>.
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent\">dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -12088,7 +12655,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The pressure loss <b> dp </b> for straight pipes is determined by:
@@ -12165,7 +12732,7 @@ with
 The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\">
 
 <p>
 Note that this pressure loss function shall not be used for the modelling outside of the turbulent flow regime at <b> Re </b> &lt; 4e3 even though it could be used for that.
@@ -12192,12 +12759,18 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
       record dp_turbulent_IN_con
         "Input record for function dp_turbulent_DP and dp_turbulent_MFLOW"
 
-        extends
-          Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con;
+        Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Neglected
+          "Choice of considering surface roughness" 
+          annotation (Dialog(group="Straight pipe"));
+
+        extends Utilities.Records.PressureLoss.StraightPipe;
+
+          SI.Length K=0 "Roughness (average height of surface asperities)" 
+          annotation (Dialog(group="Straight pipe"));
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP\"> dp_turbulent_DP</a> and
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent\"> dp_turbulent_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\"> dp_turbulent_MFLOW</a>.
 </html>"));
       end dp_turbulent_IN_con;
@@ -12210,7 +12783,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP\"> dp_turbulent_DP</a> and
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent\"> dp_turbulent_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW\"> dp_turbulent_MFLOW</a>.
 </html>"));
       end dp_turbulent_IN_var;
@@ -12310,7 +12883,7 @@ This record is used as <b> input record </b> for the pressure loss function
       algorithm
         DP := DP_fric + DP_mom + DP_geo;
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
 </p>
@@ -12322,16 +12895,16 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 <b>Horizontal fluid flow</b> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_horizontal.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_horizontal.png\">
 </p>
 <p>
 <b>Vertical fluid flow</b> [(a) bubble flow, (b) plug slug flow, (c) foam flow, (d) annular streak flow, (e) annular flow]:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\">  
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\">
 </p>
 <p>
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_twoPhaseOverall.html\">See more information</a>.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -12347,16 +12920,16 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 <b>Horizontal fluid flow</b> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_horizontal.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_horizontal.png\">
 </p>
 <p>
 <b>Vertical fluid flow</b> [(a) bubble flow, (b) plug slug flow, (c) foam flow, (d) annular streak flow, (e) annular flow]:
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\">  
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\">
 </p>
 <p>
- <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/StraightPipe/dp_twoPhaseOverall_DP.html\">See more information</a>.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -12372,7 +12945,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4>Geometry </h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
 <h4>Calculation</h4>
 The two phase pressure loss <b> dp_2ph </b> of straight pipes is determined by:
@@ -12569,13 +13142,13 @@ with
 The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Friedel </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_1.png\">
 
 <p>
 The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Chisholm </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_4.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_4.png\">
 
 <h4>References</h4>
 <dl>
@@ -12624,7 +13197,7 @@ The two phase pressure loss for a horizontal pipe calculated by the correlation 
           annotation (Dialog(group="Geometry"));
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP\"> dp_twoPhaseOverall_DP</a>.
+This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall\"> dp_twoPhaseOverall_DP</a>.
 </html>"));
 
       end dp_twoPhaseOverall_IN_con;
@@ -12641,27 +13214,39 @@ This record is used as <b> input record </b> for the pressure loss function <a h
             x_flow=(x_flow_end + x_flow_sta)/2);
 
         annotation (Documentation(info="<html>
-This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP\"> dp_twoPhaseOverall_DP</a>.
+This record is used as <b> input record </b> for the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall\"> dp_twoPhaseOverall_DP</a>.
 </html>"));
 
       end dp_twoPhaseOverall_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>Straight Pipe</h4>
+<h5>Laminar flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Turbulent flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Overall flow</b></h5>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall\">See more information</a>.
+</p>
+<!-- ---------------------------------------------------------------------------------------------------------------------- -->
+<h5>Two phase overall flow</h5>
+<p>
+Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall\">See more information</a>.
+</p>
+</html>"));
     end StraightPipe;
 
     package Valve "Package for pressure loss calculation of valves"
-      class Valve_Documentation
-        extends Modelica.Icons.Information;
-
-        annotation (Documentation(info="<html>
-<h4>Valve</h4>
-<h5>Several geometries</h5>
-<p>
-Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
-<a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_DP.html\">See more information</a>.
-</p>
-
-</html>
-"),              __Dymola_DocumentationClass=true);
-      end Valve_Documentation;
     extends Modelica.Icons.VariantsPackage;
 
       function dp_severalGeometryOverall_DP
@@ -12761,12 +13346,12 @@ Calculation of pressure loss for a valve with different geometries at overall fl
                 m_flow_small,
                 2);
 
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
 </p>
 <p>
-Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">dp_severalGeometryOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">dp_severalGeometryOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -12784,7 +13369,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">dp_severalGeometryOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_DP.html\">See more information</a>.
+Generally this function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">dp_severalGeometryOverall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -12928,7 +13513,7 @@ Note that the pressure loss coefficients for an overall fluid flow are obtained 
 <p>
 The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
 
 <p>
 Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimised for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
@@ -12939,7 +13524,7 @@ leakage mass flow rate can often be neglected in system simulation with valves, 
 The pressure loss of different valves at a constant opening of 50% in dependence of mass flow rate is shown in the figure below.
 <p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dl>
@@ -13061,7 +13646,7 @@ Note that the pressure loss coefficients for an overall fluid flow are obtained 
 The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
 
 <p>
 Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimised for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
@@ -13072,7 +13657,7 @@ leakage mass flow rate can often be neglected in system simulation with valves, 
 The pressure loss of different valves at a constant opening of 50% in dependence of mass flow rate is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_DPvsMFLOW.png\">
 
 <h4>References</h4>
 <dt>Miller,D.S.:</dt>
@@ -13175,12 +13760,12 @@ The pressure loss of different valves at a constant opening of 50% in dependence
                 dp,
                 IN_con.dp_small,
                 0.5);
-      annotation(preferedView="info", Documentation(info="<html>
+      annotation (Documentation(info="<html>
 <p>
 Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
 </p>
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">See more information</a>.
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
@@ -13198,7 +13783,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated. <a href=\"../Resources/Documentation/FluidDissipation/Documentation/PressureLoss/Valve/dp_severalGeometryOverall_MFLOW.html\">See more information</a>.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\">See more information</a>.
 </p>
 <!--
 <h4>Restriction</h4>
@@ -13276,14 +13861,14 @@ The <b>valveCharacteristic</b> is determined out of a correlation for the pressu
 <b>valveCharacteristic</b> is a different definition of the following pressure loss correlations of valves.
 </p>
 
-The pressure loss calculation for valves of several geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a>.
+The pressure loss calculation for valves of several geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\">dp_severalGeometryOverall_DP</a>.
 
 <h4>Verification</h4>
 <p>
 The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
 
 <p>
 Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimised for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
@@ -13294,7 +13879,7 @@ leakage mass flow rate can often be neglected in system simulation with valves, 
 The mass flow rate of different valves at a constant opening of 50% in dependence of pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\">
 
 <h4>References</h4>
 <dl>
@@ -13315,7 +13900,7 @@ variable (dp or m_flow).
 </p>
 
 <p>
-Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\">dp_severalGeometryOverall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.
 </p>
 
 <h4>Restriction</h4>
@@ -13364,14 +13949,14 @@ The <b>valveCharacteristic</b> is determined out of a correlation for the pressu
 <b>valveCharacteristic</b> is a different definition of the following pressure loss correlations of valves.
 </p>
 
-The pressure loss calculation for valves of several geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\">dp_severalGeometryOverall_DP</a>.
+The pressure loss calculation for valves of several geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\">dp_severalGeometryOverall_DP</a>.
 
 <h4>Verification</h4>
 <p>
 The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
 
 <p>
 Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimised for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
@@ -13382,7 +13967,7 @@ leakage mass flow rate can often be neglected in system simulation with valves, 
 The mass flow rate of different valves at a constant opening of 50% in dependence of pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\">
 
 <h4>References</h4>
 <dt>Miller,D.S.:</dt>
@@ -13436,7 +14021,7 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\"> dp_severalGeometryOverall_DP</a> and
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\"> dp_severalGeometryOverall_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall_MFLOW</a>.
 </html>"));
       end dp_severalGeometryOverall_IN_con;
@@ -13458,15 +14043,3605 @@ This record is used as <b> input record </b> for the pressure loss function
 
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function
-<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP\"> dp_severalGeometryOverall_DP</a> and
+<a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall\"> dp_severalGeometryOverall_DP</a> and
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall_MFLOW</a>.
 </html>"));
       end dp_severalGeometryOverall_IN_var;
+      annotation (preferedView="info", Documentation(info="<html>
+<h4>Valve</h4>
+<h5>Several geometries</h5>
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Valve.dp_severalGeometryOverall\">See more information</a>.
+</p>
+
+</html>"));
     end Valve;
   end PressureLoss;
 
   package Utilities "Package for utilities (should not be used directly)"
   extends Modelica.Icons.Package;
+    package SharedDocumentation "Shared Documentation"
+      extends Modelica.Icons.Information;
+
+    package PressureLoss
+      extends Modelica.Icons.Information;
+
+    package Bend
+      extends Modelica.Icons.Information;
+
+    class dp_curvedOverall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<p>
+<ul>
+<li><b>circular cross sectional area </b></li>
+<li><b>0.5 &le; curvature radius / diameter &le; 3 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+<li><b>length of bend along curved axis / diameter &ge; 10 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+<li><b>angle of curvature smaller than 180&deg; (delta &le; 180) </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
+</ul>
+</p>
+<h4>Geometry</h4>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png\"/> </p>
+<h4>Calculation</h4>
+<p>
+The pressure loss <b>dp </b>for curved bends is determined by:
+</p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+<p>
+with
+</p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><b>rho </b></p></td>
+<td><p>as density of fluid [kg/m3],</p></td>
+</tr>
+<tr>
+<td><p><b>velocity </b></p></td>
+<td><p>as mean velocity [m/s],</p></td>
+</tr>
+<tr>
+<td><p><b>zeta_TOT </b></p></td>
+<td><p>as pressure loss coefficient [-].</p></td>
+</tr>
+</table>
+<p>
+<b>Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b>according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i>
+</p>
+<p>
+The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows:
+</p>
+<p><ul>
+<li><p><b>Laminar regime (Re &le; Re_lam_leave)</b>: </p>
+<pre>      zeta_LOC = A2/Re + A1*B1*C1</pre></li>
+<li><p><b>Transition regime (Re_lam_leave &le; 4e4)</b></p>
+<p> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime.</p></li>
+<li><p><b>Turbulent regime (4e4 &le; 3e5) with dependence </b> of local resistance coefficient on Reynolds number: </p>
+<pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
+<p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
+<pre>
+      k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
+      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
+      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre></li>
+<li><p><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number </p>
+<pre>      zeta_LOC = A1*B1*C1</pre></li>
+</ul></p>
+
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><b>A1 </b></p></td>
+<td><p>as coefficient considering effect of angle of turning (delta) [-],</p></td>
+</tr>
+<tr>
+<td><p><b>A2 </b></p></td>
+<td><p>as coefficient considering effect for laminar regime [-],</p></td>
+</tr>
+<tr>
+<td><p><b>B1 </b></p></td>
+<td><p>as coefficient considering effect of relative curvature radius (R_0/d_hyd) [-],</p></td>
+</tr>
+<tr>
+<td><p><b>C1=1 </b></p></td>
+<td><p>as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</p></td>
+</tr>
+<tr>
+<td><p><b>k_Re </b></p></td>
+<td><p>as coefficient considering influence of laminar regime in transition regime [-],</p></td>
+</tr>
+<tr>
+<td><p><b>Re </b></p></td>
+<td><p>as Reynolds number [-].</p></td>
+</tr>
+</table>
+<p><br/><br/>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend including pressure loss due to friction is determined by its local resistance coefficient <b>zeta_LOC </b>multiplied with a correction factor <b>CF </b>for surface roughness according to <i>[Miller, p. 209, eq. 9.4]:</i> </p>
+<pre>    zeta_TOT = CF*zeta_LOC </pre>
+<p>where the correction factor <b>CF </b>is determined from the darcy friction factor of a straight pipe having the bend flow path length </p>
+<pre>    CF = 1 + (lambda_FRI_rough * pi * delta/d_hyd) / zeta_LOC</pre>
+<p>and the darcy friction factors <b>lambda_FRI_rough </b>is calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i> </p>
+<pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><b>delta </b></p></td>
+<td><p>as curvature radiant [rad],</p></td>
+</tr>
+<tr>
+<td><p><b>d_hyd </b></p></td>
+<td><p>as hydraulic diameter [m],</p></td>
+</tr>
+<tr>
+<td><p><b>K </b></p></td>
+<td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
+</tr>
+<tr>
+<td><p><b>lambda_FRI_rough </b></p></td>
+<td><p>as darcy friction factor[-],</p></td>
+</tr>
+<tr>
+<td><p><b>Re </b></p></td>
+<td><p>as Reynolds number [m],</p></td>
+</tr>
+<tr>
+<td><p><b>zeta_LOC </b></p></td>
+<td><p>as local resistance coefficient [-],</p></td>
+</tr>
+<tr>
+<td><p><b>zeta_TOT </b></p></td>
+<td><p>as pressure loss coefficient [-].</p></td>
+</tr>
+</table>
+<p><br/>The correction for surface roughness through <b>CF </b>is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. The turbulent regime starts at <b>Re &ge; 4e4 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. There is no correction due to roughness in the laminar regime up to <b>Re &le; 6.5e3 </b>according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. </p>
+<p>Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as: </p>
+<pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
+<p>with </p>
+<table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
+<td><p><b>k = K /d_hyd </b></p></td>
+<td><p>as relative roughness [-],</p></td>
+</tr>
+<tr>
+<td><p><b>Re_lam_leave </b></p></td>
+<td><p>as Reynolds number for leaving laminar regime [-].</p></td>
+</tr>
+</table>
+<p>Note that the beginning of the laminar regime cannot be beneath <b>Re &le; 1e2 </b>. </p>
+<h4>Verification</h4>
+<p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\"/> </p>
+<p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/> </p>
+<p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/> </p>
+<p>Note that there is a small deviation between the compressible and incompressible calculation due to the lack of a direct analytical invertibility. </p>
+<h4>References</h4>
+<dl><dt>Elmquist,H., M.Otter and S.E. Cellier: </dt>
+<dd><b>Inline integration: A new mixed symbolic / numeric approach for solving differential-algebraic equation systems.</b>. In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.: </dt>
+<dd><b>Handbook of hydraulic resistance</b>. Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+<dt>Miller,D.S.: </dt>
+<dd><b>Internal flow systems</b>. volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984. </dd>
+<dt>Samoilenko,L.A.: </dt>
+<dd><b>Investigation of the hydraulic resistance of pipelines in the zone of transition from laminar into turbulent motion</b>. PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI: </dt>
+<dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>. Springer Verlag, 9th edition, 2002. </dd>
+</dl></html>
+"));
+    end dp_curvedOverall;
+
+    class dp_edgedOverall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss in edged bends with sharp corners at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <b> circular cross sectional area </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> edged bend with sharp corners at turning </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+ <li>
+      <b> 0° &le; angle of turning &le; 180° </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
+ </li>
+ <li>
+      <b> length of edged bend along edged axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
+ </li>
+</ul>
+
+<h4>Geometry</h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_edgedBend.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>The pressure loss <b> dp </b> for edged bends is determined by:
+</p>
+<p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of an edged bend can be calculated for different angles of turning <b> delta </b> by:
+</p>
+<p>
+<pre>
+    zeta_TOT = A * C1 * zeta_LOC * CF_Fri* CF_Re <i>[Idelchik 2006, p. 366, diag. 6-7] </i> and <i>[Miller 1984, p. 149, sec. 9.4]</i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A              </b></td><td> as coefficient considering effect for angle of turning [-],</td></tr>
+<tr><td><b> C1             </b></td><td> as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</td></tr>
+<tr><td><b> CF_Fri         </b></td><td> as correction factor considering surface roughness [-],</td></tr>
+<tr><td><b> CF_Re          </b></td><td> as correction factor considering Reynolds number [-],</td></tr>
+<tr><td><b> delta          </b></td><td> as angle of turning [deg].</td></tr>
+</table>
+</p>
+<p>
+The correction factor <b> CF_Fri </b> regarding the influence of surface roughness is determined as ratio of the Darcy friction factor for rough surfaces to smooth surfaces according to <i>[Miller, p. 207, eq. 9.3]:</i>
+</p>
+<pre>
+    CF_Fri = lambda_FRI_rough / lambda_FRI_smooth
+</pre>
+
+<p>
+and the Darcy friction factors <b> lambda_FRI </b> are calculated with an approximated Colebrook-White law according to <i>[Miller, p. 191, eq. 8.4]:</i>
+</p>
+<pre>
+    lambda_FRI = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd              </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> K                  </b></td><td> as absolute roughness (average height of surface asperities) [m],</td></tr>
+<tr><td><b> lambda_FRI         </b></td><td> as Darcy friction factor[-],</td></tr>
+<tr><td><b> Re                 </b></td><td> as Reynolds number [m],</td></tr>
+<tr><td><b> zeta_TOT           </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45° according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
+</p>
+
+<p>
+The correction for surface roughness through <b> CF_Fri </b> is used only in the turbulent regime, where the fluid flow is influenced by surface asperities not covered by a laminar boundary layer. Here the correction according to friction starts at <b> Re &ge; Re_lam_leave </b> according to <i>[Idelchik 2006, p. 336, sec. 15]</i>. Here the end of the laminar regime is restricted to a Reynolds number smaller than 2e3 w.r.t. <i>[VDI, p. Lac 6, fig. 16]</i>.
+</p>
+
+<p>
+Nevertheless the transition point from the laminar to the transition regime is shifted to smaller Reynolds numbers for an increasing absolute roughness. This effect is considered according to <i>[Samoilenko in Idelchik 2006, p. 81, sec. 2-1-21]</i> as:
+<pre>
+    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> k = K /d_hyd       </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> Re_lam_leave       </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the beginning of the laminar regime cannot be beneath <b> Re &le; 1e2 </b> according to <i>[VDI 2002, p. Lac 6, fig. 16]</i>
+</p>
+
+<p>
+In addition the influence or decreasing Reynolds numbers <b> Re </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime is considered through a second correction factor <b> CF_Re </b> according to <i>[Miller 1984, p. 149, sec. 9.4]</i> and <i>[Idelchik 2006, p. 340, sec. 28]</i> by:
+</p>
+
+<p>
+<pre>
+   CF_Re = B/Re^exp for Re &le; Re_lam_leave
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> B = f(Geometry)  </b></td><td> as coefficient considering effect of Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> exp              </b></td><td> as exponent for Reynolds number in laminar regime [-],</td></tr>
+<tr><td><b> Re               </b></td><td> as Reynolds number [-], </td></tr>
+<tr><td><b> Re_lam_leave     </b></td><td> as Reynolds number for leaving laminar regime [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the coefficient <b> B </b> considers the influence of the angle of turning <b> delta </b> on the pressure loss coefficient <b> zeta_TOT </b> in the laminar regime according to <i>[Idelchik 2006, p. 340, sec. 28]</i>.
+</p>
+
+<p>
+Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is influenced by the correction factor <b> CF_Re </b> only for decreasing Reynolds numbers <b> Re </b> out of the turbulent fluid flow regime at <b> Re &le; Re_lam_leave </b> into transition and laminar fluid flow regime.
+</p>
+
+<h4>Verification</h4>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
+</p>
+
+<p>
+Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
+</p>
+
+<p>
+The validation of the pressure loss coefficient for an edged bends shows four possible flow regimes:
+<ul>
+ <li>
+      <b> laminar regime </b> for Re &le; 4e2</li>
+ <li>
+      <b> transition regime </b> for 4e2 &le; Re &le; 2e3</li>
+ <li>
+      <b> turbulent regime dependent on Reynolds number </b> for 2e3 &le; Re &le; 1e5</li>
+ <li>
+      <b> turbulent regime independent of Reynolds number </b> for Re &ge; 1e5</li>
+</ul>
+</p>
+
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
+</p>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
+</p>
+<h4>References</h4>
+<dl>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
+<dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.</dd>
+ <dt>Samoilenko,L.A.:</dt>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the
+        zone of transition from laminar into turbulent motion</b>.
+        PhD thesis, Leningrad State University, 1968.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
+"));
+    end dp_edgedOverall;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end Bend;
+
+    package Channel
+      extends Modelica.Icons.Information;
+
+    class dp_internalFlowOverall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss for an internal flow through different geometries at overall flow regime for single-phase fluid flow considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<p>
+<ul>
+ <li>
+      <b> developed fluid flow </b>
+ </li>
+</ul>
+</p>
+<h4>Geometry</h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/pic-pLchannel.png\">
+</p>
+<h4>Calculation</h4>
+<p>
+The pressure loss <b> dp </b> for channels is determined by:
+</p>
+<p>
+<pre>
+    dp = zeta_TOT * (rho/2) * velocity^2
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+<b> Channels with different shape of its cross sectional area are calculated </b> according to <i>[Miller 1978, p. 138, fig. 8.5-8-6]</i>
+</p>
+<p>
+The pressure loss of these channels is similar to its calculation in straight pipes. There are three different flow regimes observed (laminar,transition,turbulent). The pressure loss coefficient (<b>zeta_TOT</b>) of a channel is calculated in dependence of the flow regime as follows:
+</p>
+<p>
+<ul>
+  <li><b>Laminar regime (Re &le; Re_lam_leave)</b>:
+     <pre>
+      zeta_TOT = CF_lam/Re * (L/d_hyd)
+     </pre></li>
+  <li><p><b>Transition regime (Re_lam_leave &le; 4e4)</b></p>
+        <p>This calculation is done using a smoothing function interpolating between the laminar and the turbulent flow regime.</p></li>
+  <li> <p><b>Turbulent regime (Re &ge; 4e3)</b>:</p>
+        <p>The turbulent regime can be calculated with the pressure loss correlations for a straight pipe with the hydraulic diameter of
+           the chosen geometry instead of the internal diameter of a straight pipe according to <i>[VDI 2002, p. Lab 4, sec. 2.1]</i> .
+           The documentation of turbulent fluid flow for a straight pipe is shown in
+           <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent\">dp_turbulent</a>.</p></li>
+</ul>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> CF_lam        </b></td><td> as correction factor considering the geometry for laminar regime [-],</td></tr>
+<tr><td><b> L             </b></td><td> as length of geometry perpendicular to cross sectional area [m],</td></tr>
+<tr><td><b> d_hyd         </b></td><td> as hydraulic diameter of geometry [m],</td></tr>
+<tr><td><b> Re            </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> zeta_TOT      </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the beginning of the laminar regime depends on the chosen surface roughness of the channel and cannot be beneath <b>Re &le; 1e3</b>.
+</p>
+<h4>Verification</h4>
+<p>
+The Darcy friction factor (<b>lambda_FRI</b>) of a channel with different shapes of its cross sectional area are shown in dependence of the Reynolds number (<b>Re</b>) in the figures below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/fig_channel_dp_internalFlowOverall_lambdaVsRe.png\">
+</p>
+<p>
+The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been obtained at the same hydraulic diameter and the same mean velocity of the internal flow. Note that there is no difference of the Darcy friction factor in the turbulent regime if using the same hydraulic diameter for all geometries. Roughness can be considered but it is not used for this validation.
+</p>
+<h4>References</h4>
+<dl>
+<dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    Volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1978.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
+"));
+    end dp_internalFlowOverall;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end Channel;
+
+    package General
+      extends Modelica.Icons.Information;
+
+    class dp_idealGas
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+    <b> ideal gas </b>
+ </li>
+ <li>
+    mean density of ideal gas
+ </li>
+</ul>
+
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified.
+</p>
+<p>
+The pressure loss <b> dp </b> for the compressible case [Mass flow rate = f(dp)] is determined by (Eq.1):
+<pre>
+    m_flow = (R_s/Km)^(1/exp)*(rho_m)^(1/exp)*dp^(1/exp)
+</pre>
+</p>
+<p>
+for the underlying base equation using ideal gas law as follows:
+<pre>
+    dp^2 = p_2^2 - p_1^2 = Km*m_flow^exp*(T_2 + T_1)
+    dp   = p_2 - p_1     = Km*m_flow^exp*T_m/p_m, Eq.2 with [dp] = Pa, [m_flow] = kg/s
+</pre>
+</p>
+<p>
+so that the coefficient <b> Km </b> is calculated out of Eq.2:
+<pre>
+    Km = dp*R_s*rho_m / m_flow^exp , [Km] = [Pa^2/{(kg/s)^exp*K}]
+</pre>
+</p>
+<p>
+where the mean density <b> rho_m </b> is calculated according to the ideal gas law out of an arithmetic mean pressure and temperature:
+<pre>
+   rho_m = p_m / (R_s*T_m) , p_m = (p_1 + p_2)/2 and T_m = (T_1 + T_2)/2.
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> exp                    </b></td><td> as exponent of pressure loss law [-],</td></tr>
+<tr><td><b> dp                     </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> Km                     </b></td><td> as coefficient w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><b> m_flow                 </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> p_m = (p_2 + p_1)/2    </b></td><td> as mean pressure of ideal gas [Pa],</td></tr>
+<tr><td><b> T_m = (T_2 + T_1)/2    </b></td><td> as mean temperature of ideal gas [K],</td></tr>
+<tr><td><b> rho_m = p_m/(R_s*T_m)  </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><b> R_s                    </b></td><td> as specific gas constant of ideal gas [J/(kgK)],</td></tr>
+<tr><td><b> V_flow                 </b></td><td> as volume flow rate of ideal gas [m^3/s].</td></tr>
+</table>
+</p>
+
+<p>
+Furthermore the coefficient <b> Km </b> can be defined more detailled w.r.t. the definition of pressure loss if <b> Km </b> is not given as (e.g., measured) value. Generally pressure loss can be calculated due to local losses <b> Km,LOC </b> or frictional losses <b> Km,FRI </b>.
+</p>
+<p>
+Pressure loss due to local losses gives the following definition of <b> Km </b>:
+<pre>
+    dp        = zeta_LOC * (rho_m/2)*velocity^2 is leading to
+      Km,LOC  = (8/&Pi^2)*R_s*zeta_LOC/(d_hyd)^4, considering the cross sectional area of pipes.
+</pre>
+</p>
+<p>
+and pressure loss due to friction is leading to
+<pre>
+    dp        = lambda_FRI*L/d_hyd * (rho_m/2)*velocity^2
+      Km,FRI  = (8/&Pi^2)*R_s*lambda_FRI*L/(d_hyd)^5, considering the cross sectional area of pipes.
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp                    </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> d_hyd                 </b></td><td> as hydraulic diameter of pipe [m],</td></tr>
+<tr><td><b> Km,i                  </b></td><td> as coefficients w.r.t. mass flow rate! [Km] = [Pa^2/{(kg/s)^exp*K}],</td></tr>
+<tr><td><b> lambda_FRI            </b></td><td> as darcy friction factor [-],</td></tr>
+<tr><td><b> L                     </b></td><td> as length of pipe [m],</td></tr>
+<tr><td><b> rho_m = p_m/(R_s*T_m) </b></td><td> as mean density of ideal gas [kg/m3],</td></tr>
+<tr><td><b> velocity              </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_LOC              </b></td><td> as local resistance coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the variables of this function are delivered in SI units so that the coefficient Km shall be given in SI units too.
+</p>
+<h4>Verification</h4>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate <b> m_flow </b> for different coefficients <b> Km </b> as parameter is shown in dependence of its pressure loss <b> dp </b> in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_idealGas_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas\">dp_idealGas</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+</dl>
+</html>
+"));
+    end dp_idealGas;
+
+    class dp_nominalDensityViscosity
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+
+<html>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
+This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
+</p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified.
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+</p>
+<p>
+The generic pressure loss <b> dp </b> is determined for:
+<ul>
+ <li>
+ compressible case [Mass flow rate = f(dp)]:
+  <pre>
+   m_flow = m_flow_nom*[(dp/dp_nom)*(rho/rho_nom)]^(1/exp)*(eta_nom/eta)^(exp_eta/exp)
+   </pre>
+ </li>
+ <li>
+ incompressible case [Pressure loss = f(m_flow)]:
+  <pre>
+   dp = dp_nom*(m_flow/m_flow_nom)^exp*(rho_nom/rho)*(eta/eta_nom)^exp_eta
+   </pre>
+  </li>
+</ul>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> dp_nom         </b></td><td> as nominal pressure loss [Pa],</td></tr>
+<tr><td><b> eta            </b></td><td> as dynamic viscosity of fluid [kg/(ms)].</td></tr>
+<tr><td><b> eta_nom        </b></td><td> as nominal dynamic viscosity of fluid [kg/(ms)].</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> m_flow_nom     </b></td><td> as nominal mass flow rate [kg/s],</td></tr>
+<tr><td><b> exp            </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> exp_eta        </b></td><td> as exponent of dynamic viscosity dependence [-],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3].</td></tr>
+</table>
+</p>
+<p>
+To avoid numerical difficulties this pressure loss function is linear smoothed for
+</p>
+<ul>
+ <li>
+ small mass flow rates, where
+ <pre>
+    m_flow &le; (0.01*rho/rho_nom*(1/eta*eta_nom)^(exp_eta))^(1/exp) and
+  </pre>
+ </li>
+ <li> small pressure losses, where
+ <pre>
+    dp &le; 0.01*dp_nom)
+ </pre>
+ </li>
+</ul>
+<p>
+Note that the density (rho) and dynamic viscosity (eta) of the fluid are defined through the defintion of the kinematic viscosity (nue).
+<pre>
+    nue = eta / rho
+</pre>
+</p>
+<p>
+Therefore if you set both the exponent of dynamic viscosity (exp_eta == 1) and additionally a relation of density and dynamic viscosity there will be no difference for varying densities because the dynamic viscosities will vary in the same manner.
+</p>
+<h4>Verification</h4>
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b> with different fluid densities and dynamic viscosity dependence as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_DPvsMFLOW.png\">
+</p>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> at different fluid densities and dynamic viscosity as parameters is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalDensityViscosity_MFLOWvsDP.png\">
+</p>
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+
+</html>
+"));
+    end dp_nominalDensityViscosity;
+
+    class dp_nominalPressureLossLawDensity
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
+This generic function considers the pressure loss law via a nominal pressure loss (dp_nom), a pressure loss coefficient (zeta_TOT) and a pressure loss law exponent (exp) as well as the influence of density on pressure loss.
+</p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation have to be simplified.
+This function uses nominal variables (e.g., nominal pressure loss) at a known operation point of the energy device to interpolate the actual pressure loss according to a pressure loss law (exponent).
+</p>
+<p>
+In the following the pressure loss <b> dp </b> is generally determined from a known operation point via a law of similarity:
+<pre>
+   dp/dp_nom = (zeta_TOT/zeta_TOT_nom)*(rho/rho_nom)*(v/v_nom)^exp
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> dp_nom         </b></td><td> as nominal pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> m_flow_nom     </b></td><td> as nominal mass flow rate [kg/s],</td></tr>
+<tr><td><b> exp            </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3],</td></tr>
+<tr><td><b> v              </b></td><td> as mean flow velocity [m/s],</td></tr>
+<tr><td><b> v_nom          </b></td><td> as nominal mean flow velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-],</td></tr>
+<tr><td><b> zeta_TOT_nom   </b></td><td> as nominal pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+The fraction of mean flow velocities (v/v_nom) can be calculated through its corresponding <b> mass flow rates </b>, densities and cross sectional areas:
+<pre>
+   v/v_nom = (m_flow/m_flow_nom)*(A_cross_nom/A_cross)*(rho_nom/rho)
+</pre>
+</p>
+<p>
+<b> or </b> through its corresponding <b> volume flow rates </b>, densities and cross sectional areas:
+<pre>
+    v/v_nom = (V_flow/V_flow_nom)*(A_cross_nom/A_cross).
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
+<tr><td><b> A_cross_nom    </b></td><td> as nominal cross sectional area [m2],</td></tr>
+<tr><td><b> rho            </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> rho_nom        </b></td><td> as nominal fluid density [kg/m3],</td></tr>
+<tr><td><b> v              </b></td><td> as mean flow velocity [m/s],</td></tr>
+<tr><td><b> v_nom          </b></td><td> as nominal mean flow velocity [m/s],</td></tr>
+<tr><td><b> V_flow         </b></td><td> as volume flow rate [m3/s],</td></tr>
+<tr><td><b> V_flow_nom     </b></td><td> as nominal volume flow rate [m3/s].</td></tr>
+</table>
+</p>
+<p>
+Here the <b> compressible case </b> [Mass flow rate = f(dp)] determines the unknown mass flow rate out of a given pressure loss:
+<pre>
+   m_flow = m_flow_nom*(A_cross/A_cross_nom)*(rho_nom/rho)^(exp_density/exp)*[(dp/dp_nom)*(zeta_TOT_nom/zeta_TOT)]^(1/exp);
+</pre>
+</p>
+
+<p>
+where the exponent for the fraction of densities is determined w.r.t. the chosen nominal mass flow rate or nominal volume flow rate to:
+</p>
+
+<p>
+<pre>
+  exp_density = if NominalMassFlowRate == 1 then 1-exp else 1
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> NominalMassFlowRate    </b></td><td> as reference for pressure loss law (mass flow rate of volume flow rate),</td></tr>
+<tr><td><b> exp                    </b></td><td> as exponent of pressure loss calculation [-],</td></tr>
+<tr><td><b> exp_density            </b></td><td> as exponent for density [-].</td></tr>
+</table>
+</p>
+<p>
+To avoid numerical difficulties this pressure loss function is linear smoothed for small pressure losses, with
+<pre>
+   dp &le; 0.01*dp_nom
+</pre>
+</p>
+
+<p>
+Note that the input and output arguments for functions throughout this library always use mass flow rates. Here you can choose <b> NominalMassFlowRate == 1 </b> for using a nominal mass flow rate or <b> NominalMassFlowRate == 2 </b> for using a nominal volume flow rate. The output argument will always be a mass flow rate for further use as flow model in a thermo-hydraulic framework.
+</p>
+
+<p>
+Note that the pressure loss coefficients (zeta_TOT,zeta_TOT_nom) refer to its mean flow velocities (v,v_nom) in the pressure loss law to obtain its corresponding pressure loss.
+</p>
+
+<h4>Verification</h4>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> is shown for a turbulent pressure loss regime (exp == 2) in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_nominalPressureLossLawDensity_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity\">dp_nominalPressureLossLawDensity</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+
+</html>
+"));
+    end dp_nominalPressureLossLawDensity;
+
+    class dp_pressureLossCoefficient
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
+</p>
+<h4>Calculation</h4>
+<p>
+The mass flow rate <b> m_flow </b> is determined by:
+<pre>
+    m_flow = rho*A_cross*(dp/(zeta_TOT *(rho/2))^0.5
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> A_cross        </b></td><td> as cross sectional area [m2],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+<b> Compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+The mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b> dp </b> for a constant pressure loss coefficient <b> zeta_TOT </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_pressureLossCoefficient_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient\">dp_pressureLossCoefficient</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+ <dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+</html>
+"));
+    end dp_pressureLossCoefficient;
+
+    class dp_volumeFlowRate
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+</p>
+<h4>Calculation</h4>
+<p>
+The geometry parameters of energy devices necessary for the pressure loss calculations are often not exactly known.
+Therefore the modelling of the detailed pressure loss calculation has to be simplified. This function uses as
+quadratic dependence of the pressure loss on the volume flow rate.
+</p>
+<p>
+The mass flow rate <b> m_flow </b> for the compressible case [Mass flow rate = f(dp)] is determined to <i> [see Wischhusen] </i>:
+<pre>
+ m_flow = rho*[-b/(2a) + {[b/(2a)]^2 + dp/a}^0.5]
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> a              </b></td><td> as quadratic coefficient [Pa*s^2/m^6],</td></tr>
+<tr><td><b> b              </b></td><td> as linear coefficient [Pa*s/m3],</td></tr>
+<tr><td><b> dp             </b></td><td> as pressure loss [Pa],</td></tr>
+<tr><td><b> m_flow         </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3].</td></tr>
+</table>
+</p>
+<p>
+Note that the coefficients <b> a,b </b> have to be positive values so that there will be a positive (linear or quadratic) pressure loss at positive volume flow rate and vice versa.
+</p>
+<h4>Verification</h4>
+<p><b> Compressible case </b> [Mass flow rate = f(dp)]:</p>
+<p>
+The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
+</p>
+<p>
+Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">dp_volumeFlowRate</a> is also valid for this inverse calculation due to using the same functions.
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Wischhusen, S.:</dt>
+    <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
+    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+</dl>
+</html>
+"));
+    end dp_volumeFlowRate;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end General;
+
+    package Orifice
+      extends Modelica.Icons.Information;
+
+    class dp_suddenChange
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<h4>Restriction</h4>
+<p>
+This function shall be used within the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li>
+      <b>Smooth surface</b></li>
+ <li>
+      <b>Turbulent flow regime</b></li>
+ <li>
+      <b>Reynolds number for sudden expansion Re &gt 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i></li>
+ <li>
+      <b>Reynolds number for sudden contraction Re &gt 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i></li>
+</ul>
+
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_suddenChangeSection.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The local pressure loss <b> dp </b> is generally determinated by:
+<pre>
+    dp = 0.5 * zeta_LOC * rho * |v_1|*v_1
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho              </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> v_1             </b></td><td> as average flow velocity in small cross sectional area [m/s].</td></tr>
+<tr><td><b> zeta_LOC         </b></td><td> as local resistance coefficient [-],</td></tr>
+</table>
+</p>
+<p>
+The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion can be calculated for different ratios of cross sectional areas by:
+<pre>
+    zeta_LOC = (1 - A_1/A_2)^2  <i>[Idelchik 2006, p. 208, diag. 4-1] </i>
+</pre>
+</p>
+
+<p>
+and for sudden contraction:
+<pre>
+    zeta_LOC = 0.5*(1 - A_1/A_2)^0.75  <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_1       </b></td><td> small cross sectional area [m^2],</td></tr>
+<tr><td><b> A_2       </b></td><td> large cross sectional area [m^2]</td></tr>.
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The local resistance coefficient <b> zeta_LOC </b> of a sudden expansion in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeExpansion.png\">
+</p>
+<p>
+The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in dependence of the cross sectional area ratio <b> A_1/A_2 </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_suddenChangeContraction.png\">
+</p>
+
+
+<h4>References</h4>
+<dl>
+<dt>Elmquist, H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+</dl>
+</html>
+"));
+    end dp_suddenChange;
+
+    class dp_thickEdgedOverall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<h4>Restriction</h4>
+<p>
+This function shall be used within the restricted limits according to the referenced literature.
+</p>
+<p>
+<ul>
+ <li>
+      <b> Reynolds number (for vena contraction) Re &gt 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Relative length of vena contraction (L/d_hyd_0) &gt 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+ <li>
+      <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
+</ul>
+</p>
+<h4>Geometry</h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_thickEdged.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <b> dp </b> for a thick edged orifice is determined by:
+<pre>
+    dp = zeta_TOT * (rho/2) * (velocity_1)^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity_1     </b></td><td> as mean velocity in large cross sectional area [m/s],</td></tr>
+<tr><td><b> zeta_TOT       </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice can be calculated for different cross sectional areas <b> A_0 </b> and relative length of orifice <b> l_bar </b>=L/d_hyd_0 by:
+<pre>
+    zeta_TOT = (0.5*(1 - A_0/A_1)^0.75 + tau*(1 - A_0/A_1)^1.375 + (1 - A_0/A_1)^2 + lambda_FRI*l_bar)*(A_1/A_0)^2 <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> A_0       </b></td><td> cross sectional area of vena contraction [m2],</td></tr>
+<tr><td><b> A_1       </b></td><td> large cross sectional area of orifice [m2],</td></tr>
+<tr><td><b> d_hyd_0   </b></td><td> hydraulic diameter of vena contraction [m],</td></tr>
+<tr><td><b> lambda_FRI</b></td><td> as constant Darcy friction factor [-],</td></tr>
+<tr><td><b> l_bar     </b></td><td> relative length of orifice [-],</td></tr>
+<tr><td><b> L         </b></td><td> length of vena contraction [m],</td></tr>
+<tr><td><b> tau       </b></td><td> geometry parameter [-].</td></tr>
+</table>
+</p>
+
+<p>
+The geometry factor <b> tau </b> is determined by <i>[Idelchik 2006, p. 219, diag. 4-12]</i>:
+</p>
+
+<p>
+<pre>
+    tau = (2.4 - l_bar)*10^(-phi)
+    phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
+</pre>
+</p>
+
+<h4>Verification</h4>
+<p>
+The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+</p>
+
+<p>
+<b> Incompressible case </b> [Pressure loss = f(m_flow)]:
+</p>
+<p>
+The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
+</p>
+<p>
+<b>And for the compressible case </b> [Mass flow rate = f(dp)]:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
+</p>
+<h4>References</h4>
+<dl>
+ <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House,Mumbai, 3rd edition, 2006.</dd>
+</dl>
+</html>
+"));
+    end dp_thickEdgedOverall;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end Orifice;
+
+    package StraightPipe
+      extends Modelica.Icons.Information;
+
+    class dp_laminar
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b>
+ <li>
+      <b> laminar flow regime (Reynolds number Re &le 2000) <i>[VDI-W&auml;rmeatlas 2002, p. Lab, eq. 3] </i> </b>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <b> dp </b> for straight pipes is determined by:
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+<p>
+The darcy friction factor <b> lambda_FRI </b> of straight pipes for the laminar flow regime is calculated by <b> Hagen-Poiseuilles </b> law according to <i>[Idelchik 2006, p. 77, eq. 2-3]</i> as follows:
+<ul>
+ <li>
+     <b> Laminar flow regime </b> is restricted to a Reynolds number <b> Re </b> &le; 2000</li> and calculated through:
+     <pre>
+     lambda_FRI = 64/Re
+     </pre>
+     <p>
+     with
+     </p>
+     <p>
+     <table>
+     <tr><td><b> lambda_FRI     </b></td><td> as darcy friction factor [-],</td></tr>
+     <tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+     </table>
+     </p>
+ </li>
+</ul>
+</p>
+<p>
+The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independent
+of the surface roughness <b> K </b> as long as the relative roughness <b> k = surface rouhgness/hydraulic diameter </b> is smaller than 0.007.
+A higher relative roughness <b> k </b> than 0.007 leads to an earlier leaving of the laminar regime to the transition regime at some value of Reynolds number <b> Re_lam_leave </b>. This earlier leaving is not modelled here because only laminar fluid flow is considered.
+</p>
+
+<h4>Verification</h4>
+<p>
+The darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png\">
+</p>
+<p>
+The pressure loss <b> dp </b> for the laminar regime in dependence of the mass flow rate of water is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png\">
+</p>
+<p>
+Note that this pressure loss function shall not be used for the modelling outside of the laminar flow regime at <b> Re </b> &gt; 2000</li> even though it could be used for that.
+</p>
+<p>
+If the whole flow
+regime shall be modelled, the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall\">dp_overall</a> can be used.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
+"));
+    end dp_laminar;
+
+    class dp_overall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+</p>
+<h4>Restriction</h4>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b></li>
+</ul>
+
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+The pressure loss <b> dp </b> for straight pipes is determined by:
+<p>
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+
+<p>
+The darcy friction factor <b> lambda_FRI </b> for straight pipes is calculated depending on the fluid flow regime (with corresponding Reynolds number <b>Re</b>) and the absolute surface roughness <b> K </b>.
+</p>
+
+<b> Laminar regime </b> is calculated for <b> Re </b> &le; 2000</li> by the Hagen-Poiseuille law according to <i>[Idelchik 2006, p. 77, eq. 2-3]</i>
+<pre>
+    lambda_FRI = 64/Re
+</pre>
+
+<p>
+The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independent of the surface roughness <b> k </b> as long as the relative roughness <b> k </b> is smaller than 0.007. A greater relative roughness <b> k </b> than 0.007 is leading to an earlier leaving of the Hagen-Poiseuille law at some value of Reynolds number <b> Re_lam_leave </b>. The leaving of the laminar regime in dependence of the relative roughness <b> k </b> is calculated according to <i>[Samoilenko in Idelchik 2006, p. 81, sect. 2-1-21]</i> as:
+</p>
+<pre>
+    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.93 else 0.0065/k)
+</pre>
+
+<p>
+<b> Transition regime </b> is calculated for <b> 2000 &lt; <b> Re </b> &le; 4000 </b> by a cubic interpolation between the equations of the laminar and turbulent flow regime. Different cubic
+interpolation equations for the calculation of either pressure loss <b> dp </b> or mass flow rate <b> m_flow </b> results in a deviation of the darcy friction factor <b> lambda_FRI </b> through the
+transition regime. This deviation can be neglected due to the uncertainty in determination of the fluid flow in the transition regime.
+</p>
+
+<p>
+<b> Turbulent regime </b> can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law):
+</p>
+
+<p>
+<b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
+</p>
+<pre>
+    lambda_FRI = 0.3164*Re^(-0.25)
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor <b> lambda_FRI </b> for smooth straight pipes in the turbulent regime is independent
+of the surface roughness <b> K </b> .
+</p>
+
+<p>
+<b> Rough surface (roughness =2) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
+</p>
+<pre>
+    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter [-],</td></tr>
+<tr><td><b> k= K/d_hyd     </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> K              </b></td><td> as roughness (average height of surface asperities [m],</td></tr>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png\">
+</p>
+
+<p>
+The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass flow rate of water is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png\">
+</p>
+<p>
+And the mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the pressure loss of water is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+ <dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+ <dt>Samoilenko,L.A.:</dt>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the
+        zone of transition from laminar into turbulent motion</b>.
+        PhD thesis, Leningrad State University, 1968.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
+"));
+    end dp_overall;
+
+    class dp_turbulent
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b></li>
+ <li>
+      <b> turbulent flow regime (Reynolds number Re &ge 4e3) <i>[VDI-W&auml;rmeatlas 2002, p. Lab 3, fig. 1] </i> </b></li>
+</ul>
+</p>
+
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <b> dp </b> for straight pipes is determined by:
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+<p>
+The Darcy friction factor <b> lambda_FRI </b> for a straight pipe in the turbulent regime can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law).
+</p>
+<p>
+<b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
+<pre>
+    lambda_FRI = 0.3164*Re^(-0.25)
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor <b> lambda_FRI </b> for smooth straight pipes in the turbulent regime is independent
+of the surface roughness <b> K </b> .
+</p>
+
+<p>
+<b> Rough surface (roughness =2) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
+<pre>
+    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter [-],</td></tr>
+<tr><td><b> k= K/d_hyd     </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> K              </b></td><td> as roughness (average height of surface asperities [m].</td></tr>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png\">
+</p>
+
+<p>
+Note that this pressure loss function shall not be used for the modelling outside of the turbulent flow regime at <b> Re </b> &lt; 4e3 even though it could be used for that.
+</p>
+
+<p>
+If the overall flow regime shall be modelled, the pressure loss function <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall\">dp_overall</a> can be used.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+</html>
+"));
+    end dp_turbulent;
+
+    class dp_twoPhaseOverall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used within the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li> <b> circular cross sectional area </b> </li>
+ <li> <b> neglecting of surface roughness </b> </li>
+ <li> <b> horizontal flow or vertical upflow </b> </li>
+ <li> <b> usage of mass flow rate quality (see Calculation) </b> </li>
+ <li> <b> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </b></li>
+ <li> <b> usage of two phase pressure loss function for discretisation at boiling or condensation considering variable mass flow rate quality</b> </li>
+</ul>
+
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The two phase pressure loss <b> dp_2ph </b> of straight pipes is determined by:
+<pre>
+    dp_2ph = dp_fri + dp_mom + dp_geo
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp_fri        </b></td><td> as frictional pressure loss [Pa],</td></tr>
+<tr><td><b> dp_mom        </b></td><td> as momentum pressure loss [Pa],</td></tr>
+<tr><td><b> dp_geo        </b></td><td> as geodetic pressure loss [Pa].</td></tr>
+</table>
+</p>
+
+<p>
+<b>Definition of quality for two phase flow</b>:
+</p>
+<p>
+Different definitions of the quality exist for two phase flow. Static quality, mass flow rate quality and thermodynamic quality can be used to describe the fraction of gas and liquid in two phase flow.
+Here the mass flow rate quality <b>(x_flow)</b> is used to describe two phase flow as follows:
+<pre>
+    x_flow = mdot_g/(mdot_g+mdot_l)
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> x_flow        </b></td><td> as mass flow rate quality [-],</td></tr>
+<tr><td><b> mdot_g        </b></td><td> as gaseous mass flow rate [kg/s],</td></tr>
+<tr><td><b> mdot_l        </b></td><td> as liquid mass flow rate [kg/s].</td></tr>
+</table>
+</p>
+<p>
+Note that mass flow rate quality <b>(x_flow)</b> is only equal to the static quality, if a difference between the velocity of gas and liquid phase is neglected (homogeneous approach).
+Additionally the thermodynamic quality is only equal to the mass flow rate quality <b>(x_flow)</b> in the two phase regime for thermodynamic equilibrium of the phases.
+</p>
+<p>
+<b>Frictional pressure loss</b>:
+</p>
+<p>
+The frictional pressure loss <b>dp_fri</b> of a straight pipe is calculated either by the correlation of <b>Friedel</b> (frictionalPressureLoss==Friedel) or by the correlation of <b>Chisholm</b> (frictionalPressureLoss==Chisholm).
+Both correlations can be used for the above named two phase flow regimes.
+The two phase frictional pressure loss results from a frictional pressure loss assuming one phase liquid fluid flow and a two phase multiplier taking into account the effects of two phase flow:
+<pre>
+    dp_fri = dp_1ph*phi_i
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> dp_1ph  </b></td><td> as frictional pressure loss assuming one phase liquid fluid flow [Pa],</td></tr>
+<tr><td><b> phi_i   </b></td><td> as two phase multiplier [-].</td></tr>
+</table>
+</p>
+<p>
+The liquid frictional pressure loss is calculated with the <b>total mass flow rate</b> assumed to flow as liquid.
+</p>
+<p>
+The correlations of Friedel and Chisholm differ in their calculation of the two phase multiplier:
+<pre>
+    phi_friedel = (1 - x_flow)^2 + x_flow^2*(rho_l/rho_g)*(lambda_g/lambda_l)
+                + 3.43*x_flow^0.685*(1 - x_flow)^0.24*(rho_l/rho_g)^0.8*(eta_g/eta_l)^0.22*(1 - eta_g/eta_l)^0.89*(1/Fr_l^(0.048))*(1/We_l^(0.0334))
+</pre>
+<pre>
+    phi_chisholm = 1 + (gamma^2 - 1)*(B*x_flow^((2 - n_exp)/2)*(1 - x_flow)^((2 -n_exp)/2) + x_flow^(2 - n_exp))
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> B              </b></td><td> as Lockhart-Martinelli coefficient [-],</td></tr>
+<tr><td><b> eta_l          </b></td><td> as dynamic viscosity of the liquid phase [Pas],</td></tr>
+<tr><td><b> eta_g          </b></td><td> as dynamic viscosity of the gaseous phase [Pas],</td></tr>
+<tr><td><b> gamma          </b></td><td> as physical property coefficient [-],</td></tr>
+<tr><td><b> n_exp</b> =0.2     </td><td> as exponent in Chisholm correlation [-],</td></tr>
+<tr><td><b> phi_i          </b></td><td> as two phase multiplier [-],</td></tr>
+<tr><td><b> rho_l          </b></td><td> as density of the liquid phase [kg/m3],</td></tr>
+<tr><td><b> rho_g          </b></td><td> as density of the gaseous phase [kg/m3],</td></tr>
+<tr><td><b> Re_l           </b></td><td> as Reynolds number of the liquid phase [-],</td></tr>
+<tr><td><b> Re_g           </b></td><td> as Reynolds number of the gaseous phase [-],</td></tr>
+<tr><td><b> Fr_l           </b></td><td> as Froude number of the liquid phase [-],</td></tr>
+<tr><td><b> We_l           </b></td><td> as Weber number of the liquid phase [-],</td></tr>
+<tr><td><b> x_flow         </b></td><td> as mass flow rate quality [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the (mean constant) mass flow rate quality <b>(x_flow)</b> used for frictional pressure loss is calculated as arithmetic mean value out of the mass flow rate quality at the end and at the start of the straight pipe length.
+</p>
+<p>
+<b>Momentum pressure loss</b>:
+</p>
+<p>
+The momentum pressure loss <b> dp_mom </b> can be considered (momentumPressureLoss = true) for a homogeneous or heterogeneous two phase flow depending on the approach used for the void fraction <b>(epsilon)</b>.
+At evaporation the liquid phase having a slow velocity has to be accelerated to the higher velocity of the gas. The difference in static pressure at the outlet and the inlet causes a positive momentum pressure loss at evaporation (assumed vice versa for condensation).
+The momentum pressure loss occurs for a changing mass flow rate quality due to condensation or evaporation according to <i>[VDI 2006, p.Lba 4, eq. 22]</i> :
+<pre>
+    dp_mom = mdot_A^2*[[((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_out - [((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_in]
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> mdot_A         </b></td><td> as total mass flow rate density [kg/(m2s)],</td></tr>
+<tr><td><b> epsilon        </b></td><td> as void fraction [-],</td></tr>
+<tr><td><b> rho_l          </b></td><td> as density of the liquid phase [kg/m3],</td></tr>
+<tr><td><b> rho_g          </b></td><td> as density of the gaseous phase [kg/m3],</td></tr>
+<tr><td><b> x_flow         </b></td><td> as mass flow rate quality [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that a momentum pressure loss is only considered for a variable mass flow rate quality <b>(x_flow)</b> during evaporation or condensation. Momentum pressure loss does not occur under adiabatic conditions for a corresponding constant mass flow rate quality (evaporation due to pressure loss is not considered).
+</p>
+
+<p>
+<b>Void fraction approach</b>:
+</p>
+<p>
+The void fraction is one of the most important parameter used to characterise two phase flow. There are several analytical and empirical approaches according to <i>[Thome, J.R]</i> :
+</p>
+<p>
+<ul>
+ <li>    <b> homogeneous approach </b> </li>
+ <li>     <b> momentum flux approach (heterogeneous model) </b></li>
+ <li>     <b> Kinetic energy flow approach by Zivi (heterogeneous model) </b></li>
+ <li>     <b> Empirical momentum flux approach by Chisholm (heterogeneous model) </b></li>
+</ul>
+</p>
+<p>
+These approaches for the void fraction <b>epsilon</b> imply a correlation for the slip ratio. The slip ratio is defined as ratio of the velocity from the gaseous phase to the liquid phase at two phase flow.
+The effects of different fluid flow velocities of the phases on two phase pressure loss can be considered with the slip ratio in the heterogeneous approaches. The slip ratio for the homogeneous approach is unity, so that there is no difference in the velocities of the two phases (e.g., usable for bubble flow).
+</p>
+<p>
+<b>Geodetic pressure loss</b>:
+</p>
+<p>
+The geodetic pressure loss <b>dp_geo</b> can be considered (geodeticPressureLoss=true) for two phase flow according to <i>[VDI 2006, p.Lbb 1, eq. 4]</i> :
+<pre>
+    dp_geo = (epsilon*rho_g +(1-epsilon)*rho_l)*g*L*sin(phi)
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> epsilon        </b></td><td> as void fraction [-],</td></tr>
+<tr><td><b> rho_l          </b></td><td> as density of the liquid phase [kg/m3],</td></tr>
+<tr><td><b> rho_g          </b></td><td> as density of the gaseous phase [kg/m3],</td></tr>
+<tr><td><b> g              </b></td><td> as acceleration of gravity [m/s2],</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> phi            </b></td><td> as angle to horizontal [rad].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Friedel </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_1.png\">
+</p>
+<p>
+The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Chisholm </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_4.png\">
+</p>
+<h4>References</h4>
+<dl>
+<dt>Chisholm,D.:</dt>
+    <dd><b>Pressure gradients due to friction during the flow of evaporating two-phase mixtures in smooth tubes and channels</b>.
+    Volume 16th of International Journal of Heat and Mass Transfer, 1973.</dd>
+ <dt>Friedel,L.:</dt>
+    <dd><b>IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW</b>.3R International, Vol. 18, Issue 7, pp. 485-491, 1979.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 10th edition, 2006.</dd>
+<dt>J.M. Jensen and H. Tummescheit:</dt>
+    <dd><b>Moving boundary models for dynamic simulations of two-phase flows</b>.
+    In Proceedings of the 2nd International Modelica Conference, pages 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.</dd>
+<dt>Thome, J.R.:</dt>
+    <dd><b>Engineering Data Book 3</b>.Swiss Federal Institute of Technology Lausanne (EPFL), 2009.</dd>
+</dl>
+</html>
+"));
+    end dp_twoPhaseOverall;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end StraightPipe;
+
+    package Valve
+      extends Modelica.Icons.Information;
+
+    class dp_severalGeometryOverall
+     extends Modelica.Icons.Information;
+    annotation(Documentation(info="
+<html>
+<p>
+Calculation of pressure loss for a valve with different geometries at overall flow regime for incompressible and single-phase fluid flow in dependence of its opening.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> developed fluid flow </b>
+ </li>
+ <li>
+      <b> ball valve </b>
+ </li>
+ <li>
+      <b> diaphragm valve </b>
+ </li>
+ <li>
+      <b> butterfly valve </b>
+ </li>
+ <li>
+      <b> gate valve </b>
+ </li>
+ <li>
+      <b> sluice valve </b>
+ </li>
+</ul>
+</p>
+<h4>Geometry</h4>
+<p>
+Wide variations in valve geometry are possible and a manufacturer will not necessarily maintain geometric similarity between valves of the same type but of different size. Here pressure loss can be estimated for the following types of a valve:
+<ul>
+ <li>
+      <b> ball valve </b>
+ </li>
+ <li>
+      <b> diaphragm valve </b>
+ </li>
+ <li>
+      <b> butterfly valve </b>
+ </li>
+ <li>
+      <b> gate valve </b>
+ </li>
+ <li>
+      <b> sluice valve </b>
+ </li>
+</ul>
+</p>
+<h4>Calculation</h4>
+<p>
+The mass flow rate <b> m_flow </b> for valves out of pressure loss is determined by:
+<pre>
+    m_flow = [rho * dp * Av^2 / (zeta_TOT/2]^0.5
+    m_flow = (2/zeta_TOT)^0.5 * Av * (rho * dp)^0.5
+    m_flow = valveCharacteristic * Av * (rho * dp)^0.5
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> rho                        </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> Av                         </b></td><td> as (metric) flow coefficient (cross sectional area) [m^2],</td></tr>
+<tr><td><b> m_flow                     </b></td><td> as mass flow rate [kg/s],</td></tr>
+<tr><td><b> valveCharacteristic        </b></td><td> as coefficient of a valve in dependence of its opening [-],</td></tr>
+<tr><td><b> velocity                   </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta_TOT                   </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+
+<p>
+The <b>valveCharacteristic</b> is determined out of a correlation for the pressure loss coefficient (<b>zeta_TOT</b>) in dependence of its opening. The reason for introducing an additional variable
+<b>valveCharacteristic</b> is a different definition of the following pressure loss correlations of valves.
+</p>
+<p>
+The pressure loss calculation for valves of several geometries is further documented <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_severalGeometryOverall\">dp_severalGeometryOverall</a>.
+</p>
+<h4>Verification</h4>
+<p>
+The pressure loss coefficient (<b>zeta_TOT</b>) of a valve with different geometries are shown in dependence of the <b>opening</b> in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_zetaVsOpening.png\">
+</p>
+<p>
+Note that the pressure loss coefficients (<b>zeta_TOT</b>) are numerically optimised for very small openings (opening &le; 5%). At openings smaller than 5% the pressure loss coefficient is smoothly set
+to a maximum value (<b>zeta_TOT_max</b>) to be adjusted as parameter. Therefore a very small leakage mass flow rate can be adjusted for a given pressure difference at almost closed valves. A very small
+leakage mass flow rate can often be neglected in system simulation with valves, whereas the numerical behaviour of the simulation is improved.
+</p>
+<p>
+The mass flow rate of different valves at a constant opening of 50% in dependence of pressure loss is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/fig_valve_dp_severalGeometryOverall_MFLOWvsDP.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    Volume 5th of BHRA Fluid Engineering Series. BHRA Fluid Engineering, 1978.</dd>
+</dl>
+</html>
+"));
+    end dp_severalGeometryOverall;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end Valve;
+
+      annotation (__Dymola_DocumentationClass=true);
+    end PressureLoss;
+
+      package HeatTransfer
+        import Modelica;
+        extends Modelica.Icons.Information;
+
+        package Channel
+        extends Modelica.Icons.Information;
+
+        class kc_evenGapLaminar
+          extends Modelica.Icons.Information;
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
+</p>
+<h4>Functions <b>kc_evenGapLaminar</b> and <b>kc_evenGapLaminar_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_evenGapLaminar</b>  is using <b>kc_evenGapLaminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_evenGapLaminar_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> laminar regime (Reynolds number &le; 2200)</li>
+<li> developed fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=1)</li>
+   <li> heat transfer from both sides of the gap (target=2)</li>
+   </ul>
+<li> undeveloped fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=3)</li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       </ul>
+   <li> heat transfer from both sides of the gap (target=4)</li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000</li>
+       </ul>
+   </ul>
+</ul>
+</p>
+<h4><a name=\"geometry\">Geometry</h4>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"\"></p>
+
+<h4><a name=\"calculation\">Calculation </a></h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
+<pre>
+    Nu_lam = [(Nu_1)^3 + (Nu_2)^3 + (Nu_3)^3]^(1/3)
+</pre>
+</p>
+<p>
+with the corresponding mean convective heat transfer coefficient <b> kc </b> :
+</p>
+<p>
+<pre>
+    kc =  Nu_lam * lambda / d_hyd
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> cp                      </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> d_hyd = 2*s             </b></td><td> as hydraulic diameter of gap [m],</td></tr>
+<tr><td><b> eta                     </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> h                       </b></td><td> as height of cross sectional area in gap [m],</td></tr>
+<tr><td><b> kc                      </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda                  </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L                       </b></td><td> as overflowed length of gap (normal to cross sectional area) [m] ,</td></tr>
+<tr><td><b> Nu_lam                  </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda      </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho                     </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> s                       </b></td><td> as distance between parallel plates of cross sectional area [m],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta    </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s].</td></tr>
+</table>
+</p>
+<p>
+The summands for the mean Nusselt number <b> Nu_lam </b> at a chosen fluid flow and heat transfer situation are calculated as follows:
+<ul>
+<li> developed fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=1) </li>
+        <ul>
+            <li> Nu_1 = 4.861</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = 0</li>
+        </ul>
+   <li> heat transfer from both sides of the gap (target=2)</li>
+        <ul>
+            <li> Nu_1 = 7.541</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = 0</li>
+        </ul>
+   </ul>
+<li> undeveloped fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=3)</li>
+        <ul>
+            <li> Nu_1 = 4.861</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)</li>
+        </ul>
+   <li> heat transfer from both sides of the gap (target=4)</li>
+        <ul>
+            <li> Nu_1 = 7.541</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)</li>
+        </ul>
+   </ul>
+</ul>
+</p>
+<p>
+Note that the fluid properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu_lam </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
+the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+
+</html>"));
+        end kc_evenGapLaminar;
+
+        class kc_evenGapOverall
+          extends Modelica.Icons.Information;
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for an laminar or turbulent fluid flow through an even gap at different fluid flow and heat transfer situations.
+</p>
+
+<h4>Functions <b>kc_evenGapOverall</b> and <b>kc_evenGapOverall_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_evenGapOverall</b> is using <b>kc_evenGapOverall_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_evenGapOverall_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_evenGapOverall_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> developed fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=1) </li>
+   <li> heat transfer from both sides of the gap (target=2) </li>
+   </ul>
+<li> undeveloped fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=3) </li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       </ul>
+   <li> heat transfer from both sides of the gap (target=4) </li>
+   <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000 </li>
+       </ul>
+   </ul>
+<li> turbulent regime always calculated for developed fluid flow and heat transfer from both sides of the gap (target=2)</li>
+</ul>
+</p>
+<h4>Geometry and Calculation </h4>
+
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar\">kc_evenGapLaminar</a>  and <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent\">kc_evenGapTurbulent</a>. 
+</p>
+<p>
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <b>kc_evenGapLaminar</b>  
+and <b>kc_evenGapTurbulent</b>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below). </p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids in dependence of
+the chosen fluid flow and heat transfer situations (targets) is shown in the figures below.
+</p>
+<p>
+<ul>
+   <li> Target 1: Developed fluid flow and heat transfer from one side of the gap</li>
+   <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
+   <li> Target 3: Undeveloped fluid flow and heat transfer from one side of the gap</li>
+   <li> Target 4: Undeveloped fluid flow and heat transfer from both sides of the gap</li>
+</ul>
+</p>
+<p>
+The verification for all targets is shown in the following figure w.r.t. the reference:
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_evenGapOverall;
+
+        class kc_evenGapTurbulent
+          extends Modelica.Icons.Information;
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides.
+</p>
+<h4>Functions <b>kc_evenGapTurbulent</b> and <b>kc_evenGapTurbulent_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_evenGapTurbulent</b> is using <b>kc_evenGapTurbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_evenGapTurbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> identical and constant wall tempertures</li>
+<li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1</li>
+<li> 0.5 &le; Prandtl number Pr &le; 100) </li>
+<li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
+<li> developed fluid flow</li>
+<li> heat transfer from both sides of the gap (Target = 2)</li>
+</ul>
+</p>
+
+<h4><a name=\"Geometry\"> Geometry </a> </h4>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"\"></p>
+
+<h4><a name=\"calculation\">Calculation </a></h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
+<pre>
+    Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
+</pre>
+</p>
+
+<p>
+where the pressure loss coefficient <b> zeta </b> according to <i> Konakov in [VDI 2002, p. Ga 5, eq. 27]</i> is determined by
+<pre>
+    zeta =  1/[1.8*log10(Re) - 1.5]^2
+</pre>
+</p>
+
+<p>
+resulting to the corresponding mean convective heat transfer coefficient <b> kc </b>
+<pre>
+    kc =  Nu_turb * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> cp                      </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> d_hyd = 2*s             </b></td><td> as hydraulic diameter of gap [m],</td></tr>
+<tr><td><b> eta                     </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> h                       </b></td><td> as height of cross sectional area in gap [m],</td></tr>
+<tr><td><b> kc                      </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda                  </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L                       </b></td><td> as overflowed length of gap (normal to cross sectional area) [m] ,</td></tr>
+<tr><td><b> Nu_turb                 </b></td><td> as mean Nusselt number for turbulent regime [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda      </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho                     </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> s                       </b></td><td> as distance between parallel plates of cross sectional area [m],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta    </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s],</td></tr>
+<tr><td><b> zeta                    </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the fluid flow properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu_turb </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
+the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
+<ul>
+   <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
+</ul>
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_evenGapTurbulent;
+
+        end Channel;
+
+        package General
+        extends Modelica.Icons.Information;
+
+        class kc_approxForcedConvection
+          extends Modelica.Icons.Information;
+            annotation (Documentation(info="<html>
+<p>
+Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
+</p>
+
+<h4>Functions <b>kc_approxForcedConvection</b> and <b>kc_approxForcedConvection_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_approxForcedConvection</b> is using <b>kc_approxForcedConvection_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_approxForcedConvection_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_approxForcedConvection_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> Constant wall temperature <b> or </b> constant heat flux
+<li> Turbulent regime (Reynolds number 2500 &lt; Re &lt; 1e6)
+<li> Prandtl number 0.5 &le; Pr &le; 500
+</ul>
+</p>
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> is approximated through different Nusselt number <b> Nu </b> correlations out of <i>[Bejan 2003, p. 424 ff]</i>. <br>
+Roughest approximation according to Dittus/Boelter (1930):
+<pre>
+    Nu_1 = 0.023 * Re^(4/5) * Pr^(exp_Pr)
+</pre>
+</p>
+<p>
+Middle approximation according to Sieder/Tate (1936) considering the temperature dependence of the fluid properties:
+<pre>
+    Nu_2 = 0.023 * Re^(4/5) * Pr^(1/3) * (eta/eta_wall)^(0.14)
+</pre>
+</p>
+<p>
+Finest approximation according to Gnielinski (1976):
+<pre>
+    Nu_3 = 0.0214 * [Re^(0.8) - 100] * Pr^(0.4) for Pr &le; 1.5
+         = 0.012 * [Re^(0.87) - 280] * Pr^(0.4) for Pr &gt; 1.5
+</pre>
+</p>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> is calculated by:
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> eta                          </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> eta_wall                     </b></td><td> as dynamic viscosity of fluid at wall temperature [Pa.s],</td></tr>
+<tr><td><b> exp_Pr                       </b></td><td> as exponent for Prandtl number w.r.t. Dittus/Boelter (0.4 for heating or 0.3 for cooling) [-],</td></tr>
+<tr><td><b> kc                           </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda                       </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> d_hyd                        </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> Nu_1/2/3                     </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr                           </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re                           </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below. </p>
+<p><b>Dittus/Boelter</b> (Target = 1)
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T1.png\">
+</p>
+<p>
+<b>Sieder/Tate</b> (Target = 2)
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T2.png\">
+</p>
+<p>
+<b>Gnielinski</b> (Target = 3)
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/fig_kc_approxForcedConvection_T3.png\">
+</p>
+<p>
+Note that all fluid properties shall be calculated with the mean temperature of the fluid between the entrance and the outlet of the generic device.
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+</dl>
+
+</html>"));
+        end kc_approxForcedConvection;
+        end General;
+
+        package HeatExchanger
+        extends Modelica.Icons.Information;
+
+        class kc_flatTube
+          extends Modelica.Icons.Information;
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
+</p>
+<h4>Fuctions <b>kc_flatTube</b> and <b>kc_flatTube_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_flatTube</b> is using <b>kc_flatTube_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_flatTube_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_flatTube_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> According to the kind of fin geometry the calculation is valid in a range of <b> Re</b> from 100 to 5000. </li>
+<li> medium = air </li>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_flatTube.png\", width=850>
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> for heat exchanger is calculated through the corresponding Coulburn factor <b> j </b>:
+<pre>
+    j = f(geometry, Re)
+</pre>
+</p>
+<p>
+with the resulting mean convective heat transfer coefficient <b> kc </b>
+<pre>
+    kc =  j * Re_L_p * Pr^(1/3) * lambda / L_p (Louver fin)
+</pre>
+</p>
+
+ <p>
+or
+<pre>
+    kc =  j * Re_D_h * Pr^(1/3) * lambda / D_h (Rectangular offset strip fin)
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> D_h                        </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> kc                         </b></td><td> as mean convective heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> lambda                     </b></td><td> as heat conductivity of fluid [W/(mK)],</td></tr>
+<tr><td><b> L_p                        </b></td><td> as louver pitch [m],</td></tr>
+<tr><td><b> Nu_D_h = kc*D_h/lambda     </b></td><td> as mean Nusselt number based on hydraulic diameter [-], </td></tr>
+<tr><td><b> Nu_L_p = kc*L_p/lambda     </b></td><td> as mean Nusselt number based on louver pitch [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda         </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re_D_h = rho*v*D_h/eta     </b></td><td> as Reynolds number based on hydraulic diameter [-],</td></tr>
+<tr><td><b> Re_L_p = rho*v*L_p/eta     </b></td><td> as Reynolds number based on louver pitch [-],</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different fin geometries at similar dimensions.
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_flatTube_kc.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Y.-J. CHANG and C.-C. WANG:</dt>
+    <dd><b>A generalized heat transfer correlation for louver fin geometry</b>.
+    In International Journal of Heat and Mass Transfer, volume 40, No. 3,  pages 533-544, 1997.</dd>
+ <dt>Y.-J. CHANG and C.-C. WANG:</dt>
+    <dd><b>Air Side Performance of Brazed Aluminium Heat Exchangers</b>.
+    In Journal of Enhanced Heat Transfer, volume 3, No. 1,  pages 15-28, 1996.</dd>
+ <dt>R.-M. Manglik, A.-E. Bergles:</dt>
+    <dd><b>Heat Transfer and Pressure Drop Correlations for the Rectangular Offset Strip Fin Compact Heat Exchanger</b>.
+    In Experimental Thermal and Fluid Science, volume 10, pages 171-180, 1995.</dd>
+</dl>
+
+</html>
+"));
+        end kc_flatTube;
+
+        class kc_roundTube
+          extends Modelica.Icons.Information;
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
+</p>
+<h4>Fuctions <b>kc_roundTube</b> and <b>kc_roundTube_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_roundTube</b> is using <b>kc_roundTube_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_roundTube_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_roundTube_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> According to the kind of fin geometry the calculation is valid in a range of <b> Re</b> from 300 to 8000. </li>
+<li> medium = air </li>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/pic_roundTube.png\", width=850>
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> for heat exchanger is calculated through the corresponding Coulburn factor <b> j </b>:
+<pre>
+    j = f(geometry, Re)
+</pre>
+</p>
+<p>
+with the resulting mean convective heat transfer coefficient <b> kc </b>
+<pre>
+    kc =  j * Re * Pr^(1/3) * lambda / D_c
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> D_c                        </b></td><td> as fin collar diameter [m],</td></tr>
+<tr><td><b> kc                         </b></td><td> as mean convective heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> lambda                     </b></td><td> as heat conductivity of fluid [W/(mK)],</td></tr>
+<tr><td><b> Nu = kc*D_c/lambda         </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda         </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re = rho*v*D_c/eta         </b></td><td> as Reynolds number [-],</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different fin geometries at similar dimensions.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/fig_roundTube_kc.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>C.-C. Wang, C.-T. Chang:</dt>
+    <dd><b>Heat and mass transfer for plate fin-and-tube heat exchangers, with and without hydrophilic coating</b>.
+    In International Journal of Heat and Mass Transfer, volume 41, pages 3109-3120, 1998.</dd>
+ <dt>C.-C. Wang, C.-J. Lee, C.-T. Chang, S.-P. Lina:</dt>
+    <dd><b>Heat transfer and friction correlation for compact louvered fin-and-tube heat exchangers</b>.
+    In International Journal of Heat and Mass Transfer, volume 42, pages 1945-1956, 1999.</dd>
+ <dt>C.-C. Wang, W.-H. Tao, C.-J. Chang:</dt>
+    <dd><b>An investigation of the airside performance of the slit fin-and-tube heat exchangers</b>.
+    In International Journal of Refrigeration, volume 22, pages 595-603, 1999.</dd>
+ <dt>C.-C. Wang, W.-L. Fu, C.-T. Chang:</dt>
+    <dd><b>Heat Transfer and Friction Characteristics of Typical Wavy Fin-and-Tube Heat Exchangers</b>.
+    In Experimental Thermal and Fluid Science, volume 14, pages 174-186, 1997.</dd>
+</dl>
+
+</html>
+"));
+        end kc_roundTube;
+
+        end HeatExchanger;
+
+        package HelicalPipe
+        extends Modelica.Icons.Information;
+
+        class kc_laminar
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="
+<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
+</p>
+<h4>Functions <b>kc_laminar</b> and <b>kc_laminar_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_laminar</b> is using <b>kc_laminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_laminar_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_laminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+  <li> laminar regime (Reynolds number &le; critical Reynolds number <b> Re_crit</b>) </li>
+  <li> neglect influence of heat transfer direction (heating/cooling) according to <i>Sieder and Tate </i> </li>
+</ul>
+</p>
+<p>
+The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its mean curvature diameter <b> d_coil </b>.
+The smaller the mean curvature diameter of the helical pipe, the
+earlier the turbulent regime will start due to vortexes out of higher
+centrifugal forces.
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+</p>
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Gc 2, eq. 5]</i> :
+<pre>    Nu = 3.66 + 0.08*[1 + 0.8*(d_hyd/d_coil)^0.9]*Re^m*Pr^(1/3)<br></pre>
+</p>
+<p>
+with the exponent <b> m </b> for the Reynolds number
+<pre>    m = 0.5 + 0.2903*(d_hyd/d_coil)^0.194</pre>
+</p>
+<p>
+and the resulting mean convective heat transfer coefficient <b> kc </b>
+<pre>    kc =  Nu * lambda / d_hyd</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+
+  <tbody>
+    <tr>
+      <td><b> d_mean                     </b></td>
+      <td> as mean diameter of helical pipe [m],</td>
+    </tr>
+
+    <tr>
+      <td><b> d_coil = f(geometry)       </b></td>
+      <td> as mean curvature diameter of helical pipe [m],</td>
+    </tr>
+
+    <tr>
+      <td><b> d_hyd                      </b></td>
+      <td> as hydraulic diameter of the helical pipe [m],</td>
+    </tr>
+
+    <tr>
+      <td><b> h                          </b></td>
+      <td> as slope of helical pipe [m],</td>
+    </tr>
+
+    <tr>
+      <td><b> kc                         </b></td>
+      <td> as mean convective heat transfer coefficient [W/(m2K)],</td>
+    </tr>
+
+    <tr>
+      <td><b> lambda                     </b></td>
+      <td> as heat conductivity of fluid [W/(mK)],</td>
+    </tr>
+
+    <tr>
+      <td><b> L                          </b></td>
+      <td> as total length of helical pipe [m],</td>
+    </tr>
+
+    <tr>
+      <td><b> Nu = kc*d_hyd/lambda       </b></td>
+      <td> as mean Nusselt number [-], </td>
+    </tr>
+
+    <tr>
+      <td><b> Pr = eta*cp/lambda         </b></td>
+      <td> as Prandtl number [-],</td>
+    </tr>
+
+    <tr>
+      <td><b> Re = rho*v*d_hyd/eta       </b></td>
+      <td> as Reynolds number [-],</td>
+    </tr>
+
+    <tr>
+      <td><b> Re_crit = f(geometry)      </b></td>
+      <td> as critical Reynolds number [-].</td>
+    </tr>
+
+  </tbody>
+</table>
+</p>
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_laminar.png\">
+</p>
+<p>The convective heat transfer of a helical pipe is enhanced compared
+to a straight pipe due to occurring turbulences resulting out of
+centrifugal forces. The higher the number of turns, the better is the
+convective heat transfer for the same length of a pipe.
+</p>
+<p>
+Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_hyd/L </b> has no remarkable influence on the coefficient of heat transfer <b> kc </b>.
+</p>
+<h4>References</h4>
+<dl>
+ <dt>GNIELINSKI, V.:</dt>
+    <dd><b>Heat transfer and pressure drop in helically coiled tubes.</b>.
+    In 8th International Heat Transfer Conference, volume 6, pages 2847-2854, Washington,1986. Hemisphere.</dd>
+</dl>
+</html>
+"));
+        end kc_laminar;
+
+        class kc_overall
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
+</p>
+<h4>Functions <b>kc_overall</b> and <b>kc_overall_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_overall</b> is using <b>kc_overall_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_overall_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_overall_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Geometry and Calculation </h4>
+
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\">kc_laminar</a>  and <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">kc_turbulent</a>. 
+
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <b>kc_laminar</b>  
+and <b>kc_turbulent</b>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below). </p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_overall.png\">
+</p>
+
+<p>
+The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
+</p>
+
+<p>
+Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_hyd/L </b> has no remarkable influence on the coefficient of heat transfer <b> kc </b>.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>GNIELINSKI, V.:</dt>
+    <dd><b>Heat transfer and pressure drop in helically coiled tubes.</b>.
+    In 8th International Heat Transfer Conference, volume 6, pages 2847?2854, Washington,1986. Hemisphere.</dd>
+</dl>
+</html>
+
+
+
+"));
+        end kc_overall;
+
+        class kc_turbulent
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
+</p>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
+
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_turbulent</b> is using <b>kc_turbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).
+</li>
+<li>
+Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<p>
+The critical Reynolds number <b> Re_crit </b> in a helical pipe depends on its mean curvature diameter. The smaller the mean curvature diameter of the helical pipe <b> d_mean </b>, the earlier the turbulent regime will start due to vortexes out of higher centrifugal forces.
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/pic_helicalPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> for helical pipes is calculated through the corresponding Nusselt number <b> Nu </b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
+<pre>
+    Nu = (zeta_TOT/8)*Re*Pr/{1 + 12.7*(zeta_TOT/8)^0.5*[Pr^(2/3)-1]},
+</pre>
+</p>
+<p>
+where the influence of the pressure loss on the heat transfer calculation is considered through
+<pre>
+    zeta_TOT = 0.3164*Re^(-0.25) + 0.03*(d_hyd/d_coil)^(0.5) and
+</pre>
+</p>
+
+<p>
+and the resulting mean convective heat transfer coefficient <b> kc </b>
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_mean                     </b></td><td> as mean diameter of helical pipe [m],</td></tr>
+<tr><td><b> d_coil = f(geometry)       </b></td><td> as mean curvature diameter of helical pipe [m],</td></tr>
+<tr><td><b> d_hyd                      </b></td><td> as hydraulic diameter of the helical pipe [m],</td></tr>
+<tr><td><b> h                          </b></td><td> as slope of helical pipe [m],</td></tr>
+<tr><td><b> kc                         </b></td><td> as mean convective heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> lambda                     </b></td><td> as heat conductivity of fluid [W/(mK)],</td></tr>
+<tr><td><b> L                          </b></td><td> as total length of helical pipe [m],</td></tr>
+<tr><td><b> Nu = kc*d_hyd/lambda       </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda         </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta       </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> Re_crit = f(geometry)      </b></td><td> as critical Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown below for different numbers of turns <b> n_nt </b> at constant total length of the helical pipe.
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/fig_helicalPipe_kc_turbulent.png\">
+</p>
+
+<p>
+The convective heat transfer of a helical pipe is enhanced compared to a straight pipe due to occurring turbulences resulting out of centrifugal forces. The higher the number of turns, the better is the convective heat transfer for the same length of a pipe.
+</p>
+
+<p>
+Note that the ratio of hydraulic diameter to total length of helical pipe <b> d_hyd/L </b> has no remarkable influence on the coefficient of heat transfer <b> kc </b>.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>GNIELINSKI, V.:</dt>
+    <dd><b>Heat transfer and pressure drop in helically coiled tubes.</b>.
+    In 8th International Heat Transfer Conference, volume 6, pages 2847?2854, Washington,1986. Hemisphere.</dd>
+</dl>
+</html>
+"));
+        end kc_turbulent;
+
+        end HelicalPipe;
+
+        package Plate
+        extends Modelica.Icons.Information;
+
+        class kc_laminar
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. 
+</p>
+<h4>Functions <b>kc_laminar</b> and <b>kc_laminar_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_laminar</b> is using <b>kc_laminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_laminar_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_laminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> laminar regime (Reynolds number &le; 1e5)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
+<pre>
+    Nu_lam = 0.664 * Re^(0.5) * (Pr)^(1/3)
+</pre>
+</p>
+<p>
+and the corresponding mean convective heat transfer coefficient <b> kc </b>:
+<pre>
+    kc =  Nu_lam * lambda / L
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> cp                 </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> eta                </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> kc                 </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda         </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L              </b></td><td> as length of plate [m],</td></tr>
+<tr><td><b> Nu_lam                  </b></td><td> as mean Nusselt number for laminar regime [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda           </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho          </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> Re = rho*v*L/eta    </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> in the laminar regime representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_laminar.png\" width=\"600\">
+</p>
+<p>
+Note that this function is best used in the laminar regime up to a Reynolds number <b> Re </b> smaller than 2300. There is a deviation w.r.t. literature due to the neglect of the turbulence influence in the transition regime even though this function is used inside its cited restrictions for a higher Reynolds number. The function <a href=\"kc_overall.html\">  kc_overall</a> is recommended for the simulation of a Reynolds number higher than 2300.
+</p>
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_laminar;
+
+        class kc_overall
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface. 
+</p>
+<h4>Functions <b>kc_overall</b> and <b>kc_overall_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_overall</b> is using <b>kc_overall_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_overall_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_overall_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> constant wall temperature</li>
+<li> overall regime (Reynolds number 1e1 &lt; Re &lt; 1e7)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
+</ul>
+</p>
+
+<h4>Geometry and Calculation </h4>
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar\">kc_laminar</a>  and <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent\">kc_turbulent</a>. 
+</p>
+<p>
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <b>kc_laminar</b>  
+and <b>kc_turbulent</b>. A smooth transition between both functions is carried out between 1e5 &le; Re &le; 5e5 (see figure below). 
+</p>
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_overall.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_overall;
+
+        class kc_turbulent
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface.
+</p>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_turbulent</b> is using <b>kc_turbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> constant wall temperature</li>
+<li> turbulent regime (Reynolds number 5e5 &lt; Re &lt; 1e7)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i>[VDI 2002, p. Gd 1, eq. 2]</i>:
+<pre>
+    Nu_turb = (0.037 * Re^0.8 * Pr) / (1 + 2.443/Re^0.1 * (Pr^(2/3)-1))
+</pre>
+</p>
+<p>
+and the corresponding mean convective heat transfer coefficient <b> kc </b>:
+<pre>
+    kc =  Nu_turb * lambda / L
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> cp          </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> eta          </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> kc          </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda         </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L              </b></td><td> as length of plate [m],</td></tr>
+<tr><td><b> Nu_turb                 </b></td><td> as mean Nusselt number for turbulent regime [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda           </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho          </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> Re = v*rho*L/eta    </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+<h4>Verification</h4>
+<p>
+The mean Nusselt number in turbulent regime <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_turbulent.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_turbulent;
+        end Plate;
+
+        package StraightPipe
+        extends Modelica.Icons.Information;
+
+        class kc_laminar
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow.
+</p>
+<h4>Functions <b>kc_laminar</b> and <b>kc_laminar_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_laminar</b> is using <b>kc_laminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_laminar_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_laminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> circular cross sectional area</li>
+<li> uniform wall temperature (UWT) <b> or </b> uniform heat flux (UHF)</li>
+<li> hydrodynamically developed fluid flow (DFF) <b> or </b> hydrodynamically undeveloped fluid flow (UFF)</li>
+<li> 0.6 &le; Prandtl number &le; 1000</li>
+<li> laminar regime (Reynolds number &le; 2000)</li>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> of a straight pipe in the laminar regime can be calculated for the following four heat transfer boundary conditions through its corresponding Nusselt number <b> Nu </b>:
+</p>
+<p>
+<b> Uniform wall temperature in developed fluid flow (heatTransferBoundary = 1)</b> according to <i>[VDI 2002, p. Ga 2, eq. 6]</i> :
+<pre>
+    Nu_TD = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3]^1/3
+</pre>
+</p>
+<p>
+<b> Uniform heat flux in developed fluid flow (heatTransferBoundary == 2)</b> according to <i>[VDI 2002, p. Ga 4, eq. 19]</i> :
+<pre>
+    Nu_qD = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3]^1/3
+</pre>
+</p>
+<p>
+<b> Uniform wall temperature in undeveloped fluid flow (heatTransferBoundary = 3)</b> according to <i>[VDI 2002, p. Ga 2, eq. 12]</i> :
+<pre>
+    Nu_TU = [3.66^3 + 0.7^3 + {1.615*(Re*Pr*d_hyd/L)^1/3 - 0.7}^3 + {(2/[1+22*Pr])^1/6*(Re*Pr*d_hyd/L)^0.5}^3]^1/3
+</pre>
+</p>
+<p>
+<b> Uniform heat flux in developed fluid flow (heatTransferBoundary == 4)</b> according to <i>[VDI 2002, p. Ga 5, eq. 25]</i> :
+<pre>
+    Nu_qU = [4.364^3 + 0.6^3 + {1.953*(Re*Pr*d_hyd/L)^1/3 - 0.6}^3 + {0.924*Pr^1/3*[Re*d_hyd/L]^0.5}^3]^1/3.
+</pre>
+</p>
+<p>
+The corresponding mean convective heat transfer coefficient <b> kc </b> is determined w.r.t. the chosen heat transfer boundary by:
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd                    </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> kc                       </b></td><td> as mean convective heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> lambda                   </b></td><td> as heat conductivity of fluid [W/(mK)],</td></tr>
+<tr><td><b> L                        </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> Nu = kc*d_hyd/lambda     </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda       </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta     </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> v                        </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> depending on four different heat transfer boundary conditions is shown in the figures below.
+</p>
+<p>
+This verification has been done with the fluid properties of Water (Prandtl number Pr = 7) and a diameter to pipe length fraction of 0.1.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_laminar.png\">
+</p>
+<h4>References</h4>
+<dl>
+ <dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_laminar;
+
+        class kc_overall
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped laminar or turbulent fluid flow with neglect <b> or </b> consideration of pressure loss influence.
+</p>
+<h4>Functions <b>kc_overall</b> and <b>kc_overall_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_overall</b> is using <b>kc_overall_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_overall_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_overall_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> circular cross sectional area </li>
+<li> uniform wall temperature (UWT) <b> or </b> uniform heat flux (UHF) </li>
+<li> hydrodynamically developed fluid flow </li>
+<li> hydraulic diameter / length &le; 1 </li>
+<li> 0.6 &le; Prandtl number &le; 1000 </li>
+</ul>
+</p>
+<h4>Geometry and Calculation </h4>
+
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar\">kc_laminar</a>  and <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent\">kc_turbulent</a>. 
+</p>
+<p>
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <b>kc_laminar</b>  
+and <b>kc_turbulent</b>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 10000 (see figure below). </p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> is shown for the fluid properties of Water (Prandtl number Pr = 7) and a diameter to pipe length fraction of 0.1 in the figure below.
+</p>
+
+<p>
+The following verification considers pressure loss influence (roughness =2).
+</p>
+
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_overall.png\">
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_overall;
+
+        class kc_turbulent
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence.
+</p>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_turbulent</b> is using <b>kc_turbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> circular cross sectional area </li>
+<li> hydrodynamically developed fluid flow </li>
+<li> hydraulic diameter / length &le; 1 </li>
+<li> 0.6 &le; Prandtl number &le; 1000 </li>
+<li> turbulent flow regime (1e4 &le; Reynolds number &le; 1e6) </li>
+</ul>
+</p>
+<h4>Geometry </h4>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
+</p>
+
+<h4>Calculation</h4>
+<p>
+<b>Neglect pressure loss influence (roughness == 1):</b>
+</p>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> for smooth straight pipes is calculated through its corresponding Nusselt number <b> Nu </b> according to <i> [Dittus and Boelter in Bejan 2003, p. 424, eq. 5.76]</i>
+<pre>
+    Nu = 0.023 * Re^(4/5) * Pr^(1/3).
+</pre>
+</p>
+
+<p>
+<b>Consider pressure loss influence (roughness == 2):</b>
+</p>
+
+<p>
+The mean convective heat transfer coefficient <b> kc </b> for rough straight pipes is calculated through its corresponding Nusselt number <b> Nu </b> according to <i>[Gnielinski in VDI 2002, p. Ga 5, eq. 26]</i>
+<pre>
+    Nu = (zeta/8)*Re*Pr/(1 + 12.7*(zeta/8)^0.5*(Pr^(2/3)-1))*(1+(d_hyd/L)^(2/3)),
+</pre>
+</p>
+<p>
+where the influence of the pressure loss on the heat transfer calculation is considered through
+<pre>
+    zeta =  (1.8*log10(Re)-1.5)^-2.
+</pre>
+</p>
+<p>
+The mean convective heat transfer coefficient <b> kc </b> in dependence of the chosen calculation (neglecting or considering of pressure loss influence) results into:
+<pre>
+    kc =  Nu * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd                      </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> kc                         </b></td><td> as mean convective heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> lambda                     </b></td><td> as heat conductivity of fluid [W/(mK)],</td></tr>
+<tr><td><b> L                          </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> Nu = kc*d_hyd/lambda       </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda         </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta       </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> v                          </b></td><td> as mean velocity [m/s],</td></tr>
+<tr><td><b> zeta                       </b></td><td> as pressure loss coefficient [-]. </td></tr>
+</table>
+</p>
+
+<p>
+Note that there is no significant difference for the calculation of the mean Nusselt number <b> Nu </b> at a uniform wall temperature (UWT) or a uniform heat flux (UHF) as heat transfer boundary in the turbulent regime (Bejan 2003, p.303).
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figures below.
+</p>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_straightPipe_kc_turbulent.png\">
+</p>
+
+<p>
+Note that the higher the Prandtl number <b> Pr </b> there is a higher difference in Nusselt numbers <b> Nu </b> comparing the neglect and consideration of pressure loss.
+</p>
+
+
+<h4>References</h4>
+<dl>
+  <dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+</html>
+"));
+        end kc_turbulent;
+
+        class kc_twoPhaseOverall
+          extends Modelica.Icons.Information;
+
+            annotation (Documentation(info="<html>
+<p>
+Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime.
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+  <li>circular cross sectional area </li>
+  <li>no subcooled boiling </li>
+  <li>film condensation </li>
+</ul>
+</p>
+
+<h4>Geometry </h4>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\"/></p>
+
+<h4>Calculation</h4>
+<p><b>Boiling in a horizontal pipe (target = 1):</b></p>
+<p>
+The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in a <b>horizontal</b> straight pipe for an overall regime is calculated according to <i>[Gungor/Winterton 1986, p.354, eq. 2]</i> :
+
+<pre>
+    kc_2ph = E_fc*E_fc_hor*kc_fc+S_nb+S_nb_hor*kc_nb
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> Bo</b>=qdot_A/(mdot_A*dh_lv)  </td><td> as boiling number [-],</td></tr>
+<tr><td><b> dh_lv                         </b></td><td> as evaporation enthalpy [J/kg],</td></tr>
+<tr><td><b> E_fc</b>=f(Bo,Fr_l,X_tt)      </td><td> as forced convection enhancement factor [-],</td></tr>
+<tr><td><b> E_fc_hor</b> =f(Fr_l)         </td><td> as forced convection enhancement factor for horizontal straight pipes [-],</td></tr>
+<tr><td><b> Fr_l                          </b></td><td> as Froude number assuming total mass flow rate flowing as liquid [-],</td></tr>
+<tr><td><b> kc_2ph                        </b></td><td> as local two phase heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> kc_fc                         </b></td><td> as heat transfer coefficient considering forced convection [W/(m2K)],</td></tr>
+<tr><td><b> kc_nb                         </b></td><td> as heat transfer coefficient considering nucleate boiling [W/(m2K)],</td></tr>
+<tr><td><b> mdot_A                        </b></td><td> as total mass flow rate density [kg/(m2s)],</td></tr>
+<tr><td><b> qdot_A                        </b></td><td> as heat flow rate density [W/m2],</td></tr>
+<tr><td><b> Re_l                          </b></td><td> as Reynolds number assuming liquid mass flow rate flowing alone [-],</td></tr>
+<tr><td><b> S_nb</b> =f(E_fc,Re_l)        </td><td> as suppression factor of nucleate boiling [-],</td></tr>
+<tr><td><b> S_nb_hor</b> =f(Fr_l)         </td><td> as suppression factor of nucleate boiling for horizontal straight pipes [-],</td></tr>
+<tr><td><b> x_flow                        </b></td><td> as mass flow rate quality [-],</td></tr>
+<tr><td><b> X_tt</b> = f(x_flow)          </td><td> as Martinelli parameter [-].</td></tr>
+</table>
+</p>
+
+<p><b>Boiling in a vertical pipe (target = 2):</b></p>
+<p>
+The local two phase heat transfer coefficient <b> kc_2ph </b> during boiling in a <b>vertical</b> straight pipe for an overall regime is calculated out of the correlations for boiling in a horizontal straight pipe, where the horizontal correction factors <b> E_fc_hor,S_nb_hor</b> are unity.
+</p>
+<p>
+Please note that the correlations named above are not valid for subcooled boiling due to a different driving temperature for nucleate boiling and forced convection. At subcooled boiling there is no enhancement factor (no vapour generation) but the suppression factor remains effective.
+</p>
+
+<p><b>Condensation in a horizontal pipe (target = 3):</b></p>
+<p>
+The local two phase heat transfer coefficient <b> kc_2ph </b> during condensation in a <b>horizontal</b> straight pipe for an overall regime is calculated according to <i>[Shah 1979, p.548, eq. 8]</i> :
+</p>
+<p>
+<pre>
+  kc_2ph = kc_1ph*[(1 - x_flow)^0.8 + 3.8*x_flow^0.76*(1 - x_flow)^0.04/p_red^0.38]
+</pre>
+</p>
+
+<p>
+where the convective heat transfer coefficient <b> kc_1ph </b> assuming the total mass flow rate is flowing as liquid according to <i>[Shah 1979, p.548, eq. 5]</i> :
+</p>
+
+<p>
+<pre>
+  kc_1ph = 0.023*Re_l^0.8*Pr_l^0.4*lambda_l/d_hyd
+ </pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd                        </b></td><td> as hydraulic diameter [m],</td></tr>
+<tr><td><b> kc_2ph                       </b></td><td> as local two phase heat transfer coefficient [W/(m2K)],</td></tr>
+<tr><td><b> kc_1ph                       </b></td><td> as convective heat transfer coefficient assuming total mass flow rate is flowing as liquid [W/(m2K)],</td></tr>
+<tr><td><b> lambda_l                     </b></td><td> as thermal conductivity of fluid  [W/(mK)],</td></tr>
+<tr><td><b> pressure                     </b></td><td> as thermodynamic pressure of fluid [Pa],</td></tr>
+<tr><td><b> p_crit                       </b></td><td> as critical pressure of fluid [Pa],</td></tr>
+<tr><td><b> p_red</b> = pressure/p_crit  </td><td> as reduced pressure [-],</td></tr>
+<tr><td><b> Pr_l                         </b></td><td> as Prandtl number assuming [-],</td></tr>
+<tr><td><b> Re_l                         </b></td><td> as Reynolds number assuming <b>total</b> mass flow rate is flowing as liquid [-],</td></tr>
+<tr><td><b> x_flow                       </b></td><td> as mass flow rate quality [-],</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>The local two phase heat transfer coefficient <b>kc_2ph </b> during for horizontal and vertical boiling as well as for horizontal condensation is shown for a straight pipe in the figures below.</p>
+
+<p><b>Boiling in a horizontal pipe (target = 1):</b></p>
+<p>
+Here the validation of the two phase heat transfer coefficient is shown for boiling in a horizontal straight pipe.
+</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_4.png\"/></p>
+
+<p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Gungor/Winterton</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Kattan/Thome</i> for R134a as medium.</p>
+<p>
+The two phase heat transfer coefficient increases with increasing mass flow rate quality up to a maximum value. After that there is a rapid decrease of (<b>kc_2ph </b>) with increasing (<b>x_flow </b>). This can be explained with a partial dryout of the pipe wall for a high mass flow rate quality.
+</p>
+
+<p><b>Condensation in a horizontal pipe (target = 3):</b></p>
+<p>
+Here the validation of the two phase heat transfer coefficient is shown for condensation in a horizontal straight pipe.
+</p>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/fig_kc_twoPhaseOverall_KC_2.png\"/></p>
+
+<p>The two phase heat transfer coefficient (<b>kc_2ph </b>) w.r.t. <i>Shah</i> is shown in dependence of the mass flow rate quality (<b>x_flow </b>) for different mass flow rate densities (<b>mdot_A </b>). The validation has been done with measurement results from <i>Dobson/Chato</i> for R134a as medium.</p>
+
+<h4>References</h4>
+<dl><dt>Bejan,A.: </dt>
+<dd><b>Heat transfer handbook</b>. Wiley, 2003. </dd>
+<dt>M.K. Dobson and J.C. Chato: </dt>
+<dd><b>Condensation in smooth horizontal tubes</b>. Journal of HeatTransfer, Vol.120, p.193-213, 1998. </dd>
+<dt>Gungor, K.E. and R.H.S. Winterton: </dt>
+<dd><b>A general correlation for flow boiling in tubes and annuli</b>, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986. </dd>
+<dt>N. Kattan and J.R. Thome: </dt>
+<dd><b>Flow boiling in horizontal pipes: Part 2 - new heat transfer data for five refrigerants.</b>. Journal of Heat Transfer, Vol.120. p.148-155, 1998. </dd>
+<dt>Shah, M.M.: </dt>
+<dd><b>A general correlation for heat transfer during film condensation inside pipes</b>. Int. J. Heat Mass Transfer, Vol.22, p.547-556, 1979.</dd>
+</dl></html>
+
+
+"));
+        end kc_twoPhaseOverall;
+
+        end StraightPipe;
+
+      end HeatTransfer;
+      annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
+<p>
+This package contains documentation that is used multiple times
+in several functions. To avoid duplication of the documentation, links
+are used in the respective functions to link to the corresponding shared
+documentation available in this package.
+</p>
+
+</html>"));
+    end SharedDocumentation;
+
     package Functions "Package for utility functions"
     extends Modelica.Icons.Package;
 
@@ -14033,7 +18208,7 @@ The gaseous and the liquid part of a fluid in a two phase flow are often discont
 </p>
 
 <p>
-A <b> mean density </b> assuming a continuous distribution out of a discontinuous two phase fluid flow situation can be calculated with a <b> homogeneous or a heterogeneous approach </b> (see <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP\">dp_twoPhaseOverall_DP</a>).</p>
+A <b> mean density </b> assuming a continuous distribution out of a discontinuous two phase fluid flow situation can be calculated with a <b> homogeneous or a heterogeneous approach </b> (see <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall\">dp_twoPhaseOverall_DP</a>).</p>
 <p>
 The following <b> modelling approaches </b> can be used to calculate the mean density of two phase flow:
 <ul>
@@ -14480,7 +18655,7 @@ This function calculates an approximation of the <b> inverse </b> for
 within &infin; > y > -1/e.  The relative deviation of this approximation for lambert's w function <b>x = W(y)</b> is diplayed in the following graph.
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/utilities/LambertW_deviation.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/LambertW_deviation.png\">
 </p>
 <p>
 For y > 10 and higher values the relative deviation is smaller 2%.
@@ -14630,7 +18805,7 @@ y=x*|x|
 For |x| &gt; 1 both functions return identical results.
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/utilities/SmoothPower.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/SmoothPower.png\">
 </p>
 <h4>References</h4>
 <dl>
@@ -14720,7 +18895,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 </ul>
 </p>
 <p>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/utilities/Stepsmoother.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/Stepsmoother.png\">
 </p>
 <h4>References</h4>
 <dl>
@@ -15353,7 +19528,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/channel/icon_channel.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/icon_channel.png")}));
         end Channel_i;
 
         partial model General_i "Icon for general heat transfer component"
@@ -15361,7 +19536,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/general/icon_general.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/general/icon_general.png")}));
         end General_i;
 
         partial model HeatExchanger_i
@@ -15370,7 +19545,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/heatExchanger/icon_heatExchanger.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
 
         partial model HelicalPipe_i "Icon for heat transfer in a helical pipe"
@@ -15378,14 +19553,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/helicalPipe/icon_helicalPipe.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/helicalPipe/icon_helicalPipe.png")}));
         end HelicalPipe_i;
 
         partial model Plate_i "Icon for heat transfer of a plate"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
-                    fileName="modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/plate/icon_plate.png")}));
+                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/icon_plate.png")}));
         end Plate_i;
 
         partial model StraightPipe_i
@@ -15394,7 +19569,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/heatTransfer/straightPipe/icon_straightPipe.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/straightPipe/icon_straightPipe.png")}));
 
         end StraightPipe_i;
       end HeatTransfer;
@@ -16320,7 +20495,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
-                    fileName="modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/icon_bend.png")}));
+                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/icon_bend.png")}));
         end Bend_i;
 
         partial model Channel_i "Icon for channel"
@@ -16328,7 +20503,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/channel/icon_channel.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/channel/icon_channel.png")}));
         end Channel_i;
 
         partial model General_i "Icon for general pressure drop"
@@ -16336,7 +20511,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/icon_general.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/icon_general.png")}));
         end General_i;
 
         partial model HeatExchanger_i
@@ -16344,7 +20519,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                   fileName=
-                  "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/heatExchanger/icon_heatExchanger.png")}));
+                  "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/heatExchanger/icon_heatExchanger.png")}));
         end HeatExchanger_i;
 
         partial model Orifice_i "Icon for orifice"
@@ -16352,7 +20527,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/icon_orifice.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/icon_orifice.png")}));
         end Orifice_i;
 
         partial model StraightPipe_i "Icon for straight pipe"
@@ -16360,14 +20535,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/straightPipe/icon_StraightPipe.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/icon_StraightPipe.png")}));
         end StraightPipe_i;
 
         partial model Valve_i "Icon for valve"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
-                    fileName="modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/Valve/icon_Valve.png")}));
+                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/Valve/icon_Valve.png")}));
         end Valve_i;
       end PressureLoss;
 
@@ -16691,19 +20866,8 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record StraightPipe "Input for straight pipe"
           extends Modelica.Icons.Record;
 
-          //choices
-          Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary
-            target =                                                             Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF
-            "Choice of heat transfer boundary condition" 
-            annotation (Dialog(group="Choices"));
-          Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
-            "Choice of considering surface roughness" 
-            annotation (Dialog(group="Choices"));
-
           SI.Diameter d_hyd=0.1 "Hydraulic diameter" 
             annotation (Dialog(group="Straight pipe"));
-          SI.Length K=0 "Roughness (average height of surface asperities)" annotation (
-              Dialog(group="Straight pipe", enable=roughness == Modelica.Fluid.Dissipation.Utilities.Types.Roughness.considered));
           SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
         end StraightPipe;
 
@@ -16843,17 +21007,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           SI.Area A_0=0.1*A_1 "Cross sectional area of vena contraction" 
             annotation (Dialog(group="Orifice"));
-          SI.Area A_1=PI*0.01^2/4 "Small cross sectional area of orifice" 
-            annotation (Dialog(group="Orifice"));
-          SI.Area A_2=A_1 "Large cross sectional area of orifice" 
-            annotation (Dialog(group="Orifice"));
           SI.Length C_0=0.1*C_1 "Perimeter of vena contraction" 
             annotation (Dialog(group="Orifice"));
-          SI.Length C_1=PI*0.01 "Small perimeter of orifice" 
+          SI.Area A_1=PI*0.01^2/4 "Large cross sectional area of orifice" 
             annotation (Dialog(group="Orifice"));
-          SI.Length C_2=C_1 "Large perimeter of orifice" 
-            annotation (Dialog(group="Orifice"));
-          SI.Length K=0 "roughness == average height of surface asperities" 
+          SI.Length C_1=PI*0.01 "Large perimeter of orifice" 
             annotation (Dialog(group="Orifice"));
           SI.Length L=1e-3 "Length of vena contraction" 
             annotation (Dialog(group="Orifice"));
@@ -16878,8 +21036,6 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           SI.Diameter d_hyd=0.1 "Hydraulic diameter" 
-            annotation (Dialog(group="Straight pipe"));
-          SI.Length K=0 "Roughness (average height of surface asperities)" 
             annotation (Dialog(group="Straight pipe"));
           SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
         end StraightPipe;
@@ -16959,6 +21115,20 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Roughness (absolute average height of surface asperities)"             annotation (Dialog(group="Bend"));
 
         end EdgedBend;
+
+        record SuddenChange "Input for sudden change of diameter"
+
+          extends Modelica.Icons.Record;
+
+          SI.Area A_1=PI*0.01^2/4 "Small cross sectional area of orifice" 
+            annotation (Dialog(group="Orifice"));
+          SI.Area A_2=A_1 "Large cross sectional area of orifice" 
+            annotation (Dialog(group="Orifice"));
+          SI.Length C_1=PI*0.01 "Small perimeter of orifice" 
+            annotation (Dialog(group="Orifice"));
+          SI.Length C_2=C_1 "Large perimeter of orifice" 
+            annotation (Dialog(group="Orifice"));
+        end SuddenChange;
       end PressureLoss;
     end Records;
 
@@ -17071,10 +21241,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     end Types;
   end Utilities;
 annotation (
-  preferedView="info",
   classOrder={"UsersGuide","Examples","HeatTransfer","PressureLoss","Utilities"},
   Documentation(info="<html>
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/FD2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/FD2.png\">
 
 <h2>  Library description </h2>
 
@@ -17119,4 +21288,5 @@ Germany<br>
 "),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics));
+
 end Dissipation;
