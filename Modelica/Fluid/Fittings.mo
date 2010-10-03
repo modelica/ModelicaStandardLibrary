@@ -33,18 +33,15 @@ package Fittings
 
       annotation (Documentation(info="<html>
 <p>
-This component models a curved bend. It is assumed that neither mass nor energy is stored
-in this component. The details of the model are described in package:
-</p>
-
-<blockquote><p>
-<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.CurvedBend\">Fittings.BaseClasses.Bends.CurvedBend</a>
-</p></blockquote>
-
-<p>
+This component models a <b>curved bend</b> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
 of pressure loss for a curved bend. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
+</p>
+
+<p>
+The details of the model are described in the 
+<a href=\"Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">documentation of the underlying function</a>.
 </p>
 </html>"));
     end CurvedBend;
@@ -85,19 +82,17 @@ might use this inverse function instead, in order to avoid the solution of a non
 
       annotation (Documentation(info="<html>
 <p>
-This component models an edged bend. It is assumed that neither mass nor energy is stored
-in this component. The details of the model are described in package:
-</p>
-
-<blockquote><p>
-<a href=\"Modelica.Fluid.Fittings.BaseClasses.Bends.EdgedBend\">Fittings.BaseClasses.Bends.EdgedBend</a>
-</p></blockquote>
-
-<p>
+This component models an <b>edged bend</b> in the overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness. It is expected that also compressible fluid flow can be handled up to about Ma = 0.3. It is assumed that neither mass nor energy is stored in this component.
 In the model basically a function is called to compute the mass flow rate as a function
-of pressure loss for a curved bend. Also the inverse of this function is defined, and a tool
+of pressure loss for an edged bend. Also the inverse of this function is defined, and a tool
 might use this inverse function instead, in order to avoid the solution of a nonlinear equation.
 </p>
+
+<p>
+The details of the model are described in the 
+<a href=\"Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_edgedOverall\">documentation of the underlying function</a>.
+</p>
+
 </html>"));
     end EdgedBend;
   end Bends;
@@ -1840,16 +1835,16 @@ The used sufficient criteria for monotonicity follows from:
           "= true, if total pressures are included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
         SI.AbsolutePressure p_total_a = port_a.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_a^2)^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if
-             show_totalPressures "Total pressure at port_a";
+          show_totalPressures "Total pressure at port_a";
         SI.AbsolutePressure p_total_b = port_b.p + 0.5 * m_flow^2 /((Modelica.Constants.pi/4 * data.diameter_b^2)^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if
-             show_totalPressures "Total pressure at port_a";
+          show_totalPressures "Total pressure at port_a";
         parameter Boolean show_portVelocities = false
           "= true, if port velocities are included for plotting"
            annotation (Evaluate=true, Dialog(tab="Advanced", group="Diagnostics"));
         SI.Velocity v_a = port_a.m_flow /(Modelica.Constants.pi/4 * data.diameter_a^2 * noEvent(if port_a.m_flow > 0 then Medium.density(state_a) else Medium.density(state_b))) if
-             show_portVelocities "Fluid velocity into port_a";
+          show_portVelocities "Fluid velocity into port_a";
         SI.Velocity v_b = port_b.m_flow /(Modelica.Constants.pi/4 * data.diameter_b^2 * noEvent(if port_b.m_flow > 0 then Medium.density(state_b) else Medium.density(state_a))) if
-             show_portVelocities "Fluid velocity into port_b";
+          show_portVelocities "Fluid velocity into port_b";
 
         // Variables
         Modelica.SIunits.Pressure dp_fg
@@ -2320,7 +2315,7 @@ no mass and no energy is stored in the curved bend.
 
 <p><b><font style=\"color: #ef9b13; \">Geometry</font></b> </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_circularBend.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png\">
 
 <h4><font color=\"#ef9b13\">Calculation</font></h4>
 
@@ -2441,7 +2436,7 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 
 <p>The pressure loss coefficient <b>zeta_TOT </b>of a curved bend in dependence of the Reynolds number <b>Re </b>for different relative curvature radii <b>R_0/d_hyd </b>and different angles of turning <b>delta </b>is shown in the figures below. </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOW.png\">
 
 <p>There are deviations of the pressure loss coefficient <b>zeta_TOT </b>comparing different references. Usually these deviations in the transition regime have to be accepted due to an uncertainty for the determination of comparable boundary conditions in the different references. Nevertheless these calculations cover the usual range of pressure loss coefficients for a curved bend. The pressure loss coefficient <b>zeta_TOT </b>for the same geometry can be adjusted via variing the average height of surface asperities <b>K </b>for calibration. </p>
 
@@ -2452,22 +2447,22 @@ where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b>
 The mass flow rate in dependence of the pressure loss of water is shown for different relative curvature radii:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\">
 
 <p>
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\">
 
 <p><b> Pressure loss = f_inv(m_flow)</b>: </p>
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different relative curvature radii: </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtRD.png\"/>
 
 <p>The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning: </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_curvedOverall_DPvsMFLOWwrtDelta.png\"/>
 
 <p>Note that there is a small deviation between the f(dp) and f_inv(m_flow)
 calculation due to the lack of a direct analytical inverse. </p>
@@ -2660,7 +2655,7 @@ This function shall be used inside of the restricted limits according to the ref
 
 <h4><font color=\"#EF9B13\">Geometry</font></h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/pic_edgedBend.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_edgedBend.png\">
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The pressure loss <b> dp </b> for edged bends is determined by:
@@ -2793,7 +2788,7 @@ Note that the correction of the pressure loss coefficient <b> zeta_TOT </b> is i
 <p>
 The pressure loss coefficient <b> zeta_TOT </b> of a edged bend in dependence of the Reynolds number <b> Re </b> for different angles of turning <b> delta </b> is shown in the figures below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_ZETAvsRE.png\">
 
 <p>
 Pressure loss calculation of edged bends is complex and there are large differences in literature data. Nevertheless these calculations cover the usual range of pressure loss coefficients for an edged bend.
@@ -2820,7 +2815,7 @@ The validation of the pressure loss coefficient for an edged bend shows four pos
 The mass flow rate in dependence of the pressure loss of water is shown for different angles of turning:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_MFLOWvsDPwrtDelta.png\">
 
 <p>
 <b> Pressure loss = f(m_flow) </b>:
@@ -2829,7 +2824,7 @@ The mass flow rate in dependence of the pressure loss of water is shown for diff
 The pressure loss in dependence of the mass flow rate of water is shown for different angles of turning:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/fig_bend_dp_edgedOverall_DPvsMFLOWwrtDelta.png\">
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -2984,134 +2979,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
           SI.Length venaLength "Length of vena contraction"
             annotation (Dialog);
 
-        package Choices "Choices for Geometry"
-          extends Modelica.Icons.Package;
-
-          function circular "Circular cross section"
-            import SI = Modelica.SIunits;
-            import Modelica.Constants.pi;
-
-            input SI.Diameter diameter "Inner diameter of circular orifice"
-              annotation(Dialog);
-            input SI.Diameter venaDiameter "Diameter of vena contraction"
-              annotation(Dialog);
-            input SI.Length venaLength "Length of vena contraction"
-              annotation (Dialog);
-
-             output ThickEdgedOrifice.Geometry geometry
-              "Geometry of circular thick edged orifice";
-          algorithm
-             geometry.crossArea := diameter^2*pi/4;
-             geometry.perimeter := pi*diameter;
-             geometry.venaCrossArea := venaDiameter^2*pi/4;
-             geometry.venaPerimeter := pi*venaDiameter;
-             geometry.venaLength := venaLength;
-            annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                    extent={{-100,-100},{100,100}}),
-                                graphics),
-                                 Icon(coordinateSystem(preserveAspectRatio=false,
-                             extent={{-100,-100},{100,100}}), graphics={Ellipse(
-                    extent={{-80,80},{80,-80}},
-                    lineColor={0,0,0},
-                    fillColor={255,255,255},
-                    fillPattern=FillPattern.Solid)}),
-              DymolaStoredErrors,
-              Documentation(revisions="",
-                  info="<html>
-<p>
-Function that returns the ThickEdgedOrifice.Geometry for a circular
-cross section of the orifice.
-</p>
-</html>"));
-          end circular;
-
-          function rectangular "Rectangular cross section"
-            import SI = Modelica.SIunits;
-            import Modelica.Constants.pi;
-
-            input SI.Length width "Inner width of rectangular orifice"
-              annotation(Dialog);
-            input SI.Length height "Inner height of rectangular orifice"
-              annotation(Dialog);
-            input SI.Length venaWidth "Width of vena contraction"
-              annotation(Dialog);
-            input SI.Length venaHeight "Height of vena contraction"
-              annotation(Dialog);
-            input SI.Length venaLength "Length of vena contraction"
-              annotation (Dialog);
-
-             output ThickEdgedOrifice.Geometry geometry
-              "Geometry of circular thick edged orifice";
-          algorithm
-             geometry.crossArea := width*height;
-             geometry.perimeter := 2*width + 2*height;
-             geometry.venaCrossArea := venaWidth*venaHeight;
-             geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
-             geometry.venaLength := venaLength;
-            annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                    extent={{-100,-100},{100,100}}),
-                                graphics),
-                                 Icon(coordinateSystem(preserveAspectRatio=true,
-                             extent={{-100,-100},{100,100}}), graphics={Rectangle(
-                    extent={{-80,60},{80,-60}},
-                    lineColor={0,0,0},
-                    fillColor={255,255,255},
-                    fillPattern=FillPattern.Solid)}),
-              DymolaStoredErrors,
-              Documentation(revisions="",
-                  info="<html>
-<p>
-Function that returns the ThickEdgedOrifice.Geometry for a rectangular
-cross section of the orifice.
-</p>
-</html>"));
-          end rectangular;
-
-          function general "General cross section"
-            import SI = Modelica.SIunits;
-            import Modelica.Constants.pi;
-
-            input SI.Area crossArea "Inner cross sectional area"
-              annotation(Dialog);
-            input SI.Length perimeter "Inner perimeter"
-              annotation(Dialog);
-
-            input SI.Area venaCrossArea
-              "Cross sectional area of vena contraction"
-              annotation(Dialog);
-            input SI.Length venaPerimeter "Perimeter of vena contraction"
-              annotation(Dialog);
-            input SI.Length venaLength "Length of vena contraction"
-              annotation (Dialog);
-
-             output ThickEdgedOrifice.Geometry geometry
-              "Geometry of circular thick edged orifice";
-          algorithm
-             geometry.crossArea := crossArea;
-             geometry.perimeter := perimeter;
-             geometry.venaCrossArea := venaCrossArea;
-             geometry.venaPerimeter := venaPerimeter;
-             geometry.venaLength := venaLength;
-            annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                    extent={{-100,-100},{100,100}}),
-                                graphics),
-                                 Icon(coordinateSystem(preserveAspectRatio=false,
-                             extent={{-100,-100},{100,100}}), graphics={
-                                                   Polygon(
-                    points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},
-                    lineColor={0,0,0},
-                    fillColor={255,255,255},
-                    fillPattern=FillPattern.Solid)}),
-              DymolaStoredErrors,
-              Documentation(revisions="",
-                  info="<html>
-<p>
-Function that returns the ThickEdgedOrifice.Geometry for a general
-cross section of the orifice.
-</p>
-</html>"));
-          end general;
-        end Choices;
 
           annotation (Documentation(info="<html>
 <p>
@@ -3171,7 +3038,7 @@ This function shall be used within the restricted limits according to the refere
 
 <h4><font color=\"#EF9B13\">Geometry</font></h4>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/pic_thickEdged.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/pic_thickEdged.png\">
 
 <h4><font color=\"#EF9B13\">Calculation</font></h4>
 The pressure loss <b> dp </b> for a thick edged orifice is determined by:
@@ -3227,20 +3094,20 @@ phi = 0.25 + 0.535*l_bar^8 / (0.05 + l_bar^8) .
 <h4><font color=\"#EF9B13\">Verification</font></h4>
 The pressure loss coefficient <b> zeta_TOT </b> of a thick edged orifice in dependence of a relative length <b>(l_bar = L /d_hyd)</b> with different ratios of cross sectional areas <b> A_0/A_1 </b> is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_ZETAvsLENGHT.png\">
 
 <p>
 <b> Mass flow rate = f(dp) </b>:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_MFLOWvsDP.png\">
 
 <p>
 <b> Pressure loss = f(m_flow)</b>:
 </p>
 The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mass flow rate <b> m_flow </b> of water for different ratios <b>A_0/A_1</b> (where <b> A_0 </b> = 0.001 m^2) is shown in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/orifice/fig_orifice_thickEdgedOverall_DPvsMFLOW.png\">
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
@@ -3249,6 +3116,134 @@ The pressure loss <b> DP </b> of an thick edged orifice in dependence of the mas
     Jaico Publishing House,Mumbai,3rd edition, 2006.</dd>
 </dl>
 </html>"));
+      package Choices "Choices for Geometry"
+        extends Modelica.Icons.Package;
+
+        function circular "Circular cross section"
+            import SI = Modelica.SIunits;
+            import Modelica.Constants.pi;
+
+          input SI.Diameter diameter "Inner diameter of circular orifice"
+            annotation(Dialog);
+          input SI.Diameter venaDiameter "Diameter of vena contraction"
+            annotation(Dialog);
+          input SI.Length venaLength "Length of vena contraction"
+            annotation (Dialog);
+
+           output ThickEdgedOrifice.Geometry geometry
+              "Geometry of circular thick edged orifice";
+        algorithm
+           geometry.crossArea := diameter^2*pi/4;
+           geometry.perimeter := pi*diameter;
+           geometry.venaCrossArea := venaDiameter^2*pi/4;
+           geometry.venaPerimeter := pi*venaDiameter;
+           geometry.venaLength := venaLength;
+          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}}),
+                              graphics),
+                               Icon(coordinateSystem(preserveAspectRatio=false,
+                           extent={{-100,-100},{100,100}}), graphics={Ellipse(
+                  extent={{-80,80},{80,-80}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid)}),
+            DymolaStoredErrors,
+            Documentation(revisions="",
+                info="<html>
+<p>
+Function that returns the ThickEdgedOrifice.Geometry for a circular
+cross section of the orifice.
+</p>
+</html>"));
+        end circular;
+
+        function rectangular "Rectangular cross section"
+            import SI = Modelica.SIunits;
+            import Modelica.Constants.pi;
+
+          input SI.Length width "Inner width of rectangular orifice"
+            annotation(Dialog);
+          input SI.Length height "Inner height of rectangular orifice"
+            annotation(Dialog);
+          input SI.Length venaWidth "Width of vena contraction"
+            annotation(Dialog);
+          input SI.Length venaHeight "Height of vena contraction"
+            annotation(Dialog);
+          input SI.Length venaLength "Length of vena contraction"
+            annotation (Dialog);
+
+           output ThickEdgedOrifice.Geometry geometry
+              "Geometry of circular thick edged orifice";
+        algorithm
+           geometry.crossArea := width*height;
+           geometry.perimeter := 2*width + 2*height;
+           geometry.venaCrossArea := venaWidth*venaHeight;
+           geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
+           geometry.venaLength := venaLength;
+          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}}),
+                              graphics),
+                               Icon(coordinateSystem(preserveAspectRatio=true,
+                           extent={{-100,-100},{100,100}}), graphics={Rectangle(
+                  extent={{-80,60},{80,-60}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid)}),
+            DymolaStoredErrors,
+            Documentation(revisions="",
+                info="<html>
+<p>
+Function that returns the ThickEdgedOrifice.Geometry for a rectangular
+cross section of the orifice.
+</p>
+</html>"));
+        end rectangular;
+
+        function general "General cross section"
+            import SI = Modelica.SIunits;
+            import Modelica.Constants.pi;
+
+          input SI.Area crossArea "Inner cross sectional area"
+            annotation(Dialog);
+          input SI.Length perimeter "Inner perimeter"
+            annotation(Dialog);
+
+          input SI.Area venaCrossArea
+              "Cross sectional area of vena contraction"
+            annotation(Dialog);
+          input SI.Length venaPerimeter "Perimeter of vena contraction"
+            annotation(Dialog);
+          input SI.Length venaLength "Length of vena contraction"
+            annotation (Dialog);
+
+           output ThickEdgedOrifice.Geometry geometry
+              "Geometry of circular thick edged orifice";
+        algorithm
+           geometry.crossArea := crossArea;
+           geometry.perimeter := perimeter;
+           geometry.venaCrossArea := venaCrossArea;
+           geometry.venaPerimeter := venaPerimeter;
+           geometry.venaLength := venaLength;
+          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
+                  extent={{-100,-100},{100,100}}),
+                              graphics),
+                               Icon(coordinateSystem(preserveAspectRatio=false,
+                           extent={{-100,-100},{100,100}}), graphics={
+                                                 Polygon(
+                  points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},
+                  lineColor={0,0,0},
+                  fillColor={255,255,255},
+                  fillPattern=FillPattern.Solid)}),
+            DymolaStoredErrors,
+            Documentation(revisions="",
+                info="<html>
+<p>
+Function that returns the ThickEdgedOrifice.Geometry for a general
+cross section of the orifice.
+</p>
+</html>"));
+        end general;
+      end Choices;
       end ThickEdgedOrifice;
     end Orifices;
 
@@ -3418,14 +3413,14 @@ as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in
 the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_MFLOWvsDP.png\">
 
 <p>
 <b> Pressure loss = f(m_flow) </b>:
 </p>
 The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as parameter is shown in dependence of the volume flow rate <b> V_flow </b> in the figure below.
 
-<img src=\"modelica://Modelica/Resources/Images/FluidDissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/general/fig_general_dp_volumeFlowRate_DPvsMFLOW.png\">
 
 <h4><font color=\"#EF9B13\">References</font></h4>
 <dl>
