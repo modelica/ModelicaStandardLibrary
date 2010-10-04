@@ -114,7 +114,7 @@ The Electrical.Digital library is based on the following references:
     &lt;<A HREF=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</A>&gt;<br>
     Andr&eacute; Schneider
     &lt;<A HREF=\"mailto:Andre.Schneider@eas.iis.fraunhofer.de\">Andre.Schneider@eas.iis.fraunhofer.de</A>&gt;<br>
-    <a href=\"http://people.eas.iis.fraunhofer.de/Ulrich.Donath/\">Ulrich Donath</a>
+    Ulrich Donath
     &lt;<A HREF=\"mailto:Ulrich.Donath@eas.iis.fraunhofer.de\">Ulrich.Donath@eas.iis.fraunhofer.de</A>&gt;<br>
     Fraunhofer Institute for Integrated Circuits (IIS)<br>
     Design Automation Department (EAS)<br>
@@ -7629,8 +7629,8 @@ Clock transition definitions:
 Wires n input signals in one output signal, without delay.
 </P>
 <p>Resolution table is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-</HTML>",
-revisions="<html>
+</HTML>", revisions=
+          "<html>
 <ul>
 <li><i>January 22, 2010 </i> created by Ulrich Donath<br>
        </li>

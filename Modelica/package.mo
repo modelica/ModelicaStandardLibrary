@@ -755,11 +755,11 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 <h4>Lists</h4>
 
 <ol>
-<li> Items of a list shall start with </li>
+<li> Items of a list shall start with 
 <ul>
     <li> a capital letter if each item is a full sentence</li>
     <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
-</ul>
+</ul></li>
 </ol>
 
 <h5>Example 1</h5>
@@ -1322,7 +1322,7 @@ This class summarizes general information about the implementation which is not 
       &lt;td valign=\"top\"&gt;R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
               controlled induction machines,&quot;
-        Master&apos;s thesis, Vienna University of Technology,
+        Master&#39;;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -1366,7 +1366,7 @@ This class summarizes general information about the implementation which is not 
       <td valign=\"top\">R. W&ouml;hrnschimmel,
         &quot;Simulation, modeling and fault detection for vector
               controlled induction machines,&quot;
-        Master&apos;s thesis, Vienna University of Technology,
+        Master&#39;;s thesis, Vienna University of Technology,
         Vienna, Austria, 1998.</td>
     </tr>
     <tr>
@@ -1597,7 +1597,7 @@ This class summarizes contact information of the contributing persons.
 <ol>
 <li> Conventions of the <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> </li>
 <li> Consistent HTML documentation <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation\">UsersGuide</a> </li>
-<li> Structure to be provided by a main package</li>
+<li> Structure to be provided by a main package
 <ul>
      <li> <a href=\"modelica://Modelica.UsersGuide.Conventions.UsersGuide\">User's Guide</a></li>
      <li> <b>Examples</b> containing models demonstrating the usage of the library.</li>
@@ -1606,7 +1606,7 @@ This class summarizes contact information of the contributing persons.
      <li> <b>Sources</b></li>
      <li> <b>Interfaces</b> containing connectors and partial models.</li>
      <li> <b>Types</b> containing type, enumeration and choice definitions.</li>
-</ul>
+</ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
 </html>

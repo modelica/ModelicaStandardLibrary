@@ -503,9 +503,9 @@ end Conductor;
     annotation (
       Documentation(info="<html>
 <p>The transformer is a two port. The left port voltage <i>v1</i>, left port current <i>i1</i>, right port voltage <i>v2</i> and right port current <i>i2</i> are connected by the following relation:</p>
-<pre>         | v1 |         | L1   M  |  | i1&apos; |
+<pre>         | v1 |         | L1   M  |  | i1&#39;; |
          |    |    =    |         |  |     |
-         | v2 |         | M    L2 |  | i2&apos; |</pre>
+         | v2 |         | M    L2 |  | i2&#39;; |</pre>
 <p><i>L1</i>, <i>L2</i>, and <i>M</i> are the primary, secondary, and coupling inductances respectively.</p>
 </html>",
    revisions="<html>

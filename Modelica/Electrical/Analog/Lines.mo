@@ -66,7 +66,7 @@ package Lines
 <br>
 <br>Note, this is different to the lumped line model of SPICE.</p>
 <dl><dt><b>References:</b> </dt>
-<dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&apos;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
+<dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
 </dl></html>",
    revisions="<html>
 <ul>
@@ -417,7 +417,7 @@ The capacitances are calculated with: C=c*length/N.
 <br><br>Note, this is different compared with the lumped line model of SPICE.</p>
 <p><b>References</b></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
-<dd>SPICE3 Version 3e User&apos;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
+<dd>SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
 </dl></html>",
    revisions="<html>
 <ul>
@@ -477,7 +477,7 @@ The capacitances are calculated with: C=c*length/N.
      er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay TD. For further details see Branin&apos;s article below. The model parameters can be derived from inductance and capacitance per length (L&apos; resp. C&apos;), i. e. Z0 = sqrt(L&apos;/C&apos;) and TD = sqrt(L&apos;*C&apos;)*length_of_line. Resistance R&apos; and conductance C&apos; per meter are assumed to be zero.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;) and TD = sqrt(L&#39;;*C&#39;;)*length_of_line. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero.</p>
 <p><b>References:</b></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
@@ -560,7 +560,7 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay. For further details see Branin&apos;s article below. Resistance R&apos; and conductance C&apos; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&apos; resp. C&apos;), i. e. Z0 = sqrt(L&apos;/C&apos;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
+<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
 <p><b>References:</b></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
@@ -634,7 +634,7 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay. For further details see Branin&apos;s article below. Resistance R&apos; and conductance C&apos; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&apos; resp. C&apos;), i. e. Z0 = sqrt(L&apos;/C&apos;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the caracteristic impedance is called natural impedance.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the caracteristic impedance is called natural impedance.</p>
 <p><b>References:</b></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>

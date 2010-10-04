@@ -187,7 +187,7 @@ end inverter;
 </tr>
 <tr>
 <td valign=\"top\"><p>[Johnson1991]</p></td>
-<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&apos;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991) <a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf\">SPICE3 user's manual</a></p></td>
+<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&#39;;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991) <a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf\">SPICE3 user's manual</a></p></td>
 <td></td>
 </tr>
 <tr>
@@ -245,7 +245,7 @@ end inverter;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>Package Spice3 is a <b>free</b> Modelica package</p>
-<p>This is a short <b>User&apos;s Guide</b> for the overall library.</p>
+<p>This is a short <b>User&#39;;s Guide</b> for the overall library.</p>
 </html>",   revisions="<html>
 <ul>
 <li><i>Feb 2010 </i>by Kristin Majetta initially written</li>

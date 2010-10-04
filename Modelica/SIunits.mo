@@ -1873,7 +1873,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 </html>", revisions="<html>
 <p><ul>
 <li><i>Jan. 27, 2010</i> by Christian Kral:<br/>Added complex units.</li>
-<li><i>Dec. 14, 2005</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&apos;s Guide and removed &QUOT;min&QUOT; values for Resistance and Conductance.</li>
+<li><i>Dec. 14, 2005</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&#39;;s Guide and removed &QUOT;min&QUOT; values for Resistance and Conductance.</li>
 <li><i>October 21, 2002</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br/>Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
 <li><i>June 6, 2000</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Introduced the following new types<br/>type Temperature = ThermodynamicTemperature;<br/>types DerDensityByEnthalpy, DerDensityByPressure, DerDensityByTemperature, DerEnthalpyByPressure, DerEnergyByDensity, DerEnergyByPressure<br/>Attribute &QUOT;final&QUOT; removed from min and max values in order that these values can still be changed to narrow the allowed range of values.<br/>Quantity=&QUOT;Stress&QUOT; removed from type &QUOT;Stress&QUOT;, in order that a type &QUOT;Stress&QUOT; can be connected to a type &QUOT;Pressure&QUOT;.</li>
 <li><i>Oct. 27, 1999</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>New types due to electrical library: Transconductance, InversePotential, Damping.</li>
