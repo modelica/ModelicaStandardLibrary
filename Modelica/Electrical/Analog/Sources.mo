@@ -88,7 +88,7 @@ package Sources "Time-dependend and controlled voltage and current sources"
        </li>
 </ul>
 </html>", info="<html>
-<p>The signall voltage source is a parameterless converter of real valued signals into a the source voltage. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &QUOT;Opposite&QUOT; of a voltage sensor.</p>
+<p>The signall voltage source is a parameterless converter of real valued signals into a the source voltage. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &quot;Opposite&quot; of a voltage sensor.</p>
 </html>"));
   end SignalVoltage;
 
@@ -1451,7 +1451,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        </li>
 </ul>
 </html>", info="<html>
-<p>The signall current source is a parameterless converter of real valued signals into a the source currrent. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &QUOT;Opposite&QUOT; of a current sensor.</p>
+<p>The signall current source is a parameterless converter of real valued signals into a the source currrent. No further effects are modeled. The real valued signal has to be provided by components of the blocks library. It can be regarded as the &quot;Opposite&quot; of a current sensor.</p>
 </html>"));
   end SignalCurrent;
 

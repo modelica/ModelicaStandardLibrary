@@ -38,8 +38,8 @@ extends Modelica.Icons.Package;
 <p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
 <p>To parametrice more than one model two ways are possible:</p>
 <p><ol>
-<li>Apart record:<br>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br>&QUOT;inverterApartRecord&QUOT; this way is explained more in detail.</li>
-<li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &QUOT;inverterExtendedModel&QUOT; this way is explained more in detail.</li>
+<li>Apart record:<br>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
+<li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
 </ol></p>
 </html>"));
 
@@ -172,7 +172,7 @@ end inverter;
     annotation (Documentation(info="<html>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"0\"><tr>
 <td valign=\"top\"><p>[B&ouml;hme2009]</p></td>
-<td valign=\"top\"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &QUOT;Spice3 Modelica Library,&QUOT; <i>7th Modelica Conference</i>, Como, Italy (2009)</p></td>
+<td valign=\"top\"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <i>7th Modelica Conference</i>, Como, Italy (2009)</p></td>
 <td></td>
 </tr>
 <tr>
@@ -876,7 +876,7 @@ end inverter;
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics),
         Documentation(info="<html>
-<p>In nearly every electronic the basic circuit &QUOT;nand&QUOT; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
+<p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
@@ -1035,7 +1035,7 @@ end inverter;
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics),
         Documentation(info="<html>
-<p>In nearly every electronic the basic circuit &QUOT;nor&QUOT; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
+<p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
 <td><p>input voltage vin1</p></td>
@@ -1064,7 +1064,7 @@ end inverter;
 </tr>
 </table>
 <p>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v.</p>
-<p>The output value in the example shows a behaviour &QUOT;near&QUOT; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
+<p>The output value in the example shows a behaviour &quot;near&quot; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
@@ -1637,7 +1637,7 @@ The corresponding SPICE description
       v1 = 0;
       annotation (
         Documentation(info="<html>
-<p>The linear current-controlled voltage source is a TwoPort. The &QUOT;right&QUOT; port voltage at pin 2 (=p2.v) is controlled by the &QUOT;left&QUOT; port current at pin p1(=p1.i) via</p>
+<p>The linear current-controlled voltage source is a TwoPort. The &quot;right&quot; port voltage at pin 2 (=p2.v) is controlled by the &quot;left&quot; port current at pin p1(=p1.i) via</p>
 <pre>    p2.v = p1.i * transResistance.</pre>
 <p>The controlling port voltage is zero. Any transResistance can be chosen.</p>
 <p>The corresponding SPICE description</p>
@@ -1694,7 +1694,7 @@ The corresponding SPICE description
       v1 = 0;
       annotation (
         Documentation(info="<html>
-<p>The linear current-controlled current source is a TwoPort. The &QUOT;right&QUOT; port current at pin 2 (=p2.i) is controlled by the &QUOT;left&QUOT; port current at pin p1(=p1.i) via</p>
+<p>The linear current-controlled current source is a TwoPort. The &quot;right&quot; port current at pin 2 (=p2.i) is controlled by the &quot;left&quot; port current at pin p1(=p1.i) via</p>
 <pre>    p2.i = p1.i * gain.</pre>
 <p>The controlling port voltage is zero. Any current gain can be chosen.</p>
 <p>The corresponding SPICE description</p>
@@ -2993,7 +2993,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
                         graphics),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
-<p>Nonlinear voltage controlled voltage source. The &QUOT;right&QUOT; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &QUOT;left&QUOT; port vector of voltages at the pin vector pc[:] via</p>
+<p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
 <pre>    p2.v - n2.v = f(pc[1].v - pc[2].v, pc[3].v - pc[4].v,...)</pre>
 <p>The controlling port (left) current vector is zero.</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
@@ -3298,7 +3298,7 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
                         graphics),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
-<p>Nonlinear current controlled current source. The &QUOT;right&QUOT; port current at pin p2 (=p2.i) is controlled by the &QUOT;left&QUOT; port vector of currents at pin pc[:] via</p>
+<p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
 <pre>    p2.i = f(pc[2].i, pc[4].i,...)</pre>
 <p>The controlling port (left) voltage is zero for each pair: pc[2].v - pc[1].v = 0, ...</p><p>Furthermore the currents of each pair are pc[2].i + pc[1].i = 0, ...</p>
 <p>f is a polynomial in N variables s1...sN of the following form with M+1 coefficients a0, a1, a2,...aM.</p>
@@ -8374,7 +8374,7 @@ Sandra  Boehme
 </dl>
 <p><b>Copyright:</b></p>
 <p>Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.</p>
-<p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &QUOT;Modelica/package.mo&QUOT;.</i></p>
+<p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &quot;Modelica/package.mo&quot;.</i></p>
 </html>",
    revisions="<html>
 <ul>

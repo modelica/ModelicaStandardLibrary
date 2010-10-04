@@ -185,7 +185,7 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           extent={{-100,100},{-6,72}},
           textString="Heating \"NPN or\" Gate",
           lineColor={0,0,255})}),    Documentation(info="<html>
-<p>The heating &QUOT;NPN or&QUOT; gate shows a heat flow always if a transistor is leading.</p>
+<p>The heating &quot;NPN or&quot; gate shows a heat flow always if a transistor is leading.</p>
 <p>Simulate until T=200 s. Plot in separate windows:
 <br>V1.v and V2.v and C2.v
 <br>HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T
