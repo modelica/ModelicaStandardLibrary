@@ -1643,18 +1643,18 @@ The corresponding SPICE description
 <p>The corresponding SPICE description</p>
 <pre>    Hname N+ N- VNAM VALUE</pre>
 <p>is translated to Modelica:</p>
-<pre>    Hname -&GT; Spice3.Basic.H_CCV Hname
+<pre>    Hname -&gt; Spice3.Basic.H_CCV Hname
     (Hname is the name of the Modelica instance)
-    N+ -&GT; p2.v
-    N- -&GT; n2.v  </pre>
+    N+ -&gt; p2.v
+    N- -&gt; n2.v  </pre>
 <p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
 <pre>                   VNAM VN+ VN- VALUE_V</pre>
 <p>The current through VNAM hast to be led through the CCV.</p><p>Therefore VNAM has to be disconnected and an additional</p><p>node NV_AD has to be added.</p>
-<pre>    NV_AD -&GT; p1.i
-    NV- -&GT; n1.i</pre>
+<pre>    NV_AD -&gt; p1.i
+    NV- -&gt; n1.i</pre>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCV.</p>
 <pre>
-    VALUE -&GT; transResistance </pre>
+    VALUE -&gt; transResistance </pre>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -1700,19 +1700,19 @@ The corresponding SPICE description
 <p>The corresponding SPICE description</p>
 <pre>    Fname N+ N- VNAM VALUE</pre>
 <p>is translated to Modelica:</p>
-<pre>    Fname -&GT; Spice3.Basic.F_CCC Fname
+<pre>    Fname -&gt; Spice3.Basic.F_CCC Fname
     (Fname is the name of the Modelica instance)
-    N+ -&GT; p2.i
-    N- -&GT; n2.i  </pre>
+    N+ -&gt; p2.i
+    N- -&gt; n2.i  </pre>
 <p>The voltage source VNAM has the two nodes NV+ and NV-:</p>
 <pre>                   VNAM NV+ NV- VALUE_V</pre>
 <p>The current through VNAM hast to be led through the CCC.</p>
 <p>Therefore VNAM has to be disconnected and an additional</p>
 <p>node NV_AD has to be added.</p>
-<pre>    NV_AD -&GT; p1.i
-    NV- -&GT; n1.i</pre>
+<pre>    NV_AD -&gt; p1.i
+    NV- -&gt; n1.i</pre>
 <p>On this way the current, that flows through the voltage source VNAM, flows through the CCC.</p>
-<pre>    VALUE -&GT; gain </pre>
+<pre>    VALUE -&gt; gain </pre>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
@@ -3016,15 +3016,15 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
 <p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Ename -&GT; E_VCV_POLY name
-A1, A2 -&GT; pins name.p2, name.p1
-N -&GT; parameter N
-E11 -&GT; name.pc[2]
-E12 -&GT; name.pc[1]
+<pre>Ename -&gt; E_VCV_POLY name
+A1, A2 -&gt; pins name.p2, name.p1
+N -&gt; parameter N
+E11 -&gt; name.pc[2]
+E12 -&gt; name.pc[1]
 ...
-E1N -&GT; name.pc[N]
-E2N -&GT; name.pc[N-1]
-P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
+E1N -&gt; name.pc[N]
+E2N -&gt; name.pc[N-1]
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
 </html>", revisions="<html>
 <ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -3115,15 +3115,15 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
 <p>N is the number of the controlling voltages, E11 E12 ... E1N E2N are pairs of nodes between them the controlling voltages</p>
 <p>are gripped, and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Gname -&GT; G_VCC_POLY name
-A1, A2 -&GT; pins name.p2, name.p1
-N -&GT; parameter N
-E11 -&GT; name.pc[2]
-E12 -&GT; name.pc[1]
+<pre>Gname -&gt; G_VCC_POLY name
+A1, A2 -&gt; pins name.p2, name.p1
+N -&gt; parameter N
+E11 -&gt; name.pc[2]
+E12 -&gt; name.pc[1]
 ...
-E1N -&GT; name.pc[N]
-E2N -&GT; name.pc[N-1]
-P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
+E1N -&gt; name.pc[N]
+E2N -&gt; name.pc[N-1]
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
 </html>", revisions="<html>
 <ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -3213,9 +3213,9 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
 <pre>    Hname A1 A2 POLY(N) V1...VN P0 P1...</pre>
 <p>where Hname is the name of the instance, A1 and A2 are the nodes between them the controlled voltage is gripped.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Hname -&GT; H_CCV_POLY name
-A1, A2 -&GT; pins name.p2, name.p1
-N -&GT; parameter N</pre>
+<pre>Hname -&gt; H_CCV_POLY name
+A1, A2 -&gt; pins name.p2, name.p1
+N -&gt; parameter N</pre>
 <p>V1 (...VN) is declared in SPICE:</p>
 <pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
 <p>In Modelica the currents through V1...VN has to be led throught the CCV. Therefore V1...VN have to be disconnected and additional nodes</p>
@@ -3223,12 +3223,12 @@ N -&GT; parameter N</pre>
 <p>have to be added. In the case, that the SPICE source is</p>
 <pre>   V1 n+ n- 0,</pre>
 <p>this source can be eliminated.</p>
-<pre>V1_AD -&GT; name.pc[2]
-V1- -&GT; name.pc[1]
+<pre>V1_AD -&gt; name.pc[2]
+V1- -&gt; name.pc[1]
 ...
-VN_AD -&GT; name.pc[N]
-VN- -&GT; name.pc[N-1]
-P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
+VN_AD -&gt; name.pc[N]
+VN- -&gt; name.pc[N-1]
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre>
 </html>", revisions="<html>
 <ul>
@@ -3317,9 +3317,9 @@ P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
 <pre>    Fname A1 A2 POLY(N) V1...VN P0 P1...</pre>
 <p>where Fname is the name of the instance, A1 and A2 are the nodes between them the current source is arranged, whose current is calculated.</p><p>N is the number of the controlling currents, V1...VN are the voltage sources, that are necessary in SPICE to supply the controlling currents,</p><p>and P0, P1... are the coefficients that are called a0, a1, ... aM in the description of the polynomial f above.</p>
 <p>To describe the SPICE line in Modelica, the following explanation would be useful:</p>
-<pre>Fname -&GT; F_CCC_POLY name
-A1, A2 -&GT; pins name.p2, name.p1
-N -&GT; parameter N</pre>
+<pre>Fname -&gt; F_CCC_POLY name
+A1, A2 -&gt; pins name.p2, name.p1
+N -&gt; parameter N</pre>
 <p>V1 (...VN) is declared in SPICE:</p>
 <pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
 <p>In Modelica the currents through V1...VN has to be led throught the CCC. Therefore V1...VN have to be disconnected and additional nodes</p>
@@ -3327,12 +3327,12 @@ N -&GT; parameter N</pre>
 <p>have to be added. In the case, that the SPICE source is</p>
 <pre>   V1 n+ n- 0,</pre>
 <p>this source can be eliminated.</p>
-<pre>V1_AD -&GT; name.pc[2]
-V1- -&GT; name.pc[1]
+<pre>V1_AD -&gt; name.pc[2]
+V1- -&gt; name.pc[1]
 ...
-VN_AD -&GT; name.pc[N]
-VN- -&GT; name.pc[N-1]
-P0, P1 -&GT; polynomial coefficients name.coeff(coeff={P0,P1,...})
+VN_AD -&gt; name.pc[N]
+VN- -&gt; name.pc[N-1]
+P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </pre>
 </html>", revisions="<html>
 <ul>
