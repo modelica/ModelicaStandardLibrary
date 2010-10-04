@@ -13979,7 +13979,7 @@ The mean Nusselt number <b> Nu </b> in the laminar regime representing the mean 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_laminar.png\" width=\"600\">
 </p>
 <p>
-Note that this function is best used in the laminar regime up to a Reynolds number <b> Re </b> smaller than 2300. There is a deviation w.r.t. literature due to the neglect of the turbulence influence in the transition regime even though this function is used inside its cited restrictions for a higher Reynolds number. The function 
+Note that this function is best used in the laminar regime up to a Reynolds number <b> Re </b> smaller than 2300. There is a deviation w.r.t. literature due to the neglect of the turbulence influence in the transition regime even though this function is used inside its cited restrictions for a higher Reynolds number. The function
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">kc_overall</a> is recommended for the simulation of a Reynolds number higher than 2300.
 </p>
 <h4>References</h4>
@@ -20140,7 +20140,7 @@ annotation (
   Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/FD2.png\">
 
-<h2>  Library description </h2>
+<h4>  Library description </h4>
 
 This library contains <b>convective heat transfer</b> and  <b>pressure loss</b> functions written in
 Modelica&reg;. Generally the pressure loss calculations are based on incompressible fluids and total pressure difference. For devices with non changing cross sectional area, the calculated total pressure loss is equal to the static pressure difference. Geodetic pressure loss is not considered throughout the library. The functions supplied may be used separately.<br>
@@ -20150,7 +20150,7 @@ non-commercial models supplied by Modelica Standard Library. In order to work co
 ensure that this library is always loaded with <b> Modelica Standard Library version
 3.1</b> especially to be able to use Modelica.Fluid applications.<br>
 
-<h2>  Acknowledgements </h2>
+<h4>  Acknowledgements </h4>
 The following people contributed to the Fluid.Dissipation library (alphabetical list):
 J&ouml;rg Eiden, Ole Engel, Nina Peci, Sven Rutkowski, Thorben Vahlenkamp, Stefan
 Wischhusen.
@@ -20161,7 +20161,7 @@ project EuroSysLib-D by German Federal Ministry of Education and Research (promo
 reference 01IS07022B). The project is started in October 2007 and will end in March 2010.
 </p>
 
-<h2>  Licence condition </h2>
+<h4>  License condition </h4>
 <p>
 <b>Licensed by XRG-Simulation GmbH under the Modelica License 2</b><br>
 Copyright &copy; 2007-2010, XRG Simulation GmbH.
@@ -20171,7 +20171,7 @@ Copyright &copy; 2007-2010, XRG Simulation GmbH.
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 
-<h2>  Contact </h2>
+<h4>  Contact </h4>
 
 XRG Simulation GmbH<br>
 Harburger Schlossstrasse 6-12<br>

@@ -165,6 +165,7 @@ as illustrated in the phasor diagram of Fig. 2.
 
 <p>Due to the series connection of the resistor, inductor and capacitor, the three currents are all equal:</p>
 
+<p>
 <IMG BORDER=\"0\"
  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/ACCircuit/img5.png\">
 </p>

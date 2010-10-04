@@ -15,7 +15,7 @@ package UsersGuide "User's Guide"
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Overview of the Conept of Magnetic Flux Tubes</font></h3>
+<h4>Overview of the Concept of Magnetic Flux Tubes</h4>
 <p>
 Following below, the concept of magnetic flux tubes is outlined in short. For a detailed description of flux tube elements, please have a look at the listed literature. Magnetic flux tubes enable for modeling of magnetic fields with lumped networks. The figure below and the following equations illustrate the transition from the original magnetic field quantities described by <i>Maxwell</i>'s equations to network elements with a flow variable and an across variable:
 </p>
@@ -60,7 +60,7 @@ Network elements for sources of a magnetic potential difference or magnetomotive
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Calculation of reluctance forces from lumped magnetic network models</font></h3>
+<h4>Calculation of reluctance forces from lumped magnetic network models</h4>
 
 <p>
 Generally, the thrust <i>F</i> developed by a translatory electro-magneto-mechanical actuator (similar for the rotational case with torque and angular position) is equal to the change of magnetic co-energy <i>W<sub>m</sub><sup>*</sup></i> with armature position <i>x</i> according to
@@ -95,7 +95,7 @@ The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\
     extends Modelica.Icons.References;
 
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Literature</font></h3>
+<h4>Literature</h4>
 <ul>
 <li> Usage of the Modelica Magnetic library is described in:
 <dl>
@@ -146,7 +146,7 @@ Magna Physics Publishing and Oxford University Press 1994
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<h3><font color=\"#008000\" size=5>Contact</font></h3>
+<h4>Contact</h4>
 
 <dl>
 <dt><b>Main Author:</b></dt>
@@ -3609,7 +3609,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=1.05,
             c_a=27790,
             c_b=16,
-            n=10.4); annotation (
+            n=10.4);
+                     annotation (
             Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
@@ -3623,7 +3624,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=1.1,
             c_a=970,
             c_b=1.2,
-            n=8.3); annotation (Documentation(info="<html>
+            n=8.3);
+                    annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3636,7 +3638,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=1.17,
             c_a=8100,
             c_b=2.59,
-            n=10); annotation (Documentation(info="<html>
+            n=10);
+                   annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3649,7 +3652,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=0.94,
             c_a=5900,
             c_b=4.19,
-            n=6.4); annotation (Documentation(info="<html>
+            n=6.4);
+                    annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3671,7 +3675,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=0.7,
             c_a=24000,
             c_b=9.38,
-            n=9.6); annotation (Documentation(info="<html>
+            n=9.6);
+                    annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3687,7 +3692,8 @@ Sample: complete core after machining and packet assembling<br>
             B_myMax=1.16,
             c_a=24630,
             c_b=2.44,
-            n=14); annotation (Documentation(info="<html>
+            n=14);
+                   annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3704,7 +3710,8 @@ Measurement: Epstein frame
             B_myMax=1.25,
             c_a=12400,
             c_b=1.6,
-            n=13.5); annotation (Documentation(
+            n=13.5);
+                     annotation (Documentation(
               info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
@@ -3722,7 +3729,8 @@ Measurement: Epstein frame
             B_myMax=1.2,
             c_a=20750,
             c_b=3.55,
-            n=13.15); annotation (Documentation(
+            n=13.15);
+                      annotation (Documentation(
               info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
@@ -3740,7 +3748,8 @@ Measurement: Epstein frame
             B_myMax=1.26,
             c_a=17760,
             c_b=3.13,
-            n=13.9); annotation (Documentation(info="<html>
+            n=13.9);
+                     annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3767,7 +3776,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=1.27,
             c_a=44410,
             c_b=6.4,
-            n=10); annotation (Documentation(info="<html>
+            n=10);
+                   annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3783,7 +3793,8 @@ Source of B(H) characteristics: Product catalogue <i>Magnequench</i>, 2000
             B_myMax=1.15,
             c_a=187000,
             c_b=4.24,
-            n=19); annotation (Documentation(info="<html>
+            n=19);
+                   annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3805,7 +3816,8 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
             B_myMax=1.75,
             c_a=11790,
             c_b=2.63,
-            n=15.02); annotation (Documentation(info="<html>
+            n=15.02);
+                      annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3825,7 +3837,8 @@ Source of B(H) characteristics: VACUUMSCHMELZE GmbH &amp; Co. KG, Germany
             B_myMax=0.46,
             c_a=1037500,
             c_b=3.67,
-            n=10); annotation (Documentation(info="<html>
+            n=10);
+                   annotation (Documentation(info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.
 </p>
@@ -3844,7 +3857,8 @@ Source of B(H) characteristics:
             B_myMax=0.67,
             c_a=50000,
             c_b=2.39,
-            n=9.3); annotation (Documentation(
+            n=9.3);
+                    annotation (Documentation(
               info="<html>
 <p>
 Please refer to the description of  the enclosing package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Material.SoftMagnetic\">SoftMagnetic</a> for a description of all soft magnetic material characteristics of this package.

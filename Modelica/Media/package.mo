@@ -3,6 +3,7 @@ package Media "Library of media property models"
 extends Modelica.Icons.Package;
 import SI = Modelica.SIunits;
 
+
 package UsersGuide "User's Guide of Media Library"
   extends Modelica.Icons.Information;
 
@@ -2162,6 +2163,7 @@ This User's Guide has the following main parts:
 </HTML>"));
 end UsersGuide;
 
+
 package Examples
   "Demonstrate usage of property models (currently: simple tests)"
 
@@ -3842,6 +3844,7 @@ Modelica.Media.Examples.Tests.MediaTestModels.
 "));
 end Examples;
 
+
 package Interfaces "Interfaces for media models"
 
   extends Modelica.Icons.InterfacesPackage;
@@ -4785,8 +4788,13 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
           annotation (Evaluate=true);
 
       annotation (Documentation(info="<html>
-<h2>Enumerations and data types for all types of fluids</h2>
-<p>Note: Reference enthalpy might have to be extended with enthalpy of formation.</p>
+<p>
+Enumerations and data types for all types of fluids
+</p>
+
+<p>
+Note: Reference enthalpy might have to be extended with enthalpy of formation.
+</p>
 </html>"));
     end Choices;
 
@@ -6586,6 +6594,7 @@ kind of media.
 </HTML>"));
 end Interfaces;
 
+
 package Common "data structures and fundamental functions for fluid properties"
 
   extends Modelica.Icons.Package;
@@ -8360,6 +8369,7 @@ provide a package in the following way:
       </address>
 </html>"));
 end Common;
+
 
 annotation (
   Documentation(info="<HTML>
