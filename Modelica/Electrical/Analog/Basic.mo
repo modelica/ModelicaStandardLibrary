@@ -1988,7 +1988,7 @@ end M_Transformer;
 <br><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.
 <br>The capacitance <i>C</i> is given as input signal. 
 It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system, 
-C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
+C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>
 <ul>
@@ -2054,7 +2054,7 @@ C = Cmin, if 0 &le; C &LT; Cmin, where Cmin is a parameter with default value Mo
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
 <br><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.
 <br>The inductance <i>L</i> is as input signal.
-It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &LT; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
+It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &lt; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>
 <ul>

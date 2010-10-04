@@ -5372,9 +5372,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
 <pre>
-      k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
-      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
-      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre>
+      k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
+      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
+      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre>
 <li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number </li>
 </ul></p>
 <pre>      zeta_LOC = A1*B1*C1</pre>
@@ -14638,9 +14638,9 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
 <pre>      zeta_LOC = k_Re * (A1*B1*C1)</pre>
 <p>where <b>k_Re</b> depends on the relative curvature radius <b>R_0/d_hyd </b></p>
 <pre>
-      k_Re = 1 + 4400/Re              for 0.50 &LT; r/d_hyd &LT; 0.55
-      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &LT; 0.70
-      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &LT; 3.00</pre></li>
+      k_Re = 1 + 4400/Re              for 0.50 &lt; r/d_hyd &lt; 0.55
+      k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
+      k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></li>
 <li><p><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number </p>
 <pre>      zeta_LOC = A1*B1*C1</pre></li>
 </ul></p>
