@@ -363,10 +363,10 @@ voltages and currents. The main characteristics of the library are:
       Higher harmonic voltages and currents are not considered.</li>
   <li>Any electrical transient effects are negelcted.</li>
   <li>The electrical components of this library are strictly linear.</li>
-  <li>The angular frequency <eq>omega</eq> of the voltages and currents of
-      a circuit are determined from a reference angle <eq>gamma</eq> by means of
-      <eq>omega = der(gamma)</eq>. </li>
-  <li>The reference angle <eq>gamma</eq> is not a global quantity
+  <li>The angular frequency <code>omega</code> of the voltages and currents of
+      a circuit are determined from a reference angle <code>gamma</code> by means of
+      <code>omega = der(gamma)</code>. </li>
+  <li>The reference angle <code>gamma</code> is not a global quantity
       since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>The connectors contain the real and the imaginary part of the voltage and the current
