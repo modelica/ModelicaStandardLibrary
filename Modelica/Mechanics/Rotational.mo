@@ -3238,8 +3238,10 @@ connected to other elements in an appropriate way.
       Real interpolation_result[1, size(lossTable, 2) - 1];
       Real eta_mf1;
       Real eta_mf2;
-      Real tau_bf_a;
-      Real tau_eta;
+      Real tau_bf_a "Bearing friction torque on flange_a side";
+      Real tau_eta
+        "Torque that determines the driving side (= if forwardSliding then flange_a.tau-tau_bf_a else if backwardSliding then flange_a.tau+tau_bf_a else flange_a.tau)";
+
       Real tau_bf1;
       Real tau_bf2;
 
@@ -3262,6 +3264,8 @@ connected to other elements in an appropriate way.
       SI.Torque tauLossMax_p "Torque loss for positive speed";
       SI.Torque tauLossMin_m "Torque loss for negative speed";
 
+      Boolean tau_aPos(start=true)
+        "Only for backwards compatibility (was previously: true, if torque of flange_a is not negative)";
       Boolean tau_etaPos(start=true) "true, if torque tau_eta is not negative";
       Boolean startForward(start=false) "true, if starting to roll forward";
       Boolean startBackward(start=false) "true, if starting to roll backward";
@@ -3368,6 +3372,7 @@ connected to other elements in an appropriate way.
 
       // Torque Losses
       tau_etaPos = tau_eta >= 0;
+      tau_aPos   = tau_etaPos;
       tauLossMax = if tau_etaPos then quadrant1 else quadrant2;
       tauLossMin = if tau_etaPos then quadrant4 else quadrant3;
 
