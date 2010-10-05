@@ -1688,6 +1688,9 @@ end M_Transformer;
 </html>"));
     end FCNq_sum_limit;
 
+  initial equation
+    v_source = q_fp1;
+    x = 0;
   equation
   assert(Rout > 0.0, "Rout must be > 0.0.");
 
@@ -1727,11 +1730,6 @@ end M_Transformer;
     der(q_fp1) = 2.0*Pi*fp1*(q_sum_help - q_fp1);
 
   // slew rate stage
-     if initial() then
-        v_source = q_fp1;
-        x = 0;
-     end if;
-
      der(x) = (q_fp1 - v_source)/Ts;
      der(v_source) = smooth(0,noEvent(
      if der(x) > sr_p_val then sr_p_val else
