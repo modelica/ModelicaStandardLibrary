@@ -193,12 +193,11 @@ operator record Complex "Complex number with overloaded operators"
 
 annotation (__Dymola_Protection(hideFromBrowser=true),
 version="1.0",
-versionBuild=1,
+versionBuild=2,
 versionDate="2010-03-24",
 dateModified = "2010-01-26 19:32:58Z",
 revisionId="$Id::                                       $",
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
-</html>"),
-    uses(Modelica(version="3.2")));
+</html>"));
 end Complex;
