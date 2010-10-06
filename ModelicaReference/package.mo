@@ -1,9 +1,9 @@
 within ;
 package ModelicaReference "Modelica Reference"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
 class ModelicaGrammar "Modelica Grammar"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
   annotation (Documentation(info="<html><head>
 <style type=\"text/css\">
@@ -234,9 +234,9 @@ typographic conventions are used:
 end ModelicaGrammar;
 
 package Annotations "Annotations"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   class choices "choices"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -284,7 +284,7 @@ This is a hint for users of the model, and can also be used by the user interfac
   end choices;
 
   class defaultComponentName "defaultComponentName"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -307,7 +307,7 @@ giving string.
   end defaultComponentName;
 
   class defaultComponentPrefixes "defaultComponentPrefixes"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -335,7 +335,7 @@ The following prefixes may be included in the string prefixes: inner, outer, rep
   end defaultComponentPrefixes;
 
   class derivative "derivative"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -516,7 +516,7 @@ This is useful if g represents the major computational effort of fg).</li>
   end derivative;
 
   class Dialog "Dialog"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -583,7 +583,7 @@ A parameter dialog is a sequence of tabs with a sequence of groups inside them.
   end Dialog;
 
   class Documentation "Documentation"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -616,7 +616,7 @@ Together with scheme \"Modelica\" the (URI)  fragment specifiers #diagram, #info
   end Documentation;
 
   class DynamicSelect "DynamicSelect"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -652,7 +652,7 @@ of the diagram layer, e.g., after a simulation.
   end DynamicSelect;
 
   class Evaluate "Evaluate"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -686,7 +686,7 @@ Evaluate is for example used for axis of rotation parameters in the Modelica.Mec
   end Evaluate;
 
   class experiment "experiment"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -719,7 +719,7 @@ The experiment annotation defines the default start time (StartTime) in [s], the
   end experiment;
 
   class dateModified "dateModified"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>UTC date and time of the latest change to the package in the following format (with one space between date and time):<br>
@@ -750,7 +750,7 @@ was modified and is saved on persistent storage (like file or database system).<
   end dateModified;
 
   class HideResult "HideResult"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -780,7 +780,7 @@ HideResult is for example used in the connectors of the Modelica.StateGraph libr
   end HideResult;
 
   class Inline "Inline"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -815,7 +815,7 @@ Inline = true is for example used in Modelica.Mechanics.MultiBody.Frames and in 
   end Inline;
 
   class LateInline "LateInline"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -849,7 +849,7 @@ This annotation is for example used in Modelica.Media.Water.IF97_Utilities.T_pro
   end LateInline;
 
   class missingInnerMessage "missingInnerMessage"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -881,7 +881,7 @@ When an outer component of the class does not have a corresponding inner compone
   end missingInnerMessage;
 
   class PreferredView "preferredView"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -904,7 +904,7 @@ The preferredView annotation defines the default view when selecting the class. 
   end PreferredView;
 
   class revisionId "revisionId"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>Revision identifier of the version management system used to manage this library. It marks the latest submitted change to any file belonging to the package.</p>
@@ -932,7 +932,7 @@ The preferredView annotation defines the default view when selecting the class. 
   end revisionId;
 
   class smoothOrder "smoothOrder"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -983,7 +983,7 @@ This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 
   end smoothOrder;
 
   class version "version"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1093,7 +1093,7 @@ This allows a tool to access multiple versions of the same package.
   end version;
 
   class versionBuild "versionBuild"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>Defines the optional build number of the library.</p>
@@ -1121,7 +1121,7 @@ This allows a tool to access multiple versions of the same package.
   end versionBuild;
 
   class versionDate "versionDate"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>UTC date of first version build (in format: <code>YYYY-MM-DD</code>).</p>
@@ -1149,7 +1149,7 @@ This allows a tool to access multiple versions of the same package.
   end versionDate;
 
   class unassignedMessage "unassignedMessage"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1190,9 +1190,9 @@ Annotations are intended for storing extra information about a model, such as gr
 end Annotations;
 
 package Classes "Classes (model, function, ...)"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   class Block "block"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1236,7 +1236,7 @@ to block diagram semantic.
   end Block;
 
   class Class "class"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1286,7 +1286,7 @@ In most cases, it is recommended to use specialized classes as
   end Class;
 
   class Connector "connector"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1385,7 +1385,7 @@ then this leads to the following equations:
   end Connector;
 
   class Function "function"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1688,7 +1688,7 @@ a component, according to case (d) above:
   end Function;
 
   class Model "model"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1728,7 +1728,7 @@ no restrictions and no enhancements.
   end Model;
 
   class Package "package"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1769,7 +1769,7 @@ class_specifier :
   end Package;
 
   class Record "record"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Define specialized class <i>record</i>
@@ -1825,7 +1825,7 @@ normal type compatibility rules.
   end Record;
 
   class Type "type"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Define specialized class <i>type</i>
@@ -1854,7 +1854,7 @@ Enhanced to extend from predefined types [No other specialized class has this pr
   end Type;
 
   class ExternalObject "ExternalObject"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1992,9 +1992,9 @@ Moreover, they have additional properties called enhancements.
 end Classes;
 
 package Operators "Operators (+, der, size, ...)"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 class ElementaryOperators "Elementary operators (+, >, or, ..)"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Elementary operators are overloaded and operate on variables
@@ -2228,7 +2228,7 @@ Mathematica and in MATLAB these are valid expressions):
 end ElementaryOperators;
 
   class Abs "abs"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Absolute value of Real or Integer variable.
@@ -2247,7 +2247,7 @@ needs to be an Integer or Real expression. </P>
   end Abs;
 
   class Acos "acos"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric inverse cosine function
@@ -2272,7 +2272,7 @@ The acos function can also be accessed as Modelica.Math.acos.
   end Acos;
 
   class Asin "asin"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric inverse sine function
@@ -2297,7 +2297,7 @@ The asin function can also be accessed as Modelica.Math.asin.
   end Asin;
 
   class Assert "assert"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigger error and print error message if assertion condition is not fulfilled
@@ -2357,7 +2357,7 @@ The AssertionLevel.warning case can be used when the boundary of validity is not
   end Assert;
 
   class Atan "atan"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric inverse tangent function
@@ -2382,7 +2382,7 @@ The atan function can also be accessed as Modelica.Math.atan.
   end Atan;
 
   class Atan2 "atan2"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Four quadrant inverse tangent
@@ -2412,7 +2412,7 @@ The atan2 function can also be accessed as Modelica.Math.atan2.
   end Atan2;
 
   class Cardinality "cardinality"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Number of connectors in connection.
@@ -2456,7 +2456,7 @@ parameters.
   end Cardinality;
 
   class Ceil "ceil"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Round a Real number towards plus infinity
@@ -2475,7 +2475,7 @@ triggered when the return value changes discontinuously.]</i></p>
   end Ceil;
 
   class Change "change"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Indicate discrete variable changing
@@ -2501,7 +2501,7 @@ The same restrictions as for the pre() operator apply.</P>
   end Change;
 
   class Cos "cos"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric cosine function
@@ -2525,7 +2525,7 @@ The cosine function can also be accessed as Modelica.Math.cos.
   end Cos;
 
   class Cosh "cosh"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Hyberbolic cosine function
@@ -2549,7 +2549,7 @@ The cosh function can also be accessed as Modelica.Math.cosh.
   end Cosh;
 
 class Cross "cross"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return cross product of two vectors
@@ -2569,7 +2569,7 @@ Returns the cross product of the 3-vectors x and y, i.e.
 end Cross;
 
   class Delay "delay"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Delay expression
@@ -2616,7 +2616,7 @@ time in order to avoid extrapolation in the delay buffer.]</i></p>
   end Delay;
 
   class Der "der"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Time derivative of expression or<br>
@@ -2679,7 +2679,7 @@ The specific enthalphy can be computed from a Gibbs-function as follows:
   end Der;
 
 class Diagonal "diagonal"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a diagonal matrix
@@ -2695,7 +2695,7 @@ on the diagonal and all other elements zero.
 end Diagonal;
 
   class Div "div"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Integer part of division of two Real numbers
@@ -2722,7 +2722,7 @@ when the return value changes discontinuously.]</i></p>
   end Div;
 
   class Edge "edge"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Indicate rising edge
@@ -2750,7 +2750,7 @@ classes).</P>
   end Edge;
 
   class Exp "exp"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Exponential, base e.
@@ -2774,7 +2774,7 @@ The exponential function can also be accessed as Modelica.Math.exp.
   end Exp;
 
 class Fill "fill"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return a Real, Integer, Boolean or String array with all elements equal
@@ -2800,7 +2800,7 @@ Boolean vb[3]   = fill(true,3);  // = {true, true, true}
 end Fill;
 
   class Floor "floor"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Round Real number towards minus infinity
@@ -2819,7 +2819,7 @@ value changes discontinuously.]</i></p>
   end Floor;
 
 class Identity "identity"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the identity matrix of the desired size
@@ -2835,7 +2835,7 @@ on the diagonal and zeros at the other places.
 end Identity;
 
   class Initial "initial"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 True during initialization
@@ -2853,7 +2853,7 @@ True during initialization
   end Initial;
 
   class InStream "inStream"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns the mixing value of a stream variable if it flows into the component where the inStream operator
@@ -3002,7 +3002,7 @@ given, that fulfills the above requirements.
   end InStream;
 
   class IntegerUpperCase "Integer"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns ordinal number of enumeration
@@ -3021,7 +3021,7 @@ Returns the ordinal number of the enumeration value E.enumvalue, where Integer(E
   end IntegerUpperCase;
 
   class IntegerLowerCase "integer"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Round Real number towards minus infinity
@@ -3040,7 +3040,7 @@ when the return value changes discontinuously.]</i></p>
   end IntegerLowerCase;
 
   class inverse "inverse"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>Every function with one output argument may have one or more &quot;<code>inverse</code>&quot; annotations to define inverses of this function. </p>
 <p><b><font style=\"color: #008000; \">Syntax</font></b> </p>
@@ -3084,7 +3084,7 @@ when the return value changes discontinuously.]</i></p>
   end inverse;
 
   class IsPresent "isPresent"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns true if the formal input or output argument of a function is present
@@ -3123,7 +3123,7 @@ list. It can only be used in functions.
   end IsPresent;
 
 class Linspace "linspace"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return Real vector with equally spaced elements
@@ -3150,7 +3150,7 @@ Real v[:] = linspace(1,7,4);  // = {1, 3, 5, 7}
 end Linspace;
 
   class Log "log"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Natural (base e) logarithm
@@ -3174,7 +3174,7 @@ The natural logarithm can also be accessed as Modelica.Math.log.
   end Log;
 
   class Log10 "log10"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Base 10 logarithm
@@ -3198,7 +3198,7 @@ The base 10 logarithm can also be accessed as Modelica.Math.log10.
   end Log10;
 
 class Matrix "matrix"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the first two dimensions of an array as matrix
@@ -3229,7 +3229,7 @@ C[i_1, ..., i_nA, 1, ..., 1] = A[i_1, ..., i_nA].
 end Matrix;
 
 class Max "max"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
 
   annotation (Documentation(info="<html>
 <p>
@@ -3262,7 +3262,7 @@ combinations of i in u, ..., j in v
 end Max;
 
 class Min "min"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the smallest element
@@ -3294,7 +3294,7 @@ combinations of i in u, ..., j in v
 end Min;
 
   class Mod "mod"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Integer modulus of a division of two Real numbers
@@ -3318,7 +3318,7 @@ discontinuously.]</I></P>
   end Mod;
 
 class Ndims "ndims"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Return number of array dimensions
@@ -3339,7 +3339,7 @@ Integer n = ndims(A);  // = 3
 end Ndims;
 
   class NoEvent "noEvent"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Turn off event triggering
@@ -3371,7 +3371,7 @@ discontinuously.]</i></p>
   end NoEvent;
 
 class Ones "ones"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns an array with \"1\" elements
@@ -3387,7 +3387,7 @@ elements equal to one (ni >=0 ).
 end Ones;
 
 class OuterProduct "outerProduct"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the outer product of two vectors
@@ -3403,7 +3403,7 @@ Returns the outer product of vectors v1 and v2 <br>
 end OuterProduct;
 
   class Pre "pre"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Refer to left limit
@@ -3460,7 +3460,7 @@ model equations.]</I></p>
   end Pre;
 
 class Product "product"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the scalar product
@@ -3496,7 +3496,7 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 end Product;
 
   class Reinit "reinit"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Reinitialize state variable
@@ -3536,7 +3536,7 @@ because the reinit operator is applied on a non-state variable.]</i></P>
   end Reinit;
 
   class Rem "rem"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Integer remainder of the division of two Real numbers
@@ -3562,7 +3562,7 @@ the return value changes discontinuously.]</I></P>
   end Rem;
 
   class Sample "sample"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigger time events
@@ -3591,7 +3591,7 @@ expressions and need to be a subtype of Real or Integer.
   end Sample;
 
 class Scalar "scalar"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a one-element array as scalar
@@ -3612,7 +3612,7 @@ Real e = scalar(A);  // = 3
 end Scalar;
 
   class SemiLinear "semiLinear"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Returns \"if x >= 0 then positiveSlope*x else negativeSlope*x\" and handle x=0 in a meaningful way
@@ -3705,7 +3705,7 @@ flow direction.]</i>
   end SemiLinear;
 
   class Sign "sign"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Signum function of a Real or Integer number
@@ -3724,7 +3724,7 @@ when clause state events are triggered.]</i></p>
   end Sign;
 
   class Sin "sin"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric sine function
@@ -3748,7 +3748,7 @@ The sine function can also be accessed as Modelica.Math.sin.
   end Sin;
 
   class Sinh "sinh"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Hyberbolic sine function
@@ -3772,7 +3772,7 @@ The sinh function can also be accessed as Modelica.Math.sinh.
   end Sinh;
 
 class Size "size"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns dimensions of an array
@@ -3801,7 +3801,7 @@ Integer n[:] = size(A);    // = {8,4,5}
 end Size;
 
 class Skew "skew"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the skew matrix that is associated with a vector
@@ -3823,7 +3823,7 @@ Returns the 3 x 3 skew symmetric matrix associated with a
 end Skew;
 
   class Smooth "smooth"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Indicate smoothness of expression
@@ -3859,7 +3859,7 @@ discontinuously.]</I></p>
   end Smooth;
 
   class Sqrt "sqrt"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Square root
@@ -3876,7 +3876,7 @@ Argument v needs to be an Integer or Real expression.</p>
   end Sqrt;
 
   class string "String"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Convert a scalar Real, Integer or Boolean expression to a String representation
@@ -3966,7 +3966,7 @@ String(123, minimumLength=6, leftJustified=false)  // = \"   123\"
   end string;
 
 class Sum "sum"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns the scalar sum
@@ -4003,7 +4003,7 @@ u, ..., j <b>in</b> v) is the same as the type of e(i,...j).
 end Sum;
 
 class Symmetric "symmetric"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a symmetric matrix
@@ -4027,7 +4027,7 @@ B := <b>symmetric</b>(A)
 end Symmetric;
 
   class Tan "tan"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Trigonometric tangent function
@@ -4053,7 +4053,7 @@ The tangent function can also be accessed as Modelica.Math.tan.
   end Tan;
 
   class Tanh "tanh"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Hyberbolic tangent function
@@ -4077,7 +4077,7 @@ The tanh function can also be accessed as Modelica.Math.tanh.
   end Tanh;
 
   class Terminal "terminal"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 True after successful analysis
@@ -4094,7 +4094,7 @@ True after successful analysis
   end Terminal;
 
   class Terminate "terminate"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
 Successfully terminate current analysis
@@ -4122,7 +4122,7 @@ end</B> ThrowingBall;</pre>
   end Terminate;
 
 class Transpose "transpose"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Transpose of a matrix or permutation of the first two dimensions of an array
@@ -4139,7 +4139,7 @@ It is an error, if array A does not have at least
 end Transpose;
 
 class Vector "vector"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns an array with one non-singleton dimension as vector
@@ -4160,7 +4160,7 @@ Real v[2] = vector(A);  // = {3,4}
 end Vector;
 
 class Zeros "zeros"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Returns a zero array.
@@ -4196,7 +4196,7 @@ log, log10 that are provided for convenience as built-in functions).
 end Operators;
 
 class BalancedModel "balanced model"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 The basic concept to count unknowns and equations.
@@ -4592,7 +4592,7 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 end BalancedModel;
 
 class Connect "connect"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Connect objects
@@ -4692,7 +4692,7 @@ connected as a pair of scalar connectors.</P>
 end Connect;
 
 class Encapsulated "encapsulated"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Break lookup in hierarchy
@@ -4733,7 +4733,7 @@ cannot be redefined at the same level.]</i></p>
 end Encapsulated;
 
 class Extends "extends"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Inheritance from base class
@@ -4935,7 +4935,7 @@ another kind of specialized class:</p>
 end Extends;
 
 class Flow "flow"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Declare flow (through) variable, which have to sum up to zero in connections
@@ -5021,7 +5021,7 @@ whereas variables without the flow prefix are identical in a connection.</p>
 end Flow;
 
 class For "for"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Repeat equations or statements a specific number of times
@@ -5122,7 +5122,7 @@ prepending the reduction-expression with <code>'function-name('</code>.</p>
 end For;
 
 class If "if"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Declare equations or execute statements conditionally
@@ -5206,7 +5206,7 @@ type of the if-expression. If-expressions with <B>elseif</B> are defined by repl
 end If;
 
 class Import "import"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Import classes
@@ -5278,7 +5278,7 @@ The generated import names are:</p>
 end Import;
 
 class Input "input"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Define causality and/or block diagram connection semantic
@@ -5404,7 +5404,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 end Input;
 
 class Output "output"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Define causality and/or block diagram connection semantic
@@ -5531,7 +5531,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 end Output;
 
 class Partial "partial"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Prohibit instantiation of components of the class
@@ -5598,7 +5598,7 @@ or in a \"constrained\" clause to define the constraints of a replaceable class.
 end Partial;
 
 class Stream "stream"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Declare stream variable in a connector to describe bi-directional flow of matter
@@ -5848,7 +5848,7 @@ For further details, see the definition of the
 end Stream;
 
 class Time "time"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Built-in variable time
@@ -5882,7 +5882,7 @@ the time instant at which the simulation is started.</P>
 end Time;
 
 class When "when"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Activate equations or statements when condition becomes true
@@ -6066,7 +6066,7 @@ parameter variable. The start-values of the special functions
 end When;
 
 class While "while"
-  extends Modelica.Icons.Information;
+  extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
 <p>
 Repeat statements as long as a condition is fulfilled
@@ -6104,8 +6104,76 @@ and is formally defined as follows</P>
 </html>"));
 end While;
 
+package Icons
+  partial class Information "Icon for general information packages"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Ellipse(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-80,80},{80,-80}},
+            lineColor={0,0,0},
+            pattern=LinePattern.None,
+            fillColor={0,174,0},
+            fillPattern=FillPattern.Solid),
+          Ellipse(
+            extent={{-14,56},{16,38}},
+            lineColor={0,0,255},
+            pattern=LinePattern.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-24,10},{16,10},{16,-44},{26,-44},{26,-54},{-14,-54},{-14,
+                -2},{-24,-2},{-24,10}},
+            lineColor={0,0,255},
+            pattern=LinePattern.None,
+            smooth=Smooth.None,
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid)}),
+                              Documentation(info="<html>
+<p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
+</html>"));
+  end Information;
+
+  partial class Contact "Icon for contact information"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
+          Rectangle(
+            extent={{-100,70},{100,-72}},
+            lineColor={0,0,0},
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,-72},{100,-72},{0,20},{-100,-72}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={215,215,215},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{22,0},{100,70},{100,-72},{22,0}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={235,235,235},
+            fillPattern=FillPattern.Solid),
+          Polygon(
+            points={{-100,70},{100,70},{0,-20},{-100,70}},
+            lineColor={0,0,0},
+            smooth=Smooth.None,
+            fillColor={241,241,241},
+            fillPattern=FillPattern.Solid)}),
+                              Documentation(info="<html>
+<p>This icon shall be used for the contact information of the library developers.</p>
+</html>"));
+  end Contact;
+end Icons;
+
 class Contact "Contact"
-  extends Modelica.Icons.Contact;
+  extends ModelicaReference.Icons.Contact;
 
  annotation (Documentation(info="<html>
 <dl>
@@ -6145,8 +6213,7 @@ class Contact "Contact"
 end Contact;
 
 annotation (__Dymola_DocumentationClass=true,
-     uses(Modelica(version="3.2")),
-     dateModified="2010-09-25 15:00:00Z",
+     dateModified="2010-10-06 17:00:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
@@ -6170,6 +6237,12 @@ It is based on the
       <th>Date</th>
       <th>Author</th>
       <th>Comment</th>
+    </tr>
+    <tr>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4256/Modelica\">r4256</a></td>
+      <td valign=\"top\">2010-10-06</td>
+      <td valign=\"top\"><a href=\"http://www.hit.no/ansatte/vis/dietmar.winkler\">Dietmar Winkler</a></td>
+      <td valign=\"top\">Removed 'uses' annotation and added icons so it can be used with multiple versions of the MSL (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/425\">#425</a>)</td>
     </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4218/Modelica\">r4218</a></td>
