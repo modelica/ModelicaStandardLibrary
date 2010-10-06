@@ -1589,15 +1589,15 @@ all first partial derivatives of the standard thermodynamic variables can be com
 <p>
 The documentation of the IAPWS/IF97 steam properties can be freely
 distributed with computer implementations and are included here
-(in directory Modelica/Resources/Documentation/IF97documentation):
+(in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
 <ul>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
-<li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (not implemented)</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
+<li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
 </ul>
 </html>"));
 end Water;

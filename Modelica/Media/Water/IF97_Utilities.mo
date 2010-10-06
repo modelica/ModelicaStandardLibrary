@@ -1529,7 +1529,7 @@ package IF97_Utilities
  </ul>
  <p>In addition, functions of the boiling and condensation curves compute the specific enthalpy, specific entropy, or density on these
  curves. The functions for the saturation pressure and temperature are included in the package <b>Basic</b> because they are part of
- the original <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IAPWS/IF97 standards document</a>. These functions are also aliased to
+ the original <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IAPWS/IF97 standards document</a>. These functions are also aliased to
  be used directly from package <b>Water</b>.
 </p>
  <ul>
@@ -3609,7 +3609,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 
       annotation (Documentation(info="<HTML><h4>Package description</h4>
           <p>Package BaseIF97/Basic computes the the fundamental functions for the 5 regions of the steam tables
-          as described in the standards document <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
+          as described in the standards document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The code of these
           functions has been generated using <b><i>Mathematica</i></b> and the add-on packages \"Format\" and \"Optimize\"
           to generate highly efficient, expression-optimized C-code from a symbolic representation of the thermodynamic
           functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
@@ -4064,15 +4064,15 @@ Ordinary Water Substance<br>
           <ul>
           <li>Function <b>visc_dTp</b> implements a function to compute the industrial formulation of the
           dynamic viscosity of water as a function of density and temperature.
-          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/visc.pdf\">visc.pdf</a>.</li>
+          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>.</li>
           <li>Function <b>cond_dTp</b> implements a function to compute  the industrial formulation of the thermal conductivity of water as
           a function of density, temperature and pressure. <b>Important note</b>: Obviously only two of the three
           inputs are really needed, but using three inputs speeds up the computation and the three variables are known in most models anyways.
           The inputs d,T and p have to be consistent.
-          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/surf.pdf\">surf.pdf</a>.</li>
+          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>.</li>
           <li>Function <b>surfaceTension</b> implements a function to compute the surface tension between vapour
           and liquid water as a function of temperature.
-          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/thcond.pdf\">thcond.pdf</a>.</li>
+          The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>.</li>
           </ul>
        </p>
           <h4>Version Info and Revision history
@@ -5774,11 +5774,11 @@ Ordinary Water Substance<br>
         Association for the Properties
         of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) with permission granted to re-publish the
         information if credit is given to IAPWS. This document is distributed with this library as
-        <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a>.
+        <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>.
         In addition, the equations published by <A HREF=\"http://www.iapws.org\">IAPWS</A> for
-        the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/visc.pdf\">visc.pdf</a>)
-        and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/thcond.pdf\">thcond.pdf</a>)
-        and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/surf.pdf\">surf.pdf</a>)
+        the transport properties dynamic viscosity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a>)
+        and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>)
+        and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>)
         are also implemented in this library and included for reference.</p>
         <P>
         The functions in BaseIF97.mo are low level functions which should
@@ -5790,7 +5790,7 @@ the most common thermophysical properties (thermodynamic and transport
 properties). The implementation requires part of the common medium
 property infrastructure of the Modelica.Thermal.Properties library in the file
 Common.mo. There are a few extensions from the version of IF97 as
-documented in <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> in order to improve performance for
+documented in <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> in order to improve performance for
 dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
 </p>
@@ -5851,10 +5851,10 @@ industrial standard IAPWS-IF97, the most important properties can be
 calculated extremely quickly. All modelica functions are optimized
 with regard to short computing times.
 <P>The complete description of the individual equations of the new industrial
-formulation IAPWS-IF97 is given in <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a>. Comprehensive information on
+formulation IAPWS-IF97 is given in <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. Comprehensive information on
 IAPWS-IF97 (requirements, concept, accuracy, consistency along region boundaries,
 and the increase of computing speed in comparison with IFC-67, etc.) can
-be taken from <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> or [2].
+be taken from <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> or [2].
 <P><a name=\"steamprop\">[1]<I>Wagner, W., Kruse, A.</I> Properties of Water
 and Steam / Zustandsgr&ouml;&szlig;en von Wasser und Wasserdampf / IAPWS-IF97.
 Springer-Verlag, Berlin, 1998.
@@ -7826,15 +7826,15 @@ public
       The original documentation of the IAPWS/IF97 steam properties can freely be distributed with computer
       implementations, so for curious minds the complete standard documentation is provided with the Modelica
       properties library. The following documents are included
-      (in directory Modelica/Resources/Documentation/IF97documentation):
+      (in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
       <ul>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (in IF97_Utilities.BaseIF97.IceBoundaries)</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
-      <li><a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/crits.pdf\">crits.pdf</a> The critical point data.</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/meltsub.pdf\">meltsub.pdf</a> The melting- and sublimation line formulation (in IF97_Utilities.BaseIF97.IceBoundaries)</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a> The surface tension standard definition</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
+      <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
       </ul>
    </p>
       <h4>Package contents
@@ -7842,8 +7842,8 @@ public
       <p>
       <ul>
       <li>Package <b>BaseIF97</b> contains the implementation of the IAPWS-IF97 as described in
-      <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/IF97.pdf\">IF97.pdf</a>. The explicit backwards equations for region 3 from
-      <a href=\"modelica://Modelica/Resources/Documentation/IF97documentation/Back3.pdf\">Back3.pdf</a> are implemented as initial values for an inverse iteration of the exact
+      <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The explicit backwards equations for region 3 from
+      <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> are implemented as initial values for an inverse iteration of the exact
       function in IF97 for the input pairs (p,h) and (p,s).
       The low-level functions in BaseIF97 are not needed for standard simulation usage,
       but can be useful for experts and some special purposes.</li>
