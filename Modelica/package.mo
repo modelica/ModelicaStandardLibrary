@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.2 Beta 1)"
+package Modelica "Modelica Standard Library (Version 3.2)"
 extends Modelica.Icons.Package;
 
 
@@ -755,7 +755,7 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 <h4>Lists</h4>
 
 <ol>
-<li> Items of a list shall start with 
+<li> Items of a list shall start with
 <ul>
     <li> a capital letter if each item is a full sentence</li>
     <li> a small letter, if only text fragments are used or the list is fragment of a sentence</li>
@@ -7360,7 +7360,7 @@ annotation (
 preferredView="info",
 version="3.2",
 versionBuild=2,
-versionDate="2010-09-30",
+versionDate="2010-10-07",
 dateModified = "2010-09-15 00:00:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.0"), ModelicaServices(version="1.1")),
@@ -7409,7 +7409,7 @@ This version of the Modelica Standard Library consists of
 </p>
 <ul>
 <li> <b>1280</b> models and blocks, and</li>
-<li> <b>900</b> functions
+<li> <b>910</b> functions
 </ul>
 <p>
 that are directly usable (= number of public, non-partial classes).
