@@ -194,8 +194,8 @@ operator record Complex "Complex number with overloaded operators"
 annotation (__Dymola_Protection(hideFromBrowser=true),
 version="1.0",
 versionBuild=2,
-versionDate="2010-03-24",
-dateModified = "2010-01-26 19:32:58Z",
+versionDate="2010-10-06",
+dateModified = "2010-10-06 20:47:03Z",
 revisionId="$Id::                                       $",
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
