@@ -895,7 +895,7 @@ a copy of such a model as backup before the conversion
 is performed.
 </p>
 <p>
-<b><font color=\"#008000\">Upgrade from ModelicaAdditions.MultiBody</font></b>
+<b>Upgrade from ModelicaAdditions.MultiBody</b>
 </p>
 <p>
 There is now also a conversion script from the \"old\"
@@ -969,7 +969,7 @@ functions from library Modelica.Mechanics.MultiBody.Frames):
 </tr>
 </table>
 <p>
-<b><font color=\"#008000\">Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</font></b>
+<b>Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</b>
 <p>
 The conversion from MultiBody 0.99 to 1.0 does not work in some rare
 cases, where own components are implemented using functions of the

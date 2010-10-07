@@ -10,7 +10,7 @@ extends Modelica.Icons.Package;
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<h4><font color=\"#008000\">Overview of Spice3 library</font></h4>
+<h4>Overview of Spice3 library</h4>
 <p>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator.</p>
 <p><u>General information about the analog simulator SPICE3 </u></p>
 <p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley. SPICE netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build as SPICE netlists.</p>
@@ -49,7 +49,7 @@ extends Modelica.Icons.Package;
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<h4><font color=\"#008000\">Translation of SPICE3 netlists to Modelica </font></h4>
+<h4>Translation of SPICE3 netlists to Modelica </h4>
 <p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
 
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\"><tr>

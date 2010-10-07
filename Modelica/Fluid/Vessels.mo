@@ -531,13 +531,13 @@ Heat transfer correlations for pipe models
       parameter Real zeta_in(min=0)=1.04
         "Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall";
       annotation (preferredView="info", Documentation(info="<html>
-<h4><font color=\"#008000\" >Vessel Port Data</font></h4>
+<h4>Vessel Port Data</h4>
 <p>
 This record describes the <b>ports</b> of a <b>vessel</b>. The variables in it are mostly self-explanatory (see list below); only the &zeta;
 loss factors are discussed further. All data is quoted from Idelchik (1994).
 </p>
 
-<h4><font color=\"#008000\">Outlet Coefficients</font></h4>
+<h4>Outlet Coefficients</h4>
 
 <p>
 If a <b>straight pipe with constant cross section is mounted flush with the wall</b>, its outlet pressure loss coefficient will be <code>&zeta; = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph 2).
@@ -605,7 +605,7 @@ If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle
   </tr>
 </table>
 
-<h4><font color=\"#008000\">Inlet Coefficients</font></h4>
+<h4>Inlet Coefficients</h4>
 
 <p>
 If a <b>straight pipe with constant circular cross section is mounted flush with the wall</b>, its vessel inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to the text, <code>m = 9</code> is appropriate for fully developed turbulent flow.
@@ -641,7 +641,7 @@ For larger port diameters, relative to the area of the vessel, the inlet pressur
   </tr>
 </table>
 
-<h4><font color=\"#008000\">References</font></h4>
+<h4>References</h4>
 
 <dl><dt>Idelchik I.E. (1994):</dt>
     <dd><a href=\"http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/\"><b>Handbook

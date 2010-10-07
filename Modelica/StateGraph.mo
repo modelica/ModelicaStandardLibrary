@@ -15,7 +15,7 @@ package UsersGuide "User's Guide of StateGraph Library"
 In this section, an overview of the most important features
 of this library is given.
 </p>
-<h4><font color=\"#008000\">Steps and Transitions</font></h4>
+<h4>Steps and Transitions</h4>
 <p>
 A <b>StateGraph</b> is an enhanced finite state machine.
 It is based on the JGraphChart method and
@@ -86,7 +86,7 @@ most practical to define the network from left to right,
 as in the example above, since then it is easy to read the
 labels on the icons.
 </p>
-<h4><font color=\"#008000\">Conditions and Actions</font></h4>
+<h4>Conditions and Actions</h4>
 <p>
 With the block <b>TransitionWithSignal</b>, the firing condition
 can be provided as Boolean input signal, instead as entry in the
@@ -226,7 +226,7 @@ As a result, the \"superstate1\" component can be used in
 another context, because it does not depend on the environment
 where it is used.
 </p>
-<h4><font color=\"#008000\">Execution Model</font></h4>
+<h4>Execution Model</h4>
 <p>
 The execution model of a StateGraph follows from its
 Modelica implementation: Given the states of all steps, i.e.,
@@ -250,7 +250,7 @@ be executed within a discrete controller that is called
 at regular time instants. In a future version of the StateGraph
 library, this might be more directly supported.
 </p>
-<h4><font color=\"#008000\">Parallel and Alternative Execution</font></h4>
+<h4>Parallel and Alternative Execution</h4>
 <p>
 Parallel activities can be defined by
 component <b>Parallel</b> and alternative activities
@@ -297,7 +297,7 @@ the vector index to which the component shall be connected:
 
 <img src=\"modelica://Modelica/Resources/Images/StateGraph/UsersGuide/Parallel3.png\">
 
-<h4><font color=\"#008000\">CompositeSteps, Suspend and Resume Port</font></h4>
+<h4>CompositeSteps, Suspend and Resume Port</h4>
 <p>
 A StateGraph can be hierarchically structured by using a <b>CompositeStep</b>.
 This is a component that inherits from <b>PartialCompositeStep</b>.

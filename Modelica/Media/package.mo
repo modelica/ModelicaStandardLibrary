@@ -1983,7 +1983,7 @@ Many improvements in the library, e.g., providing mixtures
 of the ideal gases, table based media, test suite for all media, improved and
 updated User's Guide.
 </p>
-<h4><font color=\"#008000\">Version 0.9, 2004-10-18</font></h4>
+<h4>Version 0.9, 2004-10-18</h4>
 <ul>
 <li> Changed the redeclaration/extends within packages from the
      experimental feature to the language keywords introduced
@@ -1994,7 +1994,7 @@ updated User's Guide.
 <li> Started to improve the documentation in
      Modelica.Media.UsersGuide.MediumDefinition.BasicStructure</li>
 </ul>
-<h4><font color=\"#008000\">Version 0.792, 2003-10-28</font></h4>
+<h4>Version 0.792, 2003-10-28</h4>
 <p>
 This is the first version made available for the public
 for the Modelica'2003 conference (for evaluation).

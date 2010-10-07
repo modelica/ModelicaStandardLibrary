@@ -1699,7 +1699,7 @@ Heat transfer model for laminar and turbulent flow in pipes. Range of validity:
 <li>The correlation holds for non-circular pipes only in the turbulent region. Use diameter=4*crossArea/perimeter as characteristic length.</li>
 </ul>
 The correlation takes into account the spatial position along the pipe flow, which changes discontinuously at flow reversal. However, the heat transfer coefficient itself is continuous around zero flow rate, but not its derivative.
-<h4><font color=\"#008000\">References</font></h4>
+<h4>References</h4>
 
 <dl><dt>Verein Deutscher Ingenieure (1997):</dt>
     <dd><b>VDI W&auml;rmeatlas</b>.
