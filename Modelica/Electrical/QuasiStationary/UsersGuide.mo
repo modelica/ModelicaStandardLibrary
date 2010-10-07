@@ -324,11 +324,11 @@ In this equation <sup>*</sup> represents the conjugate complex operator
 
       annotation (Documentation(info="<html>
 <p>
-The reference angle <code>gamma</eq>:
+The reference angle <code>gamma</code>:
 </p>
 <ul>
-  <li>defines the angular frequency <code>omega</eq> of the voltages and currents
-      of a circuit by means of <code>omega = der(gamma)</eq>. </li>
+  <li>defines the angular frequency <code>omega</code> of the voltages and currents
+      of a circuit by means of <code>omega = der(gamma)</code>. </li>
   <li>is not a global quantity since it propagated through the connector.
       Therefore, independent circuits of different frequencies can be modeled in one model.</li>
   <li>is present only once in a multiphase connector;
