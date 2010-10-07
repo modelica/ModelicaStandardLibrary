@@ -214,7 +214,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>electrical<br>analog</b></td>
    <td valign=\"top\">electrical potential</td>
    <td valign=\"top\">electrical current</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Analog.Interfaces\">Modelica.Electrical.Analog.Interfaces</a>
      <br>Pin, PositivePin, NegativePin</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPins.png\"></td></tr>
@@ -228,7 +228,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>electrical <br>sphace phasor</b></td>
    <td valign=\"top\">2 electrical potentials</td>
    <td valign=\"top\">2 electrical currents</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Machines.Interfaces\">Modelica.Electrical.Machines.Interfaces</a>
      <br>SpacePhasor</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/SpacePhasor.png\"></td></tr>
@@ -236,7 +236,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>electrical <br>digital</b></td>
    <td valign=\"top\">Integer (1..9)</td>
    <td valign=\"top\"></td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Digital.Interfaces\">Modelica.Electrical.Digital.Interfaces</a>
      <br>DigitalSignal, DigitalInput, DigitalOutput</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/Digital.png\"></td></tr>
@@ -244,7 +244,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>magnetic</b></td>
    <td valign=\"top\">magnetic potential</td>
    <td valign=\"top\">magnetic flux</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\">
 <a href=\"modelica://Modelica.Magnetic.FluxTubes.Interfaces\">Modelica.Magnetic.FluxTubes.Interfaces</a>
      <br>MagneticPort, PositiveMagneticPort, <br>NegativeMagneticPort</td>
@@ -253,7 +253,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>translational</b></td>
    <td valign=\"top\">distance</td>
    <td valign=\"top\">cut-force</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces\">Modelica.Mechanics.Translational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/TranslationalFlanges.png\"></td></tr>
@@ -261,7 +261,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>rotational</b></td>
    <td valign=\"top\">angle</td>
    <td valign=\"top\">cut-torque</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces\">Modelica.Mechanics.Rotational.Interfaces</a>
      <br>Flange_a, Flange_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/RotationalFlanges.png\"></td></tr>
@@ -271,7 +271,7 @@ variables is explained in section \"Connector Equations\" below):
     orientation object</td>
    <td valign=\"top\">cut-force vector<br>
     cut-torque vector</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Interfaces\">Modelica.Mechanics.MultiBody.Interfaces</a>
      <br>Frame, Frame_a, Frame_b, Frame_resolve</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/MultiBodyFrames.png\"></td></tr>
@@ -281,14 +281,14 @@ variables is explained in section \"Connector Equations\" below):
     specific enthalpy</td>
    <td valign=\"top\">mass flow rate<br>
     enthalpy flow rate</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Thermal.FluidHeatFlow.Interfaces\">Modelica.Thermal.FluidHeatFlow.Interfaces</a>
      <br>FlowPort, FlowPort_a, FlowPort_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/FluidHeatFlowPorts.png\"></td></tr>
 
 <tr><td valign=\"top\"><b>thermo<br>fluid flow</b></td>
    <td valign=\"top\">pressure</td>
-   <td valing=\"top\">mass flow rate</td>
+   <td valign=\"top\">mass flow rate</td>
    <td valign=\"top\">specific enthalpy<br>mass fractions</td>
    <td valign=\"top\">
 <a href=\"modelica://Modelica.Fluid.Interfaces\">Modelica.Fluid.Interfaces</a>
@@ -298,7 +298,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>heat<br>transfer</b></td>
    <td valign=\"top\">temperature</td>
    <td valign=\"top\">heat flow rate</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces\">Modelica.Thermal.HeatTransfer.Interfaces</a>
      <br>HeatPort, HeatPort_a, HeatPort_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ThermalHeatPorts.png\"></td></tr>
@@ -308,7 +308,7 @@ variables is explained in section \"Connector Equations\" below):
     Integer variable<br>
     Boolean variable</td>
    <td valign=\"top\"></td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.Blocks.Interfaces\">Modelica.Blocks.Interfaces</a>
      <br>RealSignal, RealInput, RealOutput<br>
       IntegerSignal, IntegerInput, IntegerOutput<br>
@@ -320,7 +320,7 @@ variables is explained in section \"Connector Equations\" below):
     (occupied, set, <br>
      available, reset)</td>
    <td valign=\"top\"></td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\"><a href=\"modelica://Modelica.StateGraph.Interfaces\">Modelica.StateGraph.Interfaces</a>
      <br>Step_in, Step_out, Transition_in, Transition_out</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/StateGraphPorts.png\"></td></tr>
@@ -330,7 +330,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>hydraulic</b></td>
    <td valign=\"top\">pressure</td>
    <td valign=\"top\">volume flow rate</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\">HyLibLight.Interfaces
      <br>Port_A, Port_b</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/HydraulicPorts.png\"></td></tr>
@@ -338,7 +338,7 @@ variables is explained in section \"Connector Equations\" below):
 <tr><td valign=\"top\"><b>pneumatic</b></td>
    <td valign=\"top\">pressure</td>
    <td valign=\"top\">mass flow rate</td>
-   <td valing=\"top\"></td>
+   <td valign=\"top\"></td>
    <td valign=\"top\">PneuLibLight.Interfaces
      <br>Port_1, Port_2</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/PneumaticPorts.png\"></td></tr>
