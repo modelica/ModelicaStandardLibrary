@@ -40,7 +40,7 @@ Ideal heat transfer is assumed per default; the thermal port temperature is equa
 </p>
 <p>
 If <code>use_portsData=true</code>, the port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
-The hydraulic resistances <code>portsData.zeta_in</code> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between volume and port depending on
+The hydraulic resistances <code>portsData.zeta_in</code> and <code>portsData.zeta_out</code> determine the dissipative pressure drop between volume and port depending on
 the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 </html>"),
@@ -156,7 +156,7 @@ The following assumptions are made:
 </ul>
 <p>
 The port pressures represent the pressures just after the outlet (or just before the inlet) in the attached pipe.
-The hydraulic resistances <code>portsData.zeta_in</code> and <tt>portsData.zeta_out</tt> determine the dissipative pressure drop between tank and port depending on
+The hydraulic resistances <code>portsData.zeta_in</code> and <code>portsData.zeta_out</code> determine the dissipative pressure drop between tank and port depending on
 the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
 <p>
@@ -411,7 +411,7 @@ The following modeling assumption are made:
 <li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
 <li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
 <li>outflow of ambient media is prevented at each port assuming check valve behavior.
-    If <code> fluidlevel &lt; portsData_height[i] </code>and &nbsp; <tt> ports[i].p &lt; vessel_ps_static[i]</tt> massflow at the port is set to 0.</li>
+    If <code> fluidlevel &lt; portsData_height[i] </code>and &nbsp; <code> ports[i].p &lt; vessel_ps_static[i]</code> massflow at the port is set to 0.</li>
 </ul>
 </p>
 Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the &nbsp;<b><code>portsData</code></b> record.
@@ -436,7 +436,7 @@ This is why an extending model with varying fluid level needs to define:
 <li><code>parameter fluidLevel_max (default: 1m)</code>, the maximum level that must not be exceeded. Ports at or above fluidLevel_max can only receive inflow.</li>
 </ul>
 An extending model should not access the <code>portsData</code> record defined in the configuration dialog,
-as an access to <code>portsData</code> may fail for <tt>use_portsData=false</tt> or <tt>nPorts=0</tt>.
+as an access to <code>portsData</code> may fail for <code>use_portsData=false</code> or <code>nPorts=0</code>.
 Instead the predefined variables
 <ul>
 <li><code>portsData_diameter[nPorts]</code></li>,

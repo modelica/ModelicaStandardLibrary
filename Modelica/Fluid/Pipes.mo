@@ -63,7 +63,7 @@ momentum flows, friction and gravity. The same result can be obtained by using <
 steady-state dynamic settings. The intended use is to provide simple connections of vessels or other devices with storage, as it is done in:
 <ul>
 <li><a href=\"modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks\">Examples.Tanks.EmptyTanks</a></li>
-<li><a href=\"modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>.
+<li><a href=\"modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>
 </ul>
 
 <h4>Numerical Issues</h4>
@@ -181,7 +181,7 @@ The <b><code>modelStructure</code></b> can be configured as appropriate in such 
 in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition.
 </p>
 <p>
-The default <b><code>modelStructure</code></b> is <tt>av_vb</tt> (see Advanced tab).
+The default <b><code>modelStructure</code></b> is <code>av_vb</code> (see Advanced tab).
 The simplest possible alternative symetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction
 of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>.
 Depending on the configured model structure, the first and the last pipe segment,
@@ -191,7 +191,7 @@ See the documentation of the base class
 also covering asymmetric configurations.
 </p>
 <p>
-The <b><code>HeatTransfer</code></b> component specifies the source term <tt>Qb_flows</tt> of the energy balance.
+The <b><code>HeatTransfer</code></b> component specifies the source term <code>Qb_flows</code> of the energy balance.
 The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>.
 The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from
 <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.
@@ -688,18 +688,18 @@ which occur due to changes in the cross sectional area or the fluid density, pro
 
 <p><b>Model Structure</b></p>
 The momentum balances are formulated across the segment boundaries along the flow path according to the staggered grid approach.
-The configurable <b><code>modelStructure</code></b> determines the formulation of the boundary conditions at <tt>port_a</tt> and <tt>port_b</tt>.
+The configurable <b><code>modelStructure</code></b> determines the formulation of the boundary conditions at <code>port_a</code> and <code>port_b</code>.
 The options include (default: av_vb):
 <ul>
 <li><code>av_vb</code>: Symmetric setting with nNodes-1 momentum balances between nNodes flow segments.
-    The ports <code>port_a</code> and <tt>port_b</tt> expose the first and the last thermodynamic state, respectively.
+    The ports <code>port_a</code> and <code>port_b</code> expose the first and the last thermodynamic state, respectively.
     Connecting two or more flow devices therefore may result in high-index DAEs for the pressures of connected flow segments.
 <li><code>a_v_b</code>: Alternative symmetric setting with nNodes+1 momentum balances across nNodes flow segments.
-    Half momentum balances are placed between <code>port_a</code> and the first flow segment as well as between the last flow segment and <tt>port_b</tt>.
+    Half momentum balances are placed between <code>port_a</code> and the first flow segment as well as between the last flow segment and <code>port_b</code>.
     Connecting two or more flow devices therefore results in algebraic pressures at the ports.
     The specification of good start values for the port pressures is essential for the solution of large nonlinear equation systems.</li>
-<li><code>av_b</code>: Unsymmetric setting with nNodes momentum balances, one between nth volume and <tt>port_b</tt>, potential pressure state at <tt>port_a</tt></li>
-<li><code>a_vb</code>: Unsymmetric setting with nNodes momentum balance, one between first volume and <tt>port_a</tt>, potential pressure state at <tt>port_b</tt></li>
+<li><code>av_b</code>: Unsymmetric setting with nNodes momentum balances, one between nth volume and <code>port_b</code>, potential pressure state at <code>port_a</code></li>
+<li><code>a_vb</code>: Unsymmetric setting with nNodes momentum balance, one between first volume and <code>port_a</code>, potential pressure state at <code>port_b</code></li>
 </ul></p>
 
 When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
@@ -1179,14 +1179,14 @@ This also allows for taking into account friction losses with respect to the act
 
             annotation (Documentation(info="<html>
 <p>
-This paratial model defines a common interface for <code>m=n-1</code> flow models between <tt>n</tt> device segments.
+This paratial model defines a common interface for <code>m=n-1</code> flow models between <code>n</code> device segments.
 The flow models provide a steady-state or dynamic momentum balance using an upwind discretization scheme per default.
 Extending models must add pressure loss terms for friction and gravity.
 </p>
 <p>
-The fluid is specified in the interface with the thermodynamic <code>states[n]</code> for a given <tt>Medium</tt> model.
+The fluid is specified in the interface with the thermodynamic <code>states[n]</code> for a given <code>Medium</code> model.
 The geometry is specified with the <code>pathLengths[n-1]</code> between the device segments as well as
-with the <code>crossAreas[n]</code> and the <tt>roughnesses[n]</tt> of the device segments.
+with the <code>crossAreas[n]</code> and the <code>roughnesses[n]</code> of the device segments.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n]</code>
 and the average velocities <code>vs[n]</code> of fluid flow in the device segments.
 See <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber\">Pipes.BaseClasses.CharacteristicNumbers.ReynoldsNumber</a>
@@ -1195,8 +1195,8 @@ for examplary definitions.
 <p>
 The parameter <code>Re_turbulent</code> can be specified for the least mass flow rate of the turbulent regime.
 It defaults to 4000, which is appropriate for pipe flow.
-The <code>m_flows_turbulent[n-1]</code> resulting from <tt>Re_turbulent</tt> can optionally be calculated together with the Reynolds numbers
-<code>Res[n]</code> of the device segments (<tt>show_Res=true</tt>).
+The <code>m_flows_turbulent[n-1]</code> resulting from <code>Re_turbulent</code> can optionally be calculated together with the Reynolds numbers
+<code>Res[n]</code> of the device segments (<code>show_Res=true</code>).
 </p>
 <p>
 Using the thermodynamic states[n] of the device segments, the densities rhos[n] and the dynamic viscosities mus[n]
@@ -1244,11 +1244,11 @@ e.g., with numerical smoothing or by raising events as appropriate.
         annotation (Documentation(info="<html>
 <p>
 This model defines a simple lineaer pressure loss assuming laminar flow for
-specified <code>dp_nominal</code> and <tt>m_flow_nominal</tt>.
+specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
 </p>
 <p>
 Select <code>show_Res = true</code> to analyze the actual flow and the lengths of a pipe that would fulfill the
-specified nominal values for given geometry parameters <code>crossAreas</code>, <tt>dimensions</tt> and <tt>roughnesses</tt>.
+specified nominal values for given geometry parameters <code>crossAreas</code>, <code>dimensions</code> and <code>roughnesses</code>.
 </p>
 </html>"));
       end NominalLaminarFlow;
@@ -1453,7 +1453,7 @@ simulation and/or might give a more robust simulation.
             annotation (Documentation(info="<html>
 <p>
 This model defines the pressure loss assuming turbulent flow for
-specified <code>dp_nominal</code> and <tt>m_flow_nominal</tt>.
+specified <code>dp_nominal</code> and <code>m_flow_nominal</code>.
 It takes into account the fluid density of each flow segment and
 obtaines appropriate <code>pathLengths_nominal</code> values
 for an inverse parameterization of the
@@ -1463,11 +1463,11 @@ model. Per default the upstream and downstream densities are averaged with the s
 in order to avoid discontinuous <code>pathLengths_nominal</code> values in the case of flow reversal.
 </p>
 <p>
-The geometry parameters <code>crossAreas</code>, <tt>diameters</tt> and <tt>roughnesses</tt> do
+The geometry parameters <code>crossAreas</code>, <code>diameters</code> and <code>roughnesses</code> do
 not effect simulation results of this nominal pressure loss model.
 As the geometry is specified however, the optionally calculated Reynolds number as well as
-<code>m_flows_turbulent</code> and <tt>dps_fg_turbulent</tt> become meaningful
-and can be related to <code>m_flow_small</code> and <tt>dp_small</tt>.
+<code>m_flows_turbulent</code> and <code>dps_fg_turbulent</code> become meaningful
+and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
 </p>
 <p>
 <b>Optional Variables if show_Res</b>
@@ -1603,7 +1603,7 @@ b has the same sign of the change of density.</p>
       annotation (Documentation(info="<html>
 Base class for heat transfer models of flow devices.
 <p>
-The geometry is specified in the interface with the <code>surfaceAreas[n]</code>, the <tt>roughnesses[n]</tt>
+The geometry is specified in the interface with the <code>surfaceAreas[n]</code>, the <code>roughnesses[n]</code>
 and the lengths[n] along the flow path.
 Moreover the fluid flow is characterized for different types of devices by the characteristic <code>dimensions[n+1]</code>
 and the average velocities <code>vs[n+1]</code> of fluid flow.
@@ -1762,7 +1762,7 @@ The following table gives examples for the characteristic dimension D and the ve
       algorithm
         Re := abs(m_flow)*D/A/mu;
         annotation (Documentation(info="<html>Simplified calculation of Reynolds Number for flow through pipes or orifices;
-              using the mass flow rate <code>m_flow</code> instead of the velocity <tt>v</tt> to express inertial forces.
+              using the mass flow rate <code>m_flow</code> instead of the velocity <code>v</code> to express inertial forces.
 <pre>
   Re = |m_flow|*diameter/A/&mu;
 with

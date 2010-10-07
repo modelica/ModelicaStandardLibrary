@@ -58,7 +58,7 @@ The two connectors are completely <b>identical</b>, with the only
 exception that the graphical layout is a little bit different in order
 to distinguish them for easier access of the connector variables.
 For example, <code>J1.flange_a.tau</code> is the cut-torque in the connector
-<code>flange_a</code> of component <tt>J1</tt>.
+<code>flange_a</code> of component <code>J1</code>.
 </p>
 <p>
 The components of this
@@ -1188,7 +1188,7 @@ a spring-damper-system. This allows examination of the gearbox
 housing dynamics.</p>
 <p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
-<code>shaft.w</code> and <tt>load.w</tt>.</p>
+<code>shaft.w</code> and <code>load.w</code>.</p>
 </html>
 "));
     end ElasticBearing;
@@ -2159,7 +2159,7 @@ In the backlash region (-b/2 &le; flange_b.phi - flange_a.phi - phi_rel0 &le; b/
 is exerted (flange_b.tau = 0). Outside of this region, contact is present and
 the contact torque is basically computed with a linear
 spring/damper characteristic:
-</p
+</p>
 
 <pre>
    desiredContactTorque = c*phi_contact + d*<b>der</b>(phi_contact)

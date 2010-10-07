@@ -120,7 +120,7 @@ and the \"pipeWithScalarField surface is an instance of
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.PipeWithScalarField\">PipeWithScalarField</a>.
 All latter visual shapes are constructed with the surface model.
 The following image shows a screen-shot of this example model:
-</p
+</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/Surfaces.png\">

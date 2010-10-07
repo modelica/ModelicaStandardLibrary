@@ -1769,7 +1769,7 @@ The states of the FreeMotion object are:
      frame_a to the origin of frame_b, resolved in
      frame_a and the <b>relative velocity</b> v_rel_a of the origin of
      frame_b with respect to the origin of frame_a, resolved in frame_a
-     (= der(r_rel_a)).</li>
+     (= der(r_rel_a)).
 </li>
 <li> If parameter <b>useQuaternions</b> in the \"Advanced\" menu
      is <b>true</b> (this is the default), then <b>4 quaternions</b>
@@ -3361,8 +3361,8 @@ the origin of frame_a to the middle of the rod, this might be defined as:
             textString="%ratio")}),
       Documentation(info="<html>
 <p>This ideal massless joint provides a gear constraint between
-frames <code>frame_a</code> and <tt>frame_b</tt>. The axes of rotation
-of <code>frame_a</code> and <tt>frame_b</tt> may be arbitrary.</p>
+frames <code>frame_a</code> and <code>frame_b</code>. The axes of rotation
+of <code>frame_a</code> and <code>frame_b</code> may be arbitrary.</p>
 <p><b>Reference</b><br>
 <span style=\"font-variant:small-caps\">Schweiger</span>, Christian ;
 <span style=\"font-variant:small-caps\">Otter</span>, Martin:
@@ -4136,7 +4136,7 @@ when the angles of the two revolute joints of the universal joint are zero)
 and by parameter vector <b>nAxis_ia</b>, an axis vector directed
 along the line from the origin of frame_a to the spherical joint,
 resolved in frame_<b>ia</b>.
-</p
+</p>
 <p>
 An additional <b>frame_ib</b> is present. It is <b>fixed</b> in the line
 connecting the prismatic and the spherical joint at the
@@ -4801,7 +4801,7 @@ is implicitly defined by the universal joint (frame_a and frame_ia coincide
 when the angles of the two revolute joints of the universal joint are zero)
 and by parameter vector <b>rRod1_ia</b>, the position vector
 from the origin of frame_a to the spherical joint, resolved in frame_<b>ia</b>.
-</p
+</p>
 <p>
 An additional <b>frame_ib</b> is present. It is <b>fixed</b> in the rod
 connecting the revolute and the spherical joint at the side of the revolute
@@ -5317,7 +5317,7 @@ is implicitly defined by the universal joint (frame_a and frame_ia coincide
 when the angles of the two revolute joints of the universal joint are zero)
 and by parameter vector <b>rRod1_ia</b>, the position vector
 from the origin of frame_a to the spherical joint, resolved in frame_<b>ia</b>.
-</p
+</p>
 <p>
 An additional <b>frame_ib</b> is present. It is <b>fixed</b> in the rod
 connecting the prismatic and the spherical joint at the side of the prismatic
@@ -7053,7 +7053,7 @@ pair of joints\" from Woernle and Hiller is described in:
     Industrieroboter.</b><br>
     Fortschritt-Berichte VDI, Reihe 18, Nr. 59, Duesseldorf: VDI-Verlag 1988,
     ISBN 3-18-145918-6.<br>&nbsp;</dd>
-<dt>Hiller M., and Woernle C.:</dt
+<dt>Hiller M., and Woernle C.:</dt>
 <dd><b>A Systematic Approach for Solving the Inverse Kinematic
     Problem of Robot Manipulators</b>.<br>
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>

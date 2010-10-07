@@ -1038,7 +1038,7 @@ dynamical effects is described in:
     Industrieroboter.</b><br>
     Fortschritt-Berichte VDI, Reihe 18, Nr. 59, Duesseldorf: VDI-Verlag 1988,
     ISBN 3-18-145918-6.<br>&nbsp;</dd>
-<dt>Hiller M., and Woernle C.:</dt
+<dt>Hiller M., and Woernle C.:</dt>
 <dd><b>A Systematic Approach for Solving the Inverse Kinematic
     Problem of Robot Manipulators</b>.<br>
     Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>

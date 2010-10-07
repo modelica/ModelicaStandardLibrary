@@ -964,7 +964,7 @@ Please note that the design of the connectors has been changed with respect to t
 
 <p>
 The Modelica.Fluid library is designed so that each model of a system must
-include an instance <code>system</code> of the <tt>System</tt> component at the top level, in the same way as the <tt>World</tt> model of the MultiBody Library. The System component contains the parameters that
+include an instance <code>system</code> of the <code>System</code> component at the top level, in the same way as the <code>World</code> model of the MultiBody Library. The System component contains the parameters that
 describe the environment surrounding the components (ambient pressure and
 temperature, gravity acceleration), and also provides default settings
 for many parameters which are used consistently by the models in the library.
@@ -1013,8 +1013,7 @@ If several components use the same medium, it is possible to select
 all of them within a GUI, and set them simultaneously (as they are
 all named Medium).
 </li>
-<li>It is also possible to declare one or more (possibly replaceable) medium packages in the model, and then use them to set up the individual
-components</li>.
+<li>It is also possible to declare one or more (possibly replaceable) medium packages in the model, and then use them to set up the individual components.</li>
 </ul>
 </html>"));
     end MediumDefinition;
@@ -1155,7 +1154,7 @@ Modelica_Fluid was refactored and finalized for the release:
      In particular steady-state initialization and complete steady-state simulation can now be specified system-wide.
      A new Types.Init.Dynamics has been introduced, combining steady-state and initial conditions.
      The former Types.Init has become obsolete.
-     <br>See <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Examples.HeatingSystem</a></li>.
+     <br>See <a href=\"modelica://Modelica.Fluid.Examples.HeatingSystem\">Examples.HeatingSystem</a></li>
 
 <li> Extension of pumps for better consideration of zero flow and heat transfer with environment<br>
      The simplified mass and energy balances have been replaced with a rigorous formulation.
@@ -1168,7 +1167,7 @@ Modelica_Fluid was refactored and finalized for the release:
 <li> Finalization of trace substrances<br>
      Modelica.Fluid now provides a sound implementation for trace substances,
      which can easily be added to existing Media models, in order to study their evolution in a fluid system.</li>
-     <br>See <a href=\"modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls\">Examples.TraceSubstances.RoomCO2WithControls</a></li>.
+     <br>See <a href=\"modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls\">Examples.TraceSubstances.RoomCO2WithControls</a></li>
 
 <li> Vectorized ports for volumes<br>
      The ports of models that typically have large volumes, like Vessels and Sources,
@@ -1187,7 +1186,7 @@ Modelica_Fluid was refactored and finalized for the release:
      are of secondary interest. As these models use the same interfaces, base classes and naming conventions,
      they can easily be replaced with more detailed models
      as more information shall be taken into account later on.<br>
-     See <a href=\"modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>.
+     See <a href=\"modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>
 
 <li> Replaceable HeatTransfer models<br>
      The Vessels and the Machines now have replaceable HeatTransfer models,

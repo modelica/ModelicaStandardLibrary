@@ -122,7 +122,7 @@ New York: John Wiley &amp; Sons 1941 (8th Printing 1961)
 <dd><b>Elektromagnete: Grundlagen, Berechnung, Entwurf und Anwendung</b>.
 3rd ed., Wiesbaden: Vieweg Teubner 2008 (in German)
 <br>&nbsp;</dd>
-<dt>[Ro00] Roschke, T.:</dt
+<dt>[Ro00] Roschke, T.:</dt>
 <dd><b>Entwurf geregelter elektromagnetischer Antriebe f&uuml;r Luftsch&uuml;tze</b>.
     Fortschritt-Berichte VDI, Reihe 21, Nr. 293, D&uuml;sseldorf: VDI-Verlag 2000 (in German)</dd>
 </dl>

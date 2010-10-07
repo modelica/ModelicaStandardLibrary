@@ -127,7 +127,7 @@ package Machines
               100,100}}),
             graphics),
     Documentation(info="<HTML>
-<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <tt>nParallel</tt> pumps, the mechanical connector is relative to a single pump.
+<p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.
 <p>The model extends <code>PartialPump</code>
  </HTML>",
        revisions="<html>
@@ -229,7 +229,7 @@ with ideally controlled mass flow rate or pressure.
 </p>
 <p>
 Nominal values are used to predefine an exemplary pump characteristics and to define the operation of the pump.
-The input connectors <code>m_flow_set</code> or <tt>p_set</tt> can optionally be enabled to provide time varying set points.
+The input connectors <code>m_flow_set</code> or <code>p_set</code> can optionally be enabled to provide time varying set points.
 </p>
 <p>
 Use this model if the pump characteristics is of secondary interest.
@@ -287,7 +287,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       Documentation(info="<HTML>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
 <p>The model extends <code>PartialPump</code>
-<p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <tt>n_const</tt> (which can be different from <tt>N_nominal</tt>) is assumed.</p>
+<p>If the <code>N_in</code> input connector is wired, it provides rotational speed of the pumps (rpm); otherwise, a constant rotational speed equal to <code>n_const</code> (which can be different from <code>N_nominal</code>) is assumed.</p>
 </HTML>",
         revisions="<html>
 <ul>
@@ -523,9 +523,9 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
 <p> The nominal hydraulic characteristic (head vs. volume flow rate) is given by the the replaceable function <code>flowCharacteristic</code>.
 <p> The pump energy balance can be specified in two alternative ways:
 <ul>
-<li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <tt>efficiencyCharacteristic</tt> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
+<li><code>use_powerCharacteristic = false</code> (default option): the replaceable function <code>efficiencyCharacteristic</code> (efficiency vs. volume flow rate in nominal conditions) is used to determine the efficiency, and then the power consumption.
     The default is a constant efficiency of 0.8.</li>
-<li><code>use_powerCharacteristic = true</code>: the replaceable function <tt>powerCharacteristic</tt> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
+<li><code>use_powerCharacteristic = true</code>: the replaceable function <code>powerCharacteristic</code> (power consumption vs. volume flow rate in nominal conditions) is used to determine the power consumption, and then the efficiency.
     Use <code>powerCharacteristic</code> to specify a non-zero power consumption for zero flow rate.
 </ul>
 <p>

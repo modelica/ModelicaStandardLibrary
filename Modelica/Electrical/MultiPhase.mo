@@ -2838,7 +2838,7 @@ This partial model provides conditional heat ports for the connection to a therm
 <ul>
 <li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
      loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
-     the fixed device temperatures.</li>.
+     the fixed device temperatures.</li>
 <li> If <b>useHeatPort</b> is set to <b>true</b>, all heat ports are available.</li>
 </ul>
 </html>"));
@@ -2977,7 +2977,7 @@ This package is intended to be used the same way as Modelica.Electrical.Analog
 but to make design of multiphase models easier.<br>
 The package is based on the plug: a composite connector containing m pins.<br>
 It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
-Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <tt>plug.pin[].i</tt>.
+Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
 </p>
 <p>
 Further development:

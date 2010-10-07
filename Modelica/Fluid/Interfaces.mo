@@ -264,7 +264,7 @@ The component may transport fluid and may have internal storage for a given flui
 </p>
 <p>
 An extending model providing direct access to internal storage of mass or energy through port_a or port_b
-should redefine the protected parameters <code><b>port_a_exposesState</b></code> and <tt><b>port_b_exposesState</b></tt> appropriately.
+should redefine the protected parameters <code><b>port_a_exposesState</b></code> and <code><b>port_b_exposesState</b></code> appropriately.
 This will be visualized at the port icons, in order to improve the understanding of fluid model diagrams.
 </p>
 </html>"),
@@ -400,7 +400,7 @@ Energy may be exchanged with the environment though, e.g., in the form of work.
 Three equations need to be added by an extending class using this component:
 </p>
 <ul>
-<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <tt>m_flow</tt></li>,
+<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code></li>,
 <li><code>port_b.h_outflow</code> for flow in design direction, and</li>
 <li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
 </ul>
@@ -523,14 +523,14 @@ end PartialTwoPortTransport;
     annotation (Documentation(info="<html>
 <p>
 This component is a common interface for heat transfer models. The heat flow rates <code>Q_flows[n]</code> through the boundaries of n flow segments
-are obtained as function of the thermodynamic <code>states</code> of the flow segments for a given fluid <tt>Medium</tt>,
-the <code>surfaceAreas[n]</code> and the boundary temperatures <tt>heatPorts[n].T</tt>.
+are obtained as function of the thermodynamic <code>states</code> of the flow segments for a given fluid <code>Medium</code>,
+the <code>surfaceAreas[n]</code> and the boundary temperatures <code>heatPorts[n].T</code>.
 </p>
 <p>
-The heat loss coefficient <code>k</code> can be used to model a thermal isolation between <tt>heatPorts.T</tt> and <tt>T_ambient</tt>.</p>
+The heat loss coefficient <code>k</code> can be used to model a thermal isolation between <code>heatPorts.T</code> and <code>T_ambient</code>.</p>
 <p>
 An extending model implementing this interface needs to define one equation: the relation between the predefined fluid temperatures <code>Ts[n]</code>,
-the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <tt>Q_flows[n]</tt>.
+the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <code>Q_flows[n]</code>.
 </p>
 </html>"));
   end PartialHeatTransfer;
@@ -1114,8 +1114,8 @@ end PartialDistributedVolume;
         annotation (
            Documentation(info="<html>
 <p>
-Interface and base class for <code><b>m</b></code> momentum balances, defining the mass flow rates <tt><b>m_flows[m]</b></tt>
-of a given <code>Medium</code> in <tt><b>m</b></tt> flow segments.
+Interface and base class for <code><b>m</b></code> momentum balances, defining the mass flow rates <code><b>m_flows[m]</b></code>
+of a given <code>Medium</code> in <code><b>m</b></code> flow segments.
 </p>
 <p>
 The following boundary flow and force terms are part of the momentum balances and must be specified in an extending model (to zero if not considered):

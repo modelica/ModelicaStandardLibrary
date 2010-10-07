@@ -158,7 +158,7 @@ Translational.Interfaces</a></li>
 <h5>Version 1.7.0, 2010-05-31</h5>
 
 <ul>
-<li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model</li>
+<li>Changed <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a> model
   <ul>
       <li>Added zero sequence inductance based on
           <a href=\"modelica://Modelica.Electrical.MultiPhase.Basic.ZeroInductor\">zero inductor</a></li>
@@ -167,7 +167,7 @@ Translational.Interfaces</a></li>
           <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Reluctance\">reluctance</a> model</li>
       <li>Integrated cores <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.EddyCurrent\">losses</a>
           and <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">heat port</a></li>
-  </ul>
+  </ul></li>
   <li>Added rotor core loss parameters in asynchronous induction machine with slip rings</li>
   <li>Renamed heat ports of <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">single phase winding</a> and <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">symmetric multi phase winding</a>
      </li>
@@ -187,13 +187,13 @@ Translational.Interfaces</a></li>
 <h5>Version 1.6.0, 2010-05-05</h5>
 
 <ul>
-<li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:</li>
+<li>Renamed all parameters <code>windingAngle</code> to <code>orientation</code>. The following classes are affected:
 <ul>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter\">MultiPhaseElectroMagneticConverter</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SinglePhaseWinding\">SinglePhaseWinding</a></li>
 <li><a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation\">symmetricOrientation</a></li>
-</ul>
+</ul></li>
 <li>Update due to changed class names in <a href=\"modelica://Modelica.Electrical.Machines.Icons\">Machines.Icons</a></li>
 <li>Using <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort</a> instead of
     <a href=\"modelica://Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort\">Analog.Interfaces.ConditionalHeatPort</a> in
@@ -1164,7 +1164,7 @@ and accelerate the inertias.</p>
 
 <ul>
 <li><code>currentRMSsensorM|E.I</code>: equivalent RMS stator current</li>
-<licode>pmsmM|E.wMechanical</code>: machine speed</li>
+<li><code>pmsmM|E.wMechanical</code>: machine speed</li>
 <li><code>pmsmM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAnglepmsmM|E.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>

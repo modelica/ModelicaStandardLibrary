@@ -336,7 +336,7 @@ This partial model provides a conditional heating port for the connection to a t
 <ul>
 <li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
      loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
-     the fixed device temperature (the default for T = 20<sup>o</sup>C)</li>.
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
 <li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
 </ul>
 

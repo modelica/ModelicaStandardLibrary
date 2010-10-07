@@ -176,7 +176,7 @@ The basic operation is to fill and empty the two tanks:
 <li> When tank 1 reaches its minimum level, valve 2 is closed. </li>
 <li> After a waiting time, valve 3 is opened and
      the fluid flows out of tank 2</li>
-<li> When tank 2 reaches its minimum level, valve 3 is closed</liI>
+<li> When tank 2 reaches its minimum level, valve 3 is closed</li>
 </ol>
 <p>
 The above \"normal\" process can be influenced by three
@@ -186,7 +186,7 @@ buttons:
 <li> Button <b>start</b> starts the above process.
      When this button is pressed after a \"stop\" or
      \"shut\" operation, the process operation continues.
-     </li>.
+     </li>
 <li> Button <b>stop</b> stops the above process by
      closing all valves. Then, the controller waits for
      further input (either \"start\" or \"shut\" operation).</li>

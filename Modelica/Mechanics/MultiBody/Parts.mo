@@ -2364,10 +2364,10 @@ November 3-4, 2003, pp. 149-158</p>
         Documentation(
           info="<html>
 <p>This component is used to model a 1-dim. gearbox
-with non-parallel axes (defined by parameters <code>n_a</code>, <tt>n_b</tt>).
+with non-parallel axes (defined by parameters <code>n_a</code>, <code>n_b</code>).
 A 3-dim. <code>bearing</code> frame is necessary to reflect the
 correct support torque, as the axes of rotation of <code>flange_a</code> and
-<code>flange_b</tT> and the direction of the support torque vector
+<code>flange_b</code> and the direction of the support torque vector
 are different in general.</p>
 <p>Note: The name BevelGear1D is kept only for simplicity. Regardless,
 this component could be used to model any kind of gearbox with non-parallel axes.</p>
@@ -2822,8 +2822,7 @@ a \"Body\" and of several \"FixedTranslation\" components.
       <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/BodyShape.png\" ALT=\"model Parts.BodyShape\">
       </td>
   </tr>
-  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed</a>
-BodyBox</b></td>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Fixed\">Fixed BodyBox</a></td>
       <td valign=\"top\">Rigid body with box shape (mass and animation properties are computed
           from box data and from density):<br>&nbsp;<br>
       <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/BodyBox.png\" ALT=\"model Parts.BodyBox\">

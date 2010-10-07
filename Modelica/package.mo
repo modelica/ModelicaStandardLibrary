@@ -4442,7 +4442,7 @@ should be automatic):
 
 <tr><td colspan=\"2\"><b>Electrical.Machines.</b></td></tr>
 <tr><td valign=\"top\"> </td>
-          <td valign=\"top\"> Moved package <code>Machines.Examples.Utilities</code> to <tt>Machines.Utilities</tt></td> </tr>
+          <td valign=\"top\"> Moved package <code>Machines.Examples.Utilities</code> to <code>Machines.Utilities</code></td> </tr>
 <tr><td valign=\"top\"> </td>
           <td valign=\"top\"> Removed all nonSIunits; especially in DCMachines<br>
                                                 parameter NonSIunits.AngularVelocity_rpm rpmNominal was replaced by<br>
@@ -4481,7 +4481,7 @@ should be automatic):
           <td valign=\"top\"> Changed the names of the examples to more meaninglful names.<br>
                                                 Changed the instance names of components used in the examples to more up-to-date style.</td> </tr>
 <tr><td valign=\"top\">SMEE_Generator</td>
-          <td valign=\"top\"> Initialization of <code>smee.phiMechanical</code> with <tt>fixed=true</tt></td> </tr>
+          <td valign=\"top\"> Initialization of <code>smee.phiMechanical</code> with <code>fixed=true</code></td> </tr>
 
 <tr><td colspan=\"2\"><b>Mechanics.MultiBody.</b></td></tr>
 <tr><td valign=\"top\"> World</td>
@@ -6814,14 +6814,14 @@ Models not specifying parameter values did not generate trapezoids previously.
 <p>Removed arrows and names documentation from flanges in diagram layer</p>
 <p><i>Modelica.Mechanics.Rotational.Interfaces.FrictionBase</i></p>
 <p><i>Modelica.Mechanics.Rotational.Position</i></p>
-<p>Replaced <code>reinit</code> by <tt>initial equation</tt></p>
+<p>Replaced <code>reinit</code> by <code>initial equation</code></p>
 <p><i>Modelica.Mechanics.Rotational.RelativeStates</i></p>
 <p>Bug corrected by using modifier <code>stateSelect = StateSelect.prefer</code> as implementation</p>
 <p><i>Modelica.Mechanics.Translational.Interfaces.flange_b</i></p>
 <p>Attribute <b>fillColor=7</b> added to Rectangle on Icon layer, i.e., it is now
 filled with white and not transparent any more.</p>
 <p><i>Modelica.Mechanics.Translational.Position</i></p>
-<p>Replaced <code>reinit</code> by <tt>initial equation</tt></p>
+<p>Replaced <code>reinit</code> by <code>initial equation</code></p>
 <p><i>Modelica.Mechanics.Translational.RelativeStates</i></p>
 <p>Bug corrected by using modifier <code>stateSelect = StateSelect.prefer</code> as implementation</p>
 <p><i>Modelica.Mechanics.Translational.Stop</i></p>
@@ -6829,10 +6829,10 @@ filled with white and not transparent any more.</p>
 <p><i>Modelica.Mechanics.Translational.Examples.PreLoad</i></p>
 <p>Improved documentation and coordinate system used for example.</p>
 <p><i>ModelicaAdditions.Blocks.Nonlinear.PadeDelay</i></p>
-<p>Replaced <code>reinit</code> by <tt>initial equation</tt></p>
+<p>Replaced <code>reinit</code> by <code>initial equation</code></p>
 <p><i>ModelicaAdditions.HeatFlow1D.Interfaces</i></p>
 <p>Definition of connectors <i>Surface_a</i> and <i>Surface_b</i>:<br>
-<code>flow SIunits.HeatFlux q;</code> changed to <tt>flow SIunits.HeatFlowRate q;</tt></p>
+<code>flow SIunits.HeatFlux q;</code> changed to <code>flow SIunits.HeatFlowRate q;</code></p>
 <p><i>MultiBody.Parts.InertialSystem</i></p>
 <p>Icon corrected.</p>
 </html>

@@ -223,8 +223,8 @@ Defines prescribed values for boundary conditions:
 <li> Prescribed boundary temperature.</li>
 <li> Boundary composition (only for multi-substance or trace-substance flow).</li>
 </ul>
-<p>If <code>use_p_in</code> is false (default option), the <tt>p</tt> parameter
-is used as boundary pressure, and the <code>p_in</code> input connector is disabled; if <tt>use_p_in</tt> is true, then the <tt>p</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>If <code>use_p_in</code> is false (default option), the <code>p</code> parameter
+is used as boundary pressure, and the <code>p_in</code> input connector is disabled; if <code>use_p_in</code> is true, then the <code>p</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
 <p>The same thing goes for the temperature, composition and trace substances.</p>
 <p>
 Note, that boundary temperature,
@@ -381,8 +381,8 @@ Defines prescribed values for boundary conditions:
 <li> Prescribed boundary temperature.</li>
 <li> Boundary composition (only for multi-substance or trace-substance flow).</li>
 </ul>
-<p>If <code>use_p_in</code> is false (default option), the <tt>p</tt> parameter
-is used as boundary pressure, and the <code>p_in</code> input connector is disabled; if <tt>use_p_in</tt> is true, then the <tt>p</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>If <code>use_p_in</code> is false (default option), the <code>p</code> parameter
+is used as boundary pressure, and the <code>p_in</code> input connector is disabled; if <code>use_p_in</code> is true, then the <code>p</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
 <p>The same thing goes for the specific enthalpy and composition</p>
 <p>
 Note, that boundary temperature,
@@ -547,8 +547,8 @@ Models an ideal flow source, with prescribed values of flow rate, temperature, c
 <li> Prescribed temperature.</li>
 <li> Boundary composition (only for multi-substance or trace-substance flow).</li>
 </ul>
-<p>If <code>use_m_flow_in</code> is false (default option), the <tt>m_flow</tt> parameter
-is used as boundary pressure, and the <code>m_flow_in</code> input connector is disabled; if <tt>use_m_flow_in</tt> is true, then the <tt>m_flow</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>If <code>use_m_flow_in</code> is false (default option), the <code>m_flow</code> parameter
+is used as boundary pressure, and the <code>m_flow_in</code> input connector is disabled; if <code>use_m_flow_in</code> is true, then the <code>m_flow</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
 <p>The same thing goes for the temperature and composition</p>
 <p>
 Note, that boundary temperature,
@@ -713,8 +713,8 @@ Models an ideal flow source, with prescribed values of flow rate, temperature an
 <li> Prescribed specific enthalpy.</li>
 <li> Boundary composition (only for multi-substance or trace-substance flow).</li>
 </ul>
-<p>If <code>use_m_flow_in</code> is false (default option), the <tt>m_flow</tt> parameter
-is used as boundary pressure, and the <code>m_flow_in</code> input connector is disabled; if <tt>use_m_flow_in</tt> is true, then the <tt>m_flow</tt> parameter is ignored, and the value provided by the input connector is used instead.</p>
+<p>If <code>use_m_flow_in</code> is false (default option), the <code>m_flow</code> parameter
+is used as boundary pressure, and the <code>m_flow_in</code> input connector is disabled; if <code>use_m_flow_in</code> is true, then the <code>m_flow</code> parameter is ignored, and the value provided by the input connector is used instead.</p>
 <p>The same thing goes for the temperature and composition</p>
 <p>
 Note, that boundary temperature,

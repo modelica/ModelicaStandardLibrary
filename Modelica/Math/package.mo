@@ -1982,7 +1982,7 @@ in decreasing order and with all other elements zero
 (<font face=\"Symbol\">s</font><sub>1</sub> is the largest element). The function
 returns the singular values <font face=\"Symbol\">s</font><sub>i</sub>
 in vector <code>sigma</code> and the orthogonal matrices in
-matrices <code>U</code> and <tt>V</tt>.
+matrices <code>U</code> and <code>V</code>.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
@@ -9744,7 +9744,7 @@ This package contains a direct interface to the LAPACK subroutines
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving continuous algebraic Riccati equations (care). It utilizes Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <tt><b>delta</b>_i</tt>
+convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <code><b>delta</b>_i</code>
 </p>
 <blockquote><pre>
   <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
@@ -9899,7 +9899,7 @@ The algorithm is taken from [1] and [2].
 <h4>Description</h4>
 <p>
 This function provides a Newton-like method for solving discrete-time algebraic Riccati equations. It uses Exact Line Search to improve the sometimes erratic
-convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <tt><b>delta</b>_i</tt>
+convergence of Newton's method. Exact line search in this case means means, that at each iteration <code>i</code> a Newton step <code><b>delta</b>_i</code>
 </p>
 <blockquote><pre>
   <b>X</b>_i+1 = <b>X</b>_i + <b>delta</b>_i
