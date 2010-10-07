@@ -833,7 +833,7 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 <ol>
 <li> Tables should always be typeset with <code>&lt;table&gt;</code> and <code>&lt;/table&gt;</code>,
      not with <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
-<li> Tables have to be placed outside of paragraphs to be HTML compliant.<li>
+<li> Tables have to be placed outside of paragraphs to be HTML compliant.</li>
 <li> Each table must have a table caption. </li>
 <li> Table headers and entries start with capital letters.</li>
 </ol>
@@ -879,12 +879,12 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
 <h5>Example 2</h5>
 
 <p>In this case of table captions, the table name (Tab.) including the table enumeration (1,2,...)
-has to be displayed bold using <code></code> and <code></code>. The table name
+has to be displayed bold using <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code>. The table name
 and enumeration should look like this: <b>Tab. 1:</b> Tables have to be enumerated manually.</p>
 
 <pre>
 &lt;table border=\"1\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;Tab 2: Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption align=\"bottom\"&gt;&lt;b&gt;Tab 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;th&gt;Head 1&lt;/th&gt;
     &lt;th&gt;Head 2&lt;/th&gt;
