@@ -18,21 +18,21 @@ extends Modelica.Icons.ExamplesPackage;
           Real abscissa[n]={(length/d_hyd/(max(Re[i], 1e-3)*Pr[i]))^0.5 for i in 1:n};
           Modelica.SIunits.Length length=L;
           Modelica.SIunits.Length dimlesslength(start=1e-2);
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/(lambda[i]) for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/(lambda[i]) for i in
                   1:n};
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*velocity[i]*d_hyd/eta[i] 
+          Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*velocity[i]*d_hyd/eta[i]
               for i in 1:n};
-          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in 
+          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
                   1:n};
 
           //even gap variables
           parameter Modelica.SIunits.Length h=0.1
-            "Height of cross sectional area" 
+            "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
           parameter Modelica.SIunits.Length s=0.05
-            "Distance between parallel plates in cross sectional area" 
+            "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap" 
+          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
@@ -112,13 +112,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -203,12 +203,12 @@ extends Modelica.Icons.ExamplesPackage;
 
           //even gap variables
           parameter Modelica.SIunits.Length h=0.1
-            "Height of cross sectional area" 
+            "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
           parameter Modelica.SIunits.Length s=0.05
-            "Distance between parallel plates in cross sectional area" 
+            "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap" 
+          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
@@ -396,12 +396,12 @@ extends Modelica.Icons.ExamplesPackage;
 
           //even gap variables
           parameter Modelica.SIunits.Length h=0.1
-            "Height of cross sectional area" 
+            "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
           parameter Modelica.SIunits.Length s=0.05
-            "Distance between parallel plates in cross sectional area" 
+            "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap" 
+          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
@@ -418,7 +418,7 @@ extends Modelica.Icons.ExamplesPackage;
           //input VARIABLES
           //create identical Reynolds number for different fluid properties >> adjustment of  mass flow rate
           Modelica.SIunits.MassFlowRate m_flow[:]={mflow_test*eta[1]/eta[3],
-              mflow_test*eta[2]/eta[3],mflow_test} "mass flow rate" 
+              mflow_test*eta[2]/eta[3],mflow_test} "mass flow rate"
                                            annotation (Dialog(group="Input"));
 
           //input record
@@ -490,18 +490,18 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number"
             annotation (Dialog(group="Output"));
 
         protected
@@ -512,7 +512,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             height=1e4) annotation (extent=[-80, -80; -60, -60], Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1) 
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
             annotation (extent=[-80, -80; -60, -60], Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
@@ -597,12 +597,12 @@ extends Modelica.Icons.ExamplesPackage;
 
           //even gap variables
           parameter Modelica.SIunits.Length h=0.1
-            "Height of cross sectional area" 
+            "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
           parameter Modelica.SIunits.Length s=0.05
-            "Distance between parallel plates in cross sectional area" 
+            "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap" 
+          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
@@ -810,17 +810,17 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
 
-          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in 
+          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
                   1:n};
 
           //even gap variables
           parameter Modelica.SIunits.Length h=0.1
-            "Height of cross sectional area" 
+            "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
           parameter Modelica.SIunits.Length s=0.05
-            "Distance between parallel plates in cross sectional area" 
+            "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap" 
+          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
@@ -837,7 +837,7 @@ extends Modelica.Icons.ExamplesPackage;
           //input VARIABLES
           //create identical Reynolds number for different fluid properties >> adjustment of  mass flow rate
           Modelica.SIunits.MassFlowRate m_flow[:]={mflow_test*eta[1]/eta[3],
-              mflow_test*eta[2]/eta[3],mflow_test} "mass flow rate" 
+              mflow_test*eta[2]/eta[3],mflow_test} "mass flow rate"
                                            annotation (Dialog(group="Input"));
 
           //input record
@@ -857,9 +857,9 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_2[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
         protected
@@ -870,7 +870,7 @@ extends Modelica.Icons.ExamplesPackage;
             duration=1,
             height=1e4) annotation (extent=[-80, -80; -60, -60], Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=1e4, freqHz=1) 
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=1e4, freqHz=1)
             annotation (extent=[-80, -80; -60, -60], Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
@@ -912,17 +912,17 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
 
-          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in 
+          Modelica.SIunits.Velocity velocity[n]={m_flow[i]/(rho[i]*h*s) for i in
                   1:n};
 
           //even gap variables
           parameter Modelica.SIunits.Length h=0.1
-            "Height of cross sectional area" 
+            "Height of cross sectional area"
             annotation (Dialog(group="Geometry"));
           parameter Modelica.SIunits.Length s=0.05
-            "Distance between parallel plates in cross sectional area" 
+            "Distance between parallel plates in cross sectional area"
             annotation (Dialog(group="Geometry"));
-          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap" 
+          parameter Modelica.SIunits.Length L=1 "Overflowed length of gap"
             annotation (Dialog(group="Geometry"));
 
           //fluid property variables
@@ -974,7 +974,7 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             offset=600,
-            height=2e3 - 600) 
+            height=2e3 - 600)
                        annotation (extent=[-80, -80; -60, -60],Placement(transformation(
                   extent={{52,-78},{72,-58}})));
         equation
@@ -1046,6 +1046,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow,
             cp=cp,
             eta=eta,
+            eta_wall=eta,
             lambda=lambda,
             rho=rho) annotation (extent=[-10, 20; 10, 40], Placement(transformation(
                   extent={{-60,20},{-40,40}})));
@@ -1079,18 +1080,19 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow=m_flow,
             cp=cp,
             eta=eta,
+            eta_wall=eta,
             lambda=lambda,
             rho=rho) annotation (extent=[-10, 20; 10, 40], Placement(transformation(
                   extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -1199,7 +1201,9 @@ extends Modelica.Icons.ExamplesPackage;
              cp=cp,
              eta=eta,
              lambda=lambda,
-             rho=rho) annotation (extent=[-10, 20; 10, 40], Placement(transformation(
+             rho=rho,
+            eta_wall=eta)
+                      annotation (extent=[-10, 20; 10, 40], Placement(transformation(
                    extent={{-60,20},{-40,40}})));
 
            Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
@@ -1231,6 +1235,7 @@ extends Modelica.Icons.ExamplesPackage;
              m_flow=m_flow_3,
              cp=cp,
              eta=eta,
+             eta_wall=eta,
              lambda=lambda,
              rho=rho) annotation (extent=[-10, 20; 10, 40], Placement(transformation(
                    extent={{60,20},{80,40}})));
@@ -1330,7 +1335,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.Density rho=1.188 "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.ReynoldsNumber Re=input_Re.y "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re=input_Re.y "Reynolds number"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -1347,7 +1352,7 @@ extends Modelica.Icons.ExamplesPackage;
             T_d=T_d_1,
             T_p=T_p_1,
             delta_f=delta_f_1,
-            Phi=Phi_1) 
+            Phi=Phi_1)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
             m_flow_IN_var_1(
@@ -1355,7 +1360,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[1]) 
+            m_flow=m_flow[1])
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
@@ -1373,13 +1378,13 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[2]) 
+            m_flow=m_flow[2])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
-          Modelica.SIunits.MassFlowRate m_flow[n] "Mass flow rate" 
+          Modelica.SIunits.MassFlowRate m_flow[n] "Mass flow rate"
                                                      annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number" 
+          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
                                                   annotation (Dialog(group="Output"));
 
         public
@@ -1487,7 +1492,7 @@ extends Modelica.Icons.ExamplesPackage;
             T_d=T_d_1,
             T_p=T_p_1,
             delta_f=delta_f_1,
-            Phi=Phi_1) 
+            Phi=Phi_1)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
             m_flow_IN_var_1(
@@ -1495,7 +1500,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[1]) 
+            m_flow=m_flow[1])
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
             m_flow_IN_con_2(
@@ -1512,7 +1517,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[2]) 
+            m_flow=m_flow[2])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           Modelica.SIunits.ReynoldsNumber Re_1=abs(m_flow[1])*L_p_1/(eta*A_fr*(
@@ -1620,7 +1625,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.Density rho=1.188 "Density of fluid";
 
           //input VARIABLES
-          Modelica.SIunits.ReynoldsNumber Re=input_Re.y "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re=input_Re.y "Reynolds number"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -1633,7 +1638,7 @@ extends Modelica.Icons.ExamplesPackage;
             P_t=P_t_1,
             P_l=P_l_1,
             N=N_1,
-            delta_f=delta_f) 
+            delta_f=delta_f)
             annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_1(
@@ -1641,7 +1646,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[1]) 
+            m_flow=m_flow[1])
             annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1663,7 +1668,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[2]) 
+            m_flow=m_flow[2])
             annotation (Placement(transformation(extent={{40,20},{60,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1677,7 +1682,7 @@ extends Modelica.Icons.ExamplesPackage;
             N=N_3,
             S_h=S_h_3,
             S_p=S_p_3,
-            delta_f=delta_f_3) 
+            delta_f=delta_f_3)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_3(
@@ -1685,7 +1690,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[3]) 
+            m_flow=m_flow[3])
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1695,7 +1700,7 @@ extends Modelica.Icons.ExamplesPackage;
             D_c=D_c_4,
             F_p=F_p_4,
             P_t=P_t_4,
-            delta_f=delta_f) 
+            delta_f=delta_f)
             annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_4(
@@ -1703,13 +1708,13 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[4]) 
+            m_flow=m_flow[4])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           //output variables
-          Modelica.SIunits.MassFlowRate m_flow[n] "Mass flow rate" 
+          Modelica.SIunits.MassFlowRate m_flow[n] "Mass flow rate"
                                                      annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number" 
+          Modelica.SIunits.NusseltNumber Nu[n] "Nusselt number"
                                                   annotation (Dialog(group="Output"));
 
         public
@@ -1850,7 +1855,7 @@ extends Modelica.Icons.ExamplesPackage;
             P_t=P_t_1,
             P_l=P_l_1,
             N=N_1,
-            delta_f=delta_f) 
+            delta_f=delta_f)
             annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_1(
@@ -1858,7 +1863,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[1]) 
+            m_flow=m_flow[1])
             annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1872,7 +1877,7 @@ extends Modelica.Icons.ExamplesPackage;
             P_t=P_t_2,
             P_l=P_l_2,
             N=N_2,
-            delta_f=delta_f) 
+            delta_f=delta_f)
             annotation (Placement(transformation(extent={{20,20},{40,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_2(
@@ -1880,7 +1885,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[2]) 
+            m_flow=m_flow[2])
             annotation (Placement(transformation(extent={{40,20},{60,40}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1894,7 +1899,7 @@ extends Modelica.Icons.ExamplesPackage;
             N=N_3,
             S_h=S_h_3,
             S_p=S_p_3,
-            delta_f=delta_f_3) 
+            delta_f=delta_f_3)
             annotation (Placement(transformation(extent={{-60,-20},{-40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_3(
@@ -1902,7 +1907,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[3]) 
+            m_flow=m_flow[3])
             annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
@@ -1912,7 +1917,7 @@ extends Modelica.Icons.ExamplesPackage;
             D_c=D_c_4,
             F_p=F_p_4,
             P_t=P_t_4,
-            delta_f=delta_f) 
+            delta_f=delta_f)
             annotation (Placement(transformation(extent={{20,-20},{40,0}})));
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
             m_flow_IN_var_4(
@@ -1920,7 +1925,7 @@ extends Modelica.Icons.ExamplesPackage;
             eta=eta,
             lambda=lambda,
             rho=rho,
-            m_flow=m_flow[4]) 
+            m_flow=m_flow[4])
             annotation (Placement(transformation(extent={{40,-20},{60,0}})));
 
           Modelica.SIunits.ReynoldsNumber Re_1=abs(m_flow[1])*D_c_1/(eta*A_fr*(
@@ -2006,7 +2011,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input VARIABLES
           Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
-              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate" 
+              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -2062,19 +2067,19 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
-          Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=1e2) 
+          Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=1e2)
             annotation (extent=[-80, -80; -60, -60], Placement(transformation(extent={{
                     -80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1) 
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
             annotation (extent=[-80, -80; -60, -60], Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
 
@@ -2088,7 +2093,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real frac_dtoL=d_hyd/L;
 
           Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         equation
@@ -2232,7 +2237,7 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             offset=5,
-            height=8e1) 
+            height=8e1)
                       annotation (extent=[-80, -80; -60, -60], Placement(transformation(
                   extent={{50,-80},{70,-60}})));
 
@@ -2298,7 +2303,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input VARIABLES
           Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
-              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate" 
+              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -2354,13 +2359,13 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -2368,7 +2373,7 @@ extends Modelica.Icons.ExamplesPackage;
             offset=1e-5,
             height=1e3) annotation (extent=[-80, -80; -60, -60], Placement(
                 transformation(extent={{-80,-80},{-60,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1) 
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
             annotation (extent=[-80, -80; -60, -60], Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
 
@@ -2386,11 +2391,11 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real d_coil[n]={d_hyd/frac_dhydTodcoil[i] for i in 1:n};
           parameter Real d_w[n]={sqrt((d_coil[i])^2 + (h/Modelica.Constants.pi)
                                                             ^2) for i in 1:n};
-          parameter Real n_nt[n]={L/(d_w[i]*Modelica.Constants.pi) 
+          parameter Real n_nt[n]={L/(d_w[i]*Modelica.Constants.pi)
                                                 for i in 1:n};
 
           Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         equation
@@ -2592,7 +2597,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input VARIABLES
           Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
-              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate" 
+              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -2648,16 +2653,16 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{60,20},{80,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
-          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1) 
+          Modelica.Blocks.Sources.Sine input_mflow_1(amplitude=100, freqHz=1)
             annotation (extent=[-80, -80; -60, -60], Placement(transformation(extent={{
                     -40,-80},{-20,-60}})));
 
@@ -2676,7 +2681,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Real frac_dtoL=d_hyd/L;
 
           Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         equation
@@ -2819,7 +2824,7 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             offset=5e2,
-            height=8e2) 
+            height=8e2)
                       annotation (extent=[-80, -80; -60, -60], Placement(transformation(
                   extent={{50,-80},{70,-60}})));
 
@@ -2890,7 +2895,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_con
-            IN_con[n](each L=L) 
+            IN_con[n](each L=L)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-20,
                     20},{0,40}})));
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_var
@@ -2903,10 +2908,10 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number"
                                                  annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
           Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
@@ -2975,12 +2980,12 @@ extends Modelica.Icons.ExamplesPackage;
           //here: Nusselt number as input for inverse calculation
           Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
           Modelica.SIunits.Velocity velocity[n](start=ones(n)*1e-6);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L 
+          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
               for i in 1:n};
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_con
-            IN_con[n](each L=L) 
+            IN_con[n](each L=L)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-20,
                     20},{0,40}})));
 
@@ -2993,7 +2998,7 @@ extends Modelica.Icons.ExamplesPackage;
             velocity=abs(velocity)) annotation (extent=[-10, 20; 10, 40], Placement(
                 transformation(extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
           Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
@@ -3003,7 +3008,7 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             offset=10,
-            height=4e2) 
+            height=4e2)
                        annotation (extent=[-80, -80; -60, -60],Placement(transformation(
                   extent={{50,-80},{70,-60}})));
         equation
@@ -3055,7 +3060,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con
-            IN_con[n](each L=L) 
+            IN_con[n](each L=L)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-20,
                     20},{0,40}})));
 
@@ -3069,10 +3074,10 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number"
                                                  annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
           Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
@@ -3148,12 +3153,12 @@ extends Modelica.Icons.ExamplesPackage;
           //here: Nusselt number as input for reverse calculation
           Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
           Modelica.SIunits.Velocity velocity[n](start=ones(n)*1e-6);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L 
+          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
               for i in 1:n};
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con
-            IN_con[n](each L=L) 
+            IN_con[n](each L=L)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-20,
                     20},{0,40}})));
 
@@ -3166,7 +3171,7 @@ extends Modelica.Icons.ExamplesPackage;
             velocity=abs(velocity)) annotation (extent=[-10, 20; 10, 40], Placement(
                 transformation(extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
           Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
@@ -3227,7 +3232,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_con
-            IN_con[n](each L=L) 
+            IN_con[n](each L=L)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-20,
                     20},{0,40}})));
 
@@ -3241,10 +3246,10 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{0,20},{20,40}})));
 
           //output variables
-          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu[n] "Nussel number"
                                                  annotation (Dialog(group="Output"));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
           Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
@@ -3313,12 +3318,12 @@ extends Modelica.Icons.ExamplesPackage;
           //here: Nusselt number as input for inverse calculation
           Modelica.SIunits.NusseltNumber Nu[n]=ones(n)*input_Nu.y;
           Modelica.SIunits.Velocity velocity[n](start=ones(n)*1e-6);
-          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L 
+          Modelica.SIunits.CoefficientOfHeatTransfer kc[n]={Nu[i]*lambda[i]/L
               for i in 1:n};
 
           //input record
           Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_con
-            IN_con[n](each L=L) 
+            IN_con[n](each L=L)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-20,
                     20},{0,40}})));
 
@@ -3331,7 +3336,7 @@ extends Modelica.Icons.ExamplesPackage;
             velocity=abs(velocity)) annotation (extent=[-10, 20; 10, 40], Placement(
                 transformation(extent={{0,20},{20,40}})));
 
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
           Modelica.SIunits.ReynoldsNumber Re[n]={rho[i]*abs(velocity[i])*L/eta[
               i] for i in 1:n} "Reynolds number";
@@ -3341,7 +3346,7 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             height=1e6,
-            offset=2.5e4) 
+            offset=2.5e4)
                         annotation (extent=[-80, -80; -60, -60], Placement(
                 transformation(extent={{50,-80},{70,-60}})));
         equation
@@ -3393,7 +3398,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input VARIABLES
           Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
-              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate" 
+              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -3401,7 +3406,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_1[n](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-100,
                     20},{-80,40}})));
 
@@ -3418,7 +3423,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_2[n](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-50,
                     20},{-30,40}})));
 
@@ -3435,7 +3440,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_3[n](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{10,
                     20},{30,40}})));
 
@@ -3452,7 +3457,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_4[n](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{60,
                     20},{80,40}})));
 
@@ -3466,22 +3471,22 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
           Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
 
         public
@@ -3595,7 +3600,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_1[3](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-100,
                     20},{-80,40}})));
 
@@ -3612,7 +3617,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_2[3](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-50,
                     20},{-30,40}})));
 
@@ -3629,7 +3634,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_3[3](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{10,
                     20},{30,40}})));
 
@@ -3646,7 +3651,7 @@ extends Modelica.Icons.ExamplesPackage;
             m_flow_IN_con_4[3](
             each d_hyd=d_hyd,
             each L=L,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{60,
                     20},{80,40}})));
 
@@ -3673,23 +3678,23 @@ extends Modelica.Icons.ExamplesPackage;
             startTime=0,
             duration=1,
             offset=5,
-            height=3e1) 
+            height=3e1)
                       annotation (extent=[-80, -80; -60, -60], Placement(transformation(
                   extent={{52,-80},{72,-60}})));
 
         equation
           //heat transfer calculation
           kc_1 = {
-            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC(
+            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(
             m_flow_IN_con_1[i], m_flow_IN_var_1[i]) for i in 1:n};
           kc_2 = {
-            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC(
+            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(
             m_flow_IN_con_2[i], m_flow_IN_var_2[i]) for i in 1:n};
           kc_3 = {
-            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC(
+            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(
             m_flow_IN_con_3[i], m_flow_IN_var_3[i]) for i in 1:n};
           kc_4 = {
-            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_KC(
+            Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_KC(
             m_flow_IN_con_4[i], m_flow_IN_var_4[i]) for i in 1:n};
           annotation (
             Commands(file=
@@ -3743,7 +3748,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           //input VARIABLES
           Modelica.SIunits.MassFlowRate m_flow[n]={input_mflow_0.y*eta[1]/eta[3],
-              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate" 
+              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -3752,7 +3757,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-100,
                     20},{-80,40}})));
 
@@ -3770,7 +3775,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-50,
                     20},{-30,40}})));
 
@@ -3788,7 +3793,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{10,
                     20},{30,40}})));
 
@@ -3806,7 +3811,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{60,
                     20},{80,40}})));
 
@@ -3820,22 +3825,22 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{80,20},{100,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_3[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_4[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
           Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -3949,7 +3954,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-100,
                     20},{-80,40}})));
 
@@ -3967,7 +3972,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuDFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{-50,
                     20},{-30,40}})));
 
@@ -3985,7 +3990,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UWTuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{10,
                     20},{30,40}})));
 
@@ -4003,7 +4008,7 @@ extends Modelica.Icons.ExamplesPackage;
             each d_hyd=d_hyd,
             each L=L,
             each roughness=2,
-            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF) 
+            each target=Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary.UHFuUFF)
             annotation (extent=[-10, 20; 10, 40], Placement(transformation(extent={{60,
                     20},{80,40}})));
 
@@ -4099,7 +4104,7 @@ extends Modelica.Icons.ExamplesPackage;
           //input VARIABLES
           //create identical Reynolds number for different fluid properties >> adjustment of  mass flow rate
           Modelica.SIunits.MassFlowRate m_flow[:]={input_mflow_0.y*eta[1]/eta[3],
-              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate" 
+              input_mflow_0.y*eta[2]/eta[3],input_mflow_0.y} "Mass flow rate"
             annotation (Dialog(group="Input"));
 
           //input record
@@ -4136,18 +4141,18 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{40,20},{60,40}})));
 
           //output variables
-          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number" 
+          Modelica.SIunits.ReynoldsNumber Re_1[n] "Reynolds number"
             annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_1[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
-          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number" 
+          Modelica.SIunits.NusseltNumber Nu_2[n] "Nussel number"
                                                    annotation (Dialog(group="Output"));
 
         protected
           parameter Real frac_dtoL=d_hyd/L;
 
           Modelica.SIunits.ReynoldsNumber Re=Re_1[1] "Reynolds number";
-          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in 
+          Modelica.SIunits.PrandtlNumber Pr[n]={eta[i]*cp[i]/lambda[i] for i in
                   1:n} "Prandtl number";
         public
           Modelica.Blocks.Sources.Ramp input_mflow_0(
@@ -4391,11 +4396,11 @@ extends Modelica.Icons.ExamplesPackage;
             "Mass flow rate quality";
 
           //plotting
-          Modelica.SIunits.NusseltNumber Nu_1[n]={kc_1[i]*d_hyd_1/lambda_1[i] 
+          Modelica.SIunits.NusseltNumber Nu_1[n]={kc_1[i]*d_hyd_1/lambda_1[i]
               for i in 1:n} "Local Nusselt number";
           Modelica.SIunits.NusseltNumber NU_2=kc_2*d_hyd_2/lambda_2
             "Local Nusselt number";
-          Modelica.SIunits.NusseltNumber Nu_3[m]={kc_3[i]*d_hyd_3/lambda_3[i] 
+          Modelica.SIunits.NusseltNumber Nu_3[m]={kc_3[i]*d_hyd_3/lambda_3[i]
               for i in 1:m} "Local Nusselt number";
 
           //input records
@@ -4420,7 +4425,7 @@ extends Modelica.Icons.ExamplesPackage;
             qdot_A=qdot_A_1,
             dh_lg=dh_lg_1,
             m_flow=m_flow_1,
-            pressure=p_1) 
+            pressure=p_1)
             annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con
@@ -4444,7 +4449,7 @@ extends Modelica.Icons.ExamplesPackage;
             qdot_A=qdot_A_2,
             each dh_lg=dh_lg_2,
             m_flow=m_flow_2,
-            pressure=p_2) 
+            pressure=p_2)
             annotation (Placement(transformation(extent={{-10,0},{10,20}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con
@@ -4452,7 +4457,7 @@ extends Modelica.Icons.ExamplesPackage;
             each target=Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor,
             each A_cross=A_cross_3,
             each perimeter=perimeter_3,
-            p_crit=p_crit_3) 
+            p_crit=p_crit_3)
             annotation (Placement(transformation(extent={{20,0},{40,20}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var
@@ -4464,7 +4469,7 @@ extends Modelica.Icons.ExamplesPackage;
             rho_l=rho_l_3,
             each x_flow=x_flow,
             m_flow=m_flow_3,
-            pressure=p_3) 
+            pressure=p_3)
             annotation (Placement(transformation(extent={{40,0},{60,20}})));
 
           //output variables
@@ -4472,23 +4477,23 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.SIunits.CoefficientOfHeatTransfer kc_2;
           Modelica.SIunits.CoefficientOfHeatTransfer kc_3[m];
 
-          Modelica.Blocks.Sources.Ramp input_x_0(duration=1, height=1) 
+          Modelica.Blocks.Sources.Ramp input_x_0(duration=1, height=1)
             annotation (Placement(transformation(extent={{-60,-38},{-40,-18}})));
-          Modelica.Blocks.Sources.Sine input_x_1(freqHz=1, amplitude=100) 
+          Modelica.Blocks.Sources.Sine input_x_1(freqHz=1, amplitude=100)
             annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
           Modelica.Blocks.Sources.Exponentials input_x_2(
             riseTimeConst=1e-1,
             outMax=100,
-            riseTime=1e-1) 
+            riseTime=1e-1)
             annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
-          Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=100) 
+          Modelica.Blocks.Sources.Ramp input_mflow_0(duration=1, height=100)
             annotation (Placement(transformation(extent={{-60,-80},{-40,-60}})));
-          Modelica.Blocks.Sources.Sine input_mflow_1(freqHz=1, amplitude=100) 
+          Modelica.Blocks.Sources.Sine input_mflow_1(freqHz=1, amplitude=100)
             annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
           Modelica.Blocks.Sources.Exponentials input_mflow_2(
             outMax=100,
             riseTime=1e-1,
-            riseTimeConst=1e-1) 
+            riseTimeConst=1e-1)
             annotation (Placement(transformation(extent={{20,-80},{40,-60}})));
 
         equation
@@ -4552,7 +4557,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW_1[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for 
+          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4566,7 +4571,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW_2[m](start=zeros(m))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_2[m](start=zeros(m))={input_dp_2[i] for 
+          Modelica.SIunits.Pressure DP_2[m](start=zeros(m))={input_dp_2[i] for
             i in 1:m}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4581,7 +4586,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-100,20},{-80,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-            m_flow_IN_var_1[n](each eta=eta, each rho=rho) 
+            m_flow_IN_var_1[n](each eta=eta, each rho=rho)
                                          annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{-80,20},{-60,40}})));
 
@@ -4594,7 +4599,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{10,20},{30,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-            m_flow_IN_var_2[m](each eta=eta, each rho=rho) 
+            m_flow_IN_var_2[m](each eta=eta, each rho=rho)
                                          annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{30,20},{50,40}})));
 
@@ -4608,7 +4613,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-50,20},{-30,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-            dp_IN_var_1[n](each eta=eta, each rho=rho) 
+            dp_IN_var_1[n](each eta=eta, each rho=rho)
                                           annotation (extent=[40, 12; 60, 32],
               Placement(transformation(extent={{-30,20},{-10,40}})));
 
@@ -4621,7 +4626,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{60,20},{80,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-            dp_IN_var_2[m](each eta=eta, each rho=rho) 
+            dp_IN_var_2[m](each eta=eta, each rho=rho)
                                           annotation (extent=[40, 12; 60, 32],
               Placement(transformation(extent={{80,20},{100,40}})));
 
@@ -4630,20 +4635,20 @@ extends Modelica.Icons.ExamplesPackage;
             "Relative curvature radius";
 
           //plotting
-          Modelica.SIunits.Velocity velocity_1[n]={input_mdot_1[i]/(rho*A_cross) 
+          Modelica.SIunits.Velocity velocity_1[n]={input_mdot_1[i]/(rho*A_cross)
               for i in 1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta 
+          Modelica.SIunits.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta
               for i in 1:n};
-          Modelica.SIunits.Velocity velocity_2[m]={input_mdot_2[i]/(rho*A_cross) 
+          Modelica.SIunits.Velocity velocity_2[m]={input_mdot_2[i]/(rho*A_cross)
               for i in 1:m} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re_2[m]={rho*velocity_2[i]*d_hyd/eta 
+          Modelica.SIunits.ReynoldsNumber Re_2[m]={rho*velocity_2[i]*d_hyd/eta
               for i in 1:m};
 
           Real DP_plot_1[n]={DP_1[i] for i in 1:n} "Pressure loss [Pa]";
           Real DP_plot_2[m]={DP_2[i] for i in 1:m} "Pressure loss [Pa]";
-          Real zeta_TOT_1[n]={2*abs(DP_plot_1[i])/(max(rho*(velocity_1[i])^2, 1e-5)) 
+          Real zeta_TOT_1[n]={2*abs(DP_plot_1[i])/(max(rho*(velocity_1[i])^2, 1e-5))
               for i in 1:n} "Pressure loss coefficients";
-          Real zeta_TOT_2[m]={2*abs(DP_plot_2[i])/(max(rho*(velocity_2[i])^2, 1e-5)) 
+          Real zeta_TOT_2[m]={2*abs(DP_plot_2[i])/(max(rho*(velocity_2[i])^2, 1e-5))
               for i in 1:m} "Pressure loss coefficients";
 
         public
@@ -4742,7 +4747,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4756,7 +4761,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-70,20},{-50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var
-            m_flow_IN_var[n](each eta=eta, each rho=rho) 
+            m_flow_IN_var[n](each eta=eta, each rho=rho)
                                           annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{-50,20},{-30,40}})));
 
@@ -4769,17 +4774,17 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var
-            dp_IN_var[n](each eta=eta, each rho=rho) 
+            dp_IN_var[n](each eta=eta, each rho=rho)
                                      annotation (extent=[40, 12; 60, 32], Placement(
                 transformation(extent={{50,20},{70,40}})));
 
           //plotting
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
-          Modelica.SIunits.Velocity velocity[n]={input_mdot[i]/(rho*A_cross) 
+          Modelica.SIunits.Velocity velocity[n]={input_mdot[i]/(rho*A_cross)
               for i in 1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for 
+          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
-          Real zeta_TOT[n]={2*abs(DP_plot[i])/(max(rho*(velocity[i])^2, 1e-5)) for i in 
+          Real zeta_TOT[n]={2*abs(DP_plot[i])/(max(rho*(velocity[i])^2, 1e-5)) for i in
                   1:n} "Pressure loss coefficients";
 
           Modelica.Blocks.Sources.Ramp input_DP(
@@ -4869,7 +4874,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW_1[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for 
+          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -4923,20 +4928,20 @@ extends Modelica.Icons.ExamplesPackage;
         protected
           Real MIN=Modelica.Constants.eps;
 
-          Modelica.SIunits.Area A_crossT[n]={max(MIN, if geometry[i] == 1 then 
-              (Modelica.Constants.pi/4)*((D_ann)^2 - (d_ann)^2) else if 
-              geometry[i] == 2 then Modelica.Constants.pi/4*(d_cir)^2 else if 
-              geometry[i] == 3 then Modelica.Constants.pi*a_ell*b_ell else if 
-              geometry[i] == 4 then a_rec*b_rec else if geometry[i] == 5 then 
+          Modelica.SIunits.Area A_crossT[n]={max(MIN, if geometry[i] == 1 then
+              (Modelica.Constants.pi/4)*((D_ann)^2 - (d_ann)^2) else if
+              geometry[i] == 2 then Modelica.Constants.pi/4*(d_cir)^2 else if
+              geometry[i] == 3 then Modelica.Constants.pi*a_ell*b_ell else if
+              geometry[i] == 4 then a_rec*b_rec else if geometry[i] == 5 then
               0.5*(a_tri*h_tri) else 0) for i in 1:n} "Cross sectional area";
-          Modelica.SIunits.Length perimeterT[n]={max(MIN, if geometry[i] == 1 then 
+          Modelica.SIunits.Length perimeterT[n]={max(MIN, if geometry[i] == 1 then
                     Modelica.Constants.pi*(D_ann + d_ann) else if geometry[i]
-               == 2 then Modelica.Constants.pi*d_cir else if geometry[i] == 3 then 
-                    Modelica.Constants.pi*(2*((a_ell)^2) + (b_ell)^2)^0.5 else 
+               == 2 then Modelica.Constants.pi*d_cir else if geometry[i] == 3 then
+                    Modelica.Constants.pi*(2*((a_ell)^2) + (b_ell)^2)^0.5 else
               if geometry[i] == 4 then 2*(a_rec + b_rec) else if geometry[i]
-               == 5 then a_tri + 2*((h_tri)^2 + (a_tri/2)^2)^0.5 else 0) for i in 
+               == 5 then a_tri + 2*((h_tri)^2 + (a_tri/2)^2)^0.5 else 0) for i in
                   1:n} "Perimeter";
-          Modelica.SIunits.Diameter d_hydT[n]={4*A_crossT[i]/perimeterT[i] for 
+          Modelica.SIunits.Diameter d_hydT[n]={4*A_crossT[i]/perimeterT[i] for
               i in 1:n} "Hydraulic diameter";
           Modelica.SIunits.Area A_cross=(Modelica.Constants.pi/4)*d_hyd^2;
           Modelica.SIunits.Diameter d_hyd=0.1;
@@ -4944,11 +4949,11 @@ extends Modelica.Icons.ExamplesPackage;
 
           Modelica.SIunits.Velocity velocity_1[n]={input_mdot_1[i]/(rho*
               A_crossT[i]) for i in 1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta 
+          Modelica.SIunits.ReynoldsNumber Re_1[n]={rho*velocity_1[i]*d_hyd/eta
               for i in 1:n};
 
           Real DP_plot_1[n]={DP_1[i] for i in 1:n} "Pressure loss [Pa]";
-          Real zeta_TOT_1[n]={2*abs(DP_plot_1[i])/(max(rho*(velocity_1[i])^2, MIN)) 
+          Real zeta_TOT_1[n]={2*abs(DP_plot_1[i])/(max(rho*(velocity_1[i])^2, MIN))
               for i in 1:n} "Pressure loss coefficients";
 
         public
@@ -5008,7 +5013,7 @@ extends Modelica.Icons.ExamplesPackage;
           Real frac_KmToRs[n]={Km[i]/R_s for i in 1:n};
 
           //general variables
-          parameter Real exp=2 "Exponent of pressure loss law" 
+          parameter Real exp=2 "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
 
           parameter Real p_1=1.1e5 "MEASURED pressure at input [Pa]";
@@ -5041,7 +5046,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5134,7 +5139,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.Pressure dp_nom=50
             "Nominal pressure loss (at nominal values of mass flow rate and density)"
             annotation (Dialog(group="Generic variables"));
-          parameter Real exp=2 "Exponent of pressure loss law" 
+          parameter Real exp=2 "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
           parameter Modelica.SIunits.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
@@ -5143,22 +5148,22 @@ extends Modelica.Icons.ExamplesPackage;
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
           parameter Real exp_eta=1.5
-            "Exponent for dynamic viscosity dependence" 
+            "Exponent for dynamic viscosity dependence"
             annotation (Dialog(group="Generic variables"));
           parameter Modelica.SIunits.DynamicViscosity eta_nom=1e-3
-            "Dynamic viscosity at nominal pressure loss" 
+            "Dynamic viscosity at nominal pressure loss"
             annotation (Dialog(group="Generic variables"));
 
           //fluid property PARAMETERS
           parameter Modelica.SIunits.SpecificHeatCapacityAtConstantPressure cp=
-              4190 "specific heat capacity at constant pressure of fluid" 
+              4190 "specific heat capacity at constant pressure of fluid"
             annotation (Dialog(group="FluidProperties"));
           Modelica.SIunits.DynamicViscosity eta[:]={rho[i]*nue for i in 1:n}
             "dynamic viscosity of fluid" annotation (Dialog(group="FluidProperties"));
           parameter Modelica.SIunits.ThermalConductivity lambda=0.6
-            "thermal conductivity of fluid" 
+            "thermal conductivity of fluid"
             annotation (Dialog(group="FluidProperties"));
-          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid" 
+          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid"
             annotation (Dialog(group="FluidProperties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
@@ -5171,7 +5176,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n};
 
           //input record
@@ -5255,10 +5260,10 @@ extends Modelica.Icons.ExamplesPackage;
             "number of different fluid density values";
 
           //general variables
-          Modelica.SIunits.Area A_cross=A_cross_nom "Cross sectional area" 
+          Modelica.SIunits.Area A_cross=A_cross_nom "Cross sectional area"
             annotation (Dialog(group="Generic variables"));
           Modelica.SIunits.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
-            "Nominal cross sectional area" 
+            "Nominal cross sectional area"
             annotation (Dialog(group="Generic variables"));
           Modelica.SIunits.Pressure dp_nom=50
             "Nominal pressure loss (at nominal values of mass flow rate and density)"
@@ -5266,7 +5271,7 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.SIunits.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
-          Real exp=2 "Exponent of pressure loss law" 
+          Real exp=2 "Exponent of pressure loss law"
             annotation (Dialog(group="Generic variables"));
           Integer NominalMassFlowRate=1
             "true == use nominal mass flow rate | false == nominal volume flow rate"
@@ -5275,18 +5280,18 @@ extends Modelica.Icons.ExamplesPackage;
             "Nominal volume flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables"));
           Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient
-            zeta_TOT=0.05*1/0.1 "Pressure loss coefficient" 
+            zeta_TOT=0.05*1/0.1 "Pressure loss coefficient"
                                         annotation (Dialog(group="Generic variables"));
           Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient
             zeta_TOT_nom=1
-            "Nominal pressure loss coefficient (for nominal values)" 
+            "Nominal pressure loss coefficient (for nominal values)"
             annotation (Dialog(group="Generic variables"));
           Modelica.SIunits.Density rho_nom=1e3
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
 
           //fluid property variables
-          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid" 
+          Modelica.SIunits.Density rho[:]={1e3,1.5e3,2e3} "density of fluid"
             annotation (Dialog(group="FluidProperties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
@@ -5299,7 +5304,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5413,7 +5418,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5492,7 +5497,7 @@ extends Modelica.Icons.ExamplesPackage;
 
           parameter Integer n=size(a, 1) "number of different coefficients a";
 
-          Modelica.SIunits.VolumeFlowRate V_flow[n]={input_mdot[i]/rho for i in 
+          Modelica.SIunits.VolumeFlowRate V_flow[n]={input_mdot[i]/rho for i in
                   1:n} "Input volume flow rate";
 
           //general variables
@@ -5512,30 +5517,30 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
           //input record
           //target == DP (incompressible)
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con
-            m_flow_IN_con[n](a=a, each b=b) 
+            m_flow_IN_con[n](a=a, each b=b)
                               annotation (extent=[-10, 12; 10, 34], Placement(
                 transformation(extent={{-70,20},{-50,42}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var
-            m_flow_IN_var[n](each rho=rho) 
+            m_flow_IN_var[n](each rho=rho)
                              annotation (extent=[-10, 12; 10, 34], Placement(
                 transformation(extent={{-50,20},{-30,42}})));
 
           //target == M_FLOW (compressible)
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con
-            dp_IN_con[n](a=a, each b=b) 
+            dp_IN_con[n](a=a, each b=b)
                             annotation (extent=[-10, 12; 10, 34], Placement(
                 transformation(extent={{30,20},{50,42}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var
-            dp_IN_var[n](each rho=rho) 
+            dp_IN_var[n](each rho=rho)
                             annotation (extent=[-10, 12; 10, 34], Placement(
                 transformation(extent={{50,20},{70,42}})));
 
@@ -5643,7 +5648,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var
-            dp_IN_var(eta=eta, rho=rho) 
+            dp_IN_var(eta=eta, rho=rho)
                               annotation (extent=[40, 14; 60, 34], Placement(
                 transformation(extent={{50,20},{70,40}})));
 
@@ -5657,7 +5662,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-70,20},{-50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var
-            m_flow_IN_var(eta=eta, rho=rho) 
+            m_flow_IN_var(eta=eta, rho=rho)
                                 annotation (extent=[-58, 16; -38, 36], Placement(
                 transformation(extent={{-50,20},{-30,40}})));
 
@@ -5748,9 +5753,9 @@ extends Modelica.Icons.ExamplesPackage;
 
           //fluid property variables
           Modelica.SIunits.DynamicViscosity eta=1e-3
-            "Dynamic viscosity of fluid" 
+            "Dynamic viscosity of fluid"
             annotation (Dialog(group="Fluid properties"));
-          Modelica.SIunits.Density rho=1000 "Density of fluid" 
+          Modelica.SIunits.Density rho=1000 "Density of fluid"
             annotation (Dialog(group="Fluid properties"));
 
           //target variables (here: mass flow rate as input for inverse calculation)
@@ -5763,7 +5768,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -5793,7 +5798,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var
-            dp_IN_var[n](each eta=eta, each rho=rho) 
+            dp_IN_var[n](each eta=eta, each rho=rho)
                                          annotation (extent=[40, 12; 60, 32], Placement(
                 transformation(extent={{50,20},{70,40}})));
 
@@ -5870,14 +5875,14 @@ extends Modelica.Icons.ExamplesPackage;
             "Circular cross sectional area of straight pipe";
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
-            "Choice of considering surface roughness" 
+            "Choice of considering surface roughness"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter" 
+          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter"
             annotation (Dialog(group="Straight pipe"));
           Modelica.SIunits.Length K[1]={0}
-            "Roughness (average height of surface asperities)" 
+            "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length L=1 "Length" 
+          Modelica.SIunits.Length L=1 "Length"
                                  annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
@@ -5895,37 +5900,37 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
           //input record
           //target == DP (incompressible)
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con
-            m_flow_IN_con[n](each d_hyd=d_hyd, each L=L) 
+            m_flow_IN_con[n](each d_hyd=d_hyd, each L=L)
                                          annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{-70,20},{-50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var
-            m_flow_IN_var[n](each eta=eta, each rho=rho) 
+            m_flow_IN_var[n](each eta=eta, each rho=rho)
                                          annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{-50,20},{-30,40}})));
 
           //target == M_FLOW (compressible)
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con
-            dp_IN_con[n](each d_hyd=d_hyd, each L=L) 
+            dp_IN_con[n](each d_hyd=d_hyd, each L=L)
                                           annotation (extent=[40, 12; 60, 32],
               Placement(transformation(extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var
-            dp_IN_var[n](each eta=eta, each rho=rho) 
+            dp_IN_var[n](each eta=eta, each rho=rho)
                                           annotation (extent=[40, 12; 60, 32],
               Placement(transformation(extent={{50,20},{70,40}})));
 
           //plotting
-          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in 
+          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
                   1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for 
+          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
 
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
@@ -5987,14 +5992,14 @@ extends Modelica.Icons.ExamplesPackage;
             "Circular cross sectional area of straight pipe";
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
-            "Choice of considering surface roughness" 
+            "Choice of considering surface roughness"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter" 
+          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter"
             annotation (Dialog(group="Straight pipe"));
           Modelica.SIunits.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
-            "Roughness (average height of surface asperities)" 
+            "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length L=1 "Length" 
+          Modelica.SIunits.Length L=1 "Length"
                                  annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
@@ -6012,7 +6017,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -6027,7 +6032,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{-70,20},{-50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var
-            m_flow_IN_var[n](each eta=eta, each rho=rho) 
+            m_flow_IN_var[n](each eta=eta, each rho=rho)
                                          annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{-50,20},{-30,40}})));
 
@@ -6041,14 +6046,14 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var
-            dp_IN_var[n](each eta=eta, each rho=rho) 
+            dp_IN_var[n](each eta=eta, each rho=rho)
                                           annotation (extent=[40, 12; 60, 32],
               Placement(transformation(extent={{50,20},{70,40}})));
 
           //plotting
-          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in 
+          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
                   1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for 
+          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
 
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
@@ -6116,14 +6121,14 @@ extends Modelica.Icons.ExamplesPackage;
             "Circular cross sectional area of straight pipe";
           Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=
               Modelica.Fluid.Dissipation.Utilities.Types.Roughness.Considered
-            "Choice of considering surface roughness" 
+            "Choice of considering surface roughness"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter" 
+          Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter"
             annotation (Dialog(group="Straight pipe"));
           Modelica.SIunits.Length K[4]={0,2e-4*d_hyd,2e-3*d_hyd,2e-2*d_hyd}
-            "Roughness (average height of surface asperities)" 
+            "Roughness (average height of surface asperities)"
             annotation (Dialog(group="Straight pipe"));
-          Modelica.SIunits.Length L=1 "Length" 
+          Modelica.SIunits.Length L=1 "Length"
                                  annotation (Dialog(group="Straight pipe"));
 
           //fluid property variables
@@ -6141,7 +6146,7 @@ extends Modelica.Icons.ExamplesPackage;
           //intended output variables for records
           Modelica.SIunits.MassFlowRate M_FLOW[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in 
+          Modelica.SIunits.Pressure DP[n](start=zeros(n))={input_dp[i] for i in
                 1:n}
             "(Output) pressure loss (for intended incompressible case)";
 
@@ -6156,7 +6161,7 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{-70,20},{-50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var
-            m_flow_IN_var[n](each eta=eta, each rho=rho) 
+            m_flow_IN_var[n](each eta=eta, each rho=rho)
                                            annotation (extent=[-60, 12; -40, 32],
               Placement(transformation(extent={{-50,20},{-30,40}})));
 
@@ -6170,14 +6175,14 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var
-            dp_IN_var[n](each eta=eta, each rho=rho) 
+            dp_IN_var[n](each eta=eta, each rho=rho)
                                           annotation (extent=[40, 12; 60, 32],
               Placement(transformation(extent={{50,20},{70,40}})));
 
           //plotting
-          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in 
+          Modelica.SIunits.Velocity velocity[n]={M_FLOW[i]/(rho*A_cross) for i in
                   1:n} "Mean velocity";
-          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for 
+          Modelica.SIunits.ReynoldsNumber Re[n]={rho*velocity[i]*d_hyd/eta for
               i in 1:n};
 
           Real DP_plot[n]={DP[i] for i in 1:n} "Pressure loss [Pa]";
@@ -6266,7 +6271,7 @@ extends Modelica.Icons.ExamplesPackage;
             each length=length,
             each phi=0,
             each momentumPressureLoss=false,
-            each voidFractionApproach=Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy) 
+            each voidFractionApproach=Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy)
             annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var
@@ -6277,7 +6282,7 @@ extends Modelica.Icons.ExamplesPackage;
             rho_g=rho_g,
             sigma=sigma,
             each x_flow_sta=x_flow,
-            each x_flow_end=x_flow) 
+            each x_flow_end=x_flow)
             annotation (Placement(transformation(extent={{-40,0},{-20,20}})));
 
           //Two phase pressure loss w.r.t. equation of Chisholm
@@ -6289,7 +6294,7 @@ extends Modelica.Icons.ExamplesPackage;
             each length=length,
             each phi=0,
             each momentumPressureLoss=false,
-            each voidFractionApproach=Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy) 
+            each voidFractionApproach=Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy)
             annotation (Placement(transformation(extent={{0,0},{20,20}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var
@@ -6300,7 +6305,7 @@ extends Modelica.Icons.ExamplesPackage;
             rho_g=rho_g,
             sigma=sigma,
             each x_flow_end=x_flow,
-            each x_flow_sta=x_flow) 
+            each x_flow_sta=x_flow)
             annotation (Placement(transformation(extent={{20,0},{40,20}})));
 
           Modelica.SIunits.MassFlowRate input_mdot[n]={0.0001459354,
@@ -6339,14 +6344,14 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Blocks.Sources.Ramp input_x_0(
             duration=1,
             startTime=0,
-            height=1) 
+            height=1)
             annotation (Placement(transformation(extent={{-80,-40},{-60,-20}})));
           Modelica.Blocks.Sources.Sine input_x_1(
             offset=0,
             phase=0,
             startTime=0,
             freqHz=1,
-            amplitude=1) 
+            amplitude=1)
             annotation (Placement(transformation(extent={{-40,-40},{-20,-20}})));
           Modelica.Blocks.Sources.Exponentials input_x_2(
             offset=0,
@@ -6435,13 +6440,13 @@ extends Modelica.Icons.ExamplesPackage;
           //constant opening
           Modelica.SIunits.MassFlowRate M_FLOW_1[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for 
+          Modelica.SIunits.Pressure DP_1[n](start=zeros(n))={input_dp_1[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
           //variable opening
           Modelica.SIunits.MassFlowRate M_FLOW_2[n](start=zeros(n))
             "(Output) mass flow rate (for intended compressible case)";
-          Modelica.SIunits.Pressure DP_2[n](start=zeros(n))={input_dp_2[i] for 
+          Modelica.SIunits.Pressure DP_2[n](start=zeros(n))={input_dp_2[i] for
             i in 1:n}
             "(Output) pressure loss (for intended incompressible case)";
           //incompressible case
@@ -6528,18 +6533,18 @@ extends Modelica.Icons.ExamplesPackage;
           //compressible case
           //constant opening
           Real DP_plot_1[n]={DP_1[i] for i in 1:n} "Pressure loss [Pa]";
-          Real zeta_TOT_1[n]={2*DP_1[i]*rho*Av^2/max(MIN, (input_mdot_1[i])^2) for i in 
+          Real zeta_TOT_1[n]={2*DP_1[i]*rho*Av^2/max(MIN, (input_mdot_1[i])^2) for i in
                   1:n} "Pressure loss coefficients";
           Real Re_1[n]={input_mdot_1[i]*d_hyd/(eta*Av) for i in 1:n};
 
           //variable opening
           Real DP_plot_2[n]={DP_2[i] for i in 1:n} "Pressure loss [Pa]";
-          Real zeta_TOT_2[n]={2*DP_2[i]*rho*Av^2/max(MIN, (input_mdot_2[i])^2) for i in 
+          Real zeta_TOT_2[n]={2*DP_2[i]*rho*Av^2/max(MIN, (input_mdot_2[i])^2) for i in
                   1:n} "Pressure loss coefficients";
           Real Re_2[n]={input_mdot_2[i]*d_hyd/(eta*Av) for i in 1:n};
           //incompressible case
           Real DP_plot_3[n]={DP_3[i] for i in 1:n} "Pressure loss [Pa]";
-          Real zeta_TOT_3[n]={2*DP_3[i]*rho*Av^2/max(MIN, (input_mdot_3[i])^2) for i in 
+          Real zeta_TOT_3[n]={2*DP_3[i]*rho*Av^2/max(MIN, (input_mdot_3[i])^2) for i in
                   1:n} "Pressure loss coefficients";
           Real Re_3[n]={input_mdot_3[i]*d_hyd/(eta*Av) for i in 1:n};
 
@@ -6661,7 +6666,7 @@ extends Modelica.Icons.ExamplesPackage;
               transformation(extent={{-100,-50},{-80,-30}})));
 
       public
-        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p) 
+        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p)
           annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{-100,
                   10},{-80,30}})));
         Modelica.Fluid.Sources.Boundary_pT IN_p(
@@ -6669,7 +6674,7 @@ extends Modelica.Icons.ExamplesPackage;
           T(displayUnit="K") = system.T_ambient,
           p(displayUnit="Pa") = system.p_ambient,
           use_p_in=true,
-          redeclare package Medium = Modelica.Media.Air.DryAirNasa) 
+          redeclare package Medium = Modelica.Media.Air.DryAirNasa)
           annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
 
         Modelica.Fluid.Sources.FixedBoundary OUT_dp(
@@ -6704,15 +6709,15 @@ extends Modelica.Icons.ExamplesPackage;
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_dp(
                                                         redeclare package
-            Medium = 
+            Medium =
               Modelica.Media.Air.DryAirNasa, geometry(d_hyd=0.1, R_0=0.2))
-          "Calculate mass flow rate from pressure loss" 
+          "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{-24,-4},{24,44}})));
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_mflow(
                      redeclare package Medium = Modelica.Media.Air.DryAirNasa,
             geometry(d_hyd=0.1, R_0=0.2))
-          "Calculate pressure loss from mass flow rate" 
+          "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-24,-64},{24,-16}})));
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
@@ -6774,7 +6779,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           amplitude=0.001) annotation (extent=[-100, -52; -80, -32],Placement(
               transformation(extent={{-100,-50},{-80,-30}})));
 
-        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p) 
+        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p)
           annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{-100,
                   10},{-80,30}})));
 
@@ -6783,7 +6788,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T(displayUnit="K") = system.T_ambient,
           p(displayUnit="Pa") = system.p_ambient,
           use_p_in=true,
-          redeclare package Medium = Modelica.Media.Air.DryAirNasa) 
+          redeclare package Medium = Modelica.Media.Air.DryAirNasa)
           annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
 
         Modelica.Fluid.Sources.FixedBoundary OUT_dp(
@@ -6819,11 +6824,11 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
         //flow models
         Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice from_dp(
                   redeclare package Medium = Modelica.Media.Air.DryAirNasa)
-          "Calculate mass flow rate from pressure loss" 
+          "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{-24,-4},{24,44}})));
         Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice from_mflow(
                      redeclare package Medium = Modelica.Media.Air.DryAirNasa)
-          "Calculate pressure loss from mass flow rate" 
+          "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-24,-64},{24,-16}})));
       equation
         connect(IN_p.ports[1], from_dp.port_a) annotation (Line(
@@ -6898,7 +6903,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               transformation(extent={{-200,-12},{-180,8}})));
 
       public
-        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p) 
+        Modelica.Blocks.Sources.RealExpression input_p(y=from_mflow.port_a.p)
           annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{0,
                   156},{20,176}})));
         Modelica.Fluid.Sources.Boundary_pT IN_p(
@@ -6906,16 +6911,16 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T(displayUnit="K") = system.T_ambient,
           p(displayUnit="Pa") = system.p_ambient,
           use_p_in=true,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(extent={{40,158},{60,178}})));
 
         Modelica.Fluid.Sources.FixedBoundary OUT_dp(
           p=system.p_ambient,
           T=system.T_ambient,
           nPorts=1,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -6925,8 +6930,8 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           p=system.p_ambient,
           T=system.T_ambient,
           nPorts=1,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -6936,29 +6941,29 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T=system.T_ambient,
           nPorts=1,
           use_m_flow_in=true,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={50,128})));
 
         Modelica.Fluid.Fittings.Bends.EdgedBend from_dp(redeclare package
-            Medium = 
+            Medium =
               Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(d_hyd=
                 0.1, delta=3.1415926535898))
-          "Calculate mass flow rate from pressure loss" 
+          "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{76,144},{124,192}})));
 
         Modelica.Fluid.Fittings.Bends.EdgedBend from_mflow(redeclare package
-            Medium = 
+            Medium =
               Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(d_hyd=
                 0.1, delta=3.1415926535898))
-          "Calculate pressure loss from mass flow rate" 
+          "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{76,104},{124,152}})));
 
       public
-        Modelica.Blocks.Sources.RealExpression input_p2(y=from_mflow2.port_a.p) 
+        Modelica.Blocks.Sources.RealExpression input_p2(y=from_mflow2.port_a.p)
           annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{0,
                   -4},{20,16}})));
         Modelica.Fluid.Sources.Boundary_pT IN_p2(
@@ -6966,15 +6971,15 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T(displayUnit="K") = system.T_ambient,
           p(displayUnit="Pa") = system.p_ambient,
           use_p_in=true,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(extent={{40,-2},{60,18}})));
         Modelica.Fluid.Sources.FixedBoundary OUT_dp2(
           p=system.p_ambient,
           T=system.T_ambient,
           nPorts=1,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -6983,8 +6988,8 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           p=system.p_ambient,
           T=system.T_ambient,
           nPorts=1,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -6993,30 +6998,30 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T=system.T_ambient,
           nPorts=1,
           use_m_flow_in=true,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={50,-32})));
         Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate from_dp2(
                                                             redeclare package
-            Medium = 
+            Medium =
               Modelica.Media.Water.ConstantPropertyLiquidWater,
           a=1,
-          b=0) "Calculate mass flow rate from pressure loss" 
+          b=0) "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{76,-16},{124,32}})));
 
         Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate from_mflow2(
                                                                redeclare
-            package Medium = 
+            package Medium =
                      Modelica.Media.Water.ConstantPropertyLiquidWater,
           a=1,
-          b=0) "Calculate pressure loss from mass flow rate" 
+          b=0) "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{76,-56},{124,-8}})));
 
       public
-        Modelica.Blocks.Sources.RealExpression input_p3(y=from_mflow3.port_a.p) 
+        Modelica.Blocks.Sources.RealExpression input_p3(y=from_mflow3.port_a.p)
           annotation (extent=[-100, 0; -80, 20], Placement(transformation(extent={{-200,
                   -82},{-180,-62}})));
         Modelica.Fluid.Sources.Boundary_pT IN_p3(
@@ -7024,15 +7029,15 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T(displayUnit="K") = system.T_ambient,
           p(displayUnit="Pa") = system.p_ambient,
           use_p_in=true,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(extent={{-160,-80},{-140,-60}})));
         Modelica.Fluid.Sources.FixedBoundary OUT_dp3(
           p=system.p_ambient,
           T=system.T_ambient,
           nPorts=1,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -7041,8 +7046,8 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           p=system.p_ambient,
           T=system.T_ambient,
           nPorts=1,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=180,
@@ -7051,24 +7056,24 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
           T=system.T_ambient,
           nPorts=1,
           use_m_flow_in=true,
-          redeclare package Medium = 
-              Modelica.Media.Water.ConstantPropertyLiquidWater) 
+          redeclare package Medium =
+              Modelica.Media.Water.ConstantPropertyLiquidWater)
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={-150,-110})));
         Modelica.Fluid.Fittings.Bends.CurvedBend from_dp3(       redeclare
-            package Medium = 
+            package Medium =
                      Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(
               d_hyd=0.1, R_0=0.2))
-          "Calculate mass flow rate from pressure loss" 
+          "Calculate mass flow rate from pressure loss"
           annotation (Placement(transformation(extent={{-124,-94},{-76,-46}})));
 
         Modelica.Fluid.Fittings.Bends.CurvedBend from_mflow3(       redeclare
-            package Medium = 
+            package Medium =
                      Modelica.Media.Water.ConstantPropertyLiquidWater, geometry(
               d_hyd=0.1, R_0=0.2))
-          "Calculate pressure loss from mass flow rate" 
+          "Calculate pressure loss from mass flow rate"
           annotation (Placement(transformation(extent={{-124,-134},{-76,-86}})));
 
       equation
