@@ -4439,17 +4439,17 @@ extends Modelica.Icons.ExamplesPackage;
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var
             IN_var_2(
             each target=Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer,
-            cp_l=cp_2,
-            eta_l=eta_l_2,
-            eta_g=eta_g_2,
-            lambda_l=lambda_2,
-            rho_l=rho_l_2,
-            rho_g=rho_g_2,
+            each cp_l=cp_2,
+            each eta_l=eta_l_2,
+            each eta_g=eta_g_2,
+            each lambda_l=lambda_2,
+            each rho_l=rho_l_2,
+            each rho_g=rho_g_2,
             each x_flow=x_flow,
-            qdot_A=qdot_A_2,
+            each qdot_A=qdot_A_2,
             each dh_lg=dh_lg_2,
-            m_flow=m_flow_2,
-            pressure=p_2)
+            each m_flow=m_flow_2,
+            each pressure=p_2)
             annotation (Placement(transformation(extent={{-10,0},{10,20}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_con
@@ -4457,7 +4457,8 @@ extends Modelica.Icons.ExamplesPackage;
             each target=Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor,
             each A_cross=A_cross_3,
             each perimeter=perimeter_3,
-            p_crit=p_crit_3)
+            p_crit=p_crit_3,
+            each MM=M_2)
             annotation (Placement(transformation(extent={{20,0},{40,20}})));
 
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC_IN_var
@@ -4465,9 +4466,13 @@ extends Modelica.Icons.ExamplesPackage;
             each target=Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor,
             cp_l=cp_3,
             eta_l=eta_l_3,
+            each eta_g=eta_g_2,
             lambda_l=lambda_3,
             rho_l=rho_l_3,
+            each rho_g=rho_g_2,
             each x_flow=x_flow,
+            each qdot_A=qdot_A_2,
+            each dh_lg=dh_lg_2,
             m_flow=m_flow_3,
             pressure=p_3)
             annotation (Placement(transformation(extent={{40,0},{60,20}})));
@@ -6466,7 +6471,8 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{-100,20},{-80,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-            m_flow_IN_var_1[n](each rho=rho, each opening=0.5) annotation (extent=[-60,
+            m_flow_IN_var_1[n](each rho=rho, each opening=0.5,
+            each eta=eta)                                           annotation (extent=[-60,
                 12; -40, 32], Placement(transformation(extent={{-80,20},{-60,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_con
@@ -6477,7 +6483,8 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{-50,20},{-30,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-            dp_IN_var_1[n](each rho=rho, each opening=0.5) annotation (extent=[40, 12;
+            dp_IN_var_1[n](each rho=rho, each opening=0.5,
+            each eta=eta)                                       annotation (extent=[40, 12;
                 60, 32], Placement(transformation(extent={{-30,20},{-10,40}})));
 
           //variable opening
@@ -6489,7 +6496,8 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{10,20},{30,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-            m_flow_IN_var_2[n](each rho=rho, each opening=opening) annotation (extent=[
+            m_flow_IN_var_2[n](each rho=rho, each opening=opening,
+            each eta=eta)                                               annotation (extent=[
                 -60, 12; -40, 32], Placement(transformation(extent={{30,20},{50,40}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_con
@@ -6513,7 +6521,8 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{-70,-20},{-50,0}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-            m_flow_IN_var_3[n](each rho=rho, each opening=0.5) annotation (extent=[-60,
+            m_flow_IN_var_3[n](each rho=rho, each opening=0.5,
+            each eta=eta)                                           annotation (extent=[-60,
                 12; -40, 32], Placement(transformation(extent={{-50,-20},{-30,0}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_con
@@ -6524,7 +6533,8 @@ extends Modelica.Icons.ExamplesPackage;
                 transformation(extent={{30,-20},{50,0}})));
 
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-            dp_IN_var_3[n](each rho=rho, each opening=0.5) annotation (extent=[40, 12;
+            dp_IN_var_3[n](each rho=rho, each opening=0.5,
+            each eta=eta)                                       annotation (extent=[40, 12;
                 60, 32], Placement(transformation(extent={{50,-20},{70,0}})));
 
         protected
