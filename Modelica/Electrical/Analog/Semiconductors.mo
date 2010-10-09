@@ -1869,13 +1869,13 @@ public
   annotation (
     Documentation(info="<html>
 <p>This package contains semiconductor devices:</p>
-<p><ul>
+<ul>
 <li>diode</li>
 <li>MOS transistors</li>
 <li>bipolar transistors</li>
 <li>thyristor</li>
 <li>triac</li>
-</ul></p>
+</ul>
 <p>Most of the semiconductor devices contain a conditional heat port, which is not active by default. If it is active the loss power is calculated to be used in a thermal net. The heating variants of the semiconductor devices are provided to use the thermal port temperature in the electric calculation. That means that for a true thermal electric interaction the heating device models have to be used.</p>
 </html>",
    revisions="<html>

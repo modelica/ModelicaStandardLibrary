@@ -4254,19 +4254,19 @@ The following variables are transported through this connector:
         Documentation(info="<html>
 <p>This is a connector for 1-dim. rotational mechanical systems and models the support or housing of a shaft. The following variables are defined in this connector:</p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td valign=\"top\"><p><h4>s</h4></p></td>
+<td valign=\"top\"><h4>s</h4></td>
 <td valign=\"top\"><p>Absolute psotion of the support/housing in [m]</p></td>
 </tr>
 <tr>
-<td valign=\"top\"><p><h4>f</h4></p></td>
+<td valign=\"top\"><h4>f</h4></td>
 <td valign=\"top\"><p>Reaction force in the support/housing in [N]</p></td>
 </tr>
 </table>
 <p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it</p>
-<p><ul>
+<ul>
 <li>For models to be build graphically (i.e., the model is build up by drag-and-drop from elementary components):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport\">PartialOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport\">PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
 <li>For models to be build textually (i.e., elementary models):<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport\">PartialElementaryOneFlangeAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br/><a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>. </li>
-</ul></p>
+</ul>
 </html>"));
     end Support;
 
@@ -4938,12 +4938,12 @@ connector is not connected).
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational;
       annotation (Documentation(info="<html>
 <p>This is a 1-dim. rotational component with</p>
-<p><ul>
+<ul>
 <li>one rotational flange, </li>
 <li>one rotational support/housing, </li>
 <li>one translational flange, and </li>
 <li>one translatinal support/housing </li>
-</ul></p>
+</ul>
 <p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer.</p>
 <p>If <i>useSupportR=true</i>, the rotational support connector is conditionally enabled and needs to be connected.</p>
 <p>If <i>useSupportR=false</i>, the rotational support connector is conditionally disabled and instead the rotational part is internally fixed to ground.</p>

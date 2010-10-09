@@ -5016,7 +5016,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
                     Documentation(info="<html>
 <p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime.</p>
 
-<p><h4>Restriction</h4></p>
+<h4>Restriction</h4>
 <p>
 <ul>
   <li>circular cross sectional area </li>
@@ -5025,7 +5025,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 </ul>
 </p>
 
-<p><h4>Geometry </h4></p>
+<h4>Geometry </h4>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\">
 
@@ -5111,7 +5111,7 @@ with
 </table>
 </p>
 
-<p><h4>Verification</h4></p>
+<h4>Verification</h4>
 <p>The local two phase heat transfer coefficient <b>kc_2ph </b> during for horizontal and vertical boiling as well as for horizontal condensation is shown for a straight pipe in the figures below.</p>
 
 <p><b>Boiling in a horizontal pipe (target = 1):</b></p>
@@ -5171,8 +5171,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 </html>"));
       end kc_twoPhaseOverall_KC_IN_var;
       annotation (preferedView="info", Documentation(info="<html>
-<p><h4>Straight pipe</h4></p>
-<p><h5>Laminar flow</h5></p>
+<h4>Straight pipe</h4>
+<h5>Laminar flow</h5>
 <p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a>.
 <!-- ---------------------------------------------------------------- -->
 <h5>Turbulent flow</h5>
@@ -5333,38 +5333,38 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>This function can be used to calculate both the pressure loss at known mass flow rate <b>or </b>mass flow rate at known pressure loss within one function in dependence of the known variable (dp or m_flow). </p>
 <p>Generally this function is numerically best used for the <b>incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the function <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW\">dp_curvedOverall_MFLOW</a> is numerically best used for the <b>compressible case </b>if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>. </p>
 <!--
-<p><h4>Restriction</h4></p>
+<h4>Restriction</h4>
 <p>This function shall be used inside of the restricted limits according to the referenced literature. </p>
-<p><ul>
+<ul>
 <li><h4>circular cross sectional area </h4></li>
 <li><b>0.5 &le; curvature radius / diameter &le; 3 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
 <li><b>length of bend along curved axis / diameter &ge; 10 </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
 <li><b>angle of curvature smaller than 180&deg; (delta &le; 180) </b><i>[Idelchik 2006, p. 357, diag. 6-1] </i></li>
-</ul></p>
+</ul>
 <p><b><font style=\"color: #ef9b13; \">Geometry</b> </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/bend/pic_circularBend.png\"/>
 
-<p><h4>Calculation</h4></p>
+<h4>Calculation</h4>
 <p>The pressure loss <b>dp </b>for curved bends is determined by: </p>
 <pre>dp = zeta_TOT * (rho/2) * velocity^2 </pre>
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>rho </h4></p></td>
+<td><h4>rho </h4></td>
 <td><p>as density of fluid [kg/m3],</p></td>
 </tr>
 <tr>
-<td><p><h4>velocity </h4></p></td>
+<td><h4>velocity </h4></td>
 <td><p>as mean velocity [m/s],</p></td>
 </tr>
 <tr>
-<td><p><h4>zeta_TOT </h4></p></td>
+<td><h4>zeta_TOT </h4></td>
 <td><p>as pressure loss coefficient [-].</p></td>
 </tr>
 </table>
 <p><br/><b>Curved bends with relative curvature radius R_0/d_hyd &le; 3 </b>according to <i>[Idelchik 2006, p. 357, diag. 6-1]</i> </p>
 <p>The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows: </p>
-<p><ul>
+<ul>
 <li><b>Laminar regime (Re &le; Re_lam_leave)</b>: </li>
 <pre>      zeta_LOC = A2/Re + A1*B1*C1</pre>
 <li><b>Transition regime (Re_lam_leave &le; 4e4)</b> This calculation is done using a smoothing function interpolating between the laminar and the first turbulent flow regime. </li>
@@ -5376,31 +5376,31 @@ This record is used as <b> input record </b> for the heat transfer function <a h
       k_Re = 5.45/Re^(0.118)          for 0.55 &le; r/d_hyd &lt; 0.70
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre>
 <li><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number </li>
-</ul></p>
+</ul>
 <pre>      zeta_LOC = A1*B1*C1</pre>
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>A1 </h4></p></td>
+<td><h4>A1 </h4></td>
 <td><p>as coefficient considering effect of angle of turning (delta) [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>A2 </h4></p></td>
+<td><h4>A2 </h4></td>
 <td><p>as coefficient considering effect for laminar regime [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>B1 </h4></p></td>
+<td><h4>B1 </h4></td>
 <td><p>as coefficient considering effect of relative curvature radius (R_0/d_hyd) [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>C1=1 </h4></p></td>
+<td><h4>C1=1 </h4></td>
 <td><p>as coefficient considering relative elongation of cross sectional area (here: circular cross sectional area) [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>k_Re </h4></p></td>
+<td><h4>k_Re </h4></td>
 <td><p>as coefficient considering influence of laminar regime in transition regime [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>Re </h4></p></td>
+<td><h4>Re </h4></td>
 <td><p>as Reynolds number [-].</p></td>
 </tr>
 </table>
@@ -5412,31 +5412,31 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>delta </h4></p></td>
+<td><h4>delta </h4></td>
 <td><p>as curvature radiant [rad],</p></td>
 </tr>
 <tr>
-<td><p><h4>d_hyd </h4></p></td>
+<td><h4>d_hyd </h4></td>
 <td><p>as hydraulic diameter [m],</p></td>
 </tr>
 <tr>
-<td><p><h4>K </h4></p></td>
+<td><h4>K </h4></td>
 <td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
 </tr>
 <tr>
-<td><p><h4>lambda_FRI_rough </h4></p></td>
+<td><h4>lambda_FRI_rough </h4></td>
 <td><p>as darcy friction factor[-],</p></td>
 </tr>
 <tr>
-<td><p><h4>Re </h4></p></td>
+<td><h4>Re </h4></td>
 <td><p>as Reynolds number [m],</p></td>
 </tr>
 <tr>
-<td><p><h4>zeta_LOC </h4></p></td>
+<td><h4>zeta_LOC </h4></td>
 <td><p>as local resistance coefficient [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>zeta_TOT </h4></p></td>
+<td><h4>zeta_TOT </h4></td>
 <td><p>as pressure loss coefficient [-].</p></td>
 </tr>
 </table>
@@ -5445,11 +5445,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <pre>    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.0065/0.007 else 0.0065/k)</pre>
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>k = K /d_hyd </h4></p></td>
+<td><h4>k = K /d_hyd </h4></td>
 <td><p>as relative roughness [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>Re_lam_leave </h4></p></td>
+<td><h4>Re_lam_leave </h4></td>
 <td><p>as Reynolds number for leaving laminar regime [-].</p></td>
 </tr>
 </table>
@@ -5763,31 +5763,31 @@ with
 <pre>    lambda_FRI_rough = 0.25*(lg(K/(3.7*d_hyd) + 5.74/Re^0.9))^-2</pre>
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>
-<td><p><h4>delta </h4></p></td>
+<td><h4>delta </h4></td>
 <td><p>as curvature radiant [rad],</p></td>
 </tr>
 <tr>
-<td><p><h4>d_hyd </h4></p></td>
+<td><h4>d_hyd </h4></td>
 <td><p>as hydraulic diameter [m],</p></td>
 </tr>
 <tr>
-<td><p><h4>K </h4></p></td>
+<td><h4>K </h4></td>
 <td><p>as absolute roughness (average height of surface asperities) [m],</p></td>
 </tr>
 <tr>
-<td><p><h4>lambda_FRI_rough </h4></p></td>
+<td><h4>lambda_FRI_rough </h4></td>
 <td><p>as darcy friction factor[-],</p></td>
 </tr>
 <tr>
-<td><p><h4>Re </h4></p></td>
+<td><h4>Re </h4></td>
 <td><p>as Reynolds number [m],</p></td>
 </tr>
 <tr>
-<td><p><h4>zeta_LOC </h4></p></td>
+<td><h4>zeta_LOC </h4></td>
 <td><p>as local resistance coefficient [-],</p></td>
 </tr>
 <tr>
-<td><p><h4>zeta_TOT </h4></p></td>
+<td><h4>zeta_TOT </h4></td>
 <td><p>as pressure loss coefficient [-].</p></td>
 </tr>
 </table>
@@ -14629,7 +14629,7 @@ with
 <p>
 The pressure loss of curved bends is similar to its calculation in straight pipes. There are tree different flow regimes observed (laminar,transition,turbulent). The turbulent regime is further separated into sections with a dependence or independence of the local resistance coefficient (<b>zeta_LOC </b>) on Reynolds number. The local resistance coefficient (<b>zeta_LOC</b>) of a curved bend is calculated in dependence of the flow regime as follows:
 </p>
-<p><ul>
+<ul>
 <li><p><b>Laminar regime (Re &le; Re_lam_leave)</b>: </p>
 <pre>      zeta_LOC = A2/Re + A1*B1*C1</pre></li>
 <li><p><b>Transition regime (Re_lam_leave &le; 4e4)</b></p>
@@ -14643,7 +14643,7 @@ The pressure loss of curved bends is similar to its calculation in straight pipe
       k_Re = 11.5/Re^(0.19)           for 0.70 &le; r/d_hyd &lt; 3.00</pre></li>
 <li><p><b>Turbulent regime (Re &ge; 3e5) with independence </b>of local resistance coefficient on Reynolds number </p>
 <pre>      zeta_LOC = A1*B1*C1</pre></li>
-</ul></p>
+</ul>
 
 <p>with </p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"0\"><tr>

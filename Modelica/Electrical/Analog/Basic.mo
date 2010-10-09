@@ -445,12 +445,12 @@ end Conductor;
             textString="%name",
             lineColor={0,0,255})}),                         Documentation(info="<html>
 <p>This model approximates the behaviour of an inductor with the influence of saturation, i.e., the value of the inductance depends on the current flowing through the inductor. The inductance decreases as current increases.</p><p>The parameters are:</p>
-<p><ul>
+<ul>
 <li>Inom...nominal current</li>
 <li>Lnom...nominal inductance at nominal current</li>
 <li>Lzer...inductance near current = 0; Lzer has to be greater than Lnom</li>
 <li>Linf...inductance at large currents; Linf has to be less than Lnom </li>
-</ul></p>
+</ul>
 </html>",
    revisions="<html>
 <dl>

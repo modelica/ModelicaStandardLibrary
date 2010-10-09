@@ -70,13 +70,13 @@ equation
             100}}), graphics),
     Documentation(info="<html>
 <p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>
-<p><ul>
+<ul>
 <li>Simulate for 0.2 s.</li>
-</ul></p>
+</ul>
 <p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changeing N the influence of the digital signal width can be studied. Otherwise the trigger frequency pulse.period can be changed to see its influence.</p>
 </html>", revisions="<html>
-<p><ul>
+<ul>
 <li><i>October 13, 2009  </i>by Matthias Franke </li>
-</ul></p>
+</ul>
 </html>"));
 end AD_DA_conversion;

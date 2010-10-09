@@ -1608,10 +1608,10 @@ is present in variable convection.fluid.
         experimentSetupOutput,
         Documentation(info="<html>
 <p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch. </p>
-<p><ul>
+<ul>
 <li>In the beginning, the clutch is free and the brake fixes the ring of the planetary. Thus we obtain a gearRatio = 1/(1 + planetary.ratio).</li>
 <li>At time = 2 s, the brake frees the ring of the planetary, whereas the clutch blocks the ring and the sun. Thus we obtain a gearRatio = 1.</li>
-</ul></p>
+</ul>
 </html>"));
     end SimpleGearShift;
     annotation ( Documentation(info="<html>

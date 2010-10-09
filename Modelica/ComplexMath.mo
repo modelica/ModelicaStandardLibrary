@@ -184,11 +184,11 @@ extends Modelica.Icons.Function;
 algorithm
   result := {v[end-i+1] for i in 1:size(v,1)};
 annotation (Inline=true, Documentation(info="<html>
-<p><h4>Syntax</h4></p>
+<h4>Syntax</h4>
 <blockquote><pre>Vectors.<b>reverse</b>(v);</pre></blockquote>
-<p><h4>Description</h4></p>
+<h4>Description</h4>
 The function call &quot;<code>Vectors.<b>reverse</b>(v)</code>&quot; returns the complex vector elements in reverse order.
-<p><h4>Example</h4></p>
+<h4>Example</h4>
 <blockquote><pre>  <b>reverse</b>({1,2,3,4});  // = {4,3,2,1}</pre></blockquote>
 </html>"));
 end reverse;

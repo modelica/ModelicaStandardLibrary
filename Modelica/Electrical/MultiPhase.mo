@@ -2828,9 +2828,9 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),                                                                 graphics),
         Documentation(revisions="<html>
-<p><ul>
+<ul>
 <li><i>August 26, 2009 </i>by Anton Haumer initially implemented</li>
-</ul></p>
+</ul>
 </html>",     info="<html>
 <p>
 This partial model provides conditional heat ports for the connection to a thermal network.

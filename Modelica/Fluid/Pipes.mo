@@ -700,7 +700,7 @@ The options include (default: av_vb):
     The specification of good start values for the port pressures is essential for the solution of large nonlinear equation systems.</li>
 <li><code>av_b</code>: Unsymmetric setting with nNodes momentum balances, one between nth volume and <code>port_b</code>, potential pressure state at <code>port_a</code></li>
 <li><code>a_vb</code>: Unsymmetric setting with nNodes momentum balance, one between first volume and <code>port_a</code>, potential pressure state at <code>port_b</code></li>
-</ul></p>
+</ul>
 
 When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
 </p>

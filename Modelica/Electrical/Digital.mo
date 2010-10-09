@@ -2046,10 +2046,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 <p>Its logic behavior is like this:</p>
 <p><b>HalfAdder behavior</b></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td valign=\"top\"><p><h4>input a</h4></p></td>
-<td valign=\"top\"><p><h4>input b</h4></p></td>
-<td valign=\"top\"><p><h4>sum s</h4></p></td>
-<td valign=\"top\"><p><h4>carry c</h4></p></td>
+<td valign=\"top\"><h4>input a</h4></td>
+<td valign=\"top\"><h4>input b</h4></td>
+<td valign=\"top\"><h4>sum s</h4></td>
+<td valign=\"top\"><h4>carry c</h4></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>0</p></td>
@@ -2144,11 +2144,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 <p>Its logic behavior is like this:</p>
 <p><b>FullAdder behavior</b></p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td valign=\"top\"><p><h4>input a</h4></p></td>
-<td valign=\"top\"><p><h4>input b</h4></p></td>
-<td valign=\"top\"><p><h4>input carry c_in</h4></p></td>
-<td valign=\"top\"><p><h4>sum s</h4></p></td>
-<td valign=\"top\"><p><h4>output carry c_out</h4></p></td>
+<td valign=\"top\"><h4>input a</h4></td>
+<td valign=\"top\"><h4>input b</h4></td>
+<td valign=\"top\"><h4>input carry c_in</h4></td>
+<td valign=\"top\"><h4>sum s</h4></td>
+<td valign=\"top\"><h4>output carry c_out</h4></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>0</p></td>
