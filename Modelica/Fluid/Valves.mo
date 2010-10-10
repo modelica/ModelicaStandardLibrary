@@ -438,8 +438,11 @@ it is open.
       parameter Boolean filteredOpening=false
         "= true, if opening is filtered with a 2nd order CriticalDamping filter"
         annotation(Dialog(group="Filtered opening"),choices(__Dymola_checkBox=true));
-      parameter Modelica.SIunits.Time riseTime=2
+      parameter Modelica.SIunits.Time riseTime=1
         "Rise time of the filter (time to reach 99.6 % of an opening step)"
+        annotation(Dialog(group="Filtered opening",enable=filteredOpening));
+      parameter Real leakageOpening(min=0,max=1)=1e-4
+        "The opening signal is limited by leakageOpening (to improve the numerics)"
         annotation(Dialog(group="Filtered opening",enable=filteredOpening));
       parameter Boolean checkValve=false "Reverse flow stopped"
         annotation(Dialog(tab="Assumptions"));
@@ -474,11 +477,89 @@ it is open.
 
       Modelica.Blocks.Continuous.Filter filter(order=2, f_cut=5/(2*Modelica.Constants.pi
             *riseTime)) if filteredOpening
-        annotation (Placement(transformation(extent={{20,40},{40,60}})));
+        annotation (Placement(transformation(extent={{34,44},{48,58}})));
 
     protected
       Modelica.Blocks.Interfaces.RealOutput opening_actual
         annotation (Placement(transformation(extent={{60,10},{80,30}})));
+
+    block MinLimiter "Limit the signal above a threshold"
+     parameter Real uMin=0 "Lower limit of input signal";
+      extends Modelica.Blocks.Interfaces.SISO;
+
+    equation
+      y = smooth(0, noEvent( if u < uMin then uMin else u));
+      annotation (
+        Documentation(info="<HTML>
+<p>
+The block passes its input signal as output signal
+as long as the input is above uMin. If this is not the case, 
+y=uMin is passed as output.
+</p>
+</HTML>
+"),     Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
+        Line(points={{0,-90},{0,68}}, color={192,192,192}),
+        Polygon(
+          points={{0,90},{-8,68},{8,68},{0,90}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-90,0},{68,0}}, color={192,192,192}),
+        Polygon(
+          points={{90,0},{68,-8},{68,8},{90,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-80,-70},{-50,-70},{50,70},{64,90}}, color={0,0,0}),
+        Text(
+          extent={{-150,-150},{150,-110}},
+          lineColor={0,0,0},
+                textString="uMin=%uMin"),
+        Text(
+          extent={{-150,150},{150,110}},
+          textString="%name",
+          lineColor={0,0,255})}),
+        Diagram(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={
+        Line(points={{0,-60},{0,50}}, color={192,192,192}),
+        Polygon(
+          points={{0,60},{-5,50},{5,50},{0,60}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-60,0},{50,0}}, color={192,192,192}),
+        Polygon(
+          points={{60,0},{50,-5},{50,5},{60,0}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-50,-40},{-30,-40},{30,40},{50,40}}, color={0,0,0}),
+        Text(
+          extent={{46,-6},{68,-18}},
+          lineColor={128,128,128},
+          textString="u"),
+        Text(
+          extent={{-30,70},{-5,50}},
+          lineColor={128,128,128},
+          textString="y"),
+        Text(
+          extent={{-58,-54},{-28,-42}},
+          lineColor={128,128,128},
+          textString="uMin"),
+        Text(
+          extent={{26,40},{66,56}},
+          lineColor={128,128,128},
+          textString="uMax")}),
+        uses(Modelica(version="3.2")));
+    end MinLimiter;
+
+      MinLimiter minLimiter(uMin=leakageOpening)
+        annotation (Placement(transformation(extent={{10,44},{24,58}})));
     initial equation
       if CvData == CvTypes.Kv then
         Av = Kv*Kv2Av "Unit conversion";
@@ -491,12 +572,8 @@ it is open.
       port_a.h_outflow = inStream(port_b.h_outflow);
       port_b.h_outflow = inStream(port_a.h_outflow);
 
-      connect(filter.u, opening) annotation (Line(
-          points={{18,50},{0,50},{0,90}},
-          color={0,0,127},
-          smooth=Smooth.None));
       connect(filter.y, opening_filtered) annotation (Line(
-          points={{41,50},{70,50}},
+          points={{48.7,51},{60,51},{60,50},{70,50}},
           color={0,0,127},
           smooth=Smooth.None));
 
@@ -506,6 +583,14 @@ it is open.
          connect(opening, opening_actual);
       end if;
 
+      connect(minLimiter.y, filter.u) annotation (Line(
+          points={{24.7,51},{32.6,51}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(minLimiter.u, opening) annotation (Line(
+          points={{8.6,51},{0,51},{0,90}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -583,7 +668,7 @@ explained in detail in the
 
 <p>
 With the optional parameter \"filteredOpening\", the opening can be filtered with a 
-second order (critical damping) filter so that the
+<b>second order, criticalDamping</b> filter so that the
 opening demand is delayed by parameter \"riseTime\". The filtered opening is then available
 via the output signal \"opening_filtered\" and is used to control the valve equations.
 This approach approximates the driving device of a valve. The \"riseTime\" parameter 
@@ -598,6 +683,15 @@ a step input of opening. The icon of a valve changes in the following way
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Components/FilteredValveIcon.png\">
 </p>
 </blockquote>
+
+<p>
+If \"filteredOpening = <b>true</b>\", the input signal \"opening\" is limited
+by parameter <b>leackageOpening</b>, i.e., if \"opening\" becomes smaller as
+\"leakageOpening\", then \"leakageOpening\" is used instead of \"opening\" as input
+for the filter. The reason is that \"opening=0\" might structurally change the equations of the
+fluid network leading to a singularity. If a small leakage flow is introduced
+(which is often anyway present in reality), the singularity might be avoided.
+</p>
 
 </HTML>", revisions="<html>
 <ul>

@@ -819,14 +819,18 @@ fails for zero flow rate.
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{10,36},{30,56}},
+      rho_nominal=1000,
+      filteredOpening=true,
+      riseTime=0.1)     annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       dp_nominal=4.0e5,
       m_flow_nominal=1,
-      rho_nominal=1000) annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      rho_nominal=1000,
+      filteredOpening=true,
+      riseTime=0.1)     annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,
