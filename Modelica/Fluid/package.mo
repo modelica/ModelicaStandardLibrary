@@ -345,8 +345,7 @@ in velocity. </li>
 <li> There might thus be errors in the momentum balance of the order of magnitude
 of the dynamic pressure &rho;v<sup>2</sup>/2.</li>
 <li> The energy balance does not consider the kinetic terms (gravity terms cancel out due
-to the infinitesimal size of the connection volume). There might thus be errors in the
-</li> momentum balance of the order of magnitude of the kinetic energy v^2/2. </li>
+to the infinitesimal size of the connection volume). There might thus be errors in the momentum balance of the order of magnitude of the kinetic energy v^2/2. </li>
 </ul>
 In many applications, where fluid speeds are low and thermal phenomena are mainly of interest,
 these approximations are commonly made and lead to acceptable results.
@@ -1166,8 +1165,8 @@ Modelica_Fluid was refactored and finalized for the release:
 
 <li> Finalization of trace substrances<br>
      Modelica.Fluid now provides a sound implementation for trace substances,
-     which can easily be added to existing Media models, in order to study their evolution in a fluid system.</li>
-     <br>See <a href=\"modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls\">Examples.TraceSubstances.RoomCO2WithControls</a></li>
+     which can easily be added to existing Media models, in order to study their evolution in a fluid system.<br>
+     See <a href=\"modelica://Modelica.Fluid.Examples.TraceSubstances.RoomCO2WithControls\">Examples.TraceSubstances.RoomCO2WithControls</a></li>
 
 <li> Vectorized ports for volumes<br>
      The ports of models that typically have large volumes, like Vessels and Sources,
