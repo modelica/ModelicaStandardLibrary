@@ -24,7 +24,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
             annotation (Placement(transformation(extent={{-30,68},{-10,88}},
           rotation=0)));
 
-  Modelica.Fluid.Sources.Boundary_pT boundary2(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT           boundary2(nPorts=1,
     redeclare package Medium = Medium,
     p=1e5,
     T=300,
@@ -59,7 +59,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
             annotation (Placement(transformation(extent={{-82,54},{-62,74}},
           rotation=0)));
 
-  Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT           boundary1(nPorts=1,
     T=280,
     redeclare package Medium = Medium,
     p=1.5e5)                                                        annotation (Placement(
@@ -69,7 +69,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{90,64},{78,76}},
+    duration=1) annotation (Placement(transformation(extent={{90,66},{78,78}},
           rotation=0)));
 
   Modelica.Fluid.Pipes.DynamicPipe pipe4(
@@ -122,11 +122,11 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     p_a_start=100000,
     p_b_start=100000,
     T_start=280,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb)
             annotation (Placement(transformation(extent={{-30,10},{-10,30}},
           rotation=0)));
 
-  Modelica.Fluid.Sources.Boundary_pT boundary4(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT           boundary4(nPorts=1,
     redeclare package Medium = Medium,
     p=1e5,
     T=300,
@@ -142,8 +142,8 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     m_flow_start=0.1,
     p_b_start=100000,
     T_start=340,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
-    p_a_start=100000)
+    p_a_start=100000,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b)
             annotation (Placement(transformation(extent={{14,-2},{34,18}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe7(
@@ -153,13 +153,13 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     nNodes=5,
     m_flow_start=0.1,
     length=0.4,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b,
     p_a_start=100000,
     p_b_start=100000,
-    T_start=300)
+    T_start=300,
+    modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb)
             annotation (Placement(transformation(extent={{-80,-2},{-60,18}},
           rotation=0)));
-  Modelica.Fluid.Sources.Boundary_pT boundary3(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT           boundary3(nPorts=1,
     redeclare package Medium = Medium,
     p=150000,
     T=280)                                                          annotation (Placement(
@@ -168,7 +168,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{96,8},{84,20}},
+    duration=1) annotation (Placement(transformation(extent={{96,10},{84,22}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe8(
     redeclare package Medium=Medium,
@@ -180,7 +180,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     p_a_start=100000,
     p_b_start=100000,
     T_start=360,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructure.av_vb)
             annotation (Placement(transformation(extent={{-30,-12},{-10,8}},
           rotation=0)));
   Modelica.Thermal.HeatTransfer.Sources.FixedHeatFlow[
@@ -206,7 +206,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     modelStructure=Modelica.Fluid.Types.ModelStructure.a_v_b)
             annotation (Placement(transformation(extent={{-29,-50},{-9,-30}},
           rotation=0)));
-  Modelica.Fluid.Sources.Boundary_pT boundary5(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT           boundary5(nPorts=1,
     redeclare package Medium = Medium,
     p=1e5,
     T=300,
@@ -239,7 +239,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     T_start=300)
             annotation (Placement(transformation(extent={{-74,-62},{-54,-42}},
           rotation=0)));
-  Modelica.Fluid.Sources.Boundary_pT boundary6(nPorts=1,
+  Modelica.Fluid.Sources.Boundary_pT           boundary6(nPorts=1,
     redeclare package Medium = Medium,
     p=150000,
     T=280)                                                          annotation (Placement(
@@ -248,7 +248,7 @@ replaceable package Medium=Modelica.Media.Water.StandardWater;
     offset=1e5,
     startTime=5,
     height=1.0e5,
-    duration=1) annotation (Placement(transformation(extent={{96,-52},{84,-40}},
+    duration=1) annotation (Placement(transformation(extent={{98,-50},{86,-38}},
           rotation=0)));
   Modelica.Fluid.Pipes.DynamicPipe pipe12(
     redeclare package Medium=Medium,
@@ -292,7 +292,7 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(ramp1.y, boundary4.p_in) annotation (Line(
-      points={{83.4,14},{76.7,14},{76.7,16},{70,16}},
+      points={{83.4,16},{76.7,16},{70,16}},
       color={0,0,127},
       thickness=0.5));
   connect(boundary3.ports[1], pipe7.port_a)
@@ -327,11 +327,11 @@ equation
       color={191,0,0},
       thickness=0.5));
   connect(boundary2.p_in, ramp.y) annotation (Line(
-      points={{72,72},{74.7,72},{74.7,70},{77.4,70}},
+      points={{72,72},{74.7,72},{77.4,72}},
       color={0,0,127},
       thickness=0.5));
   connect(ramp2.y, boundary5.p_in) annotation (Line(
-      points={{83.4,-46},{77.7,-46},{77.7,-44},{72,-44}},
+      points={{85.4,-44},{77.7,-44},{72,-44}},
       color={0,0,127},
       thickness=0.5));
   connect(boundary6.ports[1], pipe11.port_a)
@@ -412,7 +412,7 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),
-                       experiment(StopTime=20, Tolerance=1e-005),
+                       experiment(StopTime=20),
     experimentSetupOutput,
     Documentation(info="<html>
 Test of different dynamic pipe models. The first system uses explicit junctions, in the third system some of the pipe models are replaced by non-symmetric components.
