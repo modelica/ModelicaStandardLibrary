@@ -2980,7 +2980,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> allTrue </td>
     <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
-    <td valign=\"top\"> Returns true, if at least on element of the Boo" + "lean input vector is true. </td> </tr>
+    <td valign=\"top\"> Returns true, if at least on element of the Boolea" + "n input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
     <td valign=\"top\"> Returns true, if exactly one element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> firstTrueIndex </td>
@@ -3120,6 +3120,13 @@ that can lead to wrong simulation results):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.Delay.</b></td></tr>
+<tr><td valign=\"top\"> InertialDelaySensitive </td>
+    <td valign=\"top\"> In order to decide whether the rising delay (tLH) or
+                      the falling delay (tHL) is used, the \"previous\" value of the
+                      output y has to be used and not the \"previous\" value of the
+                      input x (delayType = delayTable[y_old, x] and not
+                      delayType = delayTable[x_old, x]). This has been corrected.</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.MultiBody.Parts.</b></td></tr>
 <tr><td valign=\"top\"> BodyBox<br>
                       BodyCylinder </td>
@@ -3129,16 +3136,14 @@ that can lead to wrong simulation results):
                       only correct if the box/cylinder is attached between frame_a and frame_b.
                       If this is not the case, the calculation is wrong.
                       The has been fixed by using the correct formula:<br>
-                      r_shape + normalize(lengthDirection)*length/2</td>
+                      r_shape + normalize(lengthDirection)*length/2</td></tr>
 <tr><td valign=\"top\"> BodyShape<br>
                       BodyBox<br>
                       BodyCylinder </td>
     <td valign=\"top\"> Fixes ticket
                       <a href=\"http://trac.modelica.org/Modelica/ticket/300\">#300</a>:
                       If parameter enforceStates=true, an error occured.
-                      This has been fixed.</td>
-</tr>
-
+                      This has been fixed.</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Mechanics.Rotational.Components.</b></td></tr>
 <tr><td valign=\"top\"> LossyGear</td>
     <td valign=\"top\"> In cases where the driving flange is not obvious, the component could
