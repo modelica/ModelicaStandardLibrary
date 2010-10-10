@@ -318,21 +318,21 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
-          IN_con "Input record for function kc_evenGapLaminar"
+          IN_con "Input record for function kc_evenGapLaminar" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
-          IN_var "Input record for function kc_evenGapLaminar"
+          IN_var "Input record for function kc_evenGapLaminar" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -350,7 +350,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
         Real prandtlMax=if IN_con.target == TYP.UndevOne then 10 else if IN_con.target
              == TYP.UndevBoth then 1000 else 0 "Maximum Prandtl number";
-        Real prandtlMin=if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then
+        Real prandtlMin=if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then 
                   0.1 else 0 "Minimum Prandtl number";
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
@@ -369,7 +369,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
         //failure status
         fstatus[1] := if Re > laminar then 1 else 0;
-        fstatus[2] := if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then
+        fstatus[2] := if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then 
                 if Pr > prandtlMax or Pr < prandtlMin then 1 else 0 else 0;
 
         failureStatus := 0;
@@ -395,11 +395,11 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
-          IN_con "Input record for function kc_evenGapLaminar_KC"
+          IN_con "Input record for function kc_evenGapLaminar_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_var
-          IN_var "Input record for function kc_evenGapLaminar_KC"
+          IN_var "Input record for function kc_evenGapLaminar_KC" 
           annotation (Dialog(group="Variable inputs"));
         //output variables
         output SI.CoefficientOfHeatTransfer kc
@@ -421,8 +421,8 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
         //variables for mean Nusselt number
         //SOURCE: p.Gb 7, eq. 36/37
-        SI.NusseltNumber Nu_1=if IN_con.target == TYP.DevOne or IN_con.target == TYP.UndevOne then
-                  4.861 else if IN_con.target == TYP.DevBoth or IN_con.target == TYP.UndevBoth then
+        SI.NusseltNumber Nu_1=if IN_con.target == TYP.DevOne or IN_con.target == TYP.UndevOne then 
+                  4.861 else if IN_con.target == TYP.DevBoth or IN_con.target == TYP.UndevBoth then 
                   7.541 else 0 "First Nusselt number";
         //SOURCE: p.Gb 7, eq. 38
         SI.NusseltNumber Nu_2=1.841*(Re*Pr*d_hyd/(max(IN_con.L, MIN)))^(1/3)
@@ -484,21 +484,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
-          IN_con "Input record for function kc_evenGapOverall"
+          IN_con "Input record for function kc_evenGapOverall" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
-          IN_var "Input record for function kc_evenGapOverall"
+          IN_var "Input record for function kc_evenGapOverall" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -517,7 +517,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         Real prandtlMax=if IN_con.target == TYP.UndevOne then 10 else if IN_con.target
              == TYP.UndevBoth then 1000 else 0 "Maximum Prandtl number";
-        Real prandtlMin=if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then
+        Real prandtlMin=if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then 
                   0.1 else 0 "Minimum Prandtl number";
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
@@ -534,7 +534,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Nu := kc*d_hyd/max(MIN, IN_var.lambda);
 
         //failure status
-        fstatus[1] := if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then
+        fstatus[1] := if IN_con.target == TYP.UndevOne or IN_con.target == TYP.UndevBoth then 
                 if Pr > prandtlMax or Pr < prandtlMin then 1 else 0 else 0;
         fstatus[2] := if d_hyd/IN_con.L > 1.0 then 1 else 0;
 
@@ -727,11 +727,11 @@ The verification for all targets is shown in the following figure w.r.t. the ref
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_con
-          IN_con "Input record for function kc_evenGapOverall_KC"
+          IN_con "Input record for function kc_evenGapOverall_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_IN_var
-          IN_var "Input record for function kc_evenGapOverall_KC"
+          IN_var "Input record for function kc_evenGapOverall_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -990,21 +990,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_IN_con
-          IN_con "Input record for function kc_evenGapTurbulent"
+          IN_con "Input record for function kc_evenGapTurbulent" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_IN_var
-          IN_var "Input record for function kc_evenGapTurbulent"
+          IN_var "Input record for function kc_evenGapTurbulent" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -1160,11 +1160,11 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_IN_con
-          IN_con "Input record for function kc_evenGapTurbulent_KC"
+          IN_con "Input record for function kc_evenGapTurbulent_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_IN_var
-          IN_var "Input record for function kc_evenGapTurbulent_KC"
+          IN_var "Input record for function kc_evenGapTurbulent_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -1357,21 +1357,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
-          IN_con "Input record for function kc_approxForcedConvection"
+          IN_con "Input record for function kc_approxForcedConvection" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
-          IN_var "Input record for function kc_approxForcedConvection"
+          IN_var "Input record for function kc_approxForcedConvection" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -1410,14 +1410,14 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //failure status
         fstatus[1] := if IN_con.target == TYP.Rough then if Pr > prandtlMax[1] or Pr
-           < prandtlMin[1] then 1 else 0 else if IN_con.target == TYP.Middle then if
+           < prandtlMin[1] then 1 else 0 else if IN_con.target == TYP.Middle then if 
           Pr > prandtlMax[2] or Pr < prandtlMin[2] then 1 else 0 else if IN_con.target
-           == TYP.Finest then if Pr > prandtlMax[3] or Pr < prandtlMin[3] then 1 else
+           == TYP.Finest then if Pr > prandtlMax[3] or Pr < prandtlMin[3] then 1 else 
                 0 else 0;
         fstatus[2] := if IN_con.target == TYP.Rough then if Re > reynoldsMax[1] or Re
-           < reynoldsMin[1] then 1 else 0 else if IN_con.target == TYP.Middle then
+           < reynoldsMin[1] then 1 else 0 else if IN_con.target == TYP.Middle then 
           if Re > reynoldsMax[2] or Re < reynoldsMin[2] then 1 else 0 else if IN_con.target
-           == TYP.Finest then if Re > reynoldsMax[3] or Re < reynoldsMin[3] then 1 else
+           == TYP.Finest then if Re > reynoldsMax[3] or Re < reynoldsMin[3] then 1 else 
                 0 else 0;
 
         failureStatus := 0;
@@ -1461,11 +1461,11 @@ Note that additionally a failure status is observed in this function to check if
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con
-          IN_con "Input record for function kc_approxForcedConvection_KC"
+          IN_con "Input record for function kc_approxForcedConvection_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var
-          IN_var "Input record for function kc_approxForcedConvection_KC"
+          IN_var "Input record for function kc_approxForcedConvection_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -1510,7 +1510,7 @@ Approximate calculation of the mean convective heat transfer coefficient <b> kc 
             Dialog(group="Generic variables"));
         parameter Real exp_Pr=0.4
           "Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling"
-          annotation (Dialog(group="Generic variables",enable=if target == 1 then
+          annotation (Dialog(group="Generic variables",enable=if target == 1 then 
                 true else false));
 
       annotation (Documentation(info="<html>
@@ -1523,7 +1523,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Input record for function approxForcedConvection and approxForcedConvection_KC"
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties
+          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties 
           annotation (Dialog(group="Fluid properties"));
         SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
@@ -1558,28 +1558,28 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
-          IN_con "Input record for function kc_flatTube"
+          IN_con "Input record for function kc_flatTube" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
-          IN_var "Input record for function kc_flatTube"
+          IN_var "Input record for function kc_flatTube" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
           annotation (Dialog(group="Output"));
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
 
         SI.Area A_c=if IN_con.geometry == TYP.LouverFin then IN_con.A_fr*((IN_con.F_l
@@ -1589,11 +1589,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           "Minimum flow cross-sectional area";
         SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
             IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
-        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
+        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else 
                   0 "Fin length";
-        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
+        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else 
                   0 "Lateral fin spacing (free flow width)";
-        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
+        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else 
                   0 "Fin thickness";
       algorithm
         kc := Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC(IN_con,
@@ -1609,7 +1609,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         end if;
 
         failureStatus := if IN_con.geometry == TYP.LouverFin then if Re < 100 or Re
-           > 3000 then 1 else 0 else if IN_con.geometry == TYP.RectangularFin then
+           > 3000 then 1 else 0 else if IN_con.geometry == TYP.RectangularFin then 
           if Re < 300 or Re > 5000 then 1 else 0 else 0;
 
       annotation (Documentation(info="<html>
@@ -1713,11 +1713,11 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con
-          IN_con "Input record for function kc_flatTube_KC"
+          IN_con "Input record for function kc_flatTube_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var
-          IN_var "Input record for function kc_flatTube_KC"
+          IN_var "Input record for function kc_flatTube_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -1725,7 +1725,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
           "Output for function kc_flatTubePlateFin_KC";
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
 
         Real MIN=Modelica.Constants.eps;
@@ -1745,11 +1745,11 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
           "Minimum flow cross-sectional area";
         SI.Length h=if IN_con.geometry == TYP.RectangularFin then IN_con.D_h*(1 +
             IN_con.alpha)/(2*IN_con.alpha) else 0 "Free flow height";
-        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else
+        SI.Length l=if IN_con.geometry == TYP.RectangularFin then t/IN_con.delta else 
                   0 "Fin length";
-        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else
+        SI.Length s=if IN_con.geometry == TYP.RectangularFin then h*IN_con.alpha else 
                   0 "Lateral fin spacing (free flow width)";
-        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else
+        SI.Length t=if IN_con.geometry == TYP.RectangularFin then s*IN_con.gamma else 
                   0 "Fin thickness";
 
       algorithm
@@ -1866,7 +1866,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
         extends Modelica.Icons.Record;
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes;
 
       public
@@ -1877,7 +1877,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
         SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
         SI.Length D_h=0 "Hydraulic diameter" annotation (Dialog(group="HeatExchanger",
               enable=if geometry == 2 then true else false));
-        SI.Length D_m=0 "Major tube diameter for flat tube"
+        SI.Length D_m=0 "Major tube diameter for flat tube" 
           annotation (Dialog(group="HeatExchanger"));
         SI.Length F_l=0 "Fin length" annotation (Dialog(group="HeatExchanger", enable=
                if geometry == 1 then true else false));
@@ -1893,7 +1893,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
                if geometry == 1 then true else false));
 
         Real alpha=0 "Lateral fin spacing (s) / free flow height (h)" annotation (
-            Dialog(group="HeatExchanger", enable=if geometry == 2 then true else
+            Dialog(group="HeatExchanger", enable=if geometry == 2 then true else 
                 false));
         Real gamma=0 "Fin thickness (t) / lateral fin spacing (s)" annotation (Dialog(
               group="HeatExchanger", enable=if geometry == 2 then true else false));
@@ -1937,28 +1937,28 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
-          IN_con "Input record for function kc_roundTube"
+          IN_con "Input record for function kc_roundTube" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
-          IN_var "Input record for function kc_roundTube"
+          IN_var "Input record for function kc_roundTube" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
           annotation (Dialog(group="Output"));
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes;
 
         SI.Area A_c=IN_con.A_fr*((IN_con.F_p*IN_con.P_t - IN_con.F_p*IN_con.D_c - (
@@ -1968,7 +1968,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
             *PI*IN_con.D_c*(IN_con.F_p - IN_con.delta_f) + 2*(IN_con.P_t*IN_con.L -
             IN_con.N*PI*IN_con.D_c^2/4))/(IN_con.P_t*IN_con.F_p)) else 0
           "Total heat transfer area";
-        SI.Length D_h=if IN_con.geometry == TYP.LouverFin then 4*A_c*IN_con.L/A_tot else
+        SI.Length D_h=if IN_con.geometry == TYP.LouverFin then 4*A_c*IN_con.L/A_tot else 
                   0 "Hydraulic diameter";
 
         /*SI.Length D_h=
@@ -1981,7 +1981,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           IN_var);
         Pr := abs(IN_var.eta*IN_var.cp/IN_var.lambda);
 
-        if IN_con.geometry == TYP.PlainFin or IN_con.geometry == TYP.LouverFin or
+        if IN_con.geometry == TYP.PlainFin or IN_con.geometry == TYP.LouverFin or 
             IN_con.geometry == TYP.SlitFin or IN_con.geometry == TYP.WavyFin then
           Re := max(1e-3, abs(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*A_c));
           Nu := max(1e-3, kc*IN_con.D_c/IN_var.lambda);
@@ -1989,8 +1989,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         failureStatus := if IN_con.geometry == TYP.PlainFin then if Re < 300 or Re >
           8000 then 1 else 0 else if IN_con.geometry == TYP.LouverFin then if Re <
-          300 or Re > 7000 then 1 else 0 else if IN_con.geometry == TYP.SlitFin then
-          if Re < 400 or Re > 7000 then 1 else 0 else if IN_con.geometry == TYP.WavyFin then
+          300 or Re > 7000 then 1 else 0 else if IN_con.geometry == TYP.SlitFin then 
+          if Re < 400 or Re > 7000 then 1 else 0 else if IN_con.geometry == TYP.WavyFin then 
                 if Re < 350 or Re > 7000 then 1 else 0 else 0;
 
       annotation (Documentation(info="<html>
@@ -2084,11 +2084,11 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con
-          IN_con "Input record for function kc_roundTube_KC"
+          IN_con "Input record for function kc_roundTube_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var
-          IN_var "Input record for function kc_roundTube_KC"
+          IN_var "Input record for function kc_roundTube_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -2096,7 +2096,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
           "Output for function kc_roundTube_KC";
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes;
 
         Real MIN=Modelica.Constants.eps;
@@ -2113,7 +2113,7 @@ The mean Nusselt number <b> Nu </b> representing the mean convective heat transf
             *PI*IN_con.D_c*(IN_con.F_p - IN_con.delta_f) + 2*(IN_con.P_t*IN_con.L -
             IN_con.N*PI*IN_con.D_c^2/4))/(IN_con.P_t*IN_con.F_p)) else 0
           "Total heat transfer area";
-        SI.Length D_h=if IN_con.geometry == TYP.LouverFin then 4*A_c*IN_con.L/A_tot else
+        SI.Length D_h=if IN_con.geometry == TYP.LouverFin then 4*A_c*IN_con.L/A_tot else 
                   0 "Hydraulic diameter";
 
         /*SI.Length D_h=
@@ -2295,9 +2295,9 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
           "Choice of fin geometry" annotation (Dialog(group="HeatExchanger"));
 
         SI.Area A_fr=0 "Frontal area" annotation (Dialog(group="HeatExchanger"));
-        SI.Length D_c=0 "Fin collar diameter"
+        SI.Length D_c=0 "Fin collar diameter" 
           annotation (Dialog(group="HeatExchanger"));
-        SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness"
+        SI.Length F_p=0 "Fin pitch, fin spacing + fin thickness" 
           annotation (Dialog(group="HeatExchanger"));
         SI.Length L=0 "Heat exchanger length" annotation (Dialog(group=
                 "HeatExchanger", enable=if geometry == 2 then true else false));
@@ -2306,14 +2306,14 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
         SI.Length L_p=0 "Louver pitch" annotation (Dialog(group="HeatExchanger",
               enable=if geometry == 2 then true else false));
         Integer N=0 "Number of tube rows" annotation (Dialog(group="HeatExchanger",
-              enable=if geometry == 1 or geometry == 2 or geometry == 3 then true else
+              enable=if geometry == 1 or geometry == 2 or geometry == 3 then true else 
                       false));
         SI.Length P_d=0 "Pattern depth of wavy fin, wave height" annotation (Dialog(
               group="HeatExchanger", enable=if geometry == 4 then true else false));
         SI.Length P_l=0 "Longitudinal tube pitch" annotation (Dialog(group=
                 "HeatExchanger", enable=if geometry == 1 or geometry == 2 or geometry
                  == 3 then true else false));
-        SI.Length P_t=0 "Transverse tube pitch"
+        SI.Length P_t=0 "Transverse tube pitch" 
           annotation (Dialog(group="HeatExchanger"));
         SI.Length S_h=0 "Slit height" annotation (Dialog(group="HeatExchanger",
               enable=if geometry == 3 then true else false));
@@ -2381,21 +2381,21 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_IN_con
-          IN_con "Input record for function kc_laminar"
+          IN_con "Input record for function kc_laminar" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_IN_var
-          IN_var "Input record for function kc_laminar"
+          IN_var "Input record for function kc_laminar" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -2458,11 +2458,11 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_IN_con
-          IN_con "Input record for function kc_laminar_KC"
+          IN_con "Input record for function kc_laminar_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_IN_var
-          IN_var "Input record for function kc_laminar_KC"
+          IN_var "Input record for function kc_laminar_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -2538,21 +2538,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con
-          IN_con "Input record for function kc_overall"
+          IN_con "Input record for function kc_overall" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var
-          IN_var "Input record for function kc_overall"
+          IN_var "Input record for function kc_overall" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -2600,11 +2600,11 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con
-          IN_con "Input record for function kc_overall_KC"
+          IN_con "Input record for function kc_overall_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var
-          IN_var "Input record for function kc_overall_KC"
+          IN_var "Input record for function kc_overall_KC" 
           annotation (Dialog(group="Variable inputs"));
         //output variables
         output SI.CoefficientOfHeatTransfer kc
@@ -2695,21 +2695,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_con
-          IN_con "Input record for function  kc_turbulent"
+          IN_con "Input record for function  kc_turbulent" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_var
-          IN_var "Input record for function  kc_turbulent"
+          IN_var "Input record for function  kc_turbulent" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -2768,11 +2768,11 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_con
-          IN_con "Input record for function kc_turbulent_KC"
+          IN_con "Input record for function kc_turbulent_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_var
-          IN_var "Input record for function kc_turbulent_KC"
+          IN_var "Input record for function kc_turbulent_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -2868,20 +2868,20 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_con
-          IN_con "Input record for function kc_laminar"
+          IN_con "Input record for function kc_laminar" 
           annotation (Dialog(group="Constant inputs"));
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_var
-          IN_var "Input record for function kc_laminar"
+          IN_var "Input record for function kc_laminar" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -3001,10 +3001,10 @@ Note that this function is best used in the laminar regime up to a Reynolds numb
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_con
-          IN_con "Input record for function kc_laminar_KC"
+          IN_con "Input record for function kc_laminar_KC" 
           annotation (Dialog(group="Constant inputs"));
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_var
-          IN_var "Input record for function kc_laminar_KC"
+          IN_var "Input record for function kc_laminar_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -3144,19 +3144,19 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con
-          IN_con "Input record for function kc_overall"
+          IN_con "Input record for function kc_overall" 
           annotation (Dialog(group="Constant inputs"));
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var
-          IN_var "Input record for function kc_overall"
+          IN_var "Input record for function kc_overall" 
           annotation (Dialog(group="Variable inputs"));
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -3284,10 +3284,10 @@ The mean Nusselt number <b> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </b> representing th
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con
-          IN_con "Input record for function kc_overall_KC"
+          IN_con "Input record for function kc_overall_KC" 
           annotation (Dialog(group="Constant inputs"));
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_var
-          IN_var "Input record for function kc_overall_KC"
+          IN_var "Input record for function kc_overall_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -3439,20 +3439,20 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_con
-          IN_con "Input record for function kc_turbulent"
+          IN_con "Input record for function kc_turbulent" 
           annotation (Dialog(group="Constant inputs"));
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_var
-          IN_var "Input record for function kc_turbulent"
+          IN_var "Input record for function kc_turbulent" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -3573,10 +3573,10 @@ The mean Nusselt number in turbulent regime <b> Nu </b> representing the mean co
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_con
-          IN_con "Input record for function kc_turbulent_KC"
+          IN_con "Input record for function kc_turbulent_KC" 
           annotation (Dialog(group="Constant inputs"));
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_var
-          IN_var "Input record for function kc_turbulent_KC"
+          IN_var "Input record for function kc_turbulent_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -3736,21 +3736,21 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con
-          IN_con "Input record for function kc_laminar"
+          IN_con "Input record for function kc_laminar" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var
-          IN_var "Input record for function kc_laminar"
+          IN_var "Input record for function kc_laminar" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -3902,11 +3902,11 @@ This verification has been done with the fluid properties of Water (Prandtl numb
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con
-          IN_con "Input record for function kc_laminar_KC"
+          IN_con "Input record for function kc_laminar_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_var
-          IN_var "Input record for function kc_laminar_KC"
+          IN_var "Input record for function kc_laminar_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -3914,18 +3914,18 @@ This verification has been done with the fluid properties of Water (Prandtl numb
           "Output for function kc_laminar_KC";
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary;
 
         Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=PI*IN_con.d_hyd^2/4 "Circular cross sectional area";
 
-        Real Nu0=if IN_con.target == TYP.UWTuDFF or IN_con.target == TYP.UWTuUFF then
-                  0.7 else if IN_con.target == TYP.UHFuDFF or IN_con.target == TYP.UHFuUFF then
+        Real Nu0=if IN_con.target == TYP.UWTuDFF or IN_con.target == TYP.UWTuUFF then 
+                  0.7 else if IN_con.target == TYP.UHFuDFF or IN_con.target == TYP.UHFuUFF then 
                   0.6 else 0 "Help variable for mean Nusselt number";
-        Real Nu1=if IN_con.target == TYP.UWTuDFF or IN_con.target == TYP.UWTuUFF then
-                  3.66 else if IN_con.target == TYP.UHFuDFF or IN_con.target == TYP.UHFuUFF then
+        Real Nu1=if IN_con.target == TYP.UWTuDFF or IN_con.target == TYP.UWTuUFF then 
+                  3.66 else if IN_con.target == TYP.UHFuDFF or IN_con.target == TYP.UHFuUFF then 
                   4.364 else 0 "Help variable for mean Nusselt number";
 
         SI.Velocity velocity=abs(IN_var.m_flow)/max(MIN, IN_var.rho*A_cross)
@@ -3934,12 +3934,12 @@ This verification has been done with the fluid properties of Water (Prandtl numb
             IN_var.eta));
         SI.PrandtlNumber Pr=abs(IN_var.eta*IN_var.cp/max(MIN, IN_var.lambda));
 
-        SI.NusseltNumber Nu2=if IN_con.target == TYP.UWTuDFF or IN_con.target == TYP.UWTuUFF then
+        SI.NusseltNumber Nu2=if IN_con.target == TYP.UWTuDFF or IN_con.target == TYP.UWTuUFF then 
                   1.615*(Re*Pr*IN_con.d_hyd/IN_con.L)^(1/3) else if IN_con.target ==
             TYP.UHFuDFF or IN_con.target == TYP.UHFuUFF then 1.953*(Re*Pr*IN_con.d_hyd
             /IN_con.L)^(1/3) else 0 "Help variable for mean Nusselt number";
         SI.NusseltNumber Nu3=if IN_con.target == TYP.UWTuUFF then (2/(1 + 22*Pr))^(1/
-            6)*(Re*Pr*IN_con.d_hyd/IN_con.L)^0.5 else if IN_con.target == TYP.UHFuUFF then
+            6)*(Re*Pr*IN_con.d_hyd/IN_con.L)^0.5 else if IN_con.target == TYP.UHFuUFF then 
                   1.953*(Re*Pr*IN_con.d_hyd/IN_con.L)^(1/3) else 0
           "Help variable for mean Nusselt number";
 
@@ -4090,7 +4090,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
 
           //choices
         Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary target=Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF
-          "Choice of heat transfer boundary condition"
+          "Choice of heat transfer boundary condition" 
           annotation (Dialog(group="Choices"));
 
       annotation (  Documentation(info="<html>
@@ -4115,21 +4115,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con
-          IN_con "Input record for function kc_overall"
+          IN_con "Input record for function kc_overall" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var
-          IN_var "Input record for function kc_overall"
+          IN_var "Input record for function kc_overall" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -4343,11 +4343,11 @@ The following verification considers pressure loss influence (roughness =2).
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con
-          IN_con "Input record for function kc_overall_KC"
+          IN_con "Input record for function kc_overall_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_var
-          IN_var "Input record for function kc_overall_KC"
+          IN_var "Input record for function kc_overall_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -4568,7 +4568,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.H
 
           //choices
         Modelica.Fluid.Dissipation.Utilities.Types.HeatTransferBoundary target=Dissipation.Utilities.Types.HeatTransferBoundary.UWTuDFF
-          "Choice of heat transfer boundary condition"
+          "Choice of heat transfer boundary condition" 
           annotation (Dialog(group="Choices"));
 
         extends kc_turbulent_IN_con;
@@ -4599,21 +4599,21 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con
-          IN_con "Input record for function kc_turbulent"
+          IN_con "Input record for function kc_turbulent" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var
-          IN_var "Input record for function kc_turbulent"
+          IN_var "Input record for function kc_turbulent" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
         output SI.CoefficientOfHeatTransfer kc
-          "Convective heat transfer coefficient"
+          "Convective heat transfer coefficient" 
           annotation (Dialog(group="Output"));
         output SI.PrandtlNumber Pr "Prandl number" annotation (Dialog(group="Output"));
-        output SI.ReynoldsNumber Re "Reynolds number"
+        output SI.ReynoldsNumber Re "Reynolds number" 
           annotation (Dialog(group="Output"));
-        output SI.NusseltNumber Nu "Nusselt number"
+        output SI.NusseltNumber Nu "Nusselt number" 
           annotation (Dialog(group="Output"));
         output Real failureStatus
           "0== boundary conditions fulfilled | 1== failure >> check if still meaningfull results"
@@ -4783,11 +4783,11 @@ Note that the higher the Prandtl number <b> Pr </b> there is a higher difference
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con
-          IN_con "Input record for function kc_turbulent_KC"
+          IN_con "Input record for function kc_turbulent_KC" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_var
-          IN_var "Input record for function kc_turbulent_KC"
+          IN_var "Input record for function kc_turbulent_KC" 
           annotation (Dialog(group="Variable inputs"));
 
         //output variables
@@ -4814,7 +4814,7 @@ Note that the higher the Prandtl number <b> Pr </b> there is a higher difference
         kc := if IN_con.roughness == TYP.Neglected then abs(IN_var.lambda/IN_con.d_hyd)
           *0.023*Re^0.8*Pr^(1/3) else if IN_con.roughness == TYP.Considered then abs(
           IN_var.lambda/IN_con.d_hyd)*(abs(zeta)/8)*abs(Re)*abs(Pr)/(1 + 12.7*(abs(
-          zeta)/8)^0.5*(abs(Pr)^(2/3) - 1))*(1 + (IN_con.d_hyd/IN_con.L)^(2/3)) else
+          zeta)/8)^0.5*(abs(Pr)^(2/3) - 1))*(1 + (IN_con.d_hyd/IN_con.L)^(2/3)) else 
           0;
       annotation (Documentation(info="<html>
 <p>
@@ -4955,7 +4955,7 @@ Note that the higher the Prandtl number <b> Pr </b> there is a higher difference
         extends Utilities.Records.HeatTransfer.StraightPipe;
 
         Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
-          "Choice of considering surface roughness"
+          "Choice of considering surface roughness" 
           annotation (Dialog(group="Choices"));
 
         SI.Length K=0 "Roughness (average height of surface asperities)" annotation (
@@ -5000,11 +5000,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //Documentation
       algorithm
-        kc := if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor then
+        kc := if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor then 
           Modelica.Fluid.Dissipation.Utilities.Functions.HeatTransfer.TwoPhase.kc_twoPhase_boilingHorizontal_KC(
-          IN_con, IN_var) else if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
+          IN_con, IN_var) else if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
           Modelica.Fluid.Dissipation.Utilities.Functions.HeatTransfer.TwoPhase.kc_twoPhase_boilingVertical_KC(
-          IN_con, IN_var) else if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor then
+          IN_con, IN_var) else if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor then 
           Modelica.Fluid.Dissipation.Utilities.Functions.HeatTransfer.TwoPhase.kc_twoPhase_condensationHorizontal_KC(
           IN_con, IN_var) else MIN;
       annotation (Documentation(info="<html>
@@ -5208,13 +5208,13 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
-          IN_con "Input record for function dp_curvedOverall_DP"
+          IN_con "Input record for function dp_curvedOverall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-          IN_var "Input record for function dp_curvedOverall_DP"
+          IN_var "Input record for function dp_curvedOverall_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -5247,11 +5247,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //SOURCE_1: p.357, diag. 6-1: coefficients for local resistance coefficient [zeta_LOC]:
         //IN_con.R_0/IN_con.d_hyd <= 3
-        Real A1=if delta <= 70 then 0.9*sin(delta*PI/180) else if delta >= 100 then
+        Real A1=if delta <= 70 then 0.9*sin(delta*PI/180) else if delta >= 100 then 
             0.7 + 0.35*delta/90 else 1.0
           "Coefficient considering effect for angle of turning on zeta_LOC";
-        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD >= 0.7 then
-                  (if frac_RD > 1.0 then 1e3 else if frac_RD <= 1.0 and frac_RD > 0.7 then
+        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD >= 0.7 then 
+                  (if frac_RD > 1.0 then 1e3 else if frac_RD <= 1.0 and frac_RD > 0.7 then 
                   3e3 else 6e3) else 4e3
           "Coefficient considering laminar regime on zeta_LOC";
         Real B1=if frac_RD >= 1.0 then 0.21*(frac_RD)^(-0.5) else 0.21*(frac_RD)^(-2.5)
@@ -5269,7 +5269,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //SOURCE_1: p.357, diag. 6-1, sec. 2 / p.336, sec. 15 (turbulent regime + hydraulically rough):
         //IN_con.R_0/IN_con.d_hyd < 3
-        Real C_Re=if frac_RD > 0.7 then 11.5/Re^0.19 else if frac_RD <= 0.7 and
+        Real C_Re=if frac_RD > 0.7 then 11.5/Re^0.19 else if frac_RD <= 0.7 and 
             frac_RD >= 0.55 then 5.45/Re^0.131 else 1 + 4400/Re
           "Correction factor for hydraulically rough turbulent regime (Re_turb_min < Re < Re_turb_max)";
 
@@ -5500,11 +5500,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_con
-          IN_con "Input record for function dp_curvedOverall_MFLOW"
+          IN_con "Input record for function dp_curvedOverall_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_IN_var
-          IN_var "Input record for function dp_curvedOverall_MFLOW"
+          IN_var "Input record for function dp_curvedOverall_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -5539,11 +5539,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //SOURCE_1: p.357, diag. 6-1: coefficients for local resistance coefficient [zeta_LOC]:
         //IN_con.R_0/IN_con.d_hyd <= 3
-        Real A1=if delta <= 70 then 0.9*sin(delta/180*PI) else if delta >= 100 then
+        Real A1=if delta <= 70 then 0.9*sin(delta/180*PI) else if delta >= 100 then 
             0.7 + 0.35*delta/90 else 1.0
           "Coefficient considering effect for angle of turning on zeta_LOC";
-        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD >= 0.7 then
-                  (if frac_RD > 1.0 then 1e3 else if frac_RD <= 1.0 and frac_RD > 0.7 then
+        Real A2=if frac_RD > 2.0 then 6e2 else if frac_RD <= 2.0 and frac_RD >= 0.7 then 
+                  (if frac_RD > 1.0 then 1e3 else if frac_RD <= 1.0 and frac_RD > 0.7 then 
                   3e3 else 6e3) else 4e3
           "Coefficient considering laminar regime on zeta_LOC";
         Real B1=if frac_RD >= 1.0 then 0.21*(frac_RD)^(-0.5) else 0.21*(frac_RD)^(-2.5)
@@ -5558,13 +5558,13 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         SI.AbsolutePressure dp_lam_max=(zeta_LOC_sharp_turb + A2/Re_lam_leave)*IN_var.rho
             /2*(Re_lam_leave*IN_var.eta/(IN_var.rho*d_hyd))^2
           "Maximum pressure loss for laminar regime";
-        SI.AbsolutePressure dp_turb_min=zeta_LOC_sharp_turb*(if frac_RD > 0.7 then
-            11.5/Re_turb_min^0.19 else if frac_RD <= 0.7 and frac_RD >= 0.55 then
+        SI.AbsolutePressure dp_turb_min=zeta_LOC_sharp_turb*(if frac_RD > 0.7 then 
+            11.5/Re_turb_min^0.19 else if frac_RD <= 0.7 and frac_RD >= 0.55 then 
             5.45/Re_turb_min^0.131 else 1 + 4400/Re_turb_min)*IN_var.rho/2*(
             Re_turb_min*IN_var.eta/(IN_var.rho*d_hyd))^2
           "Minimum pressure loss for turbulent regime";
-        SI.AbsolutePressure dp_turb_max=zeta_LOC_sharp_turb*(if frac_RD > 0.7 then
-            11.5/Re_turb_max^0.19 else if frac_RD <= 0.7 and frac_RD >= 0.55 then
+        SI.AbsolutePressure dp_turb_max=zeta_LOC_sharp_turb*(if frac_RD > 0.7 then 
+            11.5/Re_turb_max^0.19 else if frac_RD <= 0.7 and frac_RD >= 0.55 then 
             5.45/Re_turb_max^0.131 else 1 + 4400/Re_turb_max)*IN_var.rho/2*(
             Re_turb_max*IN_var.eta/(IN_var.rho*d_hyd))^2
           "Maximum pressure loss for turbulent regime";
@@ -5595,7 +5595,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           "Mean velocity in turbulent regime with independence on pressure loss coefficient (Re > Re_turb_max)";
 
         //mean velocity under smooth conditions w.r.t flow regime
-        SI.Velocity v_smooth=if dp < dp_lam_max then v_lam else if dp < dp_turb_min then
+        SI.Velocity v_smooth=if dp < dp_lam_max then v_lam else if dp < dp_turb_min then 
                   SMOOTH(
             dp_lam_max,
             dp_turb_min,
@@ -5915,13 +5915,13 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con
-          IN_con "Input record for function dp_edgedOverall_DP"
+          IN_con "Input record for function dp_edgedOverall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var
-          IN_var "Input record for function dp_edgedOverall_DP"
+          IN_var "Input record for function dp_edgedOverall_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -6265,11 +6265,11 @@ The pressure loss in dependence of the mass flow rate of water is shown for diff
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con
-          IN_con "Input record for function dp_edgedOverall_MFLOW"
+          IN_con "Input record for function dp_edgedOverall_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_var
-          IN_var "Input record for function dp_edgedOverall_MFLOW"
+          IN_var "Input record for function dp_edgedOverall_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -6662,36 +6662,36 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_IN_con
-          IN_con "Input record for function dp_internalFlowOverall_DP"
+          IN_con "Input record for function dp_internalFlowOverall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_IN_var
-          IN_var "Input record for function dp_internalFlowOverall_DP"
+          IN_var "Input record for function dp_internalFlowOverall_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
         output SI.Pressure DP "Output for function dp_internalFlowOverall_DP";
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow;
 
         Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, if IN_con.geometry == TYP.Annular then (PI/4)*((
-            IN_con.D_ann)^2 - (IN_con.d_ann)^2) else if IN_con.geometry == TYP.Circular then
-                  PI/4*(IN_con.d_cir)^2 else if IN_con.geometry == TYP.Elliptical then
-                  PI*IN_con.a_ell*IN_con.b_ell else if IN_con.geometry == TYP.Rectangular then
-                  IN_con.a_rec*IN_con.b_rec else if IN_con.geometry == TYP.Isosceles then
+            IN_con.D_ann)^2 - (IN_con.d_ann)^2) else if IN_con.geometry == TYP.Circular then 
+                  PI/4*(IN_con.d_cir)^2 else if IN_con.geometry == TYP.Elliptical then 
+                  PI*IN_con.a_ell*IN_con.b_ell else if IN_con.geometry == TYP.Rectangular then 
+                  IN_con.a_rec*IN_con.b_rec else if IN_con.geometry == TYP.Isosceles then 
                   0.5*(IN_con.a_tri*IN_con.h_tri) else 0)
           "Cross sectional area";
         SI.Length perimeter=max(MIN, if IN_con.geometry == TYP.Annular then PI*(
-            IN_con.D_ann + IN_con.d_ann) else if IN_con.geometry == TYP.Circular then
+            IN_con.D_ann + IN_con.d_ann) else if IN_con.geometry == TYP.Circular then 
                   PI*IN_con.d_cir else if IN_con.geometry == TYP.Elliptical then PI*(
-            IN_con.a_ell + IN_con.b_ell) else if IN_con.geometry == TYP.Rectangular then
-                  2*(IN_con.a_rec + IN_con.b_rec) else if IN_con.geometry == TYP.Isosceles then
+            IN_con.a_ell + IN_con.b_ell) else if IN_con.geometry == TYP.Rectangular then 
+                  2*(IN_con.a_rec + IN_con.b_rec) else if IN_con.geometry == TYP.Isosceles then 
                   IN_con.a_tri + 2*((IN_con.h_tri)^2 + (IN_con.a_tri/2)^2)^0.5 else 0)
           "Perimeter";
         SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
@@ -6715,8 +6715,8 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
         Real CF_tri=-0.0013*(min(90, beta))^2 + 0.1577*(min(90, beta)) + 48.5575
           "Correction factor for triangular geometry";
         Real CF_lam=if IN_con.geometry == TYP.Annular then CF_ann else if IN_con.geometry
-             == TYP.Circular then 64 else if IN_con.geometry == TYP.Elliptical then
-            CF_ell else if IN_con.geometry == TYP.Rectangular then CF_rec else if
+             == TYP.Circular then 64 else if IN_con.geometry == TYP.Elliptical then 
+            CF_ell else if IN_con.geometry == TYP.Rectangular then CF_rec else if 
             IN_con.geometry == TYP.Isosceles then CF_tri else 0
           "Correction factor for laminar flow";
 
@@ -6743,12 +6743,12 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
           final roughness=IN_con.roughness,
           final d_hyd=d_hyd,
           final K=IN_con.K,
-          final L=IN_con.L) "Input record for turbulent regime"
+          final L=IN_con.L) "Input record for turbulent regime" 
           annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
         Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var
           IN_2_var(                                                                     final eta=
                 IN_var.eta, final rho=IN_var.rho)
-          "Input record for turbulent regime"
+          "Input record for turbulent regime" 
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
         //Documentation
@@ -6895,11 +6895,11 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_IN_con
-          IN_con "Input record for function dp_internalFlowOverall_MFLOW"
+          IN_con "Input record for function dp_internalFlowOverall_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_IN_var
-          IN_var "Input record for function dp_internalFlowOverall_MFLOW"
+          IN_var "Input record for function dp_internalFlowOverall_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -6907,24 +6907,24 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
         output SI.MassFlowRate M_FLOW "Output of function dp_overall_MFLOW";
 
       protected
-        type TYP1 =
+        type TYP1 = 
             Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
         Real MIN=Modelica.Constants.eps;
 
         SI.Area A_cross=max(MIN, if IN_con.geometry == TYP1.Annular then (PI/4)*((
-            IN_con.D_ann)^2 - (IN_con.d_ann)^2) else if IN_con.geometry == TYP1.Circular then
-                  PI/4*(IN_con.d_cir)^2 else if IN_con.geometry == TYP1.Elliptical then
-                  PI*IN_con.a_ell*IN_con.b_ell else if IN_con.geometry == TYP1.Rectangular then
-                  IN_con.a_rec*IN_con.b_rec else if IN_con.geometry == TYP1.Isosceles then
+            IN_con.D_ann)^2 - (IN_con.d_ann)^2) else if IN_con.geometry == TYP1.Circular then 
+                  PI/4*(IN_con.d_cir)^2 else if IN_con.geometry == TYP1.Elliptical then 
+                  PI*IN_con.a_ell*IN_con.b_ell else if IN_con.geometry == TYP1.Rectangular then 
+                  IN_con.a_rec*IN_con.b_rec else if IN_con.geometry == TYP1.Isosceles then 
                   0.5*(IN_con.a_tri*IN_con.h_tri) else 0)
           "Cross sectional area";
         SI.Length perimeter=max(MIN, if IN_con.geometry == TYP1.Annular then PI*(
-            IN_con.D_ann + IN_con.d_ann) else if IN_con.geometry == TYP1.Circular then
+            IN_con.D_ann + IN_con.d_ann) else if IN_con.geometry == TYP1.Circular then 
                   PI*IN_con.d_cir else if IN_con.geometry == TYP1.Elliptical then PI*
-            (IN_con.a_ell + IN_con.b_ell) else if IN_con.geometry == TYP1.Rectangular then
-                  2*(IN_con.a_rec + IN_con.b_rec) else if IN_con.geometry == TYP1.Isosceles then
+            (IN_con.a_ell + IN_con.b_ell) else if IN_con.geometry == TYP1.Rectangular then 
+                  2*(IN_con.a_rec + IN_con.b_rec) else if IN_con.geometry == TYP1.Isosceles then 
                   IN_con.a_tri + 2*((IN_con.h_tri)^2 + (IN_con.a_tri/2)^2)^0.5 else 0)
           "Perimeter";
         SI.Diameter d_hyd=4*A_cross/perimeter "Hydraulic diameter";
@@ -6948,8 +6948,8 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
         Real CF_tri=-0.0013*(min(90, beta))^2 + 0.1577*(min(90, beta)) + 48.5575
           "Correction factor for triangular geometry";
         Real CF_lam=if IN_con.geometry == TYP1.Annular then CF_ann else if IN_con.geometry
-             == TYP1.Circular then 64 else if IN_con.geometry == TYP1.Elliptical then
-                  CF_ell else if IN_con.geometry == TYP1.Rectangular then CF_rec else
+             == TYP1.Circular then 64 else if IN_con.geometry == TYP1.Elliptical then 
+                  CF_ell else if IN_con.geometry == TYP1.Rectangular then CF_rec else 
                   if IN_con.geometry == TYP1.Isosceles then CF_tri else 0
           "Correction factor for laminar flow";
 
@@ -6984,7 +6984,7 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
         //determine actual flow regime
         SI.ReynoldsNumber Re_check=if Re_lam < Re_lam_leave then Re_lam else Re_turb;
         //determine Re for transition regime
-        SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then
+        SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then 
             Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP(
             Re_check,
             Re_lam_leave,
@@ -7000,12 +7000,12 @@ The Darcy friction factor (<b>lambda_FRI</b>) for different geometries has been 
           final roughness=IN_con.roughness,
           final d_hyd=d_hyd,
           final K=IN_con.K,
-          final L=IN_con.L) "Input record for turbulent regime"
+          final L=IN_con.L) "Input record for turbulent regime" 
           annotation (Placement(transformation(extent={{-100,20},{-80,40}})));
         Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var
           IN_2_var(                                                                     final eta=
                 IN_var.eta, final rho=IN_var.rho)
-          "Input record for turbulent regime"
+          "Input record for turbulent regime" 
           annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
 
         //Documentation
@@ -7076,7 +7076,7 @@ The pressure loss calculation for internal fluid flow in different geometries is
 
         //channel variables
         Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Considered
-          "Choice of considering surface roughness"
+          "Choice of considering surface roughness" 
           annotation (Dialog(group="Channel"));
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.Geometry;
@@ -7121,13 +7121,13 @@ Calculation of pressure loss for an internal flow through different geometries a
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_con
-          IN_con "Input record for function dp_idealGas_DP"
+          IN_con "Input record for function dp_idealGas_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_var
-          IN_var "Input record for function dp_idealGas_DP"
+          IN_var "Input record for function dp_idealGas_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -7423,11 +7423,11 @@ The generic pressure loss <b> dp </b> for different coefficients <b> Km </b> as 
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_con
-          IN_con "Input record for function dp_idealGas_MFLOW"
+          IN_con "Input record for function dp_idealGas_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_IN_var
-          IN_var "Input record for function dp_idealGas_MFLOW"
+          IN_var "Input record for function dp_idealGas_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -7726,7 +7726,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
 
         //linearisation
         SI.Pressure dp_smooth(min=Modelica.Constants.eps) = 1
-          "Start linearisation for smaller pressure loss"
+          "Start linearisation for smaller pressure loss" 
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
@@ -7759,13 +7759,13 @@ This record is used as <b> input record </b> for the pressure loss function
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_IN_con
-          IN_con "Input record for function dp_nominalDensityViscosity_DP"
+          IN_con "Input record for function dp_nominalDensityViscosity_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_IN_var
-          IN_var "Input record for function dp_nominalDensityViscosity_DP"
+          IN_var "Input record for function dp_nominalDensityViscosity_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -7780,12 +7780,12 @@ This record is used as <b> input record </b> for the pressure loss function
         //Documentation
 
       algorithm
-        DP := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then
+        DP := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then 
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 m_flow,
                 m_flow_smooth,
                 IN_con.exp)*(IN_var.eta/IN_con.eta_nom)^IN_con.exp_eta*IN_con.rho_nom
-          /IN_var.rho*IN_con.dp_nom*(1/IN_con.m_flow_nom)^(IN_con.exp) else
+          /IN_var.rho*IN_con.dp_nom*(1/IN_con.m_flow_nom)^(IN_con.exp) else 
           m_flow/IN_con.m_flow_nom*(IN_var.eta/IN_con.eta_nom)^IN_con.exp_eta*
           IN_con.rho_nom/IN_var.rho*IN_con.dp_nom;
       annotation (Documentation(info="<html>
@@ -7912,12 +7912,12 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_IN_con
-          IN_con "Input record for function dp_nominalDensityViscosity_MFLOW"
+          IN_con "Input record for function dp_nominalDensityViscosity_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
 
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_IN_var
-          IN_var "Input record for function dp_nominalDensityViscosity_MFLOW"
+          IN_var "Input record for function dp_nominalDensityViscosity_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
 
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
@@ -7929,7 +7929,7 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
         //Documentation
 
       algorithm
-        M_FLOW := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then
+        M_FLOW := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then 
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 dp,
                 0.01*IN_con.dp_nom,
@@ -8092,14 +8092,14 @@ This record is used as <b> input record </b> for the pressure loss function
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_con
           IN_con
-          "Input record for function dp_nominalPressureLossLawDensity_DP"
+          "Input record for function dp_nominalPressureLossLawDensity_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_var
           IN_var
-          "Input record for function dp_nominalPressureLossLawDensity_DP"
+          "Input record for function dp_nominalPressureLossLawDensity_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -8107,10 +8107,10 @@ This record is used as <b> input record </b> for the pressure loss function
           "Output for function dp_nominalPressureLossLawDensity_yesAJac_DP";
 
       protected
-        Real exp_density=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then
+        Real exp_density=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 
                   1 - IN_con.exp else 1
           "Exponent of density fraction (rho/rho_nom)";
-        SI.MassFlowRate m_flow_nom=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then
+        SI.MassFlowRate m_flow_nom=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 
                   IN_con.m_flow_nom else IN_var.rho*IN_con.V_flow_nom
           "Nominal mean flow velocity at operation point";
 
@@ -8122,7 +8122,7 @@ This record is used as <b> input record </b> for the pressure loss function
         //Documentation
 
       algorithm
-        DP := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then
+        DP := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then 
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 m_flow,
                 m_flow_linear,
@@ -8422,12 +8422,12 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_con
           IN_con
-          "Input record for function dp_nominalPressureLossLawDensity_MFLOW"
+          "Input record for function dp_nominalPressureLossLawDensity_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_IN_var
           IN_var
-          "Input record for function dp_nominalPressureLossLawDensity_MFLOW"
+          "Input record for function dp_nominalPressureLossLawDensity_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -8436,17 +8436,17 @@ The generic pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_
           "Output for function dp_nominalPressurelosslawDensity_MFLOW";
 
       protected
-        Real exp_density=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then
+        Real exp_density=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 
                   1 - IN_con.exp else 1
           "Exponent of density fraction (rho/rho_nom)";
-        SI.MassFlowRate m_flow_nom=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then
+        SI.MassFlowRate m_flow_nom=if IN_con.target ==Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate then 
                   IN_con.m_flow_nom else IN_var.rho*IN_con.V_flow_nom
           "Nominal mean flow velocity at operation point";
 
         //Documentation
 
       algorithm
-        M_FLOW := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then
+        M_FLOW := if IN_con.exp > 1.0 or IN_con.exp < 1.0 then 
           Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower(
                 dp,
                 0.01*IN_con.dp_nom,
@@ -8766,7 +8766,7 @@ This record is used as <b> input record </b> for the pressure loss function
           Modelica.Fluid.Dissipation.Utilities.Records.General.NominalPressureLossLawDensity_var;
 
         //fluid property variables
-        SI.Density rho "Density of fluid"
+        SI.Density rho "Density of fluid" 
           annotation (Dialog(group="Fluid properties"));
 
         annotation (Documentation(info="<html>
@@ -8783,13 +8783,13 @@ This record is used as <b> input record </b> for the pressure loss function
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_IN_con
-          IN_con "Input record for dp_pressureLossCoefficient_DP"
+          IN_con "Input record for dp_pressureLossCoefficient_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_IN_var
-          IN_var "Input record for dp_pressureLossCoefficient_DP"
+          IN_var "Input record for dp_pressureLossCoefficient_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -8923,12 +8923,12 @@ The pressure loss <b> DP </b> in dependence of the mass flow rate <b> m_flow </b
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_IN_con
-          IN_con "Input record for function dp_pressureLossCoefficient_MFLOW"
+          IN_con "Input record for function dp_pressureLossCoefficient_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
 
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_IN_var
-          IN_var "Input record for function dp_pressureLossCoefficient_MFLOW"
+          IN_var "Input record for function dp_pressureLossCoefficient_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -9070,12 +9070,12 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.P
         extends Modelica.Icons.Record;
 
         //generic variables
-        SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
+        SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area" 
           annotation (Dialog(group="Generic variables"));
 
         //linearisation
         SI.Pressure dp_smooth=1
-          "Start linearisation for decreasing pressure loss"
+          "Start linearisation for decreasing pressure loss" 
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
@@ -9091,11 +9091,11 @@ This record is used as <b> input record </b> for the pressure loss function
 
         //generic variables
         TYP.PressureLossCoefficient zeta_TOT=0.02*1/0.1
-          "Pressure loss coefficient"
+          "Pressure loss coefficient" 
           annotation (Dialog(group="Generic variables"));
 
         //fluid property variables
-        SI.Density rho "Density of fluid"
+        SI.Density rho "Density of fluid" 
           annotation (Dialog(group="FluidProperties"));
 
         annotation (Documentation(info="<html>
@@ -9112,14 +9112,14 @@ This record is used as <b> input record </b> for the pressure loss function
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con
-          IN_con "Input record for function dp_volumeFlowRate_DP"
+          IN_con "Input record for function dp_volumeFlowRate_DP" 
           annotation (Dialog(group="Constant inputs"));
 
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var
-          IN_var "Input record for function dp_volumeFlowRate_DP"
+          IN_var "Input record for function dp_volumeFlowRate_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -9277,12 +9277,12 @@ The generic pressure loss <b> dp </b> for different coefficients <b> a </b> as p
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_con
-          IN_con "Input record for function dp_volumeFlowRate_MFLOW"
+          IN_con "Input record for function dp_volumeFlowRate_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
 
         input
           Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_IN_var
-          IN_var "Input record for function dp_volumeFlowRate_MFLOW"
+          IN_var "Input record for function dp_volumeFlowRate_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -9457,7 +9457,7 @@ This record is used as <b> input record </b> for the pressure loss function
       record dp_volumeFlowRate_IN_var
         "Input record for function dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
 
-        SI.Density rho "Density of fluid"
+        SI.Density rho "Density of fluid" 
           annotation (Dialog(group="Fluid properties"));
         annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the pressure loss function
@@ -9521,13 +9521,13 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con
-          IN_con "Input record for function dp_suddenChange_DP"
+          IN_con "Input record for function dp_suddenChange_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var
-          IN_var "Input record for function dp_suddenChange_DP"
+          IN_var "Input record for function dp_suddenChange_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -9718,11 +9718,11 @@ The local resistance coefficient <b> zeta_LOC </b> of a sudden contraction in de
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_con
-          IN_con "Input record for function dp_suddenChange_MFLOW"
+          IN_con "Input record for function dp_suddenChange_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_IN_var
-          IN_var "Input record for function dp_suddenChange_MFLOW"
+          IN_var "Input record for function dp_suddenChange_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -9932,14 +9932,14 @@ This record is used as <b> input record </b> for the pressure loss functions
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con
-          IN_con "Input record for function dp_thickEdgedOverall_DP"
+          IN_con "Input record for function dp_thickEdgedOverall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var
-          IN_var "Input record for function dp_thickEdgedOverall_DP"
+          IN_var "Input record for function dp_thickEdgedOverall_DP" 
           annotation (Dialog(group="Variable inputs"));
 
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -10123,11 +10123,11 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con
-          IN_con "Input record for function dp_thickEdgedOverall_MFLOW"
+          IN_con "Input record for function dp_thickEdgedOverall_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_var
-          IN_var "Input record for function dp_thickEdgedOverall_MFLOW"
+          IN_var "Input record for function dp_thickEdgedOverall_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
 
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
@@ -10299,7 +10299,7 @@ symbolic / numeric approach for solving differential-algebraic equation systems.
 
         //linearisation
         SI.Pressure dp_smooth(min=Modelica.Constants.eps) = 1
-          "Start linearisation for decreasing pressure loss"
+          "Start linearisation for decreasing pressure loss" 
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
@@ -10357,13 +10357,13 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con
-          IN_con "Input record for function dp_laminar_DP"
+          IN_con "Input record for function dp_laminar_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var
-          IN_var "Input record for function dp_laminar_DP"
+          IN_var "Input record for function dp_laminar_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -10525,11 +10525,11 @@ regime shall be modelled, the pressure loss function <a href=\"modelica://Modeli
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con
-          IN_con "Input record for function dp_laminar_MFLOW"
+          IN_con "Input record for function dp_laminar_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var
-          IN_var "Input record for function dp_laminar_MFLOW"
+          IN_var "Input record for function dp_laminar_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -10714,13 +10714,13 @@ This record is used as <b> input record </b> for the pressure loss function
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con
-          IN_con "Input record for function dp_overall_DP"
+          IN_con "Input record for function dp_overall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var
-          IN_var "Input record for function dp_overall_DP"
+          IN_var "Input record for function dp_overall_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -10941,11 +10941,11 @@ The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con
-          IN_con "Input record for function dp_overall_MFLOW"
+          IN_con "Input record for function dp_overall_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var
-          IN_var "Input record for function dp_overall_MFLOW"
+          IN_var "Input record for function dp_overall_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -10990,7 +10990,7 @@ The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass
         //determine actual flow regime
         SI.ReynoldsNumber Re_check=if Re_lam < Re_lam_leave then Re_lam else Re_turb;
         //determine Re for transition regime
-        SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then
+        SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then 
             Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP(
             Re_check,
             Re_lam_leave,
@@ -11224,13 +11224,13 @@ This record is used as <b> input record </b> for the pressure loss function
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con
-          IN_con "Input record for function dp_turbulent_DP"
+          IN_con "Input record for function dp_turbulent_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var
-          IN_var "Input record for function dp_turbulent_DP"
+          IN_var "Input record for function dp_turbulent_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
@@ -11271,11 +11271,11 @@ This record is used as <b> input record </b> for the pressure loss function
         TYP.DarcyFrictionFactor lambda_FRI_rough=0.25*(max(Re, Re_lam_leave)/
             Modelica.Math.log10(k/3.7 + 5.74/max(Re, Re_lam_leave)^0.9))^2
           "Darcy friction factor considering surface roughness";
-        TYP.DarcyFrictionFactor lambda_FRI=if IN_con.roughness == TYP1.Neglected then
+        TYP.DarcyFrictionFactor lambda_FRI=if IN_con.roughness == TYP1.Neglected then 
                   lambda_FRI_smooth else lambda_FRI_rough
           "Darcy friction factor";
-        TYP.DarcyFrictionFactor lambda_FRI_calc=if Re < Re_lam_leave then 64/Re else
-            if Re > Re_turb_min then lambda_FRI/Re^2 else
+        TYP.DarcyFrictionFactor lambda_FRI_calc=if Re < Re_lam_leave then 64/Re else 
+            if Re > Re_turb_min then lambda_FRI/Re^2 else 
             Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW(
             Re,
             Re_lam_leave,
@@ -11443,11 +11443,11 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con
-          IN_con "Input record for function dp_turbulent_MFLOW"
+          IN_con "Input record for function dp_turbulent_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var
-          IN_var "Input record for function dp_turbulent_MFLOW"
+          IN_var "Input record for function dp_turbulent_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -11494,7 +11494,7 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
         //determine actual flow regime
         SI.ReynoldsNumber Re_check=if Re_lam < Re_lam_leave then Re_lam else Re_turb;
         //determine Re for transition regime
-        SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then
+        SI.ReynoldsNumber Re_trans=if Re_lam >= Re_lam_leave then 
             Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP(
             Re_check,
             Re_lam_leave,
@@ -11655,12 +11655,12 @@ If the overall flow regime shall be modelled, the pressure loss function <a href
         "Input record for function dp_turbulent_DP and dp_turbulent_MFLOW"
 
         Modelica.Fluid.Dissipation.Utilities.Types.Roughness roughness=Dissipation.Utilities.Types.Roughness.Neglected
-          "Choice of considering surface roughness"
+          "Choice of considering surface roughness" 
           annotation (Dialog(group="Straight pipe"));
 
         extends Utilities.Records.PressureLoss.StraightPipe;
 
-          SI.Length K=0 "Roughness (average height of surface asperities)"
+          SI.Length K=0 "Roughness (average height of surface asperities)" 
           annotation (Dialog(group="Straight pipe"));
 
         annotation (Documentation(info="<html>
@@ -11698,20 +11698,20 @@ This record is used as <b> input record </b> for the pressure loss function
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con
-          IN_con "Input record for function dp_twoPhaseOverall_DP"
+          IN_con "Input record for function dp_twoPhaseOverall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var
-          IN_var "Input record for function dp_twoPhaseOverall_DP"
+          IN_var "Input record for function dp_twoPhaseOverall_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
         output SI.Pressure DP "Two phase pressure loss";
 
       protected
-        type TYP =
+        type TYP = 
             Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss;
 
         Real MIN=Modelica.Constants.eps;
@@ -11739,11 +11739,11 @@ This record is used as <b> input record </b> for the pressure loss function
 
         //SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel
         //SOURCE_2: Considering frictional pressrue loss w.r.t. to correlation of Chisholm
-        SI.Pressure DP_fric=if IN_con.frictionalPressureLoss == TYP.Friedel then
+        SI.Pressure DP_fric=if IN_con.frictionalPressureLoss == TYP.Friedel then 
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP(
             IN_con,
             IN_var,
-            m_flow) else if IN_con.frictionalPressureLoss == TYP.Chisholm then
+            m_flow) else if IN_con.frictionalPressureLoss == TYP.Chisholm then 
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP(
             IN_con,
             IN_var,
@@ -11751,7 +11751,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
         //SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow
         //Evaporation >> positive momentum pressure loss (assumed vice versa at condenstation)
-        SI.Pressure DP_mom=if IN_con.momentumPressureLoss then
+        SI.Pressure DP_mom=if IN_con.momentumPressureLoss then 
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP(
             IN_con.voidFractionApproach,
             IN_con.massFlowRateCorrection,
@@ -11764,7 +11764,7 @@ This record is used as <b> input record </b> for the pressure loss function
             abs(m_flow)) else 0 "Momentum pressure loss";
 
         //SOURCE_3: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
-        SI.Pressure DP_geo=if IN_con.geodeticPressureLoss then
+        SI.Pressure DP_geo=if IN_con.geodeticPressureLoss then 
             Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP(
             IN_con.voidFractionApproach,
             true,
@@ -12072,7 +12072,7 @@ The two phase pressure loss for a horizontal pipe calculated by the correlation 
         //choices
         Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss
           frictionalPressureLoss=Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss.Friedel
-          "Choice of frictional pressure loss approach"
+          "Choice of frictional pressure loss approach" 
           annotation (Dialog(group="Choices"));
         Modelica.Fluid.Dissipation.Utilities.Types.Roughness
           voidFractionApproach =                                                  Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
@@ -12088,7 +12088,7 @@ The two phase pressure loss for a horizontal pipe calculated by the correlation 
 
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con;
-        SI.Angle phi=0 "Tilt angle to horizontal"
+        SI.Angle phi=0 "Tilt angle to horizontal" 
           annotation (Dialog(group="Geometry"));
 
         annotation (Documentation(info="<html>
@@ -12100,9 +12100,9 @@ This record is used as <b> input record </b> for the pressure loss function <a h
       record dp_twoPhaseOverall_IN_var
         "Input record for function dp_twoPhaseOverall_DP"
 
-        Real x_flow_end=0 "Mass flow rate quality at end of length"
+        Real x_flow_end=0 "Mass flow rate quality at end of length" 
           annotation (Dialog(group="Fluid properties"));
-        Real x_flow_sta=0 "Mass flow rate quality at start of length"
+        Real x_flow_sta=0 "Mass flow rate quality at start of length" 
           annotation (Dialog(group="Fluid properties"));
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var(      final
@@ -12157,28 +12157,28 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_con
-          IN_con "Input record for function dp_severalGeometryOverall_DP"
+          IN_con "Input record for function dp_severalGeometryOverall_DP" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-          IN_var "Input record for function dp_severalGeometryOverall_DP"
+          IN_var "Input record for function dp_severalGeometryOverall_DP" 
           annotation (Dialog(group="Variable inputs"));
-        input SI.MassFlowRate m_flow "Mass flow rate"
+        input SI.MassFlowRate m_flow "Mass flow rate" 
           annotation (Dialog(group="Input"));
 
         //output variables
         output SI.Pressure DP "Pressure loss";
 
       protected
-        type TYP1 =
+        type TYP1 = 
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
 
-        SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if
+        SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if 
             IN_con.valveCoefficient == TYP1.KV then IN_con.Kv*27.7e-6 else if IN_con.valveCoefficient
-             == TYP1.CV then IN_con.Cv*24e-6 else if IN_con.valveCoefficient == TYP1.OP then
+             == TYP1.CV then IN_con.Cv*24e-6 else if IN_con.valveCoefficient == TYP1.OP then 
                   IN_con.m_flow_nominal/max(MIN, IN_con.opening_nominal*(IN_con.rho_nominal
             *IN_con.dp_nominal)^0.5) else MIN
           "Av (metric) flow coefficient [Av]=m^2";
@@ -12219,10 +12219,10 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
             0.05,
             IN_var.opening)*IN_con.zeta_TOT_max "Sluice valves";
 
-        TYP.PressureLossCoefficient zeta_TOT=if IN_con.geometry == TYP2.Ball then
-            zeta_bal else if IN_con.geometry == TYP2.Diaphragm then zeta_dia else if
+        TYP.PressureLossCoefficient zeta_TOT=if IN_con.geometry == TYP2.Ball then 
+            zeta_bal else if IN_con.geometry == TYP2.Diaphragm then zeta_dia else if 
             IN_con.geometry == TYP2.Butterfly then zeta_but else if IN_con.geometry
-             == TYP2.Gate then zeta_gat else if IN_con.geometry == TYP2.Sluice then
+             == TYP2.Gate then zeta_gat else if IN_con.geometry == TYP2.Sluice then 
             zeta_slu else 0 "Pressure loss coefficient of chosen valve";
 
         Real valveCharacteristic=(2/min(IN_con.zeta_TOT_max, max(MIN, max(IN_con.zeta_TOT_min,
@@ -12576,11 +12576,11 @@ The pressure loss of different valves at a constant opening of 50% in dependence
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_con
-          IN_con "Input record for function dp_severalGeometryOverall_MFLOW"
+          IN_con "Input record for function dp_severalGeometryOverall_MFLOW" 
           annotation (Dialog(group="Constant inputs"));
         input
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_var
-          IN_var "Input record for function dp_severalGeometryOverall_MFLOW"
+          IN_var "Input record for function dp_severalGeometryOverall_MFLOW" 
           annotation (Dialog(group="Variable inputs"));
         input SI.Pressure dp "Pressure loss" annotation (Dialog(group="Input"));
 
@@ -12588,15 +12588,15 @@ The pressure loss of different valves at a constant opening of 50% in dependence
         output SI.MassFlowRate M_FLOW "Mass flow rate";
 
       protected
-        type TYP1 =
+        type TYP1 = 
             Modelica.Fluid.Dissipation.Utilities.Types.ValveCoefficient;
         type TYP2 = Modelica.Fluid.Dissipation.Utilities.Types.ValveGeometry;
 
         Real MIN=Modelica.Constants.eps;
 
-        SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if
+        SI.Area Av=if IN_con.valveCoefficient == TYP1.AV then IN_con.Av else if 
             IN_con.valveCoefficient == TYP1.KV then IN_con.Kv*27.7e-6 else if IN_con.valveCoefficient
-             == TYP1.CV then IN_con.Cv*24e-6 else if IN_con.valveCoefficient == TYP1.OP then
+             == TYP1.CV then IN_con.Cv*24e-6 else if IN_con.valveCoefficient == TYP1.OP then 
                   IN_con.m_flow_nominal/max(MIN, IN_con.opening_nominal*(IN_con.rho_nominal
             *IN_con.dp_nominal)^0.5) else MIN
           "Av (metric) flow coefficient [Av]=m^2";
@@ -12637,10 +12637,10 @@ The pressure loss of different valves at a constant opening of 50% in dependence
             0.05,
             IN_var.opening)*IN_con.zeta_TOT_max "Sluice valves";
 
-        TYP.PressureLossCoefficient zeta_TOT=if IN_con.geometry == TYP2.Ball then
-            zeta_bal else if IN_con.geometry == TYP2.Diaphragm then zeta_dia else if
+        TYP.PressureLossCoefficient zeta_TOT=if IN_con.geometry == TYP2.Ball then 
+            zeta_bal else if IN_con.geometry == TYP2.Diaphragm then zeta_dia else if 
             IN_con.geometry == TYP2.Butterfly then zeta_but else if IN_con.geometry
-             == TYP2.Gate then zeta_gat else if IN_con.geometry == TYP2.Sluice then
+             == TYP2.Gate then zeta_gat else if IN_con.geometry == TYP2.Sluice then 
             zeta_slu else 0 "Pressure loss coefficient of chosen valve";
 
         Real valveCharacteristic=(2/min(IN_con.zeta_TOT_max, max(MIN, max(IN_con.zeta_TOT_min,
@@ -12889,29 +12889,29 @@ The mass flow rate of different valves at a constant opening of 50% in dependenc
         Real Av=PI*0.1^2/4 "Av (metric) flow coefficient [Av]=m^2" annotation (Dialog(
               group="Valve", enable=if valveCoefficient == 1 then true else false));
         Real Kv=Av/27.7e-6 "Kv (metric) flow coefficient [Kv]=m^3/h" annotation (
-            Dialog(group="Valve", enable=if valveCoefficient == 2 then true else
+            Dialog(group="Valve", enable=if valveCoefficient == 2 then true else 
                 false));
         Real Cv=Av/24.6e-6 "Cv (US) flow coefficient [Cv]=USG/min" annotation (Dialog(
               group="Valve", enable=if valveCoefficient == 3 then true else false));
         SI.Pressure dp_nominal=1e3 "Nominal pressure loss" annotation (Dialog(group=
                 "Valve", enable=if valveCoefficient == 4 then true else false));
         SI.MassFlowRate m_flow_nominal=opening_nominal*Av*(rho_nominal*dp_nominal)^
-            0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=if
+            0.5 "Nominal mass flow rate" annotation (Dialog(group="Valve", enable=if 
                 valveCoefficient == 4 then true else false));
-        SI.Density rho_nominal "Nominal inlet density" annotation (Dialog(group=
+        SI.Density rho_nominal=1000 "Nominal inlet density" annotation (Dialog(group=
                 "Valve", enable=if valveCoefficient == 4 then true else false));
         Real opening_nominal=0.5 "Nominal opening" annotation (Dialog(group="Valve",
               enable=if valveCoefficient == 4 then true else false));
         Real zeta_TOT_min=1e-3
-          "Minimal pressure loss coefficient at full opening"
+          "Minimal pressure loss coefficient at full opening" 
           annotation (Dialog(group="Valve"));
         Real zeta_TOT_max=1e8
-          "Maximum pressure loss coefficient at closed opening"
+          "Maximum pressure loss coefficient at closed opening" 
           annotation (Dialog(group="Valve"));
 
         //numerical aspects
         SI.Pressure dp_small=0.01*dp_nominal
-          "Linearisation for a pressure loss smaller then dp_small"
+          "Linearisation for a pressure loss smaller then dp_small" 
           annotation (Dialog(group="Linearisation"));
 
         annotation (Documentation(info="<html>
@@ -12927,13 +12927,13 @@ This record is used as <b> input record </b> for the pressure loss function
         extends Modelica.Icons.Record;
 
         //valve variables
-        Real opening=1 "Opening of valve | 0==closed and 1== fully openend"
+        Real opening=1 "Opening of valve | 0==closed and 1== fully openend" 
           annotation (Dialog(group="Valve"));
 
         //fluid property variables
-        SI.DynamicViscosity eta "Dynamic viscosity of fluid"
+        SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
           annotation (Dialog(group="Fluid properties"));
-        SI.Density rho "Density of fluid"
+        SI.Density rho "Density of fluid" 
           annotation (Dialog(group="Fluid properties"));
 
         annotation (Documentation(info="<html>
@@ -15692,9 +15692,9 @@ This function shall be used within the restricted limits according to the refere
 <p>
 <ul>
  <li>
-      <b> Reynolds number (for vena contraction) Re &gt 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+      <b> Reynolds number (for vena contraction) Re &gt; 1e3 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
  <li>
-      <b> Relative length of vena contraction (L/d_hyd_0) &gt 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
+      <b> Relative length of vena contraction (L/d_hyd_0) &gt; 0.015 </b> <i>[Idelchik 2006, p. 222, diag. 4-15] </i>
  <li>
       <b> Darcy friction factor lambda_FRI = 0.02 </b> <i>[Idelchik 2006, p. 222, sec. 4-15] </i>
 </ul>
@@ -16559,13 +16559,13 @@ documentation available in this package.
             //records
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con
-              IN_con
+              IN_con 
               annotation (Dialog(group="Constant inputs"));
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var
-              IN_var
+              IN_var 
               annotation (Dialog(group="Variable inputs"));
-            input SI.MassFlowRate m_flow "Mass flow rate"
+            input SI.MassFlowRate m_flow "Mass flow rate" 
               annotation (Dialog(group="Input"));
 
             output SI.Pressure DP "Output for function dp_twoPhaseChisholm_DP";
@@ -16614,13 +16614,13 @@ documentation available in this package.
             //records
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con
-              IN_con
+              IN_con 
               annotation (Dialog(group="Constant inputs"));
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var
-              IN_var
+              IN_var 
               annotation (Dialog(group="Variable inputs"));
-            input SI.MassFlowRate m_flow "Mass flow rate"
+            input SI.MassFlowRate m_flow "Mass flow rate" 
               annotation (Dialog(group="Input"));
 
             output SI.Pressure DP "Output for function dp_twoPhaseFriedel_DP";
@@ -16687,9 +16687,9 @@ documentation available in this package.
               annotation (Dialog);
 
             //geometry
-            input SI.Length length=1 "Length in fluid flow direction"
+            input SI.Length length=1 "Length in fluid flow direction" 
               annotation (Dialog(group="Geometry"));
-            input SI.Angle phi=0 "Tilt angle to horizontal"
+            input SI.Angle phi=0 "Tilt angle to horizontal" 
               annotation (Dialog(group="Geometry"));
 
             //fluid properties
@@ -16699,7 +16699,7 @@ documentation available in this package.
               "Density of liquid phase" annotation (Dialog(group="Fluid properties"));
             input Real x_flow(
               min=0,
-              max=1) = 0 "Mass flow rate quality"
+              max=1) = 0 "Mass flow rate quality" 
               annotation (Dialog(group="Fluid properties"));
 
             output SI.Pressure DP_geo "Geodetic pressure loss";
@@ -16741,14 +16741,14 @@ documentation available in this package.
 
             //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
             input Boolean massFlowRateCorrection=false
-              "Consider heterogeneous mass flow rate correction"
+              "Consider heterogeneous mass flow rate correction" 
               annotation (Dialog(group="Choices"));
 
             //geometry
             input Real A_cross(min=Modelica.Constants.eps) = PI*0.1^2/4
               "Cross sectional area" annotation (Dialog(group="Geometry"));
             input SI.Length perimeter(min=Modelica.Constants.eps) = PI*0.1
-              "Perimeter"
+              "Perimeter" 
               annotation (Dialog(group="Geometry"));
 
             //fluid properties
@@ -16758,14 +16758,14 @@ documentation available in this package.
               "Density of liquid" annotation (Dialog(group="Fluid properties"));
             input Real x_flow_end(
               min=0,
-              max=1) = 0 "Mass flow rate quality at end of length"
+              max=1) = 0 "Mass flow rate quality at end of length" 
               annotation (Dialog(group="Fluid properties"));
             input Real x_flow_sta(
               min=0,
-              max=1) = 0 "Mass flow rate quality at start of length"
+              max=1) = 0 "Mass flow rate quality at start of length" 
               annotation (Dialog(group="Fluid properties"));
 
-            input SI.MassFlowRate m_flow "Mass flow rate"
+            input SI.MassFlowRate m_flow "Mass flow rate" 
               annotation (Dialog(group="Input"));
 
             output SI.Pressure DP_mom "Momentum pressure loss";
@@ -16876,13 +16876,13 @@ documentation available in this package.
 
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con
-              IN_con
+              IN_con 
               annotation (Dialog(group="Constant inputs"));
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var
               IN_var(
                 final sigma=0) annotation (Dialog(group="Variable inputs"));
-            input SI.MassFlowRate m_flow "Mass flow rate"
+            input SI.MassFlowRate m_flow "Mass flow rate" 
               annotation (Dialog(group="Input"));
 
             output Real phi "Two phase multiplier w.r.t. Friedel";
@@ -16974,13 +16974,13 @@ documentation available in this package.
 
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con
-              IN_con
+              IN_con 
               annotation (Dialog(group="Constant inputs"));
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var
-              IN_var
+              IN_var 
               annotation (Dialog(group="Variable inputs"));
-            input SI.MassFlowRate m_flow "Mass flow rate"
+            input SI.MassFlowRate m_flow "Mass flow rate" 
               annotation (Dialog(group="Input"));
 
             output Real phi "Two phase multiplier w.r.t. Chisholm";
@@ -17058,17 +17058,17 @@ documentation available in this package.
 
             //SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate
             input Boolean massFlowRateCorrection=false
-              "Consider heterogeneous mass flow rate correction"
+              "Consider heterogeneous mass flow rate correction" 
               annotation (Dialog(group="Choices"));
 
             input SI.Density rho_g(min=Modelica.Constants.eps)
-              "Density of gaseous phase"
+              "Density of gaseous phase" 
               annotation (Dialog);
             input SI.Density rho_l(min=Modelica.Constants.eps)
-              "Density of liquid phase"
+              "Density of liquid phase" 
               annotation (Dialog);
             input Real epsilon_A(min=0,max=1)
-              "Void fraction (cross sectional averaged)"
+              "Void fraction (cross sectional averaged)" 
               annotation (Dialog(enable=not (twoPhaseDensityApproach == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseDensityApproach.Homogeneous)));
             input Real x_flow(min=0,max=1) "Mass flow rate quality" annotation (Dialog);
 
@@ -17091,10 +17091,10 @@ documentation available in this package.
                  + (1 - x_flow)^3/max(MIN, rho_l^2*(1 - epsilonA)^2)));
 
           algorithm
-            rho_2ph := if massFlowRateCorrection then rho_hom else if
-              voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous then
-                    rho_hom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum then
-                    rho_mom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy then
+            rho_2ph := if massFlowRateCorrection then rho_hom else if 
+              voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous then 
+                    rho_hom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum then 
+                    rho_mom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy then 
                     rho_kin else MIN;
 
             annotation (Documentation(info="<html>
@@ -17207,10 +17207,10 @@ The heterogeneous approaches are analytically derived by minimising the momentum
               "Empirical slip ratio w.r.t. momentum flux approach from Chisholm (heterogeneous)";
 
           algorithm
-            SR := if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous then
-                    SR_hom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum then
-                    SR_mom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy then
-                    SR_kin else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Chisholm then
+            SR := if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous then 
+                    SR_hom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum then 
+                    SR_mom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy then 
+                    SR_kin else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Chisholm then 
                     SR_chi else 1;
           end SlipRatio;
         end TwoPhase;
@@ -19451,9 +19451,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           "Base record for fluid properties for pressure loss"
           extends Modelica.Icons.Record;
 
-          SI.DynamicViscosity eta "Dynamic viscosity of fluid"
+          SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho "Density of fluid"
+          SI.Density rho "Density of fluid" 
             annotation (Dialog(group="Fluid properties"));
         end PressureLoss;
 
@@ -19461,16 +19461,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           SI.SpecificHeatCapacityAtConstantPressure cp
-            "Specific heat capacity of fluid at constant pressure"
+            "Specific heat capacity of fluid at constant pressure" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.DynamicViscosity eta "Dynamic viscosity of fluid"
+          SI.DynamicViscosity eta "Dynamic viscosity of fluid" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.ThermalConductivity lambda "Thermal conductivity of fluid"
+          SI.ThermalConductivity lambda "Thermal conductivity of fluid" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.Density rho "Density of fluid"
+          SI.Density rho "Density of fluid" 
             annotation (Dialog(group="Fluid properties"));
         end FluidProperties;
 
@@ -19478,12 +19478,12 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           "Base record for generic pressure loss function | ideal gas | mean density"
           extends Modelica.Icons.Record;
 
-          Real exp=2 "Exponent of pressure loss law"
+          Real exp=2 "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
-          SI.SpecificHeatCapacity R_s "Specific gas constant of ideal gas"
+          SI.SpecificHeatCapacity R_s "Specific gas constant of ideal gas" 
             annotation (Dialog(group="Fluid properties"));
           Real Km=6824.86
-            "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]"
+            "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]" 
             annotation (Dialog(group="Generic variables"));
 
         end IdealGas_con;
@@ -19492,11 +19492,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           "Base record for generic pressure loss function | ideal gas | mean density"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_m "Mean density of ideal gas"
+          SI.Density rho_m "Mean density of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas"
+          SI.Temp_K T_m "Mean temperature of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
-          SI.Pressure p_m "Mean pressure of ideal gas"
+          SI.Pressure p_m "Mean pressure of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
 
         end IdealGas_var;
@@ -19509,7 +19509,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Pressure dp_nom=2
             "Nominal pressure loss (at nominal values of mass flow rate and density)"
             annotation (Dialog(group="Generic variables"));
-          Real exp=2 "Exponent of pressure loss law"
+          Real exp=2 "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
           SI.MassFlowRate m_flow_nom=1
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
@@ -19517,10 +19517,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Density rho_nom
             "Nominal density (at nominal values of mass flow rate and pressure loss)"
             annotation (Dialog(group="Generic variables"));
-          Real exp_eta=1 "Exponent for dynamic viscosity dependence"
+          Real exp_eta=1 "Exponent for dynamic viscosity dependence" 
             annotation (Dialog(group="Generic variables"));
           SI.DynamicViscosity eta_nom
-            "Dynamic viscosity at nominal pressure loss"
+            "Dynamic viscosity at nominal pressure loss" 
             annotation (Dialog(group="Generic variables"));
 
         end NominalDensityViscosity;
@@ -19536,10 +19536,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "1 == use nominal mass flow rate | 2 == use nominal volume flow rate"
             annotation (Dialog(group="Generic variables"));
 
-          SI.Area A_cross=A_cross_nom "Cross sectional area"
+          SI.Area A_cross=A_cross_nom "Cross sectional area" 
             annotation (Dialog(group="Generic variables"));
           SI.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
-            "Nominal cross sectional area"
+            "Nominal cross sectional area" 
             annotation (Dialog(group="Generic variables"));
 
           SI.Pressure dp_nom=2
@@ -19549,7 +19549,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Nominal mass flow rate (at nominal values of pressure loss and density)"
             annotation (Dialog(group="Generic variables",enable=target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate));
-          Real exp=2 "Exponent of pressure loss law"
+          Real exp=2 "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
 
           SI.VolumeFlowRate V_flow_nom=m_flow_nom/rho_nom
@@ -19561,7 +19561,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Generic variables"));
 
           Types.PressureLossCoefficient zeta_TOT_nom=0.02*1/0.1
-            "Nominal pressure loss coefficient (for nominal values)"
+            "Nominal pressure loss coefficient (for nominal values)" 
             annotation (Dialog(group="Generic variables"));
 
         end NominalPressureLossLawDensity_con;
@@ -19571,7 +19571,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           extends Modelica.Icons.Record;
 
-          TYP.PressureLossCoefficient zeta_TOT=0.2 "Pressure loss coefficient"
+          TYP.PressureLossCoefficient zeta_TOT=0.2 "Pressure loss coefficient" 
             annotation (Dialog(group="Generic variables"));
 
         end NominalPressureLossLawDensity_var;
@@ -19581,9 +19581,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           extends Modelica.Icons.Record;
 
-          Real a(unit="(Pa.s2)/m6") = 15 "Coefficient for quadratic term"
+          Real a(unit="(Pa.s2)/m6") = 15 "Coefficient for quadratic term" 
             annotation (Dialog(group="Generic variables"));
-          Real b(unit="(Pa.s)/m3") = 0 "Coefficient for linear term"
+          Real b(unit="(Pa.s)/m3") = 0 "Coefficient for linear term" 
             annotation (Dialog(group="Generic variables"));
 
         end QuadraticVFLOW;
@@ -19591,11 +19591,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow_con "Base record for two phase Flow"
           extends Modelica.Icons.Record;
 
-          SI.Area A_cross=PI*0.1^2/4 "Cross sectional area"
+          SI.Area A_cross=PI*0.1^2/4 "Cross sectional area" 
             annotation (Dialog(group="Geometry"));
-          SI.Length perimeter=PI*0.1 "Wettet perimeter"
+          SI.Length perimeter=PI*0.1 "Wettet perimeter" 
             annotation (Dialog(group="Geometry"));
-          SI.Length length=1 "Length in fluid flow direction"
+          SI.Length length=1 "Length in fluid flow direction" 
             annotation (Dialog(group="Geometry"));
 
         end TwoPhaseFlow_con;
@@ -19603,19 +19603,19 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow_var "Base record for two phase flow"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_g "Density of gas"
+          SI.Density rho_g "Density of gas" 
             annotation (Dialog(group="Fluid properties"));
-          SI.Density rho_l "Density of liquid"
+          SI.Density rho_l "Density of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_g "Dynamic viscosity of gas"
+          SI.DynamicViscosity eta_g "Dynamic viscosity of gas" 
             annotation (Dialog(group="Fluid properties"));
-          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
+          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.SurfaceTension sigma "Surface tension"
+          SI.SurfaceTension sigma "Surface tension" 
             annotation (Dialog(group="Fluid properties"));
 
           //input variables
-          Real x_flow=0 "Mean mass flow rate quality over length"
+          Real x_flow=0 "Mean mass flow rate quality over length" 
             annotation (Dialog(group="Input"));
         end TwoPhaseFlow_var;
 
@@ -19624,20 +19624,20 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           parameter Real exp(min=Modelica.Constants.eps) = 2
-            "Exponent of pressure loss law"
+            "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
           parameter SI.SpecificHeatCapacity R_s(min=1)
-            "Specific gas constant of ideal gas"
+            "Specific gas constant of ideal gas" 
             annotation (Dialog(group="Fluid properties"));
 
           Real Km(min=Modelica.Constants.eps) = R_s*(2e3)/((10)^exp/rho_m)
-            "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]"
+            "Coefficient for pressure loss law [(Pa)^2/{(kg/s)^exp*K}]" 
             annotation (Dialog(group="Generic variables"));
-          SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas"
+          SI.Density rho_m=p_m/(R_s*T_m) "Mean density of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=useMeanDensity));
-          SI.Temp_K T_m "Mean temperature of ideal gas"
+          SI.Temp_K T_m "Mean temperature of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
-          SI.Pressure p_m "Mean pressure of ideal gas"
+          SI.Pressure p_m "Mean pressure of ideal gas" 
             annotation (Dialog(group="Fluid properties", enable=not (useMeanDensity)));
 
         end IdealGas;
@@ -19653,10 +19653,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "1 == use nominal mass flow rate | 2 == use nominal volume flow rate"
             annotation (Dialog(group="Generic variables"));
 
-          parameter SI.Area A_cross=A_cross_nom "Cross sectional area"
+          parameter SI.Area A_cross=A_cross_nom "Cross sectional area" 
             annotation (Dialog(group="Generic variables"));
           parameter SI.Area A_cross_nom=Modelica.Constants.pi*0.1^2/4
-            "Nominal cross sectional area"
+            "Nominal cross sectional area" 
             annotation (Dialog(group="Generic variables"));
 
           parameter SI.Pressure dp_nom(min=Modelica.Constants.eps) = 2
@@ -19667,7 +19667,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             annotation (Dialog(group="Generic variables",enable=target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.MassOrVolumeFlowRate.MassFlowRate));
           parameter Real exp(min=Modelica.Constants.eps) = 2
-            "Exponent of pressure loss law"
+            "Exponent of pressure loss law" 
             annotation (Dialog(group="Generic variables"));
 
           SI.VolumeFlowRate V_flow_nom(min=Modelica.Constants.eps) = m_flow_nom/rho_nom
@@ -19681,7 +19681,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Types.PressureLossCoefficient zeta_TOT=zeta_TOT_nom
             "Pressure loss coefficient" annotation (Dialog(group="Generic variables"));
           parameter Types.PressureLossCoefficient zeta_TOT_nom=0.02*1/0.1
-            "Nominal pressure loss coefficient (for nominal values)"
+            "Nominal pressure loss coefficient (for nominal values)" 
             annotation (Dialog(group="Generic variables"));
 
         end NominalPressureLossLawDensity;
@@ -19689,16 +19689,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record TwoPhaseFlow "base record for two phase Flow"
           extends Modelica.Icons.Record;
 
-          SI.Density rho_l "Density of liquid"
+          SI.Density rho_l "Density of liquid" 
             annotation (Dialog(group="Fluid properties"));
           SI.Density rho_g "Density of gas" annotation (Dialog(group=
                   "Fluid properties", enable=if KC == 1 or KC == 2 then true else false));
-          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
+          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
             annotation (Dialog(group="Fluid properties"));
           SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
-              Dialog(group="Fluid properties", enable=if KC == 1 or KC == 2 then true else
+              Dialog(group="Fluid properties", enable=if KC == 1 or KC == 2 then true else 
                         false));
-          SI.MassFraction x=0.5 "Vapour fraction"
+          SI.MassFraction x=0.5 "Vapour fraction" 
             annotation (Dialog(group="Fluid properties"));
           SI.SurfaceTension sigma "Surface Tension" annotation (Dialog(group=
                   "Fluid properties", enable=if DP_fric == 1 then true else false));
@@ -19716,10 +19716,10 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Modelica.Fluid.Dissipation.Utilities.Types.kc_evenGap target=Dissipation.Utilities.Types.kc_evenGap.DevBoth
             "Target variable of calculation" annotation (Dialog(group="Even gap"));
 
-          SI.Length h=0.1 "Height of cross sectional area"
+          SI.Length h=0.1 "Height of cross sectional area" 
             annotation (Dialog(group="Even gap"));
           SI.Length s=0.05
-            "Distance between parallel plates in cross sectional area"
+            "Distance between parallel plates in cross sectional area" 
             annotation (Dialog(group="Even gap"));
           SI.Length L=1 "Overflowed length of gap" annotation (Dialog(group="Even gap"));
         end EvenGap;
@@ -19732,9 +19732,9 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Target correlation" annotation (Dialog(group="Generic variables"));
 
           //geometry
-          SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
+          SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area" 
             annotation (Dialog(group="Generic variables"));
-          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wetted perimeter"
+          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wetted perimeter" 
             annotation (Dialog(group="Generic variables"));
         end General;
 
@@ -19742,11 +19742,11 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           Real n_nt=1 "Total number of turns" annotation (Dialog(group="HelicalPipe"));
-          SI.Diameter d_hyd=0.1 "Hydraulic diameter"
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter" 
             annotation (Dialog(group="HelicalPipe"));
-          SI.Length h=0.01 "Distance between turns"
+          SI.Length h=0.01 "Distance between turns" 
             annotation (Dialog(group="HelicalPipe"));
-          SI.Length L=1 "Total length of helical pipe"
+          SI.Length L=1 "Total length of helical pipe" 
             annotation (Dialog(group="HelicalPipe"));
 
         end HelicalPipe;
@@ -19761,7 +19761,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         record StraightPipe "Input for straight pipe"
           extends Modelica.Icons.Record;
 
-          SI.Diameter d_hyd=0.1 "Hydraulic diameter"
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter" 
             annotation (Dialog(group="Straight pipe"));
           SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
         end StraightPipe;
@@ -19777,16 +19777,16 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             "Choice of (horizontal/vertical) boiling or (horizontal) condensation in pipe"
             annotation (Dialog(group="Choices"));
 
-          SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area"
+          SI.Area A_cross=Modelica.Constants.pi*0.1^2/4 "Cross sectional area" 
             annotation (Dialog(group="Geometry"));
-          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wettet perimeter"
+          SI.Length perimeter=Modelica.Constants.pi*0.1 "Wettet perimeter" 
             annotation (Dialog(group="Geometry"));
 
-          SI.MolarMass MM "Molar mass of fluid" annotation (Dialog(group=
+          SI.MolarMass MM=0.018015268 "Molar mass of fluid" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
-                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
+                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
-          SI.Pressure p_crit "Critical pressure of fluid"
+          SI.Pressure p_crit "Critical pressure of fluid" 
             annotation (Dialog(group="Fluid properties"));
 
         end TwoPhaseFlowHT_IN_con;
@@ -19804,36 +19804,36 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           //fluid properties
           SI.SpecificHeatCapacityAtConstantPressure cp_l
-            "Specific heat capacity of liquid"
+            "Specific heat capacity of liquid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.ThermalConductivity lambda_l "Thermal conductivity of liquid"
+          SI.ThermalConductivity lambda_l "Thermal conductivity of liquid" 
             annotation (Dialog(group="Fluid properties"));
           SI.Density rho_g "Density of gas" annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
-                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
+                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
-          SI.Density rho_l "Density of liquid"
+          SI.Density rho_l "Density of liquid" 
             annotation (Dialog(group="Fluid properties"));
           SI.DynamicViscosity eta_g "Dynamic viscosity of gas" annotation (
               Dialog(group="Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
-                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
+                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
-          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid"
+          SI.DynamicViscosity eta_l "Dynamic viscosity of liquid" 
             annotation (Dialog(group="Fluid properties"));
 
-          SI.Pressure pressure "Mean pressure of fluid"
+          SI.Pressure pressure "Mean pressure of fluid" 
             annotation (Dialog(group="Fluid properties"));
-          SI.SpecificEnthalpy dh_lg "Evaporation enthalpy of fluid"
+          SI.SpecificEnthalpy dh_lg "Evaporation enthalpy of fluid" 
             annotation (Dialog(group="Fluid properties", enable=if target ==
                   Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
-                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
+                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
 
           //input variables
           SI.MassFlowRate m_flow "Mass flow rate" annotation (Dialog(group="Input"));
           SI.HeatFlux qdot_A=0 "Heat flux at boiling" annotation (Dialog(group="Input",
                 enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
-                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
+                   or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then 
                         true else false));
 
           Real x_flow=0 "Mass flow rate quality" annotation (Dialog(group="Input"));
@@ -19857,7 +19857,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
               Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.Circular
             "Choice of geometry for internal flow" annotation (Dialog(group="Channel"));
 
-          SI.Length K=0 "Roughness (average height of surface asperities)"
+          SI.Length K=0 "Roughness (average height of surface asperities)" 
             annotation (Dialog(group="Channel"));
           SI.Length L=1 "Length" annotation (Dialog(group="Channel"));
 
@@ -19889,7 +19889,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                 group="Rectangular cross sectional area", enable=geometry ==
                   Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.rectangular));
           SI.Length h_tri=0.5*a_tri
-            "Heigth to top angle perpendicular to base line"
+            "Heigth to top angle perpendicular to base line" 
             annotation (Dialog(group="Triangle cross sectional area", enable=geometry
                    == Modelica.Fluid.Dissipation.Utilities.Types.GeometryOfInternalFlow.isosceles));
           SI.Angle beta=90*PI/180 "Top angle" annotation (Dialog(group=
@@ -19900,15 +19900,15 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           extends Modelica.Icons.Record;
 
-          SI.Area A_0=0.1*A_1 "Cross sectional area of vena contraction"
+          SI.Area A_0=0.1*A_1 "Cross sectional area of vena contraction" 
             annotation (Dialog(group="Orifice"));
-          SI.Length C_0=0.1*C_1 "Perimeter of vena contraction"
+          SI.Length C_0=0.1*C_1 "Perimeter of vena contraction" 
             annotation (Dialog(group="Orifice"));
-          SI.Area A_1=PI*0.01^2/4 "Large cross sectional area of orifice"
+          SI.Area A_1=PI*0.01^2/4 "Large cross sectional area of orifice" 
             annotation (Dialog(group="Orifice"));
-          SI.Length C_1=PI*0.01 "Large perimeter of orifice"
+          SI.Length C_1=PI*0.01 "Large perimeter of orifice" 
             annotation (Dialog(group="Orifice"));
-          SI.Length L=1e-3 "Length of vena contraction"
+          SI.Length L=1e-3 "Length of vena contraction" 
             annotation (Dialog(group="Orifice"));
         end Orifice;
 
@@ -19930,7 +19930,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           extends Modelica.Icons.Record;
 
-          SI.Diameter d_hyd=0.1 "Hydraulic diameter"
+          SI.Diameter d_hyd=0.1 "Hydraulic diameter" 
             annotation (Dialog(group="Straight pipe"));
           SI.Length L=1 "Length" annotation (Dialog(group="Straight pipe"));
         end StraightPipe;
@@ -19949,50 +19949,50 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Integer alpha=90 "Angle of branching" annotation (Dialog(group="T-junction"));
 
           SI.Diameter d_hyd[3]=ones(3)*0.1
-            "Hydraulic diameter of passages [side,straight,total]"
+            "Hydraulic diameter of passages [side,straight,total]" 
             annotation (Dialog(group="T-junction"));
 
           //restrictions
           SI.MassFlowRate m_flow_min=1e-3
-            "Restriction for smoothing at reverse fluid flow"
+            "Restriction for smoothing at reverse fluid flow" 
             annotation (Dialog(group="Restrictions"));
-          SI.Velocity v_max=2e2 "Restriction for maximum fluid flow velocity"
+          SI.Velocity v_max=2e2 "Restriction for maximum fluid flow velocity" 
             annotation (Dialog(group="Restrictions"));
           Real zeta_TOT_max=1e3
-            "Restriction for maximum value of pressure loss coefficient"
+            "Restriction for maximum value of pressure loss coefficient" 
             annotation (Dialog(group="Restrictions"));
         end Tjunction;
 
         record Diffuser "Input for diffuser"
           extends Modelica.Icons.Record;
 
-          SI.Angle alpha=PI*45/180 "Diffuser diverging angle"
+          SI.Angle alpha=PI*45/180 "Diffuser diverging angle" 
             annotation (Dialog(group="Diffuser"));
 
           SI.Area A_1=PI*0.01^2/4
-            "Small constant cross sectional area before diffuser section"
+            "Small constant cross sectional area before diffuser section" 
             annotation (Dialog(group="Diffuser"));
           SI.Area A_2=2*A_1
-            "Large constant cross sectional area after diffuser section"
+            "Large constant cross sectional area after diffuser section" 
             annotation (Dialog(group="Diffuser"));
-          SI.Length C_1=PI*0.01 "Small perimeter before diffuser section"
+          SI.Length C_1=PI*0.01 "Small perimeter before diffuser section" 
             annotation (Dialog(group="Diffuser"));
-          SI.Length C_2=2*C_1 "Large perimeter after diffuser section"
+          SI.Length C_2=2*C_1 "Large perimeter after diffuser section" 
             annotation (Dialog(group="Diffuser"));
-          SI.Length L_1=0.1 "Length of straight pipe before diffuser section"
+          SI.Length L_1=0.1 "Length of straight pipe before diffuser section" 
             annotation (Dialog(group="Diffuser"));
-          SI.Length L_2=L_1 "Length of straight pipe after diffuser section"
+          SI.Length L_2=L_1 "Length of straight pipe after diffuser section" 
             annotation (Dialog(group="Diffuser"));
           SI.Length L_d=L_1
-            "Lenght of diffuser section (parallel to bulk fluid flow)"
+            "Lenght of diffuser section (parallel to bulk fluid flow)" 
             annotation (Dialog(group="Diffuser"));
 
           //numerical aspects
           SI.Pressure dp_small=1
-            "Linearisation for a pressure loss smaller then dp_small"
+            "Linearisation for a pressure loss smaller then dp_small" 
             annotation (Dialog(group="Numerical aspects"));
           Real zeta_TOT_min=1e-3
-            "Minimal pressure loss coefficient for infinite Reynolds number"
+            "Minimal pressure loss coefficient for infinite Reynolds number" 
             annotation (Dialog(group="Numerical aspects"));
           Real zeta_TOT_max=1e8
             "Maximum pressure loss coefficient for Reynolds number approaching zero"
@@ -20003,7 +20003,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           extends Modelica.Icons.Record;
 
           SI.Diameter d_hyd(min=Modelica.Constants.eps) = 0.1
-            "Hydraulic diameter"
+            "Hydraulic diameter" 
             annotation (Dialog(group="Bend"));
           SI.Angle delta=90*PI/180 "Angle of turning" annotation (Dialog(group="Bend"));
           SI.Length K=0
@@ -20015,13 +20015,13 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
           extends Modelica.Icons.Record;
 
-          SI.Area A_1=PI*0.01^2/4 "Small cross sectional area of orifice"
+          SI.Area A_1=PI*0.01^2/4 "Small cross sectional area of orifice" 
             annotation (Dialog(group="Orifice"));
-          SI.Area A_2=A_1 "Large cross sectional area of orifice"
+          SI.Area A_2=A_1 "Large cross sectional area of orifice" 
             annotation (Dialog(group="Orifice"));
-          SI.Length C_1=PI*0.01 "Small perimeter of orifice"
+          SI.Length C_1=PI*0.01 "Small perimeter of orifice" 
             annotation (Dialog(group="Orifice"));
-          SI.Length C_2=C_1 "Large perimeter of orifice"
+          SI.Length C_2=C_1 "Large perimeter of orifice" 
             annotation (Dialog(group="Orifice"));
         end SuddenChange;
       end PressureLoss;
@@ -20071,13 +20071,13 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Isosceles "Isosceles triangular geometry");
       type kc_evenGap = enumeration(
           DevOne
-            "Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at ONE side",
+            "Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at ONE side", 
 
           DevBoth
-            "Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at BOTH sides",
+            "Hydrodynamically DEVELOPED laminar flow regime AND heat transfer at BOTH sides", 
 
           UndevOne
-            "Hydrodynamic and thermal START of laminar flow regime AND heat transfer at ONE side",
+            "Hydrodynamic and thermal START of laminar flow regime AND heat transfer at ONE side", 
 
           UndevBoth
             "Hydrodynamic and thermal START of laminar flow regime AND heat transfer at BOTH side");
@@ -20087,7 +20087,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           Middle "Middle approximation w.r.t. Sieder/Tate (1936)",
           Finest "Finest approximation w.r.t. Gnielinski (1976)");
       type HeatTransferBoundary = enumeration(
-          UWTuDFF "Uniform wall temperature in developed fluid flow (UWT+DFF)",
+          UWTuDFF "Uniform wall temperature in developed fluid flow (UWT+DFF)", 
 
           UHFuDFF "Uniform heat flux in developed fluid flow (UHF+DFF)",
           UWTuUFF
