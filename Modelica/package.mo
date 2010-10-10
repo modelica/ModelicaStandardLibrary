@@ -1715,12 +1715,26 @@ class ModelicaLicense2 "Modelica License 2"
   extends Modelica.Icons.Information;
 
   annotation (Documentation(info="<html>
+<head>
+	<title>The Modelica License 2</title>
+<style type=\"text/css\">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+code    { font-size:  9pt; font-family: Courier,monospace;}
+h6      { font-size: 10pt; font-weight: bold; color: green; }
+h5      { font-size: 11pt; font-weight: bold; color: green; }
+h4      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</head>
+<body lang=\"en-US\">
 
 <p>All files in this directory (Modelica) and in all
 subdirectories, especially all files that build package \"Modelica\" and all
-files in \"Modelica/Resources/*\" are licensed by the <b><u>Modelica Association</u></b> under the
-<b><u>Modelica License 2</u></b> (with exception of files
-\"Modelica/Resources/C-Sources/win32_dirent.*\").&nbsp;</p>
+files in \"Modelica/Resources/*\" and \"Modelica/help\" are licensed by the <b><u>Modelica Association</u></b> under the <b><u>Modelica License 2</u></b> (with exception of files
+\"Modelica/Resources/C-Sources/win32_dirent.*\").</p>
 
 <p style=\"margin-left: 40px;\"><b>Licensor:</b><br>
 Modelica Association<br>
@@ -1731,22 +1745,20 @@ Sweden<br>
 email: Board@Modelica.org<br>
 web: <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a></p>
 
-<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br>
+<p style=\"margin-left: 40px;\"><b>Copyright notices of the files:</b><br/>
 Copyright &copy; 1998-2010,
 ABB, Austrian Institue of Technology, T.&nbsp;B&ouml;drich, DLR, Dassault Syst&egrave;mes AB, Fraunhofer, A.&nbsp;Haumer, Modelon,
-TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.<br>
-<br>
+TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 </p>
 
-<p> <a href=\"#ModelicaLicense2\">The
-Modelica License 2</a><br>
-<a href=\"#2.%20Frequently%20Asked%20Questions%7Coutline\">Frequently
-Asked Questions</a><br>
-<br>
+<p>
+<a href=\"#The_Modelica_License_2-outline\">The Modelica License 2</a><br>
+<a href=\"#Frequently_Asked_Questions-outline\">Frequently Asked Questions</a><br>
 </p>
 
 <hr>
-<h4><a name=\"ModelicaLicense2\"></a>The Modelica License 2</h4>
+
+<h4><a name=\"The_Modelica_License_2-outline\"></a>The Modelica License 2</h4>
 
 <p>
 <b>Preamble.</b> The goal of this license is that Modelica related
@@ -1762,76 +1774,62 @@ license for their work.</p>
 The Modelica License applies to any Original Work that contains the
 following licensing notice adjacent to the copyright notice(s) for
 this Original Work:</p>
-<p><b>Licensed
-by the Modelica Association under the Modelica License 2</b></p>
+
+<p><b>Licensed by the Modelica Association under the Modelica License 2</b></p>
 
 <p><b>1. Definitions.</b></p>
 <ol type=\"a\">
- <li>&ldquo;License&rdquo; is this Modelica License.</li>
+	<li>&ldquo;License&rdquo; is this Modelica License.</li>
 
- <li>
- &ldquo;Original Work&rdquo; is any work of authorship, including
- software, images, documents, data files, that contains the above
- licensing notice or that is packed together with a licensing notice
- referencing it.</li>
+	<li>&ldquo;Original Work&rdquo; is any work of authorship, including
+	software, images, documents, data files, that contains the above
+	licensing notice or that is packed together with a licensing notice
+	referencing it.</li>
 
- <li>
- &ldquo;Licensor&rdquo; is the provider of the Original Work who has
- placed this licensing notice adjacent to the copyright notice(s) for
- the Original Work. The Original Work is either directly provided by
- the owner of the Original Work, or by a licensee of the owner.</li>
+	<li>&ldquo;Licensor&rdquo; is the provider of the Original Work who has
+	placed this licensing notice adjacent to the copyright notice(s) for
+	the Original Work. The Original Work is either directly provided by
+	the owner of the Original Work, or by a licensee of the owner.</li>
 
- <li>
- &ldquo;Derivative Work&rdquo; is any modification of the Original
- Work which represents, as a whole, an original work of authorship.
- For the matter of clarity and as examples:
+	<li>&ldquo;Derivative Work&rdquo; is any modification of the Original
+	Work which represents, as a whole, an original work of authorship.
+	For the matter of clarity and as examples:
 
- <ol type=\"A\">
-  <li>
-  Derivative Work shall not include work that remains separable from
-  the Original Work, as well as merely extracting a part of the
-  Original Work without modifying it.</li>
+	<ol  type=\"A\">
+		<li>Derivative Work shall not include work that remains separable from
+		the Original Work, as well as merely extracting a part of the
+		Original Work without modifying it.</li>
 
-  <li>
-  Derivative Work shall not include (a) fixing of errors and/or (b)
-  adding vendor specific Modelica annotations and/or (c) using a
-  subset of the classes of a Modelica package, and/or (d) using a
-  different representation, e.g., a binary representation.</li>
+		<li>Derivative Work shall not include (a) fixing of errors and/or (b)
+		adding vendor specific Modelica annotations and/or (c) using a
+		subset of the classes of a Modelica package, and/or (d) using a
+		different representation, e.g., a binary representation.</li>
 
-  <li>
-  Derivative Work shall include classes that are copied from the
-  Original Work where declarations, equations or the documentation
-  are modified.</li>
+		<li>Derivative Work shall include classes that are copied from the
+		Original Work where declarations, equations or the documentation
+		are modified.</li>
 
-  <li>
-  Derivative Work shall include executables to simulate the models
-  that are generated by a Modelica translator based on the Original
-  Work (of a Modelica package).</li>
- </ol>
- </li>
+		<li>Derivative Work shall include executables to simulate the models
+		that are generated by a Modelica translator based on the Original
+		Work (of a Modelica package).</li>
+	</ol>
 
- <li>
- &ldquo;Modified Work&rdquo; is any modification of the Original Work
- with the following exceptions: (a) fixing of errors and/or (b)
- adding vendor specific Modelica annotations and/or (c) using a
- subset of the classes of a Modelica package, and/or (d) using a
- different representation, e.g., a binary representation.</li>
+	<li>&ldquo;Modified Work&rdquo; is any modification of the Original Work
+	with the following exceptions: (a) fixing of errors and/or (b)
+	adding vendor specific Modelica annotations and/or (c) using a
+	subset of the classes of a Modelica package, and/or (d) using a
+	different representation, e.g., a binary representation.</li>
 
- <li>
- &quot;Source Code&quot; means the preferred form of the Original
- Work for making modifications to it and all available documentation
- describing how to modify the Original Work.</li>
+	<li>&quot;Source Code&quot; means the preferred form of the Original
+	Work for making modifications to it and all available documentation
+	describing how to modify the Original Work.</li>
 
- <li>
- &ldquo;You&rdquo; means an individual or a legal entity exercising
- rights under, and complying with all of the terms of, this License.</li>
+	<li>&ldquo;You&rdquo; means an individual or a legal entity exercising
+	rights under, and complying with all of the terms of, this License.</li>
 
- <li>
- &ldquo;Modelica package&rdquo; means any Modelica library that is
- defined with the<br>
- &ldquo;<code><b>package</b> &lt;Name&gt; ... <b>end</b> &lt;Name&gt;;</code>&ldquo;
- Modelica language element.
-</li>
+	<li>&ldquo;Modelica package&rdquo; means any Modelica library that is
+	defined with the &ldquo;<code><b>package</b>&nbsp;&lt;Name&gt;&nbsp;...&nbsp;<b>end</b>&nbsp;&lt;Name&gt;;</code>&rdquo; Modelica language element.</li>
+
 </ol>
 
 <p>
@@ -1840,38 +1838,35 @@ worldwide, royalty-free, non-exclusive, sublicensable license, for
 the duration of the copyright, to do the following:</p>
 
 <ol type=\"a\">
- <li>
- To reproduce the Original Work in copies, either alone or as part of
- a collection.</li><
- <li>
- To create Derivative Works according to Section 1d) of this License.</li>
- <li>
- To distribute or communicate to the public copies of the <u>Original
- Work</u> or a <u>Derivative Work</u> under <u>this License</u>. No
- fee, neither as a copyright-license fee, nor as a selling fee for
- the copy as such may be charged under this License. Furthermore, a
- verbatim copy of this License must be included in any copy of the
- Original Work or a Derivative Work under this License.<br>      For
- the matter of clarity, it is permitted A) to distribute or
- communicate such copies as part of a (possible commercial)
- collection where other parts are provided under different licenses
- and a license fee is charged for the other parts only and B) to
- charge for mere printing and shipping costs.</li>
-
- <li>
- To distribute or communicate to the public copies of a <u>Derivative
- Work</u>, alternatively to Section 2c), under <u>any other license</u>
- of your choice, especially also under a license for
- commercial/proprietary software, as long as You comply with Sections
- 3, 4 and 8 below. <br>      For the matter of clarity, no
- restrictions regarding fees, either as to a copyright-license fee or
- as to a selling fee for the copy as such apply.</li>
-
- <li>
- To perform the Original Work publicly.</li>
-
- <li>
- To display the Original Work publicly.</li>
+	<li><p>
+	To reproduce the Original Work in copies, either alone or as part of
+	a collection.</p></li>
+	<li><p>
+	To create Derivative Works according to Section 1d) of this License.</p></li>
+	<li><p>
+	To distribute or communicate to the public copies of the <u>Original
+	Work</u> or a <u>Derivative Work</u> under <u>this License</u>. No
+	fee, neither as a copyright-license fee, nor as a selling fee for
+	the copy as such may be charged under this License. Furthermore, a
+	verbatim copy of this License must be included in any copy of the
+	Original Work or a Derivative Work under this License.<br>
+	For the matter of clarity, it is permitted A) to distribute or
+	communicate such copies as part of a (possible commercial)
+	collection where other parts are provided under different licenses
+	and a license fee is charged for the other parts only and B) to
+	charge for mere printing and shipping costs.</p></li>
+	<li><p>
+	To distribute or communicate to the public copies of a <u>Derivative
+	Work</u>, alternatively to Section 2c), under <u>any other license</u>
+	of your choice, especially also under a license for
+	commercial/proprietary software, as long as You comply with Sections
+	3, 4 and 8 below. <br>      For the matter of clarity, no
+	restrictions regarding fees, either as to a copyright-license fee or
+	as to a selling fee for the copy as such apply.</p></li>
+	<li><p>
+	To perform the Original Work publicly.</p></li>
+	<li><p>
+	To display the Original Work publicly.</p></li>
 </ol>
 
 <p>
@@ -1887,7 +1882,7 @@ of the Original Work. This means especially that the (root-level)
 name of a Modelica package under this license must be changed if the
 package is modified (besides fixing of errors, adding vendor specific
 Modelica annotations, using a subset of the classes of a Modelica
-package, or using another representation, e.g., a binary
+package, or using another representation, e.g. a binary
 representation).</p>
 
 <p>
@@ -1954,7 +1949,7 @@ License on an &quot;as is&quot; basis and without warranty, either
 express or implied, including, without limitation, the warranties of
 non-infringement, merchantability or fitness for a particular
 purpose. The entire risk as to the quality of the Original Work is
-with You.</b></u><b> </b>This disclaimer of warranty constitutes an
+with You.</b></u> This disclaimer of warranty constitutes an
 essential part of this License. No license to the Original Work is
 granted by this License except under this disclaimer.</p>
 
@@ -2017,30 +2012,26 @@ action. This section shall survive the termination of this License.</p>
 <b>15. Miscellaneous.</b>
 </p>
 <ol type=\"a\">
- <li>If any
- provision of this License is held to be unenforceable, such
- provision shall be reformed only to the extent necessary to make it
- enforceable.</li>
+	<li>If any
+	provision of this License is held to be unenforceable, such
+	provision shall be reformed only to the extent necessary to make it
+	enforceable.</li>
 
- <li>No verbal
- ancillary agreements have been made. Changes and additions to this
- License must appear in writing to be valid. This also applies to
- changing the clause pertaining to written form.</li>
+	<li>No verbal
+	ancillary agreements have been made. Changes and additions to this
+	License must appear in writing to be valid. This also applies to
+	changing the clause pertaining to written form.</li>
 
- <li>You may use the
- Original Work in all ways not otherwise restricted or conditioned by
- this License or by law, and Licensor promises not to interfere with
- or be responsible for such uses by You.</li>
+	<li>You may use the
+	Original Work in all ways not otherwise restricted or conditioned by
+	this License or by law, and Licensor promises not to interfere with
+	or be responsible for such uses by You.</li>
 </ol>
-
-<p>
-<br>
-</p>
 
 <hr>
 
-<h4><a name=\"2. Frequently Asked Questions|outline\"></a>
-Frequently Asked Questions</h4>
+<h5><a name=\"Frequently_Asked_Questions-outline\"></a>
+Frequently Asked Questions</h5>
 <p>This
 section contains questions/answer to users and/or distributors of
 Modelica packages and/or documents under Modelica License 2. Note,
@@ -2048,52 +2039,47 @@ the answers to the questions below are not a legal interpretation of
 the Modelica License 2. In case of a conflict, the language of the
 license shall prevail.</p>
 
-<p><br>
-</p>
-
-<p><FONT COLOR=\"#008000\"><FONT SIZE=3><b>Using
-or Distributing a Modelica </b></FONT></FONT><FONT COLOR=\"#008000\"><FONT SIZE=3><u><b>Package</b></u></FONT></FONT><FONT COLOR=\"#008000\"><FONT SIZE=3><b>
-under the Modelica License 2</b></FONT></FONT></p>
+<h6>Using or Distributing a Modelica <u>Package</u> under the Modelica License 2</h6>
 
 <p><b>What are the main
 differences to the previous version of the Modelica License?</b></p>
 <ol>
- <li><p>
- Modelica License 1 is unclear whether the licensed Modelica package
- can be distributed under a different license. Version 2 explicitly
- allows that &ldquo;Derivative Work&rdquo; can be distributed under
- any license of Your choice, see examples in Section 1d) as to what
- qualifies as Derivative Work (so, version 2 is clearer).</p>
- <li><p>
- If You modify a Modelica package under Modelica License 2 (besides
- fixing of errors, adding vendor specific Modelica annotations, using
- a subset of the classes of a Modelica package, or using another
- representation, e.g., a binary representation), you must rename the
- root-level name of the package for your distribution. In version 1
- you could keep the name (so, version 2 is more restrictive). The
- reason of this restriction is to reduce the risk that Modelica
- packages are available that have identical names, but different
- functionality.</p>
- <li><p>
- Modelica License 1 states that &ldquo;It is not allowed to charge a
- fee for the original version or a modified version of the software,
- besides a reasonable fee for distribution and support<SPAN LANG=\"en-GB\">&ldquo;.
- Version 2 has a </SPAN>similar intention for all Original Work under
- <u>Modelica License 2</u> (to remain free of charge and open source)
- but states this more clearly as &ldquo;No fee, neither as a
- copyright-license fee, nor as a selling fee for the copy as such may
- be charged&rdquo;. Contrary to version 1, Modelica License 2 has no
- restrictions on fees for Derivative Work that is provided under a
- different license (so, version 2 is clearer and has fewer
- restrictions).</p>
- <li><p>
- Modelica License 2 introduces several useful provisions for the
- licensee (articles 5, 6, 12), and for the licensor (articles 7, 12,
- 13, 14) that have no counter part in version 1.</p>
- <li><p>
- Modelica License 2 can be applied to all type of work, including
- documents, images and data files, contrary to version 1 that was
- dedicated for software only (so, version 2 is more general).</p>
+	<li><p>
+	Modelica License 1 is unclear whether the licensed Modelica package
+	can be distributed under a different license. Version 2 explicitly
+	allows that &ldquo;Derivative Work&rdquo; can be distributed under
+	any license of Your choice, see examples in Section 1d) as to what
+	qualifies as Derivative Work (so, version 2 is clearer).</p>
+	<li><p>
+	If You modify a Modelica package under Modelica License 2 (besides
+	fixing of errors, adding vendor specific Modelica annotations, using
+	a subset of the classes of a Modelica package, or using another
+	representation, e.g., a binary representation), you must rename the
+	root-level name of the package for your distribution. In version 1
+	you could keep the name (so, version 2 is more restrictive). The
+	reason of this restriction is to reduce the risk that Modelica
+	packages are available that have identical names, but different
+	functionality.</p>
+	<li><p>
+	Modelica License 1 states that &ldquo;It is not allowed to charge a
+	fee for the original version or a modified version of the software,
+	besides a reasonable fee for distribution and support&rdquo;.
+	Version 2 has a similar intention for all Original Work under
+	<u>Modelica License 2</u> (to remain free of charge and open source)
+	but states this more clearly as &ldquo;No fee, neither as a
+	copyright-license fee, nor as a selling fee for the copy as such may
+	be charged&rdquo;. Contrary to version 1, Modelica License 2 has no
+	restrictions on fees for Derivative Work that is provided under a
+	different license (so, version 2 is clearer and has fewer
+	restrictions).</p>
+	<li><p>
+	Modelica License 2 introduces several useful provisions for the
+	licensee (articles 5, 6, 12), and for the licensor (articles 7, 12,
+	13, 14) that have no counter part in version 1.</p>
+	<li><p>
+	Modelica License 2 can be applied to all type of work, including
+	documents, images and data files, contrary to version 1 that was
+	dedicated for software only (so, version 2 is more general).</p>
 </ol>
 
 <p><b>Can I distribute a
@@ -2222,26 +2208,22 @@ substance to a preexisting work will not qualify the work as a new
 version for such purposes.
 </p>
 
-<p><br>
-</p>
-<p><FONT COLOR=\"#008000\"><FONT SIZE=3><b>Using
-or Distributing a Modelica </b></FONT></FONT><FONT COLOR=\"#008000\"><FONT SIZE=3><u><b>Document</b></u></FONT></FONT><FONT COLOR=\"#008000\"><FONT SIZE=3><b>
-under the Modelica License 2</b></FONT></FONT></p>
+<h6>Using or Distributing a Modelica <u>Document</u> under the Modelica License 2</h6>
 
 <p>This
 section is devoted especially for the following applications:</p>
 <ol type=\"a\">
- <li><p>
- A Modelica tool extracts information out of a Modelica package and
- presents the result in form of a &ldquo;manual&rdquo; for this
- package in, e.g., html, doc, or pdf format.</p>
- <li><p>
- The Modelica language specification is a document defining the
- Modelica language. It will be licensed under Modelica License 2.</p>
- <li><p>
- Someone writes a book about the Modelica language and/or Modelica
- packages and uses information which is available in the Modelica
- language specification and/or the corresponding Modelica package.</p>
+	<li><p>
+	A Modelica tool extracts information out of a Modelica package and
+	presents the result in form of a &ldquo;manual&rdquo; for this
+	package in, e.g., html, doc, or pdf format.</p>
+	<li><p>
+	The Modelica language specification is a document defining the
+	Modelica language. It will be licensed under Modelica License 2.</p>
+	<li><p>
+	Someone writes a book about the Modelica language and/or Modelica
+	packages and uses information which is available in the Modelica
+	language specification and/or the corresponding Modelica package.</p>
 </ol>
 
 <p><b>Can I sell a manual
@@ -2251,7 +2233,7 @@ guide&rdquo; of the Modelica Standard Library):</b></p>
 <p>Yes.
 Extracting information from a Modelica package, and providing it in a
 human readable, suitable format, like html, doc or pdf format, where
-the content is significantly modified (e.g., tables with interface
+the content is significantly modified (e.g. tables with interface
 information are constructed from the declarations of the public
 variables) qualifies as Derivative Work and there are no restrictions
 to charge a fee for Derivative Work under alternative 2d).</p>
@@ -2259,7 +2241,7 @@ to charge a fee for Derivative Work under alternative 2d).</p>
 <p><b>Can
 I copy a text passage out of a Modelica document (under Modelica
 License 2) and use it </b><u><b>unmodified</b></u><b> in my document
-(e.g., the Modelica syntax description in the Modelica Specification)?</b></p>
+(e.g. the Modelica syntax description in the Modelica Specification)?</b></p>
 <p>Yes.
 In case you distribute your document, the copied parts are still
 under Modelica License 2 and you are not allowed to charge a license
@@ -2283,9 +2265,8 @@ Modelica Language Specification?</b></p>
 if you are not the copyright-holder, since article 2c) does not allow
 a selling fee for a (in this case physical) copy. However, mere
 printing and shipping costs may be recovered.</p>
-</html>
-"));
-
+</body>
+</html>"));
 end ModelicaLicense2;
 
 package ReleaseNotes "Release notes"
