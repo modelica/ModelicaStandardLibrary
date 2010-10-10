@@ -220,7 +220,11 @@ The intended use is for complex networks of pipes and other flow devices, like v
             extent={{50,10},{70,-10}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
+            fillPattern=FillPattern.Solid),
+          Text(
+            extent={{-48,15},{46,-20}},
+            lineColor={0,0,0},
+            textString="%nNodes")}),
   Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}},
           grid={1,1}), graphics={
