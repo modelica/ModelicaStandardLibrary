@@ -3094,10 +3094,13 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td valign=\"top\"> ValveIncompressible<br>
                       ValveVaporizing<br>
                       ValveCompressible</td>
-    <td valign=\"top\"> Optional filtering of opening signal introduced to model
-                      the delay time of the opening/closing drive.
-                      Improved regularization in some cases so that the characteristic
-                      is twice differentiable (smooth=2), instead of continuous (smooth=0).</td>
+    <td valign=\"top\"> (a) Optional filtering of opening signal introduced to model
+                      the delay time of the opening/closing drive. In this case, an optional
+                      leackageOpening can be defined to model leackage flow and/or to 
+                      improve the numerics in certain situations.
+                      (b) Improved regularization of the valve characteristics in some cases
+                      so that it is twice differentiable (smooth=2),
+                      instead of continuous (smooth=0).</td>
                       </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.</b></td></tr>

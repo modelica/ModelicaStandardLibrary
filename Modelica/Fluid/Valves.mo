@@ -693,6 +693,17 @@ fluid network leading to a singularity. If a small leakage flow is introduced
 (which is often anyway present in reality), the singularity might be avoided.
 </p>
 
+<p>
+In the next figure, \"opening\" and \"filtered_opening\" are shown in the case that
+filteredOpening = <b>true</b>, riseTime = 1 s, and leackageOpening = 0.02.
+</p>
+
+<blockquote>
+<p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveFilteredOpening.png\">
+</p>
+</blockquote>
+
 </HTML>", revisions="<html>
 <ul>
 <li><i>Sept. 5, 2010</i>
