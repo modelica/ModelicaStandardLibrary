@@ -65,7 +65,7 @@ model Resistor "Ideal linear electrical resistor"
       "Resistance at temperature T_ref";
   parameter Modelica.SIunits.Temperature T_ref=300.15 "Reference temperature";
   parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(TheatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref);
@@ -1828,7 +1828,7 @@ end M_Transformer;
         parameter Modelica.SIunits.Temperature T_ref=300.15
       "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(TheatPort - T_ref))";
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref);
         Modelica.SIunits.Resistance R_actual
@@ -1899,7 +1899,7 @@ end M_Transformer;
         parameter Modelica.SIunits.Temperature T_ref=300.15
       "Reference temperature";
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
-      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(TheatPort - T_ref))";
+      "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref);
         Modelica.SIunits.Conductance G_actual
