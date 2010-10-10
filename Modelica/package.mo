@@ -3029,7 +3029,7 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td valign=\"top\"> Pulse<br>
                       SawTooth </td>
     <td valign=\"top\"> New parameter \"nperiod\" introduced to define the number of periods
-                      for the signal type. Default is \"infinite number of periods 
+                      for the signal type. Default is \"infinite number of periods
                       (nperiods=-1).</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.</b></td></tr>
 <tr><td valign=\"top\"> MultiPhase.*</td>
@@ -3077,7 +3077,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       ValveCompressible</td>
     <td valign=\"top\"> (a) Optional filtering of opening signal introduced to model
                       the delay time of the opening/closing drive. In this case, an optional
-                      leackageOpening can be defined to model leackage flow and/or to 
+                      leackageOpening can be defined to model leackage flow and/or to
                       improve the numerics in certain situations.
                       (b) Improved regularization of the valve characteristics in some cases
                       so that it is twice differentiable (smooth=2),
@@ -7357,9 +7357,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=2,
-versionDate="2010-10-07",
-dateModified = "2010-09-15 00:00:00Z",
+versionBuild=3,
+versionDate="2010-10-10",
+dateModified = "2010-10-10 18:27:39Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.0"), ModelicaServices(version="1.1")),
 conversion(
