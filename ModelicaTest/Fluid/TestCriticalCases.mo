@@ -1642,7 +1642,9 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       m_flow_nominal=1,
       rho_nominal=5,
       dp(start=400000),
-      dp_nominal=400000)
+      dp_nominal=400000,
+      filteredOpening=true,
+      riseTime=0.1)
                   annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
@@ -1664,12 +1666,9 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               {-10,-30}}, rotation=0)));
 
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
-          1,0; 100,0]) annotation (Placement(transformation(extent={{-20,70},{0,
-              90}}, rotation=0)));
-    Modelica.Blocks.Sources.TimeTable valveOpening2(offset=0, table=[0,1; 2,1;
-          2.01,1e-6; 100,0])
-                       annotation (Placement(transformation(extent={{-20,-8},{0,
-              12}}, rotation=0)));
+          1,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
+              0,10}},
+                    rotation=0)));
     inner Modelica.Fluid.System system
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
@@ -1680,10 +1679,12 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             28,-40},{46,-40},{46,-14},{62,-14}}, color={0,127,255}));
     connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
             {{-10,-40},{8,-40}}, color={0,127,255}));
-    connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,2},{18,2},{18,-32}}, color={0,0,127}));
     connect(pipe1.port_b, pipe3.port_a) annotation (Line(points={{-58,6},{-44,6},
             {-44,-40},{-30,-40}}, color={0,127,255}));
+    connect(valveOpening1.y, valveIncompressible1.opening) annotation (Line(
+        points={{1,0},{18,0},{18,-32}},
+        color={0,0,127},
+        smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
