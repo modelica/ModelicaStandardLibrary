@@ -1,5 +1,6 @@
 within Modelica.Blocks;
 
+
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
   import Modelica.Blocks.Interfaces;
@@ -974,18 +975,18 @@ by a falling exponential signal:
         extends Modelica.Blocks.Interfaces.SO;
   protected
         Modelica.SIunits.Time T_width = period*width/100;
-        Modelica.SIunits.Time T0 "Start time of current period";
-        Integer counter "Period counter";
+        Modelica.SIunits.Time T_start "Start time of current period";
+        Integer count "Period count";
       initial algorithm
-        counter := integer((time - startTime)/period);
-        T0 := startTime + counter*period;
+        count := integer((time - startTime)/period);
+        T_start := startTime + count*period;
       equation
-        when integer((time - startTime)/period)>pre(counter) then
-          counter = pre(counter)+1;
-          T0 = time;
+        when integer((time - startTime)/period)>pre(count) then
+          count = pre(count)+1;
+          T_start = time;
         end when;
-        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and counter>=nperiod)) then 0
-                 else if  time<T0 + T_width then amplitude else 0);
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0
+                 else if  time<T_start + T_width then amplitude else 0);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1133,18 +1134,19 @@ The Real output y is a pulse signal:
       "Output = offset for time < startTime";
         extends Interfaces.SO;
   protected
-        SIunits.Time T0(final start=startTime) "Start time of current period";
-        Integer counter "Period counter";
+        SIunits.Time T_start(final start=startTime)
+      "Start time of current period";
+        Integer count "Period count";
       initial algorithm
-        counter := integer((time - startTime)/period);
-        T0 := startTime + counter*period;
+        count := integer((time - startTime)/period);
+        T_start := startTime + count*period;
       equation
-        when integer((time - startTime)/period)>pre(counter) then
-          counter = pre(counter)+1;
-          T0 = time;
+        when integer((time - startTime)/period)>pre(count) then
+          count = pre(count)+1;
+          T_start = time;
         end when;
-        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and counter>=nperiod)) then 0
-                     else amplitude*(time - T0)/period);
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0
+                     else amplitude*(time - T_start)/period);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1283,20 +1285,20 @@ The Real output y is a saw tooth signal:
       "End time of width phase within one period";
         parameter SIunits.Time T_falling=T_width + falling
       "End time of falling phase within one period";
-        SIunits.Time T0 "Start time of current period";
-        Integer counter "Period counter";
+        SIunits.Time T_start "Start time of current period";
+        Integer count "Period count";
       initial algorithm
-        counter := integer((time - startTime)/period);
-        T0 := startTime + counter*period;
+        count := integer((time - startTime)/period);
+        T_start := startTime + count*period;
       equation
-        when integer((time - startTime)/period)>pre(counter) then
-          counter = pre(counter)+1;
-          T0 = time;
+        when integer((time - startTime)/period)>pre(count) then
+          count = pre(count)+1;
+          T_start = time;
         end when;
-        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and counter>=nperiod)) then 0
-                 else if (time < T0 + T_rising)  then amplitude*(time - T0)/rising
-                 else if (time < T0 + T_width)   then amplitude
-                 else if (time < T0 + T_falling) then amplitude*(T0 + T_falling - time)/falling
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0
+                 else if (time < T_start + T_rising)  then amplitude*(time - T_start)/rising
+                 else if (time < T_start + T_width)   then amplitude
+                 else if (time < T_start + T_falling) then amplitude*(T_start + T_falling - time)/falling
                  else                                 0);
         annotation (
           Icon(coordinateSystem(

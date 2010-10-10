@@ -2410,7 +2410,7 @@ This version is a major improvement:
 </p>
 
 <ul>
-<li> <b>357</b> models and blocks and <b>285</b> functions are newly included.</li>
+<li> <b>357</b> models and blocks and <b>295</b> functions are newly included.</li>
 
 <li><b>7</b> new libraries are included.</li>
 
@@ -2450,6 +2450,8 @@ the following new language elements (compared to Modelica Specification 3.1):
 <ul>
 <li> Operator records and overloaded operators. </li>
 <li> Functions as input arguments to functions.</li>
+<li> Improved expandable connectors (variables declared in expandable
+     connectors are ignored if not referenced).</li>
 </ul>
 
 <p>
@@ -2978,9 +2980,10 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
-    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are true. </td> </tr>
+    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are tru"
+               + "e. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
-    <td valign=\"top\"> Returns true, if at least on element of the Boolea" + "n input vector is true. </td> </tr>
+    <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
     <td valign=\"top\"> Returns true, if exactly one element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> firstTrueIndex </td>
@@ -3041,6 +3044,12 @@ have been <b style=\"color:blue\">improved</b> in a
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Sources.</b></td></tr>
+<tr><td valign=\"top\"> Pulse<br>
+                      SawTooth </td>
+    <td valign=\"top\"> New parameter \"nperiod\" introduced to define the number of periods
+                      for the signal type. Default is \"infinite number of periods 
+                      (nperiods=-1).</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Electrical.</b></td></tr>
 <tr><td valign=\"top\"> MultiPhase.*</td>
     <td valign=\"top\"> All dissipative components have now an optional heatPort connector
