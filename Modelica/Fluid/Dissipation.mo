@@ -1949,7 +1949,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
-      record kc_turbulent_IN_con "Input record for function kc_turbulent"
+      record kc_turbulent_IN_con
+        "Input record for function kc_turbulent and kc_turbulent_KC"
 
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con;
@@ -1960,7 +1961,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 </html>"));
       end kc_turbulent_IN_con;
 
-      record kc_turbulent_IN_var "Input record for function kc_turbulent"
+      record kc_turbulent_IN_var
+        "Input record for function kc_turbulent and kc_turbulent_KC"
 
         extends
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_var;
