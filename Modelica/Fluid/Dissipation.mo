@@ -379,7 +379,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
           end if;
         end for;
       annotation(Documentation(info="<html>
-<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
+<p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
 </html>"), smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar;
@@ -546,10 +546,9 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         end for;
 
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-            Documentation(info=
-                       "<html>
+            Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
 </html>
 "));
@@ -613,6 +612,19 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 </html>
 "), smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_evenGapOverall_KC;
+
+      record kc_evenGapOverall_IN_con
+        "Input record for function kc_evenGapOverall and kc_evenGapOverall_KC"
+
+              //even gap variables
+              extends
+          Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.EvenGap;
+
+              annotation (Documentation(info="<html>
+This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall\"> kc_evenGapOverall</a> and
+<a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapOverall_KC\"> kc_evenGapOverall_KC</a>.
+</html>"));
+      end kc_evenGapOverall_IN_con;
 
       record kc_evenGapOverall_IN_var
         "Input record for function kc_evenGapOverall and kc_evenGapOverall_KC"
@@ -705,7 +717,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         end for;
       annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
 </html>
 "),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
