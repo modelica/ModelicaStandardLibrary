@@ -945,7 +945,7 @@ Note that additionally a failure status is observed in this function to check if
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
-</html>"));
+</html>"),       smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_approxForcedConvection_KC;
 
       record kc_approxForcedConvection_IN_con
@@ -1060,12 +1060,12 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
 
 </html>
-"),                 smoothOrder=5);
+"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_flatTube;
 
       function kc_flatTube_KC
@@ -1139,11 +1139,11 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
 </html>
-"),                 smoothOrder=5);
+"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_flatTube_KC;
 
       record kc_flatTube_IN_con
-        "Input record for function kc_heatExchanger and kc_heatExchanger_KC"
+        "Input record for function kc_flatTube and kc_flatTube_KC"
         extends Modelica.Icons.Record;
 
       protected
@@ -1193,7 +1193,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
       end kc_flatTube_IN_con;
 
       record kc_flatTube_IN_var
-        "Input record for function kc_heatExchanger and kc_heatExchanger_KC"
+        "Input record for function kc_flatTube and kc_flatTube_KC"
         extends Modelica.Icons.Record;
 
         //fluid property variables
@@ -1276,11 +1276,11 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
 </html>
-"),                 smoothOrder=5);
+"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_roundTube;
 
       function kc_roundTube_KC
@@ -1418,7 +1418,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
 </html>
-"),                 smoothOrder=5);
+"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_roundTube_KC;
 
       record kc_roundTube_IN_con
