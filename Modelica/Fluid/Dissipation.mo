@@ -4627,6 +4627,31 @@ This record is used as <b> input record </b> for the pressure loss function
 Calculation of a generic pressure loss for an <b> ideal gas </b> using mean density.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_idealGas\">See more information</a>.
 </p>
+
+<h5>Generic pressure loss depending on density and viscosity </h5>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density, nominal dynamic viscosity) at an operation point via interpolation.
+This generic function considers the pressure loss law via a pressure loss exponent and the influence of density and dynamic viscosity on pressure loss.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalDensityViscosity\">See more information</a>.
+</p>
+
+<h5>Generic pressure loss depending on density</h5>
+<p>
+Calculation of a generic pressure loss in dependence of nominal fluid variables (e.g., nominal density) via interpolation from an operation point.
+<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_nominalPressureLossLawDensity\">See more information</a>.
+</p>
+
+<h5>Generic pressure loss depending on pressure loss coefficient</h5>
+<p>
+Calculation of a generic pressure loss in dependence of a pressure loss coefficient.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_pressureLossCoefficient\">See more information</a>.
+</p>
+
+<h5>Generic pressure loss depending on volume flow rate</h5>
+<p>
+Calculation of a generic pressure loss with linear or quadratic dependence on volume flow rate.
+ <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.General.dp_volumeFlowRate\">See more information</a>.
+</p>
 </html>"));
     end General;
 
