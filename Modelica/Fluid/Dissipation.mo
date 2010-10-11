@@ -1572,7 +1572,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         end for;
       annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
 </html>
@@ -1708,7 +1708,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         Nu := kc*IN_con.d_hyd/max(MIN, IN_var.lambda);
       annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
+Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
 </html>
@@ -1880,7 +1880,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         end for;
       annotation (Documentation(info="<html>
 <p>
-Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
+Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
 </html>
