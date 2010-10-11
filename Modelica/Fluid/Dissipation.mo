@@ -949,7 +949,7 @@ Approximate calculation of the mean convective heat transfer coefficient <b> kc 
       end kc_approxForcedConvection_KC;
 
       record kc_approxForcedConvection_IN_con
-        "Input record for function approxForcedConvection and approxForcedConvection_KC"
+        "Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC"
         //generic variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General            annotation (
@@ -966,7 +966,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
       end kc_approxForcedConvection_IN_con;
 
       record kc_approxForcedConvection_IN_var
-        "Input record for function approxForcedConvection and approxForcedConvection_KC"
+        "Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC"
         //fluid property variables
         extends
           Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties 
