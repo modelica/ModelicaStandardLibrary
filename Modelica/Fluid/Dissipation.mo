@@ -6232,10 +6232,10 @@ You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where a
    </ul>
 </ul>
 </p>
-<h4><a name=\"geometry\">Geometry</h4>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"\"></p>
+<h4>Geometry</h4>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"\"></p>
 
-<h4><a name=\"calculation\">Calculation </a></h4>
+<h4>Calculation</h4>
 <p>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
 <pre>
@@ -6451,10 +6451,10 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 </ul>
 </p>
 
-<h4><a name=\"Geometry\"> Geometry </a> </h4>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"\"></p>
+<h4>Geometry</h4>
+<p><img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"\"></p>
 
-<h4><a name=\"calculation\">Calculation </a></h4>
+<h4>Calculation</h4>
 <p>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
 <pre>
