@@ -8919,9 +8919,9 @@ This function shall be used within the restricted limits according to the refere
  <li>
       <b>Turbulent flow regime</b></li>
  <li>
-      <b>Reynolds number for sudden expansion Re &gt 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i></li>
+      <b>Reynolds number for sudden expansion Re &gt; 3.3e3 </b> <i>[Idelchik 2006, p. 208, diag. 4-1] </i></li>
  <li>
-      <b>Reynolds number for sudden contraction Re &gt 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i></li>
+      <b>Reynolds number for sudden contraction Re &gt; 1e4 </b> <i>[Idelchik 2006, p. 216-217, diag. 4-9] </i></li>
 </ul>
 
 <h4>Geometry </h4>
@@ -9135,7 +9135,7 @@ This function shall be used inside of the restricted limits according to the ref
  <li>
       <b> circular cross sectional area </b>
  <li>
-      <b> laminar flow regime (Reynolds number Re &le 2000) <i>[VDI-W&auml;rmeatlas 2002, p. Lab, eq. 3] </i> </b>
+      <b> laminar flow regime (Reynolds number Re &le; 2000) <i>[VDI-W&auml;rmeatlas 2002, p. Lab, eq. 3] </i> </b>
 </ul>
 </p>
 <h4>Geometry </h4>
@@ -9394,7 +9394,7 @@ This function shall be used within the restricted limits according to the refere
  <li>
       <b> circular cross sectional area </b></li>
  <li>
-      <b> turbulent flow regime (Reynolds number Re &ge 4e3) <i>[VDI-W&auml;rmeatlas 2002, p. Lab 3, fig. 1] </i> </b></li>
+      <b> turbulent flow regime (Reynolds number Re &ge; 4e3) <i>[VDI-W&auml;rmeatlas 2002, p. Lab 3, fig. 1] </i> </b></li>
 </ul>
 </p>
 
