@@ -6233,7 +6233,7 @@ You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where a
 </ul>
 </p>
 <h4>Geometry</h4>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\"/>
 
 <h4>Calculation</h4>
 <p>
@@ -6450,7 +6450,7 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 </p>
 
 <h4>Geometry</h4>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\"/>
 
 <h4>Calculation</h4>
 <p>
