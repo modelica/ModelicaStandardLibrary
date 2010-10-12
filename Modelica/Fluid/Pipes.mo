@@ -3200,7 +3200,7 @@ identical to laminar wall friction.
             Real aux5=-2*sqrt(L2)*log10(aux4);
             Real x2=log10(L2);
             Real y2=log10(aux5);
-            Real y2d=0.5 + (2.51/ln(10))/(aux5*aux4);
+            Real y2d=0.5 + (2.51/log(10))/(aux5*aux4);
 
             // Point of interest in transformed space
             Real x=log10(lambda2);
@@ -3251,7 +3251,7 @@ identical to laminar wall friction.
             Re :=-2*sqrt(lambda2)*log10(2.51/sqrt(lambda2) + 0.27*Delta)
                 "Colebrook-White";
             aux2 := sqrt(aux1*abs(dp_fric));
-            dRe_ddp := 1/ln(10)*(-2*ln(2.51/aux2+0.27*Delta)*aux1/(2*aux2)+2*2.51/(2*abs(dp_fric)*(2.51/aux2+0.27*Delta)));
+            dRe_ddp := 1/log(10)*(-2*log(2.51/aux2+0.27*Delta)*aux1/(2*aux2)+2*2.51/(2*abs(dp_fric)*(2.51/aux2+0.27*Delta)));
             if Re < Re2 then
               (Re, dRe_ddp) := interpolateInRegion2_withDerivative(lambda2, Re1, Re2, Delta, dp_fric);
             end if;
@@ -3311,7 +3311,7 @@ identical to laminar wall friction.
             Real L2 = 0.25*(Re2/aux3)^2;
             Real x2 = log10(Re2);
             Real y2 = log10(L2);
-            Real y2d = 2+(2*5.74*0.9)/(ln(aux2)*Re2^0.9*aux2);
+            Real y2d = 2+(2*5.74*0.9)/(log(aux2)*Re2^0.9*aux2);
 
             // Point of interest in transformed space
             Real x=log10(Re);
@@ -3359,7 +3359,7 @@ identical to laminar wall friction.
           elseif Re >= Re2 then
             lambda2 := 0.25*(Re/log10(Delta/3.7 + 5.74/Re^0.9))^2 "Swamee-Jain";
             aux2 := Delta/3.7+5.74/((aux1*abs(m_flow))^0.9);
-            dlambda2_dm_flow := 0.5*aux1*Re*ln(10)^2*(1/(ln(aux2)^2)+(5.74*0.9)/(ln(aux2)^3*Re^0.9*aux2))
+            dlambda2_dm_flow := 0.5*aux1*Re*log(10)^2*(1/(log(aux2)^2)+(5.74*0.9)/(log(aux2)^3*Re^0.9*aux2))
                 "Swamee-Jain";
           else
             (lambda2, dlambda2_dm_flow) := interpolateInRegion2(Re, Re1, Re2, Delta, m_flow);

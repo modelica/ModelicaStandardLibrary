@@ -1361,32 +1361,32 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 
         elseif IN_con.geometry == TYP.LouverFin then
           if Re_Dc < 900 then
-            J1 := -0.991 - 0.1055*(IN_con.P_l/IN_con.P_t)^3.1*ln(IN_con.L_h/IN_con.L_p);
-            J2 := -0.7344 + 2.1059*IN_con.N^0.55/(ln(Re_Dc) - 3.2);
+            J1 := -0.991 - 0.1055*(IN_con.P_l/IN_con.P_t)^3.1*log(IN_con.L_h/IN_con.L_p);
+            J2 := -0.7344 + 2.1059*IN_con.N^0.55/(log(Re_Dc) - 3.2);
             J3 := 0.08485*(IN_con.P_l/IN_con.P_t)^(-4.4)*IN_con.N^(-0.68);
-            J4 := -0.1741*ln(IN_con.N);
+            J4 := -0.1741*log(IN_con.N);
             j := 14.3117*Re_Dc^J1*(IN_con.F_p/IN_con.D_c)^J2*(IN_con.L_h/IN_con.L_p)^
               J3*(IN_con.F_p/IN_con.P_l)^J4*(IN_con.P_l/IN_con.P_t)^(-1.724);
           elseif Re_Dc > 1100 then
-            J5 := -0.6027 + 0.02593*(IN_con.P_l/D_h)^0.52*IN_con.N^(-0.5)*ln(IN_con.L_h
+            J5 := -0.6027 + 0.02593*(IN_con.P_l/D_h)^0.52*IN_con.N^(-0.5)*log(IN_con.L_h
               /IN_con.L_p);
-            J6 := -0.4776 + 0.40774*IN_con.N^0.7/(ln(Re_Dc) - 4.4);
+            J6 := -0.4776 + 0.40774*IN_con.N^0.7/(log(Re_Dc) - 4.4);
             J7 := -0.58655*(IN_con.F_p/D_h)^2.3*(IN_con.P_l/IN_con.P_t)^(-1.6)*IN_con.N
               ^(-0.65);
-            J8 := 0.0814*(ln(Re_Dc) - 3);
+            J8 := 0.0814*(log(Re_Dc) - 3);
             j := 1.1373*Re_Dc^J5*(IN_con.F_p/IN_con.P_l)^J6*(IN_con.L_h/IN_con.L_p)^
               J7*(IN_con.P_l/IN_con.P_t)^J8*IN_con.N^0.3545;
           else
-            J1 := -0.991 - 0.1055*(IN_con.P_l/IN_con.P_t)^3.1*ln(IN_con.L_h/IN_con.L_p);
-            J2 := -0.7344 + 2.1059*IN_con.N^0.55/(ln(Re_Dc) - 3.2);
+            J1 := -0.991 - 0.1055*(IN_con.P_l/IN_con.P_t)^3.1*log(IN_con.L_h/IN_con.L_p);
+            J2 := -0.7344 + 2.1059*IN_con.N^0.55/(log(Re_Dc) - 3.2);
             J3 := 0.08485*(IN_con.P_l/IN_con.P_t)^(-4.4)*IN_con.N^(-0.68);
-            J4 := -0.1741*ln(IN_con.N);
-            J5 := -0.6027 + 0.02593*(IN_con.P_l/D_h)^0.52*IN_con.N^(-0.5)*ln(IN_con.L_h
+            J4 := -0.1741*log(IN_con.N);
+            J5 := -0.6027 + 0.02593*(IN_con.P_l/D_h)^0.52*IN_con.N^(-0.5)*log(IN_con.L_h
               /IN_con.L_p);
-            J6 := -0.4776 + 0.40774*IN_con.N^0.7/(ln(Re_Dc) - 4.4);
+            J6 := -0.4776 + 0.40774*IN_con.N^0.7/(log(Re_Dc) - 4.4);
             J7 := -0.58655*(IN_con.F_p/D_h)^2.3*(IN_con.P_l/IN_con.P_t)^(-1.6)*IN_con.N
               ^(-0.65);
-            J8 := 0.0814*(ln(Re_Dc) - 3);
+            J8 := 0.0814*(log(Re_Dc) - 3);
             j := SMOOTH(
               900,
               1100,
@@ -1404,20 +1404,20 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
             Re_Dc)*j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
 
         elseif IN_con.geometry == TYP.SlitFin then
-          J1 := -0.674 + 0.1316*IN_con.N/ln(Re_Dc) - 0.3769*IN_con.F_p/IN_con.D_c -
+          J1 := -0.674 + 0.1316*IN_con.N/log(Re_Dc) - 0.3769*IN_con.F_p/IN_con.D_c -
             1.8857*IN_con.N/Re_Dc;
-          J2 := -0.0178 + 0.996*IN_con.N/ln(Re_Dc) + 26.7*IN_con.N/Re_Dc;
-          J3 := 1.865 + 1244.03*IN_con.F_p/(Re_Dc*IN_con.D_c) - 14.37/ln(Re_Dc);
+          J2 := -0.0178 + 0.996*IN_con.N/log(Re_Dc) + 26.7*IN_con.N/Re_Dc;
+          J3 := 1.865 + 1244.03*IN_con.F_p/(Re_Dc*IN_con.D_c) - 14.37/log(Re_Dc);
           j := 1.6409*Re_Dc^J1*(IN_con.S_p/IN_con.S_h)^1.16*(IN_con.P_t/IN_con.P_l)^
             1.37*(IN_con.F_p/IN_con.D_c)^J2*IN_con.N^J3;
           kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
 
         elseif IN_con.geometry == TYP.WavyFin then
           if Re_Dc < exp(2.921) then
-            j := 1.201/(ln(exp(2.921)^(A_c/IN_con.A_fr)))^2.921;
+            j := 1.201/(log(exp(2.921)^(A_c/IN_con.A_fr)))^2.921;
             kc := j*(exp(2.921)*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
           else
-            j := 1.201/((ln(Re_Dc^(A_c/IN_con.A_fr)))^2.921);
+            j := 1.201/((log(Re_Dc^(A_c/IN_con.A_fr)))^2.921);
             kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
           end if;
 

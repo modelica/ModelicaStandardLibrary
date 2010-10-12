@@ -1383,7 +1383,7 @@ Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rh
 <code>
 <ul>
 <li>either linear : Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</li>
-<li>or exponential: Kv/Kv1 = Kv0/Kv1 * exp[ln(Kv1/Kv0) * y/Y1]</li>
+<li>or exponential: Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) * y/Y1]</li>
 </ul>
 where:
 <ul>

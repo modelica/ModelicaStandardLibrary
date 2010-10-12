@@ -142,7 +142,7 @@ operator record Complex "Complex number with overloaded operators"
     input Complex c2 "Complex exponent";
     output Complex c3 "= c1^c2";
   protected
-    Real lnz=0.5*ln(c1.re*c1.re + c1.im*c1.im);
+    Real lnz=0.5*log(c1.re*c1.re + c1.im*c1.im);
     Real phi=arctan2(c1.im, c1.re);
     Real re=lnz*c2.re - phi*c2.im;
     Real im=lnz*c2.im + phi*c2.re;

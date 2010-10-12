@@ -206,7 +206,7 @@ The following integrals are computed:
       print("Absolute difference = " + String(u_err[2], format="2.0e"));
 
       print("");
-      print("Function 3 (5 + ln(u) - u = 0): ");
+      print("Function 3 (5 + log(u) - u = 0): ");
       print("Analytical zero     = " + String(u_analytical[3], format="2.16f"));
       print("Numerical zero      = " + String(u_numerical[3], format="2.16f"));
       print("Absolute difference = " + String(u_err[3], format="2.0e"));
@@ -224,7 +224,7 @@ The following nonlinear equations are solved:
 <ul>
 <li> 0 = u^2 - 1 </li>
 <li> 0 = 3*u - sin(3*u) - 1 </li>
-<li> 0 = 5 + ln(u) - u </li>
+<li> 0 = 5 + log(u) - u </li>
 </ul>
 
 </html>"));
@@ -244,13 +244,13 @@ The following nonlinear equations are solved:
       input Real w=3 "Angular velocity "
         annotation (Dialog(group="3*u - sin(w*u) - 1"));
       input Real u_min3=1 "Lower limit"
-        annotation (Dialog(group="p[1] + ln(p[2]*u) - m*u"));
+        annotation (Dialog(group="p[1] + log(p[2]*u) - m*u"));
       input Real u_max3=8 "Upper limit"
-        annotation (Dialog(group="p[1] + ln(p[2]*u) - m*u"));
+        annotation (Dialog(group="p[1] + log(p[2]*u) - m*u"));
       input Real p[2]={5,1} "Parameter vector"
-        annotation (Dialog(group="p[1] + ln(p[2]*u) - m*u"));
+        annotation (Dialog(group="p[1] + log(p[2]*u) - m*u"));
       input Real m=1 "Parameter"
-        annotation (Dialog(group="p[1] + ln(p[2]*u) - m*u"));
+        annotation (Dialog(group="p[1] + log(p[2]*u) - m*u"));
 
     protected
       Real u[3];
@@ -288,7 +288,7 @@ The following nonlinear equations are solved:
       print("Numerical zero = " + String(u[2], format="2.16f"));
 
       print("");
-      print("Function 3 (p[1] + ln(p[2]*u) - m*u): ");
+      print("Function 3 (p[1] + log(p[2]*u) - m*u): ");
       print("Numerical zero = " + String(u[3], format="2.16f"));
 
       annotation (Documentation(info="<html>
@@ -303,7 +303,7 @@ The following nonlinear equations are solved:
 <ul>
 <li> 0 = u^2 - 1 </li>
 <li> 0 = 3*u - sin(w*u) - 1 </li>
-<li> 0 = p[1] + ln(p[2]*u) - m*u </li>
+<li> 0 = p[1] + log(p[2]*u) - m*u </li>
 </ul>
 
 </html>"));
@@ -352,12 +352,12 @@ to a function in a model.
 
       end fun2;
 
-      function fun3 "y = p[1] + ln(p[2]*u) - m*u"
+      function fun3 "y = p[1] + log(p[2]*u) - m*u"
         extends Modelica.Math.Interfaces.partialScalarFunction;
         input Real p[2];
         input Real m;
       algorithm
-        y := p[1] + ln(p[2]*u) - m*u;
+        y := p[1] + log(p[2]*u) - m*u;
 
       end fun3;
 
