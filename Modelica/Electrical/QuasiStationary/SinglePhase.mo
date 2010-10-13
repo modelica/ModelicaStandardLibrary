@@ -87,7 +87,9 @@ package SinglePhase "Single phase AC components"
 The frequency of the voltage source is varied by a ramp.
 Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
 </p>
-</html>"));
+</html>"),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end SeriesResonance;
 
     model ParallelResonance "Parallel resonance circuit"
@@ -184,7 +186,9 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
 The frequency of the current source is varied by a ramp.
 Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
 </p>
-</html>"));
+</html>"),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end ParallelResonance;
 
     model Rectifier "Rectifier example"
@@ -334,8 +338,6 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           color={0,0,255},
           smooth=Smooth.None));
       annotation (Diagram(graphics),
-        experiment(Interval=0.0001),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>
 This example demonstrates coupling a quasi stationary circuit with a DC circuit.
@@ -363,7 +365,9 @@ It can be ssen that at the DC side the current is represented by its averaged va
 The quasi stationary model needs a grounding at the QS side as well as the DC side,
 wheras the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
-</html>"));
+</html>"),
+        experiment(StopTime=1.0, Interval=0.0001),
+        experimentSetupOutput);
     end Rectifier;
 
     annotation (Documentation(info="<html>

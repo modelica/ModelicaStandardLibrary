@@ -109,7 +109,8 @@ the two other examples).
               extent={{-100,-20},{-82,-40}},
               textString="3)",
               lineColor={0,0,255})}),
-        experiment(StopTime=1));
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end SignConvention;
 
     model InitialConditions "Setting of initial conditions"
@@ -222,11 +223,10 @@ combination). In this case the system is not at rest.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/Fig.translational.examples.InitialConditions.png\">
-</html>
-"),     experiment(StopTime=5),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics));
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),graphics),
+        experiment(StopTime=5.0, Interval=0.001),
+        experimentSetupOutput);
     end InitialConditions;
 
     model WhyArrows "Use of arrows in Mechanics.Translational"
@@ -348,7 +348,8 @@ problems.
               points={{-90,-28},{90,-28}},
               thickness=0.5,
               color={0,0,255})}),
-        experiment(StopTime=1));
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end WhyArrows;
 
     model Accelerate "Use of model accelerate."
@@ -377,10 +378,9 @@ problems.
 Demonstrate usage of component Sources.Accelerate by moving a massing
 with a predefined acceleration.
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                   graphics),
-        experiment(StopTime=1));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),graphics),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end Accelerate;
 
     model Damper "Use of damper models."
@@ -454,9 +454,9 @@ with a predefined acceleration.
 Demonstrate usage of damper components in different variants.
 </p>
 </html>"),
-        experiment(StopTime=1),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics));
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end Damper;
 
     model Oscillator "Oscillator demonstrates the use of initial conditions."
@@ -551,13 +551,10 @@ conditions s(start=0) and v(start=0) for the SlindingMass
 are set.
 If damping is added the amplitudes are bounded.
 </p>
-</html>
-
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        experiment(StopTime=1));
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}), graphics),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end Oscillator;
 
     model Sensors "Sensors for translational systems."
@@ -632,13 +629,10 @@ length L of the component.
 Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
-</html>
-
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        experiment(StopTime=1));
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}), graphics),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end Sensors;
 
     model Friction "Use of model Stop"
@@ -760,8 +754,9 @@ to see the difference.
      <b>reinit</b>(..), convergence problems). In this case use the ElastoGap
      to model a stop (see example Preload).</li>
 </ol>
-</html>
-"),     experiment(StopTime=5));
+</html>"),
+        experiment(StopTime=5.0, Interval=0.001),
+        experimentSetupOutput);
     end Friction;
 
     model PreLoad "Preload of a spool using ElastoGap models."
@@ -933,9 +928,9 @@ Spool position s as a function of working force f.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad2.png\">
-</html>
-
-"),     experiment(StopTime=100));
+</html>"),
+        experiment(StopTime=100, Interval=0.1),
+        experimentSetupOutput);
     end PreLoad;
 
     model ElastoGap "Demonstrate usage of ElastoGap"
@@ -1035,9 +1030,9 @@ Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5
 mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics),
-        experiment(StopTime=10));
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100}, {100,100}}), graphics),
+        experiment(StopTime=1.0, Interval=0.01),
+        experimentSetupOutput);
     end ElastoGap;
 
     model Brake "Demonstrate braking of a translational moving mass"
@@ -1089,7 +1084,6 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
-        experiment(StopTime=2),
         Documentation(info="<html>
 <p>
 This model consists of a mass with an initial velocity of 1 m/s.
@@ -1097,8 +1091,9 @@ After 0.1 s, a brake is activated and it is shown that the mass decelerates unti
 it arrives at rest and remains at rest. Two versions of this system are present,
 one where the brake is implicitly grounded and one where it is explicitly grounded.
 </p>
-
-</html>"));
+</html>"),
+        experiment(StopTime=2.0, Interval=0.001),
+        experimentSetupOutput);
     end Brake;
 
     model HeatLosses "Demonstrate the modeling of heat losses"
@@ -1269,8 +1264,6 @@ one where the brake is implicitly grounded and one where it is explicitly ground
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-120,
                 -100},{200,100}}),
                           graphics),
-        experiment(StopTime=2),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a Translational model,
@@ -1279,7 +1272,9 @@ a convection element to the environment. The total heat flow generated by the
 elements and transported to the environment
 is present in variable convection.fluid.
 </p>
-</html>"));
+</html>"),
+        experiment(StopTime=2.0, Interval=0.001),
+        experimentSetupOutput);
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"

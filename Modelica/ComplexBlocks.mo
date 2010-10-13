@@ -33,7 +33,9 @@ extends Modelica.Icons.Package;
       annotation ( Documentation(info="<html>
 <p>A Complex signal is defined by its length and angle, both linearly rising with time.
 Plotting the imaginary part versus the real part, you will see an Archimedean spiral.</p>
-</html>"));
+</html>"),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end TestConversionBlock;
     annotation(Documentation(info="<html>
 <p>This library demonstrates the usage of Complex blocks.</p>

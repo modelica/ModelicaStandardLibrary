@@ -1061,7 +1061,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}),
                   graphics),
-          experiment(StopTime=5, Interval=0.001),
+          experiment(StopTime=5.0, Interval=0.001),
           Documentation(info="<HTML>
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
@@ -1539,7 +1539,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.001),
+          experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
 A synchronous induction machine with permanent magnets accelerates a quadratic speed dependent load from standstill.
@@ -2001,9 +2001,8 @@ This package contains test examples of synchronous induction machines.
       equation
         connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,70},{-10,
                 70},{-10,47}}, color={0,0,255}));
-        connect(signalVoltage.p, dcpm.pin_ap)   annotation (Line(points={{
-                5.55112e-16,40},{5.55112e-16,-20},{-4,-20},{-4,-30}},
-                                           color={0,0,255}));
+        connect(signalVoltage.p, dcpm.pin_ap)   annotation (Line(points={{0,40},{0,-20},
+                {-4,-20},{-4,-30}},        color={0,0,255}));
         connect(signalVoltage.n, ground.p)   annotation (Line(points={{-20,40},{
                 -60,40}}, color={0,0,255}));
         connect(dcpm.pin_an, signalVoltage.n)   annotation (Line(points={{-16,-30},
@@ -2011,14 +2010,14 @@ This package contains test examples of synchronous induction machines.
         connect(loadInertia.flange_b, loadTorqueStep.flange)
           annotation (Line(points={{60,-40},{70,-40}}, color={0,0,0}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
-            points={{5.55112e-16,-40},{40,-40}},
+            points={{0,-40},{40,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.001),
+          experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start,
@@ -2109,7 +2108,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.001),
+          experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Electrically separate excited DC machine started with an armature voltage ramp</b><br>
 A voltage ramp is applied to the armature, causing the DC machine to start,
@@ -2202,7 +2201,7 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.001),
+          experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Series excited DC machine started with a series resistor</b><br>
 At constant source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
@@ -2294,7 +2293,7 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.0005),
+          experiment(StopTime=2.0, Interval=0.0005),
           Documentation(info="<HTML>
 <b>Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</b><br>
 At sinusoidal source voltage, a series resistor limiting the armature current, is reduced according to a ramp, causing the DC machine to start,
@@ -2467,11 +2466,10 @@ Default machine parameters are used.
           annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
-          annotation (Line(points={{30,6.10623e-16},{30,6.10623e-16},{40,
-                6.10623e-16}},                         color={0,0,0}));
+          annotation (Line(points={{30,0},{30,0},{40,0}},
+                                                       color={0,0,0}));
         connect(dcpm.flange, loadInertia.flange_a) annotation (Line(
-            points={{5.55112e-16,6.10623e-16},{2.5,6.10623e-16},{2.5,
-                1.22125e-15},{5,1.22125e-15},{5,6.10623e-16},{10,6.10623e-16}},
+            points={{0,0},{2.5,0},{2.5,1.22125e-015},{5,1.22125e-015},{5,0},{10,0}},
             color={0,0,0},
             smooth=Smooth.None));
 
@@ -2504,7 +2502,7 @@ Default machine parameters are used.
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=3, Interval=0.001),
+          experiment(StopTime=3.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
 The motor starts at no-load speed, then a load step is applied.<br>
@@ -2840,7 +2838,7 @@ Default machine parameters are used, but:
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.001),
+          experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Compare DCPM motors transient and quasistationary</b><br>
 The motors start at no-load speed, then load pulses are applied.<br>
@@ -2968,7 +2966,7 @@ Simulate for 2 seconds and plot (versus time):
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}),
                   graphics),
-          experiment(StopTime=2, Interval=0.001),
+          experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Investigate influence of losses on DCPM motor performance</b><br>
 Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
@@ -3178,7 +3176,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=0.1));
+          experiment(StopTime=0.1, Interval=0.001),
+          experimentSetupOutput);
       end TransformerTestbench;
 
       model AsymmetricalLoad "AsymmetricalLoad"
@@ -3284,7 +3283,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=0.1));
+          experiment(StopTime=0.1, Interval=0.001));
       end AsymmetricalLoad;
 
       model Rectifier6pulse "6-pulse rectifier with 1 transformer"
@@ -3406,7 +3405,8 @@ neglecting initial transient.
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                      graphics),
-          experiment(StopTime=0.1));
+          experiment(StopTime=0.1, Interval=0.0001),
+          experimentSetupOutput);
       end Rectifier6pulse;
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
@@ -3467,7 +3467,8 @@ neglecting initial transient.
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                      graphics),
-          experiment(StopTime=0.1));
+          experiment(StopTime=0.1, Interval=0.0001),
+          experimentSetupOutput);
       end Rectifier12pulse;
 
       model AIMC_Transformer

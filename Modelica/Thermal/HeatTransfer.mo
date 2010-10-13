@@ -1,5 +1,6 @@
 within Modelica.Thermal;
 
+
 package HeatTransfer
   "Library of 1-dimensional heat transfer with lumped elements"
   import Modelica.SIunits.Conversions.*;
@@ -53,8 +54,9 @@ Simulate for 5 s and plot the variables<br>
 mass1.T, mass2.T, T_final_K or <br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
-</HTML>
-"));
+</HTML>"),
+        experiment(StopTime=1.0, Interval=0.001),
+        experimentSetupOutput);
     end TwoMasses;
 
     model ControlledTemperature "Control temperature of a resistor"
@@ -158,7 +160,8 @@ An approppriate simulating time would be 10 seconds.
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
             graphics),
-        experiment(StopTime=10));
+        experiment(StopTime=10, Interval=0.001),
+        experimentSetupOutput);
     end ControlledTemperature;
 
     model Motor "Second order thermal model of a motor"
@@ -278,11 +281,10 @@ Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant a
 <p>
 Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
-</HTML>
-"),     experiment(StopTime=7200),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        experiment(StopTime=7200, Interval=0.01),
+        experimentSetupOutput);
     end Motor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics),
