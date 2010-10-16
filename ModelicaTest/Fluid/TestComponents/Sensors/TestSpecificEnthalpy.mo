@@ -47,6 +47,5 @@ equation
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}),
             graphics),
-    experiment(Tolerance=1e-006),
-    experimentSetupOutput);
+    experiment(Tolerance=1e-006));
 end TestSpecificEnthalpy;

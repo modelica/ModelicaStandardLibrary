@@ -338,7 +338,6 @@ end inverter;
           StopTime=1e-011,
           NumberOfIntervals=2000,
           Tolerance=1e-007),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
 <p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
@@ -458,7 +457,6 @@ end inverter;
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics),
         experiment(StopTime=5),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
@@ -588,7 +586,6 @@ end inverter;
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics),
         experiment(StopTime=5),
-        experimentSetupOutput,
         DymolaStoredErrors,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
@@ -777,7 +774,6 @@ end inverter;
             extent={{-100,-100},{100,100}},
             initialScale=0.1), graphics),
         experiment(StopTime=5),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
 <p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
@@ -910,8 +906,7 @@ end inverter;
 <li><i>May 2009 </i>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
-        experiment(StopTime=2e-007),
-        experimentSetupOutput);
+        experiment(StopTime=2e-007));
     end Nand;
 
     model Nor "MOS NOR gate circuit"
@@ -1070,8 +1065,7 @@ end inverter;
 <li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
-        experiment(StopTime=5),
-        experimentSetupOutput);
+        experiment(StopTime=5));
     end Nor;
 
     model Graetz "Graetz rectifier circuit"
@@ -1148,7 +1142,6 @@ end inverter;
         Diagram(graphics),
         Icon(graphics),
         experiment(StopTime=0.025),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
 <p>Simulator until 0.025 s. Then display the input voltge vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
@@ -1285,7 +1278,6 @@ end inverter;
       annotation (Diagram(graphics),
         Icon(graphics),
         experiment(StopTime=0.025),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
 <p>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>

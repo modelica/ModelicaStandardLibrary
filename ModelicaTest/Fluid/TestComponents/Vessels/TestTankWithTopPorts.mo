@@ -92,6 +92,5 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}),
                       graphics),
-    experiment(StopTime=5000, Tolerance=1e-005),
-    experimentSetupOutput(equdistant=false));
+    experiment(StopTime=5000, Tolerance=1e-005));
 end TestTankWithTopPorts;

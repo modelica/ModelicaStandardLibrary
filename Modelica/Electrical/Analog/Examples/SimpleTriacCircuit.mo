@@ -65,7 +65,6 @@ equation
       StopTime=0.001,
       NumberOfIntervals=2000,
       Tolerance=1e-012),
-    experimentSetupOutput,
     Documentation(revisions="<html>
 <ul>
 <li><i>November 25, 2009   </i> <br>

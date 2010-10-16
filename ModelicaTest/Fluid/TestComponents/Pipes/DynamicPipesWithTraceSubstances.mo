@@ -312,7 +312,6 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}), graphics),
                        experiment(StopTime=20, Tolerance=1e-005),
-    experimentSetupOutput,
     Documentation(info="<html>
 Test of different dynamic pipe models with trace substances.
 </html>"));

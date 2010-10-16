@@ -529,8 +529,7 @@ in the housing on one side via component Fixed.</p>
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end First;
 
     model FirstGrounded
@@ -610,8 +609,7 @@ in the housing on one side via component Fixed.</p>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
                    graphics),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end FirstGrounded;
 
     model Friction "Drive train with clutch and brake"
@@ -741,8 +739,7 @@ values (defined already in the model):</p>
             preserveAspectRatio=true,
             extent={{-180,-100},{120,100}},
             grid={2,2}), graphics),
-        experiment(StopTime=3.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=3.0, Interval=0.001));
     end Friction;
 
     model CoupledClutches "Drive train with 3 dynamically coupled clutches"
@@ -867,8 +864,7 @@ locked, forward sliding.</p>
                 140,80}},
             grid={2,2}),
                 graphics),
-        experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.5, Interval=0.001));
     end CoupledClutches;
 
     model LossyGearDemo1
@@ -951,8 +947,7 @@ gear.mode  :  1 = forward rolling
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-80},{100,
                 80}}),
             graphics),
-        experiment(StopTime=0.5, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo1;
 
     model LossyGearDemo2
@@ -1053,8 +1048,7 @@ as component LossyGear includes the functionality of component BearingFriction
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{100,
                 80}}),
             graphics),
-        experiment(StopTime=0.5, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo2;
 
     model LossyGearDemo3
@@ -1121,8 +1115,7 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
 (no convergence of the event iteration).
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end LossyGearDemo3;
 
     model ElasticBearing "Example to show possible usage of support flange"
@@ -1198,8 +1191,7 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
 <code>shaft.w</code> and <code>load.w</code>.</p>
 </html>"),
-        experiment(StopTime=10, Interval=0.01),
-        experimentSetupOutput);
+        experiment(StopTime=10, Interval=0.01));
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
@@ -1259,8 +1251,7 @@ also that the damping torque does not lead to unphysical pulling torques
 (since the ElastoBacklash model takes care of it).
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end Backlash;
 
     model RollingWheel "Demonstrate coupling Rotational - Translational"
@@ -1312,8 +1303,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics),
-        experiment(StopTime=5.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=5.0, Interval=0.001));
     end RollingWheel;
 
     model HeatLosses "Demonstrate the modeling of heat losses"
@@ -1527,8 +1517,7 @@ elements of the drive train and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.0001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.0001));
     end HeatLosses;
 
     model SimpleGearShift "Simple Gearshift"
@@ -1616,7 +1605,6 @@ is present in variable convection.fluid.
       annotation (
         Diagram(graphics),
         experiment(StopTime=5, Interval=0.01),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch. </p>
 <ul>

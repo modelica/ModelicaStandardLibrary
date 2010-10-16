@@ -121,8 +121,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end SimpleCooling;
 
     model ParallelCooling "Example: coolig circuit with parallel branches"
@@ -323,8 +322,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end ParallelCooling;
 
     model IndirectCooling "Example: indirect cooling circuit"
@@ -529,8 +527,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.5, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.5, Interval=0.001));
     end IndirectCooling;
 
     model PumpAndValve "Example: cooling circuit with pump and valve"
@@ -655,8 +652,7 @@ You may try to:
 </ul>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=2.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=2.0, Interval=0.001));
     end PumpAndValve;
 
     model PumpDropOut "Example: cooling circuit with drop out of pump"
@@ -746,8 +742,7 @@ The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=2.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=2.0, Interval=0.001));
     end PumpDropOut;
 
     model ParallelPumpDropOut
@@ -900,8 +895,7 @@ The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=2.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=2.0, Interval=0.001));
     end ParallelPumpDropOut;
 
     model OneMass "Example: ccoling of one hot mass"
@@ -979,8 +973,7 @@ Different inital temperatures of thermal capacity and pipe's coolant get ambient
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end OneMass;
 
     model TwoMass "Example: cooling of two hot masses"
@@ -1103,8 +1096,7 @@ Different inital temperatures of thermal capacities and pipe's coolants get ambi
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;
 
     package Utilities "Utility models for examples"

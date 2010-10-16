@@ -96,7 +96,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =
             Modelica.Fluid.Fittings.Bends.CurvedBend(geometry=geometry));
-      annotation (experiment(StopTime=1.01), experimentSetupOutput);
+      annotation (experiment(StopTime=1.01));
     end CurvedBend;
 
     model EdgedBend
@@ -106,7 +106,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =
             Modelica.Fluid.Fittings.Bends.EdgedBend(geometry=geometry));
-      annotation (experiment(StopTime=1.01), experimentSetupOutput);
+      annotation (experiment(StopTime=1.01));
     end EdgedBend;
   end Bends;
 
@@ -121,7 +121,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =
             Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice(geometry=geometry));
-      annotation (experiment(StopTime=1.01), experimentSetupOutput,
+      annotation (experiment(StopTime=1.01),
         Diagram(graphics));
     end ThickEdgedOrifice;
   end Orifices;
@@ -135,7 +135,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =
             Modelica.Fluid.Fittings.GenericResistances.VolumeFlowRate(a=a,b=b));
-      annotation (experiment(StopTime=1.01), experimentSetupOutput);
+      annotation (experiment(StopTime=1.01));
     end VolumeFlowRate;
   end GenericResistances;
 end NewFittings;

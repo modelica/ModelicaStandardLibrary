@@ -126,8 +126,7 @@ are choosen such way that the neutral current (see currentSensor0) is zero.
 P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 42, example 18
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end BalancingStar;
 
     model BalancingDelta "Balancing an unsymmetrical delta-connected load"
@@ -255,8 +254,7 @@ are choosen such way that the magnitudes of the three phase currents (see curren
 P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 43, example 23
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end BalancingDelta;
 
     annotation (Documentation(info="<html>

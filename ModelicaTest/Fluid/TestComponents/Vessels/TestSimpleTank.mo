@@ -71,6 +71,5 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),
-    experiment(StopTime=100),
-    experimentSetupOutput);
+    experiment(StopTime=100));
 end TestSimpleTank;

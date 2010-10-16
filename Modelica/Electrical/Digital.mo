@@ -702,7 +702,8 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             graphics),
         Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the rersults plot bothe the input vector x and the output vector y.</p>
-</html>"));
+</html>"),
+        experiment(StopTime=1.01));
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"
@@ -743,7 +744,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=25),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREG component.</p>
 </html>"));
@@ -791,7 +791,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=25),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGL component.</p>
 </html>"));
@@ -842,7 +841,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=15),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRH component.</p>
 </html>"));
@@ -892,7 +890,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=15),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRL component.</p>
 </html>"));
@@ -937,7 +934,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=25),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREG component.</p>
 </html>"));
@@ -981,7 +977,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=25),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGL component.</p>
 </html>"));
@@ -1037,7 +1032,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=25),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRH component.</p>
 </html>"));
@@ -1092,7 +1086,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
             graphics),
             experiment(StopTime=25),
-            experimentSetupOutput,
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRL component.</p>
 </html>"));
@@ -1134,7 +1127,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics),
             experiment(StopTime=12),
-            experimentSetupOutput,
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NXFERGATE component.</p>
 </html>"));
@@ -1176,7 +1168,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics),
             experiment(StopTime=12),
-            experimentSetupOutput,
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
 </html>"));
@@ -1220,7 +1211,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics),
             experiment(StopTime=12),
-            experimentSetupOutput,
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the bUF3S<code> </code>component. To verify the result compare to the truth table Buf3sTable.</p>
 </html>"));
@@ -1261,7 +1251,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics),
             experiment(StopTime=12),
-            experimentSetupOutput,
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the iNV3S<code> </code>component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
 </html>"));
@@ -1342,7 +1331,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics),
             experiment(StopTime=12),
-            experimentSetupOutput,
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
 </html>"));

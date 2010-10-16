@@ -242,7 +242,6 @@ equation
       smooth=Smooth.None));
   annotation (Diagram(graphics),
       experiment(StopTime=0.9),
-      experimentSetupOutput,
     Icon(graphics={Text(
             extent={{-82,54},{86,22}},
             lineColor={0,0,0},
@@ -307,7 +306,6 @@ equation
         smooth=Smooth.None));
   annotation (Diagram(graphics),
       experiment(StopTime=0.9),
-      experimentSetupOutput,
     Icon(graphics={Text(
             extent={{-82,54},{86,22}},
             lineColor={0,0,0},
@@ -359,7 +357,6 @@ end FilterWithDifferentiation;
     annotation (
       Diagram(graphics),
       experiment(StopTime=4),
-      experimentSetupOutput,
       Documentation(info="<html>
 <p>
 Filters are usually parameterized with the cut-off frequency.
@@ -549,7 +546,8 @@ agreement. A typical simulation result is shown in the next figure:
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModel.png\">
-</html>"));
+</html>"),
+      experiment(StopTime=1.0));
   end InverseModel;
 
      model ShowLogicalSources
@@ -728,8 +726,7 @@ Note, that
      \"circle\" is \"green\", the signal is <b>true</b>.</li>
 </ul>
 
-</html>"),
-      experimentSetupOutput);
+</html>"));
     end RealNetwork1;
 
     model IntegerNetwork1
@@ -849,8 +846,7 @@ Note, that
 
 </ul>
 
-</html>"),
-      experimentSetupOutput);
+</html>"));
     end IntegerNetwork1;
 
     model BooleanNetwork1
@@ -1045,8 +1041,7 @@ Note, that
 
 </ul>
 
-</html>"),
-      experimentSetupOutput);
+</html>"));
     end BooleanNetwork1;
 
     model Interaction1
@@ -1094,8 +1089,7 @@ from package <a href=\"Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction
 to show how diagram animations can be constructed.
 </p>
 
-</html>"),
-      experimentSetupOutput);
+</html>"));
     end Interaction1;
 
   model BusUsage "Demonstrates the usage of a signal bus"

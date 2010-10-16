@@ -330,8 +330,7 @@ This example demonstrates how to utilize a function as input argument
 to a function in a model.
 </p>
 </html>"),
-        experiment(StopTime=5),
-        experimentSetupOutput);
+        experiment(StopTime=5));
     end quadratureLobatto3;
 
     package UtilityFunctions

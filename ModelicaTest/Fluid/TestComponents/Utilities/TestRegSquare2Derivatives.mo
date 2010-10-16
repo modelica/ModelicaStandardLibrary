@@ -33,6 +33,5 @@ equation
   y2 = Modelica.Fluid.Utilities.regSquare2(x,x_small, k1, k2, true, 0.02);
   y2d = der(y2);
   y2dd = der(y2d);
-  annotation (experiment(StopTime=2, NumberOfIntervals=5000),
-                                      experimentSetupOutput);
+  annotation (experiment(StopTime=2, NumberOfIntervals=5000));
 end TestRegSquare2Derivatives;

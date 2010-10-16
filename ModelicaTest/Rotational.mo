@@ -97,7 +97,6 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
                 -100,-100},{100,100}}), graphics),
         experiment(StopTime=2),
-        experimentSetupOutput,
                   Diagram, experiment(StopTime=1.1));
     end ConnectionPossibilities;
 
@@ -170,8 +169,7 @@ extends Modelica.Icons.ExamplesPackage;
                 -100,-100},{100,100}}), graphics),
                            experiment(StopTime=1.1),
                   Diagram,
-        experiment(StopTime=2),
-        experimentSetupOutput);
+        experiment(StopTime=2));
     end SupportTorque1;
 
     model Directions
@@ -328,8 +326,7 @@ extends Modelica.Icons.ExamplesPackage;
               lineColor={0,0,0},
               textString=
                    "(positive) axis of rotation")}),
-        experiment(StopTime=2),
-        experimentSetupOutput);
+        experiment(StopTime=2));
     end Directions;
 
     model Directions2
@@ -2024,8 +2021,7 @@ extends Modelica.Icons.ExamplesPackage;
           preserveAspectRatio=false,
           extent={{-100,-300},{300,200}},
           initialScale=0.1), graphics),
-      experiment(StopTime=0.5),
-      experimentSetupOutput);
+      experiment(StopTime=0.5));
   end TestBearingConversion;
 
   model TestFriction "Test friction elements"

@@ -44,7 +44,6 @@ equation
   annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
     experiment(StopTime=2),
-    experimentSetupOutput,
     Documentation(revisions="<html>
 <ul>
 <li><i>November 25, 2009   </i> <br>

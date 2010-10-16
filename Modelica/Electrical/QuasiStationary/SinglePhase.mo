@@ -88,8 +88,7 @@ The frequency of the voltage source is varied by a ramp.
 Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end SeriesResonance;
 
     model ParallelResonance "Parallel resonance circuit"
@@ -187,8 +186,7 @@ The frequency of the current source is varied by a ramp.
 Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end ParallelResonance;
 
     model Rectifier "Rectifier example"
@@ -366,8 +364,7 @@ The quasi stationary model needs a grounding at the QS side as well as the DC si
 wheras the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.0001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.0001));
     end Rectifier;
 
     annotation (Documentation(info="<html>

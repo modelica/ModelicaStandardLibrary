@@ -196,7 +196,6 @@ equation
       smooth=Smooth.None));
   annotation (Diagram(graphics),
     experiment(StopTime=3),
-    experimentSetupOutput,
     Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a multi-body

@@ -65,7 +65,6 @@ equation
   annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
     experiment(StopTime=0.2),
-    experimentSetupOutput,
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics),
     Documentation(info="<html>

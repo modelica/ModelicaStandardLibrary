@@ -16,7 +16,6 @@ equation
   y = (if x >= 0 then k1 else k2)*Modelica.Fluid.Utilities.regRoot(x,x_small);
   yd = 0 "model does not translate if y=0 is replaced by y=der(y)";
   annotation (experiment(StopTime=2, NumberOfIntervals=5000),
-                                      experimentSetupOutput,
     Documentation(info="<html>
 <p>
 This test model demonstrates that the regRoot(..) function cannot

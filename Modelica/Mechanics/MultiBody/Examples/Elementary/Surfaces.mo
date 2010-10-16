@@ -105,7 +105,6 @@ equation
       smooth=Smooth.None));
   annotation (Diagram(graphics),
     experiment(StopTime=5),
-    experimentSetupOutput,
     Documentation(info="<html>
 <p>
 This example demonstrates the use of the

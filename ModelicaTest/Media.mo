@@ -88,28 +88,28 @@ extends Modelica.Icons.ExamplesPackage;
       extends Modelica.Icons.Example;
       extends PartialMediumFunctions(redeclare package Medium =
             Modelica.Media.Air.DryAirNasa, eps_h_is=0.1);
-      annotation (experiment(StopTime=0.1), experimentSetupOutput);
+      annotation (experiment(StopTime=0.1));
     end DryAirNasa;
 
     model LinearColdWater
       extends Modelica.Icons.Example;
       extends PartialMediumFunctions(redeclare package Medium =
             Modelica.Media.CompressibleLiquids.LinearColdWater);
-      annotation (experiment(StopTime=0.1), experimentSetupOutput);
+      annotation (experiment(StopTime=0.1));
     end LinearColdWater;
 
     model LinearWater_pT_Ambient
       extends Modelica.Icons.Example;
       extends PartialMediumFunctions(redeclare package Medium =
             Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient);
-      annotation (experiment(StopTime=0.1), experimentSetupOutput);
+      annotation (experiment(StopTime=0.1));
     end LinearWater_pT_Ambient;
 
     model CO2
       extends Modelica.Icons.Example;
       extends PartialMediumFunctions(redeclare package Medium =
             Modelica.Media.IdealGases.SingleGases.CO2, eps_h_is=0.2);
-      annotation (experiment(StopTime=0.1), experimentSetupOutput);
+      annotation (experiment(StopTime=0.1));
     end CO2;
 
     model FlueGasSixComponents
@@ -200,14 +200,14 @@ extends Modelica.Icons.ExamplesPackage;
       extends Modelica.Icons.Example;
       extends PartialMediumFunctions(redeclare package Medium =
             Modelica.Media.Water.ConstantPropertyLiquidWater);
-      annotation (experiment(StopTime=0.1), experimentSetupOutput);
+      annotation (experiment(StopTime=0.1));
     end ConstantPropertyLiquidWater;
 
     model SimpleAir
       extends Modelica.Icons.Example;
       extends PartialMediumFunctions(redeclare package Medium =
             Modelica.Media.Air.SimpleAir);
-      annotation (experiment(StopTime=0.1), experimentSetupOutput);
+      annotation (experiment(StopTime=0.1));
     end SimpleAir;
 
     package IncompleteMedia

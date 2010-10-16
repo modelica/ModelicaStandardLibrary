@@ -52,7 +52,6 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (experiment(StopTime=10, Tolerance=1e-008),
-                                      experimentSetupOutput,
     Diagram(graphics),
     Documentation(info="<html>
 <p>

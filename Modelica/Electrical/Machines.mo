@@ -1547,7 +1547,7 @@ The rms values of d- and q-current in rotor fixed coordinate system are converte
 and fed to the machine. The result shows that the torque is influenced by the q-current,
 whereas the stator voltage is influenced by the d-current.<br>
 Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
-</HTML>"),experimentSetupOutput);
+</HTML>"));
       end SMPM_CurrentSource;
 
       model SMEE_Generator
@@ -1950,7 +1950,7 @@ Simulate for 10 seconds and plot:
 </ul>
 Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
 One could try to optimize the controller parameters.
-</html>"),experimentSetupOutput);
+</html>"));
       end SMEE_LoadDump;
       annotation (Documentation(info="<HTML>
 This package contains test examples of synchronous induction machines.
@@ -2410,8 +2410,7 @@ Simulate for 3 seconds and plot (versus time):
 <li>dcxx.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters are used.
-</HTML>"),
-      experimentSetupOutput);
+</HTML>"));
   end DC_CompareCharacteristics;
 */
       model DCPM_Temperature
@@ -2522,7 +2521,7 @@ Default machine parameters are used, but:
 </ul>
 So the machine is at the beginning in cold condition, ending in warm condition
 (with the same armature resistance as the unmodified machine).
-</HTML>"),experimentSetupOutput);
+</HTML>"));
       end DCPM_Temperature;
 
       model DCPM_Cooling "Test example: Cooling of a DCPM motor"
@@ -2851,7 +2850,7 @@ Simulate for 2 seconds and plot (versus time):
 <li>dcpm2.wMechanical: motor's speed of quasistationary model</li>
 <li>dcpm2.tauElectrical: motor's torque of quasistationary model</li>
 </ul>
-</HTML>"),experimentSetupOutput);
+</HTML>"));
       end DCPM_QuasiStationary;
 
       model DCPM_withLosses
@@ -3176,8 +3175,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
                   graphics),
-          experiment(StopTime=0.1, Interval=0.001),
-          experimentSetupOutput);
+          experiment(StopTime=0.1, Interval=0.001));
       end TransformerTestbench;
 
       model AsymmetricalLoad "AsymmetricalLoad"
@@ -3405,8 +3403,7 @@ neglecting initial transient.
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                      graphics),
-          experiment(StopTime=0.1, Interval=0.0001),
-          experimentSetupOutput);
+          experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier6pulse;
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
@@ -3467,8 +3464,7 @@ neglecting initial transient.
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}),
                      graphics),
-          experiment(StopTime=0.1, Interval=0.0001),
-          experimentSetupOutput);
+          experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier12pulse;
 
       model AIMC_Transformer

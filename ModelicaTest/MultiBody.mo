@@ -779,8 +779,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics),
-        experimentSetupOutput);
+                {100,100}}), graphics));
     end JointUSR;
 
     encapsulated model JointSSR
@@ -4502,8 +4501,7 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         annotation (
-          experiment(StopTime=5),
-          experimentSetupOutput);
+          experiment(StopTime=5));
       end GearConstraint;
     end Rotor1D;
   end Parts;
@@ -5909,7 +5907,6 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=1.1),
-        experimentSetupOutput,
                   experiment(StopTime=1.1));
     end CutForceAndTorque3;
   end Sensors;
@@ -6160,8 +6157,7 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         Diagram(graphics),
-        experiment(StopTime=2),
-        experimentSetupOutput);
+        experiment(StopTime=2));
     end Torus;
 
     model VoluminousWheel
@@ -6344,8 +6340,7 @@ often possible to use the FreeMotion joint such that the singularity
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-140},
                 {100,100}}),
                 graphics),
-        experiment(StopTime=0.1),
-        experimentSetupOutput);
+        experiment(StopTime=0.1));
     end ColorMaps;
   end Visualizers;
 
@@ -6511,8 +6506,7 @@ often possible to use the FreeMotion joint such that the singularity
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics),
-        experiment(StopTime=1.1),
-        experimentSetupOutput);
+        experiment(StopTime=1.1));
     end Rotor1D;
 
     model Joints
@@ -6725,8 +6719,7 @@ often possible to use the FreeMotion joint such that the singularity
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics),
-        experiment(StopTime=0.2),
-        experimentSetupOutput);
+        experiment(StopTime=0.2));
     end Joints;
 
     model Bodies
@@ -6797,7 +6790,7 @@ often possible to use the FreeMotion joint such that the singularity
                            annotation (Placement(transformation(extent={{-44,0},
                 {-24,20}}, rotation=0)));
 
-      annotation (experiment(StopTime=0.2), experimentSetupOutput);
+      annotation (experiment(StopTime=0.2));
     end Bodies;
 
     partial model Internal

@@ -84,8 +84,7 @@ The initial equations are consistent however and a tool shall reduce them approp
             lineColor={0,0,255},
             textString=
                 "A translator should remove consistently overdetermined initial equations.")}),
-      experiment(StopTime=4),
-      experimentSetupOutput);
+      experiment(StopTime=4));
   end DynamicPipeLumpedPressureInitialization;
 
   model DynamicPipeInitialValues
@@ -178,7 +177,6 @@ The initial equations are consistent however and a tool shall reduce them approp
             lineColor={0,0,255},
             textString=
                 "Work-around 1: change pipe.modelStructure from av_vb to a_vb")}),
-      experiment(StopTime=4),
-      experimentSetupOutput);
+      experiment(StopTime=4));
   end DynamicPipeInitialValues;
 end TestOverdeterminedInitial;

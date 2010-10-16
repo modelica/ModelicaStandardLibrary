@@ -35,7 +35,7 @@ equation
 
   der_m_flow1 = der(m_flow1);
   // der_m_flow2 = der(m_flow2);
-  annotation (experiment(StopTime=3), experimentSetupOutput,
+  annotation (experiment(StopTime=3),
     Documentation(info="<html>
 
 </html>"));

@@ -393,7 +393,7 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Blocks.Sources.IntegerTable integerTable4(table=[0,1; 1,4; 1.5,5;
           2,6; 4,7])
       annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-    annotation (experiment(StopTime=3), experimentSetupOutput);
+    annotation (experiment(StopTime=3));
   end IntegerTable;
 
   package FilterTests "Test of Blocks.Continuous.Filter"
@@ -407,7 +407,7 @@ extends Modelica.Icons.ExamplesPackage;
         annotation (Placement(transformation(extent={{-60,0},{-40,20}})));
       Basic basicWithGain(gain=1.4)
         annotation (Placement(transformation(extent={{-20,40},{0,60}})));
-      annotation (experiment(StopTime=1.1), experimentSetupOutput);
+      annotation (experiment(StopTime=1.1));
     end AllOptions;
 
   model Basic
@@ -548,7 +548,6 @@ extends Modelica.Icons.ExamplesPackage;
         smooth=Smooth.None));
     annotation (Diagram(graphics),
         experiment(StopTime=0.9),
-        experimentSetupOutput,
       Icon(graphics={Text(
               extent={{-82,54},{86,22}},
               lineColor={0,0,0},

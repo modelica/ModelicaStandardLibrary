@@ -55,8 +55,7 @@ mass1.T, mass2.T, T_final_K or <br>
 Tsensor1.T, Tsensor2.T, T_final_degC
 </p>
 </HTML>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end TwoMasses;
 
     model ControlledTemperature "Control temperature of a resistor"
@@ -160,8 +159,7 @@ An approppriate simulating time would be 10 seconds.
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}),
             graphics),
-        experiment(StopTime=10, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
 
     model Motor "Second order thermal model of a motor"
@@ -283,8 +281,7 @@ Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
-        experiment(StopTime=7200, Interval=0.01),
-        experimentSetupOutput);
+        experiment(StopTime=7200, Interval=0.01));
     end Motor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics),

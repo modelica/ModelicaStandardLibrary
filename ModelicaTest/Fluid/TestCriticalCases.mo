@@ -115,8 +115,7 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics),
-      experiment(StopTime=10),
-      experimentSetupOutput);
+      experiment(StopTime=10));
   end IdealMixing1;
 
   model DynamicPipeClosingValve "This test demonstrates the importance of smooth regularization of fluid properties for reversing flow.
@@ -241,7 +240,6 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics),
       experiment(StopTime=4),
-      experimentSetupOutput,
       Documentation(info="<html>
 The simulation shall start in steady-state (see system.energyDynamics on the Assumptions tab).
 This requires the solution of an equation system with complex non-linear expressions for the
@@ -355,7 +353,6 @@ The steady-state initial values are observed by an assertion.
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -455,7 +452,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -564,7 +560,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -678,7 +673,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes. The simulation fails at t=0 due to lack of initialization of the splitter state variables.
 </html>"));
@@ -762,7 +756,6 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with the valve open. At t=1, the valve is closed, and the simulation fails.
 </html>"));
@@ -895,7 +888,6 @@ fails for zero flow rate.
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1010,7 +1002,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1127,7 +1118,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1245,7 +1235,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1361,7 +1350,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1486,7 +1474,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5, Tolerance=1e-007),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1609,7 +1596,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1690,7 +1676,6 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               100,100}}),
               graphics),
       experiment(StopTime=5),
-      experimentSetupOutput(equdistant=false),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -1759,8 +1744,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics),
-      experiment(StopTime=4),
-      experimentSetupOutput);
+      experiment(StopTime=4));
   end LumpedPipeInitialization;
 
 end TestCriticalCases;

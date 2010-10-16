@@ -105,6 +105,5 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (Diagram(graphics),
-    experiment(StopTime=10),
-    experimentSetupOutput);
+    experiment(StopTime=10));
 end TestDelayedValve;

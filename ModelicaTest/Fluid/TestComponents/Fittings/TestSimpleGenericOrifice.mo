@@ -68,7 +68,6 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}}), graphics),
     experiment(StopTime=10, NumberOfIntervals=10000),
-    experimentSetupOutput,
     Documentation(info="<html>
 </html>"));
 end TestSimpleGenericOrifice;

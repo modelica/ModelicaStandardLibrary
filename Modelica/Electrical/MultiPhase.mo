@@ -97,8 +97,7 @@ Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
 </HTML>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end TransformerYY;
 
     model TransformerYD "Test example with multiphase components"
@@ -194,8 +193,7 @@ Using f=5 Hz LT=3mH defines nominal voltage drop of approximately 10 %.<br>
 Simulate for 1 second (2 periods) and compare voltages and currents of source, transformer and load.
 </p>
 </HTML>"),
-        experiment(StopTime=1.0, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.001));
     end TransformerYD;
 
     model Rectifier "Test example with multiphase components"
@@ -291,8 +289,7 @@ Using f=5 Hz, simulate for 1 second (2 periods) and compare voltages and current
 neglecting initial transient.
 </p>
 </HTML>"),
-        experiment(StopTime=1.0, Interval=0.0001),
-        experimentSetupOutput);
+        experiment(StopTime=1.0, Interval=0.0001));
     end Rectifier;
     annotation (Documentation(info="<HTML>
 <p>

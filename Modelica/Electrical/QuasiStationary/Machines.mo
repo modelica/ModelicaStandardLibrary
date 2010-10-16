@@ -222,8 +222,7 @@ even though the source's or load's starpoint are grounded; you may use a reasona
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),
                 graphics),
-        experiment(StopTime=0.1, Interval=0.001),
-        experimentSetupOutput);
+        experiment(StopTime=0.1, Interval=0.001));
     end TransformerTestbench;
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.

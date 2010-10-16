@@ -131,6 +131,5 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}),
                       graphics),
-                       experiment(StopTime=25, Algorithm="Dassl"),
-    experimentSetupOutput);
+                       experiment(StopTime=25, Algorithm="Dassl"));
 end TestOnePortSensors1;

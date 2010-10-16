@@ -119,6 +119,5 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),
-                       experiment(StopTime=15, Algorithm="Euler"),
-    experimentSetupOutput);
+                       experiment(StopTime=15, Algorithm="Euler"));
 end TestOnePortSensors2;

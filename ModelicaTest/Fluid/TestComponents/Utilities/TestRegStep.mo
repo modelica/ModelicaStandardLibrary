@@ -8,5 +8,5 @@ model TestRegStep "Test regStep function"
   Real yRegStep_der;
 equation
   yRegStep_der = der(yRegStep);
-  annotation (experiment(StopTime=1.3), experimentSetupOutput);
+  annotation (experiment(StopTime=1.3));
 end TestRegStep;
