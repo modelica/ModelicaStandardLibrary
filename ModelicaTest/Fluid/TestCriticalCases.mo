@@ -695,12 +695,14 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       p_b_start=500000)                  annotation (Placement(transformation(
             extent={{-76,-10},{-56,10}}, rotation=0)));
 
-    Modelica.Fluid.Valves.ValveIncompressible valveIncompressible(
+    Modelica.Fluid.Valves.ValveIncompressible valve(
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
       rho_nominal=1000,
       redeclare package Medium = Medium,
-      dp_nominal=400000)              annotation (Placement(transformation(
+      dp_nominal=400000,
+      filteredOpening=true,
+      leakageOpening=0.001)           annotation (Placement(transformation(
             extent={{52,-10},{72,10}}, rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(nPorts=1,
       redeclare package Medium = Medium,
@@ -739,9 +741,9 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,0},{-76,0}},
           color={0,127,255}));
-    connect(valveIncompressible.port_b, sink.ports[1])
+    connect(valve.port_b, sink.ports[1])
       annotation (Line(points={{72,0},{82,0}}, color={0,127,255}));
-    connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
+    connect(valveOpening1.y, valve.opening)               annotation (Line(
           points={{1,80},{62,80},{62,8}}, color={0,0,127}));
     connect(pipe1.port_b, simpleGenericOrifice.port_a) annotation (Line(points=
             {{-56,0},{-46,0}}, color={0,127,255}));
@@ -749,10 +751,10 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
             {{-14,0},{-26,0}}, color={0,127,255}));
     connect(pipe2.port_b, pipe3.port_a)
       annotation (Line(points={{6,0},{16,0}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible.port_a)
+    connect(pipe3.port_b, valve.port_a)
       annotation (Line(points={{36,0},{52,0}}, color={0,127,255}));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
               graphics),
       experiment(StopTime=5),
