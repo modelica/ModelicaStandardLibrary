@@ -816,7 +816,9 @@ fails for zero flow rate.
       m_flow_nominal=1,
       rho_nominal=1000,
       filteredOpening=true,
-      riseTime=0.1)     annotation (Placement(transformation(extent={{10,36},{30,56}},
+      riseTime=0.1,
+      leakageOpening=0.001)
+                        annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valveIncompressible1(
       redeclare package Medium = Medium,
@@ -825,7 +827,9 @@ fails for zero flow rate.
       m_flow_nominal=1,
       rho_nominal=1000,
       filteredOpening=true,
-      riseTime=0.1)     annotation (Placement(transformation(extent={{8,-50},{28,-30}},
+      riseTime=0.1,
+      leakageOpening=0.001)
+                        annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
       redeclare package Medium = Medium,

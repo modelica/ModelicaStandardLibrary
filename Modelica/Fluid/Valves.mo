@@ -441,7 +441,7 @@ it is open.
       parameter Modelica.SIunits.Time riseTime=1
         "Rise time of the filter (time to reach 99.6 % of an opening step)"
         annotation(Dialog(group="Filtered opening",enable=filteredOpening));
-      parameter Real leakageOpening(min=0,max=1)=1e-4
+      parameter Real leakageOpening(min=0,max=1)=1e-3
         "The opening signal is limited by leakageOpening (to improve the numerics)"
         annotation(Dialog(group="Filtered opening",enable=filteredOpening));
       parameter Boolean checkValve=false "Reverse flow stopped"
