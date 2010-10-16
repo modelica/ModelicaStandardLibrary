@@ -129,5 +129,6 @@ equation
                        Documentation(info="<html>
 <p align = justify>In that test model the behaviour of one port temperature sensors with and without explicit junction models and two port temperature sensor are compared. Therefor each sensor is connected to two tanks with different temperatures and a flow source with changing flow direction.<p>
 <p align = justify>With Modelica.Fluid stream connectors, all three sensors show the same expected result.</p>
-</html>"));
+</html>"),
+    experiment(StopTime=1.01, Tolerance=1e-006));
 end TestTemperatureSensor;

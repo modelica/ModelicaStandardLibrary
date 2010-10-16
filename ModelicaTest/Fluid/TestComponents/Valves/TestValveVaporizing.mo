@@ -42,15 +42,15 @@ equation
                                   annotation (Line(points={{-6,-12},{26,
           -12}}));
   connect(Opening.y,V1. opening)
-  annotation (Line(points={{-57,32},{-16,32},{-16,-3}}, color={0,0,255}));
+  annotation (Line(points={{-57,32},{-16,32},{-16,-4}}, color={0,0,255}));
   connect(SourceP1.ports[1],V1.port_a)
                                    annotation (Line(points={{-56,-12},{
           -26,-12}},
         color={0,127,255}));
   connect(downstreamPressure.y, SinkP1.p_in) annotation (Line(
-      points={{35,30},{60,30},{60,-6},{48,-6}},
+      points={{35,30},{60,30},{60,-4},{48,-4}},
       color={0,0,127},
       smooth=Smooth.None));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}}), graphics), experiment);
+            -100},{100,100}}), graphics), experiment(StopTime=1.01));
 end TestValveVaporizing;

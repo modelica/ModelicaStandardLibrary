@@ -7,6 +7,91 @@ package Incompressible
   import Modelica.Constants;
   import Modelica.Math;
 
+  package Examples "Examples for incompressible media"
+    extends Modelica.Icons.MaterialPropertiesPackage;
+
+  package Glycol47 "1,2-Propylene glycol, 47% mixture with water"
+    extends TableBased(
+      mediumName="Glycol-Water 47%",
+      T_min = Cv.from_degC(-30), T_max = Cv.from_degC(100),
+      TinK = false, T0=273.15,
+      tableDensity=
+        [-30, 1066; -20, 1062; -10, 1058; 0, 1054;
+         20, 1044; 40, 1030; 60, 1015; 80, 999; 100, 984],
+      tableHeatCapacity=
+        [-30, 3450; -20, 3490; -10, 3520; 0, 3560;
+         20, 3620; 40, 3690; 60, 3760; 80, 3820; 100, 3890],
+      tableConductivity=
+        [-30,0.397;  -20,0.396;  -10,0.395;  0,0.395;
+         20,0.394;  40,0.393;  60,0.392;  80,0.391;  100,0.390],
+      tableViscosity=
+        [-30, 0.160; -20, 0.0743; -10, 0.0317; 0, 0.0190;
+         20, 0.00626; 40, 0.00299; 60, 0.00162; 80, 0.00110; 100, 0.00081],
+      tableVaporPressure=
+        [0, 500; 20, 1.9e3; 40, 5.3e3; 60, 16e3; 80, 37e3; 100, 80e3]);
+      annotation (Documentation(info="<html>
+
+</html>"));
+  end Glycol47;
+
+  package Essotherm650 "Essotherm thermal oil"
+    extends TableBased(
+      mediumName="Essotherm 650",
+      T_min = Cv.from_degC(0), T_max = Cv.from_degC(320),
+      TinK = false, T0=273.15,
+      tableDensity=
+        [0, 909; 20, 897; 40, 884; 60, 871; 80, 859; 100, 846;
+         150, 813; 200, 781; 250, 748; 300, 715; 320, 702],
+      tableHeatCapacity=
+        [0, 1770; 20, 1850; 40, 1920; 60, 1990; 80, 2060; 100, 2130;
+         150, 2310; 200, 2490; 250, 2670; 300, 2850; 320, 2920],
+      tableConductivity=
+        [0,0.1302;  20,0.1288;  40,0.1274;  60,0.1260;  80,0.1246;  100,0.1232;
+         150,0.1197;  200,0.1163;  250,0.1128;  300,0.1093;  320,0.1079],
+      tableViscosity = [0, 14370; 20, 1917; 40, 424; 60, 134; 80, 54.5;
+         100, 26.64; 150, 7.47; 200, 3.22; 250, 1.76; 300, 1.10; 320,0.94],
+      tableVaporPressure=
+        [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
+         280, 1600; 300, 3e3; 320, 5.5e3]);
+      annotation (Documentation(info="<html>
+
+</html>"));
+  end Essotherm650;
+
+  model TestGlycol "Test Glycol47 Medium model"
+    extends Modelica.Icons.Example;
+    package Medium = Glycol47 "Medium model (Glycol47)";
+    Medium.BaseProperties medium;
+
+    Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium.state);
+    Medium.ThermalConductivity lambda=Medium.thermalConductivity(medium.state);
+    Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
+    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
+    protected
+    constant Modelica.SIunits.Time timeUnit = 1;
+    constant Modelica.SIunits.Temperature Ta = 1;
+  equation
+    medium.p = 1e5;
+    medium.T = Medium.T_min + time/timeUnit*Ta;
+      annotation (experiment(StopTime=1.01));
+  end TestGlycol;
+
+  annotation (
+    Documentation(info="<HTML>
+
+<p>
+This package provides a few examples of how to construct medium models for
+incompressible fluids. The package contains:
+</p>
+<ul>
+<li><b>Glycol47</b>, a model of 47% glycol water mixture, based on tables of
+density and heat capacity as functions of temperature.</li>
+<li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
+</ul>
+
+</HTML>"));
+  end Examples;
+
   package Common "Common data structures"
     extends Modelica.Icons.Package;
 
@@ -695,89 +780,6 @@ function calls can not be used.
 </HTML>"));
   end TableBased;
 
-  package Examples "Examples for incompressible media"
-    extends Modelica.Icons.MaterialPropertiesPackage;
-
-  package Glycol47 "1,2-Propylene glycol, 47% mixture with water"
-    extends TableBased(
-      mediumName="Glycol-Water 47%",
-      T_min = Cv.from_degC(-30), T_max = Cv.from_degC(100),
-      TinK = false, T0=273.15,
-      tableDensity=
-        [-30, 1066; -20, 1062; -10, 1058; 0, 1054;
-         20, 1044; 40, 1030; 60, 1015; 80, 999; 100, 984],
-      tableHeatCapacity=
-        [-30, 3450; -20, 3490; -10, 3520; 0, 3560;
-         20, 3620; 40, 3690; 60, 3760; 80, 3820; 100, 3890],
-      tableConductivity=
-        [-30,0.397;  -20,0.396;  -10,0.395;  0,0.395;
-         20,0.394;  40,0.393;  60,0.392;  80,0.391;  100,0.390],
-      tableViscosity=
-        [-30, 0.160; -20, 0.0743; -10, 0.0317; 0, 0.0190;
-         20, 0.00626; 40, 0.00299; 60, 0.00162; 80, 0.00110; 100, 0.00081],
-      tableVaporPressure=
-        [0, 500; 20, 1.9e3; 40, 5.3e3; 60, 16e3; 80, 37e3; 100, 80e3]);
-      annotation (Documentation(info="<html>
-
-</html>"));
-  end Glycol47;
-
-  package Essotherm650 "Essotherm thermal oil"
-    extends TableBased(
-      mediumName="Essotherm 650",
-      T_min = Cv.from_degC(0), T_max = Cv.from_degC(320),
-      TinK = false, T0=273.15,
-      tableDensity=
-        [0, 909; 20, 897; 40, 884; 60, 871; 80, 859; 100, 846;
-         150, 813; 200, 781; 250, 748; 300, 715; 320, 702],
-      tableHeatCapacity=
-        [0, 1770; 20, 1850; 40, 1920; 60, 1990; 80, 2060; 100, 2130;
-         150, 2310; 200, 2490; 250, 2670; 300, 2850; 320, 2920],
-      tableConductivity=
-        [0,0.1302;  20,0.1288;  40,0.1274;  60,0.1260;  80,0.1246;  100,0.1232;
-         150,0.1197;  200,0.1163;  250,0.1128;  300,0.1093;  320,0.1079],
-      tableViscosity = [0, 14370; 20, 1917; 40, 424; 60, 134; 80, 54.5;
-         100, 26.64; 150, 7.47; 200, 3.22; 250, 1.76; 300, 1.10; 320,0.94],
-      tableVaporPressure=
-        [160, 3; 180, 10; 200, 40; 220, 100; 240, 300; 260, 600;
-         280, 1600; 300, 3e3; 320, 5.5e3]);
-      annotation (Documentation(info="<html>
-
-</html>"));
-  end Essotherm650;
-
-  model TestGlycol "Test Glycol47 Medium model"
-    extends Modelica.Icons.Example;
-    package Medium = Glycol47 "Medium model (Glycol47)";
-    Medium.BaseProperties medium;
-
-    Medium.DynamicViscosity eta=Medium.dynamicViscosity(medium.state);
-    Medium.ThermalConductivity lambda=Medium.thermalConductivity(medium.state);
-    Medium.SpecificEntropy s=Medium.specificEntropy(medium.state);
-    Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(medium.state);
-    protected
-    constant Modelica.SIunits.Time timeUnit = 1;
-    constant Modelica.SIunits.Temperature Ta = 1;
-  equation
-    medium.p = 1e5;
-    medium.T = Medium.T_min + time/timeUnit*Ta;
-  end TestGlycol;
-
-  annotation (
-    Documentation(info="<HTML>
-
-<p>
-This package provides a few examples of how to construct medium models for
-incompressible fluids. The package contains:
-</p>
-<ul>
-<li><b>Glycol47</b>, a model of 47% glycol water mixture, based on tables of
-density and heat capacity as functions of temperature.</li>
-<li><b>Essotherm650</b>, a medium model for thermal oil, also based on tables.</li>
-</ul>
-
-</HTML>"));
-  end Examples;
 
   annotation (
     Documentation(info="<HTML>

@@ -194,6 +194,7 @@ extends Modelica.Icons.ExamplesPackage;
           assert(err_h_is <= eps_h_is, "Error: entropy not constant for isentropicEnthalpy" +
                                "(err_h_is = " + String(err_h_is) + ", eps = " + String(eps_h_is) + ")");
        // end when;
+      annotation (experiment(StopTime=1.01));
     end FlueGasSixComponents;
 
     model ConstantPropertyLiquidWater

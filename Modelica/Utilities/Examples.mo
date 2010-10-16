@@ -367,7 +367,7 @@ Model that shows the usage of Examples.readRealParameter and Examples.expression
 The model has 3 parameters and the values of these parameters are read
 from a file.
 </p>
-</html>"));
+</html>"), experiment(StopTime=1.01));
   end readRealParameterModel;
   annotation (Documentation(info="<html>
 <p>

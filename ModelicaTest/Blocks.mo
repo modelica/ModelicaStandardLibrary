@@ -379,7 +379,8 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
               -100,-100},{300,100}}),
                         graphics), Icon(coordinateSystem(preserveAspectRatio=true,
-                    extent={{-100,-100},{100,100}})));
+                    extent={{-100,-100},{100,100}})),
+      experiment(StopTime=1.01));
   end UnitDeduction;
 
   model IntegerTable

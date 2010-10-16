@@ -2416,7 +2416,7 @@ The function that is implemented is approximate, but usually very good: the seco
 is given to compare the approximation.
 </p>
 </html>"),
-      experiment(Tolerance=1e-005));
+      experiment(StopTime=1.0,Tolerance=1e-005));
 end MoistAir;
 
   package TwoPhaseWater "extension of the StandardWater package"
@@ -2703,7 +2703,7 @@ is given to compare the approximation.
         medium.T = 300 + time/1000;
         annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
       end TemplateMedium;
 
       annotation (Documentation(info="<html>
@@ -2758,7 +2758,7 @@ is given to compare the approximation.
   package Tests
     "Library to test that all media models simulate and fulfill the expected structural properties"
 
-    extends Modelica.Icons.Package;
+   extends Modelica.Icons.ExamplesPackage;
 
     package Components
       "Functions, connectors and models needed for the media model tests"
@@ -3223,7 +3223,6 @@ no mass or energy is stored in the pipe.
 
       partial model PartialTestModel "Basic test model to test a medium"
         import SI = Modelica.SIunits;
-        extends Modelica.Icons.Example;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (__Dymola_choicesAllMatching=true);
@@ -3288,7 +3287,6 @@ no mass or energy is stored in the pipe.
       partial model PartialTestModel2
         "slightly larger test model to test a medium"
         import SI = Modelica.SIunits;
-        extends Modelica.Icons.Example;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (__Dymola_choicesAllMatching=true);
@@ -3362,31 +3360,34 @@ no mass or energy is stored in the pipe.
     end Components;
 
     package MediaTestModels "Test models to test all media"
-      extends Modelica.Icons.Package;
+     extends Modelica.Icons.ExamplesPackage;
       package Air "Test models of library Modelica.Media.Air"
-        extends Modelica.Icons.Package;
+       extends Modelica.Icons.ExamplesPackage;
         model SimpleAir "Test Modelica.Media.Air.SimpleAir"
-          extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
+          extends Modelica.Icons.Example;
+            extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.SimpleAir);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end SimpleAir;
 
         model DryAirNasa "Test Modelica.Media.Air.DryAirNasa"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end DryAirNasa;
 
         model MoistAir "Test Modelica.Media.Air.MoistAir"
+            extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Air.MoistAir);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end MoistAir;
         annotation (Documentation(info="<html>
 
@@ -3394,50 +3395,55 @@ no mass or energy is stored in the pipe.
       end Air;
 
       package IdealGases "Test models of library Modelica.Media.IdealGases"
-        extends Modelica.Icons.Package;
+       extends Modelica.Icons.ExamplesPackage;
 
         model Air "Test single gas Modelica.Media.IdealGases.SingleGases.Air"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.Air.DryAirNasa);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end Air;
 
         model Nitrogen
           "Test single gas Modelica.Media.IdealGases.SingleGases.N2"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.IdealGases.SingleGases.N2);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end Nitrogen;
 
         model SimpleNaturalGas
           "Test mixture gas Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end SimpleNaturalGas;
 
         model SimpleNaturalGasFixedComposition
           "Test mixture gas Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGasFixedComposition);
-          annotation (experiment(StopTime=1));
+          annotation (experiment(StopTime=1.01));
         end SimpleNaturalGasFixedComposition;
       end IdealGases;
 
       package Incompressible
         "Test models of library Modelica.Media.Incompressible"
-        extends Modelica.Icons.Package;
+       extends Modelica.Icons.ExamplesPackage;
         model Glycol47 "Test Modelica.Media.Incompressible.Examples.Glycol47"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.Incompressible.Examples.Glycol47(final
@@ -3445,17 +3451,18 @@ no mass or energy is stored in the pipe.
                   final enthalpyOfT =                                                              true));
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end Glycol47;
 
         model Essotherm650
           "Test Modelica.Media.Incompressible.Examples.Essotherm65"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.Incompressible.Examples.Essotherm650);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end Essotherm650;
         annotation (Documentation(info="<html>
 
@@ -3463,27 +3470,30 @@ no mass or energy is stored in the pipe.
       end Incompressible;
 
       package Water "Test models of library Modelica.Media.Water"
-        extends Modelica.Icons.Package;
+       extends Modelica.Icons.ExamplesPackage;
         model ConstantPropertyLiquidWater
           "Test Modelica.Media.Water.ConstantPropertyLiquidWater"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.Water.ConstantPropertyLiquidWater);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end ConstantPropertyLiquidWater;
 
         model IdealSteam "Test Modelica.Media.Water.IdealSteam"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Water.IdealSteam);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end IdealSteam;
 
         model WaterIF97OnePhase_ph
           "Test Modelica.Media.Water.WaterIF97OnePhase_ph"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.Water.WaterIF97OnePhase_ph,
@@ -3491,25 +3501,27 @@ no mass or energy is stored in the pipe.
             ambient(use_T_ambient=false, h_ambient=112570));
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end WaterIF97OnePhase_ph;
 
         model WaterIF97_pT "Test Modelica.Media.Water.WaterIF97_pT"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Water.WaterIF97_pT);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end WaterIF97_pT;
 
         model WaterIF97_ph "Test Modelica.Media.Water.WaterIF97_ph"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium = Modelica.Media.Water.WaterIF97_ph,
             ambient(use_T_ambient=false, h_ambient=112570),
             fixedMassFlowRate(use_T_ambient=false, h_ambient=363755));
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end WaterIF97_ph;
         /*
         model WaterIF97_dT "Test Modelica.Media.Water.WaterIF97_dT"
@@ -3525,25 +3537,27 @@ no mass or energy is stored in the pipe.
 
       package LinearFluid
         "Test models of library Modelica.Media.Incompressible"
-        extends Modelica.Icons.Package;
+       extends Modelica.Icons.ExamplesPackage;
         model LinearColdWater
           "Test Modelica.Media.Incompressible.Examples.Glycol47"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.CompressibleLiquids.LinearColdWater);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end LinearColdWater;
 
         model LinearWater_pT
           "Test Modelica.Media.Incompressible.Examples.Essotherm65"
+          extends Modelica.Icons.Example;
           extends Modelica.Media.Examples.Tests.Components.PartialTestModel(
              redeclare package Medium =
                 Modelica.Media.CompressibleLiquids.LinearWater_pT_Ambient);
           annotation (Documentation(info="<html>
 
-</html>"));
+</html>"), experiment(StopTime=1.01));
         end LinearWater_pT;
         annotation (Documentation(info="<html>
 

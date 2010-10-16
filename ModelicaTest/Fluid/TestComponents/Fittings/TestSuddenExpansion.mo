@@ -91,5 +91,6 @@ The reason for this is that the boundary conditions model infinite reservoirs wi
 <p>
 To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <i>exact</i> momentum balances and the results are as expected.
 </p>
-</html>"));
+</html>"),
+    experiment(StopTime=1.01));
 end TestSuddenExpansion;

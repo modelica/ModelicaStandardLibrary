@@ -930,7 +930,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
     import SI = Modelica.SIunits;
-    extends Modelica.Icons.Example;
+
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0})
       annotation (Placement(transformation(
           origin={120,53},

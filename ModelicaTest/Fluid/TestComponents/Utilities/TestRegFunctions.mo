@@ -13,4 +13,5 @@ model TestRegFunctions
   Real sqrtxerr = (sqrtx_a-sqrtx)/sqrtx;
   Real x2err = (x2_a-x2)/x2;
   Real x3err = (x3_a-x3)/x3;
+  annotation (experiment(StopTime=1.01));
 end TestRegFunctions;

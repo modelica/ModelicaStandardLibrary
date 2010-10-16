@@ -6174,7 +6174,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (Diagram(graphics));
+      annotation (Diagram(graphics), experiment(StopTime=1.01));
     end VoluminousWheel;
 
     model ColorMaps "Show all color maps"

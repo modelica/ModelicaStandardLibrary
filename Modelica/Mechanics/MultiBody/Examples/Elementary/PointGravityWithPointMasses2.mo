@@ -52,7 +52,6 @@ model PointGravityWithPointMasses2
 
 model SystemWithStandardBodies
     "For comparison purposes, an equivalent model with Bodies instead of PointMasses"
-  extends Modelica.Icons.Example;
   model PointMass = Modelica.Mechanics.MultiBody.Parts.Body(m=1,I_11=0,I_22=0,I_33=0)
       "Body used all places of the comparision model with zero inertia tensor";
 
@@ -240,7 +239,7 @@ equation
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
                       graphics),
-    experiment(StopTime=3, Tolerance=1e-006),
+    experiment(StopTime=3.0, Tolerance=1e-006),
     Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a
