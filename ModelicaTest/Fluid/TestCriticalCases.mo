@@ -255,22 +255,24 @@ The steady-state initial values are observed by an assertion.
     //replaceable package Medium = Modelica.Media.Water.StandardWater;
     replaceable package Medium =
         Modelica.Media.Water.StandardWater;
-
+         //Modelica.Media.Water.ConstantPropertyLiquidWater;
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
       redeclare package Medium = Medium,
-      p=200000,
-      T=300) annotation (Placement(transformation(extent={{-100,0},{-88,12}},
+      T=300,
+      p=2.2e5)
+             annotation (Placement(transformation(extent={{-100,0},{-88,12}},
             rotation=0)));
     ModelicaTest.Fluid.BaseClasses.LumpedPipe pipe1(
       redeclare package Medium = Medium,
       use_T_start=true,
       length=10,
       diameter=2.54e-2,
-      p_b_start=100000,
       redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-      p_a_start=200000,
-      T_start=300)      annotation (Placement(transformation(extent={{-72,-4},{
+      T_start=300,
+      p_a_start=2e5,
+      p_b_start=1.5e5)
+                     annotation (Placement(transformation(extent={{-72,-4},{
               -52,16}}, rotation=0)));
 
     Modelica.Fluid.Valves.ValveIncompressible valve1(
@@ -278,7 +280,9 @@ The steady-state initial values are observed by an assertion.
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
       rho_nominal=1000,
-      dp_nominal=200000)
+      dp_nominal=200000,
+      filteredOpening=true,
+      leakageOpening=0.01)
                   annotation (Placement(transformation(extent={{10,36},{30,56}},
             rotation=0)));
     Modelica.Fluid.Valves.ValveIncompressible valve2(
@@ -286,7 +290,9 @@ The steady-state initial values are observed by an assertion.
       CvData=Modelica.Fluid.Types.CvTypes.OpPoint,
       m_flow_nominal=1,
       rho_nominal=1000,
-      dp_nominal=200000)
+      dp_nominal=200000,
+      filteredOpening=true,
+      leakageOpening=0.01)
                   annotation (Placement(transformation(extent={{8,-50},{28,-30}},
             rotation=0)));
     Modelica.Fluid.Sources.Boundary_pT sink(
@@ -302,9 +308,9 @@ The steady-state initial values are observed by an assertion.
       diameter=2.54e-2,
       redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-      p_a_start=200000,
-      p_b_start=100000,
-      T_start=300)      annotation (Placement(transformation(extent={{-40,36},{
+      T_start=300,
+      p_a_start=1.5e5,
+      p_b_start=1e5) annotation (Placement(transformation(extent={{-40,36},{
               -20,56}}, rotation=0)));
 
     ModelicaTest.Fluid.BaseClasses.LumpedPipe pipe3(
@@ -314,9 +320,9 @@ The steady-state initial values are observed by an assertion.
       diameter=2.54e-2,
       redeclare model FlowModel =
           Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-      p_a_start=200000,
-      p_b_start=100000,
-      T_start=300)      annotation (Placement(transformation(extent={{-40,-50},
+      T_start=300,
+      p_a_start=1.5e5,
+      p_b_start=1e5) annotation (Placement(transformation(extent={{-40,-50},
               {-20,-30}}, rotation=0)));
 
     Modelica.Blocks.Sources.TimeTable valveOpening1(offset=0, table=[0,1; 1,1;
@@ -326,8 +332,7 @@ The steady-state initial values are observed by an assertion.
           2,0; 100,0]) annotation (Placement(transformation(extent={{-20,-10},{
               0,10}}, rotation=0)));
     inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
-        massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)
-                          annotation (Placement(transformation(extent={{-100,60},
+        massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)     annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
     connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-72,6}},
@@ -352,7 +357,10 @@ The steady-state initial values are observed by an assertion.
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
               graphics),
-      experiment(StopTime=5),
+      experiment(
+        StopTime=5,
+        NumberOfIntervals=5000,
+        Tolerance=1e-006),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
