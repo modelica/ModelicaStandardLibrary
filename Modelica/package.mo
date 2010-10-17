@@ -3084,6 +3084,20 @@ have been <b style=\"color:blue\">improved</b> in a
                       instead of continuous (smooth=0).</td>
                       </tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Sources.</b></td></tr>
+<tr><td valign=\"top\"> FixedBoundary<br>
+                      Boundary_pT<br>
+                      Boundary_ph</td>
+    <td valign=\"top\"> Changed the implementation so that no non-linear algebraic
+                      equation system occurs, if the given variables (e.g. p,T,X) do
+                      not correspond to the medium states (e.g. p,h,X). This is
+                      achieved by using appropriate \"setState_xxx\" calls to compute the
+                      medium state from the given variables. If a nonlinear equation
+                      system occurs, it is solved by a specialized handler inside the
+                      setState_xxx(..) function, but in the model this equation system is
+                      not visible.</td>
+                      </tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Media.Interfaces.</b></td></tr>
 <tr><td valign=\"top\"> PartialMedium </td>
     <td valign=\"top\"> The min/max values of types SpecificEnthaly, SpecificEntropy,

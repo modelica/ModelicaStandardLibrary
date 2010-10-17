@@ -2,6 +2,7 @@ within Modelica.Fluid;
 package Sources "Define fixed or prescribed boundary conditions"
   extends Modelica.Icons.SourcesPackage;
   model FixedBoundary "Boundary source component"
+    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p=true "select p or d"
       annotation (Evaluate = true,
@@ -32,20 +33,60 @@ package Sources "Define fixed or prescribed boundary conditions"
          quantity=Medium.extraPropertiesNames)=fill(0, Medium.nC)
       "Boundary trace substances"
       annotation (Dialog(group = "Only for trace-substance flow", enable=Medium.nC > 0));
-
+  protected
+    Medium.ThermodynamicState state;
   equation
     Modelica.Fluid.Utilities.checkBoundary(Medium.mediumName, Medium.substanceNames,
                                           Medium.singleState, use_p, X,
                                           "FixedBoundary");
     if use_p or Medium.singleState then
-      medium.p = p;
+       // p given
+       if use_T then
+          // p,T,X given
+          state = Medium.setState_pTX(p, T, X);
+       else
+          // p,h,X given
+          state = Medium.setState_phX(p, h, X);
+       end if;
+
+       if Medium.ThermoStates == IndependentVariables.dTX then
+          medium.d = Medium.density(state);
+       else
+          medium.p = Medium.pressure(state);
+       end if;
+
+       if Medium.ThermoStates == IndependentVariables.ph or
+          Medium.ThermoStates == IndependentVariables.phX then
+          medium.h = Medium.specificEnthalpy(state);
+       else
+          medium.T = Medium.temperature(state);
+       end if;
+
     else
-      medium.d = d;
-    end if;
-    if use_T then
-      medium.T = T;
-    else
-      medium.h = h;
+       // d given
+       if use_T then
+          // d,T,X given
+          state = Medium.setState_dTX(d, T, X);
+
+          if Medium.ThermoStates == IndependentVariables.dTX then
+             medium.d = Medium.density(state);
+          else
+             medium.p = Medium.pressure(state);
+          end if;
+
+          if Medium.ThermoStates == IndependentVariables.ph or
+             Medium.ThermoStates == IndependentVariables.phX then
+             medium.h = Medium.specificEnthalpy(state);
+          else
+             medium.T = Medium.temperature(state);
+          end if;
+
+       else
+          // d,h,X given
+          medium.d = d;
+          medium.h = h;
+          state = Medium.setState_dTX(d,T,X);
+       end if;
     end if;
 
     medium.Xi = X[1:Medium.nXi];
@@ -84,6 +125,8 @@ with exception of boundary pressure, do not have an effect.
 
   model Boundary_pT
     "Boundary with prescribed pressure, temperature, composition and trace substances"
+    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p_in = false
       "Get the pressure from the input connector"
@@ -161,7 +204,12 @@ with exception of boundary pressure, do not have an effect.
       C_in_internal = C;
     end if;
     medium.p = p_in_internal;
-    medium.T = T_in_internal;
+    if Medium.ThermoStates == IndependentVariables.ph or
+       Medium.ThermoStates == IndependentVariables.phX then
+       medium.h = Medium.specificEnthalpy(Medium.setState_pTX(p_in_internal, T_in_internal, X_in_internal));
+    else
+       medium.T = T_in_internal;
+    end if;
     medium.Xi = X_in_internal[1:Medium.nXi];
     ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
@@ -242,6 +290,7 @@ with exception of boundary pressure, do not have an effect.
 
   model Boundary_ph
     "Boundary with prescribed pressure, specific enthalpy, composition and trace substances"
+    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p_in = false
       "Get the pressure from the input connector"
@@ -319,7 +368,12 @@ with exception of boundary pressure, do not have an effect.
       C_in_internal = C;
     end if;
     medium.p = p_in_internal;
-    medium.h = h_in_internal;
+    if Medium.ThermoStates == IndependentVariables.ph or
+       Medium.ThermoStates == IndependentVariables.phX then
+       medium.h = h_in_internal;
+    else
+       medium.T = Medium.temperature(Medium.setState_phX(p_in_internal, h_in_internal, X_in_internal));
+    end if;
     medium.Xi = X_in_internal[1:Medium.nXi];
     ports.C_outflow = fill(C_in_internal, nPorts);
     annotation (defaultComponentName="boundary",
