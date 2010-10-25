@@ -2379,7 +2379,7 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
-class Version_3_2 "Version 3.2 (Sept. 30, 2010)"
+class Version_3_2 "Version 3.2 (Oct. 25, 2010)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -2730,39 +2730,45 @@ to <b style=\"color:blue\">existing</b> libraries:
 <tr><td valign=\"top\"> Icons.* </td>
     <td valign=\"top\"> Icons for transient and quasistationary electrical machines and transformers. </td> </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples</b></td></tr>
-<tr><td valign=\"top\"> AsynchronousInductionMachines.AIMC_withLosses </td>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.</b></td></tr>
+<tr><td valign=\"top\"> AIMC_withLosses </td>
     <td valign=\"top\"> Asynchronous induction machine with squirrel cage with losses </td> </tr>
-<tr><td valign=\"top\"> AsynchronousInductionMachines.AIMC_Transformer </td>
+<tr><td valign=\"top\"> AIMC_Transformer </td>
     <td valign=\"top\"> Asynchronous induction machine with squirrel cage - transformer starting </td> </tr>
-<tr><td valign=\"top\"> AsynchronousInductionMachines.AIMC_withLosses </td>
+<tr><td valign=\"top\"> AIMC_withLosses </td>
     <td valign=\"top\"> Test example of an asynchronous induction machine with squirrel cage with losses </td> </tr>
-<tr><td valign=\"top\"> SynchronousInductionMachines.SMPM_CurrentSource </td>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.SynchronousInductionMachines.</b></td></tr>
+<tr><td valign=\"top\"> SMPM_CurrentSource </td>
     <td valign=\"top\"> Permanent magnet synchronous induction machine fed by a current source </td> </tr>
-<tr><td valign=\"top\"> SynchronousInductionMachines.SMEE_LoadDump </td>
+<tr><td valign=\"top\"> SMEE_LoadDump </td>
     <td valign=\"top\"> Electrical excited synchronous induction machine with voltage controller </td> </tr>
-<tr><td valign=\"top\"> DCMachines.DCSE_SinglePhase </td>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Examples.DCMachines.</b></td></tr>
+<tr><td valign=\"top\"> DCSE_SinglePhase </td>
     <td valign=\"top\"> Series excited DC machine, fed by sinusoidal voltage </td> </tr>
-<tr><td valign=\"top\"> DCMachines.DCPM_Temperature </td>
+<tr><td valign=\"top\"> DCPM_Temperature </td>
     <td valign=\"top\"> Permanent magnet DC machine, demonstration of varying tempoerature </td> </tr>
-<tr><td valign=\"top\"> DCMachines.DCPM_Cooling </td>
+<tr><td valign=\"top\"> DCPM_Cooling </td>
     <td valign=\"top\"> Permanent magnet DC machine, coupled with a simple thermal model </td> </tr>
-<tr><td valign=\"top\"> DCMachines.DCPM_QuasiStationary </td>
+<tr><td valign=\"top\"> DCPM_QuasiStationary </td>
     <td valign=\"top\"> Permanent magnet DC machine, comparison between transient and quasistationary model </td> </tr>
-<tr><td valign=\"top\"> DCMachines.DCPM_Losses </td>
+<tr><td valign=\"top\"> DCPM_Losses </td>
     <td valign=\"top\"> Permanent magnet DC machine, comparison between model with and without losses </td> </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines</b></td></tr>
-<tr><td valign=\"top\"> QuasiStationaryDCMachines.DC_PermanentMagnet <br>
-                      QuasiStationaryDCMachines.DC_ElectricalExcited <br>
-                      QuasiStationaryDCMachines.DC_SeriesExcited </td>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines.</b></td></tr>
+<tr><td valign=\"top\"> DC_PermanentMagnet <br>
+                      DC_ElectricalExcited <br>
+                      DC_SeriesExcited </td>
     <td valign=\"top\"> QuasiStationary DC machines, i.e., neglecting electrical transients </td> </tr>
-<tr><td valign=\"top\"> Components.InductorDC </td>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.BasicMachines.Components.</b></td></tr>
+<tr><td valign=\"top\"> InductorDC </td>
     <td valign=\"top\"> Inductor model which neglects der(i) if Boolean parameter quasiStationary = true </td> </tr>
 
-<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Interfaces</b></td></tr>
-<tr><td valign=\"top\">  (Partial)ThermalPort* <br>
-                       (Partial)PowerBalance* </td>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Interfaces.</b></td></tr>
+<tr><td valign=\"top\">  ThermalPortTransformer <br>
+                       PowerBalanceTransformer </td>
     <td valign=\"top\"> Thermal ports and power balances for electrical machines and transformers. </td> </tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Utilities</b></td></tr>
@@ -2961,8 +2967,7 @@ to <b style=\"color:blue\">existing</b> libraries:
 
 <tr><td colspan=\"2\"><b>Modelica.Math.BooleanVectors.</b></td></tr>
 <tr><td valign=\"top\"> allTrue </td>
-    <td valign=\"top\"> Returns true, if all elements of the Boolean input vector are tru"
-               + "e. </td> </tr>
+    <td valign=\"top\"> Returns t" + "rue, if all elements of the Boolean input vector are true. </td> </tr>
 <tr><td valign=\"top\"> anyTrue </td>
     <td valign=\"top\"> Returns true, if at least on element of the Boolean input vector is true. </td> </tr>
 <tr><td valign=\"top\"> oneTrue </td>
@@ -7371,9 +7376,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=4,
-versionDate="2010-10-18",
-dateModified = "2010-10-18 16:00:00Z",
+versionBuild=5,
+versionDate="2010-10-25",
+dateModified = "2010-10-25 23:00:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.0"), ModelicaServices(version="1.1")),
 conversion(
