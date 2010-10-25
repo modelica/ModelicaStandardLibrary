@@ -1,0 +1,486 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Nonlinear</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of functions operating on nonlinear equations&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nonlinear<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Nonlinear"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.Nonlinear</H2>
+<B>Library of functions operating on nonlinear equations</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains functions to perform tasks such as numerically integrating
+a function, or solving a nonlinear algebraic equation system.
+The common feature of the functions in this package is
+that the nonlinear characteristics are passed as user defineable
+functions.
+</p>
+
+<p>
+For details about how to define and to use functions as input arguments
+to functions, see
+<A HREF="../../ModelicaReference/help/ModelicaReference_Classes.html#ModelicaReference.Classes.Function"
+>ModelicaReference.Classes.Function</a>
+or the Modelica Language  Specification, Chapter 12.4.2.
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.ExamplesS.png" ALT="Modelica.Math.Nonlinear.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Examples</A>
+</TD><TD>Examples demonstrating the usage of the functions in package Nonlinear</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.InterfacesS.png" ALT="Modelica.Math.Nonlinear.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces"
+>Interfaces</A>
+</TD><TD>Interfaces for functions</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.quadratureLobattoS.png" ALT="Modelica.Math.Nonlinear.quadratureLobatto" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.quadratureLobatto"
+>quadratureLobatto</A>
+</TD><TD>Return the integral of an integrand function using an adaptive Lobatto rule</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.Nonlinear.quadratureLobattoS.png" ALT="Modelica.Math.Nonlinear.solveOneNonlinearEquation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear.solveOneNonlinearEquation"
+>solveOneNonlinearEquation</A>
+</TD><TD>Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE quadratureLobatto<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Nonlinear.quadratureLobatto"></A><A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Modelica.Math.Nonlinear</A>.quadratureLobatto</H2>
+<B>Return the integral of an integrand function using an adaptive Lobatto rule</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>quadratureLobatto</b>(function f(), a, b);
+<b>quadratureLobatto</b>(function f(), a, b, tolerance=100*Modelica.Constants.eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+Compute definite integral over function f(u,...) from u=a up to u=b
+using the adaptive Lobatto rule according to:
+</p>
+
+<blockquote>
+<dl>
+<dt>Walter Gander:</dt>
+<dd> <b>Adaptive Quadrature - Revisited</b>. 1998.
+     <a href="ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps">ftp://ftp.inf.ethz.ch/doc/tech-reports/1998/306.ps</a>
+     </dd>
+</dl>
+</blockquote>
+
+<h4>Example</h4>
+
+<p>
+See the examples in <A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</a>.
+</p>
+
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces.partialScalarFunction"
+>partialScalarFunction</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>Integrand function</TD></TR>
+<TR><TD>Real</TD><TD>a</TD><TD>&nbsp;</TD><TD>Lower limit of integration interval</TD></TR>
+<TR><TD>Real</TD><TD>b</TD><TD>&nbsp;</TD><TD>Upper limit of integration interval</TD></TR>
+<TR><TD>Real</TD><TD>tolerance</TD><TD>100*Modelica.Constants.eps</TD><TD>Relative tolerance for integral value</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>integral</TD><TD>integral value</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> quadratureLobatto <font color="darkgreen">
+  &quot;Return the integral of an integrand function using an adaptive Lobatto rule&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces.partialScalarFunction"
+>Modelica.Math.Nonlinear.Interfaces.partialScalarFunction</A>
+                                                       f <font color="darkgreen">&quot;Integrand function&quot;</font>;
+  <font color="blue">input </font>Real a <font color="darkgreen">&quot;Lower limit of integration interval&quot;</font>;
+  <font color="blue">input </font>Real b <font color="darkgreen">&quot;Upper limit of integration interval&quot;</font>;
+  <font color="blue">input </font>Real tolerance = 100*Modelica.Constants.eps <font color="darkgreen">
+    &quot;Relative tolerance for integral value&quot;</font>;
+  <font color="blue">output </font>Real integral <font color="darkgreen">&quot;integral value&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">constant </font>Real x1=0.942882415695480;
+  <font color="blue">constant </font>Real x2=0.641853342345781;
+  <font color="blue">constant </font>Real x3=0.236383199662150;
+  <font color="blue">constant </font>Real eps=10*Modelica.Constants.eps;
+  Real m;
+  Real h;
+  Real alpha;
+  Real beta;
+  Real x[13];
+  Real y[13];
+  Real fa;
+  Real fb;
+  Real i1;
+  Real i2;
+  Real is;
+  Real erri1;
+  Real erri2;
+  Real R;
+  Real tol;
+  Integer s;
+
+  <textblock type="model" expanded="false" path="Modelica.Math.Nonlinear.quadratureLobatto.quadStep"><font color="blue">function</font> quadStep <font color="darkgreen">&quot;Recursive function used by quadrature&quot;</font>
+    <font color="blue">input </font><A HREF="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces.partialScalarFunction"
+>Modelica.Math.Nonlinear.Interfaces.partialScalarFunction</A>
+                                                         f;
+    <font color="blue">input </font>Real a <font color="darkgreen">&quot;Right interval end&quot;</font>;
+    <font color="blue">input </font>Real b <font color="darkgreen">&quot;Left interval end&quot;</font>;
+    <font color="blue">input </font>Real fa <font color="darkgreen">&quot;Function value at a&quot;</font>;
+    <font color="blue">input </font>Real fb <font color="darkgreen">&quot;Function value at b&quot;</font>;
+    <font color="blue">input </font>Real is <font color="darkgreen">&quot;First approximation of the integral&quot;</font>;
+    <font color="blue">output </font>Real I <font color="darkgreen">&quot;integral value&quot;</font>;
+  <font color="blue">protected </font>
+    Real m;
+    Real h;
+    Real alpha;
+    Real beta;
+    Real x[5];
+    Real y[5];
+    Real mll;
+    Real ml;
+    Real mr;
+    Real mrr;
+    Real fmll;
+    Real fml;
+    Real fm;
+    Real fmr;
+    Real fmrr;
+    Real i1;
+    Real i2;
+  <font color="blue">algorithm </font>
+    h := (b - a)/2;
+    m := (a + b)/2;
+    alpha := <font color="red">sqrt</font>(2/3);
+    beta := 1/<font color="red">sqrt</font>(5);
+    mll := m - alpha*h;
+    ml := m - beta*h;
+    mr := m + beta*h;
+    mrr := m + alpha*h;
+    x := {mll,ml,m,mr,mrr};
+    <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(x,1)<font color="blue"> loop</font>
+      y[i] := <font color="red">f</font>(x[i]);
+    <font color="blue">end for</font>;
+    fmll := y[1];
+    fml := y[2];
+    fm := y[3];
+    fmr := y[4];
+    fmrr := y[5];
+    i2 := (h/6)*(fa + fb + 5*(fml + fmr));
+    i1 := (h/1470)*(77*(fa + fb) + 432*(fmll + fmrr) + 625*(fml + fmr) +
+      672*fm);
+
+    <font color="blue">if </font>(is + (i1 - i2) == is)<font color="blue"> or </font>(mll &lt;= a)<font color="blue"> or </font>(b &lt;= mrr)<font color="blue"> then</font>
+      I := i1;
+
+    <font color="blue">else</font>
+      I := <font color="red">quadStep</font>(f, a, mll, fa, fmll, is) +
+           <font color="red">quadStep</font>(f, mll, ml, fmll, fml, is) +
+           <font color="red">quadStep</font>(f, ml, m, fml, fm, is) +
+           <font color="red">quadStep</font>(f, m, mr, fm, fmr, is) +
+           <font color="red">quadStep</font>(f, mr, mrr, fmr, fmrr, is) +
+           <font color="red">quadStep</font>(f, mrr, b, fmrr, fb, is);
+    <font color="blue">end if</font>;
+  <font color="blue">end </font>quadStep</textblock>;
+
+<font color="blue">algorithm </font>
+  <font color="darkgreen">/*
+        Numerically evaluate integral using adaptive
+        Lobatto rule.
+        see Walter Gander: Adaptive Quadrature - Revisited, 1998
+                        ftp.inf.ethz.ch in doc/tech-reports/1998/306.ps
+
+        x[:] are the nodes
+        y[:] = f(x[:]) are function values at the nodes
+        */</font>
+  tol := tolerance;
+  m := (a + b)/2;
+  h := (b - a)/2;
+  alpha :=<font color="red"> sqrt</font>(2/3);
+  beta := 1/<font color="red">sqrt</font>(5);
+  x := {a,
+        m - x1*h,
+        m - alpha*h,
+        m - x2*h,
+        m - beta*h,
+        m - x3*h,
+        m,
+        m + x3*h,
+        m + beta*h,
+        m + x2*h,
+        m + alpha*h,
+        m + x1*h,
+        b};
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(x,1)<font color="blue"> loop</font>
+    y[i] :=<font color="red"> f</font>(x[i]);
+  <font color="blue">end for</font>;
+  fa := y[1];
+  fb := y[13];
+  i2 := (h/6)*(y[1] + y[13] + 5*(y[5] + y[9]));
+  i1 := (h/1470)*(77*(y[1] + y[13]) + 432*(y[3] + y[11]) + 625*(y[5] + y[9])
+     + 672*y[7]);
+  is := h*(.0158271919734802*(y[1] + y[13]) +.0942738402188500 *(y[2] + y[
+    12]) +.155071987336585 *(y[3] + y[11]) +.188821573960182 *(y[4] + y[10])
+     +.199773405226859 *(y[5] + y[9]) +.224926465333340 *(y[6] + y[8]) +.242611071901408
+                    *y[7]);
+  s :=<font color="red"> sign</font>(is);
+  <font color="blue">if </font>(s == 0)<font color="blue"> then</font>
+    s := 1;
+  <font color="blue">end if</font>;
+  erri1 :=<font color="red"> abs</font>(i1 - is);
+  erri2 :=<font color="red"> abs</font>(i2 - is);
+  R := 1;
+  <font color="blue">if </font>(erri2 &lt;&gt; 0)<font color="blue"> then</font>
+    R := erri1/erri2;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(R &gt; 0<font color="blue"> and </font>R &lt; 1)<font color="blue"> then</font>
+    tol := tol/R;
+  <font color="blue">end if</font>;
+  is := s*<font color="red">abs</font>(is)*tol/eps;
+  <font color="blue">if </font>(is == 0)<font color="blue"> then</font>
+    is := b - a;
+  <font color="blue">end if</font>;
+  integral :=<font color="red"> quadStep</font>(
+        f,
+        a,
+        b,
+        fa,
+        fb,
+        is);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>quadratureLobatto;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solveOneNonlinearEquation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Nonlinear.solveOneNonlinearEquation"></A><A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Modelica.Math.Nonlinear</A>.solveOneNonlinearEquation</H2>
+<B>Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>solveOneNonlinearEquation</b>(function f(), u_min, u_max);
+<b>solveOneNonlinearEquation</b>(function f(), u_min, u_max, tolerance=100*Modelica.Constants.eps);
+</pre></blockquote>
+
+<h4>Description</h4>
+
+<p>
+This function determines the solution of <b>one non-linear algebraic equation</b> "y=f(u)"
+in <b>one unknown</b> "u" in a reliable way. It is one of the best numerical
+algorithms for this purpose. As input, the nonlinear function f(u)
+has to be given, as well as an interval u_min, u_max that
+contains the solution, i.e., "f(u_min)" and "f(u_max)" must
+have a different sign. The function computes a smaller interval
+in which a sign change is present using the relative tolerance
+"tolerance" that can be given as 4th input argument.
+</p>
+
+<p>
+The interval reduction is performed using
+inverse quadratic interpolation (interpolating with a quadratic polynomial
+through the last 3 points and computing the zero). If this fails,
+bisection is used, which always reduces the interval by a factor of 2.
+The inverse quadratic interpolation method has superlinear convergence.
+This is roughly the same convergence rate as a globally convergent Newton
+method, but without the need to compute derivatives of the non-linear
+function. The solver function is a direct mapping of the Algol 60 procedure
+"zero" to Modelica, from:
+</p>
+
+<blockquote>
+<dl>
+<dt> Brent R.P.:</dt>
+<dd> <b>Algorithms for Minimization without derivatives</b>.
+     Prentice Hall, 1973, pp. 58-59.<br>
+     Download: <a href="http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf">http://wwwmaths.anu.edu.au/~brent/pd/rpb011i.pdf</a><br>
+     Errata and new print: <a href="http://wwwmaths.anu.edu.au/~brent/pub/pub011.html">http://wwwmaths.anu.edu.au/~brent/pub/pub011.html</a>
+</dd>
+</dl>
+</blockquote>
+
+<h4>Example</h4>
+
+<p>
+See the examples in <A HREF="Modelica_Math_Nonlinear_Examples.html#Modelica.Math.Nonlinear.Examples"
+>Modelica.Math.Nonlinear.Examples</a>.
+</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces.partialScalarFunction"
+>partialScalarFunction</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>Function y = f(u); u is computed so that y=0</TD></TR>
+<TR><TD>Real</TD><TD>u_min</TD><TD>&nbsp;</TD><TD>Lower bound of search intervall</TD></TR>
+<TR><TD>Real</TD><TD>u_max</TD><TD>&nbsp;</TD><TD>Upper bound of search intervall</TD></TR>
+<TR><TD>Real</TD><TD>tolerance</TD><TD>100*Modelica.Constants.eps</TD><TD>Relative tolerance of solution u</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>Value of independent variable u so that f(u) = 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> solveOneNonlinearEquation <font color="darkgreen">
+  &quot;Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.error"
+>Modelica.Utilities.Streams.error</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_Math_Nonlinear_Interfaces.html#Modelica.Math.Nonlinear.Interfaces.partialScalarFunction"
+>Modelica.Math.Nonlinear.Interfaces.partialScalarFunction</A>
+                                                       f <font color="darkgreen">
+    &quot;Function y = f(u); u is computed so that y=0&quot;</font>;
+  <font color="blue">input </font>Real u_min <font color="darkgreen">&quot;Lower bound of search intervall&quot;</font>;
+  <font color="blue">input </font>Real u_max <font color="darkgreen">&quot;Upper bound of search intervall&quot;</font>;
+  <font color="blue">input </font>Real tolerance=100*Modelica.Constants.eps <font color="darkgreen">
+    &quot;Relative tolerance of solution u&quot;</font>;
+  <font color="blue">output </font>Real u <font color="darkgreen">&quot;Value of independent variable u so that f(u) = 0&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">constant </font>Real eps=Modelica.Constants.eps <font color="darkgreen">&quot;machine epsilon&quot;</font>;
+  Real a=u_min <font color="darkgreen">&quot;Current best minimum interval value&quot;</font>;
+  Real b=u_max <font color="darkgreen">&quot;Current best maximum interval value&quot;</font>;
+  Real c <font color="darkgreen">&quot;Intermediate point a &lt;= c &lt;= b&quot;</font>;
+  Real d;
+  Real e <font color="darkgreen">&quot;b - a&quot;</font>;
+  Real m;
+  Real s;
+  Real p;
+  Real q;
+  Real r;
+  Real tol;
+  Real fa <font color="darkgreen">&quot;= f(a)&quot;</font>;
+  Real fb <font color="darkgreen">&quot;= f(b)&quot;</font>;
+  Real fc;
+  Boolean found=false;
+<font color="blue">algorithm </font>
+  <font color="darkgreen">// Check that f(u_min) and f(u_max) have different sign</font>
+  fa :=<font color="red"> f</font>(u_min);
+  fb :=<font color="red"> f</font>(u_max);
+  fc := fb;
+  <font color="blue">if </font>fa &gt; 0.0<font color="blue"> and </font>fb &gt; 0.0<font color="blue"> or </font>fa &lt; 0.0<font color="blue"> and </font>fb &lt; 0.0<font color="blue"> then</font>
+    <font color="red">error</font>(
+      &quot;The arguments u_min and u_max to solveOneNonlinearEquation(..)\n&quot; +
+      &quot;do not bracket the root of the single non-linear equation:\n&quot; +
+      &quot;  u_min  = &quot; +<font color="red"> String</font>(u_min) + &quot;\n&quot; + &quot;  u_max  = &quot; +<font color="red"> String</font>(u_max)
+       + &quot;\n&quot; + &quot;  fa = f(u_min) = &quot; +<font color="red"> String</font>(fa) + &quot;\n&quot; +
+      &quot;  fb = f(u_max) = &quot; +<font color="red"> String</font>(fb) + &quot;\n&quot; +
+      &quot;fa and fb must have opposite sign which is not the case&quot;);
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Initialize variables</font>
+  c := a;
+  fc := fa;
+  e := b - a;
+  d := e;
+
+  <font color="darkgreen">// Search loop</font>
+  <font color="blue">while </font><font color="blue">not </font>found<font color="blue"> loop</font>
+    <font color="blue">if </font><font color="red">abs</font>(fc) &lt;<font color="red"> abs</font>(fb)<font color="blue"> then</font>
+      a := b;
+      b := c;
+      c := a;
+      fa := fb;
+      fb := fc;
+      fc := fa;
+    <font color="blue">end if</font>;
+
+    tol := 2*eps*<font color="red">abs</font>(b) + tolerance;
+    m := (c - b)/2;
+
+    <font color="blue">if </font><font color="red">abs</font>(m) &lt;= tol<font color="blue"> or </font>fb == 0.0<font color="blue"> then</font>
+      <font color="darkgreen">// root found (interval is small enough)</font>
+      found := true;
+      u := b;
+    <font color="blue">else</font>
+      <font color="darkgreen">// Determine if a bisection is needed</font>
+      <font color="blue">if </font><font color="red">abs</font>(e) &lt; tol<font color="blue"> or </font><font color="red">abs</font>(fa) &lt;=<font color="red"> abs</font>(fb)<font color="blue"> then</font>
+        e := m;
+        d := e;
+      <font color="blue">else</font>
+        s := fb/fa;
+        <font color="blue">if </font>a == c<font color="blue"> then</font>
+          <font color="darkgreen">// linear interpolation</font>
+          p := 2*m*s;
+          q := 1 - s;
+        <font color="blue">else</font>
+          <font color="darkgreen">// inverse quadratic interpolation</font>
+          q := fa/fc;
+          r := fb/fc;
+          p := s*(2*m*q*(q - r) - (b - a)*(r - 1));
+          q := (q - 1)*(r - 1)*(s - 1);
+        <font color="blue">end if</font>;
+
+        <font color="blue">if </font>p &gt; 0<font color="blue"> then</font>
+          q := -q;
+        <font color="blue">else</font>
+          p := -p;
+        <font color="blue">end if</font>;
+
+        s := e;
+        e := d;
+        <font color="blue">if </font>2*p &lt; 3*m*q -<font color="red"> abs</font>(tol*q)<font color="blue"> and </font>p &lt;<font color="red"> abs</font>(0.5*s*q)<font color="blue"> then</font>
+          <font color="darkgreen">// interpolation successful</font>
+          d := p/q;
+        <font color="blue">else</font>
+          <font color="darkgreen">// use bi-section</font>
+          e := m;
+          d := e;
+        <font color="blue">end if</font>;
+      <font color="blue">end if</font>;
+
+      <font color="darkgreen">// Best guess value is defined as &quot;a&quot;</font>
+      a := b;
+      fa := fb;
+      b := b + (<font color="blue">if </font><font color="red">abs</font>(d) &gt; tol<font color="blue"> then </font>d<font color="blue"> else </font><font color="blue">if </font>m &gt; 0<font color="blue"> then </font>tol<font color="blue"> else </font>-tol);
+      fb :=<font color="red"> f</font>(b);
+
+      <font color="blue">if </font>fb &gt; 0<font color="blue"> and </font>fc &gt; 0<font color="blue"> or </font>fb &lt; 0<font color="blue"> and </font>fc &lt; 0<font color="blue"> then</font>
+        <font color="darkgreen">// initialize variables</font>
+        c := a;
+        fc := fa;
+        e := b - a;
+        d := e;
+      <font color="blue">end if</font>;
+    <font color="blue">end if</font>;
+  <font color="blue">end while</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>solveOneNonlinearEquation;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:48 2010.
+</address></BODY>
+</HTML>

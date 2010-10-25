@@ -1,0 +1,378 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Sensors for machine modelling&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Sensors"></A><A HREF="Modelica_Electrical_Machines.html#Modelica.Electrical.Machines"
+>Modelica.Electrical.Machines</A>.Sensors</H2>
+<B>Sensors for machine modelling</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This package contains sensors that are usefull when modelling machines.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</A> (Icon for packages containing sensors).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensorS.png" ALT="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor"
+>VoltageQuasiRMSSensor</A>
+</TD><TD>Length of space phasor -&gt; RMS voltage</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensorS.png" ALT="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor"
+>CurrentQuasiRMSSensor</A>
+</TD><TD>Length of space phasor -&gt; RMS current</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensorS.png" ALT="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor"
+>ElectricalPowerSensor</A>
+</TD><TD>Instantaneous power from space phasors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensorS.png" ALT="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor"
+>MechanicalPowerSensor</A>
+</TD><TD>Mechanical power = torque x speed</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngleS.png" ALT="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle"
+>RotorDisplacementAngle</A>
+</TD><TD>Rotor lagging angle</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoltageQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensorI.png" ALT="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.VoltageQuasiRMSSensor</H2>
+<B>Length of space phasor -&gt; RMS voltage</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensorD.png" ALT="Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Measured 3-phase instantaneous voltages are transformed to the corresponding space phasor; <br>
+output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS voltage.
+<pre></PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>V</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> VoltageQuasiRMSSensor <font color="darkgreen">
+  &quot;Length of space phasor -&gt; RMS voltage&quot;</font>
+  <font color="blue">constant </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> V;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_n(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"
+>Modelica.Electrical.MultiPhase.Sensors.VoltageSensor</A> VoltageSensor1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Gain1(<font color="blue">final </font>k=1/<font color="red">sqrt</font>(2));
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor"
+>Machines.SpacePhasors.Blocks.ToSpacePhasor</A> ToSpacePhasor1;
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar"
+>Machines.SpacePhasors.Blocks.ToPolar</A> ToPolar1;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(plug_p, VoltageSensor1.plug_p);
+  <font color="red">connect</font>(VoltageSensor1.plug_n, plug_n);
+  <font color="red">connect</font>(VoltageSensor1.v, ToSpacePhasor1.u);
+  <font color="red">connect</font>(ToSpacePhasor1.y, ToPolar1.u);
+  <font color="red">connect</font>(ToPolar1.y[1], Gain1.u);
+  <font color="red">connect</font>(Gain1.y, V);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>VoltageQuasiRMSSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrentQuasiRMSSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensorI.png" ALT="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.CurrentQuasiRMSSensor</H2>
+<B>Length of space phasor -&gt; RMS current</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensorD.png" ALT="Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Measured 3-phase instantaneous currents are transformed to the corresponding space phasor; <br>
+output is length of the space phasor divided by sqrt(2), thus giving in sinusoidal stationary state RMS current.
+<pre></PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>I</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> CurrentQuasiRMSSensor <font color="darkgreen">
+  &quot;Length of space phasor -&gt; RMS current&quot;</font>
+  <font color="blue">constant </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> I;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_n(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"
+>Modelica.Electrical.MultiPhase.Sensors.CurrentSensor</A> CurrentSensor1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Gain1(<font color="blue">final </font>k=1/<font color="red">sqrt</font>(2));
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor"
+>Machines.SpacePhasors.Blocks.ToSpacePhasor</A> ToSpacePhasor1;
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar"
+>Machines.SpacePhasors.Blocks.ToPolar</A> ToPolar1;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(plug_p, CurrentSensor1.plug_p);
+  <font color="red">connect</font>(CurrentSensor1.plug_n, plug_n);
+  <font color="red">connect</font>(CurrentSensor1.i, ToSpacePhasor1.u);
+  <font color="red">connect</font>(ToSpacePhasor1.y, ToPolar1.u);
+  <font color="red">connect</font>(ToPolar1.y[1], Gain1.u);
+  <font color="red">connect</font>(Gain1.y,I);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>CurrentQuasiRMSSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ElectricalPowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensorI.png" ALT="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.ElectricalPowerSensor</H2>
+<B>Instantaneous power from space phasors</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensorD.png" ALT="Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
+which are used to calculate power quantities:<br>
+P = instantaneous power, thus giving in stationary state active power.<br>
+Q = giving in stationary state reactive power.<br>
+<pre></PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>P</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>Q</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_ni</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_nv</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ElectricalPowerSensor <font color="darkgreen">&quot;Instantaneous power from space phasors&quot;</font>
+  <font color="blue">constant </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> P;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> Q;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_ni(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_nv(<font color="blue">final </font>m=m);</textblock>
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> v_[2];
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> i_[2];
+<font color="blue">equation </font>
+  plug_p.pin.v = plug_ni.pin.v;
+  plug_p.pin.i + plug_ni.pin.i =<font color="red"> zeros</font>(m);
+  plug_nv.pin.i =<font color="red"> zeros</font>(m);
+  v_ =<font color="red"> Machines.SpacePhasors.Functions.ToSpacePhasor</font>(plug_p.pin.v - plug_nv.pin.v);
+  i_ =<font color="red"> Machines.SpacePhasors.Functions.ToSpacePhasor</font>(plug_p.pin.i);
+  2/3*P = +v_[1]*i_[1]+v_[2]*i_[2];
+  2/3*Q = -v_[1]*i_[2]+v_[2]*i_[1];
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ElectricalPowerSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MechanicalPowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensorI.png" ALT="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.MechanicalPowerSensor</H2>
+<B>Mechanical power = torque x speed</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensorD.png" ALT="Modelica.Electrical.Machines.Sensors.MechanicalPowerSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Calculates (mechanical) power from torque times angular speed.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges</A> (Partial model for a component with two rotational 1-dim. shaft flanges).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>Use support or fixed housing</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>P</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MechanicalPowerSensor <font color="darkgreen">&quot;Mechanical power = torque x speed&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges"
+>Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges</A>;
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">&quot;Use support or fixed housing&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> P;
+  <A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.TorqueSensor"
+>Modelica.Mechanics.Rotational.Sensors.TorqueSensor</A> torqueSensor;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Product"
+>Modelica.Blocks.Math.Product</A> product;
+  <A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor"
+>Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor</A> relSpeedSensor;
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Fixed"
+>Modelica.Mechanics.Rotational.Components.Fixed</A> fixed <font color="blue">if </font>
+                                                        (<font color="blue">not </font>useSupport);
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> support <font color="blue">if </font>         useSupport <font color="darkgreen">
+    &quot;Support at which the reaction torque is acting&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(flange_a, torqueSensor.flange_a);
+  <font color="red">connect</font>(torqueSensor.flange_b, flange_b);
+  <font color="red">connect</font>(product.y, P);
+  <font color="red">connect</font>(torqueSensor.tau, product.u2);
+  <font color="red">connect</font>(flange_a, relSpeedSensor.flange_b);
+  <font color="red">connect</font>(relSpeedSensor.w_rel, product.u1);
+  <font color="red">connect</font>(relSpeedSensor.flange_a, fixed.flange);
+  <font color="red">connect</font>(relSpeedSensor.flange_a, support);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MechanicalPowerSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RotorDisplacementAngle<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngleI.png" ALT="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle"></A><A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors"
+>Modelica.Electrical.Machines.Sensors</A>.RotorDisplacementAngle</H2>
+<B>Rotor lagging angle</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngleD.png" ALT="Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Calculates rotor lagging angle by measuring the stator phase voltages, transforming them to the correspondig space phasor in stator-fixed coordinate system, <br>
+rotating the space phasor to the rotor-fixed coordinate system and calculating the angle of this space phasor.
+<p>
+The sensor's housing can be implicitely fixed (useSupport=false).<br>
+If the machine's stator also implicitely fixed (useSupport=false), the angle at the flange
+is equal to the angle of the machine's rotor against the stator.<br>
+Otherwise, the sensor's support has to be connected to the machine's support.
+</p>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>p</TD><TD>&nbsp;</TD><TD>Number of pole pairs</TD></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>Use support or fixed housing</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>rotorDisplacementAngle</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>support</TD><TD>support at which the reaction torque is acting</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RotorDisplacementAngle <font color="darkgreen">&quot;Rotor lagging angle&quot;</font>
+  <font color="blue">constant </font>Integer m=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">parameter </font>Integer p(min=1) <font color="darkgreen">&quot;Number of pole pairs&quot;</font>;
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">&quot;Use support or fixed housing&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> rotorDisplacementAngle;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_p(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_n(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.VoltageSensor"
+>Modelica.Electrical.MultiPhase.Sensors.VoltageSensor</A> VoltageSensor1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToSpacePhasor"
+>Machines.SpacePhasors.Blocks.ToSpacePhasor</A> ToSpacePhasorVS;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> flange;
+  <A HREF="Modelica_Mechanics_Rotational_Sensors.html#Modelica.Mechanics.Rotational.Sensors.RelAngleSensor"
+>Modelica.Mechanics.Rotational.Sensors.RelAngleSensor</A> relativeAngleSensor;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constant_(<font color="blue">final </font>k=Modelica.Constants.pi/2);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Add"
+>Modelica.Blocks.Math.Add</A> add(<font color="blue">final </font>k2=1, <font color="blue">final </font>k1=p);
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.Rotator"
+>Machines.SpacePhasors.Blocks.Rotator</A> rotatorVS2R;
+  <A HREF="Modelica_Electrical_Machines_SpacePhasors_Blocks.html#Modelica.Electrical.Machines.SpacePhasors.Blocks.ToPolar"
+>Machines.SpacePhasors.Blocks.ToPolar</A> ToPolarVSR;
+  <A HREF="Modelica_Blocks_Routing.html#Modelica.Blocks.Routing.DeMultiplex2"
+>Modelica.Blocks.Routing.DeMultiplex2</A> deMultiplex2(<font color="blue">final </font>n1=1,
+       <font color="blue">final </font>n2=1);
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> support <font color="blue">if </font>useSupport <font color="darkgreen">
+    &quot;support at which the reaction torque is acting&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Fixed"
+>Modelica.Mechanics.Rotational.Components.Fixed</A> fixed <font color="blue">if </font>
+                                               (<font color="blue">not </font>useSupport);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(constant_.y, add.u2);
+  <font color="red">connect</font>(add.y, rotatorVS2R.angle);
+  <font color="red">connect</font>(ToSpacePhasorVS.y, rotatorVS2R.u);
+  <font color="red">connect</font>(rotatorVS2R.y, ToPolarVSR.u);
+  <font color="red">connect</font>(ToPolarVSR.y, deMultiplex2.u);
+  <font color="red">connect</font>(plug_p, VoltageSensor1.plug_p);
+  <font color="red">connect</font>(plug_n, VoltageSensor1.plug_n);
+  <font color="red">connect</font>(VoltageSensor1.v, ToSpacePhasorVS.u);
+  <font color="red">connect</font>(deMultiplex2.y2[1], rotorDisplacementAngle);
+  <font color="red">connect</font>(relativeAngleSensor.phi_rel, add.u1);
+  <font color="red">connect</font>(relativeAngleSensor.flange_b, flange);
+  <font color="red">connect</font>(relativeAngleSensor.flange_a, support);
+  <font color="red">connect</font>(relativeAngleSensor.flange_a, fixed.flange);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>RotorDisplacementAngle;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:03 2010.
+</address></BODY>
+</HTML>

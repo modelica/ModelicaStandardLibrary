@@ -1,0 +1,1264 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Spice3.Internal.Mos</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Records and functions for Mosfets level 1,2,3,6&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Mos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos"></A><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</A>.Mos</H2>
+<B>Records and functions for Mosfets level 1,2,3,6</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This package Mos contains functions and records with data of the mosfet models level 1, 2, 3 and 6.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"
+>MosModelLineParams</A>
+</TD><TD>Record for Mosfet model line parameters (for level 1, 2, 3 and 6)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</A>
+</TD><TD>Record for Mosfet model line variables (for level 1)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.MosCalc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>MosCalc</A>
+</TD><TD>Further mosfet variables (for level 1, 2, 3 and 6)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A>
+</TD><TD>Meyer capacities and charge</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"
+>CurrrentsCapacitances</A>
+</TD><TD>Currents and Capacities</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations"
+>mosCalcInitEquations</A>
+</TD><TD>Mosfet initial precalculations (level 1)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies"
+>mosCalcCalcTempDependencies</A>
+</TD><TD>Precalculation relating to temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode"
+>mosCalcNoBypassCode</A>
+</TD><TD>Calculation of currents and capacities (level 1)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer"
+>mosCalcDEVqmeyer</A>
+</TD><TD>Calculation of meyer capacities</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquations" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquations"
+>mos2CalcInitEquations</A>
+</TD><TD>Mosfet initial precalculations (level 1)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependencies" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependencies"
+>mos2CalcCalcTempDependencies</A>
+</TD><TD>Precalculation relating to temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCode" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCode"
+>mos2CalcNoBypassCode</A>
+</TD><TD>Calculation of currents and capacities (level 2)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MosModelLineParams<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.MosModelLineParams</H2>
+<B>Record for Mosfet model line parameters (for level 1, 2, 3 and 6)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record MosModelLineParams contains the model line parameters that are used for the mosfet transistors level 1, 2, 3 and 6 in SPICE3.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.MosfetModelLineParams"
+>Mosfet.MosfetModelLineParams</A> (Record for Mosfet model line parameters).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>Real</TD><TD>m_jctSatCurDensity.start</TD><TD>0.0</TD><TD>JS, Bulk jct. sat. current density, input - use tSatCurDens</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>m_sheetResistance.start</TD><TD>0.0</TD><TD>RSH, Sheet resistance [Ohm]</TD></TR>
+<TR><TD>Real</TD><TD>m_bulkJctPotential.start</TD><TD>0.8</TD><TD>PB, Bulk junction potential, input - use tBulkPot</TD></TR>
+<TR><TD>Real</TD><TD>m_bulkJctBotGradingCoeff.start</TD><TD>0.5</TD><TD>MJ, Bottom grading coefficient</TD></TR>
+<TR><TD>Real</TD><TD>m_bulkJctSideGradingCoeff.start</TD><TD>0.5</TD><TD>MJSW, Side grading coefficient</TD></TR>
+<TR><TD>Real</TD><TD>m_oxideThickness.start</TD><TD>1.0e-7</TD><TD>TOX, Oxide thickness unit: micron</TD></TR>
+<TR><TD>Real</TD><TD>m_gateSourceOverlapCapFactor.start</TD><TD>0.0</TD><TD>CGS0, Gate-source overlap cap</TD></TR>
+<TR><TD>Real</TD><TD>m_gateDrainOverlapCapFactor.start</TD><TD>0.0</TD><TD> CGD0, Gate-drain overlap cap</TD></TR>
+<TR><TD>Real</TD><TD>m_gateBulkOverlapCapFactor.start</TD><TD>0.0</TD><TD>CGB0, Gate-bulk overlap cap</TD></TR>
+<TR><TD>Real</TD><TD>m_fNcoef.start</TD><TD>0.0</TD><TD>KF, Flicker noise coefficient</TD></TR>
+<TR><TD>Real</TD><TD>m_fNexp.start</TD><TD>1.0</TD><TD>AF, Flicker noise exponent</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> MosModelLineParams <font color="darkgreen">
+  &quot;Record for Mosfet model line parameters (for level 1, 2, 3 and 6)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.MosfetModelLineParams"
+>Mosfet.MosfetModelLineParams</A>;
+
+   Real m_oxideCapFactor(      start = 0.0);
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_vt0(                 start = 0.0) <font color="darkgreen">
+    &quot;VTO, Threshold voltage&quot;</font>;
+   Real m_vtOIsGiven <font color="darkgreen">&quot;VTO IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_capBD(               start = 0.0) <font color="darkgreen">
+    &quot;CBD, B-D junction capacitance&quot;</font>;
+   Real m_capBDIsGiven <font color="darkgreen">&quot;CapBD IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_capBS(               start = 0.0) <font color="darkgreen">
+    &quot;CBS, B-S junction capacitance&quot;</font>;
+   Real m_capBSIsGiven <font color="darkgreen">&quot;CapBS IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.CapacitancePerArea"
+>Modelica.SIunits.CapacitancePerArea</A> m_bulkCapFactor(       start = 0.0) <font color="darkgreen">
+    &quot;CJ, Bottom junction cap per area&quot;</font>;
+   Real m_bulkCapFactorIsGiven <font color="darkgreen">&quot;Bulk cap factor IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Permittivity"
+>Modelica.SIunits.Permittivity</A> m_sideWallCapFactor(   start = 0.0) <font color="darkgreen">
+    &quot;CJSW, Side grading coefficient&quot;</font>;
+   Real m_fwdCapDepCoeff(      start = 0.5) <font color="darkgreen">&quot;FC, Forward bias jct. fit parm.&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_phi(                 start = 0.6) <font color="darkgreen">
+    &quot;PHI, Surface potential&quot;</font>;
+   Real m_phiIsGiven <font color="darkgreen">&quot;Phi IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_gamma(               start = 0.0) <font color="darkgreen">
+    &quot;GAMMA, Bulk threshold parameter&quot;</font>;
+   Real m_gammaIsGiven <font color="darkgreen">&quot;Gamma IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.InversePotential"
+>Modelica.SIunits.InversePotential</A> m_lambda <font color="darkgreen">&quot;Channel-length modulation&quot;</font>;
+   Real m_substrateDoping(     start = 0.0) <font color="darkgreen">&quot;NSUB, Substrate doping&quot;</font>;
+   Real m_substrateDopingIsGiven <font color="darkgreen">&quot;Substrate doping IsGivenValue&quot;</font>;
+   Real m_gateType(            start = 1.0) <font color="darkgreen">&quot;TPG, Gate type&quot;</font>;
+   <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.PerArea_cm"
+>Modelica.SIunits.Conversions.NonSIunits.PerArea_cm</A>
+    m_surfaceStateDensity(                                                   start = 0.0) <font color="darkgreen">
+    &quot;NSS, Gate type&quot;</font>;
+   Real m_surfaceStateDensityIsGiven <font color="darkgreen">&quot;surfaceStateDensityIsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond"
+>Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond</A>
+    m_surfaceMobility( start = 600.0) <font color="darkgreen">&quot;UO, Surface mobility&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> m_latDiff(             start = 0.0) <font color="darkgreen">
+    &quot;LD, Lateral diffusion&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> m_jctSatCur(           start = 1.0e-14) <font color="darkgreen">
+    &quot;IS, Bulk junction sat. current&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> m_drainResistance(     start = 0) <font color="darkgreen">
+    &quot;RD, Drain ohmic resistance&quot;</font>;
+   Real m_drainResistanceIsGiven <font color="darkgreen">&quot;Drain resistance IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> m_sourceResistance(    start = 0) <font color="darkgreen">
+    &quot;RS, Source ohmic resistance&quot;</font>;
+   Real m_sourceResistanceIsGiven <font color="darkgreen">&quot;Source resistance IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>Modelica.SIunits.Transconductance</A> m_transconductance <font color="darkgreen">
+    &quot;input - use tTransconductance&quot;</font>;
+   Real m_transconductanceIsGiven <font color="darkgreen">&quot;Transconductance IsGivenValue&quot;</font>;
+   <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>Modelica.SIunits.Temp_K</A> m_tnom(start=SpiceConstants.CKTnomTemp) <font color="darkgreen">
+    &quot;TNOM, Parameter measurement temperature&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MosModelLineParams;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MosModelLineVariables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.MosModelLineVariables</H2>
+<B>Record for Mosfet model line variables (for level 1)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 1 SPICE3.</p>
+<pre></PRE><P>
+
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> MosModelLineVariables <font color="darkgreen">
+  &quot;Record for Mosfet model line variables (for level 1)&quot;</font>
+
+  Real m_oxideCapFactor;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_vt0;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_phi;
+  Real m_gamma;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>Modelica.SIunits.Transconductance</A> m_transconductance;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MosModelLineVariables;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MosCalc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.MosCalc"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.MosCalc</H2>
+<B>Further mosfet variables (for level 1, 2, 3 and 6)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record MosCalc contains further mosfet variables (for level 1, 2, 3 and 6).</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.MosfetCalc"
+>Mosfet.MosfetCalc</A> (Mosfet Variables).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>Integer</TD><TD>m_mode.start</TD><TD>1</TD><TD>Mode</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> MosCalc <font color="darkgreen">&quot;Further mosfet variables (for level 1, 2, 3 and 6)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.MosfetCalc"
+>Mosfet.MosfetCalc</A>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>Modelica.SIunits.Transconductance</A> m_tTransconductance( start = 0.);
+  Real m_tSurfMob( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_tPhi( start = 0.7);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_tVto( start = 1.);
+  Real m_tSatCurDens( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> m_tDrainSatCur( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> m_tSourceSatCur( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_tCBDb( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_tCBDs( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_tCBSb( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_tCBSs( start = 0.);
+  Real m_tCj( start = 0.);
+  Real m_tCjsw( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_tBulkPot( start = 0.7);
+  Real m_tDepCap( start = 0.35);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_tVbi( start = 1.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_VBScrit( start = 0.7);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> m_VBDcrit( start = 0.7);
+  Real m_f1b( start = 0.);
+  Real m_f2b( start = 0.);
+  Real m_f3b( start = 0.);
+  Real m_f1s( start = 0.);
+  Real m_f2s( start = 0.);
+  Real m_f3s( start = 0.);
+  Real m_dVt( start = 0.);
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_capgd( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_capgs( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_capgb( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> m_qgs( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> m_qgd( start = 0.);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> m_qgb( start = 0.);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MosCalc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DEVqmeyer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.DEVqmeyer</H2>
+<B>Meyer capacities and charge</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record DEVqmeyer contains values that are needed for the calculation of the meyer capacities and charge.</p>
+<pre></PRE><P>
+
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> DEVqmeyer <font color="darkgreen">&quot;Meyer capacities and charge&quot;</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> qm_capgb(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> qm_capgs(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> qm_capgd(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> qm_qgs(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> qm_qgb(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> qm_qgd(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> qm_vgs(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> qm_vgb(  start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> qm_vgd(  start = 0);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>DEVqmeyer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE CurrrentsCapacitances<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.CurrrentsCapacitances</H2>
+<B>Currents and Capacities</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record CurrentsCapacities contains values for the currents and the capacities inside the mosfet models level 1, 2, 3 and 6.</p>
+<pre></PRE><P>
+
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> CurrrentsCapacitances <font color="darkgreen">&quot;Currents and Capacities&quot;</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> idrain( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> iBD( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> iBS( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> cGS( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> cGB( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> cGD( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> cBS( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> cBD( start = 0);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> m_capgd;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>CurrrentsCapacitances;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mosCalcInitEquations<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mosCalcInitEquations"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mosCalcInitEquations</H2>
+<B>Mosfet initial precalculations (level 1)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 1).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record model line parameters for MOS1</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Input record SPICE constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Input record mosfet parameters</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1Calc</A></TD><TD>out_c</TD><TD>Output record Mos1 calculated values</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mosCalcInitEquations <font color="darkgreen">
+  &quot;Mosfet initial precalculations (level 1)&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1.Mos1ModelLineParams</A> in_p <font color="darkgreen">
+    &quot;Input record model line parameters for MOS1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Input record SPICE constants&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Input record mosfet parameters&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1.Mos1Calc</A> out_c <font color="darkgreen">&quot;Output record Mos1 calculated values&quot;</font>;
+
+<font color="blue">algorithm </font>
+   out_c.m_drainResistance := <font color="blue">if </font>
+                                (in_p.m_drainResistanceIsGiven &gt; 0.5)<font color="blue"> then </font>
+       in_p.m_drainResistance<font color="blue"> else </font>
+       in_p.m_sheetResistance * in_m.m_drainSquares;
+
+   out_c.m_sourceResistance := <font color="blue">if </font> (in_p.m_sourceResistanceIsGiven &gt; 0.5)<font color="blue"> then </font>
+       in_p.m_sourceResistance<font color="blue"> else </font>
+       in_p.m_sheetResistance * in_m.m_sourceSquares;
+
+  out_c.m_lEff := in_m.m_len - 2 * in_p.m_latDiff;
+
+  <font color="blue">if </font>(<font color="red"> abs</font>( out_c.m_lEff) &lt; 1e-18)<font color="blue"> then</font>
+    out_c.m_lEff := 1e-6;
+  <font color="blue">end if</font>;
+  out_c.m_capGSovl := in_p.m_gateSourceOverlapCapFactor * in_m.m_width;
+  out_c.m_capGDovl := in_p.m_gateDrainOverlapCapFactor * in_m.m_width;
+
+  out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
+  out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mosCalcInitEquations;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mosCalcCalcTempDependencies<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mosCalcCalcTempDependencies"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mosCalcCalcTempDependencies</H2>
+<B>Precalculation relating to temperature</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 1).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record model line parameters for MOS1</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Input record SPICE constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Input record mosfet parameters</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1Calc</A></TD><TD>in_c</TD><TD>&nbsp;</TD><TD>Input record Mos1Calc</TD></TR>
+<TR><TD>Integer</TD><TD>in_m_type</TD><TD>&nbsp;</TD><TD>Type of MOS transistor</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1Calc</A></TD><TD>out_c</TD><TD>Output record with calculated values</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mosCalcCalcTempDependencies <font color="darkgreen">
+  &quot;Precalculation relating to temperature&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1.Mos1ModelLineParams</A> in_p <font color="darkgreen">
+    &quot;Input record model line parameters for MOS1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Input record SPICE constants&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Input record mosfet parameters&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1.Mos1Calc</A> in_c <font color="darkgreen">&quot;Input record Mos1Calc&quot;</font>;
+  <font color="blue">input </font>Integer in_m_type <font color="darkgreen">&quot;Type of MOS transistor&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1.Mos1Calc</A> out_c <font color="darkgreen">&quot;Output record with calculated values&quot;</font>;
+
+<font color="blue">protected </font>
+   Real ratio;
+   Real ratio4;
+   Real res;
+
+<font color="blue">algorithm </font>
+  out_c := in_c;
+
+  ratio                     := in_m.m_dTemp / in_p.m_tnom;
+  ratio4                    := ratio *<font color="red"> sqrt</font>(ratio);
+  out_c.m_tTransconductance := in_vp.m_transconductance / ratio4;
+  out_c.m_Beta              := out_c.m_tTransconductance * in_m.m_width / out_c.m_lEff;
+
+  out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
+
+  out_c.m_tPhi :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp</font>(
+                                              in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
+
+  out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma *<font color="red"> sqrt</font>(in_vp.m_phi)) +0.5  *
+                  (<font color="red">Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp</font>(
+                                              in_p.m_tnom) -<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp</font>(
+                                                                                        in_m.m_dTemp))
+                  + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
+  out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma *<font color="red"> sqrt</font>(out_c.m_tPhi);
+
+  out_c.m_tBulkPot :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp</font>(
+                                                  in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
+  out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
+
+ <font color="blue">if </font>(in_p.m_jctSatCurDensity == 0.0<font color="blue"> or </font>in_m.m_sourceArea == 0.0<font color="blue"> or </font>in_m.m_drainArea == 0.0)<font color="blue"> then</font>
+    out_c.m_tDrainSatCur  :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET</font>(
+                             in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
+    out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
+    out_c.m_VBScrit       :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit</font>(
+                                                     in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+    out_c.m_VBDcrit       := out_c.m_VBScrit;
+  <font color="blue">else</font>
+    out_c.m_tSatCurDens   :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET</font>(
+                             in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
+    out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
+    out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
+    out_c.m_VBScrit       :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit</font>(
+                                                     in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+    out_c.m_VBDcrit       :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit</font>(
+                                                     in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_capBDIsGiven &gt; 0.5)<font color="blue"> or </font><font color="blue">not </font>(in_p.m_capBSIsGiven &gt; 0.5))<font color="blue"> then</font>
+    (res,out_c.m_tCj)   :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
+                              in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    (res,out_c.m_tCjsw) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
+                              in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs</font>(
+                              in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(in_p.m_capBDIsGiven &gt; 0.5)<font color="blue"> then</font>
+    (res,out_c.m_tCBDb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_capBD,
+                              in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    out_c.m_tCBDs          := 0.0;
+  <font color="blue">else</font>
+    out_c.m_tCBDb := out_c.m_tCj * in_m.m_drainArea;
+    out_c.m_tCBDs := out_c.m_tCjsw * in_m.m_drainPerimiter;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(in_p.m_capBSIsGiven &gt; 0.5)<font color="blue"> then</font>
+    (res,out_c.m_tCBSb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_capBS,
+                              in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    out_c.m_tCBSs          := 0.0;
+  <font color="blue">else</font>
+    out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
+    out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
+  <font color="blue">end if</font>;
+   (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs</font>(
+                                              in_p.m_bulkJctBotGradingCoeff,
+                                              in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+  out_c.m_dVt   := in_m.m_dTemp * SpiceConstants.CONSTKoverQ;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mosCalcCalcTempDependencies;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mosCalcNoBypassCode<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mosCalcNoBypassCode"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mosCalcNoBypassCode</H2>
+<B>Calculation of currents and capacities (level 1)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 1).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Input record mosfet parameters</TD></TR>
+<TR><TD>Integer</TD><TD>in_m_type</TD><TD>&nbsp;</TD><TD>Type of MOS transistor</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1Calc</A></TD><TD>in_c</TD><TD>&nbsp;</TD><TD>Input record Mos1Calc</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record model line parameters for MOS1</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Input record SPICE constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD>Boolean</TD><TD>in_m_bInit</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>in_m_pVoltageValues[4]</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"
+>CurrrentsCapacitances</A></TD><TD>out_cc</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mosCalcNoBypassCode <font color="darkgreen">
+  &quot;Calculation of currents and capacities (level 1)&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Input record mosfet parameters&quot;</font>;
+  <font color="blue">input </font>Integer in_m_type <font color="darkgreen">&quot;Type of MOS transistor&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1.Mos1Calc</A> in_c <font color="darkgreen">&quot;Input record Mos1Calc&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1ModelLineParams"
+>Mos1.Mos1ModelLineParams</A> in_p <font color="darkgreen">
+    &quot;Input record model line parameters for MOS1&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Input record SPICE constants&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+  <font color="blue">input </font>Boolean in_m_bInit;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A>[4] in_m_pVoltageValues;<font color="darkgreen"> /* gate bulk drain source */</font>
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"
+>CurrrentsCapacitances</A> out_cc;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vbd;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgd;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgb;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> cur;
+  Integer n;
+  <A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A> qm;
+  <A HREF="Modelica_Electrical_Spice3_Internal_Mos1.html#Modelica.Electrical.Spice3.Internal.Mos1.Mos1Calc"
+>Mos1.Mos1Calc</A> int_c;
+  Real hlp;
+
+<font color="blue">algorithm </font>
+  int_c := in_c;
+
+  int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]);<font color="darkgreen"> // ( G , SP)</font>
+  int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]);<font color="darkgreen"> // ( B , SP)</font>
+  int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]);<font color="darkgreen"> // ( DP, SP)</font>
+
+  <font color="blue">if </font>(<font color="red"> SpiceRoot.useInitialConditions</font>())<font color="blue">    and </font>(in_m.m_dICVBSIsGiven &gt;0.5)<font color="blue"> then</font>
+    int_c.m_vbs := in_m_type * in_m.m_dICVBS;
+  <font color="blue">elseif </font>(<font color="red"> SpiceRoot.initJunctionVoltages</font>())<font color="blue"> then</font>
+    int_c.m_vbs := <font color="blue">if </font>(in_m.m_off &gt;0.5)<font color="blue"> then </font>0.<font color="blue"> else </font>int_c.m_VBScrit;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(<font color="red"> SpiceRoot.useInitialConditions</font>())<font color="blue"> and </font>(in_m.m_dICVDSIsGiven &gt; 0.5)<font color="blue"> then</font>
+    int_c.m_vds := in_m_type * in_m.m_dICVDS;
+  <font color="blue">elseif </font>(<font color="red"> SpiceRoot.initJunctionVoltages</font>())<font color="blue"> then</font>
+    int_c.m_vds := <font color="blue">if </font>(in_m.m_off &gt; 0.5)<font color="blue"> then </font>0.<font color="blue"> else </font>(int_c.m_VBDcrit - int_c.m_VBScrit);
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(<font color="red"> SpiceRoot.useInitialConditions</font>())<font color="blue"> and </font>(in_m.m_dICVGSIsGiven &gt; 0.5)<font color="blue"> then</font>
+    int_c.m_vgs := in_m_type * in_m.m_dICVGS;
+  <font color="blue">elseif </font>(<font color="red"> SpiceRoot.initJunctionVoltages</font>())<font color="blue"> then</font>
+    <font color="blue">if </font>( in_m.m_off &gt; 0.5)<font color="blue"> then</font>
+      int_c.m_vgs := 0.;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  vbd := int_c.m_vbs - int_c.m_vds;
+  vgd := int_c.m_vgs - int_c.m_vds;
+
+  <font color="blue">if </font>( int_c.m_vds &gt;= 0)<font color="blue"> then</font>
+    vbd         := int_c.m_vbs - int_c.m_vds;
+  <font color="blue">else</font>
+      int_c.m_vbs := vbd + int_c.m_vds;
+  <font color="blue">end if</font>;
+
+  vgb := int_c.m_vgs - int_c.m_vbs;
+
+   (int_c.m_cbd, int_c.m_gbd) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET</font>(
+                                                                 int_c.m_cbd, int_c.m_gbd, vbd,
+                                 in_m.m_dTemp, 1.0, int_c.m_tDrainSatCur);
+   out_cc.iBD                 := in_m_type * int_c.m_cbd;
+   (int_c.m_cbs, int_c.m_gbs) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET</font>(
+                                                                 int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
+                                 in_m.m_dTemp, 1.0, int_c.m_tSourceSatCur);
+   out_cc.iBS                 := in_m_type * int_c.m_cbs;
+
+  int_c.m_mode := <font color="blue">if </font>(int_c.m_vds &gt;= 0)<font color="blue"> then </font>1<font color="blue"> else </font>-1;<font color="darkgreen"> // 1: normal mode, -1: inverse mode</font>
+
+  <font color="blue">if </font>(int_c.m_mode == 1)<font color="blue"> then</font>
+
+    int_c :=<font color="red"> Mos1.drainCur</font>( int_c.m_vbs, int_c.m_vgs, int_c.m_vds, int_c, in_p, in_C, in_vp, in_m_type);
+  <font color="blue">else</font>
+    int_c :=<font color="red"> Mos1.drainCur</font>( vbd,               vgd,  -int_c.m_vds, int_c, in_p, in_C, in_vp, in_m_type);
+  <font color="blue">end if</font>;
+
+  n      := <font color="blue">if </font>(int_c.m_mode == 1)<font color="blue"> then </font>6<font color="blue"> else </font>5;
+  out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
+
+  int_c.m_capbss    := 0.0;
+  int_c.m_chargebss := 0.0;
+  int_c.m_capbds    := 0.0;
+  int_c.m_chargebds := 0.0;
+  (int_c.m_capbsb, int_c.m_chargebsb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBSb, int_c.m_vbs, int_c.m_tDepCap,
+         in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
+
+  (int_c.m_capbdb, int_c.m_chargebdb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBDb, vbd, int_c.m_tDepCap,
+         in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
+
+  <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_capBSIsGiven &gt; 0.5))<font color="blue"> then</font>
+    (int_c.m_capbss, int_c.m_chargebss) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
+         in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(<font color="blue">not </font>(in_p.m_capBDIsGiven &gt; 0.5))<font color="blue"> then</font>
+    (int_c.m_capbds, int_c.m_chargebds) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBDs, vbd, int_c.m_tDepCap,
+         in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
+  <font color="blue">end if</font>;
+
+  out_cc.cBS := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>1e-15<font color="blue"> else </font>(int_c.m_capbsb + int_c.m_capbss);
+
+  out_cc.cBD := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>1e-15<font color="blue"> else </font>(int_c.m_capbdb + int_c.m_capbds);
+  <font color="blue">if </font>(int_c.m_mode &gt; 0)<font color="blue"> then</font>
+    qm :=<font color="red"> mosCalcDEVqmeyer</font>( int_c.m_vgs, vgd, vgb, int_c);
+  <font color="blue">else</font>
+    qm :=<font color="red"> mosCalcDEVqmeyer</font>( vgd, int_c.m_vgs, vgb, int_c);
+    hlp := qm.qm_capgd;
+    qm.qm_capgd := qm.qm_capgs;
+    qm.qm_capgs := hlp;
+  <font color="blue">end if</font>;
+
+    int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
+    int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
+    int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
+
+  out_cc.cGB := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>-1e40<font color="blue"> else </font>int_c.m_capgb;
+  out_cc.cGD := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>-1e40<font color="blue"> else </font>int_c.m_capgd;
+  out_cc.cGS := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>-1e40<font color="blue"> else </font>int_c.m_capgs;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mosCalcNoBypassCode;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mosCalcDEVqmeyer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mosCalcDEVqmeyer"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mosCalcDEVqmeyer</H2>
+<B>Calculation of meyer capacities</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mosCalcDEVqmeyer calculates the meyer capacities and charge for the meyer model.</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>vgs</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>vgd</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>vgb</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>MosCalc</A></TD><TD>in_c</TD><TD>&nbsp;</TD><TD>Input variable set</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A></TD><TD>out_qm</TD><TD>Qmeyer values</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mosCalcDEVqmeyer <font color="darkgreen">&quot;Calculation of meyer capacities&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgs;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgd;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgb;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>MosCalc</A> in_c <font color="darkgreen">&quot;Input variable set&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A> out_qm <font color="darkgreen">&quot;Qmeyer values&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vds;
+  Real vddif;
+  Real vddif1;
+  Real vddif2;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgst;
+
+<font color="blue">algorithm </font>
+  vgst := vgs - in_c.m_von;
+  <font color="blue">if </font>(vgst &lt;= -in_c.m_tPhi)<font color="blue"> then</font>
+    out_qm.qm_capgb := in_c.m_capOx / 2.;
+    out_qm.qm_capgs := 0.;
+    out_qm.qm_capgd := 0.;
+  <font color="blue">elseif </font>(vgst &lt;= -in_c.m_tPhi / 2.)<font color="blue"> then</font>
+    out_qm.qm_capgb := -vgst * in_c.m_capOx / (2. * in_c.m_tPhi);
+    out_qm.qm_capgs := 0.;
+    out_qm.qm_capgd := 0.;
+  <font color="blue">elseif </font>(vgst &lt;= 0.)<font color="blue"> then</font>
+    out_qm.qm_capgb := -vgst * in_c.m_capOx / (2. * in_c.m_tPhi);
+    out_qm.qm_capgs := vgst * in_c.m_capOx / (1.5 * in_c.m_tPhi) + in_c.m_capOx / 3.;
+    out_qm.qm_capgd := 0.;
+  <font color="blue">else</font>
+    vds := vgs - vgd;
+    <font color="blue">if </font>(in_c.m_vdsat &lt;= vds)<font color="blue"> then</font>
+      out_qm.qm_capgs := in_c.m_capOx / 3.;
+      out_qm.qm_capgd := 0.;
+      out_qm.qm_capgb := 0.;
+    <font color="blue">else</font>
+      vddif  := 2.0 * in_c.m_vdsat - vds;
+      vddif1 := in_c.m_vdsat - vds;
+      vddif2 := vddif * vddif;
+      out_qm.qm_capgd := in_c.m_capOx * (1. - in_c.m_vdsat  * in_c.m_vdsat  / vddif2) / 3.;
+      out_qm.qm_capgs := in_c.m_capOx * (1. - vddif1 * vddif1 / vddif2) / 3.;
+      out_qm.qm_capgb := 0.;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mosCalcDEVqmeyer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mos2CalcInitEquations<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcInitEquations"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mos2CalcInitEquations</H2>
+<B>Mosfet initial precalculations (level 1)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 2).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record Mos2 values</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Spice constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Input record mosfet parameters</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A></TD><TD>out_c</TD><TD>Output record Mos2 calculated values</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mos2CalcInitEquations <font color="darkgreen">
+  &quot;Mosfet initial precalculations (level 1)&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2.Mos2ModelLineParams</A> in_p <font color="darkgreen">&quot;Input record Mos2 values&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Spice constants&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Input record mosfet parameters&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2.Mos2Calc</A> out_c <font color="darkgreen">&quot;Output record Mos2 calculated values&quot;</font>;
+
+<font color="blue">algorithm </font>
+ out_c.m_drainResistance := <font color="blue">if </font> (in_p.m_drainResistanceIsGiven &gt; 0.5)<font color="blue"> then </font>
+       in_p.m_drainResistance<font color="blue"> else </font>
+       in_p.m_sheetResistance * in_m.m_drainSquares;
+
+out_c.m_sourceResistance := <font color="blue">if </font> (in_p.m_sourceResistanceIsGiven &gt; 0.5)<font color="blue"> then </font>
+       in_p.m_sourceResistance<font color="blue"> else </font>
+       in_p.m_sheetResistance * in_m.m_sourceSquares;
+
+  out_c.m_lEff := in_m.m_len - 2 * in_p.m_latDiff;
+
+  <font color="blue">if </font>(<font color="red"> abs</font>( out_c.m_lEff) &lt; 1e-18)<font color="blue"> then</font>
+    out_c.m_lEff := 1e-6;
+  <font color="blue">end if</font>;
+  out_c.m_capGSovl := in_p.m_gateSourceOverlapCapFactor * in_m.m_width;
+  out_c.m_capGDovl := in_p.m_gateDrainOverlapCapFactor * in_m.m_width;
+  out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
+
+  out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mos2CalcInitEquations;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mos2CalcCalcTempDependencies<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcCalcTempDependencies"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mos2CalcCalcTempDependencies</H2>
+<B>Precalculation relating to temperature</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 2).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Output record Mos1 calculated values</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Spice constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>MosModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Input record mosfet parameters</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A></TD><TD>in_c</TD><TD>&nbsp;</TD><TD>Input record Mos2Calc</TD></TR>
+<TR><TD>Integer</TD><TD>in_m_type</TD><TD>&nbsp;</TD><TD>Type of MOS transistor</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A></TD><TD>out_c</TD><TD>Output record with calculated values</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mos2CalcCalcTempDependencies <font color="darkgreen">
+  &quot;Precalculation relating to temperature&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2.Mos2ModelLineParams</A> in_p <font color="darkgreen">&quot;Output record Mos1 calculated values&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Spice constants&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Input record mosfet parameters&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2.Mos2Calc</A> in_c <font color="darkgreen">&quot;Input record Mos2Calc&quot;</font>;
+  <font color="blue">input </font>Integer in_m_type <font color="darkgreen">&quot;Type of MOS transistor&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2.Mos2Calc</A> out_c <font color="darkgreen">&quot;Output record with calculated values&quot;</font>;
+
+<font color="blue">protected </font>
+   Real ratio;
+   Real ratio4;
+
+<font color="blue">algorithm </font>
+  out_c := in_c;
+
+  ratio                     := in_m.m_dTemp / in_p.m_tnom;
+  ratio4                    := ratio *<font color="red"> sqrt</font>(ratio);
+  out_c.m_tTransconductance := in_vp.m_transconductance / ratio4;
+  out_c.m_Beta              := out_c.m_tTransconductance * in_m.m_width / out_c.m_lEff;
+
+  out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
+
+  out_c.m_tPhi :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp</font>(
+                                              in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
+
+  out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma *<font color="red"> sqrt</font>(in_vp.m_phi)) +0.5  *
+                  (<font color="red">Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp</font>(
+                                              in_p.m_tnom) -<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp</font>(
+                                                                                        in_m.m_dTemp))
+                  + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
+  out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma *<font color="red"> sqrt</font>(out_c.m_tPhi);
+
+  out_c.m_tBulkPot :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp</font>(
+                                                  in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
+  out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
+
+  <font color="blue">if </font>(in_p.m_jctSatCurDensity == 0.0<font color="blue"> or </font>in_m.m_sourceArea == 0.0<font color="blue"> or </font>in_m.m_drainArea == 0.0)<font color="blue"> then</font>
+    out_c.m_tDrainSatCur  :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET</font>(
+                             in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
+    out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
+    out_c.m_VBScrit       :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit</font>(
+                                                     in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+    out_c.m_VBDcrit       := out_c.m_VBScrit;
+  <font color="blue">else</font>
+    out_c.m_tSatCurDens   :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET</font>(
+                             in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
+    out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
+    out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
+    out_c.m_VBScrit       :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit</font>(
+                                                     in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+    out_c.m_VBDcrit       :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit</font>(
+                                                     in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_capBDIsGiven &gt; 0.5)<font color="blue"> or </font><font color="blue">not </font>(in_p.m_capBSIsGiven &gt; 0.5))<font color="blue"> then</font>
+    (out_c.m_tCj)   :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
+                              in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    (out_c.m_tCjsw) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
+                              in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs</font>(
+                              in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(in_p.m_capBDIsGiven &gt; 0.5)<font color="blue"> then</font>
+    (out_c.m_tCBDb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_capBD,
+                              in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    out_c.m_tCBDs          := 0.0;
+  <font color="blue">else</font>
+    out_c.m_tCBDb := out_c.m_tCj * in_m.m_drainArea;
+    out_c.m_tCBDs := out_c.m_tCjsw * in_m.m_drainPerimiter;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(in_p.m_capBSIsGiven &gt; 0.5)<font color="blue"> then</font>
+    (out_c.m_tCBSb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3</font>(
+                              in_p.m_bulkJctPotential, in_p.m_capBS,
+                              in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+    out_c.m_tCBSs          := 0.0;
+  <font color="blue">else</font>
+    out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
+    out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
+  <font color="blue">end if</font>;
+   (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs</font>(
+                                              in_p.m_bulkJctBotGradingCoeff,
+                                              in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+  out_c.m_dVt   := in_m.m_dTemp * SpiceConstants.CONSTKoverQ;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mos2CalcCalcTempDependencies;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mos2CalcNoBypassCode<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos.mos2CalcNoBypassCode"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos"
+>Modelica.Electrical.Spice3.Internal.Mos</A>.mos2CalcNoBypassCode</H2>
+<B>Calculation of currents and capacities (level 2)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 2).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Input record mosfet parameters</TD></TR>
+<TR><TD>Integer</TD><TD>in_m_type</TD><TD>&nbsp;</TD><TD>Type of MOS transistor</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A></TD><TD>in_c</TD><TD>&nbsp;</TD><TD>Input record Mos2Calc</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record model line parameters</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Spice constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2ModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD>Boolean</TD><TD>in_m_bInit</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>in_m_pVoltageValues[4]</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"
+>CurrrentsCapacitances</A></TD><TD>out_cc</TD><TD>Calculated currents and capacitances</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A></TD><TD>qm</TD><TD>Calculated qmeyer values</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mos2CalcNoBypassCode <font color="darkgreen">
+  &quot;Calculation of currents and capacities (level 2)&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Input record mosfet parameters&quot;</font>;
+  <font color="blue">input </font>Integer in_m_type <font color="darkgreen">&quot;Type of MOS transistor&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2.Mos2Calc</A> in_c <font color="darkgreen">&quot;Input record Mos2Calc&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2.Mos2ModelLineParams</A> in_p <font color="darkgreen">&quot;Input record model line parameters&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Spice constants&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2.Mos2ModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+  <font color="blue">input </font>Boolean in_m_bInit;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A>[4] in_m_pVoltageValues;<font color="darkgreen"> /* gate bulk drain source */</font>
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.CurrrentsCapacitances"
+>CurrrentsCapacitances</A> out_cc <font color="darkgreen">&quot;Calculated currents and capacitances&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A> qm <font color="darkgreen">&quot;Calculated qmeyer values&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vbd <font color="darkgreen">&quot;Voltage&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgd <font color="darkgreen">&quot;Volatge&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgb <font color="darkgreen">&quot;Voltage&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> cur <font color="darkgreen">&quot;Voltage&quot;</font>;
+  Integer n;
+
+  <A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.DEVqmeyer"
+>DEVqmeyer</A> in_qm <font color="darkgreen">&quot;Qmeyer capacitances&quot;</font>;
+  <A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2.Mos2Calc</A> int_c <font color="darkgreen">&quot;Record Mos2Calc&quot;</font>;
+  <A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> int_m <font color="darkgreen">&quot;Record Mosfet&quot;</font>;
+  Real hlp;
+<font color="blue">algorithm </font>
+  int_c := in_c;
+
+  int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]);<font color="darkgreen"> // ( G , SP)</font>
+  int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]);<font color="darkgreen"> // ( B , SP)</font>
+  int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]);<font color="darkgreen"> // ( DP, SP)</font>
+
+  <font color="blue">if </font>(<font color="red"> SpiceRoot.useInitialConditions</font>())<font color="blue">    and </font>(in_m.m_dICVBSIsGiven &gt;0.5)<font color="blue"> then</font>
+    int_c.m_vbs := in_m_type * in_m.m_dICVBS;
+  <font color="blue">elseif </font>(<font color="red"> SpiceRoot.initJunctionVoltages</font>())<font color="blue"> then</font>
+    int_c.m_vbs := <font color="blue">if </font>(in_m.m_off &gt;0.5)<font color="blue"> then </font>0.<font color="blue"> else </font>int_c.m_VBScrit;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(<font color="red"> SpiceRoot.useInitialConditions</font>())<font color="blue"> and </font>(in_m.m_dICVDSIsGiven &gt; 0.5)<font color="blue"> then</font>
+    int_c.m_vds := in_m_type * in_m.m_dICVDS;
+  <font color="blue">elseif </font>(<font color="red"> SpiceRoot.initJunctionVoltages</font>())<font color="blue"> then</font>
+    int_c.m_vds := <font color="blue">if </font>(in_m.m_off &gt; 0.5)<font color="blue"> then </font>0.<font color="blue"> else </font>(int_c.m_VBDcrit - int_c.m_VBScrit);
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(<font color="red"> SpiceRoot.useInitialConditions</font>())<font color="blue"> and </font>(in_m.m_dICVGSIsGiven &gt; 0.5)<font color="blue"> then</font>
+    int_c.m_vgs := in_m_type * in_m.m_dICVGS;
+  <font color="blue">elseif </font>(<font color="red"> SpiceRoot.initJunctionVoltages</font>())<font color="blue"> then</font>
+    <font color="blue">if </font>( in_m.m_off &gt; 0.5)<font color="blue"> then</font>
+      int_c.m_vgs := 0.;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(int_c.m_vds&lt;&gt;0<font color="blue"> and </font> int_c.m_vgs&lt;&gt;0<font color="blue"> and </font>int_c.m_vbs&lt;&gt;0<font color="blue"> and </font><font color="blue">not </font>(<font color="red">SpiceRoot.useInitialConditions</font>())<font color="blue"> and </font> (in_m.m_off&lt;&gt;0))<font color="blue"> then</font>
+    int_c.m_vbs := -1;
+    int_c.m_vgs := in_m_type * int_c.m_tVto;
+    int_c.m_vds := 0;
+  <font color="blue">end if</font>;
+
+  vbd := int_c.m_vbs - int_c.m_vds;
+  vgd := int_c.m_vgs - int_c.m_vds;
+
+  <font color="blue">if </font>( int_c.m_vds &gt;= 0)<font color="blue"> then</font>
+   int_c.m_vbs :=<font color="red"> SpiceRoot.limitJunctionVoltage</font>(int_c.m_vbs);
+    vbd         := int_c.m_vbs - int_c.m_vds;
+  <font color="blue">else</font>
+    vbd         :=<font color="red"> SpiceRoot.limitJunctionVoltage</font>(vbd);
+    int_c.m_vbs := vbd + int_c.m_vds;
+  <font color="blue">end if</font>;
+
+  vgb := int_c.m_vgs - int_c.m_vbs;
+
+   (int_c.m_cbd, int_c.m_gbd) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET</font>(
+                                                                 int_c.m_cbd, int_c.m_gbd, vbd,
+                                 in_m.m_dTemp, 1.0, int_c.m_tDrainSatCur);
+   out_cc.iBD                 := in_m_type * int_c.m_cbd;
+   (int_c.m_cbs, int_c.m_gbs) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET</font>(
+                                                                 int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
+                                 in_m.m_dTemp, 1.0, int_c.m_tSourceSatCur);
+   out_cc.iBS                 := in_m_type * int_c.m_cbs;
+
+  int_c.m_mode := <font color="blue">if </font>(int_c.m_vds &gt;= 0)<font color="blue"> then </font>1<font color="blue"> else </font>-1;<font color="darkgreen"> // 1: normal mode, -1: inverse mode</font>
+
+  <font color="blue">if </font>(int_c.m_mode == 1)<font color="blue"> then</font>
+
+    int_c :=<font color="red"> Mos2.drainCur</font>( int_c.m_vbs, int_c.m_vgs, int_c.m_vds,int_m, int_c, in_p, in_C, in_vp, in_m_type);
+  <font color="blue">else</font>
+    int_c :=<font color="red"> Mos2.drainCur</font>( vbd,               vgd,  -int_c.m_vds,int_m, int_c, in_p, in_C, in_vp, in_m_type);
+  <font color="blue">end if</font>;
+
+  n      := <font color="blue">if </font>(int_c.m_mode == 1)<font color="blue"> then </font>6<font color="blue"> else </font>5;
+  out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
+
+  int_c.m_capbss    := 0.0;
+  int_c.m_chargebss := 0.0;
+  int_c.m_capbds    := 0.0;
+  int_c.m_chargebds := 0.0;
+  (int_c.m_capbsb, int_c.m_chargebsb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBSb, int_c.m_vbs, int_c.m_tDepCap,
+         in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
+
+  (int_c.m_capbdb, int_c.m_chargebdb) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBDb, vbd, int_c.m_tDepCap,
+         in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
+
+  <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_capBSIsGiven &gt; 0.5))<font color="blue"> then</font>
+    (int_c.m_capbss, int_c.m_chargebss) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
+         in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(<font color="blue">not </font>(in_p.m_capBDIsGiven &gt; 0.5))<font color="blue"> then</font>
+    (int_c.m_capbds, int_c.m_chargebds) :=<font color="red"> Modelica.Electrical.Spice3.Internal.Functions.junctionCap</font>(
+         int_c.m_tCBDs, vbd, int_c.m_tDepCap,
+         in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+         int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
+  <font color="blue">end if</font>;
+
+  out_cc.cBS := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>1e-15<font color="blue"> else </font>(int_c.m_capbsb + int_c.m_capbss);
+
+  out_cc.cBD := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>1e-15<font color="blue"> else </font>(int_c.m_capbdb + int_c.m_capbds);
+
+  <font color="blue">if </font>(int_c.m_mode &gt; 0)<font color="blue"> then</font>
+    qm :=<font color="red"> mosCalcDEVqmeyer</font>( int_c.m_vgs, vgd, vgb, int_c);
+  <font color="blue">else</font>
+    qm :=<font color="red"> mosCalcDEVqmeyer</font>( vgd, int_c.m_vgs, vgb, int_c);
+    hlp := qm.qm_capgd;
+    qm.qm_capgd := qm.qm_capgs;
+    qm.qm_capgs := hlp;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(in_m_bInit)<font color="blue"> then</font>
+    int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
+    int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
+    int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
+
+    int_c.m_qgs   := int_c.m_capgs * int_c.m_vgs;
+    int_c.m_qgb   := int_c.m_capgb * vgb;
+    int_c.m_qgd   := int_c.m_capgd * vgd;
+  <font color="blue">else</font>
+    int_c.m_capgd := qm.qm_capgd + in_qm.qm_capgd + int_c.m_capGDovl;
+    int_c.m_capgs := qm.qm_capgs + in_qm.qm_capgs + int_c.m_capGSovl;
+    int_c.m_capgb := qm.qm_capgb + in_qm.qm_capgb + int_c.m_capGBovl;
+
+    int_c.m_qgs   := (int_c.m_vgs - in_qm.qm_vgs) * int_c.m_capgs + in_qm.qm_qgs;
+    int_c.m_qgb   := (vgb - in_qm.qm_vgb) * int_c.m_capgb + in_qm.qm_qgb;
+    int_c.m_qgd   := (vgd - in_qm.qm_vgd) * int_c.m_capgd + in_qm.qm_qgd;
+  <font color="blue">end if</font>;
+
+    out_cc.m_capgd := int_c.m_capgd;
+
+  qm.qm_qgs := int_c.m_qgs;
+  qm.qm_qgb := int_c.m_qgb;
+  qm.qm_qgd := int_c.m_qgd;
+  qm.qm_vgs := int_c.m_vgs;
+  qm.qm_vgb := vgb;
+  qm.qm_vgd := vgd;
+
+  out_cc.cGB := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>-1e40<font color="blue"> else </font>int_c.m_capgb;
+  out_cc.cGD := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>-1e40<font color="blue"> else </font>out_cc.m_capgd;
+  out_cc.cGS := <font color="blue">if </font>(in_m_bInit)<font color="blue"> then </font>-1e40<font color="blue"> else </font>int_c.m_capgs;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mos2CalcNoBypassCode;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:47 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,528 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.StateGraph.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Examples to demonstrate the usage of the components of the StateGraph library&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.StateGraph.Examples"></A><A HREF="Modelica_StateGraph.html#Modelica.StateGraph"
+>Modelica.StateGraph</A>.Examples</H2>
+<B>Examples to demonstrate the usage of the components of the StateGraph library</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.FirstExample" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample"
+>FirstExample</A>
+</TD><TD>A first simple StateGraph example</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample_Variant2"
+>FirstExample_Variant2</A>
+</TD><TD>A variant of the first simple StateGraph example</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.FirstExample_Variant3"
+>FirstExample_Variant3</A>
+</TD><TD>A variant of the first simple StateGraph example</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.ExecutionPaths" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ExecutionPaths"
+>ExecutionPaths</A>
+</TD><TD>Example to demonstrate parallel and alternative execution paths</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.ShowCompositeStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ShowCompositeStep"
+>ShowCompositeStep</A>
+</TD><TD>Example to demonstrate parallel activities described by a StateGraph</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.ShowExceptions" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ShowExceptions"
+>ShowExceptions</A>
+</TD><TD>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.FirstExampleS.png" ALT="Modelica.StateGraph.Examples.ControlledTanks" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples.ControlledTanks"
+>ControlledTanks</A>
+</TD><TD>Demonstrating the controller of a tank filling/emptying system</TD></TR>
+<TR><TD><IMG SRC="Modelica.StateGraph.Examples.UtilitiesS.png" ALT="Modelica.StateGraph.Examples.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities"
+>Utilities</A>
+</TD><TD>Utility components for the examples</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FirstExample<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.FirstExample" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.FirstExample"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.FirstExample</H2>
+<B>A first simple StateGraph example</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.FirstExampleD.png" ALT="Modelica.StateGraph.Examples.FirstExample">
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FirstExample <font color="darkgreen">&quot;A first simple StateGraph example&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</A> initialStep;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition1(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition2(enableTimer=true, waitTime=1);
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(initialStep.outPort[1], transition1.inPort);</textblock>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(transition1.outPort, step.inPort[1]);
+  <font color="red">connect</font>(step.outPort[1], transition2.inPort);
+  <font color="red">connect</font>(transition2.outPort, initialStep.inPort[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FirstExample;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FirstExample_Variant2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.FirstExample_Variant2"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.FirstExample_Variant2</H2>
+<B>A variant of the first simple StateGraph example</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.FirstExample_Variant2D.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant2">
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FirstExample_Variant2 <font color="darkgreen">
+  &quot;A variant of the first simple StateGraph example&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</A> initialStep;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition1(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StepWithSignal"
+>StepWithSignal</A> step;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.TransitionWithSignal"
+>TransitionWithSignal</A> transition2;
+  <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Timer"
+>Modelica.Blocks.Logical.Timer</A> timer;
+  <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.GreaterEqualThreshold"
+>Modelica.Blocks.Logical.GreaterEqualThreshold</A> greaterEqual(threshold=1);
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(initialStep.outPort[1], transition1.inPort);</textblock>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(transition1.outPort, step.inPort[1]);
+  <font color="red">connect</font>(step.active, timer.u);
+  <font color="red">connect</font>(step.outPort[1], transition2.inPort);
+  <font color="red">connect</font>(timer.y, greaterEqual.u);
+  <font color="red">connect</font>(greaterEqual.y, transition2.condition);
+  <font color="red">connect</font>(transition2.outPort, initialStep.inPort[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FirstExample_Variant2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FirstExample_Variant3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.FirstExample_Variant3"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.FirstExample_Variant3</H2>
+<B>A variant of the first simple StateGraph example</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.FirstExample_Variant3D.png" ALT="Modelica.StateGraph.Examples.FirstExample_Variant3">
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FirstExample_Variant3 <font color="darkgreen">
+  &quot;A variant of the first simple StateGraph example&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</A> initialStep;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition1(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StepWithSignal"
+>StepWithSignal</A> step;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.TransitionWithSignal"
+>TransitionWithSignal</A> transition2;
+  <A HREF="Modelica_Blocks_Logical.html#Modelica.Blocks.Logical.Timer"
+>Modelica.Blocks.Logical.Timer</A> timer;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanExpression"
+>Modelica.Blocks.Sources.BooleanExpression</A> SetBoolean1(y=timer.y &gt; 1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanExpression"
+>Modelica.Blocks.Sources.BooleanExpression</A> SetBoolean2(y=step.active);
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(initialStep.outPort[1], transition1.inPort);</textblock>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(transition1.outPort, step.inPort[1]);
+  <font color="red">connect</font>(step.active, timer.u);
+  <font color="red">connect</font>(step.outPort[1], transition2.inPort);
+  <font color="red">connect</font>(transition2.outPort, initialStep.inPort[1]);
+  <font color="red">connect</font>(SetBoolean1.y, transition2.condition);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FirstExample_Variant3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ExecutionPaths<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.ExecutionPaths" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.ExecutionPaths"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.ExecutionPaths</H2>
+<B>Example to demonstrate parallel and alternative execution paths</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.ExecutionPathsD.png" ALT="Modelica.StateGraph.Examples.ExecutionPaths">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is an example to demonstrate in which way <b>parallel</b> activities
+can be modelled by a StateGraph. When transition1 fires
+(after 1 second), two branches are executed in parallel.
+After 6 seconds the two branches are synchronized in order to arrive
+at step6.
+</p>
+<p>
+Before simulating the model, try to figure out whether which branch
+of the alternative sequence is executed. Note, that alternatives
+have priorities according to the port index (alternative.split[1]
+has a higher priority to fire as alternative.split[2]).
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ExecutionPaths <font color="darkgreen">
+  &quot;Example to demonstrate parallel and alternative execution paths&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</A> step0;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition1(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step1;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition2(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step6;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step2;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition3(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition4(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step3;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step4;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition5(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition6(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step5;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.RealExpression"
+>Modelica.Blocks.Sources.RealExpression</A> setReal(y=time);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.TransitionWithSignal"
+>TransitionWithSignal</A> transition7;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanExpression"
+>Modelica.Blocks.Sources.BooleanExpression</A> setCondition(y=time &gt; 7);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition4a(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step4a;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition6a(enableTimer=true, waitTime=2);
+  <A HREF="Modelica_StateGraph_Temporary.html#Modelica.StateGraph.Temporary.NumericValue"
+>StateGraph.Temporary.NumericValue</A> NumericValue1;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Alternative"
+>Alternative</A> alternative(nBranches=3);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Parallel"
+>Parallel</A> Parallel1;
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(transition3.outPort, step3.inPort[1]);
+  <font color="red">connect</font>(step3.outPort[1], transition5.inPort);
+  <font color="red">connect</font>(transition4.outPort, step4.inPort[1]);
+  <font color="red">connect</font>(step4.outPort[1], transition6.inPort);
+  <font color="red">connect</font>(transition7.outPort, step0.inPort[1]);
+  <font color="red">connect</font>(step6.outPort[1], transition7.inPort);
+  <font color="red">connect</font>(transition4a.outPort, step4a.inPort[1]);
+  <font color="red">connect</font>(step4a.outPort[1], transition6a.inPort);
+  <font color="red">connect</font>(setCondition.y, transition7.condition);
+  <font color="red">connect</font>(setReal.y, NumericValue1.Value);
+  <font color="red">connect</font>(transition3.inPort, alternative.split[1]);
+  <font color="red">connect</font>(transition4.inPort, alternative.split[2]);
+  <font color="red">connect</font>(transition4a.inPort, alternative.split[3]);
+  <font color="red">connect</font>(transition5.outPort, alternative.join[1]);
+  <font color="red">connect</font>(transition6.outPort, alternative.join[2]);
+  <font color="red">connect</font>(transition6a.outPort, alternative.join[3]);
+  <font color="red">connect</font>(step2.outPort[1], alternative.inPort);
+  <font color="red">connect</font>(alternative.outPort, step5.inPort[1]);
+  <font color="red">connect</font>(step2.inPort[1], Parallel1.split[1]);
+  <font color="red">connect</font>(step1.outPort[1], Parallel1.join[2]);
+  <font color="red">connect</font>(step0.outPort[1], transition1.inPort);
+  <font color="red">connect</font>(transition2.outPort, step6.inPort[1]);
+  <font color="red">connect</font>(transition1.outPort, Parallel1.inPort);
+  <font color="red">connect</font>(Parallel1.outPort, transition2.inPort);
+  <font color="red">connect</font>(step5.outPort[1], Parallel1.join[1]);
+  <font color="red">connect</font>(Parallel1.split[2], step1.inPort[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ExecutionPaths;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ShowCompositeStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.ShowCompositeStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.ShowCompositeStep"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.ShowCompositeStep</H2>
+<B>Example to demonstrate parallel activities described by a StateGraph</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.ShowCompositeStepD.png" ALT="Modelica.StateGraph.Examples.ShowCompositeStep">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is the same example as "ExecutionPaths". The only difference
+is that the alternative paths are included in a "CompositeStep".
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ShowCompositeStep <font color="darkgreen">
+  &quot;Example to demonstrate parallel activities described by a StateGraph&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep"
+>Utilities.CompositeStep</A> compositeStep;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</A> step0;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition1(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step1;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition2(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step6;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.TransitionWithSignal"
+>TransitionWithSignal</A> transition7;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Parallel"
+>Parallel</A> Parallel1;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.BooleanExpression"
+>Modelica.Blocks.Sources.BooleanExpression</A> setCondition(y=time &gt; 7);
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(step0.outPort[1], transition1.inPort);
+  <font color="red">connect</font>(transition7.outPort, step0.inPort[1]);
+  <font color="red">connect</font>(step6.outPort[1], transition7.inPort);
+  <font color="red">connect</font>(transition2.outPort, step6.inPort[1]);
+  <font color="red">connect</font>(transition1.outPort, Parallel1.inPort);
+  <font color="red">connect</font>(Parallel1.outPort, transition2.inPort);
+  <font color="red">connect</font>(compositeStep.inPort, Parallel1.split[1]);
+  <font color="red">connect</font>(compositeStep.outPort, Parallel1.join[1]);
+  <font color="red">connect</font>(step1.inPort[1], Parallel1.split[2]);
+  <font color="red">connect</font>(step1.outPort[1], Parallel1.join[2]);
+  <font color="red">connect</font>(setCondition.y, transition7.condition);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ShowCompositeStep;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ShowExceptions<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.ShowExceptions" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.ShowExceptions"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.ShowExceptions</H2>
+<B>Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.ShowExceptionsD.png" ALT="Modelica.StateGraph.Examples.ShowExceptions">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+CompositeStep "compositeStep" is a hierarchical StateGraph consisting of
+two other subgraphs. Whenever component "compositeStep" is suspended,
+all steps with in "compositeStep" are deactivated. By entering "compositeStep"
+via its "resume" port, all steps within "compositeStep" are activated
+according to their setting before leaving the "compositeStep" via its
+"suspend" port.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ShowExceptions <font color="darkgreen">
+  &quot;Example to demonstrate how a hierarchically structured StateGraph can suspend and resume actions on different levels&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.CompositeStep1"
+>Utilities.CompositeStep1</A> compositeStep;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.InitialStep"
+>InitialStep</A> initialStep;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition1(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition2(enableTimer=true, waitTime=1);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition3(enableTimer=true, waitTime=2);
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Step"
+>Step</A> step1;
+  <A HREF="Modelica_StateGraph.html#Modelica.StateGraph.Transition"
+>Transition</A> transition4(enableTimer=true, waitTime=1);
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(transition1.outPort, compositeStep.inPort);
+  <font color="red">connect</font>(initialStep.outPort[1], transition1.inPort);
+  <font color="red">connect</font>(compositeStep.outPort, transition2.inPort);
+  <font color="red">connect</font>(transition2.outPort, initialStep.inPort[1]);
+  <font color="red">connect</font>(compositeStep.suspend[1], transition3.inPort);
+  <font color="red">connect</font>(transition3.outPort, step1.inPort[1]);
+  <font color="red">connect</font>(step1.outPort[1], transition4.inPort);
+  <font color="red">connect</font>(transition4.outPort, compositeStep.resume[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ShowExceptions;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ControlledTanks<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.StateGraph.Examples.FirstExampleI.png" ALT="Modelica.StateGraph.Examples.ControlledTanks" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.StateGraph.Examples.ControlledTanks"></A><A HREF="Modelica_StateGraph_Examples.html#Modelica.StateGraph.Examples"
+>Modelica.StateGraph.Examples</A>.ControlledTanks</H2>
+<B>Demonstrating the controller of a tank filling/emptying system</B><p>
+<IMG SRC="Modelica.StateGraph.Examples.ControlledTanksD.png" ALT="Modelica.StateGraph.Examples.ControlledTanks">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+With this example the controller of a tank filling/emptying system
+is demonstrated. This example is from Dressler (2004),
+see <A HREF="Modelica_StateGraph_UsersGuide.html#Modelica.StateGraph.UsersGuide.Literature"
+>Literature</a>.
+The basic operation is to fill and empty the two tanks:
+</p>
+<ol>
+<li> Valve 1 is opened and tank 1 is filled.</li>
+<li> When tank 1 reaches its fill level limit,
+     valve 1 is closed. </li>
+<li> After a waiting time, valve 2 is
+     opened and the fluid flows from tank 1 into tank 2.</li>
+<li> When tank 1 is empty, valve 2 is closed. </li>
+<li> After a waiting time, valve 3 is opened and
+     the fluid flows out of tank 2</li>
+<li> When tank 3 is empty, valve 3 is closed</li>
+</ol>
+<p>
+The above "normal" process can be influenced by three
+buttons:
+</p>
+<ul>
+<li> Button <b>start</b> starts the above process.
+     When this button is pressed after a "stop" or
+     "shut" operation, the process operation continues.
+     </li>
+<li> Button <b>stop</b> stops the above process by
+     closing all valves. Then, the controller waits for
+     further input (either "start" or "shut" operation).</li>
+<li> Button <b>shut</b> is used to shutdown the process,
+     by emptying at once both tanks. When this is achieved,
+     the process goes back to its start configuration.
+     Clicking on "start", restarts the process.</li>
+</ul>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ControlledTanks <font color="darkgreen">
+  &quot;Demonstrating the controller of a tank filling/emptying system&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.TankController"
+>Utilities.TankController</A> tankController;
+  <A HREF="Modelica_StateGraph_Temporary.html#Modelica.StateGraph.Temporary.RadioButton"
+>StateGraph.Temporary.RadioButton</A> start(reset={stop.on,shut.on},
+      buttonTimeTable={1,13,15,19});
+  <A HREF="Modelica_StateGraph_Temporary.html#Modelica.StateGraph.Temporary.RadioButton"
+>StateGraph.Temporary.RadioButton</A> stop(reset={start.on,shut.on},
+      buttonTimeTable={13,15,19,21});
+  <A HREF="Modelica_StateGraph_Temporary.html#Modelica.StateGraph.Temporary.RadioButton"
+>StateGraph.Temporary.RadioButton</A> shut(reset={start.on,stop.on},
+      buttonTimeTable={21,100});</textblock>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Tank"
+>Utilities.Tank</A> tank1;
+  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Tank"
+>Utilities.Tank</A> tank2;
+  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.valve"
+>Utilities.valve</A> valve1;
+  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.Source"
+>Utilities.Source</A> source;
+  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.valve"
+>Utilities.valve</A> valve2;
+  <A HREF="Modelica_StateGraph_Examples_Utilities.html#Modelica.StateGraph.Examples.Utilities.valve"
+>Utilities.valve</A> valve3;
+    <font color="blue">inner </font><A HREF="Modelica_StateGraph.html#Modelica.StateGraph.StateGraphRoot"
+>StateGraphRoot</A> stateGraphRoot;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(tank1.outflow1, valve2.outflow1);
+  <font color="red">connect</font>(tank2.inflow1, valve2.inflow1);
+  <font color="red">connect</font>(tank2.outflow1, valve3.outflow1);
+  <font color="red">connect</font>(tank1.inflow1, valve1.inflow1);
+  <font color="red">connect</font>(shut.on, tankController.shut);
+  <font color="red">connect</font>(stop.on, tankController.stop);
+  <font color="red">connect</font>(start.on, tankController.start);
+  <font color="red">connect</font>(tank1.levelSensor, tankController.level1);
+  <font color="red">connect</font>(tank2.levelSensor, tankController.level2);
+  <font color="red">connect</font>(tankController.valve1, valve1.valveControl);
+  <font color="red">connect</font>(tankController.valve2, valve2.valveControl);
+  <font color="red">connect</font>(tankController.valve3, valve3.valveControl);</textblock>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(source.outflow1, valve1.outflow1);</textblock>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ControlledTanks;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:27:44 2010.
+</address></BODY>
+</HTML>

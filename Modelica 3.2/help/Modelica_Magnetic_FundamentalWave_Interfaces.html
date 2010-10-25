@@ -1,0 +1,629 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FundamentalWave.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Interfaces and partial models&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FundamentalWave.Interfaces"></A><A HREF="Modelica_Magnetic_FundamentalWave.html#Modelica.Magnetic.FundamentalWave"
+>Modelica.Magnetic.FundamentalWave</A>.Interfaces</H2>
+<B>Interfaces and partial models</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains interface definitions of the magnetic ports as well as partial models.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPortS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>MagneticPort</A>
+</TD><TD>Complex magnetic port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPortS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A>
+</TD><TD>Negative complex magnetic port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPortS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A>
+</TD><TD>Positive complex magnetic port</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+>PartialTwoPort</A>
+</TD><TD>Two magnetic ports for graphical modeling</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
+>PartialTwoPortElementary</A>
+</TD><TD>Two magnetic ports for textual modeling</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachineS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"
+>PartialBasicInductionMachine</A>
+</TD><TD>Partial model for induction machine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelectorS.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector"
+>StateSelector</A>
+</TD><TD>Transform instantaneous values to space phasors and select states</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MagneticPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.MagneticPort</H2>
+<B>Complex magnetic port</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+The potential quantity of the magnetic port is the complex magnetic potential difference <img src="../Resources/Images/Magnetic/FundamentalWave/V_m.png">. The corresponding flow quantity is the magnetic flux <img src="../Resources/Images/Magnetic/FundamentalWave/Phi.png">.
+</p>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</a>
+</p>
+
+<pre></PRE><P>
+
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticPotentialDifference"
+>ComplexMagneticPotentialDifference</A></TD><TD>V_m</TD><TD>Complex magnetic potential difference</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticFlux"
+>ComplexMagneticFlux</A></TD><TD>Phi</TD><TD>Complex magnetic flux</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> MagneticPort <font color="darkgreen">&quot;Complex magnetic port&quot;</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticPotentialDifference"
+>Modelica.SIunits.ComplexMagneticPotentialDifference</A>  V_m <font color="darkgreen">
+    &quot;Complex magnetic potential difference&quot;</font>;
+  <font color="blue">flow </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticFlux"
+>Modelica.SIunits.ComplexMagneticFlux</A>  Phi <font color="darkgreen">&quot;Complex magnetic flux&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MagneticPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NegativeMagneticPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPortI.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.NegativeMagneticPort</H2>
+<B>Negative complex magnetic port</B><p>
+<IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPortD.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Negative magnetic <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>port</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>MagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</a>
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort</A> (Complex magnetic port).
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticPotentialDifference"
+>ComplexMagneticPotentialDifference</A></TD><TD>V_m</TD><TD>Complex magnetic potential difference</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticFlux"
+>ComplexMagneticFlux</A></TD><TD>Phi</TD><TD>Complex magnetic flux</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> NegativeMagneticPort <font color="darkgreen">&quot;Negative complex magnetic port&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort</A>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>NegativeMagneticPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PositiveMagneticPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPortI.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.PositiveMagneticPort</H2>
+<B>Positive complex magnetic port</B><p>
+<IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPortD.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Positive magnetic <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>port</a>.
+</p>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>MagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</a>
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort</A> (Complex magnetic port).
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticPotentialDifference"
+>ComplexMagneticPotentialDifference</A></TD><TD>V_m</TD><TD>Complex magnetic potential difference</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticFlux"
+>ComplexMagneticFlux</A></TD><TD>Phi</TD><TD>Complex magnetic flux</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> PositiveMagneticPort <font color="darkgreen">&quot;Positive complex magnetic port&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort"
+>Modelica.Magnetic.FundamentalWave.Interfaces.MagneticPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PositiveMagneticPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTwoPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortI.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.PartialTwoPort</H2>
+<B>Two magnetic ports for graphical modeling</B><p>
+<IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortD.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This magnetic two port element consists of a
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>positive</a> and a
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>negative magnetic port</a> and
+considers the flux balance of the two ports. Additionally the magnetic potential difference (of the positive and the negative port) and the magnetic flux (into the positive magnetic port) are defined. This model is mainly to used to extend from in order build more complex - graphical - models.
+</p>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"
+>PartialTwoPortElementary</a>
+</p><pre></PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A></TD><TD>port_p</TD><TD>Positive complex magnetic port</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A></TD><TD>port_n</TD><TD>Negative complex magnetic port</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialTwoPort <font color="darkgreen">
+  &quot;Two magnetic ports for graphical modeling&quot;</font>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A> port_p <font color="darkgreen">&quot;Positive complex magnetic port&quot;</font>;
+  <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A> port_n <font color="darkgreen">&quot;Negative complex magnetic port&quot;</font>;</textblock>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialTwoPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTwoPortElementary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortI.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.PartialTwoPortElementary</H2>
+<B>Two magnetic ports for textual modeling</B><p>
+<IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortD.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPortElementary">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This magnetic two port element only consists of a
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>positive</a> and a
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>negative magnetic port</a>.
+This model is mainly used to extend from in order build more complex - equation based - models.
+</p>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</a>,
+<A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+>PartialTwoPort</a>
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort</A> (Two magnetic ports for graphical modeling).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PositiveMagneticPort"
+>PositiveMagneticPort</A></TD><TD>port_p</TD><TD>Positive complex magnetic port</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.NegativeMagneticPort"
+>NegativeMagneticPort</A></TD><TD>port_n</TD><TD>Negative complex magnetic port</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialTwoPortElementary <font color="darkgreen">
+  &quot;Two magnetic ports for textual modeling&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort"
+>Modelica.Magnetic.FundamentalWave.Interfaces.PartialTwoPort</A>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticPotentialDifference"
+>Modelica.SIunits.ComplexMagneticPotentialDifference</A>  V_m <font color="darkgreen">
+    &quot;Complex magnetic potential difference&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexMagneticFlux"
+>Modelica.SIunits.ComplexMagneticFlux</A>  Phi <font color="darkgreen">&quot;Complex magnetic flux&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Flux into positive port</font>
+  V_m = port_p.V_m - port_n.V_m;
+
+  <font color="darkgreen">// Magneto motive force</font>
+  port_p.Phi = Phi;
+
+  <font color="darkgreen">// Local flux balance</font>
+  port_p.Phi + port_n.Phi =<font color="red"> Complex</font>(0,0);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialTwoPortElementary;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialBasicInductionMachine<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachineI.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.PartialBasicInductionMachine</H2>
+<B>Partial model for induction machine</B><p>
+<IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachineD.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.PartialBasicInductionMachine">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This partial model for induction machines contains elements common in all machine models.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.FundamentalWaveMachine"
+>Modelica.Electrical.Machines.Icons.FundamentalWaveMachine</A>.
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>Jr</TD><TD>&nbsp;</TD><TD>Rotor inertia [kg.m2]</TD></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>Enable / disable (=fixed stator) support</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>Js</TD><TD>&nbsp;</TD><TD>Stator inertia [kg.m2]</TD></TR>
+<TR><TD>Boolean</TD><TD>useThermalPort</TD><TD>false</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR><TD>Integer</TD><TD>p</TD><TD>&nbsp;</TD><TD>Number of pole pairs (Integer)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fsNominal</TD><TD>&nbsp;</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD>Real</TD><TD>effectiveStatorTurns</TD><TD>1</TD><TD>Effective number of stator turns</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines"
+>PartialPowerBalanceInductionMachines</A></TD><TD>powerBalance</TD><TD>redeclare output Modelica.El...</TD><TD>Power balance</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines"
+>PartialThermalAmbientInductionMachines</A></TD><TD>thermalAmbient</TD><TD>redeclare Modelica.Electrica...</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines"
+>PartialThermalPortInductionMachines</A></TD><TD>thermalPort</TD><TD>redeclare Modelica.Electrica...</TD><TD>Thermal port of induction machines</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Operational temperatures</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TsOperational</TD><TD>&nbsp;</TD><TD>Operational temperature of stator resistance [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>Rs</TD><TD>&nbsp;</TD><TD>Stator resistance per phase at TRef [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TsRef</TD><TD>&nbsp;</TD><TD>Reference temperature of stator resistance [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20"
+>LinearTemperatureCoefficient20</A></TD><TD>alpha20s</TD><TD>&nbsp;</TD><TD>Temperature coefficient of stator resistance at 20 degC [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lssigma</TD><TD>&nbsp;</TD><TD>Stator stray inductance per phase [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>Lszero</TD><TD>Lssigma</TD><TD>Stator zero inductance per phase [H]</TD></TR>
+<TR><TD><A HREF="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
+>SalientInductance</A></TD><TD>L0</TD><TD>&nbsp;</TD><TD>Salient inductance of an unchorded coil</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Losses</B></TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.FrictionParameters"
+>FrictionParameters</A></TD><TD>frictionParameters</TD><TD>&nbsp;</TD><TD>Friction losses</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.CoreParameters"
+>CoreParameters</A></TD><TD>statorCoreParameters</TD><TD>&nbsp;</TD><TD>Stator core losses</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.StrayLoadParameters"
+>StrayLoadParameters</A></TD><TD>strayLoadParameters</TD><TD>&nbsp;</TD><TD>Stray load losses</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>Shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>support</TD><TD>Support at which the reaction torque is acting</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_sp</TD><TD>Positive plug of stator</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_sn</TD><TD>Negative plug of stator</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines"
+>PartialThermalPortInductionMachines</A></TD><TD>thermalPort</TD><TD>Thermal port of induction machines</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialBasicInductionMachine <font color="darkgreen">
+  &quot;Partial model for induction machine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.FundamentalWaveMachine"
+>Modelica.Electrical.Machines.Icons.FundamentalWaveMachine</A>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> pi=Modelica.Constants.pi;
+  <font color="blue">constant </font>Integer m=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+
+  <font color="darkgreen">// Mechanical parameters</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Modelica.SIunits.Inertia</A> Jr(start=0.29) <font color="darkgreen">&quot;Rotor inertia&quot;</font>;
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">&quot;Enable / disable (=fixed stator) support&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Modelica.SIunits.Inertia</A> Js(start=Jr) <font color="darkgreen">&quot;Stator inertia&quot;</font>;
+  <font color="blue">parameter </font>Boolean useThermalPort=false <font color="darkgreen">
+    &quot;Enable / disable (=fixed temperatures) thermal port&quot;</font>;
+
+  <font color="blue">parameter </font>Integer p(min=1, start=2) <font color="darkgreen">&quot;Number of pole pairs (Integer)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> fsNominal(start=50) <font color="darkgreen">&quot;Nominal frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TsOperational(start=293.15) <font color="darkgreen">
+    &quot;Operational temperature of stator resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> Rs(start=0.03) <font color="darkgreen">
+    &quot;Stator resistance per phase at TRef&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TsRef(start=293.15) <font color="darkgreen">
+    &quot;Reference temperature of stator resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20"
+>Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20</A>
+    alpha20s(start=0) <font color="darkgreen">&quot;Temperature coefficient of stator resistance at 20 degC&quot;</font>;
+  <font color="blue">parameter </font>Real effectiveStatorTurns = 1 <font color="darkgreen">&quot;Effective number of stator turns&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lssigma(start=3*(1 -<font color="red"> sqrt</font>(1 - 0.0667))/(2*pi*fsNominal)) <font color="darkgreen">
+    &quot;Stator stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> Lszero=Lssigma <font color="darkgreen">
+    &quot;Stator zero inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Magnetic_FundamentalWave_Types.html#Modelica.Magnetic.FundamentalWave.Types.SalientInductance"
+>Modelica.Magnetic.FundamentalWave.Types.SalientInductance</A> L0(d(start=1),q(start=1)) <font color="darkgreen">
+    &quot;Salient inductance of an unchorded coil&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.FrictionParameters"
+>Modelica.Electrical.Machines.Losses.FrictionParameters</A>
+    frictionParameters(
+      wRef(start=2*pi*fsNominal/p)) <font color="darkgreen">&quot;Friction losses&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.CoreParameters"
+>Modelica.Electrical.Machines.Losses.CoreParameters</A>
+    statorCoreParameters(
+      <font color="blue">final </font>m=3,
+      wRef(start=2*pi*fsNominal/p),
+      VRef(start=100)) <font color="darkgreen">&quot;Stator core losses&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.StrayLoadParameters"
+>Modelica.Electrical.Machines.Losses.StrayLoadParameters</A>
+    strayLoadParameters(
+      IRef(start=100),
+      wRef(start=2*pi*fsNominal/p)) <font color="darkgreen">&quot;Stray load losses&quot;</font>;
+
+  <font color="darkgreen">// Mechanical quantities</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> phiMechanical = flange.phi-internalSupport.phi <font color="darkgreen">
+    &quot;Mechanical angle of rotor against stator&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> wMechanical(displayUnit=&quot;1/min&quot;) =<font color="red"> der</font>(phiMechanical) <font color="darkgreen">
+    &quot;Mechanical angular velocity of rotor against stator&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Modelica.SIunits.Torque</A> tauElectrical = inertiaRotor.flange_a.tau <font color="darkgreen">
+    &quot;Electromagnetic torque&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Modelica.SIunits.Torque</A> tauShaft = -flange.tau <font color="darkgreen">&quot;Shaft torque&quot;</font>;
+
+  <font color="blue">replaceable </font><font color="blue">output </font><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines"
+>Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialPowerBalanceInductionMachines</A>
+    powerBalance(
+    <font color="blue">final </font>powerStator =<font color="red"> Modelica.Electrical.Machines.SpacePhasors.Functions.activePower</font>(vs, is),
+    <font color="blue">final </font>powerMechanical = wMechanical*tauShaft,
+    <font color="blue">final </font>powerInertiaStator = inertiaStator.J*inertiaStator.a*inertiaStator.w,
+    <font color="blue">final </font>powerInertiaRotor = inertiaRotor.J*inertiaRotor.a*inertiaRotor.w,
+    <font color="blue">final </font>lossPowerStatorWinding = -<font color="red">sum</font>(stator.heatPortWinding.Q_flow),
+    <font color="blue">final </font>lossPowerStatorCore = -stator.heatPortCore.Q_flow,
+    <font color="blue">final </font>lossPowerStrayLoad = -strayLoad.heatPort.Q_flow,
+    <font color="blue">final </font>lossPowerFriction = -friction.heatPort.Q_flow) <font color="darkgreen">&quot;Power balance&quot;</font>;
+
+  <font color="darkgreen">// Stator voltages and currents</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vs[m] = plug_sp.pin.v - plug_sn.pin.v <font color="darkgreen">
+    &quot;Stator instantaneous voltages&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Modelica.SIunits.Current</A> is[m] = plug_sp.pin.i <font color="darkgreen">
+    &quot;Stator instantaneous currents&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> flange <font color="darkgreen">&quot;Shaft&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Modelica.Mechanics.Rotational.Components.Inertia</A> inertiaRotor(<font color="blue">final </font>J=Jr);
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Modelica.Mechanics.Rotational.Interfaces.Flange_a</A> support <font color="blue">if </font>useSupport <font color="darkgreen">
+    &quot;Support at which the reaction torque is acting&quot;</font>;
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Inertia"
+>Modelica.Mechanics.Rotational.Components.Inertia</A> inertiaStator(<font color="blue">final </font>J=Js);
+  <A HREF="Modelica_Mechanics_Rotational_Components.html#Modelica.Mechanics.Rotational.Components.Fixed"
+>Modelica.Mechanics.Rotational.Components.Fixed</A> fixed <font color="blue">if </font>(<font color="blue">not </font>useSupport);</textblock>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.PositivePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.PositivePlug</A> plug_sp(
+    <font color="blue">final </font>m=m) <font color="darkgreen">&quot;Positive plug of stator&quot;</font>;
+  <A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces.NegativePlug"
+>Modelica.Electrical.MultiPhase.Interfaces.NegativePlug</A> plug_sn(
+    <font color="blue">final </font>m=m) <font color="darkgreen">&quot;Negative plug of stator&quot;</font>;
+  <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding"
+>BasicMachines.Components.SymmetricMultiPhaseWinding</A> stator(
+    <font color="blue">final </font>useHeatPort=true,
+    <font color="blue">final </font>m=m,
+    <font color="blue">final </font>RRef=Rs,
+    <font color="blue">final </font>TRef=TsRef,
+    <font color="blue">final </font>Lsigma=Lssigma,
+    <font color="blue">final </font>effectiveTurns=effectiveStatorTurns,
+    <font color="blue">final </font>TOperational=TsOperational,
+    <font color="blue">final </font>GcRef=statorCoreParameters.GcRef,
+    <font color="blue">final </font>alpha20=alpha20s,
+    <font color="blue">final </font>Lzero=Lszero) <font color="darkgreen">
+    &quot;Symmetric stator winding including resistances, zero and stray inductances and core losses&quot;</font>;
+  <font color="blue">replaceable </font><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines"
+>Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalAmbientInductionMachines</A>
+    thermalAmbient(
+    <font color="blue">final </font>useTemperatureInputs=false,
+    <font color="blue">final </font>Ts=TsOperational) <font color="blue">if </font><font color="blue">not </font>useThermalPort;
+  <font color="blue">replaceable </font><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines"
+>Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines</A>
+    thermalPort <font color="blue">if </font>useThermalPort <font color="darkgreen">&quot;Thermal port of induction machines&quot;</font>;
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Ground"
+>Modelica.Magnetic.FundamentalWave.Components.Ground</A> groundS <font color="darkgreen">
+    &quot;Ground of stator magnetic circuit&quot;</font>;
+  <A HREF="Modelica_Magnetic_FundamentalWave_BasicMachines_Components.html#Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap"
+>Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap</A>
+    airGap(
+    <font color="blue">final </font>p=p,
+    <font color="blue">final </font>L0=L0);
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Ground"
+>Modelica.Magnetic.FundamentalWave.Components.Ground</A> groundR <font color="darkgreen">
+    &quot;Ground of rotor magnetic circuit&quot;</font>;</textblock>
+  <font color="darkgreen">/* previously used: state selection, now commented
+  FundamentalWave.Interfaces.StateSelector stateSelectorS(
+    final m=m,
+    final xi=is,
+    final gamma=p*phiMechanical) &quot;State selection of stator currents&quot;
+    annotation (Placement(transformation(extent={{-10,80},{10,100}})));
+  */</font>
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Machines_Losses_InductionMachines.html#Modelica.Electrical.Machines.Losses.InductionMachines.StrayLoad"
+>Electrical.Machines.Losses.InductionMachines.StrayLoad</A> strayLoad(
+    <font color="blue">final </font>strayLoadParameters=strayLoadParameters);</textblock>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Machines_Losses.html#Modelica.Electrical.Machines.Losses.Friction"
+>Electrical.Machines.Losses.Friction</A>                   friction(
+    <font color="blue">final </font>frictionParameters=frictionParameters);
+<font color="blue">protected </font>
+  <font color="blue">replaceable </font><A HREF="Modelica_Electrical_Machines_Interfaces_InductionMachines.html#Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines"
+>Modelica.Electrical.Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines</A>
+    internalThermalPort;
+  <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Support"
+>Modelica.Mechanics.Rotational.Interfaces.Support</A> internalSupport;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(stator.plug_n, plug_sn);
+  <font color="red">connect</font>(thermalPort,internalThermalPort);
+  <font color="red">connect</font>(thermalAmbient.thermalPort,internalThermalPort);
+  <font color="red">connect</font>(inertiaRotor.flange_b, flange);
+  <font color="red">connect</font>(internalSupport, inertiaStator.flange_a);
+  <font color="red">connect</font>(internalSupport, fixed.flange);
+  <font color="red">connect</font>(inertiaStator.flange_b, support);
+  <font color="red">connect</font>(airGap.flange_a, inertiaRotor.flange_a);
+  <font color="red">connect</font>(airGap.support, internalSupport);
+  <font color="red">connect</font>(groundR.port_p,airGap. port_rn);
+  <font color="red">connect</font>(stator.plug_p, strayLoad.plug_n);
+  <font color="red">connect</font>(plug_sp, strayLoad.plug_p);
+  <font color="red">connect</font>(strayLoad.support, internalSupport);
+  <font color="red">connect</font>(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad);
+  <font color="red">connect</font>(friction.support, internalSupport);
+  <font color="red">connect</font>(strayLoad.flange, inertiaRotor.flange_b);
+  <font color="red">connect</font>(friction.flange, inertiaRotor.flange_b);
+  <font color="red">connect</font>(friction.heatPort, internalThermalPort.heatPortFriction);
+  <font color="red">connect</font>(groundS.port_p, airGap.port_sp);
+  <font color="red">connect</font>(stator.port_n, airGap.port_sp);
+  <font color="red">connect</font>(stator.port_p, airGap.port_sn);
+  <font color="red">connect</font>(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding);
+  <font color="red">connect</font>(stator.heatPortCore, internalThermalPort.heatPortStatorCore);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialBasicInductionMachine;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StateSelector<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelectorI.png" ALT="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Interfaces.StateSelector"></A><A HREF="Modelica_Magnetic_FundamentalWave_Interfaces.html#Modelica.Magnetic.FundamentalWave.Interfaces"
+>Modelica.Magnetic.FundamentalWave.Interfaces</A>.StateSelector</H2>
+<B>Transform instantaneous values to space phasors and select states</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Transforms instantaneous values into space phasors and zero system currents,
+rotates space phasors and sets stateSelect modifiers in order to choose states w.r.t. rotating frame,
+i.e., with small derivatives.
+</p>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>Number of phases</TD></TR>
+<TR><TD>Real</TD><TD>xi[m]</TD><TD>&nbsp;</TD><TD>Instantaneous values</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>gamma</TD><TD>&nbsp;</TD><TD>Angle of rotation [rad]</TD></TR>
+<TR><TD>StateSelect</TD><TD>x0StateSelect</TD><TD>StateSelect.prefer</TD><TD>Priority to use zero systems as states</TD></TR>
+<TR><TD>StateSelect</TD><TD>xrStateSelect</TD><TD>StateSelect.prefer</TD><TD>Priority to use space phasors w.r.t. rotating frame as states</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> StateSelector <font color="darkgreen">
+  &quot;Transform instantaneous values to space phasors and select states&quot;</font>
+  <font color="blue">import </font>Modelica.Constants.pi;
+  <font color="blue">parameter </font>Integer m(min=3)=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">input </font>Real xi[m](<font color="blue">each </font>stateSelect=StateSelect.avoid) <font color="darkgreen">&quot;Instantaneous values&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> gamma <font color="darkgreen">&quot;Angle of rotation&quot;</font>;
+  <font color="blue">parameter </font>StateSelect x0StateSelect=StateSelect.prefer <font color="darkgreen">
+    &quot;Priority to use zero systems as states&quot;</font>;
+  <font color="blue">parameter </font>StateSelect xrStateSelect=StateSelect.prefer <font color="darkgreen">
+    &quot;Priority to use space phasors w.r.t. rotating frame as states&quot;</font>;
+  Real x0(stateSelect=x0StateSelect) = 1/<font color="red">sqrt</font>(m)*<font color="red">sum</font>(xi) <font color="darkgreen">&quot;Zero system&quot;</font>;
+  Real x00(stateSelect=x0StateSelect)= 1/<font color="red">sqrt</font>(m)*<font color="red">sum</font>(
+    {xi[2*l-1] - xi[2*l] <font color="blue">for </font>l<font color="blue"> in </font>1:<font color="red">integer</font>(m/2)}) <font color="blue">if </font>m==2*<font color="red">integer</font>(m/2) <font color="darkgreen">
+    &quot;Second zero system, if present (mp even)&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font>Integer np =<font color="red"> integer</font>((m-1)/2) <font color="darkgreen">&quot;Number of space phasors&quot;</font>;
+  <A HREF="../../../Modelica/Library/help/Complex.html#Complex"
+>Complex</A> xf[np](<font color="blue">each </font>re(stateSelect=StateSelect.avoid), <font color="blue">each </font>im(stateSelect=StateSelect.avoid)) <font color="darkgreen">
+    &quot;Space phasors w.r.t. fixed frame&quot;</font>;
+  <A HREF="../../../Modelica/Library/help/Complex.html#Complex"
+>Complex</A> xr[np](<font color="blue">each </font>re(stateSelect=xrStateSelect), <font color="blue">each </font>im(stateSelect=xrStateSelect)) <font color="darkgreen">
+    &quot;Space phasors w.r.t. rotating frame&quot;</font>;
+<font color="blue">equation </font>
+<font color="darkgreen">//space phasor transformations</font>
+  <font color="blue">for </font>k<font color="blue"> in </font>1:np<font color="blue"> loop</font>
+    xf[k].re = 1/<font color="red">sqrt</font>(m)*<font color="red">sum</font>({<font color="red">cos</font>(k*(l-1)*2*pi/m)*xi[l] <font color="blue">for </font>l<font color="blue"> in </font>1:m});
+    xf[k].im = 1/<font color="red">sqrt</font>(m)*<font color="red">sum</font>({<font color="red">sin</font>(k*(l-1)*2*pi/m)*xi[l] <font color="blue">for </font>l<font color="blue"> in </font>1:m});
+    xr[k] = xf[k]*<font color="red">Modelica.ComplexMath.conj</font>(<font color="red">Modelica.ComplexMath.exp</font>(<font color="red">Complex</font>(0,gamma)));
+  <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>StateSelector;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:03 2010.
+</address></BODY>
+</HTML>

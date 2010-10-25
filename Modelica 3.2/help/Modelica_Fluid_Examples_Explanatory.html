@@ -1,0 +1,297 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.Explanatory</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;A set of examples illustrating when special attention has to be paid&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Explanatory<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.Explanatory"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</A>.Explanatory</H2>
+<B>A set of examples illustrating when special attention has to be paid</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.TraceSubstances.RoomCO2S.png" ALT="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory.MeasuringTemperature"
+>MeasuringTemperature</A>
+</TD><TD>Differences between using one port with
+   and without explicit junction model and two port sensors for fluid temperature meassuring</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.TraceSubstances.RoomCO2S.png" ALT="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings"
+>MomentumBalanceFittings</A>
+</TD><TD>Illustrating a case in which kinetic terms play a major role in the momentum balance</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MeasuringTemperature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.Explanatory.MeasuringTemperatureI.png" ALT="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature"></A><A HREF="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory"
+>Modelica.Fluid.Examples.Explanatory</A>.MeasuringTemperature</H2>
+<B>Differences between using one port with
+   and without explicit junction model and two port sensors for fluid temperature meassuring</B><p>
+<IMG SRC="Modelica.Fluid.Examples.Explanatory.MeasuringTemperatureD.png" ALT="Modelica.Fluid.Examples.Explanatory.MeasuringTemperature">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This model demonstrates the differences that occur when using
+one- and two-port temperature sensors with and without explicit junction models.
+As shown in the next figure, the same system is shown in 3 different variations.
+In all cases exactly the same fluid system is defined. The only difference is
+how the temperature is measured:
+</p>
+
+<blockquote>
+<img src="../Resources/Images/Fluid/Examples/MeasuringTemperature1.png">
+</blockquote>
+
+<p>
+A pre-defined mass flow rate is present so that fluid flows from the reservoir to the
+tanks and after 0.5 s the mass flows from the tanks to the reservoir.
+The reservoir has a temperature of 50<sup>0</sup>C whereas the tanks have an
+initial temperatur of 20<sup>0</sup>C and of 80<sup>0</sup>C. The initial height of the
+tanks is made in such a form that fluid always flows out of the cold tank.
+When the fluid flows from the reservoir to the tanks, then it mixes with the
+cold tank and enters the hot tank.
+When the fluid flow from the tanks to the reservoir, then the cold and hot water
+from the two tanks first mixes and the flows to the reservoir.
+</p>
+
+<p>
+A one-port sensor measures the <em>mixing</em> temperature at a connection point.
+Therefore T_onePort.T (the blue curve in the figure below) is the
+temperature of the mixing point.
+A two-port sensor measures the temperature at the <em>upstream</em> side.
+Therefore T_twoPort.T (the red curve in the figure below which is identical
+to the green curve) shows first the temperature of the reservoir and then
+the mixing temperature when fluid flows from the tanks to the reservoir.
+The same is measured with T_junction.T (the green curve below), because
+the one-port sensor is connected between the mass flow source and the junction
+and since the mixing takes place in the junction, the same situation is
+present as for T_twoPort.T.
+</p>
+
+<blockquote>
+<img src="../Resources/Images/Fluid/Examples/MeasuringTemperature2.png">
+</blockquote>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MeasuringTemperature <font color="darkgreen">&quot;Differences between using one port with
+   and without explicit junction model and two port sensors for fluid temperature meassuring&quot;</font>
+   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Temperature"
+>Modelica.Fluid.Sensors.Temperature</A> T_onePort(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Modelica.Media.Water.StandardWater);
+  <A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.TemperatureTwoPort"
+>Modelica.Fluid.Sensors.TemperatureTwoPort</A> T_twoPort(<font color="blue">redeclare </font><font color="blue">package</font> Medium
+      = Modelica.Media.Water.StandardWater);
+  <font color="blue">inner </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial);
+  <A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels.OpenTank"
+>Modelica.Fluid.Vessels.OpenTank</A> openTankCold2(nPorts=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    height=2,
+    crossArea=2,
+    portsData={<font color="red">Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</font>(diameter=0.05)},
+    level_start=0.975,
+    T_start=293.15);
+  <A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels.OpenTank"
+>Modelica.Fluid.Vessels.OpenTank</A> openTankCold1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    height=2,
+    crossArea=2,
+    portsData={<font color="red">Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</font>(diameter=0.05)},
+    nPorts=1,
+    level_start=0.975,
+    T_start=293.15);
+  <A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels.OpenTank"
+>Modelica.Fluid.Vessels.OpenTank</A> openTankHot1(nPorts=1,
+    level_start=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    height=2,
+    crossArea=2,
+    portsData={<font color="red">Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</font>(diameter=0.05)},
+    T_start=353.15);
+  <A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels.OpenTank"
+>Modelica.Fluid.Vessels.OpenTank</A> openTankHot2(nPorts=1,
+    level_start=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    height=2,
+    crossArea=2,
+    portsData={<font color="red">Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</font>(diameter=0.05)},
+    T_start=353.15);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>Modelica.Fluid.Sources.MassFlowSource_T</A> mFlow1(
+    nPorts=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    use_m_flow_in=true,
+    use_T_in=false,
+    T=323.15);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>Modelica.Fluid.Sources.MassFlowSource_T</A> mFlow2(
+    nPorts=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    use_m_flow_in=true,
+    T=323.15);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Sine"
+>Modelica.Blocks.Sources.Sine</A> sine(freqHz=1);
+  <A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Temperature"
+>Modelica.Fluid.Sensors.Temperature</A> T_junction(<font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Modelica.Media.Water.StandardWater);
+  <A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels.OpenTank"
+>Modelica.Fluid.Vessels.OpenTank</A> openTankCold3(nPorts=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    height=2,
+    crossArea=2,
+    portsData={<font color="red">Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</font>(diameter=0.05)},
+    level_start=0.975,
+    T_start=293.15);
+  <A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels.OpenTank"
+>Modelica.Fluid.Vessels.OpenTank</A> openTankHot3(nPorts=1,
+    level_start=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    height=2,
+    crossArea=2,
+    portsData={<font color="red">Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</font>(diameter=0.05)},
+    T_start=353.15);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_T"
+>Modelica.Fluid.Sources.MassFlowSource_T</A> mFlow3(
+    nPorts=1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    use_m_flow_in=true,
+    T=323.15);
+  <A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.TeeJunctionIdeal"
+>Modelica.Fluid.Fittings.TeeJunctionIdeal</A> junctionIdeal(
+                                                       <font color="blue">redeclare </font><font color="blue">package</font> Medium
+      = Modelica.Media.Water.StandardWater);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mFlow2.ports[1], T_twoPort.port_a);
+  <font color="red">connect</font>(mFlow1.ports[1], T_onePort.port);
+  <font color="red">connect</font>(sine.y, mFlow1.m_flow_in);
+  <font color="red">connect</font>(sine.y, mFlow2.m_flow_in);
+  <font color="red">connect</font>(mFlow3.ports[1], T_junction.port);
+  <font color="red">connect</font>(sine.y, mFlow3.m_flow_in);
+  <font color="red">connect</font>(T_junction.port, junctionIdeal.port_1);
+  <font color="red">connect</font>(T_twoPort.port_b, openTankCold2.ports[1]);
+  <font color="red">connect</font>(T_onePort.port, openTankHot1.ports[1]);
+  <font color="red">connect</font>(T_twoPort.port_b, openTankHot2.ports[1]);
+  <font color="red">connect</font>(junctionIdeal.port_3, openTankCold3.ports[1]);
+  <font color="red">connect</font>(junctionIdeal.port_2, openTankHot3.ports[1]);
+  <font color="red">connect</font>(T_onePort.port, openTankCold1.ports[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MeasuringTemperature;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MomentumBalanceFittings<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.Explanatory.MeasuringTemperatureI.png" ALT="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings"></A><A HREF="Modelica_Fluid_Examples_Explanatory.html#Modelica.Fluid.Examples.Explanatory"
+>Modelica.Fluid.Examples.Explanatory</A>.MomentumBalanceFittings</H2>
+<B>Illustrating a case in which kinetic terms play a major role in the momentum balance</B><p>
+<IMG SRC="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittingsD.png" ALT="Modelica.Fluid.Examples.Explanatory.MomentumBalanceFittings">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This example shows the use of a sudden expansion / contraction model, which is connected to two boundary conditions prescribing static pressure. Notice that the prescribed static pressure on the right boundary is higher than on the left one. Still, the fluid flows from left to right.
+</p>
+<p>
+The reason for this is that the boundary conditions model infinite reservoirs with an infinite diameter and thus zero flow velocity. The sudden expansion model does however have two ends with finite diameters, and, as explained in the <A HREF="Modelica_Fluid_UsersGuide.html#Modelica.Fluid.UsersGuide.Overview"
+>Overview</a> of the Users' Guide, the momentum balance is not fulfilled exactly for this type of connections. Using a simple <code>connect()</code>-statement, the difference of the kinetic terms is neglected, which is not reasonable in the present model: At the left boundary condition it is zero, and on the left side of the sudden expansion it has a non-zero value. It is not reasonable to neglect it in the shown model, because there is little friction and therefore these kinetic effects dominate. Consequently, only modelling these effects explicitly leads to the correct results.
+</p>
+<p>
+To do so, two additional sudden expansions / contractions are included in the model. The diameter is set to <code>inf</code> close to the boundaries and the proper values close to the original model. These additional components now introduce <i>exact</i> momentum balances and the results are as expected.
+</p>
+<p>
+The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <b>total</b> pressure <i>always</i> reduces along the flow direction, even in the upper model.
+</p>
+
+<img src="../Resources/Images/Fluid/Examples/MomentumBalanceFittings.png" border="1">
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MomentumBalanceFittings <font color="darkgreen">
+  &quot;Illustrating a case in which kinetic terms play a major role in the momentum balance&quot;</font>
+   <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Modelica.Fluid.Sources.Boundary_pT</A> leftBoundary1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    nPorts=1,
+    p=100000);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Modelica.Fluid.Sources.Boundary_pT</A> rightBoundary1(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    nPorts=1,
+    p=110000);
+  <A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.AbruptAdaptor"
+>Modelica.Fluid.Fittings.AbruptAdaptor</A> suddenExpansion1(
+    diameter_a=0.1,
+    diameter_b=0.2,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    show_totalPressures=true,
+    show_portVelocities=true);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Modelica.Fluid.Sources.Boundary_pT</A> leftBoundary2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    nPorts=1,
+    p=100000);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.Boundary_pT"
+>Modelica.Fluid.Sources.Boundary_pT</A> rightBoundary2(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    nPorts=1,
+    p=110000);
+  <A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.AbruptAdaptor"
+>Modelica.Fluid.Fittings.AbruptAdaptor</A> suddenExpansion2(
+    diameter_a=0.1,
+    diameter_b=0.2,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    show_totalPressures=true,
+    show_portVelocities=true);
+  <A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.AbruptAdaptor"
+>Modelica.Fluid.Fittings.AbruptAdaptor</A> leftAdaptor(
+    diameter_a=0.1,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    diameter_b=Modelica.Constants.inf);
+  <A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.AbruptAdaptor"
+>Modelica.Fluid.Fittings.AbruptAdaptor</A> rightAdaptor(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    diameter_a=0.2,
+    diameter_b=Modelica.Constants.inf);
+  <font color="blue">inner </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>System</A> system;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(leftBoundary1.ports[1], suddenExpansion1.port_a);
+  <font color="red">connect</font>(suddenExpansion1.port_b, rightBoundary1.ports[1]);
+  <font color="red">connect</font>(leftAdaptor.port_b, leftBoundary2.ports[1]);
+  <font color="red">connect</font>(leftAdaptor.port_a, suddenExpansion2.port_a);
+  <font color="red">connect</font>(suddenExpansion2.port_b,rightAdaptor. port_a);
+  <font color="red">connect</font>(rightAdaptor.port_b, rightBoundary2.ports[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MomentumBalanceFittings;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:12 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,275 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Plate<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer</A>.Plate</H2>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar"
+>kc_laminar</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall"
+>kc_overall</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent"
+>kc_turbulent</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_laminar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate</A>.kc_laminar</H2>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface.
+</p>
+<h4>Functions <b>kc_laminar</b> and <b>kc_laminar_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_laminar</b> is using <b>kc_laminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_laminar_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_laminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> laminar regime (Reynolds number &le; 1e5)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
+</ul>
+</p>
+<h4>Geometry </h4>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png" alt="pic_plate"/>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gd 1, eq. 1]</i> :
+<pre>
+    Nu_lam = 0.664 * Re^(0.5) * (Pr)^(1/3)
+</pre>
+</p>
+<p>
+and the corresponding mean convective heat transfer coefficient <b> kc </b>:
+<pre>
+    kc =  Nu_lam * lambda / L
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> cp                 </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> eta                </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> kc                 </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda         </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L              </b></td><td> as length of plate [m],</td></tr>
+<tr><td><b> Nu_lam                  </b></td><td> as mean Nusselt number for laminar regime [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda           </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho          </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> Re = rho*v*L/eta    </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> in the laminar regime representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_laminar.png" width="600" alt="fig_plate_kc_laminar"/>
+
+<p>
+Note that this function is best used in the laminar regime up to a Reynolds number <b> Re </b> smaller than 2300. There is a deviation w.r.t. literature due to the neglect of the turbulence influence in the transition regime even though this function is used inside its cited restrictions for a higher Reynolds number. The function
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall"
+>kc_overall</a> is recommended for the simulation of a Reynolds number higher than 2300.
+</p>
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_overall<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate</A>.kc_overall</H2>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface.
+</p>
+<h4>Functions <b>kc_overall</b> and <b>kc_overall_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_overall</b> is using <b>kc_overall_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_overall_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_overall_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> constant wall temperature</li>
+<li> overall regime (Reynolds number 1e1 &lt; Re &lt; 1e7)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
+</ul>
+</p>
+
+<h4>Geometry and Calculation </h4>
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar"
+>kc_laminar</a>  and <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent"
+>kc_turbulent</a>.
+</p>
+<p>
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <b>kc_laminar</b>
+and <b>kc_turbulent</b>. A smooth transition between both functions is carried out between 1e5 &le; Re &le; 5e5 (see figure below).
+</p>
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu = sqrt(Nu_lam^2 + Nu_turb^2) </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_overall.png" alt="fig_plate_kc_overall"/>
+
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_turbulent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Plate.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate</A>.kc_turbulent</H2>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface.
+</p>
+<h4>Functions <b>kc_turbulent</b> and <b>kc_turbulent_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_turbulent</b> is using <b>kc_turbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_turbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_turbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> constant wall temperature</li>
+<li> turbulent regime (Reynolds number 5e5 &lt; Re &lt; 1e7)</li>
+<li> Prandtl number 0.6 &le; Pr &le; 2000</li>
+</ul>
+</p>
+<h4>Geometry </h4>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/plate/pic_plate.png" alt="pic_plate"/>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for flat plate is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i>[VDI 2002, p. Gd 1, eq. 2]</i>:
+<pre>
+    Nu_turb = (0.037 * Re^0.8 * Pr) / (1 + 2.443/Re^0.1 * (Pr^(2/3)-1))
+</pre>
+</p>
+<p>
+and the corresponding mean convective heat transfer coefficient <b> kc </b>:
+<pre>
+    kc =  Nu_turb * lambda / L
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> cp          </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> eta          </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> kc          </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda         </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L              </b></td><td> as length of plate [m],</td></tr>
+<tr><td><b> Nu_turb                 </b></td><td> as mean Nusselt number for turbulent regime [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda           </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho          </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> Re = v*rho*L/eta    </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+<h4>Verification</h4>
+<p>
+The mean Nusselt number in turbulent regime <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/plate/fig_plate_kc_turbulent.png" alt="fig_plate_kc_turbulent"/>
+
+<h4>References</h4>
+<dl>
+
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:23 2010.
+</address></BODY>
+</HTML>

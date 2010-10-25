@@ -1,0 +1,380 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Blocks.MathInteger</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of Integer mathematical functions as input/output blocks&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MathInteger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Blocks.MathInteger"></A><A HREF="Modelica_Blocks.html#Modelica.Blocks"
+>Modelica.Blocks</A>.MathInteger</H2>
+<B>Library of Integer mathematical functions as input/output blocks</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains basic <b>mathematical operations</b>
+on <b>Integer</b> signals.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.MultiSwitchS.png" ALT="Modelica.Blocks.MathInteger.MultiSwitch" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.MultiSwitch"
+>MultiSwitch</A>
+</TD><TD>Set Integer expression that is associated with the first active input signal</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.SumS.png" ALT="Modelica.Blocks.MathInteger.Sum" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.Sum"
+>Sum</A>
+</TD><TD>Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.ProductS.png" ALT="Modelica.Blocks.MathInteger.Product" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.Product"
+>Product</A>
+</TD><TD>Product of Integer: y = u[1]*u[2]* ... *u[n]</TD></TR>
+<TR><TD><IMG SRC="Modelica.Blocks.MathInteger.TriggeredAddS.png" ALT="Modelica.Blocks.MathInteger.TriggeredAdd" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger.TriggeredAdd"
+>TriggeredAdd</A>
+</TD><TD>Add input to previous value of output, if rising edge of trigger port</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiSwitch<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.MathInteger.MultiSwitchI.png" ALT="Modelica.Blocks.MathInteger.MultiSwitch" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.MathInteger.MultiSwitch"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</A>.MultiSwitch</H2>
+<B>Set Integer expression that is associated with the first active input signal</B><p>
+<IMG SRC="Modelica.Blocks.MathInteger.MultiSwitchD.png" ALT="Modelica.Blocks.MathInteger.MultiSwitch">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This block has a vector of Boolean input signals u[nu] and a vector of
+(time varying) Integer expressions expr[nu]. The output signal y is
+set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
+false, y is set to parameter "y_default" or the last value is kept, if use_pre_as_default = <b>true</b>.
+</p>
+
+<blockquote><pre>
+  // Conceptual equation (not valid Modelica)
+  i = 'first element of u[:] that is true';
+  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
+                                          <b>else</b> y_default)
+      <b>else</b> expr[i];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Boolean input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+>Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>expr[nu]</TD><TD>fill(0, nu)</TD><TD>y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default</TD></TR>
+<TR><TD>Integer</TD><TD>y_default</TD><TD>0</TD><TD>Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time</TD></TR>
+<TR><TD>Boolean</TD><TD>use_pre_as_default</TD><TD>true</TD><TD>= true, y holds its last value if all u[i]=false, otherwise y=y_default</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanVectorInput"
+>BooleanVectorInput</A></TD><TD>u[nu]</TD><TD>Set y = expr[i], if u[i] = true</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutput"
+>IntegerOutput</A></TD><TD>y</TD><TD>Output depending on expression</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> MultiSwitch <font color="darkgreen">
+  &quot;Set Integer expression that is associated with the first active input signal&quot;</font>
+
+  <font color="blue">input </font>Integer expr[nu]=<font color="red">fill</font>(0, nu) <font color="darkgreen">
+    &quot;y = if u[i] then expr[i] elseif use_pre_as_default then pre(y) else y_default&quot;</font>;
+  <font color="blue">parameter </font>Integer y_default=0 <font color="darkgreen">
+    &quot;Default value of output y if use_pre_as_default=false, as well as pre(y) at initial time&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean use_pre_as_default=true <font color="darkgreen">
+    &quot;= true, y holds its last value if all u[i]=false, otherwise y=y_default&quot;</font>;
+  <font color="blue">parameter </font>Integer nu(min=0) = 0 <font color="darkgreen">&quot;Number of input connections&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanVectorInput"
+>Modelica.Blocks.Interfaces.BooleanVectorInput</A> u[nu] <font color="darkgreen">
+    &quot;Set y = expr[i], if u[i] = true&quot;</font>;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutput"
+>Modelica.Blocks.Interfaces.IntegerOutput</A> y <font color="darkgreen">&quot;Output depending on expression&quot;</font>;</textblock>
+
+<font color="blue">protected </font>
+  Integer firstActiveIndex;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="red">pre</font>(y) = y_default;
+<font color="blue">equation </font>
+  firstActiveIndex =<font color="red"> Modelica.Math.BooleanVectors.firstTrueIndex</font>(
+                                                  u);
+  y = <font color="blue">if </font>firstActiveIndex &gt; 0<font color="blue"> then </font>expr[firstActiveIndex]<font color="blue"> else </font>
+      <font color="blue">if </font>use_pre_as_default<font color="blue"> then </font><font color="red">pre</font>(y)<font color="blue"> else </font>y_default;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MultiSwitch;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sum<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.MathInteger.SumI.png" ALT="Modelica.Blocks.MathInteger.Sum" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.MathInteger.Sum"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</A>.Sum</H2>
+<B>Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]</B><p>
+<IMG SRC="Modelica.Blocks.MathInteger.SumD.png" ALT="Modelica.Blocks.MathInteger.Sum">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This blocks computes the scalar Integer output "y" as sum of the elements of the
+Integer input signal vector u:
+</p>
+<blockquote><pre>
+y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Integer input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+>Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+
+<p>
+If no connection to the input connector "u" is present,
+the output is set to zero: y=0.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
+>Modelica.Blocks.Interfaces.PartialIntegerMISO</A> (Partial block with an IntegerVectorInput and an IntegerOutput signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>k[nu]</TD><TD>fill(1, nu)</TD><TD>Input gains</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerVectorInput"
+>IntegerVectorInput</A></TD><TD>u[nu]</TD><TD>Vector of Integer input signals</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutput"
+>IntegerOutput</A></TD><TD>y</TD><TD>Integer output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Sum <font color="darkgreen">
+  &quot;Sum of Integers: y = k[1]*u[1] + k[2]*u[2] + ... + k[n]*u[n]&quot;</font>
+   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
+>Modelica.Blocks.Interfaces.PartialIntegerMISO</A>;
+   <font color="blue">parameter </font>Integer k[nu] =<font color="red"> fill</font>(1,nu) <font color="darkgreen">&quot;Input gains&quot;</font>;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">size</font>(u,1) &gt; 0<font color="blue"> then</font>
+     y = k*u;
+  <font color="blue">else</font>
+     y = 0;
+  <font color="blue">end if</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Sum;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Product<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.MathInteger.ProductI.png" ALT="Modelica.Blocks.MathInteger.Product" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.MathInteger.Product"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</A>.Product</H2>
+<B>Product of Integer: y = u[1]*u[2]* ... *u[n]</B><p>
+<IMG SRC="Modelica.Blocks.MathInteger.SumD.png" ALT="Modelica.Blocks.MathInteger.Product">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This blocks computes the scalar Integer output "y" as product of the elements of the
+Integer input signal vector u:
+</p>
+<blockquote><pre>
+y = u[1]*u[2]* ... *u[N];
+</pre></blockquote>
+
+<p>
+The input connector is a vector of Integer input signals.
+When a connection line is drawn, the dimension of the input
+vector is enlarged by one and the connection is automatically
+connected to this new free index (thanks to the
+connectorSizing annotation).
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+>Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+
+<p>
+If no connection to the input connector "u" is present,
+the output is set to zero: y=0.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
+>Modelica.Blocks.Interfaces.PartialIntegerMISO</A> (Partial block with an IntegerVectorInput and an IntegerOutput signal).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerVectorInput"
+>IntegerVectorInput</A></TD><TD>u[nu]</TD><TD>Vector of Integer input signals</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutput"
+>IntegerOutput</A></TD><TD>y</TD><TD>Integer output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> Product <font color="darkgreen">&quot;Product of Integer: y = u[1]*u[2]* ... *u[n]&quot;</font>
+   <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerMISO"
+>Modelica.Blocks.Interfaces.PartialIntegerMISO</A>;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="red">size</font>(u,1) &gt; 0<font color="blue"> then</font>
+     y =<font color="red"> product</font>(u);
+  <font color="blue">else</font>
+     y = 0;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Product;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TriggeredAdd<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Blocks.MathInteger.TriggeredAddI.png" ALT="Modelica.Blocks.MathInteger.TriggeredAdd" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Blocks.MathInteger.TriggeredAdd"></A><A HREF="Modelica_Blocks_MathInteger.html#Modelica.Blocks.MathInteger"
+>Modelica.Blocks.MathInteger</A>.TriggeredAdd</H2>
+<B>Add input to previous value of output, if rising edge of trigger port</B><p>
+<IMG SRC="Modelica.Blocks.MathInteger.TriggeredAddD.png" ALT="Modelica.Blocks.MathInteger.TriggeredAdd">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Add input to previous value of output, if rising edge of trigger port
+
+<p>
+This block has one Integer input "u", one Boolean input "trigger",
+an optional Boolean input "reset", an optional Integer input "set", and
+an Integer output "y".
+The optional inputs can be activated with the "use_reset" and
+"use_set" flags, respectively.
+</p>
+
+<p>
+The input "u" is added to the previous value of the
+output "y" if the "trigger" port has a rising edge. At the start of the
+simulation "y = y_start".
+</p>
+
+<p>
+If the "reset" port is enabled, then the output "y" is reset to "set"
+or to "y_start" (if the "set" port is not enabled), whenever the "reset"
+port has a rising edge.
+</p>
+
+<p>
+The usage is demonstrated, e.g., in example
+<A HREF="Modelica_Blocks_Examples.html#Modelica.Blocks.Examples.IntegerNetwork1"
+>Modelica.Blocks.Examples.IntegerNetwork1</a>.
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerSISO"
+>Modelica.Blocks.Interfaces.PartialIntegerSISO</A> (Partial block with a IntegerInput and an IntegerOutput signal).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>use_reset</TD><TD>false</TD><TD>=true, if reset port enabled</TD></TR>
+<TR><TD>Boolean</TD><TD>use_set</TD><TD>false</TD><TD>=true, if set port enabled and used as default value when reset</TD></TR>
+<TR><TD>Integer</TD><TD>y_start</TD><TD>0</TD><TD>Initial and reset value of y if set port is not used</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerInput"
+>IntegerInput</A></TD><TD>u</TD><TD>Integer input signal</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutput"
+>IntegerOutput</A></TD><TD>y</TD><TD>Integer output signal</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>trigger</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>BooleanInput</A></TD><TD>reset</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerInput"
+>IntegerInput</A></TD><TD>set</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">block</font> TriggeredAdd <font color="darkgreen">
+  &quot;Add input to previous value of output, if rising edge of trigger port&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.PartialIntegerSISO"
+>Modelica.Blocks.Interfaces.PartialIntegerSISO</A>;
+
+  <font color="blue">parameter </font>Boolean use_reset = false <font color="darkgreen">&quot;=true, if reset port enabled&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_set = false <font color="darkgreen">
+    &quot;=true, if set port enabled and used as default value when reset&quot;</font>;
+  <font color="blue">parameter </font>Integer y_start = 0 <font color="darkgreen">
+    &quot;Initial and reset value of y if set port is not used&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> trigger;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanInput"
+>Modelica.Blocks.Interfaces.BooleanInput</A> reset <font color="blue">if </font>use_reset;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerInput"
+>Modelica.Blocks.Interfaces.IntegerInput</A> set <font color="blue">if </font>use_set;</textblock>
+<font color="blue">protected </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.BooleanOutput"
+>Modelica.Blocks.Interfaces.BooleanOutput</A> local_reset;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.IntegerOutput"
+>Modelica.Blocks.Interfaces.IntegerOutput</A> local_set;
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="red">pre</font>(y) = y_start;
+<font color="blue">equation </font>
+  <font color="blue">if </font>use_reset<font color="blue"> then</font>
+    <font color="red"> connect</font>(reset, local_reset);
+       <font color="blue">if </font>use_set<font color="blue"> then</font>
+      <font color="red">   connect</font>(set, local_set);
+       <font color="blue">else</font>
+         local_set = y_start;
+       <font color="blue">end if</font>;
+  <font color="blue">else</font>
+     local_reset = false;
+     local_set = 0;
+  <font color="blue">end if</font>;
+
+  <font color="blue">when </font>{trigger, local_reset}<font color="blue"> then</font>
+     y = <font color="blue">if </font>local_reset<font color="blue"> then </font>local_set<font color="blue"> else </font><font color="red">pre</font>(y) + u;
+  <font color="blue">end when</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TriggeredAdd;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:27:39 2010.
+</address></BODY>
+</HTML>

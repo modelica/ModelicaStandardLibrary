@@ -1,0 +1,297 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.QuasiStationary.Machines.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;SpacePhasor connector and PartialMachines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.QuasiStationary.Machines.Interfaces"></A><A HREF="Modelica_Electrical_QuasiStationary_Machines.html#Modelica.Electrical.QuasiStationary.Machines"
+>Modelica.Electrical.QuasiStationary.Machines</A>.Interfaces</H2>
+<B>SpacePhasor connector and PartialMachines</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains the quasi stationary space phasor connector and partial models for quasi stationary machine models.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformerS.png" ALT="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_Machines_Interfaces.html#Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformer"
+>PartialBasicTransformer</A>
+</TD><TD>Partial model of threephase transformer</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialBasicTransformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformerI.png" ALT="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformer"></A><A HREF="Modelica_Electrical_QuasiStationary_Machines_Interfaces.html#Modelica.Electrical.QuasiStationary.Machines.Interfaces"
+>Modelica.Electrical.QuasiStationary.Machines.Interfaces</A>.PartialBasicTransformer</H2>
+<B>Partial model of threephase transformer</B><p>
+<IMG SRC="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformerD.png" ALT="Modelica.Electrical.QuasiStationary.Machines.Interfaces.PartialBasicTransformer">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Partialmodel of a threephase transformer, containing primary and secondary resistances and stray inductances, as well as the iron core.
+Circuit layout (vector group) of primary and secondary windings have to be defined.
+<br><b>Default values for transformer's parameters (a realistic example) are:</b><br>
+<table>
+<tr>
+<td valign="top">turns ratio n</td>
+<td valign="top">1</td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">nominal frequency fNominal</td>
+<td valign="top">50</td><td valign="top">Hz</td>
+</tr>
+<tr>
+<td valign="top">nominal voltage per phase</td>
+<td valign="top">100</td><td valign="top">V RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal current per phase</td>
+<td valign="top">100</td><td valign="top">A RMS</td>
+</tr>
+<tr>
+<td valign="top">nominal apparent power</td>
+<td valign="top">30</td><td valign="top">kVA</td>
+</tr>
+<tr>
+<td valign="top">primary resistance R1</td>
+<td valign="top">0.005</td><td valign="top">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign="top">reference temperature T1Ref</td>
+<td valign="top">20</td><td valign="top">&deg;C</td>
+</tr>
+<tr>
+<td valign="top">temperature coefficient alpha20_1 </td>
+<td valign="top">0</td><td valign="top">1/K</td>
+</tr>
+<tr>
+<td valign="top">primary stray inductance L1sigma</td>
+<td valign="top">78E-6</td><td valign="top">H per phase</td>
+</tr>
+<tr>
+<td valign="top">secondary resistance R2</td>
+<td valign="top">0.005</td><td valign="top">Ohm per phase at reference temperature</td>
+</tr>
+<tr>
+<td valign="top">reference temperature T2Ref</td>
+<td valign="top">20</td><td valign="top">&deg;C</td>
+</tr>
+<tr>
+<td valign="top">temperature coefficient alpha20_2 </td>
+<td valign="top">0</td><td valign="top">1/K</td>
+</tr>
+<tr>
+<td valign="top">secondary stray inductance L2sigma</td>
+<td valign="top">78E-6</td><td valign="top">H per phase</td>
+</tr>
+<tr>
+<td valign="top">operational temperature T1Operational</td>
+<td valign="top">20</td><td valign="top">&deg;C</td>
+</tr>
+<tr>
+<td valign="top">operational temperature T2Operational</td>
+<td valign="top">20</td><td valign="top">&deg;C</td>
+</tr>
+<tr>
+<td valign="top">These values give the operational parameters:</td>
+<td valign="top"> </td><td valign="top"> </td>
+</tr>
+<tr>
+<td valign="top">nominal voltage drop</td>
+<td valign="top">0.05</td><td valign="top">p.u.</td>
+</tr>
+<tr>
+<td valign="top">nominal copper losses</td>
+<td valign="top">300</td><td valign="top">W</td>
+</tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer"
+>Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer</A>.
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>n</TD><TD>&nbsp;</TD><TD>Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)</TD></TR>
+<TR><TD>Boolean</TD><TD>useThermalPort</TD><TD>false</TD><TD>Enable / disable (=fixed temperatures) thermal port</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Operational temperatures</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T1Operational</TD><TD>&nbsp;</TD><TD>Operational temperature of primary resistance [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T2Operational</TD><TD>&nbsp;</TD><TD>Operational temperature of secondary resistance [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Nominal resistances and inductances</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>R1</TD><TD>&nbsp;</TD><TD>Primary resistance per phase at TRef [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T1Ref</TD><TD>&nbsp;</TD><TD>Reference temperature of primary resistance [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20"
+>LinearTemperatureCoefficient20</A></TD><TD>alpha20_1</TD><TD>&nbsp;</TD><TD>Temperature coefficient of primary resistance at 20 degC [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>L1sigma</TD><TD>&nbsp;</TD><TD>Primary stray inductance per phase [H]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>R2</TD><TD>&nbsp;</TD><TD>Secondary resistance per phase at TRef [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T2Ref</TD><TD>&nbsp;</TD><TD>Reference temperature of secondary resistance [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20"
+>LinearTemperatureCoefficient20</A></TD><TD>alpha20_2</TD><TD>&nbsp;</TD><TD>Temperature coefficient of secondary resistance at 20 degC [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Inductance</A></TD><TD>L2sigma</TD><TD>&nbsp;</TD><TD>Secondary stray inductance per phase [H]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug1</TD><TD>Primary plug</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug2</TD><TD>Secondary plug</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.ThermalPortTransformer"
+>ThermalPortTransformer</A></TD><TD>thermalPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialBasicTransformer <font color="darkgreen">
+  &quot;Partial model of threephase transformer&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Icons.html#Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer"
+>Modelica.Electrical.Machines.Icons.QuasiStationaryTransformer</A>;
+  <font color="blue">constant </font>Integer m(min=1) = 3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">constant </font>String VectorGroup=&quot;Yy00&quot;;
+  <font color="blue">parameter </font>Real n(start=1) <font color="darkgreen">
+    &quot;Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> R1(start=5E-3/(<font color="blue">if </font>C1==&quot;D&quot;<font color="blue"> then </font>1<font color="blue"> else </font>3)) <font color="darkgreen">
+    &quot;Primary resistance per phase at TRef&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T1Ref(start=293.15) <font color="darkgreen">
+    &quot;Reference temperature of primary resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20"
+>Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20</A>
+    alpha20_1(start=0) <font color="darkgreen">
+    &quot;Temperature coefficient of primary resistance at 20 degC&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> L1sigma(start=78E-6/(<font color="blue">if </font>C1==&quot;D&quot;<font color="blue"> then </font>1<font color="blue"> else </font>3)) <font color="darkgreen">
+    &quot;Primary stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> R2(start=5E-3/(<font color="blue">if </font>C2==&quot;d&quot;<font color="blue"> then </font>1<font color="blue"> else </font>3)) <font color="darkgreen">
+    &quot;Secondary resistance per phase at TRef&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T2Ref(start=293.15) <font color="darkgreen">
+    &quot;Reference temperature of secondary resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20"
+>Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20</A>
+    alpha20_2(start=0) <font color="darkgreen">
+    &quot;Temperature coefficient of secondary resistance at 20 degC&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inductance"
+>Modelica.SIunits.Inductance</A> L2sigma(start=78E-6/(<font color="blue">if </font>C2==&quot;d&quot;<font color="blue"> then </font>1<font color="blue"> else </font>3)) <font color="darkgreen">
+    &quot;Secondary stray inductance per phase&quot;</font>;
+  <font color="blue">parameter </font>Boolean useThermalPort=false <font color="darkgreen">
+    &quot;Enable / disable (=fixed temperatures) thermal port&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T1Operational(start=293.15) <font color="darkgreen">
+    &quot;Operational temperature of primary resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> T2Operational(start=293.15) <font color="darkgreen">
+    &quot;Operational temperature of secondary resistance&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.PowerBalanceTransformer"
+>Modelica.Electrical.Machines.Interfaces.PowerBalanceTransformer</A> powerBalance(
+    <font color="blue">final </font>power1 =<font color="red"> sum</font>({<font color="red">Modelica.ComplexMath.real</font>(v1[j]*<font color="red">Modelica.ComplexMath.conj</font>( i1[j])) <font color="blue">for </font>j<font color="blue"> in </font>1:m}),
+    <font color="blue">final </font>power2 =<font color="red"> sum</font>({<font color="red">Modelica.ComplexMath.real</font>(v2[j]*<font color="red">Modelica.ComplexMath.conj</font>(-i2[j])) <font color="blue">for </font>j<font color="blue"> in </font>1:m}),
+    <font color="blue">final </font>lossPower1 = -<font color="red">sum</font>(r1.heatPort.Q_flow),
+    <font color="blue">final </font>lossPower2 = -<font color="red">sum</font>(r2.heatPort.Q_flow),
+    <font color="blue">final </font>lossPowerCore = 0) <font color="darkgreen">&quot;Power balance&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexVoltage"
+>Modelica.SIunits.ComplexVoltage</A>  v1[
+                                            m]=plug1.pin.v <font color="darkgreen">&quot;Primary voltage&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexCurrent"
+>Modelica.SIunits.ComplexCurrent</A>  i1[
+                                            m]=plug1.pin.i <font color="darkgreen">&quot;Primary current&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexVoltage"
+>Modelica.SIunits.ComplexVoltage</A>  v2[
+                                            m]=plug2.pin.v <font color="darkgreen">&quot;Secondary voltage&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexCurrent"
+>Modelica.SIunits.ComplexCurrent</A>  i2[
+                                            m]=plug2.pin.i <font color="darkgreen">&quot;Secondary current&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font>String C1 =<font color="red"> Modelica.Utilities.Strings.substring</font>(VectorGroup,1,1);
+  <font color="blue">constant </font>String C2 =<font color="red"> Modelica.Utilities.Strings.substring</font>(VectorGroup,2,2);
+  <font color="blue">parameter </font>Real ni=n*(<font color="blue">if </font>C2==&quot;z&quot;<font color="blue"> then </font><font color="red">sqrt</font>(3)<font color="blue"> else </font>2)*(<font color="blue">if </font>C2==&quot;d&quot;<font color="blue"> then </font>1<font color="blue"> else </font><font color="red">sqrt</font>(3))/(<font color="blue">if </font>C1==&quot;D&quot;<font color="blue"> then </font>1<font color="blue"> else </font><font color="red">sqrt</font>(3));
+<textblock type="annotcomp" expanded="false"><font color="blue">public </font>
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>QuasiStationary.MultiPhase.Interfaces.PositivePlug</A> plug1(<font color="blue">final </font>m=m) <font color="darkgreen">
+    &quot;Primary plug&quot;</font>;
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>QuasiStationary.MultiPhase.Interfaces.NegativePlug</A> plug2(<font color="blue">final </font>m=m) <font color="darkgreen">
+    &quot;Secondary plug&quot;</font>;
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+>QuasiStationary.MultiPhase.Basic.Resistor</A> r1(
+    <font color="blue">final </font>m=m,
+    <font color="blue">final </font>R_ref=<font color="red">fill</font>(R1,m),
+    <font color="blue">final </font>T_ref=<font color="red">fill</font>(T1Ref,m),
+    <font color="blue">final </font>alpha_ref=<font color="red">fill</font>(<font color="red">Modelica.Electrical.Machines.Thermal.convertAlpha</font>(alpha20_1, T1Ref), m),
+    <font color="blue">final </font>useHeatPort=true,
+    <font color="blue">final </font>T=<font color="red">fill</font>(T1Ref,m));
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+>QuasiStationary.MultiPhase.Basic.Inductor</A> l1sigma(<font color="blue">final </font>m=m, <font color="blue">final </font>L=<font color="red">fill</font>(L1sigma, m));
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Resistor"
+>QuasiStationary.MultiPhase.Basic.Resistor</A> r2(
+    <font color="blue">final </font>m=m,
+    <font color="blue">final </font>R_ref=<font color="red">fill</font>(R2,m),
+    <font color="blue">final </font>T_ref=<font color="red">fill</font>(T2Ref,m),
+    <font color="blue">final </font>alpha_ref=<font color="red">fill</font>(<font color="red">Modelica.Electrical.Machines.Thermal.convertAlpha</font>(alpha20_2, T2Ref), m),
+    <font color="blue">final </font>useHeatPort=true,
+    <font color="blue">final </font>T=<font color="red">fill</font>(T2Ref,m));
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Basic.html#Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Inductor"
+>QuasiStationary.MultiPhase.Basic.Inductor</A> l2sigma(<font color="blue">final </font>m=m, <font color="blue">final </font>L=<font color="red">fill</font>(L2sigma, m));
+  <A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.IdealCore"
+>QuasiStationary.Machines.BasicMachines.Components.IdealCore</A> core(
+    <font color="blue">final </font>m=m,
+    <font color="blue">final </font>n12=ni,
+    <font color="blue">final </font>n13=ni);
+  <A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.ThermalPortTransformer"
+>Modelica.Electrical.Machines.Interfaces.ThermalPortTransformer</A>
+    thermalPort <font color="blue">if </font>
+       useThermalPort;
+  <A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer"
+>Modelica.Electrical.Machines.Thermal.ThermalAmbientTransformer</A>
+    thermalAmbient(
+    <font color="blue">final </font>useTemperatureInputs=false,
+    <font color="blue">final </font>T1=T1Operational,
+    <font color="blue">final </font>T2=T2Operational) <font color="blue">if </font><font color="blue">not </font>useThermalPort;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Electrical_Machines_Interfaces.html#Modelica.Electrical.Machines.Interfaces.ThermalPortTransformer"
+>Modelica.Electrical.Machines.Interfaces.ThermalPortTransformer</A>
+    internalThermalPort;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(r1.plug_n,l1sigma. plug_p);
+  <font color="red">connect</font>(l2sigma.plug_n,r2. plug_p);
+  <font color="red">connect</font>(plug1, r1.plug_p);
+  <font color="red">connect</font>(r2.plug_n, plug2);
+  <font color="red">connect</font>(thermalPort, internalThermalPort);
+  <font color="red">connect</font>(thermalAmbient.thermalPort, internalThermalPort);
+  <font color="red">connect</font>(r1.heatPort, internalThermalPort.heatPort1);
+  <font color="red">connect</font>(r2.heatPort, internalThermalPort.heatPort2);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialBasicTransformer;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:40 2010.
+</address></BODY>
+</HTML>

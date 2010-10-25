@@ -1,0 +1,338 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.BooleanVectors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of functions operating on Boolean vectors&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BooleanVectors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.BooleanVectors"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.BooleanVectors</H2>
+<B>Library of functions operating on Boolean vectors</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This library provides functions operating on vectors that have
+a Boolean vector as input argument.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.BooleanVectors.allTrueS.png" ALT="Modelica.Math.BooleanVectors.allTrue" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.allTrue"
+>allTrue</A>
+</TD><TD>Returns true, if all elements of the Boolean input vector are true (&#39;and&#39;)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.BooleanVectors.allTrueS.png" ALT="Modelica.Math.BooleanVectors.anyTrue" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.anyTrue"
+>anyTrue</A>
+</TD><TD>Returns true, if at least on element of the Boolean input vector is true (&#39;or&#39;)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.BooleanVectors.allTrueS.png" ALT="Modelica.Math.BooleanVectors.oneTrue" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.oneTrue"
+>oneTrue</A>
+</TD><TD>Returns true, if exactly one element of the Boolean input vector is true (&#39;xor&#39;)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.BooleanVectors.firstTrueIndexS.png" ALT="Modelica.Math.BooleanVectors.firstTrueIndex" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.firstTrueIndex"
+>firstTrueIndex</A>
+</TD><TD>Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE allTrue<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.BooleanVectors.allTrueI.png" ALT="Modelica.Math.BooleanVectors.allTrue" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.BooleanVectors.allTrue"></A><A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>Modelica.Math.BooleanVectors</A>.allTrue</H2>
+<B>Returns true, if all elements of the Boolean input vector are true (&#39;and&#39;)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>allTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
+Otherwise the function returns <b>false</b>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {true, true, true};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<b>algorithm</b>
+  r1 = allTrue(b1);  // r1 = true
+  r2 = allTrue(b2);  // r2 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.anyTrue"
+>anyTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.oneTrue"
+>oneTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.firstTrueIndex"
+>firstTrueIndex</a>.
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>b[:]</TD><TD>&nbsp;</TD><TD>Boolean vector</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>result</TD><TD>= true, if all elements of b are true</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> allTrue <font color="darkgreen">
+  &quot;Returns true, if all elements of the Boolean input vector are true (&#39;and&#39;)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Boolean b[:] <font color="darkgreen">&quot;Boolean vector&quot;</font>;
+  <font color="blue">output </font>Boolean result <font color="darkgreen">&quot;= true, if all elements of b are true&quot;</font>;
+<font color="blue">algorithm </font>
+  result :=<font color="red"> size</font>(b,1) &gt; 0;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(b,1)<font color="blue"> loop</font>
+     result := result<font color="blue"> and </font>b[i];
+  <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>allTrue;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE anyTrue<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.BooleanVectors.allTrueI.png" ALT="Modelica.Math.BooleanVectors.anyTrue" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.BooleanVectors.anyTrue"></A><A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>Modelica.Math.BooleanVectors</A>.anyTrue</H2>
+<B>Returns true, if at least on element of the Boolean input vector is true (&#39;or&#39;)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>anyTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
+Otherwise the function returns <b>false</b>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean r1, r2;
+<b>algorithm</b>
+  r1 = anyTrue(b1);  // r1 = false
+  r2 = anyTrue(b2);  // r2 = true
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.allTrue"
+>allTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.oneTrue"
+>oneTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.firstTrueIndex"
+>firstTrueIndex</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>b[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>result</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> anyTrue <font color="darkgreen">
+  &quot;Returns true, if at least on element of the Boolean input vector is true (&#39;or&#39;)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Boolean b[:];
+  <font color="blue">output </font>Boolean result;
+<font color="blue">algorithm </font>
+  result := false;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(b,1)<font color="blue"> loop</font>
+     result := result<font color="blue"> or </font>b[i];
+  <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>anyTrue;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE oneTrue<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.BooleanVectors.allTrueI.png" ALT="Modelica.Math.BooleanVectors.oneTrue" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.BooleanVectors.oneTrue"></A><A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>Modelica.Math.BooleanVectors</A>.oneTrue</H2>
+<B>Returns true, if exactly one element of the Boolean input vector is true (&#39;xor&#39;)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>oneTrue</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns <b>true</b> if exactly one element of the input Boolean vector b is <b>true</b>.
+Otherwise the function returns <b>false</b>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <b>false</b>.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[3] = {false, true, true};
+  Boolean r1, r2, r3;
+<b>algorithm</b>
+  r1 = oneTrue(b1);  // r1 = false
+  r2 = oneTrue(b2);  // r2 = true
+  r3 = oneTrue(b3);  // r3 = false
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.allTrue"
+>allTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.anyTrue"
+>anyTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.firstTrueIndex"
+>firstTrueIndex</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>b[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>result</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> oneTrue <font color="darkgreen">
+  &quot;Returns true, if exactly one element of the Boolean input vector is true (&#39;xor&#39;)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Boolean b[:];
+  <font color="blue">output </font>Boolean result;
+<font color="blue">protected </font>
+  Integer count = 0;
+<font color="blue">algorithm </font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(b,1)<font color="blue"> loop</font>
+     count := <font color="blue">if </font>b[i]<font color="blue"> then </font>count+1<font color="blue"> else </font>count;
+  <font color="blue">end for</font>;
+  result :=count == 1;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>oneTrue;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE firstTrueIndex<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.BooleanVectors.firstTrueIndex"></A><A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>Modelica.Math.BooleanVectors</A>.firstTrueIndex</H2>
+<B>Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+<b>firstTrueIndex</b>(b);
+</pre></blockquote>
+
+<h4>Description</h4>
+<p>
+Returns the index of the first element of the Boolean vector b
+that is <b>true</b> and returns 0, if no element is <b>true</b>"
+If b is an empty vector, i.e., size(b,1)=0, the function returns 0.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  Boolean b1[3] = {false, false, false};
+  Boolean b2[3] = {false, true, false};
+  Boolean b3[4] = {false, true, false, true};
+  Integer r1, r2, r3;
+<b>algorithm</b>
+  r1 = firstTrueIndex(b1);  // r1 = 0
+  r2 = firstTrueIndex(b2);  // r2 = 2
+  r3 = firstTrueIndex(b3);  // r3 = 2
+</pre></blockquote>
+
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.allTrue"
+>allTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.anyTrue"
+>anyTrue</a>,
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors.oneTrue"
+>oneTrue</a>.
+</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>b[:]</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>index</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> firstTrueIndex <font color="darkgreen">
+  &quot;Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true&quot;</font>
+   <font color="blue">input </font>Boolean b[:];
+   <font color="blue">output </font>Integer index;
+<font color="blue">algorithm </font>
+   index :=0;
+   <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(b,1)<font color="blue"> loop</font>
+      <font color="blue">if </font>b[i]<font color="blue"> then</font>
+         index :=i;
+         return;
+      <font color="blue">end if</font>;
+   <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>firstTrueIndex;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:49 2010.
+</address></BODY>
+</HTML>

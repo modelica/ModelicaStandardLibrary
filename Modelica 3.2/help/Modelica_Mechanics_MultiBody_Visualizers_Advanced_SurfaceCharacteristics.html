@@ -1,0 +1,282 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Functions returning surface descriptions&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SurfaceCharacteristics<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced</A>.SurfaceCharacteristics</H2>
+<B>Functions returning surface descriptions</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains functions that are used to define
+parameterized surfaces for use with the
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface"
+>Surface</a>
+model.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torusS.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced_SurfaceCharacteristics.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus"
+>torus</A>
+</TD><TD>Function defining the surface characteristic of a torus</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torusS.png" ALT="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced_SurfaceCharacteristics.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField"
+>pipeWithScalarField</A>
+</TD><TD>Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE torus<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.torus"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced_SurfaceCharacteristics.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics</A>.torus</H2>
+<B>Function defining the surface characteristic of a torus</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Function <b>torus</b> computes the X,Y,Z arrays to visualize a torus
+with model <A HREF="Modelica_Mechanics_MultiBody_Visualizers.html#Modelica.Mechanics.MultiBody.Visualizers.Torus"
+>Torus</a>.
+The left image below shows a torus with ri=0.5 m and ro = 0.2 m.
+The right images below shows the torus with the additional parameter
+settings:
+</p>
+<pre>
+  opening    =   45 degree
+  startAngle = -135 degree
+  stopAngle  =  135 degree
+</pre>
+
+<blockquote>
+<img src="../Resources/Images/MultiBody/Visualizers/Torus.png">
+</blockquote>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
+>Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</A>.
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>nu</TD><TD>&nbsp;</TD><TD>Number of points in u-Dimension</TD></TR>
+<TR><TD>Integer</TD><TD>nv</TD><TD>&nbsp;</TD><TD>Number of points in v-Dimension</TD></TR>
+<TR><TD>Boolean</TD><TD>multiColoredSurface</TD><TD>false</TD><TD>= true: Color is defined for each surface point</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Radius</A></TD><TD>ri</TD><TD>1</TD><TD>Inner radius of torus [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Radius</A></TD><TD>ro</TD><TD>0.2</TD><TD>Outer radius of torus (=width/2) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>opening</TD><TD>0</TD><TD>Opening angle of torus [rad]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>startAngle</TD><TD>-Modelica.Constants.pi</TD><TD>Start angle of torus slice [rad]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>stopAngle</TD><TD>Modelica.Constants.pi</TD><TD>End angle of torus slice [rad]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>X[nu, nv]</TD><TD>[nu,nv] positions of points in x-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>Y[nu, nv]</TD><TD>[nu,nv] positions of points in y-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>Z[nu, nv]</TD><TD>[nu,nv] positions of points in z-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD>Real</TD><TD>C[if multiColoredSurface then nu else 0, if multiColoredSurface then nv else 0, 3]</TD><TD>[nu,nv,3] Color array, defining the color for each surface point</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> torus <font color="darkgreen">
+  &quot;Function defining the surface characteristic of a torus&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
+>Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</A>(
+            <font color="blue">final </font>multiColoredSurface=false);
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Modelica.SIunits.Radius</A> ri=1 <font color="darkgreen">&quot;Inner radius of torus&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Modelica.SIunits.Radius</A> ro=0.2 <font color="darkgreen">&quot;Outer radius of torus (=width/2)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> opening=0 <font color="darkgreen">&quot;Opening angle of torus&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> startAngle= -Modelica.Constants.pi <font color="darkgreen">
+    &quot;Start angle of torus slice&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> stopAngle= Modelica.Constants.pi <font color="darkgreen">
+    &quot;End angle of torus slice&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> alpha;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> beta;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> phi_start;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> phi_stop;
+<font color="blue">algorithm </font>
+  phi_start :=-Modelica.Constants.pi + opening;
+  phi_stop  :=Modelica.Constants.pi - opening;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nu<font color="blue"> loop</font>
+      alpha := startAngle + (stopAngle-startAngle)*(i-1)/(nu-1);
+      <font color="blue">for </font>j<font color="blue"> in </font>1:nv<font color="blue"> loop</font>
+          beta := phi_start + (phi_stop-phi_start)*(j-1)/(nv-1);
+          X[i,j] := (ri + ro*<font color="red">cos</font>(beta))*<font color="red">sin</font>(alpha);
+          Y[i,j] := ro*<font color="red">sin</font>(beta);
+          Z[i,j] := (ri + ro*<font color="red">cos</font>(beta))*<font color="red">cos</font>(alpha);
+      <font color="blue">end for</font>;
+  <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>torus;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pipeWithScalarField<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics.pipeWithScalarField"></A><A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced_SurfaceCharacteristics.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics"
+>Modelica.Mechanics.MultiBody.Visualizers.Advanced.SurfaceCharacteristics</A>.pipeWithScalarField</H2>
+<B>Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Function <b>pipeWithScalarField</b> computes the X,Y,Z,C arrays in order to
+visualize a pipe and a scalar field along the pipe axis with model
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Advanced.html#Modelica.Mechanics.MultiBody.Visualizers.Advanced.PipeWithScalarField"
+>PipeWithScalarField</a>.
+The latter is shown by mapping scalar
+field to color values with a color map and utilizing this color
+at the perimeter associated with the corresponding axis location.
+Typically the scalar field value is a temperature, but might
+be also another quantity.
+Predefined color maps are available from
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Colors_ColorMaps.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps"
+>MultiBody.Visualizers.Colors.ColorMaps</a>
+and can be selected via input argument "colorMap".
+A color map with the corresponding scalar field values can be exported
+as vector-graphics in svg-format with function
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"
+>MultiBody.Visualizers.Colors.colorMapToSvg</a>.
+An example is shown in the next figure:
+</p>
+
+<blockquote>
+<img src="../Resources/Images/MultiBody/Visualizers/PipeWithScalarField.png">
+</blockquote>
+
+<p>
+The color coding is shown in the next figure. It was generated with
+<A HREF="Modelica_Mechanics_MultiBody_Visualizers_Colors.html#Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg"
+>Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg</a>
+using the following call:
+</p>
+
+<blockquote>
+<pre>
+colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizer.Colors.ColorMap.jet(),
+              height=50, nScalars=6, T_max=100, heading="Temperature in C");
+</pre>
+</blockquote>
+
+<blockquote>
+<img src="../Resources/Images/MultiBody/Visualizers/PipeWithScalarField-ColorMap.png">
+</blockquote>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
+>Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</A>.
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>nu</TD><TD>&nbsp;</TD><TD>Number of points in u-Dimension</TD></TR>
+<TR><TD>Integer</TD><TD>nv</TD><TD>&nbsp;</TD><TD>Number of points in v-Dimension</TD></TR>
+<TR><TD>Boolean</TD><TD>multiColoredSurface</TD><TD>true</TD><TD>= true: Color is defined for each surface point</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Radius</A></TD><TD>rOuter</TD><TD>&nbsp;</TD><TD>Outer radius of cylinder [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of cylinder [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>xsi[:]</TD><TD>&nbsp;</TD><TD>Relative position along the pipe with x[1] = 0, x[end] = 1 [m]</TD></TR>
+<TR><TD>Real</TD><TD>T[size(xsi, 1)]</TD><TD>&nbsp;</TD><TD>Scalar field value at position xsi*length</TD></TR>
+<TR><TD>Real</TD><TD>T_min</TD><TD>&nbsp;</TD><TD>T &lt;= T_min is mapped to colorMap[1,:]</TD></TR>
+<TR><TD>Real</TD><TD>T_max</TD><TD>&nbsp;</TD><TD>T &gt;= T_max is mapped to colorMap[end,:]</TD></TR>
+<TR><TD>Real</TD><TD>colorMap[:, 3]</TD><TD>&nbsp;</TD><TD>Color map to map scalar T to a corresponding color</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>X[nu, nv]</TD><TD>[nu,nv] positions of points in x-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>Y[nu, nv]</TD><TD>[nu,nv] positions of points in y-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>Z[nu, nv]</TD><TD>[nu,nv] positions of points in z-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD>Real</TD><TD>C[if multiColoredSurface then nu else 0, if multiColoredSurface then nv else 0, 3]</TD><TD>[nu,nv,3] Color array, defining the color for each surface point</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> pipeWithScalarField <font color="darkgreen">
+  &quot;Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis&quot;</font>
+  <font color="blue">import </font>C = <A HREF="Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
+>Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</A>(
+            <font color="blue">final </font>multiColoredSurface=true);
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Radius"
+>Modelica.SIunits.Radius</A> rOuter <font color="darkgreen">&quot;Outer radius of cylinder&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> length <font color="darkgreen">&quot;Length of cylinder&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Modelica.SIunits.Position</A> xsi[:] <font color="darkgreen">
+    &quot;Relative position along the pipe with x[1] = 0, x[end] = 1&quot;</font>;
+  <font color="blue">input </font>Real T[<font color="red">size</font>(xsi,1)] <font color="darkgreen">&quot;Scalar field value at position xsi*length&quot;</font>;
+  <font color="blue">input </font>Real T_min <font color="darkgreen">&quot;T &lt;= T_min is mapped to colorMap[1,:]&quot;</font>;
+  <font color="blue">input </font>Real T_max <font color="darkgreen">&quot;T &gt;= T_max is mapped to colorMap[end,:]&quot;</font>;
+  <font color="blue">input </font>Real colorMap[:,3] <font color="darkgreen">&quot;Color map to map scalar T to a corresponding color&quot;</font>;
+<font color="blue">protected </font>
+  Real beta;
+  Real xsi_i;
+  Real Ti;
+  Real Ci[3];
+  Integer k;
+<font color="blue">algorithm </font>
+  k:=1;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nu<font color="blue"> loop</font>
+    <font color="darkgreen"> // Compute actual xsi-position along cylinder axis</font>
+     xsi_i := (i-1)/(nu-1);
+
+    <font color="darkgreen"> // Interpolate in xsi and T to determine the corresponding value of Ti(xsi_i)</font>
+     (Ti,k) :=<font color="red"> Modelica.Math.Vectors.interpolate</font>(xsi, T, xsi_i, k);
+
+    <font color="darkgreen"> // Map the scalar field value Ti to a color value</font>
+     Ci :=<font color="red"> Modelica.Mechanics.MultiBody.Visualizers.Colors.scalarToColor</font>(
+                                              Ti, T_min, T_max, colorMap);
+
+    <font color="darkgreen"> // Determine outputs</font>
+     <font color="blue">for </font>j<font color="blue"> in </font>1:nv<font color="blue"> loop</font>
+        beta := 2*Modelica.Constants.pi*(j-1)/(nv-1);
+        X[i,j] := length*xsi_i;
+        Y[i,j] := rOuter*<font color="red">sin</font>(beta);
+        Z[i,j] := rOuter*<font color="red">cos</font>(beta);
+        C[i,j,:] := Ci;
+     <font color="blue">end for</font>;
+  <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>pipeWithScalarField;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:40 2010.
+</address></BODY>
+</HTML>

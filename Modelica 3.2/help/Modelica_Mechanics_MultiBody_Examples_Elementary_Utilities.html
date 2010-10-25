@@ -1,0 +1,192 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Utility models and functions used by MultiBody.Examples.Elementary&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Utilities<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary.html#Modelica.Mechanics.MultiBody.Examples.Elementary"
+>Modelica.Mechanics.MultiBody.Examples.Elementary</A>.Utilities</H2>
+<B>Utility models and functions used by MultiBody.Examples.Elementary</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84S.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84"
+>theoreticalNormalGravityWGS84</A>
+</TD><TD>WGS84 normal gravity over earth ellipsoid in negativ y-direction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84S.png" ALT="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface"
+>sineSurface</A>
+</TD><TD>Function defining the characteristic of a moving sine in three dimensions</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE theoreticalNormalGravityWGS84<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.theoreticalNormalGravityWGS84"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities</A>.theoreticalNormalGravityWGS84</H2>
+<B>WGS84 normal gravity over earth ellipsoid in negativ y-direction</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Function that computes the theoretical gravity of the
+<a href="http://earth-info.nga.mil/GandG/publications/tr8350.2/wgs84fin.pdf">WGS84 ellipsoid earth model</a> at and close to the earth ellipsoid surface, for the
+given "geodeticLatitude" and the given "height=r[2]" over the
+ellipsoid surface.
+</p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration"
+>Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration</A>.
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>r[3]</TD><TD>&nbsp;</TD><TD>Position vector from world frame to actual point, resolved in world frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>Angle_deg</A></TD><TD>phi</TD><TD>&nbsp;</TD><TD>Geodetic latitute [deg]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>Acceleration</A></TD><TD>gravity[3]</TD><TD>Gravity acceleration at position r, resolved in world frame [m/s2]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> theoreticalNormalGravityWGS84 <font color="darkgreen">
+  &quot;WGS84 normal gravity over earth ellipsoid in negativ y-direction&quot;</font>
+   <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration"
+>Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>Modelica.SIunits.Conversions.NonSIunits.Angle_deg</A> phi <font color="darkgreen">
+    &quot;Geodetic latitute&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Modelica.SIunits.Position</A> a = 6378137.0 <font color="darkgreen">
+    &quot;Semi-major axis of the earth ellipsoid&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Modelica.SIunits.Position</A> b = 6356752.3142 <font color="darkgreen">
+    &quot;Semi-minor axis of the earth ellipsoid&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>Modelica.SIunits.AngularAcceleration</A> g_e = 9.7803253359 <font color="darkgreen">
+    &quot;Theoretical gravity acceleration at the equator&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>Modelica.SIunits.AngularAcceleration</A> g_p = 9.8321849378 <font color="darkgreen">
+    &quot;Theoretical gravity acceleration at the poles&quot;</font>;
+  <font color="blue">constant </font>Real k =   (b/a)*(g_p/g_e) - 1;
+
+  <font color="blue">constant </font>Real e2 = (8.1819190842622e-2)^2 <font color="darkgreen">
+    &quot;Square of the first ellipsoidal eccentricity&quot;</font>;
+  <font color="blue">constant </font>Real f = 1/298.257223563 <font color="darkgreen">&quot;Ellipsoidal flattening&quot;</font>;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>Modelica.SIunits.AngularVelocity</A> w =   7292115e-11 <font color="darkgreen">
+    &quot;Angular velocity of earth&quot;</font>;
+  <font color="blue">constant </font>Real GM(unit=&quot;m3/s2&quot;)=3986004.418e8 <font color="darkgreen">&quot;Earths Gravitational Constant&quot;</font>;
+  <font color="blue">constant </font>Real m(unit=&quot;1&quot;)=w^2*a^2*b/GM;
+  Real sinphi2(unit=&quot;1&quot;);
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>Modelica.SIunits.AngularAcceleration</A> gn <font color="darkgreen">
+    &quot;Normal gravity at the earth ellipsoid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularAcceleration"
+>Modelica.SIunits.AngularAcceleration</A> gh <font color="darkgreen">
+    &quot;Normal gravity at height h over the earth ellipsoid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Modelica.SIunits.Position</A> h <font color="darkgreen">&quot;Height over the WGS84 earth ellipsoid&quot;</font>;
+  Real ha(unit=&quot;1&quot;) <font color="darkgreen">&quot;h/a&quot;</font>;
+<font color="blue">algorithm </font>
+  h := r[2];
+  sinphi2 :=<font color="red">Modelica.Math.sin</font>(<font color="red">Modelica.SIunits.Conversions.from_deg</font>(phi))^2;
+  gn := g_e*(1 + k*sinphi2)/<font color="red">sqrt</font>(1 - e2*sinphi2);
+  ha := h/a;
+  gh := gn*(1 - ha*(2*(1+f+m-2*f*sinphi2)+3*ha));
+  gravity :={0,-gh,0};
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>theoreticalNormalGravityWGS84;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sineSurface<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities.sineSurface"></A><A HREF="Modelica_Mechanics_MultiBody_Examples_Elementary_Utilities.html#Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities"
+>Modelica.Mechanics.MultiBody.Examples.Elementary.Utilities</A>.sineSurface</H2>
+<B>Function defining the characteristic of a moving sine in three dimensions</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
+>Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</A>.
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>nu</TD><TD>&nbsp;</TD><TD>Number of points in u-Dimension</TD></TR>
+<TR><TD>Integer</TD><TD>nv</TD><TD>&nbsp;</TD><TD>Number of points in v-Dimension</TD></TR>
+<TR><TD>Boolean</TD><TD>multiColoredSurface</TD><TD>false</TD><TD>= true: Color is defined for each surface point</TD></TR>
+<TR><TD>Real</TD><TD>x_min</TD><TD>&nbsp;</TD><TD>Minimum value of x</TD></TR>
+<TR><TD>Real</TD><TD>x_max</TD><TD>&nbsp;</TD><TD>Maximum value of x</TD></TR>
+<TR><TD>Real</TD><TD>y_min</TD><TD>&nbsp;</TD><TD>Minimum value of y</TD></TR>
+<TR><TD>Real</TD><TD>y_max</TD><TD>&nbsp;</TD><TD>Maximum value of y</TD></TR>
+<TR><TD>Real</TD><TD>z_min</TD><TD>&nbsp;</TD><TD>Minimum value of z</TD></TR>
+<TR><TD>Real</TD><TD>z_max</TD><TD>&nbsp;</TD><TD>Maximum value of z</TD></TR>
+<TR><TD>Real</TD><TD>wz</TD><TD>&nbsp;</TD><TD>Factor for angular frequency</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>X[nu, nv]</TD><TD>[nu,nv] positions of points in x-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>Y[nu, nv]</TD><TD>[nu,nv] positions of points in y-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>Z[nu, nv]</TD><TD>[nu,nv] positions of points in z-Direction resolved in surface frame [m]</TD></TR>
+<TR><TD>Real</TD><TD>C[if multiColoredSurface then nu else 0, if multiColoredSurface then nv else 0, 3]</TD><TD>[nu,nv,3] Color array, defining the color for each surface point</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sineSurface <font color="darkgreen">
+  &quot;Function defining the characteristic of a moving sine in three dimensions&quot;</font>
+   <font color="blue">extends </font><A HREF="Modelica_Mechanics_MultiBody_Interfaces.html#Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic"
+>Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic</A>;
+   <font color="blue">input </font>Real x_min <font color="darkgreen">&quot;Minimum value of x&quot;</font>;
+   <font color="blue">input </font>Real x_max <font color="darkgreen">&quot;Maximum value of x&quot;</font>;
+   <font color="blue">input </font>Real y_min <font color="darkgreen">&quot;Minimum value of y&quot;</font>;
+   <font color="blue">input </font>Real y_max <font color="darkgreen">&quot;Maximum value of y&quot;</font>;
+   <font color="blue">input </font>Real z_min <font color="darkgreen">&quot;Minimum value of z&quot;</font>;
+   <font color="blue">input </font>Real z_max <font color="darkgreen">&quot;Maximum value of z&quot;</font>;
+   <font color="blue">input </font>Real wz <font color="darkgreen">&quot;Factor for angular frequency&quot;</font>;
+<font color="blue">protected </font>
+   Real aux_y;
+   Real A=(z_max-z_min)/2;
+<font color="blue">algorithm </font>
+   <font color="blue">for </font>i<font color="blue"> in </font>1:nu<font color="blue"> loop</font>
+      aux_y := y_min + (y_max - y_min)*(i-1)/(nu-1);
+      <font color="blue">for </font>j<font color="blue"> in </font>1:nv<font color="blue"> loop</font>
+         X[i,j] := x_min + (x_max - x_min)*(j - 1)/(nv - 1);
+         Y[i,j] := aux_y;
+         Z[i,j] := A*<font color="red">sin</font>(wz + 0.1*j + 0.1*i)+A;
+      <font color="blue">end for</font>;
+   <font color="blue">end for</font>;
+
+   <font color="blue">if </font>multiColoredSurface<font color="blue"> then</font>
+      C := {{(Z[i,j]+1)*200,255,0} <font color="blue">for </font>j<font color="blue"> in </font>1:nv, i<font color="blue"> in </font>1:nu};
+   <font color="blue">end if</font>;
+<font color="blue">end </font>sineSurface;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:09 2010.
+</address></BODY>
+</HTML>

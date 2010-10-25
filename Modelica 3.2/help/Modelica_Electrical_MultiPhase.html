@@ -1,0 +1,98 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.MultiPhase</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library for electrical components with 2, 3 or more phases&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiPhase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.MultiPhase"></A><A HREF="Modelica_Electrical.html#Modelica.Electrical"
+>Modelica.Electrical</A>.MultiPhase</H2>
+<B>Library for electrical components with 2, 3 or more phases</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains packages for electrical multiphase components, based on Modelica.Electrical.Analog:
+<ul>
+<li>Basic: basic components (resistor, capacitor, inductor, ...)</li>
+<li>Ideal: ideal elements (switches, diode, transformer, ...)</li>
+<li>Sensors: sensors to measure potentials, voltages, and currents</li>
+<li>Sources: time-dependend and controlled voltage and current sources</li>
+</ul>
+This package is intended to be used the same way as Modelica.Electrical.Analog
+but to make design of multiphase models easier.<br>
+The package is based on the plug: a composite connector containing m pins.<br>
+It is possible to connect plugs to plugs or single pins of a plug to single pins.<br>
+Potentials may be accessed as <code>plug.pin[].v</code>, currents may be accessed as <code>plug.pin[].i</code>.
+</p>
+<p>
+Further development:
+<ul>
+<li>temperature-dependent resistor</li>
+<li>lines (m-phase models)</li>
+</ul>
+</p>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting &amp; Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern<br>Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+  </dd>
+  <dt><b>Release Notes:</b></dt>
+  <dd>
+  <ul>
+  <li> v1.0 2004/10/01 Anton Haumer</li>
+  </ul>
+  </dd>
+  <dt><b>Copyright:</b></dt>
+  <dd>Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.<br>
+  <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
+  under the terms of the <b>Modelica license</b>, see the license conditions
+  and the accompanying <b>disclaimer</b> in the documentation of package
+  Modelica in file "Modelica/package.mo".</i></dd>
+</dl>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.ExamplesS.png" ALT="Modelica.Electrical.MultiPhase.Examples" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Examples.html#Modelica.Electrical.MultiPhase.Examples"
+>Examples</A>
+</TD><TD>Multiphase test examples</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.BasicS.png" ALT="Modelica.Electrical.MultiPhase.Basic" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic"
+>Basic</A>
+</TD><TD>Basic components for electrical multiphase models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.IdealS.png" ALT="Modelica.Electrical.MultiPhase.Ideal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal"
+>Ideal</A>
+</TD><TD>Multiphase components with idealized behaviour</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.SensorsS.png" ALT="Modelica.Electrical.MultiPhase.Sensors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors"
+>Sensors</A>
+</TD><TD>Multiphase potential, voltage and current Sensors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.SourcesS.png" ALT="Modelica.Electrical.MultiPhase.Sources" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources"
+>Sources</A>
+</TD><TD>Multiphase voltage and current sources</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.MultiPhase.InterfacesS.png" ALT="Modelica.Electrical.MultiPhase.Interfaces" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_MultiPhase_Interfaces.html#Modelica.Electrical.MultiPhase.Interfaces"
+>Interfaces</A>
+</TD><TD>Interfaces for electrical multiphase models</TD></TR>
+</TABLE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:16 2010.
+</address></BODY>
+</HTML>

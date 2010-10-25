@@ -1,0 +1,377 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Partial wall friction characteristic (base package of all wall friction characteristics)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialWallFriction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction</A>.PartialWallFriction</H2>
+<B>Partial wall friction characteristic (base package of all wall friction characteristics)</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD>use_mu=true</TD><TD>= true, if mu_a/mu_b are used in function, otherwise value is not used</TD></TR>
+<TR><TD>use_roughness=true</TD><TD>= true, if roughness is used in function, otherwise value is not used</TD></TR>
+<TR><TD>use_dp_small=true</TD><TD>= true, if dp_small is used in function, otherwise value is not used</TD></TR>
+<TR><TD>use_m_flow_small=true</TD><TD>= true, if m_flow_small is used in function, otherwise value is not used</TD></TR>
+<TR><TD>dp_is_zero=false</TD><TD>= true, if no wall friction is present, i.e., dp = 0 (function massFlowRate_dp() cannot be used)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp"
+>massFlowRate_dp</A>
+</TD><TD>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp_staticHead" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp_staticHead"
+>massFlowRate_dp_staticHead</A>
+</TD><TD>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow"
+>pressureLoss_m_flow</A>
+</TD><TD>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow_staticHead" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow_staticHead"
+>pressureLoss_m_flow_staticHead</A>
+</TD><TD>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</TD></TR>
+</TABLE>
+<P><H3>Types and constants</H3>
+<PRE>  <font color="blue">constant </font>Boolean use_mu = true <font color="darkgreen">
+  &quot;= true, if mu_a/mu_b are used in function, otherwise value is not used&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean use_roughness = true <font color="darkgreen">
+  &quot;= true, if roughness is used in function, otherwise value is not used&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean use_dp_small = true <font color="darkgreen">
+  &quot;= true, if dp_small is used in function, otherwise value is not used&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean use_m_flow_small = true <font color="darkgreen">
+  &quot;= true, if m_flow_small is used in function, otherwise value is not used&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font>Boolean dp_is_zero = false <font color="darkgreen">
+  &quot;= true, if no wall friction is present, i.e., dp = 0 (function massFlowRate_dp() cannot be used)&quot;</font>;</PRE><p>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE massFlowRate_dp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction</A>.massFlowRate_dp</H2>
+<B>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>1</TD><TD>Turbulent flow if |dp| &gt;= dp_small (dummy if use_dp_small = false) [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> massFlowRate_dp <font color="darkgreen">
+  &quot;Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss (dp = port_a.p - port_b.p)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_a <font color="darkgreen">&quot;Density at port_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_b <font color="darkgreen">&quot;Density at port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_b <font color="darkgreen">
+    &quot;Dynamic viscosity at port_b (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Inner (hydraulic) diameter of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> roughness(min=0) = 2.5e-5 <font color="darkgreen">
+    &quot;Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> dp_small = 1 <font color="darkgreen">
+    &quot;Turbulent flow if |dp| &gt;= dp_small (dummy if use_dp_small = false)&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate from port_a to port_b&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>massFlowRate_dp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE massFlowRate_dp_staticHead<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp_staticHead" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dp_staticHead"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction</A>.massFlowRate_dp_staticHead</H2>
+<B>Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD>Real</TD><TD>g_times_height_ab</TD><TD>&nbsp;</TD><TD>Gravity times (Height(port_b) - Height(port_a))</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>1</TD><TD>Turbulent flow if |dp| &gt;= dp_small (dummy if use_dp_small = false) [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> massFlowRate_dp_staticHead <font color="darkgreen">
+  &quot;Return mass flow rate m_flow as function of pressure loss dp, i.e., m_flow = f(dp), due to wall friction and static head&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss (dp = port_a.p - port_b.p)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_a <font color="darkgreen">&quot;Density at port_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_b <font color="darkgreen">&quot;Density at port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_b <font color="darkgreen">
+    &quot;Dynamic viscosity at port_b (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Inner (hydraulic) diameter of pipe&quot;</font>;
+  <font color="blue">input </font>Real g_times_height_ab <font color="darkgreen">
+    &quot;Gravity times (Height(port_b) - Height(port_a))&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> roughness(min=0) = 2.5e-5 <font color="darkgreen">
+    &quot;Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> dp_small=1 <font color="darkgreen">
+    &quot;Turbulent flow if |dp| &gt;= dp_small (dummy if use_dp_small = false)&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate from port_a to port_b&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>massFlowRate_dp_staticHead;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction</A>.pressureLoss_m_flow</H2>
+<B>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>0.01</TD><TD>Turbulent flow if |m_flow| &gt;= m_flow_small (dummy if use_m_flow_small = false) [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> pressureLoss_m_flow <font color="darkgreen">
+  &quot;Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate from port_a to port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_a <font color="darkgreen">&quot;Density at port_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_b <font color="darkgreen">&quot;Density at port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_b <font color="darkgreen">
+    &quot;Dynamic viscosity at port_b (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Inner (hydraulic) diameter of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> roughness(min=0) = 2.5e-5 <font color="darkgreen">
+    &quot;Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_small = 0.01 <font color="darkgreen">
+    &quot;Turbulent flow if |m_flow| &gt;= m_flow_small (dummy if use_m_flow_small = false)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss (dp = port_a.p - port_b.p)&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>pressureLoss_m_flow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE pressureLoss_m_flow_staticHead<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.massFlowRate_dpI.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow_staticHead" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction.pressureLoss_m_flow_staticHead"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_PartialWallFriction.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction</A>.pressureLoss_m_flow_staticHead</H2>
+<B>Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD>Real</TD><TD>g_times_height_ab</TD><TD>&nbsp;</TD><TD>Gravity times (Height(port_b) - Height(port_a))</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>roughness</TD><TD>2.5e-5</TD><TD>Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>0.01</TD><TD>Turbulent flow if |m_flow| &gt;= m_flow_small (dummy if use_m_flow_small = false) [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>Pressure loss (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">partial </font><font color="blue">function</font> pressureLoss_m_flow_staticHead <font color="darkgreen">
+  &quot;Return pressure loss dp as function of mass flow rate m_flow, i.e., dp = f(m_flow), due to wall friction and static head&quot;</font>
+          <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate from port_a to port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_a <font color="darkgreen">&quot;Density at port_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_b <font color="darkgreen">&quot;Density at port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_b <font color="darkgreen">
+    &quot;Dynamic viscosity at port_b (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Inner (hydraulic) diameter of pipe&quot;</font>;
+  <font color="blue">input </font>Real g_times_height_ab <font color="darkgreen">
+    &quot;Gravity times (Height(port_b) - Height(port_a))&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> roughness(min=0) = 2.5e-5 <font color="darkgreen">
+    &quot;Absolute roughness of pipe, with a default for a smooth steel pipe (dummy if use_roughness = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_small = 0.01 <font color="darkgreen">
+    &quot;Turbulent flow if |m_flow| &gt;= m_flow_small (dummy if use_m_flow_small = false)&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss (dp = port_a.p - port_b.p)&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>pressureLoss_m_flow_staticHead;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:14 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,315 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Functions to calculate mass flow rate from friction pressure drop and vice versa&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Internal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_LaminarAndQuadraticTurbulent.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent</A>.Internal</H2>
+<B>Functions to calculate mass flow rate from friction pressure drop and vice versa</B>
+<P>
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.m_flow_of_dp_fricS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.m_flow_of_dp_fric" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_LaminarAndQuadraticTurbulent_Internal.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.m_flow_of_dp_fric"
+>m_flow_of_dp_fric</A>
+</TD><TD>Calculate mass flow rate as function of pressure drop due to friction</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.m_flow_of_dp_fricS.png" ALT="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.dp_fric_of_m_flow" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_LaminarAndQuadraticTurbulent_Internal.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.dp_fric_of_m_flow"
+>dp_fric_of_m_flow</A>
+</TD><TD>Calculate pressure drop due to friction as function of mass flow rate</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE m_flow_of_dp_fric<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.m_flow_of_dp_fric"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_LaminarAndQuadraticTurbulent_Internal.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal</A>.m_flow_of_dp_fric</H2>
+<B>Calculate mass flow rate as function of pressure drop due to friction</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp_fric</TD><TD>&nbsp;</TD><TD>Pressure loss due to friction (dp = port_a.p - port_b.p) [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re1</TD><TD>&nbsp;</TD><TD>Boundary between laminar regime and transition [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re2</TD><TD>&nbsp;</TD><TD>Boundary between transition and turbulent regime [1]</TD></TR>
+<TR><TD>Real</TD><TD>Delta</TD><TD>&nbsp;</TD><TD>Relative roughness</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD>Real</TD><TD>dm_flow_ddp_fric</TD><TD>Derivative of mass flow rate with dp_fric</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> m_flow_of_dp_fric <font color="darkgreen">
+  &quot;Calculate mass flow rate as function of pressure drop due to friction&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_fric <font color="darkgreen">
+    &quot;Pressure loss due to friction (dp = port_a.p - port_b.p)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_a <font color="darkgreen">&quot;Density at port_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_b <font color="darkgreen">&quot;Density at port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_b <font color="darkgreen">
+    &quot;Dynamic viscosity at port_b (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Inner (hydraulic) diameter of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re1 <font color="darkgreen">&quot;Boundary between laminar regime and transition&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re2 <font color="darkgreen">
+    &quot;Boundary between transition and turbulent regime&quot;</font>;
+  <font color="blue">input </font>Real Delta <font color="darkgreen">&quot;Relative roughness&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate from port_a to port_b&quot;</font>;
+  <font color="blue">output </font>Real dm_flow_ddp_fric <font color="darkgreen">&quot;Derivative of mass flow rate with dp_fric&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu <font color="darkgreen">&quot;Upstream viscosity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho <font color="darkgreen">&quot;Upstream density&quot;</font>;
+
+  Real zeta;
+  Real k0;
+  Real k_inv;
+  Real dm_flow_ddp_laminar <font color="darkgreen">&quot;Derivative of m_flow=m_flow(dp) in laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> dp_fric_turbulent <font color="darkgreen">
+    &quot;The turbulent region is: |dp_fric| &gt;= dp_fric_turbulent, simple quadratic correlation&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> dp_fric_laminar <font color="darkgreen">
+    &quot;The laminar region is: |dp_fric| &lt;= dp_fric_laminar&quot;</font>;
+<font color="blue">algorithm </font>
+<font color="darkgreen">/*
+Turbulent region:
+   Re = m_flow*(4/pi)/(D_Re*mu)
+   dp = 0.5*zeta*rho*v*|v|
+      = 0.5*zeta*rho*1/(rho*A)^2 * m_flow * |m_flow|
+      = 0.5*zeta/A^2 *1/rho * m_flow * |m_flow|
+      = k/rho * m_flow * |m_flow|
+   k  = 0.5*zeta/A^2
+      = 0.5*zeta/(pi*(D/2)^2)^2
+      = 8*zeta/(pi*D^2)^2
+   dp_fric_turbulent     =  k/rho *(D_Re*mu*pi/4)^2 * Re_turbulent^2
+
+Laminar region:
+   dp = 0.5*zeta/(A^2*d) * m_flow * |m_flow|
+      = 0.5 * c0/(|m_flow|*(4/pi)/(D_Re*mu)) / ((pi*(D_Re/2)^2)^2*d) * m_flow*|m_flow|
+      = 0.5 * c0*(pi/4)*(D_Re*mu) * 16/(pi^2*D_Re^4*d) * m_flow*|m_flow|
+      = 2*c0/(pi*D_Re^3) * mu/rho * m_flow
+      = k0 * mu/rho * m_flow
+   k0 = 2*c0/(pi*D_Re^3)
+*/</font>
+  <font color="darkgreen">// Determine upstream density and upstream viscosity</font>
+  <font color="blue">if </font>dp_fric &gt;= 0<font color="blue"> then</font>
+    rho := rho_a;
+    mu  := mu_a;
+  <font color="blue">else</font>
+    rho := rho_b;
+    mu  := mu_b;
+  <font color="blue">end if</font>;
+  <font color="darkgreen">// Quadratic turbulent</font>
+  zeta := (length/diameter)/(2*<font color="red">log10</font>(3.7/(Delta)))^2;
+  k_inv := (pi*diameter*diameter)^2/(8*zeta);
+  dp_fric_turbulent :=<font color="red"> sign</font>(dp_fric)*(mu*diameter*pi/4)^2*Re2^2/(k_inv*rho);
+
+  <font color="darkgreen">// Laminar</font>
+  k0 := 128*length/(pi*diameter^4);
+  dm_flow_ddp_laminar := rho/(k0*mu);
+  dp_fric_laminar :=<font color="red"> sign</font>(dp_fric)*pi*k0*mu^2/rho*diameter/4*Re1;
+
+  <font color="blue">if </font><font color="red">abs</font>(dp_fric) &gt;<font color="red"> abs</font>(dp_fric_turbulent)<font color="blue"> then</font>
+    m_flow :=<font color="red"> sign</font>(dp_fric)*<font color="red">sqrt</font>(rho*k_inv*<font color="red">abs</font>(dp_fric));
+    dm_flow_ddp_fric := 0.5*rho*k_inv*(rho*k_inv*<font color="red">abs</font>(dp_fric))^(-0.5);
+  <font color="blue">elseif </font><font color="red">abs</font>(dp_fric) &lt;<font color="red"> abs</font>(dp_fric_laminar)<font color="blue"> then</font>
+    m_flow := dm_flow_ddp_laminar*dp_fric;
+    dm_flow_ddp_fric := dm_flow_ddp_laminar;
+  <font color="blue">else</font>
+    <font color="darkgreen">// Preliminary testing seems to indicate that the log-log transform is not required here</font>
+    (m_flow,dm_flow_ddp_fric) :=<font color="red"> Utilities.cubicHermite_withDerivative</font>(
+      dp_fric, dp_fric_laminar, dp_fric_turbulent, dm_flow_ddp_laminar*dp_fric_laminar,
+      <font color="red">sign</font>(dp_fric_turbulent)*<font color="red">sqrt</font>(rho*k_inv*<font color="red">abs</font>(dp_fric_turbulent)), dm_flow_ddp_laminar,
+      <font color="blue">if </font><font color="red">abs</font>(dp_fric_turbulent)&gt;0<font color="blue"> then </font>0.5*rho*k_inv*(rho*k_inv*<font color="red">abs</font>(dp_fric_turbulent))^(-0.5)<font color="blue"> else </font>Modelica.Constants.inf);
+  <font color="blue">end if</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>m_flow_of_dp_fric;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_fric_of_m_flow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal.dp_fric_of_m_flow"></A><A HREF="Modelica_Fluid_Pipes_BaseClasses_WallFriction_LaminarAndQuadraticTurbulent_Internal.html#Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal"
+>Modelica.Fluid.Pipes.BaseClasses.WallFriction.LaminarAndQuadraticTurbulent.Internal</A>.dp_fric_of_m_flow</H2>
+<B>Calculate pressure drop due to friction as function of mass flow rate</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate from port_a to port_b [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_a</TD><TD>&nbsp;</TD><TD>Density at port_a [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_b</TD><TD>&nbsp;</TD><TD>Density at port_b [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_a</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_a (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>mu_b</TD><TD>&nbsp;</TD><TD>Dynamic viscosity at port_b (dummy if use_mu = false) [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of pipe [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re1</TD><TD>&nbsp;</TD><TD>Boundary between laminar regime and transition [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re2</TD><TD>&nbsp;</TD><TD>Boundary between transition and turbulent regime [1]</TD></TR>
+<TR><TD>Real</TD><TD>Delta</TD><TD>&nbsp;</TD><TD>Relative roughness</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp_fric</TD><TD>Pressure loss due to friction (dp_fric = port_a.p - port_b.p - dp_grav) [Pa]</TD></TR>
+<TR><TD>Real</TD><TD>ddp_fric_dm_flow</TD><TD>Derivative of pressure drop with mass flow rate</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_fric_of_m_flow <font color="darkgreen">
+  &quot;Calculate pressure drop due to friction as function of mass flow rate&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate from port_a to port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_a <font color="darkgreen">&quot;Density at port_a&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_b <font color="darkgreen">&quot;Density at port_b&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu_b <font color="darkgreen">
+    &quot;Dynamic viscosity at port_b (dummy if use_mu = false)&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Inner (hydraulic) diameter of pipe&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re1 <font color="darkgreen">&quot;Boundary between laminar regime and transition&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re2 <font color="darkgreen">
+    &quot;Boundary between transition and turbulent regime&quot;</font>;
+  <font color="blue">input </font>Real Delta <font color="darkgreen">&quot;Relative roughness&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_fric <font color="darkgreen">
+    &quot;Pressure loss due to friction (dp_fric = port_a.p - port_b.p - dp_grav)&quot;</font>;
+  <font color="blue">output </font>Real ddp_fric_dm_flow <font color="darkgreen">
+    &quot;Derivative of pressure drop with mass flow rate&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> mu <font color="darkgreen">&quot;Upstream viscosity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho <font color="darkgreen">&quot;Upstream density&quot;</font>;
+  Real zeta;
+  Real k0;
+  Real k;
+  Real ddp_fric_dm_flow_laminar <font color="darkgreen">&quot;Derivative of dp_fric = f(m_flow) at zero&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_turbulent <font color="darkgreen">
+    &quot;The turbulent region is: |m_flow| &gt;= m_flow_turbulent&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_laminar <font color="darkgreen">
+    &quot;The laminar region is: |m_flow| &lt;= m_flow_laminar&quot;</font>;
+<font color="blue">algorithm </font>
+<font color="darkgreen">/*
+Turbulent region:
+   Re = m_flow*(4/pi)/(D_Re*mu)
+   dp = 0.5*zeta*rho*v*|v|
+      = 0.5*zeta*rho*1/(rho*A)^2 * m_flow * |m_flow|
+      = 0.5*zeta/A^2 *1/rho * m_flow * |m_flow|
+      = k/rho * m_flow * |m_flow|
+   k  = 0.5*zeta/A^2
+      = 0.5*zeta/(pi*(D/2)^2)^2
+      = 8*zeta/(pi*D^2)^2
+   m_flow_turbulent = (pi/4)*D_Re*mu*Re_turbulent
+
+Laminar region:
+   dp = 0.5*zeta/(A^2*d) * m_flow * |m_flow|
+      = 0.5 * c0/(|m_flow|*(4/pi)/(D_Re*mu)) / ((pi*(D_Re/2)^2)^2*d) * m_flow*|m_flow|
+      = 0.5 * c0*(pi/4)*(D_Re*mu) * 16/(pi^2*D_Re^4*d) * m_flow*|m_flow|
+      = 2*c0/(pi*D_Re^3) * mu/rho * m_flow
+      = k0 * mu/rho * m_flow
+   k0 = 2*c0/(pi*D_Re^3)
+*/</font>
+  <font color="darkgreen">// Determine upstream density and upstream viscosity</font>
+  <font color="blue">if </font>m_flow &gt;= 0<font color="blue"> then</font>
+    rho := rho_a;
+    mu  := mu_a;
+  <font color="blue">else</font>
+    rho := rho_b;
+    mu  := mu_b;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Turbulent</font>
+  zeta := (length/diameter)/(2*<font color="red">log10</font>(3.7/(Delta)))^2;
+  k := 8*zeta/(pi*diameter*diameter)^2;
+  m_flow_turbulent :=<font color="red"> sign</font>(m_flow)*(pi/4)*diameter*mu*Re2;
+
+  <font color="darkgreen">// Laminar</font>
+  k0 := 128*length/(pi*diameter^4);
+  ddp_fric_dm_flow_laminar := k0*mu/rho;
+  m_flow_laminar :=<font color="red"> sign</font>(m_flow)*(pi/4)*diameter*mu*Re1;
+
+  <font color="blue">if </font><font color="red">abs</font>(m_flow) &gt;<font color="red"> abs</font>(m_flow_turbulent)<font color="blue"> then</font>
+    dp_fric := k/rho*m_flow*<font color="red">abs</font>(m_flow);
+    ddp_fric_dm_flow := 2*k/rho*<font color="red">abs</font>(m_flow);
+  <font color="blue">elseif </font><font color="red">abs</font>(m_flow) &lt;<font color="red"> abs</font>(m_flow_laminar)<font color="blue"> then</font>
+    dp_fric := ddp_fric_dm_flow_laminar*m_flow;
+    ddp_fric_dm_flow := ddp_fric_dm_flow_laminar;
+  <font color="blue">else</font>
+    <font color="darkgreen">// Preliminary testing seems to indicate that the log-log transform is not required here</font>
+    (dp_fric,ddp_fric_dm_flow) :=<font color="red"> Utilities.cubicHermite_withDerivative</font>(
+      m_flow, m_flow_laminar, m_flow_turbulent, ddp_fric_dm_flow_laminar*m_flow_laminar,
+      k/rho*m_flow_turbulent*<font color="red">abs</font>(m_flow_turbulent), ddp_fric_dm_flow_laminar, 2*k/rho*<font color="red">abs</font>(m_flow_turbulent));
+  <font color="blue">end if</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_fric_of_m_flow;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:15 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1031 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Package with utility functions to compute two phase pressure loss characteristics&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss</A>.TwoPhase</H2>
+<B>Package with utility functions to compute two phase pressure loss characteristics</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP"
+>dp_twoPhaseChisholm_DP</A>
+</TD><TD>Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP"
+>dp_twoPhaseFriedel_DP</A>
+</TD><TD>Frictional pressure loss of straight pipe for two phase flow according to Friedel correlation | calculate pressure loss| overall flow regime</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP"
+>dp_twoPhaseGeodetic_DP</A>
+</TD><TD>Geodetic pressure loss of straight pipe for two phase flow | calculate pressure loss</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP"
+>dp_twoPhaseMomentum_DP</A>
+</TD><TD>Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierFriedel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierFriedel"
+>TwoPhaseMultiplierFriedel</A>
+</TD><TD>Calculation of two phase multiplier according to Friedel | constant mass flow rate quality | horizontal flow | vertical upflow and downflow</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierChisholm" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierChisholm"
+>TwoPhaseMultiplierChisholm</A>
+</TD><TD>Calculation of two phase multiplier according to Chisholm | constant mass flow rate quality</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity"
+>TwoPhaseDensity</A>
+</TD><TD>Calculation of mean density for two phase flow</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction"
+>VoidFraction</A>
+</TD><TD>Calculation of (cross sectional) void fraction for two phase flow</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPS.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio"
+>SlipRatio</A>
+</TD><TD>Calculation of (analytical/empirical) slip ratio</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseChisholm_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.dp_twoPhaseChisholm_DP</H2>
+<B>Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPD.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>TwoPhaseFlow_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>TwoPhaseFlow_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP</TD><TD>Output for function dp_twoPhaseChisholm_DP [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_twoPhaseChisholm_DP <font color="darkgreen">
+  &quot;Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973</font>
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con</A>
+    IN_con;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var</A>
+    IN_var;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP <font color="darkgreen">&quot;Output for function dp_twoPhaseChisholm_DP&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con</A>
+    IN_con_1ph(
+    <font color="blue">final </font>roughness=Dissipation.Utilities.Types.Roughness.Neglected,
+    <font color="blue">final </font>d_hyd=4*<font color="red">abs</font>(IN_con.A_cross)/<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_con.perimeter)),
+    <font color="blue">final </font>K=0,
+    <font color="blue">final </font>L=<font color="red">abs</font>(IN_con.length));
+
+  <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A>
+    IN_var_1ph(
+      <font color="blue">final </font>eta=IN_var.eta_l, <font color="blue">final </font>rho=IN_var.rho_l);
+
+<font color="blue">algorithm </font>
+  DP :=<font color="red"> Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP</font>(
+              IN_con_1ph,
+              IN_var_1ph,
+              m_flow)*(
+    <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierChisholm</font>(
+              IN_con,
+              IN_var,
+              m_flow));
+
+<font color="blue">end </font>dp_twoPhaseChisholm_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseFriedel_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.dp_twoPhaseFriedel_DP</H2>
+<B>Frictional pressure loss of straight pipe for two phase flow according to Friedel correlation | calculate pressure loss| overall flow regime</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DPD.png" ALT="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>TwoPhaseFlow_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>TwoPhaseFlow_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP</TD><TD>Output for function dp_twoPhaseFriedel_DP [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_twoPhaseFriedel_DP <font color="darkgreen">
+  &quot;Frictional pressure loss of straight pipe for two phase flow according to Friedel correlation | calculate pressure loss| overall flow regime&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979</font>
+  <font color="darkgreen">//SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</A>;
+  <font color="blue">import </font>SMOOTH2 = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower</A>;
+
+  <font color="darkgreen">//records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con</A>
+    IN_con;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var</A>
+    IN_var;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP <font color="darkgreen">&quot;Output for function dp_twoPhaseFriedel_DP&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=<font color="red">max</font>(MIN, IN_con.A_cross) <font color="darkgreen">&quot;Cross sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*A_cross/<font color="red">max</font>(MIN, IN_con.perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  Real mdot_A=<font color="red">abs</font>(m_flow)/A_cross <font color="darkgreen">&quot;Mass flux&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_liq=<font color="red">max</font>(1, mdot_A*d_hyd/<font color="red">max</font>(MIN, IN_var.eta_l)) <font color="darkgreen">
+    &quot;Reynolds number assuming (total) mass flux flowing as liquid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_leave=1055 <font color="darkgreen">
+    &quot;Maximum Reynolds number for laminar regime (1055)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb=1100 <font color="darkgreen">
+    &quot;Minimum Reynolds number for turbulent regime (1100)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_smooth=m_flow/A_cross*d_hyd/<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_var.eta_l)) <font color="darkgreen">
+    &quot;Reynolds number for smoothing&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_lam=64/Re_liq <font color="darkgreen">
+    &quot;Darcy friction factor for laminar regime&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_turb=(0.86859*<font color="red">Modelica.Math.log</font>(<font color="red">max</font>(1, (
+      Re_liq/<font color="red">max</font>(MIN, (1.964*<font color="red">Modelica.Math.log</font>(Re_liq) - 3.8215))))))^(-2) <font color="darkgreen">
+    &quot;Darcy friction factor for turbulent regime&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI=lambda_FRI_lam*<font color="red">SMOOTH</font>(
+      Re_lam_leave,
+      Re_turb,
+      Re_liq) + lambda_FRI_turb*<font color="red">SMOOTH</font>(
+      Re_turb,
+      Re_lam_leave,
+      Re_liq);
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient"
+>TYP.PressureLossCoefficient</A> zeta_FRI=lambda_FRI*IN_con.length/d_hyd <font color="darkgreen">
+    &quot;Pressure loss coefficient&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP_liq=zeta_FRI*mdot_A^2/(2*<font color="red">max</font>(MIN, IN_var.rho_l)) <font color="darkgreen">
+    &quot;Frictional pressure loss assuming (total) mass flux flowing as liquid&quot;</font>;
+
+<font color="blue">algorithm </font>
+  DP :=<font color="red"> SMOOTH2</font>(
+              Re_smooth,
+              1,
+              0)*DP_liq*(
+    <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierFriedel</font>(
+              IN_con,
+              IN_var,
+              m_flow));
+
+<font color="blue">end </font>dp_twoPhaseFriedel_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseGeodetic_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.dp_twoPhaseGeodetic_DP</H2>
+<B>Geodetic pressure loss of straight pipe for two phase flow | calculate pressure loss</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach"
+>VoidFractionApproach</A></TD><TD>voidFractionApproach</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of void fraction approach</TD></TR>
+<TR><TD>Boolean</TD><TD>crossSectionalAveraged</TD><TD>true</TD><TD>true == cross sectional averaged void fraction | false == volumetric</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Geometry</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>1</TD><TD>Length in fluid flow direction [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>phi</TD><TD>0</TD><TD>Tilt angle to horizontal [rad]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_g</TD><TD>&nbsp;</TD><TD>Density of gaseous phase [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_l</TD><TD>&nbsp;</TD><TD>Density of liquid phase [kg/m3]</TD></TR>
+<TR><TD>Real</TD><TD>x_flow</TD><TD>0</TD><TD>Mass flow rate quality</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP_geo</TD><TD>Geodetic pressure loss [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_twoPhaseGeodetic_DP <font color="darkgreen">
+  &quot;Geodetic pressure loss of straight pipe for two phase flow | calculate pressure loss&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+
+  <font color="blue">import </font>PI = Modelica.Constants.pi;
+
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach"
+>Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach</A>
+    voidFractionApproach=Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous <font color="darkgreen">
+    &quot;Choice of void fraction approach&quot;</font>;
+
+  <font color="blue">input </font>Boolean crossSectionalAveraged=true <font color="darkgreen">
+    &quot;true == cross sectional averaged void fraction | false == volumetric&quot;</font>;
+
+  <font color="darkgreen">//geometry</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length=1 <font color="darkgreen">&quot;Length in fluid flow direction&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi=0 <font color="darkgreen">&quot;Tilt angle to horizontal&quot;</font>;
+
+  <font color="darkgreen">//fluid properties</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_g(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of gaseous phase&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_l(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of liquid phase&quot;</font>;
+  <font color="blue">input </font>Real x_flow(
+    min=0,
+    max=1) = 0 <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP_geo <font color="darkgreen">&quot;Geodetic pressure loss&quot;</font>;
+
+<font color="blue">protected </font>
+  Real xflow=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(x_flow))) <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+  Real eps=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction</font>(
+      voidFractionApproach,
+      crossSectionalAveraged,
+      rho_g,
+      rho_l,
+      xflow) <font color="darkgreen">&quot;Void fraction&quot;</font>;
+
+<font color="blue">algorithm </font>
+  <font color="darkgreen">//SOURCE_1: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length</font>
+  DP_geo := (eps*rho_g + (1 - eps)*rho_l)*9.81*length*<font color="red">sin</font>(<font color="red">min</font>(PI/2,<font color="red"> max</font>(0,<font color="red"> abs</font>(
+    phi))));
+
+<font color="blue">end </font>dp_twoPhaseGeodetic_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseMomentum_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.dp_twoPhaseMomentum_DP</H2>
+<B>Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Choices</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Roughness</A></TD><TD>voidFractionApproach</TD><TD>Modelica.Fluid.Dissipation.U...</TD><TD>Choice of void fraction approach</TD></TR>
+<TR><TD>Boolean</TD><TD>massFlowRateCorrection</TD><TD>false</TD><TD>Consider heterogeneous mass flow rate correction</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Geometry</TD></TR>
+<TR><TD>Real</TD><TD>A_cross</TD><TD>PI*0.1^2/4</TD><TD>Cross sectional area</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>perimeter</TD><TD>PI*0.1</TD><TD>Perimeter [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_g</TD><TD>&nbsp;</TD><TD>Density of gas [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_l</TD><TD>&nbsp;</TD><TD>Density of liquid [kg/m3]</TD></TR>
+<TR><TD>Real</TD><TD>x_flow_end</TD><TD>0</TD><TD>Mass flow rate quality at end of length</TD></TR>
+<TR><TD>Real</TD><TD>x_flow_sta</TD><TD>0</TD><TD>Mass flow rate quality at start of length</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP_mom</TD><TD>Momentum pressure loss [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_twoPhaseMomentum_DP <font color="darkgreen">
+  &quot;Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+  <font color="darkgreen">//SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.</font>
+  <font color="darkgreen">//SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.</font>
+
+  <font color="blue">import </font>PI = Modelica.Constants.pi;
+  <font color="blue">import </font>MIN = Modelica.Constants.eps;
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower</A>;
+
+  <font color="darkgreen">//choices</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Modelica.Fluid.Dissipation.Utilities.Types.Roughness</A>
+    voidFractionApproach=
+      Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous <font color="darkgreen">
+    &quot;Choice of void fraction approach&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate</font>
+  <font color="blue">input </font>Boolean massFlowRateCorrection=false <font color="darkgreen">
+    &quot;Consider heterogeneous mass flow rate correction&quot;</font>;
+
+  <font color="darkgreen">//geometry</font>
+  <font color="blue">input </font>Real A_cross(min=Modelica.Constants.eps) = PI*0.1^2/4 <font color="darkgreen">
+    &quot;Cross sectional area&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> perimeter(min=Modelica.Constants.eps) = PI*0.1 <font color="darkgreen">&quot;Perimeter&quot;</font>;
+
+  <font color="darkgreen">//fluid properties</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_g(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of gas&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_l(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of liquid&quot;</font>;
+  <font color="blue">input </font>Real x_flow_end(
+    min=0,
+    max=1) = 0 <font color="darkgreen">&quot;Mass flow rate quality at end of length&quot;</font>;
+  <font color="blue">input </font>Real x_flow_sta(
+    min=0,
+    max=1) = 0 <font color="darkgreen">&quot;Mass flow rate quality at start of length&quot;</font>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP_mom <font color="darkgreen">&quot;Momentum pressure loss&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> Across=<font color="red">max</font>(MIN, A_cross) <font color="darkgreen">&quot;Cross sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*A_cross/<font color="red">max</font>(MIN, perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  Real mdot_A=<font color="red">abs</font>(m_flow)/Across <font color="darkgreen">&quot;Mass flux&quot;</font>;
+  Real xflowEnd=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(x_flow_end))) <font color="darkgreen">
+    &quot;Mass flow rate quality at end of length&quot;</font>;
+  Real xflowSta=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(x_flow_sta))) <font color="darkgreen">
+    &quot;Mass flow rate quality at start of length&quot;</font>;
+  Real xflowMean=(xflowEnd + xflowSta)/2 <font color="darkgreen">
+    &quot;Mean mass flow rate quality over length&quot;</font>;
+
+  Real delta_xflow=xflowEnd - xflowSta <font color="darkgreen">
+    &quot;Difference of mass flow rate quality between end and start of length (pos &gt;&gt; evaporation, neg &gt;&gt; condensation&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_2: Considering void fraction approaches</font>
+  Real eps_end=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction</font>(
+      voidFractionApproach,
+      true,
+      rho_g,
+      rho_l,
+      xflowEnd) <font color="darkgreen">&quot;Void fraction at end of length&quot;</font>;
+  Real eps_sta=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction</font>(
+      voidFractionApproach,
+      true,
+      rho_g,
+      rho_l,
+      xflowSta) <font color="darkgreen">&quot;Void fraction at start of length&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_2: p.17-6, eq. 17.3.3: Considering mean two phase density at end and start of length</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_end=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity</font>(
+      voidFractionApproach,
+      massFlowRateCorrection,
+      rho_g,
+      rho_l,
+      eps_end,
+      xflowEnd) <font color="darkgreen">&quot;Mean two phase density at end of lenght&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_sta=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity</font>(
+      voidFractionApproach,
+      massFlowRateCorrection,
+      rho_g,
+      rho_l,
+      eps_sta,
+      xflowSta) <font color="darkgreen">&quot;Mean two phase density at start of lenght&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> meanVelEnd=<font color="red">abs</font>(m_flow)/<font color="red">max</font>(MIN, rho_end*A_cross) <font color="darkgreen">
+    &quot;Mean velocity of two phase flow at end of length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> meanVelSta=<font color="red">abs</font>(m_flow)/<font color="red">max</font>(MIN, rho_sta*A_cross) <font color="darkgreen">
+    &quot;Mean velocity of two phase flow at start of length&quot;</font>;
+
+  <font color="darkgreen">//SOURCE 3: p.15, eq. 2.26: Considering velocity difference for heterogeneous approach using slip ratio</font>
+  Real SR=<font color="red">Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio</font>(
+      voidFractionApproach,
+      rho_g,
+      rho_l,
+      xflowMean) <font color="darkgreen">&quot;Slip ratio for velocity void fraction approach&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> deltaVelEnd=meanVelEnd*(SR - 1)/(xflowEnd*(SR - 1) + 1) <font color="darkgreen">
+    &quot;Velocity difference of two phases at end of length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> deltaVelSta=meanVelSta*(SR - 1)/(xflowSta*(SR - 1) + 1) <font color="darkgreen">
+    &quot;Velocity difference of two phases at start of length&quot;</font>;
+
+  <font color="darkgreen">//SOURCE 3: p.52, eq. 4.6: Considering of corrected mass flow rate for heterogenous approach</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> mdotCorEnd=xflowEnd*(1 - xflowEnd)*rho_end*deltaVelEnd*Across <font color="darkgreen">
+    &quot;Correction mass flow rate at end of length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> mdotCorSta=xflowSta*(1 - xflowSta)*rho_sta*deltaVelSta*Across <font color="darkgreen">
+    &quot;Correction mass flow rate at start of length&quot;</font>;
+
+  <font color="darkgreen">//SOURCE 3: p.53, eq. 4.13: Calculation of heterogeneous approach with correction of mass flow rate for considering velocity difference between fluid phases</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp_mom_cor=<font color="red">SMOOTH</font>(
+      delta_xflow,
+      0.05,
+      0)*<font color="red">abs</font>(mdot_A*meanVelEnd + mdotCorEnd*deltaVelEnd/Across) -<font color="red"> abs</font>(mdot_A*
+      meanVelEnd + mdotCorEnd*deltaVelEnd/Across) <font color="darkgreen">
+    &quot;Momentum pressure loss using mass flow rate correction&quot;</font>;
+
+<font color="blue">algorithm </font>
+  <font color="darkgreen">//SOURCE_1: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow</font>
+  <font color="darkgreen">//Momentum pressure loss occurs for a changing mass flow rate quality due to condensation or evaporation</font>
+  <font color="darkgreen">//At evaporation the liquid phase with a slow velocity has to be accelerated to the higher velocity of the gas</font>
+  <font color="darkgreen">//The difference in static pressure at the outlet and the inlet causes a positiv momentum pressure loss at evaporation (assumed vice versa for condensation)</font>
+  DP_mom := <font color="blue">if </font>massFlowRateCorrection<font color="blue"> then </font>dp_mom_cor<font color="blue"> else </font>mdot_A^2*<font color="red">SMOOTH</font>(
+    delta_xflow,
+    0.05,
+    0)*<font color="red">abs</font>(1/<font color="red">max</font>(MIN, rho_end) - 1/<font color="red">max</font>(MIN, rho_sta));
+
+<font color="blue">end </font>dp_twoPhaseMomentum_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhaseMultiplierFriedel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierFriedel"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.TwoPhaseMultiplierFriedel</H2>
+<B>Calculation of two phase multiplier according to Friedel | constant mass flow rate quality | horizontal flow | vertical upflow and downflow</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>TwoPhaseFlow_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>TwoPhaseFlow_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>phi</TD><TD>Two phase multiplier w.r.t. Friedel</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> TwoPhaseMultiplierFriedel <font color="darkgreen">
+  &quot;Calculation of two phase multiplier according to Friedel | constant mass flow rate quality | horizontal flow | vertical upflow and downflow&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979</font>
+  <font color="darkgreen">//SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+
+  <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math.log"
+>Modelica.Math.log</A>;
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con</A>
+    IN_con;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var</A>
+    IN_var(
+      <font color="blue">final </font>sigma=0);
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="blue">output </font>Real phi <font color="darkgreen">&quot;Two phase multiplier w.r.t. Friedel&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=<font color="red">max</font>(MIN, IN_con.A_cross) <font color="darkgreen">&quot;Cross sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*A_cross/<font color="red">max</font>(MIN, IN_con.perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_2: p.Lba 4, sec. 3.3: Correlation based on constant mass flow rate quality (x_flow) for increment (dx)</font>
+  <font color="darkgreen">//Pressure loss for total length (e.g., L=n*dx) can be achieved by discretisation</font>
+  Real mdot_A=<font color="red">abs</font>(m_flow)/A_cross <font color="darkgreen">&quot;Mass flux&quot;</font>;
+  Real x_flow=<font color="red">max</font>(0,<font color="red"> min</font>(1,<font color="red"> abs</font>(IN_var.x_flow))) <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.490 (Appendix): Characteristic numbers based on total mass flow rate flowing as liquid</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.FroudeNumber"
+>SI.FroudeNumber</A> Fr_l=<font color="red">max</font>(MIN, mdot_A^2/<font color="red">max</font>(MIN, 9.81*IN_var.rho_l^2*d_hyd)) <font color="darkgreen">
+    &quot;Froude number based on liquid flow&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_g=<font color="red">max</font>(1, mdot_A*d_hyd/<font color="red">max</font>(MIN, IN_var.eta_g)) <font color="darkgreen">
+    &quot;Reynolds number based on gas flow&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_l=<font color="red">max</font>(1, mdot_A*d_hyd/<font color="red">max</font>(MIN, IN_var.eta_l)) <font color="darkgreen">
+    &quot;Reynolds number based on liquid flow&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.WeberNumber"
+>SI.WeberNumber</A> We_l=<font color="red">max</font>(MIN, mdot_A^2*d_hyd/<font color="red">max</font>(MIN, IN_var.sigma*IN_var.rho_l)) <font color="darkgreen">
+    &quot;Weber number based on liquid flow&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.490 (Appendix): Smoothing for sudden change from assumed laminar to assumed turbulent regime (numerical improvement at Re=1055)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_max=1025 <font color="darkgreen">
+    &quot;Maximum Reynolds number assuming laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb_min=1075 <font color="darkgreen">
+    &quot;Minimum Reynolds number assuming turbulent regime&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_2: p.Lbb 2, eq. 9-10: Considering influence of Reynolds number on Darcy friction factor for smooth straight pipes</font>
+  <font color="darkgreen">//Correlation based on neglection of surface roughness</font>
+  <font color="darkgreen">//Correlation based on assumption that total mass flow rate is flowing as gas</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_lam_g=64/Re_g <font color="darkgreen">
+    &quot;Darcy friction factor of gas for assumed laminar regime&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_turb_g=1/<font color="red">max</font>(MIN, 0.86859*<font color="red">log</font>(<font color="red">max</font>(1, Re_g/<font color="red">max</font>(
+      MIN, 1.964*<font color="red">log</font>(Re_g) - 3.8215))))^(2) <font color="darkgreen">
+    &quot;Darcy friction factor of gas for assumed turbulent regime&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_g=lambda_lam_g*<font color="red">SMOOTH</font>(
+      Re_lam_max,
+      Re_turb_min,
+      Re_g) + lambda_turb_g*<font color="red">SMOOTH</font>(
+      Re_turb_min,
+      Re_lam_max,
+      Re_g) <font color="darkgreen">&quot;Darcy friction factor of gas for overall regime&quot;</font>;
+  <font color="darkgreen">//Correlation based on assumption that total mass flow rate is flowing as liquid</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_lam_l=64/Re_l <font color="darkgreen">
+    &quot;Darcy friction factor of liquid for assumed laminar regime&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_turb_l=1/<font color="red">max</font>(MIN, 0.86859*<font color="red">log</font>(<font color="red">max</font>(1, Re_l/<font color="red">max</font>(
+      MIN, 1.964*<font color="red">log</font>(Re_l) - 3.8215))))^(2) <font color="darkgreen">
+    &quot;Darcy friction factor of liquid for assumed turbulent regime&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_l=lambda_lam_l*<font color="red">SMOOTH</font>(
+      Re_lam_max,
+      Re_turb_min,
+      Re_l) + lambda_turb_l*<font color="red">SMOOTH</font>(
+      Re_turb_min,
+      Re_lam_max,
+      Re_l) <font color="darkgreen">&quot;Darcy friction factor of liquid for overall regime&quot;</font>;
+
+  Real A=(1 - x_flow)^2 + x_flow^2*(IN_var.rho_l/<font color="red">max</font>(MIN, IN_var.rho_g))*(
+      lambda_g/<font color="red">max</font>(MIN, lambda_l)) <font color="darkgreen">&quot;Summand for two phase multiplier&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.490 (Appendix): Two phase multiplier for vertical downflow for future usage</font>
+  Real phi_vdo=A + 38.5*x_flow^0.76*(1 - x_flow)^0.314*(IN_var.rho_l/<font color="red">max</font>(MIN,
+      IN_var.rho_g))^0.86*(IN_var.eta_g/<font color="red">max</font>(MIN, IN_var.eta_l))^0.73*(1 -
+      IN_var.eta_g/<font color="red">max</font>(MIN, IN_var.eta_l))^6.84*(1/Fr_l^(0.0001))*(1/We_l^(
+      0.087));
+
+  <font color="darkgreen">//SOURCE_1: p.490 (Appendix): Two phase multiplier for horizontal and vertical upflow (failure in SOURCE_2)</font>
+  Real phi_vup=A + 3.43*x_flow^0.685*(1 - x_flow)^0.24*(IN_var.rho_l/<font color="red">max</font>(MIN,
+      IN_var.rho_g))^0.8*(IN_var.eta_g/<font color="red">max</font>(MIN, IN_var.eta_l))^0.22*(1 - IN_var.eta_g
+      /<font color="red">max</font>(MIN, IN_var.eta_l))^0.89*(1/Fr_l^(0.048))*(1/We_l^(0.0334));
+
+<font color="blue">algorithm </font>
+  phi := phi_vup;
+<font color="blue">end </font>TwoPhaseMultiplierFriedel;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhaseMultiplierChisholm<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseMultiplierChisholm"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.TwoPhaseMultiplierChisholm</H2>
+<B>Calculation of two phase multiplier according to Chisholm | constant mass flow rate quality</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>TwoPhaseFlow_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>TwoPhaseFlow_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>phi</TD><TD>Two phase multiplier w.r.t. Chisholm</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> TwoPhaseMultiplierChisholm <font color="darkgreen">
+  &quot;Calculation of two phase multiplier according to Chisholm | constant mass flow rate quality&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973</font>
+  <font color="darkgreen">//SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</A>;
+
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con</A>
+    IN_con;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var</A>
+    IN_var;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="blue">output </font>Real phi <font color="darkgreen">&quot;Two phase multiplier w.r.t. Chisholm&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=<font color="red">max</font>(MIN, IN_con.A_cross) <font color="darkgreen">&quot;Cross sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*A_cross/<font color="red">max</font>(MIN, IN_con.perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  Real mdot_A=<font color="red">abs</font>(m_flow)/A_cross <font color="darkgreen">&quot;Mass flux&quot;</font>;
+  Real x_flow=<font color="red">max</font>(0,<font color="red"> min</font>(1,<font color="red"> abs</font>(IN_var.x_flow))) <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.357, Appendix 1: Considering Darcy friction factor (lambda_FRI) of smooth pipes for overall flow regime</font>
+  Real n_exp=0.2 <font color="darkgreen">&quot;Exponent for Reynolds number (lambda_FRI= A/Re^n)&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.349, eq. 21: Considering effect of physical properties (failure in SOURCE_2)</font>
+  Real gamma=<font color="red">max</font>(1,<font color="red"> abs</font>(IN_var.rho_l/<font color="red">max</font>(MIN, IN_var.rho_g))^0.5*(IN_var.eta_g/
+      <font color="red">max</font>(MIN, IN_var.eta_l))^(n_exp/2));
+
+  <font color="darkgreen">//SOURCE: p. 353, tab. 2: Considering effect of mass flux on two phase multiplier</font>
+  Real B_gamma_1=<font color="red">SMOOTH</font>(
+      450,
+      550,
+      mdot_A)*4.8 +<font color="red"> SMOOTH</font>(
+      550,
+      450,
+      mdot_A)*2400/<font color="red">max</font>(MIN, mdot_A) -<font color="red"> SMOOTH</font>(
+      1950,
+      1850,
+      mdot_A)*2400/<font color="red">max</font>(MIN, mdot_A) +<font color="red"> SMOOTH</font>(
+      1950,
+      1850,
+      mdot_A)*55/<font color="red">max</font>(MIN, mdot_A^0.5) <font color="darkgreen">&quot;Coefficient B for gamma &lt;= 9.5&quot;</font>;
+  Real B_gamma_2=<font color="red">SMOOTH</font>(
+      550,
+      650,
+      mdot_A)*520/<font color="red">max</font>(1,<font color="red"> max</font>(9.5, gamma)*mdot_A^0.5) +<font color="red"> SMOOTH</font>(
+      650,
+      550,
+      mdot_A)*21/<font color="red">max</font>(9.5, gamma) <font color="darkgreen">&quot;Coefficient B for 9.5 &lt;= gamma &lt;= 28&quot;</font>;
+  Real B_gamma=<font color="red">SMOOTH</font>(
+      9.0,
+      10,
+      gamma)*B_gamma_1 +<font color="red"> SMOOTH</font>(
+      10,
+      9.0,
+      gamma)*B_gamma_2 -<font color="red"> SMOOTH</font>(
+      28.5,
+      27.7,
+      gamma)*B_gamma_2 +<font color="red"> SMOOTH</font>(
+      28.5,
+      27.5,
+      gamma)*15000/<font color="red">max</font>(MIN, gamma^2*mdot_A^0.5) <font color="darkgreen">&quot;Coefficient B for gamma&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p. 350, eq. 24/26: Considering two phase multiplier w.r.t. Chisholm</font>
+<font color="blue">algorithm </font>
+  phi := 1 + (gamma^2 - 1)*(B_gamma*x_flow^((2 - n_exp)/2)*(1 - x_flow)^((2 -
+    n_exp)/2) + x_flow^(2 - n_exp));
+<font color="blue">end </font>TwoPhaseMultiplierChisholm;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhaseDensity<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.TwoPhaseDensity"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.TwoPhaseDensity</H2>
+<B>Calculation of mean density for two phase flow</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+The gaseous and the liquid part of a fluid in a two phase flow are often discontinuously distributed. This complex behaviour is simplified for engineering calculations. The two phase flow of different fluid flow situations (e.g., bubble or stratified flow) is modelled as if the gaseous and the liquid phase are continuously distributed.
+</p>
+
+<p>
+A <b> mean density </b> assuming a continuous distribution out of a discontinuous two phase fluid flow situation can be calculated with a <b> homogeneous or a heterogeneous approach </b> (see <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP"
+>dp_twoPhaseOverall_DP</a>).</p>
+<p>
+The following <b> modelling approaches </b> can be used to calculate the mean density of two phase flow:
+<ul>
+<li>        <b> homogeneous density </b> (homogeneous approach) </li>
+<li>         <b> momentum flux density </b> (heterogeneous approach) </li>
+<li>         <b> kinetic energy flow density </b> (heterogeneous approach) </li>
+</ul>
+</p>
+
+<p>
+The heterogeneous approaches are analytically derived by minimising the momentum flux or the kinetic energy flow assuming implicitly that the two-phase flow will tend towards the minimum of this quantity.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 10th edition, 2006.</dd>
+</dl>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_g</TD><TD>&nbsp;</TD><TD>Density of gaseous phase [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_l</TD><TD>&nbsp;</TD><TD>Density of liquid phase [kg/m3]</TD></TR>
+<TR><TD>Real</TD><TD>epsilon_A</TD><TD>&nbsp;</TD><TD>Void fraction (cross sectional averaged)</TD></TR>
+<TR><TD>Real</TD><TD>x_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate quality</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Choices</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Roughness</A></TD><TD>voidFractionApproach</TD><TD>Modelica.Fluid.Dissipation.U...</TD><TD>Choice of void fraction approach</TD></TR>
+<TR><TD>Boolean</TD><TD>massFlowRateCorrection</TD><TD>false</TD><TD>Consider heterogeneous mass flow rate correction</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_2ph</TD><TD>Mean density of two phase flow [kg/m3]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> TwoPhaseDensity <font color="darkgreen">
+  &quot;Calculation of mean density for two phase flow&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Modelica.Fluid.Dissipation.Utilities.Types.Roughness</A>
+    voidFractionApproach=
+      Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous <font color="darkgreen">
+    &quot;Choice of void fraction approach&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.52, eq. 4.6: heterogenous effects on momentum pressure loss considered through corrected mass flow rate</font>
+  <font color="blue">input </font>Boolean massFlowRateCorrection=false <font color="darkgreen">
+    &quot;Consider heterogeneous mass flow rate correction&quot;</font>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_g(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of gaseous phase&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_l(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of liquid phase&quot;</font>;
+  <font color="blue">input </font>Real epsilon_A(min=0,max=1) <font color="darkgreen">&quot;Void fraction (cross sectional averaged)&quot;</font>;
+  <font color="blue">input </font>Real x_flow(min=0,max=1) <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_2ph <font color="darkgreen">&quot;Mean density of two phase flow&quot;</font>;
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  Real epsilonA=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(epsilon_A))) <font color="darkgreen">
+    &quot;Void fraction (cross sectional averaged)&quot;</font>;
+  Real xflow=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(x_flow))) <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.Lba 3, eq. 17: Mean two phase density assuming homogeneous approach</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_hom=1/<font color="red">max</font>(MIN, x_flow/<font color="red">max</font>(MIN, rho_g) + (1 - x_flow)/<font color="red">max</font>(MIN,
+      rho_l));
+  <font color="darkgreen">//SOURCE_1: p.Lbb 7, tab. 2: Mean two phase density assuming momentum flux approach</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_mom=1/<font color="red">max</font>(MIN, (x_flow)^2/<font color="red">max</font>(MIN, rho_g*epsilonA) + (1 -
+      x_flow)^2/<font color="red">max</font>(MIN, rho_l*(1 - epsilonA)));
+  <font color="darkgreen">//SOURCE_1: p.Lbb 7, tab. 2: Mean two phase density assuming kinetic energy flow approach from Zivi (corrected formula!)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_kin=1/<font color="red">max</font>(MIN, rho_hom*(x_flow^3/<font color="red">max</font>(MIN, rho_g^2*epsilonA^2)
+       + (1 - x_flow)^3/<font color="red">max</font>(MIN, rho_l^2*(1 - epsilonA)^2)));
+
+<font color="blue">algorithm </font>
+  rho_2ph := <font color="blue">if </font>massFlowRateCorrection<font color="blue"> then </font>rho_hom<font color="blue"> else </font><font color="blue">if </font>
+    voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous<font color="blue"> then </font>
+          rho_hom<font color="blue"> else </font><font color="blue">if </font>voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum<font color="blue"> then </font>
+          rho_mom<font color="blue"> else </font><font color="blue">if </font>voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy<font color="blue"> then </font>
+          rho_kin<font color="blue"> else </font>MIN;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TwoPhaseDensity;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VoidFraction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.VoidFraction</H2>
+<B>Calculation of (cross sectional) void fraction for two phase flow</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>crossSectionalAveraged</TD><TD>true</TD><TD>true == cross sectional averaged void fraction | false == volumetric</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_g</TD><TD>&nbsp;</TD><TD>Density of gaseous phase [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_l</TD><TD>&nbsp;</TD><TD>Density of liquid phase [kg/m3]</TD></TR>
+<TR><TD>Real</TD><TD>x_flow</TD><TD>0</TD><TD>Mass flow rate quality</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Choices</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach"
+>VoidFractionApproach</A></TD><TD>voidFractionApproach</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of void fraction approach</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>epsilon</TD><TD>Void fraction</TD></TR>
+<TR><TD>Real</TD><TD>slipRatio</TD><TD>Slip ratio</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> VoidFraction <font color="darkgreen">
+  &quot;Calculation of (cross sectional) void fraction for two phase flow&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+  <font color="darkgreen">//SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach"
+>Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach</A>
+    voidFractionApproach=Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous <font color="darkgreen">
+    &quot;Choice of void fraction approach&quot;</font>;
+
+  <font color="blue">input </font>Boolean crossSectionalAveraged=true <font color="darkgreen">
+    &quot;true == cross sectional averaged void fraction | false == volumetric&quot;</font>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_g(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of gaseous phase&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_l(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of liquid phase&quot;</font>;
+  <font color="blue">input </font>Real x_flow(
+    min=0,
+    max=1) = 0 <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="blue">output </font>Real epsilon <font color="darkgreen">&quot;Void fraction&quot;</font>;
+  <font color="blue">output </font>Real slipRatio <font color="darkgreen">&quot;Slip ratio&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  Real xflow=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(x_flow))) <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  Real SR=<font color="red">Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio</font>(
+      voidFractionApproach,
+      rho_g,
+      rho_l,
+      xflow) <font color="darkgreen">&quot;Slip ratio for void fraction approach&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_2: p.17-5, eq. 17.2.5: (Heterogeneous) cross sectional void fraction [epsilon_A=A_g/(A_g+A_l)]</font>
+  Real epsilon_A=rho_l*x_flow/<font color="red">max</font>(MIN, rho_l*x_flow + rho_g*(1 - x_flow)*SR);
+
+<font color="blue">algorithm </font>
+  epsilon := <font color="blue">if </font>crossSectionalAveraged<font color="blue"> then </font>epsilon_A<font color="blue"> else </font>epsilon_A/((1/<font color="red">max</font>(
+    MIN, SR))*(1 - epsilon_A) + epsilon_A);
+  slipRatio := SR;
+<font color="blue">end </font>VoidFraction;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SlipRatio<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.SlipRatio"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_PressureLoss_TwoPhase.html#Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase"
+>Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase</A>.SlipRatio</H2>
+<B>Calculation of (analytical/empirical) slip ratio</B><p>
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_g</TD><TD>&nbsp;</TD><TD>Density of gaseous phase [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_l</TD><TD>&nbsp;</TD><TD>Density of liquid phase [kg/m3]</TD></TR>
+<TR><TD>Real</TD><TD>x_flow</TD><TD>0</TD><TD>Mass flow rate quality</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Choices</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach"
+>VoidFractionApproach</A></TD><TD>voidFractionApproach</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of void fraction approach</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>SR</TD><TD>Slip ratio</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> SlipRatio <font color="darkgreen">&quot;Calculation of (analytical/empirical) slip ratio&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+  <font color="darkgreen">//SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.</font>
+  <font color="darkgreen">//SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach"
+>Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach</A>
+    voidFractionApproach=Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous <font color="darkgreen">
+    &quot;Choice of void fraction approach&quot;</font>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_g(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of gaseous phase&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho_l(min=Modelica.Constants.eps) <font color="darkgreen">&quot;Density of liquid phase&quot;</font>;
+  <font color="blue">input </font>Real x_flow=0 <font color="darkgreen">&quot;Mass flow rate quality&quot;</font>;
+
+  <font color="blue">output </font>Real SR <font color="darkgreen">&quot;Slip ratio&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <font color="darkgreen">//SOURCE_1: p.Lba 3, sec. 3.2</font>
+  Real SR_hom=1 <font color="darkgreen">&quot;Slip ratio w.r.t. homogeneous approach&quot;</font>;
+  <font color="darkgreen">//SOURCE_1: p.17-6, eq. 17.3.4</font>
+  Real SR_mom=<font color="red">abs</font>(rho_l/<font color="red">max</font>(MIN, rho_g))^0.5 <font color="darkgreen">
+    &quot;Slip ratio w.r.t. momentum flux approach (heterogeneous)&quot;</font>;
+  <font color="darkgreen">//SOURCE_1: p.17-6, eq. 17.3.13</font>
+  Real SR_kin=<font color="red">abs</font>(rho_l/<font color="red">max</font>(MIN, rho_g))^(1/3) <font color="darkgreen">
+    &quot;Slip ratio w.r.t. kinetic energy flow approach from Zivi (heterogeneous)&quot;</font>;
+  <font color="darkgreen">//SOURCE_1: p.17-6, eq. 17.3.13</font>
+  Real SR_chi=(1 - x_flow*(1 -<font color="red"> abs</font>(rho_l)/<font color="red">max</font>(MIN,<font color="red"> abs</font>(rho_g))))^0.5 <font color="darkgreen">
+    &quot;Empirical slip ratio w.r.t. momentum flux approach from Chisholm (heterogeneous)&quot;</font>;
+
+<font color="blue">algorithm </font>
+  SR := <font color="blue">if </font>voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous<font color="blue"> then </font>
+          SR_hom<font color="blue"> else </font><font color="blue">if </font>voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum<font color="blue"> then </font>
+          SR_mom<font color="blue"> else </font><font color="blue">if </font>voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy<font color="blue"> then </font>
+          SR_kin<font color="blue"> else </font><font color="blue">if </font>voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Chisholm<font color="blue"> then </font>
+          SR_chi<font color="blue"> else </font>1;
+<font color="blue">end </font>SlipRatio;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:23 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,105 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math.Matrices.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Examples demonstrating the usage of the Math.Matrices functions&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Matrices.Examples"></A><A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Modelica.Math.Matrices</A>.Examples</H2>
+<B>Examples demonstrating the usage of the Math.Matrices functions</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.Matrices.Examples.solveLinearEquationsS.png" ALT="Modelica.Math.Matrices.Examples.solveLinearEquations" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices_Examples.html#Modelica.Math.Matrices.Examples.solveLinearEquations"
+>solveLinearEquations</A>
+</TD><TD>Demonstrate the solution of linear equation systems</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE solveLinearEquations<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.Matrices.Examples.solveLinearEquations"></A><A HREF="Modelica_Math_Matrices_Examples.html#Modelica.Math.Matrices.Examples"
+>Modelica.Math.Matrices.Examples</A>.solveLinearEquations</H2>
+<B>Demonstrate the solution of linear equation systems</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+With simple examples this function demonstrates how to solve
+regular linear equation systems with Matrices.solve and Matrices.solve2,
+and how to solve singular linear equation systems with
+Matrices.leastSquares and Matrices.leastSquares2.
+</p>
+<pre></PRE><P>
+
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> solveLinearEquations <font color="darkgreen">
+  &quot;Demonstrate the solution of linear equation systems&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams.print"
+>Modelica.Utilities.Streams.print</A>;
+  <font color="darkgreen">// solve and solve2</font>
+<font color="blue">protected </font>
+  Real A0[0,0];
+  Real A1[2,2] = [1,2;3,4];
+  Real x1_ref[2] = {-2,3};
+  Real b1[2] = A1*x1_ref;
+  Real x1[2];
+  Real B2[2,3] = [b1, 2*b1, -3*b1];
+  Real X2[2,3];
+
+  <font color="darkgreen">// leastSquares and leastSquares2</font>
+  Integer rank;
+  Real a[3] = {2,3,-1};
+  Real A3[3,3] =<font color="red"> transpose</font>( [{2,3,-4}, a, 3*a]);
+  Real x3_ref[3] = {-2,3,5};
+  Real b3[3] = A3*x3_ref;
+  Real x3[3];
+  Real B3[3,2] = [b3, -3*b3];
+  Real X3[3,2];
+
+<font color="blue">algorithm </font>
+  <font color="red">print</font>(&quot;\nDemonstrate how to solve linear equation systems:\n&quot;);
+
+  <font color="darkgreen">// Solve regular linear equation with a right hand side vector</font>
+  x1 :=<font color="red">Math.Matrices.solve</font>(A1, b1);
+  <font color="red">print</font>(&quot;diff1 = &quot; +<font color="red"> String</font>(<font color="red">Vectors.norm</font>(x1 - x1_ref)));
+
+  <font color="darkgreen">// Solve regular linear equation with a right hand side matrix</font>
+  X2 :=<font color="red">Math.Matrices.solve2</font>(A1, B2);
+  <font color="red">print</font>(&quot;diff2 = &quot; +<font color="red"> String</font>(<font color="red">Matrices.norm</font>(X2 - [x1_ref,2*x1_ref, -3*x1_ref])));
+
+  <font color="darkgreen">// Solve singular linear equation with a right hand side vector</font>
+  (x3, rank) :=<font color="red">Math.Matrices.leastSquares</font>(A3, b3);
+  <font color="red">print</font>(&quot;diff3 = &quot; +<font color="red"> String</font>(<font color="red">Vectors.norm</font>(A3*x3 - b3)) +
+        &quot;, n = &quot; +<font color="red"> String</font>(<font color="red">size</font>(A3,1)) + &quot;, rank = &quot; +<font color="red"> String</font>(rank));
+
+  <font color="darkgreen">// Solve singular linear equation with a right hand side matrix</font>
+  (X3, rank) :=<font color="red">Math.Matrices.leastSquares2</font>(A3, B3);
+  <font color="red">print</font>(&quot;diff4 = &quot; +<font color="red"> String</font>(<font color="red">Matrices.norm</font>(A3*X3 - B3)) +
+        &quot;, n = &quot; +<font color="red"> String</font>(<font color="red">size</font>(A3,1)) + &quot;, rank = &quot; +<font color="red"> String</font>(rank));
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>solveLinearEquations;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:48 2010.
+</address></BODY>
+</HTML>

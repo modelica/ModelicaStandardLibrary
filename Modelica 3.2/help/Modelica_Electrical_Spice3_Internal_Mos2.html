@@ -1,0 +1,1161 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Spice3.Internal.Mos2</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Records and functions for Mosfets level 2&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Mos2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2"></A><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal"
+>Modelica.Electrical.Spice3.Internal</A>.Mos2</H2>
+<B>Records and functions for Mosfets level 2</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This package Mos2 contains functions and records with data of the mosfet model level 2.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A>
+</TD><TD>Record for Mosfet model line parameters (for level 2)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2ModelLineVariables</A>
+</TD><TD>Record for Mosfet model line variables (for level 2)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParamsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A>
+</TD><TD>Further mosfet variables (for level 2)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations"
+>mos2ModelLineParamsInitEquations</A>
+</TD><TD>Initial precalculation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.drainCur" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.drainCur"
+>drainCur</A>
+</TD><TD>Drain current calculation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters"
+>mos2RenameParameters</A>
+</TD><TD>Parameter renaming to internal names</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquationsS.png" ALT="Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParametersDev" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParametersDev"
+>mos2RenameParametersDev</A>
+</TD><TD>Device parameter renaming to internal names</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Mos2ModelLineParams<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.Mos2ModelLineParams</H2>
+<B>Record for Mosfet model line parameters (for level 2)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record Mos1ModelLineParams contains the model line parameters that are used for the mosfet transistors level 2 in SPICE3.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"
+>Mos.MosModelLineParams</A> (Record for Mosfet model line parameters (for level 1, 2, 3 and 6)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>Real</TD><TD>m_jctSatCurDensity.start</TD><TD>0.0</TD><TD>JS, Bulk jct. sat. current density, input - use tSatCurDens</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>m_sheetResistance.start</TD><TD>0.0</TD><TD>RSH, Sheet resistance [Ohm]</TD></TR>
+<TR><TD>Real</TD><TD>m_bulkJctPotential.start</TD><TD>0.8</TD><TD>PB, Bulk junction potential, input - use tBulkPot</TD></TR>
+<TR><TD>Real</TD><TD>m_bulkJctBotGradingCoeff.start</TD><TD>0.5</TD><TD>MJ, Bottom grading coefficient</TD></TR>
+<TR><TD>Real</TD><TD>m_bulkJctSideGradingCoeff.start</TD><TD>0.33</TD><TD>MJSW, Side grading coefficient</TD></TR>
+<TR><TD>Real</TD><TD>m_oxideThickness.start</TD><TD>1.0e-7</TD><TD>TOX, Oxide thickness unit: micron</TD></TR>
+<TR><TD>Real</TD><TD>m_gateSourceOverlapCapFactor.start</TD><TD>0.0</TD><TD>CGS0, Gate-source overlap cap</TD></TR>
+<TR><TD>Real</TD><TD>m_gateDrainOverlapCapFactor.start</TD><TD>0.0</TD><TD> CGD0, Gate-drain overlap cap</TD></TR>
+<TR><TD>Real</TD><TD>m_gateBulkOverlapCapFactor.start</TD><TD>0.0</TD><TD>CGB0, Gate-bulk overlap cap</TD></TR>
+<TR><TD>Real</TD><TD>m_fNcoef.start</TD><TD>0.0</TD><TD>KF, Flicker noise coefficient</TD></TR>
+<TR><TD>Real</TD><TD>m_fNexp.start</TD><TD>1.0</TD><TD>AF, Flicker noise exponent</TD></TR>
+<TR><TD>Real</TD><TD>m_oxideCapFactor.start</TD><TD>0.0</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_vt0.start</TD><TD>0.0</TD><TD>VTO, Threshold voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_capBD.start</TD><TD>0.0</TD><TD>CBD, B-D junction capacitance [F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_capBS.start</TD><TD>0.0</TD><TD>CBS, B-S junction capacitance [F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CapacitancePerArea"
+>CapacitancePerArea</A></TD><TD>m_bulkCapFactor.start</TD><TD>0.0</TD><TD>CJ, Bottom junction cap per area [F/m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Permittivity"
+>Permittivity</A></TD><TD>m_sideWallCapFactor.start</TD><TD>0.0</TD><TD>CJSW, Side grading coefficient [F/m]</TD></TR>
+<TR><TD>Real</TD><TD>m_fwdCapDepCoeff.start</TD><TD>0.5</TD><TD>FC, Forward bias jct. fit parm.</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_phi.start</TD><TD>0.6</TD><TD>PHI, Surface potential [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_gamma.start</TD><TD>0.0</TD><TD>GAMMA, Bulk threshold parameter [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.InversePotential"
+>InversePotential</A></TD><TD>m_lambda.start</TD><TD>0.0</TD><TD>Channel-length modulation [1/V]</TD></TR>
+<TR><TD>Real</TD><TD>m_substrateDoping.start</TD><TD>0.0</TD><TD>NSUB, Substrate doping</TD></TR>
+<TR><TD>Real</TD><TD>m_gateType.start</TD><TD>1.0</TD><TD>TPG, Gate type</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.PerArea_cm"
+>PerArea_cm</A></TD><TD>m_surfaceStateDensity.start</TD><TD>0.0</TD><TD>NSS, Gate type [1/cm2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond"
+>Area_cmPerVoltageSecond</A></TD><TD>m_surfaceMobility.start</TD><TD>600.0</TD><TD>UO, Surface mobility [cm2/(V.s)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>m_latDiff.start</TD><TD>0.0</TD><TD>LD, Lateral diffusion [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Current</A></TD><TD>m_jctSatCur.start</TD><TD>1.0e-14</TD><TD>IS, Bulk junction sat. current [A]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>m_drainResistance.start</TD><TD>0</TD><TD>RD, Drain ohmic resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>m_sourceResistance.start</TD><TD>0</TD><TD>RS, Source ohmic resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>Transconductance</A></TD><TD>m_transconductance.start</TD><TD>2.0e-5</TD><TD>input - use tTransconductance [A/V2]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> Mos2ModelLineParams <font color="darkgreen">
+  &quot;Record for Mosfet model line parameters (for level 2)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineParams"
+>Mos.MosModelLineParams</A>(
+    m_lambda(start=0.0),
+    m_transconductance(start=2.0e-5),
+    m_bulkJctSideGradingCoeff(start=0.33),
+    m_oxideThickness(start=1.0e-7));
+
+  Real m_narrowFactor( start = 0.0) <font color="darkgreen">&quot;DELTA, Width effect on threshold&quot;</font>;
+  Real m_critFieldExp( start = 0.0) <font color="darkgreen">&quot;UEXP, Crit. field exp for mob. deg&quot;</font>;
+  Real m_critField( start = 1.0e4) <font color="darkgreen">&quot;UCRIT, Crit. field for mob. degradation&quot;</font>;
+  Real m_maxDriftVel( start = 0.0) <font color="darkgreen">&quot;VMAX, Maximum carrier drift velocity&quot;</font>;
+  Real m_junctionDepth( start = 0.0) <font color="darkgreen">&quot;XJ, Junction depth&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Modelica.SIunits.Charge</A> m_channelCharge( start = 1.0) <font color="darkgreen">
+    &quot;NEFF, Total channel charge coeff&quot;</font>;
+  Real m_fastSurfaceStateDensity( start = 0.0) <font color="darkgreen">
+    &quot;NFS, Fast surface state density&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Mos2ModelLineParams;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Mos2ModelLineVariables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.Mos2ModelLineVariables</H2>
+<B>Record for Mosfet model line variables (for level 2)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 2 SPICE3.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A> (Record for Mosfet model line variables (for level 1)).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> Mos2ModelLineVariables <font color="darkgreen">
+  &quot;Record for Mosfet model line variables (for level 2)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosModelLineVariables"
+>Mos.MosModelLineVariables</A>;
+
+  Real m_bulkCapFactor;
+  Real m_substrateDoping;
+  Real m_xd;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Mos2ModelLineVariables;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Mos2Calc<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.Mos2Calc</H2>
+<B>Further mosfet variables (for level 2)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This record Mos1Calc contains further mosfet variables (for level 2) that are needed for the calculations.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>Mos.MosCalc</A> (Further mosfet variables (for level 1, 2, 3 and 6)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Initialization</TD></TR>
+<TR><TD>Integer</TD><TD>m_mode.start</TD><TD>1</TD><TD>Mode</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Transconductance"
+>Transconductance</A></TD><TD>m_tTransconductance.start</TD><TD>0.</TD><TD>[A/V2]</TD></TR>
+<TR><TD>Real</TD><TD>m_tSurfMob.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_tPhi.start</TD><TD>0.7</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_tVto.start</TD><TD>1.</TD><TD>[V]</TD></TR>
+<TR><TD>Real</TD><TD>m_tSatCurDens.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Current</A></TD><TD>m_tDrainSatCur.start</TD><TD>0.</TD><TD>[A]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Current"
+>Current</A></TD><TD>m_tSourceSatCur.start</TD><TD>0.</TD><TD>[A]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_tCBDb.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_tCBDs.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_tCBSb.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_tCBSs.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD>Real</TD><TD>m_tCj.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_tCjsw.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_tBulkPot.start</TD><TD>0.7</TD><TD>[V]</TD></TR>
+<TR><TD>Real</TD><TD>m_tDepCap.start</TD><TD>0.35</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_tVbi.start</TD><TD>1.</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_VBScrit.start</TD><TD>0.7</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>m_VBDcrit.start</TD><TD>0.7</TD><TD>[V]</TD></TR>
+<TR><TD>Real</TD><TD>m_f1b.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_f2b.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_f3b.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_f1s.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_f2s.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_f3s.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>m_dVt.start</TD><TD>0.</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_capgd.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_capgs.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>m_capgb.start</TD><TD>0.</TD><TD>[F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Charge</A></TD><TD>m_qgs.start</TD><TD>0.</TD><TD>[C]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Charge</A></TD><TD>m_qgd.start</TD><TD>0.</TD><TD>[C]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Charge"
+>Charge</A></TD><TD>m_qgb.start</TD><TD>0.</TD><TD>[C]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> Mos2Calc <font color="darkgreen">&quot;Further mosfet variables (for level 2)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos.html#Modelica.Electrical.Spice3.Internal.Mos.MosCalc"
+>Mos.MosCalc</A>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Mos2Calc;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mos2ModelLineParamsInitEquations<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.mos2ModelLineParamsInitEquations"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.mos2ModelLineParamsInitEquations</H2>
+<B>Initial precalculation</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the mosfet model line parameters for level 2.</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record model line parameters for MOS2</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Spice constants</TD></TR>
+<TR><TD>Integer</TD><TD>in_m_type</TD><TD>&nbsp;</TD><TD>Type of MOS transistor</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2ModelLineVariables</A></TD><TD>out_v</TD><TD>Output record with model line variables</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mos2ModelLineParamsInitEquations <font color="darkgreen">&quot;Initial precalculation&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A> in_p <font color="darkgreen">&quot;Input record model line parameters for MOS2&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Spice constants&quot;</font>;
+  <font color="blue">input </font>Integer in_m_type <font color="darkgreen">&quot;Type of MOS transistor&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2ModelLineVariables</A> out_v <font color="darkgreen">&quot;Output record with model line variables&quot;</font>;
+
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vtnom;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> fermis;
+  Real fermig;
+  Real wkfng;
+  Real wkfngs;
+  Real egfet1;
+  Real vfb;
+
+<font color="blue">algorithm </font>
+  out_v.m_oxideCapFactor   := in_p.m_oxideCapFactor;
+  out_v.m_transconductance := in_p.m_transconductance;
+  out_v.m_phi              := in_p.m_phi;
+  out_v.m_gamma            := in_p.m_gamma;
+  out_v.m_vt0              := in_p.m_vt0;
+  out_v.m_substrateDoping  := in_p.m_substrateDoping;
+  out_v.m_bulkCapFactor    := in_p.m_bulkCapFactor;
+
+  vtnom                  := in_p.m_tnom * in_C.CONSTKoverQ;
+  egfet1                 := 1.16 - (7.02e-4 * in_p.m_tnom * in_p.m_tnom) / (in_p.m_tnom + 1108);
+  out_v.m_oxideCapFactor := 3.9 * 8.854214871e-12 / in_p.m_oxideThickness;
+
+  <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_transconductanceIsGiven &gt; 0.5))<font color="blue"> then</font>
+    out_v.m_transconductance := in_p.m_surfaceMobility * 1.0e-4 * out_v.m_oxideCapFactor;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font> (in_p.m_substrateDopingIsGiven &gt; 0.5)<font color="blue"> then</font>
+    <font color="blue">if </font>( out_v.m_substrateDoping * 1.0e6 &gt; 1.45e16)<font color="blue"> then</font>
+      <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_phiIsGiven &gt; 0.5))<font color="blue"> then</font>
+        out_v.m_phi := 2 * vtnom *<font color="red"> Modelica.Math.log</font>( out_v.m_substrateDoping * 1.0e6 / 1.45e16);
+        out_v.m_phi :=<font color="red"> max</font>( 0.1, out_v.m_phi);
+      <font color="blue">end if</font>;
+      fermis := in_m_type * 0.5 * out_v.m_phi;
+      wkfng  := 3.2;
+      <font color="blue">if </font>( in_p.m_gateType &lt;&gt; 0)<font color="blue"> then</font>
+        fermig := in_m_type * in_p.m_gateType * 0.5 * egfet1;
+        wkfng  := 3.25 + 0.5 * egfet1 - fermig;
+      <font color="blue">end if</font>;
+      wkfngs := wkfng - (3.25 + 0.5 * egfet1 + fermis);
+      <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_gammaIsGiven &gt; 0.5))<font color="blue"> then</font>
+        out_v.m_gamma :=<font color="red"> sqrt</font>(2.0 * 11.70 * 8.854214871e-12 * in_C.CHARGE * out_v.m_substrateDoping
+                           * 1.0e6) / out_v.m_oxideCapFactor;
+      <font color="blue">end if</font>;
+      <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_vtOIsGiven &gt; 0.5))<font color="blue"> then</font>
+        vfb         := wkfngs - in_p.m_surfaceStateDensity * 1.0e4 * in_C.CHARGE / out_v.m_oxideCapFactor;
+        out_v.m_vt0 := vfb + in_m_type * (out_v.m_gamma *<font color="red"> sqrt</font>(out_v.m_phi)+ out_v.m_phi);
+      <font color="blue">else</font>
+        vfb        := out_v.m_vt0 - in_m_type * (out_v.m_gamma *<font color="red"> sqrt</font>(out_v.m_phi) + out_v.m_phi);
+      <font color="blue">end if</font>;
+      out_v.m_xd :=<font color="red"> sqrt</font>( (in_C.EPSSIL + in_C.EPSSIL) / (in_C.CHARGE * out_v.m_substrateDoping * 1.0e6));
+    <font color="blue">else</font>
+      out_v.m_substrateDoping := 0.0;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>( <font color="blue">not </font>(in_p.m_bulkCapFactorIsGiven &gt; 0.5))<font color="blue"> then</font>
+    out_v.m_bulkCapFactor :=<font color="red"> sqrt</font>( in_C.EPSSIL * in_C.CHARGE * out_v.m_substrateDoping
+                              * 1e6 /(2 * in_p.m_bulkJctPotential));
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mos2ModelLineParamsInitEquations;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE drainCur<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.drainCur"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.drainCur</H2>
+<B>Drain current calculation</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function drainCur calculates the main currents that flows from drain node to source node (level 2).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>vbs</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>vgs</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>vds</TD><TD>&nbsp;</TD><TD>[V]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>in_m</TD><TD>&nbsp;</TD><TD>Record mosfet</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A></TD><TD>in_c</TD><TD>&nbsp;</TD><TD>Input record Mos2Calc</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A></TD><TD>in_p</TD><TD>&nbsp;</TD><TD>Input record model line parameters for MOS2</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>in_C</TD><TD>&nbsp;</TD><TD>Spice constants</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2ModelLineVariables</A></TD><TD>in_vp</TD><TD>&nbsp;</TD><TD>Input record model line variables</TD></TR>
+<TR><TD>Integer</TD><TD>in_m_type</TD><TD>&nbsp;</TD><TD>Type of MOS transistor</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A></TD><TD>out_c</TD><TD>Output record Mos2Calc</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> drainCur <font color="darkgreen">&quot;Drain current calculation&quot;</font>
+
+   <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vbs;
+   <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vgs;
+   <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> vds;
+
+   <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> in_m <font color="darkgreen">&quot;Record mosfet&quot;</font>;
+   <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A> in_c <font color="darkgreen">&quot;Input record Mos2Calc&quot;</font>;
+   <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A> in_p <font color="darkgreen">&quot;Input record model line parameters for MOS2&quot;</font>;
+   <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> in_C <font color="darkgreen">&quot;Spice constants&quot;</font>;
+   <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineVariables"
+>Mos2ModelLineVariables</A> in_vp <font color="darkgreen">&quot;Input record model line variables&quot;</font>;
+   <font color="blue">input </font>Integer in_m_type <font color="darkgreen">&quot;Type of MOS transistor&quot;</font>;
+
+   <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2Calc"
+>Mos2Calc</A> out_c <font color="darkgreen">&quot;Output record Mos2Calc&quot;</font>;
+
+<font color="blue">protected </font>
+  Real vt;<font color="darkgreen">      // K * T / Q</font>
+  Real beta1;
+  Real dsrgdb;
+  Real d2sdb2;
+  Real sphi = 0.0;
+  Real sphi3 = 1.0;<font color="darkgreen">    // square root of phi</font>
+  Real barg;
+  Real sarg;
+  Real bsarg = 0.0;
+  Real sarg3;
+  Real d2bdb2;
+  Real factor;
+  Real dbrgdb;
+  Real eta;
+  Real vbin;
+  Real vth;
+  Real dgddb2;
+  Real dgddvb;
+  Real dgdvds;
+  Real gamasd;
+  Real gammad;
+  Real xn =   1.0;
+  Real argg = 0.0;
+  Real vgst;
+  Real vgsx;
+  Real dgdvbs;
+  Real body;
+  Real bodys = 0.0;
+  Real gdbdv;
+  Real dodvbs;
+  Real dodvds = 0.0;
+  Real dxndvd = 0.0;
+  Real dxndvb = 0.0;
+  Real dudvgs;
+  Real dudvds;
+  Real dudvbs;
+  Real ufact;
+  Real ueff;
+  Real dsdvgs;
+  Real dsdvbs;
+  Real dbsrdb;
+  Real gdbdvs = 0.0;
+  Real dldvgs;
+  Real dldvds;
+  Real dldvbs;
+  Real clfact;
+  Real xleff;
+  Real deltal;
+  Real xwb;
+  Real xld;
+  Real xlamda = in_p.m_lambda;
+  Real phiMinVbs;
+  Real tmp;
+
+  Real argss;
+  Real argsd;
+  Real args = 0.0;
+  Real argd = 0.0;
+  Real argxs = 0.0;
+  Real argxd = 0.0;
+  Real dbargs;
+  Real dbargd;
+  Real dbxws;
+  Real dbxwd;
+  Real xwd;
+  Real xws;
+  Real daddb2;
+  Real dasdb2;
+  Real ddxwd;
+  Real cfs;
+  Real cdonco;
+  Real argv;
+  Real gammd2;
+  Real arg;
+  Real y3;
+  Real xvalid = 0.0;
+  Real[4] sig1;
+  Real[4] sig2;
+  Real[4] a4;
+  Real[4] b4;
+  Real[8] x4;
+  Real[8] poly4;
+  Real delta4;
+  Integer j;
+  Integer iknt = 0;
+  Integer i;
+  Integer jknt = 0;
+  Real v1;
+  Real v2;
+  Real xv;
+  Real a1;
+  Real b1;
+  Real c1;
+  Real d1;
+  Real b2;
+  Real r1;
+  Real s1;
+  Real s2;
+  Real p1;
+  Real p0;
+  Real p2;
+  Real a3;
+  Real b3;
+  Real sargv;
+  Real dldsat;
+  Real xlfact;
+  Real xdv;
+  Real xlv;
+  Real vqchan;
+  Real dqdsat;
+  Real vl;
+  Real dfunds;
+  Real dfundg;
+  Real dfundb;
+  Real xls;
+  Real dfact;
+  Real vdson;
+  Real cdson;
+  Real gdson;
+  Real didvds;
+  Real gmw;
+  Real gbson;
+  Real expg;
+
+<font color="blue">algorithm </font>
+   out_c := in_c;
+
+  vt := in_C.CONSTKoverQ * in_C.REFTEMP;
+
+  phiMinVbs := out_c.m_tPhi - vbs;
+  <font color="blue">if </font>( vbs &lt;= 0.0)<font color="blue"> then</font>
+    sarg   :=<font color="red"> sqrt</font>( phiMinVbs);
+    dsrgdb := -0.5 / sarg;
+    d2sdb2 := 0.5 * dsrgdb / phiMinVbs;
+  <font color="blue">else</font>
+    sphi   :=<font color="red">sqrt</font>(out_c.m_tPhi);
+    sphi3  :=out_c.m_tPhi*sphi;
+    sarg   :=sphi/(1.0 + 0.5*vbs/out_c.m_tPhi);
+    tmp    :=sarg/sphi3;
+    dsrgdb :=-0.5*sarg*tmp;
+    d2sdb2 :=-dsrgdb*tmp;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>( (vds-vbs) &gt;= 0)<font color="blue"> then</font>
+    barg   :=<font color="red"> sqrt</font>( phiMinVbs + vds);
+    dbrgdb := -0.5 / barg;
+    d2bdb2 := 0.5 * dbrgdb / (phiMinVbs + vds);
+  <font color="blue">else</font>
+    barg   := sphi / (1.0 + 0.5 * (vbs - vds) / out_c.m_tPhi);
+    tmp    := barg / sphi3;
+    dbrgdb := -0.5 * barg * tmp;
+    d2bdb2 := -dbrgdb * tmp;
+  <font color="blue">end if</font>;
+
+  factor := 0.125 * in_p.m_narrowFactor * 2.0 * Modelica.Constants.pi*in_C.EPSSIL / out_c.m_capOx * out_c.m_lEff;
+
+  eta    := 1.0 + factor;
+  vbin   := out_c.m_tVbi * in_m_type + factor * phiMinVbs;
+  <font color="blue">if </font>( (in_vp.m_gamma &gt; 0.0)<font color="blue"> or </font>(in_vp.m_substrateDoping &gt; 0.0))<font color="blue"> then</font>
+    xwd := in_vp.m_xd * barg;
+    xws := in_vp.m_xd * sarg;
+
+    argss  := 0.0;
+    argsd  := 0.0;
+    dbargs := 0.0;
+    dbargd := 0.0;
+    dgdvds := 0.0;
+    dgddb2 := 0.0;
+    <font color="blue">if </font>( in_p.m_junctionDepth &gt; 0)<font color="blue"> then</font>
+      tmp   := 2.0 / in_p.m_junctionDepth;
+      argxs := 1.0 + xws * tmp;
+      argxd := 1.0 + xwd * tmp;
+      args  :=<font color="red"> sqrt</font>( argxs);
+      argd  :=<font color="red"> sqrt</font>( argxd);
+      tmp   := 0.5 * in_p.m_junctionDepth / out_c.m_lEff;
+      argss := tmp * (args - 1.0);
+      argsd := tmp * (argd - 1.0);
+    <font color="blue">end if</font>;
+    gamasd := in_vp.m_gamma * (1.0 - argss - argsd);
+    dbxwd  := in_vp.m_xd * dbrgdb;
+    dbxws  := in_vp.m_xd * dsrgdb;
+    <font color="blue">if </font>( in_p.m_junctionDepth &gt; 0)<font color="blue"> then</font>
+      tmp    := 0.5 / out_c.m_lEff;
+      dbargs := tmp * dbxws / args;
+      dbargd := tmp * dbxwd / argd;
+      dasdb2 := -in_vp.m_xd * (d2sdb2 + dsrgdb * dsrgdb * in_vp.m_xd
+                / (in_p.m_junctionDepth * argxs)) / (out_c.m_lEff * args);
+      daddb2 := -in_vp.m_xd * (d2bdb2 + dbrgdb * dbrgdb * in_vp.m_xd
+                / (in_p.m_junctionDepth * argxd))
+                / (out_c.m_lEff * argd);
+      dgddb2 := -0.5 * in_vp.m_gamma * (dasdb2 + daddb2);
+    <font color="blue">end if</font>;
+    dgddvb := -in_vp.m_gamma * (dbargs + dbargd);
+    <font color="blue">if </font>( in_p.m_junctionDepth &gt; 0)<font color="blue"> then</font>
+      ddxwd  := -dbxwd;
+      dgdvds := -in_vp.m_gamma * 0.5 * ddxwd / (out_c.m_lEff * argd);
+    <font color="blue">end if</font>;
+  <font color="blue">else</font>
+    gamasd := in_vp.m_gamma;
+    gammad := in_vp.m_gamma;
+    dgddvb := 0.0;
+    dgdvds := 0.0;
+    dgddb2 := 0.0;
+  <font color="blue">end if</font>;
+
+  out_c.m_von   := vbin + gamasd * sarg;
+  vth           := out_c.m_von;
+  out_c.m_vdsat := 0.0;
+  <font color="blue">if </font>( in_p.m_fastSurfaceStateDensity &lt;&gt; 0.0<font color="blue"> and </font>out_c.m_capOx &lt;&gt; 0.0)<font color="blue"> then</font>
+    cfs          := in_C.CHARGE * in_p.m_fastSurfaceStateDensity * 1.0e4;
+    cdonco       := -(gamasd * dsrgdb + dgddvb * sarg) + factor;
+    xn           := 1.0 + cfs / out_c.m_capOx * in_m.m_width * out_c.m_lEff + cdonco;
+    tmp          := vt * xn;
+    out_c.m_von  := out_c.m_von + tmp;
+    argg         := 1.0 / tmp;
+    vgst         := vgs - out_c.m_von;
+  <font color="blue">else</font>
+    vgst := vgs - out_c.m_von;
+    <font color="blue">if </font>( vgs &lt;= out_c.m_von)<font color="blue"> then</font>
+      <font color="darkgreen">// cutoff region</font>
+      out_c.m_gds    := 0.0;
+      out_c.m_cdrain := 0.0;
+      out_c.m_gm     := 0.0;
+      out_c.m_gmbs   := 0.0;
+      return;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  sarg3  := sarg * sarg * sarg;
+  gammad := gamasd;
+  dgdvbs := dgddvb;
+  body   := barg * barg * barg - sarg3;
+  gdbdv  := 2.0 * gammad * (barg * barg * dbrgdb - sarg * sarg * dsrgdb);
+  dodvbs := -factor + dgdvbs * sarg + gammad * dsrgdb;
+
+  <font color="blue">if </font>( (in_p.m_fastSurfaceStateDensity &lt;&gt; 0.0)<font color="blue"> and </font>(out_c.m_capOx &lt;&gt; 0.0))<font color="blue"> then</font>
+    dxndvb := 2.0 * dgdvbs * dsrgdb + gammad * d2sdb2 + dgddb2 * sarg;
+    dodvbs := dodvbs + vt * dxndvb;
+    dxndvd := dgdvds * dsrgdb;
+    dodvds := dgdvds * sarg + vt * dxndvd;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// evaluate effective mobility and its derivatives</font>
+  ufact  := 1.0;
+  ueff   := in_p.m_surfaceMobility * 1e-4;
+  dudvgs := 0.0;
+  dudvds := 0.0;
+  dudvbs := 0.0;
+  <font color="blue">if </font>(out_c.m_capOx &gt; 0.0)<font color="blue"> then</font>
+    tmp := in_p.m_critField * in_C.EPSSIL * 100 / in_vp.m_oxideCapFactor;
+    <font color="blue">if </font>(vgst &gt; tmp)<font color="blue"> then</font>
+      ufact  :=<font color="red"> exp</font>( in_p.m_critFieldExp *<font color="red"> Modelica.Math.log</font>( tmp / vgst));
+      ueff   := in_p.m_surfaceMobility * 1.0e-4 * ufact;
+      dudvgs := -ufact * in_p.m_critFieldExp / vgst;
+      dudvds := 0.0;
+      dudvbs := in_p.m_critFieldExp * ufact * dodvbs / vgst;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// evaluate saturation voltage and its derivatives according to</font>
+  <font color="darkgreen">// grove-frohman equation</font>
+  vgsx   := vgs;
+  gammad := gamasd / eta;
+  dgdvbs := dgddvb;
+  <font color="blue">if </font>(in_p.m_fastSurfaceStateDensity &lt;&gt; 0<font color="blue"> and </font>out_c.m_capOx &lt;&gt; 0)<font color="blue"> then</font>
+    vgsx :=<font color="red"> max</font>( vgs, out_c.m_von);
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(gammad &gt; 0)<font color="blue"> then</font>
+    gammd2 := gammad * gammad;
+    argv   := (vgsx - vbin) / eta + phiMinVbs;
+    <font color="blue">if </font>(argv &lt;= 0.0)<font color="blue"> then</font>
+      out_c.m_vdsat := 0.0;
+      dsdvgs        := 0.0;
+      dsdvbs        := 0.0;
+    <font color="blue">else</font>
+      arg           :=<font color="red"> sqrt</font>( 1.0 + 4.0 * argv / gammd2);
+      out_c.m_vdsat := (vgsx - vbin) / eta + gammd2 * (1.0 - arg) / 2.0;
+      out_c.m_vdsat :=<font color="red"> max</font>( out_c.m_vdsat, 0.0);
+      dsdvgs        := (1.0 - 1.0 / arg) / eta;
+      dsdvbs        := (gammad * (1.0 - arg) + 2.0 * argv / (gammad * arg))
+                       / eta * dgdvbs + 1.0 / arg + factor * dsdvgs;
+    <font color="blue">end if</font>;
+  <font color="blue">else</font>
+    out_c.m_vdsat := (vgsx - vbin) / eta;
+    out_c.m_vdsat :=<font color="red"> max</font>( out_c.m_vdsat, 0.0);
+    dsdvgs        := 1.0;
+    dsdvbs        := 0.0;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(in_p.m_maxDriftVel &gt; 0)<font color="blue"> then</font>
+    <font color="darkgreen">// evaluate saturation voltage and its derivatives</font>
+    <font color="darkgreen">// according to baum&#39;s theory of scattering velocity saturation</font>
+    v1 := (vgsx - vbin) / eta + phiMinVbs;
+    v2 := phiMinVbs;
+    xv := in_p.m_maxDriftVel * out_c.m_lEff / ueff;
+    a1 := gammad / 0.75;
+    b1 := -2.0 * (v1 + xv);
+    c1 := -2.0 * gammad * xv;
+    d1 := 2.0 * v1 * (v2 + xv) - v2 * v2 - 4.0 / 3.0 * gammad * sarg3;
+    b2 := a1 * c1 - 4.0 * d1;
+    r1 := -b1 * b1 / 3.0 + b2;
+    s1 := 2.0 * b1 * b1 * (-b1) / 27.0 + b1 * b2 / 3.0 + (-d1) * (a1 * a1 - 4.0 * b1) - c1 * c1;
+    s2 := s1 * s1;
+    p1 := s2 / 4.0 + r1 * r1 * r1 / 27.0;
+    p0 :=<font color="red"> abs</font>( p1);
+    p2 :=<font color="red"> sqrt</font>( p0);
+
+    sig1[1] :=  1.0;
+    sig1[2] := -1.0;
+    sig1[3] :=  1.0;
+    sig1[4] := -1.0;
+    sig2[1] :=  1.0;
+    sig2[2] :=  1.0;
+    sig2[3] := -1.0;
+    sig2[4] := -1.0;
+
+    <font color="blue">if </font>(p1 &lt; 0)<font color="blue"> then</font>
+      y3 := 2.0 *<font color="red"> exp</font>(<font color="red"> Modelica.Math.log</font>(<font color="red"> sqrt</font>( s2 / 4.0 + p0)) / 3.0)
+            *<font color="red"> cos</font>(<font color="red"> Modelica.Math.atan</font>( -2.0 * p2 / s1) / 3.0) + b1 / 3.0;
+    <font color="blue">else</font>
+      y3 :=<font color="red"> exp</font>(<font color="red"> Modelica.Math.log</font>(<font color="red"> abs</font>( -s1 / 2.0 + p2)) / 3.0)
+            +<font color="red"> exp</font>(<font color="red"> Modelica.Math.log</font>(<font color="red"> abs</font>( -s1 / 2.0 - p2)) / 3.0)
+            + b1 / 3.0;
+    <font color="blue">end if</font>;
+
+    a3 :=<font color="red"> sqrt</font>( a1 * a1 / 4.0 - b1 + y3);
+    b3 :=<font color="red"> sqrt</font>( y3 * y3 / 4.0 - d1);
+
+    <font color="blue">for </font>i<font color="blue"> in </font>1:4<font color="blue"> loop</font>
+      a4[i]  := a1/2.0+sig1[i]*a3;
+      b4[i]  := y3/2.0+sig2[i]*b3;
+      delta4 := a4[i]*a4[i]/4.0-b4[i];
+      <font color="blue">if </font>(delta4 &gt;= 0)<font color="blue"> then</font>
+        iknt     := iknt+1;
+        tmp      :=<font color="red"> sqrt</font>(delta4);
+        x4[iknt] := -a4[i]/2.0+tmp;
+        iknt     := iknt+1;
+        x4[iknt] := -a4[i]/2.0-tmp;
+      <font color="blue">end if</font>;
+    <font color="blue">end for</font>;
+    jknt := 0;
+    <font color="blue">for </font>j<font color="blue"> in </font>1:iknt<font color="blue"> loop</font>
+      <font color="blue">if </font>(x4[j] &gt; 0)<font color="blue"> then</font>
+        poly4[j] := x4[j]*x4[j]*x4[j]*x4[j]+a1*x4[j]*x4[j]*x4[j];
+        poly4[j] := poly4[j]+b1*x4[j]*x4[j]+c1*x4[j]+d1;
+        <font color="blue">if </font>(<font color="red">abs</font>(poly4[j]) &lt;= 1.0e-6)<font color="blue"> then</font>
+          jknt := jknt+1;
+          <font color="blue">if </font>(jknt &lt;= 1)<font color="blue"> then</font>
+            xvalid := x4[j];
+          <font color="blue">end if</font>;
+          <font color="blue">if </font>(x4[j] &lt;= xvalid)<font color="blue"> then</font>
+            xvalid := x4[j];
+          <font color="blue">end if</font>;
+        <font color="blue">end if</font>;
+      <font color="blue">end if</font>;
+    <font color="blue">end for</font>;
+
+    <font color="blue">if </font>(jknt &gt; 0)<font color="blue"> then</font>
+      out_c.m_vdsat := xvalid * xvalid - phiMinVbs;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// evaluate effective channel length and its derivatives</font>
+  dldvgs := 0.0;
+  dldvds := 0.0;
+  dldvbs := 0.0;
+  <font color="blue">if </font>(vds &lt;&gt; 0.0)<font color="blue"> then</font>
+    gammad :=gamasd;
+    <font color="blue">if </font>((vbs - out_c.m_vdsat) &lt;= 0)<font color="blue"> then</font>
+      bsarg  :=<font color="red"> sqrt</font>(out_c.m_vdsat + phiMinVbs);
+      dbsrdb := -0.5 / bsarg;
+    <font color="blue">else</font>
+      bsarg  :=sphi/(1.0 + 0.5*(vbs - out_c.m_vdsat)/out_c.m_tPhi);
+      dbsrdb :=-0.5*bsarg*bsarg/sphi3;
+    <font color="blue">end if</font>;
+    bodys  := bsarg * bsarg * bsarg - sarg3;
+    gdbdvs := 2.0 * gammad * (bsarg * bsarg * dbsrdb - sarg * sarg * dsrgdb);
+    <font color="blue">if </font>(in_p.m_maxDriftVel &lt;= 0)<font color="blue"> then</font>
+      <font color="blue">if </font>(in_vp.m_substrateDoping &lt;&gt; 0.0<font color="blue"> and </font>(xlamda &lt;= 0.0))<font color="blue"> then</font>
+        argv   := (vds - out_c.m_vdsat) / 4.0;
+        sargv  :=<font color="red"> sqrt</font>(1.0 + argv * argv);
+        arg    :=<font color="red"> sqrt</font>(argv + sargv);
+        xlfact := in_vp.m_xd / (out_c.m_lEff * vds);
+        xlamda := xlfact * arg;
+        dldsat := vds * xlamda / (8.0 * sargv);
+
+        dldvgs := dldsat * dsdvgs;
+        dldvds := -xlamda + dldsat;
+        dldvbs := dldsat * dsdvbs;
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      argv   := (vgsx - vbin) / eta - out_c.m_vdsat;
+      xdv    := in_vp.m_xd /<font color="red"> sqrt</font>(in_p.m_channelCharge);
+      xlv    := in_p.m_maxDriftVel * xdv / (2.0 * ueff);
+      vqchan := argv - gammad * bsarg;
+      dqdsat := -1.0 + gammad * dbsrdb;
+      vl     := in_p.m_maxDriftVel *out_c. m_lEff;
+      dfunds := vl * dqdsat - ueff * vqchan;
+      dfundg := (vl - ueff * out_c.m_vdsat) / eta;
+      dfundb := -vl * (1.0 + dqdsat - factor / eta) + ueff *
+         (gdbdvs - dgdvbs * bodys / 1.5) / eta;
+      dsdvgs := -dfundg / dfunds;
+      dsdvbs := -dfundb / dfunds;
+      <font color="blue">if </font>((in_vp.m_substrateDoping &lt;&gt; 0.0)<font color="blue"> and </font>(xlamda &lt;= 0.0))<font color="blue"> then</font>
+        argv   := vds - out_c.m_vdsat;
+        argv   :=<font color="red"> max</font>(argv,0.0);
+        xls    :=<font color="red"> sqrt</font>(xlv * xlv + argv);
+        dldsat := xdv / (2.0 * xls);
+        xlfact := xdv / (out_c.m_lEff * vds);
+        xlamda := xlfact * (xls - xlv);
+        dldsat := dldsat / out_c.m_lEff;
+
+        dldvgs := dldsat * dsdvgs;
+        dldvds := -xlamda + dldsat;
+        dldvbs := dldsat * dsdvbs;
+      <font color="blue">end if</font>;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// limit channel shortening at punch-through</font>
+  xwb    :=in_vp.m_xd*<font color="red">sqrt</font>(out_c.m_tBulkPot);
+  xld    :=out_c.m_lEff - xwb;
+  clfact :=1.0 - xlamda*vds;
+  dldvds :=-xlamda - dldvds;
+  xleff  :=out_c.m_lEff*clfact;
+  deltal :=xlamda*vds*out_c.m_lEff;
+  <font color="blue">if </font>(in_vp.m_substrateDoping == 0.0)<font color="blue"> then</font>
+    xwb := 0.25e-6;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>(xleff &lt; xwb)<font color="blue"> then</font>
+    xleff  := xwb / (1.0 + (deltal - xld) / xwb);
+    clfact := xleff / out_c.m_lEff;
+    dfact  := xleff * xleff / (xwb * xwb);
+    dldvgs := dfact * dldvgs;
+    dldvds := dfact * dldvds;
+    dldvbs := dfact * dldvbs;
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// evaluate effective beta (effective kp)</font>
+  beta1 := out_c.m_Beta * ufact / clfact;
+
+  <font color="darkgreen">// test for mode of operation and branch appropriately</font>
+  gammad := gamasd;
+  dgdvbs := dgddvb;
+  <font color="blue">if </font>(vds &lt;= 1.0e-10)<font color="blue"> then</font>
+    <font color="blue">if </font>(vgs &lt;= out_c.m_von)<font color="blue"> then</font>
+      <font color="blue">if </font>((in_p.m_fastSurfaceStateDensity == 0.0)<font color="blue"> or </font>(out_c.m_capOx == 0.0))<font color="blue"> then</font>
+        out_c.m_gds := 0.0;
+      <font color="blue">else</font>
+        out_c.m_gds := beta1 * (out_c.m_von - vbin - gammad * sarg) *<font color="red"> exp</font>(argg * (vgs - out_c.m_von));
+      <font color="blue">end if</font>;
+    <font color="blue">else</font>
+      out_c.m_gds :=beta1*(vgs - vbin - gammad*sarg);
+    <font color="blue">end if</font>;
+    out_c.m_cdrain :=0.0;
+    out_c.m_gm     :=0.0;
+    out_c.m_gmbs   :=0.0;
+    return;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>(vgs &lt;= out_c.m_von)<font color="blue"> then</font>
+    <font color="darkgreen">// subthreshold region</font>
+    <font color="blue">if </font>(out_c.m_vdsat &lt;= 0)<font color="blue"> then</font>
+      out_c.m_gds    := 0.0;
+      <font color="blue">if </font>(vgs &gt; vth)<font color="blue"> then</font>
+        return;
+      <font color="blue">end if</font>;
+      out_c.m_cdrain := 0.0;
+      out_c.m_gm     := 0.0;
+      out_c.m_gmbs   := 0.0;
+      return;
+    <font color="blue">end if</font>;
+    vdson :=<font color="red"> min</font>(out_c.m_vdsat, vds);
+    <font color="blue">if </font>(vds &gt; out_c.m_vdsat)<font color="blue"> then</font>
+      barg   := bsarg;
+      dbrgdb := dbsrdb;
+      body   := bodys;
+      gdbdv  := gdbdvs;
+    <font color="blue">end if</font>;
+    cdson  := beta1 * ((out_c.m_von - vbin - eta * vdson * 0.5) * vdson - gammad * body / 1.5);
+    didvds := beta1 * (out_c.m_von - vbin - eta * vdson - gammad * barg);
+    gdson  := -cdson * dldvds / clfact - beta1 * dgdvds * body / 1.5;
+    <font color="blue">if </font>(vds &lt; out_c.m_vdsat)<font color="blue"> then</font>
+      gdson := gdson + didvds;
+    <font color="blue">end if</font>;
+    gbson := -cdson * dldvbs / clfact + beta1 *
+             (dodvbs * vdson + factor * vdson - dgdvbs * body / 1.5 - gdbdv);
+    <font color="blue">if </font>(vds &gt; out_c.m_vdsat)<font color="blue"> then</font>
+      gbson := gbson + didvds * dsdvbs;
+    <font color="blue">end if</font>;
+    expg           :=<font color="red"> exp</font>(argg * (vgs - out_c.m_von));
+    out_c.m_cdrain := cdson * expg;
+    gmw            := out_c.m_cdrain * argg;
+    out_c.m_gm     := gmw;
+    <font color="blue">if </font>(vds &gt; out_c.m_vdsat)<font color="blue"> then</font>
+      out_c.m_gm := gmw + didvds * dsdvgs * expg;
+    <font color="blue">end if</font>;
+    tmp          := gmw * (vgs - out_c.m_von) / xn;
+    out_c.m_gds  := gdson * expg - out_c.m_gm * dodvds - tmp * dxndvd;
+    out_c.m_gmbs := gbson * expg - out_c.m_gm * dodvbs - tmp * dxndvb;
+  <font color="blue">elseif </font>(vds &lt;= out_c.m_vdsat)<font color="blue"> then</font>
+    <font color="darkgreen">// linear region</font>
+    out_c.m_cdrain := beta1 * ((vgs - vbin - eta * vds / 2.0) * vds - gammad * body / 1.5);
+    arg            := out_c.m_cdrain * (dudvgs / ufact - dldvgs / clfact);
+    out_c.m_gm     := arg + beta1 * vds;
+    arg            := out_c.m_cdrain * (dudvds / ufact - dldvds / clfact);
+    out_c.m_gds    := arg + beta1 * (vgs - vbin - eta *
+                      vds - gammad * barg - dgdvds * body / 1.5);
+    arg            := out_c.m_cdrain * (dudvbs / ufact - dldvbs / clfact);
+    out_c.m_gmbs   := arg - beta1 * (gdbdv + dgdvbs * body / 1.5 - factor * vds);
+  <font color="blue">else</font>
+    <font color="darkgreen">// saturation region</font>
+    out_c.m_cdrain := beta1 * ((vgs - vbin - eta *
+                     out_c.m_vdsat / 2.0) * out_c.m_vdsat - gammad * bodys / 1.5);
+    arg            := out_c.m_cdrain * (dudvgs / ufact - dldvgs / clfact);
+    out_c.m_gm     := arg + beta1 * out_c.m_vdsat
+                     + beta1 * (vgs - vbin - eta * out_c.m_vdsat - gammad * bsarg) * dsdvgs;
+    out_c.m_gds    := -out_c.m_cdrain * dldvds / clfact - beta1 * dgdvds * bodys / 1.5;
+    arg            := out_c.m_cdrain * (dudvbs / ufact - dldvbs / clfact);
+    out_c.m_gmbs   := arg - beta1 * (gdbdvs + dgdvbs * bodys / 1.5 - factor * out_c.m_vdsat)
+                     + beta1 *  (vgs - vbin - eta * out_c.m_vdsat - gammad * bsarg) * dsdvbs;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>drainCur;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mos2RenameParameters<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParameters"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.mos2RenameParameters</H2>
+<B>Parameter renaming to internal names</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mos2RenameParameters assigns the external (given by the user, e.g., RD) technology parameters
+to the internal parameters (e.g., m_drainResistance). It also does the analysis of the IsGiven values (level 2).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS2"
+>ModelcardMOS2</A></TD><TD>ex</TD><TD>&nbsp;</TD><TD>Modelcard with technologie parameters</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A></TD><TD>con</TD><TD>&nbsp;</TD><TD>Spice constants</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A></TD><TD>intern</TD><TD>Output record model line parameters</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mos2RenameParameters <font color="darkgreen">&quot;Parameter renaming to internal names&quot;</font>
+
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS2"
+>ModelcardMOS2</A> ex <font color="darkgreen">&quot;Modelcard with technologie parameters&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.SpiceConstants"
+>SpiceConstants</A> con <font color="darkgreen">&quot;Spice constants&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams"
+>Mos2ModelLineParams</A> intern <font color="darkgreen">&quot;Output record model line parameters&quot;</font>;
+
+<font color="blue">algorithm </font>
+   intern.m_narrowFactor := ex.DELTA;<font color="darkgreen">           // DELTA, Width effect on threshold</font>
+   intern.m_critFieldExp := ex.UEXP;<font color="darkgreen">            // UEXP, Crit. field exp for mob. deg</font>
+   intern.m_critField := ex.UCRIT;<font color="darkgreen">              // UCRIT, Crit. field for mob. degradation</font>
+   intern.m_maxDriftVel := ex.VMAX;<font color="darkgreen">             // VMAX, Maximum carrier drift velocity</font>
+   intern.m_junctionDepth := ex.XJ;<font color="darkgreen">             // XJ, Junction depth</font>
+   intern.m_channelCharge := ex.NEFF;<font color="darkgreen">           // NEFF, Total channel charge coeff</font>
+   intern.m_fastSurfaceStateDensity := ex.NFS;<font color="darkgreen">  // NFS, Fast surface state density</font>
+
+   intern.m_oxideCapFactor := 0;
+
+    intern.m_vtOIsGiven := <font color="blue">if </font>         (ex.VTO &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_vt0 := <font color="blue">if </font>        (ex.VTO &gt; -1e40)<font color="blue"> then </font>ex.VTO<font color="blue"> else </font>0;
+
+    intern.m_capBDIsGiven := <font color="blue">if </font>         (ex.CBD &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_capBD := <font color="blue">if </font>        (ex.CBD &gt; -1e40)<font color="blue"> then </font>ex.CBD<font color="blue"> else </font>0;
+
+    intern.m_capBSIsGiven := <font color="blue">if </font>         (ex.CBS &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_capBS := <font color="blue">if </font>        (ex.CBS &gt; -1e40)<font color="blue"> then </font>ex.CBS<font color="blue"> else </font>0;
+
+    intern.m_bulkCapFactor := ex.CJ;<font color="darkgreen">           // F/(m*m) zero-bias bulk junction bottom cap. per sq-meter of junction area (default 0)</font>
+    intern.m_sideWallCapFactor := ex.CJSW;<font color="darkgreen">     // F/m zero-bias junction sidewall cap. per meter of junction perimeter (default 0)</font>
+    intern.m_fwdCapDepCoeff := ex.FC;<font color="darkgreen">          // coefficient for forward-bias depletion capacitance formula (default 0.5)</font>
+
+    intern.m_phiIsGiven := <font color="blue">if </font>         (ex.PHI &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_phi := <font color="blue">if </font>        (ex.PHI &gt; -1e40)<font color="blue"> then </font>ex.PHI<font color="blue"> else </font>0.6;
+
+    intern.m_gammaIsGiven := <font color="blue">if </font>         (ex.GAMMA &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_gamma := <font color="blue">if </font>        (ex.GAMMA &gt; -1e40)<font color="blue"> then </font>ex.GAMMA<font color="blue"> else </font>0;
+
+    intern.m_lambda := ex.LAMBDA;<font color="darkgreen">              // 1/V channel-length modulation (default 0)</font>
+
+    intern.m_substrateDopingIsGiven := <font color="blue">if </font>         (ex.NSUB &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_substrateDoping := <font color="blue">if </font>        (ex.NSUB &gt; -1e40)<font color="blue"> then </font>ex.NSUB<font color="blue"> else </font>0;
+
+    intern.m_gateType := ex.TPG;<font color="darkgreen">               // type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate (default 1)</font>
+    intern.m_surfaceStateDensity := ex.NSS;<font color="darkgreen">    // 1/(cm*cm) surface state density (default 0)</font>
+    intern.m_surfaceMobility := ex.UO;<font color="darkgreen">         // (cm*cm)/(Vs) surface mobility (default 600)</font>
+    intern.m_latDiff := ex.LD;<font color="darkgreen">                 // m lateral diffusion (default 0)</font>
+    intern.m_jctSatCur := ex.IS;<font color="darkgreen">               // A bulk junction saturation current (defaul 1e-14)</font>
+
+    intern.m_drainResistanceIsGiven := <font color="blue">if </font>
+                                         (ex.RD &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_drainResistance := <font color="blue">if </font>
+                                 (ex.RD &gt; -1e40)<font color="blue"> then </font>ex.RD<font color="blue"> else </font>0;
+
+          intern.m_sourceResistanceIsGiven := <font color="blue">if </font>
+                                         (ex.RS &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_sourceResistance := <font color="blue">if </font>
+                                 (ex.RS &gt; -1e40)<font color="blue"> then </font>ex.RS<font color="blue"> else </font>0;
+
+    intern.m_transconductanceIsGiven := <font color="blue">if </font>         (ex.KP &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    intern.m_transconductance := <font color="blue">if </font>        (ex.KP &gt; -1e40)<font color="blue"> then </font>ex.KP<font color="blue"> else </font>2e-5;
+
+  intern.m_tnom := <font color="blue">if </font>(ex.TNOM &gt; -1e40)<font color="blue"> then </font>ex.TNOM + SpiceConstants.CONSTCtoK<font color="blue"> else </font>
+    300.15;
+
+   intern.m_jctSatCurDensity := ex.JS;<font color="darkgreen">             // A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)</font>
+   intern.m_sheetResistance := ex.RSH;<font color="darkgreen">             // Ohm drain and source diffusion sheet resistance (default 0)</font>
+   intern.m_bulkJctPotential := ex.PB;<font color="darkgreen">             // V bulk junction potential (default 0.8)</font>
+   intern.m_bulkJctBotGradingCoeff := ex.MJ;<font color="darkgreen">       // bulk junction bottom grading coeff. (default 0.5)</font>
+   intern.m_bulkJctSideGradingCoeff := ex.MJSW;<font color="darkgreen">    // bulk junction sidewall grading coeff. (default 0.5)</font>
+
+   intern.m_oxideThickness := ex.TOX;<font color="darkgreen">              // m oxide thickness (default 1e-7)</font>
+
+   intern.m_oxideThicknessIsGiven := <font color="blue">if </font>         (ex.TOX &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+   intern.m_oxideThickness := <font color="blue">if </font>        (ex.TOX &gt; -1e40)<font color="blue"> then </font>ex.TOX<font color="blue"> else </font>1e-7;
+
+   intern.m_gateSourceOverlapCapFactor := ex.CGSO;<font color="darkgreen"> // F/m gate-source overlap capacitance per meter channel width (default 0)</font>
+   intern.m_gateDrainOverlapCapFactor := ex.CGDO;<font color="darkgreen">  // F/m gate-drain overlap capacitance per meter channel width (default 0)</font>
+   intern.m_gateBulkOverlapCapFactor := ex.CGBO;<font color="darkgreen">   // F/m gate-bulk overlap capacitance per meter channel width (default 0)</font>
+   intern.m_fNcoef := ex.KF;<font color="darkgreen">                       // flicker-noise coefficient (default 0)</font>
+   intern.m_fNexp := ex.AF;<font color="darkgreen">                        // flicker-noise exponent (default 1)</font>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mos2RenameParameters;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE mos2RenameParametersDev<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Internal.Mos2.mos2RenameParametersDev"></A><A HREF="Modelica_Electrical_Spice3_Internal_Mos2.html#Modelica.Electrical.Spice3.Internal.Mos2"
+>Modelica.Electrical.Spice3.Internal.Mos2</A>.mos2RenameParametersDev</H2>
+<B>Device parameter renaming to internal names</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This function mos2RenameParameters assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 2).</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS2"
+>ModelcardMOS2</A></TD><TD>ex</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Integer</TD><TD>mtype</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>W</TD><TD>&nbsp;</TD><TD>Width of channel region [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>&nbsp;</TD><TD>Length of channel region [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>AD</TD><TD>&nbsp;</TD><TD>Area of drain diffusion [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>AS</TD><TD>&nbsp;</TD><TD>Area of source diffusion [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>PD</TD><TD>&nbsp;</TD><TD>Drain perimeter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>PS</TD><TD>&nbsp;</TD><TD>Source perimeter [m]</TD></TR>
+<TR><TD>Real</TD><TD>NRD</TD><TD>&nbsp;</TD><TD>Length of drain squares</TD></TR>
+<TR><TD>Real</TD><TD>NRS</TD><TD>&nbsp;</TD><TD>Length of Source squares</TD></TR>
+<TR><TD>Integer</TD><TD>OFF</TD><TD>&nbsp;</TD><TD>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</TD></TR>
+<TR><TD>Real</TD><TD>IC</TD><TD>&nbsp;</TD><TD>Initial condition values, not implemented yet</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_C"
+>Temp_C</A></TD><TD>TEMP</TD><TD>&nbsp;</TD><TD>Temperature [degC]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet</A></TD><TD>dev</TD><TD>Output record Mosfet</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> mos2RenameParametersDev <font color="darkgreen">
+  &quot;Device parameter renaming to internal names&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS2"
+>ModelcardMOS2</A> ex;
+  <font color="blue">input </font>Integer mtype;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> W <font color="darkgreen">&quot;Width of channel region&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> L <font color="darkgreen">&quot;Length of channel region&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> AD <font color="darkgreen">&quot;Area of drain diffusion&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> AS <font color="darkgreen">&quot;Area of source diffusion&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> PD <font color="darkgreen">&quot;Drain perimeter&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> PS <font color="darkgreen">&quot;Source perimeter&quot;</font>;
+  <font color="blue">input </font>Real NRD <font color="darkgreen">&quot;Length of drain squares&quot;</font>;
+  <font color="blue">input </font>Real NRS <font color="darkgreen">&quot;Length of Source squares&quot;</font>;
+  <font color="blue">input </font>Integer OFF <font color="darkgreen">
+    &quot;Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet&quot;</font>;
+  <font color="blue">input </font>Real IC <font color="darkgreen">&quot;Initial condition values, not implemented yet&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_C"
+>Modelica.SIunits.Temp_C</A> TEMP <font color="darkgreen">&quot;Temperature&quot;</font>;
+
+  <font color="blue">output </font><A HREF="Modelica_Electrical_Spice3_Internal_Mosfet.html#Modelica.Electrical.Spice3.Internal.Mosfet.Mosfet"
+>Mosfet.Mosfet</A> dev <font color="darkgreen">&quot;Output record Mosfet&quot;</font>;
+
+<font color="blue">algorithm </font>
+<font color="darkgreen">/*device parameters*/</font>
+  dev.m_len := L;<font color="darkgreen">               // L, length of channel region</font>
+  dev.m_width := W;<font color="darkgreen">             // W, width of channel region</font>
+  dev.m_drainArea := AD;<font color="darkgreen">        // AD, area of drain diffusion</font>
+  dev.m_sourceArea := AS;<font color="darkgreen">       // AS, area of source diffusion</font>
+  dev.m_drainSquares := NRD;<font color="darkgreen">    // NRD, length of drain in squares</font>
+  dev.m_sourceSquares := NRS;<font color="darkgreen">   // NRS, length of source in squares</font>
+  dev.m_drainPerimiter := PD;<font color="darkgreen">   // PD, Drain perimeter;</font>
+  dev.m_sourcePerimiter := PS;<font color="darkgreen">  // PS, Source perimeter</font>
+
+    dev.m_dICVDSIsGiven := <font color="blue">if </font>         (IC &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    dev.m_dICVDS := <font color="blue">if </font>        (IC &gt; -1e40)<font color="blue"> then </font>IC<font color="blue"> else </font>0;
+
+    dev.m_dICVGSIsGiven := <font color="blue">if </font>         (IC &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    dev.m_dICVGS := <font color="blue">if </font>        (IC &gt; -1e40)<font color="blue"> then </font>IC<font color="blue"> else </font>0;
+
+    dev.m_dICVBSIsGiven := <font color="blue">if </font>         (IC &gt; -1e40)<font color="blue"> then </font>1<font color="blue"> else </font>0;
+    dev.m_dICVBS := <font color="blue">if </font>        (IC &gt; -1e40)<font color="blue"> then </font>IC<font color="blue"> else </font>0;
+
+  dev.m_off := OFF;<font color="darkgreen">             // non-zero to indicate device is off for dc analysis</font>
+  dev.m_bPMOS := mtype;<font color="darkgreen">         // P type MOSfet model</font>
+  dev.m_nLevel := ex.LEVEL;
+  <font color="red">assert</font>(ex.LEVEL== 1, &quot;only MOS Level1 implemented&quot;);
+  dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>mos2RenameParametersDev;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:47 2010.
+</address></BODY>
+</HTML>

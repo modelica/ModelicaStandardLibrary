@@ -1,0 +1,1125 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.FluidHeatFlow.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Examples that demonstrate the usage of the FluidHeatFlow components&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.FluidHeatFlow.Examples"></A><A HREF="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</A>.Examples</H2>
+<B>Examples that demonstrate the usage of the FluidHeatFlow components</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This package contains test examples:
+<ul>
+<li>1.SimpleCooling: heat is dissipated through a media flow</li>
+<li>2.ParallelCooling: two heat sources dissipate through merged media flows</li>
+<li>3.IndirectCooling: heat is disspated through two cooling cycles</li>
+<li>4.PumpAndValve: demonstrates usage of an IdealPump and a Valve</li>
+<li>5.PumpDropOut: demonstrates shutdown and restart of a pump</li>
+<li>6.ParallelPumpDropOut: demonstrates shutdown and restart of a pump in a parallel circuit</li>
+<li>7.OneMass: cooling of a mass (thermal capacity) by a coolant flow</li>
+<li>8.TwoMass: cooling of two masses (thermal capacities) by two parallel coolant flows</li>
+</ul>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting &amp; Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+</p>
+  <p>
+  Dr.Christian Kral<br>
+  <a href="http://www.ait.ac.at/">Austrian Institute of Technology, AIT</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
+</p>
+  </dd>
+</dl>
+<p>
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+</p>
+
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+>Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="http://www.modelica.org/licenses/ModelicaLicense2"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling"
+>SimpleCooling</A>
+</TD><TD>Example: simple cooling circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling"
+>ParallelCooling</A>
+</TD><TD>Example: coolig circuit with parallel branches</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling"
+>IndirectCooling</A>
+</TD><TD>Example: indirect cooling circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve"
+>PumpAndValve</A>
+</TD><TD>Example: cooling circuit with pump and valve</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut"
+>PumpDropOut</A>
+</TD><TD>Example: cooling circuit with drop out of pump</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut"
+>ParallelPumpDropOut</A>
+</TD><TD>Example: cooling circuit with parallel branches and drop out of pump</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.OneMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.OneMass"
+>OneMass</A>
+</TD><TD>Example: ccoling of one hot mass</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples.TwoMass"
+>TwoMass</A>
+</TD><TD>Example: cooling of two hot masses</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.UtilitiesS.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.Utilities" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Examples_Utilities.html#Modelica.Thermal.FluidHeatFlow.Examples.Utilities"
+>Utilities</A>
+</TD><TD>Utility models for examples</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleCooling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.SimpleCooling</H2>
+<B>Example: simple cooling circuit</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCooling">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+1st test example: SimpleCooling
+</p>
+A prescribed heat source dissipates its heat through a thermal conductor to a coolant flow. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow.<br>
+<b>Results</b>:<br>
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource</td>
+<td valign="top">Source over Ambient</td>
+<td valign="top">dtCoolant + dtToPipe</td>
+<td valign="top">20 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe</td>
+<td valign="top">Source over Coolant</td>
+<td valign="top">Losses / ThermalConductor.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCoolant</td>
+<td valign="top">Coolant's temperature increase</td>
+<td valign="top">Losses * cp * massFlow</td>
+<td valign="top">10 K</td>
+</tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SimpleCooling <font color="darkgreen">&quot;Example: simple cooling circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource=
+    prescribedHeatFlow.port.T-TAmb <font color="darkgreen">&quot;Source over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe=prescribedHeatFlow.port.T-pipe.heatPort.T <font color="darkgreen">
+    &quot;Source over Coolant&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant=pipe.dT <font color="darkgreen">
+    &quot;Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> pump(
+    medium=medium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> volumeFlow(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow(k=10);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> convection;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance(k=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, pump.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe.flowPort_a);
+  <font color="red">connect</font>(pipe.flowPort_b, ambient2.flowPort);
+  <font color="red">connect</font>(heatFlow.y, prescribedHeatFlow.Q_flow);
+  <font color="red">connect</font>(convection.solid, prescribedHeatFlow.port);
+  <font color="red">connect</font>(convection.solid, heatCapacitor.port);
+  <font color="red">connect</font>(pipe.heatPort, convection.fluid);
+  <font color="red">connect</font>(thermalConductance.y, convection.Gc);
+  <font color="red">connect</font>(volumeFlow.y, pump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>SimpleCooling;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ParallelCooling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.ParallelCooling</H2>
+<B>Example: coolig circuit with parallel branches</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCoolingD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelCooling">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+2nd test example: ParallelCooling
+</p>
+Two prescribed heat sources dissipate their heat through thermal conductors to coolant flows. The coolant flow is taken from an ambient and driven by a pump with prescribed mass flow, then splitted into two coolant flows connected to the two heat sources, and afterwards merged. Splitting of coolant flows is determined by pressure drop characteristic of the two pipes.<br>
+<b>Results</b>:<br>
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource1</td>
+<td valign="top">Source1 over Ambient</td>
+<td valign="top">dTCoolant1 + dTtoPipe1</td>
+<td valign="top">15 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe1</td>
+<td valign="top">Source1 over Coolant1</td>
+<td valign="top">Losses1 / ThermalConductor1.G</td>
+<td valign="top"> 5 K</td>
+</tr>
+<tr>
+<td valign="top">dTCoolant1</td>
+<td valign="top">Coolant's temperature increase</td>
+<td valign="top">Losses * cp * totalMassFlow/2</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTSource2</td>
+<td valign="top">Source2 over Ambient</td>
+<td valign="top">dTCoolant2 + dTtoPipe2</td>
+<td valign="top">30 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe2</td>
+<td valign="top">Source2 over Coolant2</td>
+<td valign="top">Losses2 / ThermalConductor2.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCoolant2</td>
+<td valign="top">Coolant's temperature increase</td>
+<td valign="top">Losses * cp * totalMassFlow/2</td>
+<td valign="top">20 K</td>
+</tr>
+<tr>
+<td valign="top">dTmixedCoolant</td>
+<td valign="top">mixed Coolant's temperature increase</td>
+<td valign="top">(dTCoolant1+dTCoolant2)/2</td>
+<td valign="top">15 K</td>
+</tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ParallelCooling <font color="darkgreen">
+  &quot;Example: coolig circuit with parallel branches&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource1=
+    prescribedHeatFlow1.port.T-TAmb <font color="darkgreen">&quot;Source1 over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.heatPort.T <font color="darkgreen">
+    &quot;Source1 over Coolant1&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant1=pipe1.dT <font color="darkgreen">
+    &quot;Coolant1&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource2=
+    prescribedHeatFlow2.port.T-TAmb <font color="darkgreen">&quot;Source2 over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.heatPort.T <font color="darkgreen">
+    &quot;Source2 over Coolant2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant2=pipe2.dT <font color="darkgreen">
+    &quot;Coolant2&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTmixedCoolant=ambient2.T_port-ambient1.T_port <font color="darkgreen">
+    &quot;mixed Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> pump(
+    medium=medium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe1(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe2(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"
+>FluidHeatFlow.Components.IsolatedPipe</A> pipe3(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor1(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow1;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> convection1;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor2(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow2;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> convection2;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> volumeFlow(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow1(k=5);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow2(k=10);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance1(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance2(k=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, pump.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe1.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe2.flowPort_a);
+  <font color="red">connect</font>(heatFlow2.y,prescribedHeatFlow2. Q_flow);
+  <font color="red">connect</font>(heatFlow1.y,prescribedHeatFlow1. Q_flow);
+  <font color="red">connect</font>(thermalConductance2.y, convection2.Gc);
+  <font color="red">connect</font>(thermalConductance1.y, convection1.Gc);
+  <font color="red">connect</font>(pipe1.heatPort,convection1. fluid);
+  <font color="red">connect</font>(convection2.fluid,pipe2. heatPort);
+  <font color="red">connect</font>(convection2.solid,prescribedHeatFlow2. port);
+  <font color="red">connect</font>(convection2.solid,heatCapacitor2. port);
+  <font color="red">connect</font>(convection1.solid,prescribedHeatFlow1. port);
+  <font color="red">connect</font>(convection1.solid,heatCapacitor1. port);
+  <font color="red">connect</font>(pipe2.flowPort_b,pipe3. flowPort_a);
+  <font color="red">connect</font>(pipe1.flowPort_b,pipe3. flowPort_a);
+  <font color="red">connect</font>(pipe3.flowPort_b,ambient2. flowPort);
+  <font color="red">connect</font>(volumeFlow.y, pump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ParallelCooling;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IndirectCooling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.IndirectCooling</H2>
+<B>Example: indirect cooling circuit</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCoolingD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.IndirectCooling">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+3rd test example: IndirectCooling
+</p>
+A prescribed heat sources dissipates its heat through a thermal conductor to the inner coolant cycle. It is necessary to define the pressure level of the inner coolant cycle. The inner coolant cycle is coupled to the outer coolant flow through a thermal conductor.<br>
+Inner coolant's temperature rise near the source is the same as temperature drop near the cooler.<br>
+<b>Results</b>:<br>
+<table>
+<tr>
+<td valign="top"><b>output</b></td>
+<td valign="top"><b>explanation</b></td>
+<td valign="top"><b>formula</b></td>
+<td valign="top"><b>actual steady-state value</b></td>
+</tr>
+<tr>
+<td valign="top">dTSource</td>
+<td valign="top">Source over Ambient</td>
+<td valign="top">dtouterCoolant + dtCooler + dTinnerCoolant + dtToPipe</td>
+<td valign="top">40 K</td>
+</tr>
+<tr>
+<td valign="top">dTtoPipe</td>
+<td valign="top">Source over inner Coolant</td>
+<td valign="top">Losses / ThermalConductor.G</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTinnerColant</td>
+<td valign="top">inner Coolant's temperature increase</td>
+<td valign="top">Losses * cp * innerMassFlow</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTCooler</td>
+<td valign="top">Cooler's temperature rise between inner and outer pipes</td>
+<td valign="top">Losses * (innerGc + outerGc)</td>
+<td valign="top">10 K</td>
+</tr>
+<tr>
+<td valign="top">dTouterColant</td>
+<td valign="top">outer Coolant's temperature increase</td>
+<td valign="top">Losses * cp * outerMassFlow</td>
+<td valign="top">10 K</td>
+</tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>outerMedium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Outer medium</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>innerMedium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Inner medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IndirectCooling <font color="darkgreen">&quot;Example: indirect cooling circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> outerMedium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Outer medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> innerMedium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Inner medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource=
+    prescribedHeatFlow.port.T-TAmb <font color="darkgreen">&quot;Source over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe=prescribedHeatFlow.port.T-pipe1.heatPort.T <font color="darkgreen">
+    &quot;Source over inner Coolant&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTinnerCoolant=pipe1.dT <font color="darkgreen">
+    &quot;inner Coolant&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCooler=innerPipe.heatPort.T-outerPipe.heatPort.T <font color="darkgreen">
+    &quot;Cooler&#39;s temperature increase between inner and outer pipes&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTouterCoolant=outerPipe.dT <font color="darkgreen">
+    &quot;outer Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=outerMedium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> outerPump(
+    medium=outerMedium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=outerMedium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.ThermalConductor"
+>Modelica.Thermal.HeatTransfer.Components.ThermalConductor</A>
+    thermalConductor(                                                        G=1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor(
+    T(start=TAmb), C=0.05);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow;
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe1(
+    medium=innerMedium,
+    m=0.1,
+    T0=TAmb,
+    V_flowLaminar=1,
+    dpLaminar=1000,
+    V_flowNominal=2,
+    dpNominal=2000);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.AbsolutePressure"
+>FluidHeatFlow.Sources.AbsolutePressure</A> absolutePressure(p=10000, medium=innerMedium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> innerPump(
+    medium=innerMedium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow(k=10);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> outerVolumeFlow(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> innerVolumeFlow(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> outerGc(k=2);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> innerGc(k=2);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> outerPipe(
+    medium=outerMedium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> innerPipe(
+    medium=innerMedium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> innerConvection;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> outerConvection;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, outerPump.flowPort_a);
+  <font color="red">connect</font>(prescribedHeatFlow.port, thermalConductor.port_a);
+  <font color="red">connect</font>(heatCapacitor.port, thermalConductor.port_a);
+  <font color="red">connect</font>(pipe1.heatPort, thermalConductor.port_b);
+  <font color="red">connect</font>(pipe1.flowPort_b, innerPump.flowPort_a);
+  <font color="red">connect</font>(absolutePressure.flowPort, pipe1.flowPort_a);
+  <font color="red">connect</font>(heatFlow.y, prescribedHeatFlow.Q_flow);
+  <font color="red">connect</font>(innerPump.flowPort_b, innerPipe.flowPort_a);
+  <font color="red">connect</font>(innerPipe.flowPort_b, absolutePressure.flowPort);
+  <font color="red">connect</font>(outerPump.flowPort_b, outerPipe.flowPort_a);
+  <font color="red">connect</font>(outerPipe.flowPort_b,ambient2. flowPort);
+  <font color="red">connect</font>(outerPipe.heatPort, outerConvection.fluid);
+  <font color="red">connect</font>(outerConvection.solid, innerConvection.solid);
+  <font color="red">connect</font>(innerConvection.fluid, innerPipe.heatPort);
+  <font color="red">connect</font>(innerGc.y, innerConvection.Gc);
+  <font color="red">connect</font>(outerGc.y, outerConvection.Gc);
+  <font color="red">connect</font>(outerVolumeFlow.y, outerPump.volumeFlow);
+  <font color="red">connect</font>(innerVolumeFlow.y, innerPump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>IndirectCooling;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PumpAndValve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.PumpAndValve</H2>
+<B>Example: cooling circuit with pump and valve</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValveD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpAndValve">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+4th test example: PumpAndValve
+</p>
+The pump is running with half speed for 0.4 s,
+afterwards with full speed (using a ramp of 0.1 s).<br>
+The valve is half open for 0.9 s, afterwards full open (using a ramp of 0.1 s).<br>
+You may try to:
+<ul>
+<li>drive the pump with variable speed and let the valve full open
+    to regulate the volume flow rate of coolant</li>
+<li>drive the pump with constant speed and throttle the valve
+    to regulate the volume flow rate of coolant</li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PumpAndValve <font color="darkgreen">&quot;Example: cooling circuit with pump and valve&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource=
+    prescribedHeatFlow.port.T-TAmb <font color="darkgreen">&quot;Source over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe=prescribedHeatFlow.port.T-pipe.heatPort.T <font color="darkgreen">
+    &quot;Source over Coolant&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant=pipe.dT <font color="darkgreen">
+    &quot;Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.IdealPump"
+>FluidHeatFlow.Sources.IdealPump</A> idealPump(
+    medium=medium,
+    m=0,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>FluidHeatFlow.Components.Valve</A> valve(
+    medium=medium,
+    T0=TAmb,
+    LinearCharacteristic=false);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe(
+    medium=medium,
+    T0=TAmb,
+    m=0.1);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow(k=10);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> convection;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance(k=1);
+  <A HREF="Modelica_Mechanics_Rotational_Sources.html#Modelica.Mechanics.Rotational.Sources.Speed"
+>Modelica.Mechanics.Rotational.Sources.Speed</A> speed(exact=true, useSupport=
+        false);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> speedRamp(
+    height=0.5,
+    offset=0.5,
+    duration=0.1,
+    startTime=0.4);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> valveRamp(
+    height=0.5,
+    offset=0.5,
+    duration=0.1,
+    startTime=0.9);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(pipe.flowPort_b, ambient2.flowPort);
+  <font color="red">connect</font>(heatFlow.y, prescribedHeatFlow.Q_flow);
+  <font color="red">connect</font>(convection.solid, prescribedHeatFlow.port);
+  <font color="red">connect</font>(convection.solid, heatCapacitor.port);
+  <font color="red">connect</font>(pipe.heatPort, convection.fluid);
+  <font color="red">connect</font>(thermalConductance.y, convection.Gc);
+  <font color="red">connect</font>(ambient1.flowPort, idealPump.flowPort_a);
+  <font color="red">connect</font>(idealPump.flowPort_b, valve.flowPort_a);
+  <font color="red">connect</font>(valve.flowPort_b, pipe.flowPort_a);
+  <font color="red">connect</font>(speedRamp.y, speed.w_ref);
+  <font color="red">connect</font>(valveRamp.y, valve.y);
+  <font color="red">connect</font>(speed.flange, idealPump.flange_a);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PumpAndValve;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PumpDropOut<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.PumpDropOut</H2>
+<B>Example: cooling circuit with drop out of pump</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOutD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.PumpDropOut">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+5th test example: PumpDropOut
+</p>
+Same as 1st test example, but with a drop out of the pump:<br>
+The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
+then started again (using a ramp of 0.2 s).
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PumpDropOut <font color="darkgreen">&quot;Example: cooling circuit with drop out of pump&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource=
+    prescribedHeatFlow.port.T-TAmb <font color="darkgreen">&quot;Source over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe=prescribedHeatFlow.port.T-pipe.heatPort.T <font color="darkgreen">
+    &quot;Source over Coolant&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant=pipe.dT <font color="darkgreen">
+    &quot;Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> pump(
+    medium=medium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe(
+    medium=medium,
+    T0=TAmb,
+    m=0.1);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow;
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Examples_Utilities.html#Modelica.Thermal.FluidHeatFlow.Examples.Utilities.DoubleRamp"
+>Utilities.DoubleRamp</A> volumeFlow;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow(k=10);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> convection;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance(k=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, pump.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe.flowPort_a);
+  <font color="red">connect</font>(pipe.flowPort_b, ambient2.flowPort);
+  <font color="red">connect</font>(heatFlow.y, prescribedHeatFlow.Q_flow);
+  <font color="red">connect</font>(convection.solid, prescribedHeatFlow.port);
+  <font color="red">connect</font>(convection.solid, heatCapacitor.port);
+  <font color="red">connect</font>(pipe.heatPort, convection.fluid);
+  <font color="red">connect</font>(thermalConductance.y, convection.Gc);
+  <font color="red">connect</font>(volumeFlow.y, pump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PumpDropOut;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ParallelPumpDropOut<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.ParallelPumpDropOut</H2>
+<B>Example: cooling circuit with parallel branches and drop out of pump</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOutD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.ParallelPumpDropOut">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+6th test example: ParallelPumpDropOut
+</p>
+Same as 2nd test example, but with a drop out of the pump:<br>
+The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
+then started again (using a ramp of 0.2 s).
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ParallelPumpDropOut <font color="darkgreen">
+  &quot;Example: cooling circuit with parallel branches and drop out of pump&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource1=
+    prescribedHeatFlow1.port.T-TAmb <font color="darkgreen">&quot;Source1 over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe1=prescribedHeatFlow1.port.T-pipe1.heatPort.T <font color="darkgreen">
+    &quot;Source1 over Coolant1&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant1=pipe1.dT <font color="darkgreen">
+    &quot;Coolant1&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTSource2=
+    prescribedHeatFlow2.port.T-TAmb <font color="darkgreen">&quot;Source2 over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe2=prescribedHeatFlow2.port.T-pipe2.heatPort.T <font color="darkgreen">
+    &quot;Source2 over Coolant2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant2=pipe2.dT <font color="darkgreen">
+    &quot;Coolant2&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTmixedCoolant=ambient2.T_port-ambient1.T_port <font color="darkgreen">
+    &quot;mixed Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> pump(
+    medium=medium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe1(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe2(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"
+>FluidHeatFlow.Components.IsolatedPipe</A> pipe3(
+    medium=medium,
+    T0=TAmb,
+    m=0.1);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor1(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow1;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> Convection1;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor2(
+    T(start=TAmb), C=0.1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A>
+    prescribedHeatFlow2;
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.Convection"
+>Modelica.Thermal.HeatTransfer.Components.Convection</A> convection2;
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Examples_Utilities.html#Modelica.Thermal.FluidHeatFlow.Examples.Utilities.DoubleRamp"
+>Utilities.DoubleRamp</A> volumeFlow;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow1(k=5);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> heatFlow2(k=10);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance1(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> thermalConductance2(k=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, pump.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe1.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe2.flowPort_a);
+  <font color="red">connect</font>(heatFlow2.y,prescribedHeatFlow2. Q_flow);
+  <font color="red">connect</font>(heatFlow1.y,prescribedHeatFlow1. Q_flow);
+  <font color="red">connect</font>(thermalConductance2.y, convection2.Gc);
+  <font color="red">connect</font>(thermalConductance1.y, Convection1.Gc);
+  <font color="red">connect</font>(pipe1.heatPort, Convection1.fluid);
+  <font color="red">connect</font>(convection2.fluid,pipe2. heatPort);
+  <font color="red">connect</font>(convection2.solid,prescribedHeatFlow2. port);
+  <font color="red">connect</font>(convection2.solid,heatCapacitor2. port);
+  <font color="red">connect</font>(Convection1.solid,prescribedHeatFlow1. port);
+  <font color="red">connect</font>(Convection1.solid,heatCapacitor1. port);
+  <font color="red">connect</font>(pipe2.flowPort_b,pipe3. flowPort_a);
+  <font color="red">connect</font>(pipe1.flowPort_b,pipe3. flowPort_a);
+  <font color="red">connect</font>(pipe3.flowPort_b,ambient2. flowPort);
+  <font color="red">connect</font>(volumeFlow.y, pump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ParallelPumpDropOut;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE OneMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.OneMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.OneMass"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.OneMass</H2>
+<B>Example: ccoling of one hot mass</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.OneMassD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.OneMass">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+7th test example: OneMass
+</p>
+A thermal capacity is coupled with a coolant flow.
+Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
+the time behaviour depending on coolant flow.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TMass</TD><TD>313.15</TD><TD>Inital temperature of mass [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> OneMass <font color="darkgreen">&quot;Example: ccoling of one hot mass&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TMass(displayUnit=&quot;degC&quot;)=313.15 <font color="darkgreen">
+    &quot;Inital temperature of mass&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTMass=
+    heatCapacitor.port.T-TAmb <font color="darkgreen">&quot;Mass over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe=heatCapacitor.port.T-pipe.heatPort.T <font color="darkgreen">
+    &quot;Mass over Coolant&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant=pipe.dT <font color="darkgreen">
+    &quot;Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> pump(
+    medium=medium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor(
+    C=0.1, T(start=TMass));
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.ThermalConductor"
+>Modelica.Thermal.HeatTransfer.Components.ThermalConductor</A>
+    thermalConductor(                                                        G=1);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Examples_Utilities.html#Modelica.Thermal.FluidHeatFlow.Examples.Utilities.DoubleRamp"
+>Utilities.DoubleRamp</A> volumeFlow(
+    offset=0,
+    height_1=1,
+    height_2=-2);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, pump.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe.flowPort_a);
+  <font color="red">connect</font>(pipe.flowPort_b, ambient2.flowPort);
+  <font color="red">connect</font>(thermalConductor.port_a, heatCapacitor.port);
+  <font color="red">connect</font>(pipe.heatPort, thermalConductor.port_b);
+  <font color="red">connect</font>(volumeFlow.y, pump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>OneMass;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoMass<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.SimpleCoolingI.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Examples.html#Modelica.Thermal.FluidHeatFlow.Examples"
+>Modelica.Thermal.FluidHeatFlow.Examples</A>.TwoMass</H2>
+<B>Example: cooling of two hot masses</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Examples.TwoMassD.png" ALT="Modelica.Thermal.FluidHeatFlow.Examples.TwoMass">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+8th test example: TwoMass
+</p>
+Two thermal capacities are coupled with two parallel coolant flow.
+Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
+the time behaviour depending on coolant flow.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Cooling medium</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TAmb</TD><TD>293.15</TD><TD>Ambient temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TMass1</TD><TD>313.15</TD><TD>Inital temperature of mass1 [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>TMass2</TD><TD>333.15</TD><TD>Inital temperature of mass2 [K]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TwoMass <font color="darkgreen">&quot;Example: cooling of two hot masses&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>FluidHeatFlow.Media.Medium</A> medium=<font color="red">FluidHeatFlow.Media.Medium</font>() <font color="darkgreen">
+    &quot;Cooling medium&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TAmb(displayUnit=&quot;degC&quot;)=293.15 <font color="darkgreen">
+    &quot;Ambient temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TMass1(displayUnit=&quot;degC&quot;)=313.15 <font color="darkgreen">
+    &quot;Inital temperature of mass1&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> TMass2(displayUnit=&quot;degC&quot;)=333.15 <font color="darkgreen">
+    &quot;Inital temperature of mass2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTMass1=
+    heatCapacitor1.port.T-TAmb <font color="darkgreen">&quot;Mass1 over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe1=heatCapacitor1.port.T-pipe1.heatPort.T <font color="darkgreen">
+    &quot;Mass1 over Coolant1&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant1=pipe1.dT <font color="darkgreen">
+    &quot;Coolant1&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTMass2=
+    heatCapacitor2.port.T-TAmb <font color="darkgreen">&quot;Mass2 over Ambient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTtoPipe2=heatCapacitor2.port.T-pipe2.heatPort.T <font color="darkgreen">
+    &quot;Mass2 over Coolant2&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTCoolant2=pipe2.dT <font color="darkgreen">
+    &quot;Coolant2&#39;s temperature increase&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.TemperatureDifference"
+>Modelica.SIunits.TemperatureDifference</A> dTmixedCoolant=ambient2.T_port-ambient1.T_port <font color="darkgreen">
+    &quot;mixed Coolant&#39;s temperature increase&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient1(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow"
+>Sources.VolumeFlow</A> pump(
+    medium=medium,
+    m=0,
+    T0=TAmb,
+    useVolumeFlowInput=true);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe1(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>FluidHeatFlow.Components.HeatedPipe</A> pipe2(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"
+>FluidHeatFlow.Components.IsolatedPipe</A> pipe3(
+    medium=medium,
+    m=0.1,
+    T0=TAmb);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Sources.html#Modelica.Thermal.FluidHeatFlow.Sources.Ambient"
+>FluidHeatFlow.Sources.Ambient</A> ambient2(constantAmbientTemperature=TAmb, medium=medium);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor1(
+    C=0.1, T(start=TMass1));
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.ThermalConductor"
+>Modelica.Thermal.HeatTransfer.Components.ThermalConductor</A>
+    thermalConductor1(                                                        G=1);
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.HeatCapacitor"
+>Modelica.Thermal.HeatTransfer.Components.HeatCapacitor</A> heatCapacitor2(
+    C=0.1, T(start=TMass2));
+  <A HREF="Modelica_Thermal_HeatTransfer_Components.html#Modelica.Thermal.HeatTransfer.Components.ThermalConductor"
+>Modelica.Thermal.HeatTransfer.Components.ThermalConductor</A>
+    thermalConductor2(                                                        G=1);
+  <A HREF="Modelica_Thermal_FluidHeatFlow_Examples_Utilities.html#Modelica.Thermal.FluidHeatFlow.Examples.Utilities.DoubleRamp"
+>Utilities.DoubleRamp</A> volumeFlow(
+    offset=0,
+    height_1=1,
+    height_2=-2);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(ambient1.flowPort, pump.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe1.flowPort_a);
+  <font color="red">connect</font>(pump.flowPort_b, pipe2.flowPort_a);
+  <font color="red">connect</font>(pipe2.flowPort_b,pipe3. flowPort_a);
+  <font color="red">connect</font>(pipe1.flowPort_b,pipe3. flowPort_a);
+  <font color="red">connect</font>(pipe3.flowPort_b,ambient2. flowPort);
+  <font color="red">connect</font>(heatCapacitor2.port,thermalConductor2. port_a);
+  <font color="red">connect</font>(thermalConductor2.port_b,pipe2. heatPort);
+  <font color="red">connect</font>(pipe1.heatPort,thermalConductor1. port_b);
+  <font color="red">connect</font>(thermalConductor1.port_a, heatCapacitor1.port);
+  <font color="red">connect</font>(volumeFlow.y, pump.volumeFlow);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TwoMass;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:43 2010.
+</address></BODY>
+</HTML>

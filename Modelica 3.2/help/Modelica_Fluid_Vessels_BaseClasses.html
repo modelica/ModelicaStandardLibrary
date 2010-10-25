@@ -1,0 +1,659 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Vessels.BaseClasses</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Base classes used in the Vessels package (only of interest to build new component models)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BaseClasses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Vessels.BaseClasses"></A><A HREF="Modelica_Fluid_Vessels.html#Modelica.Fluid.Vessels"
+>Modelica.Fluid.Vessels</A>.BaseClasses</H2>
+<B>Base classes used in the Vessels package (only of interest to build new component models)</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_BasesPackage.html#Modelica.Icons.BasesPackage"
+>Modelica.Icons.BasesPackage</A> (Icon for packages containing base classes).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVesselS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel"
+>PartialLumpedVessel</A>
+</TD><TD>Lumped volume with a vector of fluid ports and replaceable heat transfer model</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransferS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer"
+>HeatTransfer</A>
+</TD><TD>HeatTransfer models for vessels</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselPortsDataS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselPortsData"
+>VesselPortsData</A>
+</TD><TD>Data to describe inlet/outlet ports at vessels:
+    diameter -- Inner (hydraulic) diameter of inlet/outlet port
+    height -- Height over the bottom of the vessel
+    zeta_out -- Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall
+    zeta_in -- Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_aS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_a"
+>VesselFluidPorts_a</A>
+</TD><TD>Fluid connector with filled, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_bS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b"
+>VesselFluidPorts_b</A>
+</TD><TD>Fluid connector with outlined, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialLumpedVessel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVesselI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses"
+>Modelica.Fluid.Vessels.BaseClasses</A>.PartialLumpedVessel</H2>
+<B>Lumped volume with a vector of fluid ports and replaceable heat transfer model</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.ClosedVolumeD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This base class extends PartialLumpedVolume with a vector of fluid ports and a replaceable wall HeatTransfer model.
+<p>
+The following modeling assumption are made:
+<ul>
+<li>homogenous medium, i.e., phase seperation is not taken into account,</li>
+<li>no kinetic energy in the fluid, i.e., kinetic energy dissipates into the internal energy,</li>
+<li>pressure loss definitions at vessel ports assume incompressible fluid,</li>
+<li>outflow of ambient media is prevented at each port assuming check valve behavior.
+    If <code> fluidlevel &lt; portsData_height[i] </code>and &nbsp; <code> ports[i].p &lt; vessel_ps_static[i]</code> massflow at the port is set to 0.</li>
+</ul>
+</p>
+Each port has a (hydraulic) diameter and a height above the bottom of the vessel, which can be configured using the &nbsp;<b><code>portsData</code></b> record.
+Alternatively the impact of port geometries can be neglected with <code>use_portsData=false</code>. This might be useful for early
+design studies. Note that this means to assume an infinite port diameter at the bottom of the vessel.
+Pressure drops and heights of the ports as well as kinetic and potential energy fluid entering or leaving the vessel are neglected then.
+<p>
+The following variables need to be defined by an extending model:
+<ul>
+<li><code>input fluidVolume</code>, the volume of the fluid in the vessel,</li>
+<li><code>vessel_ps_static[nPorts]</code>, the static pressures inside the vessel at the height of the corresponding ports, at zero flow velocity, and</li>
+<li><code>Wb_flow</code>, work term of the energy balance, e.g., p*der(V) if the volume is not constant or stirrer power.</li>
+</ul>
+An extending model should define:
+<ul>
+<li><code>parameter vesselArea</code> (default: Modelica.Constants.inf m2), the area of the vessel, to be related to cross flow areas of the ports for the consideration of dynamic pressure effects.</li>
+</ul>
+Optionally the fluid level may vary in the vessel, which effects the flow through the ports at configurable <code>portsData_height[nPorts]</code>.
+This is why an extending model with varying fluid level needs to define:
+<ul>
+<li><code>input fluidLevel (default: 0m)</code>, the level the fluid in the vessel, and</li>
+<li><code>parameter fluidLevel_max (default: 1m)</code>, the maximum level that must not be exceeded. Ports at or above fluidLevel_max can only receive inflow.</li>
+</ul>
+An extending model should not access the <code>portsData</code> record defined in the configuration dialog,
+as an access to <code>portsData</code> may fail for <code>use_portsData=false</code> or <code>nPorts=0</code>.
+Instead the predefined variables
+<ul>
+<li><code>portsData_diameter[nPorts]</code></li>,
+<li><code>portsData_height[nPorts]</code></li>,
+<li><code>portsData_zeta_in[nPorts]</code></li>, and
+<li><code>portsData_zeta_out[nPorts]</code></li>
+</ul>
+should be used if these values are needed.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>Modelica.Fluid.Interfaces.PartialLumpedVolume</A> (Lumped volume with mass and energy balance).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Ports</TD></TR>
+<TR><TD>Boolean</TD><TD>use_portsData</TD><TD>true</TD><TD>= false to neglect pressure loss and kinetic energy</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselPortsData"
+>VesselPortsData</A></TD><TD>portsData[nPorts]</TD><TD>&nbsp;</TD><TD>Data of inlet/outlet ports</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>energyDynamics</TD><TD>system.energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>massDynamics</TD><TD>system.massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Heat transfer</TD></TR>
+<TR><TD>Boolean</TD><TD>use_HeatTransfer</TD><TD>false</TD><TD>= true to use the HeatTransfer model</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_start</TD><TD>system.p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T_start</TD><TD>true</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>if use_T_start then system.T...</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>if use_T_start then Medium.s...</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_start[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Start value of trace substances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Port properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>system.m_flow_small</TD><TD>Regularization range at zero mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b"
+>VesselFluidPorts_b</A></TD><TD>ports[nPorts]</TD><TD>Fluid inlets and outlets</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialLumpedVessel <font color="darkgreen">
+  &quot;Lumped volume with a vector of fluid ports and replaceable heat transfer model&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>Modelica.Fluid.Interfaces.PartialLumpedVolume</A>;
+
+  <font color="darkgreen">// Port definitions</font>
+  <font color="blue">parameter </font>Integer nPorts=0 <font color="darkgreen">&quot;Number of ports&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b"
+>VesselFluidPorts_b</A> ports[nPorts](<font color="blue">redeclare </font><font color="blue">each </font><font color="blue">package</font> Medium = Medium) <font color="darkgreen">
+    &quot;Fluid inlets and outlets&quot;</font>;</textblock>
+
+  <font color="darkgreen">// Port properties</font>
+  <font color="blue">parameter </font>Boolean use_portsData=true <font color="darkgreen">
+    &quot;= false to neglect pressure loss and kinetic energy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.VesselPortsData"
+>Modelica.Fluid.Vessels.BaseClasses.VesselPortsData</A>[nPorts]
+  portsData <font color="blue">if </font>  use_portsData <font color="darkgreen">&quot;Data of inlet/outlet ports&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_small(min=0) = system.m_flow_small <font color="darkgreen">
+    &quot;Regularization range at zero mass flow rate&quot;</font>;
+<font color="darkgreen">/*
+  parameter Medium.AbsolutePressure dp_small = system.dp_small
+    &quot;Turbulent flow if |dp| &gt;= dp_small (regularization of zero flow)&quot;
+    annotation(Dialog(tab=&quot;Advanced&quot;,group=&quot;Ports&quot;));
+*/</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.EnthalpyFlowRate"
+>Medium.EnthalpyFlowRate</A> ports_H_flow[nPorts];
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> ports_mXi_flow[nPorts,Medium.nXi];
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A>[Medium.nXi] sum_ports_mXi_flow <font color="darkgreen">
+    &quot;Substance mass flows through ports&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraPropertyFlowRate"
+>Medium.ExtraPropertyFlowRate</A> ports_mC_flow[nPorts,Medium.nC];
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraPropertyFlowRate"
+>Medium.ExtraPropertyFlowRate</A>[Medium.nC] sum_ports_mC_flow <font color="darkgreen">
+    &quot;Trace substance mass flows through ports&quot;</font>;
+
+  <font color="darkgreen">// Heat transfer through boundary</font>
+  <font color="blue">parameter </font>Boolean use_HeatTransfer = false <font color="darkgreen">
+    &quot;= true to use the HeatTransfer model&quot;</font>;
+  <font color="blue">replaceable </font><font color="blue">model</font> HeatTransfer =
+      <A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer"
+>Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer</A>
+    <font color="blue">constrainedby </font>
+    Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer <font color="darkgreen">
+    &quot;Wall heat transfer&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransfer"
+>HeatTransfer</A> heatTransfer(
+    <font color="blue">redeclare </font><font color="blue">final </font><font color="blue">package</font> Medium = Medium,
+    <font color="blue">final </font>n=1,
+    <font color="blue">final </font>states = {medium.state},
+    <font color="blue">final </font>use_k = use_HeatTransfer);
+  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> heatPort <font color="blue">if </font>use_HeatTransfer;</textblock>
+
+  <font color="darkgreen">// Conservation of kinetic energy</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Medium.Density</A>[nPorts] portDensities <font color="darkgreen">
+    &quot;densites of the fluid at the device boudary&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A>[nPorts] portVelocities <font color="darkgreen">
+    &quot;velocities of fluid flow at device boundary&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.EnergyFlowRate"
+>SI.EnergyFlowRate</A>[nPorts] ports_E_flow <font color="darkgreen">
+    &quot;flow of kinetic and potential energy at device boundary&quot;</font>;
+
+  <font color="darkgreen">// Note: should use fluidLevel_start - portsData.height</font>
+  Real[nPorts] s(<font color="blue">each </font>start = fluidLevel_max) <font color="darkgreen">
+    &quot;curve parameters for port flows vs. port pressures; for further details see, Modelica Tutorial: Ideal switching devices&quot;</font>;
+  Real[nPorts] ports_penetration <font color="darkgreen">
+    &quot;penetration of port with fluid, depending on fluid level and port diameter&quot;</font>;
+
+  <font color="darkgreen">// treatment of pressure losses at ports</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A>[nPorts] portAreas = {Modelica.Constants.pi/4*portsData_diameter[i]^2 <font color="blue">for </font>i<font color="blue"> in </font>1:nPorts};
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A>[nPorts] vessel_ps_static <font color="darkgreen">
+    &quot;static pressures inside the vessel at the height of the corresponding ports, zero flow velocity&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Height"
+>SI.Height</A> fluidLevel = 0 <font color="darkgreen">
+    &quot;level of fluid in the vessel for treating heights of ports&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Height"
+>SI.Height</A> fluidLevel_max = 1 <font color="darkgreen">&quot;maximum level of fluid in the vessel&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> vesselArea = Modelica.Constants.inf <font color="darkgreen">
+    &quot;Area of the vessel used to relate to cross flow area of ports&quot;</font>;
+
+  <font color="darkgreen">// Treatment of use_portsData=false to neglect portsData and to not require its specification either in this case.</font>
+  <font color="darkgreen">// Remove portsData conditionally if use_portsData=false. Simplify their use in model equations by always</font>
+  <font color="darkgreen">// providing portsData_diameter and portsData_height, independend of the use_portsData setting.</font>
+  <font color="darkgreen">// Note: this moreover serves as work-around if a tool does not support a zero sized portsData record.</font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts]
+  portsData_diameter_internal =                                              portsData.diameter <font color="blue">if </font>use_portsData<font color="blue"> and </font>nPorts &gt; 0;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts] portsData_height_internal = portsData.height <font color="blue">if </font>use_portsData<font color="blue"> and </font>nPorts &gt; 0;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts] portsData_zeta_in_internal = portsData.zeta_in <font color="blue">if </font>use_portsData<font color="blue"> and </font>nPorts &gt; 0;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts]
+  portsData_zeta_out_internal =                                              portsData.zeta_out <font color="blue">if </font>use_portsData<font color="blue"> and </font>nPorts &gt; 0;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts] portsData_diameter;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts] portsData_height;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts] portsData_zeta_in;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A>[nPorts] portsData_zeta_out;
+
+<font color="blue">equation </font>
+  mb_flow =<font color="red"> sum</font>(ports.m_flow);
+  mbXi_flow = sum_ports_mXi_flow;
+  mbC_flow  = sum_ports_mC_flow;
+  Hb_flow =<font color="red"> sum</font>(ports_H_flow) +<font color="red"> sum</font>(ports_E_flow);
+  Qb_flow = heatTransfer.Q_flows[1];
+
+  <font color="darkgreen">// Only one connection allowed to a port to avoid unwanted ideal mixing</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nPorts<font color="blue"> loop</font>
+    <font color="red">assert</font>(<font color="red">cardinality</font>(ports[i]) &lt;= 1,&quot;
+each ports[i] of volume can at most be connected to one component.
+If two or more connections are present, ideal mixing takes
+place with these connections, which is usually not the intention
+of the modeller. Increase nPorts to add an additional port.
+&quot;);
+  <font color="blue">end for</font>;
+  <font color="darkgreen">// Check for correct solution</font>
+  <font color="red">assert</font>(fluidLevel &lt;= fluidLevel_max, &quot;Vessel is overflowing (fluidLevel &gt; fluidLevel_max = &quot; +<font color="red"> String</font>(fluidLevel) + &quot;)&quot;);
+  <font color="red">assert</font>(fluidLevel &gt; -1e-6*fluidLevel_max, &quot;Fluid level (= &quot; +<font color="red"> String</font>(fluidLevel) + &quot;) is below zero meaning that the solution failed.&quot;);
+
+  <font color="darkgreen">// Boundary conditions</font>
+
+  <font color="darkgreen">// treatment of conditional portsData</font>
+  <font color="red">connect</font>(portsData_diameter, portsData_diameter_internal);
+  <font color="red">connect</font>(portsData_height, portsData_height_internal);
+  <font color="red">connect</font>(portsData_zeta_in, portsData_zeta_in_internal);
+  <font color="red">connect</font>(portsData_zeta_out, portsData_zeta_out_internal);
+  <font color="blue">if </font><font color="blue">not </font>use_portsData<font color="blue"> then</font>
+    portsData_diameter =<font color="red"> zeros</font>(nPorts);
+    portsData_height =<font color="red"> zeros</font>(nPorts);
+    portsData_zeta_in =<font color="red"> zeros</font>(nPorts);
+    portsData_zeta_out =<font color="red"> zeros</font>(nPorts);
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// actual definition of port variables</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nPorts<font color="blue"> loop</font>
+    <font color="blue">if </font>use_portsData<font color="blue"> then</font>
+      <font color="darkgreen">// dp = 0.5*zeta*d*v*|v|</font>
+      <font color="darkgreen">// Note: assume vessel_ps_static for portDensities to avoid algebraic loops for ports.p</font>
+      portDensities[i] =<font color="red"> noEvent</font>(<font color="red">Medium.density</font>(<font color="red">Medium.setState_phX</font>(vessel_ps_static[i],<font color="red"> actualStream</font>(ports[i].h_outflow),<font color="red"> actualStream</font>(ports[i].Xi_outflow))));
+      portVelocities[i] =<font color="red"> smooth</font>(0, ports[i].m_flow/portAreas[i]/portDensities[i]);
+      <font color="darkgreen">// Note: the penetration should not go too close to zero as this would prevent a vessel from running empty</font>
+      ports_penetration[i] =<font color="red"> Utilities.regStep</font>(fluidLevel - portsData_height[i] - 0.1*portsData_diameter[i], 1, 1e-3, 0.1*portsData_diameter[i]);
+    <font color="blue">else</font>
+      <font color="darkgreen">// an infinite port diameter is assumed</font>
+      portDensities[i] = medium.d;
+      portVelocities[i] = 0;
+      ports_penetration[i] = 1;
+    <font color="blue">end if</font>;
+    <font color="darkgreen">// fluid flow through ports</font>
+    <font color="blue">if </font>fluidLevel &gt;= portsData_height[i]<font color="blue"> then</font>
+      <font color="darkgreen">// regular operation: fluidLevel is above ports[i]</font>
+      <font color="darkgreen">// Note: &gt;= covers default values of zero as well</font>
+      <font color="blue">if </font>use_portsData<font color="blue"> then</font>
+        <font color="darkgreen">/* Without regularization
+        ports[i].p = vessel_ps_static[i] + 0.5*ports[i].m_flow^2/portAreas[i]^2
+                      * noEvent(if ports[i].m_flow&gt;0 then zeta_in[i]/portDensities[i] else -zeta_out[i]/medium.d);
+        */</font>
+
+        ports[i].p = vessel_ps_static[i] + (0.5/portAreas[i]^2*<font color="red">Utilities.regSquare2</font>(ports[i].m_flow, m_flow_small,
+                                     (portsData_zeta_in[i] - 1 + portAreas[i]^2/vesselArea^2)/portDensities[i]*ports_penetration[i],
+                                     (portsData_zeta_out[i] + 1 - portAreas[i]^2/vesselArea^2)/medium.d/ports_penetration[i]));
+        <font color="darkgreen">/*
+        // alternative formulation m_flow=f(dp); not allowing the ideal portsData_zeta_in[i]=1 though
+        ports[i].m_flow = smooth(2, portAreas[i]*Utilities.regRoot2(ports[i].p - vessel_ps_static[i], dp_small,
+                                     2*portDensities[i]/portsData_zeta_in[i],
+                                     2*medium.d/portsData_zeta_out[i]));
+        */</font>
+      <font color="blue">else</font>
+        ports[i].p = vessel_ps_static[i];
+      <font color="blue">end if</font>;
+      s[i] = fluidLevel - portsData_height[i];
+    <font color="blue">elseif </font>s[i] &gt; 0<font color="blue"> or </font>portsData_height[i] &gt;= fluidLevel_max<font color="blue"> then</font>
+      <font color="darkgreen">// ports[i] is above fluidLevel and has inflow</font>
+      ports[i].p = vessel_ps_static[i];
+      s[i] = ports[i].m_flow;
+    <font color="blue">else</font>
+      <font color="darkgreen">// ports[i] is above fluidLevel, preventing outflow</font>
+      ports[i].m_flow = 0;
+      s[i] = (ports[i].p - vessel_ps_static[i])/Medium.p_default*(portsData_height[i] - fluidLevel);
+    <font color="blue">end if</font>;
+
+    ports[i].h_outflow  = medium.h;
+    ports[i].Xi_outflow = medium.Xi;
+    ports[i].C_outflow  = C;
+
+    ports_H_flow[i] = ports[i].m_flow *<font color="red"> actualStream</font>(ports[i].h_outflow) <font color="darkgreen">
+      &quot;Enthalpy flow&quot;</font>;
+    ports_E_flow[i] = ports[i].m_flow*(0.5*portVelocities[i]*portVelocities[i] + system.g*portsData_height[i]) <font color="darkgreen">
+      &quot;Flow of kinetic and potential energy&quot;</font>;
+    ports_mXi_flow[i,:] = ports[i].m_flow *<font color="red"> actualStream</font>(ports[i].Xi_outflow) <font color="darkgreen">
+      &quot;Component mass flow&quot;</font>;
+    ports_mC_flow[i,:]  = ports[i].m_flow *<font color="red"> actualStream</font>(ports[i].C_outflow) <font color="darkgreen">
+      &quot;Trace substance mass flow&quot;</font>;
+  <font color="blue">end for</font>;
+
+  <font color="blue">for </font>i<font color="blue"> in </font>1:Medium.nXi<font color="blue"> loop</font>
+    sum_ports_mXi_flow[i] =<font color="red"> sum</font>(ports_mXi_flow[:,i]);
+  <font color="blue">end for</font>;
+
+  <font color="blue">for </font>i<font color="blue"> in </font>1:Medium.nC<font color="blue"> loop</font>
+    sum_ports_mC_flow[i]  =<font color="red"> sum</font>(ports_mC_flow[:,i]);
+  <font color="blue">end for</font>;
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(heatPort, heatTransfer.heatPorts[1]);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialLumpedVessel;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VesselPortsData<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselPortsDataI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.VesselPortsData"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses"
+>Modelica.Fluid.Vessels.BaseClasses</A>.VesselPortsData</H2>
+<B>Data to describe inlet/outlet ports at vessels:
+    diameter -- Inner (hydraulic) diameter of inlet/outlet port
+    height -- Height over the bottom of the vessel
+    zeta_out -- Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall
+    zeta_in -- Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Vessel Port Data</h4>
+<p>
+This record describes the <b>ports</b> of a <b>vessel</b>. The variables in it are mostly self-explanatory (see list below); only the &zeta;
+loss factors are discussed further. All data is quoted from Idelchik (1994).
+</p>
+
+<h4>Outlet Coefficients</h4>
+
+<p>
+If a <b>straight pipe with constant cross section is mounted flush with the wall</b>, its outlet pressure loss coefficient will be <code>&zeta; = 0.5</code> (Idelchik, p. 160, Diagram 3-1, paragraph 2).
+</p>
+<p>
+If a <b>straight pipe with constant cross section is mounted into a vessel such that the entrance into it is at a distance</b> <code>b</code> from the wall (inside) the following table can be used. Herein, &delta; is the tube wall thickness (Idelchik, p. 160, Diagram 3-1, paragraph 1).
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for outlets, entrance at a distance from wall</caption>
+  <tr>
+    <td></td> <td>   </td><th colspan="5" align="center"> b / D_hyd  </th>
+  </tr>
+  <tr>
+    <td></td> <td>   </td><th> 0.000 </th><th> 0.005 </th><th> 0.020 </th><th> 0.100 </th><th> 0.500-&#8734; </th>
+  </tr>
+  <tr>
+     <th rowspan="5" valign="middle">&delta; / D_hyd</th> <th> 0.000 </th><td> 0.50 </td><td> 0.63  </td><td> 0.73  </td><td> 0.86  </td><td>      1.00     </td>
+  </tr>
+  <tr>
+              <th> 0.008 </th><td> 0.50 </td><td> 0.55  </td><td> 0.62  </td><td> 0.74  </td><td>      0.88     </td>
+  </tr>
+  <tr>
+              <th> 0.016 </th><td> 0.50 </td><td> 0.51  </td><td> 0.55  </td><td> 0.64  </td><td>      0.77     </td>
+  </tr>
+  <tr>
+              <th> 0.024 </th><td> 0.50 </td><td> 0.50  </td><td> 0.52  </td><td> 0.58  </td><td>      0.68     </td>
+  </tr>
+  <tr>
+              <th> 0.040 </th><td> 0.50 </td><td> 0.50  </td><td> 0.51  </td><td> 0.51  </td><td>      0.54     </td>
+  </tr>
+</table>
+
+<p>
+If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted flush with the wall</b> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph b)
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for outlets, bellmouth flush with wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> r / D_hyd  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 0.01 </th><th> 0.03 </th><th> 0.05 </th><th> 0.08 </th><th> 0.16 </th><th>&ge;0.20</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 0.44 </td><td> 0.31 </td><td> 0.22  </td><td> 0.15  </td><td> 0.06  </td><td>      0.03     </td>
+  </tr>
+</table>
+
+<p>
+If a <b>straight pipe with a circular bellmouth inlet (collector) without baffle is mounted at a distance from a wall</b> then its pressure loss coefficient can be established from the following table. Herein, r is the radius of the bellmouth inlet surface (Idelchik, p. 164 f., Diagram 3-4, paragraph a)
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for outlets, bellmouth at a distance of wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> r / D_hyd  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 0.01 </th><th> 0.03 </th><th> 0.05 </th><th> 0.08 </th><th> 0.16 </th><th>&ge;0.20</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 0.87 </td><td> 0.61 </td><td> 0.40  </td><td> 0.20  </td><td> 0.06  </td><td>      0.03     </td>
+  </tr>
+</table>
+
+<h4>Inlet Coefficients</h4>
+
+<p>
+If a <b>straight pipe with constant circular cross section is mounted flush with the wall</b>, its vessel inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>A_port/A_vessel = 0</code> and Idelchik, p. 640, Diagram 11-1, graph a). According to the text, <code>m = 9</code> is appropriate for fully developed turbulent flow.
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> m  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 1.0 </th><th> 2.0 </th><th> 3.0 </th><th> 4.0 </th><th> 7.0 </th><th>9.0</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 2.70 </td><td> 1.50 </td><td> 1.25  </td><td> 1.15  </td><td> 1.06  </td><td>      1.04     </td>
+  </tr>
+</table>
+
+<p>
+For larger port diameters, relative to the area of the vessel, the inlet pressure loss coefficient will be according to the following table (Idelchik, p. 209 f., Diagram 4-2 with <code>m = 7</code>).
+</p>
+
+<table border="1" cellspacing="0" cellpadding="2">
+  <caption align="bottom">Pressure loss coefficients for inlets, circular tube flush with wall</caption>
+  <tr>
+    <td></td> <th colspan="6" align="center"> A_port / A_vessel  </th>
+  </tr>
+  <tr>
+    <td></td> <th> 0.0 </th><th> 0.1 </th><th> 0.2 </th><th> 0.4 </th><th> 0.6 </th><th>0.8</th>
+  </tr>
+  <tr>
+     <th>&zeta;</th> <td> 1.04 </td><td> 0.84 </td><td> 0.67  </td><td> 0.39  </td><td> 0.18  </td><td>      0.06     </td>
+  </tr>
+</table>
+
+<h4>References</h4>
+
+<dl><dt>Idelchik I.E. (1994):</dt>
+    <dd><a href="http://www.bookfinder.com/dir/i/Handbook_of_Hydraulic_Resistance/0849399084/"><b>Handbook
+        of Hydraulic Resistance</b></a>. 3rd edition, Begell House, ISBN
+        0-8493-9908-4</dd>
+</dl>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner (hydraulic) diameter of inlet/outlet port [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Height"
+>Height</A></TD><TD>height</TD><TD>0</TD><TD>Height over the bottom of the vessel [m]</TD></TR>
+<TR><TD>Real</TD><TD>zeta_out</TD><TD>0.5</TD><TD>Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall</TD></TR>
+<TR><TD>Real</TD><TD>zeta_in</TD><TD>1.04</TD><TD>Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> VesselPortsData <font color="darkgreen">&quot;Data to describe inlet/outlet ports at vessels:
+    diameter -- Inner (hydraulic) diameter of inlet/outlet port
+    height -- Height over the bottom of the vessel
+    zeta_out -- Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall
+    zeta_in -- Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall&quot;</font>
+      <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">
+    &quot;Inner (hydraulic) diameter of inlet/outlet port&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Height"
+>SI.Height</A> height = 0 <font color="darkgreen">&quot;Height over the bottom of the vessel&quot;</font>;
+  <font color="blue">parameter </font>Real zeta_out(min=0)=0.5 <font color="darkgreen">
+    &quot;Hydraulic resistance out of vessel, default 0.5 for small diameter mounted flush with the wall&quot;</font>;
+  <font color="blue">parameter </font>Real zeta_in(min=0)=1.04 <font color="darkgreen">
+    &quot;Hydraulic resistance into vessel, default 1.04 for small diameter mounted flush with the wall&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>VesselPortsData;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VesselFluidPorts_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_aI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_a"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses"
+>Modelica.Fluid.Vessels.BaseClasses</A>.VesselFluidPorts_a</H2>
+<B>Fluid connector with filled, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_aD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_a">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>Interfaces.FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+</TABLE>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> VesselFluidPorts_a <font color="darkgreen">
+  &quot;Fluid connector with filled, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>Interfaces.FluidPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>VesselFluidPorts_a;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE VesselFluidPorts_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_bI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses"
+>Modelica.Fluid.Vessels.BaseClasses</A>.VesselFluidPorts_b</H2>
+<B>Fluid connector with outlined, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_bD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.VesselFluidPorts_b">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>Interfaces.FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+</TABLE>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> VesselFluidPorts_b <font color="darkgreen">
+  &quot;Fluid connector with outlined, large icon to be used for horizontally aligned vectors of FluidPorts (vector dimensions must be added after dragging)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>Interfaces.FluidPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>VesselFluidPorts_b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransferI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransfer"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel"
+>Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel</A>.HeatTransfer</H2>
+<B>Wall heat transfer</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransferD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransfer">
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Ambient</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>k</TD><TD>0</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ambient</TD><TD>system.T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Internal Interface</B></TD></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>1</TD><TD>Number of heat transfer segments</TD></TR>
+<TR><TD>Boolean</TD><TD>use_k</TD><TD>false</TD><TD>= true to use k value for thermal isolation</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</A></TD><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">replaceable </font><font color="blue">model</font> HeatTransfer =
+    <A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer"
+>Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer</A>
+  <font color="blue">constrainedby </font>
+  Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer <font color="darkgreen">
+  &quot;Wall heat transfer&quot;</font>;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:12 2010.
+</address></BODY>
+</HTML>

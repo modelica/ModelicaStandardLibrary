@@ -1,0 +1,1487 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Interfaces"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Interfaces</H2>
+<B>Interfaces for steady state and unsteady, mixed-phase, multi-substance, incompressible and compressible flow</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPortS.png" ALT="Modelica.Fluid.Interfaces.FluidPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A>
+</TD><TD>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_aS.png" ALT="Modelica.Fluid.Interfaces.FluidPort_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A>
+</TD><TD>Generic fluid connector at design inlet</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_bS.png" ALT="Modelica.Fluid.Interfaces.FluidPort_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A>
+</TD><TD>Generic fluid connector at design outlet</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_aS.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_a"
+>FluidPorts_a</A>
+</TD><TD>Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_bS.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A>
+</TD><TD>Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortS.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>PartialTwoPort</A>
+</TD><TD>Partial component with two ports</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortTransportS.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPortTransport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>PartialTwoPortTransport</A>
+</TD><TD>Partial element transporting fluid between two ports without storage of mass or energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_aS.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</A>
+</TD><TD>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_bS.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_b"
+>HeatPorts_b</A>
+</TD><TD>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.PartialHeatTransferS.png" ALT="Modelica.Fluid.Interfaces.PartialHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
+>PartialHeatTransfer</A>
+</TD><TD>Common interface for heat transfer models</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>PartialLumpedVolume</A>
+</TD><TD>Lumped volume with mass and energy balance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>PartialLumpedFlow</A>
+</TD><TD>Base class for a lumped momentum balance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedVolume"
+>PartialDistributedVolume</A>
+</TD><TD>Base class for distributed volume models</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialDistributedFlow"
+>PartialDistributedFlow</A>
+</TD><TD>Base class for a distributed momentum balance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Interfaces.PartialPressureLossS.png" ALT="Modelica.Fluid.Interfaces.PartialPressureLoss" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialPressureLoss"
+>PartialPressureLoss</A>
+</TD><TD>Base flow model for pressure loss functions with the same area at port_a and at port_b</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FluidPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Interfaces.FluidPort"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.FluidPort</H2>
+<B>Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)</B><p>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> FluidPort <font color="darkgreen">
+  &quot;Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)&quot;</font>
+
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium = <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">
+    &quot;Medium model&quot;</font>;
+
+  <font color="blue">flow </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow <font color="darkgreen">
+    &quot;Mass flow rate from the connection point into the component&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p <font color="darkgreen">&quot;Thermodynamic pressure in the connection point&quot;</font>;
+  <font color="blue">stream </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h_outflow <font color="darkgreen">
+    &quot;Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0&quot;</font>;
+  <font color="blue">stream </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> Xi_outflow[Medium.nXi] <font color="darkgreen">
+    &quot;Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0&quot;</font>;
+  <font color="blue">stream </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C_outflow[Medium.nC] <font color="darkgreen">
+    &quot;Properties c_i/m close to the connection point if m_flow &lt; 0&quot;</font>;
+<font color="blue">end </font>FluidPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FluidPort_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_aI.png" ALT="Modelica.Fluid.Interfaces.FluidPort_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.FluidPort_a"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.FluidPort_a</H2>
+<B>Generic fluid connector at design inlet</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.FluidPort_aD.png" ALT="Modelica.Fluid.Interfaces.FluidPort_a">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+</TABLE>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> FluidPort_a <font color="darkgreen">&quot;Generic fluid connector at design inlet&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FluidPort_a;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FluidPort_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPort_bI.png" ALT="Modelica.Fluid.Interfaces.FluidPort_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.FluidPort_b"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.FluidPort_b</H2>
+<B>Generic fluid connector at design outlet</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.FluidPort_bD.png" ALT="Modelica.Fluid.Interfaces.FluidPort_b">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+</TABLE>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> FluidPort_b <font color="darkgreen">&quot;Generic fluid connector at design outlet&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FluidPort_b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FluidPorts_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_aI.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.FluidPorts_a"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.FluidPorts_a</H2>
+<B>Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_aD.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_a">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+</TABLE>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> FluidPorts_a <font color="darkgreen">
+  &quot;Fluid connector with filled, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FluidPorts_a;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FluidPorts_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_bI.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.FluidPorts_b"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.FluidPorts_b</H2>
+<B>Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.FluidPorts_bD.png" ALT="Modelica.Fluid.Interfaces.FluidPorts_b">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A> (Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium model</TD></TR>
+</TABLE>
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>flow <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>Mass flow rate from the connection point into the component [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p</TD><TD>Thermodynamic pressure in the connection point [Pa]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_outflow</TD><TD>Specific thermodynamic enthalpy close to the connection point if m_flow &lt; 0 [J/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>Xi_outflow[Medium.nXi]</TD><TD>Independent mixture mass fractions m_i/m close to the connection point if m_flow &lt; 0 [kg/kg]</TD></TR>
+<TR><TD>stream <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_outflow[Medium.nC]</TD><TD>Properties c_i/m close to the connection point if m_flow &lt; 0</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> FluidPorts_b <font color="darkgreen">
+  &quot;Fluid connector with outlined, large icon to be used for vectors of FluidPorts (vector dimensions must be added after dragging)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort"
+>FluidPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FluidPorts_b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTwoPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortI.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.PartialTwoPort"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialTwoPort</H2>
+<B>Partial component with two ports</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortD.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPort">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This partial model defines an interface for components with two ports.
+The treatment of the design flow direction and of flow reversal are predefined based on the parameter <code><b>allowFlowReversal</b></code>.
+The component may transport fluid and may have internal storage for a given fluid <code><b>Medium</b></code>.
+</p>
+<p>
+An extending model providing direct access to internal storage of mass or energy through port_a or port_b
+should redefine the protected parameters <code><b>port_a_exposesState</b></code> and <code><b>port_b_exposesState</b></code> appropriately.
+This will be visualized at the port icons, in order to improve the understanding of fluid model diagrams.
+</p>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialTwoPort <font color="darkgreen">&quot;Partial component with two ports&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</A>;
+  <font color="blue">outer </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system <font color="darkgreen">&quot;System wide properties&quot;</font>;
+
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium =
+      <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">&quot;Medium in the component&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean allowFlowReversal = system.allowFlowReversal <font color="darkgreen">
+    &quot;= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>Modelica.Fluid.Interfaces.FluidPort_a</A> port_a(
+                                <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+                     m_flow(min=<font color="blue">if </font>allowFlowReversal<font color="blue"> then </font>-Constants.inf<font color="blue"> else </font>0)) <font color="darkgreen">
+    &quot;Fluid connector a (positive design flow direction is from port_a to port_b)&quot;</font>;
+  <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>Modelica.Fluid.Interfaces.FluidPort_b</A> port_b(
+                                <font color="blue">redeclare </font><font color="blue">package</font> Medium = Medium,
+                     m_flow(max=<font color="blue">if </font>allowFlowReversal<font color="blue"> then </font>+Constants.inf<font color="blue"> else </font>0)) <font color="darkgreen">
+    &quot;Fluid connector b (positive design flow direction is from port_a to port_b)&quot;</font>;</textblock>
+  <font color="darkgreen">// Model structure, e.g., used for visualization</font>
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Boolean port_a_exposesState = false <font color="darkgreen">
+    &quot;= true if port_a exposes the state of a fluid volume&quot;</font>;
+  <font color="blue">parameter </font>Boolean port_b_exposesState = false <font color="darkgreen">
+    &quot;= true if port_b.p exposes the state of a fluid volume&quot;</font>;
+  <font color="blue">parameter </font>Boolean showDesignFlowDirection = true <font color="darkgreen">
+    &quot;= false to hide the arrow in the model icon&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialTwoPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTwoPortTransport<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortTransportI.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPortTransport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.PartialTwoPortTransport"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialTwoPortTransport</H2>
+<B>Partial element transporting fluid between two ports without storage of mass or energy</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.PartialTwoPortD.png" ALT="Modelica.Fluid.Interfaces.PartialTwoPortTransport">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This component transports fluid between its two ports, without storing mass or energy.
+Energy may be exchanged with the environment though, e.g., in the form of work.
+<code>PartialTwoPortTransport</code> is intended as base class for devices like orifices, valves and simple fluid machines.
+<p>
+Three equations need to be added by an extending class using this component:
+</p>
+<ul>
+<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code></li>,
+<li><code>port_b.h_outflow</code> for flow in design direction, and</li>
+<li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>PartialTwoPort</A> (Partial component with two ports).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_start</TD><TD>0.01*system.p_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>system.m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Diagnostics</TD></TR>
+<TR><TD>Boolean</TD><TD>show_T</TD><TD>true</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_V_flow</TD><TD>true</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialTwoPortTransport <font color="darkgreen">
+  &quot;Partial element transporting fluid between two ports without storage of mass or energy&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPort"
+>PartialTwoPort</A>(
+    <font color="blue">final </font>port_a_exposesState=false,
+    <font color="blue">final </font>port_b_exposesState=false);
+
+  <font color="darkgreen">// Advanced</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> dp_start = 0.01*system.p_start <font color="darkgreen">
+    &quot;Guess value of dp = port_a.p - port_b.p&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_start = system.m_flow_start <font color="darkgreen">
+    &quot;Guess value of m_flow = port_a.m_flow&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_small = system.m_flow_small <font color="darkgreen">
+    &quot;Small mass flow rate for regularization of zero flow&quot;</font>;
+
+  <font color="darkgreen">// Diagnostics</font>
+  <font color="blue">parameter </font>Boolean show_T = true <font color="darkgreen">
+    &quot;= true, if temperatures at port_a and port_b are computed&quot;</font>;
+  <font color="blue">parameter </font>Boolean show_V_flow = true <font color="darkgreen">
+    &quot;= true, if volume flow rate at inflowing port is computed&quot;</font>;
+
+  <font color="darkgreen">// Variables</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow(
+     min=<font color="blue">if </font>allowFlowReversal<font color="blue"> then </font>-Modelica.Constants.inf<font color="blue"> else </font>0,
+     start = m_flow_start) <font color="darkgreen">&quot;Mass flow rate in design flow direction&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A> dp(start=dp_start) <font color="darkgreen">
+    &quot;Pressure difference between port_a and port_b (= port_a.p - port_b.p)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> V_flow=
+      m_flow/<font color="red">Modelica.Fluid.Utilities.regStep</font>(m_flow,
+                  <font color="red">Medium.density</font>(state_a),
+                  <font color="red">Medium.density</font>(state_b),
+                  m_flow_small) <font color="blue">if </font>show_V_flow <font color="darkgreen">
+    &quot;Volume flow rate at inflowing port (positive when flow from port_a to port_b)&quot;</font>;
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> port_a_T=
+      <font color="red">Modelica.Fluid.Utilities.regStep</font>(port_a.m_flow,
+                  <font color="red">Medium.temperature</font>(state_a),
+                  <font color="red">Medium.temperature</font>(<font color="red">Medium.setState_phX</font>(port_a.p, port_a.h_outflow, port_a.Xi_outflow)),
+                  m_flow_small) <font color="blue">if </font>show_T <font color="darkgreen">
+    &quot;Temperature close to port_a, if show_T = true&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> port_b_T=
+      <font color="red">Modelica.Fluid.Utilities.regStep</font>(port_b.m_flow,
+                  <font color="red">Medium.temperature</font>(state_b),
+                  <font color="red">Medium.temperature</font>(<font color="red">Medium.setState_phX</font>(port_b.p, port_b.h_outflow, port_b.Xi_outflow)),
+                  m_flow_small) <font color="blue">if </font>show_T <font color="darkgreen">
+    &quot;Temperature close to port_b, if show_T = true&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>Medium.ThermodynamicState</A> state_a <font color="darkgreen">&quot;state for medium inflowing through port_a&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>Medium.ThermodynamicState</A> state_b <font color="darkgreen">&quot;state for medium inflowing through port_b&quot;</font>;
+<font color="blue">equation </font>
+  <font color="darkgreen">// medium states</font>
+  state_a =<font color="red"> Medium.setState_phX</font>(port_a.p,<font color="red"> inStream</font>(port_a.h_outflow),<font color="red"> inStream</font>(port_a.Xi_outflow));
+  state_b =<font color="red"> Medium.setState_phX</font>(port_b.p,<font color="red"> inStream</font>(port_b.h_outflow),<font color="red"> inStream</font>(port_b.Xi_outflow));
+
+  <font color="darkgreen">// Pressure drop in design flow direction</font>
+  dp = port_a.p - port_b.p;
+
+  <font color="darkgreen">// Design direction of mass flow rate</font>
+  m_flow = port_a.m_flow;
+  <font color="red">assert</font>(m_flow &gt; -m_flow_small<font color="blue"> or </font>allowFlowReversal, &quot;Reverting flow occurs even though allowFlowReversal is false&quot;);
+
+  <font color="darkgreen">// Mass balance (no storage)</font>
+  port_a.m_flow + port_b.m_flow = 0;
+
+  <font color="darkgreen">// Transport of substances</font>
+  port_a.Xi_outflow =<font color="red"> inStream</font>(port_b.Xi_outflow);
+  port_b.Xi_outflow =<font color="red"> inStream</font>(port_a.Xi_outflow);
+
+  port_a.C_outflow =<font color="red"> inStream</font>(port_b.C_outflow);
+  port_b.C_outflow =<font color="red"> inStream</font>(port_a.C_outflow);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialTwoPortTransport;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatPorts_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_aI.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.HeatPorts_a"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.HeatPorts_a</H2>
+<B>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</A> (Thermal port for 1-dim. heat transfer).
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Port temperature [K]</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>HeatFlowRate</A></TD><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> HeatPorts_a <font color="darkgreen">
+  &quot;HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>HeatPorts_a;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatPorts_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.HeatPorts_bI.png" ALT="Modelica.Fluid.Interfaces.HeatPorts_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.HeatPorts_b"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.HeatPorts_b</H2>
+<B>HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</A> (Thermal port for 1-dim. heat transfer).
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>Port temperature [K]</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>HeatFlowRate</A></TD><TD>Q_flow</TD><TD>Heat flow rate (positive if flowing from outside into the component) [W]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> HeatPorts_b <font color="darkgreen">
+  &quot;HeatPort connector with filled, large icon to be used for vectors of HeatPorts (vector dimensions must be added after dragging)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>HeatPorts_b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialHeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.PartialHeatTransferI.png" ALT="Modelica.Fluid.Interfaces.PartialHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.PartialHeatTransfer"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialHeatTransfer</H2>
+<B>Common interface for heat transfer models</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.PartialHeatTransferD.png" ALT="Modelica.Fluid.Interfaces.PartialHeatTransfer">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This component is a common interface for heat transfer models. The heat flow rates <code>Q_flows[n]</code> through the boundaries of n flow segments
+are obtained as function of the thermodynamic <code>states</code> of the flow segments for a given fluid <code>Medium</code>,
+the <code>surfaceAreas[n]</code> and the boundary temperatures <code>heatPorts[n].T</code>.
+</p>
+<p>
+The heat loss coefficient <code>k</code> can be used to model a thermal isolation between <code>heatPorts.T</code> and <code>T_ambient</code>.</p>
+<p>
+An extending model implementing this interface needs to define one equation: the relation between the predefined fluid temperatures <code>Ts[n]</code>,
+the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <code>Q_flows[n]</code>.
+</p>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Ambient</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>k</TD><TD>0</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ambient</TD><TD>system.T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Internal Interface</B></TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>1</TD><TD>Number of heat transfer segments</TD></TR>
+<TR><TD>Boolean</TD><TD>use_k</TD><TD>false</TD><TD>= true to use k value for thermal isolation</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</A></TD><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialHeatTransfer <font color="darkgreen">
+  &quot;Common interface for heat transfer models&quot;</font>
+
+  <font color="darkgreen">// Parameters</font>
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium=<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">
+    &quot;Medium in the component&quot;</font>;
+
+  <font color="blue">parameter </font>Integer n=1 <font color="darkgreen">&quot;Number of heat transfer segments&quot;</font>;
+
+  <font color="darkgreen">// Inputs provided to heat transfer model</font>
+  <font color="blue">input </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>Medium.ThermodynamicState</A>[n] states <font color="darkgreen">
+    &quot;Thermodynamic states of flow segments&quot;</font>;
+
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A>[n] surfaceAreas <font color="darkgreen">&quot;Heat transfer areas&quot;</font>;
+
+  <font color="darkgreen">// Outputs defined by heat transfer model</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A>[n] Q_flows <font color="darkgreen">&quot;Heat flow rates&quot;</font>;
+
+  <font color="darkgreen">// Parameters</font>
+  <font color="blue">parameter </font>Boolean use_k = false <font color="darkgreen">&quot;= true to use k value for thermal isolation&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> k = 0 <font color="darkgreen">
+    &quot;Heat transfer coefficient to ambient&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T_ambient = system.T_ambient <font color="darkgreen">&quot;Ambient temperature&quot;</font>;
+  <font color="blue">outer </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system <font color="darkgreen">&quot;System wide properties&quot;</font>;
+
+  <font color="darkgreen">// Heat ports</font>
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>Modelica.Fluid.Interfaces.HeatPorts_a</A>[n] heatPorts <font color="darkgreen">
+    &quot;Heat port to component boundary&quot;</font>;</textblock>
+
+  <font color="darkgreen">// Variables</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A>[n] Ts =<font color="red"> Medium.temperature</font>(states) <font color="darkgreen">
+    &quot;Temperatures defined by fluid states&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="blue">if </font>use_k<font color="blue"> then</font>
+    Q_flows = heatPorts.Q_flow + {k*surfaceAreas[i]*(T_ambient - heatPorts[i].T) <font color="blue">for </font>i<font color="blue"> in </font>1:n};
+  <font color="blue">else</font>
+    Q_flows = heatPorts.Q_flow;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialHeatTransfer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialLumpedVolume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Interfaces.PartialLumpedVolume"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialLumpedVolume</H2>
+<B>Lumped volume with mass and energy balance</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Interface and base class for an ideally mixed fluid volume with the ability to store mass and energy.
+The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
+</p>
+<ul>
+<li><code><b>Qb_flow</b></code>, e.g., convective or latent heat flow rate across segment boundary, and</li>
+<li><code><b>Wb_flow</b></code>, work term, e.g., p*der(fluidVolume) if the volume is not constant.</li>
+</ul>
+<p>
+The component volume <code><b>fluidVolume</b></code> is an input that needs to be set in the extending class to complete the model.
+</p>
+<p>
+Further source terms must be defined by an extending class for fluid flow across the segment boundary:
+</p>
+<ul>
+<li><code><b>Hb_flow</b></code>, enthalpy flow,</li>
+<li><code><b>mb_flow</b></code>, mass flow,</li>
+<li><code><b>mbXi_flow</b></code>, substance mass flow, and</li>
+<li><code><b>mbC_flow</b></code>, trace substance mass flow.</li>
+</ul>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>energyDynamics</TD><TD>system.energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>massDynamics</TD><TD>system.massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_start</TD><TD>system.p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T_start</TD><TD>true</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>if use_T_start then system.T...</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>if use_T_start then Medium.s...</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_start[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Start value of trace substances</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialLumpedVolume <font color="darkgreen">
+  &quot;Lumped volume with mass and energy balance&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types"
+>Modelica.Fluid.Types</A>;
+  <font color="blue">import </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Modelica.Fluid.Types.Dynamics</A>;
+  <font color="blue">import </font><A HREF="Modelica_Media_Interfaces_PartialMedium_Choices.html#Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables"
+>Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables</A>;
+
+  <font color="blue">outer </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system <font color="darkgreen">&quot;System properties&quot;</font>;
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium =
+    <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">&quot;Medium in the component&quot;</font>;
+
+  <font color="darkgreen">// Inputs provided to the volume model</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> fluidVolume <font color="darkgreen">&quot;Volume&quot;</font>;
+
+  <font color="darkgreen">// Assumptions</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> energyDynamics=system.energyDynamics <font color="darkgreen">
+    &quot;Formulation of energy balance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> massDynamics=system.massDynamics <font color="darkgreen">
+    &quot;Formulation of mass balance&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> substanceDynamics=massDynamics <font color="darkgreen">
+    &quot;Formulation of substance balance&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> traceDynamics=massDynamics <font color="darkgreen">
+    &quot;Formulation of trace substance balance&quot;</font>;
+
+  <font color="darkgreen">// Initialization</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p_start = system.p_start <font color="darkgreen">
+    &quot;Start value of pressure&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_T_start = true <font color="darkgreen">&quot;= true, use T_start, otherwise h_start&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> T_start=
+    <font color="blue">if </font>use_T_start<font color="blue"> then </font>system.T_start<font color="blue"> else </font><font color="red">Medium.temperature_phX</font>(p_start,h_start,X_start) <font color="darkgreen">
+    &quot;Start value of temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h_start=
+    <font color="blue">if </font>use_T_start<font color="blue"> then </font><font color="red">Medium.specificEnthalpy_pTX</font>(p_start, T_start, X_start)<font color="blue"> else </font>Medium.h_default <font color="darkgreen">
+    &quot;Start value of specific enthalpy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X_start[Medium.nX] = Medium.X_default <font color="darkgreen">
+    &quot;Start value of mass fractions m_i/m&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C_start[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Start value of trace substances&quot;</font>;
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.BaseProperties"
+>Medium.BaseProperties</A> medium(
+    preferredMediumStates=true,
+    p(start=p_start),
+    h(start=h_start),
+    T(start=T_start),
+    Xi(start=X_start[1:Medium.nXi]));
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Energy"
+>SI.Energy</A> U <font color="darkgreen">&quot;Internal energy of fluid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> m <font color="darkgreen">&quot;Mass of fluid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A>[Medium.nXi] mXi <font color="darkgreen">&quot;Masses of independent components in the fluid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A>[Medium.nC] mC <font color="darkgreen">&quot;Masses of trace substances in the fluid&quot;</font>;
+  <font color="darkgreen">// C need to be added here because unlike for Xi, which has medium.Xi,</font>
+  <font color="darkgreen">// there is no variable medium.C</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C[Medium.nC] <font color="darkgreen">&quot;Trace substance mixture content&quot;</font>;
+
+  <font color="darkgreen">// variables that need to be defined by an extending class</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> mb_flow <font color="darkgreen">&quot;Mass flows across boundaries&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A>[Medium.nXi] mbXi_flow <font color="darkgreen">
+    &quot;Substance mass flows across boundaries&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraPropertyFlowRate"
+>Medium.ExtraPropertyFlowRate</A>[Medium.nC] mbC_flow <font color="darkgreen">
+    &quot;Trace substance mass flows across boundaries&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>SI.EnthalpyFlowRate</A> Hb_flow <font color="darkgreen">
+    &quot;Enthalpy flow across boundaries or energy source/sink&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A> Qb_flow <font color="darkgreen">&quot;Heat flow across boundaries or energy source/sink&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> Wb_flow <font color="darkgreen">&quot;Work flow across boundaries or source term&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Boolean initialize_p = <font color="blue">not </font>Medium.singleState <font color="darkgreen">
+    &quot;= true to set up initial equations for pressure&quot;</font>;
+  Real[Medium.nC] mC_scaled(min=<font color="red">fill</font>(Modelica.Constants.eps, Medium.nC)) <font color="darkgreen">
+    &quot;Scaled masses of trace substances in the fluid&quot;</font>;
+<font color="blue">equation </font>
+  <font color="red">assert</font>(<font color="blue">not </font>(energyDynamics&lt;&gt;Dynamics.SteadyState<font color="blue"> and </font>massDynamics==Dynamics.SteadyState)<font color="blue"> or </font>Medium.singleState,
+         &quot;Bad combination of dynamics options and Medium not conserving mass if fluidVolume is fixed.&quot;);
+
+  <font color="darkgreen">// Total quantities</font>
+  m = fluidVolume*medium.d;
+  mXi = m*medium.Xi;
+  U = m*medium.u;
+  mC = m*C;
+
+  <font color="darkgreen">// Energy and mass balances</font>
+  <font color="blue">if </font>energyDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    0 = Hb_flow + Qb_flow + Wb_flow;
+  <font color="blue">else</font>
+    <font color="red">der</font>(U) = Hb_flow + Qb_flow + Wb_flow;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>massDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    0 = mb_flow;
+  <font color="blue">else</font>
+    <font color="red">der</font>(m) = mb_flow;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>substanceDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="red">zeros</font>(Medium.nXi) = mbXi_flow;
+  <font color="blue">else</font>
+    <font color="red">der</font>(mXi) = mbXi_flow;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>traceDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="red">zeros</font>(Medium.nC)  = mbC_flow;
+  <font color="blue">else</font>
+    <font color="red">der</font>(mC_scaled) = mbC_flow./Medium.C_nominal;
+  <font color="blue">end if</font>;
+    mC = mC_scaled.*Medium.C_nominal;
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="darkgreen">// initialization of balances</font>
+  <font color="blue">if </font>energyDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    <font color="darkgreen">/*
+    if use_T_start then
+      medium.T = T_start;
+    else
+      medium.h = h_start;
+    end if;
+    */</font>
+    <font color="blue">if </font>Medium.ThermoStates == IndependentVariables.ph<font color="blue"> or </font>
+       Medium.ThermoStates == IndependentVariables.phX<font color="blue"> then</font>
+       medium.h = h_start;
+    <font color="blue">else</font>
+       medium.T = T_start;
+    <font color="blue">end if</font>;
+  <font color="blue">elseif </font>energyDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="darkgreen">/*
+    if use_T_start then
+      der(medium.T) = 0;
+    else
+      der(medium.h) = 0;
+    end if;
+    */</font>
+    <font color="blue">if </font>Medium.ThermoStates == IndependentVariables.ph<font color="blue"> or </font>
+       Medium.ThermoStates == IndependentVariables.phX<font color="blue"> then</font>
+      <font color="red"> der</font>(medium.h) = 0;
+    <font color="blue">else</font>
+      <font color="red"> der</font>(medium.T) = 0;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>massDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    <font color="blue">if </font>initialize_p<font color="blue"> then</font>
+      medium.p = p_start;
+    <font color="blue">end if</font>;
+  <font color="blue">elseif </font>massDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="blue">if </font>initialize_p<font color="blue"> then</font>
+      <font color="red">der</font>(medium.p) = 0;
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>substanceDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    medium.Xi = X_start[1:Medium.nXi];
+  <font color="blue">elseif </font>substanceDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="red">der</font>(medium.Xi) =<font color="red"> zeros</font>(Medium.nXi);
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>traceDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    mC_scaled = m*C_start[1:Medium.nC]./Medium.C_nominal;
+  <font color="blue">elseif </font>traceDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="red">der</font>(mC_scaled) =<font color="red"> zeros</font>(Medium.nC);
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialLumpedVolume;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialLumpedFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Interfaces.PartialLumpedFlow"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialLumpedFlow</H2>
+<B>Base class for a lumped momentum balance</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Interface and base class for a momentum balance, defining the mass flow rate <code><b>m_flow</b></code>
+of a given <code>Medium</code> in a flow model.
+</p>
+<p>
+The following boundary flow and force terms are part of the momentum balance and must be specified in an extending model (to zero if not considered):
+</p>
+<ul>
+<li><code><b>Ib_flow</b></code>, the flow of momentum across model boundaries,</li>
+<li><code><b>F_p[m]</b></code>, pressure force, and</li>
+<li><code><b>F_fg[m]</b></code>, friction and gravity forces.</li>
+</ul>
+</p>
+The length of the flow path <code><b>pathLength</b></code> is an input that needs to be set in an extending class to complete the model.
+</p>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Modelica.Media.Interfaces.Pa...</TD><TD>Medium in the component</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (m_flow &gt;= 0)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>momentumDynamics</TD><TD>system.momentumDynamics</TD><TD>Formulation of momentum balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Start value of mass flow rates [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialLumpedFlow <font color="darkgreen">
+  &quot;Base class for a lumped momentum balance&quot;</font>
+
+  <font color="blue">outer </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system <font color="darkgreen">&quot;System properties&quot;</font>;
+
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium =
+    <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">&quot;Medium in the component&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean allowFlowReversal = system.allowFlowReversal <font color="darkgreen">
+    &quot;= true to allow flow reversal, false restricts to design direction (m_flow &gt;= 0)&quot;</font>;
+
+  <font color="darkgreen">// Inputs provided to the flow model</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> pathLength <font color="darkgreen">&quot;Length flow path&quot;</font>;
+
+  <font color="darkgreen">// Variables defined by the flow model</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow(
+     min=<font color="blue">if </font>allowFlowReversal<font color="blue"> then </font>-Modelica.Constants.inf<font color="blue"> else </font>0,
+     start = m_flow_start,
+     stateSelect = <font color="blue">if </font>momentumDynamics == Types.Dynamics.SteadyState<font color="blue"> then </font>StateSelect.default<font color="blue"> else </font>
+                               StateSelect.prefer) <font color="darkgreen">
+    &quot;mass flow rates between states&quot;</font>;
+
+  <font color="darkgreen">// Parameters</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Modelica.Fluid.Types.Dynamics</A> momentumDynamics=system.momentumDynamics <font color="darkgreen">
+    &quot;Formulation of momentum balance&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_start=system.m_flow_start <font color="darkgreen">
+    &quot;Start value of mass flow rates&quot;</font>;
+
+  <font color="darkgreen">// Total quantities</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Momentum"
+>SI.Momentum</A> I <font color="darkgreen">&quot;Momentums of flow segments&quot;</font>;
+
+  <font color="darkgreen">// Source terms and forces to be defined by an extending model (zero if not used)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> Ib_flow <font color="darkgreen">&quot;Flow of momentum across boudaries&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> F_p <font color="darkgreen">&quot;Pressure force&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> F_fg <font color="darkgreen">&quot;Friction and gravity force&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Total quantities</font>
+  I = m_flow*pathLength;
+
+  <font color="darkgreen">// Momentum balances</font>
+  <font color="blue">if </font>momentumDynamics == Types.Dynamics.SteadyState<font color="blue"> then</font>
+    0 = Ib_flow - F_p - F_fg;
+  <font color="blue">else</font>
+    <font color="red">der</font>(I) = Ib_flow - F_p - F_fg;
+  <font color="blue">end if</font>;
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>momentumDynamics == Types.Dynamics.FixedInitial<font color="blue"> then</font>
+    m_flow = m_flow_start;
+  <font color="blue">elseif </font>momentumDynamics == Types.Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="red">der</font>(m_flow) = 0;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialLumpedFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialDistributedVolume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Interfaces.PartialDistributedVolume"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialDistributedVolume</H2>
+<B>Base class for distributed volume models</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
+It is inteded to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
+The following boundary flow and source terms are part of the energy balance and must be specified in an extending class:
+</p>
+<ul>
+<li><code><b>Qb_flows[n]</b></code>, heat flow term, e.g., conductive heat flows across segment boundaries, and</li>
+<li><code><b>Wb_flows[n]</b></code>, work term.</li>
+</ul>
+<p>
+The component volumes <code><b>fluidVolumes[n]</b></code> are an input that needs to be set in an extending class to complete the model.
+</p>
+<p>
+Further source terms must be defined by an extending class for fluid flow across the segment boundary:
+</p>
+<ul>
+<li><code><b>Hb_flows[n]</b></code>, enthalpy flow,</li>
+<li><code><b>mb_flows[n]</b></code>, mass flow,</li>
+<li><code><b>mbXi_flows[n]</b></code>, substance mass flow, and</li>
+<li><code><b>mbC_flows[n]</b></code>, trace substance mass flow.</li>
+</ul>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>2</TD><TD>Number of discrete volumes</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>energyDynamics</TD><TD>system.energyDynamics</TD><TD>Formulation of energy balances</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>massDynamics</TD><TD>system.massDynamics</TD><TD>Formulation of mass balances</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_a_start</TD><TD>system.p_start</TD><TD>Start value of pressure at port a [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_b_start</TD><TD>p_a_start</TD><TD>Start value of pressure at port b [Pa]</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T_start</TD><TD>true</TD><TD>Use T_start if true, otherwise h_start</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>if use_T_start then system.T...</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>if use_T_start then Medium.s...</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_start[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Start value of trace substances</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialDistributedVolume <font color="darkgreen">
+  &quot;Base class for distributed volume models&quot;</font>
+    <font color="blue">import </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types"
+>Modelica.Fluid.Types</A>;
+    <font color="blue">import </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Modelica.Fluid.Types.Dynamics</A>;
+    <font color="blue">import </font><A HREF="Modelica_Media_Interfaces_PartialMedium_Choices.html#Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables"
+>Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables</A>;
+  <font color="blue">outer </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system <font color="darkgreen">&quot;System properties&quot;</font>;
+
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium =
+    <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">&quot;Medium in the component&quot;</font>;
+
+  <font color="darkgreen">// Discretization</font>
+  <font color="blue">parameter </font>Integer n=2 <font color="darkgreen">&quot;Number of discrete volumes&quot;</font>;
+
+  <font color="darkgreen">// Inputs provided to the volume model</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A>[n] fluidVolumes <font color="darkgreen">
+    &quot;Discretized volume, determine in inheriting class&quot;</font>;
+
+  <font color="darkgreen">// Assumptions</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> energyDynamics=system.energyDynamics <font color="darkgreen">
+    &quot;Formulation of energy balances&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> massDynamics=system.massDynamics <font color="darkgreen">
+    &quot;Formulation of mass balances&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> substanceDynamics=massDynamics <font color="darkgreen">
+    &quot;Formulation of substance balances&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Types.Dynamics</A> traceDynamics=massDynamics <font color="darkgreen">
+    &quot;Formulation of trace substance balances&quot;</font>;
+
+  <font color="darkgreen">//Initialization</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p_a_start=system.p_start <font color="darkgreen">
+    &quot;Start value of pressure at port a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> p_b_start=p_a_start <font color="darkgreen">
+    &quot;Start value of pressure at port b&quot;</font>;
+  <font color="blue">final </font><font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A>[n] ps_start=<font color="blue">if </font>n &gt; 1<font color="blue"> then </font><font color="red">linspace</font>(
+        p_a_start, p_b_start, n)<font color="blue"> else </font>{(p_a_start + p_b_start)/2} <font color="darkgreen">
+    &quot;Start value of pressure&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean use_T_start=true <font color="darkgreen">&quot;Use T_start if true, otherwise h_start&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Medium.Temperature</A> T_start=<font color="blue">if </font>use_T_start<font color="blue"> then </font>system.T_start<font color="blue"> else </font>
+              <font color="red">Medium.temperature_phX</font>(
+        (p_a_start + p_b_start)/2,
+        h_start,
+        X_start) <font color="darkgreen">&quot;Start value of temperature&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>Medium.SpecificEnthalpy</A> h_start=<font color="blue">if </font>use_T_start<font color="blue"> then </font>
+        <font color="red">Medium.specificEnthalpy_pTX</font>(
+        (p_a_start + p_b_start)/2,
+        T_start,
+        X_start)<font color="blue"> else </font>Medium.h_default <font color="darkgreen">&quot;Start value of specific enthalpy&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> X_start[Medium.nX]=Medium.X_default <font color="darkgreen">
+    &quot;Start value of mass fractions m_i/m&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> C_start[Medium.nC](
+       quantity=Medium.extraPropertiesNames)=<font color="red">fill</font>(0, Medium.nC) <font color="darkgreen">
+    &quot;Start value of trace substances&quot;</font>;
+
+  <font color="darkgreen">// Total quantities</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Energy"
+>SI.Energy</A>[n] Us <font color="darkgreen">&quot;Internal energy of fluid&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A>[n] ms <font color="darkgreen">&quot;Fluid mass&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A>[n,Medium.nXi] mXis <font color="darkgreen">&quot;Substance mass&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A>[n,Medium.nC] mCs <font color="darkgreen">&quot;Trace substance mass&quot;</font>;
+  <font color="darkgreen">// C need to be added here because unlike for Xi, which has medium[:].Xi,</font>
+  <font color="darkgreen">// there is no variable medium[:].C</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A>[n,Medium.nC] mCs_scaled <font color="darkgreen">&quot;Scaled trace substance mass&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> Cs[n, Medium.nC] <font color="darkgreen">&quot;Trace substance mixture content&quot;</font>;
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.BaseProperties"
+>Medium.BaseProperties</A>[n] mediums(
+    <font color="blue">each </font>preferredMediumStates=true,
+    p(start=ps_start),
+    <font color="blue">each </font>h(start=h_start),
+    <font color="blue">each </font>T(start=T_start),
+    <font color="blue">each </font>Xi(start=X_start[1:Medium.nXi]));
+
+  <font color="darkgreen">//Source terms, have to be defined by an extending model (to zero if not used)</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A>[n] mb_flows <font color="darkgreen">&quot;Mass flow rate, source or sink&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A>[n,Medium.nXi] mbXi_flows <font color="darkgreen">
+    &quot;Independent mass flow rates, source or sink&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraPropertyFlowRate"
+>Medium.ExtraPropertyFlowRate</A>[n,Medium.nC] mbC_flows <font color="darkgreen">
+    &quot;Trace substance mass flow rates, source or sink&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.EnthalpyFlowRate"
+>SI.EnthalpyFlowRate</A>[n] Hb_flows <font color="darkgreen">&quot;Enthalpy flow rate, source or sink&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>SI.HeatFlowRate</A>[n] Qb_flows <font color="darkgreen">&quot;Heat flow rate, source or sink&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A>[n] Wb_flows <font color="darkgreen">&quot;Mechanical power, p*der(V) etc.&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">parameter </font>Boolean initialize_p = <font color="blue">not </font>Medium.singleState <font color="darkgreen">
+    &quot;= true to set up initial equations for pressure&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="red">assert</font>(<font color="blue">not </font>(energyDynamics&lt;&gt;Dynamics.SteadyState<font color="blue"> and </font>massDynamics==Dynamics.SteadyState)<font color="blue"> or </font>Medium.singleState,
+         &quot;Bad combination of dynamics options and Medium not conserving mass if fluidVolumes are fixed.&quot;);
+
+  <font color="darkgreen">// Total quantities</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+    ms[i] =fluidVolumes[i]*mediums[i].d;
+    mXis[i, :] = ms[i]*mediums[i].Xi;
+    mCs[i, :]  = ms[i]*Cs[i, :];
+    Us[i] = ms[i]*mediums[i].u;
+  <font color="blue">end for</font>;
+
+  <font color="darkgreen">// Energy and mass balances</font>
+  <font color="blue">if </font>energyDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      0 = Hb_flows[i] + Wb_flows[i] + Qb_flows[i];
+    <font color="blue">end for</font>;
+  <font color="blue">else</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">der</font>(Us[i]) = Hb_flows[i] + Wb_flows[i] + Qb_flows[i];
+    <font color="blue">end for</font>;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>massDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      0 = mb_flows[i];
+    <font color="blue">end for</font>;
+  <font color="blue">else</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">der</font>(ms[i]) = mb_flows[i];
+    <font color="blue">end for</font>;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>substanceDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">zeros</font>(Medium.nXi) = mbXi_flows[i, :];
+    <font color="blue">end for</font>;
+  <font color="blue">else</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">der</font>(mXis[i, :]) = mbXi_flows[i, :];
+    <font color="blue">end for</font>;
+  <font color="blue">end if</font>;
+  <font color="blue">if </font>traceDynamics == Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">zeros</font>(Medium.nC)  = mbC_flows[i, :];
+    <font color="blue">end for</font>;
+  <font color="blue">else</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">der</font>(mCs_scaled[i, :])  = mbC_flows[i, :]./Medium.C_nominal;
+      mCs[i, :] = mCs_scaled[i, :].*Medium.C_nominal;
+    <font color="blue">end for</font>;
+  <font color="blue">end if</font>;
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="darkgreen">// initialization of balances</font>
+  <font color="blue">if </font>energyDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    <font color="darkgreen">/*
+    if use_T_start then
+      mediums.T = fill(T_start, n);
+    else
+      mediums.h = fill(h_start, n);
+    end if;
+    */</font>
+    <font color="blue">if </font>Medium.ThermoStates == IndependentVariables.ph<font color="blue"> or </font>
+       Medium.ThermoStates == IndependentVariables.phX<font color="blue"> then</font>
+       mediums.h =<font color="red"> fill</font>(h_start, n);
+    <font color="blue">else</font>
+       mediums.T =<font color="red"> fill</font>(T_start, n);
+    <font color="blue">end if</font>;
+
+  <font color="blue">elseif </font>energyDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="darkgreen">/*
+    if use_T_start then
+      der(mediums.T) = zeros(n);
+    else
+      der(mediums.h) = zeros(n);
+    end if;
+    */</font>
+    <font color="blue">if </font>Medium.ThermoStates == IndependentVariables.ph<font color="blue"> or </font>
+       Medium.ThermoStates == IndependentVariables.phX<font color="blue"> then</font>
+      <font color="red"> der</font>(mediums.h) =<font color="red"> zeros</font>(n);
+    <font color="blue">else</font>
+      <font color="red"> der</font>(mediums.T) =<font color="red"> zeros</font>(n);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>massDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    <font color="blue">if </font>initialize_p<font color="blue"> then</font>
+      mediums.p = ps_start;
+    <font color="blue">end if</font>;
+  <font color="blue">elseif </font>massDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="blue">if </font>initialize_p<font color="blue"> then</font>
+      <font color="red">der</font>(mediums.p) =<font color="red"> zeros</font>(n);
+    <font color="blue">end if</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>substanceDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    mediums.Xi =<font color="red"> fill</font>(X_start[1:Medium.nXi], n);
+  <font color="blue">elseif </font>substanceDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">der</font>(mediums[i].Xi) =<font color="red"> zeros</font>(Medium.nXi);
+    <font color="blue">end for</font>;
+  <font color="blue">end if</font>;
+
+  <font color="blue">if </font>traceDynamics == Dynamics.FixedInitial<font color="blue"> then</font>
+    Cs =<font color="red"> fill</font>(C_start[1:Medium.nC], n);
+  <font color="blue">elseif </font>traceDynamics == Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="blue">for </font>i<font color="blue"> in </font>1:n<font color="blue"> loop</font>
+      <font color="red">der</font>(mCs[i,:])      =<font color="red"> zeros</font>(Medium.nC);
+    <font color="blue">end for</font>;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialDistributedVolume;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialDistributedFlow<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Interfaces.PartialDistributedFlow"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialDistributedFlow</H2>
+<B>Base class for a distributed momentum balance</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Interface and base class for <code><b>m</b></code> momentum balances, defining the mass flow rates <code><b>m_flows[m]</b></code>
+of a given <code>Medium</code> in <code><b>m</b></code> flow segments.
+</p>
+<p>
+The following boundary flow and force terms are part of the momentum balances and must be specified in an extending model (to zero if not considered):
+</p>
+<ul>
+<li><code><b>Ib_flows[m]</b></code>, the flows of momentum across segment boundaries,</li>
+<li><code><b>Fs_p[m]</b></code>, pressure forces, and</li>
+<li><code><b>Fs_fg[m]</b></code>, friction and gravity forces.</li>
+</ul>
+<p>
+The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input that needs to be set in an extending class to complete the model.
+</p>
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Modelica.Media.Interfaces.Pa...</TD><TD>Medium in the component</TD></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>1</TD><TD>Number of flow segments</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (m_flows &gt;= zeros(m))</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>momentumDynamics</TD><TD>system.momentumDynamics</TD><TD>Formulation of momentum balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Start value of mass flow rates [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD>Medium in the component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialDistributedFlow <font color="darkgreen">
+  &quot;Base class for a distributed momentum balance&quot;</font>
+
+  <font color="blue">outer </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system <font color="darkgreen">&quot;System properties&quot;</font>;
+
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium =
+    <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A> <font color="darkgreen">&quot;Medium in the component&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean allowFlowReversal = system.allowFlowReversal <font color="darkgreen">
+    &quot;= true to allow flow reversal, false restricts to design direction (m_flows &gt;= zeros(m))&quot;</font>;
+
+  <font color="darkgreen">// Discretization</font>
+  <font color="blue">parameter </font>Integer m=1 <font color="darkgreen">&quot;Number of flow segments&quot;</font>;
+
+  <font color="darkgreen">// Inputs provided to the flow model</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A>[m] pathLengths <font color="darkgreen">&quot;Lengths along flow path&quot;</font>;
+
+  <font color="darkgreen">// Variables defined by momentum model</font>
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A>[m] m_flows(
+     <font color="blue">each </font>min=<font color="blue">if </font>allowFlowReversal<font color="blue"> then </font>-Modelica.Constants.inf<font color="blue"> else </font>0,
+     <font color="blue">each </font>start = m_flow_start,
+     <font color="blue">each </font>stateSelect = <font color="blue">if </font>momentumDynamics == Types.Dynamics.SteadyState<font color="blue"> then </font>StateSelect.default<font color="blue"> else </font>
+                               StateSelect.prefer) <font color="darkgreen">
+    &quot;mass flow rates between states&quot;</font>;
+
+  <font color="darkgreen">// Parameters</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Modelica.Fluid.Types.Dynamics</A> momentumDynamics=system.momentumDynamics <font color="darkgreen">
+    &quot;Formulation of momentum balance&quot;</font>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>Medium.MassFlowRate</A> m_flow_start=system.m_flow_start <font color="darkgreen">
+    &quot;Start value of mass flow rates&quot;</font>;
+
+  <font color="darkgreen">// Total quantities</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Momentum"
+>SI.Momentum</A>[m] Is <font color="darkgreen">&quot;Momentums of flow segments&quot;</font>;
+
+  <font color="darkgreen">// Source terms and forces to be defined by an extending model (zero if not used)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>[m] Ib_flows <font color="darkgreen">&quot;Flow of momentum across boudaries&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>[m] Fs_p <font color="darkgreen">&quot;Pressure forces&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A>[m] Fs_fg <font color="darkgreen">&quot;Friction and gravity forces&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Total quantities</font>
+  Is = {m_flows[i]*pathLengths[i] <font color="blue">for </font>i<font color="blue"> in </font>1:m};
+
+  <font color="darkgreen">// Momentum balances</font>
+  <font color="blue">if </font>momentumDynamics == Types.Dynamics.SteadyState<font color="blue"> then</font>
+    <font color="red">zeros</font>(m) = Ib_flows - Fs_p - Fs_fg;
+  <font color="blue">else</font>
+    <font color="red">der</font>(Is) = Ib_flows - Fs_p - Fs_fg;
+  <font color="blue">end if</font>;
+
+<font color="blue">initial </font><font color="blue">equation </font>
+  <font color="blue">if </font>momentumDynamics == Types.Dynamics.FixedInitial<font color="blue"> then</font>
+    m_flows =<font color="red"> fill</font>(m_flow_start, m);
+  <font color="blue">elseif </font>momentumDynamics == Types.Dynamics.SteadyStateInitial<font color="blue"> then</font>
+    <font color="red">der</font>(m_flows) =<font color="red"> zeros</font>(m);
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialDistributedFlow;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialPressureLoss<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Interfaces.PartialPressureLossI.png" ALT="Modelica.Fluid.Interfaces.PartialPressureLoss" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Interfaces.PartialPressureLoss"></A><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces"
+>Modelica.Fluid.Interfaces</A>.PartialPressureLoss</H2>
+<B>Base flow model for pressure loss functions with the same area at port_a and at port_b</B><p>
+<IMG SRC="Modelica.Fluid.Interfaces.PartialPressureLossD.png" ALT="Modelica.Fluid.Interfaces.PartialPressureLoss">
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_start</TD><TD>0.01*system.p_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>system.m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Diagnostics</TD></TR>
+<TR><TD>Boolean</TD><TD>show_T</TD><TD>true</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_V_flow</TD><TD>true</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialPressureLoss <font color="darkgreen">
+  &quot;Base flow model for pressure loss functions with the same area at port_a and at port_b&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A>;
+<font color="blue">protected </font>
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ThermodynamicState"
+>Medium.ThermodynamicState</A> state_dp_small=<font color="red">Medium.setState_pTX</font>(
+                       Medium.reference_p,
+                       Medium.reference_T,
+                       Medium.reference_X) <font color="darkgreen">&quot;Medium state to compute dp_small&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Medium.Density</A> d_a <font color="darkgreen">
+    &quot;Density at port_a when fluid is flowing from port_a to port_b&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Medium.Density</A> d_b <font color="darkgreen">
+    &quot;If allowFlowReversal=true then Density at port_b when fluid is flowing from port_b to port_a else d_a&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>Medium.DynamicViscosity</A> eta_a <font color="darkgreen">
+    &quot;Dynamic viscosity at port_a when fluid is flowing from port_a to port_b&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.DynamicViscosity"
+>Medium.DynamicViscosity</A> eta_b <font color="darkgreen">
+    &quot;If allowFlowReversal=true then Dynamic viscosity at port_b when fluid is flowing from port_b to port_a else eta_a&quot;</font>;
+<font color="blue">equation </font>
+  <font color="darkgreen">// Isenthalpic state transformation (no storage and no loss of energy)</font>
+  port_a.h_outflow =<font color="red"> inStream</font>(port_b.h_outflow);
+  port_b.h_outflow =<font color="red"> inStream</font>(port_a.h_outflow);
+
+  <font color="darkgreen">// Medium properties</font>
+  d_a   =<font color="red"> Medium.density</font>(state_a);
+  eta_a =<font color="red"> Medium.dynamicViscosity</font>(state_a);
+  <font color="blue">if </font>allowFlowReversal<font color="blue"> then</font>
+    d_b   =<font color="red"> Medium.density</font>(state_b);
+    eta_b =<font color="red"> Medium.dynamicViscosity</font>(state_b);
+  <font color="blue">else</font>
+    d_b   = d_a;
+    eta_b = eta_a;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialPressureLoss;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:19 2010.
+</address></BODY>
+</HTML>

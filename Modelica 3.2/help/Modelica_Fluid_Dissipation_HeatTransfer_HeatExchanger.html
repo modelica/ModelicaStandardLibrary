@@ -1,0 +1,868 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatExchanger<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer.html#Modelica.Fluid.Dissipation.HeatTransfer"
+>Modelica.Fluid.Dissipation.HeatTransfer</A>.HeatExchanger</H2>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Heat exchanger</h4>
+<h5>Flat tube heat exchanger</h5>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube"
+>See more information</a> .
+</p>
+
+<h5>Round tube heat exchanger</h5>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube"
+>See more information</a> .
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTubeS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube"
+>kc_flatTube</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTubeS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC"
+>kc_flatTube_KC</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con"
+>kc_flatTube_IN_con</A>
+</TD><TD>Input record for function kc_flatTube and kc_flatTube_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var"
+>kc_flatTube_IN_var</A>
+</TD><TD>Input record for function kc_flatTube and kc_flatTube_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTubeS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube"
+>kc_roundTube</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTubeS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC"
+>kc_roundTube_KC</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con"
+>kc_roundTube_IN_con</A>
+</TD><TD>Input record for function kc_roundTube and kc_roundTube_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var"
+>kc_roundTube_IN_var</A>
+</TD><TD>Input record for function kc_roundTube and kc_roundTube_KC</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_flatTube<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_flatTube</H2>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube"
+>See more information</a> .
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con"
+>kc_flatTube_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function kc_flatTube</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var"
+>kc_flatTube_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function kc_flatTube</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>Output</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>PrandtlNumber</A></TD><TD>Pr</TD><TD>Prandl number [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.NusseltNumber"
+>NusseltNumber</A></TD><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
+<TR><TD>Real</TD><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningfull results</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kc_flatTube
+
+  <font color="darkgreen">//SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I</font>
+
+  <font color="darkgreen">//icon</font>
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function kc_flatTube&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function kc_flatTube&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> kc <font color="darkgreen">&quot;Convective heat transfer coefficient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>SI.PrandtlNumber</A> Pr <font color="darkgreen">&quot;Prandl number&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re <font color="darkgreen">&quot;Reynolds number&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.NusseltNumber"
+>SI.NusseltNumber</A> Nu <font color="darkgreen">&quot;Nusselt number&quot;</font>;
+  <font color="blue">output </font>Real failureStatus <font color="darkgreen">
+    &quot;0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningfull results&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP =
+      <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes</A>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_c=<font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font>IN_con.A_fr*((IN_con.F_l
+       - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
+      *IN_con.F_p))<font color="blue"> else </font><font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>IN_con.A_fr
+      *(h*s/((h + t + IN_con.D_m)*(s + t)))<font color="blue"> else </font>0 <font color="darkgreen">
+    &quot;Minimum flow cross-sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> h=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>IN_con.D_h*(1 +
+      IN_con.alpha)/(2*IN_con.alpha)<font color="blue"> else </font>0 <font color="darkgreen">&quot;Free flow height&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> l=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>t/IN_con.delta<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Fin length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>h*IN_con.alpha<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Lateral fin spacing (free flow width)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> t=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>s*IN_con.gamma<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Fin thickness&quot;</font>;
+<font color="blue">algorithm </font>
+  kc :=<font color="red"> Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC</font>(IN_con,
+    IN_var);
+  Pr :=<font color="red"> abs</font>(IN_var.eta*IN_var.cp/IN_var.lambda);
+
+  <font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then</font>
+    Re :=<font color="red"> max</font>(1e-3,<font color="red"> abs</font>(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*A_c));
+    Nu :=<font color="red"> max</font>(1e-3, kc*IN_con.L_p/IN_var.lambda);
+  <font color="blue">elseif </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then</font>
+    Re :=<font color="red"> max</font>(1e-3,<font color="red"> abs</font>(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*A_c));
+    Nu :=<font color="red"> max</font>(1e-3, kc*IN_con.D_h/IN_var.lambda);
+  <font color="blue">end if</font>;
+
+  failureStatus := <font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font><font color="blue">if </font>Re &lt; 100<font color="blue"> or </font>Re
+     &gt; 3000<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>
+    <font color="blue">if </font>Re &lt; 300<font color="blue"> or </font>Re &gt; 5000<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font>0;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_flatTube;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_flatTube_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_flatTube_KC</H2>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube"
+>See more information</a> .
+</p>
+<pre>
+</PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con"
+>kc_flatTube_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function kc_flatTube_KC</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var"
+>kc_flatTube_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function kc_flatTube_KC</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>kc</TD><TD>Output for function kc_flatTubePlateFin_KC [W/(m2.K)]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kc_flatTube_KC
+  <font color="darkgreen">//SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I</font>
+
+  <font color="darkgreen">//icon</font>
+
+  <font color="darkgreen">// import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;</font>
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function kc_flatTube_KC&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function kc_flatTube_KC&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> kc <font color="darkgreen">
+    &quot;Output for function kc_flatTubePlateFin_KC&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP =
+      <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes</A>;
+
+  Real MIN=Modelica.Constants.eps;
+  Real Phi=IN_con.Phi*180/PI <font color="darkgreen">&quot;Louver angle&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_Dh=<font color="red">max</font>(1e-3,<font color="red"> abs</font>(IN_var.m_flow)*IN_con.D_h/(IN_var.eta*
+      A_c)) <font color="darkgreen">&quot;Reynolds number based on hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_Lp=<font color="red">max</font>(1e-3,<font color="red"> abs</font>(IN_var.m_flow)*IN_con.L_p/(IN_var.eta*
+      A_c)) <font color="darkgreen">&quot;Reynolds number based on louver pitch&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>SI.PrandtlNumber</A> Pr=IN_var.eta*IN_var.cp/IN_var.lambda <font color="darkgreen">&quot;Prandtl number&quot;</font>;
+  Real j <font color="darkgreen">&quot;Colburn j faktor&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_c=<font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font>IN_con.A_fr*((IN_con.F_l
+       - IN_con.delta_f)*(IN_con.F_p - IN_con.delta_f)/((IN_con.F_l + IN_con.D_m)
+      *IN_con.F_p))<font color="blue"> else </font><font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>IN_con.A_fr
+      *(h*s/((h + t + IN_con.D_m)*(s + t)))<font color="blue"> else </font>0 <font color="darkgreen">
+    &quot;Minimum flow cross-sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> h=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>IN_con.D_h*(1 +
+      IN_con.alpha)/(2*IN_con.alpha)<font color="blue"> else </font>0 <font color="darkgreen">&quot;Free flow height&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> l=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>t/IN_con.delta<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Fin length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> s=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>h*IN_con.alpha<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Lateral fin spacing (free flow width)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> t=<font color="blue">if </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then </font>s*IN_con.gamma<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Fin thickness&quot;</font>;
+
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then</font>
+    j := Re_Lp^(-0.49)*(Phi/90)^0.27*(IN_con.F_p/IN_con.L_p)^(-0.14)*(IN_con.F_l
+      /IN_con.L_p)^(-0.29)*(IN_con.T_d/IN_con.L_p)^(-0.23)*(IN_con.L_l/IN_con.L_p)
+      ^0.68*(IN_con.T_p/IN_con.L_p)^(-0.28)*(IN_con.delta_f/IN_con.L_p)^(-0.05);
+    kc := j*(Re_Lp*Pr^(1/3)*IN_var.lambda/IN_con.L_p);
+
+  <font color="blue">elseif </font>IN_con.geometry == TYP.RectangularFin<font color="blue"> then</font>
+    j := 0.6522*Re_Dh^(-0.5403)*(s/h)^(-0.1541)*(t/l)^0.1499*(t/s)^(-0.0678)*(1
+       + 5.269e-5*Re_Dh^1.340*(s/h)^0.504*(t/l)^0.456*(t/s)^(-1.055))^0.1;
+    kc := j*(Re_Dh*Pr^(1/3)*IN_var.lambda/IN_con.D_h);
+
+  <font color="blue">else</font>
+
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_flatTube_KC;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_flatTube_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_flatTube_IN_con</H2>
+<B>Input record for function kc_flatTube and kc_flatTube_KC</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube"
+> kc_flatTube</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC"
+> kc_flatTube_KC</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>HeatExchanger</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes"
+>HTXGeometry_flatTubes</A></TD><TD>geometry</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of fin geometry</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A_fr</TD><TD>0</TD><TD>Frontal area [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>D_h</TD><TD>0</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>D_m</TD><TD>0</TD><TD>Major tube diameter for flat tube [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>F_l</TD><TD>0</TD><TD>Fin length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>F_p</TD><TD>0</TD><TD>Fin pitch, fin spacing + fin thickness [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L_l</TD><TD>0</TD><TD>Louver length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L_p</TD><TD>0</TD><TD>Louver pitch [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>T_d</TD><TD>0</TD><TD>Tube depth [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>T_p</TD><TD>0</TD><TD>Tube pitch [m]</TD></TR>
+<TR><TD>Real</TD><TD>alpha</TD><TD>0</TD><TD>Lateral fin spacing (s) / free flow height (h)</TD></TR>
+<TR><TD>Real</TD><TD>gamma</TD><TD>0</TD><TD>Fin thickness (t) / lateral fin spacing (s)</TD></TR>
+<TR><TD>Real</TD><TD>delta</TD><TD>0</TD><TD>Fin thickness (t) / Fin length (l)</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>delta_f</TD><TD>0</TD><TD>Fin thickness [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>Phi</TD><TD>0</TD><TD>Louver angle [rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> kc_flatTube_IN_con <font color="darkgreen">
+  &quot;Input record for function kc_flatTube and kc_flatTube_KC&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP =
+      <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes</A>;
+
+<font color="blue">public </font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_flatTubes</A>
+    geometry =                                                              Dissipation.Utilities.Types.HTXGeometry_flatTubes.LouverFin <font color="darkgreen">
+    &quot;Choice of fin geometry&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_fr=0 <font color="darkgreen">&quot;Frontal area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> D_h=0 <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> D_m=0 <font color="darkgreen">&quot;Major tube diameter for flat tube&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> F_l=0 <font color="darkgreen">&quot;Fin length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> F_p=0 <font color="darkgreen">&quot;Fin pitch, fin spacing + fin thickness&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L_l=0 <font color="darkgreen">&quot;Louver length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L_p=0 <font color="darkgreen">&quot;Louver pitch&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> T_d=0 <font color="darkgreen">&quot;Tube depth&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> T_p=0 <font color="darkgreen">&quot;Tube pitch&quot;</font>;
+
+  Real alpha=0 <font color="darkgreen">&quot;Lateral fin spacing (s) / free flow height (h)&quot;</font>;
+  Real gamma=0 <font color="darkgreen">&quot;Fin thickness (t) / lateral fin spacing (s)&quot;</font>;
+  Real delta=0 <font color="darkgreen">&quot;Fin thickness (t) / Fin length (l)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> delta_f=0 <font color="darkgreen">&quot;Fin thickness&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> Phi=0 <font color="darkgreen">&quot;Louver angle&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>kc_flatTube_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_flatTube_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_flatTube_IN_var</H2>
+<B>Input record for function kc_flatTube and kc_flatTube_KC</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube"
+> kc_flatTube</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_flatTube_KC"
+> kc_flatTube_KC</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records), <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A> (Base record for fluid properties).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacityAtConstantPressure"
+>SpecificHeatCapacityAtConstantPressure</A></TD><TD>cp</TD><TD>&nbsp;</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>ThermalConductivity</A></TD><TD>lambda</TD><TD>&nbsp;</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>&nbsp;</TD><TD>Density of fluid [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>[kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> kc_flatTube_IN_var <font color="darkgreen">
+  &quot;Input record for function kc_flatTube and kc_flatTube_KC&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+
+  <font color="darkgreen">//fluid property variables</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A>;
+
+  <font color="darkgreen">//input variable (mass flow rate)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>kc_flatTube_IN_var;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_roundTube<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_roundTube</H2>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube"
+>See more information</a> .
+</p>
+<pre>
+</PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con"
+>kc_roundTube_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function kc_roundTube</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var"
+>kc_roundTube_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function kc_roundTube</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>Output</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>PrandtlNumber</A></TD><TD>Pr</TD><TD>Prandl number [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.NusseltNumber"
+>NusseltNumber</A></TD><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
+<TR><TD>Real</TD><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningfull results</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kc_roundTube
+  <font color="darkgreen">//SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I</font>
+
+  <font color="darkgreen">//icon</font>
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function kc_roundTube&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function kc_roundTube&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> kc <font color="darkgreen">&quot;Convective heat transfer coefficient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>SI.PrandtlNumber</A> Pr <font color="darkgreen">&quot;Prandl number&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re <font color="darkgreen">&quot;Reynolds number&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.NusseltNumber"
+>SI.NusseltNumber</A> Nu <font color="darkgreen">&quot;Nusselt number&quot;</font>;
+  <font color="blue">output </font>Real failureStatus <font color="darkgreen">
+    &quot;0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningfull results&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP =
+      <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes</A>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_c=IN_con.A_fr*((IN_con.F_p*IN_con.P_t - IN_con.F_p*IN_con.D_c - (
+      IN_con.P_t - IN_con.D_c)*IN_con.delta_f)/(IN_con.F_p*IN_con.P_t)) <font color="darkgreen">
+    &quot;Minimum flow cross-sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_tot=<font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font>IN_con.A_fr*((IN_con.N
+      *PI*IN_con.D_c*(IN_con.F_p - IN_con.delta_f) + 2*(IN_con.P_t*IN_con.L -
+      IN_con.N*PI*IN_con.D_c^2/4))/(IN_con.P_t*IN_con.F_p))<font color="blue"> else </font>0 <font color="darkgreen">
+    &quot;Total heat transfer area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> D_h=<font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font>4*A_c*IN_con.L/A_tot<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+
+  <font color="darkgreen">/*SI.Length D_h=
+    if IN_con.geometry==2 then
+      4*A_c/(IN_con.A_fr*(2*(IN_con.P_t-IN_con.D_c+IN_con.F_p)/(IN_con.F_p*(IN_con.P_t-IN_con.D_c)))) else
+      0 &quot;Hydraulic diameter&quot;;*/</font>
+
+<font color="blue">algorithm </font>
+  kc :=<font color="red"> Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC</font>(IN_con,
+    IN_var);
+  Pr :=<font color="red"> abs</font>(IN_var.eta*IN_var.cp/IN_var.lambda);
+
+  <font color="blue">if </font>IN_con.geometry == TYP.PlainFin<font color="blue"> or </font>IN_con.geometry == TYP.LouverFin<font color="blue"> or </font>
+      IN_con.geometry == TYP.SlitFin<font color="blue"> or </font>IN_con.geometry == TYP.WavyFin<font color="blue"> then</font>
+    Re :=<font color="red"> max</font>(1e-3,<font color="red"> abs</font>(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*A_c));
+    Nu :=<font color="red"> max</font>(1e-3, kc*IN_con.D_c/IN_var.lambda);
+  <font color="blue">end if</font>;
+
+  failureStatus := <font color="blue">if </font>IN_con.geometry == TYP.PlainFin<font color="blue"> then </font><font color="blue">if </font>Re &lt; 300<font color="blue"> or </font>Re &gt;
+    8000<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font><font color="blue">if </font>Re &lt;
+    300<font color="blue"> or </font>Re &gt; 7000<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.geometry == TYP.SlitFin<font color="blue"> then </font>
+    <font color="blue">if </font>Re &lt; 400<font color="blue"> or </font>Re &gt; 7000<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.geometry == TYP.WavyFin<font color="blue"> then </font>
+          <font color="blue">if </font>Re &lt; 350<font color="blue"> or </font>Re &gt; 7000<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font>0;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_roundTube;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_roundTube_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_roundTube_KC</H2>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube"
+>See more information</a> .
+</p>
+<pre>
+</PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con"
+>kc_roundTube_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function kc_roundTube_KC</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var"
+>kc_roundTube_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function kc_roundTube_KC</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>kc</TD><TD>Output for function kc_roundTube_KC [W/(m2.K)]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kc_roundTube_KC
+  <font color="darkgreen">//SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I</font>
+
+  <font color="darkgreen">//icon</font>
+
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function kc_roundTube_KC&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function kc_roundTube_KC&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> kc <font color="darkgreen">&quot;Output for function kc_roundTube_KC&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP =
+      <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes</A>;
+
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_Dc=<font color="red">max</font>(1e-3,<font color="red"> abs</font>(IN_var.m_flow)*IN_con.D_c/(IN_var.eta*
+      A_c)) <font color="darkgreen">&quot;Reynolds number based on fin collar diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>SI.PrandtlNumber</A> Pr=IN_var.eta*IN_var.cp/IN_var.lambda <font color="darkgreen">&quot;Prandtl number&quot;</font>;
+  Real j <font color="darkgreen">&quot;Colburn j faktor&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_c=IN_con.A_fr*((IN_con.F_p*IN_con.P_t - IN_con.F_p*IN_con.D_c - (
+      IN_con.P_t - IN_con.D_c)*IN_con.delta_f)/(IN_con.F_p*IN_con.P_t)) <font color="darkgreen">
+    &quot;Minimum flow cross-sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_tot=<font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font>IN_con.A_fr*((IN_con.N
+      *PI*IN_con.D_c*(IN_con.F_p - IN_con.delta_f) + 2*(IN_con.P_t*IN_con.L -
+      IN_con.N*PI*IN_con.D_c^2/4))/(IN_con.P_t*IN_con.F_p))<font color="blue"> else </font>0 <font color="darkgreen">
+    &quot;Total heat transfer area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> D_h=<font color="blue">if </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then </font>4*A_c*IN_con.L/A_tot<font color="blue"> else </font>
+            0 <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+
+  <font color="darkgreen">/*SI.Length D_h=
+    if IN_con.geometry==2 then
+      4*A_c/(IN_con.A_fr*(2*(IN_con.P_t-IN_con.D_c+IN_con.F_p-IN_con.delta_f)/(IN_con.F_p*IN_con.P_t))) else
+      0 &quot;Hydraulic diameter&quot;;*/</font>
+
+  Real J1=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J2=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J3=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J4=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J5=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J6=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J7=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+  Real J8=0 <font color="darkgreen">&quot;Exponent for computation of Colburn j faktor&quot;</font>;
+
+<font color="blue">algorithm </font>
+  <font color="blue">if </font>IN_con.geometry == TYP.PlainFin<font color="blue"> then</font>
+    j := 0.991*(2.24*Re_Dc^(-0.092)*(IN_con.N/4)^(-0.031))^(0.607*(4 - IN_con.N))
+      *(0.14*Re_Dc^(-0.328)*(IN_con.P_t/IN_con.P_l)^(-0.502)*(IN_con.F_p/IN_con.D_c)
+      ^(0.0312))*(2.55*(IN_con.P_l/IN_con.D_c)^(-1.28));
+    kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+
+  <font color="blue">elseif </font>IN_con.geometry == TYP.LouverFin<font color="blue"> then</font>
+    <font color="blue">if </font>Re_Dc &lt; 900<font color="blue"> then</font>
+      J1 := -0.991 - 0.1055*(IN_con.P_l/IN_con.P_t)^3.1*<font color="red">log</font>(IN_con.L_h/IN_con.L_p);
+      J2 := -0.7344 + 2.1059*IN_con.N^0.55/(<font color="red">log</font>(Re_Dc) - 3.2);
+      J3 := 0.08485*(IN_con.P_l/IN_con.P_t)^(-4.4)*IN_con.N^(-0.68);
+      J4 := -0.1741*<font color="red">log</font>(IN_con.N);
+      j := 14.3117*Re_Dc^J1*(IN_con.F_p/IN_con.D_c)^J2*(IN_con.L_h/IN_con.L_p)^
+        J3*(IN_con.F_p/IN_con.P_l)^J4*(IN_con.P_l/IN_con.P_t)^(-1.724);
+    <font color="blue">elseif </font>Re_Dc &gt; 1100<font color="blue"> then</font>
+      J5 := -0.6027 + 0.02593*(IN_con.P_l/D_h)^0.52*IN_con.N^(-0.5)*<font color="red">log</font>(IN_con.L_h
+        /IN_con.L_p);
+      J6 := -0.4776 + 0.40774*IN_con.N^0.7/(<font color="red">log</font>(Re_Dc) - 4.4);
+      J7 := -0.58655*(IN_con.F_p/D_h)^2.3*(IN_con.P_l/IN_con.P_t)^(-1.6)*IN_con.N
+        ^(-0.65);
+      J8 := 0.0814*(<font color="red">log</font>(Re_Dc) - 3);
+      j := 1.1373*Re_Dc^J5*(IN_con.F_p/IN_con.P_l)^J6*(IN_con.L_h/IN_con.L_p)^
+        J7*(IN_con.P_l/IN_con.P_t)^J8*IN_con.N^0.3545;
+    <font color="blue">else</font>
+      J1 := -0.991 - 0.1055*(IN_con.P_l/IN_con.P_t)^3.1*<font color="red">log</font>(IN_con.L_h/IN_con.L_p);
+      J2 := -0.7344 + 2.1059*IN_con.N^0.55/(<font color="red">log</font>(Re_Dc) - 3.2);
+      J3 := 0.08485*(IN_con.P_l/IN_con.P_t)^(-4.4)*IN_con.N^(-0.68);
+      J4 := -0.1741*<font color="red">log</font>(IN_con.N);
+      J5 := -0.6027 + 0.02593*(IN_con.P_l/D_h)^0.52*IN_con.N^(-0.5)*<font color="red">log</font>(IN_con.L_h
+        /IN_con.L_p);
+      J6 := -0.4776 + 0.40774*IN_con.N^0.7/(<font color="red">log</font>(Re_Dc) - 4.4);
+      J7 := -0.58655*(IN_con.F_p/D_h)^2.3*(IN_con.P_l/IN_con.P_t)^(-1.6)*IN_con.N
+        ^(-0.65);
+      J8 := 0.0814*(<font color="red">log</font>(Re_Dc) - 3);
+      j :=<font color="red"> SMOOTH</font>(
+        900,
+        1100,
+        Re_Dc)*(14.3117*Re_Dc^J1*(IN_con.F_p/IN_con.D_c)^J2*(IN_con.L_h/IN_con.L_p)
+        ^J3*(IN_con.F_p/IN_con.P_l)^J4*(IN_con.P_l/IN_con.P_t)^(-1.724)) +
+        <font color="red">SMOOTH</font>(
+        1100,
+        900,
+        Re_Dc)*(1.1373*Re_Dc^J5*(IN_con.F_p/IN_con.P_l)^J6*(IN_con.L_h/IN_con.L_p)
+        ^J7*(IN_con.P_l/IN_con.P_t)^J8*IN_con.N^0.3545);
+    <font color="blue">end if</font>;
+    kc :=<font color="red"> SMOOTH</font>(
+      100,
+      0,
+      Re_Dc)*j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+
+  <font color="blue">elseif </font>IN_con.geometry == TYP.SlitFin<font color="blue"> then</font>
+    J1 := -0.674 + 0.1316*IN_con.N/<font color="red">log</font>(Re_Dc) - 0.3769*IN_con.F_p/IN_con.D_c -
+      1.8857*IN_con.N/Re_Dc;
+    J2 := -0.0178 + 0.996*IN_con.N/<font color="red">log</font>(Re_Dc) + 26.7*IN_con.N/Re_Dc;
+    J3 := 1.865 + 1244.03*IN_con.F_p/(Re_Dc*IN_con.D_c) - 14.37/<font color="red">log</font>(Re_Dc);
+    j := 1.6409*Re_Dc^J1*(IN_con.S_p/IN_con.S_h)^1.16*(IN_con.P_t/IN_con.P_l)^
+      1.37*(IN_con.F_p/IN_con.D_c)^J2*IN_con.N^J3;
+    kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+
+  <font color="blue">elseif </font>IN_con.geometry == TYP.WavyFin<font color="blue"> then</font>
+    <font color="blue">if </font>Re_Dc &lt;<font color="red"> exp</font>(2.921)<font color="blue"> then</font>
+      j := 1.201/(<font color="red">log</font>(<font color="red">exp</font>(2.921)^(A_c/IN_con.A_fr)))^2.921;
+      kc := j*(<font color="red">exp</font>(2.921)*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+    <font color="blue">else</font>
+      j := 1.201/((<font color="red">log</font>(Re_Dc^(A_c/IN_con.A_fr)))^2.921);
+      kc := j*(Re_Dc*Pr^(1/3)*IN_var.lambda/IN_con.D_c);
+    <font color="blue">end if</font>;
+
+  <font color="blue">else</font>
+
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_roundTube_KC;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_roundTube_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_roundTube_IN_con</H2>
+<B>Input record for function kc_roundTube and kc_roundTube_KC</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube"
+> kc_roundTube</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC"
+> kc_roundTube_KC</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>HeatExchanger</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes"
+>HTXGeometry_roundTubes</A></TD><TD>geometry</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of fin geometry</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A_fr</TD><TD>0</TD><TD>Frontal area [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>D_c</TD><TD>0</TD><TD>Fin collar diameter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>F_p</TD><TD>0</TD><TD>Fin pitch, fin spacing + fin thickness [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>0</TD><TD>Heat exchanger length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L_h</TD><TD>0</TD><TD>Louver height [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L_p</TD><TD>0</TD><TD>Louver pitch [m]</TD></TR>
+<TR><TD>Integer</TD><TD>N</TD><TD>0</TD><TD>Number of tube rows</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>P_d</TD><TD>0</TD><TD>Pattern depth of wavy fin, wave height [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>P_l</TD><TD>0</TD><TD>Longitudinal tube pitch [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>P_t</TD><TD>0</TD><TD>Transverse tube pitch [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>S_h</TD><TD>0</TD><TD>Slit height [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>S_p</TD><TD>0</TD><TD>Slit pitch [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>X_f</TD><TD>0</TD><TD>Half wave length of wavy fin [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>delta_f</TD><TD>0</TD><TD>Fin thickness [m]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> kc_roundTube_IN_con <font color="darkgreen">
+  &quot;Input record for function kc_roundTube and kc_roundTube_KC&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes"
+>Modelica.Fluid.Dissipation.Utilities.Types.HTXGeometry_roundTubes</A>
+    geometry =                                                               Dissipation.Utilities.Types.HTXGeometry_roundTubes.PlainFin <font color="darkgreen">
+    &quot;Choice of fin geometry&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_fr=0 <font color="darkgreen">&quot;Frontal area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> D_c=0 <font color="darkgreen">&quot;Fin collar diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> F_p=0 <font color="darkgreen">&quot;Fin pitch, fin spacing + fin thickness&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L=0 <font color="darkgreen">&quot;Heat exchanger length&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L_h=0 <font color="darkgreen">&quot;Louver height&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L_p=0 <font color="darkgreen">&quot;Louver pitch&quot;</font>;
+  Integer N=0 <font color="darkgreen">&quot;Number of tube rows&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> P_d=0 <font color="darkgreen">&quot;Pattern depth of wavy fin, wave height&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> P_l=0 <font color="darkgreen">&quot;Longitudinal tube pitch&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> P_t=0 <font color="darkgreen">&quot;Transverse tube pitch&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> S_h=0 <font color="darkgreen">&quot;Slit height&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> S_p=0 <font color="darkgreen">&quot;Slit pitch&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> X_f=0 <font color="darkgreen">&quot;Half wave length of wavy fin&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> delta_f=0 <font color="darkgreen">&quot;Fin thickness&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>kc_roundTube_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_roundTube_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger"
+>Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger</A>.kc_roundTube_IN_var</H2>
+<B>Input record for function kc_roundTube and kc_roundTube_KC</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube"
+> kc_roundTube</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_HeatExchanger.html#Modelica.Fluid.Dissipation.HeatTransfer.HeatExchanger.kc_roundTube_KC"
+> kc_roundTube_KC</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records), <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A> (Base record for fluid properties).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacityAtConstantPressure"
+>SpecificHeatCapacityAtConstantPressure</A></TD><TD>cp</TD><TD>&nbsp;</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>ThermalConductivity</A></TD><TD>lambda</TD><TD>&nbsp;</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>&nbsp;</TD><TD>Density of fluid [kg/m3]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>[kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> kc_roundTube_IN_var <font color="darkgreen">
+  &quot;Input record for function kc_roundTube and kc_roundTube_KC&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+
+  <font color="darkgreen">//fluid property variables</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A>;
+
+  <font color="darkgreen">//input variable (mass flow rate)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>kc_roundTube_IN_var;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:20 2010.
+</address></BODY>
+</HTML>

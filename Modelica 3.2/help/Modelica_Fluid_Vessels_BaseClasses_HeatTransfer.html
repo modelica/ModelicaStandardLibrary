@@ -1,0 +1,191 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Vessels.BaseClasses.HeatTransfer</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;HeatTransfer models for vessels&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses.html#Modelica.Fluid.Vessels.BaseClasses"
+>Modelica.Fluid.Vessels.BaseClasses</A>.HeatTransfer</H2>
+<B>HeatTransfer models for vessels</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+Heat transfer correlations for pipe models
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransferS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer"
+>PartialVesselHeatTransfer</A>
+</TD><TD>Base class for vessel heat transfer models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransferS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer"
+>IdealHeatTransfer</A>
+</TD><TD>IdealHeatTransfer: Ideal heat transfer without thermal resistance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransferS.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.ConstantHeatTransfer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.ConstantHeatTransfer"
+>ConstantHeatTransfer</A>
+</TD><TD>ConstantHeatTransfer: Constant heat transfer coefficient</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialVesselHeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransferI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Vessels.BaseClasses.HeatTransfer</A>.PartialVesselHeatTransfer</H2>
+<B>Base class for vessel heat transfer models</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransferD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Base class for vessel heat transfer models.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
+>Modelica.Fluid.Interfaces.PartialHeatTransfer</A> (Common interface for heat transfer models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Ambient</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>k</TD><TD>0</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ambient</TD><TD>system.T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Internal Interface</B></TD></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>1</TD><TD>Number of heat transfer segments</TD></TR>
+<TR><TD>Boolean</TD><TD>use_k</TD><TD>false</TD><TD>= true to use k value for thermal isolation</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</A></TD><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialVesselHeatTransfer <font color="darkgreen">
+  &quot;Base class for vessel heat transfer models&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialHeatTransfer"
+>Modelica.Fluid.Interfaces.PartialHeatTransfer</A>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialVesselHeatTransfer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealHeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransferI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Vessels.BaseClasses.HeatTransfer</A>.IdealHeatTransfer</H2>
+<B>IdealHeatTransfer: Ideal heat transfer without thermal resistance</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransferD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Ideal heat transfer without thermal resistance.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer"
+>PartialVesselHeatTransfer</A> (Base class for vessel heat transfer models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Ambient</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>k</TD><TD>0</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ambient</TD><TD>system.T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Internal Interface</B></TD></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>1</TD><TD>Number of heat transfer segments</TD></TR>
+<TR><TD>Boolean</TD><TD>use_k</TD><TD>false</TD><TD>= true to use k value for thermal isolation</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</A></TD><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealHeatTransfer <font color="darkgreen">
+  &quot;IdealHeatTransfer: Ideal heat transfer without thermal resistance&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer"
+>PartialVesselHeatTransfer</A>;
+
+<font color="blue">equation </font>
+  Ts = heatPorts.T;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>IdealHeatTransfer;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ConstantHeatTransfer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransferI.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.ConstantHeatTransfer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.ConstantHeatTransfer"></A><A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer"
+>Modelica.Fluid.Vessels.BaseClasses.HeatTransfer</A>.ConstantHeatTransfer</H2>
+<B>ConstantHeatTransfer: Constant heat transfer coefficient</B><p>
+<IMG SRC="Modelica.Fluid.Vessels.BaseClasses.PartialLumpedVessel.HeatTransferD.png" ALT="Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.ConstantHeatTransfer">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Simple heat transfer correlation with constant heat transfer coefficient.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer"
+>PartialVesselHeatTransfer</A> (Base class for vessel heat transfer models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>alpha0</TD><TD>&nbsp;</TD><TD>constant heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Ambient</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>k</TD><TD>0</TD><TD>Heat transfer coefficient to ambient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T_ambient</TD><TD>system.T_ambient</TD><TD>Ambient temperature [K]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Internal Interface</B></TD></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD>Integer</TD><TD>n</TD><TD>1</TD><TD>Number of heat transfer segments</TD></TR>
+<TR><TD>Boolean</TD><TD>use_k</TD><TD>false</TD><TD>= true to use k value for thermal isolation</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.HeatPorts_a"
+>HeatPorts_a</A></TD><TD>heatPorts[n]</TD><TD>Heat port to component boundary</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ConstantHeatTransfer <font color="darkgreen">
+  &quot;ConstantHeatTransfer: Constant heat transfer coefficient&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Vessels_BaseClasses_HeatTransfer.html#Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer"
+>PartialVesselHeatTransfer</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> alpha0 <font color="darkgreen">
+    &quot;constant heat transfer coefficient&quot;</font>;
+
+<font color="blue">equation </font>
+  Q_flows = {(alpha0+k)*surfaceAreas[i]*(heatPorts[i].T - Ts[i]) <font color="blue">for </font>i<font color="blue"> in </font>1:n};
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ConstantHeatTransfer;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:12 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1263 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.Translational.Interfaces</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Interfaces for 1-dim. translational mechanical components&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Interfaces<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Translational.Interfaces"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</A>.Interfaces</H2>
+<B>Interfaces for 1-dim. translational mechanical components</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains connectors and partial models for 1-dim.
+translational mechanical components. The components of this package can
+only be used as basic building elements for models.
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_InterfacesPackage.html#Modelica.Icons.InterfacesPackage"
+>Modelica.Icons.InterfacesPackage</A> (Icon for packages containing interfaces).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.Flange_aS.png" ALT="Modelica.Mechanics.Translational.Interfaces.Flange_a" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A>
+</TD><TD>(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.Flange_bS.png" ALT="Modelica.Mechanics.Translational.Interfaces.Flange_b" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A>
+</TD><TD>(right) 1D translational flange (flange axis directed OUT OF cut plane)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.SupportS.png" ALT="Modelica.Mechanics.Translational.Interfaces.Support" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A>
+</TD><TD>Support/housing 1D translational flange</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.InternalSupportS.png" ALT="Modelica.Mechanics.Translational.Interfaces.InternalSupport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.InternalSupport"
+>InternalSupport</A>
+</TD><TD>Adapter model to utilize conditional support connector</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges"
+>PartialTwoFlanges</A>
+</TD><TD>Component with two translational 1D flanges </TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupportS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport"
+>PartialOneFlangeAndSupport</A>
+</TD><TD>Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupportS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport"
+>PartialTwoFlangesAndSupport</A>
+</TD><TD>Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialRigid" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRigid"
+>PartialRigid</A>
+</TD><TD>Rigid connection of two translational 1D flanges </TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialCompliant" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliant"
+>PartialCompliant</A>
+</TD><TD>Compliant connection of two translational 1D flanges</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates"
+>PartialCompliantWithRelativeStates</A>
+</TD><TD>Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupportS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport"
+>PartialElementaryOneFlangeAndSupport</A>
+</TD><TD>Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2S.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>PartialElementaryOneFlangeAndSupport2</A>
+</TD><TD>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupportS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport"
+>PartialElementaryTwoFlangesAndSupport</A>
+</TD><TD>Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2.</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2S.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2"
+>PartialElementaryTwoFlangesAndSupport2</A>
+</TD><TD>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslationalS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational"
+>PartialElementaryRotationalToTranslational</A>
+</TD><TD>Partial model to transform rotational into translational motion</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialForceS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialForce" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialForce"
+>PartialForce</A>
+</TD><TD>Partial model of a force acting at the flange (accelerates the flange)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensorS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>PartialAbsoluteSensor</A>
+</TD><TD>Device to measure a single absolute flange variable</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensorS.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>PartialRelativeSensor</A>
+</TD><TD>Device to measure a single relative variable between two flanges</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialFriction"
+>PartialFriction</A>
+</TD><TD>Base model of Coulomb friction elements</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Flange_a<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.Flange_aI.png" ALT="Modelica.Mechanics.Translational.Interfaces.Flange_a" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.Flange_a"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.Flange_a</H2>
+<B>(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.Flange_aD.png" ALT="Modelica.Mechanics.Translational.Interfaces.Flange_a">
+<P><H3>Information</H3></P>
+<PRE></pre>
+This is a flange for 1D translational mechanical systems. In the cut plane of
+the flange a unit vector n, called flange axis, is defined which is directed
+INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
+resolved with respect to
+this unit vector. E.g. force f characterizes a vector which is directed in
+the direction of n with value equal to f. When this flange is connected to
+other 1D translational flanges, this means that the axes vectors of the connected
+flanges are identical.
+</p>
+<p>
+The following variables are transported through this connector:
+<pre>
+  s: Absolute position of the flange in [m]. A positive translation
+     means that the flange is translated along the flange axis.
+  f: Cut-force in direction of the flange axis in [N].
+</pre>
+<pre>
+</PRE><P>
+
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s</TD><TD>Absolute position of flange [m]</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>Force</A></TD><TD>f</TD><TD>Cut force directed into flange [N]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> Flange_a <font color="darkgreen">
+  &quot;(left) 1D translational flange (flange axis directed INTO cut plane, e. g. from left to right)&quot;</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;
+  <font color="blue">flow </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">&quot;Cut force directed into flange&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Flange_a;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Flange_b<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.Flange_bI.png" ALT="Modelica.Mechanics.Translational.Interfaces.Flange_b" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.Flange_b"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.Flange_b</H2>
+<B>(right) 1D translational flange (flange axis directed OUT OF cut plane)</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.Flange_bD.png" ALT="Modelica.Mechanics.Translational.Interfaces.Flange_b">
+<P><H3>Information</H3></P>
+<PRE></pre>
+This is a flange for 1D translational mechanical systems. In the cut plane of
+the flange a unit vector n, called flange axis, is defined which is directed
+OUT OF the cut plane. All vectors in the cut plane are resolved with respect to
+this unit vector. E.g. force f characterizes a vector which is directed in
+the direction of n with value equal to f. When this flange is connected to
+other 1D translational flanges, this means that the axes vectors of the connected
+flanges are identical.
+</p>
+<p>
+The following variables are transported through this connector:
+<pre>
+  s: Absolute position of the flange in [m]. A positive translation
+     means that the flange is translated along the flange axis.
+  f: Cut-force in direction of the flange axis in [N].
+</pre>
+<pre>
+</PRE><P>
+
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s</TD><TD>Absolute position of flange [m]</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>Force</A></TD><TD>f</TD><TD>Cut force directed into flange [N]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> Flange_b <font color="darkgreen">
+  &quot;(right) 1D translational flange (flange axis directed OUT OF cut plane)&quot;</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;
+  <font color="blue">flow </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">&quot;Cut force directed into flange&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Flange_b;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Support<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.SupportI.png" ALT="Modelica.Mechanics.Translational.Interfaces.Support" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.Support"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.Support</H2>
+<B>Support/housing 1D translational flange</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.SupportD.png" ALT="Modelica.Mechanics.Translational.Interfaces.Support">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This is a connector for 1-dim. rotational mechanical systems and models the support or housing of a shaft. The following variables are defined in this connector:</p>
+<table cellspacing="0" cellpadding="2" border="1"><tr>
+<td valign="top"><h4>s</h4></td>
+<td valign="top"><p>Absolute psotion of the support/housing in [m]</p></td>
+</tr>
+<tr>
+<td valign="top"><h4>f</h4></td>
+<td valign="top"><p>Reaction force in the support/housing in [N]</p></td>
+</tr>
+</table>
+<p><br/>The support connector is usually defined as conditional connector. It is most convenient to utilize it</p>
+<ul>
+<li>For models to be build graphically (i.e., the model is build up by drag-and-drop from elementary components):<br/><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport"
+>PartialOneFlangeAndSupport</a>,<br/><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport"
+>PartialTwoFlangesAndSupport</a>, <br/>&nbsp; </li>
+<li>For models to be build textually (i.e., elementary models):<br/><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport"
+>PartialElementaryOneFlangeAndSupport</a>,<br/><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport"
+>PartialElementaryTwoFlangesAndSupport</a>,<br/><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational"
+>PartialElementaryRotationalToTranslational</a>. </li>
+</ul>
+<pre></PRE><P>
+
+<P><H3>Contents</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>Position</A></TD><TD>s</TD><TD>Absolute position of flange [m]</TD></TR>
+<TR><TD>flow <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>Force</A></TD><TD>f</TD><TD>Cut force directed into flange [N]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">connector</font> Support <font color="darkgreen">&quot;Support/housing 1D translational flange&quot;</font>
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;
+  <font color="blue">flow </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">&quot;Cut force directed into flange&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Support;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InternalSupport<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.InternalSupportI.png" ALT="Modelica.Mechanics.Translational.Interfaces.InternalSupport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.InternalSupport"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.InternalSupport</H2>
+<B>Adapter model to utilize conditional support connector</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.InternalSupportD.png" ALT="Modelica.Mechanics.Translational.Interfaces.InternalSupport">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is an adapter model to utilize a conditional support connector
+in an elementary component, i.e., where the component equations are
+defined textually:
+</p>
+
+<ul>
+<li> If <i>useSupport = true</i>, the flange has to be connected to the conditional
+     support connector.</li>
+<li> If <i>useSupport = false</i>, the flange has to be connected to the conditional
+     fixed model.</li>
+</ul>
+
+<p>
+Variable <b>f</b> is defined as <b>input</b> and must be provided when using
+this component as a modifier (computed via a force balance in
+the model where InternalSupport is used). Usually, model InternalSupport is
+utilized via the partial models:
+</p>
+
+<blockquote>
+<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport"
+>
+PartialElementaryOneFlangeAndSupport</a>,<br>
+<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport"
+>
+PartialElementaryTwoFlangesAndSupport</a>,<br>
+<A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational"
+>
+PartialElementaryRotationalToTranslational</a>.</li>
+</blockquote>
+
+<p>
+Note, the support position can always be accessed as internalSupport.s, and
+the support force can always be accessed as internalSupport.f.
+</p>
+
+<pre></PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>Internal support flange (must be connected to the conditional support connector for useSupport=true and to conditional fixed model for useSupport=false)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InternalSupport <font color="darkgreen">
+  &quot;Adapter model to utilize conditional support connector&quot;</font>
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">
+    &quot;External support force (must be computed via force balance in model where InternalSupport is used; = flange.f)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">&quot;External support position (= flange.s)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange <font color="darkgreen">
+    &quot;Internal support flange (must be connected to the conditional support connector for useSupport=true and to conditional fixed model for useSupport=false)&quot;</font>;
+    </textblock>
+<font color="blue">equation </font>
+  flange.f = f;
+  flange.s = s;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>InternalSupport;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTwoFlanges<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialTwoFlanges</H2>
+<B>Component with two translational 1D flanges </B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlanges">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1D translational component with two flanges.
+It is used e.g., to built up parts of a drive train consisting
+of several base components.
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialTwoFlanges <font color="darkgreen">
+  &quot;Component with two translational 1D flanges &quot;</font>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange_a <font color="darkgreen">
+    &quot;(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange_b <font color="darkgreen">
+    &quot;(right) driven flange (flange axis directed out of cut plane)&quot;</font>;
+<font color="blue">end </font>PartialTwoFlanges;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialOneFlangeAndSupport<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupportI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialOneFlangeAndSupport</H2>
+<B>Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupportD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialOneFlangeAndSupport">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with one flange and a support/housing.
+It is used e.g., to build up parts of a drive train graphically consisting
+of several components.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange</TD><TD>Flange of component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialOneFlangeAndSupport <font color="darkgreen">
+  &quot;Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components&quot;</font>
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">
+    &quot;= true, if support flange enabled, otherwise implicitly grounded&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange <font color="darkgreen">&quot;Flange of component&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> support <font color="blue">if </font>useSupport <font color="darkgreen">&quot;Support/housing of component&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> internalSupport <font color="darkgreen">
+    &quot;Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Components.Fixed</A> fixed <font color="blue">if </font><font color="blue">not </font>useSupport <font color="darkgreen">
+    &quot;Fixed support/housing, if not useSupport&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(fixed.flange, internalSupport);
+  <font color="red">connect</font>(internalSupport, support);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialOneFlangeAndSupport;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialTwoFlangesAndSupport<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupportI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialTwoFlangesAndSupport</H2>
+<B>Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupportD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialTwoFlangesAndSupport">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with two flanges and a support/housing.
+It is used e.g., to build up parts of a drive train graphically consisting
+of several components.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Flange of left end</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Flange of right end</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialTwoFlangesAndSupport <font color="darkgreen">
+  &quot;Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components&quot;</font>
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">
+    &quot;= true, if support flange enabled, otherwise implicitly grounded&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange_a <font color="darkgreen">&quot;Flange of left end&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange_b <font color="darkgreen">&quot;Flange of right end&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> support <font color="blue">if </font>useSupport <font color="darkgreen">&quot;Support/housing of component&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> internalSupport <font color="darkgreen">
+    &quot;Internal support/housing of component (either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Components.Fixed</A> fixed <font color="blue">if </font><font color="blue">not </font>useSupport <font color="darkgreen">
+    &quot;Fixed support/housing, if not useSupport&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(fixed.flange, internalSupport);
+  <font color="red">connect</font>(internalSupport, support);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialTwoFlangesAndSupport;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialRigid<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialRigid" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialRigid"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialRigid</H2>
+<B>Rigid connection of two translational 1D flanges </B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialRigid">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with two <i>rigidly</i> connected flanges.
+The fixed distance between the left and the right flange is defined by parameter "L".
+The forces at the right and left flange can be different.
+It is used e.g., to built up sliding masses.
+</p>
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>&nbsp;</TD><TD>Length of component, from left flange to right flange (= flange_b.s - flange_a.s) [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Left flange of translational component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Right flange of translational component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialRigid <font color="darkgreen">
+  &quot;Rigid connection of two translational 1D flanges &quot;</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s <font color="darkgreen">
+    &quot;Absolute position of center of component (s = flange_a.s + L/2 = flange_b.s - L/2)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> L(start=0) <font color="darkgreen">
+    &quot;Length of component, from left flange to right flange (= flange_b.s - flange_a.s)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange_a <font color="darkgreen">&quot;Left flange of translational component&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange_b <font color="darkgreen">&quot;Right flange of translational component&quot;</font>;</textblock>
+<font color="blue">equation </font>
+  flange_a.s = s - L/2;
+  flange_b.s = s + L/2;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialRigid;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialCompliant<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialCompliant" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialCompliant"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialCompliant</H2>
+<B>Compliant connection of two translational 1D flanges</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialCompliantD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialCompliant">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1D translational component with a <i>compliant </i>connection of two
+translational 1D flanges where inertial effects between the two
+flanges are not included. The absolute value of the force at the left and the right
+flange is the same. It is used to built up springs, dampers etc.
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Left flange of compliant 1-dim. translational component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Right flange of compliant 1-dim. translational component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialCompliant <font color="darkgreen">
+  &quot;Compliant connection of two translational 1D flanges&quot;</font>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange_a <font color="darkgreen">&quot;Left flange of compliant 1-dim. translational component&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange_b <font color="darkgreen">&quot;Right flange of compliant 1-dim. translational component&quot;</font>;</textblock>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> s_rel(start=0) <font color="darkgreen">&quot;Relative distance (= flange_b.s - flange_a.s)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">&quot;Force between flanges (positive in direction of flange axis R)&quot;</font>;
+
+<font color="blue">equation </font>
+  s_rel = flange_b.s - flange_a.s;
+  flange_b.f = f;
+  flange_a.f = -f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialCompliant;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialCompliantWithRelativeStates<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRigidI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialCompliantWithRelativeStates</H2>
+<B>Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStatesD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with a compliant connection of two
+translational 1-dim. flanges where inertial effects between the two
+flanges are neglected. The basic assumption is that the cut-forces
+of the two flanges sum-up to zero, i.e., they have the same absolute value
+but opposite sign: flange_a.f + flange_b.f = 0. This base class
+is used to built up force elements such as springs, dampers, friction.
+</p>
+
+<p>
+The difference to base classe "PartialCompliant" is that the relative
+distance and the relative velocity are defined as preferred states.
+The reason is that for a large class of drive trains,
+the absolute position is quickly increasing during operation.
+Numerically, it is better to use relative distances between drive train components
+because they remain in a limited size. For this reason, StateSelect.prefer
+is set for the relative distance of this component.
+</p>
+
+<p>
+In order to improve the numerics, a nominal value for the relative distance
+should be set, since drive train distances are in a small order and
+then step size control of the integrator is practically switched off for
+such a variable. A default nominal value of s_nominal = 1e-4 is defined.
+This nominal value might also be computed from other values, such
+as "s_nominal = f_nominal / c" for a spring, if f_nominal
+and c have more meaningful values for the user.
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD>StateSelect</TD><TD>stateSelect</TD><TD>StateSelect.prefer</TD><TD>Priority to use phi_rel and w_rel as states</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>Distance</A></TD><TD>s_nominal</TD><TD>1e-4</TD><TD>Nominal value of s_rel (used for scaling) [m]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Left flange of compliant 1-dim. translational component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Right flange of compliant 1-dim. transational component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialCompliantWithRelativeStates <font color="darkgreen">
+  &quot;Base model for the compliant connection of two translational 1-dim. shaft flanges where the relative position and relative velocities are used as states&quot;</font>
+
+  <font color="blue">parameter </font>StateSelect stateSelect=StateSelect.prefer <font color="darkgreen">
+    &quot;Priority to use phi_rel and w_rel as states&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> s_nominal=1e-4 <font color="darkgreen">
+    &quot;Nominal value of s_rel (used for scaling)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Distance"
+>SI.Distance</A> s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal) <font color="darkgreen">
+    &quot;Relative distance (= flange_b.s - flange_a.s)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_rel(start=0, stateSelect=stateSelect) <font color="darkgreen">
+    &quot;Relative velocity (= der(s_rel))&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f <font color="darkgreen">&quot;Forces between flanges (= flange_b.f)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Translational.Interfaces.Flange_a</A> flange_a <font color="darkgreen">
+    &quot;Left flange of compliant 1-dim. translational component&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Translational.Interfaces.Flange_b</A> flange_b <font color="darkgreen">
+    &quot;Right flange of compliant 1-dim. transational component&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  s_rel = flange_b.s - flange_a.s;
+  v_rel =<font color="red"> der</font>(s_rel);
+  flange_b.f =  f;
+  flange_a.f = -f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialCompliantWithRelativeStates;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialElementaryOneFlangeAndSupport<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupportI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialElementaryOneFlangeAndSupport</H2>
+<B>Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupportD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</A> (Icon for classes that are obsolete and will be removed in later versions).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange</TD><TD>Flange of component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialElementaryOneFlangeAndSupport <font color="darkgreen">
+  &quot;Obsolete partial model. Use PartialElementaryOneFlangeAndSupport2.&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</A>;
+
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">
+    &quot;= true, if support flange enabled, otherwise implicitly grounded&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s = flange.s - internalSupport.s <font color="darkgreen">
+    &quot;Distance between flange and support (= flange.s - support.s)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange <font color="darkgreen">&quot;Flange of component&quot;</font>;</textblock>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.InternalSupport"
+>InternalSupport</A> internalSupport(f=-flange.f) <font color="darkgreen">
+    &quot;Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Components.Fixed</A> fixed <font color="blue">if </font><font color="blue">not </font>useSupport <font color="darkgreen">
+    &quot;Fixed support/housing, if not useSupport&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> support <font color="blue">if </font>useSupport <font color="darkgreen">&quot;Support/housing of component&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(internalSupport.flange, support);
+  <font color="red">connect</font>(fixed.flange, internalSupport.flange);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialElementaryOneFlangeAndSupport;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialElementaryOneFlangeAndSupport2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2I.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialElementaryOneFlangeAndSupport2</H2>
+<B>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2D.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with one flange and a support/housing.
+It is used to build up elementary components of a drive train with
+equations in the text layer.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange</TD><TD>Flange of component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialElementaryOneFlangeAndSupport2 <font color="darkgreen">
+  &quot;Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models&quot;</font>
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">
+    &quot;= true, if support flange enabled, otherwise implicitly grounded&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s = flange.s - s_support <font color="darkgreen">
+    &quot;Distance between flange and support (= flange.s - support.s)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange <font color="darkgreen">&quot;Flange of component&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> support(s=s_support, f=-flange.f) <font color="blue">if </font>useSupport <font color="darkgreen">
+    &quot;Support/housing of component&quot;</font>;</textblock>
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s_support <font color="darkgreen">&quot;Absolute position of support flange&quot;</font>;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="blue">not </font>useSupport<font color="blue"> then</font>
+     s_support = 0;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialElementaryOneFlangeAndSupport2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialElementaryTwoFlangesAndSupport<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupportI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialElementaryTwoFlangesAndSupport</H2>
+<B>Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2.</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupportD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with two flanges and an additional support.
+It is used e.g., to build up elementary ideal gear components. The component
+contains the force balance, i.e., the sum of the forces of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+a mass). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support force is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</A> (Icon for classes that are obsolete and will be removed in later versions).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialElementaryTwoFlangesAndSupport <font color="darkgreen">
+  &quot;Obsolete partial model. Use PartialElementaryTwoFlangesAndSupport2.&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.ObsoleteModel"
+>Modelica.Icons.ObsoleteModel</A>;
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">
+    &quot;= true, if support flange enabled, otherwise implicitly grounded&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange_a <font color="darkgreen">&quot;Flange of left shaft&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange_b <font color="darkgreen">&quot;Flange of right shaft&quot;</font>;</textblock>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s_a = flange_a.s - internalSupport.s <font color="darkgreen">
+    &quot;Distance between left flange and support&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s_b = flange_b.s - internalSupport.s <font color="darkgreen">
+    &quot;Distance between right flange and support&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">protected </font>
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.InternalSupport"
+>InternalSupport</A> internalSupport(f=-flange_a.f - flange_b.f) <font color="darkgreen">
+    &quot;Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Fixed"
+>Components.Fixed</A> fixed <font color="blue">if </font><font color="blue">not </font>useSupport <font color="darkgreen">
+    &quot;Fixed support/housing, if not useSupport&quot;</font>;
+<font color="blue">public </font>
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> support <font color="blue">if </font>useSupport <font color="darkgreen">&quot;Support/housing of component&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(internalSupport.flange, support);
+  <font color="red">connect</font>(fixed.flange, internalSupport.flange);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialElementaryTwoFlangesAndSupport;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialElementaryTwoFlangesAndSupport2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2I.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialElementaryTwoFlangesAndSupport2</H2>
+<B>Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2D.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a 1-dim. translational component with two flanges and an additional support.
+It is used e.g., to build up elementary ideal gear components. The component
+contains the force balance, i.e., the sum of the forces of the connectors
+is zero (therefore, components that are based on PartialGear cannot have
+a mass). The support connector needs to be connected
+to avoid the unphysical behavior that the
+support force is required to be zero (= the default value, if the
+connector is not connected).
+</p>
+
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>Flange of left shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>Flange of right shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialElementaryTwoFlangesAndSupport2 <font color="darkgreen">
+  &quot;Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models&quot;</font>
+  <font color="blue">parameter </font>Boolean useSupport=false <font color="darkgreen">
+    &quot;= true, if support flange enabled, otherwise implicitly grounded&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A> flange_a <font color="darkgreen">&quot;Flange of left shaft&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A> flange_b <font color="darkgreen">&quot;Flange of right shaft&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A> support(s=s_support, f = -flange_a.f - flange_b.f) <font color="blue">if </font>useSupport <font color="darkgreen">
+    &quot;Support/housing of component&quot;</font>;</textblock>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s_a = flange_a.s - s_support <font color="darkgreen">
+    &quot;Distance between left flange and support&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s_b = flange_b.s - s_support <font color="darkgreen">
+    &quot;Distance between right flange and support&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> s_support <font color="darkgreen">&quot;Absolute position of support flange&quot;</font>;
+<font color="blue">equation </font>
+  <font color="blue">if </font><font color="blue">not </font>useSupport<font color="blue"> then</font>
+     s_support = 0;
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialElementaryTwoFlangesAndSupport2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialElementaryRotationalToTranslational<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslationalI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialElementaryRotationalToTranslational</H2>
+<B>Partial model to transform rotational into translational motion</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslationalD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This is a 1-dim. rotational component with</p>
+<ul>
+<li>one rotational flange, </li>
+<li>one rotational support/housing, </li>
+<li>one translational flange, and </li>
+<li>one translatinal support/housing </li>
+</ul>
+<p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer.</p>
+<p>If <i>useSupportR=true</i>, the rotational support connector is conditionally enabled and needs to be connected.</p>
+<p>If <i>useSupportR=false</i>, the rotational support connector is conditionally disabled and instead the rotational part is internally fixed to ground.</p>
+<p>If <i>useSupportT=true</i>, the translational support connector is conditionally enabled and needs to be connected.</p>
+<p>If <i>useSupportT=false</i>, the translational support connector is conditionally disabled and instead the translational part is internally fixed to ground.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational</A> (Partial model to transform rotational into translational motion).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupportR</TD><TD>false</TD><TD>= true, if rotational support flange enabled, otherwise implicitly grounded</TD></TR>
+<TR><TD>Boolean</TD><TD>useSupportT</TD><TD>false</TD><TD>= true, if translational support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flangeR</TD><TD>Flange of rotational shaft</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flangeT</TD><TD>Flange of translational rod</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.Support"
+>Support</A></TD><TD>supportR</TD><TD>Rotational support/housing of component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>supportT</TD><TD>Translational support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialElementaryRotationalToTranslational <font color="darkgreen">
+  &quot;Partial model to transform rotational into translational motion&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Rotational_Interfaces.html#Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational"
+>Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialElementaryRotationalToTranslational;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialForce<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialForceI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialForce" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialForce"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialForce</H2>
+<B>Partial model of a force acting at the flange (accelerates the flange)</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialForceD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialForce">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Partial model of force that accelerates the flange.
+</p>
+
+<p>
+If <i>useSupport=true</i>, the support connector is conditionally enabled
+and needs to be connected.<br>
+If <i>useSupport=false</i>, the support connector is conditionally disabled
+and instead the component is internally fixed to ground.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>PartialElementaryOneFlangeAndSupport2</A> (Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useSupport</TD><TD>false</TD><TD>= true, if support flange enabled, otherwise implicitly grounded</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange</TD><TD>Flange of component</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Support"
+>Support</A></TD><TD>support</TD><TD>Support/housing of component</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialForce <font color="darkgreen">
+  &quot;Partial model of a force acting at the flange (accelerates the flange)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialElementaryOneFlangeAndSupport2"
+>PartialElementaryOneFlangeAndSupport2</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>Modelica.SIunits.Force</A> f = flange.f <font color="darkgreen">
+    &quot;Accelerating force acting at flange (= flange.f)&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialForce;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialAbsoluteSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensorI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialAbsoluteSensor</H2>
+<B>Device to measure a single absolute flange variable</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensorD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is the superclass of a 1D translational component with one flange and one
+output signal in order to measure an absolute kinematic quantity in the flange
+and to provide the measured signal as output signal for further processing
+with the Modelica.Blocks blocks.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A> (Icon representing a linear measurement device).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialAbsoluteSensor <font color="darkgreen">
+  &quot;Device to measure a single absolute flange variable&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> flange <font color="darkgreen">
+    &quot;Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)&quot;</font>;
+    </textblock>
+
+<font color="blue">equation </font>
+  0 = flange.f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialAbsoluteSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialRelativeSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensorI.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialRelativeSensor</H2>
+<B>Device to measure a single relative variable between two flanges</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensorD.png" ALT="Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This is a superclass for 1D translational components with two rigidly connected
+flanges and one output signal in order to measure relative kinematic quantities
+between the two flanges or the cut-force in the flange and
+to provide the measured signal as output signal for further processing
+with the Modelica.Blocks blocks.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A> (Icon representing a linear measurement device).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialRelativeSensor <font color="darkgreen">
+  &quot;Device to measure a single relative variable between two flanges&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.TranslationalSensor"
+>Modelica.Icons.TranslationalSensor</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Interfaces.Flange_a</A> flange_a <font color="darkgreen">
+    &quot;(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)&quot;</font>;
+  <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Interfaces.Flange_b</A> flange_b <font color="darkgreen">
+    &quot;(right) driven flange (flange axis directed out of cut plane)&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  0 = flange_a.f + flange_b.f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialRelativeSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialFriction<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Translational.Interfaces.PartialFriction"></A><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces"
+>Modelica.Mechanics.Translational.Interfaces</A>.PartialFriction</H2>
+<B>Base model of Coulomb friction elements</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Basic model for Coulomb friction that models the stuck phase in a reliable way.
+</p>
+<pre>
+</PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>Velocity</A></TD><TD>v_small</TD><TD>1e-3</TD><TD>Relative velocity near to zero (see model info text) [m/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialFriction <font color="darkgreen">
+  &quot;Base model of Coulomb friction elements&quot;</font>
+
+<font color="darkgreen">//extends Translational.Interfaces.PartialRigid;</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_small=1e-3 <font color="darkgreen">
+    &quot;Relative velocity near to zero (see model info text)&quot;</font>;
+<font color="darkgreen">// Equations to define the following variables have to be defined in subclasses</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_relfric <font color="darkgreen">&quot;Relative velocity between frictional surfaces&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> a_relfric <font color="darkgreen">&quot;Relative acceleration between frictional surfaces&quot;</font>;
+<font color="darkgreen">//SI.Force f &quot;Friction force (positive, if directed in opposite direction of v_rel)&quot;;</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f0 <font color="darkgreen">&quot;Friction force for v=0 and forward sliding&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> f0_max <font color="darkgreen">&quot;Maximum friction force for v=0 and locked&quot;</font>;
+  Boolean free <font color="darkgreen">&quot;true, if frictional element is not active&quot;</font>;
+<font color="darkgreen">// Equations to define the following variables are given in this class</font>
+  Real sa(unit=&quot;1&quot;) <font color="darkgreen">
+    &quot;Path parameter of friction characteristic f = f(a_relfric)&quot;</font>;
+  Boolean startForward(start=false, fixed=true) <font color="darkgreen">
+    &quot;true, if v_rel=0 and start of forward sliding&quot;</font>;
+  Boolean startBackward(start=false, fixed=true) <font color="darkgreen">
+    &quot;true, if v_rel=0 and start of backward sliding&quot;</font>;
+  Boolean locked(start=false) <font color="darkgreen">&quot;true, if v_rel=0 and not sliding&quot;</font>;
+  <font color="blue">constant </font>Integer Unknown=3 <font color="darkgreen">&quot;Value of mode is not known&quot;</font>;
+  <font color="blue">constant </font>Integer Free=2 <font color="darkgreen">&quot;Element is not active&quot;</font>;
+  <font color="blue">constant </font>Integer Forward=1 <font color="darkgreen">&quot;v_rel &gt; 0 (forward sliding)&quot;</font>;
+  <font color="blue">constant </font>Integer Stuck=0 <font color="darkgreen">
+    &quot;v_rel = 0 (forward sliding, locked or backward sliding)&quot;</font>;
+  <font color="blue">constant </font>Integer Backward=-1 <font color="darkgreen">&quot;v_rel &lt; 0 (backward sliding)&quot;</font>;
+  Integer mode(
+    <font color="blue">final </font>min=Backward,
+    <font color="blue">final </font>max=Unknown,
+    start=Unknown, fixed=true);
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Acceleration"
+>SI.Acceleration</A> unitAcceleration = 1;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Force"
+>SI.Force</A> unitForce = 1;
+<font color="blue">equation </font>
+<font color="darkgreen">/* Friction characteristic
+   (locked is introduced to help the Modelica translator determining
+   the different structural configurations,
+   if for each configuration special code shall be generated)
+*/</font>
+  startForward =<font color="red"> pre</font>(mode) == Stuck<font color="blue"> and </font>(sa &gt; f0_max/unitForce<font color="blue"> or </font><font color="red">pre</font>(startForward)<font color="blue">
+     and </font>sa &gt; f0/unitForce)<font color="blue"> or </font><font color="red">pre</font>(mode) == Backward<font color="blue"> and </font>v_relfric &gt; v_small<font color="blue"> or </font>
+    <font color="red">initial</font>()<font color="blue"> and </font>(v_relfric &gt; 0);
+  startBackward =<font color="red"> pre</font>(mode) == Stuck<font color="blue"> and </font>(sa &lt; -f0_max/unitForce<font color="blue"> or </font><font color="red">pre</font>(
+    startBackward)<font color="blue"> and </font>sa &lt; -f0/unitForce)<font color="blue"> or </font><font color="red">pre</font>(mode) == Forward<font color="blue"> and </font>v_relfric &lt;
+    -v_small<font color="blue"> or </font><font color="red">initial</font>()<font color="blue"> and </font>(v_relfric &lt; 0);
+  locked = <font color="blue">not </font>free<font color="blue"> and </font><font color="blue">not </font>(<font color="red">pre</font>(mode) == Forward<font color="blue"> or </font>startForward<font color="blue"> or </font><font color="red">pre</font>(
+    mode) == Backward<font color="blue"> or </font>startBackward);
+
+  a_relfric/unitAcceleration = <font color="blue">if </font>locked<font color="blue"> then </font>              0<font color="blue"> else </font>
+                               <font color="blue">if </font>free<font color="blue"> then </font>                sa<font color="blue"> else </font>
+                               <font color="blue">if </font>startForward<font color="blue"> then </font>        sa - f0_max/unitForce<font color="blue"> else </font>
+                               <font color="blue">if </font>startBackward<font color="blue"> then </font>       sa + f0_max/unitForce<font color="blue"> else </font>
+                               <font color="blue">if </font><font color="red">pre</font>(mode) == Forward<font color="blue"> then </font>sa - f0_max/unitForce<font color="blue"> else </font>
+                                                            sa + f0_max/unitForce;
+
+<font color="darkgreen">/* Friction torque has to be defined in a subclass. Example for a clutch:
+   f = if locked then sa else
+       if free then   0 else
+       cgeo*fn*(if startForward then          Math.tempInterpol1( v_relfric, mue_pos, 2) else
+                if startBackward then        -Math.tempInterpol1(-v_relfric, mue_pos, 2) else
+                if pre(mode) == Forward then  Math.tempInterpol1( v_relfric, mue_pos, 2) else
+                                             -Math.tempInterpol1(-v_relfric, mue_pos, 2));
+*/</font>
+<font color="darkgreen">// finite state machine to determine configuration</font>
+  mode = <font color="blue">if </font>free<font color="blue"> then </font>Free<font color="blue"> else </font>
+    (<font color="blue">if </font>(<font color="red">pre</font>(mode) == Forward<font color="blue">  or </font><font color="red">pre</font>(mode) == Free<font color="blue"> or </font>startForward)<font color="blue">  and </font>v_relfric &gt; 0<font color="blue"> then </font>
+       Forward<font color="blue"> else </font>
+     <font color="blue">if </font>(<font color="red">pre</font>(mode) == Backward<font color="blue"> or </font><font color="red">pre</font>(mode) == Free<font color="blue"> or </font>startBackward)<font color="blue"> and </font>v_relfric &lt; 0<font color="blue"> then </font>
+       Backward<font color="blue"> else </font>
+       Stuck);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialFriction;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:52 2010.
+</address></BODY>
+</HTML>

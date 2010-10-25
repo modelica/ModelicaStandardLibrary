@@ -1,0 +1,391 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Channel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer</A>.Channel</H2>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar"
+>kc_evenGapLaminar</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall"
+>kc_evenGapOverall</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent"
+>kc_evenGapTurbulent</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_evenGapLaminar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel</A>.kc_evenGapLaminar</H2>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
+</p>
+<h4>Functions <b>kc_evenGapLaminar</b> and <b>kc_evenGapLaminar_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_evenGapLaminar</b>  is using <b>kc_evenGapLaminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_evenGapLaminar_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> laminar regime (Reynolds number &le; 2200)</li>
+<li> developed fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=1)</li>
+   <li> heat transfer from both sides of the gap (target=2)</li>
+   </ul>
+<li> undeveloped fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=3)</li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       </ul>
+   <li> heat transfer from both sides of the gap (target=4)</li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000</li>
+       </ul>
+   </ul>
+</ul>
+</p>
+<h4>Geometry</h4>
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png" alt="pic_gap"/>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
+<pre>
+    Nu_lam = [(Nu_1)^3 + (Nu_2)^3 + (Nu_3)^3]^(1/3)
+</pre>
+</p>
+<p>
+with the corresponding mean convective heat transfer coefficient <b> kc </b> :
+</p>
+<p>
+<pre>
+    kc =  Nu_lam * lambda / d_hyd
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> cp                      </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> d_hyd = 2*s             </b></td><td> as hydraulic diameter of gap [m],</td></tr>
+<tr><td><b> eta                     </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> h                       </b></td><td> as height of cross sectional area in gap [m],</td></tr>
+<tr><td><b> kc                      </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda                  </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L                       </b></td><td> as overflowed length of gap (normal to cross sectional area) [m] ,</td></tr>
+<tr><td><b> Nu_lam                  </b></td><td> as mean Nusselt number [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda      </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho                     </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> s                       </b></td><td> as distance between parallel plates of cross sectional area [m],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta    </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s].</td></tr>
+</table>
+</p>
+<p>
+The summands for the mean Nusselt number <b> Nu_lam </b> at a chosen fluid flow and heat transfer situation are calculated as follows:
+<ul>
+<li> developed fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=1) </li>
+        <ul>
+            <li> Nu_1 = 4.861</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = 0</li>
+        </ul>
+   <li> heat transfer from both sides of the gap (target=2)</li>
+        <ul>
+            <li> Nu_1 = 7.541</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = 0</li>
+        </ul>
+   </ul>
+<li> undeveloped fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=3)</li>
+        <ul>
+            <li> Nu_1 = 4.861</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)</li>
+        </ul>
+   <li> heat transfer from both sides of the gap (target=4)</li>
+        <ul>
+            <li> Nu_1 = 7.541</li>
+            <li> Nu_2 = 1.841*(Re*Pr*d_hyd/L)^(1/3)</li>
+            <li> Nu_3 = [2/(1+22*Pr)]^(1/6)*(Re*Pr*d_hyd/L)^(1/2)</li>
+        </ul>
+   </ul>
+</ul>
+</p>
+<p>
+Note that the fluid properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu_lam </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
+the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapLaminar.png" alt="fig_channel_kc_evenGapLamina"/>
+
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_evenGapOverall<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel</A>.kc_evenGapOverall</H2>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for an laminar or turbulent fluid flow through an even gap at different fluid flow and heat transfer situations.
+</p>
+
+<h4>Functions <b>kc_evenGapOverall</b> and <b>kc_evenGapOverall_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_evenGapOverall</b> is using <b>kc_evenGapOverall_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_evenGapOverall_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_evenGapOverall_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> developed fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=1) </li>
+   <li> heat transfer from both sides of the gap (target=2) </li>
+   </ul>
+<li> undeveloped fluid flow</li>
+   <ul>
+   <li> heat transfer from one side of the gap (target=3) </li>
+       <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 10 </li>
+       </ul>
+   <li> heat transfer from both sides of the gap (target=4) </li>
+   <ul>
+       <li> Prandtl number 0.1 &le; Pr &le; 1000 </li>
+       </ul>
+   </ul>
+<li> turbulent regime always calculated for developed fluid flow and heat transfer from both sides of the gap (target=2)</li>
+</ul>
+</p>
+<h4>Geometry and Calculation </h4>
+
+<p>This heat transfer function enables a calculation of heat transfer coefficient for laminar and turbulent flow regime. The geometry, constant and fluid parameters of the function are the same as for
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar"
+>kc_evenGapLaminar</a>  and <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent"
+>kc_evenGapTurbulent</a>.
+</p>
+<p>
+The calculation conditions for laminar and turbulent flow is equal to the calculation in <b>kc_evenGapLaminar</b>
+and <b>kc_evenGapTurbulent</b>. A smooth transition between both functions is carried out between 2200 &le; Re &le; 30000 (see figure below). </p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids in dependence of
+the chosen fluid flow and heat transfer situations (targets) is shown in the figures below.
+</p>
+<p>
+<ul>
+   <li> Target 1: Developed fluid flow and heat transfer from one side of the gap</li>
+   <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
+   <li> Target 3: Undeveloped fluid flow and heat transfer from one side of the gap</li>
+   <li> Target 4: Undeveloped fluid flow and heat transfer from both sides of the gap</li>
+</ul>
+</p>
+<p>
+The verification for all targets is shown in the following figure w.r.t. the reference:
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapOverall.png" alt="fig_channel_kc_evenGapOverall"/>
+
+<h4>References</h4>
+<dl>
+<dt>Bejan,A.:</dt>
+    <dd><b>Heat transfer handbook</b>.
+    Wiley, 2003.</dd>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_evenGapTurbulent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_Channel.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel</A>.kc_evenGapTurbulent</H2>
+<PRE></pre>
+<p>
+Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides.
+</p>
+<h4>Functions <b>kc_evenGapTurbulent</b> and <b>kc_evenGapTurbulent_KC</b></h4>
+<p>
+There are basically three differences:
+<ul>
+<li>
+The function <b>kc_evenGapTurbulent</b> is using <b>kc_evenGapTurbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
+<li>
+Generally the  function <b>kc_evenGapTurbulent_KC</b> is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known mass flow rate.</li>
+<li>
+You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
+</li>
+</ul>
+</p>
+
+<h4>Restriction</h4>
+<p>
+<ul>
+<li> identical and constant wall tempertures</li>
+<li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1</li>
+<li> 0.5 &le; Prandtl number Pr &le; 100) </li>
+<li> turbulent regime (3e4 &le; Reynolds number &le; 1e6)</li>
+<li> developed fluid flow</li>
+<li> heat transfer from both sides of the gap (Target = 2)</li>
+</ul>
+</p>
+
+<h4>Geometry</h4>
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png" alt="pic_gap"/>
+
+<h4>Calculation</h4>
+<p>
+The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
+<pre>
+    Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
+</pre>
+</p>
+
+<p>
+where the pressure loss coefficient <b> zeta </b> according to <i> Konakov in [VDI 2002, p. Ga 5, eq. 27]</i> is determined by
+<pre>
+    zeta =  1/[1.8*log10(Re) - 1.5]^2
+</pre>
+</p>
+
+<p>
+resulting to the corresponding mean convective heat transfer coefficient <b> kc </b>
+<pre>
+    kc =  Nu_turb * lambda / d_hyd
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> cp                      </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
+<tr><td><b> d_hyd = 2*s             </b></td><td> as hydraulic diameter of gap [m],</td></tr>
+<tr><td><b> eta                     </b></td><td> as dynamic viscosity of fluid [Pa.s],</td></tr>
+<tr><td><b> h                       </b></td><td> as height of cross sectional area in gap [m],</td></tr>
+<tr><td><b> kc                      </b></td><td> as mean convective heat transfer coefficient [W/(m2.K)],</td></tr>
+<tr><td><b> lambda                  </b></td><td> as heat conductivity of fluid [W/(m.K)],</td></tr>
+<tr><td><b> L                       </b></td><td> as overflowed length of gap (normal to cross sectional area) [m] ,</td></tr>
+<tr><td><b> Nu_turb                 </b></td><td> as mean Nusselt number for turbulent regime [-], </td></tr>
+<tr><td><b> Pr = eta*cp/lambda      </b></td><td> as Prandtl number [-],</td></tr>
+<tr><td><b> rho                     </b></td><td> as fluid density [kg/m3],</td></tr>
+<tr><td><b> s                       </b></td><td> as distance between parallel plates of cross sectional area [m],</td></tr>
+<tr><td><b> Re = rho*v*d_hyd/eta    </b></td><td> as Reynolds number [-],</td></tr>
+<tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s],</td></tr>
+<tr><td><b> zeta                    </b></td><td> as pressure loss coefficient [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the fluid flow properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
+</p>
+
+<h4>Verification</h4>
+<p>
+The mean Nusselt number <b> Nu_turb </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
+the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
+<ul>
+   <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
+</ul>
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/heatTransfer/channel/fig_channel_kc_evenGapTurbulent.png" alt="fig_channel_kc_evenGapTurbulent"/>
+
+<h4>References</h4>
+<dl>
+<dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:23 2010.
+</address></BODY>
+</HTML>

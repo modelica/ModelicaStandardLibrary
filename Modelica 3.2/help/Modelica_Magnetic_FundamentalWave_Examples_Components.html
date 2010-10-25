@@ -1,0 +1,161 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FundamentalWave.Examples.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Examples of components of the FundamentWave library&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FundamentalWave.Examples.Components"></A><A HREF="Modelica_Magnetic_FundamentalWave_Examples.html#Modelica.Magnetic.FundamentalWave.Examples"
+>Modelica.Magnetic.FundamentalWave.Examples</A>.Components</H2>
+<B>Examples of components of the FundamentWave library</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLossesS.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses"
+>EddyCurrentLosses</A>
+</TD><TD>Comparison of equivalent circuits of eddy current loss models</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE EddyCurrentLosses<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLossesI.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses"></A><A HREF="Modelica_Magnetic_FundamentalWave_Examples_Components.html#Modelica.Magnetic.FundamentalWave.Examples.Components"
+>Modelica.Magnetic.FundamentalWave.Examples.Components</A>.EddyCurrentLosses</H2>
+<B>Comparison of equivalent circuits of eddy current loss models</B><p>
+<IMG SRC="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLossesD.png" ALT="Modelica.Magnetic.FundamentalWave.Examples.Components.EddyCurrentLosses">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+In this example the eddy current losses are implemented in two different ways. Compare the loss dissipation <code>powerb_e.power</code> and <code>powerb_m.power</code> of the two models indicated by power meters.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RLeader</TD><TD>0.1</TD><TD>Resistance of leader cables [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Conductance</A></TD><TD>Gc</TD><TD>1</TD><TD>Loss conductance [S]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Reluctance"
+>Reluctance</A></TD><TD>R_m</TD><TD>1</TD><TD>Reluctance of the magnetic circuit [H-1]</TD></TR>
+<TR><TD>Real</TD><TD>N</TD><TD>1</TD><TD>Number of turns</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> EddyCurrentLosses <font color="darkgreen">
+  &quot;Comparison of equivalent circuits of eddy current loss models&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RLeader = 0.1 <font color="darkgreen">
+    &quot;Resistance of leader cables&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Conductance"
+>Modelica.SIunits.Conductance</A> Gc=1 <font color="darkgreen">&quot;Loss conductance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Reluctance"
+>Modelica.SIunits.Reluctance</A> R_m=1 <font color="darkgreen">
+    &quot;Reluctance of the magnetic circuit&quot;</font>;
+  <font color="blue">parameter </font>Real N = 1 <font color="darkgreen">&quot;Number of turns&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> lossPower_e=<font color="red">sum</font>(loss_e.conductor.LossPower);
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>Modelica.SIunits.Power</A> lossPower_m=loss_m.lossPower;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground_e;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> ground_m;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> star_e;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> star_m;
+  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineVoltage"
+>Modelica.Electrical.MultiPhase.Sources.SineVoltage</A> sineVoltage_e;
+  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineVoltage"
+>Modelica.Electrical.MultiPhase.Sources.SineVoltage</A> sineVoltage_m;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> leader_e(R=<font color="red">fill</font>(RLeader, 3));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> leader_m(R=<font color="red">fill</font>(RLeader, 3));
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
+>Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter</A>
+    converter_e(orientation=
+    <font color="red">Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation</font>(3),
+    m=3,
+    effectiveTurns=<font color="red">fill</font>(N, 3));
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter"
+>Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter</A>
+    converter_m(orientation=
+      <font color="red">Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation</font>(3),
+    effectiveTurns=<font color="red">fill</font>(N, 3),
+    m=3);
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Reluctance"
+>Modelica.Magnetic.FundamentalWave.Components.Reluctance</A> reluctance_e(R_m(d=
+          R_m, q=R_m));
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Reluctance"
+>Modelica.Magnetic.FundamentalWave.Components.Reluctance</A> reluctance_m(R_m(d=
+          R_m, q=R_m));
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Ground"
+>Modelica.Magnetic.FundamentalWave.Components.Ground</A> mground_e;
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.Ground"
+>Modelica.Magnetic.FundamentalWave.Components.Ground</A> mground_m;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Conductor"
+>Electrical.MultiPhase.Basic.Conductor</A> loss_e(G=<font color="red">fill</font>(Gc, 3));
+  <A HREF="Modelica_Magnetic_FundamentalWave_Components.html#Modelica.Magnetic.FundamentalWave.Components.EddyCurrent"
+>Modelica.Magnetic.FundamentalWave.Components.EddyCurrent</A> loss_m(G=3*N^2*Gc/2);
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.PowerSensor"
+>Modelica.Electrical.MultiPhase.Sensors.PowerSensor</A> powerb_e;
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.PowerSensor"
+>Modelica.Electrical.MultiPhase.Sensors.PowerSensor</A> powerb_m;</textblock>
+<font color="blue">equation </font>
+
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(sineVoltage_e.plug_n, converter_e.plug_n);
+  <font color="red">connect</font>(sineVoltage_e.plug_n, star_e.plug_p);
+  <font color="red">connect</font>(sineVoltage_m.plug_n, star_m.plug_p);
+  <font color="red">connect</font>(star_e.pin_n, ground_e.p);
+  <font color="red">connect</font>(star_m.pin_n, ground_m.p);
+  <font color="red">connect</font>(sineVoltage_m.plug_n, converter_m.plug_n);
+  <font color="red">connect</font>(converter_e.port_p, reluctance_e.port_p);
+  <font color="red">connect</font>(converter_e.port_n, reluctance_e.port_n);
+  <font color="red">connect</font>(converter_e.port_n, mground_e.port_p);
+  <font color="red">connect</font>(converter_m.port_n, reluctance_m.port_n);
+  <font color="red">connect</font>(converter_m.port_p, loss_m.port_p);
+  <font color="red">connect</font>(loss_m.port_n, reluctance_m.port_p);
+  <font color="red">connect</font>(converter_m.port_n, mground_m.port_p);
+  <font color="red">connect</font>(leader_e.plug_p, sineVoltage_e.plug_p);
+  <font color="red">connect</font>(sineVoltage_m.plug_p, leader_m.plug_p);
+  <font color="red">connect</font>(leader_e.plug_n, powerb_e.pc);
+  <font color="red">connect</font>(powerb_e.pv, powerb_e.pc);
+  <font color="red">connect</font>(powerb_e.nc, loss_e.plug_p);
+  <font color="red">connect</font>(powerb_e.nv, sineVoltage_e.plug_n);
+  <font color="red">connect</font>(leader_m.plug_n, powerb_m.pc);
+  <font color="red">connect</font>(powerb_m.pc, powerb_m.pv);
+  <font color="red">connect</font>(powerb_m.nc, converter_m.plug_p);
+  <font color="red">connect</font>(powerb_m.nv, sineVoltage_m.plug_n);
+  <font color="red">connect</font>(loss_e.plug_n, sineVoltage_e.plug_n);
+  <font color="red">connect</font>(loss_e.plug_p, converter_e.plug_p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>EddyCurrentLosses;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:53 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,331 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Thermal.DCMachines</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Thermal parts of DC machines&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DCMachines<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Thermal.DCMachines"></A><A HREF="Modelica_Electrical_Machines_Thermal.html#Modelica.Electrical.Machines.Thermal"
+>Modelica.Electrical.Machines.Thermal</A>.DCMachines</H2>
+<B>Thermal parts of DC machines</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+Thermal parts for DC machines
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPMS.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM"
+>ThermalAmbientDCPM</A>
+</TD><TD>Thermal ambient for DC machine with permanent magnets</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPMS.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE"
+>ThermalAmbientDCEE</A>
+</TD><TD>Thermal ambient for DC machine with electrical excitation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSES.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE"
+>ThermalAmbientDCSE</A>
+</TD><TD>Thermal ambient for DC machine with series excitation</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCES.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE"
+>ThermalAmbientDCCE</A>
+</TD><TD>Thermal ambient for DC machine with compound excitation</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCPM<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPMI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCPM</H2>
+<B>Thermal ambient for DC machine with permanent magnets</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPMD.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCPM">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useTemperatureInputs</TD><TD>false</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Ta</TD><TD>&nbsp;</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tpm</TD><TD>&nbsp;</TD><TD>Temperature of permanent magnet [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TPermanentMagnet</TD><TD>Temperature of permanent magnet</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermalAmbientDCPM <font color="darkgreen">
+  &quot;Thermal ambient for DC machine with permanent magnets&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica.html#Modelica"
+>Modelica</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A>(
+     <font color="blue">redeclare </font><font color="blue">final </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCPM"
+>Machines.Interfaces.DCMachines.ThermalPortDCPM</A>
+      thermalPort);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tpm(start=TDefault) <font color="darkgreen">
+    &quot;Temperature of permanent magnet&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowPermanentMagnet = temperaturePermanentMagnet.port.Q_flow <font color="darkgreen">
+    &quot;Heat flow rate of permanent magnets&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowTotal=
+    Q_flowArmature + Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush + Q_flowPermanentMagnet;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature</A>
+    temperaturePermanentMagnet;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constTpm(<font color="blue">final </font>k=Tpm) <font color="blue">if </font><font color="blue">not </font>useTemperatureInputs;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> TPermanentMagnet <font color="blue">if </font>useTemperatureInputs <font color="darkgreen">
+    &quot;Temperature of permanent magnet&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(temperaturePermanentMagnet.port, thermalPort.heatPortPermanentMagnet);
+  <font color="red">connect</font>(constTpm.y, temperaturePermanentMagnet.T);
+  <font color="red">connect</font>(TPermanentMagnet, temperaturePermanentMagnet.T);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ThermalAmbientDCPM;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCEE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEEI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCEE</H2>
+<B>Thermal ambient for DC machine with electrical excitation</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEED.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCEE">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useTemperatureInputs</TD><TD>false</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Ta</TD><TD>&nbsp;</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Te</TD><TD>&nbsp;</TD><TD>Temperature of (shunt) excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TExcitation</TD><TD>Temperature of (shunt) excitation</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermalAmbientDCEE <font color="darkgreen">
+  &quot;Thermal ambient for DC machine with electrical excitation&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A>(
+     <font color="blue">redeclare </font><font color="blue">final </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCEE"
+>Machines.Interfaces.DCMachines.ThermalPortDCEE</A>
+      thermalPort);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Te(start=TDefault) <font color="darkgreen">
+    &quot;Temperature of (shunt) excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowExcitation = temperatureExcitation.port.Q_flow <font color="darkgreen">
+    &quot;Heat flow rate of (shunt) excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowTotal=
+    Q_flowArmature + Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush + Q_flowExcitation;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature</A> temperatureExcitation;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constTe(<font color="blue">final </font>k=Te) <font color="blue">if </font> <font color="blue">not </font>useTemperatureInputs;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> TExcitation <font color="blue">if </font>
+                                              useTemperatureInputs <font color="darkgreen">
+    &quot;Temperature of (shunt) excitation&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(constTe.y, temperatureExcitation.T);
+  <font color="red">connect</font>(TExcitation, temperatureExcitation.T);
+  <font color="red">connect</font>(temperatureExcitation.port, thermalPort.heatPortExcitation);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ThermalAmbientDCEE;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCSE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSEI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCSE</H2>
+<B>Thermal ambient for DC machine with series excitation</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSED.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCSE">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useTemperatureInputs</TD><TD>false</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Ta</TD><TD>&nbsp;</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tse</TD><TD>&nbsp;</TD><TD>Temperature of series excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_se</TD><TD>Temperature of series excitation</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermalAmbientDCSE <font color="darkgreen">
+  &quot;Thermal ambient for DC machine with series excitation&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A>(
+     <font color="blue">redeclare </font><font color="blue">final </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCSE"
+>Machines.Interfaces.DCMachines.ThermalPortDCSE</A>
+      thermalPort);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tse(start=TDefault) <font color="darkgreen">
+    &quot;Temperature of series excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowSeriesExcitation = temperatureSeriesExcitation.port.Q_flow <font color="darkgreen">
+    &quot;Heat flow rate of series excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowTotal=
+    Q_flowArmature + Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush + Q_flowSeriesExcitation;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature</A> temperatureSeriesExcitation;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constTse(<font color="blue">final </font>k=Tse) <font color="blue">if </font> <font color="blue">not </font>useTemperatureInputs;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_se <font color="blue">if </font>useTemperatureInputs <font color="darkgreen">
+    &quot;Temperature of series excitation&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(constTse.y, temperatureSeriesExcitation.T);
+  <font color="red">connect</font>(T_se, temperatureSeriesExcitation.T);
+  <font color="red">connect</font>(temperatureSeriesExcitation.port, thermalPort.heatPortSeriesExcitation);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ThermalAmbientDCSE;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ThermalAmbientDCCE<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCEI.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE"></A><A HREF="Modelica_Electrical_Machines_Thermal_DCMachines.html#Modelica.Electrical.Machines.Thermal.DCMachines"
+>Modelica.Electrical.Machines.Thermal.DCMachines</A>.ThermalAmbientDCCE</H2>
+<B>Thermal ambient for DC machine with compound excitation</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCED.png" ALT="Modelica.Electrical.Machines.Thermal.DCMachines.ThermalAmbientDCCE">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
+Additionally, all losses = heat flows are recorded.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A> (Partial thermal ambient for DC machines).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>useTemperatureInputs</TD><TD>false</TD><TD>If true, temperature inputs are used; else, temperatures are constant</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Ta</TD><TD>&nbsp;</TD><TD>Temperature of armature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Te</TD><TD>&nbsp;</TD><TD>Temperature of (shunt) excitation [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>Tse</TD><TD>&nbsp;</TD><TD>Temperature of series excitation [K]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>TArmature</TD><TD>Temperature of armature</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_e</TD><TD>Temperature of (shunt) excitation</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>T_se</TD><TD>Temperature of series excitation</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ThermalAmbientDCCE <font color="darkgreen">
+  &quot;Thermal ambient for DC machine with compound excitation&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines"
+>Machines.Interfaces.DCMachines.PartialThermalAmbientDCMachines</A>(
+     <font color="blue">redeclare </font><font color="blue">final </font><A HREF="Modelica_Electrical_Machines_Interfaces_DCMachines.html#Modelica.Electrical.Machines.Interfaces.DCMachines.ThermalPortDCCE"
+>Machines.Interfaces.DCMachines.ThermalPortDCCE</A>
+      thermalPort);
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Te(start=TDefault) <font color="darkgreen">
+    &quot;Temperature of (shunt) excitation&quot;</font>;
+   <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Modelica.SIunits.Temperature</A> Tse(start=TDefault) <font color="darkgreen">
+    &quot;Temperature of series excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowShuntExcitation = temperatureShuntExcitation.port.Q_flow <font color="darkgreen">
+    &quot;Heat flow rate of (shunt) excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowSeriesExcitation = temperatureSeriesExcitation.port.Q_flow <font color="darkgreen">
+    &quot;Heat flow rate of series excitation&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.HeatFlowRate"
+>Modelica.SIunits.HeatFlowRate</A> Q_flowTotal=
+    Q_flowArmature + Q_flowCore + Q_flowStrayLoad + Q_flowFriction + Q_flowBrush + Q_flowShuntExcitation + Q_flowSeriesExcitation;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature</A> temperatureShuntExcitation;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constTe(<font color="blue">final </font>k=Te) <font color="blue">if </font> <font color="blue">not </font>useTemperatureInputs;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_e <font color="blue">if </font>useTemperatureInputs <font color="darkgreen">
+    &quot;Temperature of (shunt) excitation&quot;</font>;
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedTemperature</A> temperatureSeriesExcitation;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> constTse(<font color="blue">final </font>k=Tse) <font color="blue">if </font> <font color="blue">not </font>useTemperatureInputs;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> T_se <font color="blue">if </font>useTemperatureInputs <font color="darkgreen">
+    &quot;Temperature of series excitation&quot;</font>;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(constTe.y, temperatureShuntExcitation.T);
+  <font color="red">connect</font>(T_e, temperatureShuntExcitation.T);
+  <font color="red">connect</font>(constTse.y, temperatureSeriesExcitation.T);
+  <font color="red">connect</font>(T_se, temperatureSeriesExcitation.T);
+  <font color="red">connect</font>(temperatureSeriesExcitation.port, thermalPort.heatPortSeriesExcitation);
+  <font color="red">connect</font>(temperatureShuntExcitation.port, thermalPort.heatPortShuntExcitation);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ThermalAmbientDCCE;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:12 2010.
+</address></BODY>
+</HTML>

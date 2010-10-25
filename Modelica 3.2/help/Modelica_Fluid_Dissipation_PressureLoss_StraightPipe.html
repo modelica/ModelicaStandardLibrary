@@ -1,0 +1,1345 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Package for pressure loss calculation of straight pipes&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StraightPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss.html#Modelica.Fluid.Dissipation.PressureLoss"
+>Modelica.Fluid.Dissipation.PressureLoss</A>.StraightPipe</H2>
+<B>Package for pressure loss calculation of straight pipes</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Straight Pipe</h4>
+<h5>Laminar flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar"
+>See more information</a>.
+</p>
+
+<h5>Turbulent flow</h5>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent"
+>See more information</a>.
+</p>
+
+<h5>Overall flow</b></h5>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"
+>See more information</a>.
+</p>
+
+<h5>Two phase overall flow</h5>
+<p>
+Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+ <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall"
+>See more information</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP"
+>dp_laminar_DP</A>
+</TD><TD>Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW"
+>dp_laminar_MFLOW</A>
+</TD><TD>Pressure loss of straight pipe | calculate mass flow rate | laminar flow regime (Hagen-Poiseuille)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con"
+>dp_laminar_IN_con</A>
+</TD><TD>Input record for function dp_laminar_DP and dp_laminar_MFLOW</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var"
+>dp_laminar_IN_var</A>
+</TD><TD>Input record for function dp_laminar_DP and dp_laminar_MFLOW</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP"
+>dp_overall_DP</A>
+</TD><TD>Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW"
+>dp_overall_MFLOW</A>
+</TD><TD>Pressure loss of straight pipe | calculate mass flow rate | overall flow regime | surface roughness</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"
+>dp_overall_IN_con</A>
+</TD><TD>Input record for function dp_overall_DP and dp_overall_MFLOW</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>dp_overall_IN_var</A>
+</TD><TD>Input record for function dp_overall_DP and dp_overall_MFLOW</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP"
+>dp_turbulent_DP</A>
+</TD><TD>Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW"
+>dp_turbulent_MFLOW</A>
+</TD><TD>Pressure loss of straight pipe | calculate mass flow rate | turbulent flow regime | surface roughness</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>dp_turbulent_IN_con</A>
+</TD><TD>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var"
+>dp_turbulent_IN_var</A>
+</TD><TD>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DPS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP"
+>dp_twoPhaseOverall_DP</A>
+</TD><TD>Pressure loss of straight pipe for two phase flow | calculate (frictional, momentum, geodetic) pressure loss</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con"
+>dp_twoPhaseOverall_IN_con</A>
+</TD><TD>Input record for function dp_twoPhaseOverall_DP</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_conS.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var"
+>dp_twoPhaseOverall_IN_var</A>
+</TD><TD>Input record for function dp_twoPhaseOverall_DP</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_laminar_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_laminar_DP</H2>
+<B>Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of an incompressible and single-phase fluid flow only.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW"
+>dp_laminar_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar"
+>See more information</a>.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con"
+>dp_laminar_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_laminar_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var"
+>dp_laminar_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_laminar_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP</TD><TD>Output for function dp_laminar_DP [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_laminar_DP <font color="darkgreen">
+  &quot;Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)&quot;</font>
+  <font color="darkgreen">//SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.</font>
+
+  <font color="blue">import </font>FD = <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>;
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_laminar_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_laminar_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP <font color="darkgreen">&quot;Output for function dp_laminar_DP&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=IN_con.d_hyd <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=PI*IN_con.d_hyd^2/4 <font color="darkgreen">&quot;Circular cross sectional area&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> velocity=m_flow/<font color="red">max</font>(MIN, IN_var.rho*A_cross) <font color="darkgreen">&quot;Mean velocity&quot;</font>;
+
+  <font color="darkgreen">//Documentation</font>
+
+<font color="blue">algorithm </font>
+  DP := 32*IN_var.eta*velocity*IN_con.L/d_hyd^2;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_laminar_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_laminar_MFLOW<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_laminar_MFLOW</H2>
+<B>Pressure loss of straight pipe | calculate mass flow rate | laminar flow regime (Hagen-Poiseuille)</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of an incompressible and single-phase fluid flow only.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP"
+>dp_laminar_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar"
+>See more information</a>.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con"
+>dp_laminar_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_laminar_MFLOW</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var"
+>dp_laminar_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_laminar_MFLOW</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>M_FLOW</TD><TD>Output for function dp_laminar_MFLOW [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_laminar_MFLOW <font color="darkgreen">
+  &quot;Pressure loss of straight pipe | calculate mass flow rate | laminar flow regime (Hagen-Poiseuille)&quot;</font>
+  <font color="darkgreen">//SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.</font>
+
+  <font color="blue">import </font>FD = <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>;
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_laminar_MFLOW&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_laminar_MFLOW&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> M_FLOW <font color="darkgreen">&quot;Output for function dp_laminar_MFLOW&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, IN_con.d_hyd) <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=PI*IN_con.d_hyd^2/4 <font color="darkgreen">&quot;Circular cross sectional area&quot;</font>;
+
+  <font color="darkgreen">//Documentation</font>
+
+<font color="blue">algorithm </font>
+  M_FLOW := IN_var.rho*A_cross*(dp*d_hyd^2/(32*IN_var.eta*IN_con.L));
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_laminar_MFLOW;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_laminar_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_laminar_IN_con</H2>
+<B>Input record for function dp_laminar_DP and dp_laminar_MFLOW</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP"
+> dp_laminar_DP</a> and
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW"
+> dp_laminar_MFLOW</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe"
+>Utilities.Records.PressureLoss.StraightPipe</A> (Input for straight pipe).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Straight pipe</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>d_hyd</TD><TD>0.1</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>1</TD><TD>Length [m]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_laminar_IN_con <font color="darkgreen">
+  &quot;Input record for function dp_laminar_DP and dp_laminar_MFLOW&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe"
+>Utilities.Records.PressureLoss.StraightPipe</A>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>dp_laminar_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_laminar_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_laminar_IN_var</H2>
+<B>Input record for function dp_laminar_DP and dp_laminar_MFLOW</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP"
+> dp_laminar_DP</a> and
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW"
+> dp_laminar_MFLOW</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A> (Input record for function dp_overall_DP and dp_overall_MFLOW).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>&nbsp;</TD><TD>Density of fluid [kg/m3]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_laminar_IN_var <font color="darkgreen">
+  &quot;Input record for function dp_laminar_DP and dp_laminar_MFLOW&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>dp_laminar_IN_var;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_overall_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_overall_DP</H2>
+<B>Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> overall </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW"
+>dp_overall_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"
+>See more information</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"
+>dp_overall_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_overall_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>dp_overall_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_overall_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP</TD><TD>Output for function dp_overall_DP [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_overall_DP <font color="darkgreen">
+  &quot;Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness&quot;</font>
+  <font color="blue">import </font>FD = <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>;
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</A>;
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_overall_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_overall_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP <font color="darkgreen">&quot;Output for function dp_overall_DP&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, IN_con.d_hyd) <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=PI*IN_con.d_hyd^2/4 <font color="darkgreen">&quot;Circular cross sectional area&quot;</font>;
+  Real k=<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_con.K)/IN_con.d_hyd) <font color="darkgreen">&quot;Relative roughness&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> perimeter=PI*IN_con.d_hyd <font color="darkgreen">&quot;Perimeter&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_min=1e3 <font color="darkgreen">&quot;Minimum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_max=2090*(1/<font color="red">max</font>(0.007, k))^0.0635 <font color="darkgreen">
+    &quot;Maximum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_leave=<font color="red">min</font>(Re_lam_max,<font color="red"> max</font>(Re_lam_min, 754*
+      <font color="red">Modelica.Math.exp</font>(<font color="blue">if </font>k &lt;= 0.007<font color="blue"> then </font>0.0065/0.007<font color="blue"> else </font>0.0065/k))) <font color="darkgreen">
+    &quot;Start of transition regime for increasing Reynolds number (leaving laminar regime)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.General.ReynoldsNumber</font>(
+      A_cross,
+      perimeter,
+      IN_var.rho,
+      IN_var.eta,
+      m_flow);
+
+  <font color="darkgreen">//Documentation</font>
+
+<font color="blue">algorithm </font>
+  DP :=<font color="red"> SMOOTH</font>(
+          Re_lam_min,
+          Re_lam_max,
+          Re)*<font color="red">Dissipation.PressureLoss.StraightPipe.dp_laminar_DP</font>(
+          IN_con,
+          IN_var,
+          m_flow) +<font color="red"> SMOOTH</font>(
+          Re_lam_max,
+          Re_lam_min,
+          Re)*<font color="red">Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP</font>(
+          IN_con,
+          IN_var,
+          m_flow);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_overall_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_overall_MFLOW<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_overall_MFLOW</H2>
+<B>Pressure loss of straight pipe | calculate mass flow rate | overall flow regime | surface roughness</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> overall </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <b> compressible case </b>, where the pressure loss (dp) is known (out of pressures as state variable) in the used model and the corresponding mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP"
+>dp_overall_DP</a> is numerically best used for the <b> incompressible case </b> if the mass flow rate (m_flow) is known (as state variable) and the pressure loss (DP) has to be calculated.   <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"
+>See more information</a>.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"
+>dp_overall_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_overall_MFLOW</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>dp_overall_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_overall_MFLOW</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>M_FLOW</TD><TD>Output of function dp_overall_MFLOW [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_overall_MFLOW <font color="darkgreen">
+  &quot;Pressure loss of straight pipe | calculate mass flow rate | overall flow regime | surface roughness&quot;</font>
+  <font color="blue">import </font>FD = <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>;
+  <font color="blue">import </font>SMOOTH = <A HREF="Modelica_Fluid_Dissipation_Utilities_Functions_General.html#Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother"
+>Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother</A>;
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_overall_MFLOW&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_overall_MFLOW&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> M_FLOW <font color="darkgreen">&quot;Output of function dp_overall_MFLOW&quot;</font>;
+
+<font color="blue">protected </font>
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, IN_con.d_hyd) <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=<font color="red">max</font>(MIN, PI*IN_con.d_hyd^2/4) <font color="darkgreen">&quot;Circular cross sectional area&quot;</font>;
+  Real k=<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_con.K)/IN_con.d_hyd) <font color="darkgreen">&quot;Relative roughness&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_min=1e3 <font color="darkgreen">&quot;Minimum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_max=2090*(1/<font color="red">max</font>(0.007, k))^0.0635 <font color="darkgreen">
+    &quot;Maximum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb_min=4e3 <font color="darkgreen">
+    &quot;Minimum Reynolds number for turbulent regime&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_leave=<font color="red">min</font>(Re_lam_max,<font color="red"> max</font>(Re_lam_min, 754*
+      <font color="red">Modelica.Math.exp</font>(<font color="blue">if </font>k &lt;= 0.007<font color="blue"> then </font>0.0065/0.007<font color="blue"> else </font>0.0065/k))) <font color="darkgreen">
+    &quot;Start of transition regime for increasing Reynolds number (leaving laminar regime)&quot;</font>;
+
+  <font color="darkgreen">//determining darcy friction factor out of pressure loss calulation for straight pipe:</font>
+  <font color="darkgreen">//dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_calc=2*<font color="red">abs</font>(dp)*d_hyd^3*IN_var.rho/(IN_con.L
+      *IN_var.eta^2) <font color="darkgreen">&quot;Adapted Darcy friction factor&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime (Blasius)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam=lambda_FRI_calc/64 <font color="darkgreen">
+    &quot;Reynolds number assuming laminar regime&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb=<font color="blue">if </font>IN_con.roughness == 1<font color="blue"> then </font>(<font color="red">max</font>(MIN,
+      lambda_FRI_calc)/0.3164)^(1/1.75)<font color="blue"> else </font>-2*<font color="red">sqrt</font>(<font color="red">max</font>(lambda_FRI_calc, MIN))
+      *<font color="red">Modelica.Math.log10</font>(2.51/<font color="red">sqrt</font>(<font color="red">max</font>(lambda_FRI_calc, MIN)) + k/3.7) <font color="darkgreen">
+    &quot;Reynolds number assuming turbulent regime&quot;</font>;
+
+  <font color="darkgreen">//determine actual flow regime</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_check=<font color="blue">if </font>Re_lam &lt; Re_lam_leave<font color="blue"> then </font>Re_lam<font color="blue"> else </font>Re_turb;
+  <font color="darkgreen">//determine Re for transition regime</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_trans=<font color="blue">if </font>Re_lam &gt;= Re_lam_leave<font color="blue"> then </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP</font>(
+      Re_check,
+      Re_lam_leave,
+      Re_turb_min,
+      k,
+      lambda_FRI_calc)<font color="blue"> else </font>0;
+  <font color="darkgreen">//determine actual Re</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re=<font color="blue">if </font>Re_lam &lt; Re_lam_leave<font color="blue"> then </font>Re_lam<font color="blue"> else </font><font color="blue">if </font>Re_turb &gt;
+      Re_turb_min<font color="blue"> then </font>Re_turb<font color="blue"> else </font>Re_trans;
+
+  <font color="darkgreen">//Documentation</font>
+
+<font color="blue">algorithm </font>
+  M_FLOW :=<font color="red"> SMOOTH</font>(
+          Re_lam_min,
+          Re_turb,
+          Re)*<font color="red">Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW</font>(
+          IN_con,
+          IN_var,
+          dp) +<font color="red"> SMOOTH</font>(
+          Re_turb,
+          Re_lam_min,
+          Re)*<font color="red">Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW</font>(
+          IN_con,
+          IN_var,
+          dp);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_overall_MFLOW;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_overall_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_overall_IN_con</H2>
+<B>Input record for function dp_overall_DP and dp_overall_MFLOW</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP"
+> dp_overall_DP</a> and
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW"
+> dp_overall_MFLOW</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>dp_turbulent_IN_con</A> (Input record for function dp_turbulent_DP and dp_turbulent_MFLOW).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Straight pipe</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Roughness</A></TD><TD>roughness</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of considering surface roughness</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>d_hyd</TD><TD>0.1</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>1</TD><TD>Length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>K</TD><TD>0</TD><TD>Roughness (average height of surface asperities) [m]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_overall_IN_con <font color="darkgreen">
+  &quot;Input record for function dp_overall_DP and dp_overall_MFLOW&quot;</font>
+
+  <font color="darkgreen">//straight pipe variables</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>dp_turbulent_IN_con</A>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>dp_overall_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_overall_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_overall_IN_var</H2>
+<B>Input record for function dp_overall_DP and dp_overall_MFLOW</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP"
+> dp_overall_DP</a> and
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW"
+> dp_overall_MFLOW</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss</A> (Base record for fluid properties for pressure loss).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>&nbsp;</TD><TD>Density of fluid [kg/m3]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_overall_IN_var <font color="darkgreen">
+  &quot;Input record for function dp_overall_DP and dp_overall_MFLOW&quot;</font>
+
+  <font color="darkgreen">//fluid property variables</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.PressureLoss</A>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>dp_overall_IN_var;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_turbulent_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_turbulent_DP</H2>
+<B>Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this  function is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW"
+>dp_turbulent_MFLOW</a> is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated.   <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent"
+>See more information</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>dp_turbulent_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_turbulent_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var"
+>dp_turbulent_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_turbulent_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP</TD><TD>Output for function dp_turbulent_DP [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_turbulent_DP <font color="darkgreen">
+  &quot;Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness&quot;</font>
+
+  <font color="darkgreen">//SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.</font>
+  <font color="darkgreen">//SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.</font>
+  <font color="darkgreen">//SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.</font>
+  <font color="blue">import </font>FD = <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>;
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_turbulent_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_turbulent_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP <font color="darkgreen">&quot;Output for function dp_turbulent_DP&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP1 = <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Modelica.Fluid.Dissipation.Utilities.Types.Roughness</A>;
+
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_min=1;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_min=Re_min*IN_var.eta/(IN_var.rho*IN_con.d_hyd);
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=IN_con.d_hyd <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=PI*IN_con.d_hyd^2/4 <font color="darkgreen">&quot;Circular cross sectional area&quot;</font>;
+  Real k=<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_con.K)/IN_con.d_hyd) <font color="darkgreen">&quot;Relative roughness&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_min=1e3 <font color="darkgreen">&quot;Minimum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_max=2090*(1/<font color="red">max</font>(0.007, k))^0.0635 <font color="darkgreen">
+    &quot;Maximum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb_min=4e3 <font color="darkgreen">
+    &quot;Minimum Reynolds number for turbulent regime&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_leave=<font color="red">min</font>(Re_lam_max,<font color="red"> max</font>(Re_lam_min, 754*
+      <font color="red">Modelica.Math.exp</font>(<font color="blue">if </font>k &lt;= 0.007<font color="blue"> then </font>0.0065/0.007<font color="blue"> else </font>0.0065/k))) <font color="darkgreen">
+    &quot;Start of transition regime for increasing Reynolds number (leaving laminar regime)&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> velocity=m_flow/(IN_var.rho*A_cross) <font color="darkgreen">&quot;Mean velocity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re=<font color="red">max</font>(Re_min, IN_var.rho*<font color="red">abs</font>(velocity)*d_hyd/IN_var.eta);
+
+  <font color="darkgreen">//SOURCE_2: p.191, eq. 8.4: determining darcy friction factor</font>
+  <font color="darkgreen">//assuming lambda_FRI == lambda_FRI_calc/Re^2</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_smooth=0.3164*Re^(1.75) <font color="darkgreen">
+    &quot;Darcy friction factor neglecting surface roughness (Blasius)&quot;</font>;
+  <font color="darkgreen">//here with lambda_FRI_rough == lambda_FRI*Re^2</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_rough=0.25*(<font color="red">max</font>(Re, Re_lam_leave)/
+      <font color="red">Modelica.Math.log10</font>(k/3.7 + 5.74/<font color="red">max</font>(Re, Re_lam_leave)^0.9))^2 <font color="darkgreen">
+    &quot;Darcy friction factor considering surface roughness&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI=<font color="blue">if </font>IN_con.roughness == TYP1.Neglected<font color="blue"> then </font>
+            lambda_FRI_smooth<font color="blue"> else </font>lambda_FRI_rough <font color="darkgreen">&quot;Darcy friction factor&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_calc=<font color="blue">if </font>Re &lt; Re_lam_leave<font color="blue"> then </font>64/Re<font color="blue"> else </font>
+      <font color="blue">if </font>Re &gt; Re_turb_min<font color="blue"> then </font>lambda_FRI/Re^2<font color="blue"> else </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_MFLOW</font>(
+      Re,
+      Re_lam_leave,
+      Re_turb_min,
+      k)/Re^2 <font color="darkgreen">&quot;Darcy friction factor&quot;</font>;
+
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.PressureLossCoefficient"
+>TYP.PressureLossCoefficient</A> zeta_TOT=lambda_FRI_calc*IN_con.L/d_hyd <font color="darkgreen">
+    &quot;Pressure loss coefficient&quot;</font>;
+
+  <font color="darkgreen">//Documentation</font>
+
+<font color="blue">algorithm </font>
+  DP := zeta_TOT*(IN_var.rho/2)*
+    <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower</font>(
+          velocity,
+          v_min,
+          2);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_turbulent_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_turbulent_MFLOW<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_turbulent_MFLOW</H2>
+<B>Pressure loss of straight pipe | calculate mass flow rate | turbulent flow regime | surface roughness</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of an incompressible and single-phase fluid flow only considering surface roughness.
+</p>
+
+<p>
+Generally this function is numerically best used for the <b> compressible case </b> if the pressure loss (dp) is known (out of pressures as state variable) and the mass flow rate (M_FLOW) has to be calculated. On the other hand the  function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP"
+>dp_turbulent_DP</a> is numerically best used for the <b> incompressible case </b>, where the mass flow rate (m_flow) is known (as state variable) in the used model and the corresponding pressure loss (DP) has to be calculated.   <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent"
+>See more information</a>.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>dp_turbulent_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_turbulent_MFLOW</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var"
+>dp_turbulent_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_turbulent_MFLOW</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp</TD><TD>&nbsp;</TD><TD>Pressure loss [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>M_FLOW</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_turbulent_MFLOW <font color="darkgreen">
+  &quot;Pressure loss of straight pipe | calculate mass flow rate | turbulent flow regime | surface roughness&quot;</font>
+  <font color="darkgreen">//SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.</font>
+  <font color="darkgreen">//SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.</font>
+  <font color="darkgreen">//SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.</font>
+
+  <font color="blue">import </font>FD = <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>;
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_turbulent_MFLOW&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_turbulent_MFLOW&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> dp <font color="darkgreen">&quot;Pressure loss&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> M_FLOW <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP1 = <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Modelica.Fluid.Dissipation.Utilities.Types.Roughness</A>;
+
+  Real MIN=Modelica.Constants.eps;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_min=1;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, IN_con.d_hyd) <font color="darkgreen">&quot;Hydraulic diameter&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=PI*IN_con.d_hyd^2/4 <font color="darkgreen">&quot;Circular cross sectional area&quot;</font>;
+  Real k=<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_con.K)/IN_con.d_hyd) <font color="darkgreen">&quot;Relative roughness&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: p.81, fig. 2-3, sec 21-22: definition of flow regime boundaries</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_min=1e3 <font color="darkgreen">&quot;Minimum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_max=2090*(1/<font color="red">max</font>(0.007, k))^0.0635 <font color="darkgreen">
+    &quot;Maximum Reynolds number for laminar regime&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb_min=4e3 <font color="darkgreen">
+    &quot;Minimum Reynolds number for turbulent regime&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam_leave=<font color="red">min</font>(Re_lam_max,<font color="red"> max</font>(Re_lam_min, 754*
+      <font color="red">Modelica.Math.exp</font>(<font color="blue">if </font>k &lt;= 0.007<font color="blue"> then </font>0.0065/0.007<font color="blue"> else </font>0.0065/k))) <font color="darkgreen">
+    &quot;Start of transition regime for increasing Reynolds number (leaving laminar regime)&quot;</font>;
+
+  <font color="darkgreen">//determining darcy friction factor out of pressure loss calulation for straight pipe:</font>
+  <font color="darkgreen">//dp = lambda_FRI*L/d_hyd*(rho/2)*velocity^2 and assuming lambda_FRI == lambda_FRI_calc/Re^2</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.DarcyFrictionFactor"
+>TYP.DarcyFrictionFactor</A> lambda_FRI_calc=2*<font color="red">abs</font>(dp)*d_hyd^3*IN_var.rho/(IN_con.L
+      *IN_var.eta^2) <font color="darkgreen">&quot;Adapted Darcy friction factor&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.Lab 1, eq. 5: determine Re assuming laminar regime (Hagen-Poiseuille)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_lam=lambda_FRI_calc/64 <font color="darkgreen">
+    &quot;Reynolds number assuming laminar regime&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_turb=<font color="blue">if </font>IN_con.roughness == TYP1.Neglected<font color="blue"> then </font>(<font color="red">max</font>(MIN,
+      lambda_FRI_calc)/0.3164)^(1/1.75)<font color="blue"> else </font>-2*<font color="red">sqrt</font>(<font color="red">max</font>(lambda_FRI_calc, MIN))
+      *<font color="red">Modelica.Math.log10</font>(2.51/<font color="red">sqrt</font>(<font color="red">max</font>(lambda_FRI_calc, MIN)) + k/3.7) <font color="darkgreen">
+    &quot;Reynolds number assuming turbulent regime&quot;</font>;
+
+  <font color="darkgreen">//determine actual flow regime</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_check=<font color="blue">if </font>Re_lam &lt; Re_lam_leave<font color="blue"> then </font>Re_lam<font color="blue"> else </font>Re_turb;
+  <font color="darkgreen">//determine Re for transition regime</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re_trans=<font color="blue">if </font>Re_lam &gt;= Re_lam_leave<font color="blue"> then </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.General.CubicInterpolation_DP</font>(
+      Re_check,
+      Re_lam_leave,
+      Re_turb_min,
+      k,
+      lambda_FRI_calc)<font color="blue"> else </font>0;
+  <font color="darkgreen">//determine actual Re</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re=<font color="blue">if </font>Re_lam &lt; Re_lam_leave<font color="blue"> then </font>Re_lam<font color="blue"> else </font><font color="blue">if </font>Re_turb &gt;
+      Re_turb_min<font color="blue"> then </font>Re_turb<font color="blue"> else </font>Re_trans;
+
+  <font color="darkgreen">//determine velocity</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> velocity=(<font color="blue">if </font>dp &gt;= 0<font color="blue"> then </font>Re<font color="blue"> else </font>-Re)*IN_var.eta/(IN_var.rho*
+      d_hyd) <font color="darkgreen">&quot;Mean velocity&quot;</font>;
+
+  <font color="darkgreen">//Documentation</font>
+
+<font color="blue">algorithm </font>
+  M_FLOW := IN_var.rho*A_cross*velocity;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_turbulent_MFLOW;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_turbulent_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_turbulent_IN_con</H2>
+<B>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP"
+> dp_turbulent_DP</a> and
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW"
+> dp_turbulent_MFLOW</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe"
+>Utilities.Records.PressureLoss.StraightPipe</A> (Input for straight pipe).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Straight pipe</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Roughness</A></TD><TD>roughness</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of considering surface roughness</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>d_hyd</TD><TD>0.1</TD><TD>Hydraulic diameter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>1</TD><TD>Length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>K</TD><TD>0</TD><TD>Roughness (average height of surface asperities) [m]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_turbulent_IN_con <font color="darkgreen">
+  &quot;Input record for function dp_turbulent_DP and dp_turbulent_MFLOW&quot;</font>
+
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Modelica.Fluid.Dissipation.Utilities.Types.Roughness</A> roughness=Dissipation.Utilities.Types.Roughness.Neglected <font color="darkgreen">
+    &quot;Choice of considering surface roughness&quot;</font>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Records.PressureLoss.StraightPipe"
+>Utilities.Records.PressureLoss.StraightPipe</A>;
+
+    <A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> K=0 <font color="darkgreen">&quot;Roughness (average height of surface asperities)&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_turbulent_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_turbulent_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_turbulent_IN_var</H2>
+<B>Input record for function dp_turbulent_DP and dp_turbulent_MFLOW</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP"
+> dp_turbulent_DP</a> and
+<A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW"
+> dp_turbulent_MFLOW</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A> (Input record for function dp_overall_DP and dp_overall_MFLOW).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>&nbsp;</TD><TD>Density of fluid [kg/m3]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_turbulent_IN_var <font color="darkgreen">
+  &quot;Input record for function dp_turbulent_DP and dp_turbulent_MFLOW&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_IN_var</A>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_turbulent_IN_var;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseOverall_DP<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_twoPhaseOverall_DP</H2>
+<B>Pressure loss of straight pipe for two phase flow | calculate (frictional, momentum, geodetic) pressure loss</B><p>
+<IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DPD.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+</p>
+
+<p>
+Generally the pressure loss for two phase flow in a horizontal or a vertical straight pipe can be calculated for the following fluid flow regimes:
+<p>
+<p>
+<b>Horizontal fluid flow</b> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_horizontal.png" alt="pic_twoPhaseFlowRegimes_horizontal"/>
+
+<p>
+<b>Vertical fluid flow</b> [(a) bubble flow, (b) plug slug flow, (c) foam flow, (d) annular streak flow, (e) annular flow]:
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png" alt="pic_twoPhaseFlowRegimes_vertical"/>
+
+<p>
+ <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall"
+>See more information</a>.
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A> (Geometry figure for straight pipe).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con"
+>dp_twoPhaseOverall_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function dp_twoPhaseOverall_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var"
+>dp_twoPhaseOverall_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function dp_twoPhaseOverall_DP</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>Mass flow rate [kg/s]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>DP</TD><TD>Two phase pressure loss [Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> dp_twoPhaseOverall_DP <font color="darkgreen">
+  &quot;Pressure loss of straight pipe for two phase flow | calculate (frictional, momentum, geodetic) pressure loss&quot;</font>
+  <font color="darkgreen">//SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979</font>
+  <font color="darkgreen">//SOURCE_2: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973</font>
+  <font color="darkgreen">//SOURCE_3: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.</font>
+  <font color="darkgreen">//SOURCE 4: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.</font>
+  <font color="darkgreen">//SOURCE_5: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.</font>
+
+  <font color="darkgreen">//icon</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Icons_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d"
+>Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d</A>;
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function dp_twoPhaseOverall_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function dp_twoPhaseOverall_DP&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow <font color="darkgreen">&quot;Mass flow rate&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP <font color="darkgreen">&quot;Two phase pressure loss&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP =
+      <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss</A>;
+
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> A_cross=<font color="red">max</font>(MIN, IN_con.A_cross) <font color="darkgreen">&quot;Cross sectional area&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*A_cross/<font color="red">max</font>(MIN, IN_con.perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  Real mdot_A=<font color="red">abs</font>(m_flow)/A_cross <font color="darkgreen">&quot;Mass flux&quot;</font>;
+  Real xflowEnd=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(IN_var.x_flow_end))) <font color="darkgreen">
+    &quot;Mass flow rate quality at end of length&quot;</font>;
+  Real xflowSta=<font color="red">min</font>(1,<font color="red"> max</font>(0,<font color="red"> abs</font>(IN_var.x_flow_sta))) <font color="darkgreen">
+    &quot;Mass flow rate quality at start of length&quot;</font>;
+  Real x_flow=(xflowEnd + xflowSta)/2 <font color="darkgreen">&quot;Mean mass flow rate quality over length&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_5: p.17-1 to 17-5, sec. 17.1 to 17.2: Considering cross sectional void fraction [epsilon=A_g/(A_g+A_l)]</font>
+  Real epsilon=
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.VoidFraction</font>(
+      IN_con.voidFractionApproach,
+      true,
+      IN_var.rho_g,
+      IN_var.rho_l,
+      x_flow) <font color="darkgreen">&quot;Void fraction&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_1: Considering frictional pressure loss w.r.t. to correlation of Friedel</font>
+  <font color="darkgreen">//SOURCE_2: Considering frictional pressrue loss w.r.t. to correlation of Chisholm</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP_fric=<font color="blue">if </font>IN_con.frictionalPressureLoss == TYP.Friedel<font color="blue"> then </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseFriedel_DP</font>(
+      IN_con,
+      IN_var,
+      m_flow)<font color="blue"> else </font><font color="blue">if </font>IN_con.frictionalPressureLoss == TYP.Chisholm<font color="blue"> then </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseChisholm_DP</font>(
+      IN_con,
+      IN_var,
+      m_flow)<font color="blue"> else </font>0 <font color="darkgreen">&quot;Frictional pressure loss&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.Lba 4, eq. 22: Considering momentum pressure loss assuming heterogeneous approach for two phase flow</font>
+  <font color="darkgreen">//Evaporation &gt;&gt; positive momentum pressure loss (assumed vice versa at condenstation)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP_mom=<font color="blue">if </font>IN_con.momentumPressureLoss<font color="blue"> then </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseMomentum_DP</font>(
+      IN_con.voidFractionApproach,
+      IN_con.massFlowRateCorrection,
+      IN_con.A_cross,
+      IN_con.perimeter,
+      IN_var.rho_g,
+      IN_var.rho_l,
+      IN_var.x_flow_end,
+      IN_var.x_flow_sta,
+      <font color="red">abs</font>(m_flow))<font color="blue"> else </font>0 <font color="darkgreen">&quot;Momentum pressure loss&quot;</font>;
+
+  <font color="darkgreen">//SOURCE_3: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> DP_geo=<font color="blue">if </font>IN_con.geodeticPressureLoss<font color="blue"> then </font>
+      <font color="red">Modelica.Fluid.Dissipation.Utilities.Functions.PressureLoss.TwoPhase.dp_twoPhaseGeodetic_DP</font>(
+      IN_con.voidFractionApproach,
+      true,
+      IN_con.length,
+      IN_con.phi,
+      IN_var.rho_g,
+      IN_var.rho_l,
+      IN_var.x_flow)<font color="blue"> else </font>0 <font color="darkgreen">&quot;Geodetic pressure loss&quot;</font>;
+
+  <font color="darkgreen">//Documentation</font>
+<font color="blue">algorithm </font>
+  DP := DP_fric + DP_mom + DP_geo;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>dp_twoPhaseOverall_DP;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseOverall_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_twoPhaseOverall_IN_con</H2>
+<B>Input record for function dp_twoPhaseOverall_DP</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP"
+> dp_twoPhaseOverall_DP</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con</A> (Base record for two phase Flow).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Choices</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss"
+>TwoPhaseFrictionalPressureLoss</A></TD><TD>frictionalPressureLoss</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of frictional pressure loss approach</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Roughness</A></TD><TD>voidFractionApproach</TD><TD>Dissipation.Utilities.Types....</TD><TD>Choice of void fraction approach</TD></TR>
+<TR><TD>Boolean</TD><TD>momentumPressureLoss</TD><TD>false</TD><TD>Considering momentum pressure loss</TD></TR>
+<TR><TD>Boolean</TD><TD>massFlowRateCorrection</TD><TD>false</TD><TD>Consider heterogeneous mass flow rate correction</TD></TR>
+<TR><TD>Boolean</TD><TD>geodeticPressureLoss</TD><TD>false</TD><TD>Considering geodetic pressure loss</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Geometry</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A_cross</TD><TD>PI*0.1^2/4</TD><TD>Cross sectional area [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>perimeter</TD><TD>PI*0.1</TD><TD>Wettet perimeter [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>1</TD><TD>Length in fluid flow direction [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>phi</TD><TD>0</TD><TD>Tilt angle to horizontal [rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_twoPhaseOverall_IN_con <font color="darkgreen">
+  &quot;Input record for function dp_twoPhaseOverall_DP&quot;</font>
+
+  <font color="darkgreen">//choices</font>
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss</A>
+    frictionalPressureLoss=Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss.Friedel <font color="darkgreen">
+    &quot;Choice of frictional pressure loss approach&quot;</font>;
+  <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.Roughness"
+>Modelica.Fluid.Dissipation.Utilities.Types.Roughness</A>
+    voidFractionApproach =                                                  Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous <font color="darkgreen">
+    &quot;Choice of void fraction approach&quot;</font>;
+
+  Boolean momentumPressureLoss=false <font color="darkgreen">&quot;Considering momentum pressure loss&quot;</font>;
+  Boolean massFlowRateCorrection=false <font color="darkgreen">
+    &quot;Consider heterogeneous mass flow rate correction&quot;</font>;
+  Boolean geodeticPressureLoss=false <font color="darkgreen">&quot;Considering geodetic pressure loss&quot;</font>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> phi=0 <font color="darkgreen">&quot;Tilt angle to horizontal&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>dp_twoPhaseOverall_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseOverall_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_conI.png" ALT="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.PressureLoss.StraightPipe</A>.dp_twoPhaseOverall_IN_var</H2>
+<B>Input record for function dp_twoPhaseOverall_DP</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the pressure loss function <A HREF="Modelica_Fluid_Dissipation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP"
+> dp_twoPhaseOverall_DP</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var</A> (Base record for two phase flow).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD>Real</TD><TD>x_flow_end</TD><TD>0</TD><TD>Mass flow rate quality at end of length</TD></TR>
+<TR><TD>Real</TD><TD>x_flow_sta</TD><TD>0</TD><TD>Mass flow rate quality at start of length</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_g</TD><TD>&nbsp;</TD><TD>Density of gas [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho_l</TD><TD>&nbsp;</TD><TD>Density of liquid [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta_g</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of gas [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta_l</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of liquid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SurfaceTension"
+>SurfaceTension</A></TD><TD>sigma</TD><TD>&nbsp;</TD><TD>Surface tension [N/m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD>Real</TD><TD>x_flow</TD><TD>(x_flow_end + x_flow_sta)/2</TD><TD>Mean mass flow rate quality over length</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> dp_twoPhaseOverall_IN_var <font color="darkgreen">
+  &quot;Input record for function dp_twoPhaseOverall_DP&quot;</font>
+
+  Real x_flow_end=0 <font color="darkgreen">&quot;Mass flow rate quality at end of length&quot;</font>;
+  Real x_flow_sta=0 <font color="darkgreen">&quot;Mass flow rate quality at start of length&quot;</font>;
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_var</A>
+    (                                                                           <font color="blue">final </font>
+      x_flow=(x_flow_end + x_flow_sta)/2);
+
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>dp_twoPhaseOverall_IN_var;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:22 2010.
+</address></BODY>
+</HTML>

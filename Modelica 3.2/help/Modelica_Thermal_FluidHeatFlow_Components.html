@@ -1,0 +1,332 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Thermal.FluidHeatFlow.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Basic components (pipes, valves)&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Thermal.FluidHeatFlow.Components"></A><A HREF="Modelica_Thermal_FluidHeatFlow.html#Modelica.Thermal.FluidHeatFlow"
+>Modelica.Thermal.FluidHeatFlow</A>.Components</H2>
+<B>Basic components (pipes, valves)</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This package contains components:
+<ul>
+<li>pipe without heat exchange</li>
+<li>pipe with heat exchange</li>
+<li>valve (simple controlled valve)</li>
+</ul>
+Pressure drop is taken from partial model SimpleFriction.<br>
+Thermodynamic equations are defined in partial models (package Partials).<br>
+<dl>
+  <dt><b>Main Authors:</b></dt>
+  <dd>
+  <p>
+  <a href="http://www.haumer.at/">Anton Haumer</a><br>
+  Technical Consulting &amp; Electrical Engineering<br>
+  A-3423 St.Andrae-Woerdern, Austria<br>
+  email: <a href="mailto:a.haumer@haumer.at">a.haumer@haumer.at</a>
+</p>
+  <p>
+  Dr. Christian Kral<br>
+  <a href="http://www.ait.ac.at/">Austrian Institute of Technology, AIT</a><br>
+  Giefinggasse 2<br>
+  A-1210 Vienna, Austria
+</p>
+  </dd>
+</dl>
+<p>
+Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Institute of Technology, AIT.
+</p>
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+>Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="http://www.modelica.org/licenses/ModelicaLicense2"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipeS.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"
+>IsolatedPipe</A>
+</TD><TD>Pipe without heat exchange</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipeS.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"
+>HeatedPipe</A>
+</TD><TD>Pipe with heat exchange</TD></TR>
+<TR><TD><IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.ValveS.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.Valve" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components.Valve"
+>Valve</A>
+</TD><TD>Simple valve</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IsolatedPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipeI.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</A>.IsolatedPipe</H2>
+<B>Pipe without heat exchange</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipeD.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.IsolatedPipe">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Pipe without heat exchange.<br>
+Thermodynamic equations are defined by Partials.TwoPortMass(Q_flow = 0).<br>
+<b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
+leads to neglection of temperature transient cv*m*der(T).
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A> (Partial model of two port), <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction"
+>Interfaces.Partials.SimpleFriction</A> (Simple friction model).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m</TD><TD>&nbsp;</TD><TD>Mass of medium [kg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T0</TD><TD>&nbsp;</TD><TD>Initial temperature of medium [K]</TD></TR>
+<TR><TD>Real</TD><TD>tapT</TD><TD>1</TD><TD>Defines temperature of heatPort between inlet and outlet temperature</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>h_g</TD><TD>&nbsp;</TD><TD>Geodetic height (heigth difference from flowPort_a to flowPort_b) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Simple Friction</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>V_flowLaminar</TD><TD>&nbsp;</TD><TD>Laminar volume flow [m3/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dpLaminar</TD><TD>&nbsp;</TD><TD>Laminar pressure drop [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>V_flowNominal</TD><TD>&nbsp;</TD><TD>Nominal volume flow [m3/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dpNominal</TD><TD>&nbsp;</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>Real</TD><TD>frictionLoss</TD><TD>0</TD><TD>Part of friction losses fed to medium</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IsolatedPipe <font color="darkgreen">&quot;Pipe without heat exchange&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A>(<font color="blue">final </font>tapT=1);
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction"
+>Interfaces.Partials.SimpleFriction</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> h_g(start=0) <font color="darkgreen">
+    &quot;Geodetic height (heigth difference from flowPort_a to flowPort_b)&quot;</font>;
+<font color="blue">equation </font>
+  <font color="darkgreen">// coupling with FrictionModel</font>
+  volumeFlow = V_flow;
+  dp = pressureDrop + medium.rho*Modelica.Constants.g_n*h_g;
+  <font color="darkgreen">// no energy exchange with medium</font>
+  Q_flow = Q_friction;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>IsolatedPipe;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HeatedPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipeI.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</A>.HeatedPipe</H2>
+<B>Pipe with heat exchange</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipeD.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Pipe with heat exchange.<br>
+Thermodynamic equations are defined by Partials.TwoPort.<br>
+Q_flow is defined by heatPort.Q_flow.<br>
+<b>Note:</b> Setting parameter m (mass of medium within pipe) to zero
+leads to neglection of temperature transient cv*m*der(T).<br>
+<b>Note:</b> Injecting heat into a pipe with zero massflow causes
+temperature rise defined by storing heat in medium's mass.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A> (Partial model of two port), <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction"
+>Interfaces.Partials.SimpleFriction</A> (Simple friction model).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>Mass</A></TD><TD>m</TD><TD>&nbsp;</TD><TD>Mass of medium [kg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T0</TD><TD>&nbsp;</TD><TD>Initial temperature of medium [K]</TD></TR>
+<TR><TD>Real</TD><TD>tapT</TD><TD>1</TD><TD>Defines temperature of heatPort between inlet and outlet temperature</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>h_g</TD><TD>&nbsp;</TD><TD>Geodetic height (heigth difference from flowPort_a to flowPort_b) [m]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Simple Friction</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>V_flowLaminar</TD><TD>&nbsp;</TD><TD>Laminar volume flow [m3/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dpLaminar</TD><TD>&nbsp;</TD><TD>Laminar pressure drop [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>V_flowNominal</TD><TD>&nbsp;</TD><TD>Nominal volume flow [m3/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dpNominal</TD><TD>&nbsp;</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD>Real</TD><TD>frictionLoss</TD><TD>0</TD><TD>Part of friction losses fed to medium</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>HeatPort_a</A></TD><TD>heatPort</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> HeatedPipe <font color="darkgreen">&quot;Pipe with heat exchange&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.SimpleFriction"
+>Interfaces.Partials.SimpleFriction</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Modelica.SIunits.Length</A> h_g(start=0) <font color="darkgreen">
+    &quot;Geodetic height (heigth difference from flowPort_a to flowPort_b)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Thermal_HeatTransfer_Interfaces.html#Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a"
+>Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a</A> heatPort;</textblock>
+<font color="blue">equation </font>
+  <font color="darkgreen">// coupling with FrictionModel</font>
+  volumeFlow = V_flow;
+  dp = pressureDrop + medium.rho*Modelica.Constants.g_n*h_g;
+  <font color="darkgreen">// energy exchange with medium</font>
+  Q_flow = heatPort.Q_flow + Q_friction;
+  <font color="darkgreen">// defines heatPort&#39;s temperature</font>
+  heatPort.T = T_q;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>HeatedPipe;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Valve<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.ValveI.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.Valve" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Thermal.FluidHeatFlow.Components.Valve"></A><A HREF="Modelica_Thermal_FluidHeatFlow_Components.html#Modelica.Thermal.FluidHeatFlow.Components"
+>Modelica.Thermal.FluidHeatFlow.Components</A>.Valve</H2>
+<B>Simple valve</B><p>
+<IMG SRC="Modelica.Thermal.FluidHeatFlow.Components.ValveD.png" ALT="Modelica.Thermal.FluidHeatFlow.Components.Valve">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Simple controlled valve.<br>
+Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),<br>
+<code>
+<ul>
+<li>either linear : Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</li>
+<li>or exponential: Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) * y/Y1]</li>
+</ul>
+where:
+<ul>
+<li>Kv0 ... min. flow @ y = 0</li>
+<li>Y1 .... max. valve opening</li>
+<li>Kv1 ... max. flow @ y = Y1</li>
+</ul>
+</code>
+Flow resistance under real conditions is calculated by<br>
+<code>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</code>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A> (Partial model of two port).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Media.html#Modelica.Thermal.FluidHeatFlow.Media.Medium"
+>Medium</A></TD><TD>medium</TD><TD>FluidHeatFlow.Media.Medium()</TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T0</TD><TD>&nbsp;</TD><TD>Initial temperature of medium [K]</TD></TR>
+<TR><TD>Real</TD><TD>tapT</TD><TD>1</TD><TD>Defines temperature of heatPort between inlet and outlet temperature</TD></TR>
+<TR><TD>Real</TD><TD>frictionLoss</TD><TD>&nbsp;</TD><TD>Part of friction losses fed to medium</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Standard characteristic</TD></TR>
+<TR><TD>Boolean</TD><TD>LinearCharacteristic</TD><TD>&nbsp;</TD><TD>Type of characteristic</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>Max. valve opening</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>VolumeFlowRate</A></TD><TD>Kv1</TD><TD>&nbsp;</TD><TD>Max. flow @ y = y1 [m3/s]</TD></TR>
+<TR><TD>Real</TD><TD>kv0</TD><TD>&nbsp;</TD><TD>Leakage flow / max.flow @ y = 0</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>dp0</TD><TD>&nbsp;</TD><TD>Standard pressure drop [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho0</TD><TD>&nbsp;</TD><TD>Standard medium&#39;s density [kg/m3]</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_a"
+>FlowPort_a</A></TD><TD>flowPort_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces.html#Modelica.Thermal.FluidHeatFlow.Interfaces.FlowPort_b"
+>FlowPort_b</A></TD><TD>flowPort_b</TD><TD>&nbsp;</TD></TR>
+<TR><TD>input <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>RealInput</A></TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Valve <font color="darkgreen">&quot;Simple valve&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Thermal_FluidHeatFlow_Interfaces_Partials.html#Modelica.Thermal.FluidHeatFlow.Interfaces.Partials.TwoPort"
+>Interfaces.Partials.TwoPort</A>(m(start=0), <font color="blue">final </font>tapT=1);
+  <font color="blue">parameter </font>Boolean LinearCharacteristic(start=true) <font color="darkgreen">&quot;Type of characteristic&quot;</font>;
+  <font color="blue">parameter </font>Real y1(min=small, start=1) <font color="darkgreen">&quot;Max. valve opening&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> Kv1(min=small, start=1) <font color="darkgreen">
+    &quot;Max. flow @ y = y1&quot;</font>;
+  <font color="blue">parameter </font>Real kv0(min=small,max=1-small, start=0.01) <font color="darkgreen">
+    &quot;Leakage flow / max.flow @ y = 0&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A> dp0(start=1) <font color="darkgreen">&quot;Standard pressure drop&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Modelica.SIunits.Density</A> rho0(start=10) <font color="darkgreen">&quot;Standard medium&#39;s density&quot;</font>;
+  <font color="blue">parameter </font>Real frictionLoss(min=0, max=1, start=0) <font color="darkgreen">
+    &quot;Part of friction losses fed to medium&quot;</font>;
+<font color="blue">protected </font>
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> unitVolumeFlowRate = 1;
+  <font color="blue">constant </font>Real small = Modelica.Constants.small;
+  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> smallVolumeFlowRate = eps*unitVolumeFlowRate;
+  <font color="blue">constant </font>Real eps = Modelica.Constants.eps;
+  Real yLim =<font color="red"> max</font>(<font color="red">min</font>(y,y1),0) <font color="darkgreen">&quot;Limited valve opening&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.VolumeFlowRate"
+>Modelica.SIunits.VolumeFlowRate</A> Kv <font color="darkgreen">&quot;Standard flow rate&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealInput"
+>Modelica.Blocks.Interfaces.RealInput</A> y;</textblock>
+<font color="blue">initial </font><font color="blue">algorithm </font>
+  <font color="red">assert</font>(y1&gt;small, &quot;Valve characteristic: y1 has to be &gt; 0 !&quot;);
+  <font color="red">assert</font>(Kv1&gt;smallVolumeFlowRate, &quot;Valve characteristic: Kv1 has to be &gt; 0 !&quot;);
+  <font color="red">assert</font>(kv0&gt;small, &quot;Valve characteristic: kv0 has to be &gt; 0 !&quot;);
+  <font color="red">assert</font>(kv0&lt;1-eps, &quot;Valve characteristic: kv0 has to be &lt; 1 !&quot;);
+<font color="blue">equation </font>
+  <font color="darkgreen">// evaluate standard characteristic</font>
+  Kv/Kv1 = <font color="blue">if </font>LinearCharacteristic<font color="blue"> then </font>(kv0 + (1-kv0)*yLim/y1)<font color="blue"> else </font>kv0*<font color="red">exp</font>(<font color="red">Modelica.Math.log</font>(1/kv0)*yLim/y1);
+  <font color="darkgreen">// pressure drop under real conditions</font>
+  dp/dp0 = medium.rho/rho0*(V_flow/Kv)*<font color="red">abs</font>(V_flow/Kv);
+  <font color="darkgreen">// no energy exchange with medium</font>
+  Q_flow = frictionLoss*V_flow*dp;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Valve;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:43 2010.
+</address></BODY>
+</HTML>

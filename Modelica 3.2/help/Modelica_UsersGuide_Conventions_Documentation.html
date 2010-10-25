@@ -1,0 +1,131 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.UsersGuide.Conventions.Documentation</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;HTML documentation&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Documentation<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.UsersGuide.ConventionsI.png" ALT="Modelica.UsersGuide.Conventions.Documentation" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.UsersGuide.Conventions.Documentation"></A><A HREF="Modelica_UsersGuide_Conventions.html#Modelica.UsersGuide.Conventions"
+>Modelica.UsersGuide.Conventions</A>.Documentation</H2>
+<PRE></pre>
+<a href="http://www.w3c.org/">HTML</a> documentation of Modelica classes.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.UsersGuide.Conventions.DocumentationS.png" ALT="Modelica.UsersGuide.Conventions.Documentation.Format" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_Conventions_Documentation_Format.html#Modelica.UsersGuide.Conventions.Documentation.Format"
+>Format</A>
+</TD><TD>Format</TD></TR>
+<TR><TD><IMG SRC="Modelica.UsersGuide.Conventions.DocumentationS.png" ALT="Modelica.UsersGuide.Conventions.Documentation.Structure" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_UsersGuide_Conventions_Documentation.html#Modelica.UsersGuide.Conventions.Documentation.Structure"
+>Structure</A>
+</TD><TD>Structure</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Structure<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.UsersGuide.ConventionsI.png" ALT="Modelica.UsersGuide.Conventions.Documentation.Structure" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.UsersGuide.Conventions.Documentation.Structure"></A><A HREF="Modelica_UsersGuide_Conventions_Documentation.html#Modelica.UsersGuide.Conventions.Documentation"
+>Modelica.UsersGuide.Conventions.Documentation</A>.Structure</H2>
+<PRE></pre>
+
+<h4>General</h4>
+
+<ol>
+<li> In the HTML documentation of any Modelica library, the headings <code>&lt;h1&gt;</code>,
+     <code>&lt;h2&gt;</code> and <code>&lt;h3&gt;</code> should not be used, because they are utilized by
+     the automatically generated documentation.
+<li> The utilized heading format starts with <code>&lt;h4&gt;</code> and terminates with <code>&lt;/h4&gt;</code>, e.g.,
+     <code>&lt;h4&gt;Description&lt;/h4&gt;</code> </li>
+<li> The  <code>&lt;h4&gt;</code> and  <code>&lt;h5&gt;</code> headings must not be terminated by a colon (:).</li>
+<li> For additional structuring <code>&lt;h5&gt;</code> and <code>&lt;/h5&gt;</code> may be used as demonstrated below.
+</ol>
+
+<h4>Structure</h4>
+<p>
+The following parts should be added to the documentation of each component:
+</p>
+
+<ol>
+<li> General information without additional subsection explains how the class works</li>
+<li> <b>Syntax</b> (for functions only): shows syntax of function call with minimum and full input parameters</li>
+<li> <b>Implementation</b> (optional): explains how the implementation is made </li>
+<li> <b>Limitations</b> (optional): explains the limitations of the component</li>
+<li> <b>Notes</b> (optional): if required/useful </li>
+<li> <b>Examples</b> (optional): if required/useful </li>
+<li> <b>Acknowledgments</b> (optional): if required </li>
+<li> <b>See also</b>: shows hyperlinks to related models </li>
+<li> <b>Revision history</b> (optional): if required/intended for a package/model, the revision history
+        should be placed in <code>annotation(Documentation(revisions=&quot;...&quot;));</code></li>
+</ol>
+
+<p>
+These sections should appear in the listed order. The only exceptions are hierachically structured notes and examples as explained in the following.
+</p>
+
+<h4>Additional notes and examples</h4>
+
+<p>Some additional notes or examples may require additional <code>&lt;h5&gt;</code> headings. For either notes or examples the following cases may be applied:</p>
+
+<h5>Example 1</h5>
+<p>
+This is an example of a single note.
+</p>
+
+<pre>
+&lt;h5&gt;Note&lt;/h5&gt;
+&lt;p&gt;This is the note.&lt;/p&gt;
+</pre>
+
+<h5>Example 2</h5>
+<p>
+This is an example of a very simple structure.
+</p>
+
+<pre>
+&lt;h5&gt;Notes&lt;/h5&gt;
+&lt;p&gt;This is the first note.&lt;/p&gt;
+&lt;p&gt;This is the second note.&lt;/p&gt;
+</pre>
+
+<h5>Example 3</h5>
+
+<p>
+This example shows a more complex structure with enumeration.
+</p>
+
+<pre>
+&lt;h5&gt;Note 1&lt;/h5&gt;
+...
+&lt;h5&gt;Note 2&lt;/h5&gt;
+...
+</pre>
+<h4>Automatically created documentation</h4>
+<p>
+For parameters, connectors, as well as inputs and outputs of function automatic documentation is generated by the tool from the quoted comments.
+<p>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:27:29 2010.
+</address></BODY>
+</HTML>

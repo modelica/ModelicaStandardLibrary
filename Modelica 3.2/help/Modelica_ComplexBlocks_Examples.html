@@ -1,0 +1,77 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.ComplexBlocks.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of examples to demonstrate the usage of package Blocks&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.ComplexBlocks.Examples"></A><A HREF="Modelica_ComplexBlocks.html#Modelica.ComplexBlocks"
+>Modelica.ComplexBlocks</A>.Examples</H2>
+<B>Library of examples to demonstrate the usage of package Blocks</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This library demonstrates the usage of Complex blocks.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.ComplexBlocks.Examples.TestConversionBlockS.png" ALT="Modelica.ComplexBlocks.Examples.TestConversionBlock" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_ComplexBlocks_Examples.html#Modelica.ComplexBlocks.Examples.TestConversionBlock"
+>TestConversionBlock</A>
+</TD><TD>Test the conversion blocks</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TestConversionBlock<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.ComplexBlocks.Examples.TestConversionBlockI.png" ALT="Modelica.ComplexBlocks.Examples.TestConversionBlock" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.ComplexBlocks.Examples.TestConversionBlock"></A><A HREF="Modelica_ComplexBlocks_Examples.html#Modelica.ComplexBlocks.Examples"
+>Modelica.ComplexBlocks.Examples</A>.TestConversionBlock</H2>
+<B>Test the conversion blocks</B><p>
+<IMG SRC="Modelica.ComplexBlocks.Examples.TestConversionBlockD.png" ALT="Modelica.ComplexBlocks.Examples.TestConversionBlock">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>A Complex signal is defined by its length and angle, both linearly rising with time.
+Plotting the imaginary part versus the real part, you will see an Archimedean spiral.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TestConversionBlock <font color="darkgreen">&quot;Test the conversion blocks&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> len(duration=1, offset=1E-6);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> phi(height=4*Modelica.Constants.pi, duration=1);
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.PolarToComplex"
+>Modelica.ComplexBlocks.ComplexMath.PolarToComplex</A> polarToComplex;
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.ComplexToReal"
+>Modelica.ComplexBlocks.ComplexMath.ComplexToReal</A> complexToReal;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(phi.y, polarToComplex.phi);
+  <font color="red">connect</font>(len.y, polarToComplex.len);
+  <font color="red">connect</font>(polarToComplex.y, complexToReal.u);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TestConversionBlock;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:27:40 2010.
+</address></BODY>
+</HTML>

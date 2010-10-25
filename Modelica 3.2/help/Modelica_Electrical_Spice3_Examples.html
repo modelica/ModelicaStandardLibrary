@@ -1,0 +1,892 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Spice3.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Example circuits&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Spice3.Examples"></A><A HREF="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
+>Modelica.Electrical.Spice3</A>.Examples</H2>
+<B>Example circuits</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.Inverter" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.Inverter"
+>Inverter</A>
+</TD><TD>Simple inverter circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersApartRecord" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersApartRecord"
+>InvertersApartRecord</A>
+</TD><TD>Two inverters where transistor models use different modelcard instances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel"
+>InvertersExtendedModel</A>
+</TD><TD>Two inverters with MOS models defined by inheritance</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.FourInverters" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.FourInverters"
+>FourInverters</A>
+</TD><TD>Four inverters with MOSFET level 1, using private record as model card</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.Nand" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.Nand"
+>Nand</A>
+</TD><TD>MOS Nand gate circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.Nor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.Nor"
+>Nor</A>
+</TD><TD>MOS NOR gate circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.Graetz" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.Graetz"
+>Graetz</A>
+</TD><TD>Graetz rectifier circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterS.png" ALT="Modelica.Electrical.Spice3.Examples.Oscillator" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.Oscillator"
+>Oscillator</A>
+</TD><TD>Oscillator circuit</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Inverter<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.Inverter" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.Inverter"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.Inverter</H2>
+<B>Simple inverter circuit</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.InverterD.png" ALT="Modelica.Electrical.Spice3.Examples.Inverter">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
+<p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Inverter <font color="darkgreen">&quot;Simple inverter circuit&quot;</font>
+<font color="darkgreen">//--------------------------------------------------------------------------------------------------------------</font>
+
+<font color="darkgreen">//--------------------------------------------------------------------------------------------------------------</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp(modelcard(
+      RD=0,
+      RS=0,
+      CBD=0,
+      CBS=0));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn(modelcard(
+      RD=0,
+      RS=0,
+      CBD=0,
+      CBS=0));
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin(
+    V2=5,
+    TD=4e-12,
+    TR=0.1e-12,
+    TF=0.1e-12,
+    PW=1e-12,
+    PER=2e-12);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> v(V2=5, TR=0.1e-12);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mn.D,mp. S);
+  <font color="red">connect</font>(mp.G,mn. G);
+  <font color="red">connect</font>(mn.S,mn. B);
+  <font color="red">connect</font>(mp.B,mp. D);
+  <font color="red">connect</font>(mn.S, ground.p);
+  <font color="red">connect</font>(v.p,mp. D);
+  <font color="red">connect</font>(v.n, ground.p);
+  <font color="red">connect</font>(vin.p,mp. G);
+  <font color="red">connect</font>(vin.n, ground.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Inverter;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InvertersApartRecord<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersApartRecord" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.InvertersApartRecord"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.InvertersApartRecord</H2>
+<B>Two inverters where transistor models use different modelcard instances</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.InvertersApartRecordD.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersApartRecord">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.ND.v</p>
+<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each transistor in the circuit a record with the technology parameters is made avaliable as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made avaliable for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>ModelcardMOS</A></TD><TD>MPmos</TD><TD>&nbsp;</TD><TD>Specified modelcardMOS for MPmos</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>ModelcardMOS</A></TD><TD>MNmos</TD><TD>&nbsp;</TD><TD>Specified modelcardMOS for MNmos</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InvertersApartRecord <font color="darkgreen">
+  &quot;Two inverters where transistor models use different modelcard instances&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;</textblock>
+<font color="darkgreen">//--------------------------------------------------------------------------------------------------------------</font>
+<font color="darkgreen">/*apart record: For each transistor in the circuit a record with the technologieparameters is made avaliable
+  as an instance of the record modelcardMOS */</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> MPmos(GAMMA=0.37) <font color="darkgreen">
+    &quot;Specified modelcardMOS for MPmos&quot;</font>;<font color="darkgreen"> //instance of record modelcardMOS</font>
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> MNmos(GAMMA=0.37, LAMBDA=0.02) <font color="darkgreen">
+    &quot;Specified modelcardMOS for MNmos&quot;</font>;
+  <font color="darkgreen">                                       //instance of record modelcardMOS</font>
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp1(modelcard=MPmos);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn1(modelcard=MNmos);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp2(modelcard=MPmos);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn2(modelcard=MNmos);</textblock>
+<font color="darkgreen">//--------------------------------------------------------------------------------------------------------------</font>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c1(C=1e-5);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c2(C=1e-5);</textblock>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin(
+    V2=5,
+    TD=2,
+    TR=1);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> v(V2=5, TR=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mp1.B, mp1.D);
+  <font color="red">connect</font>(mn1.S, ground.p);
+  <font color="red">connect</font>(mp1.S, mn1.D);
+  <font color="red">connect</font>(mn1.G, mp1.G);
+  <font color="red">connect</font>(mn1.B, mn1.S);
+  <font color="red">connect</font>(mp2.B, mp2.D);
+  <font color="red">connect</font>(mn2.S, ground.p);
+  <font color="red">connect</font>(mp2.S, mn2.D);
+  <font color="red">connect</font>(mn2.G, mp2.G);
+  <font color="red">connect</font>(mn2.B, mn2.S);
+  <font color="red">connect</font>(mp2.G, mn1.D);
+  <font color="red">connect</font>(c1.p, mn1.D);
+  <font color="red">connect</font>(mn2.D, c2.p);
+  <font color="red">connect</font>(c2.n, ground.p);
+  <font color="red">connect</font>(c1.n, ground.p);
+  <font color="red">connect</font>(mp1.G, vin.p);
+  <font color="red">connect</font>(vin.n, ground.p);
+  <font color="red">connect</font>(v.p, mp2.D);
+  <font color="red">connect</font>(mp1.D, mp2.D);
+  <font color="red">connect</font>(v.n, ground.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>InvertersApartRecord;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE InvertersExtendedModel<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.InvertersExtendedModel</H2>
+<B>Two inverters with MOS models defined by inheritance</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.InvertersExtendedModelD.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
+<p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
+<p>Input voltages: vin.p.v and v.p.v</p>
+<p>Output voltage of the first inverter: mn1.ND.v</p>
+<p>Output voltage of the second Inverter: mn2.ND.v</p>
+<p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologieparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> InvertersExtendedModel <font color="darkgreen">
+  &quot;Two inverters with MOS models defined by inheritance&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;</textblock>
+<font color="darkgreen">//--------------------------------------------------------------------------------------------------------------</font>
+<font color="darkgreen">/*extended model: For each set of technology parameters an apart model has to be defined. Every transistor extends
+  this model. In this process the required technology parameters are specified. */</font>
+
+  <textblock type="model" expanded="false" path="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos"><font color="blue">model</font> MPmos <font color="darkgreen">&quot;PMOS transistor with specified modelcard&quot;</font>
+    <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> M(GAMMA=0.37);
+    <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A>(modelcard=M);
+<textblock type="annotcomp" expanded="false">  <font color="blue">end </font>MPmos</textblock>;
+
+  <textblock type="model" expanded="false" path="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos"><font color="blue">model</font> MNmos <font color="darkgreen">&quot;NMOS transistor with specified modelcard&quot;</font>
+    <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> M(GAMMA=0.37, LAMBDA=0.02);
+    <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A>(modelcard=M);
+<textblock type="annotcomp" expanded="false">  <font color="blue">end </font>MNmos</textblock>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos"
+>MPmos</A> mp1;
+  <A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos"
+>MNmos</A> mn1;
+  <A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos"
+>MPmos</A> mp2;
+  <A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos"
+>MNmos</A> mn2;</textblock>
+<font color="darkgreen">//--------------------------------------------------------------------------------------------------------------</font>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c1(C=1e-5);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c2(C=1e-5);</textblock>
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin(
+    V2=5,
+    TD=2,
+    TR=1);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> v(V2=5, TR=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mp1.B, mp1.D);
+  <font color="red">connect</font>(mn1.S, ground.p);
+  <font color="red">connect</font>(mp1.S, mn1.D);
+  <font color="red">connect</font>(mn1.G, mp1.G);
+  <font color="red">connect</font>(mn1.B, mn1.S);
+  <font color="red">connect</font>(mp2.B, mp2.D);
+  <font color="red">connect</font>(mn2.S, ground.p);
+  <font color="red">connect</font>(mp2.S, mn2.D);
+  <font color="red">connect</font>(mn2.G, mp2.G);
+  <font color="red">connect</font>(mn2.B, mn2.S);
+  <font color="red">connect</font>(mp2.G, mn1.D);
+  <font color="red">connect</font>(c1.p, mn1.D);
+  <font color="red">connect</font>(mn2.D, c2.p);
+  <font color="red">connect</font>(c2.n, ground.p);
+  <font color="red">connect</font>(c1.n, ground.p);
+  <font color="red">connect</font>(vin.p, mp1.G);
+  <font color="red">connect</font>(vin.n, ground.p);
+  <font color="red">connect</font>(v.p, mp2.D);
+  <font color="red">connect</font>(mp2.D, mp1.D);
+  <font color="red">connect</font>(v.n, ground.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>InvertersExtendedModel;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE FourInverters<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.FourInverters" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.FourInverters"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.FourInverters</H2>
+<B>Four inverters with MOSFET level 1, using private record as model card</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.FourInvertersD.png" ALT="Modelica.Electrical.Spice3.Examples.FourInverters">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
+<p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>ModelcardMOS</A></TD><TD>modp</TD><TD>&nbsp;</TD><TD>private PMOS modelcard</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>ModelcardMOS</A></TD><TD>modn</TD><TD>&nbsp;</TD><TD>provate NMOS modelcard</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> FourInverters <font color="darkgreen">
+  &quot;Four inverters with MOSFET level 1, using private record as model card&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;</textblock>
+
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> modp <font color="darkgreen">&quot;private PMOS modelcard&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> modn <font color="darkgreen">&quot;provate NMOS modelcard&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp1(modelcard=modp);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn1(modelcard=modn);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp2(modelcard=modp);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn2(modelcard=modn);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp3(modelcard=modp);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp4(modelcard=modn);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn3(modelcard=modp);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn4(modelcard=modn);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c1(C=10e-6);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c2(C=10e-6);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c3(C=10e-6);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c4(C=10e-6);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin(
+    V2=5,
+    TD=2,
+    TR=1);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> v(V2=5, TR=1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mp1.B, mp1.D);
+  <font color="red">connect</font>(mn1.S, ground.p);
+  <font color="red">connect</font>(mp1.S, mn1.D);
+  <font color="red">connect</font>(mn1.G, mp1.G);
+  <font color="red">connect</font>(mn1.B, mn1.S);
+  <font color="red">connect</font>(mp2.B, mp2.D);
+  <font color="red">connect</font>(mn2.S, ground.p);
+  <font color="red">connect</font>(mp2.S, mn2.D);
+  <font color="red">connect</font>(mn2.G, mp2.G);
+  <font color="red">connect</font>(mn2.B, mn2.S);
+  <font color="red">connect</font>(c1.p, mn1.D);
+  <font color="red">connect</font>(mn2.D, c2.p);
+  <font color="red">connect</font>(c2.n, ground.p);
+  <font color="red">connect</font>(c1.n, ground.p);
+  <font color="red">connect</font>(c3.n, ground.p);
+  <font color="red">connect</font>(c4.n, ground.p);
+  <font color="red">connect</font>(mn4.B, mn4.S);
+  <font color="red">connect</font>(mn3.B, mn3.S);
+  <font color="red">connect</font>(mp3.B, mp3.D);
+  <font color="red">connect</font>(mp4.B, mp4.D);
+  <font color="red">connect</font>(mp3.S, mn3.D);
+  <font color="red">connect</font>(mp4.S, mn4.D);
+  <font color="red">connect</font>(mn3.S, ground.p);
+  <font color="red">connect</font>(mn4.S, ground.p);
+  <font color="red">connect</font>(c3.p, mn3.D);
+  <font color="red">connect</font>(c4.p, mn4.D);
+  <font color="red">connect</font>(c2.p, mn3.G);
+  <font color="red">connect</font>(mn3.G, mp3.G);
+  <font color="red">connect</font>(c3.p, mn4.G);
+  <font color="red">connect</font>(mn4.G, mp4.G);
+  <font color="red">connect</font>(c1.p, mn2.G);
+  <font color="red">connect</font>(vin.p, mn1.G);
+  <font color="red">connect</font>(vin.n, ground.p);
+  <font color="red">connect</font>(v.p, mp4.D);
+  <font color="red">connect</font>(v.n, ground.p);
+  <font color="red">connect</font>(mp3.D, mp4.D);
+  <font color="red">connect</font>(mp2.D, mp3.D);
+  <font color="red">connect</font>(mp1.D, mp2.D);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>FourInverters;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nand<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.Nand" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.Nand"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.Nand</H2>
+<B>MOS Nand gate circuit</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.NandD.png" ALT="Modelica.Electrical.Spice3.Examples.Nand">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
+<p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
+<table cellspacing="2" cellpadding="0" border="1"><tr>
+<td><p>input voltage vin1</p></td>
+<td><p>input voltage vin2</p></td>
+<td><p>output voltage mNMOS1.NS</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+</table>
+<p>Simulate until t=2e-7s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mNMOS1.ND.v, which becomes zero only if both input values are high.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Nand <font color="darkgreen">&quot;MOS Nand gate circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp1(
+    L=2e-5,
+    W=1e-5,
+    modelcard(PHI=0.7));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp2(modelcard(PHI=0.7));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn2;
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn1;
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_constant"
+>Sources.V_constant</A> vconstant(V=5);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin1(
+    TR=1e-9,
+    TF=1e-9,
+    V2=5,
+    TD=2e-8,
+    PW=4e-8,
+    PER=8e-8);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin2(
+    V2=5,
+    TR=1e-9,
+    TF=1e-9,
+    TD=1e-8,
+    PW=4e-8,
+    PER=8e-8);</textblock>
+
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mp1.B, mp1.D);
+  <font color="red">connect</font>(mp2.B, mp2.D);
+  <font color="red">connect</font>(vconstant.p, mp2.D);
+  <font color="red">connect</font>(mp2.D, mp1.D);
+  <font color="red">connect</font>(mp1.G, mn1.G);
+  <font color="red">connect</font>(mp1.G, vin1.p);
+  <font color="red">connect</font>(vin1.n, ground.p);
+  <font color="red">connect</font>(mp2.G, mn2.G);
+  <font color="red">connect</font>(mn2.G, vin2.p);
+  <font color="red">connect</font>(vin2.n, ground.p);
+  <font color="red">connect</font>(mn2.S, ground.p);
+  <font color="red">connect</font>(mn1.B, mn2.B);
+  <font color="red">connect</font>(mn2.B, mn2.S);
+  <font color="red">connect</font>(mn1.S, mn2.D);
+  <font color="red">connect</font>(mp1.S, mn1.D);
+  <font color="red">connect</font>(mp2.S, mn1.D);
+  <font color="red">connect</font>(vconstant.n, ground.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Nand;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Nor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.Nor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.Nor"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.Nor</H2>
+<B>MOS NOR gate circuit</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.NorD.png" ALT="Modelica.Electrical.Spice3.Examples.Nor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
+<p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
+<table cellspacing="2" cellpadding="0" border="1"><tr>
+<td><p>input voltage vin1</p></td>
+<td><p>input voltage vin2</p></td>
+<td><p>output voltage m_PMOS1.NS</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>1</p></td>
+</tr>
+<tr>
+<td><p>0</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+</tr>
+<tr>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>0</p></td>
+</tr>
+</table>
+<p>Simulate until t=5s. Display the two input voltages vin1.p.v and vin2.p.v and the output voltage mPMOS1.NS.v.</p>
+<p>The output value in the example shows a behaviour &quot;near&quot; the one of the truth table, since the capacitances are huge. Therefore loading is not finished before the next input changes.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Nor <font color="darkgreen">&quot;MOS NOR gate circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp1(modelcard(
+      RD=1e-4,
+      RS=1e-4,
+      CBD=1e-5,
+      CBS=1e-5,
+      CGSO=1e-5,
+      CGDO=1e-5,
+      CGBO=1e-5));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> mp2(modelcard(
+      RD=1e-4,
+      RS=1e-4,
+      CBD=1e-5,
+      CBS=1e-5,
+      CGSO=1e-5,
+      CGDO=1e-5,
+      CGBO=1e-5));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn1(modelcard(
+      RD=1e-4,
+      RS=1e-4,
+      CBD=1e-5,
+      CBS=1e-5,
+      CGSO=1e-5,
+      CGDO=1e-5,
+      CGBO=1e-5));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> mn2(modelcard(
+      RD=1e-4,
+      RS=1e-4,
+      CBD=1e-5,
+      CBS=1e-5,
+      CGSO=1e-5,
+      CGDO=1e-5,
+      CGBO=1e-5));
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin1(
+    V2=5,
+    TR=0.001,
+    TF=0.001,
+    PW=2,
+    PER=10,
+    TD=2);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> vin2(
+    V2=5,
+    TR=0.001,
+    TF=0.001,
+    PW=2,
+    PER=10,
+    TD=1);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> v(
+    TD=0.5,
+    TR=0.1,
+    V2=5);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(mn1.B, mn1.S);
+  <font color="red">connect</font>(mn2.B, mn2.S);
+  <font color="red">connect</font>(mn2.S, ground.p);
+  <font color="red">connect</font>(mn1.S, ground.p);
+  <font color="red">connect</font>(vin2.p, mn1.G);
+  <font color="red">connect</font>(vin2.n, ground.p);
+  <font color="red">connect</font>(vin1.p, mp1.G);
+  <font color="red">connect</font>(vin1.n, ground.p);
+  <font color="red">connect</font>(mp1.S, mp2.D);
+  <font color="red">connect</font>(mp2.S, mn1.D);
+  <font color="red">connect</font>(mn2.D, mn1.D);
+  <font color="red">connect</font>(vin2.p, mp2.G);
+  <font color="red">connect</font>(vin1.p, mn2.G);
+  <font color="red">connect</font>(mp1.B, mp1.D);
+  <font color="red">connect</font>(mp2.B, mp1.B);
+  <font color="red">connect</font>(v.p, mp1.D);
+  <font color="red">connect</font>(v.n, ground.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Nor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Graetz<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.Graetz" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.Graetz"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.Graetz</H2>
+<B>Graetz rectifier circuit</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.GraetzD.png" ALT="Modelica.Electrical.Spice3.Examples.Graetz">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
+<p>Simulator until 0.025 s. Then display the input voltge vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Graetz <font color="darkgreen">&quot;Graetz rectifier circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.D_DIODE"
+>Semiconductors.D_DIODE</A> D1(modelcarddiode(CJO=1e-7));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.D_DIODE"
+>Semiconductors.D_DIODE</A> D3(modelcarddiode(CJO=1e-7));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.D_DIODE"
+>Semiconductors.D_DIODE</A> D4(modelcarddiode(CJO=1e-7));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.D_DIODE"
+>Semiconductors.D_DIODE</A> D2(modelcarddiode(CJO=1e-7));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.R_Resistor"
+>Semiconductors.R_Resistor</A> rout(R=10);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_sin"
+>Sources.V_sin</A> vsin(VA=10, FREQ=200);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(D1.n, D3.p);
+  <font color="red">connect</font>(D2.p, D1.p);
+  <font color="red">connect</font>(D4.n, D3.n);
+  <font color="red">connect</font>(D4.p, D2.n);
+  <font color="red">connect</font>(D4.p, ground.p);
+  <font color="red">connect</font>(vsin.n, ground.p);
+  <font color="red">connect</font>(D4.n, rout.p);
+  <font color="red">connect</font>(rout.n, D1.p);
+  <font color="red">connect</font>(D3.p, vsin.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Graetz;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Oscillator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InverterI.png" ALT="Modelica.Electrical.Spice3.Examples.Oscillator" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.Oscillator"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples"
+>Modelica.Electrical.Spice3.Examples</A>.Oscillator</H2>
+<B>Oscillator circuit</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.OscillatorD.png" ALT="Modelica.Electrical.Spice3.Examples.Oscillator">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
+<p>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Oscillator <font color="darkgreen">&quot;Oscillator circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.R_Resistor"
+>Basic.R_Resistor</A> r(R=1000);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c(C=1e-7);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.C_Capacitor"
+>Basic.C_Capacitor</A> c1(C=1e-7);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.R_Resistor"
+>Basic.R_Resistor</A> r1(R=22000);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.R_Resistor"
+>Basic.R_Resistor</A> r2(R=22000);
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.R_Resistor"
+>Basic.R_Resistor</A> r3(R=1000);
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT"
+>Semiconductors.Q_NPNBJT</A> T1(modelcard(CJE=1e-9, CJC=1e-9));
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.Q_NPNBJT"
+>Semiconductors.Q_NPNBJT</A> T2(modelcard(CJE=1e-9, CJC=1e-9));
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground1;
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.Ground"
+>Basic.Ground</A> ground2;
+  <A HREF="Modelica_Electrical_Spice3_Basic.html#Modelica.Electrical.Spice3.Basic.R_Resistor"
+>Basic.R_Resistor</A> r4(R=10000);
+  <A HREF="Modelica_Electrical_Spice3_Sources.html#Modelica.Electrical.Spice3.Sources.V_pulse"
+>Sources.V_pulse</A> v(
+    V2=8,
+    TD=0.0005,
+    TR=0.01,
+    PW=1000,
+    PER=1000,
+    TF=0);</textblock>
+
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(r.n,r1. n);
+  <font color="red">connect</font>(r1.n,r2. n);
+  <font color="red">connect</font>(r2.n,r3. n);
+  <font color="red">connect</font>(r.p,c. p);
+  <font color="red">connect</font>(c.n,r1. p);
+  <font color="red">connect</font>(r2.p,c1. p);
+  <font color="red">connect</font>(c1.n,r3. p);
+  <font color="red">connect</font>(r1.p, T2.B);
+  <font color="red">connect</font>(r2.p, T1.B);
+  <font color="red">connect</font>(T1.C, r.p);
+  <font color="red">connect</font>(T1.E, ground1.p);
+  <font color="red">connect</font>(T2.E, ground2.p);
+  <font color="red">connect</font>(r3.p, T2.C);
+  <font color="red">connect</font>(r3.p, r4.p);
+  <font color="red">connect</font>(ground2.p, r4.n);
+  <font color="red">connect</font>(v.p, r.n);
+  <font color="red">connect</font>(v.n, ground1.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Oscillator;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MPmos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmosI.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel"
+>Modelica.Electrical.Spice3.Examples.InvertersExtendedModel</A>.MPmos</H2>
+<B>PMOS transistor with specified modelcard</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmosD.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmos">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This model MPmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A> (PMOS MOSFET device).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>1e-4</TD><TD>Length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>W</TD><TD>1e-4</TD><TD>Width [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>AD</TD><TD>0</TD><TD>Area of the drain diffusion [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>AS</TD><TD>0</TD><TD>Area of the source diffusion [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>PD</TD><TD>0</TD><TD>Perimeter of the drain junction [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>PS</TD><TD>0</TD><TD>Perimeter of the source junction [m]</TD></TR>
+<TR><TD>Real</TD><TD>NRD</TD><TD>1</TD><TD>Number of squares of the drain diffusions</TD></TR>
+<TR><TD>Real</TD><TD>NRS</TD><TD>1</TD><TD>Number of squares of the source diffusions</TD></TR>
+<TR><TD>Integer</TD><TD>OFF</TD><TD>0</TD><TD>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>IC</TD><TD>&nbsp;</TD><TD>Initial condition values, not implemented yet [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_C"
+>Temp_C</A></TD><TD>TEMP</TD><TD>27</TD><TD>Operating temperature of the device [degC]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS"
+>ModelcardMOS</A></TD><TD>modelcard</TD><TD>M</TD><TD>MOSFET modelcard</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A></TD><TD>G</TD><TD>gate node</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A></TD><TD>D</TD><TD>drain node</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>NegativePin</A></TD><TD>S</TD><TD>source node</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A></TD><TD>B</TD><TD>bulk node</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MPmos <font color="darkgreen">&quot;PMOS transistor with specified modelcard&quot;</font>
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> M(GAMMA=0.37);
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_PMOS"
+>Semiconductors.M_PMOS</A>(modelcard=M);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MPmos;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MNmos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmosI.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos"></A><A HREF="Modelica_Electrical_Spice3_Examples.html#Modelica.Electrical.Spice3.Examples.InvertersExtendedModel"
+>Modelica.Electrical.Spice3.Examples.InvertersExtendedModel</A>.MNmos</H2>
+<B>NMOS transistor with specified modelcard</B><p>
+<IMG SRC="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MPmosD.png" ALT="Modelica.Electrical.Spice3.Examples.InvertersExtendedModel.MNmos">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>This model MNmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A> (NMOS MOSFET device).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>L</TD><TD>1e-4</TD><TD>Length [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>W</TD><TD>1e-4</TD><TD>Width [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>AD</TD><TD>0</TD><TD>Area of the drain diffusion [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>AS</TD><TD>0</TD><TD>Area of the source diffusion [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>PD</TD><TD>0</TD><TD>Perimeter of the drain junction [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>PS</TD><TD>0</TD><TD>Perimeter of the source junction [m]</TD></TR>
+<TR><TD>Real</TD><TD>NRD</TD><TD>1</TD><TD>Number of squares of the drain diffusions</TD></TR>
+<TR><TD>Real</TD><TD>NRS</TD><TD>1</TD><TD>Number of squares of the source diffusions</TD></TR>
+<TR><TD>Integer</TD><TD>OFF</TD><TD>0</TD><TD>Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>IC</TD><TD>&nbsp;</TD><TD>Initial condition values, not implemented yet [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_C"
+>Temp_C</A></TD><TD>TEMP</TD><TD>27</TD><TD>Operating temperature of the device [degC]</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Spice3_Internal.html#Modelica.Electrical.Spice3.Internal.ModelcardMOS"
+>ModelcardMOS</A></TD><TD>modelcard</TD><TD>M</TD><TD>MOSFET modelcard</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A></TD><TD>G</TD><TD>gate node</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A></TD><TD>D</TD><TD>drain node</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.NegativePin"
+>NegativePin</A></TD><TD>S</TD><TD>source node</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_Analog_Interfaces.html#Modelica.Electrical.Analog.Interfaces.PositivePin"
+>PositivePin</A></TD><TD>B</TD><TD>bulk node</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MNmos <font color="darkgreen">&quot;NMOS transistor with specified modelcard&quot;</font>
+  <A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.ModelcardMOS"
+>Semiconductors.ModelcardMOS</A> M(GAMMA=0.37, LAMBDA=0.02);
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Spice3_Semiconductors.html#Modelica.Electrical.Spice3.Semiconductors.M_NMOS"
+>Semiconductors.M_NMOS</A>(modelcard=M);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MNmos;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:46 2010.
+</address></BODY>
+</HTML>

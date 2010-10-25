@@ -1,0 +1,353 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.HeatTransfer.General</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE General<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer.html#Modelica.Fluid.Dissipation.HeatTransfer"
+>Modelica.Fluid.Dissipation.HeatTransfer</A>.General</H2>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>General heat transfer</h4>
+<h5>Approximated forced convection</h5>
+<p>Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime. <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
+>See more information.</a> </p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvectionS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
+>kc_approxForcedConvection</A>
+</TD><TD>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvectionS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+>kc_approxForcedConvection_KC</A>
+</TD><TD>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
+>kc_approxForcedConvection_IN_con</A>
+</TD><TD>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_conS.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
+>kc_approxForcedConvection_IN_var</A>
+</TD><TD>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection</H2>
+<B>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
+</p>
+
+</p>
+A detailled documentation for this convective heat transfer calculation can be found in its underlying function
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+>kc_approxForcedConvection_KC</a> .
+Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
+>See more information</a> .
+</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
+>kc_approxForcedConvection_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function kc_approxForcedConvection</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
+>kc_approxForcedConvection_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function kc_approxForcedConvection</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=3>Output</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>kc</TD><TD>Convective heat transfer coefficient [W/(m2.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>PrandtlNumber</A></TD><TD>Pr</TD><TD>Prandl number [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>ReynoldsNumber</A></TD><TD>Re</TD><TD>Reynolds number [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.NusseltNumber"
+>NusseltNumber</A></TD><TD>Nu</TD><TD>Nusselt number [1]</TD></TR>
+<TR><TD>Real</TD><TD>failureStatus</TD><TD>0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningfull results</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kc_approxForcedConvection <font color="darkgreen">
+  &quot;Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow&quot;</font>
+
+  <font color="darkgreen">//SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley &amp; Sons, 2nd edition, 2003. (p.424 ff)</font>
+  <font color="darkgreen">//Notation of equations according to SOURCE</font>
+
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
+>Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function kc_approxForcedConvection&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function kc_approxForcedConvection&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> kc <font color="darkgreen">&quot;Convective heat transfer coefficient&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>SI.PrandtlNumber</A> Pr <font color="darkgreen">&quot;Prandl number&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re <font color="darkgreen">&quot;Reynolds number&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.NusseltNumber"
+>SI.NusseltNumber</A> Nu <font color="darkgreen">&quot;Nusselt number&quot;</font>;
+  <font color="blue">output </font>Real failureStatus <font color="darkgreen">
+    &quot;0== boundary conditions fulfilled | 1== failure &gt;&gt; check if still meaningfull results&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP = <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.kc_general"
+>Modelica.Fluid.Dissipation.Utilities.Types.kc_general</A>;
+
+  Real MIN=Modelica.Constants.eps;
+
+  Real prandtlMax[3]={120,16700,500} <font color="darkgreen">&quot;Maximum Prandtl number&quot;</font>;
+  Real prandtlMin[3]={0.7,0.7,1.5} <font color="darkgreen">&quot;Minimum Prandtl number&quot;</font>;
+  Real reynoldsMax[3]={1.24e5,1e6,1e6} <font color="darkgreen">&quot;Maximum Reynolds number&quot;</font>;
+  Real reynoldsMin[3]={2500,1e4,3e3} <font color="darkgreen">&quot;Minimum Reynolds number&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*IN_con.A_cross/<font color="red">max</font>(MIN, IN_con.perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  <font color="darkgreen">//failure status</font>
+  Real fstatus[2] <font color="darkgreen">&quot;Check of expected boundary conditions&quot;</font>;
+
+<font color="blue">algorithm </font>
+  Pr :=<font color="red"> Modelica.Fluid.Dissipation.Utilities.Functions.General.PrandtlNumber</font>(
+          IN_var.cp,
+          IN_var.eta,
+          IN_var.lambda);
+  Re :=<font color="red"> max</font>(1,<font color="red"> Modelica.Fluid.Dissipation.Utilities.Functions.General.ReynoldsNumber</font>(
+          IN_con.A_cross,
+          IN_con.perimeter,
+          IN_var.rho,
+          IN_var.eta,
+          <font color="red">abs</font>(IN_var.m_flow))) <font color="darkgreen">&quot;Reynolds number&quot;</font>;
+  kc :=<font color="red"> Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC</font>(
+    IN_con, IN_var);
+  Nu := kc*d_hyd/<font color="red">max</font>(MIN, IN_var.lambda);
+
+  <font color="darkgreen">//failure status</font>
+  fstatus[1] := <font color="blue">if </font>IN_con.target == TYP.Rough<font color="blue"> then </font><font color="blue">if </font>Pr &gt; prandtlMax[1]<font color="blue"> or </font>Pr
+     &lt; prandtlMin[1]<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.target == TYP.Middle<font color="blue"> then </font><font color="blue">if </font>
+    Pr &gt; prandtlMax[2]<font color="blue"> or </font>Pr &lt; prandtlMin[2]<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.target
+     == TYP.Finest<font color="blue"> then </font><font color="blue">if </font>Pr &gt; prandtlMax[3]<font color="blue"> or </font>Pr &lt; prandtlMin[3]<font color="blue"> then </font>1<font color="blue"> else </font>
+          0<font color="blue"> else </font>0;
+  fstatus[2] := <font color="blue">if </font>IN_con.target == TYP.Rough<font color="blue"> then </font><font color="blue">if </font>Re &gt; reynoldsMax[1]<font color="blue"> or </font>Re
+     &lt; reynoldsMin[1]<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.target == TYP.Middle<font color="blue"> then </font>
+    <font color="blue">if </font>Re &gt; reynoldsMax[2]<font color="blue"> or </font>Re &lt; reynoldsMin[2]<font color="blue"> then </font>1<font color="blue"> else </font>0<font color="blue"> else </font><font color="blue">if </font>IN_con.target
+     == TYP.Finest<font color="blue"> then </font><font color="blue">if </font>Re &gt; reynoldsMax[3]<font color="blue"> or </font>Re &lt; reynoldsMin[3]<font color="blue"> then </font>1<font color="blue"> else </font>
+          0<font color="blue"> else </font>0;
+
+  failureStatus := 0;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:<font color="red">size</font>(fstatus, 1)<font color="blue"> loop</font>
+    <font color="blue">if </font>fstatus[i] == 1<font color="blue"> then</font>
+      failureStatus := 1;
+    <font color="blue">end if</font>;
+  <font color="blue">end for</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_approxForcedConvection;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection_KC<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection_KC</H2>
+<B>Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
+<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection"
+>See more information</a> .
+</p>
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Constant inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
+>kc_approxForcedConvection_IN_con</A></TD><TD>IN_con</TD><TD>&nbsp;</TD><TD>Input record for function kc_approxForcedConvection_KC</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Variable inputs</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
+>kc_approxForcedConvection_IN_var</A></TD><TD>IN_var</TD><TD>&nbsp;</TD><TD>Input record for function kc_approxForcedConvection_KC</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>CoefficientOfHeatTransfer</A></TD><TD>kc</TD><TD>Output for function kc_approxForcedConvection_KC [W/(m2.K)]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> kc_approxForcedConvection_KC <font color="darkgreen">
+  &quot;Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow&quot;</font>
+
+  <font color="darkgreen">//SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley &amp; Sons, 2nd edition, 2003. (p.424 ff)</font>
+  <font color="darkgreen">//Notation of equations according to SOURCE</font>
+
+  <font color="darkgreen">//type =</font>
+  <font color="darkgreen">//input records</font>
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"
+>Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con</A>
+    IN_con <font color="darkgreen">&quot;Input record for function kc_approxForcedConvection_KC&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"
+>Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var</A>
+    IN_var <font color="darkgreen">&quot;Input record for function kc_approxForcedConvection_KC&quot;</font>;
+
+  <font color="darkgreen">//output variables</font>
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.CoefficientOfHeatTransfer"
+>SI.CoefficientOfHeatTransfer</A> kc <font color="darkgreen">
+    &quot;Output for function kc_approxForcedConvection_KC&quot;</font>;
+
+<font color="blue">protected </font>
+  <font color="blue">type</font> TYP = <A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.kc_general"
+>Modelica.Fluid.Dissipation.Utilities.Types.kc_general</A>;
+
+  Real MIN=Modelica.Constants.eps;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> d_hyd=<font color="red">max</font>(MIN, 4*IN_con.A_cross/<font color="red">max</font>(MIN, IN_con.perimeter)) <font color="darkgreen">
+    &quot;Hydraulic diameter&quot;</font>;
+
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.PrandtlNumber"
+>SI.PrandtlNumber</A> Pr=<font color="red">max</font>(MIN,<font color="red"> abs</font>(IN_var.eta*IN_var.cp/<font color="red">max</font>(MIN, IN_var.lambda))) <font color="darkgreen">
+    &quot;Prandtl number&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ReynoldsNumber"
+>SI.ReynoldsNumber</A> Re=<font color="red">max</font>(1, 4*<font color="red">abs</font>(IN_var.m_flow)/<font color="red">max</font>(MIN, IN_con.perimeter*
+      IN_var.eta)) <font color="darkgreen">&quot;Reynolds number&quot;</font>;
+
+<font color="blue">algorithm </font>
+  kc := IN_var.lambda/d_hyd*(<font color="blue">if </font>IN_con.target == TYP.Rough<font color="blue"> then </font>0.023*Re^(4/5)*
+    Pr^IN_con.exp_Pr<font color="blue"> else </font><font color="blue">if </font>IN_con.target == TYP.Middle<font color="blue"> then </font>0.023*Re^(4/5)*Pr
+    ^(1/3)*(IN_var.eta/IN_var.eta_wall)^0.14<font color="blue"> else </font><font color="blue">if </font>IN_con.target == 3<font color="blue"> and </font>Pr
+     &lt;= 1.5<font color="blue"> then </font>0.0214*<font color="red">max</font>(1,<font color="red"> abs</font>(Re^0.8 - 100))*Pr^0.4<font color="blue"> else </font><font color="blue">if </font>IN_con.target
+     == TYP.Finest<font color="blue"> then </font>0.012*<font color="red">max</font>(1,<font color="red"> abs</font>(Re^0.87 - 280))*Pr^0.4<font color="blue"> else </font>0);
+
+  <font color="darkgreen">//Documentation</font>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_approxForcedConvection_KC;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection_IN_con<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_con"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection_IN_con</H2>
+<B>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
+> kc_approxForcedConvection</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+> kc_approxForcedConvection_KC</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General</A> (Input for generic correlation).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Generic variables</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Dissipation_Utilities_Types.html#Modelica.Fluid.Dissipation.Utilities.Types.kc_general"
+>kc_general</A></TD><TD>target</TD><TD>Dissipation.Utilities.Types....</TD><TD>Target correlation</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Area</A></TD><TD>A_cross</TD><TD>Modelica.Constants.pi*0.1^2/4</TD><TD>Cross sectional area [m2]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>perimeter</TD><TD>Modelica.Constants.pi*0.1</TD><TD>Wetted perimeter [m]</TD></TR>
+<TR><TD>Real</TD><TD>exp_Pr</TD><TD>0.4</TD><TD>Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> kc_approxForcedConvection_IN_con <font color="darkgreen">
+  &quot;Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC&quot;</font>
+  <font color="darkgreen">//generic variables</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_HeatTransfer.html#Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General</A>;
+  <font color="blue">parameter </font>Real exp_Pr=0.4 <font color="darkgreen">
+    &quot;Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_approxForcedConvection_IN_con;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE kc_approxForcedConvection_IN_var<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_conI.png" ALT="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_IN_var"></A><A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General"
+>Modelica.Fluid.Dissipation.HeatTransfer.General</A>.kc_approxForcedConvection_IN_var</H2>
+<B>Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This record is used as <b> input record </b> for the heat transfer function <A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection"
+> kc_approxForcedConvection</a> and
+<A HREF="Modelica_Fluid_Dissipation_HeatTransfer_General.html#Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC"
+> kc_approxForcedConvection_KC</a>.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A> (Base record for fluid properties).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Fluid properties</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacityAtConstantPressure"
+>SpecificHeatCapacityAtConstantPressure</A></TD><TD>cp</TD><TD>&nbsp;</TD><TD>Specific heat capacity of fluid at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid [Pa.s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>ThermalConductivity</A></TD><TD>lambda</TD><TD>&nbsp;</TD><TD>Thermal conductivity of fluid [W/(m.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>Density</A></TD><TD>rho</TD><TD>&nbsp;</TD><TD>Density of fluid [kg/m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>DynamicViscosity</A></TD><TD>eta_wall</TD><TD>&nbsp;</TD><TD>Dynamic viscosity of fluid at wall temperature [Pa.s]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Input</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow</TD><TD>&nbsp;</TD><TD>[kg/s]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> kc_approxForcedConvection_IN_var <font color="darkgreen">
+  &quot;Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC&quot;</font>
+  <font color="darkgreen">//fluid property variables</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Dissipation_Utilities_Records_General.html#Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties"
+>Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> eta_wall <font color="darkgreen">&quot;Dynamic viscosity of fluid at wall temperature&quot;</font>;
+
+  <font color="darkgreen">//input variable (mass flow rate)</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>kc_approxForcedConvection_IN_var;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:19 2010.
+</address></BODY>
+</HTML>

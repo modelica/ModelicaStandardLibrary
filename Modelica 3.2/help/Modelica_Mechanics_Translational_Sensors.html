@@ -1,0 +1,433 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.Translational.Sensors</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Sensors for 1-dim. translational mechanical quantities&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Sensors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Mechanics.Translational.Sensors"></A><A HREF="Modelica_Mechanics_Translational.html#Modelica.Mechanics.Translational"
+>Modelica.Mechanics.Translational</A>.Sensors</H2>
+<B>Sensors for 1-dim. translational mechanical quantities</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains ideal sensor components that provide
+the connector variables as signals for further processing with the
+Modelica.Blocks library.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_SensorsPackage.html#Modelica.Icons.SensorsPackage"
+>Modelica.Icons.SensorsPackage</A> (Icon for packages containing sensors).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.PositionSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.PositionSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PositionSensor"
+>PositionSensor</A>
+</TD><TD>Ideal sensor to measure the absolute position</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.SpeedSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.SpeedSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.SpeedSensor"
+>SpeedSensor</A>
+</TD><TD>Ideal sensor to measure the absolute velocity</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.AccSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.AccSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.AccSensor"
+>AccSensor</A>
+</TD><TD>Ideal sensor to measure the absolute acceleration</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.RelPositionSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.RelPositionSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.RelPositionSensor"
+>RelPositionSensor</A>
+</TD><TD>Ideal sensor to measure the relative position</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.RelSpeedSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.RelSpeedSensor"
+>RelSpeedSensor</A>
+</TD><TD>Ideal sensor to measure the relative speed</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.RelAccSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.RelAccSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.RelAccSensor"
+>RelAccSensor</A>
+</TD><TD>Ideal sensor to measure the relative acceleration</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.ForceSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.ForceSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.ForceSensor"
+>ForceSensor</A>
+</TD><TD>Ideal sensor to measure the force between two flanges</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.Translational.Sensors.PowerSensorS.png" ALT="Modelica.Mechanics.Translational.Sensors.PowerSensor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors.PowerSensor"
+>PowerSensor</A>
+</TD><TD>Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PositionSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.PositionSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.PositionSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.PositionSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.PositionSensor</H2>
+<B>Ideal sensor to measure the absolute position</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.PositionSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.PositionSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>absolute position s</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>Translational.Interfaces.PartialAbsoluteSensor</A> (Device to measure a single absolute flange variable).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>s</TD><TD>Absolute position of flange</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PositionSensor <font color="darkgreen">&quot;Ideal sensor to measure the absolute position&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>Translational.Interfaces.PartialAbsoluteSensor</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> s <font color="darkgreen">&quot;Absolute position of flange&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  s = flange.s;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PositionSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SpeedSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.SpeedSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.SpeedSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.SpeedSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.SpeedSensor</H2>
+<B>Ideal sensor to measure the absolute velocity</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.SpeedSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.SpeedSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>absolute velocity v</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>Translational.Interfaces.PartialAbsoluteSensor</A> (Device to measure a single absolute flange variable).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>v</TD><TD>Absolute velocity of flange as output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SpeedSensor <font color="darkgreen">&quot;Ideal sensor to measure the absolute velocity&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>Translational.Interfaces.PartialAbsoluteSensor</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> v <font color="darkgreen">
+    &quot;Absolute velocity of flange as output signal&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  v =<font color="red"> der</font>(flange.s);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>SpeedSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AccSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.AccSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.AccSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.AccSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.AccSensor</H2>
+<B>Ideal sensor to measure the absolute acceleration</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.AccSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.AccSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>absolute acceleration a</i>
+of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>Translational.Interfaces.PartialAbsoluteSensor</A> (Device to measure a single absolute flange variable).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange</TD><TD>Flange to be measured (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>a</TD><TD>Absolute acceleration of flange as output signal</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AccSensor <font color="darkgreen">&quot;Ideal sensor to measure the absolute acceleration&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialAbsoluteSensor"
+>Translational.Interfaces.PartialAbsoluteSensor</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v <font color="darkgreen">&quot;Absolute velocity of flange&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> a <font color="darkgreen">
+    &quot;Absolute acceleration of flange as output signal&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  v =<font color="red"> der</font>(flange.s);
+  a =<font color="red"> der</font>(v);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>AccSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelPositionSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.RelPositionSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.RelPositionSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.RelPositionSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.RelPositionSensor</H2>
+<B>Ideal sensor to measure the relative position</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.RelPositionSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.RelPositionSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>relative position s</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A> (Device to measure a single relative variable between two flanges).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>s_rel</TD><TD>Distance between two flanges (= flange_b.s - flange_a.s)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RelPositionSensor <font color="darkgreen">
+  &quot;Ideal sensor to measure the relative position&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> s_rel <font color="darkgreen">
+    &quot;Distance between two flanges (= flange_b.s - flange_a.s)&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  s_rel = flange_b.s - flange_a.s;
+  0 = flange_a.f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>RelPositionSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelSpeedSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.RelSpeedSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.RelSpeedSensor</H2>
+<B>Ideal sensor to measure the relative speed</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.RelSpeedSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.RelSpeedSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>relative speed v</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A> (Device to measure a single relative variable between two flanges).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>v_rel</TD><TD>Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s))</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RelSpeedSensor <font color="darkgreen">&quot;Ideal sensor to measure the relative speed&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_rel <font color="darkgreen">
+    &quot;Distance between the two flanges (flange_b.s - flange_a.s)&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> v_rel <font color="darkgreen">
+    &quot;Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s))&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  s_rel = flange_b.s - flange_a.s;
+  v_rel =<font color="red"> der</font>(s_rel);
+  0 = flange_a.f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>RelSpeedSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE RelAccSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.RelAccSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.RelAccSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.RelAccSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.RelAccSensor</H2>
+<B>Ideal sensor to measure the relative acceleration</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.RelAccSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.RelAccSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>relative acceleration a</i> of a flange in an ideal way and provides the result as
+output signals (to be further processed with blocks of the
+Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A> (Device to measure a single relative variable between two flanges).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>a_rel</TD><TD>Relative acceleration between two flanges (= der(v_rel))</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> RelAccSensor <font color="darkgreen">
+  &quot;Ideal sensor to measure the relative acceleration&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Position"
+>SI.Position</A> s_rel <font color="darkgreen">
+    &quot;Distance between the two flanges (flange_b.s - flange_a.s)&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> v_rel <font color="darkgreen">
+    &quot;Relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> a_rel <font color="darkgreen">
+    &quot;Relative acceleration between two flanges (= der(v_rel))&quot;</font>;</textblock>
+
+<font color="blue">equation </font>
+  s_rel = flange_b.s - flange_a.s;
+  v_rel =<font color="red"> der</font>(s_rel);
+  a_rel =<font color="red"> der</font>(v_rel);
+  0 = flange_a.f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>RelAccSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ForceSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.ForceSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.ForceSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.ForceSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.ForceSensor</H2>
+<B>Ideal sensor to measure the force between two flanges</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.ForceSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.ForceSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <i>cut-force between two flanges</i> in an ideal way
+and provides the result as output signal (to be further processed
+with blocks of the Modelica.Blocks library).
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A> (Device to measure a single relative variable between two flanges).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>f</TD><TD>Force in flange_a and flange_b (f = flange_a.f = -flange_b.f)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ForceSensor <font color="darkgreen">
+  &quot;Ideal sensor to measure the force between two flanges&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> f <font color="darkgreen">
+    &quot;Force in flange_a and flange_b (f = flange_a.f = -flange_b.f)&quot;</font>;</textblock>
+<font color="blue">equation </font>
+  flange_a.s = flange_b.s;
+  flange_a.f = f;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ForceSensor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PowerSensor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.Translational.Sensors.PowerSensorI.png" ALT="Modelica.Mechanics.Translational.Sensors.PowerSensor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.Translational.Sensors.PowerSensor"></A><A HREF="Modelica_Mechanics_Translational_Sensors.html#Modelica.Mechanics.Translational.Sensors"
+>Modelica.Mechanics.Translational.Sensors</A>.PowerSensor</H2>
+<B>Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))</B><p>
+<IMG SRC="Modelica.Mechanics.Translational.Sensors.PowerSensorD.png" ALT="Modelica.Mechanics.Translational.Sensors.PowerSensor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Measures the <b>power between two flanges</b> in an ideal way
+and provides the result as output signal <b>power</b>
+(to be further processed with blocks of the Modelica.Blocks library).
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A> (Device to measure a single relative variable between two flanges).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_a"
+>Flange_a</A></TD><TD>flange_a</TD><TD>(left) driving flange (flange axis directed in to cut plane, e. g. from left to right)</TD></TR>
+<TR><TD><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.Flange_b"
+>Flange_b</A></TD><TD>flange_b</TD><TD>(right) driven flange (flange axis directed out of cut plane)</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>power</TD><TD>Power in flange flange_a</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> PowerSensor <font color="darkgreen">
+  &quot;Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Mechanics_Translational_Interfaces.html#Modelica.Mechanics.Translational.Interfaces.PartialRelativeSensor"
+>Translational.Interfaces.PartialRelativeSensor</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> power <font color="darkgreen">&quot;Power in flange flange_a&quot;</font>;</textblock>
+<font color="blue">equation </font>
+  flange_a.s = flange_b.s;
+  power = flange_a.f*<font color="red">der</font>(flange_a.s);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PowerSensor;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:51 2010.
+</address></BODY>
+</HTML>

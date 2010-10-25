@@ -1,0 +1,607 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Two models of a reluctance actuator of different modelling depth and their comparison and usage&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SolenoidActuator<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples.html#Modelica.Magnetic.FluxTubes.Examples"
+>Modelica.Magnetic.FluxTubes.Examples</A>.SolenoidActuator</H2>
+<B>Two models of a reluctance actuator of different modelling depth and their comparison and usage</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+In electromagnetic or reluctance actuators, a thrust or reluctance force is generated due to a non-zero gradient of the relative magnetic permeability mu_r at surfaces between regions of different permeability (non-saturated ferromagnetic material: mu_r>>1, adjacent air: mu_r=1). In lumped magnetic network models, this force can be calculated as shortly outlined in <A HREF="Modelica_Magnetic_FluxTubes_UsersGuide.html#Modelica.Magnetic.FluxTubes.UsersGuide.ReluctanceForceCalculation"
+>Reluctance Forces</a> of the User's Guide.
+</p>
+
+<p>
+As an example of a reluctance actuator, a simple axisymmetric lifting magnet with planar end planes of armature and pole is shown. Often, a <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> model is sufficient for initial rough design of such an actuator's magnetic subsystem. Higher accuracy can be gained from an <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>AdvancedSolenoid</a> model where the coil-imposed magnetomotive force is split and the leakage flux between armature and yoke is accounted for more precisely.
+</p>
+
+<p>
+The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
+>ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationaryS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"
+>ComparisonQuasiStationary</A>
+</TD><TD>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationaryS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</A>
+</TD><TD>Pull-in stroke of both solenoid models after a voltage step at time t=0</TD></TR>
+<TR><TD><IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComponentsS.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components"
+>Components</A>
+</TD><TD>Components to be used in examples</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComparisonQuasiStationary<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationaryI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</A>.ComparisonQuasiStationary</H2>
+<B>Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary</B><p>
+<IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationaryD.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</a> for general comments and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> and <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+</p>
+
+<p>
+Similar to static force-stroke measurements on real actuators, the armatures of both actuator models are forced to move slowly here. Hence, the dynamics of the electrical subsystems due to coil inductance and armature motion can be neglected and the static force-stroke characteristics are obtained. To illustrate the accuracy to be expected from the lumped magnetic network models, results obtained with stationary FEA are included as reference (position-dependent force, armature flux and actuator inductance). Note that these reference values are valid for the default supply voltage v_step=12V DC only!
+</p>
+
+<p>
+Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 10 s</b>. Plot in one common window the electromagnetic force of the two magnetic network models and the FEA reference <b>vs. armature position x_set.y</b>:
+</p>
+
+<pre>
+    simpleSolenoid.armature.flange_a.f     // electromagnetic force of simple magnetic network model
+    advancedSolenoid.armature.flange_a.f   // electromagnetic force of advaned magnetic network model
+    comparisonWithFEA.y[1]                 // electromagnetic force obtained with FEA as reference
+</pre>
+
+<p>
+Electromagnetic or reluctance forces always act towards a decrease of air gap lengths. With the defined armature position coordinate x, the forces of the models are negative.
+</p>
+
+<p>
+The magnetic flux through the armature and the actuator's static inductance both illustrate the differences between the two magnetic network models. Similar to the forces, compare these quantities in one common plot window for each variable (plot vs. armature position x_set.y):
+</p>
+
+<pre>
+    simpleSolenoid.G_mFeArm.Phi            // magnetic flux through armature of simple magnetic network model
+    advancedSolenoid.G_mFeArm.Phi          // magnetic flux through armature of advanced magnetic network model
+    comparisonWithFEA.y[2]                 // magnetic flux obtained with FEA as reference
+
+    simpleSolenoid.coil.L_stat             // static inductance of simple magnetic network model
+    advancedSolenoid.L_statTot             // series connection of both partial coils of advanced network model
+    comparisonWithFEA.y[3]                 // static inductance obtained with FEA as reference
+</pre>
+
+<p>
+As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"
+>ComparisonPullInStroke</a>.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>v_step</TD><TD>12</TD><TD>Applied voltage [V]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ComparisonQuasiStationary <font color="darkgreen">
+  &quot;Slow forced armature motion of both solenoid models so that electromagnetic field and current are quasi-stationary&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v_step = 12 <font color="darkgreen">&quot;Applied voltage&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> x_set(
+    duration=10,
+    height=-(advancedSolenoid.x_max - advancedSolenoid.x_min),
+    offset=advancedSolenoid.x_max) <font color="darkgreen">
+    &quot;Prescribed armature position, slow enforced motion from x_max to x_min&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> advancedGround;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.StepVoltage"
+>Modelica.Electrical.Analog.Sources.StepVoltage</A> advancedSource(V=v_step);
+  <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid</A>
+    advancedSolenoid;
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Position"
+>Modelica.Mechanics.Translational.Sources.Position</A> advancedFeed_x(
+                                                           f_crit=1000, exact=true);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> simpleGround;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.StepVoltage"
+>Modelica.Electrical.Analog.Sources.StepVoltage</A> simpleSource(V=v_step);
+  <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid</A>
+    simpleSolenoid;
+  <A HREF="Modelica_Mechanics_Translational_Sources.html#Modelica.Mechanics.Translational.Sources.Position"
+>Modelica.Mechanics.Translational.Sources.Position</A> simpleFeed_x(
+                                                         f_crit=1000, exact=false);
+  <A HREF="Modelica_Blocks_Tables.html#Modelica.Blocks.Tables.CombiTable1Ds"
+>Modelica.Blocks.Tables.CombiTable1Ds</A> comparisonWithFEA(table=[0.00025,-85.8619,
+        0.00014821,0.11954; 0.0005,-59.9662,0.00013931,0.11004; 0.00075,-41.0806,
+        0.0001277,0.098942; 0.001,-28.88,0.00011587,0.088425; 0.00125,-21.4113,
+        0.00010643,0.08015; 0.0015,-16.8003,9.9406e-005,0.073992; 0.00175,
+        -13.6942,9.3416e-005,0.068792; 0.002,-11.1188,8.8564e-005,
+        0.064492; 0.00225,-9.6603,8.4505e-005,0.060917; 0.0025,-8.4835,
+        8.1215e-005,0.058017; 0.00275,-7.4658,7.7881e-005,0.055125; 0.003,
+        -6.5591,7.5197e-005,0.052733; 0.00325,-5.9706,7.2447e-005,0.05035;
+        0.0035,-5.5013,7.0342e-005,0.048525; 0.00375,-5.0469,6.8527e-005,
+        0.046867; 0.004,-4.6573,6.6526e-005,0.045158; 0.00425,-4.2977,
+        6.4425e-005,0.043442; 0.0045,-4.0912,6.2747e-005,0.04205; 0.00475,
+        -3.7456,6.1231e-005,0.040733; 0.005,-3.5869,5.9691e-005,0.039467]) <font color="darkgreen">
+    &quot;Valid for u_source=12V only; column 1: position, col.2: force, col.3: armature flux, col.4: inductance&quot;</font>;
+    </textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(advancedGround.p, advancedSource.n);
+  <font color="red">connect</font>(x_set.y, advancedFeed_x.s_ref);
+  <font color="red">connect</font>(simpleSolenoid.p, simpleSource.p);
+  <font color="red">connect</font>(simpleSolenoid.n, simpleSource.n);
+  <font color="red">connect</font>(simpleSolenoid.flange,simpleFeed_x.flange);
+  <font color="red">connect</font>(advancedSolenoid.n, advancedSource.n);
+  <font color="red">connect</font>(simpleFeed_x.s_ref, x_set.y);
+  <font color="red">connect</font>(x_set.y,comparisonWithFEA. u);
+  <font color="red">connect</font>(advancedFeed_x.flange,   advancedSolenoid.flange);
+  <font color="red">connect</font>(advancedSource.p, advancedSolenoid.p);
+  <font color="red">connect</font>(simpleGround.p, simpleSource.n);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ComparisonQuasiStationary;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ComparisonPullInStroke<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationaryI.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke"></A><A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator</A>.ComparisonPullInStroke</H2>
+<B>Pull-in stroke of both solenoid models after a voltage step at time t=0</B><p>
+<IMG SRC="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStrokeD.png" ALT="Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Have a look at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator"
+>SolenoidActuator</a> for general comments and at <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>SimpleSolenoid</a> and <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>AdvancedSolenoid</a> for a detailed description of both magnetic network models.
+</p>
+
+<p>
+A voltage step is applied to both solenoid models at time t=0. The armatures of both models and therewith connected loads are pulled from their rest position at maximum air gap length to their minimum position that is due to a stopper. As a reference, simulation results obtained with a dynamic model based on stationary FEA look-up tables (not part of this library) are included. Note that these reference results are valid for the default supply voltage v_step=12V DC and the default load mass m_load=0.01kg only!
+</p>
+
+<p>
+Set the <b>tolerance</b> to <b>1e-7</b> and <b>simulate for 0.05 s</b>. Plot actuator current, force and position of the two magnetic network models and the FEA-based reference <b>vs. time</b> (each quantity in one common plot window):
+</p>
+
+<pre>
+Plot window for current:
+    simpleSolenoid.p.i          // rapid current rise indicates low inductance of simple network model
+    advancedSolenoid.p.i        // current rise slower, better match with FEA reference
+    comparisonWithFEA.y[1]      // current obtained from dynamic model based on stationary FEA look-up tables
+
+Plot window for force:
+    simpleSolenoid.armature.flange_a.f       // reluctance force of simple actuator model
+    advancedSolenoid.armature.flange_a.f     // reluctance force of advanced actuator model
+    comparisonWithFEA.y[2]      // force obtained from dynamic model based on stationary FEA look-up tables
+
+Plot window for position:
+    simpleSolenoid.x            // armature position of simple actuator model
+    advancedSolenoid.x          // armature position of advanced actuator model
+    comparisonWithFEA.y[3]      // position obtained from dynamic model based on stationary FEA look-up tables
+</pre>
+
+<p>
+The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>v_step</TD><TD>12</TD><TD>Applied voltage [V]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ComparisonPullInStroke <font color="darkgreen">
+  &quot;Pull-in stroke of both solenoid models after a voltage step at time t=0&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>SI.Voltage</A> v_step = 12 <font color="darkgreen">&quot;Applied voltage&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> advancedGround;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.StepVoltage"
+>Modelica.Electrical.Analog.Sources.StepVoltage</A> advancedSource(V=v_step);
+  <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.AdvancedSolenoid</A>
+    advancedSolenoid(x(fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Modelica.Mechanics.Translational.Components.Mass</A> advancedLoad(
+                                                            m=0.01) <font color="darkgreen">
+    &quot;translatory load to be pulled horizontally&quot;</font>;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> simpleGround;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.StepVoltage"
+>Modelica.Electrical.Analog.Sources.StepVoltage</A> simpleSource(V=v_step);
+  <A HREF="Modelica_Magnetic_FluxTubes_Examples_SolenoidActuator_Components.html#Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid"
+>Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid</A>
+    simpleSolenoid(x(fixed=true));
+  <A HREF="Modelica_Mechanics_Translational_Components.html#Modelica.Mechanics.Translational.Components.Mass"
+>Modelica.Mechanics.Translational.Components.Mass</A> simpleLoad(
+                                                          m=0.01) <font color="darkgreen">
+    &quot;translatory load to be pulled horizontally&quot;</font>;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.CombiTimeTable"
+>Modelica.Blocks.Sources.CombiTimeTable</A> comparisonWithFEA(
+    table=[0,0,0,0.005; 2.61165e-007,7.93537e-005,-1.97914e-005,0.005;
+        2.61165e-007,7.93537e-005,-1.97914e-005,0.005; 0.0001,0.0300045,-0.00748335,
+        0.005; 0.0002,0.05926,-0.0147799,0.005; 0.0003,0.0877841,-0.021894,
+        0.00499999; 0.0004,0.115593,-0.036608,0.00499997; 0.0005,0.142707,
+        -0.0568957,0.00499994; 0.0006,0.169143,-0.076676,0.00499988;
+        0.0007,0.194915,-0.0959614,0.0049998; 0.0008,0.220042,-0.124763,
+        0.00499968; 0.0009,0.244539,-0.155317,0.00499951; 0.001,0.26842,-0.185107,
+        0.00499928; 0.0011,0.291701,-0.214153,0.00499898; 0.0012,0.314394,
+        -0.249655,0.0049986; 0.0013,0.336514,-0.288306,0.00499812; 0.0014,
+        0.358074,-0.325991,0.00499754; 0.0015,0.379086,-0.362735,
+        0.00499682; 0.0016,0.399562,-0.398563,0.00499597; 0.0017,0.419514,
+        -0.44324,0.00499496; 0.0018,0.438955,-0.487015,0.00499378; 0.0019,
+        0.457893,-0.529698,0.00499242; 0.002,0.47634,-0.571317,0.00499085;
+        0.0021,0.494305,-0.611901,0.00498906; 0.0022,0.511799,-0.657374,
+        0.00498704; 0.0023,0.528832,-0.704491,0.00498476; 0.0024,0.545412,
+        -0.750434,0.00498221; 0.0025,0.561548,-0.795237,0.00497937;
+        0.0026,0.577248,-0.83893,0.00497623; 0.0027,0.592521,-0.881543,
+        0.00497277; 0.0028,0.607375,-0.926803,0.00496896; 0.0029,0.62182,
+        -0.974598,0.0049648; 0.003,0.63586,-1.02121,0.00496027; 0.0031,
+        0.649503,-1.06667,0.00495534; 0.0032,0.662756,-1.11102,0.00495;
+        0.0033,0.675625,-1.15428,0.00494424; 0.0034,0.688119,-1.19648,
+        0.00493803; 0.0035,0.700242,-1.23778,0.00493136; 0.0036,0.712005,
+        -1.28391,0.00492421; 0.0037,0.72341,-1.32891,0.00491657; 0.0038,
+        0.734463,-1.3728,0.00490842; 0.0039,0.74517,-1.41563,0.00489974;
+        0.004,0.755536,-1.45743,0.00489052; 0.0041,0.765568,-1.49822,
+        0.00488074; 0.0042,0.775269,-1.53803,0.00487038; 0.0043,0.784646,
+        -1.57689,0.00485943; 0.0044,0.793704,-1.61483,0.00484787; 0.0045,
+        0.80245,-1.65314,0.00483569; 0.0046,0.810888,-1.69366,0.00482288;
+        0.0047,0.81902,-1.7332,0.00480941; 0.0048,0.826851,-1.77179,
+        0.00479528; 0.0049,0.834387,-1.80945,0.00478046; 0.005,0.841631,-1.84622,
+        0.00476495; 0.0051,0.84859,-1.88259,0.00474873; 0.0052,0.855304,-1.92429,
+        0.00473179; 0.0053,0.861739,-1.96564,0.0047141; 0.0054,0.8679,-2.00668,
+        0.00469566; 0.0055,0.873791,-2.04743,0.00467645; 0.0056,0.879419,
+        -2.08794,0.00465645; 0.0057,0.884782,-2.1282,0.00463565; 0.0058,
+        0.889885,-2.16824,0.00461403; 0.0059,0.894731,-2.20808,0.00459157;
+        0.006,0.899322,-2.24774,0.00456827; 0.0061,0.903661,-2.28927,
+        0.0045441; 0.0062,0.907752,-2.33091,0.00451905; 0.0063,0.911603,-2.37014,
+        0.0044931; 0.0064,0.915232,-2.40274,0.00446624; 0.0065,0.91862,-2.43469,
+        0.00443846; 0.0066,0.92177,-2.466,0.00440974; 0.0067,0.924686,-2.49668,
+        0.00438007; 0.0068,0.927368,-2.52672,0.00434945; 0.0069,0.929822,
+        -2.55615,0.00431785; 0.007,0.93205,-2.58498,0.00428527; 0.0071,
+        0.934052,-2.61318,0.00425169; 0.0072,0.935241,-2.64973,0.00421711;
+        0.0073,0.936164,-2.68643,0.00418151; 0.0074,0.936854,-2.7228,
+        0.00414488; 0.0075,0.937309,-2.7588,0.0041072; 0.0076,0.937532,-2.7944,
+        0.00406845; 0.0077,0.937522,-2.82958,0.00402864; 0.0078,0.937411,
+        -2.866,0.00398773; 0.0079,0.937385,-2.90613,0.00394572; 0.008,
+        0.937133,-2.94589,0.0039026; 0.0081,0.936656,-2.98525,0.00385834;
+        0.0082,0.935953,-3.02414,0.00381293; 0.0083,0.935024,-3.06251,
+        0.00376636; 0.0084,0.934308,-3.10824,0.00371862; 0.0085,0.933608,
+        -3.15783,0.00366967; 0.0086,0.93269,-3.20708,0.00361952; 0.0087,
+        0.931553,-3.25592,0.00356812; 0.0088,0.930194,-3.30427,0.00351548;
+        0.0089,0.928473,-3.35247,0.00346157; 0.009,0.926467,-3.40014,
+        0.00340636; 0.0091,0.924232,-3.44698,0.00334985; 0.0092,0.921766,
+        -3.49289,0.00329202; 0.0093,0.918579,-3.53879,0.00323283; 0.0094,
+        0.913925,-3.5856,0.00317229; 0.0095,0.909004,-3.63034,0.00311037;
+        0.0096,0.903809,-3.67275,0.00304706; 0.0097,0.89859,-3.72881,
+        0.00298233; 0.0098,0.893783,-3.82589,0.00291616; 0.0099,0.888707,
+        -3.92096,0.00284852; 0.01,0.883343,-4.01357,0.00277938; 0.0101,
+        0.876979,-4.10734,0.00270869; 0.0102,0.869783,-4.19987,0.00263642;
+        0.0103,0.862246,-4.28752,0.00256254; 0.0104,0.854574,-4.37627,
+        0.00248701; 0.0105,0.847614,-4.49154,0.00240979; 0.0106,0.840302,
+        -4.60102,0.00233085; 0.0107,0.832625,-4.70399,0.00225014; 0.0108,
+        0.822938,-4.82647,0.00216761; 0.0109,0.812813,-4.93752,0.00208323;
+        0.011,0.802204,-5.04175,0.00199695; 0.0111,0.78997,-5.30274,
+        0.00190873; 0.0112,0.777197,-5.54515,0.00181846; 0.0113,0.763521,
+        -5.78149,0.00172606; 0.0114,0.748272,-6.039,0.00163144; 0.0115,
+        0.73235,-6.25778,0.0015345; 0.0116,0.715211,-6.57852,0.00143514;
+        0.0117,0.696998,-6.91971,0.00133326; 0.0118,0.677065,-7.30735,
+        0.00122872; 0.0119,0.652791,-7.88085,0.00112136; 0.012,0.62734,-8.29718,
+        0.00101097; 0.0121,0.597125,-9.13179,0.000897364; 0.0122,0.564919,
+        -9.82427,0.000780251; 0.0123,0.527838,-11.1684,0.000659331;
+        0.0124,0.487477,-12.1609,0.000534142; 0.0125,0.436631,-14.9103,
+        0.000404205; 0.0126,0.379243,-16.2449,0.000268616; 0.0126134,
+        0.371242,-16.2777,0.00025; 0.0126134,0.371242,-16.2777,0.00025;
+        0.0126868,0.350822,-16.2554,0.000198624; 0.0126868,0.350822,-16.2554,
+        0.000198624; 0.0127,0.351869,-16.3218,0.000199455; 0.0128,0.37695,
+        -17.0338,0.000241587; 0.0128157,0.381787,-17.1198,0.00025;
+        0.0128157,0.381787,-17.1198,0.00025; 0.0129,0.406591,-17.48,
+        0.000292352; 0.013,0.433421,-17.8191,0.000336402; 0.0131,0.457261,
+        -17.8337,0.000373609; 0.0132,0.477911,-17.6706,0.000403962;
+        0.0133,0.495294,-17.4605,0.00042752; 0.0134,0.509353,-17.3988,
+        0.000444358; 0.0135,0.520015,-17.4878,0.0004545; 0.0136,0.527192,
+        -17.7433,0.000457911; 0.0136003,0.527207,-17.7443,0.000457911;
+        0.0136003,0.527207,-17.7443,0.000457911; 0.0137,0.530748,-18.1997,
+        0.000454491; 0.0138,0.530517,-18.8646,0.000444064; 0.0139,
+        0.526294,-19.7142,0.000426376; 0.014,0.517828,-20.6871,
+        0.000401101; 0.0141,0.504836,-21.6765,0.000367869; 0.0142,
+        0.487037,-22.6627,0.000326301; 0.0143,0.464073,-23.4017,
+        0.000276025; 0.0143458,0.451744,-23.5657,0.00025; 0.0143458,
+        0.451744,-23.5657,0.00025; 0.0144,0.439383,-23.6302,0.000223375;
+        0.0144518,0.438001,-23.8106,0.00021654; 0.0144518,0.438001,-23.8106,
+        0.00021654; 0.0145,0.442437,-24.0882,0.000220288; 0.0146,0.459291,
+        -24.7355,0.000241352; 0.014643,0.466338,-24.9736,0.00025;
+        0.014643,0.466338,-24.9736,0.00025; 0.0147,0.47417,-25.2545,
+        0.000258795; 0.0148,0.483493,-25.7045,0.000266567; 0.0148288,
+        0.485111,-25.8323,0.00026698; 0.0148288,0.485111,-25.8323,
+        0.00026698; 0.0149,0.486998,-26.1506,0.000264454; 0.015,0.484444,
+        -26.5924,0.000252282; 0.0150127,0.483671,-26.6456,0.00025;
+        0.0150127,0.483671,-26.6456,0.00025; 0.0151,0.477935,-26.9803,
+        0.000233764; 0.0151954,0.478678,-27.3825,0.000227777; 0.0151954,
+        0.478678,-27.3825,0.000227777; 0.0152,0.478896,-27.404,
+        0.000227786; 0.0153,0.486112,-27.9096,0.000231723; 0.0154,
+        0.494618,-28.4114,0.000237745; 0.0154716,0.499054,-28.7526,
+        0.000239402; 0.0154716,0.499054,-28.7526,0.000239402; 0.0155,
+        0.500242,-28.8872,0.000239151; 0.0156,0.502893,-29.3755,
+        0.000235871; 0.0157,0.505639,-29.8643,0.000232816; 0.0158,
+        0.509736,-30.3772,0.000231912; 0.0158118,0.51029,-30.4396,
+        0.000231905; 0.0158118,0.51029,-30.4396,0.000231905; 0.0159,
+        0.514622,-30.9065,0.000232198; 0.016,0.519654,-31.4343,
+        0.000232755; 0.016048,0.521947,-31.6846,0.000232849; 0.016048,
+        0.521947,-31.6846,0.000232849; 0.0161,0.524291,-31.9527,
+        0.000232753; 0.0162,0.528618,-32.4638,0.000232328; 0.0163,0.53296,
+        -32.9726,0.000231976; 0.0164,0.537374,-33.4793,0.000231787;
+        0.0165,0.541801,-33.9827,0.000231672; 0.0166,0.546199,-34.4828,
+        0.000231561; 0.0167,0.550555,-34.9795,0.000231435; 0.0168,
+        0.554875,-35.4729,0.0002313; 0.0169,0.559164,-35.9631,0.000231166;
+        0.017,0.56344,-36.4518,0.000231035; 0.0171,0.567726,-36.9417,
+        0.000230906; 0.0172,0.571982,-37.4284,0.000230779; 0.0173,
+        0.576209,-37.9119,0.000230653; 0.0174,0.580407,-38.3923,
+        0.000230528; 0.0175,0.584575,-38.8695,0.000230405; 0.0176,
+        0.588716,-39.3436,0.000230284; 0.0177,0.593137,-39.8493,
+        0.000230163; 0.0178,0.59757,-40.357,0.000230038; 0.0179,0.601967,
+        -40.8716,0.000229911; 0.018,0.60633,-41.3953,0.000229783; 0.0181,
+        0.610659,-41.9153,0.000229654; 0.0182,0.614955,-42.4317,
+        0.000229526; 0.0183,0.619218,-42.9441,0.0002294; 0.0184,0.623441,
+        -43.452,0.000229276; 0.0185,0.627634,-43.9562,0.000229154; 0.0186,
+        0.631795,-44.4569,0.000229034; 0.0187,0.635926,-44.954,
+        0.000228915; 0.0188,0.640026,-45.4476,0.000228797; 0.0189,
+        0.644096,-45.9377,0.000228681; 0.019,0.648136,-46.4242,
+        0.000228566; 0.0191,0.652146,-46.9074,0.000228453; 0.0192,
+        0.656126,-47.387,0.000228341; 0.0193,0.660077,-47.8633,
+        0.000228231; 0.0194,0.663999,-48.3362,0.000228122; 0.0195,
+        0.667892,-48.8057,0.000228014; 0.0196,0.671756,-49.2718,
+        0.000227908; 0.0197,0.675592,-49.7347,0.000227802; 0.0198,0.67979,
+        -50.2404,0.000227697; 0.0199,0.684118,-50.7623,0.000227586; 0.02,
+        0.688404,-51.2799,0.000227471; 0.0201,0.692654,-51.7933,
+        0.000227355; 0.0202,0.696868,-52.3025,0.000227241; 0.0203,
+        0.701047,-52.8002,0.00022713; 0.0204,0.705193,-53.2717,
+        0.000227022; 0.0205,0.709307,-53.7394,0.000226918; 0.0206,
+        0.713479,-54.2135,0.000226817; 0.0207,0.717635,-54.686,
+        0.000226716; 0.0208,0.721755,-55.1544,0.000226615; 0.0209,
+        0.725839,-55.619,0.000226515; 0.021,0.729888,-56.0796,0.000226416;
+        0.0211,0.733903,-56.5364,0.000226319; 0.0212,0.737883,-56.9893,
+        0.000226222; 0.0213,0.741829,-57.4383,0.000226127; 0.0214,
+        0.745732,-57.8827,0.000226033; 0.0215,0.749587,-58.3217,
+        0.000225941; 0.0216,0.75341,-58.7569,0.00022585; 0.0217,0.757199,
+        -59.1885,0.00022576; 0.0218,0.760956,-59.6164,0.000225671; 0.0219,
+        0.764681,-60.0407,0.000225583; 0.022,0.768373,-60.4614,
+        0.000225497; 0.0221,0.772034,-60.8786,0.000225411; 0.0222,
+        0.775663,-61.2922,0.000225326; 0.0223,0.779579,-61.7378,
+        0.000225242; 0.0224,0.784355,-62.2802,0.000225151; 0.0225,
+        0.789065,-62.8168,0.000225046; 0.0226,0.793716,-63.3474,
+        0.000224938; 0.0227,0.798315,-63.8721,0.000224831; 0.0228,
+        0.802863,-64.3256,0.000224728; 0.0229,0.80737,-64.7356,
+        0.000224637; 0.023,0.811833,-65.1406,0.000224555; 0.0231,0.816247,
+        -65.541,0.000224477; 0.0232,0.820611,-65.9369,0.000224399; 0.0233,
+        0.824909,-66.3269,0.000224322; 0.0234,0.829106,-66.7079,
+        0.000224246; 0.0235,0.833258,-67.0845,0.000224172; 0.0236,
+        0.837362,-67.457,0.000224099; 0.0237,0.84142,-67.8252,0.000224027;
+        0.0238,0.845433,-68.1893,0.000223957; 0.0239,0.8494,-68.5494,
+        0.000223887; 0.024,0.853323,-68.9053,0.000223818; 0.0241,0.857201,
+        -69.2573,0.00022375; 0.0242,0.861036,-69.6053,0.000223683; 0.0243,
+        0.864828,-69.9494,0.000223617; 0.0244,0.868577,-70.2896,
+        0.000223552; 0.0245,0.873541,-70.7381,0.000223484; 0.0246,
+        0.878506,-71.1879,0.000223404; 0.0247,0.883389,-71.6312,
+        0.00022332; 0.0248,0.888198,-72.0678,0.000223236; 0.0249,0.892935,
+        -72.4978,0.000223154; 0.025,0.8976,-72.9212,0.000223074; 0.0251,
+        0.902194,-73.2832,0.000222997; 0.0252,0.906729,-73.5797,
+        0.00022293; 0.0253,0.911203,-73.8711,0.000222873; 0.0254,0.915611,
+        -74.1579,0.00022282; 0.0255,0.919953,-74.4404,0.000222768; 0.0256,
+        0.924227,-74.7185,0.000222716; 0.0257,0.928436,-74.9923,
+        0.000222665; 0.0258,0.932872,-75.2805,0.000222615; 0.0259,
+        0.937419,-75.5759,0.000222563; 0.026,0.941886,-75.8664,
+        0.000222509; 0.0261,0.946276,-76.1519,0.000222456; 0.0262,
+        0.950592,-76.4326,0.000222404; 0.0263,0.954834,-76.7084,
+        0.000222354; 0.0264,0.959005,-76.9795,0.000222304; 0.0265,
+        0.963104,-77.246,0.000222255; 0.0266,0.967134,-77.5079,
+        0.000222207; 0.0267,0.971094,-77.7654,0.00022216; 0.0268,0.974988,
+        -78.0184,0.000222114; 0.0269,0.978815,-78.2671,0.000222068; 0.027,
+        0.982577,-78.5115,0.000222024; 0.0271,0.986275,-78.7518,
+        0.00022198; 0.0272,0.98991,-78.9879,0.000221937; 0.0273,0.993484,
+        -79.2201,0.000221895; 0.0274,0.996996,-79.4482,0.000221854;
+        0.0275,1.00082,-79.6845,0.000221813; 0.0276,1.00486,-79.8903,
+        0.000221773; 0.0277,1.00883,-80.0919,0.000221735; 0.0278,1.01272,
+        -80.2892,0.000221699; 0.0279,1.01653,-80.4824,0.000221665; 0.028,
+        1.02026,-80.6717,0.000221631; 0.0281,1.02392,-80.8572,0.000221597;
+        0.0282,1.0275,-81.0389,0.000221565; 0.0283,1.03101,-81.2168,
+        0.000221533; 0.0284,1.03445,-81.3911,0.000221501; 0.0285,1.03781,
+        -81.5619,0.000221471; 0.0286,1.04111,-81.7292,0.000221441; 0.0287,
+        1.04434,-81.893,0.000221412; 0.0288,1.04751,-82.0535,0.000221383;
+        0.0289,1.05061,-82.2107,0.000221355; 0.029,1.05365,-82.3647,
+        0.000221328; 0.0291,1.05663,-82.5155,0.000221301; 0.0292,1.05954,
+        -82.6633,0.000221275; 0.0293,1.0624,-82.808,0.000221249; 0.0294,
+        1.0652,-82.9498,0.000221224; 0.0295,1.06794,-83.0887,0.000221199;
+        0.0296,1.07063,-83.2248,0.000221175; 0.0297,1.07326,-83.3581,
+        0.000221151; 0.0298,1.07584,-83.4886,0.000221128; 0.0299,1.07836,
+        -83.6165,0.000221106; 0.03,1.08088,-83.7439,0.000221083; 0.0301,
+        1.08376,-83.8895,0.000221061; 0.0302,1.08657,-84.0316,0.000221037;
+        0.0303,1.08931,-84.1703,0.000221012; 0.0304,1.09198,-84.3057,
+        0.000220988; 0.0305,1.09459,-84.4378,0.000220965; 0.0306,1.09714,
+        -84.5667,0.000220942; 0.0307,1.09962,-84.6924,0.00022092; 0.0308,
+        1.10205,-84.7987,0.000220899; 0.0309,1.10442,-84.8994,0.00022088;
+        0.031,1.10673,-84.9975,0.000220862; 0.0311,1.10898,-85.0932,
+        0.000220846; 0.0312,1.11119,-85.1866,0.000220829; 0.0313,1.11333,
+        -85.2778,0.000220813; 0.0314,1.11543,-85.3668,0.000220798; 0.0315,
+        1.11748,-85.4536,0.000220782; 0.0316,1.11947,-85.5382,0.000220768;
+        0.0317,1.12142,-85.6209,0.000220753; 0.0318,1.12332,-85.7015,
+        0.000220739; 0.0319,1.12518,-85.7802,0.000220725; 0.032,1.12699,-85.857,
+        0.000220712; 0.0321,1.12875,-85.9319,0.000220699; 0.0322,1.13048,
+        -86.005,0.000220686; 0.0323,1.13216,-86.0763,0.000220673; 0.0324,
+        1.1338,-86.1459,0.000220661; 0.0325,1.1354,-86.2138,0.000220649;
+        0.0326,1.13696,-86.28,0.000220638; 0.0327,1.13849,-86.3447,
+        0.000220627; 0.0328,1.13997,-86.4078,0.000220616; 0.0329,1.14143,
+        -86.4693,0.000220605; 0.033,1.14284,-86.5294,0.000220594; 0.0331,
+        1.14423,-86.588,0.000220584; 0.0332,1.14558,-86.6452,0.000220574;
+        0.0333,1.14689,-86.701,0.000220564; 0.0334,1.14818,-86.7555,
+        0.000220555; 0.0335,1.14943,-86.8086,0.000220546; 0.0336,1.15065,
+        -86.8605,0.000220537; 0.0337,1.15185,-86.9111,0.000220528; 0.0338,
+        1.15301,-86.9605,0.000220519; 0.0339,1.15415,-87.0086,0.000220511;
+        0.034,1.15526,-87.0556,0.000220503; 0.0341,1.15634,-87.1015,
+        0.000220495; 0.0342,1.1574,-87.1463,0.000220487; 0.0343,1.15843,-87.19,
+        0.000220479; 0.0344,1.15943,-87.2326,0.000220472; 0.0345,1.16041,
+        -87.2742,0.000220465; 0.0346,1.16137,-87.3148,0.000220458; 0.0347,
+        1.16231,-87.3544,0.000220451; 0.0348,1.16322,-87.3931,0.000220444;
+        0.0349,1.16411,-87.4308,0.000220438; 0.035,1.16498,-87.4676,
+        0.000220431; 0.0351,1.16582,-87.5035,0.000220425; 0.0352,1.16665,
+        -87.5385,0.000220419; 0.0353,1.16746,-87.5727,0.000220413; 0.0354,
+        1.16824,-87.6061,0.000220407; 0.0355,1.16901,-87.6386,0.000220402;
+        0.0356,1.16976,-87.6704,0.000220396; 0.0357,1.17049,-87.7014,
+        0.000220391; 0.0358,1.17121,-87.7316,0.000220386; 0.0359,1.1719,-87.7612,
+        0.00022038; 0.036,1.17258,-87.79,0.000220375; 0.0361,1.17325,-87.8181,
+        0.000220371; 0.0362,1.1739,-87.8455,0.000220366; 0.0363,1.17453,-87.8722,
+        0.000220361; 0.0364,1.17514,-87.8984,0.000220357; 0.0365,1.17574,
+        -87.9238,0.000220352; 0.0366,1.17633,-87.9487,0.000220348; 0.0367,
+        1.1769,-87.9729,0.000220344; 0.0368,1.17746,-87.9966,0.00022034;
+        0.0369,1.17801,-88.0197,0.000220336; 0.037,1.17858,-88.0441,
+        0.000220332; 0.0371,1.17922,-88.0712,0.000220328; 0.0372,1.17985,
+        -88.0975,0.000220323; 0.0373,1.18045,-88.123,0.000220319; 0.0374,
+        1.18103,-88.1477,0.000220314; 0.0375,1.1816,-88.1717,0.00022031;
+        0.0376,1.18215,-88.195,0.000220306; 0.0377,1.18268,-88.2176,
+        0.000220302; 0.0378,1.1832,-88.2395,0.000220299; 0.0379,1.1837,-88.2607,
+        0.000220295; 0.038,1.18419,-88.2814,0.000220291; 0.0381,1.18466,-88.3014,
+        0.000220288; 0.0382,1.18512,-88.3208,0.000220284; 0.0383,1.18556,
+        -88.3396,0.000220281; 0.0384,1.18599,-88.3578,0.000220278; 0.0385,
+        1.18641,-88.3756,0.000220275; 0.0386,1.18682,-88.3928,0.000220272;
+        0.0387,1.18721,-88.4094,0.000220269; 0.0388,1.18759,-88.4256,
+        0.000220266; 0.0389,1.18796,-88.4413,0.000220264; 0.039,1.18832,-88.4565,
+        0.000220261; 0.0391,1.18867,-88.4713,0.000220258; 0.0392,1.18901,
+        -88.4856,0.000220256; 0.0393,1.18934,-88.4995,0.000220253; 0.0394,
+        1.18965,-88.513,0.000220251; 0.0395,1.18996,-88.5261,0.000220249;
+        0.0396,1.19026,-88.5388,0.000220247; 0.0397,1.19055,-88.5511,
+        0.000220245; 0.0398,1.19084,-88.563,0.000220242; 0.0399,1.19111,-88.5746,
+        0.00022024; 0.04,1.19137,-88.5859,0.000220239; 0.0401,1.19163,-88.5968,
+        0.000220237; 0.0402,1.19188,-88.6074,0.000220235; 0.0403,1.19212,
+        -88.6176,0.000220233; 0.0404,1.19236,-88.6276,0.000220231; 0.0405,
+        1.19259,-88.6373,0.00022023; 0.0406,1.19281,-88.6466,0.000220228;
+        0.0407,1.19302,-88.6557,0.000220226; 0.0408,1.19323,-88.6646,
+        0.000220225; 0.0409,1.19343,-88.6731,0.000220223; 0.041,1.19363,-88.6814,
+        0.000220222; 0.0411,1.19382,-88.6895,0.000220221; 0.0412,1.19401,
+        -88.6973,0.000220219; 0.0413,1.19418,-88.7049,0.000220218; 0.0414,
+        1.19436,-88.7122,0.000220217; 0.0415,1.19453,-88.7194,0.000220215;
+        0.0416,1.19469,-88.7263,0.000220214; 0.0417,1.19485,-88.733,
+        0.000220213; 0.0418,1.195,-88.7395,0.000220212; 0.0419,1.19515,-88.7459,
+        0.000220211; 0.042,1.1953,-88.752,0.00022021; 0.0421,1.19544,-88.7579,
+        0.000220209; 0.0422,1.19557,-88.7637,0.000220208; 0.0423,1.19571,
+        -88.7693,0.000220207; 0.0424,1.19583,-88.7747,0.000220206; 0.0425,
+        1.19596,-88.78,0.000220205; 0.0426,1.19608,-88.7851,0.000220204;
+        0.0427,1.1962,-88.7901,0.000220203; 0.0428,1.19631,-88.7949,
+        0.000220202; 0.0429,1.19642,-88.7996,0.000220202; 0.043,1.19653,-88.8041,
+        0.000220201; 0.0431,1.19663,-88.8085,0.0002202; 0.0432,1.19673,-88.8127,
+        0.000220199; 0.0433,1.19683,-88.8169,0.000220199; 0.0434,1.19692,
+        -88.8209,0.000220198; 0.0435,1.19702,-88.8248,0.000220197; 0.0436,
+        1.1971,-88.8286,0.000220197; 0.0437,1.19719,-88.8322,0.000220196;
+        0.0438,1.19728,-88.8358,0.000220195; 0.0439,1.19736,-88.8392,
+        0.000220195; 0.044,1.19744,-88.8426,0.000220194; 0.0441,1.19751,-88.8458,
+        0.000220194; 0.0442,1.19759,-88.8489,0.000220193; 0.0443,1.19766,
+        -88.852,0.000220192; 0.0444,1.19773,-88.855,0.000220192; 0.0445,
+        1.1978,-88.8578,0.000220191; 0.0446,1.19786,-88.8606,0.000220191;
+        0.0447,1.19793,-88.8633,0.000220191; 0.0448,1.19799,-88.8659,
+        0.00022019; 0.0449,1.19805,-88.8685,0.00022019; 0.045,1.19811,-88.871,
+        0.000220189; 0.0451,1.19816,-88.8734,0.000220189; 0.0452,1.19822,
+        -88.8757,0.000220188; 0.0453,1.19827,-88.8779,0.000220188; 0.0454,
+        1.19832,-88.8801,0.000220188; 0.0455,1.19837,-88.8822,0.000220187;
+        0.0456,1.19842,-88.8843,0.000220187; 0.0457,1.19847,-88.8863,
+        0.000220187; 0.0458,1.19851,-88.8882,0.000220186; 0.0459,1.19856,
+        -88.8901,0.000220186; 0.046,1.1986,-88.8919,0.000220186; 0.0461,
+        1.19864,-88.8937,0.000220185; 0.0462,1.19868,-88.8954,0.000220185;
+        0.0463,1.19872,-88.897,0.000220185; 0.0464,1.19876,-88.8987,
+        0.000220184; 0.0465,1.1988,-88.9002,0.000220184; 0.0466,1.19883,-88.9017,
+        0.000220184; 0.0467,1.19887,-88.9032,0.000220184; 0.0468,1.1989,-88.9046,
+        0.000220183; 0.0469,1.19893,-88.906,0.000220183; 0.047,1.19897,-88.9074,
+        0.000220183; 0.0471,1.199,-88.9087,0.000220183; 0.0472,1.19903,-88.91,
+        0.000220182; 0.0473,1.19906,-88.9112,0.000220182; 0.0474,1.19908,
+        -88.9124,0.000220182; 0.0475,1.19911,-88.9135,0.000220182; 0.0476,
+        1.19914,-88.9146,0.000220182; 0.0477,1.19916,-88.9157,0.000220181;
+        0.0478,1.19919,-88.9168,0.000220181; 0.0479,1.19921,-88.9178,
+        0.000220181; 0.048,1.19924,-88.9188,0.000220181; 0.0481,1.19926,-88.9198,
+        0.000220181; 0.0482,1.19928,-88.9207,0.000220181; 0.0483,1.1993,-88.9216,
+        0.00022018; 0.0484,1.19932,-88.9225,0.00022018; 0.0485,1.19934,-88.9233,
+        0.00022018; 0.0486,1.19936,-88.9242,0.00022018; 0.0487,1.19938,-88.925,
+        0.00022018; 0.0488,1.1994,-88.9258,0.00022018; 0.0489,1.19942,-88.9265,
+        0.00022018; 0.049,1.19944,-88.9273,0.000220179; 0.0491,1.19945,-88.928,
+        0.000220179; 0.0492,1.19947,-88.9287,0.000220179; 0.0493,1.19948,
+        -88.9293,0.000220179; 0.0494,1.1995,-88.93,0.000220179; 0.0495,
+        1.19951,-88.9306,0.000220179; 0.0496,1.19953,-88.9312,0.000220179;
+        0.0497,1.19954,-88.9318,0.000220179; 0.0498,1.19956,-88.9324,
+        0.000220179; 0.0499,1.19957,-88.933,0.000220178; 0.05,1.19958,-88.9335,
+        0.000220178; 0.05,1.19958,-88.9335,0.000220178],
+    tableOnFile=false,
+    columns=2:4,
+    extrapolation=Modelica.Blocks.Types.Extrapolation.HoldLastPoint) <font color="darkgreen">
+    &quot;Valid for u_source=12VDC and m_load=0.01kg only; column 2: current, col.3: force, col.4: position&quot;</font>;
+    </textblock>
+
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(advancedGround.p, advancedSource.n);
+  <font color="red">connect</font>(advancedSource.p, advancedSolenoid.p);
+  <font color="red">connect</font>(advancedSolenoid.n, advancedSource.n);
+  <font color="red">connect</font>(advancedSolenoid.flange, advancedLoad.flange_a);
+  <font color="red">connect</font>(simpleGround.p, simpleSource.n);
+  <font color="red">connect</font>(simpleSource.p, simpleSolenoid.p);
+  <font color="red">connect</font>(simpleSolenoid.n, simpleSource.n);
+  <font color="red">connect</font>(simpleSolenoid.flange, simpleLoad.flange_a);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ComparisonPullInStroke;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:49 2010.
+</address></BODY>
+</HTML>

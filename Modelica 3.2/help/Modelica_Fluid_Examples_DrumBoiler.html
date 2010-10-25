@@ -1,0 +1,172 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Examples.DrumBoiler</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DrumBoiler<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Examples.DrumBoiler"></A><A HREF="Modelica_Fluid_Examples.html#Modelica.Fluid.Examples"
+>Modelica.Fluid.Examples</A>.DrumBoiler</H2>
+<B>Drum boiler example, see Franke, Rode, Krueger: On-line Optimization of Drum Boiler Startup, 3rd International Modelica Conference, Linkoping, 2003</B>
+<P>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.DrumBoiler.DrumBoilerS.png" ALT="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_DrumBoiler.html#Modelica.Fluid.Examples.DrumBoiler.DrumBoiler"
+>DrumBoiler</A>
+</TD><TD>Complete drum boiler model, including evaporator and supplementary components</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Examples.DrumBoiler.BaseClassesS.png" ALT="Modelica.Fluid.Examples.DrumBoiler.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Examples_DrumBoiler_BaseClasses.html#Modelica.Fluid.Examples.DrumBoiler.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Additional components for drum boiler example</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE DrumBoiler<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Examples.DrumBoiler.DrumBoilerI.png" ALT="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler"></A><A HREF="Modelica_Fluid_Examples_DrumBoiler.html#Modelica.Fluid.Examples.DrumBoiler"
+>Modelica.Fluid.Examples.DrumBoiler</A>.DrumBoiler</H2>
+<B>Complete drum boiler model, including evaporator and supplementary components</B><p>
+<IMG SRC="Modelica.Fluid.Examples.DrumBoiler.DrumBoilerD.png" ALT="Modelica.Fluid.Examples.DrumBoiler.DrumBoiler">
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<img src="../Resources/Images/Fluid/Examples/DrumBoiler.png" border="1">
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>T_S</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>p_S</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>qm_S</TD><TD>&nbsp;</TD></TR>
+<TR><TD>output <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>RealOutput</A></TD><TD>V_l</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> DrumBoiler <font color="darkgreen">
+  &quot;Complete drum boiler model, including evaporator and supplementary components&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">import </font><A HREF="Modelica_SIunits_Conversions.html#Modelica.SIunits.Conversions"
+>Modelica.SIunits.Conversions</A>.*;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Examples_DrumBoiler_BaseClasses.html#Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler"
+>Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler</A>
+    evaporator(
+    m_D=300e3,
+    cp_D=500,
+    V_t=100,
+    V_l_start=67,
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWater,
+    energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+    massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+    p_start=100000);
+  <A HREF="Modelica_Thermal_HeatTransfer_Sources.html#Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow"
+>Modelica.Thermal.HeatTransfer.Sources.PrescribedHeatFlow</A> furnace;
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.FixedBoundary"
+>Modelica.Fluid.Sources.FixedBoundary</A> sink(nPorts=1, p=<font color="red">from_bar</font>(0.5),
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium = Modelica.Media.Water.StandardWaterOnePhase,
+    T=500);
+  <A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.MassFlowRate"
+>Modelica.Fluid.Sensors.MassFlowRate</A> massFlowRate(           <font color="blue">redeclare </font><font color="blue">package</font>
+      Medium =
+        Modelica.Media.Water.StandardWater);
+  <A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Temperature"
+>Modelica.Fluid.Sensors.Temperature</A> temperature(    <font color="blue">redeclare </font><font color="blue">package</font> Medium
+      = Modelica.Media.Water.StandardWater);
+  <A HREF="Modelica_Fluid_Sensors.html#Modelica.Fluid.Sensors.Pressure"
+>Modelica.Fluid.Sensors.Pressure</A> pressure(           <font color="blue">redeclare </font><font color="blue">package</font> Medium
+      = Modelica.Media.Water.StandardWater);
+  <A HREF="Modelica_Blocks_Continuous.html#Modelica.Blocks.Continuous.PI"
+>Modelica.Blocks.Continuous.PI</A> controller(T=120, k=10);
+  <A HREF="Modelica_Fluid_Sources.html#Modelica.Fluid.Sources.MassFlowSource_h"
+>Modelica.Fluid.Sources.MassFlowSource_h</A> pump(nPorts=1,
+                                           h=5e5, <font color="blue">redeclare </font><font color="blue">package</font> Medium =
+        Modelica.Media.Water.StandardWater,
+    use_m_flow_in=true);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Feedback"
+>Modelica.Blocks.Math.Feedback</A> feedback;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> levelSetPoint(k=67);
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> T_S;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> p_S;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> qm_S;
+  <A HREF="Modelica_Blocks_Interfaces.html#Modelica.Blocks.Interfaces.RealOutput"
+>Modelica.Blocks.Interfaces.RealOutput</A> V_l;
+<font color="blue">public </font>
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> MW2W(k=1e6);
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Gain"
+>Modelica.Blocks.Math.Gain</A> Pa2bar(k=1e-5);
+  <A HREF="Modelica_Thermal_HeatTransfer_Celsius.html#Modelica.Thermal.HeatTransfer.Celsius.FromKelvin"
+>Modelica.Thermal.HeatTransfer.Celsius.FromKelvin</A> K2degC;
+  <A HREF="Modelica_Blocks_Nonlinear.html#Modelica.Blocks.Nonlinear.Limiter"
+>Modelica.Blocks.Nonlinear.Limiter</A> limiter(uMin=0, uMax=500);
+  <A HREF="Modelica_Fluid_Valves.html#Modelica.Fluid.Valves.ValveLinear"
+>Modelica.Fluid.Valves.ValveLinear</A> SteamValve(                  <font color="blue">redeclare </font><font color="blue">
+      package</font> Medium =
+        Modelica.Media.Water.StandardWater,
+    dp_nominal=9000000,
+    m_flow_nominal=180);</textblock>
+
+<textblock type="annotcomp" expanded="false">  <font color="blue">inner </font><A HREF="Modelica_Fluid.html#Modelica.Fluid.System"
+>Modelica.Fluid.System</A> system;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.TimeTable"
+>Modelica.Blocks.Sources.TimeTable</A> q_F_Tab(table=[0, 0; 3600, 400; 7210,
+        400]);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.TimeTable"
+>Modelica.Blocks.Sources.TimeTable</A> Y_Valve_Tab(table=[0,0; 900,1; 7210,1]);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(furnace.port, evaporator.heatPort);
+  <font color="red">connect</font>(controller.u,feedback.y);
+  <font color="red">connect</font>(feedback.u2,      evaporator.V);
+  <font color="red">connect</font>(levelSetPoint.y,feedback.u1);
+  <font color="red">connect</font>(massFlowRate.m_flow, qm_S);
+  <font color="red">connect</font>(evaporator.V, V_l);
+  <font color="red">connect</font>(MW2W.y,furnace.Q_flow);
+  <font color="red">connect</font>(pressure.p, Pa2bar.u);
+  <font color="red">connect</font>(Pa2bar.y, p_S);
+  <font color="red">connect</font>(K2degC.Celsius, T_S);
+  <font color="red">connect</font>(controller.y, limiter.u);
+  <font color="red">connect</font>(limiter.y, pump.m_flow_in);
+  <font color="red">connect</font>(temperature.T, K2degC.Kelvin);
+  <font color="red">connect</font>(pressure.port, massFlowRate.port_a);
+  <font color="red">connect</font>(pump.ports[1], evaporator.port_a);
+  <font color="red">connect</font>(massFlowRate.port_b, SteamValve.port_a);
+  <font color="red">connect</font>(SteamValve.port_b, sink.ports[1]);
+  <font color="red">connect</font>(evaporator.port_b, massFlowRate.port_a);
+  <font color="red">connect</font>(temperature.port, massFlowRate.port_a);
+  <font color="red">connect</font>(q_F_Tab.y, MW2W.u);
+  <font color="red">connect</font>(Y_Valve_Tab.y, SteamValve.opening);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>DrumBoiler;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:54 2010.
+</address></BODY>
+</HTML>

@@ -1,0 +1,1168 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Math</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Math<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math"></A><A HREF="Modelica.html#Modelica"
+>Modelica</A>.Math</H2>
+<B>Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains <b>basic mathematical functions</b> (such as sin(..)),
+as well as functions operating on
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>vectors</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>matrices</a>,
+<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>nonlinear functions</a>, and
+<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>Boolean vectors</a>.
+</p>
+
+<dl>
+<dt><b>Main Authors:</b>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a> and
+    Marcus Baur<br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+</dl>
+
+<p>
+Copyright &copy; 1998-2010, Modelica Association and DLR.
+</p>
+<p>
+<i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <A HREF="Modelica_UsersGuide.html#Modelica.UsersGuide.ModelicaLicense2"
+>Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href="http://www.modelica.org/licenses/ModelicaLicense2"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
+</p>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.Vectors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors"
+>Vectors</A>
+</TD><TD>Library of functions operating on vectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.Matrices" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices"
+>Matrices</A>
+</TD><TD>Library of functions operating on matrices</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.Nonlinear" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_Nonlinear.html#Modelica.Math.Nonlinear"
+>Nonlinear</A>
+</TD><TD>Library of functions operating on nonlinear equations</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.VectorsS.png" ALT="Modelica.Math.BooleanVectors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math_BooleanVectors.html#Modelica.Math.BooleanVectors"
+>BooleanVectors</A>
+</TD><TD>Library of functions operating on Boolean vectors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.isEqualS.png" ALT="Modelica.Math.isEqual" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.isEqual"
+>isEqual</A>
+</TD><TD>Determine if two Real scalars are numerically identical</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.sinS.png" ALT="Modelica.Math.sin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.sin"
+>sin</A>
+</TD><TD>Sine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.cosS.png" ALT="Modelica.Math.cos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.cos"
+>cos</A>
+</TD><TD>Cosine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.tanS.png" ALT="Modelica.Math.tan" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tan"
+>tan</A>
+</TD><TD>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.asinS.png" ALT="Modelica.Math.asin" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.asin"
+>asin</A>
+</TD><TD>Inverse sine (-1 &lt;= u &lt;= 1)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.acosS.png" ALT="Modelica.Math.acos" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.acos"
+>acos</A>
+</TD><TD>Inverse cosine (-1 &lt;= u &lt;= 1)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.atanS.png" ALT="Modelica.Math.atan" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.atan"
+>atan</A>
+</TD><TD>Inverse tangent</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.atan2S.png" ALT="Modelica.Math.atan2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.atan2"
+>atan2</A>
+</TD><TD>Four quadrant inverse tangent</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.atan2S.png" ALT="Modelica.Math.atan3" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.atan3"
+>atan3</A>
+</TD><TD>Four quadrant inverse tangent (select solution that is closest to given angle y0)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.sinhS.png" ALT="Modelica.Math.sinh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.sinh"
+>sinh</A>
+</TD><TD>Hyperbolic sine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.coshS.png" ALT="Modelica.Math.cosh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.cosh"
+>cosh</A>
+</TD><TD>Hyperbolic cosine</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.tanhS.png" ALT="Modelica.Math.tanh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tanh"
+>tanh</A>
+</TD><TD>Hyperbolic tangent</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.asinhS.png" ALT="Modelica.Math.asinh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.asinh"
+>asinh</A>
+</TD><TD>Inverse of sinh (area hyperbolic sine)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.acoshS.png" ALT="Modelica.Math.acosh" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.acosh"
+>acosh</A>
+</TD><TD>Inverse of cosh (area hyperbolic cosine)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.expS.png" ALT="Modelica.Math.exp" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.exp"
+>exp</A>
+</TD><TD>Exponential, base e</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.logS.png" ALT="Modelica.Math.log" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.log"
+>log</A>
+</TD><TD>Natural (base e) logarithm (u shall be &gt; 0)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.logS.png" ALT="Modelica.Math.log10" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.log10"
+>log10</A>
+</TD><TD>Base 10 logarithm (u shall be &gt; 0)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.baseIcon1S.png" ALT="Modelica.Math.baseIcon1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A>
+</TD><TD>Basic icon for mathematical function with y-axis on left side</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.baseIcon2S.png" ALT="Modelica.Math.baseIcon2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>
+</TD><TD>Basic icon for mathematical function with y-axis in middle</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.tempInterpol1S.png" ALT="Modelica.Math.tempInterpol1" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tempInterpol1"
+>tempInterpol1</A>
+</TD><TD>Temporary function for linear interpolation (will be removed)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Math.tempInterpol1S.png" ALT="Modelica.Math.tempInterpol2" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Math.html#Modelica.Math.tempInterpol2"
+>tempInterpol2</A>
+</TD><TD>Temporary function for vectorized linear interpolation (will be removed)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE isEqual<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.isEqualI.png" ALT="Modelica.Math.isEqual" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.isEqual"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.isEqual</H2>
+<B>Determine if two Real scalars are numerically identical</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Syntax</h4>
+<blockquote><pre>
+Math.<b>isEqual</b>(s1, s2);
+Math.<b>isEqual</b>(s1, s2, eps=0);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call "<code>Math.isEqual(s1, s2)</code>" returns <b>true</b>,
+if the two Real scalars s1 and s2 are identical. Otherwise the function
+returns <b>false</b>. The equality check is performed by
+"abs(s1-s2) &le; eps", where "eps"
+can be provided as third argument of the function. Default is "eps = 0".
+</p>
+<h4>Example</h4>
+<blockquote><pre>
+  Real s1 = 2.0;
+  Real s2 = 2.0;
+  Real s3 = 2.000001;
+  Boolean result;
+<b>algorithm</b>
+  result := Math.isEqual(s1,s2);     // = <b>true</b>
+  result := Math.isEqual(s1,s3);     // = <b>false</b>
+  result := Math.isEqual(s1,s3,0.1); // = <b>true</b>
+</pre></blockquote>
+<h4>See also</h4>
+<p>
+<A HREF="Modelica_Math_Vectors.html#Modelica.Math.Vectors.isEqual"
+>Vectors.isEqual</a>,
+<A HREF="Modelica_Math_Matrices.html#Modelica.Math.Matrices.isEqual"
+>Matrices.isEqual</a>,
+<A HREF="Modelica_Utilities_Strings.html#Modelica.Utilities.Strings.isEqual"
+>Strings.isEqual</a>
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>s1</TD><TD>&nbsp;</TD><TD>First scalar</TD></TR>
+<TR><TD>Real</TD><TD>s2</TD><TD>&nbsp;</TD><TD>Second scalar</TD></TR>
+<TR><TD>Real</TD><TD>eps</TD><TD>0</TD><TD>The two scalars are identical if abs(s1-s2) &lt;= eps</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Boolean</TD><TD>result</TD><TD>= true, if scalars are identical</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> isEqual <font color="darkgreen">
+  &quot;Determine if two Real scalars are numerically identical&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real s1 <font color="darkgreen">&quot;First scalar&quot;</font>;
+  <font color="blue">input </font>Real s2 <font color="darkgreen">&quot;Second scalar&quot;</font>;
+  <font color="blue">input </font>Real eps(min=0) = 0 <font color="darkgreen">
+    &quot;The two scalars are identical if abs(s1-s2) &lt;= eps&quot;</font>;
+  <font color="blue">output </font>Boolean result <font color="darkgreen">&quot;= true, if scalars are identical&quot;</font>;
+<font color="blue">algorithm </font>
+  result :=<font color="red">abs</font>(s1 - s2) &lt;= eps;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>isEqual;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.sinI.png" ALT="Modelica.Math.sin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.sin"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.sin</H2>
+<B>Sine</B><p>
+<IMG SRC="Modelica.Math.sinD.png" ALT="Modelica.Math.sin">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/sin.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A> (Basic icon for mathematical function with y-axis on left side).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>u</TD><TD>&nbsp;</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sin <font color="darkgreen">&quot;Sine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">sin</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>sin;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.cosI.png" ALT="Modelica.Math.cos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.cos"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.cos</H2>
+<B>Cosine</B><p>
+<IMG SRC="Modelica.Math.cosD.png" ALT="Modelica.Math.cos">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/cos.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A> (Basic icon for mathematical function with y-axis on left side).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>u</TD><TD>&nbsp;</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cos <font color="darkgreen">&quot;Cosine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">cos</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>cos;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tan<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.tanI.png" ALT="Modelica.Math.tan" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.tan"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.tan</H2>
+<B>Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)</B><p>
+<IMG SRC="Modelica.Math.tanD.png" ALT="Modelica.Math.tan">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
+(if u is a multiple of (2n-1)*pi/2, y = tan(u) is +/- infinity).
+</p>
+
+<p>
+<img src="../Resources/Images/Math/tan.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>u</TD><TD>&nbsp;</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tan <font color="darkgreen">&quot;Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">tan</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>tan;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE asin<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.asinI.png" ALT="Modelica.Math.asin" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.asin"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.asin</H2>
+<B>Inverse sine (-1 &lt;= u &lt;= 1)</B><p>
+<IMG SRC="Modelica.Math.asinD.png" ALT="Modelica.Math.asin">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = asin(u), with -1 &le; u &le; +1:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/asin.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>y</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> asin <font color="darkgreen">&quot;Inverse sine (-1 &lt;= u &lt;= 1)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">asin</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>asin;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE acos<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.acosI.png" ALT="Modelica.Math.acos" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.acos"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.acos</H2>
+<B>Inverse cosine (-1 &lt;= u &lt;= 1)</B><p>
+<IMG SRC="Modelica.Math.acosD.png" ALT="Modelica.Math.acos">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = acos(u), with -1 &le; u &le; +1:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/acos.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>y</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> acos <font color="darkgreen">&quot;Inverse cosine (-1 &lt;= u &lt;= 1)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">acos</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>acos;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE atan<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.atanI.png" ALT="Modelica.Math.atan" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.atan"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.atan</H2>
+<B>Inverse tangent</B><p>
+<IMG SRC="Modelica.Math.atanD.png" ALT="Modelica.Math.atan">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/atan.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>y</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> atan <font color="darkgreen">&quot;Inverse tangent&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">atan</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>atan;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE atan2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.atan2I.png" ALT="Modelica.Math.atan2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.atan2"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.atan2</H2>
+<B>Four quadrant inverse tangent</B><p>
+<IMG SRC="Modelica.Math.atan2D.png" ALT="Modelica.Math.atan2">
+<P><H3>Information</H3></P>
+<PRE></pre>
+This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
+y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
+u1 is not zero. Usually u1, u2 is provided in such a form that
+u1 = sin(y) and u2 = cos(y):
+</p>
+
+<p>
+<img src="../Resources/Images/Math/atan2.png">
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u1</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>u2</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>y</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> atan2 <font color="darkgreen">&quot;Four quadrant inverse tangent&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u1;
+  <font color="blue">input </font>Real u2;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>SI.Angle</A> y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">atan2</font>(u1, u2);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>atan2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE atan3<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.atan2I.png" ALT="Modelica.Math.atan3" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.atan3"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.atan3</H2>
+<B>Four quadrant inverse tangent (select solution that is closest to given angle y0)</B><p>
+<IMG SRC="Modelica.Math.atan3D.png" ALT="Modelica.Math.atan3">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = <b>atan3</b>(u1,u2,y0) such that
+<b>tan</b>(y) = u1/u2 and
+y is in the range: -pi &lt; y-y0 &lt; pi.<br>
+u2 may be zero, provided u1 is not zero. The difference to
+Modelica.Math.atan2(..) is the optional third argument y0 that
+allows to specify which of the infinite many solutions
+shall be returned:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/atan3.png">
+</p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>Modelica.Math.baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u1</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD>Real</TD><TD>u2</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>y0</TD><TD>0</TD><TD>y shall be in the range: -pi &lt; y-y0 &lt; pi [rad]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Angle</A></TD><TD>y</TD><TD>[rad]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> atan3 <font color="darkgreen">
+  &quot;Four quadrant inverse tangent (select solution that is closest to given angle y0)&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>Modelica.Math.baseIcon2</A>;
+  <font color="blue">input </font>Real u1;
+  <font color="blue">input </font>Real u2;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> y0=0 <font color="darkgreen">&quot;y shall be in the range: -pi &lt; y-y0 &lt; pi&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Angle"
+>Modelica.SIunits.Angle</A> y;
+
+<font color="blue">protected </font>
+  Real pi = Modelica.Constants.pi;
+  Real w;
+<font color="blue">algorithm </font>
+  w :=<font color="red">Math.atan2</font>(u1, u2);
+  y := w + 2*pi*<font color="red">div</font>(<font color="red">abs</font>(w-y0)+pi,2*pi)*(<font color="blue">if </font>y0 &gt; w<font color="blue"> then </font>+1<font color="blue"> else </font>-1);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>atan3;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE sinh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.sinhI.png" ALT="Modelica.Math.sinh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.sinh"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.sinh</H2>
+<B>Hyperbolic sine</B><p>
+<IMG SRC="Modelica.Math.sinhD.png" ALT="Modelica.Math.sinh">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/sinh.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> sinh <font color="darkgreen">&quot;Hyperbolic sine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">sinh</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>sinh;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cosh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.coshI.png" ALT="Modelica.Math.cosh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.cosh"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.cosh</H2>
+<B>Hyperbolic cosine</B><p>
+<IMG SRC="Modelica.Math.coshD.png" ALT="Modelica.Math.cosh">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/cosh.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cosh <font color="darkgreen">&quot;Hyperbolic cosine&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">cosh</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>cosh;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tanh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.tanhI.png" ALT="Modelica.Math.tanh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.tanh"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.tanh</H2>
+<B>Hyperbolic tangent</B><p>
+<IMG SRC="Modelica.Math.tanhD.png" ALT="Modelica.Math.tanh">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/tanh.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tanh <font color="darkgreen">&quot;Hyperbolic tangent&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">tanh</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>tanh;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE asinh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.asinhI.png" ALT="Modelica.Math.asinh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.asinh"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.asinh</H2>
+<B>Inverse of sinh (area hyperbolic sine)</B><p>
+<IMG SRC="Modelica.Math.asinhD.png" ALT="Modelica.Math.asinh">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+The function returns the area hyperbolic sine of its
+input argument u. This inverse of sinh(..) is unique
+and there is no restriction on the input argument u of
+asinh(u) (-&infin; &lt; u &lt; &infin;):
+</p>
+
+<p>
+<img src="../Resources/Images/Math/asinh.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>Modelica.Math.baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> asinh <font color="darkgreen">&quot;Inverse of sinh (area hyperbolic sine)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>Modelica.Math.baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">algorithm </font>
+  y :=<font color="red">Modelica.Math.log</font>(u +<font color="red"> sqrt</font>(u*u + 1));
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>asinh;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE acosh<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.acoshI.png" ALT="Modelica.Math.acosh" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.acosh"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.acosh</H2>
+<B>Inverse of cosh (area hyperbolic cosine)</B><p>
+<IMG SRC="Modelica.Math.acoshD.png" ALT="Modelica.Math.acosh">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns the area hyperbolic cosine of its
+input argument u. The valid range of u is
+</p>
+<pre>
+  +1 &le; u &lt; +&infin;
+</pre>
+<p>
+If the function is called with u &lt; 1, an error occurs.
+The function cosh(u) has two inverse functions (the curve
+looks similar to a sqrt(..) function). acosh(..) returns
+the inverse that is positive. At u=1, the derivative dy/du is infinite.
+Therefore, this function should not be used in a model, if u
+can become close to 1:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/acosh.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>Modelica.Math.baseIcon1</A> (Basic icon for mathematical function with y-axis on left side).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> acosh <font color="darkgreen">&quot;Inverse of cosh (area hyperbolic cosine)&quot;</font>
+  <font color="blue">import </font><A HREF="Modelica_Utilities_Streams.html#Modelica.Utilities.Streams"
+>Modelica.Utilities.Streams</A>.*;
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>Modelica.Math.baseIcon1</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">algorithm </font>
+  <font color="red">assert</font>(u&gt;=1.0, &quot;Input argument u (= &quot; +<font color="red"> String</font>(u) + &quot;) of acosh(u) must be &gt;= 1.0&quot;);
+  y :=<font color="red">Modelica.Math.log</font>(u +<font color="red"> sqrt</font>(u*u - 1));
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>acosh;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE exp<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.expI.png" ALT="Modelica.Math.exp" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.exp"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.exp</H2>
+<B>Exponential, base e</B><p>
+<IMG SRC="Modelica.Math.expD.png" ALT="Modelica.Math.exp">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/exp.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A> (Basic icon for mathematical function with y-axis in middle).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> exp <font color="darkgreen">&quot;Exponential, base e&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon2"
+>baseIcon2</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">exp</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>exp;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE log<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.logI.png" ALT="Modelica.Math.log" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.log"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.log</H2>
+<B>Natural (base e) logarithm (u shall be &gt; 0)</B><p>
+<IMG SRC="Modelica.Math.logD.png" ALT="Modelica.Math.log">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = log(10) (the natural logarithm of u),
+with u &gt; 0:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/log.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A> (Basic icon for mathematical function with y-axis on left side).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> log <font color="darkgreen">&quot;Natural (base e) logarithm (u shall be &gt; 0)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">log</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>log;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE log10<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.log10I.png" ALT="Modelica.Math.log10" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.log10"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.log10</H2>
+<B>Base 10 logarithm (u shall be &gt; 0)</B><p>
+<IMG SRC="Modelica.Math.log10D.png" ALT="Modelica.Math.log10">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function returns y = log10(u),
+with u &gt; 0:
+</p>
+
+<p>
+<img src="../Resources/Images/Math/log10.png">
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A> (Basic icon for mathematical function with y-axis on left side).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> log10 <font color="darkgreen">&quot;Base 10 logarithm (u shall be &gt; 0)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Math.html#Modelica.Math.baseIcon1"
+>baseIcon1</A>;
+  <font color="blue">input </font>Real u;
+  <font color="blue">output </font>Real y;
+
+<font color="blue">external</font> &quot;builtin&quot; y = <font color="red">log10</font>(u);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>log10;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE baseIcon1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.baseIcon1I.png" ALT="Modelica.Math.baseIcon1" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.baseIcon1"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.baseIcon1</H2>
+<B>Basic icon for mathematical function with y-axis on left side</B><p>
+<IMG SRC="Modelica.Math.baseIcon1D.png" ALT="Modelica.Math.baseIcon1">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Icon for a mathematical function, consisting of an y-axis on the left side.
+It is expected, that an x-axis is added and a plot of the function.
+</p>
+<pre></PRE><P>
+
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">function</font> baseIcon1 <font color="darkgreen">
+  &quot;Basic icon for mathematical function with y-axis on left side&quot;</font>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>baseIcon1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE baseIcon2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Math.baseIcon2I.png" ALT="Modelica.Math.baseIcon2" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Math.baseIcon2"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.baseIcon2</H2>
+<B>Basic icon for mathematical function with y-axis in middle</B><p>
+<IMG SRC="Modelica.Math.baseIcon1D.png" ALT="Modelica.Math.baseIcon2">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Icon for a mathematical function, consisting of an y-axis in the middle.
+It is expected, that an x-axis is added and a plot of the function.
+</p>
+<pre></PRE><P>
+
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">function</font> baseIcon2 <font color="darkgreen">
+  &quot;Basic icon for mathematical function with y-axis in middle&quot;</font>
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>baseIcon2;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tempInterpol1<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.tempInterpol1"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.tempInterpol1</H2>
+<B>Temporary function for linear interpolation (will be removed)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>input value (first column of table)</TD></TR>
+<TR><TD>Real</TD><TD>table[:, :]</TD><TD>&nbsp;</TD><TD>table to be interpolated</TD></TR>
+<TR><TD>Integer</TD><TD>icol</TD><TD>&nbsp;</TD><TD>column of table to be interpolated</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>interpolated input value (icol column of table)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tempInterpol1 <font color="darkgreen">
+  &quot;Temporary function for linear interpolation (will be removed)&quot;</font>
+  <font color="blue">input </font>Real u <font color="darkgreen">&quot;input value (first column of table)&quot;</font>;
+  <font color="blue">input </font>Real table[:, :] <font color="darkgreen">&quot;table to be interpolated&quot;</font>;
+  <font color="blue">input </font>Integer icol <font color="darkgreen">&quot;column of table to be interpolated&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;interpolated input value (icol column of table)&quot;</font>;
+<font color="blue">protected </font>
+  Integer i;
+  Integer n <font color="darkgreen">&quot;number of rows of table&quot;</font>;
+  Real u1;
+  Real u2;
+  Real y1;
+  Real y2;
+<font color="blue">algorithm </font>
+  n :=<font color="red"> size</font>(table, 1);
+
+  <font color="blue">if </font>n &lt;= 1<font color="blue"> then</font>
+    y := table[1, icol];
+
+  <font color="blue">else</font>
+    <font color="darkgreen">// Search interval</font>
+
+    <font color="blue">if </font>u &lt;= table[1, 1]<font color="blue"> then</font>
+      i := 1;
+
+    <font color="blue">else</font>
+      i := 2;
+      <font color="darkgreen">// Supports duplicate table[i, 1] values</font>
+      <font color="darkgreen">// in the interior to allow discontinuities.</font>
+      <font color="darkgreen">// Interior means that</font>
+      <font color="darkgreen">// if table[i, 1] = table[i+1, 1] we require i&gt;1 and i+1&lt;n</font>
+
+      <font color="blue">while </font>i &lt; n<font color="blue"> and </font>u &gt;= table[i, 1]<font color="blue"> loop</font>
+        i := i + 1;
+
+      <font color="blue">end while</font>;
+      i := i - 1;
+
+    <font color="blue">end if</font>;
+
+    <font color="darkgreen">// Get interpolation data</font>
+    u1 := table[i, 1];
+    u2 := table[i + 1, 1];
+    y1 := table[i, icol];
+    y2 := table[i + 1, icol];
+
+    <font color="red">assert</font>(u2 &gt; u1, &quot;Table index must be increasing&quot;);
+    <font color="darkgreen">// Interpolate</font>
+    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>tempInterpol1;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE tempInterpol2<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Math.tempInterpol2"></A><A HREF="Modelica_Math.html#Modelica.Math"
+>Modelica.Math</A>.tempInterpol2</H2>
+<B>Temporary function for vectorized linear interpolation (will be removed)</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>u</TD><TD>&nbsp;</TD><TD>input value (first column of table)</TD></TR>
+<TR><TD>Real</TD><TD>table[:, :]</TD><TD>&nbsp;</TD><TD>table to be interpolated</TD></TR>
+<TR><TD>Integer</TD><TD>icol[:]</TD><TD>&nbsp;</TD><TD>column(s) of table to be interpolated</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y[1, size(icol, 1)]</TD><TD>interpolated input value(s) (column(s) icol of table)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> tempInterpol2 <font color="darkgreen">
+  &quot;Temporary function for vectorized linear interpolation (will be removed)&quot;</font>
+
+  <font color="blue">input </font>Real u <font color="darkgreen">&quot;input value (first column of table)&quot;</font>;
+  <font color="blue">input </font>Real table[:, :] <font color="darkgreen">&quot;table to be interpolated&quot;</font>;
+  <font color="blue">input </font>Integer icol[:] <font color="darkgreen">&quot;column(s) of table to be interpolated&quot;</font>;
+  <font color="blue">output </font>Real y[1,<font color="red"> size</font>(icol, 1)] <font color="darkgreen">
+    &quot;interpolated input value(s) (column(s) icol of table)&quot;</font>;
+<font color="blue">protected </font>
+  Integer i;
+  Integer n <font color="darkgreen">&quot;number of rows of table&quot;</font>;
+  Real u1;
+  Real u2;
+  Real y1[1,<font color="red"> size</font>(icol, 1)];
+  Real y2[1,<font color="red"> size</font>(icol, 1)];
+<font color="blue">algorithm </font>
+  n :=<font color="red"> size</font>(table, 1);
+
+  <font color="blue">if </font>n &lt;= 1<font color="blue"> then</font>
+    y :=<font color="red"> transpose</font>([table[1, icol]]);
+
+  <font color="blue">else</font>
+    <font color="darkgreen">// Search interval</font>
+
+    <font color="blue">if </font>u &lt;= table[1, 1]<font color="blue"> then</font>
+      i := 1;
+
+    <font color="blue">else</font>
+      i := 2;
+      <font color="darkgreen">// Supports duplicate table[i, 1] values</font>
+      <font color="darkgreen">// in the interior to allow discontinuities.</font>
+      <font color="darkgreen">// Interior means that</font>
+      <font color="darkgreen">// if table[i, 1] = table[i+1, 1] we require i&gt;1 and i+1&lt;n</font>
+
+      <font color="blue">while </font>i &lt; n<font color="blue"> and </font>u &gt;= table[i, 1]<font color="blue"> loop</font>
+        i := i + 1;
+
+      <font color="blue">end while</font>;
+      i := i - 1;
+
+    <font color="blue">end if</font>;
+
+    <font color="darkgreen">// Get interpolation data</font>
+    u1 := table[i, 1];
+    u2 := table[i + 1, 1];
+    y1 :=<font color="red"> transpose</font>([table[i, icol]]);
+    y2 :=<font color="red"> transpose</font>([table[i + 1, icol]]);
+
+    <font color="red">assert</font>(u2 &gt; u1, &quot;Table index must be increasing&quot;);
+    <font color="darkgreen">// Interpolate</font>
+    y := y1 + (y2 - y1)*(u - u1)/(u2 - u1);
+
+  <font color="blue">end if</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>tempInterpol2;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:48 2010.
+</address></BODY>
+</HTML>

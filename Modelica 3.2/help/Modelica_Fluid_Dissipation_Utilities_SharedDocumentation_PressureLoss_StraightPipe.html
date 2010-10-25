@@ -1,0 +1,664 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE StraightPipe<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss</A>.StraightPipe</H2>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar"
+>dp_laminar</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"
+>dp_overall</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent"
+>dp_turbulent</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransferS.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall"
+>dp_twoPhaseOverall</A>
+</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_laminar<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_laminar"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe</A>.dp_laminar</H2>
+<PRE>
+</pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar </b> flow regime of single-phase fluid flow only.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used inside of the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b>
+ <li>
+      <b> laminar flow regime (Reynolds number Re &le; 2000) <i>[VDI-W&auml;rmeatlas 2002, p. Lab, eq. 3] </i> </b>
+</ul>
+</p>
+<h4>Geometry </h4>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe"/>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <b> dp </b> for straight pipes is determined by:
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+<p>
+The darcy friction factor <b> lambda_FRI </b> of straight pipes for the laminar flow regime is calculated by <b> Hagen-Poiseuilles </b> law according to <i>[Idelchik 2006, p. 77, eq. 2-3]</i> as follows:
+<ul>
+ <li>
+     <b> Laminar flow regime </b> is restricted to a Reynolds number <b> Re </b> &le; 2000</li> and calculated through:
+     <pre>
+     lambda_FRI = 64/Re
+     </pre>
+     <p>
+     with
+     </p>
+     <p>
+     <table>
+     <tr><td><b> lambda_FRI     </b></td><td> as darcy friction factor [-],</td></tr>
+     <tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+     </table>
+     </p>
+ </li>
+</ul>
+</p>
+<p>
+The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independent
+of the surface roughness <b> K </b> as long as the relative roughness <b> k = surface rouhgness/hydraulic diameter </b> is smaller than 0.007.
+A higher relative roughness <b> k </b> than 0.007 leads to an earlier leaving of the laminar regime to the transition regime at some value of Reynolds number <b> Re_lam_leave </b>. This earlier leaving is not modelled here because only laminar fluid flow is considered.
+</p>
+
+<h4>Verification</h4>
+<p>
+The darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_laminar_lambdavsRe_ver.png" alt="fig_straightPipe_laminar_lambdavsRe_ver"/>
+
+<p>
+The pressure loss <b> dp </b> for the laminar regime in dependence of the mass flow rate of water is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_laminar_DPvsMFLOW.png" alt="fig_straightPipe_dp_laminar_DPvsMFLOW"/>
+
+<p>
+Note that this pressure loss function shall not be used for the modelling outside of the laminar flow regime at <b> Re </b> &gt; 2000</li> even though it could be used for that.
+</p>
+<p>
+If the whole flow
+regime shall be modelled, the pressure loss function <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"
+>dp_overall</a> can be used.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Elmquist,H., M.Otter and S.E. Cellier:</dt>
+    <dd><b>Inline integration: A new mixed
+    symbolic / numeric approach for solving differential-algebraic equation systems.</b>.
+    In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
+<dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_overall<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe</A>.dp_overall</H2>
+<PRE>
+</pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> laminar or turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+</p>
+<h4>Restriction</h4>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b></li>
+</ul>
+
+<h4>Geometry </h4>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe"/>
+
+<h4>Calculation</h4>
+The pressure loss <b> dp </b> for straight pipes is determined by:
+<p>
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+
+<p>
+The darcy friction factor <b> lambda_FRI </b> for straight pipes is calculated depending on the fluid flow regime (with corresponding Reynolds number <b>Re</b>) and the absolute surface roughness <b> K </b>.
+</p>
+
+<b> Laminar regime </b> is calculated for <b> Re </b> &le; 2000</li> by the Hagen-Poiseuille law according to <i>[Idelchik 2006, p. 77, eq. 2-3]</i>
+<pre>
+    lambda_FRI = 64/Re
+</pre>
+
+<p>
+The darcy friction factor <b> lambda_FRI </b> in the laminar regime is independent of the surface roughness <b> k </b> as long as the relative roughness <b> k </b> is smaller than 0.007. A greater relative roughness <b> k </b> than 0.007 is leading to an earlier leaving of the Hagen-Poiseuille law at some value of Reynolds number <b> Re_lam_leave </b>. The leaving of the laminar regime in dependence of the relative roughness <b> k </b> is calculated according to <i>[Samoilenko in Idelchik 2006, p. 81, sect. 2-1-21]</i> as:
+</p>
+<pre>
+    Re_lam_leave = 754*exp(if k &le; 0.007 then 0.93 else 0.0065/k)
+</pre>
+
+<p>
+<b> Transition regime </b> is calculated for <b> 2000 &lt; <b> Re </b> &le; 4000 </b> by a cubic interpolation between the equations of the laminar and turbulent flow regime. Different cubic
+interpolation equations for the calculation of either pressure loss <b> dp </b> or mass flow rate <b> m_flow </b> results in a deviation of the darcy friction factor <b> lambda_FRI </b> through the
+transition regime. This deviation can be neglected due to the uncertainty in determination of the fluid flow in the transition regime.
+</p>
+
+<p>
+<b> Turbulent regime </b> can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law):
+</p>
+
+<p>
+<b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
+</p>
+<pre>
+    lambda_FRI = 0.3164*Re^(-0.25)
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor <b> lambda_FRI </b> for smooth straight pipes in the turbulent regime is independent
+of the surface roughness <b> K </b> .
+</p>
+
+<p>
+<b> Rough surface (roughness =2) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
+</p>
+<pre>
+    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+</pre>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter [-],</td></tr>
+<tr><td><b> k= K/d_hyd     </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> K              </b></td><td> as roughness (average height of surface asperities [m],</td></tr>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_lambdavsRe_ver.png" alt="fig_straightPipe_dp_overall_lambdavsRe_ver"/>
+
+<p>
+The pressure loss <b> dp </b> for the turbulent regime in dependence of the mass flow rate of water is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_DPvsMFLOW.png" alt="fig_straightPipe_dp_overall_DPvsMFLOW"/>
+
+<p>
+And the mass flow rate <b> m_flow </b> for the turbulent regime in dependence of the pressure loss of water is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_dp_overall_MFLOWvsDP.png" alt="fig_straightPipe_dp_overall_MFLOWvsDP"/>
+
+
+<h4>References</h4>
+<dl>
+ <dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+ <dt>Miller,D.S.:</dt>
+    <dd><b>Internal flow systems</b>.
+    volume 5th of BHRA Fluid Engineering Series.BHRA Fluid Engineering, 1984.
+ <dt>Samoilenko,L.A.:</dt>
+    <dd><b>Investigation of the hydraulic resistance of pipelines in the
+        zone of transition from laminar into turbulent motion</b>.
+        PhD thesis, Leningrad State University, 1968.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_turbulent<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_turbulent"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe</A>.dp_turbulent</H2>
+<PRE>
+</pre>
+<p>
+Calculation of pressure loss in a straight pipe for <b> turbulent </b> flow regime of single-phase fluid flow only considering surface roughness.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used within the restricted limits according to the referenced literature.
+<ul>
+ <li>
+      <b> circular cross sectional area </b></li>
+ <li>
+      <b> turbulent flow regime (Reynolds number Re &ge; 4e3) <i>[VDI-W&auml;rmeatlas 2002, p. Lab 3, fig. 1] </i> </b></li>
+</ul>
+</p>
+
+<h4>Geometry </h4>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe"/>
+
+<h4>Calculation</h4>
+<p>
+The pressure loss <b> dp </b> for straight pipes is determined by:
+<pre>
+    dp = lambda_FRI * (L/d_hyd) * (rho/2) * velocity^2
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter of straight pipe [m],</td></tr>
+<tr><td><b> rho            </b></td><td> as density of fluid [kg/m3],</td></tr>
+<tr><td><b> velocity       </b></td><td> as mean velocity [m/s].</td></tr>
+</table>
+</p>
+<p>
+The Darcy friction factor <b> lambda_FRI </b> for a straight pipe in the turbulent regime can be calculated for a smooth surface (Blasius law) <b> or </b> a rough surface (Colebrook-White law).
+</p>
+<p>
+<b> Smooth surface (roughness =1) </b> w.r.t. <b> Blasius </b> law in the turbulent regime according to <i>[Idelchik 2006, p. 77, sec. 15]</i>:
+<pre>
+    lambda_FRI = 0.3164*Re^(-0.25)
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-].</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that the Darcy friction factor <b> lambda_FRI </b> for smooth straight pipes in the turbulent regime is independent
+of the surface roughness <b> K </b> .
+</p>
+
+<p>
+<b> Rough surface (roughness =2) </b> w.r.t. <b> Colebrook-White </b> law in the turbulent regime according to <i>[Miller 1984, p. 191, eq. 8.4]</i>:
+<pre>
+    lambda_FRI = 0.25/{lg[k/(3.7*d_hyd) + 5.74/(Re)^0.9]}^2
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> d_hyd          </b></td><td> as hydraulic diameter [-],</td></tr>
+<tr><td><b> k= K/d_hyd     </b></td><td> as relative roughness [-],</td></tr>
+<tr><td><b> K              </b></td><td> as roughness (average height of surface asperities [m].</td></tr>
+<tr><td><b> lambda_FRI     </b></td><td> as Darcy friction factor [-],</td></tr>
+<tr><td><b> Re             </b></td><td> as Reynolds number [-].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The Darcy friction factor <b> lambda_FRI </b> in dependence of Reynolds number for different values of relative roughness <b> k </b> is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_straightPipe_turbulent.png" alt="fig_straightPipe_turbulent"/>
+
+<p>
+Note that this pressure loss function shall not be used for the modelling outside of the turbulent flow regime at <b> Re </b> &lt; 4e3 even though it could be used for that.
+</p>
+
+<p>
+If the overall flow regime shall be modelled, the pressure loss function <A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_overall"
+>dp_overall</a> can be used.
+</p>
+
+<h4>References</h4>
+<dl>
+ <dt>Idelchik,I.E.:</dt>
+    <dd><b>Handbook of hydraulic resistance</b>.
+    Jaico Publishing House, Mumbai, 3rd edition, 2006.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 9th edition, 2002.</dd>
+</dl>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE dp_twoPhaseOverall<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Dissipation.Utilities.SharedDocumentationI.png" ALT="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall"></A><A HREF="Modelica_Fluid_Dissipation_Utilities_SharedDocumentation_PressureLoss_StraightPipe.html#Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe"
+>Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe</A>.dp_twoPhaseOverall</H2>
+<PRE>
+</pre>
+<p>
+Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
+</p>
+<h4>Restriction</h4>
+<p>
+This function shall be used within the restricted limits according to the referenced literature.
+</p>
+<ul>
+ <li> <b> circular cross sectional area </b> </li>
+ <li> <b> neglecting of surface roughness </b> </li>
+ <li> <b> horizontal flow or vertical upflow </b> </li>
+ <li> <b> usage of mass flow rate quality (see Calculation) </b> </li>
+ <li> <b> two phase pressure loss for mean constant mass flow rate quality (x_flow) over (increment) length </b></li>
+ <li> <b> usage of two phase pressure loss function for discretisation at boiling or condensation considering variable mass flow rate quality</b> </li>
+</ul>
+
+<h4>Geometry </h4>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png" alt="pic_straightPipe"/>
+
+<h4>Calculation</h4>
+<p>
+The two phase pressure loss <b> dp_2ph </b> of straight pipes is determined by:
+<pre>
+    dp_2ph = dp_fri + dp_mom + dp_geo
+</pre>
+</p>
+
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> dp_fri        </b></td><td> as frictional pressure loss [Pa],</td></tr>
+<tr><td><b> dp_mom        </b></td><td> as momentum pressure loss [Pa],</td></tr>
+<tr><td><b> dp_geo        </b></td><td> as geodetic pressure loss [Pa].</td></tr>
+</table>
+</p>
+
+<p>
+<b>Definition of quality for two phase flow</b>:
+</p>
+<p>
+Different definitions of the quality exist for two phase flow. Static quality, mass flow rate quality and thermodynamic quality can be used to describe the fraction of gas and liquid in two phase flow.
+Here the mass flow rate quality <b>(x_flow)</b> is used to describe two phase flow as follows:
+<pre>
+    x_flow = mdot_g/(mdot_g+mdot_l)
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> x_flow        </b></td><td> as mass flow rate quality [-],</td></tr>
+<tr><td><b> mdot_g        </b></td><td> as gaseous mass flow rate [kg/s],</td></tr>
+<tr><td><b> mdot_l        </b></td><td> as liquid mass flow rate [kg/s].</td></tr>
+</table>
+</p>
+<p>
+Note that mass flow rate quality <b>(x_flow)</b> is only equal to the static quality, if a difference between the velocity of gas and liquid phase is neglected (homogeneous approach).
+Additionally the thermodynamic quality is only equal to the mass flow rate quality <b>(x_flow)</b> in the two phase regime for thermodynamic equilibrium of the phases.
+</p>
+<p>
+<b>Frictional pressure loss</b>:
+</p>
+<p>
+The frictional pressure loss <b>dp_fri</b> of a straight pipe is calculated either by the correlation of <b>Friedel</b> (frictionalPressureLoss==Friedel) or by the correlation of <b>Chisholm</b> (frictionalPressureLoss==Chisholm).
+Both correlations can be used for the above named two phase flow regimes.
+The two phase frictional pressure loss results from a frictional pressure loss assuming one phase liquid fluid flow and a two phase multiplier taking into account the effects of two phase flow:
+<pre>
+    dp_fri = dp_1ph*phi_i
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> dp_1ph  </b></td><td> as frictional pressure loss assuming one phase liquid fluid flow [Pa],</td></tr>
+<tr><td><b> phi_i   </b></td><td> as two phase multiplier [-].</td></tr>
+</table>
+</p>
+<p>
+The liquid frictional pressure loss is calculated with the <b>total mass flow rate</b> assumed to flow as liquid.
+</p>
+<p>
+The correlations of Friedel and Chisholm differ in their calculation of the two phase multiplier:
+<pre>
+    phi_friedel = (1 - x_flow)^2 + x_flow^2*(rho_l/rho_g)*(lambda_g/lambda_l)
+                + 3.43*x_flow^0.685*(1 - x_flow)^0.24*(rho_l/rho_g)^0.8*(eta_g/eta_l)^0.22*(1 - eta_g/eta_l)^0.89*(1/Fr_l^(0.048))*(1/We_l^(0.0334))
+</pre>
+<pre>
+    phi_chisholm = 1 + (gamma^2 - 1)*(B*x_flow^((2 - n_exp)/2)*(1 - x_flow)^((2 -n_exp)/2) + x_flow^(2 - n_exp))
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> B              </b></td><td> as Lockhart-Martinelli coefficient [-],</td></tr>
+<tr><td><b> eta_l          </b></td><td> as dynamic viscosity of the liquid phase [Pas],</td></tr>
+<tr><td><b> eta_g          </b></td><td> as dynamic viscosity of the gaseous phase [Pas],</td></tr>
+<tr><td><b> gamma          </b></td><td> as physical property coefficient [-],</td></tr>
+<tr><td><b> n_exp</b> =0.2     </td><td> as exponent in Chisholm correlation [-],</td></tr>
+<tr><td><b> phi_i          </b></td><td> as two phase multiplier [-],</td></tr>
+<tr><td><b> rho_l          </b></td><td> as density of the liquid phase [kg/m3],</td></tr>
+<tr><td><b> rho_g          </b></td><td> as density of the gaseous phase [kg/m3],</td></tr>
+<tr><td><b> Re_l           </b></td><td> as Reynolds number of the liquid phase [-],</td></tr>
+<tr><td><b> Re_g           </b></td><td> as Reynolds number of the gaseous phase [-],</td></tr>
+<tr><td><b> Fr_l           </b></td><td> as Froude number of the liquid phase [-],</td></tr>
+<tr><td><b> We_l           </b></td><td> as Weber number of the liquid phase [-],</td></tr>
+<tr><td><b> x_flow         </b></td><td> as mass flow rate quality [-].</td></tr>
+</table>
+</p>
+<p>
+Note that the (mean constant) mass flow rate quality <b>(x_flow)</b> used for frictional pressure loss is calculated as arithmetic mean value out of the mass flow rate quality at the end and at the start of the straight pipe length.
+</p>
+<p>
+<b>Momentum pressure loss</b>:
+</p>
+<p>
+The momentum pressure loss <b> dp_mom </b> can be considered (momentumPressureLoss = true) for a homogeneous or heterogeneous two phase flow depending on the approach used for the void fraction <b>(epsilon)</b>.
+At evaporation the liquid phase having a slow velocity has to be accelerated to the higher velocity of the gas. The difference in static pressure at the outlet and the inlet causes a positive momentum pressure loss at evaporation (assumed vice versa for condensation).
+The momentum pressure loss occurs for a changing mass flow rate quality due to condensation or evaporation according to <i>[VDI 2006, p.Lba 4, eq. 22]</i> :
+<pre>
+    dp_mom = mdot_A^2*[[((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_out - [((1-x_flow)^2/(rho_l*(1-epsilon)) + x_flow^2/(rho_g*epsilon))]_in]
+</pre>
+</p>
+<p>
+with
+</p>
+
+<p>
+<table>
+<tr><td><b> mdot_A         </b></td><td> as total mass flow rate density [kg/(m2s)],</td></tr>
+<tr><td><b> epsilon        </b></td><td> as void fraction [-],</td></tr>
+<tr><td><b> rho_l          </b></td><td> as density of the liquid phase [kg/m3],</td></tr>
+<tr><td><b> rho_g          </b></td><td> as density of the gaseous phase [kg/m3],</td></tr>
+<tr><td><b> x_flow         </b></td><td> as mass flow rate quality [-].</td></tr>
+</table>
+</p>
+
+<p>
+Note that a momentum pressure loss is only considered for a variable mass flow rate quality <b>(x_flow)</b> during evaporation or condensation. Momentum pressure loss does not occur under adiabatic conditions for a corresponding constant mass flow rate quality (evaporation due to pressure loss is not considered).
+</p>
+
+<p>
+<b>Void fraction approach</b>:
+</p>
+<p>
+The void fraction is one of the most important parameter used to characterise two phase flow. There are several analytical and empirical approaches according to <i>[Thome, J.R]</i> :
+</p>
+<p>
+<ul>
+ <li>    <b> homogeneous approach </b> </li>
+ <li>     <b> momentum flux approach (heterogeneous model) </b></li>
+ <li>     <b> Kinetic energy flow approach by Zivi (heterogeneous model) </b></li>
+ <li>     <b> Empirical momentum flux approach by Chisholm (heterogeneous model) </b></li>
+</ul>
+</p>
+<p>
+These approaches for the void fraction <b>epsilon</b> imply a correlation for the slip ratio. The slip ratio is defined as ratio of the velocity from the gaseous phase to the liquid phase at two phase flow.
+The effects of different fluid flow velocities of the phases on two phase pressure loss can be considered with the slip ratio in the heterogeneous approaches. The slip ratio for the homogeneous approach is unity, so that there is no difference in the velocities of the two phases (e.g., usable for bubble flow).
+</p>
+<p>
+<b>Geodetic pressure loss</b>:
+</p>
+<p>
+The geodetic pressure loss <b>dp_geo</b> can be considered (geodeticPressureLoss=true) for two phase flow according to <i>[VDI 2006, p.Lbb 1, eq. 4]</i> :
+<pre>
+    dp_geo = (epsilon*rho_g +(1-epsilon)*rho_l)*g*L*sin(phi)
+</pre>
+</p>
+<p>
+with
+</p>
+<p>
+<table>
+<tr><td><b> epsilon        </b></td><td> as void fraction [-],</td></tr>
+<tr><td><b> rho_l          </b></td><td> as density of the liquid phase [kg/m3],</td></tr>
+<tr><td><b> rho_g          </b></td><td> as density of the gaseous phase [kg/m3],</td></tr>
+<tr><td><b> g              </b></td><td> as acceleration of gravity [m/s2],</td></tr>
+<tr><td><b> L              </b></td><td> as length of straight pipe [m],</td></tr>
+<tr><td><b> phi            </b></td><td> as angle to horizontal [rad].</td></tr>
+</table>
+</p>
+
+<h4>Verification</h4>
+<p>
+The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Friedel </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_1.png" alt="fig_dp_twoPhaseOverall_1"/>
+
+<p>
+The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Chisholm </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
+</p>
+
+<img src="../Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_4.png" alt="fig_dp_twoPhaseOverall_4"/>
+
+<h4>References</h4>
+<dl>
+<dt>Chisholm,D.:</dt>
+    <dd><b>Pressure gradients due to friction during the flow of evaporating two-phase mixtures in smooth tubes and channels</b>.
+    Volume 16th of International Journal of Heat and Mass Transfer, 1973.</dd>
+ <dt>Friedel,L.:</dt>
+    <dd><b>IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW</b>.3R International, Vol. 18, Issue 7, pp. 485-491, 1979.</dd>
+ <dt>VDI:</dt>
+    <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
+    Springer Verlag, 10th edition, 2006.</dd>
+<dt>J.M. Jensen and H. Tummescheit:</dt>
+    <dd><b>Moving boundary models for dynamic simulations of two-phase flows</b>.
+    In Proceedings of the 2nd International Modelica Conference, pages 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.</dd>
+<dt>Thome, J.R.:</dt>
+    <dd><b>Engineering Data Book 3</b>.Swiss Federal Institute of Technology Lausanne (EPFL), 2009.</dd>
+</dl>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:23 2010.
+</address></BODY>
+</HTML>

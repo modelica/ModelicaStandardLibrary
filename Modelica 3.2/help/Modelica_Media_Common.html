@@ -1,0 +1,1824 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Media.Common</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;data structures and fundamental functions for fluid properties&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Common<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Media.Common"></A><A HREF="Modelica_Media.html#Modelica.Media"
+>Modelica.Media</A>.Common</H2>
+<B>data structures and fundamental functions for fluid properties</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre><h4>Package description</h4>
+      <p>Package Modelica.Media.Common provides records and functions shared by many of the property sub-packages.
+      High accuracy fluid property models share a lot of common structure, even if the actual models are different.
+      Common data structures and computations shared by these property models are collected in this library.
+   </p>
+
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Rate"
+>Rate</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.MolarFlowRate"
+>MolarFlowRate</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.MolarReactionRate"
+>MolarReactionRate</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.MolarEnthalpy"
+>MolarEnthalpy</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerDensityByEntropy"
+>DerDensityByEntropy</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEnergyByPressure"
+>DerEnergyByPressure</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEnergyByMoles"
+>DerEnergyByMoles</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEntropyByTemperature"
+>DerEntropyByTemperature</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEntropyByPressure"
+>DerEntropyByPressure</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerEntropyByMoles"
+>DerEntropyByMoles</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureBySpecificVolume"
+>DerPressureBySpecificVolume</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerVolumeByTemperature"
+>DerVolumeByTemperature</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerVolumeByPressure"
+>DerVolumeByPressure</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerVolumeByMoles"
+>DerVolumeByMoles</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsenthalpicExponent"
+>IsenthalpicExponent</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsentropicExponent"
+>IsentropicExponent</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsochoricPressureCoefficient"
+>IsochoricPressureCoefficient</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.JouleThomsonCoefficient"
+>JouleThomsonCoefficient</A>
+</TD><TD>&nbsp;</TD></TR>
+<TR><TD>MINPOS=1.0e-9</TD><TD>minimal value for physical variables which are always &gt; 0.0</TD></TR>
+<TR><TD>AMIN=MINPOS</TD><TD>minimal init area</TD></TR>
+<TR><TD>AMAX=1.0e5</TD><TD>maximal init area</TD></TR>
+<TR><TD>ANOM=1.0</TD><TD>nominal init area</TD></TR>
+<TR><TD>MOLMIN=-1.0*MINPOS</TD><TD>minimal Mole Number</TD></TR>
+<TR><TD>MOLMAX=1.0e8</TD><TD>maximal Mole Number</TD></TR>
+<TR><TD>MOLNOM=1.0</TD><TD>nominal Mole Number</TD></TR>
+<TR><TD>DMIN=MINPOS</TD><TD>minimal init density</TD></TR>
+<TR><TD>DMAX=1.0e5</TD><TD>maximal init density</TD></TR>
+<TR><TD>DNOM=1.0</TD><TD>nominal init density</TD></TR>
+<TR><TD>LAMMIN=MINPOS</TD><TD>minimal thermal conductivity</TD></TR>
+<TR><TD>LAMNOM=1.0</TD><TD>nominal thermal conductivity</TD></TR>
+<TR><TD>LAMMAX=1000.0</TD><TD>maximal thermal conductivity</TD></TR>
+<TR><TD>ETAMIN=MINPOS</TD><TD>minimal init dynamic viscosity</TD></TR>
+<TR><TD>ETAMAX=1.0e8</TD><TD>maximal init dynamic viscosity</TD></TR>
+<TR><TD>ETANOM=100.0</TD><TD>nominal init dynamic viscosity</TD></TR>
+<TR><TD>EMIN=-1.0e10</TD><TD>minimal init energy</TD></TR>
+<TR><TD>EMAX=1.0e10</TD><TD>maximal init energy</TD></TR>
+<TR><TD>ENOM=1.0e3</TD><TD>nominal init energy</TD></TR>
+<TR><TD>SMIN=-1.0e6</TD><TD>minimal init entropy</TD></TR>
+<TR><TD>SMAX=1.0e6</TD><TD>maximal init entropy</TD></TR>
+<TR><TD>SNOM=1.0e3</TD><TD>nominal init entropy</TD></TR>
+<TR><TD>MDOTMIN=-1.0e5</TD><TD>minimal init mass flow rate</TD></TR>
+<TR><TD>MDOTMAX=1.0e5</TD><TD>maximal init mass flow rate</TD></TR>
+<TR><TD>MDOTNOM=1.0</TD><TD>nominal init mass flow rate</TD></TR>
+<TR><TD>MASSXMIN=-1.0*MINPOS</TD><TD>minimal init mass fraction</TD></TR>
+<TR><TD>MASSXMAX=1.0</TD><TD>maximal init mass fraction</TD></TR>
+<TR><TD>MASSXNOM=0.1</TD><TD>nominal init mass fraction</TD></TR>
+<TR><TD>MMIN=-1.0*MINPOS</TD><TD>minimal init mass</TD></TR>
+<TR><TD>MMAX=1.0e8</TD><TD>maximal init mass</TD></TR>
+<TR><TD>MNOM=1.0</TD><TD>nominal init mass</TD></TR>
+<TR><TD>MMMIN=0.001</TD><TD>minimal initial molar mass</TD></TR>
+<TR><TD>MMMAX=250.0</TD><TD>maximal initial molar mass</TD></TR>
+<TR><TD>MMNOM=0.2</TD><TD>nominal initial molar mass</TD></TR>
+<TR><TD>MOLEYMIN=-1.0*MINPOS</TD><TD>minimal init mole fraction</TD></TR>
+<TR><TD>MOLEYMAX=1.0</TD><TD>maximal init mole fraction</TD></TR>
+<TR><TD>MOLEYNOM=0.1</TD><TD>nominal init mole fraction</TD></TR>
+<TR><TD>GMIN=-1.0e8</TD><TD>minimal init momentum flux</TD></TR>
+<TR><TD>GMAX=1.0e8</TD><TD>maximal init momentum flux</TD></TR>
+<TR><TD>GNOM=1.0</TD><TD>nominal init momentum flux</TD></TR>
+<TR><TD>POWMIN=-1.0e8</TD><TD>minimal init power or heat</TD></TR>
+<TR><TD>POWMAX=1.0e8</TD><TD>maximal init power or heat</TD></TR>
+<TR><TD>POWNOM=1.0e3</TD><TD>nominal init power or heat</TD></TR>
+<TR><TD>PMIN=1.0e4</TD><TD>minimal init pressure</TD></TR>
+<TR><TD>PMAX=1.0e8</TD><TD>maximal init pressure</TD></TR>
+<TR><TD>PNOM=1.0e5</TD><TD>nominal init pressure</TD></TR>
+<TR><TD>COMPPMIN=-1.0*MINPOS</TD><TD>minimal init pressure</TD></TR>
+<TR><TD>COMPPMAX=1.0e8</TD><TD>maximal init pressure</TD></TR>
+<TR><TD>COMPPNOM=1.0e5</TD><TD>nominal init pressure</TD></TR>
+<TR><TD>KAPPAMIN=1.0</TD><TD>minimal init isentropic exponent</TD></TR>
+<TR><TD>KAPPAMAX=1.7</TD><TD>maximal init isentropic exponent</TD></TR>
+<TR><TD>KAPPANOM=1.2</TD><TD>nominal init isentropic exponent</TD></TR>
+<TR><TD>SEMIN=-1.0e8</TD><TD>minimal init specific energy</TD></TR>
+<TR><TD>SEMAX=1.0e8</TD><TD>maximal init specific energy</TD></TR>
+<TR><TD>SENOM=1.0e6</TD><TD>nominal init specific energy</TD></TR>
+<TR><TD>SHMIN=-1.0e8</TD><TD>minimal init specific enthalpy</TD></TR>
+<TR><TD>SHMAX=1.0e8</TD><TD>maximal init specific enthalpy</TD></TR>
+<TR><TD>SHNOM=1.0e6</TD><TD>nominal init specific enthalpy</TD></TR>
+<TR><TD>SSMIN=-1.0e6</TD><TD>minimal init specific entropy</TD></TR>
+<TR><TD>SSMAX=1.0e6</TD><TD>maximal init specific entropy</TD></TR>
+<TR><TD>SSNOM=1.0e3</TD><TD>nominal init specific entropy</TD></TR>
+<TR><TD>CPMIN=MINPOS</TD><TD>minimal init specific heat capacity</TD></TR>
+<TR><TD>CPMAX=1.0e6</TD><TD>maximal init specific heat capacity</TD></TR>
+<TR><TD>CPNOM=1.0e3</TD><TD>nominal init specific heat capacity</TD></TR>
+<TR><TD>TMIN=MINPOS</TD><TD>minimal init temperature</TD></TR>
+<TR><TD>TMAX=1.0e5</TD><TD>maximal init temperature</TD></TR>
+<TR><TD>TNOM=320.0</TD><TD>nominal init temperature</TD></TR>
+<TR><TD>LMIN=MINPOS</TD><TD>minimal init thermal conductivity</TD></TR>
+<TR><TD>LMAX=500.0</TD><TD>maximal init thermal conductivity</TD></TR>
+<TR><TD>LNOM=1.0</TD><TD>nominal init thermal conductivity</TD></TR>
+<TR><TD>VELMIN=-1.0e5</TD><TD>minimal init speed</TD></TR>
+<TR><TD>VELMAX=1.0e5</TD><TD>maximal init speed</TD></TR>
+<TR><TD>VELNOM=1.0</TD><TD>nominal init speed</TD></TR>
+<TR><TD>VMIN=0.0</TD><TD>minimal init volume</TD></TR>
+<TR><TD>VMAX=1.0e5</TD><TD>maximal init volume</TD></TR>
+<TR><TD>VNOM=1.0e-3</TD><TD>nominal init volume</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.ThermoFluidSpecialS.png" ALT="Modelica.Media.Common.ThermoFluidSpecial" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_ThermoFluidSpecial.html#Modelica.Media.Common.ThermoFluidSpecial"
+>ThermoFluidSpecial</A>
+</TD><TD>property records used by the ThermoFluid library</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.SaturationProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.SaturationProperties"
+>SaturationProperties</A>
+</TD><TD>properties in the two phase region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.SaturationBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.SaturationBoundaryProperties"
+>SaturationBoundaryProperties</A>
+</TD><TD>properties on both phase boundaries, including some derivatives</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.IF97BaseTwoPhase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IF97BaseTwoPhase"
+>IF97BaseTwoPhase</A>
+</TD><TD>Intermediate property data record for IF 97</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.IF97PhaseBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IF97PhaseBoundaryProperties"
+>IF97PhaseBoundaryProperties</A>
+</TD><TD>thermodynamic base properties on the phase boundary for IF97 steam tables</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.GibbsDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A>
+</TD><TD>derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.HelmholtzDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A>
+</TD><TD>derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.TwoPhaseTransportProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.TwoPhaseTransportProps"
+>TwoPhaseTransportProps</A>
+</TD><TD>defines properties on both phase boundaries, needed in the two phase region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.PhaseBoundaryProperties" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A>
+</TD><TD>thermodynamic base properties on the phase boundary</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ph"
+>NewtonDerivatives_ph</A>
+</TD><TD>derivatives for fast inverse calculations of Helmholtz functions: p &amp; h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ps"
+>NewtonDerivatives_ps</A>
+</TD><TD>derivatives for fast inverse calculation of Helmholtz functions: p &amp; s</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.NewtonDerivatives_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_pT"
+>NewtonDerivatives_pT</A>
+</TD><TD>derivatives for fast inverse calculations of Helmholtz functions:p &amp; T</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.ExtraDerivatives" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.ExtraDerivatives"
+>ExtraDerivatives</A>
+</TD><TD>additional thermodynamic derivatives</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.SaturationPropertiesS.png" ALT="Modelica.Media.Common.BridgmansTables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.BridgmansTables"
+>BridgmansTables</A>
+</TD><TD>Calculates all entries in Bridgmans tables if first seven variables given</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.gibbsToBridgmansTables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.gibbsToBridgmansTables"
+>gibbsToBridgmansTables</A>
+</TD><TD>calculates base coefficients for bridgemans tables from gibbs enthalpy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.helmholtzToBridgmansTables" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.helmholtzToBridgmansTables"
+>helmholtzToBridgmansTables</A>
+</TD><TD>calculates base coefficients for Bridgmans tables from helmholtz energy</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.gibbsToBoundaryProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.gibbsToBoundaryProps"
+>gibbsToBoundaryProps</A>
+</TD><TD>calulate phase boundary property record from dimensionless Gibbs function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.helmholtzToBoundaryProps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.helmholtzToBoundaryProps"
+>helmholtzToBoundaryProps</A>
+</TD><TD>calulate phase boundary property record from dimensionless Helmholtz function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.cv2Phase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.cv2Phase"
+>cv2Phase</A>
+</TD><TD>compute isochoric specific heat capacity inside the two-phase region</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.cvdpT2Phase" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.cvdpT2Phase"
+>cvdpT2Phase</A>
+</TD><TD>compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.gibbsToExtraDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.gibbsToExtraDerivs"
+>gibbsToExtraDerivs</A>
+</TD><TD>compute additional thermodynamic derivatives from dimensionless Gibbs function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.helmholtzToExtraDerivs" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.helmholtzToExtraDerivs"
+>helmholtzToExtraDerivs</A>
+</TD><TD>compute additional thermodynamic derivatives from dimensionless Helmholtz function</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.Helmholtz_ph" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Helmholtz_ph"
+>Helmholtz_ph</A>
+</TD><TD>function to calculate analytic derivatives for computing d and t given p and h</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.Helmholtz_pT" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Helmholtz_pT"
+>Helmholtz_pT</A>
+</TD><TD>function to calculate analytic derivatives for computing d and t given p and t</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.Helmholtz_ps" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.Helmholtz_ps"
+>Helmholtz_ps</A>
+</TD><TD>function to calculate analytic derivatives for computing d and t given p and s</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesS.png" ALT="Modelica.Media.Common.smoothStep" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common.html#Modelica.Media.Common.smoothStep"
+>smoothStep</A>
+</TD><TD>Approximation of a general step, such that the characteristic is continuous and differentiable</TD></TR>
+<TR><TD><IMG SRC="Modelica.Media.Common.OneNonLinearEquationS.png" ALT="Modelica.Media.Common.OneNonLinearEquation" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Media_Common_OneNonLinearEquation.html#Modelica.Media.Common.OneNonLinearEquation"
+>OneNonLinearEquation</A>
+</TD><TD>Determine solution of a non-linear algebraic equation in one unknown without derivatives in a reliable and efficient way</TD></TR>
+</TABLE>
+<P><H3>Types and constants</H3>
+<A NAME="Modelica.Media.Common.Rate"></A><PRE>  <font color="blue">type</font> Rate = Real (<font color="blue">final </font>quantity=&quot;Rate&quot;, <font color="blue">final </font>unit=&quot;s-1&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.MolarFlowRate"></A><PRE>  <font color="blue">type</font> MolarFlowRate = Real (<font color="blue">final </font>quantity=&quot;MolarFlowRate&quot;, <font color="blue">final </font>unit=&quot;mol/s&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.MolarReactionRate"></A><PRE>  <font color="blue">type</font> MolarReactionRate = Real (<font color="blue">final </font>quantity=&quot;MolarReactionRate&quot;, <font color="blue">final </font>unit=
+         &quot;mol/(m3.s)&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.MolarEnthalpy"></A><PRE>  <font color="blue">type</font> MolarEnthalpy = Real (<font color="blue">final </font>quantity=&quot;MolarEnthalpy&quot;, <font color="blue">final </font>unit=&quot;J/mol&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerDensityByEntropy"></A><PRE>  <font color="blue">type</font> DerDensityByEntropy = Real (<font color="blue">final </font>quantity=&quot;DerDensityByEntropy&quot;, <font color="blue">final </font>unit=
+             &quot;kg2.K/(m3.J)&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerEnergyByPressure"></A><PRE>  <font color="blue">type</font> DerEnergyByPressure = Real (<font color="blue">final </font>quantity=&quot;DerEnergyByPressure&quot;, <font color="blue">final </font>unit=
+             &quot;J/Pa&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerEnergyByMoles"></A><PRE>  <font color="blue">type</font> DerEnergyByMoles = Real (<font color="blue">final </font>quantity=&quot;DerEnergyByMoles&quot;, <font color="blue">final </font>unit=
+          &quot;J/mol&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerEntropyByTemperature"></A><PRE>  <font color="blue">type</font> DerEntropyByTemperature = Real (<font color="blue">final </font>quantity=&quot;DerEntropyByTemperature&quot;,
+         <font color="blue">final </font>unit=&quot;J/K2&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerEntropyByPressure"></A><PRE>  <font color="blue">type</font> DerEntropyByPressure = Real (<font color="blue">final </font>quantity=&quot;DerEntropyByPressure&quot;,
+        <font color="blue">final </font>unit=&quot;J/(K.Pa)&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerEntropyByMoles"></A><PRE>  <font color="blue">type</font> DerEntropyByMoles = Real (<font color="blue">final </font>quantity=&quot;DerEntropyByMoles&quot;, <font color="blue">final </font>unit=
+         &quot;J/(mol.K)&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerPressureByDensity"></A><PRE>  <font color="blue">type</font> DerPressureByDensity = Real (<font color="blue">final </font>quantity=&quot;DerPressureByDensity&quot;,
+        <font color="blue">final </font>unit=&quot;Pa.m3/kg&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerPressureBySpecificVolume"></A><PRE>  <font color="blue">type</font> DerPressureBySpecificVolume = Real (<font color="blue">final </font>quantity=
+          &quot;DerPressureBySpecificVolume&quot;, <font color="blue">final </font>unit=&quot;Pa.kg/m3&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerPressureByTemperature"></A><PRE>  <font color="blue">type</font> DerPressureByTemperature = Real (<font color="blue">final </font>quantity=
+          &quot;DerPressureByTemperature&quot;, <font color="blue">final </font>unit=&quot;Pa/K&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerVolumeByTemperature"></A><PRE>  <font color="blue">type</font> DerVolumeByTemperature = Real (<font color="blue">final </font>quantity=&quot;DerVolumeByTemperature&quot;,
+        <font color="blue">final </font>unit=&quot;m3/K&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerVolumeByPressure"></A><PRE>  <font color="blue">type</font> DerVolumeByPressure = Real (<font color="blue">final </font>quantity=&quot;DerVolumeByPressure&quot;, <font color="blue">final </font>unit=
+             &quot;m3/Pa&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.DerVolumeByMoles"></A><PRE>  <font color="blue">type</font> DerVolumeByMoles = Real (<font color="blue">final </font>quantity=&quot;DerVolumeByMoles&quot;, <font color="blue">final </font>unit=
+          &quot;m3/mol&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.IsenthalpicExponent"></A><PRE>  <font color="blue">type</font> IsenthalpicExponent = Real (<font color="blue">final </font>quantity=&quot;IsenthalpicExponent&quot;, unit=
+          &quot;1&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.IsentropicExponent"></A><PRE>  <font color="blue">type</font> IsentropicExponent = Real (<font color="blue">final </font>quantity=&quot;IsentropicExponent&quot;, unit=&quot;1&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"></A><PRE>  <font color="blue">type</font> IsobaricVolumeExpansionCoefficient = Real (<font color="blue">final </font>quantity=
+          &quot;IsobaricVolumeExpansionCoefficient&quot;, unit=&quot;1/K&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.IsochoricPressureCoefficient"></A><PRE>  <font color="blue">type</font> IsochoricPressureCoefficient = Real (<font color="blue">final </font>quantity=
+          &quot;IsochoricPressureCoefficient&quot;, unit=&quot;1/K&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.IsothermalCompressibility"></A><PRE>  <font color="blue">type</font> IsothermalCompressibility = Real (<font color="blue">final </font>quantity=
+          &quot;IsothermalCompressibility&quot;, unit=&quot;1/Pa&quot;);</PRE><p>
+<A NAME="Modelica.Media.Common.JouleThomsonCoefficient"></A><PRE>  <font color="blue">type</font> JouleThomsonCoefficient = Real (<font color="blue">final </font>quantity=&quot;JouleThomsonCoefficient&quot;,
+         unit=&quot;K/Pa&quot;);</PRE><p>
+<PRE>  <font color="blue">constant </font>Real MINPOS=1.0e-9 <font color="darkgreen">
+  &quot;minimal value for physical variables which are always &gt; 0.0&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> AMIN=MINPOS <font color="darkgreen">&quot;minimal init area&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> AMAX=1.0e5 <font color="darkgreen">&quot;maximal init area&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>SI.Area</A> ANOM=1.0 <font color="darkgreen">&quot;nominal init area&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AmountOfSubstance"
+>SI.AmountOfSubstance</A> MOLMIN=-1.0*MINPOS <font color="darkgreen">&quot;minimal Mole Number&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AmountOfSubstance"
+>SI.AmountOfSubstance</A> MOLMAX=1.0e8 <font color="darkgreen">&quot;maximal Mole Number&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AmountOfSubstance"
+>SI.AmountOfSubstance</A> MOLNOM=1.0 <font color="darkgreen">&quot;nominal Mole Number&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> DMIN=MINPOS <font color="darkgreen">&quot;minimal init density&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> DMAX=1.0e5 <font color="darkgreen">&quot;maximal init density&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> DNOM=1.0 <font color="darkgreen">&quot;nominal init density&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> LAMMIN=MINPOS <font color="darkgreen">&quot;minimal thermal conductivity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> LAMNOM=1.0 <font color="darkgreen">&quot;nominal thermal conductivity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> LAMMAX=1000.0 <font color="darkgreen">&quot;maximal thermal conductivity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> ETAMIN=MINPOS <font color="darkgreen">&quot;minimal init dynamic viscosity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> ETAMAX=1.0e8 <font color="darkgreen">&quot;maximal init dynamic viscosity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> ETANOM=100.0 <font color="darkgreen">&quot;nominal init dynamic viscosity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Energy"
+>SI.Energy</A> EMIN=-1.0e10 <font color="darkgreen">&quot;minimal init energy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Energy"
+>SI.Energy</A> EMAX=1.0e10 <font color="darkgreen">&quot;maximal init energy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Energy"
+>SI.Energy</A> ENOM=1.0e3 <font color="darkgreen">&quot;nominal init energy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Entropy"
+>SI.Entropy</A> SMIN=-1.0e6 <font color="darkgreen">&quot;minimal init entropy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Entropy"
+>SI.Entropy</A> SMAX=1.0e6 <font color="darkgreen">&quot;maximal init entropy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Entropy"
+>SI.Entropy</A> SNOM=1.0e3 <font color="darkgreen">&quot;nominal init entropy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> MDOTMIN=-1.0e5 <font color="darkgreen">&quot;minimal init mass flow rate&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> MDOTMAX=1.0e5 <font color="darkgreen">&quot;maximal init mass flow rate&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> MDOTNOM=1.0 <font color="darkgreen">&quot;nominal init mass flow rate&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> MASSXMIN=-1.0*MINPOS <font color="darkgreen">&quot;minimal init mass fraction&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> MASSXMAX=1.0 <font color="darkgreen">&quot;maximal init mass fraction&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> MASSXNOM=0.1 <font color="darkgreen">&quot;nominal init mass fraction&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> MMIN=-1.0*MINPOS <font color="darkgreen">&quot;minimal init mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> MMAX=1.0e8 <font color="darkgreen">&quot;maximal init mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Mass"
+>SI.Mass</A> MNOM=1.0 <font color="darkgreen">&quot;nominal init mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MolarMass"
+>SI.MolarMass</A> MMMIN=0.001 <font color="darkgreen">&quot;minimal initial molar mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MolarMass"
+>SI.MolarMass</A> MMMAX=250.0 <font color="darkgreen">&quot;maximal initial molar mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MolarMass"
+>SI.MolarMass</A> MMNOM=0.2 <font color="darkgreen">&quot;nominal initial molar mass&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MoleFraction"
+>SI.MoleFraction</A> MOLEYMIN=-1.0*MINPOS <font color="darkgreen">&quot;minimal init mole fraction&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MoleFraction"
+>SI.MoleFraction</A> MOLEYMAX=1.0 <font color="darkgreen">&quot;maximal init mole fraction&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MoleFraction"
+>SI.MoleFraction</A> MOLEYNOM=0.1 <font color="darkgreen">&quot;nominal init mole fraction&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MomentumFlux"
+>SI.MomentumFlux</A> GMIN=-1.0e8 <font color="darkgreen">&quot;minimal init momentum flux&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MomentumFlux"
+>SI.MomentumFlux</A> GMAX=1.0e8 <font color="darkgreen">&quot;maximal init momentum flux&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MomentumFlux"
+>SI.MomentumFlux</A> GNOM=1.0 <font color="darkgreen">&quot;nominal init momentum flux&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> POWMIN=-1.0e8 <font color="darkgreen">&quot;minimal init power or heat&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> POWMAX=1.0e8 <font color="darkgreen">&quot;maximal init power or heat&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Power"
+>SI.Power</A> POWNOM=1.0e3 <font color="darkgreen">&quot;nominal init power or heat&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> PMIN=1.0e4 <font color="darkgreen">&quot;minimal init pressure&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> PMAX=1.0e8 <font color="darkgreen">&quot;maximal init pressure&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> PNOM=1.0e5 <font color="darkgreen">&quot;nominal init pressure&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> COMPPMIN=-1.0*MINPOS <font color="darkgreen">&quot;minimal init pressure&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> COMPPMAX=1.0e8 <font color="darkgreen">&quot;maximal init pressure&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> COMPPNOM=1.0e5 <font color="darkgreen">&quot;nominal init pressure&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RatioOfSpecificHeatCapacities"
+>SI.RatioOfSpecificHeatCapacities</A> KAPPAMIN=1.0 <font color="darkgreen">
+  &quot;minimal init isentropic exponent&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RatioOfSpecificHeatCapacities"
+>SI.RatioOfSpecificHeatCapacities</A> KAPPAMAX=1.7 <font color="darkgreen">
+  &quot;maximal init isentropic exponent&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.RatioOfSpecificHeatCapacities"
+>SI.RatioOfSpecificHeatCapacities</A> KAPPANOM=1.2 <font color="darkgreen">
+  &quot;nominal init isentropic exponent&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SI.SpecificEnergy</A> SEMIN=-1.0e8 <font color="darkgreen">&quot;minimal init specific energy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SI.SpecificEnergy</A> SEMAX=1.0e8 <font color="darkgreen">&quot;maximal init specific energy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SI.SpecificEnergy</A> SENOM=1.0e6 <font color="darkgreen">&quot;nominal init specific energy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> SHMIN=-1.0e8 <font color="darkgreen">&quot;minimal init specific enthalpy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> SHMAX=1.0e8 <font color="darkgreen">&quot;maximal init specific enthalpy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> SHNOM=1.0e6 <font color="darkgreen">&quot;nominal init specific enthalpy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> SSMIN=-1.0e6 <font color="darkgreen">&quot;minimal init specific entropy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> SSMAX=1.0e6 <font color="darkgreen">&quot;maximal init specific entropy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> SSNOM=1.0e3 <font color="darkgreen">&quot;nominal init specific entropy&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> CPMIN=MINPOS <font color="darkgreen">
+  &quot;minimal init specific heat capacity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> CPMAX=1.0e6 <font color="darkgreen">
+  &quot;maximal init specific heat capacity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> CPNOM=1.0e3 <font color="darkgreen">
+  &quot;nominal init specific heat capacity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> TMIN=MINPOS <font color="darkgreen">&quot;minimal init temperature&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> TMAX=1.0e5 <font color="darkgreen">&quot;maximal init temperature&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> TNOM=320.0 <font color="darkgreen">&quot;nominal init temperature&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> LMIN=MINPOS <font color="darkgreen">
+  &quot;minimal init thermal conductivity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> LMAX=500.0 <font color="darkgreen">
+  &quot;maximal init thermal conductivity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> LNOM=1.0 <font color="darkgreen">&quot;nominal init thermal conductivity&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> VELMIN=-1.0e5 <font color="darkgreen">&quot;minimal init speed&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> VELMAX=1.0e5 <font color="darkgreen">&quot;maximal init speed&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Velocity"
+>SI.Velocity</A> VELNOM=1.0 <font color="darkgreen">&quot;nominal init speed&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> VMIN=0.0 <font color="darkgreen">&quot;minimal init volume&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> VMAX=1.0e5 <font color="darkgreen">&quot;maximal init volume&quot;</font>;</PRE><p>
+<PRE>  <font color="blue">constant </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> VNOM=1.0e-3 <font color="darkgreen">&quot;nominal init volume&quot;</font>;</PRE><p>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturationProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.SaturationProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.SaturationProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.SaturationProperties</H2>
+<B>properties in the two phase region</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> SaturationProperties <font color="darkgreen">&quot;properties in the two phase region&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SI.SpecificEnergy</A> u <font color="darkgreen">&quot;specific inner energy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;heat capacity at constant pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;heat capacity at constant volume&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> R <font color="darkgreen">&quot;gas constant&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.RatioOfSpecificHeatCapacities"
+>SI.RatioOfSpecificHeatCapacities</A> kappa <font color="darkgreen">&quot;isentropic expansion coefficient&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> liq <font color="darkgreen">
+    &quot;thermodynamic base properties on the boiling curve&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> vap <font color="darkgreen">&quot;thermodynamic base properties on the dew curve&quot;</font>;
+  Real dpT(unit=&quot;Pa/K&quot;) <font color="darkgreen">&quot;derivative of saturation pressure w.r.t. temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> x <font color="darkgreen">&quot;vapour mass fraction&quot;</font>;
+<font color="blue">end </font>SaturationProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SaturationBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.SaturationBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.SaturationBoundaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.SaturationBoundaryProperties</H2>
+<B>properties on both phase boundaries, including some derivatives</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> SaturationBoundaryProperties <font color="darkgreen">
+  &quot;properties on both phase boundaries, including some derivatives&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temp_K"
+>SI.Temp_K</A> T <font color="darkgreen">&quot;Saturation temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dl <font color="darkgreen">&quot;Liquid density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> dv <font color="darkgreen">&quot;Vapour density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hl <font color="darkgreen">&quot;Liquid specific enthalpy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> hv <font color="darkgreen">&quot;Vapour specific enthalpy&quot;</font>;
+  Real dTp <font color="darkgreen">&quot;derivative of temperature w.r.t. saturation pressure&quot;</font>;
+  Real ddldp <font color="darkgreen">&quot;derivative of density along boiling curve&quot;</font>;
+  Real ddvdp <font color="darkgreen">&quot;derivative of density along dew curve&quot;</font>;
+  Real dhldp <font color="darkgreen">&quot;derivative of specific enthalpy along boiling curve&quot;</font>;
+  Real dhvdp <font color="darkgreen">&quot;derivative of specific enthalpy along dew curve&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> x <font color="darkgreen">&quot;vapour mass fraction&quot;</font>;
+<font color="blue">end </font>SaturationBoundaryProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IF97BaseTwoPhase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.IF97BaseTwoPhase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.IF97BaseTwoPhase"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IF97BaseTwoPhase</H2>
+<B>Intermediate property data record for IF 97</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> IF97BaseTwoPhase <font color="darkgreen">&quot;Intermediate property data record for IF 97&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  Integer phase= 0 <font color="darkgreen">&quot;phase: 2 for two-phase, 1 for one phase, 0 if unknown&quot;</font>;
+  Integer region(min=1, max=5) <font color="darkgreen">&quot;IF 97 region&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> R <font color="darkgreen">&quot;gas constant&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> rho <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A> pd <font color="darkgreen">&quot;derivative of pressure w.r.t. density&quot;</font>;
+  Real vt <font color="darkgreen">&quot;derivative of specific volume w.r.t. temperature&quot;</font>;
+  Real vp <font color="darkgreen">&quot;derivative of specific volume w.r.t. pressure&quot;</font>;
+  Real x <font color="darkgreen">&quot;dryness fraction&quot;</font>;
+  Real dpT <font color="darkgreen">&quot;dp/dT derivative of saturation curve&quot;</font>;
+<font color="blue">end </font>IF97BaseTwoPhase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IF97PhaseBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.IF97PhaseBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.IF97PhaseBoundaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.IF97PhaseBoundaryProperties</H2>
+<B>thermodynamic base properties on the phase boundary for IF97 steam tables</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> IF97PhaseBoundaryProperties <font color="darkgreen">
+  &quot;thermodynamic base properties on the phase boundary for IF97 steam tables&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  Boolean region3boundary <font color="darkgreen">&quot;true if boundary between 2-phase and region 3&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> R <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;heat capacity at constant pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;heat capacity at constant volume&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> dpT <font color="darkgreen">&quot;dp/dT derivative of saturation curve&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A> pd <font color="darkgreen">&quot;derivative of pressure w.r.t. density&quot;</font>;
+  Real vt(unit=&quot;m3/(kg.K)&quot;) <font color="darkgreen">&quot;derivative of specific volume w.r.t. temperature&quot;</font>;
+  Real vp(unit=&quot;m3/(kg.Pa)&quot;) <font color="darkgreen">&quot;derivative of specific volume w.r.t. pressure&quot;</font>;
+<font color="blue">end </font>IF97PhaseBoundaryProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE GibbsDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.GibbsDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.GibbsDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.GibbsDerivs</H2>
+<B>derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> GibbsDerivs <font color="darkgreen">
+  &quot;derivatives of dimensionless Gibbs-function w.r.t. dimensionless pressure and temperature&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> R <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+  Real pi(unit=&quot;1&quot;) <font color="darkgreen">&quot;dimensionless pressure&quot;</font>;
+  Real tau(unit=&quot;1&quot;) <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real g(unit=&quot;1&quot;) <font color="darkgreen">&quot;dimensionless Gibbs-function&quot;</font>;
+  Real gpi(unit=&quot;1&quot;) <font color="darkgreen">&quot;derivative of g w.r.t. pi&quot;</font>;
+  Real gpipi(unit=&quot;1&quot;) <font color="darkgreen">&quot;2nd derivative of g w.r.t. pi&quot;</font>;
+  Real gtau(unit=&quot;1&quot;) <font color="darkgreen">&quot;derivative of g w.r.t. tau&quot;</font>;
+  Real gtautau(unit=&quot;1&quot;) <font color="darkgreen">&quot;2nd derivative of g w.r.t. tau&quot;</font>;
+  Real gtaupi(unit=&quot;1&quot;) <font color="darkgreen">&quot;mixed derivative of g w.r.t. pi and tau&quot;</font>;
+<font color="blue">end </font>GibbsDerivs;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE HelmholtzDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.HelmholtzDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.HelmholtzDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.HelmholtzDerivs</H2>
+<B>derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> HelmholtzDerivs <font color="darkgreen">
+  &quot;derivatives of dimensionless Helmholtz-function w.r.t. dimensionless pressuredensity and temperature&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> R <font color="darkgreen">&quot;specific heat capacity&quot;</font>;
+  Real delta(unit=&quot;1&quot;) <font color="darkgreen">&quot;dimensionless density&quot;</font>;
+  Real tau(unit=&quot;1&quot;) <font color="darkgreen">&quot;dimensionless temperature&quot;</font>;
+  Real f(unit=&quot;1&quot;) <font color="darkgreen">&quot;dimensionless Helmholtz-function&quot;</font>;
+  Real fdelta(unit=&quot;1&quot;) <font color="darkgreen">&quot;derivative of f w.r.t. delta&quot;</font>;
+  Real fdeltadelta(unit=&quot;1&quot;) <font color="darkgreen">&quot;2nd derivative of f w.r.t. delta&quot;</font>;
+  Real ftau(unit=&quot;1&quot;) <font color="darkgreen">&quot;derivative of f w.r.t. tau&quot;</font>;
+  Real ftautau(unit=&quot;1&quot;) <font color="darkgreen">&quot;2nd derivative of f w.r.t. tau&quot;</font>;
+  Real fdeltatau(unit=&quot;1&quot;) <font color="darkgreen">&quot;mixed derivative of f w.r.t. delta and tau&quot;</font>;
+<font color="blue">end </font>HelmholtzDerivs;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TwoPhaseTransportProps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.TwoPhaseTransportProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.TwoPhaseTransportProps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.TwoPhaseTransportProps</H2>
+<B>defines properties on both phase boundaries, needed in the two phase region</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> TwoPhaseTransportProps <font color="darkgreen">
+  &quot;defines properties on both phase boundaries, needed in the two phase region&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d_vap <font color="darkgreen">&quot;density on the dew line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d_liq <font color="darkgreen">&quot;density on the bubble line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> eta_vap <font color="darkgreen">&quot;dynamic viscosity on the dew line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.DynamicViscosity"
+>SI.DynamicViscosity</A> eta_liq <font color="darkgreen">&quot;dynamic viscosity on the bubble line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> lam_vap <font color="darkgreen">&quot;thermal conductivity on the dew line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ThermalConductivity"
+>SI.ThermalConductivity</A> lam_liq <font color="darkgreen">&quot;thermal conductivity on the bubble line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp_vap <font color="darkgreen">&quot;cp on the dew line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp_liq <font color="darkgreen">&quot;cp on the bubble line&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> x <font color="darkgreen">&quot;steam quality&quot;</font>;
+<font color="blue">end </font>TwoPhaseTransportProps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PhaseBoundaryProperties<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.PhaseBoundaryProperties" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.PhaseBoundaryProperties"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.PhaseBoundaryProperties</H2>
+<B>thermodynamic base properties on the phase boundary</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> PhaseBoundaryProperties <font color="darkgreen">
+  &quot;thermodynamic base properties on the phase boundary&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnergy"
+>SI.SpecificEnergy</A> u <font color="darkgreen">&quot;inner energy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;heat capacity at constant pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;heat capacity at constant volume&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A> pd <font color="darkgreen">&quot;derivative of pressure w.r.t. density&quot;</font>;
+<font color="blue">end </font>PhaseBoundaryProperties;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_ph"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_ph</H2>
+<B>derivatives for fast inverse calculations of Helmholtz functions: p &amp; h</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> NewtonDerivatives_ph <font color="darkgreen">
+  &quot;derivatives for fast inverse calculations of Helmholtz functions: p &amp; h&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEnthalpy"
+>SI.SpecificEnthalpy</A> h <font color="darkgreen">&quot;specific enthalpy&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A> pd <font color="darkgreen">&quot;derivative of pressure w.r.t. density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  Real hd <font color="darkgreen">&quot;derivative of specific enthalpy w.r.t. density&quot;</font>;
+  Real ht <font color="darkgreen">&quot;derivative of specific enthalpy w.r.t. temperature&quot;</font>;
+<font color="blue">end </font>NewtonDerivatives_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_ps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_ps</H2>
+<B>derivatives for fast inverse calculation of Helmholtz functions: p &amp; s</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> NewtonDerivatives_ps <font color="darkgreen">
+  &quot;derivatives for fast inverse calculation of Helmholtz functions: p &amp; s&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A> pd <font color="darkgreen">&quot;derivative of pressure w.r.t. density&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  Real sd <font color="darkgreen">&quot;derivative of specific entropy w.r.t. density&quot;</font>;
+  Real st <font color="darkgreen">&quot;derivative of specific entropy w.r.t. temperature&quot;</font>;
+<font color="blue">end </font>NewtonDerivatives_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NewtonDerivatives_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.NewtonDerivatives_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.NewtonDerivatives_pT"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.NewtonDerivatives_pT</H2>
+<B>derivatives for fast inverse calculations of Helmholtz functions:p &amp; T</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> NewtonDerivatives_pT <font color="darkgreen">
+  &quot;derivatives for fast inverse calculations of Helmholtz functions:p &amp; T&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByDensity"
+>DerPressureByDensity</A> pd <font color="darkgreen">&quot;derivative of pressure w.r.t. density&quot;</font>;
+<font color="blue">end </font>NewtonDerivatives_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ExtraDerivatives<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.ExtraDerivatives" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.ExtraDerivatives"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.ExtraDerivatives</H2>
+<B>additional thermodynamic derivatives</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> ExtraDerivatives <font color="darkgreen">&quot;additional thermodynamic derivatives&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsentropicExponent"
+>IsentropicExponent</A> kappa <font color="darkgreen">&quot;isentropic expansion coefficient&quot;</font>;
+  <font color="darkgreen">// k in Bejan</font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsenthalpicExponent"
+>IsenthalpicExponent</A> theta <font color="darkgreen">&quot;isenthalpic exponent&quot;</font>;
+  <font color="darkgreen">// same as kappa, except derivative at const h</font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A> alpha <font color="darkgreen">
+    &quot;isobaric volume expansion coefficient&quot;</font>;
+  <font color="darkgreen">// beta in Bejan</font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsochoricPressureCoefficient"
+>IsochoricPressureCoefficient</A> beta <font color="darkgreen">&quot;isochoric pressure coefficient&quot;</font>;
+  <font color="darkgreen">// kT in Bejan</font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A> gamma <font color="darkgreen">&quot;isothermal compressibility&quot;</font>;
+  <font color="darkgreen">// kappa in Bejan</font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.JouleThomsonCoefficient"
+>JouleThomsonCoefficient</A> mu <font color="darkgreen">&quot;Joule-Thomson coefficient&quot;</font>;
+  <font color="darkgreen">// mu_J in Bejan</font>
+<font color="blue">end </font>ExtraDerivatives;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE BridgmansTables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.SaturationPropertiesI.png" ALT="Modelica.Media.Common.BridgmansTables" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.BridgmansTables"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.BridgmansTables</H2>
+<B>Calculates all entries in Bridgmans tables if first seven variables given</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+Important: the phase equilibrium conditions are not yet considered.
+this means that bridgemans tables do not yet work in the two phase region.
+Some derivatives are 0 or infinity anyways.
+Idea: don't use the values in Bridgmans table directly, all
+derivatives are calculated as the quotient of two entries in the
+table. The last letter indicates which variable is held constant in
+taking the derivative. The second letters are the two variables
+involved in the derivative and the first letter is alwys a d to remind
+of differentiation.
+</p>
+
+<pre>
+Example 1: Get the derivative of specific entropy s w.r.t. Temperature at
+constant specific volume (btw identical to constant density)
+constant volume  --> last letter v
+Temperature      --> second letter T
+Specific entropy --> second letter s
+--> the needed value is dsv/dTv
+Known variables:
+Temperature T
+pressure p
+specific volume v
+specific inner energy u
+specific enthalpy h
+specific entropy s
+specific helmholtz energy f
+specific gibbs enthalpy g
+Not included but useful:
+density d
+In order to convert derivatives involving density use the following
+rules:
+at constant density == at constant specific volume
+ddx/dyx = -d*d*dvx/dyx with y,x any of T,p,u,h,s,f,g
+dyx/ddx = -1/(d*d)dyx/dvx with y,x any of T,p,u,h,s,f,g
+Usage example assuming water as the medium:
+model BridgmansTablesForWater
+extends ThermoFluid.BaseClasses.MediumModels.Water.WaterSteamMedium_ph;
+Real derOfsByTAtConstantv "derivative of sp. entropy by temperature at constant sp. volume"
+ThermoFluid.BaseClasses.MediumModels.Common.ExtraDerivatives dpro;
+ThermoFluid.BaseClasses.MediumModels.Common.BridgmansTables bt;
+equation
+dpro = ThermoFluid.BaseClasses.MediumModels.SteamIF97.extraDerivs_pT(p[1],T[1]);
+bt.p = p[1];
+bt.T = T[1];
+bt.v = 1/pro[1].d;
+bt.s = pro[1].s;
+bt.cp = pro[1].cp;
+bt.alpha = dpro.alpha;
+bt.gamma = dpro.gamma;
+derOfsByTAtConstantv =  bt.dsv/bt.dTv;
+                ...
+end BridgmansTablesForWater;
+                </pre>
+
+                <pre>
+                </PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A> (Icon for records).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">record</font> BridgmansTables <font color="darkgreen">
+  &quot;Calculates all entries in Bridgmans tables if first seven variables given&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Record"
+>Modelica.Icons.Record</A>;
+  <font color="darkgreen">// the first 7 need to calculated in a function!</font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SI.SpecificVolume</A> v <font color="darkgreen">&quot;specific volume&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;heat capacity at constant pressure&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A> alpha <font color="darkgreen">
+    &quot;isobaric volume expansion coefficient&quot;</font>;
+  <font color="darkgreen">// beta in Bejan</font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A> gamma <font color="darkgreen">&quot;isothermal compressibility&quot;</font>;
+  <font color="darkgreen">// kappa in Bejan</font>
+  <font color="darkgreen">// Derivatives at constant pressure</font>
+  Real dTp=1 <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dpT=-dTp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dvp=alpha*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dpv=-dvp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dsp=cp/T <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dps=-dsp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dup=cp - alpha*p*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dpu=-dup <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dhp=cp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dph=-dhp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dfp=-s - alpha*p*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dpf=-dfp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgp=-s <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dpg=-dgp <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  <font color="darkgreen">// Derivatives at constant Temperature</font>
+  Real dvT=gamma*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dTv=-dvT <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dsT=alpha*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dTs=-dsT <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real duT=alpha*T*v - gamma*p*v <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dTu=-duT <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dhT=-v + alpha*T*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dTh=-dhT <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dfT=-gamma*p*v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dTf=-dfT <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgT=-v <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dTg=-dgT <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  <font color="darkgreen">// Derivatives at constant v</font>
+  Real dsv=alpha*alpha*v*v - gamma*v*cp/T <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dvs=-dsv <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real duv=T*alpha*alpha*v*v - gamma*v*cp <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dvu=-duv <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dhv=T*alpha*alpha*v*v - alpha*v*v - gamma*v*cp <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dvh=-dhv <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dfv=gamma*v*s <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dvf=-dfv <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgv=gamma*v*s - alpha*v*v <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dvg=-dgv <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  <font color="darkgreen">// Derivatives at constant s</font>
+  Real dus=dsv*p <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dsu=-dus <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dhs=-v*cp/T <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dsh=-dhs <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dfs=alpha*v*s + dus <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dsf=-dfs <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgs=alpha*v*s - v*cp/T <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dsg=-dgs <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  <font color="darkgreen">// Derivatives at constant u</font>
+  Real dhu=p*alpha*v*v + gamma*v*cp*p - v*cp - p*T*alpha*alpha*v*v <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real duh=-dhu <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dfu=s*T*alpha*v - gamma*v*cp*p - gamma*v*s*p + p*T*alpha*alpha*v*v <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real duf=-dfu <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgu=alpha*v*v*p + alpha*v*s*T - v*cp - gamma*v*s*p <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dug=-dgu <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  <font color="darkgreen">//  Derivatives at constant h</font>
+  Real dfh=(s - v*alpha*p)*(v - v*alpha*T) - gamma*v*cp*p <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dhf=-dfh <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgh=alpha*v*s*T - v*(s + cp) <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dhg=-dgh <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  <font color="darkgreen">// Derivatives at constant g</font>
+  Real dfg=gamma*v*s*p - v*s - alpha*v*v*p <font color="darkgreen">
+    &quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+  Real dgf=-dfg <font color="darkgreen">&quot;coefficient in Bridgmans table, see info for usage&quot;</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>BridgmansTables;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbsToBridgmansTables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.gibbsToBridgmansTables" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.gibbsToBridgmansTables"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.gibbsToBridgmansTables</H2>
+<B>calculates base coefficients for bridgemans tables from gibbs enthalpy</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A></TD><TD>g</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SpecificVolume</A></TD><TD>v</TD><TD>specific volume [m3/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cp</TD><TD>heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A></TD><TD>alpha</TD><TD>isobaric volume expansion coefficient [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A></TD><TD>gamma</TD><TD>isothermal compressibility [1/Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> gibbsToBridgmansTables <font color="darkgreen">
+  &quot;calculates base coefficients for bridgemans tables from gibbs enthalpy&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A> g <font color="darkgreen">&quot;dimensionless derivatives of Gibbs function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SI.SpecificVolume</A> v <font color="darkgreen">&quot;specific volume&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p=g.p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T=g.T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;heat capacity at constant pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A> alpha <font color="darkgreen">
+    &quot;isobaric volume expansion coefficient&quot;</font>;
+  <font color="darkgreen">// beta in Bejan</font>
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A> gamma <font color="darkgreen">&quot;isothermal compressibility&quot;</font>;
+  <font color="darkgreen">// kappa in Bejan</font>
+<font color="blue">protected </font>
+  Real vt(unit=&quot;m3/(kg.K)&quot;) <font color="darkgreen">&quot;derivative of specific volume w.r.t. temperature&quot;</font>;
+  Real vp(unit=&quot;m4.kg-2.s2&quot;) <font color="darkgreen">&quot;derivative of specific volume w.r.t. pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+  vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+  v := (g.R*g.T*g.pi*g.gpi)/g.p;
+  s := g.R*(g.tau*g.gtau - g.g);
+  cp := -g.R*g.tau*g.tau*g.gtautau;
+  alpha := vt/v;
+  gamma := -vp/v;
+<font color="blue">end </font>gibbsToBridgmansTables;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE helmholtzToBridgmansTables<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.helmholtzToBridgmansTables" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.helmholtzToBridgmansTables"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.helmholtzToBridgmansTables</H2>
+<B>calculates base coefficients for Bridgmans tables from helmholtz energy</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SpecificVolume</A></TD><TD>v</TD><TD>specific volume [m3/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>pressure [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SpecificEntropy</A></TD><TD>s</TD><TD>specific entropy [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cp</TD><TD>heat capacity at constant pressure [J/(kg.K)]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A></TD><TD>alpha</TD><TD>isobaric volume expansion coefficient [1/K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A></TD><TD>gamma</TD><TD>isothermal compressibility [1/Pa]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> helmholtzToBridgmansTables <font color="darkgreen">
+  &quot;calculates base coefficients for Bridgmans tables from helmholtz energy&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless derivatives of Helmholtz function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SI.SpecificVolume</A> v=1/f.d <font color="darkgreen">&quot;specific volume&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T=f.T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificEntropy"
+>SI.SpecificEntropy</A> s <font color="darkgreen">&quot;specific entropy&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;heat capacity at constant pressure&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsobaricVolumeExpansionCoefficient"
+>IsobaricVolumeExpansionCoefficient</A> alpha <font color="darkgreen">
+    &quot;isobaric volume expansion coefficient&quot;</font>;
+  <font color="darkgreen">// beta in Bejan</font>
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.IsothermalCompressibility"
+>IsothermalCompressibility</A> gamma <font color="darkgreen">&quot;isothermal compressibility&quot;</font>;
+  <font color="darkgreen">// kappa in Bejan</font>
+<font color="blue">protected </font>
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureBySpecificVolume"
+>DerPressureBySpecificVolume</A> pv <font color="darkgreen">
+    &quot;derivative of pressure w.r.t. specific volume &quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  p := f.R*f.d*f.T*f.delta*f.fdelta;
+  pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+  pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+  s := f.R*(f.tau*f.ftau - f.f);
+  alpha := -f.d*pt/pv;
+  gamma := -f.d/pv;
+  cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.
+    fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
+<font color="blue">end </font>helmholtzToBridgmansTables;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbsToBoundaryProps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.gibbsToBoundaryProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.gibbsToBoundaryProps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.gibbsToBoundaryProps</H2>
+<B>calulate phase boundary property record from dimensionless Gibbs function</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A></TD><TD>g</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>sat</TD><TD>phase boundary properties</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> gibbsToBoundaryProps <font color="darkgreen">
+  &quot;calulate phase boundary property record from dimensionless Gibbs function&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A> g <font color="darkgreen">&quot;dimensionless derivatives of Gibbs function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> sat <font color="darkgreen">&quot;phase boundary properties&quot;</font>;
+<font color="blue">protected </font>
+  Real vt <font color="darkgreen">&quot;derivative of specific volume w.r.t. temperature&quot;</font>;
+  Real vp <font color="darkgreen">&quot;derivative of specific volume w.r.t. pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  sat.d := g.p/(g.R*g.T*g.pi*g.gpi);
+  sat.h := g.R*g.T*g.tau*g.gtau;
+  sat.u := g.T*g.R*(g.tau*g.gtau - g.pi*g.gpi);
+  sat.s := g.R*(g.tau*g.gtau - g.g);
+  sat.cp := -g.R*g.tau*g.tau*g.gtautau;
+  sat.cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.
+     tau*g.gtaupi)/(g.gpipi));
+  vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+  vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+  <font color="darkgreen">// sat.kappa := -1/(sat.d*g.p)*sat.cp/(vp*sat.cp + vt*vt*g.T);</font>
+  sat.pt := -g.p/g.T*(g.gpi - g.tau*g.gtaupi)/(g.gpipi*g.pi);
+  sat.pd := -g.R*g.T*g.gpi*g.gpi/(g.gpipi);
+<font color="blue">end </font>gibbsToBoundaryProps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE helmholtzToBoundaryProps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.helmholtzToBoundaryProps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.helmholtzToBoundaryProps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.helmholtzToBoundaryProps</H2>
+<B>calulate phase boundary property record from dimensionless Helmholtz function</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>sat</TD><TD>phase boundary property record</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> helmholtzToBoundaryProps <font color="darkgreen">
+  &quot;calulate phase boundary property record from dimensionless Helmholtz function&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless derivatives of Helmholtz function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> sat <font color="darkgreen">&quot;phase boundary property record&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+<font color="blue">algorithm </font>
+  p := f.R*f.d*f.T*f.delta*f.fdelta;
+  sat.d := f.d;
+  sat.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+  sat.s := f.R*(f.tau*f.ftau - f.f);
+  sat.u := f.R*f.T*f.tau*f.ftau;
+  sat.cp := f.R*(-f.tau*f.tau*f.ftautau + (f.delta*f.fdelta - f.delta*f.tau*f.
+     fdeltatau)^2/(2*f.delta*f.fdelta + f.delta*f.delta*f.fdeltadelta));
+  sat.cv := f.R*(-f.tau*f.tau*f.ftautau);
+  sat.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+  sat.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+<font color="blue">end </font>helmholtzToBoundaryProps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cv2Phase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.cv2Phase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.cv2Phase"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.cv2Phase</H2>
+<B>compute isochoric specific heat capacity inside the two-phase region</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>liq</TD><TD>&nbsp;</TD><TD>properties on the boiling curve</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>vap</TD><TD>&nbsp;</TD><TD>properties on the condensation curve</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>MassFraction</A></TD><TD>x</TD><TD>&nbsp;</TD><TD>vapour mass fraction [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>preoperties [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cv</TD><TD>isochoric specific heat capacity [J/(kg.K)]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cv2Phase <font color="darkgreen">
+  &quot;compute isochoric specific heat capacity inside the two-phase region&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> liq <font color="darkgreen">&quot;properties on the boiling curve&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> vap <font color="darkgreen">&quot;properties on the condensation curve&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> x <font color="darkgreen">&quot;vapour mass fraction&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;preoperties&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric specific heat capacity&quot;</font>;
+<font color="blue">protected </font>
+  Real dpT <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  Real dxv <font color="darkgreen">&quot;derivative of vapour mass fraction w.r.t. specific volume&quot;</font>;
+  Real dvTl <font color="darkgreen">&quot;derivative of liquid specific volume w.r.t. temperature&quot;</font>;
+  Real dvTv <font color="darkgreen">&quot;derivative of vapour specific volume w.r.t. temperature&quot;</font>;
+  Real duTl <font color="darkgreen">&quot;derivative of liquid specific inner energy w.r.t. temperature&quot;</font>;
+  Real duTv <font color="darkgreen">&quot;derivative of vapour specific inner energy w.r.t. temperature&quot;</font>;
+  Real dxt <font color="darkgreen">&quot;derivative of vapour mass fraction w.r.t. temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  dxv := <font color="blue">if </font>(liq.d &lt;&gt; vap.d)<font color="blue"> then </font>liq.d*vap.d/(liq.d - vap.d)<font color="blue"> else </font>0.0;
+  dpT := (vap.s - liq.s)*dxv;
+  <font color="darkgreen">// wrong at critical point</font>
+  dvTl := (liq.pt - dpT)/liq.pd/liq.d/liq.d;
+  dvTv := (vap.pt - dpT)/vap.pd/vap.d/vap.d;
+  dxt := -dxv*(dvTl + x*(dvTv - dvTl));
+  duTl := liq.cv + (T*liq.pt - p)*dvTl;
+  duTv := vap.cv + (T*vap.pt - p)*dvTv;
+  cv := duTl + x*(duTv - duTl) + dxt*(vap.u - liq.u);
+<font color="blue">end </font>cv2Phase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE cvdpT2Phase<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.cvdpT2Phase" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.cvdpT2Phase"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.cvdpT2Phase</H2>
+<B>compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>liq</TD><TD>&nbsp;</TD><TD>properties on the boiling curve</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A></TD><TD>vap</TD><TD>&nbsp;</TD><TD>properties on the condensation curve</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>MassFraction</A></TD><TD>x</TD><TD>&nbsp;</TD><TD>vapour mass fraction [1]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>Temperature</A></TD><TD>T</TD><TD>&nbsp;</TD><TD>temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Pressure</A></TD><TD>p</TD><TD>&nbsp;</TD><TD>preoperties [Pa]</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SpecificHeatCapacity</A></TD><TD>cv</TD><TD>isochoric specific heat capacity [J/(kg.K)]</TD></TR>
+<TR><TD>Real</TD><TD>dpT</TD><TD>derivative of pressure w.r.t. temperature</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> cvdpT2Phase <font color="darkgreen">
+  &quot;compute isochoric specific heat capacity inside the two-phase region and derivative of pressure w.r.t. temperature&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> liq <font color="darkgreen">&quot;properties on the boiling curve&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.PhaseBoundaryProperties"
+>PhaseBoundaryProperties</A> vap <font color="darkgreen">&quot;properties on the condensation curve&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFraction"
+>SI.MassFraction</A> x <font color="darkgreen">&quot;vapour mass fraction&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Temperature"
+>SI.Temperature</A> T <font color="darkgreen">&quot;temperature&quot;</font>;
+  <font color="blue">input </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;preoperties&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric specific heat capacity&quot;</font>;
+  <font color="blue">output </font>Real dpT <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+<font color="blue">protected </font>
+  Real dxv <font color="darkgreen">&quot;derivative of vapour mass fraction w.r.t. specific volume&quot;</font>;
+  Real dvTl <font color="darkgreen">&quot;derivative of liquid specific volume w.r.t. temperature&quot;</font>;
+  Real dvTv <font color="darkgreen">&quot;derivative of vapour specific volume w.r.t. temperature&quot;</font>;
+  Real duTl <font color="darkgreen">&quot;derivative of liquid specific inner energy w.r.t. temperature&quot;</font>;
+  Real duTv <font color="darkgreen">&quot;derivative of vapour specific inner energy w.r.t. temperature&quot;</font>;
+  Real dxt <font color="darkgreen">&quot;derivative of vapour mass fraction w.r.t. temperature&quot;</font>;
+<font color="blue">algorithm </font>
+  dxv := <font color="blue">if </font>(liq.d &lt;&gt; vap.d)<font color="blue"> then </font>liq.d*vap.d/(liq.d - vap.d)<font color="blue"> else </font>0.0;
+  dpT := (vap.s - liq.s)*dxv;
+  <font color="darkgreen">// wrong at critical point</font>
+  dvTl := (liq.pt - dpT)/liq.pd/liq.d/liq.d;
+  dvTv := (vap.pt - dpT)/vap.pd/vap.d/vap.d;
+  dxt := -dxv*(dvTl + x*(dvTv - dvTl));
+  duTl := liq.cv + (T*liq.pt - p)*dvTl;
+  duTv := vap.cv + (T*vap.pt - p)*dvTv;
+  cv := duTl + x*(duTv - duTl) + dxt*(vap.u - liq.u);
+<font color="blue">end </font>cvdpT2Phase;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE gibbsToExtraDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.gibbsToExtraDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.gibbsToExtraDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.gibbsToExtraDerivs</H2>
+<B>compute additional thermodynamic derivatives from dimensionless Gibbs function</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A></TD><TD>g</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Gibbs function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.ExtraDerivatives"
+>ExtraDerivatives</A></TD><TD>dpro</TD><TD>additional property derivatives</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> gibbsToExtraDerivs <font color="darkgreen">
+  &quot;compute additional thermodynamic derivatives from dimensionless Gibbs function&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.GibbsDerivs"
+>GibbsDerivs</A> g <font color="darkgreen">&quot;dimensionless derivatives of Gibbs function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.ExtraDerivatives"
+>ExtraDerivatives</A> dpro <font color="darkgreen">&quot;additional property derivatives&quot;</font>;
+<font color="blue">protected </font>
+  Real vt <font color="darkgreen">&quot;derivative of specific volume w.r.t. temperature&quot;</font>;
+  Real vp <font color="darkgreen">&quot;derivative of specific volume w.r.t. pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Density"
+>SI.Density</A> d <font color="darkgreen">&quot;density&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SI.SpecificVolume</A> v <font color="darkgreen">&quot;specific volume&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric heat capacity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cp <font color="darkgreen">&quot;isobaric heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  d := g.p/(g.R*g.T*g.pi*g.gpi);
+  v := 1/d;
+  vt := g.R/g.p*(g.pi*g.gpi - g.tau*g.pi*g.gtaupi);
+  vp := g.R*g.T/(g.p*g.p)*g.pi*g.pi*g.gpipi;
+  cp := -g.R*g.tau*g.tau*g.gtautau;
+  cv := g.R*(-g.tau*g.tau*g.gtautau + (g.gpi - g.tau*g.gtaupi)*(g.gpi - g.tau
+    *g.gtaupi)/g.gpipi);
+  dpro.kappa := -1/(d*g.p)*cp/(vp*cp + vt*vt*g.T);
+  dpro.theta := cp/(d*g.p*(-vp*cp + vt*v - g.T*vt*vt));
+  dpro.alpha := d*vt;
+  dpro.beta := -vt/(g.p*vp);
+  dpro.gamma := -d*vp;
+  dpro.mu := -(v - g.T*vt)/cp;
+<font color="blue">end </font>gibbsToExtraDerivs;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE helmholtzToExtraDerivs<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.helmholtzToExtraDerivs" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.helmholtzToExtraDerivs"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.helmholtzToExtraDerivs</H2>
+<B>compute additional thermodynamic derivatives from dimensionless Helmholtz function</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.ExtraDerivatives"
+>ExtraDerivatives</A></TD><TD>dpro</TD><TD>additional property derivatives</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> helmholtzToExtraDerivs <font color="darkgreen">
+  &quot;compute additional thermodynamic derivatives from dimensionless Helmholtz function&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless derivatives of Helmholtz function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.ExtraDerivatives"
+>ExtraDerivatives</A> dpro <font color="darkgreen">&quot;additional property derivatives&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>SI.Pressure</A> p <font color="darkgreen">&quot;pressure&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificVolume"
+>SI.SpecificVolume</A> v <font color="darkgreen">&quot;specific volume&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureByTemperature"
+>DerPressureByTemperature</A> pt <font color="darkgreen">&quot;derivative of pressure w.r.t. temperature&quot;</font>;
+  <A HREF="Modelica_Media_Common.html#Modelica.Media.Common.DerPressureBySpecificVolume"
+>DerPressureBySpecificVolume</A> pv <font color="darkgreen">
+    &quot;derivative of pressure w.r.t. specific volume&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric specific heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  v := 1/f.d;
+  p := f.R*f.d*f.T*f.delta*f.fdelta;
+  pv := -(f.d*f.d)*f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+  pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+  cv := f.R*(-f.tau*f.tau*f.ftautau);
+  dpro.kappa := 1/(f.d*p)*((-pv*cv + pt*pt*f.T)/(cv));
+  dpro.theta := -1/(f.d*p)*((-pv*cv + f.T*pt*pt)/(cv + pt*v));
+  dpro.alpha := -f.d*pt/pv;
+  dpro.beta := pt/p;
+  dpro.gamma := -f.d/pv;
+  dpro.mu := (v*pv + f.T*pt)/(pt*pt*f.T - pv*cv);
+<font color="blue">end </font>helmholtzToExtraDerivs;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Helmholtz_ph<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.Helmholtz_ph" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Helmholtz_ph"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Helmholtz_ph</H2>
+<B>function to calculate analytic derivatives for computing d and t given p and h</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ph"
+>NewtonDerivatives_ph</A></TD><TD>nderivs</TD><TD>derivatives for Newton iteration to calculate d and t from p and h</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> Helmholtz_ph <font color="darkgreen">
+  &quot;function to calculate analytic derivatives for computing d and t given p and h&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless derivatives of Helmholtz function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ph"
+>NewtonDerivatives_ph</A> nderivs <font color="darkgreen">
+    &quot;derivatives for Newton iteration to calculate d and t from p and h&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cv := -f.R*(f.tau*f.tau*f.ftautau);
+  nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
+  nderivs.h := f.R*f.T*(f.tau*f.ftau + f.delta*f.fdelta);
+  nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+  nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+  nderivs.ht := cv + nderivs.pt/f.d;
+  nderivs.hd := (nderivs.pd - f.T*nderivs.pt/f.d)/f.d;
+<font color="blue">end </font>Helmholtz_ph;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Helmholtz_pT<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.Helmholtz_pT" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Helmholtz_pT"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Helmholtz_pT</H2>
+<B>function to calculate analytic derivatives for computing d and t given p and t</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_pT"
+>NewtonDerivatives_pT</A></TD><TD>nderivs</TD><TD>derivatives for Newton iteration to compute d and t from p and t</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> Helmholtz_pT <font color="darkgreen">
+  &quot;function to calculate analytic derivatives for computing d and t given p and t&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless derivatives of Helmholtz function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_pT"
+>NewtonDerivatives_pT</A> nderivs <font color="darkgreen">
+    &quot;derivatives for Newton iteration to compute d and t from p and t&quot;</font>;
+<font color="blue">algorithm </font>
+  nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
+  nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+<font color="blue">end </font>Helmholtz_pT;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Helmholtz_ps<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.Helmholtz_ps" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.Helmholtz_ps"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.Helmholtz_ps</H2>
+<B>function to calculate analytic derivatives for computing d and t given p and s</B><p>
+<P><H3>Information</H3></P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A></TD><TD>f</TD><TD>&nbsp;</TD><TD>dimensionless derivatives of Helmholtz function</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ps"
+>NewtonDerivatives_ps</A></TD><TD>nderivs</TD><TD>derivatives for Newton iteration to compute d and t from p and s</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> Helmholtz_ps <font color="darkgreen">
+  &quot;function to calculate analytic derivatives for computing d and t given p and s&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.HelmholtzDerivs"
+>HelmholtzDerivs</A> f <font color="darkgreen">&quot;dimensionless derivatives of Helmholtz function&quot;</font>;
+  <font color="blue">output </font><A HREF="Modelica_Media_Common.html#Modelica.Media.Common.NewtonDerivatives_ps"
+>NewtonDerivatives_ps</A> nderivs <font color="darkgreen">
+    &quot;derivatives for Newton iteration to compute d and t from p and s&quot;</font>;
+<font color="blue">protected </font>
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.SpecificHeatCapacity"
+>SI.SpecificHeatCapacity</A> cv <font color="darkgreen">&quot;isochoric heat capacity&quot;</font>;
+<font color="blue">algorithm </font>
+  cv := -f.R*(f.tau*f.tau*f.ftautau);
+  nderivs.p := f.d*f.R*f.T*f.delta*f.fdelta;
+  nderivs.s := f.R*(f.tau*f.ftau - f.f);
+  nderivs.pd := f.R*f.T*f.delta*(2.0*f.fdelta + f.delta*f.fdeltadelta);
+  nderivs.pt := f.R*f.d*f.delta*(f.fdelta - f.tau*f.fdeltatau);
+  nderivs.st := cv/f.T;
+  nderivs.sd := -nderivs.pt/(f.d*f.d);
+<font color="blue">end </font>Helmholtz_ps;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE smoothStep<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Media.Common.gibbsToBridgmansTablesI.png" ALT="Modelica.Media.Common.smoothStep" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Media.Common.smoothStep"></A><A HREF="Modelica_Media_Common.html#Modelica.Media.Common"
+>Modelica.Media.Common</A>.smoothStep</H2>
+<B>Approximation of a general step, such that the characteristic is continuous and differentiable</B><p>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This function is used to approximate the equation
+</p>
+<pre>
+    y = <b>if</b> x &gt; 0 <b>then</b> y1 <b>else</b> y2;
+</pre>
+
+<p>
+by a smooth characteristic, so that the expression is continuous and differentiable:
+</p>
+
+<pre>
+   y = <b>smooth</b>(1, <b>if</b> x &gt;  x_small <b>then</b> y1 <b>else</b>
+                 <b>if</b> x &lt; -x_small <b>then</b> y2 <b>else</b> f(y1, y2));
+</pre>
+
+<p>
+In the region -x_small &lt; x &lt; x_small a 2nd order polynomial is used
+for a smooth transition from y1 to y2.
+</p>
+
+<p>
+If <b>mass fractions</b> X[:] are approximated with this function then this can be performed
+for all <b>nX</b> mass fractions, instead of applying it for nX-1 mass fractions and computing
+the last one by the mass fraction constraint sum(X)=1. The reason is that the approximating function has the
+property that sum(X) = 1, provided sum(X_a) = sum(X_b) = 1
+(and y1=X_a[i], y2=X_b[i]).
+This can be shown by evaluating the approximating function in the abs(x) &lt; x_small
+region (otherwise X is either X_a or X_b):
+</p>
+
+<pre>
+    X[1]  = smoothStep(x, X_a[1] , X_b[1] , x_small);
+    X[2]  = smoothStep(x, X_a[2] , X_b[2] , x_small);
+       ...
+    X[nX] = smoothStep(x, X_a[nX], X_b[nX], x_small);
+</pre>
+
+<p>
+or
+</p>
+
+<pre>
+    X[1]  = c*(X_a[1]  - X_b[1])  + (X_a[1]  + X_b[1])/2
+    X[2]  = c*(X_a[2]  - X_b[2])  + (X_a[2]  + X_b[2])/2;
+       ...
+    X[nX] = c*(X_a[nX] - X_b[nX]) + (X_a[nX] + X_b[nX])/2;
+    c     = (x/x_small)*((x/x_small)^2 - 3)/4
+</pre>
+
+<p>
+Summing all mass fractions together results in
+</p>
+
+<pre>
+    sum(X) = c*(sum(X_a) - sum(X_b)) + (sum(X_a) + sum(X_b))/2
+           = c*(1 - 1) + (1 + 1)/2
+           = 1
+</pre>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A> (Icon for functions).
+<P><H3>Inputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>x</TD><TD>&nbsp;</TD><TD>Abszissa value</TD></TR>
+<TR><TD>Real</TD><TD>y1</TD><TD>&nbsp;</TD><TD>Ordinate value for x &gt; 0</TD></TR>
+<TR><TD>Real</TD><TD>y2</TD><TD>&nbsp;</TD><TD>Ordinate value for x &lt; 0</TD></TR>
+<TR><TD>Real</TD><TD>x_small</TD><TD>1e-5</TD><TD>Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required</TD></TR>
+</TABLE>
+<P><H3>Outputs</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD>Real</TD><TD>y</TD><TD>Ordinate value to approximate y = if x &gt; 0 then y1 else y2</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">function</font> smoothStep <font color="darkgreen">
+  &quot;Approximation of a general step, such that the characteristic is continuous and differentiable&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Function"
+>Modelica.Icons.Function</A>;
+  <font color="blue">input </font>Real x <font color="darkgreen">&quot;Abszissa value&quot;</font>;
+  <font color="blue">input </font>Real y1 <font color="darkgreen">&quot;Ordinate value for x &gt; 0&quot;</font>;
+  <font color="blue">input </font>Real y2 <font color="darkgreen">&quot;Ordinate value for x &lt; 0&quot;</font>;
+  <font color="blue">input </font>Real x_small(min=0) = 1e-5 <font color="darkgreen">
+    &quot;Approximation of step for -x_small &lt;= x &lt;= x_small; x_small &gt; 0 required&quot;</font>;
+  <font color="blue">output </font>Real y <font color="darkgreen">&quot;Ordinate value to approximate y = if x &gt; 0 then y1 else y2&quot;</font>;
+<font color="blue">algorithm </font>
+  y :=<font color="red"> smooth</font>(1, <font color="blue">if </font>x &gt;  x_small<font color="blue"> then </font>y1<font color="blue"> else </font>
+                 <font color="blue">if </font>x &lt; -x_small<font color="blue"> then </font>y2<font color="blue"> else </font>
+                 <font color="blue">if </font><font color="red">abs</font>(x_small)&gt;0<font color="blue"> then </font>(x/x_small)*((x/x_small)^2 - 3)*(y2-y1)/4 + (y1+y2)/2<font color="blue"> else </font>(y1+y2)/2);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>smoothStep;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:30 2010.
+</address></BODY>
+</HTML>

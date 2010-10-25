@@ -1,0 +1,671 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Fluid.Fittings</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Adaptors for connections of fluid components and the regulation of fluid flow&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Fittings<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Fluid.Fittings"></A><A HREF="Modelica_Fluid.html#Modelica.Fluid"
+>Modelica.Fluid</A>.Fittings</H2>
+<B>Adaptors for connections of fluid components and the regulation of fluid flow</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_VariantsPackage.html#Modelica.Icons.VariantsPackage"
+>Modelica.Icons.VariantsPackage</A> (Icon for package containing variants).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.BendsS.png" ALT="Modelica.Fluid.Fittings.Bends" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_Bends.html#Modelica.Fluid.Fittings.Bends"
+>Bends</A>
+</TD><TD>Flow models for bends</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.BendsS.png" ALT="Modelica.Fluid.Fittings.Orifices" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_Orifices.html#Modelica.Fluid.Fittings.Orifices"
+>Orifices</A>
+</TD><TD>Flow models for orifices</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.BendsS.png" ALT="Modelica.Fluid.Fittings.GenericResistances" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_GenericResistances.html#Modelica.Fluid.Fittings.GenericResistances"
+>GenericResistances</A>
+</TD><TD>Flow models for generic resistances</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.SimpleGenericOrificeS.png" ALT="Modelica.Fluid.Fittings.SimpleGenericOrifice" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.SimpleGenericOrifice"
+>SimpleGenericOrifice</A>
+</TD><TD>Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.SharpEdgedOrificeS.png" ALT="Modelica.Fluid.Fittings.SharpEdgedOrifice" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.SharpEdgedOrifice"
+>SharpEdgedOrifice</A>
+</TD><TD>Pressure drop due to sharp edged orifice (for both flow directions)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.AbruptAdaptorS.png" ALT="Modelica.Fluid.Fittings.AbruptAdaptor" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.AbruptAdaptor"
+>AbruptAdaptor</A>
+</TD><TD>Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.MultiPortS.png" ALT="Modelica.Fluid.Fittings.MultiPort" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.MultiPort"
+>MultiPort</A>
+</TD><TD>Multiply a port; useful if multiple connections shall be made to a port exposing a state</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.TeeJunctionIdealS.png" ALT="Modelica.Fluid.Fittings.TeeJunctionIdeal" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.TeeJunctionIdeal"
+>TeeJunctionIdeal</A>
+</TD><TD>Splitting/joining component with static balances for an infinitesimal control volume</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.TeeJunctionVolumeS.png" ALT="Modelica.Fluid.Fittings.TeeJunctionVolume" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings.TeeJunctionVolume"
+>TeeJunctionVolume</A>
+</TD><TD>Splitting/joining component with static balances for a dynamic control volume</TD></TR>
+<TR><TD><IMG SRC="Modelica.Fluid.Fittings.BaseClassesS.png" ALT="Modelica.Fluid.Fittings.BaseClasses" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses"
+>BaseClasses</A>
+</TD><TD>Base classes used in the Fittings package (only of interest to build new component models)</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SimpleGenericOrifice<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.SimpleGenericOrificeI.png" ALT="Modelica.Fluid.Fittings.SimpleGenericOrifice" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.SimpleGenericOrifice"></A><A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</A>.SimpleGenericOrifice</H2>
+<B>Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)</B><p>
+<IMG SRC="Modelica.Fluid.Fittings.SimpleGenericOrificeD.png" ALT="Modelica.Fluid.Fittings.SimpleGenericOrifice">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This pressure drop component defines a
+simple, generic orifice, where the loss factor &zeta; is provided
+for one flow direction (e.g., from loss table of a book):
+</p>
+
+<pre>   &Delta;p = 0.5*&zeta;*&rho;*v*|v|
+      = 8*&zeta;/(&pi;^2*D^4*&rho;) * m_flow*|m_flow|
+</pre>
+
+<p>
+where
+</p>
+<ul>
+<li> &Delta;p is the pressure drop: &Delta;p = port_a.p - port_b.p</li>
+<li> D is the diameter of the orifice at the position where
+     &zeta; is defined (either at port_a or port_b). If the orifice has not a
+     circular cross section, D = 4*A/P, where A is the cross section
+     area and P is the wetted perimeter.</li>
+<li> &zeta; is the loss factor with respect to D
+     that depends on the geometry of
+     the orifice. In the turbulent flow regime, it is assumed that
+     &zeta; is constant.<br>
+     For small mass flow rates, the flow is laminar and is approximated
+     by a polynomial that has a finite derivative for m_flow=0.</li>
+<li> v is the mean velocity.</li>
+<li> &rho; is the upstream density.</li>
+</ul>
+
+<p>
+Since the pressure loss factor zeta is provided only for a mass flow
+from port_a to port_b, the pressure loss is not correct when the
+flow is reversing. If reversing flow only occurs in a short time interval,
+this is most likely uncritical. If significant reversing flow
+can appear, this component should not be used.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A> (Partial element transporting fluid between two ports without storage of mass or energy), <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>Modelica.Fluid.Interfaces.PartialLumpedFlow</A> (Base class for a lumped momentum balance).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>pathLength</TD><TD>0</TD><TD>Length flow path [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Diameter of orifice [m]</TD></TR>
+<TR><TD>Real</TD><TD>zeta</TD><TD>&nbsp;</TD><TD>Loss factor for flow of port_a -&gt; port_b</TD></TR>
+<TR><TD>Boolean</TD><TD>use_zeta</TD><TD>true</TD><TD>= false to obtain zeta from dp_nominal and m_flow_nominal</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_nominal</TD><TD>1e3</TD><TD>Nominal pressure drop [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_nominal</TD><TD>1</TD><TD>Mass flow rate for dp_nominal [kg/s]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>momentumDynamics</TD><TD>Types.Dynamics.SteadyState</TD><TD>Formulation of momentum balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_start</TD><TD>0.01*system.p_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>system.m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>Boolean</TD><TD>from_dp</TD><TD>true</TD><TD>= true, use m_flow = f(dp) else dp = f(m_flow)</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>system.dp_small</TD><TD>Turbulent flow if |dp| &gt;= dp_small [Pa]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Diagnostics</TD></TR>
+<TR><TD>Boolean</TD><TD>show_T</TD><TD>true</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_V_flow</TD><TD>true</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SimpleGenericOrifice <font color="darkgreen">
+  &quot;Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)&quot;</font>
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialTwoPortTransport"
+>Modelica.Fluid.Interfaces.PartialTwoPortTransport</A>;
+
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedFlow"
+>Modelica.Fluid.Interfaces.PartialLumpedFlow</A>(
+    <font color="blue">final </font>pathLength = 0,
+    <font color="blue">final </font>momentumDynamics = Types.Dynamics.SteadyState);
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">&quot;Diameter of orifice&quot;</font>;
+  <font color="blue">parameter </font>Real zeta <font color="darkgreen">&quot;Loss factor for flow of port_a -&gt; port_b&quot;</font>;
+  <font color="blue">parameter </font>Boolean use_zeta = true <font color="darkgreen">
+    &quot;= false to obtain zeta from dp_nominal and m_flow_nominal&quot;</font>;
+
+  <font color="darkgreen">// Operational conditions</font>
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.AbsolutePressure"
+>SI.AbsolutePressure</A> dp_nominal = 1e3 <font color="darkgreen">&quot;Nominal pressure drop&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.MassFlowRate"
+>SI.MassFlowRate</A> m_flow_nominal = 1 <font color="darkgreen">&quot;Mass flow rate for dp_nominal&quot;</font>;
+
+  <font color="blue">parameter </font>Boolean from_dp = true <font color="darkgreen">
+    &quot;= true, use m_flow = f(dp) else dp = f(m_flow)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>Medium.AbsolutePressure</A> dp_small = system.dp_small <font color="darkgreen">
+    &quot;Turbulent flow if |dp| &gt;= dp_small&quot;</font>;
+
+  <font color="darkgreen">// Variables</font>
+  Real zeta_nominal(start = zeta);
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Density"
+>Medium.Density</A> d = 0.5*(<font color="red">Medium.density</font>(state_a) +<font color="red"> Medium.density</font>(state_b));
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Pressure"
+>Modelica.SIunits.Pressure</A> dp_fg(start=dp_start) <font color="darkgreen">
+    &quot;pressure loss due to friction and gravity&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.Area"
+>Modelica.SIunits.Area</A> A_mean = Modelica.Constants.pi/4*diameter^2 <font color="darkgreen">
+    &quot;mean cross flow area&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="blue">if </font>use_zeta<font color="blue"> then</font>
+    zeta_nominal = zeta;
+  <font color="blue">else</font>
+    dp_nominal =<font color="red"> BaseClasses.lossConstant_D_zeta</font>(diameter, zeta_nominal)/d*m_flow_nominal^2;
+  <font color="blue">end if</font>;
+
+  Ib_flow = 0;
+  F_p = A_mean*(<font color="red">Medium.pressure</font>(state_b) -<font color="red"> Medium.pressure</font>(state_a));
+  F_fg = A_mean*dp_fg;
+
+  <font color="darkgreen">/*
+   dp = 0.5*zeta*d*v*|v|
+      = 0.5*zeta*d*1/(d*A)^2 * m_flow * |m_flow|
+      = 0.5*zeta/A^2 *1/d * m_flow * |m_flow|
+      = k/d * m_flow * |m_flow|
+   k  = 0.5*zeta/A^2
+      = 0.5*zeta/(pi*(D/2)^2)^2
+      = 8*zeta/(pi*D^2)^2
+  */</font>
+  <font color="blue">if </font>from_dp<font color="blue"> then</font>
+    m_flow =<font color="red"> Utilities.regRoot2</font>(
+        dp_fg,
+        dp_small,
+        <font color="red">Medium.density</font>(state_a)/<font color="red">BaseClasses.lossConstant_D_zeta</font>(diameter, zeta_nominal),
+        <font color="red">Medium.density</font>(state_b)/<font color="red">BaseClasses.lossConstant_D_zeta</font>(diameter, zeta_nominal));
+  <font color="blue">else</font>
+    dp_fg =<font color="red"> Utilities.regSquare2</font>(
+        m_flow,
+        m_flow_small,
+        <font color="red">BaseClasses.lossConstant_D_zeta</font>(diameter, zeta_nominal)/<font color="red">Medium.density</font>(state_a),
+        <font color="red">BaseClasses.lossConstant_D_zeta</font>(diameter, zeta_nominal)/<font color="red">Medium.density</font>(state_b));
+  <font color="blue">end if</font>;
+
+  <font color="darkgreen">// Isenthalpic state transformation (no storage and no loss of energy)</font>
+  port_a.h_outflow =<font color="red"> inStream</font>(port_b.h_outflow);
+  port_b.h_outflow =<font color="red"> inStream</font>(port_a.h_outflow);
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>SimpleGenericOrifice;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SharpEdgedOrifice<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.SharpEdgedOrificeI.png" ALT="Modelica.Fluid.Fittings.SharpEdgedOrifice" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.SharpEdgedOrifice"></A><A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</A>.SharpEdgedOrifice</H2>
+<B>Pressure drop due to sharp edged orifice (for both flow directions)</B><p>
+<IMG SRC="Modelica.Fluid.Fittings.SharpEdgedOrificeD.png" ALT="Modelica.Fluid.Fittings.SharpEdgedOrifice">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel"
+>BaseClasses.QuadraticTurbulent.BaseModel</A> (Generic pressure drop component with constant turbulent loss factor data and without an icon).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData"
+>LossFactorData</A></TD><TD>data</TD><TD>BaseClasses.QuadraticTurbule...</TD><TD>Loss factor data</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>Length</A></TD><TD>length</TD><TD>&nbsp;</TD><TD>Length of orifice [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter</TD><TD>&nbsp;</TD><TD>Inner diameter of pipe (= same at port_a and port_b) [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>leastDiameter</TD><TD>&nbsp;</TD><TD>Smallest diameter of orifice [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>Angle_deg</A></TD><TD>alpha</TD><TD>&nbsp;</TD><TD>Angle of orifice [deg]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_start</TD><TD>0.01*system.p_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>system.m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD>Boolean</TD><TD>from_dp</TD><TD>true</TD><TD>= true, use m_flow = f(dp) else dp = f(m_flow)</TD></TR>
+<TR><TD>Boolean</TD><TD>use_Re</TD><TD>false</TD><TD>= true, if turbulent region is defined by Re, otherwise by dp_small or m_flow_small</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>system.dp_small</TD><TD>Turbulent flow if |dp| &gt;= dp_small [Pa]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Diagnostics</TD></TR>
+<TR><TD>Boolean</TD><TD>show_T</TD><TD>true</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_V_flow</TD><TD>true</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_Re</TD><TD>false</TD><TD>= true, if Reynolds number is included for plotting</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SharpEdgedOrifice <font color="darkgreen">
+  &quot;Pressure drop due to sharp edged orifice (for both flow directions)&quot;</font>
+    <font color="blue">import </font>NonSI = <A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits"
+>Modelica.SIunits.Conversions.NonSIunits</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModel"
+>BaseClasses.QuadraticTurbulent.BaseModel</A>(<font color="blue">final </font>data=
+          <font color="red">BaseClasses.QuadraticTurbulent.LossFactorData.sharpEdgedOrifice</font>(
+          diameter,
+          leastDiameter,
+          length,
+          alpha));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Length"
+>SI.Length</A> length <font color="darkgreen">&quot;Length of orifice&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter <font color="darkgreen">
+    &quot;Inner diameter of pipe (= same at port_a and port_b)&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> leastDiameter <font color="darkgreen">&quot;Smallest diameter of orifice&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits_Conversions_NonSIunits.html#Modelica.SIunits.Conversions.NonSIunits.Angle_deg"
+>NonSI.Angle_deg</A> alpha <font color="darkgreen">&quot;Angle of orifice&quot;</font>;
+<textblock type="annotcomp" expanded="false">
+<font color="blue">end </font>SharpEdgedOrifice;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AbruptAdaptor<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.AbruptAdaptorI.png" ALT="Modelica.Fluid.Fittings.AbruptAdaptor" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.AbruptAdaptor"></A><A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</A>.AbruptAdaptor</H2>
+<B>Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)</B><p>
+<IMG SRC="Modelica.Fluid.Fittings.AbruptAdaptorD.png" ALT="Modelica.Fluid.Fittings.AbruptAdaptor">
+<P><H3>Information</H3></P>
+<PRE></pre>
+
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea"
+>BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea</A> (Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.LossFactorData"
+>LossFactorData</A></TD><TD>data</TD><TD>BaseClasses.QuadraticTurbule...</TD><TD>Loss factor data</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter_a</TD><TD>&nbsp;</TD><TD>Inner diameter of pipe at port_a [m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>Diameter</A></TD><TD>diameter_b</TD><TD>&nbsp;</TD><TD>Inner diameter of pipe at port_b [m]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR><TD>Boolean</TD><TD>allowFlowReversal</TD><TD>system.allowFlowReversal</TD><TD>= true to allow flow reversal, false restricts to design direction (port_a -&gt; port_b)</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Advanced</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_start</TD><TD>0.01*system.p_start</TD><TD>Guess value of dp = port_a.p - port_b.p [Pa]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_start</TD><TD>system.m_flow_start</TD><TD>Guess value of m_flow = port_a.m_flow [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFlowRate"
+>MassFlowRate</A></TD><TD>m_flow_small</TD><TD>system.m_flow_small</TD><TD>Small mass flow rate for regularization of zero flow [kg/s]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>dp_small</TD><TD>system.dp_small</TD><TD>Turbulent flow if |dp| &gt;= dp_small [Pa]</TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Diagnostics</TD></TR>
+<TR><TD>Boolean</TD><TD>show_T</TD><TD>true</TD><TD>= true, if temperatures at port_a and port_b are computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_V_flow</TD><TD>true</TD><TD>= true, if volume flow rate at inflowing port is computed</TD></TR>
+<TR><TD>Boolean</TD><TD>show_Re</TD><TD>false</TD><TD>= true, if Reynolds number is included for plotting</TD></TR>
+<TR><TD>Boolean</TD><TD>show_totalPressures</TD><TD>false</TD><TD>= true, if total pressures are included for plotting</TD></TR>
+<TR><TD>Boolean</TD><TD>show_portVelocities</TD><TD>false</TD><TD>= true, if port velocities are included for plotting</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>Fluid connector a (positive design flow direction is from port_a to port_b)</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_b</TD><TD>Fluid connector b (positive design flow direction is from port_a to port_b)</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AbruptAdaptor <font color="darkgreen">
+  &quot;Pressure drop in pipe due to suddenly expanding or reducing area (for both flow directions)&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Fittings_BaseClasses_QuadraticTurbulent.html#Modelica.Fluid.Fittings.BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea"
+>BaseClasses.QuadraticTurbulent.BaseModelNonconstantCrossSectionArea</A>(<font color="blue">final </font>data=
+          <font color="red">BaseClasses.QuadraticTurbulent.LossFactorData.suddenExpansion</font>(
+          diameter_a, diameter_b));
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter_a <font color="darkgreen">&quot;Inner diameter of pipe at port_a&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Diameter"
+>SI.Diameter</A> diameter_b <font color="darkgreen">&quot;Inner diameter of pipe at port_b&quot;</font>;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>AbruptAdaptor;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE MultiPort<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.MultiPortI.png" ALT="Modelica.Fluid.Fittings.MultiPort" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.MultiPort"></A><A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</A>.MultiPort</H2>
+<B>Multiply a port; useful if multiple connections shall be made to a port exposing a state</B><p>
+<IMG SRC="Modelica.Fluid.Fittings.MultiPortD.png" ALT="Modelica.Fluid.Fittings.MultiPort">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This model is useful if multiple connections shall be made to a port of a volume model exposing a state,
+like a pipe with ModelStructure av_vb.
+The mixing is shifted into the volume connected to port_a and the result is propageted back to each ports_b.
+</p>
+<p>
+If multiple connections were directly made to the volume,
+then ideal mixing would take place in the connection set, outside the volume. This is normally not intended.
+</p>
+<pre></PRE><P>
+
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_a</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>FluidPorts_b</A></TD><TD>ports_b[nPorts_b]</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> MultiPort <font color="darkgreen">
+  &quot;Multiply a port; useful if multiple connections shall be made to a port exposing a state&quot;</font>
+
+  <textblock type="model" expanded="false" path="Modelica.Fluid.Fittings.MultiPort.positiveMax"><font color="blue">function</font> positiveMax
+    <font color="blue">input </font>Real x;
+    <font color="blue">output </font>Real y;
+  <font color="blue">algorithm </font>
+    y :=<font color="red">max</font>(x, 1e-10);
+  <font color="blue">end </font>positiveMax</textblock>;
+
+  <font color="blue">import </font><A HREF="Modelica_Constants.html#Modelica.Constants"
+>Modelica.Constants</A>;
+
+  <font color="blue">replaceable </font><font color="blue">package</font> Medium=<A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>Modelica.Media.Interfaces.PartialMedium</A>;
+
+  <font color="darkgreen">// Ports</font>
+  <font color="blue">parameter </font>Integer nPorts_b=0 <font color="darkgreen">
+    &quot;Number of outlet ports (mass is distributed evenly between the outlet ports&quot;</font>;
+
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>Modelica.Fluid.Interfaces.FluidPort_a</A> port_a(
+    <font color="blue">redeclare </font><font color="blue">package</font> Medium=Medium);
+  <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPorts_b"
+>Modelica.Fluid.Interfaces.FluidPorts_b</A> ports_b[nPorts_b](
+    <font color="blue">redeclare </font><font color="blue">each </font><font color="blue">package</font> Medium=Medium);</textblock>
+
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>Medium.MassFraction</A> ports_b_Xi_inStream[nPorts_b,Medium.nXi] <font color="darkgreen">
+    &quot;inStream mass fractions at ports_b&quot;</font>;
+  <A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>Medium.ExtraProperty</A> ports_b_C_inStream[nPorts_b,Medium.nC] <font color="darkgreen">
+    &quot;inStream extra properties at ports_b&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Only one connection allowed to a port to avoid unwanted ideal mixing</font>
+  <font color="blue">for </font>i<font color="blue"> in </font>1:nPorts_b<font color="blue"> loop</font>
+    <font color="red">assert</font>(<font color="red">cardinality</font>(ports_b[i]) &lt;= 1,&quot;
+each ports_b[i] of boundary shall at most be connected to one component.
+If two or more connections are present, ideal mixing takes
+place with these connections, which is usually not the intention
+of the modeller. Increase nPorts_b to add an additional port.
+&quot;);
+  <font color="blue">end for</font>;
+
+  <font color="darkgreen">// mass and momentum balance</font>
+  0 = port_a.m_flow +<font color="red"> sum</font>(ports_b.m_flow);
+  ports_b.p =<font color="red"> fill</font>(port_a.p, nPorts_b);
+
+  <font color="darkgreen">// mixing at port_a</font>
+  port_a.h_outflow =<font color="red"> sum</font>({<font color="red">positiveMax</font>(ports_b[j].m_flow)*<font color="red">inStream</font>(ports_b[j].h_outflow) <font color="blue">for </font>j<font color="blue"> in </font>1:nPorts_b})
+                       /<font color="red"> sum</font>({<font color="red">positiveMax</font>(ports_b[j].m_flow) <font color="blue">for </font>j<font color="blue"> in </font>1:nPorts_b});
+  <font color="blue">for </font>j<font color="blue"> in </font>1:nPorts_b<font color="blue"> loop</font>
+    <font color="darkgreen"> // expose stream values from port_a to ports_b</font>
+     ports_b[j].h_outflow  =<font color="red"> inStream</font>(port_a.h_outflow);
+     ports_b[j].Xi_outflow =<font color="red"> inStream</font>(port_a.Xi_outflow);
+     ports_b[j].C_outflow  =<font color="red"> inStream</font>(port_a.C_outflow);
+
+     ports_b_Xi_inStream[j,:] =<font color="red"> inStream</font>(ports_b[j].Xi_outflow);
+     ports_b_C_inStream[j,:] =<font color="red"> inStream</font>(ports_b[j].C_outflow);
+  <font color="blue">end for</font>;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:Medium.nXi<font color="blue"> loop</font>
+    port_a.Xi_outflow[i] = (<font color="red">positiveMax</font>(ports_b.m_flow)*ports_b_Xi_inStream[:,i])
+                         /<font color="red"> sum</font>(<font color="red">positiveMax</font>(ports_b.m_flow));
+  <font color="blue">end for</font>;
+  <font color="blue">for </font>i<font color="blue"> in </font>1:Medium.nC<font color="blue"> loop</font>
+    port_a.C_outflow[i] = (<font color="red">positiveMax</font>(ports_b.m_flow)*ports_b_C_inStream[:,i])
+                         /<font color="red"> sum</font>(<font color="red">positiveMax</font>(ports_b.m_flow));
+  <font color="blue">end for</font>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>MultiPort;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TeeJunctionIdeal<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.TeeJunctionIdealI.png" ALT="Modelica.Fluid.Fittings.TeeJunctionIdeal" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.TeeJunctionIdeal"></A><A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</A>.TeeJunctionIdeal</H2>
+<B>Splitting/joining component with static balances for an infinitesimal control volume</B><p>
+<IMG SRC="Modelica.Fluid.Fittings.TeeJunctionIdealD.png" ALT="Modelica.Fluid.Fittings.TeeJunctionIdeal">
+<P><H3>Information</H3></P>
+<PRE></pre>
+  This model is the simplest implementation for a splitting/joining component for
+  three flows. Its use is not required. It just formulates the balance
+  equations in the same way that the connect symmantics would formulate them anyways.
+  The main advantage of using this component is, that the user does not get
+  confused when looking at the specific enthalpy at each port which might be confusing
+  when not using a splitting/joining component. The reason for the confusion is that one exmanins the mixing
+  enthalpy of the infinitesimal control volume introduced with the connect statement when
+  looking at the specific enthalpy in the connector which
+  might not be equal to the specific enthalpy at the port in the "real world".<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction"
+>Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction</A> (Base class for a splitting/joining component with three ports).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TeeJunctionIdeal <font color="darkgreen">
+  &quot;Splitting/joining component with static balances for an infinitesimal control volume&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction"
+>Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction</A>;
+
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(port_1, port_2);
+  <font color="red">connect</font>(port_1, port_3);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TeeJunctionIdeal;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TeeJunctionVolume<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Fluid.Fittings.TeeJunctionVolumeI.png" ALT="Modelica.Fluid.Fittings.TeeJunctionVolume" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Fluid.Fittings.TeeJunctionVolume"></A><A HREF="Modelica_Fluid_Fittings.html#Modelica.Fluid.Fittings"
+>Modelica.Fluid.Fittings</A>.TeeJunctionVolume</H2>
+<B>Splitting/joining component with static balances for a dynamic control volume</B><p>
+<IMG SRC="Modelica.Fluid.Fittings.TeeJunctionVolumeD.png" ALT="Modelica.Fluid.Fittings.TeeJunctionVolume">
+<P><H3>Information</H3></P>
+<PRE></pre>
+  This model introduces a mixing volume into a junction.
+  This might be useful to examine the non-ideal mixing taking place in a real junction.<pre></PRE><P>
+Extends from <A HREF="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction"
+>Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction</A> (Base class for a splitting/joining component with three ports), <A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>Modelica.Fluid.Interfaces.PartialLumpedVolume</A> (Lumped volume with mass and energy balance).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD colspan="2">replaceable package Medium</TD><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium"
+>PartialMedium</A></TD><TD>Medium in the component</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>fluidVolume</TD><TD>V</TD><TD>Volume [m3]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>Volume</A></TD><TD>V</TD><TD>&nbsp;</TD><TD>Mixing volume inside junction [m3]</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Assumptions</B></TD></TR>
+<TR bgcolor="#e0e0e0"><TD colspan=4>Dynamics</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>energyDynamics</TD><TD>system.energyDynamics</TD><TD>Formulation of energy balance</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Types.html#Modelica.Fluid.Types.Dynamics"
+>Dynamics</A></TD><TD>massDynamics</TD><TD>system.massDynamics</TD><TD>Formulation of mass balance</TD></TR>
+<TR bgcolor="#c0c0c0"><TD colspan=4><B>Initialization</B></TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.AbsolutePressure"
+>AbsolutePressure</A></TD><TD>p_start</TD><TD>system.p_start</TD><TD>Start value of pressure [Pa]</TD></TR>
+<TR><TD>Boolean</TD><TD>use_T_start</TD><TD>true</TD><TD>= true, use T_start, otherwise h_start</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.Temperature"
+>Temperature</A></TD><TD>T_start</TD><TD>if use_T_start then system.T...</TD><TD>Start value of temperature [K]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.SpecificEnthalpy"
+>SpecificEnthalpy</A></TD><TD>h_start</TD><TD>if use_T_start then Medium.s...</TD><TD>Start value of specific enthalpy [J/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.MassFraction"
+>MassFraction</A></TD><TD>X_start[Medium.nX]</TD><TD>Medium.X_default</TD><TD>Start value of mass fractions m_i/m [kg/kg]</TD></TR>
+<TR><TD><A HREF="Modelica_Media_Interfaces_PartialMedium.html#Modelica.Media.Interfaces.PartialMedium.ExtraProperty"
+>ExtraProperty</A></TD><TD>C_start[Medium.nC]</TD><TD>fill(0, Medium.nC)</TD><TD>Start value of trace substances</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_b"
+>FluidPort_b</A></TD><TD>port_2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.FluidPort_a"
+>FluidPort_a</A></TD><TD>port_3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TeeJunctionVolume <font color="darkgreen">
+  &quot;Splitting/joining component with static balances for a dynamic control volume&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Fittings_BaseClasses.html#Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction"
+>Modelica.Fluid.Fittings.BaseClasses.PartialTeeJunction</A>;
+  <font color="blue">extends </font><A HREF="Modelica_Fluid_Interfaces.html#Modelica.Fluid.Interfaces.PartialLumpedVolume"
+>Modelica.Fluid.Interfaces.PartialLumpedVolume</A>(
+    <font color="blue">final </font>fluidVolume = V);
+
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Volume"
+>SI.Volume</A> V <font color="darkgreen">&quot;Mixing volume inside junction&quot;</font>;
+
+<font color="blue">equation </font>
+  <font color="darkgreen">// Only one connection allowed to a port to avoid unwanted ideal mixing</font>
+  <font color="red">assert</font>(<font color="red">cardinality</font>(port_1) &lt;= 1,&quot;
+port_1 of volume can at most be connected to one component.
+If two or more connections are present, ideal mixing takes
+place with these connections which is usually not the intention
+of the modeller.
+&quot;);
+  <font color="red">assert</font>(<font color="red">cardinality</font>(port_2) &lt;= 1,&quot;
+port_2 of volume can at most be connected to one component.
+If two or more connections are present, ideal mixing takes
+place with these connections which is usually not the intention
+of the modeller.
+&quot;);
+  <font color="red">assert</font>(<font color="red">cardinality</font>(port_3) &lt;= 1,&quot;
+port_3 of volume can at most be connected to one component.
+If two or more connections are present, ideal mixing takes
+place with these connections which is usually not the intention
+of the modeller.
+&quot;);
+
+  <font color="darkgreen">// Boundary conditions</font>
+  port_1.h_outflow = medium.h;
+  port_2.h_outflow = medium.h;
+  port_3.h_outflow = medium.h;
+
+  port_1.Xi_outflow = medium.Xi;
+  port_2.Xi_outflow = medium.Xi;
+  port_3.Xi_outflow = medium.Xi;
+
+  port_1.C_outflow = C;
+  port_2.C_outflow = C;
+  port_3.C_outflow = C;
+
+  <font color="darkgreen">// Mass balances</font>
+  mb_flow = port_1.m_flow + port_2.m_flow + port_3.m_flow <font color="darkgreen">&quot;Mass balance&quot;</font>;
+  mbXi_flow = port_1.m_flow*<font color="red">actualStream</font>(port_1.Xi_outflow)
+              + port_2.m_flow*<font color="red">actualStream</font>(port_2.Xi_outflow)
+              + port_3.m_flow*<font color="red">actualStream</font>(port_3.Xi_outflow) <font color="darkgreen">
+    &quot;Component mass balances&quot;</font>;
+
+  mbC_flow  = port_1.m_flow*<font color="red">actualStream</font>(port_1.C_outflow)
+            + port_2.m_flow*<font color="red">actualStream</font>(port_2.C_outflow)
+            + port_3.m_flow*<font color="red">actualStream</font>(port_3.C_outflow) <font color="darkgreen">
+    &quot;Trace substance mass balances&quot;</font>;
+
+  <font color="darkgreen">// Momentum balance (suitable for compressible media)</font>
+  port_1.p = medium.p;
+  port_2.p = medium.p;
+  port_3.p = medium.p;
+
+  <font color="darkgreen">// Energy balance</font>
+  Hb_flow = port_1.m_flow*<font color="red">actualStream</font>(port_1.h_outflow)
+            + port_2.m_flow*<font color="red">actualStream</font>(port_2.h_outflow)
+            + port_3.m_flow*<font color="red">actualStream</font>(port_3.h_outflow);
+  Qb_flow = 0;
+  Wb_flow = 0;
+
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TeeJunctionVolume;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:31:17 2010.
+</address></BODY>
+</HTML>

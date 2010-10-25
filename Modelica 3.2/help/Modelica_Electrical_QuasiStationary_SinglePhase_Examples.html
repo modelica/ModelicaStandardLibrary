@@ -1,0 +1,298 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.QuasiStationary.SinglePhase.Examples</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test examples&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Examples<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Examples"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase.html#Modelica.Electrical.QuasiStationary.SinglePhase"
+>Modelica.Electrical.QuasiStationary.SinglePhase</A>.Examples</H2>
+<B>Test examples</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+Examples to demonstrate the usage of quasistationary electric components.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance"
+>SeriesResonance</A>
+</TD><TD>Series resonance circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.ParallelResonance" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples.ParallelResonance"
+>ParallelResonance</A>
+</TD><TD>Parallel resonance circuit</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceS.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier"
+>Rectifier</A>
+</TD><TD>Rectifier example</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE SeriesResonance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Examples</A>.SeriesResonance</H2>
+<B>Series resonance circuit</B><p>
+<IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceD.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+The frequency of the voltage source is varied by a ramp.
+Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> SeriesResonance <font color="darkgreen">&quot;Series resonance circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> V(k=1);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> phi(k=0);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> f(
+    height=2,
+    duration=1,
+    offset=1e-6);
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableVoltageSource"
+>QuasiStationary.SinglePhase.Sources.VariableVoltageSource</A> voltageSource;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground"
+>QuasiStationary.SinglePhase.Basic.Ground</A> ground;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
+>QuasiStationary.SinglePhase.Basic.Resistor</A> resistor(R_ref=0.1);
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
+>QuasiStationary.SinglePhase.Basic.Inductor</A> inductor(L=1/(2*Modelica.Constants.pi));
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor"
+>QuasiStationary.SinglePhase.Basic.Capacitor</A> capacitor(C=1/(2*Modelica.Constants.pi));
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sensors.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor"
+>QuasiStationary.SinglePhase.Sensors.CurrentSensor</A> currentSensor;
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.PolarToComplex"
+>Modelica.ComplexBlocks.ComplexMath.PolarToComplex</A> polarToComplex;
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.ComplexToPolar"
+>Modelica.ComplexBlocks.ComplexMath.ComplexToPolar</A> complexToPolar;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(f.y, voltageSource.f);
+  <font color="red">connect</font>(polarToComplex.y, voltageSource.V);
+  <font color="red">connect</font>(ground.pin, voltageSource.pin_n);
+  <font color="red">connect</font>(voltageSource.pin_p, currentSensor.pin_p);
+  <font color="red">connect</font>(currentSensor.pin_n, resistor.pin_p);
+  <font color="red">connect</font>(resistor.pin_n, inductor.pin_p);
+  <font color="red">connect</font>(inductor.pin_n, capacitor.pin_p);
+  <font color="red">connect</font>(capacitor.pin_n, ground.pin);
+  <font color="red">connect</font>(phi.y, polarToComplex.phi);
+  <font color="red">connect</font>(V.y, polarToComplex.len);
+  <font color="red">connect</font>(currentSensor.y, complexToPolar.u);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>SeriesResonance;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ParallelResonance<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.ParallelResonance" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.ParallelResonance"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Examples</A>.ParallelResonance</H2>
+<B>Parallel resonance circuit</B><p>
+<IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.ParallelResonanceD.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.ParallelResonance">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+The frequency of the current source is varied by a ramp.
+Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> ParallelResonance <font color="darkgreen">&quot;Parallel resonance circuit&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> I;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Constant"
+>Modelica.Blocks.Sources.Constant</A> phi(k=0);
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Modelica.Blocks.Sources.Ramp</A> f(
+    height=2,
+    duration=1,
+    offset=1e-6);
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VariableCurrentSource"
+>QuasiStationary.SinglePhase.Sources.VariableCurrentSource</A> currentSource;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground"
+>QuasiStationary.SinglePhase.Basic.Ground</A> ground;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
+>QuasiStationary.SinglePhase.Basic.Resistor</A> resistor(R_ref=10);
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Inductor"
+>QuasiStationary.SinglePhase.Basic.Inductor</A> inductor(L=1/(2*Modelica.Constants.pi));
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Capacitor"
+>QuasiStationary.SinglePhase.Basic.Capacitor</A> capacitor(C=1/(2*Modelica.Constants.pi));
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sensors.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.VoltageSensor"
+>QuasiStationary.SinglePhase.Sensors.VoltageSensor</A> voltageSensor;
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.PolarToComplex"
+>Modelica.ComplexBlocks.ComplexMath.PolarToComplex</A> polarToComplex;
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.ComplexToPolar"
+>Modelica.ComplexBlocks.ComplexMath.ComplexToPolar</A> complexToPolar;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(currentSource.pin_n, resistor.pin_p);
+  <font color="red">connect</font>(currentSource.pin_n, inductor.pin_p);
+  <font color="red">connect</font>(currentSource.pin_n, capacitor.pin_p);
+  <font color="red">connect</font>(currentSource.pin_n, voltageSensor.pin_p);
+  <font color="red">connect</font>(currentSource.pin_p, ground.pin);
+  <font color="red">connect</font>(resistor.pin_n, ground.pin);
+  <font color="red">connect</font>(inductor.pin_n, ground.pin);
+  <font color="red">connect</font>(capacitor.pin_n, ground.pin);
+  <font color="red">connect</font>(voltageSensor.pin_n, ground.pin);
+  <font color="red">connect</font>(f.y, currentSource.f);
+  <font color="red">connect</font>(polarToComplex.y, currentSource.I);
+  <font color="red">connect</font>(phi.y, polarToComplex.phi);
+  <font color="red">connect</font>(I.y, polarToComplex.len);
+  <font color="red">connect</font>(voltageSensor.y, complexToPolar.u);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>ParallelResonance;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rectifier<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonanceI.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier"></A><A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Examples.html#Modelica.Electrical.QuasiStationary.SinglePhase.Examples"
+>Modelica.Electrical.QuasiStationary.SinglePhase.Examples</A>.Rectifier</H2>
+<B>Rectifier example</B><p>
+<IMG SRC="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.RectifierD.png" ALT="Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This example demonstrates coupling a quasi stationary circuit with a DC circuit.
+The QS voltage is rectified (using an
+<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter"
+>
+ideal AC DC converter</a>), loaded by a variable load conductor.
+The <i>conversionFactor = DC voltage / AC rms voltage</i> in this case is the root mean square of a rectified sine, i.e., 1.
+You may compare the quasi stationary results with that of a fully transient model (using a
+<A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier"
+>
+Graetz rectifier</a>), plotting:
+</p>
+<ul>
+<li>QS: AC rms           current = iQS.len</li>
+<li>AC: AC instantaneous current = iAC.u</li>
+<li>AC: AC rms           current = iAC.y_rms</li>
+<li>QS: DC current               = iDC1.i</li>
+<li>AC: DC instantaneous current = iDC2.u</li>
+<li>AC: DC rms           current = iDC2.y</li>
+</ul>
+<p>
+It can be ssen that at the DC side the current is represented by its averaged value, at the AC side by its rms value.
+</p>
+<h4>Note</h4>
+<p>
+The quasi stationary model needs a grounding at the QS side as well as the DC side,
+wheras the transient model may have only one ground since AC side and DC side are connected via the diodes.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>VAC</TD><TD>100</TD><TD>AC rms voltage [V]</TD></TR>
+<TR><TD>Real</TD><TD>conversionFactor</TD><TD>1</TD><TD>Ratio of DC voltage / AC rms voltage</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Rectifier <font color="darkgreen">&quot;Rectifier example&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">import </font>Modelica.Constants.pi;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VAC = 100 <font color="darkgreen">&quot;AC rms voltage&quot;</font>;
+  <font color="blue">parameter </font>Real conversionFactor = 1 <font color="darkgreen">&quot;Ratio of DC voltage / AC rms voltage&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sources.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sources.VoltageSource"
+>Sources.VoltageSource</A> voltageQS(f=50, V=VAC);
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Resistor"
+>Basic.Resistor</A> resistorQS(R_ref=50E-3);
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Sensors.html#Modelica.Electrical.QuasiStationary.SinglePhase.Sensors.CurrentSensor"
+>Sensors.CurrentSensor</A> currentSensorQS;
+  <A HREF="Modelica_ComplexBlocks_ComplexMath.html#Modelica.ComplexBlocks.ComplexMath.ComplexToPolar"
+>ComplexBlocks.ComplexMath.ComplexToPolar</A> iQS;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Basic.html#Modelica.Electrical.QuasiStationary.SinglePhase.Basic.Ground"
+>Basic.Ground</A> groundQS;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter"
+>Utilities.IdealACDCConverter</A> rectifierQS(conversionFactor=conversionFactor);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Analog.Basic.Ground</A> groundDC1;
+  <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.CurrentSensor"
+>Analog.Sensors.CurrentSensor</A> iDC1;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableConductor"
+>Analog.Basic.VariableConductor</A> load1;
+  <A HREF="Modelica_Electrical_Analog_Sources.html#Modelica.Electrical.Analog.Sources.SineVoltage"
+>Analog.Sources.SineVoltage</A> voltageAC(V=<font color="red">sqrt</font>(2)*VAC, freqHz=50,phase=pi/2);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Analog.Basic.Resistor</A> resistorAC(R=50E-3);
+  <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.CurrentSensor"
+>Analog.Sensors.CurrentSensor</A> currentSensorAC;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.Harmonic"
+>Modelica.Blocks.Math.Harmonic</A> iAC(f=50, k=1);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Analog.Basic.Ground</A> groundAC;
+  <A HREF="Modelica_Electrical_QuasiStationary_SinglePhase_Utilities.html#Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.GraetzRectifier"
+>Utilities.GraetzRectifier</A> rectifierAC;
+  <A HREF="Modelica_Electrical_Analog_Sensors.html#Modelica.Electrical.Analog.Sensors.CurrentSensor"
+>Analog.Sensors.CurrentSensor</A> currentSensorDC2;
+  <A HREF="Modelica_Blocks_Math.html#Modelica.Blocks.Math.RootMeanSquare"
+>Modelica.Blocks.Math.RootMeanSquare</A> iDC2(f=50);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.VariableConductor"
+>Analog.Basic.VariableConductor</A> load2;
+  <A HREF="Modelica_Blocks_Sources.html#Modelica.Blocks.Sources.Ramp"
+>Blocks.Sources.Ramp</A> ramp(height=1,
+    duration=0.8,
+    startTime=0.1);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(voltageQS.pin_p, resistorQS.pin_p);
+  <font color="red">connect</font>(voltageQS.pin_n, rectifierQS.pin_nQS);
+  <font color="red">connect</font>(rectifierQS.pin_nQS, groundQS.pin);
+  <font color="red">connect</font>(rectifierQS.pin_nDC, groundDC1.p);
+  <font color="red">connect</font>(load1.n, rectifierQS.pin_nDC);
+  <font color="red">connect</font>(voltageAC.p, resistorAC.p);
+  <font color="red">connect</font>(voltageAC.n, rectifierAC.pin_nAC);
+  <font color="red">connect</font>(rectifierAC.pin_nAC, groundAC.p);
+  <font color="red">connect</font>(rectifierAC.pin_nDC, load2.n);
+  <font color="red">connect</font>(ramp.y, load1.G);
+  <font color="red">connect</font>(ramp.y, load2.G);
+  <font color="red">connect</font>(resistorQS.pin_n, currentSensorQS.pin_p);
+  <font color="red">connect</font>(currentSensorQS.pin_n, rectifierQS.pin_pQS);
+  <font color="red">connect</font>(currentSensorQS.y, iQS.u);
+  <font color="red">connect</font>(rectifierQS.pin_pDC, iDC1.p);
+  <font color="red">connect</font>(iDC1.n, load1.p);
+  <font color="red">connect</font>(resistorAC.n, currentSensorAC.p);
+  <font color="red">connect</font>(currentSensorAC.n, rectifierAC.pin_pAC);
+  <font color="red">connect</font>(currentSensorAC.i, iAC.u);
+  <font color="red">connect</font>(currentSensorDC2.i, iDC2.u);
+ <font color="red">connect</font>(currentSensorDC2.p, rectifierAC.pin_pDC);
+  <font color="red">connect</font>(currentSensorDC2.n, load2.p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Rectifier;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:23 2010.
+</address></BODY>
+</HTML>

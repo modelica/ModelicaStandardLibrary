@@ -1,0 +1,329 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Spice3.UsersGuide</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;User&#39;s Guide&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuideI.png" ALT="Modelica.Electrical.Spice3.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide"></A><A HREF="Modelica_Electrical_Spice3.html#Modelica.Electrical.Spice3"
+>Modelica.Electrical.Spice3</A>.UsersGuide</H2>
+<PRE></pre>
+<p>Package Spice3 is a <b>free</b> Modelica package</p>
+<p>This is a short <b>User&#39;;s Guide</b> for the overall library.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.OverviewS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Overview" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.Overview"
+>Overview</A>
+</TD><TD>Overview</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.OverviewS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Useofsemiconductors" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.Useofsemiconductors"
+>Useofsemiconductors</A>
+</TD><TD>Use of Semiconductors</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.OverviewS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Spicenetlist" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.Spicenetlist"
+>Spicenetlist</A>
+</TD><TD>SPICE3 netlists</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.OverviewS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple"
+>NamingPrinciple</A>
+</TD><TD>Naming principle</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.OverviewS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.ParameterHandling" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.ParameterHandling"
+>ParameterHandling</A>
+</TD><TD>Parameter handling</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.LiteratureS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Literature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.Literature"
+>Literature</A>
+</TD><TD>Literature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.ReleaseNotesS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.ReleaseNotes" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.ReleaseNotes"
+>ReleaseNotes</A>
+</TD><TD>Release notes</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.ContactS.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide.Contact"
+>Contact</A>
+</TD><TD>Contact</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Overview<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuideI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Overview" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.Overview"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.Overview</H2>
+<PRE></pre>
+<h4>Overview of Spice3 library</h4>
+<p>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator.</p>
+<p><u>General information about the analog simulator SPICE3 </u></p>
+<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley. SPICE netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build as SPICE netlists.</p>
+<p><u>The Spice3-library for Modelica</u></p>
+<p>The Spice3 library was extraced from orinial SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3. This way was chosen since SPICE3 is the only open source Spice simulator.</p>
+<p>The Spice3-library was built in accordance to the model structure in SPICE. It contains the following packages:</p>
+<ul>
+<li>Examples</li>
+<li>Basic (R, C, L, controlled sources) </li>
+<li>Semiconductors (MOS (P, N), BJT(NPN PNP), Diode, semiconductor resistor)</li>
+<li>Sources (constant, sinusodial, exponential, pulse, piece wise linear, single-frequency FM, respectively for V and I)</li>
+<li>Additionals (useful features from SPICE2)</li>
+<li>Interfaces</li>
+<li>Internal (functions and data needed to model the semiconductor devices)<br></li>
+</ul>
+<p>Since the semiconductor models, especially MOS and BJT, are very complex models, many functions, data and parameters were needed for their description. Therefore a special Package called Internal was created that contains all the functions and records with data and parameters that are needed for the semiconductor models. It is not necessary that a user of the library works inside this package, so it is not for user access. The package Additionals is also a special one. It is not part of the original SPICE3 models. Nevertheless it contains useful models or features like the polynomial sources of SPICE2 that are often asked for.</p>
+<p>There are many commercial SPICE simulators (PSPICE, NgSPICE, HSPICE, ...) which are derived from the Berkeley SPICE or are in some relation to it. Netlists of such SPICE derivatives can differ from Berkeley SPICE3 netlists. This has to be taken into account if netlists (their parameter names) are used whith this package.</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Useofsemiconductors<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuideI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Useofsemiconductors" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.Useofsemiconductors"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.Useofsemiconductors</H2>
+<PRE></pre>
+<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
+<p>To parametrice more than one model two ways are possible:</p>
+<p><ol>
+<li>Apart record:<br>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
+<li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
+</ol></p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Spicenetlist<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuideI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Spicenetlist" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.Spicenetlist"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.Spicenetlist</H2>
+<PRE></pre>
+<h4>Translation of SPICE3 netlists to Modelica </h4>
+<p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
+
+<table cellspacing="0" cellpadding="0" border="1"><tr>
+<td valign="top"><pre>
+inverter
+
+Mp1 11 1 13 11 MPmos
+Mp2 11 13 2 11 MPmos
+Mn1 13 1 0 0 MNmos
+Mn2 2 13 0 0 MNmos
+Vgate 1 0 PULSE(0 5 2s 1s)
+Vdrain 11 0 PULSE(0 5 0s 1s)
+.model MPmos PMOS (gamma=0.37)
+.model MNmos NMOS (gamma=0.37 lambda=0.02)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tran 0.01 5
+.end</pre></td>
+<td valign="top"><pre>
+model inverter
+  Spice3.Basic.Ground g;
+  Spice3&hellip;M Mp1(mtype=true, M(GAMMA=0.37));
+  Spice3&hellip;M Mp2(mtype=true, M(GAMMA=0.37));
+  Spice3&hellip;M Mn1(M(LAMBDA=0.02, GAMMA=0.37));
+  Spice3&hellip;M Mn2(p(LAMBDA=0.02, GAMMA=0.37));
+  Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+  Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);
+
+
+  Spice3.Interfaces.Pin p_in, p_out;
+protected
+  Spice3.Interfaces.Pin n0, n1, n2, n11, n13;
+equation
+  connect(p_in, n1);    connect(p_out, n2);
+  connect(g.p, n0);
+  connect(vdrain.n,n0); connect(vdrain.p,n11);
+  connect(Mp1.B,n11);   connect(Mp1.D, n11);
+  connect(Mp1.G, n1);   connect(Mp1.S, n13);
+  connect(Mp2.B,n11);   connect(Mp2.D, n11);
+  connect(Mp2.G, n13);  connect(Mp2.S, n2);
+  connect(Mn1.B,n0);    connect(Mn1.D, n13);
+  connect(Mn1.G, n1);   connect(Mn1.S, n0);
+  connect(Mn2.B,n0);    connect(Mn2.D, n2);
+  connect(Mn2.G, n13);  connect(Mn2.S, n0);
+
+end inverter;
+</pre></td>
+</tr>
+<caption>Table 1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
+</table>
+
+<p>Given is a SPICE3 netlist that contains two inverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the</p>
+<p>output voltage of the second (node number 2)later will be connected with the surrounding circuit. The following steps are necessary:</p>
+<ol>
+<li>A name for the Modelica model has to be chosen. It could be taken from the first line of the SPICE3 netlist.</li>
+<li>The ground node has to be instantiated (Spice3.Basic.Ground).</li>
+<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE lineVdrain 11 0 PULSE(0 5 0 1)becomes the following Modelica line:Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1); <br/></li>
+<li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomesprotected Spice3.Interfaces.Pin n2;in Modelica. The code letter (here n) is needed because a single number is no name in Modelica.<br/></li>
+<li>According to the netlist the internal pins have to be connected with the components, e.g., connect(Mp1.D, n11).</li>
+<li>In the last step the external pins have to be allocated ant connected to the according internal pin. In table 1 this is done as follows: Spice3.Interfaces.Pin p_in, p_out;connect(p_in, n1); connect(p_out, n2); </li>
+</ol>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE NamingPrinciple<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuideI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.NamingPrinciple"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.NamingPrinciple</H2>
+<PRE></pre>
+<p>In SPICE3 we have a predefined model pool. Each model device has got a code letter (e.g., resistor - R). In analogy to the SPICE3 models the models of the Spice3 library also got the according code letter in their names. The following examples shows the relationship:</p>
+<p>A typical SPICE3 line could be:</p>
+<p><b>C</b>1 3 2 1pF</p>
+<p>The first letter is the code letter (here <b>C</b>). It specifies the type of the model component (here capacitance). To see the analogy to the SPICE3 models in the Spice3 library the transformed capacitance has got the name <b>C</b>_Capacitance. According to that naming rule the components of the Spice3 library have the following names (the first letter is the code letter that has to be used in SPICE3):</p>
+<ul>
+<li>R_Resistor</li>
+<li>C_Capacitance</li>
+<li>L_Inductor</li>
+<li>E_VCV, E_VCV_POLY</li>
+<li>G_VCC, G_VCC_POLY</li>
+<li>H_CCV, H_CCV_POLY</li>
+<li>F_CCC, F_CCC_POLY</li>
+<li>M_PMOS</li>
+<li>M_NMOS</li>
+<li>Q_NPNBJT</li>
+<li>Q_PNPBJT</li>
+<li>D_Diode</li>
+<li>V_constant, I_constant</li>
+<li>V_sin, I_sin</li>
+<li>V_exp, I_exp</li>
+<li>V_pulse, I_pulse</li>
+<li>V_pwl, I_pwl</li>
+<li>V_sffm, I_sffm<br/><b><br/></b></li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ParameterHandling<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuideI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.ParameterHandling" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.ParameterHandling"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.ParameterHandling</H2>
+<PRE></pre>
+<p>In SPICE3 it is important to know whether a parameter was set by the user or not because the calculation of some values depends on that information and can be different. Since in Modelica there is no possibility to check that, a circumvention was chosen. The relevant parameters get an unrealistic value (-1e40) as their default value. Within a function it is checked if the parameter has still got this value (the parameter was not set by the user) of if it has a new value (parameter was set by the user).</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Literature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.LiteratureI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Literature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.Literature"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.Literature</H2>
+<PRE></pre>
+<table cellspacing="0" cellpadding="2" border="0"><tr>
+<td valign="top"><p>[B&ouml;hme2009]</p></td>
+<td valign="top"><p>S. B&ouml;hme, K. Majetta, C. Clauss, P. Schneider, &quot;Spice3 Modelica Library,&quot; <i>7th Modelica Conference</i>, Como, Italy (2009)</p></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><p>[Antognetti1988]</p></td>
+<td valign="top"><p>P. Antognetti, G. Massobrio, <i>Semiconductor Device Modeling with SPICE.</i>, McGraw-Hill Book Company, USA, 1988</p></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><p>[Connelly1992]</p></td>
+<td valign="top"><p>A. Connelly, A, P. Choi, <i>Macromodeling with SPICE.</i>, Prentice-Hall, New Jersey, USA (1992)</p></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><p>[Johnson1991]</p></td>
+<td valign="top"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&#39;;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991) <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf">SPICE3 user's manual</a></p></td>
+<td></td>
+</tr>
+<tr>
+<td valign="top"><p>[Kielkowski1994]</p></td>
+<td valign="top"><p>R. Kielkowski, <i>Inside SPICE - Overcoming the obstacles of circuit simulation.</i>, McGraw-Hill, USA (1994)</p></td>
+</tr>
+</table>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</A> (Icon for external references).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE ReleaseNotes<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.ReleaseNotesI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.ReleaseNotes" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.ReleaseNotes"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.ReleaseNotes</H2>
+<PRE></pre>
+<p>This section summarizes the changes that have been performed on the Spice3 library.</p>
+<ul>
+<li>Version 1.0 (2010-02-18): first version of the library was released</li>
+</ul>
+<p></p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.ReleaseNotes"
+>Modelica.Icons.ReleaseNotes</A> (Icon for release notes in documentation).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Spice3.UsersGuide.ContactI.png" ALT="Modelica.Electrical.Spice3.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Spice3.UsersGuide.Contact"></A><A HREF="Modelica_Electrical_Spice3_UsersGuide.html#Modelica.Electrical.Spice3.UsersGuide"
+>Modelica.Electrical.Spice3.UsersGuide</A>.Contact</H2>
+<PRE></pre>
+<dl><dt><b>Main Authors:</b> </dt>
+<dd>Kristin Majetta</dd>
+<dd>Fraunhofer Institute Integrated Circuits</dd>
+<dd>Design Automation Division</dd>
+<dd>Zeunerstrasse 38</dd>
+<dd>01069 Dresden, Germany</dd>
+<dd>email: <a href="mailto:Kristin.Majetta@eas.iis.fraunhofer.de">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
+<dd>Christoph Clauss</dd>
+<dd>Fraunhofer Institute Integrated Circuits</dd>
+<dd>Design Automation Division</dd>
+<dd>Zeunerstrasse 38</dd>
+<dd>01069 Dresden, Germany</dd>
+<dd>email: <a href="mailto:Christoph.Clauss@eas.iis.fraunhofer.de">Christoph.Clauss@eas.iis.fraunhofer.de</a></dd>
+<dd>Sandra Boehme</dd>
+<dd>Fraunhofer Institute Integrated Circuits</dd>
+<dd>Design Automation Division</dd>
+<dd>Zeunerstrasse 38</dd>
+<dd>01069 Dresden, Germany</dd>
+<dd>email: <a href="mailto:Sandra.Boehme@eas.iis.fraunhofer.de">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
+</dl>
+<h4>Acknowledgements:</h4>
+<ul>
+<li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR. </li>
+<li>For his contribution we thank Mr. Jonathan Gerbet.</li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</A> (Icon for contact information).
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:44 2010.
+</address></BODY>
+</HTML>

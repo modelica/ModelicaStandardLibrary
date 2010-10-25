@@ -1,0 +1,475 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.Machines.Examples.Transformers</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Test examples of transformers&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Transformers<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.Machines.Examples.Transformers"></A><A HREF="Modelica_Electrical_Machines_Examples.html#Modelica.Electrical.Machines.Examples"
+>Modelica.Electrical.Machines.Examples</A>.Transformers</H2>
+<B>Test examples of transformers</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+This package contains test examples of DC machines.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_ExamplesPackage.html#Modelica.Icons.ExamplesPackage"
+>Modelica.Icons.ExamplesPackage</A> (Icon for packages containing runnable examples).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench"
+>TransformerTestbench</A>
+</TD><TD>Transformer Testbench</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad"
+>AsymmetricalLoad</A>
+</TD><TD>AsymmetricalLoad</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"
+>Rectifier6pulse</A>
+</TD><TD>6-pulse rectifier with 1 transformer</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse"
+>Rectifier12pulse</A>
+</TD><TD>12-pulse rectifier with 2 transformers</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_DOLS.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer"
+>AIMC_Transformer</A>
+</TD><TD>Test example: AsynchronousInductionMachineSquirrelCage transformer starting</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE TransformerTestbench<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.TransformerTestbench</H2>
+<B>Transformer Testbench</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbenchD.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbench">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Transformer testbench:</h4>
+<p>
+You may choose different connections as well as vary the load (even not symmetrical).
+</p>
+<p>
+<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).
+</p>
+<p>
+In some cases it may be necessary to ground the transformer's starpoint even though the source's or load's starpoint are grounded:
+</p>
+<ul>
+<li>Yy ... Grounding of transformer's primary or secondary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Yd ... No grounding necessary.</li>
+<li>Yz ... Grounding of transformer's primary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Dy ... No grounding necessary.</li>
+<li>Dd ... No grounding necessary.</li>
+<li>Dz ... No grounding necessary.</li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL[3]</TD><TD>fill(1/3, 3)</TD><TD>Load resistance [Ohm]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> TransformerTestbench <font color="darkgreen">&quot;Transformer Testbench&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RL[3]=<font color="red">fill</font>(1/3,3) <font color="darkgreen">&quot;Load resistance&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineVoltage"
+>Modelica.Electrical.MultiPhase.Sources.SineVoltage</A> source(freqHz=<font color="red">fill</font>(50, 3),
+      V=<font color="red">fill</font>(<font color="red">sqrt</font>(2/3)*100, 3));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> starS;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundS;
+  <A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor"
+>Machines.Sensors.ElectricalPowerSensor</A> electricalPowerSensorS;
+  <A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor"
+>Machines.Sensors.CurrentQuasiRMSSensor</A> currentQuasiRMSSensorS;
+  <A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor"
+>Machines.Sensors.VoltageQuasiRMSSensor</A> voltageQuasiRMSSensorS;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Modelica.Electrical.MultiPhase.Basic.Delta</A> deltaS;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> earth(R=1e6);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundT;
+  <A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.VoltageQuasiRMSSensor"
+>Machines.Sensors.VoltageQuasiRMSSensor</A> voltageRMSSensorL;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Delta"
+>Modelica.Electrical.MultiPhase.Basic.Delta</A> deltaL;
+  <A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.CurrentQuasiRMSSensor"
+>Machines.Sensors.CurrentQuasiRMSSensor</A> currentQuasiRMSSensorL;
+  <A HREF="Modelica_Electrical_Machines_Sensors.html#Modelica.Electrical.Machines.Sensors.ElectricalPowerSensor"
+>Machines.Sensors.ElectricalPowerSensor</A> electricalPowerSensorL;
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Resistor"
+>Modelica.Electrical.MultiPhase.Basic.Resistor</A> load(R=RL);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> starL;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundL;
+  <A HREF="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.TransformerData"
+>Machines.Utilities.TransformerData</A> transformerData(
+    C1=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer.VectorGroup,1,1),
+    C2=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer.VectorGroup,2,2));
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Transformers_Dy.html#Modelica.Electrical.Machines.BasicMachines.Transformers.Dy.Dy01"
+>BasicMachines.Transformers.Dy.Dy01</A>          transformer(
+    n=transformerData.n,
+    R1=transformerData.R1,
+    L1sigma=transformerData.L1sigma,
+    R2=transformerData.R2,
+    L2sigma=transformerData.L2sigma);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(starS.pin_n, groundS.p);
+  <font color="red">connect</font>(source.plug_n, starS.plug_p);
+  <font color="red">connect</font>(starL.pin_n, groundL.p);
+  <font color="red">connect</font>(load.plug_n, starL.plug_p);
+  <font color="red">connect</font>(earth.n, groundT.p);
+  <font color="red">connect</font>(electricalPowerSensorS.plug_nv, starS.plug_p);
+  <font color="red">connect</font>(source.plug_p, electricalPowerSensorS.plug_p);
+  <font color="red">connect</font>(electricalPowerSensorS.plug_ni, currentQuasiRMSSensorS.plug_p);
+  <font color="red">connect</font>(currentQuasiRMSSensorL.plug_n, electricalPowerSensorL.plug_p);
+  <font color="red">connect</font>(electricalPowerSensorL.plug_ni, load.plug_p);
+  <font color="red">connect</font>(electricalPowerSensorL.plug_nv, starL.plug_p);
+  <font color="red">connect</font>(currentQuasiRMSSensorS.plug_n, transformer.plug1);
+  <font color="red">connect</font>(transformer.plug2, currentQuasiRMSSensorL.plug_p);
+  <font color="red">connect</font>(deltaS.plug_p, voltageQuasiRMSSensorS.plug_n);
+  <font color="red">connect</font>(deltaS.plug_n, voltageQuasiRMSSensorS.plug_p);
+  <font color="red">connect</font>(currentQuasiRMSSensorS.plug_n, deltaS.plug_n);
+  <font color="red">connect</font>(currentQuasiRMSSensorL.plug_p, deltaL.plug_n);
+  <font color="red">connect</font>(deltaL.plug_n, voltageRMSSensorL.plug_p);
+  <font color="red">connect</font>(deltaL.plug_p, voltageRMSSensorL.plug_n);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>TransformerTestbench;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AsymmetricalLoad<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.AsymmetricalLoad</H2>
+<B>AsymmetricalLoad</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoadD.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AsymmetricalLoad">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<h4>Asymmetrical (singlephase) load:</h4>
+<p>
+You may choose different connections.
+</p>
+<p>
+<b>Please pay attention</b> to proper grounding of the primary and secondary part of the whole circuit.<br>
+The primary and secondary starpoint are available as connectors, if the connection is not delta (D or d).
+</p>
+<p>
+In some cases it may be necessary to ground the transformer's starpoint even though the source's or load's starpoint are grounded:
+</p>
+<ul>
+<li>Yy with primary starpoint connected to source's starpoint: primary current in only one phase</li>
+<li>Yy primary starpoint  not connected to source's starpoint: secondary voltage breaks down</li>
+<li>Yz ... Grounding of transformer's primary starpoint with reasonable high earthing resistance is necessary.</li>
+<li>Dy ... Load current in two   primary phases.</li>
+<li>Dz ... Load current in three primary phases.</li>
+</ul>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL</TD><TD>1</TD><TD>Load resistance [Ohm]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AsymmetricalLoad <font color="darkgreen">&quot;AsymmetricalLoad&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RL=1 <font color="darkgreen">&quot;Load resistance&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineVoltage"
+>Modelica.Electrical.MultiPhase.Sources.SineVoltage</A> source(freqHz=<font color="red">fill</font>(50, 3),
+      V=<font color="red">fill</font>(<font color="red">sqrt</font>(2/3)*100, 3));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> starS;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundS;
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"
+>MultiPhase.Sensors.CurrentSensor</A> currentSensorS;
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundL;
+  <A HREF="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.TransformerData"
+>Machines.Utilities.TransformerData</A> transformerData(
+    C1=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer.VectorGroup,1,1),
+    C2=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer.VectorGroup,2,2));
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Transformers_Dy.html#Modelica.Electrical.Machines.BasicMachines.Transformers.Dy.Dy01"
+>BasicMachines.Transformers.Dy.Dy01</A>          transformer(
+    n=transformerData.n,
+    R1=transformerData.R1,
+    L1sigma=transformerData.L1sigma,
+    R2=transformerData.R2,
+    L2sigma=transformerData.L2sigma);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.PlugToPin_n"
+>MultiPhase.Basic.PlugToPin_n</A> plugToPin_n(     k=1);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Analog.Basic.Resistor</A> load(R=RL);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Analog.Basic.Resistor</A>                     earth(R=1e6);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Analog.Basic.Ground</A>                     groundT;</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(starS.pin_n, groundS.p);
+  <font color="red">connect</font>(source.plug_n, starS.plug_p);
+  <font color="red">connect</font>(currentSensorS.plug_n, transformer.plug1);
+  <font color="red">connect</font>(transformer.plug2, plugToPin_n.plug_n);
+  <font color="red">connect</font>(transformer.starpoint2, groundL.p);
+  <font color="red">connect</font>(load.p, plugToPin_n.pin_n);
+  <font color="red">connect</font>(transformer.starpoint2, load.n);
+  <font color="red">connect</font>(source.plug_p, currentSensorS.plug_p);
+  <font color="red">connect</font>(earth.n,groundT. p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>AsymmetricalLoad;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rectifier6pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.Rectifier6pulse</H2>
+<B>6-pulse rectifier with 1 transformer</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulseD.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
+Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
+neglecting initial transient.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A> (Icon for runnable examples).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V</TD><TD>100*sqrt(2/3)</TD><TD>Amplitude of star-voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f</TD><TD>50</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL</TD><TD>0.4</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>C</TD><TD>0.005</TD><TD>Total DC-capacitance [F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>VC0</TD><TD>sqrt(3)*V</TD><TD>Initial voltage of capacitance [V]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Rectifier6pulse <font color="darkgreen">&quot;6-pulse rectifier with 1 transformer&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Icons.html#Modelica.Icons.Example"
+>Modelica.Icons.Example</A>;
+  <font color="blue">constant </font>Integer m=3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> V=100*<font color="red">sqrt</font>(2/3) <font color="darkgreen">
+    &quot;Amplitude of star-voltage&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Modelica.SIunits.Frequency</A> f=50 <font color="darkgreen">&quot;Frequency&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Modelica.SIunits.Resistance</A> RL=0.4 <font color="darkgreen">&quot;Load resistance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Modelica.SIunits.Capacitance</A> C=0.005 <font color="darkgreen">&quot;Total DC-capacitance&quot;</font>;
+  <font color="blue">parameter </font><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Modelica.SIunits.Voltage</A> VC0=<font color="red">sqrt</font>(3)*V <font color="darkgreen">
+    &quot;Initial voltage of capacitance&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_MultiPhase_Sources.html#Modelica.Electrical.MultiPhase.Sources.SineVoltage"
+>Modelica.Electrical.MultiPhase.Sources.SineVoltage</A> source(
+    m=m,
+    V=<font color="red">fill</font>(V, m),
+    freqHz=<font color="red">fill</font>(f, m));
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> starAC(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundAC;
+  <A HREF="Modelica_Electrical_MultiPhase_Sensors.html#Modelica.Electrical.MultiPhase.Sensors.CurrentSensor"
+>Modelica.Electrical.MultiPhase.Sensors.CurrentSensor</A> currentSensor(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealDiode"
+>Modelica.Electrical.MultiPhase.Ideal.IdealDiode</A> diode1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> star1(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealDiode"
+>Modelica.Electrical.MultiPhase.Ideal.IdealDiode</A> diode2(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> star2(m=m);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Resistor"
+>Modelica.Electrical.Analog.Basic.Resistor</A> load(R=RL);
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
+>Modelica.Electrical.Analog.Basic.Capacitor</A> cDC1(C=2*C, v(start=VC0/2));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Capacitor"
+>Modelica.Electrical.Analog.Basic.Capacitor</A> cDC2(C=2*C, v(start=VC0/2));
+  <A HREF="Modelica_Electrical_Analog_Basic.html#Modelica.Electrical.Analog.Basic.Ground"
+>Modelica.Electrical.Analog.Basic.Ground</A> groundDC;
+  <A HREF="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.TransformerData"
+>Machines.Utilities.TransformerData</A> transformerData1(
+    C1=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer1.VectorGroup,1,1),
+    C2=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer1.VectorGroup,2,2));
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Transformers_Dy.html#Modelica.Electrical.Machines.BasicMachines.Transformers.Dy.Dy01"
+>Machines.BasicMachines.Transformers.Dy.Dy01</A> transformer1(
+    n=transformerData1.n,
+    R1=transformerData1.R1,
+    L1sigma=transformerData1.L1sigma,
+    R2=transformerData1.R2,
+    L2sigma=transformerData1.L2sigma);</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(cDC1.n, cDC2.p);
+  <font color="red">connect</font>(cDC1.n, groundDC.p);
+  <font color="red">connect</font>(starAC.plug_p, source.plug_n);
+  <font color="red">connect</font>(diode1.plug_n, star1.plug_p);
+  <font color="red">connect</font>(diode2.plug_p, star2.plug_p);
+  <font color="red">connect</font>(diode2.plug_n, diode1.plug_p);
+  <font color="red">connect</font>(starAC.pin_n, groundAC.p);
+  <font color="red">connect</font>(source.plug_p, currentSensor.plug_p);
+  <font color="red">connect</font>(load.p, cDC1.p);
+  <font color="red">connect</font>(load.n, cDC2.n);
+  <font color="red">connect</font>(star1.pin_n, cDC1.p);
+  <font color="red">connect</font>(star2.pin_n, cDC2.n);
+  <font color="red">connect</font>(transformer1.plug1, currentSensor.plug_n);
+  <font color="red">connect</font>(transformer1.plug2, diode1.plug_p);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Rectifier6pulse;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Rectifier12pulse<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.Rectifier12pulse</H2>
+<B>12-pulse rectifier with 2 transformers</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulseD.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.Rectifier12pulse">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Test example with multiphase components:<br>
+Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
+Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
+neglecting initial transient.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"
+>Machines.Examples.Transformers.Rectifier6pulse</A> (6-pulse rectifier with 1 transformer).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>V</TD><TD>100*sqrt(2/3)</TD><TD>Amplitude of star-voltage [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>f</TD><TD>50</TD><TD>Frequency [Hz]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Resistance"
+>Resistance</A></TD><TD>RL</TD><TD>0.2</TD><TD>Load resistance [Ohm]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Capacitance"
+>Capacitance</A></TD><TD>C</TD><TD>0.005</TD><TD>Total DC-capacitance [F]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>VC0</TD><TD>sqrt(3)*V</TD><TD>Initial voltage of capacitance [V]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> Rectifier12pulse <font color="darkgreen">&quot;12-pulse rectifier with 2 transformers&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers.Rectifier6pulse"
+>Machines.Examples.Transformers.Rectifier6pulse</A>(RL=0.2);
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealDiode"
+>Modelica.Electrical.MultiPhase.Ideal.IdealDiode</A> diode3(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> star3(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Ideal.html#Modelica.Electrical.MultiPhase.Ideal.IdealDiode"
+>Modelica.Electrical.MultiPhase.Ideal.IdealDiode</A> diode4(m=m);
+  <A HREF="Modelica_Electrical_MultiPhase_Basic.html#Modelica.Electrical.MultiPhase.Basic.Star"
+>Modelica.Electrical.MultiPhase.Basic.Star</A> star4(m=m);
+  <A HREF="Modelica_Electrical_Machines_BasicMachines_Transformers_Dd.html#Modelica.Electrical.Machines.BasicMachines.Transformers.Dd.Dd00"
+>Machines.BasicMachines.Transformers.Dd.Dd00</A> transformer2(
+    n=transformerData2.n,
+    R1=transformerData2.R1,
+    L1sigma=transformerData2.L1sigma,
+    R2=transformerData2.R2,
+    L2sigma=transformerData2.L2sigma);
+  <A HREF="Modelica_Electrical_Machines_Utilities.html#Modelica.Electrical.Machines.Utilities.TransformerData"
+>Machines.Utilities.TransformerData</A> transformerData2(
+    C1=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer2.VectorGroup,1,1),
+    C2=<font color="red">Modelica.Utilities.Strings.substring</font>(transformer2.VectorGroup,2,2));</textblock>
+<font color="blue">equation </font>
+<textblock type="annotconnect" expanded="false">  <font color="red">connect</font>(diode3.plug_n, star3.plug_p);
+  <font color="red">connect</font>(diode4.plug_p, star4.plug_p);
+  <font color="red">connect</font>(diode4.plug_n, diode3.plug_p);
+  <font color="red">connect</font>(star4.pin_n, cDC2.n);
+  <font color="red">connect</font>(star3.pin_n, cDC1.p);
+  <font color="red">connect</font>(transformer2.plug2, diode4.plug_n);
+  <font color="red">connect</font>(transformer2.plug1, currentSensor.plug_n);</textblock>
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>Rectifier12pulse;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE AIMC_Transformer<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.TransformerTestbenchI.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer"></A><A HREF="Modelica_Electrical_Machines_Examples_Transformers.html#Modelica.Electrical.Machines.Examples.Transformers"
+>Modelica.Electrical.Machines.Examples.Transformers</A>.AIMC_Transformer</H2>
+<B>Test example: AsynchronousInductionMachineSquirrelCage transformer starting</B><p>
+<IMG SRC="Modelica.Electrical.Machines.Examples.Transformers.AIMC_TransformerD.png" ALT="Modelica.Electrical.Machines.Examples.Transformers.AIMC_Transformer">
+<P><H3>Information</H3></P>
+<PRE></pre>
+<b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
+At start time tStart1 three phase voltage is supplied to the asynchronous induction machine with squirrel cage via the transformer;
+the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed;
+at start time tStart2 the machine is fed directly from the voltage source, finally reaching nominal speed.<br>
+Simulate for 2.5 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_Machines_Examples_AsynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer"
+>Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer</A> (Test example: AsynchronousInductionMachineSquirrelCage transformer starting).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Voltage"
+>Voltage</A></TD><TD>VNominal</TD><TD>100</TD><TD>Nominal RMS voltage per phase [V]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Frequency"
+>Frequency</A></TD><TD>fNominal</TD><TD>50</TD><TD>Nominal frequency [Hz]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tStart1</TD><TD>0.1</TD><TD>Start time [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Time"
+>Time</A></TD><TD>tStart2</TD><TD>2.0</TD><TD>Start time of bypass transformer [s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Torque"
+>Torque</A></TD><TD>TLoad</TD><TD>161.4</TD><TD>Nominal load torque [N.m]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.AngularVelocity"
+>AngularVelocity</A></TD><TD>wLoad</TD><TD>1440.45*2*Modelica.Constants...</TD><TD>Nominal load speed [rad/s]</TD></TR>
+<TR><TD><A HREF="Modelica_SIunits.html#Modelica.SIunits.Inertia"
+>Inertia</A></TD><TD>JLoad</TD><TD>0.29</TD><TD>Load&#39;s moment of inertia [kg.m2]</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> AIMC_Transformer <font color="darkgreen">
+  &quot;Test example: AsynchronousInductionMachineSquirrelCage transformer starting&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_Machines_Examples_AsynchronousInductionMachines.html#Modelica.Electrical.Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer"
+>Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer</A>;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>AIMC_Transformer;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:28:40 2010.
+</address></BODY>
+</HTML>

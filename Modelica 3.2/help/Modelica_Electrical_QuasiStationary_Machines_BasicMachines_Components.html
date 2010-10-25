@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;Machine components like AirGaps&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Components<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><A NAME="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components"></A><A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines"
+>Modelica.Electrical.QuasiStationary.Machines.BasicMachines</A>.Components</H2>
+<B>Machine components like AirGaps</B>
+<P>
+<P><H3>Information</H3></P>
+<PRE></pre>
+<p>
+This package contains components for modeling electrical machines, specially threephase induction machines, based on space phasor theory.
+</p>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons_Package.html#Modelica.Icons.Package"
+>Modelica.Icons.Package</A> (Icon for standard packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCoreS.png" ALT="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore"
+>PartialCore</A>
+</TD><TD>Partial model of transformer core with 3 windings</TD></TR>
+<TR><TD><IMG SRC="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCoreS.png" ALT="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.IdealCore" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.IdealCore"
+>IdealCore</A>
+</TD><TD>Ideal transformer with 3 windings</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE PartialCore<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCoreI.png" ALT="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore"></A><A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components"
+>Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components</A>.PartialCore</H2>
+<B>Partial model of transformer core with 3 windings</B><p>
+<IMG SRC="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCoreD.png" ALT="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
+<pre></PRE><P>
+
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>Number of phases</TD></TR>
+<TR><TD>Real</TD><TD>n12</TD><TD>&nbsp;</TD><TD>Turns ratio 1:2</TD></TR>
+<TR><TD>Real</TD><TD>n13</TD><TD>&nbsp;</TD><TD>Turns ratio 1:3</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p3</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">partial </font><font color="blue">model</font> PartialCore <font color="darkgreen">
+  &quot;Partial model of transformer core with 3 windings&quot;</font>
+  <font color="blue">parameter </font>Integer m(<font color="blue">final </font>min=1) = 3 <font color="darkgreen">&quot;Number of phases&quot;</font>;
+  <font color="blue">parameter </font>Real n12(start=1) <font color="darkgreen">&quot;Turns ratio 1:2&quot;</font>;
+  <font color="blue">parameter </font>Real n13(start=1) <font color="darkgreen">&quot;Turns ratio 1:3&quot;</font>;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexVoltage"
+>Modelica.SIunits.ComplexVoltage</A>  v1[
+                                     m] = plug_p1.pin.v  - plug_n1.pin.v;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexCurrent"
+>Modelica.SIunits.ComplexCurrent</A>  i1[
+                                     m] = plug_p1.pin.i;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexVoltage"
+>Modelica.SIunits.ComplexVoltage</A>  v2[
+                                     m] = plug_p2.pin.v  - plug_n2.pin.v;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexCurrent"
+>Modelica.SIunits.ComplexCurrent</A>  i2[
+                                     m] = plug_p2.pin.i;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexVoltage"
+>Modelica.SIunits.ComplexVoltage</A>  v3[
+                                     m] = plug_p3.pin.v  - plug_n3.pin.v;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexCurrent"
+>Modelica.SIunits.ComplexCurrent</A>  i3[
+                                     m] = plug_p3.pin.i;
+  <A HREF="Modelica_SIunits.html#Modelica.SIunits.ComplexCurrent"
+>Modelica.SIunits.ComplexCurrent</A>  im[
+                                     m] = i1 + i2/n12 + i3/n13 <font color="darkgreen">
+    &quot;Magnetizing current&quot;</font>;
+<textblock type="annotcomp" expanded="false">  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>QuasiStationary.MultiPhase.Interfaces.PositivePlug</A> plug_p1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>QuasiStationary.MultiPhase.Interfaces.NegativePlug</A> plug_n1(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>QuasiStationary.MultiPhase.Interfaces.PositivePlug</A> plug_p2(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>QuasiStationary.MultiPhase.Interfaces.NegativePlug</A> plug_n2(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>QuasiStationary.MultiPhase.Interfaces.PositivePlug</A> plug_p3(<font color="blue">final </font>m=m);
+  <A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>QuasiStationary.MultiPhase.Interfaces.NegativePlug</A> plug_n3(<font color="blue">final </font>m=m);</textblock>
+<font color="blue">equation </font>
+<font color="darkgreen">//branches p1-n1, p2-n2, p3-n3</font>
+  <font color="red">Connections.branch</font>(plug_p1.reference, plug_n1.reference);
+  plug_p1.reference.gamma = plug_n1.reference.gamma;
+  <font color="red">Connections.branch</font>(plug_p2.reference, plug_n2.reference);
+  plug_p2.reference.gamma = plug_n2.reference.gamma;
+  <font color="red">Connections.branch</font>(plug_p3.reference, plug_n3.reference);
+  plug_p3.reference.gamma = plug_n3.reference.gamma;
+<font color="darkgreen">//Define p1.reference.gamme = p2.reference.gamma = p3.reference.gamma</font>
+  <font color="red">Connections.branch</font>(plug_p1.reference, plug_p2.reference);
+  plug_p1.reference.gamma = plug_p2.reference.gamma;
+  <font color="red">Connections.branch</font>(plug_p1.reference, plug_p3.reference);
+  plug_p1.reference.gamma = plug_p3.reference.gamma;
+<font color="darkgreen">//Define p1, p2 and p3 as potential roots</font>
+<font color="darkgreen">//Note: transformer could be fed from primary or secondary side</font>
+  <font color="red">Connections.potentialRoot</font>(plug_p1.reference);
+  <font color="red">Connections.potentialRoot</font>(plug_p2.reference);
+  <font color="red">Connections.potentialRoot</font>(plug_p3.reference);
+<font color="darkgreen">//Current balances</font>
+  plug_p1.pin.i + plug_n1.pin.i =<font color="red"> fill</font>(<font color="red">Complex</font>(0), m);
+  plug_p2.pin.i + plug_n2.pin.i =<font color="red"> fill</font>(<font color="red">Complex</font>(0), m);
+  plug_p3.pin.i + plug_n3.pin.i =<font color="red"> fill</font>(<font color="red">Complex</font>(0), m);
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>PartialCore;
+</PRE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE IdealCore<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCoreI.png" ALT="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.IdealCore" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.IdealCore"></A><A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components"
+>Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components</A>.IdealCore</H2>
+<B>Ideal transformer with 3 windings</B><p>
+<IMG SRC="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCoreD.png" ALT="Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.IdealCore">
+<P><H3>Information</H3></P>
+<PRE></pre>
+Ideal transformer with 3 windings: no magnetizing current.
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore"
+>PartialCore</A> (Partial model of transformer core with 3 windings).
+<P><H3>Parameters</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Default</TH><TH>Description</TH></TR>
+<TR><TD>Integer</TD><TD>m</TD><TD>3</TD><TD>Number of phases</TD></TR>
+<TR><TD>Real</TD><TD>n12</TD><TD>&nbsp;</TD><TD>Turns ratio 1:2</TD></TR>
+<TR><TD>Real</TD><TD>n13</TD><TD>&nbsp;</TD><TD>Turns ratio 1:3</TD></TR>
+</TABLE>
+<P><H3>Connectors</H3><P>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2>
+<TR><TH>Type</TH><TH>Name</TH><TH>Description</TH></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n1</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n2</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug"
+>PositivePlug</A></TD><TD>plug_p3</TD><TD>&nbsp;</TD></TR>
+<TR><TD><A HREF="Modelica_Electrical_QuasiStationary_MultiPhase_Interfaces.html#Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug"
+>NegativePlug</A></TD><TD>plug_n3</TD><TD>&nbsp;</TD></TR>
+</TABLE>
+<P><H3>Modelica definition</H3>
+<PRE>
+<font color="blue">model</font> IdealCore <font color="darkgreen">&quot;Ideal transformer with 3 windings&quot;</font>
+  <font color="blue">extends </font><A HREF="Modelica_Electrical_QuasiStationary_Machines_BasicMachines_Components.html#Modelica.Electrical.QuasiStationary.Machines.BasicMachines.Components.PartialCore"
+>PartialCore</A>;
+<font color="blue">equation </font>
+  im =<font color="red"> fill</font>(<font color="red">Complex</font>(0), m);
+  v1 = n12*v2;
+  v1 = n13*v3;
+<textblock type="annotcomp" expanded="false"><font color="blue">end </font>IdealCore;
+</PRE>
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:29:40 2010.
+</address></BODY>
+</HTML>

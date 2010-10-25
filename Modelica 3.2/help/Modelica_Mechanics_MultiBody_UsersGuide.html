@@ -1,0 +1,299 @@
+<HTML>
+<HEAD>
+<TITLE>Modelica.Mechanics.MultiBody.UsersGuide</TITLE>
+<META name="HTML-Generator" content="Dymola">
+<META name="description" content="&quot;User&#39;s Guide of MultiBody Library&quot;">
+<style type="text/css">
+*       { font-size: 10pt; font-family: Arial,sans-serif; }
+pre     { font-size:  9pt; font-family: Courier,monospace;}
+h4      { font-size: 10pt; font-weight: bold; color: green; }
+h3      { font-size: 11pt; font-weight: bold; color: green; }
+h2      { font-size: 13pt; font-weight: bold; color: green; }
+address {                  font-weight: normal}
+td      { solid #000; vertical-align:top; }
+th      { solid #000; vertical-align:top; font-weight: bold; }
+table   { solid #000; border-collapse: collapse;}
+</style>
+</HEAD>
+<BODY><P>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE UsersGuide<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuideI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.UsersGuide"></A><A HREF="Modelica_Mechanics_MultiBody.html#Modelica.Mechanics.MultiBody"
+>Modelica.Mechanics.MultiBody</A>.UsersGuide</H2>
+<PRE></pre>
+<p>
+Library <b>MultiBody</b> is a <b>free</b> Modelica package providing
+3-dimensional mechanical components to model in a convenient way
+<b>mechanical systems</b>, such as robots, mechanisms, vehicles.
+This package contains the User's Guide for the MultiBody library.
+</p>
+<ol>
+<li> <A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
+>Tutorial</a>
+gives an introduction into the most important aspects of the library.
+</li>
+<li> <A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide.Upgrade"
+>Upgrade</a> describes
+  how to upgrade from former versions, especially from the "old"
+  ModelicaAdditions.MultiBody library.
+</li>
+<li> <A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide.Literature"
+>Literature</a> provides
+  references that have been used to design and implement this library.
+</li>
+<li> <A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide.Contact"
+>Contact</a> provides
+  information about the author of the library as well as
+  acknowledgments.
+</li>
+</ol>
+<pre></PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<P><H3>Package Content</H3><p>
+<TABLE BORDER=1 CELLSPACING=0 CELLPADDING=2 >
+<TR><TH >Name</TH><TH>Description</TH></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuide.TutorialS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Tutorial" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide_Tutorial.html#Modelica.Mechanics.MultiBody.UsersGuide.Tutorial"
+>Tutorial</A>
+</TD><TD>Tutorial</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuide.TutorialS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Upgrade" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide.Upgrade"
+>Upgrade</A>
+</TD><TD>Upgrade from Former Versions</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuide.LiteratureS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Literature" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide.Literature"
+>Literature</A>
+</TD><TD>Literature</TD></TR>
+<TR><TD><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuide.ContactS.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Contact" WIDTH=20  HEIGHT=20 ALIGN = TOP >&nbsp;<A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide.Contact"
+>Contact</A>
+</TD><TD>Contact</TD></TR>
+</TABLE>
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Upgrade<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuideI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Upgrade" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Upgrade"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
+>Modelica.Mechanics.MultiBody.UsersGuide</A>.Upgrade</H2>
+<PRE></pre>
+<p>
+If different versions of the MultiBody library are not
+compatible to each other, corresponding conversion scripts are
+provided. As a result, models build with an older version
+of the MultiBody library are automatically converted to the
+new version when the model is loaded. The user is prompted
+whether automatic conversion shall take place or not.
+Problems are not to be expected. Still one should first make
+a copy of such a model as backup before the conversion
+is performed.
+</p>
+<p>
+<b>Upgrade from ModelicaAdditions.MultiBody</b>
+</p>
+<p>
+There is now also a conversion script from the "old"
+<b>ModelicaAdditions.MultiBody</b> library to the
+"new" Modelica.Mechanics.MultiBody library. This script is also
+automatically invoked. Since the differences between the "old" and the
+"new" MultiBody library are so large, not everything is
+converted and it might be that some pieces have to
+be adapted manually. Still, this script is useful, since
+many class names, parameters and modifiers are
+automatically converted.
+</p>
+<p>
+Components from the following sublibraries
+are automatically converted
+to the Modelica.Mechanics.MultiBody library:
+</p>
+<ul>
+<li> ModelicaAdditions.MultiBody.Parts</li>
+<li> ModelicaAdditions.MultiBody.Joints</li>
+<li> ModelicaAdditions.MultiBody.Forces</li>
+<li> Part of ModelicaAdditions.MultiBody.Interfaces</li>
+</ul>
+<p>
+Models using the ModelicaAdditions.MultiBody library
+that are programmed with <b>equations</b> are only partly converted:
+The Frame connectors will be converted to the "new"
+Frame connectors of the MultiBody library, but the equations
+that reference variables of the Frame connectors will
+<b>not</b> be converted. For a manual conversion, the following
+table might be helpful showing how the <b>variables</b> of the
+"old" and the "new" <b>Frame connectors</b> are
+related to each other (resolve2 and angularVelocity2 are
+functions from library Modelica.Mechanics.MultiBody.Frames):
+</p>
+<table border=1 cellspacing=0 cellpadding=2>
+<tr><th><b>ModelicaAdditions.MultiBody.<br>
+           Interfaces.Frame_a</b></th>
+    <th><b>MultiBody.Interfaces.Frame_a</b></th></tr>
+<tr>
+  <td valign="top">frame_a.<b>r0</b></td>
+  <td valign="top">= frame_a.r_0 (is converted)</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>S</b></td>
+  <td valign="top">= transpose(frame_a.R)</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>v</b></td>
+  <td valign="top">= resolve2(frame_a.R, <b>der</b>(frame_a.r_0))</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>w</b></td>
+  <td valign="top">= angularVelocity2(frame_a.R)</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>a</b></td>
+  <td valign="top">= resolve2(frame_a.R, <b>der</b>(v_0)); v_0 = der(r_0)</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>z</b></td>
+  <td valign="top">= <b>der</b>(w);  w = angulaVelocity2(frame_a.R)</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>f</b></td>
+  <td valign="top">= frame_a.f (no conversion needed)</td>
+</tr>
+<tr>
+  <td valign="top">frame_a.<b>t</b></td>
+  <td valign="top">= frame_a.t (no conversion needed)</td>
+</tr>
+</table>
+<p>
+<b>Upgrade from MultiBody 0.99 (and earlier) to 1.0 (and later)</b>
+<p>
+The conversion from MultiBody 0.99 to 1.0 does not work in some rare
+cases, where own components are implemented using functions of the
+MultiBody.Frames package. In this case, the conversion has to be
+performed manually. The changes in 1.0 with regards to 0.99 are:
+</p>
+<p>
+The definition of the Modelica.Mechanics.MultiBody.Frames.Orientation object has changed.
+In 0.99 this was just an alias type for a transformation matrix
+(now Modelica.Mechanics.MultiBody.Frames.TransformationMatrices.Orientation).
+In 1.0 the orientation object is a record holding the
+transformation matrix from frame 1 to frame 2 and the angular
+velocity of the transformation matrix resolved in frame 2.
+The reason is that this allows to compute the angular velocity
+in many cases by standard recursive formulas and not by
+differentiation of the transformation matrix. This is usually
+much more efficient. As a consequence, the following
+calls in 0.99 should be changed:
+</p>
+<pre>
+   Frames.angularVelocity1(T,der(T)) -> Frames.angularVelocity1(T)
+   Frames.angularVelocity2(T,der(T)) -> Frames.angularVelocity2(T)
+   Frames.from_T(T)                  -> Frames.from_T2(T,der(T))
+</pre>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Information"
+>Modelica.Icons.Information</A> (Icon for general information packages).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Literature<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuide.LiteratureI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Literature" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Literature"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
+>Modelica.Mechanics.MultiBody.UsersGuide</A>.Literature</H2>
+<PRE></pre>
+<ul>
+<li>Technical details of this library are described in the
+20 page paper:
+<dl>
+<dt>Otter M., Elmqvist H., and Mattsson S.E.:</dt>
+<dd> <b>The New Modelica MultiBody Library</b>.
+     Modelica 2003 Conference, Link&ouml;ping, Sweden,
+     pp. 311-330, Nov. 3-4, 2003.
+     Download from:
+     <a href="http://www.modelica.org/Conference2003/papers/h37_Otter_multibody.pdf">http://www.modelica.org/Conference2003/papers/h37_Otter_multibody.pdf</a>
+     </dd>
+</dl>
+</li>
+<li>The method how to describe drive trains with 1-dimensional mechanics
+and to mount them on 3-dimensional components without neglecting
+dynamical effects is described in:
+<dl>
+<dt>Schweiger C., and Otter M.:</dt>
+<dd> <b>Modelling 3-dim. Mechanical Effects of 1-dim. Powertrains</b>.
+     Modelica 2003 Conference, Link&ouml;ping, Sweden,
+     pp. 149-158, Nov. 3-4, 2003.
+     Download from:
+<a href="http://www.modelica.org/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf">http://www.modelica.org/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf</a>
+     </dd>
+</dl>
+</li>
+<li> The method to solve a certain class of kinematic loops
+     analytically is based on:
+<dl>
+<dt>Woernle C.:</dt>
+<dd><b>Ein systematisches Verfahren zur Aufstellung der geometrischen
+    Schliessbedingungen in kinematischen Schleifen mit Anwendung
+    bei der R&uuml;ckw&auml;rtstransformation f&uuml;r
+    Industrieroboter.</b><br>
+    Fortschritt-Berichte VDI, Reihe 18, Nr. 59, Duesseldorf: VDI-Verlag 1988,
+    ISBN 3-18-145918-6.<br>&nbsp;</dd>
+<dt>Hiller M., and Woernle C.:</dt>
+<dd><b>A Systematic Approach for Solving the Inverse Kinematic
+    Problem of Robot Manipulators</b>.<br>
+    Proceedings 7th World Congress Th. Mach. Mech., Sevilla 1987. </dd>
+</dl>
+</li>
+</ul>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.References"
+>Modelica.Icons.References</A> (Icon for external references).
+<HR>
+<!--[if supportFields]><span style='mso-element:field-begin'></span>
+<span style='mso-spacerun:yes'></span>XE Contact<![endif]-->
+<!--[if supportFields]><span style='mso-element:field-end'></span><![endif]-->
+<H2><IMG SRC="Modelica.Mechanics.MultiBody.UsersGuide.ContactI.png" ALT="Modelica.Mechanics.MultiBody.UsersGuide.Contact" ALIGN=RIGHT BORDER=1 WIDTH=80  HEIGHT=80 >
+<A NAME="Modelica.Mechanics.MultiBody.UsersGuide.Contact"></A><A HREF="Modelica_Mechanics_MultiBody_UsersGuide.html#Modelica.Mechanics.MultiBody.UsersGuide"
+>Modelica.Mechanics.MultiBody.UsersGuide</A>.Contact</H2>
+<PRE></pre>
+<dl>
+<dt><b>Library Officer:</b>
+<dd><a href="http://www.robotic.dlr.de/Martin.Otter/">Martin Otter</a><br>
+    Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
+    Institut f&uuml;r Robotik und Mechatronik<br>
+    Abteilung f&uuml;r Entwurfsorientierte Regelungstechnik<br>
+    Postfach 1116<br>
+    D-82230 Wessling<br>
+    Germany<br>
+    email: <A HREF="mailto:Martin.Otter@dlr.de">Martin.Otter@dlr.de</A><br>
+</dl>
+<p><b>Acknowledgements:</b></p>
+<ul>
+<li> The central idea to handle a certain class of overdetermined, consistent
+     set of differential algebraic equations (i.e., there are more equations than
+     unknowns) with symbolic transformation algorithms was developed together
+     with Hilding Elmqvist and Sven Erik Mattsson from Dassault Syst&egrave;mes AB, Lund, Sweden.
+     The MultiBody library is heavily relying on this feature which is a
+     prerequiste for a truely "object-oriented" multi-body systems library,
+     where components can be connected together in any meaningful way.</li>
+<li> The Examples.Loops.EngineV6 demo of a six cylinder V6 engine with
+     6 planar loops and 1 degree of freedom is from Hilding Elmqvist and
+     Sven Erik Mattsson.</li>
+<li> Modelica.Mechanics.MultiBody.Forces.LineForceWithMass is based on model
+     "RelativeDistance" from the Modelica VehicleDynamics library of
+     Johan Andreasson from Royal Institute of Technology, Stockholm, Sweden.</li>
+<li> The 1-dim. components (Parts.Rotor1D, Parts.BevelGear1D, Mounting1D) and
+     Joints.GearConstraints are from Christian Schweiger.</li>
+<li> The design of this library is based on work carried out
+     in the EU RealSim project (Real-time Simulation for Design of
+     Multi-physics Systems) funded by the European Commission within
+     the Information Societies Technology (IST) programme under
+     contract number IST 1999-11979.
+     </li>
+</ul>
+<pre>
+</PRE><P>
+Extends from <A HREF="Modelica_Icons.html#Modelica.Icons.Contact"
+>Modelica.Icons.Contact</A> (Icon for contact information).
+<HR>
+<address><a href="http://www.3ds.com/">Automatically generated</a> Fri Nov 12 16:30:03 2010.
+</address></BODY>
+</HTML>
