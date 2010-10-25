@@ -1265,11 +1265,11 @@ just potential signals. The user might still add different signal names.
         "Control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
         import SI = Modelica.SIunits;
-        SI.AngularVelocity realSignal1 "First Real signal (angular velocity)";
-        SI.Velocity realSignal2 "Second Real signal";
-        Integer integerSignal "Integer signal";
-        Boolean booleanSignal "Boolean signal";
-        SubControlBus subControlBus "Combined signal";
+        SI.AngularVelocity realSignal1 "First Real signal (angular velocity)"  annotation(HideResult=false);
+        SI.Velocity realSignal2 "Second Real signal"  annotation(HideResult=false);
+        Integer integerSignal "Integer signal"  annotation(HideResult=false);
+        Boolean booleanSignal "Boolean signal"  annotation(HideResult=false);
+        SubControlBus subControlBus "Combined signal"  annotation(HideResult=false);
         annotation (
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
@@ -1295,8 +1295,8 @@ are determined from the connections to this bus).
       expandable connector SubControlBus
         "Sub-control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalSubBus;
-        Real myRealSignal;
-        Boolean myBooleanSignal;
+        Real myRealSignal  annotation(HideResult=false);
+        Boolean myBooleanSignal  annotation(HideResult=false);
         annotation (defaultComponentPrefixes="protected",
                     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                   -100},{100,100}}), graphics={Rectangle(

@@ -373,18 +373,18 @@ to plot variables.
       extends Modelica.Icons.SignalSubBus;
       import SI = Modelica.SIunits;
 
-      Boolean motion_ref "= true, if reference motion is not in rest";
-      SI.Angle angle_ref "Reference angle of axis flange";
-      SI.Angle angle "Angle of axis flange";
-      SI.AngularVelocity speed_ref "Reference speed of axis flange";
-      SI.AngularVelocity speed "Speed of axis flange";
+      Boolean motion_ref "= true, if reference motion is not in rest" annotation(HideResult=false);
+      SI.Angle angle_ref "Reference angle of axis flange" annotation(HideResult=false);
+      SI.Angle angle "Angle of axis flange" annotation(HideResult=false);
+      SI.AngularVelocity speed_ref "Reference speed of axis flange" annotation(HideResult=false);
+      SI.AngularVelocity speed "Speed of axis flange" annotation(HideResult=false);
       SI.AngularAcceleration acceleration_ref
-        "Reference acceleration of axis flange";
-      SI.AngularAcceleration acceleration "Acceleration of axis flange";
-      SI.Current current_ref "Reference current of motor";
-      SI.Current current "Current of motor";
-      SI.Angle motorAngle "Angle of motor flange";
-      SI.AngularVelocity motorSpeed "Speed of motor flange";
+        "Reference acceleration of axis flange" annotation(HideResult=false);
+      SI.AngularAcceleration acceleration "Acceleration of axis flange" annotation(HideResult=false);
+      SI.Current current_ref "Reference current of motor" annotation(HideResult=false);
+      SI.Current current "Current of motor" annotation(HideResult=false);
+      SI.Angle motorAngle "Angle of motor flange" annotation(HideResult=false);
+      SI.AngularVelocity motorSpeed "Speed of motor flange" annotation(HideResult=false);
 
       annotation (defaultComponentPrefixes="protected",
                   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
