@@ -2,7 +2,9 @@ within Modelica;
 package Math "Library of mathematical functions (e.g., sin, cos) and of functions operating on vectors and matrices"
 import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Package;
+
 
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
@@ -842,6 +844,7 @@ This library provides functions operating on vectors:
 <a href=\"modelica://Modelica.Math.Matrices\">Matrices</a>
 </HTML>"));
 end Vectors;
+
 
 package Matrices "Library of functions operating on matrices"
   package Examples
@@ -3781,8 +3784,8 @@ for more information.
   protected
     Integer n=size(A, 1);
     Real G[size(A, 1),size(A, 1)]=B*Modelica.Math.Matrices.solve2(R, transpose(B));
-    Real H[:,:]=[A,-G; -Q,-transpose(A)];
-    Real H_RSF[:,:]=H;
+    Real H[2*size(A, 1),2*size(A, 1)]=[A,-G; -Q,-transpose(A)];
+    Real H_RSF[2*size(A, 1),2*size(A, 1)]=H;
     Real Z[size(H, 1),size(H, 2)];
     Real Z11[size(A, 1),size(A, 2)];
     Real Z21[size(A, 1),size(A, 2)];
@@ -10312,7 +10315,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
 
     protected
       Integer n=size(T, 2);
-      Boolean select[:]=fill(false, size(T, 2));
+      Boolean select[size(T, 2)]=fill(false, size(T, 2));
       Integer i;
     algorithm
       if iscontinuous then
@@ -10641,6 +10644,7 @@ Note: A' is a short hand notation of transpose(A):
 "));
 end Matrices;
 
+
 function isEqual "Determine if two Real scalars are numerically identical"
   extends Modelica.Icons.Function;
   input Real s1 "First scalar";
@@ -10683,6 +10687,7 @@ can be provided as third argument of the function. Default is \"eps = 0\".
 </p>
 </HTML>"));
 end isEqual;
+
 
 function sin "Sine"
   extends baseIcon1;
@@ -10763,6 +10768,7 @@ This function returns y = sin(u), with -&infin; &lt; u &lt; &infin;:
 </html>"), Library="ModelicaExternalC");
 end sin;
 
+
 function cos "Cosine"
   extends baseIcon1;
   input SI.Angle u;
@@ -10837,6 +10843,7 @@ This function returns y = cos(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end cos;
+
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
   extends baseIcon2;
@@ -10915,6 +10922,7 @@ This function returns y = tan(u), with -&infin; &lt; u &lt; &infin;
 </p>
 </html>"), Library="ModelicaExternalC");
 end tan;
+
 
 function asin "Inverse sine (-1 <= u <= 1)"
   extends baseIcon2;
@@ -10995,6 +11003,7 @@ This function returns y = asin(u), with -1 &le; u &le; +1:
 </html>"), Library="ModelicaExternalC");
 end asin;
 
+
 function acos "Inverse cosine (-1 <= u <= 1)"
   extends baseIcon2;
   input Real u;
@@ -11070,6 +11079,7 @@ This function returns y = acos(u), with -1 &le; u &le; +1:
 </html>"), Library="ModelicaExternalC");
 end acos;
 
+
 function atan "Inverse tangent"
   extends baseIcon2;
   input Real u;
@@ -11138,6 +11148,7 @@ This function returns y = atan(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end atan;
+
 
 function atan2 "Four quadrant inverse tangent"
   extends baseIcon2;
@@ -11238,6 +11249,7 @@ u1 = sin(y) and u2 = cos(y):
 </HTML>
 "),        Library="ModelicaExternalC");
 end atan2;
+
 
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
@@ -11343,6 +11355,7 @@ shall be returned:
 "));
 end atan3;
 
+
 function sinh "Hyperbolic sine"
   extends baseIcon2;
   input Real u;
@@ -11423,6 +11436,7 @@ This function returns y = sinh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end sinh;
+
 
 function cosh "Hyperbolic cosine"
   extends baseIcon2;
@@ -11505,6 +11519,7 @@ This function returns y = cosh(u), with -&infin; &lt; u &lt; &infin;:
 </html>"), Library="ModelicaExternalC");
 end cosh;
 
+
 function tanh "Hyperbolic tangent"
   extends baseIcon2;
   input Real u;
@@ -11573,6 +11588,7 @@ This function returns y = tanh(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end tanh;
+
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
   extends Modelica.Math.baseIcon2;
@@ -11656,6 +11672,7 @@ asinh(u) (-&infin; &lt; u &lt; &infin;):
 </p>
 </html>"));
 end asinh;
+
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   import Modelica.Utilities.Streams.*;
@@ -11751,6 +11768,7 @@ can become close to 1:
 </html>"));
 end acosh;
 
+
 function exp "Exponential, base e"
   extends baseIcon2;
   input Real u;
@@ -11829,6 +11847,7 @@ This function returns y = exp(u), with -&infin; &lt; u &lt; &infin;:
 </p>
 </html>"), Library="ModelicaExternalC");
 end exp;
+
 
 function log "Natural (base e) logarithm (u shall be > 0)"
   extends baseIcon1;
@@ -11911,6 +11930,7 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log;
 
+
 function log10 "Base 10 logarithm (u shall be > 0)"
   extends baseIcon1;
   input Real u;
@@ -11992,6 +12012,7 @@ with u &gt; 0:
 </html>"), Library="ModelicaExternalC");
 end log10;
 
+
 partial function baseIcon1
   "Basic icon for mathematical function with y-axis on left side"
 
@@ -12034,6 +12055,7 @@ It is expected, that an x-axis is added and a plot of the function.
 </html>"));
 end baseIcon1;
 
+
 partial function baseIcon2
   "Basic icon for mathematical function with y-axis in middle"
 
@@ -12073,6 +12095,7 @@ It is expected, that an x-axis is added and a plot of the function.
 </p>
 </html>"));
 end baseIcon2;
+
 
 function tempInterpol1
   "Temporary function for linear interpolation (will be removed)"
@@ -12130,6 +12153,7 @@ algorithm
 
 </html>"));
 end tempInterpol1;
+
 
 function tempInterpol2
   "Temporary function for vectorized linear interpolation (will be removed)"
@@ -12189,6 +12213,7 @@ algorithm
 
 </html>"));
 end tempInterpol2;
+
 
 annotation (
   Invisible=true,
