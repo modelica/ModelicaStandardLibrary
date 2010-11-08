@@ -2743,7 +2743,8 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
     output Real rcond "Reciprocal condition number of A";
     output Integer info "Information";
   protected
-    Real LU[:,:] "LU factorization of matrix A, returned by dgetrf";
+    Real LU[size(A,1),size(A,1)]
+      "LU factorization of matrix A, returned by dgetrf";
     Real anorm "Norm of matrix A";
     String normspec= if inf then "I" else "1" "Specifies the norm 1 or inf";
 
@@ -4326,7 +4327,7 @@ The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
   protected
     Integer n=size(A, 1);
     Real G[size(A, 1),size(A, 1)]=B*Matrices.solve2(R, transpose(B));
-    Real AT[:,:]=transpose(A);
+    Real AT[n,n]=transpose(A);
     Real LU[n,n];
     Integer p[n];
     Real H[2*n,2*n];
@@ -10074,14 +10075,22 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
 
     protected
       Integer na=size(A, 1);
-      Real S[:,:]=-2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*Vectors.length(u))
-        "Symmetric matrix";
+      Real S[na,na] "Symmetric matrix";
       Integer i;
     algorithm
-      for i in 1:na loop
-        S[i, i] := 1.0 + S[i, i];
-      end for;
-      SAS := S*A*S;
+      if na > 0 then
+         S:=-2*matrix(u)*transpose(matrix(u))/(Vectors.length(u)*Vectors.length(
+          u));
+         for i in 1:na loop
+           S[i, i] := 1.0 + S[i, i];
+         end for;
+         SAS := S*A*S;
+      else
+         SAS :=fill(
+              0.0,
+              0,
+              0);
+      end if;
 
       annotation (Documentation(info="<html>
 <h4>Syntax</h4>

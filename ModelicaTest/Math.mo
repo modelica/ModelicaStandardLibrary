@@ -221,7 +221,7 @@ extends Modelica.Icons.ExamplesPackage;
     Real X4[4,4];
 
     Real A5[5,10]=[A1,A1];
-    Real X5[10,:];
+    Real X5[10,5];
 
     Real A6[10,10]=transpose(A5)*A5;
 
@@ -230,18 +230,18 @@ extends Modelica.Icons.ExamplesPackage;
     Real u[5];
 
     Real N[:,:]= fill(0,0,0);
-    Real Xn[:,:];
+    Real Xn[0,0];
 
   algorithm
   //  ##########   continuous Laypunov   ##########
     X1 := Matrices.continuousLyapunov(A1,C1);// benchmark example from SLICOT
     r := Matrices.norm(X1*A1+transpose(A1)*X1-C1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Laypunov: r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousLyapunov\" failed");
 
     X1 := Matrices.continuousLyapunov(A1s,C1, true);// benchmark example from SLICOT
     r := Matrices.norm(X1*A1s+transpose(A1s)*X1-C1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Laypunov: r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousLyapunov\" A' is Schur failed");
 
     Xn := Matrices.continuousLyapunov(N,N);
@@ -249,12 +249,12 @@ extends Modelica.Icons.ExamplesPackage;
   //  ##########   continuous Sylvester   ##########
     X1 := Matrices.continuousSylvester(transpose(A1), A1, C1);
     r := Matrices.norm(X1*A1+transpose(A1)*X1-C1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Sylvester: r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousSylvester\" failed");
 
     X1 := Matrices.continuousSylvester(transpose(A1s), A1, C1, true,  false);
     r := Matrices.norm(X1*A1+transpose(A1s)*X1-C1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Sylvester: r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousSylvester\" A is Schur failed");
 
     Xn := Matrices.continuousSylvester(N,N,N);
@@ -262,12 +262,12 @@ extends Modelica.Icons.ExamplesPackage;
   //  ##########   continuous Riccati   ##########
     X2 := Matrices.continuousRiccati(A2, B2, R2, Q2, false);
     r := Matrices.norm(Q2 + transpose(A2)*X2 + X2*A2 - X2*G2*X2);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Riccati r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousRiccati\" without refinement failed");
 
     X2 := Matrices.continuousRiccati(A2, B2, R2, Q2, true);
     r := Matrices.norm(Q2 + transpose(A2)*X2 + X2*A2 - X2*G2*X2);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("continuous Riccati r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.continuousRiccati\" with refinement failed");
 
     Xn := Matrices.continuousRiccati(N,N,N,N);
@@ -275,22 +275,22 @@ extends Modelica.Icons.ExamplesPackage;
   //  ##########   discrete Laypunov   ##########
     X3 := Matrices.discreteLyapunov(A3,C3, false, 1);// benchmark example from SLICOT
     r := Matrices.norm(transpose(A3)*X3*A3 + X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with sgn=1 failed");
 
     X3 := Matrices.discreteLyapunov(A3s,C3, true, 1);// benchmark example from SLICOT
     r := Matrices.norm(transpose(A3s)*X3*A3s + X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with A' is Schur and sgn=1 failed");
 
     X3 := Matrices.discreteLyapunov(A3,C3, false, -1);
     r := Matrices.norm(transpose(A3)*X3*A3 - X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with sgn=-1 failed");
 
     X3 := Matrices.discreteLyapunov(A3s,C3, false, -1);
     r := Matrices.norm(transpose(A3s)*X3*A3s - X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Laypunov r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteLyapunov\" with A' is Schur and sgn=-1 failed");
 
     Xn := Matrices.discreteLyapunov(N,N);
@@ -298,22 +298,22 @@ extends Modelica.Icons.ExamplesPackage;
   //  ##########   discrete Sylvester   ##########
     X3 := Matrices.discreteSylvester(transpose(A3),A3,C3, false, false, 1);
     r := Matrices.norm(transpose(A3)*X3*A3 + X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Sylvester r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteSylvester\" with sgn=1 failed");
 
     X3 := Matrices.discreteSylvester(transpose(A3s),A3,C3, false, false, 1);
     r := Matrices.norm(transpose(A3s)*X3*A3 + X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Sylvester r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteSylvester\" with A is Schur and sgn=1 failed");
 
     X3 := Matrices.discreteSylvester(transpose(A3),A3,C3, false, false, -1);
     r := Matrices.norm(transpose(A3)*X3*A3 - X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Sylvester r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteSylvester\" with sgn=-1 failed");
 
     X3 := Matrices.discreteSylvester(transpose(A3s),A3,C3, false, false, -1);
     r := Matrices.norm(transpose(A3s)*X3*A3 - X3 - C3);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Sylvester r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteSylvester\" with A is Schur and sgn=-1 failed");
 
     Xn := Matrices.discreteSylvester(N,N,N);
@@ -326,19 +326,19 @@ extends Modelica.Icons.ExamplesPackage;
   //    Fak. f. Mathematik, TU Chemnitz-Zwickau (Germany), December 1995:
     X4 := Matrices.discreteRiccati(A4, B4, R4, Q4, false);
     r := Matrices.norm(transpose(A4)*X4*A4 - X4 + Q4 - transpose(A4)*X4*B4*Matrices.solve2(R4+transpose(B4)*X4*B4,transpose(B4)*X4*A4));
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Riccati r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteRiccati\" without refinement failed");
 
     X4 := Matrices.discreteRiccati(A4, B4, R4, Q4, true);
     r := Matrices.norm(transpose(A4)*X4*A4 - X4 + Q4 - transpose(A4)*X4*B4*Matrices.solve2(R4+transpose(B4)*X4*B4,transpose(B4)*X4*A4));
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("discrete Riccati r = "+String(r));
     assert(abs(r) <eps, "\"Matrices.discreteRiccati\" with refinement failed");
 
     Xn := Matrices.discreteRiccati(N,N,N,N);
 
   //  ##########   trace   ##########
     r := Matrices.trace(diagonal(1:100))-sum(1:100);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("trace r = "+String(r));
     assert(abs(r)<Modelica.Constants.small, "\"Matrices.trace\" failed");
 
     c := Matrices.trace(N);
@@ -346,47 +346,38 @@ extends Modelica.Icons.ExamplesPackage;
   //  ##########   condition number   ##########
     c := Matrices.conditionNumber(A1);
     r := c - Matrices.norm(A1)*Matrices.norm(Matrices.inv(A1));
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("condition number r = "+String(r));
     assert(abs(r)<eps, "\"condition number\" p=2");
 
     c := Matrices.conditionNumber(A1,1);
     r := c - Matrices.norm(A1,1)*Matrices.norm(Matrices.inv(A1),1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("condition number r = "+String(r));
     assert(abs(r)<eps, "\"condition number\" p=1");
 
     c := Matrices.conditionNumber(A1,Modelica.Constants.inf);
     r := c - Matrices.norm(A1,Modelica.Constants.inf)*Matrices.norm(Matrices.inv(A1),Modelica.Constants.inf);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("condition number r = "+String(r));
     assert(abs(r)<eps, "\"condition number\" p=Modelica.Constants.inf");
 
     c := Matrices.conditionNumber(N);
 
     c := Matrices.rcond(A1,false);
     r := 1/c - Matrices.norm(A1,1)*Matrices.norm(Matrices.inv(A1),1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("condition number r = "+String(r));
     assert(abs(r)<eps, "\"rcond\" p=1");
 
     c := Matrices.rcond(A1,true);
     r := 1/c - Matrices.norm(A1,Modelica.Constants.inf)*Matrices.norm(Matrices.inv(A1),Modelica.Constants.inf);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("condition number r = "+String(r));
     assert(abs(r)<eps, "\"rcond\" p=Modelica.Constants.inf");
 
     c := Matrices.rcond(N);
 
-  //  ##########   nullspace   ##########
-    (X5, n) := Matrices.nullSpace(A5);
-    r := Matrices.norm(A5*X5,1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
-    assert(abs(r)<eps, "\"nullSpace\"");
-    assert(Modelica.Math.Vectors.isEqual(array(Modelica.Math.Vectors.length(X5[:,i]) for i in 1:n),fill(1,n),eps),"\"nullSpace\" nullspace is not orthonormal");
-
-    (Xn, n) := Matrices.nullSpace(N);
-
   //  ##########   Frobenius norm   ##########
     c := Matrices.frobeniusNorm(A5);
     r := c-sqrt(sum(array(A6[i,i] for i in 1:size(A6,1))));
-    Modelica.Utilities.Streams.print("r = "+String(r));
-    assert(abs(r)<Modelica.Constants.small, "\"frobeniusNorm\"");
+    Modelica.Utilities.Streams.print("Frobenius norm r = "+String(r));
+    assert(abs(r)<eps, "\"frobeniusNorm\"");
 
     c := Matrices.frobeniusNorm(N);
 
@@ -394,13 +385,13 @@ extends Modelica.Icons.ExamplesPackage;
     (H1,U1) := Modelica.Math.Matrices.hessenberg(A1);
     Modelica.Math.Matrices.toString(H1,"Hessenberg",6);
     r := Matrices.norm(U1*H1*transpose(U1)-A1);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("Hessenberg, r = "+String(r));
     assert(abs(r)<eps, "\"hessenberg\"");
     H1 := Modelica.Math.Matrices.realSchur(A1);
     Modelica.Math.Matrices.toString(H1,"realSchur",6);
     H1 := Modelica.Math.Matrices.cholesky(L*transpose(L), false);
     r := Matrices.norm(H1-L);
-    Modelica.Utilities.Streams.print("r = "+String(r));
+    Modelica.Utilities.Streams.print("RealSchur r = "+String(r));
     assert(abs(r)<eps, "\"cholesky\"");
 
     Xn := Modelica.Math.Matrices.hessenberg(N);
@@ -413,7 +404,7 @@ extends Modelica.Icons.ExamplesPackage;
     u := H1[:,1];
     H1 := Matrices.Utilities.toUpperHessenberg(A1);
     r := Modelica.Math.Vectors.norm(u-H1[:,1]);
-    Modelica.Utilities.Streams.print("rf = "+String(r));
+    Modelica.Utilities.Streams.print("Vectors.norm rf = "+String(r));
     assert(abs(r)<eps, "\"Utilities\"");
 
     Xn := Matrices.Utilities.householderReflection(N,fill(0,0));
@@ -421,6 +412,39 @@ extends Modelica.Icons.ExamplesPackage;
 
     ok := true;
   end Matrices2;
+
+  function Matrices3
+    "Test functions of Modelica.Math.Matrices that cannot be used in a model since output array dimension depends on computation"
+    import Modelica.Math.Matrices;
+  //   input String logFile = "ModelicaTestLog.txt"
+  //     "Filename where the log is stored";
+    output Boolean ok=false;
+  protected
+    Real eps=1e-13;
+    Real A1[5,5] = [ -3.6360,  -0.6921,  -1.1933,  -0.8137,   0.3507;
+                      0.1406,  -2.9375,   0.9063,   0.1562,   0.3438;
+                     -2.5735,  -1.4421,  -2.8183,  -1.1887,   1.2257;
+                     -0.3779,   0.0810,   0.5544,  -1.5891,   0.0660;
+                      0.8961,   1.1586,   1.6279,   0.5631,  -2.2066];
+
+    Real A5[5,10]=[A1,A1];
+    Real X5[10,5];
+
+    Real N[:,:]= fill(0,0,0);
+    Real Xn[0,0];
+
+  algorithm
+  //  ##########   nullspace   ##########
+    (X5, n) := Matrices.nullSpace(A5);
+    r := Matrices.norm(A5*X5,1);
+    Modelica.Utilities.Streams.print("r = "+String(r) + ", nullity = " +String(n));
+    assert(abs(r)<eps, "\"nullSpace\"");
+    assert(Modelica.Math.Vectors.isEqual(array(Modelica.Math.Vectors.length(X5[:,i]) for i in 1:n),fill(1,n),eps),"\"nullSpace\" nullspace is not orthonormal");
+
+    (Xn, n) := Matrices.nullSpace(N);
+
+    ok := true;
+  end Matrices3;
 
   function Vectors "Test functions of Modelica.Math.Matrices"
     import Modelica.Math.Vectors;
@@ -490,4 +514,14 @@ extends Modelica.Icons.ExamplesPackage;
     colorMapToSvg(winter(), x=130, height=50, width=5, nScalars=6, T_max=10, fontSize=8, textWidth=5, caption="winter",headerType=colorMapToSvg.HeaderType.svgEnd);
 
   end colorMapToSvg;
+
+  model MatricesInModel
+     extends Modelica.Icons.Example;
+  equation
+     when initial() then
+         ModelicaTest.Math.Matrices();
+         ModelicaTest.Math.Matrices2();
+     end when;
+    annotation (experiment(StopTime=0), __Dymola_experimentSetupOutput);
+  end MatricesInModel;
 end Math;
