@@ -2379,6 +2379,38 @@ more of the following changes.
 </html>"));
 end VersionManagement;
 
+class Version_3_2_BugFixes "Version 3.2 with bug fixes"
+  extends Modelica.Icons.ReleaseNotes;
+
+   annotation (Documentation(info="<html>
+
+<p>
+Below the bug fixes are summarized that have been incorporated into the
+maintenance branch of Version 3.2. All these changes are backwards compatible.
+</p>
+
+<p><br>
+The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
+that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
+units are wrong or errors in documentation):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
+<tr><td valign=\"top\"> rcond<br>
+                      discreteRiccati<br>
+                       </td>
+    <td valign=\"top\"> The unspecified dimensions in an array in the protected section
+                      replaced by concrete dimensions.</td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Math.Matrices.Utilities.</b></td></tr>
+<tr><td valign=\"top\"> householderSimilarityTransformation</td>
+    <td valign=\"top\"> The unspecified dimensions in an array in the protected section
+                      replaced by concrete dimensions.</td> </tr>
+</table>
+
+</html>"));
+end Version_3_2_BugFixes;
+
 class Version_3_2 "Version 3.2 (Oct. 25, 2010)"
   extends Modelica.Icons.ReleaseNotes;
 
