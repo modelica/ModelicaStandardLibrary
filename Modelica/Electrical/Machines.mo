@@ -929,10 +929,10 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Lrsigma=2.31/(2*pi*fNominal),
           Rr=0.42,
           alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium,
-          wMechanical(start=wNominal, fixed=true),
           frictionParameters(PRef=PfrictionRef, wRef=wNominal),
           TsRef=293.15,
-          TrRef=293.15)
+          TrRef=293.15,
+          wMechanical(start=wNominal, fixed=true))
           annotation (Placement(transformation(extent={{-40,0},{-20,20}},
                 rotation=0)));
 
@@ -1111,6 +1111,117 @@ The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
 </HTML>"));
       end AIMC_withLosses;
+
+      model AIMC_Initialize
+        "Test example: Steady-State Initialization of AsynchronousInductionMachineSquirrelCage"
+        extends Modelica.Icons.Example;
+        import Modelica.Constants.pi;
+        constant Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Voltage VNominal=100
+          "Nominal RMS voltage per phase";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.AngularVelocity wSync=2*pi*fNominal/aimc.p;
+        parameter Modelica.SIunits.Time tStart=0.5 "Start time";
+        parameter Modelica.SIunits.Torque TLoad=161.4 "Nominal load torque";
+        parameter Modelica.SIunits.AngularVelocity wLoad(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
+          "Nominal load speed";
+        parameter Modelica.SIunits.Inertia JLoad=0.29
+          "Load's moment of inertia";
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
+          aimc
+          annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
+                rotation=0)));
+        Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
+          annotation (Placement(transformation(
+              origin={-10,0},
+              extent={{-10,10},{10,-10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
+          final m=m,
+          freqHz=fill(fNominal, m),
+          V=fill(sqrt(2/3)*VNominal, m))
+          annotation (Placement(transformation(
+              origin={-70,10},
+              extent={{-10,-10},{10,10}},
+              rotation=270)));
+        Modelica.Electrical.MultiPhase.Basic.Star star(final m=m)
+          annotation (Placement(transformation(extent={{10,-10},{-10,10}},
+                rotation=90,
+              origin={-70,-20})));
+        Modelica.Electrical.Analog.Basic.Ground ground
+          annotation (Placement(transformation(
+              origin={-70,-50},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=JLoad)
+          annotation (Placement(transformation(extent={{40,-50},{60,-30}},
+                rotation=0)));
+        Mechanics.Rotational.Sources.TorqueStep torqueStep(
+          useSupport=false,
+          startTime=tStart,
+          stepTorque=-TLoad,
+          offsetTorque=0)
+          annotation (Placement(transformation(extent={{90,-50},{70,-30}},
+                rotation=0)));
+        Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
+          annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
+                rotation=0)));
+      initial equation
+        aimc.wMechanical=wSync;
+        der(aimc.wMechanical)=0;
+        der(aimc.idq_sr)=zeros(2);
+        der(aimc.idq_rr)=zeros(2);
+      equation
+        connect(star.pin_n, ground.p)
+          annotation (Line(points={{-70,-30},{-70,-30},{-70,-40}},
+                                                       color={0,0,255}));
+        connect(sineVoltage.plug_n, star.plug_p)
+          annotation (Line(points={{-70,0},{-70,-10}},
+              color={0,0,255}));
+        connect(terminalBox.plug_sn, aimc.plug_sn)   annotation (Line(
+            points={{-16,-30},{-16,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(terminalBox.plug_sp, aimc.plug_sp)   annotation (Line(
+            points={{-4,-30},{-4,-30}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(terminalBox.plugSupply, currentQuasiRMSSensor.plug_n)
+                                                                   annotation (Line(
+            points={{-10,-28},{-10,-19},{-10,-10},{-10,-10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(loadInertia.flange_b, torqueStep.flange)          annotation (
+            Line(
+            points={{60,-40},{70,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(aimc.flange, loadInertia.flange_a) annotation (Line(
+            points={{0,-40},{40,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(sineVoltage.plug_p, currentQuasiRMSSensor.plug_p) annotation (Line(
+            points={{-70,20},{-10,20},{-10,10}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        annotation (
+          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                  100}}),
+                  graphics),
+          experiment(StopTime=1.5, Interval=0.001),
+          Documentation(info="<HTML>
+<b>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</b><br>
+The asynchronous induction machine with squirrel cage is initialized in steady-state at no-load;
+at time tStart a load torque step is applied.<br>
+Simulate for 1.5 seconds and plot (versus time):
+<ul>
+<li>currentQuasiRMSSensor.I: stator current RMS</li>
+<li>aimc.wMechanical: motor's speed</li>
+<li>aimc.tauElectrical: motor's torque</li>
+</ul>
+Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
+</HTML>"));
+      end AIMC_Initialize;
       annotation (Documentation(info="<HTML>
 This package contains test examples of asynchronous induction machines.
 </HTML>"));
@@ -4118,11 +4229,11 @@ These models use package SpacePhasors.
 
       model SM_PermanentMagnet "Permanent magnet synchronous induction machine"
         extends Machines.Interfaces.PartialBasicInductionMachine(
-            Lssigma(start=0.1/(2*pi*fsNominal)),
-            final idq_ss = airGapR.i_ss,
-            final idq_sr = airGapR.i_sr,
-            final idq_rs = airGapR.i_rs,
-            final idq_rr = airGapR.i_rr,
+          Lssigma(start=0.1/(2*pi*fsNominal)),
+          final idq_ss = airGapR.i_ss,
+          final idq_sr = airGapR.i_sr,
+          final idq_rs = airGapR.i_rs,
+          final idq_rr = airGapR.i_rr,
           redeclare final
             Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMPM
             thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational,
@@ -4415,11 +4526,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       model SM_ElectricalExcited
         "Electrical excited synchronous induction machine with damper cage"
         extends Machines.Interfaces.PartialBasicInductionMachine(
-            Lssigma(start=0.1/(2*pi*fsNominal)),
-            final idq_ss = airGapR.i_ss,
-            final idq_sr = airGapR.i_sr,
-            final idq_rs = airGapR.i_rs,
-            final idq_rr = airGapR.i_rr,
+          Lssigma(start=0.1/(2*pi*fsNominal)),
+          final idq_ss = airGapR.i_ss,
+          final idq_sr = airGapR.i_sr,
+          final idq_rs = airGapR.i_rs,
+          final idq_rr = airGapR.i_rr,
           redeclare final
             Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMEE
             thermalAmbient(final useDamperCage = useDamperCage, final Te=TeOperational, final Tr=TrOperational),
@@ -4826,11 +4937,11 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       model SM_ReluctanceRotor
         "Synchronous induction machine with reluctance rotor and damper cage"
         extends Machines.Interfaces.PartialBasicInductionMachine(
-            Lssigma(start=0.1/(2*pi*fsNominal)),
-            final idq_ss = airGapR.i_ss,
-            final idq_sr = airGapR.i_sr,
-            final idq_rs = airGapR.i_rs,
-            final idq_rr = airGapR.i_rr,
+          Lssigma(start=0.1/(2*pi*fsNominal)),
+          final idq_ss = airGapR.i_ss,
+          final idq_sr = airGapR.i_sr,
+          final idq_rs = airGapR.i_rs,
+          final idq_rr = airGapR.i_rr,
           redeclare final
             Machines.Thermal.SynchronousInductionMachines.ThermalAmbientSMR
             thermalAmbient(final useDamperCage = useDamperCage, final Tr=TrOperational),
@@ -8093,6 +8204,37 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
         Machines.Interfaces.SpacePhasor spacePhasor_r
           annotation (Placement(transformation(extent={{90,90},{110,110}},
                 rotation=0)));
+      /*  
+  Modelica.SIunits.AngularVelocity omegaPsi_ms 
+    "Angular velocity of main flux with respect to the stator fixed frame";
+  Modelica.SIunits.AngularVelocity omegaPsi_mr 
+    "Angular velocity of main flux with respect to the rotor fixed frame";
+  Modelica.SIunits.Current i_sm[2] 
+    "Stator current space phasor with respect to the main flux fixed frame";
+  Modelica.SIunits.Current i_rm[2] 
+    "Rotor current space phasor with respect to the main flux fixed frame";
+protected 
+  Modelica.SIunits.MagneticFlux psi_msAbs "Length of main flux phasor";
+  Modelica.SIunits.Angle psi_msArg 
+    "(Wrapped) angle of main flux phasor with respect to the stator fixe frame";
+  Modelica.SIunits.Angle psi_mrArg 
+    "(Wrapped) angle of main flux phasor with respect to the rotor fixe frame";
+initial equation 
+  i_sm = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(i_ss, psi_msArg);
+  i_rm = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(i_rr, psi_mrArg);
+equation 
+  // AngularVelocity of main flux phasor
+  (psi_msAbs, psi_msArg) = Machines.SpacePhasors.Functions.ToPolar(psi_ms);
+  psi_mrArg = psi_msArg - gamma;
+  omegaPsi_ms = if noEvent(psi_msAbs<Modelica.Constants.small) then 0 else 
+    (spacePhasor_s.v_[2]*cos(psi_msArg) - spacePhasor_s.v_[1]*sin(psi_msArg))/psi_msAbs;
+  omegaPsi_mr = omegaPsi_ms - der(gamma);
+  // stator and rotor current w.r.t. main flux fixed frame
+  der(i_sm) = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(
+    {der(i_ss[1]) + omegaPsi_ms*i_ss[2], der(i_ss[2]) - omegaPsi_ms*i_ss[1]}, psi_msArg);
+  der(i_rm) = Modelica.Electrical.Machines.SpacePhasors.Functions.Rotator(
+    {der(i_rr[1]) + omegaPsi_mr*i_rr[2], der(i_rr[2]) - omegaPsi_mr*i_rr[1]}, psi_mrArg);
+*/
       equation
         // mechanical angle of the rotor of an equivalent 2-pole machine
         gamma=p*(flange.phi-support.phi);
