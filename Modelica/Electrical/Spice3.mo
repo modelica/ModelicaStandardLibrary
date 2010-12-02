@@ -4875,10 +4875,10 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
           "RSH, Sheet resistance";
          Real m_bulkJctPotential(           start = 0.8)
           "PB, Bulk junction potential, input - use tBulkPot";
-         Real m_bulkJctBotGradingCoeff(     start = 0.5)
-          "MJ, Bottom grading coefficient";
-         Real m_bulkJctSideGradingCoeff(    start = 0.5)
-          "MJSW, Side grading coefficient";
+         Modelica.SIunits.LinearTemperatureCoefficient m_bulkJctBotGradingCoeff(     start = 0.5)
+          "MJ, Bottom grading coefficient";    //unit checked by maj
+         Modelica.SIunits.LinearTemperatureCoefficient m_bulkJctSideGradingCoeff(    start = 0.5)
+          "MJSW, Side grading coefficient";    //unit checked by maj
          Real m_oxideThickness(             start = 1.0e-7)
           "TOX, Oxide thickness unit: micron";
          Real m_oxideThicknessIsGiven "TOX, IsGiven value";
@@ -6927,7 +6927,8 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           "CJO, Junction capacitance";
         Modelica.SIunits.Voltage m_junctionPot( start = 1.0)
           "VJ, Junction potential";
-        Real m_gradingCoeff( start = 0.5) "M, Grading coefficient";
+        Modelica.SIunits.LinearTemperatureCoefficient m_gradingCoeff( start = 0.5)
+          "M, Grading coefficient";                                                                           //unit check by maj
         Modelica.SIunits.ActivationEnergy m_activationEnergy( start = 1.11)
           "EG, Activation energy";
         Real m_saturationCurrentExp( start = 3.0)
@@ -6939,7 +6940,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real m_pBvIsGiven "BV is given value";
         Modelica.SIunits.Current m_breakdownCurrent( start = 1.0e-3)
           "IBV, Current at reverse breakdown voltage";
-        Modelica.SIunits.Temp_C m_nomTemp( start=SpiceConstants.CKTnomTemp)
+        Modelica.SIunits.Temp_K m_nomTemp( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Real m_fNcoef( start = 0.0) "KF, flicker noise coefficient";
         Real m_fNexp( start = 1.0) "AF, flicker noise exponent";
@@ -7231,7 +7232,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
          intern.m_breakdownVoltage := if (ex.BV > -1e40) then ex.BV else 0;
 
          intern.m_breakdownCurrent := ex.IBV;
-        intern.m_nomTemp := ex.TNOM + SpiceConstants.CONSTCtoK;
+         intern.m_nomTemp := ex.TNOM + SpiceConstants.CONSTCtoK;
          intern.m_fNcoef := ex.KF;
          intern.m_fNexp := ex.AF;
 
