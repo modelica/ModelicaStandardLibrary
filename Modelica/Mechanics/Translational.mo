@@ -909,7 +909,6 @@ to see the difference.
             Text(
               extent={{-98,-68},{102,-94}},
               textString="positive force => spool moves in positive direction ",
-
               lineColor={0,0,255}),
             Text(
               extent={{-32,-46},{38,-62}},
@@ -4267,7 +4266,7 @@ It is used e.g. to built up sliding masses.
         "Right flange of compliant 1-dim. translational component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      SI.Distance s_rel(start=0)
+      SI.Position s_rel(start=0)
         "relative distance (= flange_b.s - flange_a.s)";
       SI.Force f
         "force between flanges (positive in direction of flange axis R)";
@@ -4306,7 +4305,7 @@ flange is the same. It is used to built up springs, dampers etc.
       parameter SI.Distance s_nominal=1e-4
         "Nominal value of s_rel (used for scaling)"   annotation(Dialog(tab="Advanced"));
 
-      SI.Distance s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal)
+      SI.Position s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal)
         "Relative distance (= flange_b.s - flange_a.s)";
       SI.Velocity v_rel(start=0, stateSelect=stateSelect)
         "Relative velocity (= der(s_rel))";
