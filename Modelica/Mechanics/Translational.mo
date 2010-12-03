@@ -630,8 +630,8 @@ to see the difference.
 
     model Friction "Use of model Stop"
       extends Modelica.Icons.Example;
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1(
-                                               L=1,
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
+        (                                      L=1,
         s(fixed=true),
         v(fixed=true),
         smax=25,
@@ -649,7 +649,8 @@ to see the difference.
                                                                     annotation (Placement(
             transformation(extent={{-60,60},{-40,80}},
                                                      rotation=0)));
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2(
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
+        (
         L=1,
         smax=0.9,
         smin=-0.9,
@@ -4532,7 +4533,7 @@ It is used e.g., to built up sliding masses.
         "Right flange of compliant 1-dim. translational component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
-      SI.Distance s_rel(start=0)
+      SI.Position s_rel(start=0)
         "Relative distance (= flange_b.s - flange_a.s)";
       SI.Force f
         "Force between flanges (positive in direction of flange axis R)";
@@ -4571,7 +4572,7 @@ flange is the same. It is used to built up springs, dampers etc.
       parameter SI.Distance s_nominal=1e-4
         "Nominal value of s_rel (used for scaling)"   annotation(Dialog(tab="Advanced"));
 
-      SI.Distance s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal)
+      SI.Position s_rel(start=0, stateSelect=stateSelect, nominal=s_nominal)
         "Relative distance (= flange_b.s - flange_a.s)";
       SI.Velocity v_rel(start=0, stateSelect=stateSelect)
         "Relative velocity (= der(s_rel))";
