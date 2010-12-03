@@ -3466,18 +3466,18 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 
     constant Boolean m_bInit = false;
 
-    Real Dinternal;  //internal drain node
-    Real Sinternal;  //internal source node
-    Real ird;
-    Real irs;
-    Real ibdgmin;
-    Real ibsgmin;
+    SI.Voltage Dinternal;  //internal drain node
+    SI.Voltage Sinternal;  //internal source node
+    SI.Current ird;
+    SI.Current irs;
+    SI.Current ibdgmin;
+    SI.Current ibsgmin;
 
-    Real icBD;
-    Real icBS;
-    Real icGB;
-    Real icGS;
-    Real icGD;
+    SI.Current icBD;
+    SI.Current icBS;
+    SI.Current icGB;
+    SI.Current icGS;
+    SI.Current icGD;
     SI.Voltage vDS "Drain - source voltage";
     SI.Voltage vGS "Gate - source voltage";
 
@@ -3556,7 +3556,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
        parameter SI.Transconductance KP=-1e40
         "Transconductance parameter, default 2e-5";
        parameter Real GAMMA=-1e40 "Bulk threshold parameter, default 0";
-       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";
+       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";  //Substrat Sperrschicht Potential
        parameter SI.InversePotential LAMBDA=0
         "Channel-length modulation, default 0";
        parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
@@ -3574,7 +3574,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
        parameter SI.Permittivity CGBO=0.0
         "Gate-bulk overlap capacitance per meter channel width";
        parameter SI.Resistance RSH=0.0
-        "Drain and source diffusion sheet resistance";
+        "Drain and source diffusion sheet resistance";                                   //!!Diffusionswiderstand/Flächenquadrat
        parameter SI.CapacitancePerArea CJ=0.0
         "Zero-bias bulk junction bottom cap. per sq-meter of junction area";
        parameter Real MJ=0.5 "Bulk junction bottom grading coefficient";
@@ -4340,8 +4340,8 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       protected
         Real phibtemp;
         Real phibtnom;
-        Real vt;
-        Real vtnom;
+        Modelica.SIunits.Temp_K vt;       //unit checked by maj
+        Modelica.SIunits.Temp_K vtnom;    //unit checked by maj
         Real arg;
         Real fact2;
         Real pbfact;
@@ -5031,12 +5031,11 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
           "GAMMA, Bulk threshold parameter";
          Real m_gammaIsGiven "Gamma IsGivenValue";
          Modelica.SIunits.InversePotential m_lambda "Channel-length modulation";
-         Real m_substrateDoping(     start = 0.0) "NSUB, Substrate doping";
+         Real m_substrateDoping(start = 0.0) "NSUB, Substrate doping";
          Real m_substrateDopingIsGiven "Substrate doping IsGivenValue";
-         Real m_gateType(            start = 1.0) "TPG, Gate type";
+         Real m_gateType(start = 1.0) "TPG, Gate type";
          Modelica.SIunits.Conversions.NonSIunits.PerArea_cm
-          m_surfaceStateDensity(                                                   start = 0.0)
-          "NSS, Gate type";
+          m_surfaceStateDensity(start = 0.0) "NSS, Gate type";
          Real m_surfaceStateDensityIsGiven "surfaceStateDensityIsGivenValue";
          Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond
           m_surfaceMobility( start = 600.0) "UO, Surface mobility";
