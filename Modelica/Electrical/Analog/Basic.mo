@@ -1434,7 +1434,7 @@ end M_Transformer;
     Modelica.Electrical.Analog.Interfaces.NegativePin VMin
       "Negative output voltage limitation" annotation (Placement(transformation(
             extent={{-10,-80},{10,-60}}, rotation=0)));
-    SI.Voltage vin "input voltagae";
+    SI.Voltage vin "input voltage";
   protected
     Real f "auxiliary variable";
     Real absSlope;
