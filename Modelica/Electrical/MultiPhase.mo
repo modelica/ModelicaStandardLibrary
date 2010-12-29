@@ -523,10 +523,6 @@ Connects pin <i>k</i> of plug_n to pin_n, leaving the other pins of plug_n uncon
               extent={{-150,100},{150,40}},
               textString="%name",
               lineColor={0,0,255}),
-            Text(
-              extent={{-100,-60},{100,-100}},
-              lineColor={0,0,0},
-              textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}, color={0,0,0}),
             Rectangle(
               extent={{-20,20},{40,-20}},
@@ -564,10 +560,6 @@ Connects all pins of plug_p to the pin array pin_p.
               extent={{-150,100},{150,40}},
               textString="%name",
               lineColor={0,0,255}),
-            Text(
-              extent={{-100,-60},{100,-100}},
-              lineColor={0,0,0},
-              textString="k = %k"),
             Line(points={{-20,20},{40,20},{40,-20},{-20,-20}}, color={0,0,0}),
             Rectangle(
               extent={{-20,20},{40,-20}},
