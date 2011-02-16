@@ -9929,7 +9929,7 @@ documentation available in this package.
               Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
 
             //choices
-            input Modelica.Fluid.Dissipation.Utilities.Types.Roughness
+            input Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
               voidFractionApproach=
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
