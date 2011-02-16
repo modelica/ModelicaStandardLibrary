@@ -5806,7 +5806,7 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
           frictionalPressureLoss=Dissipation.Utilities.Types.TwoPhaseFrictionalPressureLoss.Friedel
           "Choice of frictional pressure loss approach"
           annotation (Dialog(group="Choices"));
-        Modelica.Fluid.Dissipation.Utilities.Types.Roughness
+        Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
           voidFractionApproach =                                                  Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
           "Choice of void fraction approach" annotation (Dialog(group="Choices"));
 
