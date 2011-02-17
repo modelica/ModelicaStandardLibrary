@@ -1011,7 +1011,7 @@ calls in 0.99 should be changed:
      Modelica 2003 Conference, Link&ouml;ping, Sweden,
      pp. 311-330, Nov. 3-4, 2003.
      Download from:
-     <a href=\"http://www.modelica.org/Conference2003/papers/h37_Otter_multibody.pdf\">http://www.modelica.org/Conference2003/papers/h37_Otter_multibody.pdf</a>
+     <a href=\"http://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf\">http://www.modelica.org/events/Conference2003/papers/h37_Otter_multibody.pdf</a>
      </dd>
 </dl>
 </li>
@@ -1024,7 +1024,7 @@ dynamical effects is described in:
      Modelica 2003 Conference, Link&ouml;ping, Sweden,
      pp. 149-158, Nov. 3-4, 2003.
      Download from:
-<a href=\"http://www.modelica.org/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf\">http://www.modelica.org/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf</a>
+<a href=\"http://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf\">http://www.modelica.org/events/Conference2003/papers/h06_Schweiger_powertrains_v5.pdf</a>
      </dd>
 </dl>
 </li>

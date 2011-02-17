@@ -3546,7 +3546,7 @@ Modelica.Mechanics.Rotational.GearEfficiency model.
 <li>Pelchen C.,
 <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Schweiger C.</a>,
 and <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Otter M.</a>:
-&quot;<a href=\"http://www.modelica.org/Conference2002/papers/p33_Pelchen.pdf\">Modeling
+&quot;<a href=\"http://www.modelica.org/events/Conference2002/papers/p33_Pelchen.pdf\">Modeling
 and Simulating the Efficiency of Gearboxes and of Planetary Gearboxes</A>,&quot; in
 <I>Proceedings of the 2nd International Modelica Conference, Oberpfaffenhofen, Germany,</I>
 pp. 257-266, The Modelica Association and Institute of Robotics and Mechatronics,

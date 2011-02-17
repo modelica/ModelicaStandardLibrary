@@ -946,7 +946,7 @@ This section is partly based on the following paper:
      Modelica 2003 Conference, Link&ouml;ping, Sweden,
      pp. 269-286, Nov. 3-4, 2003.
      Download from:
-     <a href=\"http://www.modelica.org/Conference2003/papers/h40_Elmqvist_fluid.pdf\">http://www.modelica.org/Conference2003/papers/h40_Elmqvist_fluid.pdf</a>
+     <a href=\"http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf\">http://www.modelica.org/events/Conference2003/papers/h40_Elmqvist_fluid.pdf</a>
      </dd>
 </dl>
 Please note that the design of the connectors has been changed with respect to the design presented in that paper.
