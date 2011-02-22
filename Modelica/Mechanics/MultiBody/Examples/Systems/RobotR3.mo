@@ -425,8 +425,7 @@ determined from the connections to this bus.
               lineColor={255,204,51},
               lineThickness=0.5)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics),
+                {100,100}})),
         Documentation(info="<html>
 <p>
 Signal bus that is used to communicate <b>all signals</b> of the robot.

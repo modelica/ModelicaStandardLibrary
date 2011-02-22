@@ -176,6 +176,5 @@ Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
 a size of about 50 Mbyte (for 5000 output intervalls).
 </p>
 </HTML>
-"),
-    experiment(StopTime=1.01));
+"), experiment(StopTime=1.01));
 end EngineV6;

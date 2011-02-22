@@ -34,7 +34,7 @@ equation
       if use_pre_as_default then pre(y) else y_default;
   annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{300,100}},
-        grid={1,1}),           graphics), Icon(coordinateSystem(
+        grid={1,1})),             Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{300,100}},
         grid={1,1}), graphics={
@@ -78,12 +78,12 @@ This block has a vector of Boolean input signals u[nu] and a vector of
 set to expr[i], if i is the first element in the input vector u that is true. If all input signals are
 false, y is set to parameter \"y_default\" or the last value is kept, if use_pre_as_default = <b>true</b>.
 </p>
- 
+
 <blockquote><pre>
   // Conceptual equation (not valid Modelica)
   i = 'first element of u[:] that is true';
-  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y) 
-                                          <b>else</b> y_default) 
+  y = <b>if</b> i==0 <b>then</b> (<b>if</b> use_pre_as_default <b>then</b> pre(y)
+                                          <b>else</b> y_default)
       <b>else</b> expr[i];
 </pre></blockquote>
 
@@ -91,7 +91,7 @@ false, y is set to parameter \"y_default\" or the last value is kept, if use_pre
 The input connector is a vector of Boolean input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -135,7 +135,7 @@ y = k[1]*u[1] + k[2]*u[2] + ... k[N]*u[N];
 The input connector is a vector of Integer input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -145,7 +145,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to zero: y=0.
 </p>
 </html>"));
@@ -178,7 +178,7 @@ y = u[1]*u[2]* ... *u[N];
 The input connector is a vector of Integer input signals.
 When a connection line is drawn, the dimension of the input
 vector is enlarged by one and the connection is automatically
-connected to this new free index (thanks to the 
+connected to this new free index (thanks to the
 connectorSizing annotation).
 </p>
 
@@ -188,7 +188,7 @@ The usage is demonstrated, e.g., in example
 </p>
 
 <p>
-If no connection to the input connector \"u\" is present, 
+If no connection to the input connector \"u\" is present,
 the output is set to zero: y=0.
 </p>
 </html>"));
@@ -246,7 +246,7 @@ the output is set to zero: y=0.
     end when;
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}},
-          initialScale=0.06),    graphics), Icon(coordinateSystem(
+          initialScale=0.06),       Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           initialScale=0.06), graphics={
             Line(
@@ -287,12 +287,12 @@ The optional inputs can be activated with the \"use_reset\" and
 
 <p>
 The input \"u\" is added to the previous value of the
-output \"y\" if the \"trigger\" port has a rising edge. At the start of the 
+output \"y\" if the \"trigger\" port has a rising edge. At the start of the
 simulation \"y = y_start\".
 </p>
 
 <p>
-If the \"reset\" port is enabled, then the output \"y\" is reset to \"set\" 
+If the \"reset\" port is enabled, then the output \"y\" is reset to \"set\"
 or to \"y_start\" (if the \"set\" port is not enabled), whenever the \"reset\"
 port has a rising edge.
 </p>
@@ -302,7 +302,7 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
-</html>"));
+</html>")));
   end TriggeredAdd;
   annotation (Documentation(info="<html>
 <p>

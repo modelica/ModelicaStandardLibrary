@@ -659,8 +659,7 @@ parameter menu.
             lineColor={0,0,0},
             textString="%length")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       Documentation(info="<html>
 <p>
 Model <b>FixedArrow</b> defines an arrow that is
@@ -741,7 +740,6 @@ parameter menu.
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}),
-              graphics),
       Documentation(info="<HTML>
 <p>
 Model <b>SignalArrow</b> defines an arrow that is dynamically visualized
@@ -755,7 +753,7 @@ the connector <b>r_head</b> (Real r_head[3]):<br>&nbsp;
 The tail of the arrow is defined with parameter <b>r_tail</b>
 with respect to frame_a (vector from the origin of frame_a to the arrow tail).
 </p>
-</HTML>"));
+</HTML>")));
   end SignalArrow;
 
    model Ground "Visualizing the ground (box in z=0)"
@@ -832,7 +830,6 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
             textString="%name",
             lineColor={0,0,255})}),             Diagram(coordinateSystem(
               preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics),
         Documentation(info="<html>
 <p>
 This shape visualizes the x-y plane by a box
@@ -841,7 +838,7 @@ This shape visualizes the x-y plane by a box
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/MultiBody/Visualizers/Ground.png\">
 </blockquote>
-</html>"));
+</html>")));
    end Ground;
 
   model Torus "Visualizing a torus"
@@ -1887,7 +1884,6 @@ library (will be replaced by a color editor).
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Documentation(info="<HTML>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
@@ -1913,7 +1909,7 @@ The predefined type <b>MultiBody.Types.Color</b> contains
 a menu definition of the colors used in the MultiBody
 library (will be replaced by a color editor).
 </p>
-</HTML>"));
+</HTML>")));
     end DoubleArrow;
 
     model Shape
@@ -2495,7 +2491,6 @@ since they all have frame connectors).
               fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Documentation(info="<HTML>
 <p>
 With model <b>FixedLines</b> a set of lines is defined
@@ -2519,7 +2514,7 @@ coordinate system is defined. The points defined with parameter
 \"[0, 0; 1, 1]\" defines a line that starts at {0,0} and ends at {1,1}.
 The diameter and color of all line cylinders are identical.
 </p>
-</HTML>"));
+</HTML>")));
     end FixedLines;
 
     model Lines
@@ -2610,7 +2605,6 @@ The diameter and color of all line cylinders are identical.
               lineColor={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Documentation(info="<HTML>
 <p>
 With model <b>Lines</b> a set of dynamic lines is defined
@@ -2638,7 +2632,7 @@ and are defined by parameters.
 </p>
 
 </HTML>
-"));
+")));
 
     end Lines;
 

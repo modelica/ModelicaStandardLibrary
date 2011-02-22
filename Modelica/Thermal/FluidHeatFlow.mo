@@ -1147,8 +1147,7 @@ the time behaviour depending on coolant flow.
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-                  graphics),
+                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
@@ -1573,13 +1572,12 @@ pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="p")}),
-                          Diagram);
+                          Diagram));
     end PressureSensor;
 
     model TemperatureSensor "Absolute temperature sensor"
@@ -1592,12 +1590,11 @@ TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="T")}));
+              textString="T")})));
     end TemperatureSensor;
 
     model RelPressureSensor "Pressure difference sensor"
@@ -1610,12 +1607,11 @@ dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="dp")}));
+              textString="dp")})));
     end RelPressureSensor;
 
     model RelTemperatureSensor "Temperature difference sensor"
@@ -1631,12 +1627,11 @@ Since mixing my occur, the outlet temperature of a component may be different fr
 Outlet temperature is defined by variable T of the corresponding component.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="dT")}));
+              textString="dT")})));
     end RelTemperatureSensor;
 
     model MassFlowSensor "Mass flow sensor"
@@ -1649,12 +1644,11 @@ m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="m")}));
+              textString="m")})));
     end MassFlowSensor;
 
     model VolumeFlowSensor "Volume flow sensor"
@@ -1667,12 +1661,11 @@ V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="V")}));
+              textString="V")})));
     end VolumeFlowSensor;
 
     model EnthalpyFlowSensor "Enthapy flow sensor"
@@ -1685,12 +1678,11 @@ H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}),
-                       graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="H")}));
+              textString="H")})));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<HTML>
 This package contains sensors:
@@ -1810,7 +1802,6 @@ AbsolutePressure to define pressure level of a closed cooling cycle.
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
 </HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                       graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-150,150},{150,90}},
@@ -1819,7 +1810,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)})));
     end AbsolutePressure;
 
     model VolumeFlow "Enforces constant volume flow"

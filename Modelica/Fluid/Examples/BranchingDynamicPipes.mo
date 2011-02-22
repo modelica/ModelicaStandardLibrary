@@ -150,11 +150,11 @@ derivative would be a dirac impulse.
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
 </html>"),    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}),
-                      graphics),
+            -100},{100,100}})),
                        experiment(StopTime=10),
     __Dymola_Commands(file(ensureSimulated=true)=
-        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos" "plotResults"),
+        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"
+        "plotResults"),
     Documentation(info="<html>
 <p>
 This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.

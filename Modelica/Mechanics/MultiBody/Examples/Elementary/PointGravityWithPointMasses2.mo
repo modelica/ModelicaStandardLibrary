@@ -158,8 +158,7 @@ equation
         color={95,95,95},
         thickness=0.5));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
-                      graphics),
+              -100},{100,100}})),
                        Documentation(info="<html>
 <p>
 In order to compare the results of the \"PointMass\" example where
@@ -238,7 +237,6 @@ equation
       thickness=0.5));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
             -100},{100,100}}),
-                      graphics),
     experiment(StopTime=3.0, Tolerance=1e-006),
     Documentation(info="<html>
 <p>
@@ -266,5 +264,5 @@ object visulizes the point masses in \"red\", whereas the \"referenceSystem\" sh
 its bodies in \"blue\".
 
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/PointGravityWithPointMasses2.png\">
-</html>"));
+</html>")));
 end PointGravityWithPointMasses2;

@@ -189,7 +189,7 @@ annotation (
           textString="uDC")}),
   experiment(StopTime=0.1, Interval=1e-005),
   Documentation(info="<html>
-<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current. 
+<p>The rectifier example shows a B6 diode bridge fed by a three phase sinusoidal voltage, loaded by a DC current.
 DC capacitors start at ideal no-load voltage, thus making easier initial transient.</p>
 <p>Simulate until T=0.1 s. Plot in separate windows:
 <br>uDC ... DC-voltage

@@ -835,8 +835,7 @@ features are:
      substances (= port.Xi_outflow) are identical to the respective values in the volume.</li>
 </ul>
 </html>"),   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                           graphics),
+                -100},{100,100}})),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics));
   end PartialSource;

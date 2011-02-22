@@ -37,8 +37,7 @@ package Machines
     end for;
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}}),
-                        graphics),
+              -100},{100,100}})),
                          Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}}), graphics={
           Rectangle(
@@ -125,7 +124,6 @@ package Machines
             fillColor={95,95,95})}),
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
-            graphics),
     Documentation(info="<HTML>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with a mechanical rotational connector for the shaft, to be used when the pump drive has to be modelled explicitly. In the case of <code>nParallel</code> pumps, the mechanical connector is relative to a single pump.
 <p>The model extends <code>PartialPump</code>
@@ -136,7 +134,7 @@ package Machines
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Model added to the Fluid library</li>
 </ul>
-</html>"));
+</html>")));
   end Pump;
 
   model ControlledPump
@@ -221,7 +219,7 @@ package Machines
             extent={{-20,108},{170,92}},
             textString="m_flow_set")}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),graphics),
+              {100,100}}),
       Documentation(info="<HTML>
 <p>
 This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps)
@@ -243,7 +241,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     by Ruediger Franke</a>:<br>
        Model added to the Fluid library</li>
 </ul>
-</html>"));
+</html>")));
   end ControlledPump;
 
   model PrescribedPump "Centrifugal pump with ideally controlled speed"
@@ -283,7 +281,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
             extent={{14,98},{178,82}},
             textString="N_in [rpm]")}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),graphics),
+              {100,100}}),
       Documentation(info="<HTML>
 <p>This model describes a centrifugal pump (or a group of <code>nParallel</code> pumps) with prescribed speed, either fixed or provided by an external signal.
 <p>The model extends <code>PartialPump</code>
@@ -295,7 +293,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Model added to the Fluid library</li>
 </ul>
-</html>"));
+</html>")));
   end PrescribedPump;
 
   package BaseClasses
@@ -514,7 +512,6 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
               fillColor={255,255,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}),
-              graphics),
       Documentation(info="<HTML>
 <p>This is the base model for pumps.
 <p>The model describes a centrifugal pump, or a group of <code>nParallel</code> identical pumps. The pump model is based on the theory of kinematic similarity: the pump characteristics are given for nominal operating conditions (rotational speed and fluid density), and then adapted to actual operating condition, according to the similarity equations.
@@ -568,7 +565,7 @@ provided a two-phase medium model is used.
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Model added to the Fluid library</li>
 </ul>
-</html>"));
+</html>")));
   end PartialPump;
 
   package PumpCharacteristics "Functions for pump characteristics"

@@ -223,7 +223,7 @@ combination). In this case the system is not at rest.
 
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/Fig.translational.examples.InitialConditions.png\">
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
     end InitialConditions;
 
@@ -375,8 +375,8 @@ problems.
 Demonstrate usage of component Sources.Accelerate by moving a massing
 with a predefined acceleration.
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),graphics),
-        experiment(StopTime=1.0, Interval=0.001));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+        experiment(StopTime=1.0, Interval=0.001)));
     end Accelerate;
 
     model Damper "Use of damper models."
@@ -630,8 +630,8 @@ to see the difference.
 
     model Friction "Use of model Stop"
       extends Modelica.Icons.Example;
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
-        (                                      L=1,
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1(
+                                               L=1,
         s(fixed=true),
         v(fixed=true),
         smax=25,
@@ -649,8 +649,7 @@ to see the difference.
                                                                     annotation (Placement(
             transformation(extent={{-60,60},{-40,80}},
                                                      rotation=0)));
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
-        (
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2(
         L=1,
         smax=0.9,
         smin=-0.9,
@@ -1253,7 +1252,6 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-120,
                 -100},{200,100}}),
-                          graphics),
         Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a Translational model,
@@ -1263,7 +1261,7 @@ elements and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=2.0, Interval=0.001));
+        experiment(StopTime=2.0, Interval=0.001)));
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"
@@ -2587,7 +2585,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
                        extent={{-100,-100},{100,100}}),
-                                        graphics),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the position, speed,
@@ -2615,7 +2612,7 @@ shall be set according to reference signals of a controller that are
 provided via a signal bus.
 </p>
 
-</html>"));
+</html>")));
     end InitializeFlange;
 
     model MassWithStopAndFriction
@@ -4944,7 +4941,6 @@ connector is not connected).
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}),
-              graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
@@ -5000,7 +4996,7 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-</HTML>"));
+</HTML>")));
   end PartialForce;
 
     partial model PartialAbsoluteSensor

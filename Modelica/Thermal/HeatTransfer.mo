@@ -157,8 +157,7 @@ An approppriate simulating time would be 10 seconds.
 </P>
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),
-            graphics),
+                100,100}})),
         experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
 
@@ -2813,10 +2812,9 @@ constitutive equations for many types of heat transfer components.
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),
-         graphics),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics));
+                graphics)));
     end Element1D;
 
     partial model PartialElementaryConditionalHeatPort

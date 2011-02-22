@@ -2479,7 +2479,7 @@ November 3-4, 2003, pp. 149-158</p>
           thickness=0.5,
           smooth=Smooth.None));
       annotation (defaultComponentName="wheel",Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),      graphics), Icon(coordinateSystem(
+                -100},{100,100}})),        Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(

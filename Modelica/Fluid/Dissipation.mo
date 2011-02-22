@@ -9929,7 +9929,8 @@ documentation available in this package.
               Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
 
             //choices
-            input Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
+            input
+              Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
               voidFractionApproach=
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));
@@ -10246,7 +10247,8 @@ documentation available in this package.
             "Calculation of mean density for two phase flow"
 
             //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
-            input Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
+            input
+              Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
               voidFractionApproach=
                 Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous
               "Choice of void fraction approach" annotation (Dialog(group="Choices"));

@@ -843,8 +843,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
       for j in 1:m loop
         v[j] = sum(L[j,k]*der(i[k]) for k in 1:m);
       end for;
-      annotation (
-                           Documentation(info="<html>
+      annotation (         Documentation(info="<html>
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
 </p>
@@ -905,8 +904,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
       m*i0 = sum(i);
       v0 = Lzero*der(i0);
       v = fill(v0, m);
-      annotation (
-                           Documentation(info="<html>
+      annotation (         Documentation(info="<html>
 <p>
 Model of a multi phase zero sequence inductor.
 </p>
@@ -2797,7 +2795,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
             iconTransformation(extent={{-10,-110},{10,-90}})));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),                                                                 graphics),
+                -100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>August 26, 2009 </i>by Anton Haumer initially implemented</li>

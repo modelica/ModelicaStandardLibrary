@@ -102,6 +102,5 @@ forceAndTorque component):
 </p>
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ForceAndTorque.png\">
 </HTML>
-"),
-    experiment(StopTime=1.01));
+"), experiment(StopTime=1.01));
 end ForceAndTorque;

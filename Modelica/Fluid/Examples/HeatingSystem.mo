@@ -202,8 +202,7 @@ tankLevel = tank.level;
       color={0,127,255},
       smooth=Smooth.None));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}}),
-                      graphics),
+            -100},{100,100}})),
                        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}})),
                              Documentation(info="<html>
@@ -241,5 +240,6 @@ could be additionally introduced to model the fitting between the heater and the
 </html>
 "), experiment(StopTime=6000),
     __Dymola_Commands(file(ensureSimulated=true)=
-        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/HeatingSystem/plotResults.mos" "plotResults"));
+        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/HeatingSystem/plotResults.mos"
+        "plotResults"));
 end HeatingSystem;

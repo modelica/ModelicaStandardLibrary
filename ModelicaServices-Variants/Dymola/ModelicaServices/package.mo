@@ -807,7 +807,7 @@ end Shape;
     rvisobj = r_0;
     rxvisobj = R.T[1,1:3];
     ryvisobj = R.T[2,1:3];
-    annotation (Icon(graphics), Documentation(info="<html>
+    annotation (Icon(), Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.

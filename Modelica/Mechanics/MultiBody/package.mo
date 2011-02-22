@@ -3,7 +3,9 @@ package MultiBody "Library to model 3-dimensional mechanical systems"
 
 import SI = Modelica.SIunits;
 
+
 extends Modelica.Icons.Package;
+
 
 package UsersGuide "User's Guide of MultiBody Library"
   extends Modelica.Icons.Information;
@@ -1118,6 +1120,7 @@ gives an introduction into the most important aspects of the library.
 </HTML>"));
 end UsersGuide;
 
+
 model World
   "World coordinate system + gravity field + default animation definition"
 
@@ -1556,6 +1559,7 @@ of these axes can be set via parameters.
 </HTML>
 "));
 end World;
+
 
 annotation (
   Documentation(info="<HTML>

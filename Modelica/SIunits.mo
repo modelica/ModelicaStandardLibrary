@@ -1151,14 +1151,14 @@ argument):</p>
              "1");
   type Entropy = Real (final quantity="Entropy", final unit="J/K");
   type EntropyFlowRate = Real (final quantity="EntropyFlowRate", final unit="J/(K.s)");
-  type SpecificEntropy = Real (final quantity="SpecificEntropy", 
+  type SpecificEntropy = Real (final quantity="SpecificEntropy",
                                final unit="J/(kg.K)",
                                nominal = 1000);
   type InternalEnergy = Heat;
   type Enthalpy = Heat;
   type HelmholtzFreeEnergy = Heat;
   type GibbsFreeEnergy = Heat;
-  type SpecificEnergy = Real (final quantity="SpecificEnergy", 
+  type SpecificEnergy = Real (final quantity="SpecificEnergy",
                               final unit="J/kg",
                               nominal = 1e6);
   type SpecificInternalEnergy = SpecificEnergy;

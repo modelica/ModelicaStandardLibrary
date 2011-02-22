@@ -139,8 +139,7 @@ equation
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
             100,100}},
-        grid={1,1}),
-            graphics),
+        grid={1,1})),
     Documentation(info="<html>
 <p>
 Water is pumped from a source by a pump (fitted with check valves), through a pipe whose outlet is 50 m higher than the source, into a reservoir. The users are represented by an equivalent valve, connected to the reservoir.

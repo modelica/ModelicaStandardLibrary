@@ -709,8 +709,7 @@ equation
       Line(points=[62,-29; 36,-29]),
       Rectangle(extent=[42,-42; -44,-30], fillColor={255,255,255}),
       Line(points=[0,8; 0,-18])), Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}}),
-                                    graphics),
+          extent={{-100,-100},{100,100}})),
 Documentation(info="<html>
 <p>The model <i>M_Transformer</i> is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
@@ -1845,7 +1844,7 @@ end M_Transformer;
         LossPower = v*i;
         annotation (
           Documentation(info="<html>
-<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by 
+<p>The linear resistor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
 <br><i><b>i*R = v</b></i>
 <br>The Resistance <i>R</i> is given as input signal.
 <br><br><b>Attention!!!</b><br>It is recommended that the R signal should not cross the zero value. Otherwise depending on the surrounding circuit the probability of singularities is high.</p>
@@ -1984,8 +1983,8 @@ end M_Transformer;
             Documentation(info="<html>
 <p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
 <br><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.
-<br>The capacitance <i>C</i> is given as input signal. 
-It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system, 
+<br>The capacitance <i>C</i> is given as input signal.
+It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,
 C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
 </html>",  revisions=
              "<html>

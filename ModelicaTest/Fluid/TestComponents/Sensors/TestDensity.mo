@@ -98,7 +98,6 @@ equation
       smooth=Smooth.None));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}}),
-            graphics),
+            100,100}})),
     experiment(StopTime=1.01, Tolerance=1e-006));
 end TestDensity;

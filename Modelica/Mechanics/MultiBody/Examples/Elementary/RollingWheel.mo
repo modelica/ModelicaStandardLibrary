@@ -19,7 +19,7 @@ model RollingWheel
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}),      graphics),
+            100}})),
     experiment(StopTime=4),
     Documentation(info="<html>
 

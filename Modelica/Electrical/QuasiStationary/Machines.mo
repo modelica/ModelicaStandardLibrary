@@ -220,8 +220,7 @@ In some cases it may be necessary to ground the transformer's starpoint
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
-                graphics),
+                100}})),
         experiment(StopTime=0.1, Interval=0.001));
     end TransformerTestbench;
     annotation (Documentation(info="<html>
@@ -2195,10 +2194,9 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
                   100}}),
-                  graphics),
           Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
-</html>"));
+</html>")));
       end PartialCore;
 
       model IdealCore "Ideal transformer with 3 windings"
@@ -2209,10 +2207,9 @@ Partial model of transformer core with 3 windings; saturation function flux vers
         v1 = n13*v3;
         annotation (defaultComponentName="core", Diagram(coordinateSystem(
                 preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-                                                         graphics),
           Documentation(info="<html>
 Ideal transformer with 3 windings: no magnetizing current.
-</html>"));
+</html>")));
       end IdealCore;
       annotation (Documentation(info="<html>
 <p>
@@ -2408,7 +2405,6 @@ This package contains components for modeling quasi stationary electrical induct
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                          graphics),
                            Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2497,9 +2493,9 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <td valign=\"top\">300</td><td valign=\"top\">W</td>
 </tr>
 </table>
-</html>"));
+</html>")));
     end PartialBasicTransformer;
-    annotation (Icon(graphics),               Documentation(info="<html>
+    annotation (Icon,                 Documentation(info="<html>
 <p>
 This package contains the quasi stationary space phasor connector and partial models for quasi stationary machine models.
 </p>

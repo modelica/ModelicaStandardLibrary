@@ -361,7 +361,7 @@ The steady-state initial values are observed by an assertion.
         Tolerance=1e-006),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
-</html>"));
+</html>")));
   end BranchingPipes1;
 
   model BranchingPipes2
@@ -459,7 +459,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
-</html>"));
+</html>")));
   end BranchingPipes2;
 
   model BranchingPipes3
@@ -566,7 +566,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
-</html>"));
+</html>")));
   end BranchingPipes3;
 
   model BranchingPipes4
@@ -678,7 +678,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
               experiment(StopTime=5),
       Documentation(info="<html>
 Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes. The simulation fails at t=0 due to lack of initialization of the splitter state variables.
-</html>"));
+</html>")));
   end BranchingPipes4;
 
   model SeriesPipes1

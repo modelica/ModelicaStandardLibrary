@@ -1021,8 +1021,7 @@ initial equation
   end if;
 
    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}}),
-                       graphics),
+              -100},{100,100}})),
                         Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}})),
       Documentation(info="<html>

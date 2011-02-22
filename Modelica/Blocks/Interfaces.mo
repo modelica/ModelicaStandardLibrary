@@ -392,8 +392,7 @@ one continuous Real output signal.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06)),
-                               Icon(coordinateSystem(
+          initialScale=0.06)), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1061,8 +1060,7 @@ end IntegerMIBooleanMOs;
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06)),
-                               Icon(coordinateSystem(
+          initialScale=0.06)), Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1100,8 +1098,7 @@ end IntegerMIBooleanMOs;
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06)),
-                               Icon(coordinateSystem(
+          initialScale=0.06)), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1428,8 +1425,7 @@ and a 3D icon (e.g., used in Blocks.Logical library).
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}),
-                graphics),
+              {100,100}})),
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
@@ -1471,14 +1467,13 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
               {100,100}}),
-                graphics),
       Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
 as a result of the comparision of the two input signals. The block
 has a 3D icon (e.g., used in Blocks.Logical library).
 </p>
-</html>"));
+</html>")));
 
   end partialBooleanComparison;
 
@@ -1493,8 +1488,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.04)),
-                               Icon(coordinateSystem(
+          initialScale=0.04)), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1534,8 +1528,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06)),
-                               Icon(coordinateSystem(
+          initialScale=0.06)), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},

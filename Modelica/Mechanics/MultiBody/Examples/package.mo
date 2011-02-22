@@ -2,6 +2,7 @@ within Modelica.Mechanics.MultiBody;
 package Examples "Examples that demonstrate the usage of the MultiBody library"
 extends Modelica.Icons.ExamplesPackage;
 
+
 annotation ( Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the usage of the

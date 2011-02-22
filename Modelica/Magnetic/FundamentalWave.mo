@@ -356,7 +356,7 @@ For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.
 
 <h5>Note</h5>
 
-<p>All the machine models provided in this library are equivalent two pole machines. 
+<p>All the machine models provided in this library are equivalent two pole machines.
 The magnetic potential difference of the connecter therefore also refers to an equivalent two pole machine<p>
 
 </html>
@@ -559,7 +559,6 @@ The magnetic potential difference of the connecter therefore also refers to an e
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          
           experiment(StopTime=40, Interval=0.01),
           Documentation(info="<html>
 <p>
@@ -1919,8 +1918,7 @@ relationship of the voltage and current space phasor.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2})),
-                           Icon(coordinateSystem(
+            grid={2,2})),  Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -2274,7 +2272,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (defaultComponentName="aimc",Icon(graphics),
+        annotation (defaultComponentName="aimc",Icon,
         Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
@@ -4760,8 +4758,7 @@ This model is mainly used to extend from in order build more complex - equation 
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(

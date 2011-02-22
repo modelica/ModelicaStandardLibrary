@@ -322,7 +322,7 @@ The reason could be that
     end if;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),                                                                 graphics),
+              -100},{100,100}})),
       Documentation(revisions="<html>
 <ul>
 <li><i> February 17, 2009   </i>

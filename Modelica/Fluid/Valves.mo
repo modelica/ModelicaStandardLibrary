@@ -134,11 +134,9 @@ explained in detail in the
 
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}),
-           graphics),
+              100}})),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
-              graphics),
       Documentation(info="<HTML>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
 
@@ -166,7 +164,7 @@ explained in detail in the
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
-</html>"));
+</html>")));
   end ValveVaporizing;
 
   model ValveCompressible
@@ -234,10 +232,8 @@ explained in detail in the
     annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}}),
-         graphics),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-            graphics),
+              100,100}})),
     Documentation(info="<HTML>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, compressible fluid, no phase change, also covering choked-flow conditions.</p>
 
@@ -265,7 +261,7 @@ explained in detail in the
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
-</html>"));
+</html>")));
   end ValveCompressible;
 
   model ValveLinear "Valve for water/steam flows with linear pressure drop"
@@ -493,7 +489,7 @@ it is open.
         Documentation(info="<HTML>
 <p>
 The block passes its input signal as output signal
-as long as the input is above uMin. If this is not the case, 
+as long as the input is above uMin. If this is not the case,
 y=uMin is passed as output.
 </p>
 </HTML>
@@ -667,14 +663,14 @@ explained in detail in the
 </p>
 
 <p>
-With the optional parameter \"filteredOpening\", the opening can be filtered with a 
+With the optional parameter \"filteredOpening\", the opening can be filtered with a
 <b>second order, criticalDamping</b> filter so that the
 opening demand is delayed by parameter \"riseTime\". The filtered opening is then available
 via the output signal \"opening_filtered\" and is used to control the valve equations.
-This approach approximates the driving device of a valve. The \"riseTime\" parameter 
-is used to compute the cut-off frequency of the filter by the equation: f_cut = 5/(2*pi*riseTime). 
+This approach approximates the driving device of a valve. The \"riseTime\" parameter
+is used to compute the cut-off frequency of the filter by the equation: f_cut = 5/(2*pi*riseTime).
 It defines the time that is needed until opening_filtered reaches 99.6 % of
-a step input of opening. The icon of a valve changes in the following way 
+a step input of opening. The icon of a valve changes in the following way
 (left image: filteredOpening=false, right image: filteredOpening=true):
 </p>
 

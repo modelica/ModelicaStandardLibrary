@@ -4510,7 +4510,8 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
-        input SI.Density dguess "good guess density, e.g., from adjacent volume";
+        input SI.Density dguess
+          "good guess density, e.g., from adjacent volume";
         input SI.Temperature Tguess
           "good guess temperature, e.g., from adjacent volume";
         input SI.Pressure delp=IterationData.DELP "relative error in p";
@@ -4620,7 +4621,8 @@ Ordinary Water Substance<br>
         extends Modelica.Icons.Function;
         input SI.Pressure p "pressure";
         input SI.SpecificEntropy s "specific entropy";
-        input SI.Density dguess "good guess density, e.g., from adjacent volume";
+        input SI.Density dguess
+          "good guess density, e.g., from adjacent volume";
         input SI.Temperature Tguess
           "good guess temperature, e.g., from adjacent volume";
         input Integer phase "1 for one phase, 2 for two phase";

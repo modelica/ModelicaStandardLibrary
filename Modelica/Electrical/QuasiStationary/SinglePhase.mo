@@ -1579,7 +1579,7 @@ This sensor can be used to measure the complex apparent power.
 
 </html>"));
     end PowerSensor;
-    annotation (Icon(graphics),                            Documentation(info="<html>
+    annotation (Icon,                              Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1745,7 +1745,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
-    annotation (Icon(graphics),             Documentation(info="<html>
+    annotation (Icon,               Documentation(info="<html>
 <p>This package hosts sources for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -2023,7 +2023,7 @@ The source partial model relies on the
 </p>
 </html>"));
     end Source;
-    annotation (Icon(graphics),                   Documentation(info="<html>
+    annotation (Icon,                     Documentation(info="<html>
 <p>This package contains connector specifications and partial models for more complex components.</p>
 </html>"));
   end Interfaces;

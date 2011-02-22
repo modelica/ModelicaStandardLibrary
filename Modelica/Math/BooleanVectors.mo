@@ -20,8 +20,8 @@ algorithm
 <h4>Description</h4>
 <p>
 Returns <b>true</b> if all elements of the Boolean input vector b are <b>true</b>.
-Otherwise the function returns <b>false</b>. If b is an empty vector, 
-i.e., size(b,1)=0, the function returns <b>false</b>. 
+Otherwise the function returns <b>false</b>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <b>false</b>.
 </p>
 
 <h4>Example</h4>
@@ -64,8 +64,8 @@ algorithm
 <h4>Description</h4>
 <p>
 Returns <b>true</b> if at least one elements of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>. If b is an empty vector, 
-i.e., size(b,1)=0, the function returns <b>false</b>. 
+Otherwise the function returns <b>false</b>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <b>false</b>.
 </p>
 
 <h4>Example</h4>
@@ -109,8 +109,8 @@ algorithm
 <h4>Description</h4>
 <p>
 Returns <b>true</b> if exactly one element of the input Boolean vector b is <b>true</b>.
-Otherwise the function returns <b>false</b>. If b is an empty vector, 
-i.e., size(b,1)=0, the function returns <b>false</b>. 
+Otherwise the function returns <b>false</b>. If b is an empty vector,
+i.e., size(b,1)=0, the function returns <b>false</b>.
 </p>
 
 <h4>Example</h4>
@@ -154,9 +154,9 @@ algorithm
 
 <h4>Description</h4>
 <p>
-Returns the index of the first element of the Boolean vector b 
+Returns the index of the first element of the Boolean vector b
 that is <b>true</b> and returns 0, if no element is <b>true</b>\"
-If b is an empty vector, i.e., size(b,1)=0, the function returns 0. 
+If b is an empty vector, i.e., size(b,1)=0, the function returns 0.
 </p>
 
 <h4>Example</h4>

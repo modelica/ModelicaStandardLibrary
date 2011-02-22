@@ -51,8 +51,7 @@ equation
         points={{-60,-20},{-60,-5}},
         color={0,0,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
-            graphics),
+              -100},{100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Bitmap(extent={{-62,6},{-62,14}}, fileName="modelica://Modelica/"),
@@ -135,7 +134,6 @@ equation
         color={0,0,255}));
   annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-                                                     graphics),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Bitmap(extent={{-62,4},{-62,12}}, fileName="modelica://Modelica/"),
@@ -166,7 +164,7 @@ equation
       Documentation(info="<html>
 <p>This model is a <b>positive</b> resistor without thermal behavior which is described as a switched capacitor model (care for the schematic).</p>
 <p>The clock source is inside the model, its frequency can be chosen by parameter. Also the resistance is a parameter, it has to be <b>positive</b>. The internal (switched) capacitor is parametrized in such a way that the total resistance is independently from the frequency equal to the resistance parameter.</p>
-</html>"));
+</html>")));
 end Rp;
 
   parameter Modelica.SIunits.Capacitance l1=1.304 "filter coefficient i1";

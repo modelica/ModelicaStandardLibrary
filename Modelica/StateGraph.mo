@@ -811,8 +811,7 @@ package Examples
               0}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
-              graphics),
+                100,100}})),
       experiment(StopTime=5),
         Documentation(info="<html>
 
@@ -860,11 +859,10 @@ package Examples
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}),
-              graphics),
       experiment(StopTime=5),
         Documentation(info="<html>
 
-</html>"));
+</html>")));
   end FirstExample_Variant2;
 
   model FirstExample_Variant3
@@ -909,11 +907,10 @@ package Examples
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}),
-              graphics),
       experiment(StopTime=5),
         Documentation(info="<html>
 
-</html>"));
+</html>")));
   end FirstExample_Variant3;
 
   model ExecutionPaths
@@ -2227,11 +2224,9 @@ package Interfaces "Connectors and partial models"
 
 </html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                       graphics),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
-           graphics),
-      Coordsys(grid=[1,1], component=[20,20]));
+                100}})),
+      Coordsys(grid=[1,1], component=[20,20])));
   end PartialStep;
 
   partial block PartialTransition
@@ -3263,10 +3258,9 @@ value, still requires to go in to the text layer.
                             on, true)}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
-                                    graphics),
         Documentation(info="<html>
 
-</html>"));
+</html>")));
   end RadioButton;
 
   model NumericValue "Show value of Real input signal dynamically"

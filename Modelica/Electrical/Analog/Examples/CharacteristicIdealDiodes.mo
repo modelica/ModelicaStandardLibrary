@@ -74,11 +74,11 @@ equation
           extent={{-88,102},{92,48}},
           textString="Characteristic Ideal Diodes",
           lineColor={0,0,255})}),          Documentation(info="<html>
-<p>Three examples of ideal diodes are shown: 
-<br>the <b>totally ideal diode</b> (Ideal) with all parameters to be zero, 
+<p>Three examples of ideal diodes are shown:
+<br>the <b>totally ideal diode</b> (Ideal) with all parameters to be zero,
 the <b>nearly ideal diode</b> with <i>Ron=0.1</i> and <i>Goff=0.1</i>
  and the nearly ideal but <b>displaced diode</b> with <i>Vknee=5</i> and <i>Ron=0.1</i> and <i>Goff=0.1</i>.
-The resistance and conductance are chosen untypically high since the slopes should be seen in the graphics. 
+The resistance and conductance are chosen untypically high since the slopes should be seen in the graphics.
 </p><p>Simulate until T=1 s.
 Plot in separate windows:
 Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v

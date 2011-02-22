@@ -3,6 +3,7 @@ package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Med
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
+
 package UsersGuide "User's Guide"
   extends Modelica.Icons.Information;
 
@@ -1688,6 +1689,7 @@ substance medium with one or more phases might be used.
 </p>
 </HTML>"));
 end UsersGuide;
+
 
 annotation (
   preferedView="info",

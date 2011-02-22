@@ -466,8 +466,7 @@ Simulation of the force-current characteristics of both converter models with th
         connect(feedX.s_ref, comparisonWithFEA.u) annotation (Line(points={{32,
               10},{32,50},{48,50}}, color={0,0,127}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}}),
-                            graphics),                             experiment(
+                {{-100,-100},{100,100}})),                 experiment(
             StartTime=-4,
             StopTime=4,
             Tolerance=1e-007),
@@ -777,7 +776,6 @@ Whereas the steady state current is the same in both models, the steady state ac
                     "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png")),
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}),
-                  graphics),
             Documentation(info="<html>
 <p>
 In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
@@ -840,7 +838,7 @@ Both force components are properly considered with a simple permeance model as s
               Text(
                 extent={{0,160},{0,120}},
                 lineColor={0,0,255},
-                textString="%name")}));
+                textString="%name")})));
         end PermeanceActuator;
 
         model ConstantActuator
@@ -915,7 +913,6 @@ Both force components are properly considered with a simple permeance model as s
                 -6.10623e-016},{20,0},{60,0}}, color={0,127,0}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}),
-                              graphics),
                                Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -955,7 +952,7 @@ with electrodynamic or <i>Lorentz</i> force F, converter constant c, current i, 
 <p>
 The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g., from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke\">ArmatureStroke</a>.
 </p>
-</html>"));
+</html>")));
         end ConstantActuator;
       end Components;
       annotation (Documentation(info="<html>
@@ -1067,8 +1064,7 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
                                         annotation (Line(points={{-70,-70},{-70,
               -60}}, color={0,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}}),
-                            graphics),                             experiment(StopTime=
+                {{-100,-100},{100,100}}),                  experiment(StopTime=
                 10, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
@@ -1110,7 +1106,7 @@ The magnetic flux through the armature and the actuator's static inductance both
 <p>
 As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
-</html>"));
+</html>")));
       end ComparisonQuasiStationary;
 
       model ComparisonPullInStroke
@@ -1492,8 +1488,7 @@ As mentioned in the description of both magnetic network models, one can tell th
         connect(simpleSolenoid.flange, simpleLoad.flange_a)
           annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}}),
-                            graphics),                             experiment(StopTime=
+                {{-100,-100},{100,100}}),                  experiment(StopTime=
                 0.05, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
@@ -1528,7 +1523,7 @@ Plot window for position:
 <p>
 The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
 </p>
-</html>"));
+</html>")));
       end ComparisonPullInStroke;
 
       package Components "Components to be used in examples"
@@ -2560,7 +2555,7 @@ In translatory actuators with limited stroke, the armature with its inertia can 
         final parameter Real c_condFillActual = N_chosen * pi * d_wireChosen^2 /(4 * A_w)
           "Conductor filling factor resulting from CHOSEN number of turns and wire diameter";
 
-        annotation (Icon(graphics),
+        annotation (Icon,
           Documentation(info="<html>
 <p>
 This model exemplarily shows dimensioning of a winding (wire diameter, number of turns) based on desired operating conditions (voltage, temperature, current density, conductor filling factor) for a given cross-section area of the winding. It can be modified according to the parameters given and sought after for a particular design project.
@@ -4089,10 +4084,9 @@ Additional user-specific materials can be defined as needed.
       annotation (defaultComponentName = "mag",
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}),
-         graphics),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
-                graphics));
+                graphics)));
     end MagneticPort;
 
     connector PositiveMagneticPort "Positive magnetic port"
@@ -4741,7 +4735,6 @@ This package contains sources of a magnetic potential difference or a magnetic f
         annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}),
-                      graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,-100},{0,-70}}, color={0,0,0}),
@@ -4752,7 +4745,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
               extent=[-150,120; 150,80],
               textString="%name",
               lineColor={0,0,255}),
-            Line(points=[0,-90; 0,-70])}));
+            Line(points=[0,-90; 0,-70])})));
   end MagneticFluxSensor;
     annotation (Documentation(info="<html>
 <p>

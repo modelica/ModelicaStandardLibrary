@@ -293,7 +293,7 @@ package Sensors "Sensors to measure variables"
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),                                     graphics),
+              -100},{100,100}})),
                          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
@@ -800,8 +800,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}},
-          grid={1,1}),  graphics),
-                         Icon(coordinateSystem(preserveAspectRatio=true,
+          grid={1,1}),   Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -987,7 +986,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
            = <b>{3,1,3}</b>  // Euler angle sequence
            = <b>{3,2,1}</b>
 </pre>
-</html>"));
+</html>")));
   end RelativeSensor;
 
   model AbsolutePosition
@@ -1193,7 +1192,7 @@ computed as:
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),                                              graphics), Icon(coordinateSystem(
+              -100},{100,100}}),                                                 Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1256,7 +1255,7 @@ computed as:
     v  = MultiBody.Frames.resolve2(frame_a.R, v0);
 </pre>
 
-</html>"));
+</html>")));
   end AbsoluteVelocity;
 
   model AbsoluteAngles
@@ -1312,7 +1311,6 @@ computed as:
             lineColor={0,0,0},
             textString="angles")}),Diagram(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-          graphics),
       Documentation(info="<html>
 This model determines the 3 angles to rotate the world frame
 into frame_a along the axes defined by parameter <b>sequence</b>.
@@ -1346,7 +1344,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
            = <b>{3,1,3}</b>  // Euler angle sequence
            = <b>{3,2,1}</b>
 </pre>
-</html>"));
+</html>")));
   end AbsoluteAngles;
 
   model AbsoluteAngularVelocity
@@ -1405,7 +1403,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,extent={{-100,
               -100},{100,100}},
-          grid={1,1}),           graphics), Icon(coordinateSystem(
+          grid={1,1}),              Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -1469,7 +1467,7 @@ computed as:
     w = MultiBody.Frames.angularVelocity2(frame_a.R);
 </pre>
 
-</html>"));
+</html>")));
   end AbsoluteAngularVelocity;
 
   model RelativePosition
@@ -1669,7 +1667,7 @@ computed as:
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}},
-          grid={1,1}),           graphics), Icon(coordinateSystem(
+          grid={1,1}),              Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -1734,7 +1732,7 @@ computed as:
     v_rel   = MultiBody.Frames.resolveRelative(frame_a.R, frame_b.R, v_rel_a);
 </pre>
 
-</html>"));
+</html>")));
   end RelativeVelocity;
 
   model RelativeAngles "Measure relative angles between two frame connectors"
@@ -1804,7 +1802,6 @@ computed as:
             lineColor={0,0,0},
             textString="angles")}),Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics),
       Documentation(info="<html>
 This model determines the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <b>sequence</b>.
@@ -1838,7 +1835,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
            = <b>{3,1,3}</b>  // Euler angle sequence
            = <b>{3,2,1}</b>
 </pre>
-</html>"));
+</html>")));
   end RelativeAngles;
 
   model RelativeAngularVelocity
@@ -2160,7 +2157,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
                 127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
-              graphics),
       Documentation(info="<HTML>
 <p>
 The cut-force acting between the two frames to which this
@@ -2203,7 +2199,7 @@ with negative sign at frame_a.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForce.png\">
-</HTML>"));
+</HTML>")));
   end CutForce;
 
   model CutTorque "Measure cut torque vector"
@@ -2286,7 +2282,6 @@ with negative sign at frame_a.
                 127})}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
-              graphics),
       Documentation(info="<HTML>
 <p>
 The cut-torque acting between the two frames to which this
@@ -2330,7 +2325,7 @@ with negative sign at frame_a.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutTorque.png\">
-</HTML>"));
+</HTML>")));
   end CutTorque;
 
   model CutForceAndTorque "Measure cut force and cut torque vector"
@@ -2467,7 +2462,6 @@ with negative sign at frame_a.
             textString="torque")}),
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
-              graphics),
       Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
@@ -2513,7 +2507,7 @@ with negative sign at frame_a.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForceAndTorque.png\">
-</HTML>"));
+</HTML>")));
   end CutForceAndTorque;
 
   model Power "Measure power flowing from frame_a to frame_b"
@@ -3529,10 +3523,9 @@ with the blocks of package Modelica.Blocks.
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}},
             grid={1,1}),
-                graphics),
         Documentation(info="<HTML>
 
-</HTML>"));
+</HTML>")));
     end BasicCutForce;
 
     model BasicCutTorque
@@ -3576,10 +3569,9 @@ with the blocks of package Modelica.Blocks.
                   0,127})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Documentation(info="<HTML>
 
-</HTML>"));
+</HTML>")));
     end BasicCutTorque;
   end Internal;
   annotation ( Documentation(info="<html>

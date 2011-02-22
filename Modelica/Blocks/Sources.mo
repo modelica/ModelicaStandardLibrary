@@ -3009,8 +3009,7 @@ changes its value to the negated value of the previous one.
             lineColor={0,0,255},
             textString="%name")}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
-                     extent={{-100,-100},{100,100}}),
-                                    graphics),
+                     extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Boolean signal source that mimics a radio button:

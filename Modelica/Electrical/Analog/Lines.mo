@@ -189,7 +189,7 @@ equation
                 -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
                 lineColor={0,0,255})}),
                             Diagram(coordinateSystem(preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}}),graphics),
+              extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>The segment model is part of the multiple line model. It describes one line segment as outlined in the M_Oline description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
@@ -357,11 +357,10 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
 </HTML>"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
-            graphics),
     experiment(
       StopTime=1e-009,
       NumberOfIntervals=2000,
-      Tolerance=1e-009));
+      Tolerance=1e-009)));
 end M_OLine;
 
   model ULine "Lossy RC Line"

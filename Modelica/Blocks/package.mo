@@ -355,7 +355,6 @@ end FilterWithDifferentiation;
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
-      
       experiment(StopTime=4),
       Documentation(info="<html>
 <p>
@@ -479,7 +478,7 @@ reached with different precisions. This is summarized in the following table:
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),      graphics), Documentation(info="<html>
+              -100},{100,100}})),        Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
 (for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Th&uuml;mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
@@ -571,7 +570,6 @@ agreement. A typical simulation result is shown in the next figure:
       annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
        annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),
-                          graphics),
       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -583,7 +581,7 @@ in its parameter menu refering to variables available on this level of the
 model.
 </p>
 
-</html>"));
+</html>")));
      end ShowLogicalSources;
 
     model LogicalNetwork1 "Demonstrates the usage of logical blocks"
@@ -619,7 +617,6 @@ model.
 
     annotation(Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}),
-                       graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -629,7 +626,7 @@ in the diagram animation, by the small \"circles\" close to the connectors.
 If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 \"circle\" is \"green\", the signal is <b>true</b>.
 </p>
-</html>"));
+</html>")));
     end LogicalNetwork1;
 
     model RealNetwork1
@@ -706,7 +703,6 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
         smooth=Smooth.None));
     annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}}),
-                       graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -726,7 +722,7 @@ Note, that
      \"circle\" is \"green\", the signal is <b>true</b>.</li>
 </ul>
 
-</html>"));
+</html>")));
     end RealNetwork1;
 
     model IntegerNetwork1
@@ -825,7 +821,6 @@ Note, that
         smooth=Smooth.None));
     annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
-                       graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -846,7 +841,7 @@ Note, that
 
 </ul>
 
-</html>"));
+</html>")));
     end IntegerNetwork1;
 
     model BooleanNetwork1
@@ -1020,7 +1015,6 @@ Note, that
         smooth=Smooth.None));
     annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
               -100},{100,100}}),
-                       graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -1041,7 +1035,7 @@ Note, that
 
 </ul>
 
-</html>"));
+</html>")));
     end BooleanNetwork1;
 
     model Interaction1
@@ -1080,7 +1074,6 @@ Note, that
           smooth=Smooth.None));
     annotation(Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
-                       graphics),
         experiment(StopTime=10),
       Documentation(info="<html>
 <p>
@@ -1089,7 +1082,7 @@ from package <a href=\"Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction
 to show how diagram animations can be constructed.
 </p>
 
-</html>"));
+</html>")));
     end Interaction1;
 
   model BusUsage "Demonstrates the usage of a signal bus"
@@ -1251,8 +1244,7 @@ just potential signals. The user might still add different signal names.
 
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}),
-                   graphics),
-      experiment(StopTime=2));
+      experiment(StopTime=2)));
   end BusUsage;
 
   package BusUsage_Utilities
@@ -1278,7 +1270,6 @@ just potential signals. The user might still add different signal names.
                 lineThickness=0.5)}),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}),
-                  graphics),
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" ControlBus that
@@ -1288,7 +1279,7 @@ Note, this connector contains \"default\" signals that might be utilized
 in a connection (the input/output causalities of the signals
 are determined from the connections to this bus).
 </p>
-</html>"));
+</html>")));
 
       end ControlBus;
 
@@ -1357,7 +1348,6 @@ This package contains the bus definitions needed for the
               lineColor={0,0,255})}),
                               Diagram(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}),
-                                      graphics),
         Documentation(info="<html>
 <p>
 <p>
@@ -1365,7 +1355,7 @@ This model is used to demonstrate the bus usage in example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </p>
-</html>"));
+</html>")));
    end Part;
 
     annotation (Documentation(info="<html>

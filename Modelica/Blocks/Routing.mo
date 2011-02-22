@@ -1026,8 +1026,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
   equation
     y = u;
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{100,100}}),
-                        graphics),
+              -100,-100},{100,100}})),
                          Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"),

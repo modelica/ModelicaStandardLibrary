@@ -2,6 +2,7 @@ within ;
 package ModelicaTest "Library to test components of library Modelica "
 extends Modelica.Icons.Package;
 
+
 function testAllFunctions "Runs all test cases for functions"
   import Modelica.Utilities.Streams.print;
   input String logFile = "ModelicaTestLog.txt"
@@ -37,6 +38,7 @@ algorithm
 
   ok := true;
 end testAllFunctions;
+
 
   annotation (version="1.1",
        versionDate="2007-10-19",

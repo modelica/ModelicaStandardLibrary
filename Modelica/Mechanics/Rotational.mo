@@ -527,8 +527,7 @@ in the housing on one side via component Fixed.</p>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                   graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end First;
 
@@ -608,8 +607,7 @@ in the housing on one side via component Fixed.</p>
 
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
-        experiment(StopTime=1.0, Interval=0.001));
+        experiment(StopTime=1.0, Interval=0.001)));
     end FirstGrounded;
 
     model Friction "Drive train with clutch and brake"
@@ -863,8 +861,7 @@ locked, forward sliding.</p>
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{
                 140,80}},
             grid={2,2}),
-                graphics),
-        experiment(StopTime=1.5, Interval=0.001));
+        experiment(StopTime=1.5, Interval=0.001)));
     end CoupledClutches;
 
     model LossyGearDemo1
@@ -946,8 +943,7 @@ gear.mode  :  1 = forward rolling
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-80},{100,
                 80}}),
-            graphics),
-        experiment(StopTime=0.5, Interval=0.001));
+        experiment(StopTime=0.5, Interval=0.001)));
     end LossyGearDemo1;
 
     model LossyGearDemo2
@@ -1047,8 +1043,7 @@ as component LossyGear includes the functionality of component BearingFriction
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{100,
                 80}}),
-            graphics),
-        experiment(StopTime=0.5, Interval=0.001));
+        experiment(StopTime=0.5, Interval=0.001)));
     end LossyGearDemo2;
 
     model LossyGearDemo3
@@ -1106,7 +1101,6 @@ as component LossyGear includes the functionality of component BearingFriction
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        
         Documentation(info="<html>
 <p>
 This example demonstrates a situation where the driving side of the
@@ -1180,7 +1174,6 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
               {-40,-60},{-40,40}}, color={0,0,0}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                          graphics),
                            Documentation(info="<html>
 <p>
 This model demonstrates the usage of the bearing flange.
@@ -1191,7 +1184,7 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
 <code>shaft.w</code> and <code>load.w</code>.</p>
 </html>"),
-        experiment(StopTime=10, Interval=0.01));
+        experiment(StopTime=10, Interval=0.01)));
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
@@ -1506,7 +1499,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           smooth=Smooth.None));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{180,140}}),      graphics), Icon(coordinateSystem(
+                -100},{180,140}}),         Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
@@ -1517,7 +1510,7 @@ elements of the drive train and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.0001));
+        experiment(StopTime=1.0, Interval=0.0001)));
     end HeatLosses;
 
     model SimpleGearShift "Simple Gearshift"
@@ -1603,7 +1596,6 @@ is present in variable convection.fluid.
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        
         experiment(StopTime=5, Interval=0.01),
         Documentation(info="<html>
 <p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch. </p>
@@ -4249,7 +4241,6 @@ no rolling resistance. This component defines the kinematic constraint:
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
                        extent={{-100,-100},{100,100}}),
-                                        graphics),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
@@ -4277,7 +4268,7 @@ shall be set according to reference signals of a controller that are
 provided via a signal bus.
 </p>
 
-</html>"));
+</html>")));
     end InitializeFlange;
 
     model RelativeStates "Definition of relative state variables"
@@ -5330,7 +5321,6 @@ blocks of Modelica.Blocks.Sources.</p>
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}),
@@ -5339,7 +5329,7 @@ blocks of Modelica.Blocks.Sources.</p>
 Model of torque, linearly dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
 </p>
-</HTML>"));
+</HTML>")));
     end LinearSpeedDependentTorque;
 
     model QuadraticSpeedDependentTorque
@@ -5366,7 +5356,6 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{-80,-98},{-60,-92},
                   {-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},
@@ -5376,7 +5365,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 Model of torque, quadratic dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
 </p>
-</HTML>"));
+</HTML>")));
     end QuadraticSpeedDependentTorque;
 
     model ConstantTorque "Constant torque, not dependent on speed"
@@ -5391,7 +5380,6 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-98,0},{100,0}}, color={0,0,
                   255}), Text(
@@ -5403,7 +5391,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 Model of constant torque, not dependent on angular velocity of flange.<br>
 Positive torque acts accelerating.
 </p>
-</HTML>"));
+</HTML>")));
     end ConstantTorque;
 
     model ConstantSpeed "Constant speed, not dependent on torque"
@@ -5447,7 +5435,6 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,
                   60}}, color={0,0,255}), Text(
@@ -5459,7 +5446,7 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
 Model of a torque step at time .<br>
 Positive torque acts accelerating.
 </p>
-</HTML>"));
+</HTML>")));
     end TorqueStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -6426,7 +6413,6 @@ and instead the translational part is internally fixed to ground.
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}),
-                graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -6485,7 +6471,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>"));
+</html>")));
     end PartialTorque;
 
     partial model PartialAbsoluteSensor
