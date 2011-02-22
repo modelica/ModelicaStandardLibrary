@@ -120,7 +120,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </tr>
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end SimpleCooling;
 
@@ -321,7 +321,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </tr>
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end ParallelCooling;
 
@@ -526,7 +526,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </tr>
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.5, Interval=0.001));
     end IndirectCooling;
 
@@ -651,7 +651,7 @@ You may try to:
     to regulate the volume flow rate of coolant</li>
 </ul>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=2.0, Interval=0.001));
     end PumpAndValve;
 
@@ -741,7 +741,7 @@ Same as 1st test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=2.0, Interval=0.001));
     end PumpDropOut;
 
@@ -894,7 +894,7 @@ Same as 2nd test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=2.0, Interval=0.001));
     end ParallelPumpDropOut;
 
@@ -972,7 +972,7 @@ A thermal capacity is coupled with a coolant flow.
 Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end OneMass;
 
@@ -1095,7 +1095,7 @@ Two thermal capacities are coupled with two parallel coolant flow.
 Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;
 
@@ -1780,7 +1780,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
 (Infinite) ambient with constant pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient.
 </HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{20,80},{80,20}},

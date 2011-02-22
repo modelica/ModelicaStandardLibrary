@@ -220,7 +220,7 @@ equation
             -100},{100,100}}),
                       graphics),
                        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics),
+            -100},{100,100}})),
          Documentation(info="<html>
 <p>
 This example demonstrates two aspects: the efficient treatment of multi-way connections

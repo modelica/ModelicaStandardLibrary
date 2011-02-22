@@ -27,7 +27,7 @@ package Routing "Library of blocks to combine and extract signals"
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 <p>
 This block replicates the input signal to an array of <code>nout</code> identical output signals.

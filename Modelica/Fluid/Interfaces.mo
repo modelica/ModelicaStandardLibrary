@@ -255,7 +255,7 @@ package Interfaces
       Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
       Documentation(info="<html>
 <p>
 This partial model defines an interface for components with two ports.
@@ -390,7 +390,7 @@ equation
     Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
     Documentation(info="<html>
 <p>
 This component transports fluid between its two ports, without storing mass or energy.
@@ -1024,7 +1024,7 @@ initial equation
               -100},{100,100}}),
                        graphics),
                         Icon(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
@@ -1167,7 +1167,7 @@ The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input 
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics), Icon(coordinateSystem(
+          grid={1,1})), Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics));

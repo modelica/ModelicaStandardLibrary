@@ -174,7 +174,7 @@ Possible reasons:
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -455,7 +455,7 @@ Possible reasons:
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="<html>
 
 <p>

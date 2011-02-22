@@ -163,7 +163,7 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics),
+        grid={1,1})),
     Documentation(info="<html>
 <p>
 It is demonstrated how to implement line force components

@@ -66,7 +66,7 @@ equation
                                            annotation (Line(points={{0,20},{-10,
           20},{-10,48},{-20,48}}, color={0,127,255}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics),
+            -100},{100,100}})),
     experiment(StopTime=10, NumberOfIntervals=10000),
     Documentation(info="<html>
 </html>"));

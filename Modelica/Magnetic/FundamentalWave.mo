@@ -559,7 +559,7 @@ The magnetic potential difference of the connecter therefore also refers to an e
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(graphics),
+          
           experiment(StopTime=40, Interval=0.01),
           Documentation(info="<html>
 <p>
@@ -1919,7 +1919,7 @@ relationship of the voltage and current space phasor.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
                            Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2118,7 +2118,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <p>
 </p>
 </html>"),
-        Diagram(graphics),defaultComponentName="converter");
+        defaultComponentName="converter");
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Salient reluctance"
@@ -4191,7 +4191,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -4254,7 +4254,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
@@ -4308,7 +4308,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 

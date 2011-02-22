@@ -269,7 +269,7 @@ from this block.
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 <p>
 Block has one continuous Real output signal.
@@ -392,7 +392,7 @@ one continuous Real output signal.
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06), graphics),
+          initialScale=0.06)),
                                Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -941,7 +941,7 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
         Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 <p>
 Basic block for Boolean sources of package Blocks.Sources.
@@ -1061,7 +1061,7 @@ end IntegerMIBooleanMOs;
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06), graphics),
+          initialScale=0.06)),
                                Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -1100,7 +1100,7 @@ end IntegerMIBooleanMOs;
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06), graphics),
+          initialScale=0.06)),
                                Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1493,7 +1493,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.04), graphics),
+          initialScale=0.04)),
                                Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1534,7 +1534,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
-          initialScale=0.06), graphics),
+          initialScale=0.06)),
                                Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

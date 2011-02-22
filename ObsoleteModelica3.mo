@@ -2797,9 +2797,9 @@ and resolved in the following frame
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
             preferedView="info",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}}), graphics),
+                    {100,100}})),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics),
+                    -100},{100,100}})),
             Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
@@ -2955,7 +2955,7 @@ with inertia.
 "),         Diagram(coordinateSystem(
                 preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Window(
               x=0.18,
               y=0.3,
@@ -3107,7 +3107,7 @@ of several base components.</p>
           end if;
           annotation (
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}}), graphics),
+                    -100},{100,100}})),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(

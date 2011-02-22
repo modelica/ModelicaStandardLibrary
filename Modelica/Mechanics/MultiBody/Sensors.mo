@@ -1045,7 +1045,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         thickness=0.5,
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics), Icon(coordinateSystem(
+              -100},{100,100}})), Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1528,7 +1528,7 @@ computed as:
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics), Icon(coordinateSystem(
+              -100},{100,100}})), Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1902,7 +1902,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics), Icon(coordinateSystem(
+              -100},{100,100}})), Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -2538,7 +2538,7 @@ with negative sign at frame_a.
        + frame_a.t*Frames.angularVelocity2(frame_a.R);
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
@@ -2628,7 +2628,7 @@ as output signal <b>power</b>.
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics), Icon(coordinateSystem(
+              -100},{100,100}})), Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
           graphics={
           Line(
@@ -2745,7 +2745,7 @@ transformed output vector as \"Real r_out[3]\";
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics), Icon(coordinateSystem(
+              -100},{100,100}})), Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -2790,7 +2790,7 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-108,43},{-72,18}},
               lineColor={128,128,128},
@@ -2827,7 +2827,7 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Text(
@@ -2872,7 +2872,7 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
@@ -2926,7 +2926,7 @@ transformed output vector as \"Real r_out[3]\";
       annotation (Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},

@@ -131,7 +131,7 @@ extends Modelica.Icons.ExamplesPackage;
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       experiment(StopTime=5, Tolerance=1e-008),
       Documentation(info="<html>
 <p>
@@ -270,7 +270,7 @@ is much faster.
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       experiment(StopTime=1.1));
   end ActuatedDrive;
 
@@ -435,7 +435,7 @@ is much faster.
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       experiment(StopTime=1.1));
   end MovingActuatedDrive;
 
@@ -542,7 +542,7 @@ is much faster.
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       experiment(StopTime=5));
   end GearConstraint;
   annotation (Documentation(info="<html>

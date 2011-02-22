@@ -2468,7 +2468,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             textString="%name",
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics),
+              100}})),
       DymolaStoredErrors,
       Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>

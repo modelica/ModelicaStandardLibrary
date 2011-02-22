@@ -40,7 +40,7 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-120},{150,120}},
-        grid={1,1}), graphics),
+        grid={1,1})),
     Documentation(info="<html>
 <p>
 This is the same model as

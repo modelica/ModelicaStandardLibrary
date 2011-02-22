@@ -158,7 +158,7 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-120,-100},{120,100}},
-        grid={1,1}), graphics),
+        grid={1,1})),
     Documentation(info="<HTML>
 <p>
 This is a V6 engine with 6 cylinders. It is hierarchically built

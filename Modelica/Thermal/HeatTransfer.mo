@@ -280,11 +280,11 @@ Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant a
 Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=7200, Interval=0.01));
     end Motor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                               Documentation(info="<html>
 
 </html>"));
@@ -839,7 +839,7 @@ place from the inner to the outer cylinder):
       port_b.Q_flow + sum(port_a.Q_flow) = 0;
       port_a.T = fill(port_b.T, m);
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
@@ -1147,7 +1147,7 @@ to port_b.
           points={{0,-10},{0,-70}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
+      annotation (
         Icon(graphics={
             Rectangle(
               extent={{-90,10},{90,-10}},
@@ -1194,7 +1194,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 </html>"));
     end ConditionalFixedHeatFlowSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),   Documentation(info="<html>
+              -100},{100,100}})),   Documentation(info="<html>
 
 </html>"));
   end Sensors;
@@ -1515,7 +1515,7 @@ in order to simulate temperature dependent losses (which are given an reference 
               fillPattern=FillPattern.Solid)}));
     end PrescribedHeatFlow;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),   Documentation(info="<html>
+              -100},{100,100}})),   Documentation(info="<html>
 
 </html>"));
   end Sources;
@@ -2923,7 +2923,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </html>"));
     end PartialConditionalHeatPort;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                Documentation(info="<html>
 
 </html>"));

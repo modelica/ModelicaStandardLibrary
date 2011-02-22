@@ -194,7 +194,7 @@ equation
       points={{90,20},{96,20},{96,-46},{4,-46},{4,-62},{26,-62}},
       color={191,0,0},
       smooth=Smooth.None));
-  annotation (Diagram(graphics),
+  annotation (
     experiment(StopTime=3),
     Documentation(info="<html>
 <p>

@@ -335,7 +335,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{40,-40},{50,-40}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
+      annotation (
         Documentation(info="<html>
 <p>
 This example demonstrates coupling a quasi stationary circuit with a DC circuit.
@@ -2073,7 +2073,7 @@ The source partial model relies on the
       pQS + pDC = 0;
     //define reactive power
       qQS = 0;
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Line(
               points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
               color={0,0,255},
@@ -2182,7 +2182,7 @@ At the DC side, only the mean of voltage and current are taken into account.
           points={{40,-40},{40,-100},{100,-100}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Line(
               points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
               color={0,0,255},

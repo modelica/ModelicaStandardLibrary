@@ -839,7 +839,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with mass and inertia tensor.
@@ -1767,7 +1767,7 @@ the only case where this is done.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> where the inertia tensor is neglected.

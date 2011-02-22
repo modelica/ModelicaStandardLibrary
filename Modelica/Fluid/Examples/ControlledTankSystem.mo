@@ -156,7 +156,7 @@ package ControlledTankSystem
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       experiment(StopTime=900),
       Documentation(info="<html>
 <p>

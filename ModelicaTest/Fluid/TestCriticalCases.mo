@@ -114,8 +114,7 @@ extends Modelica.Icons.ExamplesPackage;
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
-      experiment(StopTime=10));
+              100,100}})), experiment(StopTime=10));
   end IdealMixing1;
 
   model DynamicPipeClosingValve "This test demonstrates the importance of smooth regularization of fluid properties for reversing flow.
@@ -168,7 +167,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics),
+            extent={{-100,-100},{100,100}})),
       experiment(StopTime=3));
   end DynamicPipeClosingValve;
 
@@ -238,7 +237,7 @@ extends Modelica.Icons.ExamplesPackage;
         smooth=Smooth.None));
 
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics),
+            extent={{-100,-100},{100,100}})),
       experiment(StopTime=4),
       Documentation(info="<html>
 The simulation shall start in steady-state (see system.energyDynamics on the Assumptions tab).
@@ -356,8 +355,7 @@ The steady-state initial values are observed by an assertion.
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}}),
-              graphics),
-      experiment(
+              experiment(
         StopTime=5,
         NumberOfIntervals=5000,
         Tolerance=1e-006),
@@ -458,8 +456,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
-              graphics),
-      experiment(StopTime=5),
+              experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -566,8 +563,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
-              graphics),
-      experiment(StopTime=5),
+              experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
 </html>"));
@@ -679,8 +675,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}),
-              graphics),
-      experiment(StopTime=5),
+              experiment(StopTime=5),
       Documentation(info="<html>
 Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes. The simulation fails at t=0 due to lack of initialization of the splitter state variables.
 </html>"));
@@ -763,8 +758,7 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
       annotation (Line(points={{36,0},{52,0}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with the valve open. At t=1, the valve is closed, and the simulation fails.
@@ -794,7 +788,7 @@ pressure in order to get positive flow rates. Initialization succeeds, then the 
 fails for zero flow rate.
 </html>"),
          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}),       graphics));
+              {100,100}})));
   end SeriesPipes13;
 
   model BranchingPipes12
@@ -899,8 +893,7 @@ fails for zero flow rate.
           points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1013,8 +1006,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             -4},{-38,-40},{-30,-40}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1129,8 +1121,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             -4},{-38,-40},{-30,-40}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1246,8 +1237,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             -4},{-38,-40},{-30,-40}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1361,8 +1351,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             -4},{-38,-40},{-30,-40}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1485,8 +1474,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             46},{56,46},{56,-2}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5, Tolerance=1e-007),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1607,8 +1595,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             46},{56,46},{56,-2}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1687,8 +1674,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}),
-              graphics),
+              100,100}})),
       experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
@@ -1757,7 +1743,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}), graphics),
+            extent={{-100,-100},{100,100}})),
       experiment(StopTime=4));
   end LumpedPipeInitialization;
 

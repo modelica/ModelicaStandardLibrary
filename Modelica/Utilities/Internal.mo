@@ -43,7 +43,7 @@ partial package PartialModelicaServices
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 
 <p>

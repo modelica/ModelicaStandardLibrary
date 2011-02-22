@@ -228,11 +228,11 @@ the library and has the following content:
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=250));
         end Multiplexer;
 
@@ -272,11 +272,11 @@ the library and has the following content:
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=250));
         end FlipFlop;
 
@@ -356,11 +356,11 @@ The simulation stop time should be 5 seconds.
 </HTML>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=5));
         end HalfAdder;
 
@@ -431,11 +431,11 @@ The simulation stop time should be 10 seconds.
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=10));
         end FullAdder;
 
@@ -577,11 +577,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-200,-200},{200,200}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-200,-200},{200,200}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=5));
         end Adder4;
 
@@ -611,11 +611,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=10));
         end Counter3;
 
@@ -661,11 +661,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </html>"),  Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=100));
         end Counter;
 
@@ -2566,7 +2566,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </html>"));
       end Utilities;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>This package contains examples that demonstrate the usage of the components of the Electrical.Digital library.</p>
 <p>The examples are simple to understand. They will show a typical behavior of the components, and they will give hints to users.</p>
@@ -2806,7 +2806,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end MIMO;
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
 </html>"),DymolaStoredErrors);
@@ -2994,7 +2994,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'L',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}}}]
       "Tristate Table by [strength, enable, input] reading, low-active enable";
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                             Documentation(info="<html>
 
 </html>"));
@@ -3305,7 +3305,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>"));
         end InertialDelaySensitiveVector;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>The Delay package collects the delay blocks which are used in many components. Both transport and inertial delay are offered for scalar connectors. The most advanced component is the sensitive interial delay the delay time of which is chosen in dependency of the signal values. This component is also available for vector valued input.</p>
 </html>"));
@@ -3628,7 +3628,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                     graphics));
         end Xnor;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>Basic contains the basic gates according to standard logic. The components of Basic calculate their results using the corresponding truth tables. They do not contain any delay components.</p>
 </html>"));
@@ -4129,7 +4129,7 @@ NandGate with n input values, composed by Nand and sensitive intertial delay.
               textString="1")}));
         end BufGate;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>Gates contains the basic gates according to standard logic as they are provided in the Basic package. Additionally they contain an InertialDelaySensitive component They are composed graphically, not using any equations.</p>
 </html>"));
@@ -4543,7 +4543,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
                 color={0,0,0})}));
         end Clock;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>The sources are not taken from Standard Logic. They were added since they turned out to be quite useful, since such sources are often needed. For a better optical overview the colour green was chosen for the sources.</p>
 </html>"));
@@ -5067,7 +5067,7 @@ The values val... are given by parameters.</P>
         end LogicToReal;
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),
+              -100},{100,100}})),
                                 Documentation(info="<html>
 <p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
 </html>"));
@@ -6937,7 +6937,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 15, 2010 </i> created by Ulrich Donath<br>
@@ -7027,7 +7027,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 15, 2010 </i> created by Ulrich Donath<br>
@@ -7117,7 +7117,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 15, 2010 </i> created by Ulrich Donath<br>
@@ -7207,7 +7207,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 15, 2010 </i> created by Ulrich Donath<br>
@@ -7292,7 +7292,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 22, 2010 </i> created by Ulrich Donath<br>
@@ -7379,7 +7379,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 22, 2010 </i> created by Ulrich Donath<br>
@@ -7471,7 +7471,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 22, 2010 </i> created by Ulrich Donath<br>
@@ -7563,7 +7563,7 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid,
               textString="%name")}),
                                  Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}), graphics),
+              extent={{-100,-100},{100,100}})),
         Documentation(revisions="<html>
 <ul>
 <li><i>January 22, 2010 </i> created by Ulrich Donath<br>
@@ -7697,7 +7697,7 @@ Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},

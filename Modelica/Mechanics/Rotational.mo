@@ -738,7 +738,7 @@ values (defined already in the model):</p>
             initialScale=0.1,
             preserveAspectRatio=true,
             extent={{-180,-100},{120,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         experiment(StopTime=3.0, Interval=0.001));
     end Friction;
 
@@ -1106,7 +1106,7 @@ as component LossyGear includes the functionality of component BearingFriction
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        Diagram(graphics),
+        
         Documentation(info="<html>
 <p>
 This example demonstrates a situation where the driving side of the
@@ -1243,7 +1243,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}}), graphics),
+        extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This model demonstrates the effect of a backlash on eigenfrequency, and
@@ -1302,7 +1302,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
 </p>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
     end RollingWheel;
 
@@ -1603,7 +1603,7 @@ is present in variable convection.fluid.
           color={0,0,127},
           smooth=Smooth.None));
       annotation (
-        Diagram(graphics),
+        
         experiment(StopTime=5, Interval=0.01),
         Documentation(info="<html>
 <p>This model shows how an automatic gear shift is built up from a planetary gear, a brake and a clutch. </p>
@@ -4713,7 +4713,7 @@ and provides the result as output signal <b>power</b>
             grid={1,1}), graphics));
     end PowerSensor;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),                 Documentation(info="<html>
+              -100},{100,100}})),                 Documentation(info="<html>
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
@@ -5102,7 +5102,7 @@ blocks of the block library Modelica.Blocks.Sources.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5416,7 +5416,7 @@ Positive torque acts accelerating.
       w = w_fixed;
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,
                   0,255}), Text(
@@ -5463,7 +5463,7 @@ Positive torque acts accelerating.
     end TorqueStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),                 Documentation(info="<html>
+              -100},{100,100}})),                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical rotational drive trains.
 </p>
@@ -5687,7 +5687,7 @@ It is most convenient to utilize it
       flange.tau = tau;
       flange.phi = phi;
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics), Icon(coordinateSystem(
+                -100},{100,100}})), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Ellipse(
               extent={{-20,20},{20,-20}},
@@ -6125,7 +6125,7 @@ and instead the component is internally fixed to ground.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -6266,7 +6266,7 @@ and instead the component is internally fixed to ground.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(

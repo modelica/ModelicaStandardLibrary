@@ -216,7 +216,7 @@ package Utilities "Utility models for Examples.Loops"
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-150},{100,150}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-150},{100,150}},
@@ -685,7 +685,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1033,7 +1033,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-120},{150,120}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.

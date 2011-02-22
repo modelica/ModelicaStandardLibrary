@@ -159,7 +159,5 @@ equation
       smooth=Smooth.None));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}),
-            graphics),
-    experiment(StopTime=1.2));
+            100}})), experiment(StopTime=1.2));
 end TestValveCharacteristics;

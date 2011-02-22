@@ -2072,7 +2072,7 @@ connected with continuous blocks or with sampled-data blocks.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>
 The (time varying) Complex output signal of this block can be defined in its
@@ -2313,7 +2313,7 @@ The Complex output y is a step signal (of real and imaginary part):
         Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={1,1}), graphics),
+        grid={1,1})),
     Documentation(info="<html>
 <p>
 The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.

@@ -276,7 +276,7 @@ MultiBody.Visualizers.FixedShape2 object is connected");
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 Model <b>FixedShape2</b> defines a visual shape that is

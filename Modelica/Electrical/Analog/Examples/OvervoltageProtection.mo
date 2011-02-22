@@ -69,7 +69,7 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
  annotation (Diagram(coordinateSystem(
-         preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+         preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
    experiment(StopTime=0.4),
    Documentation(info="<html>
 <p>This example is a simple circuit for overvoltage protection. If the voltage zDiode_1.n.v is too high, the Diode zDiode_2 breaks through and the voltage gets down.</p>

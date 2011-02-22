@@ -1491,7 +1491,7 @@ drag Modelica.Mechanics.MultiBody.World into the top level of your model.",
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
+        grid={2,2})),
     Documentation(info="<HTML>
 <p>
 Model <b>World</b> represents a global coordinate system fixed in

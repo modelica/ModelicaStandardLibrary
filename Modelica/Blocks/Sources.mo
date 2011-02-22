@@ -36,7 +36,7 @@ package Sources
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 <p>
 The (time varying) Real output signal of this block can be defined in its
@@ -82,7 +82,7 @@ Variable <b>y</b> is both a variable and a connector.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 <p>
 The (time varying) Integer output signal of this block can be defined in its
@@ -135,7 +135,7 @@ Variable <b>y</b> is both a variable and a connector.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
       Documentation(info="<html>
 <p>
 The (time varying) Boolean output signal of this block can be defined in its

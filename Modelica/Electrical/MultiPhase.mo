@@ -843,7 +843,7 @@ Each element of the array of saturatingInductors is only dependent on the curren
       for j in 1:m loop
         v[j] = sum(L[j,k]*der(i[k]) for k in 1:m);
       end for;
-      annotation (Diagram(graphics),
+      annotation (
                            Documentation(info="<html>
 <p>
 Model of a multi phase inductor providing a mutual inductance matrix model.
@@ -905,7 +905,7 @@ Model of a multi phase inductor providing a mutual inductance matrix model.
       m*i0 = sum(i);
       v0 = Lzero*der(i0);
       v = fill(v0, m);
-      annotation (Diagram(graphics),
+      annotation (
                            Documentation(info="<html>
 <p>
 Model of a multi phase zero sequence inductor.

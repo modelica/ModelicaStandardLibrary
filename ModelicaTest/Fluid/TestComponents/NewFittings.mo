@@ -85,7 +85,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 </p>
 </html>
 "),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics));
+              100}})));
   end PartialFittingTest;
 
   package Bends
@@ -121,8 +121,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       extends ModelicaTest.Fluid.TestComponents.NewFittings.PartialFittingTest(
                                  redeclare model FittingComponent =
             Modelica.Fluid.Fittings.Orifices.ThickEdgedOrifice(geometry=geometry));
-      annotation (experiment(StopTime=1.01),
-        Diagram(graphics));
+      annotation (experiment(StopTime=1.01));
     end ThickEdgedOrifice;
   end Orifices;
 

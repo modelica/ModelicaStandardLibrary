@@ -331,9 +331,9 @@ end inverter;
           smooth=Smooth.None));
       annotation ( Diagram(
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         experiment(
           StopTime=1e-011,
           NumberOfIntervals=2000,
@@ -453,9 +453,9 @@ end inverter;
           smooth=Smooth.None));
       annotation ( Diagram(
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
@@ -582,9 +582,9 @@ end inverter;
           smooth=Smooth.None));
       annotation ( Diagram(
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         experiment(StopTime=5),
         DymolaStoredErrors,
         Documentation(info="<html>
@@ -768,11 +768,11 @@ end inverter;
             coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            initialScale=0.1), graphics),
+            initialScale=0.1)),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            initialScale=0.1), graphics),
+            initialScale=0.1)),
         experiment(StopTime=5),
         Documentation(info="<html>
 <p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
@@ -870,7 +870,7 @@ end inverter;
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
                                                      graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -1028,7 +1028,7 @@ end inverter;
               preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
                                                      graphics),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -1139,7 +1139,7 @@ end inverter;
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(graphics),
+        
         Icon(graphics),
         experiment(StopTime=0.025),
         Documentation(info="<html>
@@ -1275,7 +1275,7 @@ end inverter;
           points={{-68,10},{-68,-14}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
+      annotation (
         Icon(graphics),
         experiment(StopTime=0.025),
         Documentation(info="<html>
@@ -1345,7 +1345,7 @@ by this gound element.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Window(
           x=0.23,
           y=0.23,
@@ -1385,7 +1385,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Window(
           x=0.2,
           y=0.06,
@@ -1479,7 +1479,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Window(
           x=0.3,
           y=0.12,
@@ -1612,7 +1612,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.34,
           y=0.05,
@@ -1670,7 +1670,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.3,
           y=0.13,
@@ -1730,7 +1730,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.31,
           y=0.09,
@@ -1889,7 +1889,7 @@ The corresponding SPICE description
           coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}}),
           graphics),
-       Diagram(graphics),
+       
        DymolaStoredErrors,
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
@@ -1986,7 +1986,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
 <p></p>
@@ -2037,7 +2037,7 @@ The corresponding SPICE description
               textString="%name",
               lineColor={0,0,255})}),                            Diagram(
             coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -2099,7 +2099,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.11,
           y=0.12,
@@ -2176,7 +2176,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.21,
           y=0.22,
@@ -2299,7 +2299,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties:</p>
 <ul>
@@ -2372,7 +2372,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
 <h4>Attention:</h4>
@@ -2411,7 +2411,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
 </html>"));
@@ -2465,7 +2465,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.33,
           y=0.06,
@@ -2525,7 +2525,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.11,
           y=0.12,
@@ -2574,7 +2574,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         (T0 + Tfalling - time)*(I2-I1)/(Tfalling - Twidth));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
                                Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
                                   Polygon(
@@ -2714,7 +2714,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
 
@@ -2791,7 +2791,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
 <h4>Note:</h4>
@@ -3372,7 +3372,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Window(
           x=0.16,
           y=0.12,
@@ -3535,7 +3535,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
@@ -3764,7 +3764,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
@@ -4078,7 +4078,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
              extent={{-154,100},{146,60}},
              textString="%name",
              lineColor={0,0,255})}),
-       Diagram(graphics),
+       
        DymolaStoredErrors,
        Documentation(info="<html>
 <p>DIODE model</p>

@@ -81,7 +81,7 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
+        grid={2,2})),
     Documentation(info="<html>
 <p>
 A body is attached on a revolute and prismatic joint.

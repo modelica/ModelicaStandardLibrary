@@ -47,8 +47,7 @@ equation
       smooth=Smooth.None));
   annotation (
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}}),
-            graphics),
+            100,100}})),
     experiment(StopTime=10, NumberOfIntervals=10000),
     Documentation(info="<html>
 Test of the StaticPipe model.

@@ -50,7 +50,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics),
+                -100,-100},{100,100}})),
                          experiment(StopTime=1.1));
   end SimpleDriveTrain;
 
@@ -95,7 +95,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics),
+                -100,-100},{100,100}})),
         experiment(StopTime=2),
                   Diagram, experiment(StopTime=1.1));
     end ConnectionPossibilities;
@@ -166,7 +166,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics),
+                -100,-100},{100,100}})),
                            experiment(StopTime=1.1),
                   Diagram,
         experiment(StopTime=2));
@@ -740,7 +740,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}}), graphics),
+                -100,-100},{100,100}})),
         experiment(StopTime=1.1));
     end Inertia;
 
@@ -879,7 +879,7 @@ extends Modelica.Icons.ExamplesPackage;
           smooth=Smooth.None));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         experiment(StopTime=1.1));
     end SpringDamper;
 
@@ -942,7 +942,7 @@ extends Modelica.Icons.ExamplesPackage;
     connect(sine4.y, speed4.v_ref) annotation (Line(points={{-39,-50},{-22,-50}},
           color={0,0,127}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}), graphics),
+              -100,-100},{100,100}})),
       experiment(StopTime=1.1));
   end TestSpeed;
 
@@ -998,7 +998,7 @@ extends Modelica.Icons.ExamplesPackage;
     connect(move1.flange,   slidingMass.flange_a)
       annotation (Line(points={{0,-30},{20,-30}}, color={0,127,0}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}), graphics),
+              -100,-100},{100,100}})),
       experiment(StopTime=1.1));
   end TestMove;
 
@@ -1519,7 +1519,7 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-140,-200},{200,100}},
-          initialScale=0.1), graphics),
+          initialScale=0.1)),
       experiment(StopTime=0.9));
   end AllComponents;
 
@@ -2020,7 +2020,7 @@ extends Modelica.Icons.ExamplesPackage;
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-300},{300,200}},
-          initialScale=0.1), graphics),
+          initialScale=0.1)),
       experiment(StopTime=0.5));
   end TestBearingConversion;
 
@@ -2158,7 +2158,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}), graphics),
+              -100,-100},{100,100}})),
       experiment(StopTime=1.1));
   end TestFriction;
 end Rotational;

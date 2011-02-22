@@ -61,7 +61,7 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
+        grid={2,2})),
     Documentation(info="<HTML>
 <p>
 This is a similar model as the example \"EngineV6\". However, the cylinders

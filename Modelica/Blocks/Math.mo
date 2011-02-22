@@ -3296,7 +3296,7 @@ Note: The output is updated after each period defined by 1/f.
         points={{21,0},{110,0}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(graphics),
+    annotation (
       Documentation(info="<html>
 <p>
 This block calculates the rectified mean of the input signal u over the given period 1/f, using the
@@ -3346,7 +3346,7 @@ Note: The output is updated after each period defined by 1/f.
         points={{61,0},{110,0}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(graphics),
+    annotation (
       Documentation(info="<html>
 <p>
 This block calculates the root mean square of the input signal u over the given period 1/f, using the
@@ -3444,7 +3444,7 @@ Note: The output is updated after each period defined by 1/f.
         points={{61,-8},{80,-8},{80,-60},{110,-60}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(graphics),
+    annotation (
       Documentation(info="<html>
 <p>
 This block calculates the root mean square and the phase angle of a single harmonic <i>k</i> of the input signal u over the given period 1/f, using the

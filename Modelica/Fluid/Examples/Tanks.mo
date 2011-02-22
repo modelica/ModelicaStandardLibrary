@@ -224,7 +224,7 @@ package Tanks "Library demonstrating the usage of the tank model"
     annotation (Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-160,-120},{100,120}},
-          initialScale=0.1), graphics),
+          initialScale=0.1)),
       experiment(StopTime=25000, NumberOfIntervals=5000),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"

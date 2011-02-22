@@ -84,8 +84,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,127},
         smooth=Smooth.None));
     annotation (                                       Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-200},{100,100}}),
-          graphics),
+            preserveAspectRatio=false, extent={{-100,-200},{100,100}})),
       experiment(StopTime=1.1));
   end Continuous;
 
@@ -157,7 +156,7 @@ extends Modelica.Icons.ExamplesPackage;
             2,
         normalized=false));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-200},{100,100}}), graphics),
+              -100,-200},{100,100}})),
       experiment(StopTime=1.1));
   end Continuous_InitialOutput;
 
@@ -191,7 +190,7 @@ extends Modelica.Icons.ExamplesPackage;
     connect(sine.y, deadZone.u) annotation (Line(points={{-39,50},{-32,50},{-32,
             -30},{-22,-30}}, color={0,0,127}));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}}), graphics),
+              -100,-100},{100,100}})),
       experiment(StopTime=1.1));
   end Limiters;
 
@@ -228,7 +227,7 @@ extends Modelica.Icons.ExamplesPackage;
             17.8,-10}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       experiment(StopTime=3));
   end KinematicPTP;
 
@@ -377,8 +376,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,127},
         smooth=Smooth.None));
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{300,100}}),
-                        graphics), Icon(coordinateSystem(preserveAspectRatio=true,
+              -100,-100},{300,100}})), Icon(coordinateSystem(preserveAspectRatio=true,
                     extent={{-100,-100},{100,100}})),
       experiment(StopTime=1.01));
   end UnitDeduction;
@@ -547,8 +545,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{-39,50},{-32,50},{-32,70},{20,70},{20,-70},{38,-70}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(graphics),
-        experiment(StopTime=0.9),
+    annotation (experiment(StopTime=0.9),
       Icon(graphics={Text(
               extent={{-82,54},{86,22}},
               lineColor={0,0,0},

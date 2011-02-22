@@ -450,7 +450,7 @@ with a predefined acceleration.
 Demonstrate usage of damper components in different variants.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end Damper;
 
@@ -547,7 +547,7 @@ are set.
 If damping is added the amplitudes are bounded.
 </p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}), graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2})),
         experiment(StopTime=1.0, Interval=0.001));
     end Oscillator;
 
@@ -624,7 +624,7 @@ Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}), graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2})),
         experiment(StopTime=1.0, Interval=0.001));
     end Sensors;
 
@@ -1022,7 +1022,7 @@ Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5
 mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100}, {100,100}}), graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100}, {100,100}})),
         experiment(StopTime=1.0, Interval=0.01));
     end ElastoGap;
 
@@ -1074,7 +1074,7 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This model consists of a mass with an initial velocity of 1 m/s.
@@ -1343,7 +1343,7 @@ simulate them according to the provided description in the models.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>
 The <i>flange</i> of a 1D translational mechanical system <i>fixed</i>
@@ -3843,7 +3843,7 @@ blocks of the block library Modelica.Blocks.Sources.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4109,7 +4109,7 @@ Positive force acts accelerating.
     end ForceStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),                 Documentation(info="<html>
+              -100},{100,100}})),                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
 </p>
@@ -4266,7 +4266,7 @@ The following variables are transported through this connector:
       flange.f = f;
       flange.s = s;
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics), Icon(coordinateSystem(
+                -100},{100,100}})), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Text(
               extent={{-200,80},{200,40}},
@@ -4751,7 +4751,7 @@ and instead the component is internally fixed to ground.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4891,7 +4891,7 @@ connector is not connected).
 
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(

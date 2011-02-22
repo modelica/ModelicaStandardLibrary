@@ -221,6 +221,6 @@ pipe wall/environment).
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+          grid={1,1})));
   end LumpedPipe;
 end BaseClasses;

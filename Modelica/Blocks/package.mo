@@ -240,7 +240,7 @@ equation
       points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
       color={0,0,127},
       smooth=Smooth.None));
-  annotation (Diagram(graphics),
+  annotation (
       experiment(StopTime=0.9),
     Icon(graphics={Text(
             extent={{-82,54},{86,22}},
@@ -304,7 +304,7 @@ equation
         points={{51,50},{60,50}},
         color={0,0,127},
         smooth=Smooth.None));
-  annotation (Diagram(graphics),
+  annotation (
       experiment(StopTime=0.9),
     Icon(graphics={Text(
             extent={{-82,54},{86,22}},
@@ -355,7 +355,7 @@ end FilterWithDifferentiation;
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
-      Diagram(graphics),
+      
       experiment(StopTime=4),
       Documentation(info="<html>
 <p>

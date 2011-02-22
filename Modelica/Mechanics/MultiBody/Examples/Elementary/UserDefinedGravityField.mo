@@ -52,7 +52,7 @@ equation
       thickness=0.5,
       smooth=Smooth.None));
   annotation (experiment(StopTime=10, Tolerance=1e-008),
-    Diagram(graphics),
+    
     Documentation(info="<html>
 <p>
 This example demonstrates a user defined gravity field.

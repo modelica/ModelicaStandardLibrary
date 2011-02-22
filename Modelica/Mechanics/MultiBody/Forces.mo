@@ -78,7 +78,7 @@ package Forces "Components that exert forces and/or torques between frames"
         smooth=Smooth.None));
     annotation (defaultComponentName="force",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
@@ -461,7 +461,7 @@ This leads to the following animation
         smooth=Smooth.None));
     annotation (defaultComponentName="forceAndTorque",
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics),
+              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(

@@ -123,7 +123,7 @@ equation
       thickness=0.5));
 
     annotation (extent=[-90,-86; -70,-66], Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}}), graphics),
+          preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 <p>
 This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.

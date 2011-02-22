@@ -1108,7 +1108,7 @@ input becomes false.
           preserveAspectRatio=true,
           extent={{-200,-20},{200,20}},
           grid={2,2},
-          initialScale=0.2), graphics),
+          initialScale=0.2)),
       Documentation(info="<html>
 <p>
 In the parameter menu, a <b>time varying</b> expression can be defined

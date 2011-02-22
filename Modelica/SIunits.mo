@@ -900,7 +900,7 @@ still kept in Modelica.SIunits.</p>
               textString="m/s")}));
     end from_cm2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,
-                     extent={{-100,-100},{100,100}}), graphics),
+                     extent={{-100,-100},{100,100}})),
                               Documentation(info="<HTML>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the

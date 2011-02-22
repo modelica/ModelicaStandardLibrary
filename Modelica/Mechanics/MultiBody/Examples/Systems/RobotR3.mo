@@ -74,7 +74,7 @@ load inertia.
 "),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics),
+          grid={1,1})),
       experiment(StopTime=1.6),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
@@ -340,11 +340,11 @@ load inertia.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={0.5,0.5}), graphics),
+          grid={0.5,0.5})),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={0.5,0.5}), graphics),
+          grid={0.5,0.5})),
       experiment(StopTime=2),
       __Dymola_Commands(
         file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/Run.mos"
@@ -860,7 +860,7 @@ motion on the controlBus of the r3 robot.
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2},
-            initialScale=0.1), graphics),
+            initialScale=0.1)),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1396,7 +1396,7 @@ produced by the motor).
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},

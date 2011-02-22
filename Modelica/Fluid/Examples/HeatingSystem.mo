@@ -205,7 +205,7 @@ tankLevel = tank.level;
             -100},{100,100}}),
                       graphics),
                        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}}), graphics),
+            -100},{100,100}})),
                              Documentation(info="<html>
 <p>
 Simple heating system with a closed flow cycle. It is set up for steady-state initial values.

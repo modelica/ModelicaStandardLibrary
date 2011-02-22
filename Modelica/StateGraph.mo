@@ -1054,7 +1054,7 @@ has a higher priority to fire as alternative.split[2]).
 "),   Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-160,-160},{160,160}},
-            grid={2,2}), graphics),
+            grid={2,2})),
       experiment(StopTime=15));
   end ExecutionPaths;
 
@@ -1123,7 +1123,7 @@ is that the alternative paths are included in a \"CompositeStep\".
 "),   Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
       experiment(StopTime=15));
   end ShowCompositeStep;
 
@@ -1190,7 +1190,7 @@ according to their setting before leaving the \"compositeStep\" via its
 "),   Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
       experiment(StopTime=20));
   end ShowExceptions;
 
@@ -1279,7 +1279,7 @@ according to their setting before leaving the \"compositeStep\" via its
       Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={0.5,0.5}), graphics),
+            grid={0.5,0.5})),
       experiment(StopTime=100),
       Documentation(info="<html>
 <p>
@@ -1704,7 +1704,7 @@ buttons:
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={1,1}), graphics),
+              grid={1,1})),
         Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -2290,11 +2290,11 @@ package Interfaces "Connectors and partial models"
     annotation(Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
       Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
       Documentation(info="<html>
 
 </html>"));
@@ -3160,7 +3160,7 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics),
+          grid={2,2})),
   Documentation(info="<html>
 <p>
 This is an <b>experimental component</b> to define a

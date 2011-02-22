@@ -10445,7 +10445,7 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">c
       end if;
       heatPort.Q_flow = tau*w;
      annotation (
-       Diagram(graphics),
+       
        Icon(graphics={
             Ellipse(
               extent={{-60,60},{60,-60}},
@@ -10626,7 +10626,7 @@ Model of voltage drop and losses of carbon brushes. This threephase model uses t
                 extent={{-70,30},{70,-30}},
                 lineColor={0,0,255},
                 pattern=LinePattern.Dot)}),
-          Diagram(graphics),
+          
           Documentation(info="<html>
 <p>
 Stray load losses are modeled similar to standards EN 60034-2 and IEEE 512, i.e., they are dependent on square of current,
@@ -10719,7 +10719,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
                 extent={{-100,100},{100,60}},
                 lineColor={0,0,255},
                 textString="%name")}),
-          Diagram(graphics),
+          
           Documentation(info="<html>
 <p>
 Core losses can be separated into <b>eddy current</b> and <b>hysteresis</b> losses. The total core losses
@@ -10906,7 +10906,7 @@ e.g., used for initial equations.
                 extent={{-70,30},{70,-30}},
                 lineColor={0,0,255},
                 pattern=LinePattern.Dot)}),
-          Diagram(graphics),
+          
           Documentation(info="<html>
 <p>
 The stray load loss torque is
@@ -10970,7 +10970,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
               Line(points={{-70,10},{70,10}}, color={0,0,255}),
               Line(points={{-70,-30},{70,-30}}, color={0,0,255}),
               Line(points={{-70,-10},{70,-10}}, color={0,0,255})}),
-          Diagram(graphics),
+          
           Documentation(info="<html>
 <p>
 Core losses can be separated into <i>eddy current</i> and <i>hysteresis</i> losses. The total core losses
@@ -13600,7 +13600,7 @@ Power balance of transformers.
 This partial model defines shaft and housing connector for loss models.
 Positive torque <code>tau</code> acts as braking torque.
 </p>
-</html>"),           Diagram(graphics),
+</html>"),           
         Icon(graphics={Rectangle(
               extent={{-20,-80},{20,-120}},
               lineColor={192,192,192},
@@ -14018,7 +14018,7 @@ Phase shifts between sine-waves may be choosen by the user; default values are <
           points={{61,0},{110,0}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
+      annotation (
                            Icon(graphics={
             Text(
               extent={{-90,60},{30,40}},
