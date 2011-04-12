@@ -1097,7 +1097,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 </ol>
 
 <h4>Variable names</h4>
-<p>In the following table typical variable names are listed. This list should be completd.</p>
+<p>In the following table typical variable names are listed. This list should be completed.</p>
 
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\" >
    <caption align=\"bottom\">Variables and names</caption>
@@ -1115,7 +1115,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
     </tr>
     <tr>
       <td>C</td>
-      <td>Capacitance</td>
+      <td>capacitance</td>
     </tr>
     <tr>
       <td>d</td>
