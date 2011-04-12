@@ -4977,7 +4977,7 @@ partial package PartialLinearFluid
       constant SpecificEnthalpy reference_h
       "Specific enthalpy in reference conditions";
       constant SpecificEntropy reference_s
-      "Specific enthalpy in reference conditions";
+      "Specific entropy in reference conditions";
       constant Boolean constantJacobian
       "if true, entries in thermodynamic Jacobian are constant, taken at reference conditions";
 
