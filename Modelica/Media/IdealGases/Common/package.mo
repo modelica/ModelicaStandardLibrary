@@ -69,8 +69,8 @@ partial package SingleGasNasa
     AbsolutePressure criticalPressure "critical pressure";
     MolarVolume criticalMolarVolume "critical molar Volume";
     Real acentricFactor "Pitzer acentric factor";
-    Temperature triplePointTemperature "triple point temperature";
-    AbsolutePressure triplePointPressure "triple point pressure";
+    //     Temperature triplePointTemperature "triple point temperature";
+    //     AbsolutePressure triplePointPressure "triple point pressure";
     Temperature meltingPoint "melting point at 101325 Pa";
     Temperature normalBoilingPoint "normal boiling point (at 101325 Pa)";
     DipoleMoment dipoleMoment
