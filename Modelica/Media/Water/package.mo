@@ -154,8 +154,6 @@ partial package WaterIF97_base
     "Base properties of water"
     Integer phase(min=0, max=2, start=1,fixed=false)
       "2 for two-phase, 1 for one-phase, 0 if not known";
-    SaturationProperties sat(Tsat(start=300.0), psat(start=1.0e5))
-      "saturation temperature and pressure";
   equation
     MM = fluidConstants[1].molarMass;
     if smoothModel then
@@ -422,7 +420,7 @@ partial package WaterIF97_base
       annotation (Documentation(info="<html>
                                 <p>In the two phase region this function returns the interpolated heat capacity between the
                                 liquid and vapour state heat capacities.</p>
-				</html>"));
+                                </html>"));
   end specificHeatCapacityCp;
 
   redeclare function extends specificHeatCapacityCv
@@ -502,6 +500,18 @@ partial package WaterIF97_base
   algorithm
     ddph := IF97_Utilities.ddph(state.p, state.h, state.phase);
   end density_derp_h;
+
+//   redeclare function extends density_derT_p
+//     "density derivative by temperature"
+//   algorithm
+//     ddTp := IF97_Utilities.ddTp(state.p, state.h, state.phase);
+//   end density_derT_p;
+//
+//   redeclare function extends density_derp_T
+//     "density derivative by pressure"
+//   algorithm
+//     ddpT := IF97_Utilities.ddpT(state.p, state.h, state.phase);
+//   end density_derp_T;
 
   redeclare function extends bubbleEnthalpy
     "boiling curve specific enthalpy of water"
