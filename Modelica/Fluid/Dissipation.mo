@@ -10288,7 +10288,7 @@ documentation available in this package.
                  + (1 - x_flow)^3/max(MIN, rho_l^2*(1 - epsilonA)^2)));
 
           algorithm
-            rho_2ph := if massFlowRateCorrection then rho_hom else if
+            rho_2ph := if not massFlowRateCorrection then rho_hom else if
               voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Homogeneous then
                     rho_hom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Momentum then
                     rho_mom else if voidFractionApproach == Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach.Energy then
@@ -10320,6 +10320,12 @@ The heterogeneous approaches are analytically derived by minimising the momentum
     <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
     Springer Verlag, 10th edition, 2006.</dd>
 </dl>
+</html>",           revisions="<html>
+<ul>
+<li><i>2 May 2011</i>
+    by Stefan Wischhusen:<br>
+       Corrected a logical error in use of input <code>massFlowRateCorrection</code>.</li>
+</ul>
 </html>"));
           end TwoPhaseDensity;
 
