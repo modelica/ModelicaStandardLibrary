@@ -447,14 +447,14 @@ on the model behaviour.
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{-90,0},{90,0}}, color={0,0,0}),
+          Line(points={{-90,0},{90,0}}, color={0,0,255}),
           Text(
             extent={{-120,50},{-20,0}},
             lineColor={0,0,255},
@@ -490,12 +490,12 @@ on the model behaviour.
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-          Line(points={{50,0},{90,0}}, color={0,0,0}),
-          Line(points={{0,-50},{0,50}}, color={0,0,0}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,-50},{0,50}}, color={0,0,255}),
           Text(
             extent={{-150,120},{150,80}},
             textString="%name",

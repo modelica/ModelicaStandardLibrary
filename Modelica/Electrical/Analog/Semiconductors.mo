@@ -44,7 +44,7 @@ package Semiconductors
           grid={1,1}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -124,7 +124,7 @@ package Semiconductors
           grid={1,1}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -850,7 +850,7 @@ The thermal power is calculated by <i>i*v</i>.
   grid={1,1}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -1640,7 +1640,7 @@ public
           grid={1,1}), graphics={
           Polygon(
             points={{30,0},{-30,40},{-30,-40},{30,0}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-90,0},{40,0}}, color={0,0,255}),
@@ -1817,31 +1817,31 @@ public
               100}}), graphics={
           Polygon(
             points={{-30,0},{-30,-100},{70,-50},{-30,0}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             smooth=Smooth.None),
           Polygon(
             points={{70,100},{70,0},{-30,50},{70,100}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             smooth=Smooth.None),
           Line(
             points={{70,0},{70,-100}},
-            color={0,0,0},
+            color={0,0,255},
             smooth=Smooth.None),
           Line(
             points={{-30,0},{-30,100}},
-            color={0,0,0},
+            color={0,0,255},
             smooth=Smooth.None),
           Line(
             points={{-30,0},{-90,0}},
-            color={0,0,0},
+            color={0,0,255},
             smooth=Smooth.None),
           Line(
             points={{70,0},{110,0}},
-            color={0,0,0},
+            color={0,0,255},
             smooth=Smooth.None),
           Line(
             points={{-62,-86},{-62,-56},{-30,-44}},
-            color={0,0,0},
+            color={0,0,255},
             smooth=Smooth.None),
           Text(
             extent={{-102,130},{98,100}},

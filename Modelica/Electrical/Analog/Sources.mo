@@ -28,12 +28,12 @@ package Sources "Time-dependend and controlled voltage and current sources"
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-          Line(points={{50,0},{90,0}}, color={0,0,0}),
-          Line(points={{-50,0},{50,0}}, color={0,0,0}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255}),
+          Line(points={{-50,0},{50,0}}, color={0,0,255}),
           Text(
             extent={{-150,-104},{150,-64}},
             textString="%name",
@@ -55,9 +55,9 @@ package Sources "Time-dependend and controlled voltage and current sources"
             lineColor={0,0,0},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-96,0},{-50,0}}, color={0,0,0}),
-          Line(points={{50,0},{96,0}}, color={0,0,0}),
-          Line(points={{-50,0},{50,0}}, color={0,0,0}),
+          Line(points={{-96,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{96,0}}, color={0,0,255}),
+          Line(points={{-50,0},{50,0}}, color={0,0,255}),
           Line(points={{-109,20},{-84,20}}, color={160,160,164}),
           Polygon(
             points={{-94,23},{-84,20},{-94,17},{-94,23}},
@@ -103,10 +103,10 @@ package Sources "Time-dependend and controlled voltage and current sources"
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
-          Line(points={{-90,0},{-10,0}}, color={0,0,0}),
-          Line(points={{-10,60},{-10,-60}}, color={0,0,0}),
-          Line(points={{0,30},{0,-30}}, color={0,0,0}),
-          Line(points={{0,0},{90,0}}, color={0,0,0}),
+          Line(points={{-90,0},{-10,0}}, color={0,0,255}),
+          Line(points={{-10,60},{-10,-60}}, color={0,0,255}),
+          Line(points={{0,30},{0,-30}}, color={0,0,255}),
+          Line(points={{0,0},{90,0}}, color={0,0,255}),
           Text(
             extent={{-150,-112},{150,-72}},
             textString="%name=%V",
