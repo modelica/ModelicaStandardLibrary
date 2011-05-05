@@ -1417,12 +1417,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-          Line(points={{50,0},{90,0}}, color={0,0,0}),
-          Line(points={{0,-50},{0,50}}, color={0,0,0}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,-50},{0,50}}, color={0,0,255}),
           Text(
             extent={{-150,-120},{150,-80}},
             textString="%name",
@@ -1467,12 +1467,12 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
           grid={1,1}), graphics={
           Ellipse(
             extent={{-50,50},{50,-50}},
-            lineColor={0,0,0},
+            lineColor={0,0,255},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
-          Line(points={{-90,0},{-50,0}}, color={0,0,0}),
-          Line(points={{50,0},{90,0}}, color={0,0,0}),
-          Line(points={{0,-50},{0,50}}, color={0,0,0}),
+          Line(points={{-90,0},{-50,0}}, color={0,0,255}),
+          Line(points={{50,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,-50},{0,50}}, color={0,0,255}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name=%I",
