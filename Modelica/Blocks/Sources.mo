@@ -211,13 +211,13 @@ Variable <b>y</b> is both a variable and a connector.
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-34,0},{-37,-13},{-30,-13},{-34,0}},
+            points={{-34,0},{-37,-13},{-31,-13},{-34,0}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-34,-13},{-34,-70}}, color={95,95,95}),
+          Line(points={{-34,0},{-34,-70}},   color={95,95,95}),
           Polygon(
-            points={{-34,-69},{-37,-56},{-31,-56},{-34,-69},{-34,-69}},
+            points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -386,24 +386,24 @@ The Real output y is a constant signal:
             extent={{-21,-72},{25,-90}},
             lineColor={0,0,0},
             textString="startTime"),
-          Line(points={{0,-17},{0,-71}}, color={95,95,95}),
+          Line(points={{0,-18},{0,-70}}, color={95,95,95}),
           Text(
             extent={{-68,-36},{-22,-54}},
             lineColor={0,0,0},
             textString="offset"),
           Line(points={{-13,50},{-13,-17}}, color={95,95,95}),
           Polygon(
-            points={{2,50},{-19,50},{2,50}},
+            points={{0,50},{-21,50},{0,50}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-13,-17},{-16,-4},{-10,-4},{-13,-17},{-13,-17}},
+            points={{-13,-18},{-16,-5},{-10,-5},{-13,-18},{-13,-18}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-13,50},{-16,37},{-9,37},{-13,50}},
+            points={{-13,50},{-16,37},{-10,37},{-13,50}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -412,13 +412,13 @@ The Real output y is a constant signal:
             lineColor={0,0,0},
             textString="height"),
           Polygon(
-            points={{-13,-69},{-16,-56},{-10,-56},{-13,-69},{-13,-69}},
+            points={{-13,-70},{-16,-57},{-10,-57},{-13,-70},{-13,-70}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Line(points={{-13,-18},{-13,-70}}, color={95,95,95}),
           Polygon(
-            points={{-13,-18},{-16,-31},{-9,-31},{-13,-18}},
+            points={{-13,-18},{-16,-31},{-10,-31},{-13,-18}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -494,7 +494,7 @@ The Real output y is a step signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-40,-20},{-42,-30},{-37,-30},{-40,-20}},
+            points={{-40,-20},{-42,-30},{-38,-30},{-40,-20}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -504,7 +504,7 @@ The Real output y is a step signal:
             thickness=0.25,
             arrow={Arrow.None,Arrow.None}),
           Polygon(
-            points={{-40,-70},{-43,-60},{-38,-60},{-40,-70},{-40,-70}},
+            points={{-40,-70},{-42,-60},{-38,-60},{-40,-70},{-40,-70}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -550,12 +550,12 @@ The Real output y is a step signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{50,50},{48,40},{53,40},{50,50}},
+            points={{50,50},{48,40},{52,40},{50,50}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{50,-20},{47,-10},{52,-10},{50,-20},{50,-20}},
+            points={{50,-20},{48,-10},{52,-10},{50,-20},{50,-20}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -663,10 +663,10 @@ The Real output y is a ramp signal:
             extent={{-80,99},{-40,82}},
             lineColor={0,0,0},
             textString="y"),
-          Line(points={{-9,79},{43,79}}, color={95,95,95}),
+          Line(points={{-9,80},{43,80}}, color={95,95,95}),
           Line(points={{-41,-2},{50,-2}}, color={95,95,95}),
           Polygon(
-            points={{33,79},{30,66},{37,66},{33,79}},
+            points={{33,80},{30,67},{36,67},{33,80}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -679,7 +679,7 @@ The Real output y is a ramp signal:
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{33,77},{33,-2}}, color={95,95,95})}),
+          Line(points={{33,80},{33,-2}}, color={95,95,95})}),
       Documentation(info="<html>
 <p>
 The Real output y is a sine signal:
@@ -790,7 +790,7 @@ The Real output y is a sine signal:
             lineColor={0,0,0},
             textString="1/freqHz"),
           Polygon(
-            points={{-49,73},{-40,75},{-40,71},{-49,73}},
+            points={{-50,73},{-41,75},{-41,71},{-50,73}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -844,9 +844,9 @@ The Real output y is a sine signal with exponentially changing amplitude:
 
       equation
         y_riseTime = outMax*(1 - Modelica.Math.exp(-riseTime/riseTimeConst));
-        y = offset + (if (time < startTime) then 0
-                else if (time < (startTime + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst))
-                else                                          y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/fallTimeConst));
+        y = offset + (if (time < startTime) then 0 else
+                     if (time < (startTime + riseTime)) then outMax*(1 - Modelica.Math.exp(-(time - startTime)/riseTimeConst)) else
+                                                              y_riseTime*Modelica.Math.exp(-(time - startTime - riseTime)/fallTimeConst));
 
         annotation (
           Icon(coordinateSystem(
@@ -910,13 +910,13 @@ The Real output y is a sine signal with exponentially changing amplitude:
             lineColor={0,0,0},
             textString="offset"),
           Polygon(
-            points={{-40,-74},{-43,-64},{-38,-64},{-40,-74},{-40,-74}},
+            points={{-40,-74},{-42,-64},{-38,-64},{-40,-74},{-40,-74}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-40,-33},{-40,-64}}, color={95,95,95}),
+          Line(points={{-40,-34},{-40,-74}}, color={95,95,95}),
           Polygon(
-            points={{-40,-34},{-42,-44},{-37,-44},{-40,-34}},
+            points={{-40,-34},{-42,-44},{-38,-44},{-40,-34}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -929,13 +929,13 @@ The Real output y is a sine signal with exponentially changing amplitude:
             lineColor={0,0,0},
             textString="startTime"),
           Polygon(
-            points={{-41,-34},{-32,-32},{-32,-36},{-41,-34}},
+            points={{-40,-34},{-31,-32},{-31,-36},{-40,-34}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-40,-34},{29,-34}}, color={95,95,95}),
+          Line(points={{-40,-34},{30,-34}}, color={95,95,95}),
           Polygon(
-            points={{29,-34},{21,-32},{21,-36},{29,-34}},
+            points={{30,-34},{22,-32},{22,-36},{30,-34}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -985,8 +985,8 @@ by a falling exponential signal:
           count = pre(count)+1;
           T_start = time;
         end when;
-        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0
-                 else if  time<T_start + T_width then amplitude else 0);
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0 else
+                      if  time<T_start + T_width then amplitude else 0);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1015,23 +1015,23 @@ by a falling exponential signal:
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Polygon(
-            points={{-80,90},{-85,68},{-74,68},{-80,90}},
+            points={{-80,90},{-85,68},{-75,68},{-80,90}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Line(points={{-80,68},{-80,-80}}, color={95,95,95}),
           Line(points={{-90,-70},{82,-70}}, color={95,95,95}),
           Polygon(
-            points={{90,-70},{68,-65},{68,-76},{90,-70}},
+            points={{90,-70},{68,-65},{68,-75},{90,-70}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-34,1},{-37,-12},{-30,-12},{-34,1}},
+            points={{-34,0},{-37,-13},{-31,-13},{-34,0}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
-          Line(points={{-34,-1},{-34,-70}}, color={95,95,95}),
+          Line(points={{-34,0},{-34,-70}},  color={95,95,95}),
           Polygon(
             points={{-34,-70},{-37,-57},{-31,-57},{-34,-70},{-34,-70}},
             lineColor={95,95,95},
@@ -1050,7 +1050,7 @@ by a falling exponential signal:
             lineColor={0,0,0},
             textString="y"),
           Text(
-            extent={{66,-79},{87,-89}},
+            extent={{66,-80},{87,-90}},
             lineColor={0,0,0},
             textString="time"),
           Line(points={{-10,0},{-10,-70}}, color={95,95,95}),
@@ -1059,10 +1059,10 @@ by a falling exponential signal:
                 50}},
             color={0,0,255},
             thickness=0.5),
-          Line(points={{-10,88},{-10,49}}, color={95,95,95}),
+          Line(points={{-10,88},{-10,50}}, color={95,95,95}),
           Line(points={{30,74},{30,50}}, color={95,95,95}),
           Line(points={{50,88},{50,50}}, color={95,95,95}),
-          Line(points={{-10,83},{51,83}}, color={95,95,95}),
+          Line(points={{-10,83},{50,83}}, color={95,95,95}),
           Line(points={{-10,69},{30,69}}, color={95,95,95}),
           Text(
             extent={{-3,93},{39,84}},
@@ -1073,18 +1073,18 @@ by a falling exponential signal:
             lineColor={0,0,0},
             textString="width"),
           Line(points={{-43,50},{-10,50}}, color={95,95,95}),
-          Line(points={{-34,50},{-34,1}}, color={95,95,95}),
+          Line(points={{-34,50},{-34,0}}, color={95,95,95}),
           Text(
             extent={{-77,30},{-37,21}},
             lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
-            points={{-34,49},{-37,36},{-30,36},{-34,49}},
+            points={{-34,50},{-37,37},{-31,37},{-34,50}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-34,1},{-37,14},{-31,14},{-34,1},{-34,1}},
+            points={{-34,0},{-37,13},{-31,13},{-34,0},{-34,0}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -1145,8 +1145,8 @@ The Real output y is a pulse signal:
           count = pre(count)+1;
           T_start = time;
         end when;
-        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0
-                     else amplitude*(time - T_start)/period);
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0 else
+                          amplitude*(time - T_start)/period);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1187,7 +1187,7 @@ The Real output y is a pulse signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-34,-19},{-37,-32},{-30,-32},{-34,-19}},
+            points={{-34,-20},{-37,-33},{-31,-33},{-34,-20}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -1222,13 +1222,13 @@ The Real output y is a pulse signal:
             lineColor={0,0,0},
             textString="period"),
           Line(points={{-44,60},{30,60}}, color={95,95,95}),
-          Line(points={{-34,47},{-34,-7}}, color={95,95,95}),
+          Line(points={{-34,47},{-34,-20}},color={95,95,95}),
           Text(
             extent={{-73,25},{-36,16}},
             lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
-            points={{-34,60},{-37,47},{-30,47},{-34,60}},
+            points={{-34,60},{-37,47},{-31,47},{-34,60}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -1295,11 +1295,11 @@ The Real output y is a saw tooth signal:
           count = pre(count)+1;
           T_start = time;
         end when;
-        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0
-                 else if (time < T_start + T_rising)  then amplitude*(time - T_start)/rising
-                 else if (time < T_start + T_width)   then amplitude
-                 else if (time < T_start + T_falling) then amplitude*(T_start + T_falling - time)/falling
-                 else                                 0);
+        y = offset + (if (time<startTime or nperiod==0 or (nperiod>0 and count>=nperiod)) then 0 else
+                      if (time < T_start + T_rising) then  amplitude*(time - T_start)/rising else
+                      if (time < T_start + T_width) then   amplitude else
+                      if (time < T_start + T_falling) then amplitude*(T_start + T_falling - time)/falling else
+                                                      0);
         annotation (
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1345,7 +1345,7 @@ The Real output y is a saw tooth signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Line(
-            points={{-46,-31},{-46,-70}},
+            points={{-46,-30},{-46,-70}},
             color={95,95,95},
             pattern=LinePattern.Solid,
             arrow={Arrow.None,Arrow.None}),
@@ -1371,7 +1371,7 @@ The Real output y is a saw tooth signal:
             lineColor={0,0,0},
             textString="time"),
           Line(
-            points={{-30,82},{-31,-70}},
+            points={{-31,82},{-31,-70}},
             color={95,95,95},
             pattern=LinePattern.Dash),
           Line(
@@ -1379,15 +1379,15 @@ The Real output y is a saw tooth signal:
             color={95,95,95},
             pattern=LinePattern.Dash),
           Line(
-            points={{19,59},{19,39}},
+            points={{19,59},{19,40}},
             color={95,95,95},
             pattern=LinePattern.Dash),
           Line(
             points={{39,59},{39,-30}},
             color={95,95,95},
             pattern=LinePattern.Dash),
-          Line(points={{-21,76},{60,76}}, color={95,95,95}),
-          Line(points={{-30,56},{39,56}}, color={95,95,95}),
+          Line(points={{-31,76},{59,76}}, color={95,95,95}),
+          Line(points={{-31,56},{39,56}}, color={95,95,95}),
           Text(
             extent={{-3,86},{24,77}},
             lineColor={0,0,0},
@@ -1401,7 +1401,7 @@ The Real output y is a saw tooth signal:
             color={95,95,95},
             pattern=LinePattern.Dash),
           Line(
-            points={{-40,40},{-40,-19}},
+            points={{-40,40},{-40,-30}},
             color={95,95,95},
             pattern=LinePattern.Solid,
             arrow={Arrow.None,Arrow.None}),
@@ -1410,7 +1410,7 @@ The Real output y is a saw tooth signal:
             lineColor={0,0,0},
             textString="amplitude"),
           Polygon(
-            points={{-30,56},{-23,58},{-23,54},{-30,56}},
+            points={{-31,56},{-24,58},{-24,54},{-31,56}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -1420,12 +1420,12 @@ The Real output y is a saw tooth signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-30,76},{-21,78},{-21,74},{-30,76}},
+            points={{-31,76},{-22,78},{-22,74},{-31,76}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{60,76},{52,78},{52,74},{60,76}},
+            points={{59,76},{51,78},{51,74},{59,76}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -1440,16 +1440,16 @@ The Real output y is a saw tooth signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-40,-29},{-42,-19},{-38,-19},{-40,-29},{-40,-29}},
+            points={{-40,-30},{-42,-20},{-38,-20},{-40,-30},{-40,-30}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Line(
-            points={{60,84},{59,-30}},
+            points={{59,84},{59,-30}},
             color={95,95,95},
             pattern=LinePattern.Dash),
           Polygon(
-            points={{38,56},{31,58},{31,54},{38,56}},
+            points={{39,56},{32,58},{32,54},{39,56}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
@@ -1464,7 +1464,7 @@ The Real output y is a saw tooth signal:
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
           Polygon(
-            points={{-13,56},{-6,58},{-6,54},{-13,56}},
+            points={{-11,56},{-4,58},{-4,54},{-11,56}},
             lineColor={95,95,95},
             fillColor={95,95,95},
             fillPattern=FillPattern.Solid),
