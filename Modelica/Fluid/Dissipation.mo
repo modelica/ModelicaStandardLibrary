@@ -11023,7 +11023,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
             0.999*(func - nofunc) + nofunc and nofunc > func or x <= 0.001*(func -
             nofunc) + nofunc and func > nofunc or x >= 0.001*(func - nofunc) + nofunc
              and nofunc > func then 0 else (1 - Modelica.Math.tanh(Modelica.Math.tan(m*
-            x + b))^2)*(1 + Modelica.Math.tan(m*x + b)^2)*m*dx;
+            x + b))^2)*(1 + Modelica.Math.tan(m*x + b)^2)*m*dx/2;
           annotation (smoothOrder=5);
         end Stepsmoother_der;
       end General;
@@ -12985,13 +12985,21 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SI.Length perimeter=Modelica.Constants.pi*0.1 "Wettet perimeter"
             annotation (Dialog(group="Geometry"));
 
-          SI.MolarMass MM=0.018015268 "Molar mass of fluid" annotation (Dialog(group=
+          Modelica.Fluid.Dissipation.Utilities.Types.MolarMass_gpmol  MM=18.02
+            "Molar mass of fluid"                                                                          annotation (Dialog(group=
                   "Fluid properties", enable=if target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilHor
                    or target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.BoilVer then
                         true else false));
           SI.Pressure p_crit "Critical pressure of fluid"
             annotation (Dialog(group="Fluid properties"));
 
+          annotation (Documentation(revisions="<html>
+<ul>
+<li><i>13 May 2011</i>
+    by Stefan Wischhusen:<br>
+       Corrected the required unit of parameter MM.</li>
+</ul>
+</html>"));
         end TwoPhaseFlowHT_IN_con;
 
         record TwoPhaseFlowHT_IN_var
@@ -13336,6 +13344,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           SlitFin "Slit fin",
           WavyFin "Wavy fin (Herringbone wavy fin)");
 
+      type MolarMass_gpmol = Real (final quantity="Molar mass", final unit="g/mol");
     end Types;
   end Utilities;
 annotation (
