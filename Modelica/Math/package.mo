@@ -213,7 +213,7 @@ Note, for any vector norm the following inequality holds:
   end norm;
 
   function length
-    "Return length of a vectorReturn length of a vector (better as norm(), if further symbolic processing is performed)"
+    "Return length of a vector (better as norm(), if further symbolic processing is performed)"
     extends Modelica.Icons.Function;
     input Real v[:] "Vector";
     output Real result "Length of vector v";
