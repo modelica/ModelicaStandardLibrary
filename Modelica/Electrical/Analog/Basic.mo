@@ -1416,7 +1416,7 @@ end M_Transformer;
   end CCC;
 
   model OpAmp "Simple nonideal model of an OpAmp with limitation"
-    parameter Real Slope(start=1)
+    parameter Real Slope(start=10000)
       "Slope of the out.v/vin characteristic at vin=0";
     Modelica.Electrical.Analog.Interfaces.PositivePin in_p
       "Positive pin of the input port" annotation (Placement(transformation(
@@ -1444,7 +1444,7 @@ end M_Transformer;
     VMin.i = 0;
     vin = in_p.v - in_n.v;
     f = 2/(VMax.v - VMin.v);
-    absSlope = smooth(0,(if (Slope < 0) then -Slope else Slope));
+    absSlope = if (Slope < 0) then -Slope else Slope;
     out.v = (VMax.v + VMin.v)/2 + absSlope*vin/(1 + absSlope*smooth(0,(if (f*vin
        < 0) then -f*vin else f*vin)));
     annotation (
