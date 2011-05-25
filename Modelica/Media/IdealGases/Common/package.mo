@@ -2,6 +2,7 @@ within Modelica.Media.IdealGases;
 package Common "Common packages and data for the ideal gas models"
 extends Modelica.Icons.Package;
 
+
 record DataRecord
   "Coefficient data record for properties of ideal gases based on NASA source"
   extends Modelica.Icons.Record;
@@ -41,6 +42,7 @@ gases also differentiable at Tlimit.
 </p>
 </HTML>"));
 end DataRecord;
+
 
 partial package SingleGasNasa
   "Medium model of an ideal gas based on NASA source"
@@ -756,6 +758,7 @@ and adapted to the Modelica.Media package.
                 graphics));
 end SingleGasNasa;
 
+
 partial package MixtureGasNasa
   "Medium model of a mixture of ideal gases based on NASA source"
 
@@ -772,7 +775,7 @@ partial package MixtureGasNasa
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5),
-     Temperature(start=500, nominal=500));
+     Temperature(min = 200, max = 6000, start=500, nominal=500));
 
     redeclare record extends ThermodynamicState "thermodynamic state variables"
     end ThermodynamicState;
@@ -1563,6 +1566,7 @@ It has been developed by Hubertus Tummescheit.
             {100,100}}),
                 graphics));
 end MixtureGasNasa;
+
 
 annotation (Documentation(info="<html>
 
