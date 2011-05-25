@@ -801,7 +801,7 @@ partial package MixtureGasNasa
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-    redeclare final constant Boolean standardOrderComponents=true)
+    final standardOrderComponents=true)
     "Base properties (p, d, T, h, u, R, MM, X, and Xi of NASA mixture gas"
 
       import Modelica.Media.IdealGases.Common.SingleGasNasa;
