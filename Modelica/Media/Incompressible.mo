@@ -141,6 +141,16 @@ density and heat capacity as functions of temperature.</li>
     constant SpecificEntropy s0=0 "reference entropy at T0, reference_p";
     constant MolarMass MM_const=0.1 "Molar mass";
     constant Integer npol=2 "degree of polynomial used for fitting";
+    constant Integer npolDensity=npol
+      "degree of polynomial used for fitting rho(T)";
+    constant Integer npolHeatCapacity=npol
+      "degree of polynomial used for fitting Cp(T)";
+    constant Integer npolViscosity=npol
+      "degree of polynomial used for fitting eta(T)";
+    constant Integer npolVaporPressure=npol
+      "degree of polynomial used for fitting pVap(T)";
+    constant Integer npolConductivity=npol
+      "degree of polynomial used for fitting lambda(T)";
     constant Integer neta=size(tableViscosity,1)
       "number of data points for viscosity";
     constant Real[:,2] tableDensity "Table for rho(T)";
@@ -161,20 +171,20 @@ density and heat capacity as functions of temperature.</li>
     final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then
         invertTemp(tableViscosity[:,1],TinK) else fill(0,0);
     final constant Real poly_rho[:] = if hasDensity then
-                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npol) else
-                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
+                                         Poly.fitting(tableDensity[:,1],tableDensity[:,2],npolDensity) else
+                                           zeros(npolDensity+1) annotation(__Dymola_keepConstant = true);
     final constant Real poly_Cp[:] = if hasHeatCapacity then
-                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npol) else
-                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
+                                         Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npolHeatCapacity) else
+                                           zeros(npolHeatCapacity+1) annotation(__Dymola_keepConstant = true);
     final constant Real poly_eta[:] = if hasViscosity then
-                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npol) else
-                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
+                                         Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npolViscosity) else
+                                           zeros(npolViscosity+1) annotation(__Dymola_keepConstant = true);
     final constant Real poly_pVap[:] = if hasVaporPressure then
-                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npol) else
-                                            zeros(npol+1) annotation(__Dymola_keepConstant= true);
+                                         Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npolVaporPressure) else
+                                            zeros(npolVaporPressure+1) annotation(__Dymola_keepConstant= true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
-                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npol) else
-                                           zeros(npol+1) annotation(__Dymola_keepConstant = true);
+                                         Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npolConductivity) else
+                                           zeros(npolConductivity+1) annotation(__Dymola_keepConstant = true);
     function invertTemp "function to invert temperatures"
       input Real[:] table "table temperature data";
       input Boolean Tink "flag for Celsius or Kelvin";
