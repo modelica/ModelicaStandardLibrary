@@ -730,15 +730,14 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     p_steam_sat :=saturationPressure(T);
     x_sat:=p_steam_sat*k_mair/max(100*Modelica.Constants.eps, p - p_steam_sat);
     X_sat:=min(x_sat*(1 - X[Water]), 1.0);
-    X_liquid :=Utilities.spliceFunction(X[Water] - X_sat, 0.0, X[Water] - X_sat,1e-6);
+    X_liquid := Utilities.smoothMax(X[Water] - X_sat, 0.0, 1e-5);
     X_steam  :=X[Water] - X_liquid;
     X_air    :=1 - X[Water];
 
     dX_air:=-dX[Water];
     dps:=saturationPressure_der(Tsat=T, dTsat=dT);
     dx_sat:=k_mair*(dps*(p-p_steam_sat)-p_steam_sat*(dp-dps))/(p-p_steam_sat)/(p-p_steam_sat);
-    dX_liq:=Utilities.spliceFunction_der(X[Water] - X_sat, 0.0, X[Water] - X_sat,1e-6,(1+x_sat)*dX[Water]-(1-X[Water])*dx_sat,0.0,(1+x_sat)*dX[Water]-(1-X[Water])*dx_sat,0.0);
-    //dX_liq:=if X[Water]>=X_sat then (1+x_sat)*dX[Water]-(1-X[Water])*dx_sat else 0;
+    dX_liq := Utilities.smoothMax_der(X[Water] - X_sat, 0.0, 1e-5, (1 + x_sat)*dX[Water] - (1 - X[Water])*dx_sat, 0, 0);
     dX_steam:=dX[Water]-dX_liq;
 
     h_der:= X_steam*Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow_der(data=steam, T=T, refChoice=3, h_off=46479.819+2501014.5, dT=dT)+
@@ -1030,6 +1029,45 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
           end if;
       end spliceFunction_der;
 
+     function smoothMax
+        import Modelica.Math;
+
+        input Real x1 "First argument of smooth max operator";
+        input Real x2 "Second argument of smooth max operator";
+        input Real dx
+          "Approximate difference between x1 and x2, below which regularization starts";
+        output Real y "Result of smooth max operator";
+     algorithm
+        y := max(x1, x2) + Math.log((exp((4/dx)*(x1 - max(x1, x2)))) + (exp((4/dx)*(x2 - max(x1, x2)))))/(4/dx);
+        annotation (smoothOrder=2, Documentation(info="<html>
+<p>An implementation of Kreisselmeier Steinhauser smooth maximum</p>
+</html>"));
+     end smoothMax;
+
+      function smoothMax_der
+        import Modelica.Math.exp;
+        import Modelica.Math.log;
+
+        input Real x1 "First argument of smooth max operator";
+        input Real x2 "Second argument of smooth max operator";
+        input Real dx
+          "Approximate difference between x1 and x2, below which regularization starts";
+        input Real dx1;
+        input Real dx2;
+        input Real ddx;
+        output Real dy "Derivative of smooth max operator";
+      algorithm
+        dy := (if x1 > x2 then dx1 else dx2) +
+                0.25*(
+                  ( (4*(dx1-(if x1 > x2 then dx1 else dx2))/dx-4*(x1-max(x1, x2))*ddx/dx^2) * exp(4*(x1-max(x1, x2))/dx) +
+                    (4*(dx2-(if x1 > x2 then dx1 else dx2))/dx-4*(x2-max(x1, x2))*ddx/dx^2) * exp(4*(x2-max(x1, x2))/dx))
+                    * dx/(exp(4*(x1-max(x1, x2))/dx)+exp(4*(x2-max(x1, x2))/dx)) +
+                  log(exp(4*(x1-max(x1, x2))/dx)+exp(4*(x2-max(x1, x2))/dx))*ddx);
+
+        annotation (Documentation(info="<html>
+<p>An implementation of Kreisselmeier Steinhauser smooth maximum</p>
+</html>"));
+      end smoothMax_der;
     end Utilities;
 
     model PsychrometricData "Produces plot data for psychrometric charts"
