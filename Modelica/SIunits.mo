@@ -1419,12 +1419,13 @@ argument):</p>
       min=0);
   type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol",min=0);
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol", min=0);
-  type MolarInternalEnergy = Real (final quantity="MolarInternalEnergy", final unit=
-             "J/mol");
+  type MolarEnergy = Real (final quantity="MolarEnergy", final unit="J/mol", nominal=2e4);
+  type MolarInternalEnergy = MolarEnergy;
   type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit=
          "J/(mol.K)");
   type MolarEntropy = Real (final quantity="MolarEntropy", final unit=
           "J/(mol.K)");
+  type MolarEnthalpy = MolarEnergy;
   type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit=
           "mol/s");
   type NumberDensityOfMolecules = Real (final quantity=
@@ -1886,6 +1887,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 </p>
 </html>", revisions="<html>
 <ul>
+<li><i>May 25, 2011</i> by Stefan Wischhusen:<br/>Added molar units for energy and enthalpy.</li>
 <li><i>Jan. 27, 2010</i> by Christian Kral:<br/>Added complex units.</li>
 <li><i>Dec. 14, 2005</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br/>Add User&#39;;s Guide and removed &quot;min&quot; values for Resistance and Conductance.</li>
 <li><i>October 21, 2002</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br/>Added new package <b>Conversions</b>. Corrected typo <i>Wavelenght</i>.</li>
