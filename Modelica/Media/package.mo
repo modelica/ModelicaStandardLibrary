@@ -8431,7 +8431,7 @@ Copyright &copy; 1998-2010, Modelica Association.
 </p>
 </HTML>", revisions="<html>
 <ul>
-<li><i>May 25, 2011</i> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, SimpleAir and MoistAir local types.</li>
+<li><i>May 25, 2011</i> by Francesco Casella:<br/>Added min/max attributes to Water, TableBased, MixtureGasNasa, SimpleAir and MoistAir local types.</li>
 </ul>
 </html>"));
 end Media;
