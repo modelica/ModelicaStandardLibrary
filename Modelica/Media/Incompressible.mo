@@ -127,7 +127,8 @@ density and heat capacity as functions of temperature.</li>
        final fixedX = true,
        mediumName="tableMedium",
        redeclare record ThermodynamicState=Common.BaseProps_Tpoly,
-       singleState=true);
+       singleState=true,
+       Temperature(min = T_min, max = T_max));
     // Constants to be set in actual Medium
     constant Boolean enthalpyOfT=true
       "true if enthalpy is approximated as a function of T only, (p-dependence neglected)";

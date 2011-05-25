@@ -774,7 +774,7 @@ partial package MixtureGasNasa
         if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5),
-     Temperature(start=500, nominal=500));
+     Temperature(min=200, max=6000, start=500, nominal=500));
 
     redeclare record extends ThermodynamicState "thermodynamic state variables"
     end ThermodynamicState;

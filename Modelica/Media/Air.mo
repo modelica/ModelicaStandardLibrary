@@ -3,7 +3,6 @@ package Air "Medium models for air"
   extends Modelica.Icons.MaterialPropertiesPackage;
 
   package SimpleAir "Air: Simple dry air model (0..100 degC)"
-
     extends Interfaces.PartialSimpleIdealGasMedium(
        mediumName="SimpleAir",
        cp_const=1005.45,
@@ -12,7 +11,9 @@ package Air "Medium models for air"
        eta_const=1.82e-5,
        lambda_const=0.026,
        T_min=Cv.from_degC(0),
-       T_max=Cv.from_degC(100));
+       T_max=Cv.from_degC(100),
+       Temperature(min = Modelica.SIunits.Conversions.from_degC(0),
+                   max = Modelica.SIunits.Conversions.from_degC(100)));
 
     import SI = Modelica.SIunits;
     import Cv = Modelica.SIunits.Conversions;
@@ -81,7 +82,9 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
        final reducedX=true,
        final singleState=false,
        reference_X={0.01,0.99},
-       fluidConstants = {IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2});
+       fluidConstants = {IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
+       Temperature(min = 200,
+                   max = 423.15));
 
     constant Integer Water=1
       "Index of water (in substanceNames, massFractions X, etc.)";
