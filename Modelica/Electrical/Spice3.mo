@@ -2254,7 +2254,13 @@ The corresponding SPICE description
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
         "Table matrix (time = first column, voltage = second column)";
-      Modelica.Blocks.Sources.TimeTable tab(table=table);
+    protected
+     parameter Integer x= size(table,1);
+     parameter Real tlast = table[x,1] + 1;
+     parameter Real valuelast = table[x,2];
+     parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
+     parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
+      Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
     equation
       v = tab.y;
       annotation (
@@ -2669,7 +2675,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
        extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter Real table[:, :]=[0, 0; 1, 1; 2, 4]
         "Table matrix (time = first column, voltage = second column)";
-      Modelica.Blocks.Sources.TimeTable tab(table=table);
+    protected
+     parameter Integer x= size(table,1);
+     parameter Real tlast = table[x,1] + 1;
+     parameter Real valuelast = table[x,2];
+     parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
+     parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
+     Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
 
     equation
       i = tab.y;
