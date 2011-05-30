@@ -3087,44 +3087,6 @@ when the return value changes discontinuously.]</i></p>
 </html>"));
   end inverse;
 
-  class IsPresent "isPresent"
-  extends ModelicaReference.Icons.Information;
-    annotation (Documentation(info="<html>
-<p>
-Returns true if the formal input or output argument of a function is present
-</p>
-<h4>Syntax</h4>
-<blockquote><pre><b>isPresent</b>(ident)</pre></blockquote>
-<h4>Description</h4>
-<p>
-Returns true if the formal input or output argument ident is present
-as an actual argument of the function call. If the argument is not
-present, isPresent(ident) may return false <i>[but may also return
-true e.g., for implementations that always compute all results]</i>.
-isPresent() should be used for optimisation only and should not
-influence the results of outputs that are present in the output
-list. It can only be used in functions.
-</p>
-<h4>Examples</h4>
-<blockquote>
-<pre>
-<b>function</b> eigenValues \"Compute eigenvalues and eigenvectors\"
-  <b>input</b>  Real A[:, size(A, 1)];
-  <b>output</b> Real eigenvalues[size(A, 1), 2];
-  <b>output</b> Real eigenvectors[size(A,1), size(A,2)];
-<b>algorithm</b>
-  // compute eigen values
-  <b>if</b> <b>isPresent</b>(eigenvectors) <b>then</b>
-     // compute eigen vectors
-  <b>end</b> <b>if</b>;
-<b>end</b> eigenValues;
-        eval = eigenValues(A);  // compute only eigenvalues
-(eval, evec) = eigenValues(A);  // compute eigenvalues and eigenvectors
-</pre>
-</blockquote>
-</html>"));
-
-  end IsPresent;
 
 class Linspace "linspace"
   extends ModelicaReference.Icons.Information;
