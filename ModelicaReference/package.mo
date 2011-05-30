@@ -6197,7 +6197,7 @@ end Contact;
 
 
 annotation (__Dymola_DocumentationClass=true,
-     dateModified="2010-10-06 17:00:00Z",
+     dateModified="2011-05-30 06:00:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
@@ -6275,6 +6275,5 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"),
-  uses(Modelica(version="3.2")));
+</html>"));
 end ModelicaReference;
