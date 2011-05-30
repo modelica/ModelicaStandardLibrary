@@ -2,6 +2,7 @@ within ;
 package ModelicaReference "Modelica Reference"
   extends ModelicaReference.Icons.Information;
 
+
 class ModelicaGrammar "Modelica Grammar"
   extends ModelicaReference.Icons.Information;
 
@@ -232,6 +233,7 @@ typographic conventions are used:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>annotation</b><tt> </tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a>
 </body></html>"));
 end ModelicaGrammar;
+
 
 package Annotations "Annotations"
   extends ModelicaReference.Icons.Information;
@@ -1189,6 +1191,7 @@ Annotations are intended for storing extra information about a model, such as gr
 </html>"));
 end Annotations;
 
+
 package Classes "Classes (model, function, ...)"
   extends ModelicaReference.Icons.Information;
   class Block "block"
@@ -1990,6 +1993,7 @@ Moreover, they have additional properties called enhancements.
 </p>
 </html>"));
 end Classes;
+
 
 package Operators "Operators (+, der, size, ...)"
   extends ModelicaReference.Icons.Information;
@@ -3083,44 +3087,6 @@ when the return value changes discontinuously.]</i></p>
 </html>"));
   end inverse;
 
-  class IsPresent "isPresent"
-  extends ModelicaReference.Icons.Information;
-    annotation (Documentation(info="<html>
-<p>
-Returns true if the formal input or output argument of a function is present
-</p>
-<h4>Syntax</h4>
-<blockquote><pre><b>isPresent</b>(ident)</pre></blockquote>
-<h4>Description</h4>
-<p>
-Returns true if the formal input or output argument ident is present
-as an actual argument of the function call. If the argument is not
-present, isPresent(ident) may return false <i>[but may also return
-true e.g., for implementations that always compute all results]</i>.
-isPresent() should be used for optimisation only and should not
-influence the results of outputs that are present in the output
-list. It can only be used in functions.
-</p>
-<h4>Examples</h4>
-<blockquote>
-<pre>
-<b>function</b> eigenValues \"Compute eigenvalues and eigenvectors\"
-  <b>input</b>  Real A[:, size(A, 1)];
-  <b>output</b> Real eigenvalues[size(A, 1), 2];
-  <b>output</b> Real eigenvectors[size(A,1), size(A,2)];
-<b>algorithm</b>
-  // compute eigen values
-  <b>if</b> <b>isPresent</b>(eigenvectors) <b>then</b>
-     // compute eigen vectors
-  <b>end</b> <b>if</b>;
-<b>end</b> eigenValues;
-        eval = eigenValues(A);  // compute only eigenvalues
-(eval, evec) = eigenValues(A);  // compute eigenvalues and eigenvectors
-</pre>
-</blockquote>
-</html>"));
-
-  end IsPresent;
 
 class Linspace "linspace"
   extends ModelicaReference.Icons.Information;
@@ -4195,6 +4161,7 @@ log, log10 that are provided for convenience as built-in functions).
 </html>"));
 end Operators;
 
+
 class BalancedModel "balanced model"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -4591,6 +4558,7 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 </html>"));
 end BalancedModel;
 
+
 class Connect "connect"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -4691,6 +4659,7 @@ connected as a pair of scalar connectors.</P>
 </html>"));
 end Connect;
 
+
 class Encapsulated "encapsulated"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -4731,6 +4700,7 @@ abs cannot be redefined in the global scope, because an existing class
 cannot be redefined at the same level.]</i></p>
 </html>"));
 end Encapsulated;
+
 
 class Extends "extends"
   extends ModelicaReference.Icons.Information;
@@ -4934,6 +4904,7 @@ another kind of specialized class:</p>
 </html>"));
 end Extends;
 
+
 class Flow "flow"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5019,6 +4990,7 @@ type_prefix :
 whereas variables without the flow prefix are identical in a connection.</p>
 </html>"));
 end Flow;
+
 
 class For "for"
   extends ModelicaReference.Icons.Information;
@@ -5121,6 +5093,7 @@ prepending the reduction-expression with <code>'function-name('</code>.</p>
 </html>"));
 end For;
 
+
 class If "if"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5205,6 +5178,7 @@ type of the if-expression. If-expressions with <B>elseif</B> are defined by repl
 </html>"));
 end If;
 
+
 class Import "import"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5276,6 +5250,7 @@ The generated import names are:</p>
 </ul>
 </html>"));
 end Import;
+
 
 class Input "input"
   extends ModelicaReference.Icons.Information;
@@ -5402,6 +5377,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 
 </html>"));
 end Input;
+
 
 class Output "output"
   extends ModelicaReference.Icons.Information;
@@ -5530,6 +5506,7 @@ The prefixes <b>input</b> and <b>output</b> have a slightly different semantic m
 </html>"));
 end Output;
 
+
 class Partial "partial"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5596,6 +5573,7 @@ or in a \"constrained\" clause to define the constraints of a replaceable class.
 
 </html>"));
 end Partial;
+
 
 class Stream "stream"
   extends ModelicaReference.Icons.Information;
@@ -5847,6 +5825,7 @@ For further details, see the definition of the
 </html>"));
 end Stream;
 
+
 class Time "time"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -5880,6 +5859,7 @@ the time instant at which the simulation is started.</P>
 
 </html>"));
 end Time;
+
 
 class When "when"
   extends ModelicaReference.Icons.Information;
@@ -6065,6 +6045,7 @@ parameter variable. The start-values of the special functions
 </html>"));
 end When;
 
+
 class While "while"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -6103,6 +6084,7 @@ and is formally defined as follows</P>
 
 </html>"));
 end While;
+
 
 package Icons
   partial class Information "Icon for general information packages"
@@ -6172,6 +6154,7 @@ package Icons
   end Contact;
 end Icons;
 
+
 class Contact "Contact"
   extends ModelicaReference.Icons.Contact;
 
@@ -6211,6 +6194,7 @@ class Contact "Contact"
 </html>"));
 
 end Contact;
+
 
 annotation (__Dymola_DocumentationClass=true,
      dateModified="2010-10-06 17:00:00Z",
@@ -6291,5 +6275,6 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"));
+</html>"),
+  uses(Modelica(version="3.2")));
 end ModelicaReference;
