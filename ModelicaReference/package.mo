@@ -1,6 +1,6 @@
 within ;
 package ModelicaReference "Modelica Reference"
-  extends ModelicaReference.Icons.Information;
+   extends ModelicaReference.Icons.Information;
 
 
 class ModelicaGrammar "Modelica Grammar"
