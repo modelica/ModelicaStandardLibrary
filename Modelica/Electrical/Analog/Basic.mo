@@ -302,7 +302,7 @@ end Conductor;
 <p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>i = C * dv/dt</i>. The Capacitance <i>C</i> is allowed to be positive, zero, or negative.</p>
 <p><br/>Besides the capacitance C parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which in definded from positive pin p to negative pin n (v=p.v - n.v).</p>
 <p><br/>Hence the capacitor is charged at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it needn&apos;t!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -367,7 +367,7 @@ end Conductor;
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The Inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
 <p><br/>Besides the inductance L parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
 <p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
-<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it needn&apos;t!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
+<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1994,6 +1994,13 @@ end M_Transformer;
           parameter Modelica.SIunits.Capacitance Cmin=Modelica.Constants.eps
       "lower bound for variable capacitance";
           Modelica.SIunits.ElectricCharge Q;
+           parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
+          parameter Boolean UIC = false;
+
+        initial equation
+          if UIC then
+            v = IC;
+          end if;
         equation
           assert(C>=0,"Capacitance C (= " +
                  String(C) + ") has to be >= 0!");
@@ -2007,6 +2014,9 @@ end M_Transformer;
 <br>The capacitance <i>C</i> is given as input signal.
 It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,
 C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
+<p><br/>Besides the Cmin parameter the capacitor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the voltage over the capacitor, which in definded from positive pin p to negative pin n (v=p.v - n.v).</p>
+<p><br/>Hence the capacitor is charged at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
+<p><br/>the IC value at the initial calculation by adding the equation v= IC. If UIC is false, the IC value can be used (but it does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>",  revisions=
              "<html>
 <ul>
@@ -2061,6 +2071,13 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
           Modelica.SIunits.MagneticFlux Psi;
           parameter Modelica.SIunits.Inductance Lmin=Modelica.Constants.eps
       "lower bound for variable inductance";
+          parameter Modelica.SIunits.Current IC=0 "Initial Value";
+          parameter Boolean UIC=false;
+
+        initial equation
+          if UIC then
+            i = IC;
+          end if;
         equation
           assert(L>=0,"Inductance L_ (= " +
                  String(L) + ") has to be >= 0!");
@@ -2073,6 +2090,9 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
 <br><i><b>v = d Psi/dt </b></i>with <i><b>Psi = L * i </b></i>.
 <br>The inductance <i>L</i> is as input signal.
 It is required that L &ge; 0, otherwise an assertion is raised. To avoid a variable index system, L = Lmin, if 0 &le; L &lt; Lmin, where Lmin is a parameter with default value Modelica.Constants.eps.</p>
+<p>Besides the Lmin parameter the inductor model has got the two parameters IC and UIC that belong together. With the IC parameter the user can specify an initial value of the current that flows through the inductor.</p>
+<p><br/>Hence the inductor has an initial current at the beginning of the simulation. The other parameter UIC is of type Boolean. If UIC is true, the simulation tool uses</p>
+<p><br/>the IC value at the initial calculation by adding the equation i= IC. If UIC is false, the IC value can be used (butit does not need to!) to calculate the initial values in order to simplify the numerical algorithms of initial calculation.</p>
 </html>",  revisions=
              "<html>
 <ul>
