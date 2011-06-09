@@ -1567,7 +1567,7 @@ public
     parameter Modelica.SIunits.Voltage Vt=0.04
       "Voltage equivalent of temperature (kT/qn)";
     parameter Real Nbv=0.74 "Reverse Breakthrough emission coefficient";
-
+   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
     Real iGK "gate current";
     Real vGK "voltage between gate and cathode";
     Real vAK "voltage between anode and cathode";
@@ -1616,7 +1616,7 @@ public
 
     // holding effect and forward breakthrough
     vConmain = (if Anode.i>IH or vAK>VDRM then Von else 0);
-
+    LossPower = Anode.i*Anode.v + Cathode.i*Cathode.v + Gate.i*Gate.v;
    annotation (
      Documentation(info="<html>
 <p>This is a simple thyristor model with three pins: Anode, Cathode and Gate. There are three operating modes:conducting, blocking and reverse breakthrough.
@@ -1761,9 +1761,9 @@ public
       annotation (Placement(transformation(extent={{94,-10},{114,10}})));
     Modelica.Electrical.Analog.Interfaces.PositivePin g "Gate"
       annotation (Placement(transformation(extent={{-72,-106},{-52,-86}})));
-    Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor(VDRM=VDRM, VRRM=VRRM)
+    Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor(VDRM=VDRM, VRRM=VRRM, useHeatPort=useHeatPort, T=T)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
-    Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor1(VDRM=VDRM, VRRM=VRRM)
+    Modelica.Electrical.Analog.Semiconductors.Thyristor thyristor1(VDRM=VDRM, VRRM=VRRM, useHeatPort=useHeatPort, T=T)
                          annotation (Placement(transformation(
           extent={{-10,-10},{10,10}},
           rotation=180,
@@ -1776,7 +1776,21 @@ public
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-20,-72})));
+
+  parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+  parameter Modelica.SIunits.Temperature T=293.15
+      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
+
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-10,-110},{10,-90}})));
+
   equation
+    if useHeatPort then
+     connect(heatPort, thyristor.heatPort);
+     connect(heatPort, thyristor1.heatPort);
+   end if;
     connect(thyristor.Anode, n) annotation (Line(
         points={{-19,40},{-18,40},{-18,48},{-70,48},{-70,0},{-100,0}},
         color={0,0,255},
