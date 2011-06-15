@@ -3,18 +3,22 @@ package Lines
   "Lossy and lossless segmented transmission lines, and LC distributed line models"
   extends Modelica.Icons.Package;
 
+
   model OLine "Lossy Transmission Line"
     //extends Interfaces.ThreePol;
-    Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
+    Modelica.Electrical.Analog.Interfaces.Pin p1
+                      annotation (Placement(transformation(extent={{-110,-10},{
               -90,10}}, rotation=0)));
-    Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
+    Modelica.Electrical.Analog.Interfaces.Pin p2
+                      annotation (Placement(transformation(extent={{90,-10},{
               110,10}}, rotation=0)));
-    Interfaces.Pin p3 annotation (Placement(transformation(extent={{-10,-110},{
+    Modelica.Electrical.Analog.Interfaces.Pin p3
+                      annotation (Placement(transformation(extent={{-10,-110},{
               10,-90}}, rotation=0)));
-    SI.Voltage v13;
-    SI.Voltage v23;
-    SI.Current i1;
-    SI.Current i2;
+    Modelica.SIunits.Voltage v13;
+    Modelica.SIunits.Voltage v23;
+    Modelica.SIunits.Current i1;
+    Modelica.SIunits.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
       unit="Ohm/m", start=1) "Resistance per meter";
@@ -27,14 +31,38 @@ package Lines
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m", start=1) "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small, start=1)
-      "Length of line";
+    parameter Modelica.SIunits.Length length(final min=
+          Modelica.Constants.small, start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R=0
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G=0
+      "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
+     parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+  parameter Modelica.SIunits.Temperature T=293.15
+      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
+  parameter Modelica.SIunits.Temperature T_ref=300.15;
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-80,-80},{-60,-60}})));
   protected
-    Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
-    Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
-    Basic.Capacitor C[N](C=fill(c*length/(N), N));
-    Basic.Conductor G[N](G=fill(g*length/(N), N));
+    Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
+      R=fill(r*length/(N + 1), N + 1),
+      T_ref=fill(T_ref, N + 1),
+      alpha=fill(alpha_R, N + 1),
+      useHeatPort=fill(useHeatPort, N + 1),
+      T=fill(T, N + 1));
+    Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=fill(l*
+          length/(N + 1), N + 1));
+    Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(
+          N), N));
+    Modelica.Electrical.Analog.Basic.Conductor G[N](
+      G=fill(g*length/(N), N),
+      T_ref=fill(T_ref, N),
+      alpha=fill(alpha_G, N),
+      useHeatPort=fill(useHeatPort, N),
+      T=fill(T, N));
   equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
@@ -51,6 +79,14 @@ package Lines
     end for;
     connect(R[N + 1].n, L[N + 1].p);
     connect(L[N + 1].n, p2);
+   if useHeatPort then
+     for i in 1:N+1 loop
+       connect(heatPort, R[i].heatPort);
+     end for;
+     for i in 1:N loop
+       connect(heatPort, G[i].heatPort);
+     end for;
+   end if;
     annotation (
       Documentation(info="<html>
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
@@ -106,7 +142,6 @@ package Lines
           Line(points={{-30,40},{-30,20}}, color={0,0,255}),
           Line(points={{30,40},{30,20}}, color={0,0,255})}));
   end OLine;
-
 
 model M_OLine "Multiple OLine"
 
@@ -442,30 +477,51 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
       Tolerance=1e-009));
 end M_OLine;
 
+
   model ULine "Lossy RC Line"
     //extends Interfaces.ThreePol;
-    Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
+    Modelica.Electrical.Analog.Interfaces.Pin p1
+                      annotation (Placement(transformation(extent={{-110,-10},{
               -90,10}}, rotation=0)));
-    Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
+    Modelica.Electrical.Analog.Interfaces.Pin p2
+                      annotation (Placement(transformation(extent={{90,-10},{
               110,10}}, rotation=0)));
-    Interfaces.Pin p3 annotation (Placement(transformation(extent={{-10,-110},{
-              10,-90}}, rotation=0)));
-    SI.Voltage v13;
-    SI.Voltage v23;
-    SI.Current i1;
-    SI.Current i2;
+    Modelica.Electrical.Analog.Interfaces.Pin p3
+                      annotation (Placement(transformation(extent={{-10,-110},{
+              10,-90}}, rotation=0), iconTransformation(extent={{-10,-110},
+              {10,-90}})));
+    Modelica.SIunits.Voltage v13;
+    Modelica.SIunits.Voltage v23;
+    Modelica.SIunits.Current i1;
+    Modelica.SIunits.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
       unit="Ohm/m", start=1) "Resistance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
       unit="F/m", start=1) "Capacitance per meter";
-    parameter SI.Length length(final min=Modelica.Constants.small, start=1)
-      "Length of line";
+    parameter Modelica.SIunits.Length length(final min=
+          Modelica.Constants.small, start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
+      "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
+    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
+    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+  parameter Modelica.SIunits.Temperature T=293.15
+      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
+  parameter Modelica.SIunits.Temperature T_ref=300.15;
+  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-80,-80},{-60,-60}})));
   protected
-    Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
-    Basic.Capacitor C[N](C=fill(c*length/(N), N));
+    Modelica.Electrical.Analog.Basic.Resistor R[N + 1](
+      R=fill(r*length/(N + 1), N + 1),
+      T_ref=fill(T_ref, N + 1),
+      alpha=fill(alpha, N + 1),
+      useHeatPort=fill(useHeatPort, N + 1),
+      T=fill(T, N + 1));
+    Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(
+          N), N));
   equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
@@ -482,6 +538,11 @@ end M_OLine;
       connect(C[i].n, p3);
     end for;
     connect(R[N + 1].n, p2);
+   if useHeatPort then
+     for i in 1:N+1 loop
+     connect(heatPort, R[i].heatPort);
+     end for;
+   end if;
     annotation (
       Documentation(info="<html>
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
@@ -767,6 +828,204 @@ The capacitances are calculated with: C=c*length/N.
             textString="TLine3",
             lineColor={0,0,255})}));
   end TLine3;
+
+  model OLine_weg "Lossy Transmission Line"
+    //extends Interfaces.ThreePol;
+    Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
+              -90,10}}, rotation=0)));
+    Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
+              110,10}}, rotation=0)));
+    Interfaces.Pin p3 annotation (Placement(transformation(extent={{-10,-110},{
+              10,-90}}, rotation=0)));
+    SI.Voltage v13;
+    SI.Voltage v23;
+    SI.Current i1;
+    SI.Current i2;
+    parameter Real r(
+      final min=Modelica.Constants.small,
+      unit="Ohm/m", start=1) "Resistance per meter";
+    parameter Real l(
+      final min=Modelica.Constants.small,
+      unit="H/m", start=1) "Inductance per meter";
+    parameter Real g(
+      final min=Modelica.Constants.small,
+      unit="S/m", start=1) "Conductance per meter";
+    parameter Real c(
+      final min=Modelica.Constants.small,
+      unit="F/m", start=1) "Capacitance per meter";
+    parameter SI.Length length(final min=Modelica.Constants.small, start=1)
+      "Length of line";
+    parameter Integer N(final min=1, start=1) "Number of lumped segments";
+  protected
+    Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
+    Basic.Inductor L[N + 1](L=fill(l*length/(N + 1), N + 1));
+    Basic.Capacitor C[N](C=fill(c*length/(N), N));
+    Basic.Conductor G[N](G=fill(g*length/(N), N));
+  equation
+    v13 = p1.v - p3.v;
+    v23 = p2.v - p3.v;
+    i1 = p1.i;
+    i2 = p2.i;
+    connect(p1, R[1].p);
+    for i in 1:N loop
+      connect(R[i].n, L[i].p);
+      connect(L[i].n, C[i].p);
+      connect(L[i].n, G[i].p);
+      connect(C[i].n, p3);
+      connect(G[i].n, p3);
+      connect(L[i].n, R[i + 1].p);
+    end for;
+    connect(R[N + 1].n, L[N + 1].p);
+    connect(L[N + 1].n, p2);
+    annotation (
+      Documentation(info="<html>
+<p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
+<p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
+
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"/>
+
+<p>The capacitances are calculated with: C=c*length/N.
+<br> The conductances are calculated with: G=g*length/N.
+<br> The resistances are calculated with : R=r*length/(N+1).
+<br> The inductances are calculated with : L=l*length/(N+1).
+<br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
+<br>
+<br>Note, this is different to the lumped line model of SPICE.</p>
+<dl><dt><b>References:</b> </dt>
+<dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
+</dl></html>",
+   revisions="<html>
+<ul>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Text(
+            extent={{-155,112},{145,72}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255})}));
+  end OLine_weg;
+
+  model ULine_weg "Lossy RC Line"
+    //extends Interfaces.ThreePol;
+    Interfaces.Pin p1 annotation (Placement(transformation(extent={{-110,-10},{
+              -90,10}}, rotation=0)));
+    Interfaces.Pin p2 annotation (Placement(transformation(extent={{90,-10},{
+              110,10}}, rotation=0)));
+    Interfaces.Pin p3 annotation (Placement(transformation(extent={{-10,-110},{
+              10,-90}}, rotation=0)));
+    SI.Voltage v13;
+    SI.Voltage v23;
+    SI.Current i1;
+    SI.Current i2;
+    parameter Real r(
+      final min=Modelica.Constants.small,
+      unit="Ohm/m", start=1) "Resistance per meter";
+    parameter Real c(
+      final min=Modelica.Constants.small,
+      unit="F/m", start=1) "Capacitance per meter";
+    parameter SI.Length length(final min=Modelica.Constants.small, start=1)
+      "Length of line";
+    parameter Integer N(final min=1, start=1) "Number of lumped segments";
+  protected
+    Basic.Resistor R[N + 1](R=fill(r*length/(N + 1), N + 1));
+    Basic.Capacitor C[N](C=fill(c*length/(N), N));
+  equation
+    v13 = p1.v - p3.v;
+    v23 = p2.v - p3.v;
+    i1 = p1.i;
+    i2 = p2.i;
+    connect(p1, R[1].p);
+    for i in 1:N loop
+      connect(R[i].n, R[i + 1].p);
+    end for;
+    for i in 1:N loop
+      connect(R[i].n, C[i].p);
+    end for;
+    for i in 1:N loop
+      connect(C[i].n, p3);
+    end for;
+    connect(R[N + 1].n, p2);
+    annotation (
+      Documentation(info="<html>
+<p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
+<br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
+<br>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"/>
+<br>
+The capacitances are calculated with: C=c*length/N.
+<br>The resistances are calculated with: R=r*length/(N+1).
+<br>For all capacitors and resistors the values of each segment are the same exept of the first and last resistor, that only has the half of the above calculated value.
+<br><br>Note, this is different compared with the lumped line model of SPICE.</p>
+<p><b>References</b></p>
+<dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
+<dd>SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
+</dl></html>",
+   revisions="<html>
+<ul>
+<li><i> 1998   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>"),
+      Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
+          Rectangle(
+            extent={{-60,60},{60,-60}},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid,
+            lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-90}}, color={0,0,255}),
+          Line(points={{60,0},{90,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-90,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Text(
+            extent={{-154,117},{146,77}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={2,2}), graphics={
+          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
+          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+          Line(points={{60,0},{96,0}}, color={0,0,255}),
+          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
+          Line(points={{30,30},{-30,30}}, color={0,0,255}),
+          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
+          Line(points={{30,40},{30,20}}, color={0,0,255})}));
+  end ULine_weg;
   annotation (
     Documentation(info="<html>
 <p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>
