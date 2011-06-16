@@ -3,7 +3,6 @@ package Lines
   "Lossy and lossless segmented transmission lines, and LC distributed line models"
   extends Modelica.Icons.Package;
 
-
   model OLine "Lossy Transmission Line"
     //extends Interfaces.ThreePol;
     Modelica.Electrical.Analog.Interfaces.Pin p1
@@ -99,7 +98,7 @@ package Lines
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
 <br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
-<br>
+<br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value graeter then zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
 <br>Note, this is different to the lumped line model of SPICE.</p>
 <dl><dt><b>References:</b> </dt>
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
@@ -405,37 +404,12 @@ equation
             lineColor={0,0,255})}),
     Documentation(
         info="<html>
-<p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):
-<br>
-
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"/>
-
-<br>
-The complete multi line consists of N segments and an auxiliary segment_last:</p>
-<p align=\"center\"><pre>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</pre></p>
-
-<p>In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:
-<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment_last.png\"/>
-<br>
-The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4): </p><p><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"/> </p><p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
+<p align=\"center\"><code>-- segment_1 -- segment_2 -- ... -- segment_N -- segment_last --</code> </p>
+<p>In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this: </p><p><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment_last.png\"/> </p><p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
 <p>Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are build out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
-<p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix
-<br><br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/>
-<br><br>
-the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>]
-<br>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be
-<br><br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
-<br><br>
-For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:
-<br><br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
-<br><br>
-For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:
-<br><br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
+<p><br/><br/><br/><br/><br/><br/><br/>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix </p><p><br/><br/><br/><br/><br/><br/><br/><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqMatrix.png\" alt=\"Matrix\"/> </p><p><br/><br/><br/><br/><br/><br/><br/>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>] </p><p><br/><br/><br/><br/><br/><br/><br/>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p><p><br/><br/><br/><br/><br/><br/><br/><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/> </p><p><br/><br/><br/><br/><br/><br/><br/>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be: </p><p><br/><br/><br/><br/><br/><br/><br/><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/> </p><p><br/><br/><br/><br/><br/><br/><br/>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be: </p><p><br/><br/><br/><br/><br/><br/><br/><img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/> </p>
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value graeter then zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
 </html>",revisions="<HTML>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -476,7 +450,6 @@ For the example of a microelectronic line of 0.1m lenght, which is used as defau
       NumberOfIntervals=2000,
       Tolerance=1e-009));
 end M_OLine;
-
 
   model ULine "Lossy RC Line"
     //extends Interfaces.ThreePol;
@@ -552,7 +525,8 @@ end M_OLine;
 <br>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
-<br>For all capacitors and resistors the values of each segment are the same exept of the first and last resistor, that only has the half of the above calculated value.
+<br>For all capacitors and resistors the values of each segment are the same exept of the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value graeter then zero, the ULine becomes temperature sensitive</p>
+<p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref)).</code> </p>
 <br><br>Note, this is different compared with the lumped line model of SPICE.</p>
 <p><b>References</b></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
