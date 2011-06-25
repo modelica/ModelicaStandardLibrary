@@ -2193,10 +2193,10 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
               Line(points={{32,-40},{90,-40}}, color={0,0,255}),
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
           Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}}),
+                  100}})),
           Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
-</html>")));
+</html>"));
       end PartialCore;
 
       model IdealCore "Ideal transformer with 3 windings"
@@ -2206,10 +2206,10 @@ Partial model of transformer core with 3 windings; saturation function flux vers
         v1 = n12*v2;
         v1 = n13*v3;
         annotation (defaultComponentName="core", Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+                preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
           Documentation(info="<html>
 Ideal transformer with 3 windings: no magnetizing current.
-</html>")));
+</html>"));
       end IdealCore;
       annotation (Documentation(info="<html>
 <p>
@@ -2404,7 +2404,7 @@ This package contains components for modeling quasi stationary electrical induct
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
                            Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
@@ -2493,7 +2493,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 <td valign=\"top\">300</td><td valign=\"top\">W</td>
 </tr>
 </table>
-</html>")));
+</html>"));
     end PartialBasicTransformer;
     annotation (Icon,                 Documentation(info="<html>
 <p>

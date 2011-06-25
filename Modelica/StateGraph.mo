@@ -858,11 +858,11 @@ package Examples
               0}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
+                100,100}})),
       experiment(StopTime=5),
         Documentation(info="<html>
 
-</html>")));
+</html>"));
   end FirstExample_Variant2;
 
   model FirstExample_Variant3
@@ -906,11 +906,11 @@ package Examples
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}),
+                100,100}})),
       experiment(StopTime=5),
         Documentation(info="<html>
 
-</html>")));
+</html>"));
   end FirstExample_Variant3;
 
   model ExecutionPaths
@@ -3257,10 +3257,10 @@ value, still requires to go in to the text layer.
                             interaction={OnMouseDownSetBoolean(
                             on, true)}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}}),
+              extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 
-</html>")));
+</html>"));
   end RadioButton;
 
   model NumericValue "Show value of Real input signal dynamically"

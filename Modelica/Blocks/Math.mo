@@ -864,7 +864,7 @@ equation
    y = if firstActiveIndex == 0 then y_default else expr[firstActiveIndex];
   annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{300,100}},
-        grid={1,1}),              Icon(coordinateSystem(
+        grid={1,1})),              Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{300,100}},
         grid={1,1}), graphics={
@@ -922,7 +922,7 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.RealNetwork1\">Modelica.Blocks.Examples.RealNetwork1</a>.
 </p>
 
-</html>")));
+</html>"));
 end MultiSwitch;
 
       block Sum "Output the sum of the elements of the input vector"
@@ -3152,7 +3152,7 @@ where <b>threshold</b> is a parameter.
      y_abs = sqrt(u_re*u_re + u_im*u_im);
      y_arg = Modelica.Math.atan2(u_im, u_re);
     annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
+              -100},{100,100}})),
                          Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
@@ -3182,7 +3182,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
   y_abs = abs(u_re + j*u_im) = sqrt( u_re<sup>2</sup> + u_im<sup>2</sup> )
   y_arg = arg(u_re + j*u_im) = atan2(u_im, u_re)
 </pre>
-</html>")));
+</html>"));
   end RectangularToPolar;
 
   block PolarToRectangular
@@ -3207,7 +3207,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
     y_re = u_abs * Modelica.Math.cos(u_arg);
     y_im = u_abs * Modelica.Math.sin(u_arg);
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}),
+              -100},{100,100}})),
                          Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
@@ -3234,7 +3234,7 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
    y_re = u_abs * cos( u_arg )
    y_im = u_abs * sin( u_arg )
 </pre>
-</html>")));
+</html>"));
   end PolarToRectangular;
 
   block Mean "Calculate mean over period 1/f"

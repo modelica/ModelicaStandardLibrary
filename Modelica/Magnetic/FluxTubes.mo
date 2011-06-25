@@ -912,7 +912,7 @@ Both force components are properly considered with a simple permeance model as s
             annotation (Line(points={{-20,0},{0,0},{0,-6.10623e-016},{20,
                 -6.10623e-016},{20,0},{60,0}}, color={0,127,0}));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}}),
+                extent={{-100,-100},{100,100}})),
                                Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -952,7 +952,7 @@ with electrodynamic or <i>Lorentz</i> force F, converter constant c, current i, 
 <p>
 The converter constant c as well as coil resistance R and inductance L are assumed to be known, e.g., from measurements or catalogue data. Hence this model is well-suited for system simulation together with neighbouring subsystems, but not for actuator design, where the motor constant is to be found on base of the magnetic circuit's geometry, material properties and winding data. See <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> for a more accurate model of this actuator that is based on a magnetic network. Due to identical connectors, both models can be used in system simulation, e.g. to simulate a stroke as demonstrated in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.ArmatureStroke\">ArmatureStroke</a>.
 </p>
-</html>")));
+</html>"));
         end ConstantActuator;
       end Components;
       annotation (Documentation(info="<html>
@@ -1064,7 +1064,7 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
                                         annotation (Line(points={{-70,-70},{-70,
               -60}}, color={0,0,255}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}}),                  experiment(StopTime=
+                {{-100,-100},{100,100}})),                  experiment(StopTime=
                 10, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
@@ -1106,7 +1106,7 @@ The magnetic flux through the armature and the actuator's static inductance both
 <p>
 As mentioned in the description of both magnetic network models, one can tell the higher armature flux and inductance of the advanced solenoid model at large air gaps compared to that of the simple model. The effect of this difference on dynamic model behaviour can be analysed in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
-</html>")));
+</html>"));
       end ComparisonQuasiStationary;
 
       model ComparisonPullInStroke
@@ -1488,7 +1488,7 @@ As mentioned in the description of both magnetic network models, one can tell th
         connect(simpleSolenoid.flange, simpleLoad.flange_a)
           annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
         annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}}),                  experiment(StopTime=
+                {{-100,-100},{100,100}})),                  experiment(StopTime=
                 0.05, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
@@ -1523,7 +1523,7 @@ Plot window for position:
 <p>
 The characteristic current drop during pull-in is due to both armature motion and increasing inductance with decreasing air gap length. Bouncing occurs when  armature and load of each model arrive at the stopper at minimum position. Although the pull-in times of the two magnetic network models are relatively close to the time obtained with the reference model, the accuracy of the advanced solenoid model is better, as one can tell from a comparison of the current rise at the beginning of the stroke.
 </p>
-</html>")));
+</html>"));
       end ComparisonPullInStroke;
 
       package Components "Components to be used in examples"

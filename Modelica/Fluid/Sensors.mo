@@ -252,7 +252,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
   annotation (defaultComponentName="temperature",
     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}},
-          grid={1,1}),
+          grid={1,1})),
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}},
           grid={1,1}), graphics={
@@ -295,7 +295,7 @@ This component monitors the temperature of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
-")));
+"));
   end TemperatureTwoPort;
 
   model SpecificEnthalpy "Ideal one port specific enthalpy sensor"

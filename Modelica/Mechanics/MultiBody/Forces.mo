@@ -880,7 +880,7 @@ clarity this is not shown in the animation):
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -977,7 +977,7 @@ clarity this is not shown in the animation):
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/Torque2.png\">
 
 </HTML>
-")));
+"));
   end Torque;
 
   model ForceAndTorque
@@ -1134,7 +1134,7 @@ clarity this is not shown in the animation):
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
               100,100}},
-          grid={2,2}),
+          grid={2,2})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}},
           grid={2,2}), graphics={
@@ -1254,7 +1254,7 @@ clarity this is not shown in the animation):
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Forces/ForceAndTorque2.png\">
 
 </HTML>
-")));
+"));
   end ForceAndTorque;
 
   model LineForceWithMass
@@ -2215,7 +2215,7 @@ in the other flange connector.
             lineColor={255,0,0},
             textString="R=0")}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
       Documentation(info="<HTML>
 <p>
 <b>Linear spring</b> acting as line force between frame_a and frame_b.
@@ -2245,7 +2245,7 @@ spring characterizes the location of the point mass.
 <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringWithMass.png\"
 ALT=\"model Examples.Elementary.SpringWithMass\">
 
-</HTML>")));
+</HTML>"));
   end Spring;
 
   model Damper "Linear (velocity dependent) damper"
@@ -2686,7 +2686,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
        zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2759,7 +2759,7 @@ values from the outside in order that the model remains balanced
 </p>
 
 </HTML>
-")));
+"));
     end BasicForce;
 
     model BasicTorque
@@ -2822,7 +2822,7 @@ values from the outside in order that the model remains balanced
        zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2896,7 +2896,7 @@ values from the outside in order that the model remains balanced
 (these constant values are ignored).
 </p>
 </HTML>
-")));
+"));
     end BasicTorque;
 
     model BasicWorldForce

@@ -2584,7 +2584,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               lineColor={0,0,0},
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}}),
+                       extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the position, speed,
@@ -2612,7 +2612,7 @@ shall be set according to reference signals of a controller that are
 provided via a signal bus.
 </p>
 
-</html>")));
+</html>"));
     end InitializeFlange;
 
     model MassWithStopAndFriction
@@ -4940,7 +4940,7 @@ connector is not connected).
         "Accelerating force acting at flange (= flange.f)";
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}),
+                100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
@@ -4996,7 +4996,7 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-</HTML>")));
+</HTML>"));
   end PartialForce;
 
     partial model PartialAbsoluteSensor

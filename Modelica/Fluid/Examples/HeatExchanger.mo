@@ -352,7 +352,7 @@ package HeatExchanger "Demo of a heat exchanger model"
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}},
-            grid={1,1}),   Icon(coordinateSystem(preserveAspectRatio=false,
+            grid={1,1})),   Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
@@ -409,7 +409,7 @@ package HeatExchanger "Demo of a heat exchanger model"
 For both fluids geometry parameters, such as heat transfer area and cross section as well as heat transfer and pressure drop correlations may be chosen.
 The flow scheme may be concurrent or counterflow, defined by the respective flow directions of the fluids entering the component.
 The design flow direction with positive m_flow variables is counterflow.</p>
-</html>")));
+</html>"));
     end BasicHX;
 
     model WallConstProps

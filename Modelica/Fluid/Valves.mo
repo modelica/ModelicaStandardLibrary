@@ -136,7 +136,7 @@ explained in detail in the
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
               100}})),
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
       Documentation(info="<HTML>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
 
@@ -164,7 +164,7 @@ explained in detail in the
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
-</html>")));
+</html>"));
   end ValveVaporizing;
 
   model ValveCompressible
@@ -231,7 +231,7 @@ explained in detail in the
 
     annotation (
     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}),
+              100}})),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}})),
     Documentation(info="<HTML>
@@ -261,7 +261,7 @@ explained in detail in the
     by <a href=\"mailto:francesco.casella@polimi.it\">Francesco Casella</a>:<br>
        Adapted from the ThermoPower library.</li>
 </ul>
-</html>")));
+</html>"));
   end ValveCompressible;
 
   model ValveLinear "Valve for water/steam flows with linear pressure drop"

@@ -4240,7 +4240,7 @@ no rolling resistance. This component defines the kinematic constraint:
               lineColor={0,0,0},
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}}),
+                       extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
@@ -4268,7 +4268,7 @@ shall be set according to reference signals of a controller that are
 provided via a signal bus.
 </p>
 
-</html>")));
+</html>"));
     end InitializeFlange;
 
     model RelativeStates "Definition of relative state variables"
@@ -5320,7 +5320,7 @@ blocks of Modelica.Blocks.Sources.</p>
       end if;
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}),
@@ -5329,7 +5329,7 @@ blocks of Modelica.Blocks.Sources.</p>
 Model of torque, linearly dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
 </p>
-</HTML>")));
+</HTML>"));
     end LinearSpeedDependentTorque;
 
     model QuadraticSpeedDependentTorque
@@ -5355,7 +5355,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       end if;
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{-80,-98},{-60,-92},
                   {-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},
@@ -5365,7 +5365,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 Model of torque, quadratic dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
 </p>
-</HTML>")));
+</HTML>"));
     end QuadraticSpeedDependentTorque;
 
     model ConstantTorque "Constant torque, not dependent on speed"
@@ -5379,7 +5379,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       tau = tau_constant;
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-98,0},{100,0}}, color={0,0,
                   255}), Text(
@@ -5391,7 +5391,7 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
 Model of constant torque, not dependent on angular velocity of flange.<br>
 Positive torque acts accelerating.
 </p>
-</HTML>")));
+</HTML>"));
     end ConstantTorque;
 
     model ConstantSpeed "Constant speed, not dependent on torque"
@@ -5434,7 +5434,7 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
       tau = offsetTorque + (if time < startTime then 0 else stepTorque);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,
                   60}}, color={0,0,255}), Text(
@@ -5446,7 +5446,7 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
 Model of a torque step at time .<br>
 Positive torque acts accelerating.
 </p>
-</HTML>")));
+</HTML>"));
     end TorqueStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -6412,7 +6412,7 @@ and instead the translational part is internally fixed to ground.
       phi = flange.phi - phi_support;
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -6471,7 +6471,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>")));
+</html>"));
     end PartialTorque;
 
     partial model PartialAbsoluteSensor

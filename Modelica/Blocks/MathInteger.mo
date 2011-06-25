@@ -246,7 +246,7 @@ the output is set to zero: y=0.
     end when;
     annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}},
-          initialScale=0.06),       Icon(coordinateSystem(
+          initialScale=0.06)),       Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           initialScale=0.06), graphics={
             Line(
@@ -302,7 +302,7 @@ The usage is demonstrated, e.g., in example
 <a href=\"modelica://Modelica.Blocks.Examples.IntegerNetwork1\">Modelica.Blocks.Examples.IntegerNetwork1</a>.
 </p>
 
-</html>")));
+</html>"));
   end TriggeredAdd;
   annotation (Documentation(info="<html>
 <p>

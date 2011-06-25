@@ -1466,14 +1466,14 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}),
+              {100,100}})),
       Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
 as a result of the comparision of the two input signals. The block
 has a 3D icon (e.g., used in Blocks.Logical library).
 </p>
-</html>")));
+</html>"));
 
   end partialBooleanComparison;
 

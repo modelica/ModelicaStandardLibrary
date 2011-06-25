@@ -1642,7 +1642,7 @@ The used sufficient criteria for monotonicity follows from:
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}),
+                  {100,100}})),
           Documentation(info="<html>
 <p>
 This model computes the pressure loss of a pipe
@@ -1748,7 +1748,7 @@ The used sufficient criteria for monotonicity follows from:
 <dd> <b>Monotone piecewise cubic interpolation</b>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
-</html>")));
+</html>"));
       end BaseModel;
 
     model TestWallFriction
@@ -1764,7 +1764,7 @@ The used sufficient criteria for monotonicity follows from:
           "Absolute roughness of pipe (> 0 required, details see info layer)";
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}}),
+                  {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Text(
@@ -1787,7 +1787,7 @@ The used sufficient criteria for monotonicity follows from:
                 textString="quad. turbulent")}),
           Documentation(info="<html>
 
-</html>")));
+</html>"));
     end TestWallFriction;
 
       partial model BaseModelNonconstantCrossSectionArea
@@ -1888,7 +1888,7 @@ The used sufficient criteria for monotonicity follows from:
 
         annotation (
           Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
+                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                   {100,100}})),
           Documentation(info="<html>
@@ -1996,7 +1996,7 @@ The used sufficient criteria for monotonicity follows from:
 <dd> <b>Monotone piecewise cubic interpolation</b>.
      SIAM J. Numerc. Anal., Vol. 17, No. 2, April 1980, pp. 238-246</dd>
 </dl>
-</html>")));
+</html>"));
       end BaseModelNonconstantCrossSectionArea;
 
       function pressureLoss_m_flow_totalPressure
@@ -2558,7 +2558,7 @@ The details of the record are described
            geometry.venaPerimeter := pi*venaDiameter;
            geometry.venaLength := venaLength;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}),
+                  extent={{-100,-100},{100,100}})),
                                Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-80,80},{80,-80}},
@@ -2572,7 +2572,7 @@ The details of the record are described
 Function that returns the ThickEdgedOrifice.Geometry for a circular
 cross section of the orifice.
 </p>
-</html>")));
+</html>"));
         end circular;
 
         function rectangular "Rectangular cross section"
@@ -2599,7 +2599,7 @@ cross section of the orifice.
            geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
            geometry.venaLength := venaLength;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}),
+                  extent={{-100,-100},{100,100}})),
                                Icon(coordinateSystem(preserveAspectRatio=true,
                            extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-80,60},{80,-60}},
@@ -2613,7 +2613,7 @@ cross section of the orifice.
 Function that returns the ThickEdgedOrifice.Geometry for a rectangular
 cross section of the orifice.
 </p>
-</html>")));
+</html>"));
         end rectangular;
 
         function general "General cross section"
@@ -2642,7 +2642,7 @@ cross section of the orifice.
            geometry.venaPerimeter := venaPerimeter;
            geometry.venaLength := venaLength;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}}),
+                  extent={{-100,-100},{100,100}})),
                                Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={
                                                  Polygon(
@@ -2657,7 +2657,7 @@ cross section of the orifice.
 Function that returns the ThickEdgedOrifice.Geometry for a general
 cross section of the orifice.
 </p>
-</html>")));
+</html>"));
         end general;
           annotation (Documentation(info="<html>
 <p>

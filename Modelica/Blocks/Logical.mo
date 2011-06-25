@@ -33,13 +33,13 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="or")}),
                               Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+              false, extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Or;
 
   model Xor "Logical 'xor': y = u1 xor u2"
@@ -52,13 +52,13 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="xor")}),
                               Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
+              false, extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Xor;
 
   model Nor "Logical 'nor': y = not (u1 or u2)"
@@ -70,14 +70,14 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nor")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
-      Documentation(info="<html>
+		Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}})),
+		Documentation(info="<html>
 <p>
 The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Nor;
 
   model Nand "Logical 'nand': y = not (u1 and u2)"
@@ -89,14 +89,14 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nand")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}}),
-      Documentation(info="<html>
+		Diagram(coordinateSystem(preserveAspectRatio=
+              false, extent={{-100,-100},{100,100}})),
+		Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Nand;
 
   model Not "Logical 'not': y = not u"
@@ -111,13 +111,13 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="not")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the input is <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Not;
 
   model Pre
@@ -138,7 +138,7 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="pre")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 This block delays the Boolean input by an infinitesimal small time delay and
@@ -152,7 +152,7 @@ The \"Pre\" block returns the value of the \"input\" signal from the
 last \"event iteration\". The \"event iteration\" stops, once both
 values are identical (u = pre(u)).
 </p>
-</html>")));
+</html>"));
   end Pre;
 
   model Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
@@ -172,14 +172,14 @@ values are identical (u = pre(u)).
             lineColor={0,0,0},
             textString="edge")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a rising edge
 from <b>false</b> to <b>true</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Edge;
 
   model FallingEdge
@@ -201,14 +201,14 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="falling")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a falling edge
 from <b>true</b> to <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end FallingEdge;
 
   model Change
@@ -229,7 +229,7 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="change")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has either a rising edge
@@ -237,7 +237,7 @@ from <b>false</b> to <b>true</b> or a falling edge from
 <b>true</b> to <b>false</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end Change;
 
   block GreaterThreshold
@@ -251,14 +251,14 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString=">")}),
                         Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end GreaterThreshold;
 
   block GreaterEqualThreshold
@@ -273,14 +273,14 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString=">=")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than or equal to
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end GreaterEqualThreshold;
 
   block LessThreshold "Output y is true, if input u is less than threshold"
@@ -294,14 +294,14 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="<")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end LessThreshold;
 
   block LessEqualThreshold
@@ -315,14 +315,14 @@ the output is <b>false</b>.
             lineColor={0,0,0},
             textString="<=")}),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}}),
+            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than or equal to
 parameter <b>threshold</b>, otherwise
 the output is <b>false</b>.
 </p>
-</html>")));
+</html>"));
   end LessEqualThreshold;
 
   block Greater "Output y is true, if input u1 is greater as input u2"

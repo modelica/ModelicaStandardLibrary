@@ -739,12 +739,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREG component.</p>
-</html>")));
+</html>"));
         end DFFREG;
 
         model DFFREGL "Pulse triggered D-Register-Bank, low active reset"
@@ -785,12 +785,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGL component.</p>
-</html>")));
+</html>"));
         end DFFREGL;
 
         model DFFREGSRH
@@ -834,12 +834,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRH component.</p>
-</html>")));
+</html>"));
         end DFFREGSRH;
 
         model DFFREGSRL
@@ -882,12 +882,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=15),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DFFREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DFFREGSRL component.</p>
-</html>")));
+</html>"));
         end DFFREGSRL;
 
         model DLATREG "Level sensitive D-Register-Bank, high active reset"
@@ -925,12 +925,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREG component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREG component.</p>
-</html>")));
+</html>"));
         end DLATREG;
 
         model DLATREGL "Level sensitive D-Register-Bank, low active reset"
@@ -967,12 +967,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGL component.</p>
-</html>")));
+</html>"));
         end DLATREGL;
 
         model DLATREGSRH
@@ -1021,12 +1021,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               smooth=Smooth.None));
 
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRH component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRH component.</p>
-</html>")));
+</html>"));
         end DLATREGSRH;
 
         model DLATREGSRL
@@ -1074,12 +1074,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               pattern=LinePattern.None,
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
             experiment(StopTime=25),
         Documentation(info="<html>
 <p>This example is a simple test of the Registers.DLATREGSRL component. The data width is set to two. After simulation plot both the dataIn and the dataOut vectors. To verify the results compare the the truth table which is documented in the DLATREGSRL component.</p>
-</html>")));
+</html>"));
         end DLATREGSRL;
 
         model NXFER "Functionality test of NXFERGATE"
@@ -1115,11 +1115,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NXFERGATE component.</p>
-</html>")));
+</html>"));
         end NXFER;
 
         model NRXFER "Functionality test of NRXFERGATE"
@@ -1155,11 +1155,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.NRXFER component.  After simulation until 12 s plot x, enable, and y of the <code>nRXFERGATE </code>component. To verify the result compare to the truth table <code>NRXferTable</code>.</p>
-</html>")));
+</html>"));
         end NRXFER;
 
         model BUF3S "Functionality test of BUF3S"
@@ -1197,11 +1197,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the bUF3S<code> </code>component. To verify the result compare to the truth table Buf3sTable.</p>
-</html>")));
+</html>"));
         end BUF3S;
 
         model INV3S "Functionality test of INV3S"
@@ -1236,11 +1236,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the iNV3S<code> </code>component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
-</html>")));
+</html>"));
         end INV3S;
 
         model WiredX "Functionality test of WiredX"
@@ -1315,11 +1315,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   pattern=LinePattern.None,
                   fillColor={95,95,95},
                   fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
 <p>This example is a simple test of the Tristates.WiredX component. The input width is set to two. After simulation until 12 s plot x[1], x[2], and y of the WiredX component. To verify the result compare to the truth table  Tables.ResolutionTable.</p>
-</html>")));
+</html>"));
         end WiredX;
 
       package Utilities "Utility components used by package Examples"
@@ -1973,7 +1973,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                     -40,-54},{-12,-54}}, color={127,0,127}));
                     annotation (
                         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
+                  -100},{100,100}})),
                                  Icon(coordinateSystem(preserveAspectRatio=true,
                     extent={{-100,-100},{100,100}}), graphics={Rectangle(
                                   extent={{-90,100},{90,-100}},
@@ -2041,7 +2041,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </tr>
 </table>
 <p>The parameter delayTime is the delay time (tLH=tHL) of both the components.</p>
-</html>")));
+</html>"));
                   end HalfAdder;
 
         model FullAdder
@@ -2643,12 +2643,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         connector DigitalSignal = Logic
       "Digital port (both input/output possible)"
           annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
+              -100},{100,100}})),
                             Diagram(coordinateSystem(preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}})),
           Documentation(info="<html>
 <p>DigitalSignal is the basic digital connector defintion. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
-</html>")));
+</html>"));
 
         connector DigitalInput = input DigitalSignal
       "Input DigitalSignal as connector"
@@ -2705,7 +2705,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                         annotation (Placement(transformation(extent={{90,-10},{110,
                     10}}, rotation=0)));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),                                        Icon(
+                -100},{100,100}})),                                        Icon(
                 coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,100},{50,-100}},
@@ -2716,7 +2716,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                 color={127,0,127})}),
             Documentation(info="<html>
 <p>SISO is a partial model for the connection pattern whith <b>s</b>ingle (scalar) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the SISO model.</p>
-</html>")));
+</html>"));
         end SISO;
 
         partial block MISO "Multiple input - single output"
@@ -2739,10 +2739,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
               Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
+                -100},{100,100}})),
             Documentation(info="<html>
 <p>MISO is a partial model for the connection pattern whith <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the MISO model.</p>
-</html>")));
+</html>"));
         end MISO;
 
         partial block MIMO "Multiple input - multiple output"
@@ -2773,10 +2773,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
               Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
+                -100},{100,100}})),
             Documentation(info="<html>
 <p>MIMO is a partial model for the connection pattern whith <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the MISO model.</p>
-</html>")));
+</html>"));
         end MIMO;
 
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3261,7 +3261,7 @@ is used, if it is zero, the input is not delayed.
               extent={{-32,0},{28,-62}},
               lineColor={127,0,127},
               textString="sensitive")}),     Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             Documentation(info="<html>
 
 <p>
@@ -3273,7 +3273,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>")));
+</html>"));
         end InertialDelaySensitiveVector;
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}})),
@@ -3747,8 +3747,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           connect(G2.y, y)
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
-          annotation (extent=[0, -20; 40, 20], Diagram(coordinateSystem(
-                  preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          annotation (Diagram(coordinateSystem(
+                  preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                              graphics={
             Text(
@@ -3788,22 +3788,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </ul>
 </HTML>",     info="<html>
 <p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
-</html>"),  Placement(transformation(extent={{0,-20},{40,20}}, rotation=0)),
-            Documentation(info="<HTML>
-<P>
-NandGate with n input values, composed by Nand and sensitive intertial delay.
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>October 22, 2003</i>
-       by Liane Jacobi<br>
-       realized.</li>
-</ul>
-</HTML>
-")));
+</html>"));
         end NandGate;
 
         model OrGate "OrGate with multiple input"
@@ -5130,7 +5115,7 @@ The values val... are given by parameters.</P>
         next_assign_val := nextstate;
         dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5229,7 +5214,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>")));
+</html>"));
         end DFFR;
 
         model DFFREG "Edge triggered register bank with high active reset"
@@ -5300,7 +5285,7 @@ Clock transition definitions:
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5384,7 +5369,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>")));
+</html>"));
         end DFFREG;
 
         model DFFREGL "Edge triggered register bank with low active reset"
@@ -5570,7 +5555,7 @@ Clock transition definitions:
         next_assign_val := nextstate;
         dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5691,7 +5676,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>")));
+</html>"));
         end DFFSR;
 
         model DFFREGSRH
@@ -5770,7 +5755,7 @@ Clock transition definitions:
               thickness=1,
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+                -100},{100,100}})),             Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5869,7 +5854,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>")));
+</html>"));
         end DFFREGSRH;
 
         model DFFREGSRL

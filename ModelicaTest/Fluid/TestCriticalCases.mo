@@ -354,14 +354,14 @@ The steady-state initial values are observed by an assertion.
           points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
               experiment(
         StopTime=5,
         NumberOfIntervals=5000,
         Tolerance=1e-006),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
-</html>")));
+</html>"));
   end BranchingPipes1;
 
   model BranchingPipes2
@@ -455,11 +455,11 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
               experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
-</html>")));
+</html>"));
   end BranchingPipes2;
 
   model BranchingPipes3
@@ -562,11 +562,11 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             -43,-40.3},{-40,-40.3},{-40,-40}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
               experiment(StopTime=5),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.
-</html>")));
+</html>"));
   end BranchingPipes3;
 
   model BranchingPipes4
@@ -674,11 +674,11 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             -43,-40.3},{-40,-40.3},{-40,-40}}, color={0,127,255}));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
+              100,100}})),
               experiment(StopTime=5),
       Documentation(info="<html>
 Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes. The simulation fails at t=0 due to lack of initialization of the splitter state variables.
-</html>")));
+</html>"));
   end BranchingPipes4;
 
   model SeriesPipes1

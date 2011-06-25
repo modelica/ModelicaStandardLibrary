@@ -792,15 +792,13 @@ with the blocks of package Modelica.Blocks.
   equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of visualizer object is not connected");
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
-                      Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
 object and an assert to check that the frame_a connector is connected.
 It is used by inheritance from all visualizer objects.
 </p>
-</html>")));
+</html>"));
   end PartialVisualizer;
 
   model ZeroPosition

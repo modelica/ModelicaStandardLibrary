@@ -1829,7 +1829,7 @@ The corresponding SPICE description
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
                                      Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
@@ -1839,7 +1839,7 @@ The corresponding SPICE description
 <ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
 
     end Q_NPNBJT;
 
@@ -1854,7 +1854,7 @@ The corresponding SPICE description
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
                                      Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
@@ -1864,7 +1864,7 @@ The corresponding SPICE description
 <ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
 
     end Q_PNPBJT;
 
@@ -1882,7 +1882,7 @@ The corresponding SPICE description
      annotation (
        Icon(
           coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}),
+                100}})),
        DymolaStoredErrors,
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
@@ -1893,7 +1893,7 @@ The corresponding SPICE description
 <ul>
 <li><i>Nov. 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
 
    end D_DIODE;
 
@@ -1907,13 +1907,7 @@ The corresponding SPICE description
 
     model R_Resistor "Semiconductor resistor from SPICE3"
     extends Modelica.Electrical.Spice3.Internal.R_SEMI;
-                    annotation (Placement(transformation(extent={{-110,-10},{
-                -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
-                20}})),         Placement(transformation(extent={{110,-10},{90,
-                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})),
-                  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-        Documentation(info="<html>
+                    annotation (Documentation(info="<html>
 <p>The model R_Resistor is a Semiconductor resistor model.</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
 <p>records and data are stored and modeled that are neede for the semiconductor models.</p>
@@ -1922,7 +1916,7 @@ The corresponding SPICE description
 <ul>
 <li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
     end R_Resistor;
 
     record ModelcardRESISTOR
@@ -2986,7 +2980,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               textString="VCV")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
@@ -3025,7 +3019,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
 <ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
     end E_VCV_POLY;
 
     model G_VCC_POLY
@@ -3084,7 +3078,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
               lineColor={0,0,255},
               textString="VCC")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
@@ -3123,7 +3117,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
 <ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
     end G_VCC_POLY;
 
     model H_CCV_POLY
@@ -3183,7 +3177,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
               lineColor={0,0,255},
               textString="CCV")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
@@ -3228,7 +3222,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 <ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
     end H_CCV_POLY;
 
     model F_CCC_POLY
@@ -3288,7 +3282,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               lineColor={0,0,255},
               textString="CCC")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
@@ -3331,7 +3325,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 <ul>
 <li><i>Sept 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
     end F_CCC_POLY;
     annotation (Documentation(info="<html>
 <p>This package contains additional useful models which do not belong to the original SPICE3 model set.</p>
@@ -3928,7 +3922,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               extent={{-94,56},{206,16}},
               textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>Bibpolar junction transistor model</p>
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -3936,7 +3930,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 <ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>")));
+</html>"));
     end BJT;
 
     record ModelcardBJT "Record with technological parameters (.model)"
