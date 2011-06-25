@@ -550,8 +550,7 @@ y=uMin is passed as output.
         Text(
           extent={{26,40},{66,56}},
           lineColor={128,128,128},
-          textString="uMax")}),
-        uses(Modelica(version="3.2")));
+          textString="uMax")}));
     end MinLimiter;
 
       MinLimiter minLimiter(uMin=leakageOpening)

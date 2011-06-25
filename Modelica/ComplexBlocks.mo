@@ -2319,8 +2319,7 @@ The Complex output y is a step signal (of real and imaginary part):
 The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.
 </p>
 
-</html>"),
-        uses(Modelica(version="3.2")));
+</html>"));
     end ComplexRotatingPhasor;
   end Sources;
  annotation (Documentation(info="<html>
