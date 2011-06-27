@@ -120,7 +120,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 </tr>
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end SimpleCooling;
 
@@ -321,7 +321,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 </tr>
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end ParallelCooling;
 
@@ -526,7 +526,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 </tr>
 </table>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.5, Interval=0.001));
     end IndirectCooling;
 
@@ -651,7 +651,7 @@ You may try to:
     to regulate the volume flow rate of coolant</li>
 </ul>
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=2.0, Interval=0.001));
     end PumpAndValve;
 
@@ -741,7 +741,7 @@ Same as 1st test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=2.0, Interval=0.001));
     end PumpDropOut;
 
@@ -894,7 +894,7 @@ Same as 2nd test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=2.0, Interval=0.001));
     end ParallelPumpDropOut;
 
@@ -972,7 +972,7 @@ A thermal capacity is coupled with a coolant flow.
 Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end OneMass;
 
@@ -1095,7 +1095,7 @@ Two thermal capacities are coupled with two parallel coolant flow.
 Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
 the time behaviour depending on coolant flow.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;
 
@@ -1147,8 +1147,7 @@ the time behaviour depending on coolant flow.
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-                  graphics),
+                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
@@ -1573,13 +1572,12 @@ pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="p")}),
-                          Diagram);
+                          Diagram));
     end PressureSensor;
 
     model TemperatureSensor "Absolute temperature sensor"
@@ -1592,12 +1590,11 @@ TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="T")}));
+              textString="T")})));
     end TemperatureSensor;
 
     model RelPressureSensor "Pressure difference sensor"
@@ -1610,12 +1607,11 @@ dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="dp")}));
+              textString="dp")})));
     end RelPressureSensor;
 
     model RelTemperatureSensor "Temperature difference sensor"
@@ -1631,12 +1627,11 @@ Since mixing my occur, the outlet temperature of a component may be different fr
 Outlet temperature is defined by variable T of the corresponding component.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="dT")}));
+              textString="dT")})));
     end RelTemperatureSensor;
 
     model MassFlowSensor "Mass flow sensor"
@@ -1649,12 +1644,11 @@ m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="m")}));
+              textString="m")})));
     end MassFlowSensor;
 
     model VolumeFlowSensor "Volume flow sensor"
@@ -1667,12 +1661,11 @@ V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                   graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="V")}));
+              textString="V")})));
     end VolumeFlowSensor;
 
     model EnthalpyFlowSensor "Enthapy flow sensor"
@@ -1685,12 +1678,11 @@ H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
                 -100,-100},{100,100}}),
-                       graphics),
                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="H")}));
+              textString="H")})));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<HTML>
 This package contains sensors:
@@ -1780,7 +1772,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
 (Infinite) ambient with constant pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient.
 </HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{20,80},{80,20}},
@@ -1810,7 +1802,6 @@ AbsolutePressure to define pressure level of a closed cooling cycle.
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
 </HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
-                       graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-150,150},{150,90}},
@@ -1819,7 +1810,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)})));
     end AbsolutePressure;
 
     model VolumeFlow "Enforces constant volume flow"
@@ -2230,23 +2221,18 @@ See also sketch at diagram layer.
           annotation(Dialog(enable=m>Modelica.Constants.small));
         parameter Real tapT(final min=0, final max=1)=1
           "Defines temperature of heatPort between inlet and outlet temperature";
-        Modelica.SIunits.Pressure dp=flowPort_a.p - flowPort_b.p
-          "Pressure drop a->b";
-        Modelica.SIunits.VolumeFlowRate V_flow=flowPort_a.m_flow/medium.rho
-          "Volume flow a->b";
+        Modelica.SIunits.Pressure dp "Pressure drop a->b";
+        Modelica.SIunits.VolumeFlowRate V_flow "Volume flow a->b";
         Modelica.SIunits.HeatFlowRate Q_flow "Heat exchange with ambient";
         output Modelica.SIunits.Temperature T(start=T0)
           "Outlet temperature of medium";
-        output Modelica.SIunits.Temperature T_a=flowPort_a.h/medium.cp
-          "Temperature at flowPort_a";
-        output Modelica.SIunits.Temperature T_b=flowPort_b.h/medium.cp
-          "Temperature at flowPort_b";
-        output Modelica.SIunits.TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T
+        output Modelica.SIunits.Temperature T_a "Temperature at flowPort_a";
+        output Modelica.SIunits.Temperature T_b "Temperature at flowPort_b";
+        output Modelica.SIunits.TemperatureDifference dT
           "Temperature increase of coolant in flow direction";
       protected
-        Modelica.SIunits.SpecificEnthalpy h = medium.cp*T
-          "Medium's specific enthalpy";
-        Modelica.SIunits.Temperature T_q = T  - noEvent(sign(V_flow))*(1 - tapT)*dT
+        Modelica.SIunits.SpecificEnthalpy h "Medium's specific enthalpy";
+        Modelica.SIunits.Temperature T_q
           "Temperature relevant for heat exchange with ambient";
       public
         Interfaces.FlowPort_a flowPort_a(final medium=medium)
@@ -2256,6 +2242,13 @@ See also sketch at diagram layer.
           annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
       equation
+        dp=flowPort_a.p - flowPort_b.p;
+        V_flow=flowPort_a.m_flow/medium.rho;
+        T_a=flowPort_a.h/medium.cp;
+        T_b=flowPort_b.h/medium.cp;
+        dT=if noEvent(V_flow>=0) then T-T_a else T_b-T;
+        h = medium.cp*T;
+        T_q = T  - noEvent(sign(V_flow))*(1 - tapT)*dT;
         // mass balance
         flowPort_a.m_flow + flowPort_b.m_flow = 0;
         // energy balance
@@ -2284,15 +2277,16 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
           "Ambient medium"
           annotation(__Dymola_choicesAllMatching=true);
         output Modelica.SIunits.Temperature T "Outlet temperature of medium";
-        output Modelica.SIunits.Temperature T_port=flowPort.h/medium.cp
-          "Temperature at flowPort_a";
+        output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
       protected
-        Modelica.SIunits.SpecificEnthalpy h = medium.cp*T;
+        Modelica.SIunits.SpecificEnthalpy h;
       public
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0)));
       equation
+        T_port=flowPort.h/medium.cp;
+        h = medium.cp*T;
         // massflow -> ambient: mixing rule
         // massflow <- ambient: energy flow defined by ambient's temperature
         flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);

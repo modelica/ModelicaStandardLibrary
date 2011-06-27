@@ -1924,7 +1924,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 </html>"),
         Diagram(graphics));
     end PowerSensor;
-    annotation (Icon(graphics),             Documentation(info="<html>
+    annotation (Icon,               Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -2150,7 +2150,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
-    annotation (Icon(graphics),             Documentation(info="<html>
+    annotation (Icon,               Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -2267,11 +2267,9 @@ Additionally the reference angle is specified in the connector. The time derivat
 
     partial model TwoPlug "Two plugs with pin-adapter"
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.SIunits.ComplexVoltage  v[
-                                        m];
-      Modelica.SIunits.ComplexCurrent  i[
-                                        m];
-      Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
+      Modelica.SIunits.ComplexVoltage  v[m];
+      Modelica.SIunits.ComplexCurrent  i[m];
+      Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
@@ -2286,6 +2284,7 @@ Additionally the reference angle is specified in the connector. The time derivat
             extent={{-10,-10},{10,10}},
             rotation=180)));
     equation
+      omega = der(plug_p.reference.gamma);
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
       connect(plug_p, plugToPins_p.plug_p)
@@ -2313,11 +2312,9 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 
     partial model OnePort
       parameter Integer m(min=1) = 3 "Number of phases";
-      Modelica.SIunits.ComplexVoltage  v[
-                                        m];
-      Modelica.SIunits.ComplexCurrent  i[
-                                        m];
-      Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
+      Modelica.SIunits.ComplexVoltage  v[m];
+      Modelica.SIunits.ComplexCurrent  i[m];
+      Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
@@ -2326,6 +2323,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
     equation
       Connections.branch(plug_p.reference, plug_n.reference);
       plug_p.reference.gamma = plug_n.reference.gamma;
+      omega = der(plug_p.reference.gamma);
       v = plug_p.pin.v - plug_n.pin.v;
       i = plug_p.pin.i;
       plug_p.pin.i + plug_n.pin.i = fill(Complex(0),m);
@@ -2334,10 +2332,12 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
       parameter Integer m(min=1) = 3 "number of phases";
-      Modelica.SIunits.AngularVelocity omega = der(plug_p.reference.gamma);
+      Modelica.SIunits.AngularVelocity omega;
       PositivePlug plug_p(final m=m)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
+    equation
+      omega = der(plug_p.reference.gamma);
       annotation (         Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
             Text(

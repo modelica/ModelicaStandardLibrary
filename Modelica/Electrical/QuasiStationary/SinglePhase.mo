@@ -335,7 +335,7 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
           points={{40,-40},{50,-40}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
+      annotation (
         Documentation(info="<html>
 <p>
 This example demonstrates coupling a quasi stationary circuit with a DC circuit.
@@ -960,10 +960,8 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
     protected
       Complex s1(re(final unit="1"), im(final unit="1"));
       Complex s2(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-      constant Modelica.SIunits.ComplexVoltage  unitVoltage=
-                                                           Complex(1,0)  annotation(HideResult=true);
-      constant Modelica.SIunits.ComplexCurrent  unitCurrent=
-                                                           Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
     equation
       Connections.branch(p.reference, n1.reference);
       p.reference.gamma = n1.reference.gamma;
@@ -1076,10 +1074,8 @@ This switch is only intended to be used for structural changes, not for fast swi
       Complex s2(re(final unit="1"), im(final unit="1"));
       Complex s3(re(final unit="1"), im(final unit="1"));
       Complex s4(re(final unit="1"), im(final unit="1")) "Auxiliary variables";
-      constant Modelica.SIunits.ComplexVoltage  unitVoltage=
-                                                           Complex(1,0)  annotation(HideResult=true);
-      constant Modelica.SIunits.ComplexCurrent  unitCurrent=
-                                                           Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
+      constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
     equation
       Connections.branch(p1.reference, n1.reference);
       p1.reference.gamma = n1.reference.gamma;
@@ -1196,10 +1192,8 @@ This switch is only intended to be used for structural changes, not for fast swi
             rotation=270)));
     protected
      Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
-     constant Modelica.SIunits.ComplexVoltage  unitVoltage=
-                                                          Complex(1,0)  annotation(HideResult=true);
-     constant Modelica.SIunits.ComplexCurrent  unitCurrent=
-                                                          Complex(1,0)  annotation(HideResult=true);
+     constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
+     constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
     equation
      v = (s*unitCurrent)*(if control then 1 else Ron);
      i = (s*unitVoltage)*(if control then Goff else 1);
@@ -1289,10 +1283,8 @@ This switch is only intended to be used for structural changes, not for fast swi
             rotation=270)));
     protected
         Complex s(re(final unit="1"), im(final unit="1")) "Auxiliary variable";
-        constant Modelica.SIunits.ComplexVoltage  unitVoltage=
-                                                             Complex(1,0)  annotation(HideResult=true);
-        constant Modelica.SIunits.ComplexCurrent  unitCurrent=
-                                                             Complex(1,0)  annotation(HideResult=true);
+        constant Modelica.SIunits.ComplexVoltage  unitVoltage=Complex(1,0)  annotation(HideResult=true);
+        constant Modelica.SIunits.ComplexCurrent  unitCurrent=Complex(1,0)  annotation(HideResult=true);
     equation
         v = (s*unitCurrent)*(if control then Ron else 1);
         i = (s*unitVoltage)*(if control then 1 else Goff);
@@ -1579,7 +1571,7 @@ This sensor can be used to measure the complex apparent power.
 
 </html>"));
     end PowerSensor;
-    annotation (Icon(graphics),                            Documentation(info="<html>
+    annotation (Icon,                              Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1745,7 +1737,7 @@ Additionally, the frequency of the voltage source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
-    annotation (Icon(graphics),             Documentation(info="<html>
+    annotation (Icon,               Documentation(info="<html>
 <p>This package hosts sources for quasi stationary single phase circuits.
 Quasi stationary theory for single phase circuits can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -1864,7 +1856,7 @@ Additionally the reference angle is specified in the connector. The time derivat
     partial model TwoPin "Two pins"
       Modelica.SIunits.ComplexVoltage  v;
       Modelica.SIunits.ComplexCurrent  i;
-      Modelica.SIunits.AngularVelocity omega = der(pin_p.reference.gamma);
+      Modelica.SIunits.AngularVelocity omega;
       PositivePin pin_p "Positive pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
@@ -1873,8 +1865,9 @@ Additionally the reference angle is specified in the connector. The time derivat
     equation
       Connections.branch(pin_p.reference, pin_n.reference);
       pin_p.reference.gamma = pin_n.reference.gamma;
-      i = pin_p.i;
+      omega = der(pin_p.reference.gamma);
       v = pin_p.v - pin_n.v;
+      i = pin_p.i;
       annotation (         Documentation(info="<html>
 <p>
 This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
@@ -1916,11 +1909,12 @@ This model is intended to be used with textual representation of user models.
 
     partial model AbsoluteSensor "Partial potential sensor"
       extends Modelica.Icons.RotationalSensor;
-      Modelica.SIunits.AngularVelocity omega = der(pin.reference.gamma);
+      Modelica.SIunits.AngularVelocity omega;
       PositivePin pin "Pin"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=
                0)));
     equation
+      omega = der(pin.reference.gamma);
       pin.i = Complex(0);
       annotation (         Icon(graphics={
             Line(points={{-70,0},{-94,0}}, color={0,0,0}),
@@ -2023,7 +2017,7 @@ The source partial model relies on the
 </p>
 </html>"));
     end Source;
-    annotation (Icon(graphics),                   Documentation(info="<html>
+    annotation (Icon,                     Documentation(info="<html>
 <p>This package contains connector specifications and partial models for more complex components.</p>
 </html>"));
   end Interfaces;
@@ -2073,7 +2067,7 @@ The source partial model relies on the
       pQS + pDC = 0;
     //define reactive power
       qQS = 0;
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Line(
               points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
               color={0,0,255},
@@ -2182,7 +2176,7 @@ At the DC side, only the mean of voltage and current are taken into account.
           points={{40,-40},{40,-100},{100,-100}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation ( Icon(graphics={
             Line(
               points={{2,100},{2,60},{82,60},{2,60},{82,-60},{2,-60},{2,60},{2,-100}},
               color={0,0,255},

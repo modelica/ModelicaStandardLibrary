@@ -223,7 +223,7 @@ combination). In this case the system is not at rest.
 
 <IMG src=\"modelica://Modelica/Resources/Images/Translational/Fig.translational.examples.InitialConditions.png\">
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
     end InitialConditions;
 
@@ -375,8 +375,8 @@ problems.
 Demonstrate usage of component Sources.Accelerate by moving a massing
 with a predefined acceleration.
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),graphics),
-        experiment(StopTime=1.0, Interval=0.001));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+        experiment(StopTime=1.0, Interval=0.001)));
     end Accelerate;
 
     model Damper "Use of damper models."
@@ -450,7 +450,7 @@ with a predefined acceleration.
 Demonstrate usage of damper components in different variants.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end Damper;
 
@@ -547,7 +547,7 @@ are set.
 If damping is added the amplitudes are bounded.
 </p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}), graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2})),
         experiment(StopTime=1.0, Interval=0.001));
     end Oscillator;
 
@@ -624,14 +624,14 @@ Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2}), graphics),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2})),
         experiment(StopTime=1.0, Interval=0.001));
     end Sensors;
 
     model Friction "Use of model Stop"
       extends Modelica.Icons.Example;
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1
-        (                                      L=1,
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop1(
+                                               L=1,
         s(fixed=true),
         v(fixed=true),
         smax=25,
@@ -649,8 +649,7 @@ to see the difference.
                                                                     annotation (Placement(
             transformation(extent={{-60,60},{-40,80}},
                                                      rotation=0)));
-      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2
-        (
+      Modelica.Mechanics.Translational.Components.MassWithStopAndFriction stop2(
         L=1,
         smax=0.9,
         smin=-0.9,
@@ -1022,7 +1021,7 @@ Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5
 mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100}, {100,100}}), graphics),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100}, {100,100}})),
         experiment(StopTime=1.0, Interval=0.01));
     end ElastoGap;
 
@@ -1074,7 +1073,7 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           color={0,127,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This model consists of a mass with an initial velocity of 1 m/s.
@@ -1252,8 +1251,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-120,
-                -100},{200,100}}),
-                          graphics),
+                -100},{200,100}})),
         Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a Translational model,
@@ -1343,7 +1341,7 @@ simulate them according to the provided description in the models.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>
 The <i>flange</i> of a 1D translational mechanical system <i>fixed</i>
@@ -2586,8 +2584,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               lineColor={0,0,0},
               textString="a_start")}),
                                 Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}}),
-                                        graphics),
+                       extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the position, speed,
@@ -3843,7 +3840,7 @@ blocks of the block library Modelica.Blocks.Sources.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4109,7 +4106,7 @@ Positive force acts accelerating.
     end ForceStep;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics),                 Documentation(info="<html>
+              -100},{100,100}})),                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
 </p>
@@ -4266,7 +4263,7 @@ The following variables are transported through this connector:
       flange.f = f;
       flange.s = s;
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics), Icon(coordinateSystem(
+                -100},{100,100}})), Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Text(
               extent={{-200,80},{200,40}},
@@ -4637,7 +4634,7 @@ and c have more meaningful values for the user.
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Modelica.SIunits.Length s = flange.s - internalSupport.s
+      Modelica.SIunits.Length s
         "Distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -4654,6 +4651,7 @@ and c have more meaningful values for the user.
       Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
+      s = flange.s - internalSupport.s;
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,127,0},
@@ -4717,7 +4715,7 @@ and instead the component is internally fixed to ground.
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Modelica.SIunits.Length s = flange.s - s_support
+      Modelica.SIunits.Length s
         "Distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -4728,10 +4726,10 @@ and instead the component is internally fixed to ground.
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
     equation
+      s = flange.s - s_support;
       if not useSupport then
-         s_support = 0;
+        s_support = 0;
       end if;
-
       annotation (
         Documentation(info="<html>
 <p>
@@ -4751,7 +4749,7 @@ and instead the component is internally fixed to ground.
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4786,10 +4784,8 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Modelica.SIunits.Length s_a = flange_a.s - internalSupport.s
-        "Distance between left flange and support";
-      Modelica.SIunits.Length s_b = flange_b.s - internalSupport.s
-        "Distance between right flange and support";
+      Modelica.SIunits.Length s_a "Distance between left flange and support";
+      Modelica.SIunits.Length s_b "Distance between right flange and support";
     protected
       InternalSupport internalSupport(f=-flange_a.f - flange_b.f)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
@@ -4801,6 +4797,8 @@ and instead the component is internally fixed to ground.
       Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
+      s_a = flange_a.s - internalSupport.s;
+      s_b = flange_b.s - internalSupport.s;
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,127,0},
@@ -4866,13 +4864,13 @@ connector is not connected).
       Support support(s=s_support, f = -flange_a.f - flange_b.f) if useSupport
         "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.SIunits.Length s_a = flange_a.s - s_support
-        "Distance between left flange and support";
-      Modelica.SIunits.Length s_b = flange_b.s - s_support
-        "Distance between right flange and support";
+      Modelica.SIunits.Length s_a "Distance between left flange and support";
+      Modelica.SIunits.Length s_b "Distance between right flange and support";
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
     equation
+      s_a = flange_a.s - s_support;
+      s_b = flange_b.s - s_support;
       if not useSupport then
          s_support = 0;
       end if;
@@ -4891,7 +4889,7 @@ connector is not connected).
 
 </HTML>
 "),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
@@ -4939,12 +4937,12 @@ connector is not connected).
   partial model PartialForce
       "Partial model of a force acting at the flange (accelerates the flange)"
     extends PartialElementaryOneFlangeAndSupport2;
-    Modelica.SIunits.Force f = flange.f
-        "Accelerating force acting at flange (= flange.f)";
+    Modelica.SIunits.Force f "Accelerating force acting at flange (= flange.f)";
+  equation
+    f = flange.f;
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}),
-              graphics),
+                100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
