@@ -1167,7 +1167,6 @@ Block generating the sum of two ramps.
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}},
-
                 color={0,0,0},
                 fillColor={0,0,0},
                 fillPattern=FillPattern.Solid)}));
@@ -2344,23 +2343,18 @@ See also sketch at diagram layer.
           annotation(Dialog(enable=m>Modelica.Constants.small));
         parameter Real tapT(final min=0, final max=1)=1
           "Defines temperature of heatPort between inlet and outlet temperature";
-        Modelica.SIunits.Pressure dp=flowPort_a.p - flowPort_b.p
-          "Pressure drop a->b";
-        Modelica.SIunits.VolumeFlowRate V_flow=flowPort_a.m_flow/medium.rho
-          "Volume flow a->b";
+        Modelica.SIunits.Pressure dp "Pressure drop a->b";
+        Modelica.SIunits.VolumeFlowRate V_flow "Volume flow a->b";
         Modelica.SIunits.HeatFlowRate Q_flow "Heat exchange with ambient";
         output Modelica.SIunits.Temperature T(start=T0)
           "Outlet temperature of medium";
-        output Modelica.SIunits.Temperature T_a=flowPort_a.h/medium.cp
-          "Temperature at flowPort_a";
-        output Modelica.SIunits.Temperature T_b=flowPort_b.h/medium.cp
-          "Temperature at flowPort_b";
-        output Modelica.SIunits.TemperatureDifference dT=if noEvent(V_flow>=0) then T-T_a else T_b-T
+        output Modelica.SIunits.Temperature T_a "Temperature at flowPort_a";
+        output Modelica.SIunits.Temperature T_b "Temperature at flowPort_b";
+        output Modelica.SIunits.TemperatureDifference dT
           "Temperature increase of coolant in flow direction";
       protected
-        Modelica.SIunits.SpecificEnthalpy h = medium.cp*T
-          "Medium's specific enthalpy";
-        Modelica.SIunits.Temperature T_q = T  - noEvent(sign(V_flow))*(1 - tapT)*dT
+        Modelica.SIunits.SpecificEnthalpy h "Medium's specific enthalpy";
+        Modelica.SIunits.Temperature T_q
           "Temperature relevant for heat exchange with ambient";
       public
         Interfaces.FlowPort_a flowPort_a(final medium=medium)
@@ -2370,6 +2364,13 @@ See also sketch at diagram layer.
           annotation (Placement(transformation(extent={{90,-10},{110,10}},
                 rotation=0)));
       equation
+        dp=flowPort_a.p - flowPort_b.p;
+        V_flow=flowPort_a.m_flow/medium.rho;
+        T_a=flowPort_a.h/medium.cp;
+        T_b=flowPort_b.h/medium.cp;
+        dT=if noEvent(V_flow>=0) then T-T_a else T_b-T;
+        h = medium.cp*T;
+        T_q = T  - noEvent(sign(V_flow))*(1 - tapT)*dT;
         // mass balance
         flowPort_a.m_flow + flowPort_b.m_flow = 0;
         // energy balance
@@ -2398,15 +2399,16 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
           "Ambient medium"
           annotation(__Dymola_choicesAllMatching=true);
         output Modelica.SIunits.Temperature T "Outlet temperature of medium";
-        output Modelica.SIunits.Temperature T_port=flowPort.h/medium.cp
-          "Temperature at flowPort_a";
+        output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
       protected
-        Modelica.SIunits.SpecificEnthalpy h = medium.cp*T;
+        Modelica.SIunits.SpecificEnthalpy h;
       public
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0)));
       equation
+        T_port=flowPort.h/medium.cp;
+        h = medium.cp*T;
         // massflow -> ambient: mixing rule
         // massflow <- ambient: energy flow defined by ambient's temperature
         flowPort.H_flow = semiLinear(flowPort.m_flow,flowPort.h,h);
@@ -2696,8 +2698,8 @@ and the accompanying <b>disclaimer</b>
   </ul>
 </HTML>
 "), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor
-              ={255,0,0}), Ellipse(
+              100}}), graphics={Rectangle(extent={{-60,10},{40,-90}}, lineColor=
+               {255,0,0}), Ellipse(
             extent={{-58,8},{38,-88}},
             lineColor={0,0,255},
             fillColor={0,0,255},
@@ -2830,8 +2832,8 @@ and the accompanying <b>disclaimer</b>
           fillPattern=FillPattern.Solid),
         Polygon(
           points={{-20,10},{0,-10},{-20,-30},{40,-30},{60,-10},{40,10},{-20,10}},
-
           lineColor={255,128,0},
           fillColor={255,128,0},
           fillPattern=FillPattern.Solid)}));
+
 end FluidHeatFlow;
