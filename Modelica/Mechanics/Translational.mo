@@ -1251,7 +1251,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           color={191,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-120,
-                -100},{200,100}}),
+                -100},{200,100}})),
         Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a Translational model,
@@ -1261,7 +1261,7 @@ elements and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=2.0, Interval=0.001)));
+        experiment(StopTime=2.0, Interval=0.001));
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"
@@ -4634,7 +4634,7 @@ and c have more meaningful values for the user.
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Modelica.SIunits.Length s = flange.s - internalSupport.s
+      Modelica.SIunits.Length s
         "Distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -4651,6 +4651,7 @@ and c have more meaningful values for the user.
       Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
+      s = flange.s - internalSupport.s;
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,127,0},
@@ -4714,7 +4715,7 @@ and instead the component is internally fixed to ground.
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
           annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Modelica.SIunits.Length s = flange.s - s_support
+      Modelica.SIunits.Length s
         "Distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
@@ -4725,10 +4726,10 @@ and instead the component is internally fixed to ground.
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
     equation
+      s = flange.s - s_support;
       if not useSupport then
-         s_support = 0;
+        s_support = 0;
       end if;
-
       annotation (
         Documentation(info="<html>
 <p>
@@ -4783,10 +4784,8 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
-      Modelica.SIunits.Length s_a = flange_a.s - internalSupport.s
-        "Distance between left flange and support";
-      Modelica.SIunits.Length s_b = flange_b.s - internalSupport.s
-        "Distance between right flange and support";
+      Modelica.SIunits.Length s_a "Distance between left flange and support";
+      Modelica.SIunits.Length s_b "Distance between right flange and support";
     protected
       InternalSupport internalSupport(f=-flange_a.f - flange_b.f)
         "Internal support/housing of component as a model with connector flange (flange is either connected to support, if useSupport=true, or connected to fixed, if useSupport=false)"
@@ -4798,6 +4797,8 @@ and instead the component is internally fixed to ground.
       Support support if useSupport "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
     equation
+      s_a = flange_a.s - internalSupport.s;
+      s_b = flange_b.s - internalSupport.s;
       connect(internalSupport.flange, support) annotation (Line(
           points={{0,-80},{0,-100}},
           color={0,127,0},
@@ -4863,13 +4864,13 @@ connector is not connected).
       Support support(s=s_support, f = -flange_a.f - flange_b.f) if useSupport
         "Support/housing of component"
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}})));
-      Modelica.SIunits.Length s_a = flange_a.s - s_support
-        "Distance between left flange and support";
-      Modelica.SIunits.Length s_b = flange_b.s - s_support
-        "Distance between right flange and support";
+      Modelica.SIunits.Length s_a "Distance between left flange and support";
+      Modelica.SIunits.Length s_b "Distance between right flange and support";
     protected
       Modelica.SIunits.Length s_support "Absolute position of support flange";
     equation
+      s_a = flange_a.s - s_support;
+      s_b = flange_b.s - s_support;
       if not useSupport then
          s_support = 0;
       end if;
@@ -4936,8 +4937,9 @@ connector is not connected).
   partial model PartialForce
       "Partial model of a force acting at the flange (accelerates the flange)"
     extends PartialElementaryOneFlangeAndSupport2;
-    Modelica.SIunits.Force f = flange.f
-        "Accelerating force acting at flange (= flange.f)";
+    Modelica.SIunits.Force f "Accelerating force acting at flange (= flange.f)";
+  equation
+    f = flange.f;
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}})),

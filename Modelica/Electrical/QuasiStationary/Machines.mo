@@ -2108,21 +2108,13 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
         parameter Integer m(final min=1) = 3 "Number of phases";
         parameter Real n12(start=1) "Turns ratio 1:2";
         parameter Real n13(start=1) "Turns ratio 1:3";
-        Modelica.SIunits.ComplexVoltage  v1[
-                                           m] = plug_p1.pin.v  - plug_n1.pin.v;
-        Modelica.SIunits.ComplexCurrent  i1[
-                                           m] = plug_p1.pin.i;
-        Modelica.SIunits.ComplexVoltage  v2[
-                                           m] = plug_p2.pin.v  - plug_n2.pin.v;
-        Modelica.SIunits.ComplexCurrent  i2[
-                                           m] = plug_p2.pin.i;
-        Modelica.SIunits.ComplexVoltage  v3[
-                                           m] = plug_p3.pin.v  - plug_n3.pin.v;
-        Modelica.SIunits.ComplexCurrent  i3[
-                                           m] = plug_p3.pin.i;
-        Modelica.SIunits.ComplexCurrent  im[
-                                           m] = i1 + i2/n12 + i3/n13
-          "Magnetizing current";
+        Modelica.SIunits.ComplexVoltage  v1[m];
+        Modelica.SIunits.ComplexCurrent  i1[m];
+        Modelica.SIunits.ComplexVoltage  v2[m];
+        Modelica.SIunits.ComplexCurrent  i2[m];
+        Modelica.SIunits.ComplexVoltage  v3[m];
+        Modelica.SIunits.ComplexCurrent  i3[m];
+        Modelica.SIunits.ComplexCurrent  im[m] "Magnetizing current";
         QuasiStationary.MultiPhase.Interfaces.PositivePlug plug_p1(final m=m) annotation (Placement(transformation(extent={{-110,40},{-90,60}},
                 rotation=0)));
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n1(final m=m) annotation (Placement(transformation(extent={{-110,-60},{-90,
@@ -2136,6 +2128,13 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
         QuasiStationary.MultiPhase.Interfaces.NegativePlug plug_n3(final m=m) annotation (Placement(transformation(extent={{90,-90},{110,
                   -110}}, rotation=0)));
       equation
+        v1 = plug_p1.pin.v  - plug_n1.pin.v;
+        i1 = plug_p1.pin.i;
+        v2 = plug_p2.pin.v  - plug_n2.pin.v;
+        i2 = plug_p2.pin.i;
+        v3 = plug_p3.pin.v  - plug_n3.pin.v;
+        i3 = plug_p3.pin.i;
+        im = i1 + i2/n12 + i3/n13;
       //branches p1-n1, p2-n2, p3-n3
         Connections.branch(plug_p1.reference, plug_n1.reference);
         plug_p1.reference.gamma = plug_n1.reference.gamma;
@@ -2307,17 +2306,13 @@ This package contains components for modeling quasi stationary electrical induct
         final lossPower1 = -sum(r1.heatPort.Q_flow),
         final lossPower2 = -sum(r2.heatPort.Q_flow),
         final lossPowerCore = 0) "Power balance";
-      output Modelica.SIunits.ComplexVoltage  v1[
-                                                m]=plug1.pin.v
+      output Modelica.SIunits.ComplexVoltage  v1[m]=plug1.pin.v
         "Primary voltage";
-      output Modelica.SIunits.ComplexCurrent  i1[
-                                                m]=plug1.pin.i
+      output Modelica.SIunits.ComplexCurrent  i1[m]=plug1.pin.i
         "Primary current";
-      output Modelica.SIunits.ComplexVoltage  v2[
-                                                m]=plug2.pin.v
+      output Modelica.SIunits.ComplexVoltage  v2[m]=plug2.pin.v
         "Secondary voltage";
-      output Modelica.SIunits.ComplexCurrent  i2[
-                                                m]=plug2.pin.i
+      output Modelica.SIunits.ComplexCurrent  i2[m]=plug2.pin.i
         "Secondary current";
     protected
       constant String C1 = Modelica.Utilities.Strings.substring(VectorGroup,1,1);
