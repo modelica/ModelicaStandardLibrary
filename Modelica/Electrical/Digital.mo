@@ -694,11 +694,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}})),            Icon(coordinateSystem(
-                  preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+                  preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the rersults plot bothe the input vector x and the output vector y.</p>
 </html>"),
-        experiment(StopTime=1.01)));
+        experiment(StopTime=1.01));
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"

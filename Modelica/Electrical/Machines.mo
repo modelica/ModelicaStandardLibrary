@@ -3263,8 +3263,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dz ... No grounding necessary.</li>
 </ul>
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-          experiment(StopTime=0.1, Interval=0.001)));
+                  {100,100}})),
+          experiment(StopTime=0.1, Interval=0.001));
       end TransformerTestbench;
 
       model AsymmetricalLoad "AsymmetricalLoad"
@@ -3368,8 +3368,8 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dz ... Load current in three primary phases.</li>
 </ul>
 </HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}}),
-          experiment(StopTime=0.1, Interval=0.001)));
+                  {100,100}})),
+          experiment(StopTime=0.1, Interval=0.001));
       end AsymmetricalLoad;
 
       model Rectifier6pulse "6-pulse rectifier with 1 transformer"
@@ -3489,8 +3489,8 @@ Star-connected voltage source feeds via a transformer a diode bridge rectifier w
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-          experiment(StopTime=0.1, Interval=0.0001)));
+                  -100},{100,100}})),
+          experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier6pulse;
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
@@ -3549,8 +3549,8 @@ Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
 </HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-          experiment(StopTime=0.1, Interval=0.0001)));
+                  -100},{100,100}})),
+          experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier12pulse;
 
       model AIMC_Transformer

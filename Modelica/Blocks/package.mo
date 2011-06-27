@@ -1243,8 +1243,8 @@ just potential signals. The user might still add different signal names.
 </p>
 
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}),
-      experiment(StopTime=2)));
+              -100},{100,100}})),
+      experiment(StopTime=2));
   end BusUsage;
 
   package BusUsage_Utilities

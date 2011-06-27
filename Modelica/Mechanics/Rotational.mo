@@ -606,8 +606,8 @@ in the housing on one side via component Fixed.</p>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
 </HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=1.0, Interval=0.001)));
+                -100},{100,100}})),
+        experiment(StopTime=1.0, Interval=0.001));
     end FirstGrounded;
 
     model Friction "Drive train with clutch and brake"
@@ -860,8 +860,8 @@ locked, forward sliding.</p>
             "Simulate and Plot"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{
                 140,80}},
-            grid={2,2}),
-        experiment(StopTime=1.5, Interval=0.001)));
+            grid={2,2})),
+        experiment(StopTime=1.5, Interval=0.001));
     end CoupledClutches;
 
     model LossyGearDemo1
@@ -942,8 +942,8 @@ gear.mode  :  1 = forward rolling
 </pre>
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-80},{100,
-                80}}),
-        experiment(StopTime=0.5, Interval=0.001)));
+                80}})),
+        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo1;
 
     model LossyGearDemo2
@@ -1042,8 +1042,8 @@ as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{100,
-                80}}),
-        experiment(StopTime=0.5, Interval=0.001)));
+                80}})),
+        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo2;
 
     model LossyGearDemo3
@@ -1173,7 +1173,7 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
       connect(fixed.flange, torque.support)   annotation (Line(points={{20,-60},
               {-40,-60},{-40,40}}, color={0,0,0}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
+                -100},{100,100}})),
                            Documentation(info="<html>
 <p>
 This model demonstrates the usage of the bearing flange.
@@ -1184,7 +1184,7 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
 <code>shaft.w</code> and <code>load.w</code>.</p>
 </html>"),
-        experiment(StopTime=10, Interval=0.01)));
+        experiment(StopTime=10, Interval=0.01));
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
@@ -1499,7 +1499,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           smooth=Smooth.None));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{180,140}}),         Icon(coordinateSystem(
+                -100},{180,140}})),         Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
@@ -1510,7 +1510,7 @@ elements of the drive train and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.0001)));
+        experiment(StopTime=1.0, Interval=0.0001));
     end HeatLosses;
 
     model SimpleGearShift "Simple Gearshift"

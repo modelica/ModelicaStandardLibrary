@@ -1024,7 +1024,7 @@ end inverter;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (                           Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
+              preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}})),
         Documentation(info="<html>
@@ -1063,7 +1063,7 @@ end inverter;
 <li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
-        experiment(StopTime=5)));
+        experiment(StopTime=5));
     end Nor;
 
     model Graetz "Graetz rectifier circuit"
