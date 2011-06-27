@@ -325,7 +325,5 @@ equation
 <p>This model is identical to the CauerLowPassAnalog example, but inverting. To get the same response as that of the CauerLowPassAnalog example, a negative voltage step is used as input.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>During translation some warnings are issued concerning resistor values (Value=-1 not in range[0,1.e+100]). Do not worry about it. The negative values are o.k.</p>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{250,
-            200}}), graphics));
+</html>"));
 end CauerLowPassOPV;

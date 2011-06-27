@@ -83,7 +83,5 @@ equation
         by Matthias Franke <br>initially implemented
        </li>
 </ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end OvervoltageProtection;

@@ -55,7 +55,5 @@ equation
 <p>The simple ideal TRIAC example shows how a triac is used within an alternating current circuit.</p>
 <p>The TRIAC is not conductiong until the Boolean input becomes true (internally coded by 1, therefore the input is called fire<b>1</b>). Then it becomes &quot;conducting&quot;, the knee voltage is reached. If the TRIAC voltage falls below the knee voltage, the TRIAC becomes blocking. Due to the antiparallel connection of the internal two thyristors the same behavior is repeated in the negative half-wave.</p>
 <p>Simulate until 2 seconds. Display V.p.v (input voltage), booleanPulse.y (fire1 input), and both idealTriac.n.v and idealTriac.n.i, which demonstrate the TRIAC behavior.</p>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end IdealTriacCircuit;

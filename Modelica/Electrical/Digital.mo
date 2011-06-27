@@ -574,11 +574,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </pre>
 <p>The simulation stop time has to be 5s.</p>
 </HTML>
-"),         Icon(coordinateSystem(
-                preserveAspectRatio=true,
-                extent={{-200,-200},{200,200}},
-                grid={2,2})),
-            Diagram(coordinateSystem(
+"),         Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-200,-200},{200,200}},
                 grid={2,2})),

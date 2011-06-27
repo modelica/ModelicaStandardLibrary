@@ -64,7 +64,5 @@ equation
     experiment(StopTime=0.0002),
     Documentation(info="<html>
 <p>This is a simple testcircuit, to test the behavior of the thysistor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be trom 0 seconds to 2e-4 seconds.</p>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}}), graphics));
+</html>"));
 end ThyristorBehaviourTest;

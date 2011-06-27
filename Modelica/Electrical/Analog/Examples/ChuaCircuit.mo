@@ -67,10 +67,6 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
   annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1})),
     Documentation(info="<html>
 <p>Chua&#39;;s circuit is the most simple nonlinear circuit which shows chaotic behaviour. The circuit consists of linear basic elements (capacitors, resistor, conductor, inductor), and one nonlinear element, which is called Chua&#39;;s diode. The chaotic behaviour is simulated.</p>
 <p>The simulation end time should be set to 5e4. To get the chaotic behaviour please plot C1.v. Choose C2.v as the independent variable .</p>

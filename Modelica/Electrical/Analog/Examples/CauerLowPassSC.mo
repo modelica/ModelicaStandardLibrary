@@ -54,7 +54,6 @@ equation
               -100},{100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Bitmap(extent={{-62,6},{-62,14}}, fileName="modelica://Modelica/"),
           Rectangle(
             extent={{-80,32},{80,-30}},
             pattern=LinePattern.None,
@@ -136,7 +135,6 @@ equation
             preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
-          Bitmap(extent={{-62,4},{-62,12}}, fileName="modelica://Modelica/"),
           Rectangle(
             extent={{-80,30},{80,-32}},
             pattern=LinePattern.None,
@@ -498,7 +496,5 @@ equation
 <p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors. There are two such resistors Rp (of value +1), and Rn (of value -1). In this models the switching clock source is included. In a typical switched capacitor circuit there would be a central clock source.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-250,-200},{250,
-            200}}), graphics));
+</html>"));
 end CauerLowPassSC;
