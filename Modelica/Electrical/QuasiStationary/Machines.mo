@@ -2490,7 +2490,7 @@ Circuit layout (vector group) of primary and secondary windings have to be defin
 </table>
 </html>"));
     end PartialBasicTransformer;
-    annotation (Icon,                 Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This package contains the quasi stationary space phasor connector and partial models for quasi stationary machine models.
 </p>

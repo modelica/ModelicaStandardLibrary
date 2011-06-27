@@ -1924,7 +1924,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 </html>"),
         Diagram(graphics));
     end PowerSensor;
-    annotation (Icon,               Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
@@ -2150,7 +2150,7 @@ Additionally, the frequency of the current source is defined by a real signal in
 </p>
 </html>"));
     end VariableCurrentSource;
-    annotation (Icon,               Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>This package hosts sources for quasi stationary multiphase circuits.
 Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.

@@ -12614,7 +12614,7 @@ Partial power balance of induction machines.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortRotorWinding
           "Heat port of rotor (squirrel cage)"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation (            Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for asnychronous induction machine with squirrel cage
 </HTML>"));
       end ThermalPortAIMC;
@@ -12643,7 +12643,7 @@ Power balance of asynchronous induction machines with squirrel cage.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortBrush
           "Heat port of (optional) brush losses"
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation (            Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for asnychronous induction machine with slipring rotor
 </HTML>"));
       end ThermalPortAIMS;
@@ -12677,7 +12677,7 @@ Power balance of asynchronous induction machines with slipring.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortPermanentMagnet
           "Heat port of permanent magnets"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for snychronous induction machine with permanent magnets
 </HTML>"),Diagram(graphics));
       end ThermalPortSMPM;
@@ -12714,7 +12714,7 @@ Power balance of synchronous induction machines with permanent magnet.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortBrush
           "Heat port of (optional) brush losses"
           annotation (Placement(transformation(extent={{-10,30},{10,50}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for snychronous induction machine with electrical excitation
 </HTML>"));
       end ThermalPortSMEE;
@@ -12746,7 +12746,7 @@ Power balance of synchronous induction machines with electrical excitation.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortRotorWinding if useDamperCage
           "Heat port of damper cage (optional)"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for snychronous induction machine with reluctance rotor
 </HTML>"));
       end ThermalPortSMR;
@@ -13132,7 +13132,7 @@ Partial power balance of DC machines.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortPermanentMagnet
           "Heat port of permanent magnets"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for DC machine with permanent magnets
 </HTML>"));
       end ThermalPortDCPM;
@@ -13157,7 +13157,7 @@ Power balance of DC machines with permanent magnet.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortExcitation
           "Heat port of (shunt) excitation"
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for DC machine with electrical (shunt) excitation
 </HTML>"));
       end ThermalPortDCEE;
@@ -13183,7 +13183,7 @@ Power balance of DC machines with electrical excitation.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortSeriesExcitation
           "Heat port of series excitation"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for DC machine with serial excitation
 </HTML>"));
       end ThermalPortDCSE;
@@ -13213,7 +13213,7 @@ Power balance of DC machines with series excitation.
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortSeriesExcitation
           "Heat port of series excitation"
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
-        annotation ( Icon,   Documentation(info="<HTML>
+        annotation (Documentation(info="<HTML>
 Thermal port for DC machine with compound excitation
 </HTML>"));
       end ThermalPortDCCE;

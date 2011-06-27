@@ -1137,7 +1137,7 @@ end inverter;
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Icon,
+
         experiment(StopTime=0.025),
         Documentation(info="<html>
 <p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
@@ -1273,7 +1273,7 @@ end inverter;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
-        Icon,
+
         experiment(StopTime=0.025),
         Documentation(info="<html>
 <p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
