@@ -2268,11 +2268,11 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
 
       equation
         connect(airGap.port_rn, rotorCage.port_n)        annotation (Line(
-            points={{-10,-10},{-10,-15},{-10,-15},{-10,-20},{-10,-30},{-10,-30}},
+            points={{-10,-10},{-10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(airGap.port_rp, rotorCage.port_p)        annotation (Line(
-            points={{10,-10},{10,-20},{10,-20},{10,-30}},
+            points={{10,-10},{10,-30}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(rotorCage.heatPortWinding, internalThermalPort.heatPortRotorWinding)
@@ -2779,7 +2779,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
           "Negative pin of excitation"
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},rotation=0)));
         Electrical.Machines.Losses.DCMachines.Brush brush(
-          final brushParameters=brushParameters)
+          final brushParameters=brushParameters, final useHeatPort=true)
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
@@ -2822,7 +2822,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
             color={0,0,255},
             smooth=Smooth.None));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
-            points={{-70,40},{-40,40},{-40,-90}},
+            points={{-70,50},{-40,50},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(excitation.heatPortWinding, internalThermalPort.heatPortExcitation)
@@ -4649,11 +4649,11 @@ This model is mainly used to extend from in order build more complex - equation 
     annotation (Placement(transformation(extent={{-10,80},{10,100}})));
   */
       Electrical.Machines.Losses.InductionMachines.StrayLoad strayLoad(
-        final strayLoadParameters=strayLoadParameters)
+        final strayLoadParameters=strayLoadParameters, final useHeatPort=true)
         annotation (Placement(transformation(extent={{60,60},{40,80}})));
 
       Electrical.Machines.Losses.Friction                   friction(
-        final frictionParameters=frictionParameters)
+        final frictionParameters=frictionParameters, final useHeatPort=true)
         annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
@@ -4716,12 +4716,12 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
-          points={{50,60},{60,60},{60,-100}},
+          points={{50,60},{50,50},{60,50},{60,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad) annotation (
           Line(
-          points={{40,60},{40,50},{50,50},{50,-80},{-40,-80},{-40,-90}},
+          points={{60,60},{60,50},{50,50},{50,-80},{-40,-80},{-40,-90}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.support, internalSupport) annotation (Line(
@@ -4738,7 +4738,7 @@ This model is mainly used to extend from in order build more complex - equation 
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
          Line(
-          points={{80,-30},{50,-30},{50,-80},{-40,-80},{-40,-90}},
+          points={{80,-40},{50,-40},{50,-80},{-40,-80},{-40,-90}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(groundS.port_p, airGap.port_sp) annotation (Line(
@@ -4750,7 +4750,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_p, airGap.port_sn) annotation (Line(
-          points={{10,30},{10,30},{10,10},{10,10}},
+          points={{10,30},{10,25},{10,25},{10,20},{10,10},{10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding) annotation (
@@ -4767,7 +4767,7 @@ This model is mainly used to extend from in order build more complex - equation 
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
+                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -4987,7 +4987,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
-<tr><td>1.7.2</td><td>    </td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model</td></tr>
+<tr><td>1.7.2</td><td>    </td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model<br>Necessary adaptions due to conditional heatPorts of loss models (backwards compatibility)</td></tr>
 <tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
