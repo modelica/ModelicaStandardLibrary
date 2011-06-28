@@ -655,6 +655,7 @@ This is discussed in the description of package
 
   block PID "PID-controller in additive description form"
     import Modelica.Blocks.Types.InitPID;
+    import Modelica.Blocks.Types.Init;
     extends Interfaces.SISO;
 
     parameter Real k(unit="1")=1 "Gain";
@@ -683,19 +684,19 @@ This is discussed in the description of package
             rotation=0)));
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
       initType=if initType==InitPID.SteadyState then
-                  InitPID.SteadyState else
+                  Init.SteadyState else
                if initType==InitPID.InitialState or
                   initType==InitPID.DoNotUse_InitialIntegratorState then
-                  InitPID.InitialState else InitPID.NoInit)
+                  Init.InitialState else Init.NoInit)
       "Integral part of PID controller"
       annotation (Placement(transformation(extent={{-60,-20},{-20,20}},
             rotation=0)));
     Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 100*Modelica.
           Constants.eps]), x_start=xd_start,
       initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then InitPID.SteadyState else
-               if initType==InitPID.InitialState then InitPID.InitialState else
-                  InitPID.NoInit) "Derivative part of PID controller"
+                  initType==InitPID.InitialOutput then Init.SteadyState else
+               if initType==InitPID.InitialState then Init.InitialState else
+                  Init.NoInit) "Derivative part of PID controller"
       annotation (Placement(transformation(extent={{-60,-100},{-20,-60}},
             rotation=0)));
     Blocks.Math.Gain Gain(k=k) "Gain of PID controller"
@@ -839,6 +840,7 @@ to compute u by an algebraic equation.
   block LimPID
     "P, PI, PD, and PID controller with limited output, anti-windup compensation and setpoint weighting"
     import Modelica.Blocks.Types.InitPID;
+    import Modelica.Blocks.Types.Init;
     import Modelica.Blocks.Types.SimpleController;
     extends Interfaces.SVcontrol;
     output Real controlError = u_s - u_m
@@ -904,17 +906,17 @@ to compute u by an algebraic equation.
               -20,60}}, rotation=0)));
     Blocks.Continuous.Integrator I(k=1/Ti, y_start=xi_start,
       initType=if initType==InitPID.SteadyState then
-                  InitPID.SteadyState else
+                  Init.SteadyState else
                if initType==InitPID.InitialState or
                   initType==InitPID.DoNotUse_InitialIntegratorState then
-                  InitPID.InitialState else InitPID.NoInit) if with_I
+                  Init.InitialState else Init.NoInit) if with_I
       annotation (Placement(transformation(extent={{-40,-60},{-20,-40}},
             rotation=0)));
     Blocks.Continuous.Derivative D(k=Td, T=max([Td/Nd, 1.e-14]), x_start=xd_start,
       initType=if initType==InitPID.SteadyState or
-                  initType==InitPID.InitialOutput then InitPID.SteadyState else
-               if initType==InitPID.InitialState then InitPID.InitialState else
-                  InitPID.NoInit) if with_D
+                  initType==InitPID.InitialOutput then Init.SteadyState else
+               if initType==InitPID.InitialState then Init.InitialState else
+                  Init.NoInit) if with_D
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
             rotation=0)));
     Blocks.Math.Gain gainPID(k=k) annotation (Placement(transformation(extent={

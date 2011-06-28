@@ -21,7 +21,7 @@ package Examples
       Ti=0.1,
       yMax=12,
       Ni=0.1,
-      initType=Modelica.Blocks.Types.Init.SteadyState,
+      initType=Modelica.Blocks.Types.InitPID.SteadyState,
       limitsAtInit=false,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
       Td=0.1)
