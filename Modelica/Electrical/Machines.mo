@@ -3944,7 +3944,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
               origin={-50,-60})));
         Machines.Losses.InductionMachines.Core rotorCore(
           final coreParameters=rotorCoreParameters,
-          final w=rotorCoreParameters.wRef)
+          final w=rotorCoreParameters.wRef,
+          final useHeatPort=true)
           annotation (Placement(transformation(
               extent={{-10,10},{10,-10}},
               rotation=180,
@@ -4000,7 +4001,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             smooth=Smooth.None));
         connect(rotorCore.heatPort, internalThermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{-1.22465e-015,-40},{0,-40},{0,-80}},
+            points={{10,-40},{0,-40},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(rr.heatPort, internalThermalPort.heatPortRotorWinding) annotation (
@@ -4633,7 +4634,8 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Negative excitation pin"
           annotation (Placement(transformation(extent={{-90,-50},{-110,-70}},
                 rotation=0)));
-        Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters)
+        Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters, final
+            useHeatPort=true)
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
               rotation=90,
               origin={-80,40})));
@@ -4643,7 +4645,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-16},{10,-30},{10,-30}},
+          annotation (Line(points={{10,-10},{10,-16},{10,-30}},
                                                        color={0,0,255}));
         connect(airGapR.spacePhasor_r, electricalExcitation.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-10},{10,-20},{-60,-20},{-60,
@@ -4685,7 +4687,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={0,0,255},
             smooth=Smooth.None));
         connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
-            points={{-70,40},{50,40},{50,-80},{0,-80}},
+            points={{-70,50},{50,50},{50,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(re.heatPort, internalThermalPort.heatPortExcitation) annotation (Line(
@@ -10368,15 +10370,9 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">c
       extends Machines.Interfaces.FlangeSupport;
       parameter FrictionParameters frictionParameters
         "Friction loss parameters";
-      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-        "Heat port to model heat flow"
-        annotation (Placement(transformation(
-            origin={-100,0},
-            extent={{10,-10},{-10,10}},
-            rotation=270), iconTransformation(
-            extent={{10,-10},{-10,10}},
-            rotation=270,
-            origin={-100,0})));
+      extends
+        Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+         useHeatPort=false);
     equation
       if (frictionParameters.PRef<=0) then
         tau = 0;
@@ -10387,7 +10383,7 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">c
                           -frictionParameters.tauRef*(-w/frictionParameters.wRef)^frictionParameters.power_w else
                           frictionParameters.tauLinear*(w/frictionParameters.wLinear));
       end if;
-      heatPort.Q_flow = tau*w;
+      lossPower = -tau*w;
      annotation (
        Icon(graphics={
             Ellipse(
@@ -10498,13 +10494,11 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
         extends Modelica.Electrical.MultiPhase.Interfaces.TwoPlug(final m=3);
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush loss parameters";
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port of the resistor"
-          annotation (Placement(transformation(
-              origin={0,-100},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
-        DCMachines.Brush brush[3](each final brushParameters=brushParameters)
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialConditionalHeatPort(
+           useHeatPort=false, final T=293.15);
+        DCMachines.Brush brush[3](each final brushParameters=brushParameters,
+          each final useHeatPort=true)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       equation
         connect(plug_p.pin, brush.p) annotation (Line(
@@ -10516,8 +10510,8 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
             color={0,0,255},
             smooth=Smooth.None));
         for j in 1:m loop
-          connect(brush[j].heatPort, heatPort) annotation (Line(
-            points={{0,-10},{0,-100}},
+          connect(brush[j].heatPort, internalHeatPort) annotation (Line(
+            points={{-10,-10},{-10,-60},{-100,-60},{-100,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         end for;
@@ -10547,13 +10541,10 @@ Model of voltage drop and losses of carbon brushes. This threephase model uses t
         extends Machines.Interfaces.FlangeSupport;
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+           useHeatPort=false);
         Modelica.SIunits.Current iRMS=Machines.SpacePhasors.Functions.quasiRMS(i);
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port for modeling the heat flow"
-          annotation (Placement(transformation(
-              origin={100,-100},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
       equation
         v = zeros(m);
         if (strayLoadParameters.PRef<=0) then
@@ -10563,7 +10554,7 @@ Model of voltage drop and losses of carbon brushes. This threephase model uses t
                  smooth(1,if w >= 0 then +(+w/strayLoadParameters.wRef)^strayLoadParameters.power_w else
                                          -(-w/strayLoadParameters.wRef)^strayLoadParameters.power_w);
         end if;
-        heatPort.Q_flow = tau*w;
+        lossPower = -tau*w;
         annotation (Icon(graphics={Line(points={{-90,0},{90,0}}, color={0,0,255}),
                 Rectangle(
                 extent={{-70,30},{70,-30}},
@@ -10605,15 +10596,12 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 
       model Core "Model of core losses"
         parameter Machines.Losses.CoreParameters coreParameters(final m=3);
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+           useHeatPort=false);
         Machines.Interfaces.SpacePhasor spacePhasor
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0), iconTransformation(extent={{-110,-10},{-90,10}})));
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port for modeling the heat flow"
-          annotation (Placement(transformation(
-              origin={0,-100},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
         input Modelica.SIunits.AngularVelocity w
           "Remagnetization angular velocity"
           annotation(Dialog(group="Losses"));
@@ -10630,7 +10618,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           //  * (coreParameters.wRef/wsLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
           spacePhasor.i_ = Gc*spacePhasor.v_;
         end if;
-        heatPort.Q_flow = -3/2*(+spacePhasor.v_[1]*spacePhasor.i_[1]+spacePhasor.v_[2]*spacePhasor.i_[2]);
+        lossPower = 3/2*(+spacePhasor.v_[1]*spacePhasor.i_[1]+spacePhasor.v_[2]*spacePhasor.i_[2]);
         annotation (Icon(graphics={
               Rectangle(
                 extent={{-70,30},{70,-30}},
@@ -10742,12 +10730,9 @@ This package contains loss models used for induction machine models.
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         parameter Machines.Losses.BrushParameters brushParameters
           "Brush loss parameters";
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port of the resistor"
-          annotation (Placement(transformation(
-              origin={0,-100},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+           useHeatPort=false);
       equation
         if (brushParameters.V<=0) then
           v = 0;
@@ -10756,7 +10741,7 @@ This package contains loss models used for induction machine models.
                         if (i<-brushParameters.ILinear) then -brushParameters.V else
                         brushParameters.V*i/brushParameters.ILinear);
         end if;
-        heatPort.Q_flow = -v*i;
+        lossPower = v*i;
         annotation (Icon(graphics={
               Line(points={{-100,-100},{-92,-80},{-80,-60},{-60,-40},{-40,-28},
                     {-20,-22},{0,-20},{20,-22},{40,-28},{60,-40},{80,-60},{92,
@@ -10826,12 +10811,9 @@ e.g., used for initial equations.
         extends Machines.Interfaces.FlangeSupport;
         parameter Machines.Losses.StrayLoadParameters strayLoadParameters
           "Stray load loss parameters";
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port for modeling the heat flow"
-          annotation (Placement(transformation(
-              origin={100,-100},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+           useHeatPort=false);
       equation
         v = 0;
         if (strayLoadParameters.PRef<=0) then
@@ -10841,7 +10823,7 @@ e.g., used for initial equations.
                  smooth(1,if w >= 0 then +(+w/strayLoadParameters.wRef)^strayLoadParameters.power_w else
                                          -(-w/strayLoadParameters.wRef)^strayLoadParameters.power_w);
         end if;
-        heatPort.Q_flow = tau*w;
+        lossPower = -tau*w;
         annotation (Icon(graphics={Line(points={{-90,0},{90,0}}, color={0,0,255}),
                 Rectangle(
                 extent={{-70,30},{70,-30}},
@@ -10876,12 +10858,9 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
         parameter Machines.Losses.CoreParameters coreParameters(final m=1)
           "Armature core losses";
-        Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort
-          "Heat port for modeling the heat flow"
-          annotation (Placement(transformation(
-              origin={0,-100},
-              extent={{10,-10},{-10,10}},
-              rotation=270)));
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+           useHeatPort=false);
         input Modelica.SIunits.AngularVelocity w
           "Remagnetization angular velocity"
           annotation(Dialog(group="Losses"));
@@ -10898,7 +10877,7 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
           // * (coreParameters.wRef/wLimit*coreParameters.ratioHysteresis + 1 - coreParameters.ratioHysteresis);
           i = Gc*v;
         end if;
-        heatPort.Q_flow = -v*i;
+        lossPower = v*i;
         annotation (Icon(graphics={
               Rectangle(
                 extent={{-70,30},{70,-30}},
@@ -12241,7 +12220,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator stray inductance per phase"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       extends PartialBasicMachine(Jr(start=0.29),
-        frictionParameters(wRef(start=2*pi*fsNominal/p)));
+        frictionParameters(wRef(start=2*pi*fsNominal/p)),
+        friction(final useHeatPort=true));
       parameter Machines.Losses.CoreParameters statorCoreParameters(
         final m=3,
         VRef(start=100),
@@ -12300,7 +12280,8 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
             origin={20,20})));
       Modelica.Electrical.Analog.Basic.Inductor lszero(final L=Lszero)
         annotation (Placement(transformation(extent={{0,40},{-20,60}})));
-      Machines.Losses.InductionMachines.Core statorCore(final coreParameters=statorCoreParameters)
+      Machines.Losses.InductionMachines.Core statorCore(final coreParameters=statorCoreParameters, final
+          useHeatPort=true)
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=180,
@@ -12311,7 +12292,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
             extent={{10,10},{-10,-10}},
             rotation=90)));
       Machines.Losses.InductionMachines.StrayLoad strayLoad(final strayLoadParameters=
-            strayLoadParameters)
+            strayLoadParameters, final useHeatPort=true)
         annotation (Placement(transformation(extent={{90,70},{70,90}})));
       replaceable
         Machines.Interfaces.InductionMachines.PartialThermalPortInductionMachines
@@ -12381,12 +12362,12 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           smooth=Smooth.None));
       connect(statorCore.heatPort, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{1.22465e-015,40},{50,40},{50,-80},{0,-80}},
+          points={{10,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{70,70},{70,60},{50,60},{50,-80},{0,-80}},
+          points={{90,70},{90,60},{50,60},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(rs.heatPort, internalThermalPort.heatPortStatorWinding) annotation (
@@ -12396,7 +12377,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
           Line(
-          points={{80,-40},{50,-40},{50,-80},{0,-80}},
+          points={{80,-50},{50,-50},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
         annotation(Documentation(info="<HTML>
@@ -12414,7 +12395,7 @@ Partial model for induction machine models
       "Interfaces and partial models for induction machines"
       extends Modelica.Icons.VariantsPackage;
 
-      partial connector PartialThermalPortInductionMachines
+      connector PartialThermalPortInductionMachines
         "Partial thermal port of induction machines"
         parameter Integer m=3 "Number of phases";
 
@@ -12455,7 +12436,7 @@ Partial thermal port for induction machines
 </HTML>"));
       end PartialThermalPortInductionMachines;
 
-      partial model PartialThermalAmbientInductionMachines
+      model PartialThermalAmbientInductionMachines
         "Partial thermal ambient for induction machines"
         parameter Integer m=3 "Number of phases";
         parameter Boolean useTemperatureInputs=false
@@ -12587,19 +12568,19 @@ Partial thermal ambient for induction machines
 </HTML>"),Diagram(graphics));
       end PartialThermalAmbientInductionMachines;
 
-      partial record PartialPowerBalanceInductionMachines
+      record PartialPowerBalanceInductionMachines
         "Partial power balance of induction machines"
         extends Modelica.Icons.Record;
-        Modelica.SIunits.Power powerStator "Electrical power (stator)";
-        Modelica.SIunits.Power powerMechanical "Mechanical power";
-        Modelica.SIunits.Power powerInertiaStator "Stator inertia power";
-        Modelica.SIunits.Power powerInertiaRotor "Rotor inertia power";
-        Modelica.SIunits.Power lossPowerTotal "Total loss power";
-        Modelica.SIunits.Power lossPowerStatorWinding "Stator copper losses";
-        Modelica.SIunits.Power lossPowerStatorCore "Stator core losses";
-        Modelica.SIunits.Power lossPowerRotorCore "Rotor core losses";
-        Modelica.SIunits.Power lossPowerStrayLoad "Stray load losses";
-        Modelica.SIunits.Power lossPowerFriction "Friction losses";
+        Modelica.SIunits.Power powerStator=0 "Electrical power (stator)";
+        Modelica.SIunits.Power powerMechanical=0 "Mechanical power";
+        Modelica.SIunits.Power powerInertiaStator=0 "Stator inertia power";
+        Modelica.SIunits.Power powerInertiaRotor=0 "Rotor inertia power";
+        Modelica.SIunits.Power lossPowerTotal=0 "Total loss power";
+        Modelica.SIunits.Power lossPowerStatorWinding=0 "Stator copper losses";
+        Modelica.SIunits.Power lossPowerStatorCore=0 "Stator core losses";
+        Modelica.SIunits.Power lossPowerRotorCore=0 "Rotor core losses";
+        Modelica.SIunits.Power lossPowerStrayLoad=0 "Stray load losses";
+        Modelica.SIunits.Power lossPowerFriction=0 "Friction losses";
         annotation (defaultComponentPrefixes="output",
           Documentation(info="<HTML>
 Partial power balance of induction machines.
@@ -12798,7 +12779,8 @@ Interfaces and partial models for induction machines
         "Armature inductance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       extends PartialBasicMachine(Jr(start=0.15),
-        frictionParameters(wRef=wNominal));
+        frictionParameters(wRef=wNominal),
+        friction(final useHeatPort=true));
       parameter Machines.Losses.CoreParameters coreParameters(final m=1,
         VRef=ViNominal, wRef=wNominal) "Armature core losses"
         annotation(Dialog(tab="Losses"));
@@ -12841,14 +12823,17 @@ Interfaces and partial models for induction machines
         final quasiStationary = quasiStationary)
         annotation (Placement(transformation(extent={{30,50},{10,70}}, rotation=
                0)));
-      Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters)
+      Machines.Losses.DCMachines.Brush brush(final brushParameters=brushParameters, final
+          useHeatPort=true)
         annotation (Placement(transformation(
             extent={{-10,10},{10,-10}},
             rotation=180,
             origin={-20,60})));
-      Machines.Losses.DCMachines.Core core(final coreParameters=coreParameters)
+      Machines.Losses.DCMachines.Core core(final coreParameters=coreParameters, final
+          useHeatPort=true)
         annotation (Placement(transformation(extent={{10,70},{-10,90}})));
-      Machines.Losses.DCMachines.StrayLoad strayLoad(final strayLoadParameters=strayLoadParameters)
+      Machines.Losses.DCMachines.StrayLoad strayLoad(final strayLoadParameters=strayLoadParameters, final
+          useHeatPort=true)
         annotation (Placement(transformation(extent={{90,50},{70,70}})));
       replaceable Machines.Interfaces.DCMachines.PartialThermalPortDCMachines
         thermalPort if useThermalPort
@@ -12909,25 +12894,25 @@ Interfaces and partial models for induction machines
           color={0,0,255},
           smooth=Smooth.None));
       connect(core.n, brush.p) annotation (Line(
-          points={{-10,80},{-10,70},{-10,70},{-10,60}},
+          points={{-10,80},{-10,60}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(core.heatPort, internalThermalPort.heatPortCore) annotation (Line(
-          points={{0,70},{0,40},{50,40},{50,-80},{0,-80}},
+          points={{10,70},{10,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(brush.heatPort, internalThermalPort.heatPortBrush) annotation (Line(
-          points={{-20,50},{-20,40},{50,40},{50,-80},{0,-80}},
+          points={{-10,50},{-10,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{70,50},{70,40},{50,40},{50,-80},{0,-80}},
+          points={{90,50},{90,40},{50,40},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
           Line(
-          points={{80,-40},{50,-40},{50,-80},{0,-80}},
+          points={{80,-50},{50,-50},{50,-80},{0,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(ra.heatPort, internalThermalPort.heatPortArmature) annotation (
@@ -12945,7 +12930,7 @@ Partial model for DC machine models.
 
     package DCMachines "Thermal ports of DC machines"
       extends Modelica.Icons.VariantsPackage;
-      partial connector PartialThermalPortDCMachines
+      connector PartialThermalPortDCMachines
         "Partial thermal port of DC machines"
 
         Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortArmature
@@ -12985,7 +12970,7 @@ Partial thermal port for DC machines
 </HTML>"));
       end PartialThermalPortDCMachines;
 
-      partial model PartialThermalAmbientDCMachines
+      model PartialThermalAmbientDCMachines
         "Partial thermal ambient for DC machines"
         parameter Boolean useTemperatureInputs=false
           "If true, temperature inputs are used; else, temperatures are constant"
@@ -13061,25 +13046,25 @@ Partial thermal port for DC machines
             smooth=Smooth.None));
         connect(temperatureArmature.port, thermalPort.heatPortArmature)
           annotation (Line(
-            points={{-80,40},{-80,100},{5.55112e-16,100}},
+            points={{-80,40},{-80,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureBrush.port, thermalPort.heatPortBrush)  annotation (Line(
-            points={{20,20},{20,100},{5.55112e-16,100}},
+            points={{20,20},{20,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureCore.port, thermalPort.heatPortCore)  annotation (Line(
-            points={{40,40},{40,100},{5.55112e-16,100}},
+            points={{40,40},{40,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureStrayLoad.port, thermalPort.heatPortStrayLoad)
           annotation (Line(
-            points={{60,20},{60,100},{5.55112e-16,100}},
+            points={{60,20},{60,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(temperatureFriction.port, thermalPort.heatPortFriction)  annotation (
            Line(
-            points={{80,40},{80,100},{5.55112e-16,100}},
+            points={{80,40},{80,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         annotation (Icon(graphics={
@@ -13106,19 +13091,19 @@ Partial thermal ambient for induction machines
 </HTML>"),Diagram(graphics));
       end PartialThermalAmbientDCMachines;
 
-      partial record PartialPowerBalanceDCMachines
+      record PartialPowerBalanceDCMachines
         "Partial power balance of DC machines"
         extends Modelica.Icons.Record;
-        Modelica.SIunits.Power powerArmature "Electrical armature power";
-        Modelica.SIunits.Power powerMechanical "Mechanical power";
-        Modelica.SIunits.Power powerInertiaStator "Stator inertia power";
-        Modelica.SIunits.Power powerInertiaRotor "Rotor inertia power";
-        Modelica.SIunits.Power lossPowerTotal "Total loss power";
-        Modelica.SIunits.Power lossPowerArmature "Armature copper losses";
-        Modelica.SIunits.Power lossPowerCore "Core losses";
-        Modelica.SIunits.Power lossPowerStrayLoad "Stray load losses";
-        Modelica.SIunits.Power lossPowerFriction "Friction losses";
-        Modelica.SIunits.Power lossPowerBrush "Brush losses";
+        Modelica.SIunits.Power powerArmature=0 "Electrical armature power";
+        Modelica.SIunits.Power powerMechanical=0 "Mechanical power";
+        Modelica.SIunits.Power powerInertiaStator=0 "Stator inertia power";
+        Modelica.SIunits.Power powerInertiaRotor=0 "Rotor inertia power";
+        Modelica.SIunits.Power lossPowerTotal=0 "Total loss power";
+        Modelica.SIunits.Power lossPowerArmature=0 "Armature copper losses";
+        Modelica.SIunits.Power lossPowerCore=0 "Core losses";
+        Modelica.SIunits.Power lossPowerStrayLoad=0 "Stray load losses";
+        Modelica.SIunits.Power lossPowerFriction=0 "Friction losses";
+        Modelica.SIunits.Power lossPowerBrush=0 "Brush losses";
         annotation (defaultComponentPrefixes="output",
           Documentation(info="<HTML>
 Partial power balance of DC machines.
