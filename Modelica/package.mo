@@ -2346,8 +2346,8 @@ Incorporation of bug fixes (subversion \"commit\") shall be performed in the fol
      Example:
          <pre>  annotation(version      = \"3.1\",
              versionDate  = \"2009-06-22\",
-             versionBuild = 3,
-             dateModified = \"2009-08-28 07:40:19Z\",
+             versionBuild = 4,
+             dateModified = \"2011-06-28 08:50:00Z\",
              revisionId   = \"$I&#8203;d::                                       $\")</pre>
      The \"revisionId\" field is a bit special though. If written like in the example above it will be automatically
      expanded to:
@@ -2396,6 +2396,15 @@ units are wrong or errors in documentation):
 </p>
 
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.</b></td></tr>
+<tr><td valign=\"top\">heat ports of loss models<br>
+                       </td>
+    <td valign=\"top\"> Heat ports of loss models have been made conditional 
+                        to ensure backwards compatibility (to 3.1).</td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Magnetic.FundamentalWave.</b></td></tr>
+<tr><td valign=\"top\">core conductance<br>
+                       </td>
+    <td valign=\"top\"> Corrected bug in calculation of the winding model core conductance.</td></tr>
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
 <tr><td valign=\"top\"> rcond<br>
                       discreteRiccati<br>
