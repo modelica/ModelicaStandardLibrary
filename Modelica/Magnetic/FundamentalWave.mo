@@ -112,7 +112,7 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
 
 <p>
 Christian Kral<br>
-<a href=\"http://www.ait.ac.at\">Austrian Institute of Technology, AIT</a><br>
+<a href=\"http://www.ait.ac.at\">AIT Austrian Institute of Technology GmbH</a><br>
 Mobility Department<br>
 Giefinggasse 2, 1210 Vienna, Austria<br>
 email: <a HREF=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a><br></dd>
@@ -141,6 +141,14 @@ for contributing his source code to this library.
       extends Modelica.Icons.ReleaseNotes;
 
       annotation (Documentation(info="<html>
+
+<h5>Version 1.7.2, 2011-06-28</h5>
+
+<ul>
+<li>Corrected bug in calculation of core conductance in 
+<a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>: 
+the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2)</code> is now replaced by <code>G=(m/2)*GcRef*effectiveTurns^2)</code></li>
+</ul>
 
 <h5>Version 1.7.1, 2010-09-03</h5>
 
@@ -3231,8 +3239,9 @@ The single phase winding consists of a
         Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore if useHeatPort
           "Heat ports of winding resistor"
           annotation (Placement(transformation(extent={{30,-110},{50,-90}})));
-        Modelica.Magnetic.FundamentalWave.Components.EddyCurrent core(final G=(
-              m/2)*GcRef/effectiveTurns^2, final useHeatPort=useHeatPort)
+        Modelica.Magnetic.FundamentalWave.Components.EddyCurrent core(
+                                           final useHeatPort=useHeatPort, final G=
+              (m/2)*GcRef*effectiveTurns^2)
           "Core loss model (currently eddy currents only)"
                  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -4978,6 +4987,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>1.7.2</td><td>    </td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model</td></tr>
 <tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
@@ -4996,7 +5006,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </p>
 </html>", info="<html>
 <p>
-Copyright &copy; 2009-2010, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2009-2011, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
