@@ -2491,8 +2491,7 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
         smooth=Smooth.None));
     annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}),
-              ),
+              {100,100}})),
       experiment(StopTime=3, Interval=0.001),
       Documentation(info="<HTML>
 <b>Test example: Compare characteristic of DC motors</b><br>
