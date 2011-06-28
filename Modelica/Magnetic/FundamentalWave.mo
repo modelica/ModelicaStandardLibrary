@@ -14,7 +14,7 @@ package FundamentalWave
 <h4>Overview of the concept of fundamental waves</h4>
 
 <p>
-The exact magnetic field in the air gap of an electric machine is usually determined by an electro magnetic finite element analysis. The waveform of the magnetic field, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, consists of a spatial fundamental wave - with respect to one pole pair - and additional harmonic waves of different order. The fundamental wave is however dominant in the air gap of an electric machine.
+The exact magnetic field in the air gap of an electric machine is usually determined by an electro magnetic finite element analysis. The waveform of the magnetic field, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, consists of a spatial fundamental wave - with respect to an equivalent two pole machine - and additional harmonic waves of different order. The fundamental wave is however dominant in the air gap of an electric machine.
 </p>
 
 <p>
@@ -48,6 +48,8 @@ The waveforms of the magnetic field quantities, e.g., the magnetic potential dif
 <p>
 &nbsp;&nbsp;<img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_real_complex.png\">
 </p>
+
+<p>It is important to note that the magnetic potential used in this library <b>always</b> refers to an equivalent two pole machine.</p>
 
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Spatial distribution of the magnetic potential difference (red shade = positive sine wave, blue shade = negative sine wave) including complex phasor representing this spatial distribution</caption>
@@ -85,6 +87,7 @@ The machine models of the FundamentalWave library are currently based on the fol
     </li>
 <li>The phase windings are assumed to be symmetrical; an extension to this approach can be considererd</li>
 <li>Only fundamental wave effects are taken into account</li>
+<li>The magnetic potential difference refers to an equivalent two pole machine</li>
 <li>There are no restrictions on the waveforms of voltages and currents</li>
 <li>All resistances and inductances are modeled as constant quantities; saturation effects, cross coupling effects
     [<a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.References\">Li07</a>], temperature dependency of resistances and deep bar effects could be considered in an extension to this library</li>
@@ -109,7 +112,7 @@ The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic
 
 <p>
 Christian Kral<br>
-<a href=\"http://www.ait.ac.at\">Austrian Institute of Technology, AIT</a><br>
+<a href=\"http://www.ait.ac.at\">AIT Austrian Institute of Technology GmbH</a><br>
 Mobility Department<br>
 Giefinggasse 2, 1210 Vienna, Austria<br>
 email: <a HREF=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a><br></dd>
@@ -138,6 +141,14 @@ for contributing his source code to this library.
       extends Modelica.Icons.ReleaseNotes;
 
       annotation (Documentation(info="<html>
+
+<h5>Version 1.7.2, 2011-06-28</h5>
+
+<ul>
+<li>Corrected bug in calculation of core conductance in 
+<a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>: 
+the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2)</code> is now replaced by <code>G=(m/2)*GcRef*effectiveTurns^2)</code></li>
+</ul>
 
 <h5>Version 1.7.1, 2010-09-03</h5>
 
@@ -350,7 +361,14 @@ This library contains components for modelling of electromagnetic fundamental wa
 
 <p>
 For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Concept\">concept.</a>
-</html>"));
+
+<h5>Note</h5>
+
+<p>All the machine models provided in this library are equivalent two pole machines.
+The magnetic potential difference of the connecter therefore also refers to an equivalent two pole machine<p>
+
+</html>
+"));
   end UsersGuide;
 
   package Examples
@@ -549,7 +567,6 @@ For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(graphics),
           experiment(StopTime=40, Interval=0.01),
           Documentation(info="<html>
 <p>
@@ -686,7 +703,8 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxM.plug_sp,             aimcM.plug_sp)
           annotation (Line(points={{6,-10},{6,-10}}, color={0,0,255}));
         connect(terminalBoxM.plugSupply, currentRMSsensorM.plug_n)
-          annotation (Line(points={{0,-8},{-1.83697e-015,-8},{-1.83697e-015,20}},
+          annotation (Line(points={{6.10623e-16,-8},{-1.33731e-15,-8},{
+                -1.33731e-15,20}},
               color={0,0,255}));
         connect(aimcE.flange,   loadInertiaE.flange_a)
           annotation (Line(points={{10,-80},{10,-80},{50,-80}},
@@ -698,14 +716,15 @@ In this example the eddy current losses are implemented in two different ways. C
         connect(terminalBoxE.plug_sp,             aimcE.plug_sp)
           annotation (Line(points={{6,-70},{6,-70}}, color={0,0,255}));
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)
-          annotation (Line(points={{-60,20},{-60,-60},{0,-60},{0,-68}},
+          annotation (Line(points={{-60,20},{-60,-60},{6.10623e-16,-60},{
+                6.10623e-16,-68}},
               color={0,0,255}));
         connect(sineVoltage.plug_p, idealCloser.plug_p) annotation (Line(
-            points={{-20,90},{1.83697e-015,90},{1.83697e-015,70}},
+            points={{-20,90},{2.33651e-15,90},{2.33651e-15,70}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,40}},
+            points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,40}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(booleanStep.y, idealCloser.control) annotation (Line(
@@ -713,7 +732,7 @@ In this example the eddy current losses are implemented in two different ways. C
             color={255,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n) annotation (Line(
-            points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
+            points={{-60,40},{0,40},{0,50},{-1.33731e-15,50}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -899,7 +918,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(currentRMSsensorM.plug_n, terminalBoxM.plugSupply)
           annotation (
             Line(
-            points={{-1.83697e-015,10},{0,10},{0,-8}},
+            points={{-1.33731e-15,10},{6.10623e-16,10},{6.10623e-16,-8}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(rheostatM.plug_p, aimsM.plug_rp) annotation (Line(
@@ -912,20 +931,20 @@ Simulate for 1.5 seconds and plot (versus time):
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_n, terminalBoxE.plugSupply)
           annotation (Line(
-            points={{-60,10},{-60,-60},{0,-60},{0,-68}},
+            points={{-60,10},{-60,-60},{6.10623e-16,-60},{6.10623e-16,-68}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_n, currentRMSsensorM.plug_p) annotation (Line(
-            points={{-1.83697e-015,50},{1.83697e-015,50},{1.83697e-015,30}},
+            points={{-1.33731e-15,50},{2.33651e-15,50},{2.33651e-15,30}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(currentRMSsensorE.plug_p, idealCloser.plug_n)
           annotation (Line(
-            points={{-60,30},{-1.83697e-015,30},{-1.83697e-015,50}},
+            points={{-60,30},{-1.33731e-15,30},{-1.33731e-15,50}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(idealCloser.plug_p, sineVoltage.plug_p) annotation (Line(
-            points={{1.83697e-015,70},{0,70},{0,90},{-20,90}},
+            points={{2.33651e-15,70},{0,70},{0,90},{-20,90}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -1091,7 +1110,7 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
       equation
         connect(signalVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
+          annotation (Line(points={{1.22629e-15,70},{1.22629e-15,90},{-50,90}},
               color={0,0,255}));
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1102,8 +1121,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}, color={0,0,0}));
         connect(signalVoltage.plug_p,currentRMSsensorM. plug_p)  annotation (Line(
-              points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},
-                                                                        color={0,0,
+              points={{-2.44753e-15,50},{0,50},{0,40},{2.33651e-15,40}},color={0,0,
                 255}));
         connect(rotorAngleM.plug_n, smpmM.plug_sn)  annotation (Line(points={{36,-10},
                 {36,0},{-6,0},{-6,-10}},                       color={0,0,255}));
@@ -1120,7 +1138,8 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(terminalBoxM.plug_sp, smpmM.plug_sp)  annotation (Line(
               points={{6,-10},{6,-10}},                           color={0,0,255}));
         connect(terminalBoxM.plugSupply,currentRMSsensorM. plug_n) annotation (Line(
-              points={{0,-8},{0,20},{-1.83697e-015,20}},   color={0,0,255}));
+              points={{6.10623e-16,-8},{6.10623e-16,20},{-1.33731e-15,20}},
+                                                           color={0,0,255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
         connect(rotorAngleE.plug_n, smpmE.plug_sn)  annotation (Line(points={{36,-70},
@@ -1137,9 +1156,10 @@ Simulate for 1.5 seconds and plot (versus time):
               points={{6,-70},{6,-70}},   color={0,0,255}));
 
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)   annotation (Line(
-              points={{-60,20},{-60,-50},{0,-50},{0,-68}},     color={0,0,255}));
+              points={{-60,20},{-60,-50},{6.10623e-16,-50},{6.10623e-16,-68}},
+                                                               color={0,0,255}));
         connect(currentRMSsensorE.plug_p, signalVoltage.plug_p) annotation (Line(
-            points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
+            points={{-60,40},{0,40},{0,50},{-2.44753e-15,50}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -1163,8 +1183,8 @@ and accelerate the inertias.</p>
 
 <ul>
 <li><code>currentRMSsensorM|E.I</code>: equivalent RMS stator current</li>
-<li><code>pmsmM|E.wMechanical</code>: machine speed</li>
-<li><code>pmsmM|E.tauElectrical</code>: machine torque</li>
+<li><code>smpmM|E.wMechanical</code>: machine speed</li>
+<li><code>smpmM|E.tauElectrical</code>: machine torque</li>
 <li><code>rotorAnglepmsmM|E.rotorDisplacementAngle</code>: rotor displacement angle</li>
 </ul>
 </HTML>"));
@@ -1373,7 +1393,7 @@ and accelerate the inertias.</p>
 
         connect(electricalPowerSensorM.plug_p, sineVoltage.plug_p) annotation (
             Line(
-            points={{1.83697e-015,40},{0,40},{0,90},{-20,90}},
+            points={{2.44753e-15,40},{0,40},{0,90},{-20,90}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_p, sineVoltage.plug_p) annotation (
@@ -1383,12 +1403,12 @@ and accelerate the inertias.</p>
             smooth=Smooth.None));
         connect(electricalPowerSensorM.plug_ni, terminalBoxM.plugSupply)
           annotation (Line(
-            points={{-1.83697e-015,20},{0,20},{0,-8}},
+            points={{-1.22629e-15,20},{6.10623e-16,20},{6.10623e-16,-8}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_ni, terminalBoxE.plugSupply)
           annotation (Line(
-            points={{-60,20},{-60,-50},{0,-50},{0,-68}},
+            points={{-60,20},{-60,-50},{6.10623e-16,-50},{6.10623e-16,-68}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(electricalPowerSensorE.plug_nv, star.plug_p) annotation (Line(
@@ -1559,7 +1579,7 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
       equation
         connect(signalVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
+          annotation (Line(points={{1.22629e-15,70},{1.22629e-15,90},{-50,90}},
               color={0,0,255}));
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1582,7 +1602,8 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         connect(terminalBoxE.plug_sn,            smrE. plug_sn)  annotation (Line(
               points={{-6,-70},{-6,-70}},   color={0,0,255}));
         connect(terminalBoxE.plugSupply,currentRMSsensorE. plug_n) annotation (Line(
-              points={{0,-68},{0,-50},{-60,-50},{-60,10}},     color={0,0,255}));
+              points={{6.10623e-16,-68},{6.10623e-16,-50},{-60,-50},{-60,10}},
+                                                               color={0,0,255}));
         connect(smrM.flange,   loadInertiaM.flange_a) annotation (Line(points={{10,-20},
                 {50,-20}},      color={0,0,0}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
@@ -1599,14 +1620,13 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         connect(terminalBoxM.plug_sn,             smrM.plug_sn)  annotation (Line(
               points={{-6,-10},{-6,-10}},                    color={0,0,255}));
         connect(currentRMSsensorM.plug_n,terminalBoxM.plugSupply)  annotation (Line(
-              points={{-1.83697e-015,10},{-1.83697e-015,-8},{0,-8}},
+              points={{-1.33731e-15,10},{-1.33731e-15,-8},{6.10623e-16,-8}},
                                          color={0,0,255}));
         connect(signalVoltage.plug_p, currentRMSsensorM.plug_p) annotation (Line(
-              points={{-1.83697e-015,50},{-1.83697e-015,30},{1.83697e-015,30}},
+              points={{-2.44753e-15,50},{-2.44753e-15,30},{2.33651e-15,30}},
                                                                    color={0,0,255}));
         connect(signalVoltage.plug_p, currentRMSsensorE.plug_p) annotation (Line(
-              points={{-1.83697e-015,50},{0,50},{0,30},{-60,30}},
-                                                                color={0,0,255}));
+              points={{-2.44753e-15,50},{0,50},{0,30},{-60,30}},color={0,0,255}));
 
         annotation (
           experiment(
@@ -1906,8 +1926,7 @@ relationship of the voltage and current space phasor.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-                           Icon(coordinateSystem(
+            grid={2,2})),  Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -2105,7 +2124,7 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <p>
 </p>
 </html>"),
-        Diagram(graphics),defaultComponentName="converter");
+        defaultComponentName="converter");
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Salient reluctance"
@@ -2261,7 +2280,7 @@ located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.
             points={{0,-40},{-40,-40},{-40,-90}},
             color={191,0,0},
             smooth=Smooth.None));
-        annotation (defaultComponentName="aimc",Icon(graphics),
+        annotation (defaultComponentName="aimc",
         Documentation(info="<html>
 <p>
 Resistances and stray inductances of the machine refer to the stator phases. The symmetry of the stator and rotor is assumed. The machine models take the following loss effects into account:
@@ -3220,8 +3239,9 @@ The single phase winding consists of a
         Thermal.HeatTransfer.Interfaces.HeatPort_a heatPortCore if useHeatPort
           "Heat ports of winding resistor"
           annotation (Placement(transformation(extent={{30,-110},{50,-90}})));
-        Modelica.Magnetic.FundamentalWave.Components.EddyCurrent core(final G=(
-              m/2)*GcRef/effectiveTurns^2, final useHeatPort=useHeatPort)
+        Modelica.Magnetic.FundamentalWave.Components.EddyCurrent core(
+                                           final useHeatPort=useHeatPort, final G=
+              (m/2)*GcRef*effectiveTurns^2)
           "Core loss model (currently eddy currents only)"
                  annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -4178,7 +4198,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -4241,7 +4261,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
@@ -4295,7 +4315,7 @@ Source of magnetic flux with complex signal input.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
+            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
@@ -4747,8 +4767,7 @@ This model is mainly used to extend from in order build more complex - equation 
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </HTML>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -4968,6 +4987,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
 </thead>
 <tbody>
+<tr><td>1.7.2</td><td>    </td>  <td>2011-06-28</td>  <td>C. Kral<br>A. Haumer</td>  <td>Corrected bug in prametrization of symmetrical multi phase winding model</td></tr>
 <tr><td>1.7.1</td><td>4170</td>  <td>2010-09-13</td>  <td>C. Kral</td>  <td>Corrected bug in partial one port models</td></tr>
 <tr><td>1.7.0</td><td>3899</td>  <td>2010-05-31</td>  <td>C. Kral<br>A. Haumer</td>  <td>Changed single phase and symmetrical multi phase winding model<br>Relocated core losses</td></tr>
 <tr><td>1.6.0</td><td>3837</td>  <td>2010-05-05</td>  <td>C. Kral</td>  <td>Renamed all parameters windingAngle to orientation<br>Update due to changed class names in Machines.Icons<br>Exchanged positive and negative stator ports of air gap model</td></tr>
@@ -4986,7 +5006,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 </p>
 </html>", info="<html>
 <p>
-Copyright &copy; 2009-2010, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
+Copyright &copy; 2009-2011, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Anton Haumer</a>
 </p>
 <p>
