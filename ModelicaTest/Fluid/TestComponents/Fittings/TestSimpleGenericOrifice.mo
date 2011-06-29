@@ -10,7 +10,7 @@ model TestSimpleGenericOrifice
       Modelica.Media.Water.ConstantPropertyLiquidWater
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
-    choicesAllMatching =                                                                            true);
+    __Dymola_choicesAllMatching =                                                                            true);
 
   Modelica.Fluid.Sources.Boundary_pT ambient_a( redeclare package Medium =
         Medium,

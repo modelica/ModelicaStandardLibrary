@@ -448,7 +448,7 @@ it is open.
         constrainedby
         Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
         "Inherent flow characteristic"
-        annotation(choicesAllMatching=true);
+        annotation(__Dymola_choicesAllMatching=true);
 
       parameter SI.Pressure dp_small=system.dp_small
         "Regularisation of zero flow"                 annotation(Dialog(tab="Advanced"));

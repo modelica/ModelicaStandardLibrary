@@ -7,7 +7,7 @@ model TestWallFriction
       Modelica.Media.Water.ConstantPropertyLiquidWater
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
-    choicesAllMatching =                                                                            true);
+    __Dymola_choicesAllMatching =                                                                            true);
   parameter Modelica.SIunits.Length roughness = 0.025e-3;
 
   Modelica.Fluid.Sources.Boundary_pT ambient_a(redeclare package Medium =

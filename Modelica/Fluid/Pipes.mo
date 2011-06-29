@@ -112,7 +112,7 @@ or other flow models without storage, are directly connected.
       constrainedby
       Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
       "Wall heat transfer"
-        annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
+        annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),__Dymola_choicesAllMatching=true);
     Interfaces.HeatPorts_a[nNodes] heatPorts if use_HeatTransfer
       annotation (Placement(transformation(extent={{-10,45},{10,65}}), iconTransformation(extent={{-30,36},
               {32,52}})));
@@ -315,7 +315,7 @@ The intended use is for complex networks of pipes and other flow devices, like v
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Wall friction, gravity, momentum flow"
-          annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
+          annotation(Dialog(group="Pressure loss"), __Dymola_choicesAllMatching=true);
 
     equation
       assert(length >= height_ab, "Parameter length must be greater or equal height_ab.");
@@ -421,7 +421,7 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Wall friction, gravity, momentum flow"
-          annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
+          annotation(Dialog(group="Pressure loss"), __Dymola_choicesAllMatching=true);
       FlowModel flowModel(
               redeclare final package Medium = Medium,
               final n=nFM+1,
@@ -1268,7 +1268,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                 constrainedby
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
           "Wall friction model"
-                annotation(Dialog(group="Wall friction"), choicesAllMatching=true,__Dymola_editButton=false);
+                annotation(Dialog(group="Wall friction"), __Dymola_choicesAllMatching=true,__Dymola_editButton=false);
 
             input SI.Length[n-1] pathLengths_internal
           "pathLengths used internally; to be defined by extending class";
@@ -3415,7 +3415,7 @@ b has the same sign of the change of density.</p>
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.QuadraticTurbulent
           constrainedby
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
-          "Characteristic of wall friction"  annotation(choicesAllMatching=true);
+          "Characteristic of wall friction"  annotation(__Dymola_choicesAllMatching=true);
 
         parameter SI.Length length "Length of pipe";
         parameter SI.Diameter diameter "Inner (hydraulic) diameter of pipe";

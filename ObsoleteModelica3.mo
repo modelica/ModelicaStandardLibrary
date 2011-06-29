@@ -194,7 +194,7 @@ This block is only provided for backward compatibility.
           replaceable block ConversionBlock =
               Modelica.Blocks.Interfaces.PartialConversionBlock
             "Conversion block"
-            annotation (choicesAllMatching=true,
+            annotation (__Dymola_choicesAllMatching=true,
             Documentation(info=
                            "<html>
 <p>

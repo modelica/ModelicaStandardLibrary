@@ -792,7 +792,7 @@ with exception of boundary flow rate, do not have an effect.
     replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium
         "Medium model within the source"
-       annotation (choicesAllMatching=true);
+       annotation (__Dymola_choicesAllMatching=true);
 
     Medium.BaseProperties medium "Medium in the source";
 

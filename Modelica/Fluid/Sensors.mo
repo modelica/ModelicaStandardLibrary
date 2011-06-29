@@ -656,7 +656,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
     extends Modelica.Icons.TranslationalSensor;
     replaceable package Medium =
       Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
-        choicesAllMatching = true);
+        __Dymola_choicesAllMatching = true);
 
     Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
                                   redeclare package Medium = Medium)
@@ -727,7 +727,7 @@ through the sensor is allowed.
     extends Modelica.Icons.TranslationalSensor;
     replaceable package Medium =
       Modelica.Media.Interfaces.PartialMedium "Medium in the sensor"  annotation (
-        choicesAllMatching = true);
+        __Dymola_choicesAllMatching = true);
     Modelica.Fluid.Interfaces.FluidPort_a port_a(m_flow(min=0),
                                   redeclare package Medium = Medium)
       annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
@@ -923,7 +923,7 @@ the two ports of this component and is provided as output signal.
 
       replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
         "Medium in the sensor"
-        annotation(choicesAllMatching=true);
+        annotation(__Dymola_choicesAllMatching=true);
 
       Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium=Medium, m_flow(min=0))
         annotation (Placement(transformation(

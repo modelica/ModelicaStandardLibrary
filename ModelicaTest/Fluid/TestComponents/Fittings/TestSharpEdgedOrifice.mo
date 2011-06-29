@@ -7,7 +7,7 @@ model TestSharpEdgedOrifice
   replaceable package Medium = Modelica.Media.IdealGases.SingleGases.O2
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
-    choicesAllMatching =                                                                            true);
+    __Dymola_choicesAllMatching =                                                                            true);
 
   Modelica.Fluid.Sources.Boundary_pT ambient_p(redeclare package Medium =
         Medium,

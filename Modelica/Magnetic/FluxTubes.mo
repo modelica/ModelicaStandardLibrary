@@ -621,7 +621,7 @@ Whereas the steady state current is the same in both models, the steady state ac
           parameter Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData
             material=
             Modelica.Magnetic.FluxTubes.Material.HardMagnetic.BaseData()
-            "Ferromagnetic material characteristics"     annotation(choicesAllMatching=true, Dialog(group="Material"));
+            "Ferromagnetic material characteristics"     annotation(__Dymola_choicesAllMatching=true, Dialog(group="Material"));
 
           parameter SI.Mass m_a = 0.012 "Mass of armature" annotation(Dialog(group="Armature and stopper"));
 
@@ -1554,7 +1554,7 @@ The characteristic current drop during pull-in is due to both armature motion an
             material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
             "Ferromagnetic material characteristics"
-            annotation(choicesAllMatching=true, Dialog(group="Material"));
+            annotation(__Dymola_choicesAllMatching=true, Dialog(group="Material"));
 
         //armature
           parameter SI.Radius r_arm = 5e-3 "Armature radius = pole radius" annotation(Dialog(group="Armature and stopper"));
@@ -1893,7 +1893,7 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             material=
             Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.Steel.Steel_9SMnPb28()
             "Ferromagnetic material characteristics"
-            annotation(choicesAllMatching=true, Dialog(group="Material"));
+            annotation(__Dymola_choicesAllMatching=true, Dialog(group="Material"));
 
         //armature
           parameter SI.Radius r_arm = 5e-3 "Armature radius = pole radius" annotation(Dialog(group="Armature and stopper"));
@@ -4205,7 +4205,7 @@ This magnetic flux is provided explicitly as flux Phi.
         material=
         Modelica.Magnetic.FluxTubes.Material.SoftMagnetic.BaseData()
         "Ferromagnetic material characteristics; used if nonLinearPermeability = true"
-        annotation(choicesAllMatching=true, Dialog(group="Material", enable = nonLinearPermeability));
+        annotation(__Dymola_choicesAllMatching=true, Dialog(group="Material", enable = nonLinearPermeability));
 
       SI.Reluctance R_m "Magnetic reluctance";
       SI.Permeance G_m "Magnetic permeance";

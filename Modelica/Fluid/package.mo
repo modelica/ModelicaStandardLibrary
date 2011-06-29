@@ -450,7 +450,7 @@ with the following code fragment
 </p>
 <pre>    <b>replaceable package</b> Medium =
                    Modelica.Media.Interfaces.PartialMedium
-                   <b>annotation</b>(choicesAllMatching = <b>true</b>);
+                   <b>annotation</b>(__Dymola_choicesAllMatching = <b>true</b>);
 
     Interfaces.FluidPort_a port_a(<b>redeclare package</b> Medium = Medium);
     Interfaces.FluidPort_b port_b(<b>redeclare package</b> Medium = Medium);
@@ -1577,7 +1577,7 @@ standard library.
 <li><i>Nov. 30, 2002</i><br>
        by Martin Otter: Improved the design from the design meeting:
        Adapted to Modelica standard library 1.5,
-       added \"choicesAllMatching=true\" annotation,
+       added \"__Dymola_choicesAllMatching=true\" annotation,
        added short documentation to \"Interfaces\",
        added packages \"Examples\" and \"Media\" (previously called \"Properties\")
        from previous versions and adapted them to the updated

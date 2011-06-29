@@ -238,7 +238,7 @@ end OpenTank;
           constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer"
-            annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
+            annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),__Dymola_choicesAllMatching=true);
         HeatTransfer heatTransfer(
           redeclare final package Medium = Medium,
           final n=1,

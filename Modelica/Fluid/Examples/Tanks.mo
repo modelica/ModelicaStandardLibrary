@@ -11,7 +11,7 @@ package Tanks "Library demonstrating the usage of the tank model"
      replaceable package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater                           constrainedby
       Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-        annotation (choicesAllMatching = true);
+        annotation (__Dymola_choicesAllMatching = true);
 
     Modelica.Fluid.Vessels.OpenTank tank1(
       crossArea=1,
