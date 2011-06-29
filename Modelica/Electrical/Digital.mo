@@ -2779,7 +2779,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               -100},{100,100}})),
                                 Documentation(info="<html>
 <p>This package contains basic definitions: Type definitions of Logic and Strength,  interface definitions (connectors) for digital electrical components, and partial models for connection patterns which are often used.</p>
-</html>"),DymolaStoredErrors);
+</html>"));
       end Interfaces;
 
   package Tables "Truth tables for all components of package Digital"

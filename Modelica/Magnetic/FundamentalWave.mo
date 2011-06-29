@@ -145,8 +145,8 @@ for contributing his source code to this library.
 <h5>Version 1.7.2, 2011-06-28</h5>
 
 <ul>
-<li>Corrected bug in calculation of core conductance in 
-<a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>: 
+<li>Corrected bug in calculation of core conductance in
+<a href=\"Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseWinding\">SymmetricMultiPhaseWinding</a>:
 the wrong calculation <code>G=(m/2)*GcRef/effectiveTurns^2)</code> is now replaced by <code>G=(m/2)*GcRef*effectiveTurns^2)</code></li>
 </ul>
 
@@ -2197,7 +2197,7 @@ This is a simple short cut branch.
 </html>"),
         Diagram(graphics));
     end Short;
-    annotation (DymolaStoredErrors, Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
 located at <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components\">Machines.Components</a>.</p>
 </html>"));

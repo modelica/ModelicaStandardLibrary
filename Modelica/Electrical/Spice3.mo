@@ -586,7 +586,6 @@ end inverter;
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}})),
         experiment(StopTime=5),
-        DymolaStoredErrors,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
@@ -1883,7 +1882,6 @@ The corresponding SPICE description
        Icon(
           coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
                 100}})),
-       DymolaStoredErrors,
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
@@ -2032,8 +2030,7 @@ The corresponding SPICE description
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.<br></li>
 </ul>
-</html>"),
-        DymolaStoredErrors);
+</html>"));
     end V_sin;
 
     model V_exp "Exponential voltage source"
@@ -3541,8 +3538,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
             Text(
               extent={{8,-34},{92,-86}},
               lineColor={0,0,255},
-              textString="%name")}),
-        DymolaStoredErrors);
+              textString="%name")}));
   end MOS;
 
      record ModelcardMOS "Record with technological parameters (.model)"
@@ -3770,8 +3766,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
             Text(
               extent={{8,-34},{92,-86}},
               lineColor={0,0,255},
-              textString="%name")}),
-        DymolaStoredErrors);
+              textString="%name")}));
   end MOS2;
 
      record ModelcardMOS2 "Record with technological parameters (.model)"
@@ -4072,7 +4067,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
              extent={{-154,100},{146,60}},
              textString="%name",
              lineColor={0,0,255})}),
-       DymolaStoredErrors,
        Documentation(info="<html>
 <p>DIODE model</p>
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>

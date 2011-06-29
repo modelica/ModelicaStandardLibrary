@@ -2565,7 +2565,6 @@ The details of the record are described
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
-            DymolaStoredErrors,
             Documentation(revisions="",
                 info="<html>
 <p>
@@ -2606,7 +2605,6 @@ cross section of the orifice.
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
-            DymolaStoredErrors,
             Documentation(revisions="",
                 info="<html>
 <p>
@@ -2650,7 +2648,6 @@ cross section of the orifice.
                   lineColor={0,0,0},
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid)}),
-            DymolaStoredErrors,
             Documentation(revisions="",
                 info="<html>
 <p>

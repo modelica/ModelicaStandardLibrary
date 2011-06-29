@@ -1860,7 +1860,6 @@ public
             lineColor={0,0,255})}),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}})),
-      DymolaStoredErrors,
       Documentation(info="<html>
 <p>This is a simple TRIAC model based on the extended thyristor model Modelica.Electrical.Analog.Semiconductors.Thyristor.
 <br>Two thyristors are contrarily connected in parallel, whereas each transistor is connected with a diode.
