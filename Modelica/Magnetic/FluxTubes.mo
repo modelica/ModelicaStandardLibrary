@@ -1779,11 +1779,6 @@ The characteristic current drop during pull-in is due to both armature motion an
             smooth=Smooth.None));
           annotation (__Dymola_Images(Parameters(source=
                     "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png")),
-            Window(
-              x=0.16,
-              y=0.15,
-              width=0.6,
-              height=0.6),
             Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -2214,11 +2209,6 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
             smooth=Smooth.None));
           annotation (__Dymola_Images(Parameters(source=
                     "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png")),
-            Window(
-              x=0.16,
-              y=0.15,
-              width=0.6,
-              height=0.6),
             Icon(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
@@ -2396,11 +2386,6 @@ The differences between these two models in static behaviour can be analysed and
         connect(flange_b, mass.flange_b) annotation (Line(points={{100,0},{10,0}},
             color={0,127,0}));
         annotation (defaultComponentName = "armature",
-          Window(
-            x=0.21,
-            y=0.35,
-            width=0.53,
-            height=0.73),
           Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2628,12 +2613,7 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
           Text(
             extent={{-40,-40},{40,20}},
             lineColor={0,0,255},
-            textString="port.V_m = 0")}),
-        Window(
-          x=0.23,
-          y=0.23,
-          width=0.59,
-          height=0.63));
+            textString="port.V_m = 0")}));
     end Ground;
 
     model ElectroMagneticConverter "Electro-magnetic energy conversion"
@@ -2730,11 +2710,6 @@ The magnetic potential at the magnetic ground node is zero. Every magnetic netwo
             lineColor={160,160,164},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid)}),
-        Window(
-          x=0.26,
-          y=0.14,
-          width=0.58,
-          height=0.58),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2836,12 +2811,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
     equation
       V_m = Phi * R_m;
 
-      annotation (
-        Window(
-          x=0.16,
-          y=0.15,
-          width=0.6,
-          height=0.6),
+      annotation(
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2919,12 +2889,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
     equation
       LossPower = V_m*der(Phi);
       V_m = 1/R * der(Phi); //Magnetic voltage drop in magnetic network due to eddy current
-      annotation (
-        Window(
-          x=0.16,
-          y=0.15,
-          width=0.6,
-          height=0.6),
+      annotation(
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2990,11 +2955,6 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
 
         annotation (__Dymola_Images(Parameters(group="Fixed geometry", source=
                   "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderAxialFlux.png")),
-          Window(
-            x=0.16,
-            y=0.15,
-            width=0.6,
-            height=0.6),
           Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -3032,11 +2992,6 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 
         annotation (__Dymola_Images(Parameters(group="Fixed geometry", source=
                   "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderRadialFlux.png")),
-          Window(
-            x=0.16,
-            y=0.15,
-            width=0.6,
-            height=0.6),
           Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -3076,11 +3031,6 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 
         annotation (__Dymola_Images(Parameters(group="Fixed geometry", source=
                   "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png")),
-          Window(
-            x=0.16,
-            y=0.15,
-            width=0.6,
-            height=0.6),
           Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -4157,11 +4107,6 @@ connector port_n.
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2})),
-        Window(
-          x=0.33,
-          y=0.04,
-          width=0.63,
-          height=0.67),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4230,11 +4175,6 @@ This magnetic flux is provided explicitly as flux Phi.
       H = B / (mu_0 * mu_r);
 
       annotation (
-        Window(
-          x=0.16,
-          y=0.15,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4308,11 +4248,6 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
       flange.f = -F_m;
 
       annotation (
-        Window(
-          x=0.16,
-          y=0.15,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4367,11 +4302,6 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
       R_m = 1/G_m;
 
       annotation (
-        Window(
-          x=0.16,
-          y=0.15,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4397,13 +4327,7 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
 </p>
 </html>"));
     end PartialLeakage;
-    annotation (             Window(
-        x=0,
-        y=0.48,
-        width=0.2,
-        height=0.21,
-        library=1,
-        autolayout=1),
+    annotation (
     Documentation(info="<html>
 <p>
 This package contains connectors for the magnetic domain and partial models for lumped magnetic network components.
@@ -4457,11 +4381,6 @@ This package contains connectors for the magnetic domain and partial models for 
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2})),
-        Window(
-          x=0.48,
-          y=0.25,
-          width=0.6,
-          height=0.6),
         Documentation(info="<html>
 <p>
 Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
@@ -4492,11 +4411,6 @@ For modelling of reluctance actuators with this source component it is assumed t
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (defaultComponentName = "signalSource",
-        Window(
-          x=0.27,
-          y=0.04,
-          width=0.61,
-          height=0.73),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4585,11 +4499,6 @@ In these cases, the magnetic potential difference or magnetomotive force imposed
           Line(points={{-125,0},{-115,0}}, color={160,160,164}),
           Line(points={{-120,-5},{-120,5}}, color={160,160,164}),
           Line(points={{115,0},{125,0}}, color={160,160,164})}),
-        Window(
-          x=0.48,
-          y=0.25,
-          width=0.6,
-          height=0.6),
         Documentation(info="<html>
 <p>
 Sources of a constant magnetic flux are useful for modelling of permanent magnets with <i>Norton</i>'s magnetic equivalent circuit.
@@ -4613,11 +4522,6 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
       Phi = port_p.Phi;
       0 = port_p.Phi + port_n.Phi;
       annotation (defaultComponentName = "signalSource",
-        Window(
-          x=0.27,
-          y=0.04,
-          width=0.61,
-          height=0.73),
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4651,13 +4555,7 @@ This source of a magnetic flux is intended for test purposes, e.g., for simulati
 </html>"));
     end SignalMagneticFlux;
 
-    annotation (             Window(
-        x=0.45,
-        y=0.01,
-        width=0.35,
-        height=0.49,
-        library=1,
-        autolayout=1),
+    annotation (
     Documentation(info="<html>
 <p>
 This package contains sources of a magnetic potential difference or a magnetic flux:
@@ -4688,11 +4586,6 @@ This package contains sources of a magnetic potential difference or a magnetic f
     0 = port_p.Phi + port_n.Phi;
 
     annotation (
-      Window(
-        x=0.28,
-        y=0.29,
-        width=0.6,
-        height=0.6),
       Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -4755,13 +4648,6 @@ For analysis of magnetic networks, only magnetic potential differences and magne
   end Sensors;
 
 annotation (
-  Window(
-    x=0.45,
-    y=0.01,
-    width=0.44,
-    height=0.65,
-    library=1,
-    autolayout=1),
   Documentation(info="<html>
 <p>
 This library contains components for modelling of electromagnetic devices with lumped magnetic networks. Those models are suited for both rough design of the magnetic subsystem of a device as well as for efficient dynamic simulation at system level together with neighbouring subsystems. At present, components and examples for modelling of <i>translatory</i> electromagnetic and electrodynamic actuators are provided. If needed, these components can be adapted to network modelling of <i>rotational</i> electrical machines.

@@ -1341,12 +1341,7 @@ by this gound element.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Window(
-          x=0.23,
-          y=0.23,
-          width=0.59,
-          height=0.63));
+            grid={2,2})));
     end Ground;
 
     model R_Resistor "Ideal linear electrical resistor"
@@ -1381,12 +1376,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69));
+            grid={2,2})));
     end R_Resistor;
 
     model C_Capacitor "Ideal linear electrical capacitor"
@@ -1401,11 +1391,6 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         vinternal = p.v - n.v;
         i = C*der(vinternal);
       annotation (
-        Window(
-          x=0.32,
-          y=0.33,
-          width=0.48,
-          height=0.58),
         Documentation(info="<HTML>
 <p>
 The linear capacitor connects the branch voltage <i>v</i> with the
@@ -1475,12 +1460,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Window(
-          x=0.3,
-          y=0.12,
-          width=0.6,
-          height=0.6));
+            grid={2,2})));
     end L_Inductor;
 
     model E_VCV "Linear voltage-controlled voltage source"
@@ -1517,12 +1497,7 @@ The corresponding SPICE description
     VALUE -> gain
 </pre>
 </HTML>
-"),     Window(
-          x=0.28,
-          y=0.02,
-          width=0.59,
-          height=0.92),
-        Icon(coordinateSystem(
+")      Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1608,12 +1583,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1})),
-        Window(
-          x=0.34,
-          y=0.05,
-          width=0.6,
-          height=0.6));
+            grid={1,1})));
     end G_VCC;
 
     model H_CCV "Linear current-controlled voltage source"
@@ -1666,12 +1636,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1})),
-        Window(
-          x=0.3,
-          y=0.13,
-          width=0.6,
-          height=0.6));
+            grid={1,1})));
     end H_CCV;
 
     model F_CCC "Linear current-controlled current source"
@@ -1726,21 +1691,10 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1})),
-        Window(
-          x=0.31,
-          y=0.09,
-          width=0.6,
-          height=0.6));
+            grid={1,1})));
     end F_CCC;
 
-    annotation(preferredView="info", Window(
-         x=0.03,
-         y=0.04,
-         width=0.54,
-         height=0.35,
-         library=1,
-         autolayout=1),
+    annotation(preferredView="info",
   Documentation(info="<html>
 <p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g., <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
 </html>",
@@ -1926,13 +1880,6 @@ The corresponding SPICE description
 </html>"));
     end ModelcardRESISTOR;
     annotation(preferredView="info",
-      Window(
-        x=0.03,
-        y=0.04,
-        width=0.50,
-        height=0.36,
-        library=1,
-        autolayout=1),
       Documentation(info="<html>
 <p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should apply the models of this package.</p>
 <p>All models of this package extend models of the package Repository, which contains the functions, parameters and data which are necessary to model the behaviour of the semiconductor devices.The modelcard records contain the SPICE3 technology parameters, which can be adjusted for more than one MOS simultaneously.</p>
@@ -1954,11 +1901,6 @@ The corresponding SPICE description
     equation
       v = V;
       annotation (
-        Window(
-          x=0.33,
-          y=0.18,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2084,11 +2026,6 @@ The corresponding SPICE description
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1})),
-        Window(
-          x=0.11,
-          y=0.12,
-          width=0.78,
-          height=0.83),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -2161,11 +2098,6 @@ The corresponding SPICE description
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1})),
-        Window(
-          x=0.21,
-          y=0.22,
-          width=0.6,
-          height=0.63),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
@@ -2281,11 +2213,6 @@ The corresponding SPICE description
                                    Line(points={{-40,-50},{-40,70},{60,70},{60,
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
                   60,40},{60,70},{10,70},{10,-51}},color={192,192,192})}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2354,11 +2281,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               extent={{-51,57},{55,18}},
               lineColor={0,0,255},
               textString="SFFM")}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2378,12 +2300,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
    equation
       i = I;
-      annotation (
-        Window(
-          x=0.33,
-          y=0.18,
-          width=0.6,
-          height=0.6),
+      annotation(
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2456,11 +2373,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1})),
-        Window(
-          x=0.33,
-          y=0.06,
-          width=0.6,
-          height=0.75),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -2516,11 +2428,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1})),
-        Window(
-          x=0.11,
-          y=0.12,
-          width=0.78,
-          height=0.83),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -2702,11 +2609,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2779,11 +2681,6 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               extent={{-58,53},{48,14}},
               lineColor={0,0,255},
               textString="SFFM")}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2799,13 +2696,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
     end I_sffm;
 
     annotation(preferredView="info",
-      Window(
-        x=0.03,
-        y=0.04,
-        width=0.50,
-        height=0.60,
-        library=1,
-        autolayout=1),Documentation(info="<html>
+Documentation(info="<html>
 <p>This package contains the SPICE sources.</p>
 <p><b>Note:</b> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <b>all</b> parameters of the source.</p>
 </html>", revisions="<html>
@@ -3365,23 +3256,13 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1})),
-        Window(
-          x=0.16,
-          y=0.12,
-          width=0.6,
-          height=0.6),
         Documentation(info="<html>
 <p>TwoPort is a partial model that consists of two ports. It is assumed that the current flowing into the positive pin is identical to the current flowing out of pin n. This currents of each port are provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
 </html>"));
     end TwoPortControlledSources;
 
-    annotation(preferredView="info", Window(
-        x=0.03,
-        y=0.04,
-        width=0.21,
-        height=0.49,
-        library=1,
-        autolayout=1),Documentation(info="<html>
+    annotation(preferredView="info",
+        Documentation(info="<html>
 <p>The SPICE3 package uses the Modelica.Electrical.Analog interfaces. Only special partial models used in the SPICE3 package are located in this Interfaces package.</p>
 </html>"));
   end Interfaces;
@@ -8303,13 +8184,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
 </html>"));
   end Internal;
 
-annotation(preferredView="info", Window(
-    x=0.05,
-    y=0.06,
-    width=0.16,
-    height=0.58,
-    library=1,
-    autolayout=1),
+annotation(preferredView="info",
   Documentation(info="<html>
 <p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). The semiconductor models are transferred from the SPICE3 code, up to now</p>
 <ul>

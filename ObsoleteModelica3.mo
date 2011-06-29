@@ -256,11 +256,6 @@ The desired conversion can be selected in the parameter menu
             u1 = u2;
             annotation(__Dymola_structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Window(
-                x=0.15,
-                y=0.21,
-                width=0.6,
-                height=0.6),
               Documentation(info="<HTML>
 <p>
 This block is used to enable asignment of values to variables preliminary
@@ -296,11 +291,6 @@ defined as outputs (e.g., useful for inverse model generation).
             y1 = y2;
             annotation(__Dymola_structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Window(
-                x=0.21,
-                y=0.28,
-                width=0.6,
-                height=0.6),
               Documentation(info="
 <HTML>
 <p>
@@ -658,16 +648,7 @@ This leads to the following animation
 
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque2.png\">
 </HTML>
-"),         Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
-              x=0.18,
-              y=0.01,
-              width=0.8,
-              height=0.82),
-            Documentation(info="
+"),         Documentation(info="
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
@@ -850,16 +831,7 @@ This leads to the following animation
 
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque2.png\">
 </HTML>
-"),         Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
-              x=0.18,
-              y=0.01,
-              width=0.8,
-              height=0.82),
-            Documentation(info="
+"),         Documentation(info="
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
@@ -1071,16 +1043,7 @@ clarity this is not shown in the animation):
 
 <IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque2.png\">
 </HTML>
-"),         Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[1, 1],
-              component=[20, 20]),
-            Window(
-              x=0.18,
-              y=0.01,
-              width=0.8,
-              height=0.82),
-            Documentation(info="
+"),         Documentation(info="
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
@@ -1140,11 +1103,6 @@ is resolved in the world frame).
             frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
           end if;
           annotation (
-            Window(
-              x=0.37,
-              y=0.02,
-              width=0.6,
-              height=0.65),
             __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead a model from Modelica.Mechanics.MultiBody.Sensors",
             Documentation(info="
 <HTML>
@@ -1460,11 +1418,6 @@ position a degree of freedom is lost.
               __Dymola_structurallyIncomplete,
               preferredView="info",
               __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
-              Window(
-                x=0.05,
-                y=0.09,
-                width=0.65,
-                height=0.69),
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}},
@@ -1773,11 +1726,6 @@ degree of freedom is lost.
               __Dymola_structurallyIncomplete,
               preferredView="info",
               __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
-              Window(
-                x=0.05,
-                y=0.09,
-                width=0.65,
-                height=0.69),
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}},
@@ -2954,12 +2902,7 @@ with inertia.
 "),         Diagram(coordinateSystem(
                 preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}},
-                grid={2,2})),
-            Window(
-              x=0.18,
-              y=0.3,
-              width=0.61,
-              height=0.66));
+                grid={2,2})));
         end Rigid;
 
         partial model Bearing
@@ -3157,11 +3100,6 @@ Partial model of torque dependent on speed that accelerates the flange.
             annotation (Placement(transformation(extent={{100,-10},{120,10}},
                   rotation=0)));
           annotation (
-            Window(
-              x=0.39,
-              y=0.05,
-              width=0.6,
-              height=0.6),
             __Dymola_obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal.",
             Documentation(info="<html>
@@ -3210,11 +3148,6 @@ with the blocks of package Modelica.Blocks.
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
           annotation (
-            Window(
-              x=0.37,
-              y=0.02,
-              width=0.6,
-              height=0.65),
             __Dymola_obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor instead and define a meaningful name for the output signal.",
             Documentation(info="<html>
@@ -3379,11 +3312,6 @@ user interface when the type is used as parameter in a declaration.
         annotation (
           __Dymola_obsolete=
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.LossyGear instead.",
-          Window(
-            x=0.23,
-            y=0.06,
-            width=0.69,
-            height=0.62),
           Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},

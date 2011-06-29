@@ -878,12 +878,7 @@ handled properly.</p>
               "Time varying input signal"), Placement(transformation(extent={{
                 -140,-20},{-100,20}}, rotation=0)));
 
-      annotation (
-        Window(
-          x=0.29,
-          y=0.23,
-          width=0.6,
-          height=0.6),
+      annotation(
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},

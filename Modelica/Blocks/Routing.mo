@@ -7,11 +7,7 @@ package Routing "Library of blocks to combine and extract signals"
   equation
     y = fill(u, nout);
     annotation (
-      Window(
-        x=0.15,
-        y=0.16,
-        width=0.63,
-        height=0.59), Icon(coordinateSystem(
+	Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={

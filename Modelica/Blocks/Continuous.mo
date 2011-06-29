@@ -1951,11 +1951,6 @@ The critical damping filter is defined as
      y = (gain*u_nominal)*uu[nr+na+1];
 
     annotation (
-      Window(
-        x=0.27,
-        y=0.1,
-        width=0.57,
-        height=0.75),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},

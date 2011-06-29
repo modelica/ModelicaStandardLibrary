@@ -4175,11 +4175,6 @@ Source of magnetic flux with complex signal input.
       V_m = Complex(0,0);
 
       annotation (
-        Window(
-          x=0.23,
-          y=0.07,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -4236,11 +4231,6 @@ Source of magnetic flux with complex signal input.
       Phi = Complex(0,0);
 
       annotation (
-        Window(
-          x=0.28,
-          y=0.29,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -4291,11 +4281,6 @@ Source of magnetic flux with complex signal input.
       V_m = port_p.V_m;
 
       annotation (
-        Window(
-          x=0.28,
-          y=0.29,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},

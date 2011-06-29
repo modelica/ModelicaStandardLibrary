@@ -1804,11 +1804,6 @@ if a positive force is acting on the element and no other force balances this fo
       f = f_c + f_d;
       lossPower = f_d*v_rel;
       annotation (
-        Window(
-          x=0.23,
-          y=0.04,
-          width=0.62,
-          height=0.69),
          Documentation(info="<html>
 <p>
 This component models a spring damper combination that can lift off.
