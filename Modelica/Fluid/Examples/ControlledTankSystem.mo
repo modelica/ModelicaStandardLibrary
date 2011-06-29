@@ -359,7 +359,7 @@ This example is based on
               -50},{70,70},{-80,70},{-80,40},{-74,40},{-73,39.5}}, color={0,0,0}));
       connect(T4.outPort, normal.resume[1])      annotation (Line(points={{10,1.5},
               {10,10},{10.5,10},{10.5,18.6667},{10,18.6667}},      color={0,0,0}));
-      annotation (structurallyIncomplete,
+      annotation (
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},

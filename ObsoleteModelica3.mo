@@ -49,7 +49,7 @@ Connector with one signal of type Icon (no icon, no input/output prefix).
         end RealPort;
       equation
         newReal = oldReal.signal[1];
-        annotation(structurallyIncomplete,
+        annotation(__Dymola_structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
@@ -101,7 +101,7 @@ This block is only provided for backward compatibility.
 
         newBoolean = oldBoolean.signal[1];
 
-        annotation(structurallyIncomplete,
+        annotation(__Dymola_structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
@@ -153,7 +153,7 @@ This block is only provided for backward compatibility.
 
         newInteger = oldInteger.signal[1];
 
-        annotation(structurallyIncomplete,
+        annotation(__Dymola_structurallyIncomplete,
           __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
@@ -254,7 +254,7 @@ The desired conversion can be selected in the parameter menu
               rotation=180)));
       equation
             u1 = u2;
-            annotation(structurallyIncomplete,
+            annotation(__Dymola_structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Window(
                 x=0.15,
@@ -294,7 +294,7 @@ defined as outputs (e.g., useful for inverse model generation).
               rotation=180)));
           equation
             y1 = y2;
-            annotation(structurallyIncomplete,
+            annotation(__Dymola_structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Window(
                 x=0.21,
@@ -1457,7 +1457,7 @@ position a degree of freedom is lost.
 
             angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
             annotation (
-              structurallyIncomplete,
+              __Dymola_structurallyIncomplete,
               preferredView="info",
               __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
               Window(
@@ -1770,7 +1770,7 @@ degree of freedom is lost.
             k2 = sqrt(k1b);
             distance = -k1 + (if positiveBranch then k2 else -k2);
             annotation (
-              structurallyIncomplete,
+              __Dymola_structurallyIncomplete,
               preferredView="info",
               __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
               Window(
