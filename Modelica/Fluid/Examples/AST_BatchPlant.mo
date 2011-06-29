@@ -2631,7 +2631,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               "plot level and port.m_flow")));
     end TanksWithEmptyingPipe2;
   end Test;
-  annotation (preferedView="info",Documentation(info="<html>
+  annotation (preferredView="info",Documentation(info="<html>
 <p>
 The process under consideration is an evaporation plant for a
 student lab at the Process Control Laboratory (AST) of the

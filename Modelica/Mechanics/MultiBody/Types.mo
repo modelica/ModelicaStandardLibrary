@@ -4,7 +4,7 @@ package Types "Constants and types with choices, especially to build menus"
 
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
-    preferedView="text",
+    preferredView="text",
     Evaluate=true,
     choices(
       choice={1,0,0} "{1,0,0} \"x axis\"",
@@ -18,14 +18,14 @@ package Types "Constants and types with choices, especially to build menus"
 
   type AxisLabel = Modelica.Icons.TypeString
     "Label of axis with choices for menus"                                          annotation (
-      preferedView="text", choices(
+      preferredView="text", choices(
       choice="x" "x",
       choice="y" "y",
       choice="z" "z"));
 
   type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
     "Sequence of planar frame rotations with choices for menus" annotation (
-    preferedView="text",
+    preferredView="text",
     Evaluate=true,
     choices(
       choice={1,2,3} "{1,2,3} \"Cardan/Tait-Bryan angles\"",

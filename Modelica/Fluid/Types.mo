@@ -318,7 +318,7 @@ ModelStructure.a_vb).
 
 </html>"));
 
-  annotation (preferedView="info",
+  annotation (preferredView="info",
               Documentation(info="<html>
 
 </html>"));

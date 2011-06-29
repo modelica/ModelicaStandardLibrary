@@ -1692,7 +1692,7 @@ end UsersGuide;
 
 
 annotation (
-  preferedView="info",
+  preferredView="info",
   __Dymola_classOrder={"UsersGuide","Examples","System","Vessels","Pipes","Machines","Valves",
       "Fittings", "Sources", "Sensors", "Interfaces", "Types", "Utilities", "Icons", "*"},
   Documentation(info="<html>

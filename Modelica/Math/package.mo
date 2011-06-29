@@ -799,7 +799,7 @@ and matrix functions. These functions are usually not useful for an end-user.
   end Utilities;
 
   annotation (
-    preferedView = "info",
+    preferredView = "info",
     Documentation(info="<HTML>
 <h4>Library content</h4>
 <p>

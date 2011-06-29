@@ -989,7 +989,7 @@ this partial class should add a medium instance to calculate the measured proper
     end PartialFlowSensor;
 
   end BaseClasses;
-  annotation (preferedView="info", Documentation(info="<html>
+  annotation (preferredView="info", Documentation(info="<html>
 <p align = justify>
 Package <b>Sensors</b> consists of idealized sensor components that
 provide variables of a medium model and/or fluid ports as

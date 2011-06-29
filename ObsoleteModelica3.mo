@@ -575,7 +575,7 @@ This icon is designed for an <b>enumeration</b>
             :6]);
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
-            preferedView="info",
+            preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Polygon(
@@ -757,7 +757,7 @@ is resolved in the world frame).
           end if;
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
-            preferedView="info",
+            preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Polygon(
@@ -980,7 +980,7 @@ is resolved in the world frame).
             t_b_0 + cross(r_0, f_b_0));
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
-            preferedView="info",
+            preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}})),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -1458,7 +1458,7 @@ position a degree of freedom is lost.
             angle = Modelica.Math.atan2(ksin_angle, kcos_angle);
             annotation (
               structurallyIncomplete,
-              preferedView="info",
+              preferredView="info",
               __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
               Window(
                 x=0.05,
@@ -1771,7 +1771,7 @@ degree of freedom is lost.
             distance = -k1 + (if positiveBranch then k2 else -k2);
             annotation (
               structurallyIncomplete,
-              preferedView="info",
+              preferredView="info",
               __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
               Window(
                 x=0.05,
@@ -2794,7 +2794,7 @@ and resolved in the following frame
           load[4:6] = torque;
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
-            preferedView="info",
+            preferredView="info",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}})),
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
@@ -3346,7 +3346,7 @@ quantities.
 
 </html>"));
         end InitRel;
-        annotation (preferedView="info", Documentation(info="<HTML>
+        annotation (preferredView="info", Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used
 in library Modelica.Blocks. The types have additional annotation choices

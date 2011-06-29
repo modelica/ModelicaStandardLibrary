@@ -1184,7 +1184,7 @@ Loss factor for mass flow rate from port_b to port_a
 </html>"));
        end sharpEdgedOrifice;
 
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <p>
 This record defines the pressure loss factors of a pipe
 segment (orifice, bending etc.) with a minimum amount of data.

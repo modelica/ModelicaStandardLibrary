@@ -802,7 +802,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapTurbulent_KC\"> kc_evenGapTurbulent_KC</a>.
 </html>"));
       end kc_evenGapTurbulent_IN_var;
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation (preferredView="info", Documentation(info="<html>
 <h4>Even gap</h4>
 <h5>Laminar flow</h5>
 <p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
@@ -998,7 +998,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC </a>.
 </html>"));
       end kc_approxForcedConvection_IN_var;
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation (preferredView="info", Documentation(info="<html>
 <h4>General heat transfer</h4>
 <h5>Approximated forced convection</h5>
 <p>Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information.</a> </p>
@@ -1495,7 +1495,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 </html>"));
 
       end kc_roundTube_IN_var;
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation (preferredView="info", Documentation(info="<html>
 <h4>Heat exchanger</h4>
 <h5>Flat tube heat exchanger</h5>
 <p>
@@ -1984,7 +1984,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
       end kc_turbulent_IN_var;
-    annotation (preferedView="info", Documentation(info="<html>
+    annotation (preferredView="info", Documentation(info="<html>
 <h4>Helical pipe</h4>
 <h5>Laminar flow</h5>
 <p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
@@ -2401,7 +2401,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_KC\">  kc_turbulent_KC</a>.
 </html>"));
       end kc_turbulent_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Even plate</h4>
 <h5>Laminar flow</h5>
 <p>Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .</p>
@@ -2938,7 +2938,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_twoPhaseOverall_KC\"> kc_twoPhaseOverall_KC</a>.
 </html>"));
       end kc_twoPhaseOverall_KC_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Straight pipe</h4>
 <h5>Laminar flow</h5>
 <p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a>.
@@ -2953,7 +2953,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall\">See more information</a>.</p>
 </html>"));
     end StraightPipe;
-  annotation(preferedView="info");
+  annotation(preferredView="info");
   end HeatTransfer;
 
   package PressureLoss "Package for calculation of pressure loss"
@@ -3596,7 +3596,7 @@ This record is used as <b> input record </b> for the  pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW\"> dp_edgedOverall_MFLOW </a>.
 </html>"));
       end dp_edgedOverall_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Bend</h4>
 <h5>Curved bend overall flow</h5>
 <p>Calculation of pressure loss in curved bends at overall flow regime for incompressible and single-phase fluid flow through circular cross sectional area considering surface roughness.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.Bend.dp_curvedOverall\">See more information</a>. </p>
@@ -3937,7 +3937,7 @@ This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW\"> dp_internalFlowOverall_MFLOW</a>.
 </html>"));
       end dp_internalFlowOverall_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Channel</h4>
 <h5>Internal overall flow</h5>
 <p>
@@ -4634,7 +4634,7 @@ This record is used as <b> input record </b> for the pressure loss function
 </html>"));
 
       end dp_volumeFlowRate_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>General</h4>
 <h5>General pressure loss for ideal gas</h5>
 <p>
@@ -5079,7 +5079,7 @@ This record is used as <b> input record </b> for the pressure loss functions
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW\"> dp_thickEdgedOverall_MFLOW </a>.
 </html>"));
       end dp_thickEdgedOverall_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Orifice</h4>
 <h5>Sudden change</h5>
 <p>
@@ -5845,7 +5845,7 @@ This record is used as <b> input record </b> for the pressure loss function <a h
 </html>"));
 
       end dp_twoPhaseOverall_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Straight Pipe</h4>
 <h5>Laminar flow</h5>
 <p>
@@ -6166,7 +6166,7 @@ This record is used as <b> input record </b> for the pressure loss function
 <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW\"> dp_severalGeometryOverall_MFLOW</a>.
 </html>"));
       end dp_severalGeometryOverall_IN_var;
-      annotation (preferedView="info", Documentation(info="<html>
+      annotation (preferredView="info", Documentation(info="<html>
 <h4>Valve</h4>
 <h5>Several geometries</h5>
 <p>

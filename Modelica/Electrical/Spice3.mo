@@ -1735,7 +1735,7 @@ The corresponding SPICE description
           height=0.6));
     end F_CCC;
 
-    annotation(preferedView="info", Window(
+    annotation(preferredView="info", Window(
          x=0.03,
          y=0.04,
          width=0.54,
@@ -1927,7 +1927,7 @@ The corresponding SPICE description
 <p>Technology parameters of the semiconductor resistor model</p>
 </html>"));
     end ModelcardRESISTOR;
-    annotation(preferedView="info",
+    annotation(preferredView="info",
       Window(
         x=0.03,
         y=0.04,
@@ -2801,7 +2801,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 </html>"));
     end I_sffm;
 
-    annotation(preferedView="info",
+    annotation(preferredView="info",
       Window(
         x=0.03,
         y=0.04,
@@ -3378,7 +3378,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </html>"));
     end TwoPortControlledSources;
 
-    annotation(preferedView="info", Window(
+    annotation(preferredView="info", Window(
         x=0.03,
         y=0.04,
         width=0.21,
@@ -8309,7 +8309,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
 </html>"));
   end Internal;
 
-annotation(preferedView="info", Window(
+annotation(preferredView="info", Window(
     x=0.05,
     y=0.06,
     width=0.16,
