@@ -100,7 +100,7 @@ package Semiconductors
               -Ids -Ibv* exp(Maxexp)*(1 - (v+Bv)/(Nbv*Vt) - Maxexp) +v/R else
               Ids*(exp(v/Vt)-1) - Ibv*exp(-(v+Bv)/(Nbv*Vt)) + v/R);
     LossPower = v*i;
-          annotation (__Dymola_structurallyIncomplete=true,
+          annotation (
             Documentation(info="<html>
 <p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
@@ -809,7 +809,7 @@ equation
   i = Ids*id*pow(htemp/TNOM, XTI/N)*auxp + v/R;
 
   LossPower = i*v;
-  annotation (__Dymola_structurallyIncomplete=true,
+  annotation (
     Documentation(info="
 <HTML>
 <P>
@@ -944,7 +944,7 @@ end HeatingDiode;
           S.i = smooth(0,if (D.v < S.v) then id else -id);
           B.i = 0;
           LossPower = D.i*(D.v - S.v);
-          annotation (__Dymola_structurallyIncomplete=true,
+          annotation (
             Documentation(info="<html>
 <p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1101,7 +1101,7 @@ end HeatingDiode;
           S.i = smooth(0,if (D.v > S.v) then id else -id);
           B.i = 0;
           LossPower = D.i*(D.v - S.v);
-          annotation (__Dymola_structurallyIncomplete=true,
+          annotation (
             Documentation(info="<html>
 <p>The PMOS model is a simple model of a p-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1291,7 +1291,7 @@ end HeatingDiode;
           E.i = -B.i - C.i + Ccs*der(C.v);
 
           LossPower = (vbc*ibc/br_t + vbe*ibe/bf_t + (ibe - ibc)*qbk*(C.v - E.v));
-          annotation (__Dymola_structurallyIncomplete=true,
+          annotation (
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar npn junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
@@ -1467,7 +1467,7 @@ end HeatingDiode;
           E.i = -B.i - C.i + Ccs*der(C.v);
 
           LossPower = (vcb*icb/br_t + veb*ieb/bf_t + (icb - ieb)*qbk*(C.v- E.v));
-          annotation (__Dymola_structurallyIncomplete=true,
+          annotation (
             Documentation(info="<html>
 <p>This model is a simple model of a bipolar pnp junction transistor according to Ebers-Moll.
 <br>A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.

@@ -143,7 +143,7 @@ end Resistor;
     R = R_ref*(1 + alpha*(T_heatPort - T_ref));
     v = R*i;
     LossPower = v*i;
-    annotation (__Dymola_structurallyIncomplete=true,
+    annotation (
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{-110,20},{-85,20}}, color={160,160,164}),
