@@ -13348,7 +13348,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
     end Types;
   end Utilities;
 annotation (
-  classOrder={"UsersGuide","Examples","HeatTransfer","PressureLoss","Utilities"},
+  __Dymola_classOrder={"UsersGuide","Examples","HeatTransfer","PressureLoss","Utilities"},
   Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/FD2.png\" alt=\"FD2\"/>
 

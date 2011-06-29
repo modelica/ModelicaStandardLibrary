@@ -4,5 +4,5 @@ extends Modelica.Icons.ExamplesPackage;
 
 
 annotation (
-   classOrder={"TestTanks","*"});
+   __Dymola_classOrder={"TestTanks","*"});
 end TestComponents;
