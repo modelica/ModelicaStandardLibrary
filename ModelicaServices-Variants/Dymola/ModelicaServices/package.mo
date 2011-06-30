@@ -4,6 +4,7 @@ package ModelicaServices "(target = \"Dymola\") Models and functions used in the
   constant String target="Dymola"
   "Target of this ModelicaServices implementation";
 
+
 package UsersGuide "User's Guide"
 extends Modelica.Icons.Info;
 class ModelicaLicense2 "Modelica License 2"
@@ -577,6 +578,14 @@ end ModelicaLicense2;
 class ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
+<h4>Version 1.2, 2011-07-30</h4>
+
+<ul>
+<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">Shape</a>
+     supports URIs as shapeType to define a visualization file path name
+     relative to a Modelica package</li>
+</ul>
+   
 <h4>Version 1.1, 2010-07-30</h4>
 
 <ul>
@@ -616,11 +625,6 @@ class Contact "Contact"
 <dl>
 <dt><b>Main Author:</b>
 <dd>
-</dl>
-
-<table border=0 cellspacing=0 cellpadding=2>
-<tr>
-<td>
 <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a><br>
     Deutsches Zentrum f&uuml;r Luft und Raumfahrt e.V. (DLR)<br>
     Institut f&uuml;r Robotik und Mechatronik<br>
@@ -628,9 +632,10 @@ class Contact "Contact"
     Postfach 1116<br>
     D-82230 Wessling<br>
     Germany<br>
-    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A></td>
-</tr>
-</table>
+    email: <A HREF=\"mailto:Martin.Otter@dlr.de\">Martin.Otter@dlr.de</A>
+</dd>
+</dl>
+
 
 <p><b>Acknowledgements:</b></p>
 
@@ -645,6 +650,7 @@ end Contact;
   annotation(__Dymola_DocumentationClass=true);
 end UsersGuide;
 
+
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
 model Shape
@@ -656,8 +662,13 @@ model Shape
     import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
+    import Modelica.Utilities.Strings.find;
 
   protected
+  parameter Boolean isURI=find(shapeType, "modelica://", caseSensitive=false)==1 or
+                          find(shapeType, "file://", caseSensitive=false)==1 or
+                          find(shapeType, "%")==1
+    annotation(Evaluate=true);
   Real abs_n_x(final unit="1") annotation (HideResult=true);
   Real n_z_aux[3](each final unit="1") annotation (HideResult=true);
   Real e_x[3](each final unit="1", start={1,0,0})
@@ -666,7 +677,7 @@ model Shape
   Real e_y[3](each final unit="1", start={0,1,0})
       "Unit vector orthogonal to lengthDirection in the plane of lengthDirection and widthDirection, resolved in object frame"
      annotation (HideResult=true);
-  output Real Form annotation (HideResult=false);
+  output Real Form(unit=if isURI then ":"+shapeType else "") annotation (HideResult=false);
   public
   output Real rxvisobj[3](each final unit="1")
       "x-axis unit vector of shape, resolved in world frame"
@@ -691,7 +702,7 @@ equation
                              (if abs(e_x[1]) > 1.0e-6 then {0,1,0} else {1,0,0}))), e_x));
 
   /* Outputs to file. */
-  Form = (987000 + PackShape(shapeType))*1E20;
+  Form = (987000 + PackShape(if isURI then "1" else shapeType))*1E20;
   /*
   rxry = Frames.TransformationMatrices.to_exy(
     Frames.TransformationMatrices.absoluteRotation(R.T,
@@ -710,40 +721,32 @@ equation
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{100,100}},
-        grid={2,2})),
+        grid={2,2}), graphics),
     Documentation(info="<html>
-<p>
-The interface of this model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
-</p>
-
-<p>
-This implementation is targeted for Dymola. Here, the following data is stored on the
-result file (using Dymola specific functions \"PackShape\" and \"PackMaterial\" to pack data
-on a Real number):
-</p>
-
-<pre>
-  Real Form         // shapeType coded on Real
+<p>The interface of this model is documented at <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>. </p>
+<p>This implementation is targeted for Dymola. Here, the following data is stored on the result file (using Dymola specific functions &QUOT;PackShape&QUOT; and &QUOT;PackMaterial&QUOT; to pack data on a Real number): </p>
+<pre>  Real Form         // shapeType coded on Real
   Real rxvisobj[3]  // x-axis unit vector of shape, resolved in world frame
   Real ryvisobj[3]  // y-axis unit vector of shape, resolved in world frame
   Real rvisobj [3]  // Position vector from world frame to shape frame, resolved in world frame
   Real size    [3]  // {length,width,height} of shape
   Real Material     // color and specularCoefficient packed on Real
-  Real Extra        // \"extra\" variable of shape
+  Real Extra        // &QUOT;extra&QUOT; variable of shape
 </pre>
 
 <p>
-It is then assumed that the program reading the result file recognizes that a 3-dim. visualizer
-object is defined (via variable \"Form\" and the possible values for Forms) and then visualizes
-the shape according to the follow-up data.
+It is then assumed that the program reading the result file recognizes that a 3-dim. visualizer object is defined (via variable &QUOT;Form&QUOT; and the possible values for Forms) and then visualizes the shape according to the follow-up data. 
 </p>
 
-</html>
-"));
+<p>
+Note that shapeType now supports dxf-files in libraries - either in the form &QUOT;&percnt;PackageName&percnt;/file.dxf&QUOT; or also as
+URI &QUOT;modelica://PackageName/file.dxf&QUOT;.
+</p>
+</html>"));
 end Shape;
 
-  model Surface "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
+  model Surface
+    "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
 
@@ -807,7 +810,7 @@ end Shape;
     rvisobj = r_0;
     rxvisobj = R.T[1,1:3];
     ryvisobj = R.T[2,1:3];
-    annotation (Icon(), Documentation(info="<html>
+    annotation (Icon,   Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>.
@@ -820,6 +823,7 @@ This implementation is targeted for Dymola.
 </html>"));
   end Surface;
 end Animation;
+
 
 annotation (__Dymola_Protection(hideFromBrowser=true),
 preferredView="info",

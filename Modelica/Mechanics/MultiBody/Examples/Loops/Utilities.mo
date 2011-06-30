@@ -577,7 +577,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       animation=animation,
       r={0,rodLength,0},
       r_CM={0,rodLength/2,0},
-      shapeType="2",
+      shapeType="modelica://Modelica/Resources/Data/Shapes/Engine/rod.dxf",
       lengthDirection={1,0,0},
       widthDirection={0,0,-1},
       length=rodLength/1.75,
@@ -598,7 +598,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       animation=animation,
       r={0,pistonLength,0},
       r_CM={0,pistonLength/2,0},
-      shapeType="3",
+      shapeType="modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf",
       length=0.08,
       width=0.08,
       height=0.08,
@@ -747,7 +747,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     extends CylinderBase;
     Visualizers.FixedShape CrankShape(
       animation=animation,
-      shapeType="1",
+      shapeType="modelica://Modelica/Resources/Data/Shapes/Engine/crank.dxf",
       lengthDirection={1,0,0},
       extra=1,
       widthDirection={0,1,0},

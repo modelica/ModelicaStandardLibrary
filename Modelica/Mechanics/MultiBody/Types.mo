@@ -144,16 +144,28 @@ variable <b>lengthDirection</b>. The light blue arrows are directed
 along variable <b>widthDirection</b>. The <b>coordinate systems</b>
 in the figure represent frame_a of the Shape component.
 </p>
+
 <p>
-Additionally, external shapes are specified as DXF-files
-(only 3-dim.Face is supported). External shapes must be named \"1\", \"2\"
-etc.. The corresponding definitions should be in files \"1.dxf\",
-\"2.dxf\" etc.Since the DXF-files contain color and dimensions for
-the individual faces, the corresponding information in the model
-is currently ignored. The DXF-files must be found either in the current
-directory or in the directory where the Shape instance is stored
-that references the DXF file.
+Additionally, external shapes are specified with an URI name:
 </p>
+
+<ul>
+<li> \"<b>modelica:</b>//&lt;Modelica-name&gt;/&lt;relative-path-file-name&gt;\"<br>
+     characterizes the file that is stored under the location of the
+     &lt;Modelica-name&gt; library path with the given relative file name.
+     Example:<br> shapeType = \"modelica://Modelica/Resources/Data/Shapes/Engine/piston.dxf\".<br></li>
+<li> \"<b>file:</b>//&lt;absolute-file-name&gt;\"<br>
+     charaterices an absolute file name in the file system. Example:<br>
+     shapeType=\"file://C:/users/myname/shapes/piston.dxf\"</li>
+</ul>
+
+<p>
+The supported file formats are tool dependent. Most tools support
+at least DXF-files. Since visualization files
+contain color and other data, the corresponding information in the model
+is currently ignored.
+</p>
+
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal
     "Reflection of ambient light (= 0: light is completely absorbed)"
