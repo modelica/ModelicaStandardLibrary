@@ -1658,8 +1658,12 @@ with
       input Real colorMap[:,3] "Color map" annotation(Dialog);
       output Real color[3] "Color of scalar value T";
     algorithm
-      color :=colorMap[integer((size(colorMap, 1) - 1)/(T_max - T_min)*
-                                min((max(T,T_min) - T_min), T_max) + 1), :];
+      /* old version, that could give an error
+  color :=colorMap[integer((size(colorMap, 1) - 1)/(T_max - T_min)*
+                            min((max(T,T_min) - T_min), T_max) + 1), :];
+  */
+      color := colorMap[1 + integer((size(colorMap,1)-1)*(max(T_min,min(T,T_max))-T_min)
+                                  / (T_max-T_min)), :];
       annotation(Inline=true, Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>
