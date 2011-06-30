@@ -133,6 +133,12 @@ width = height = 2*radiusOfGearWheel.</td>
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
 </tr>
+<tr>
+  <td valign=\"top\">URI (CAD-file)</td>
+  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
+                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                        of the shape</td>
+</tr>
 </table>
 <p>
 Parameter <b>color</b> is a vector with 3 elements,
@@ -373,6 +379,12 @@ width = height = 2*radiusOfGearWheel.</td>
   <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
+</tr>
+<tr>
+  <td valign=\"top\">URI (CAD-file)</td>
+  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
+                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                        of the shape</td>
 </tr>
 </table>
 <p>
@@ -2061,6 +2073,12 @@ width = height = 2*radiusOfGearWheel.</td>
   <td valign=\"top\">extra is the number of windings of the spring.
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
+</tr>
+<tr>
+  <td valign=\"top\">URI (CAD-file)</td>
+  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
+                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                        of the shape</td>
 </tr>
 </table>
 

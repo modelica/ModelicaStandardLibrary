@@ -209,6 +209,13 @@ width = height = 2*radiusOfGearWheel.</td>
       Additionally, \"height\" is <b>not</b> the \"height\" but
       2*coil-width.</td>
 </tr>
+<tr>
+  <td valign=\"top\">URI (CAD-file)</td>
+  <td valign=\"top\">= 0: Visualization from file is not scaled.<br>
+                   = 1: Visualization from file is scaled with \"length\", \"width\" and height\"
+                        of the shape</td>
+</tr>
+
 </table>
 
 </html>"));
