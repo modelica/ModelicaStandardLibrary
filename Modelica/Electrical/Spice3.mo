@@ -1497,7 +1497,7 @@ The corresponding SPICE description
     VALUE -> gain
 </pre>
 </HTML>
-")      Icon(coordinateSystem(
+"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
