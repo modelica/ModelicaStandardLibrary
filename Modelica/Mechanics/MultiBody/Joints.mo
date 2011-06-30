@@ -36,7 +36,7 @@ package Joints "Components that constrain the motion between two frames"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of prismatic joint box"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -257,7 +257,7 @@ vector \"n\" defining the translation axis
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinder representing the joint axis"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
       specularCoefficient =                                                            world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -542,7 +542,7 @@ vector \"n\" defining the translation axis
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinder representing the joint axis"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -722,7 +722,7 @@ this force is an unknown quantity).
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinder"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -863,7 +863,7 @@ vector \"n\" defining the cylinder axis
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinders representing the joint axes"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -1044,7 +1044,7 @@ phi_b.start = 45<sup>o</sup>).
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of revolute cylinder"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance boxWidth=0.3*cylinderDiameter
       "Width of prismatic joint boxes"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -1251,7 +1251,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of sphere representing the spherical joint"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -1597,7 +1597,7 @@ frame_b of the joint.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of arrow"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2080,7 +2080,7 @@ frame_b of the joint.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation and use_r));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of arrow"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation and use_r));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation and use_r));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation and use_r));
@@ -2290,13 +2290,13 @@ its tip position, is shown in
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of spheres respresenting the spherical joints"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction
       "Diameter of rod connecting the two spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       "Color of rod connecting the two spherical joints"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter massDiameter=sphereDiameter
       "Diameter of sphere representing the mass point"
       annotation (Dialog(tab=
@@ -2304,7 +2304,7 @@ its tip position, is shown in
             enable=animation and showMass and m > 0));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of sphere representing the mass point"  annotation (
-        Dialog(tab="Animation", group=
+        Dialog(__Dymola_colorSelector=true, tab="Animation", group=
             "if animation = true and showMass = true and m > 0",
             enable=animation and showMass and m > 0));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
@@ -2646,7 +2646,7 @@ that has this property.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of spheres representing the universal and the spherical joint"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter Types.ShapeType rodShapeType="cylinder"
       "Shape type of rod connecting the universal and the spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2661,7 +2661,7 @@ that has this property.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       "Color of rod shape connecting the universal and the spherical joints"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Distance cylinderLength=world.defaultJointLength
       "Length of cylinders representing the two universal joint axes" annotation (
        Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
@@ -2673,7 +2673,7 @@ that has this property.
             enable=animation and showUniversalAxes));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of cylinders representing the two universal joint axes" annotation (
-        Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+        Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true and showUniversalAxes",
                                 enable=animation and showUniversalAxes));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -3661,7 +3661,7 @@ November 3-4, 2003, pp. 149-158</p>
           smooth=Smooth.None));
       connect(prismatic2.frame_b, revolute.frame_a) annotation (Line(
           points={{-34,-50},{-40,-50},{-40,-36},{-6.12323e-016,-36},{
-              -6.12323e-016,-32}},
+            -6.12323e-016,-32}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -3821,14 +3821,14 @@ November 3-4, 2003, pp. 149-158</p>
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of spheres representing the spherical joints"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter axisDiameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction
         "Diameter of cylinder on the connecting line from frame_a to frame_b"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color axisColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
         "Color of cylinder on the connecting line from frame_a to frame_b"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -3843,7 +3843,7 @@ November 3-4, 2003, pp. 149-158</p>
                 enable=animation and showUniversalAxes));
      input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
-          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+          Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
 
       parameter Boolean checkTotalPower=false
@@ -4533,14 +4533,14 @@ component).
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor
         "Color of rod 1 connecting the universal and the spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
 
       parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the revolute and the spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter revoluteDiameter=world.defaultJointWidth
         "Diameter of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -4550,7 +4550,7 @@ component).
       input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
           Defaults.JointColor
         "Color of cylinder representing the revolute joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -4565,7 +4565,7 @@ component).
                 enable=animation and showUniversalAxes));
       input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
-          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+          Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
       parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
@@ -5042,20 +5042,20 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of the spheres representing the universal and the spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction
         "Diameter of rod 1 connecting the universal and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of rod 1 connecting the universal and the spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the prismatic and the spherical joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the prismatic and the spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint, resolved in frame_b"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
@@ -5066,7 +5066,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color boxColor=sphereColor "Color of prismatic joint box"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -5081,7 +5081,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
                 enable=animation and showUniversalAxes));
       input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the two universal joint axes" annotation (
-          Dialog(tab="Animation", group="if animation = true and showUniversalAxes",
+          Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true and showUniversalAxes",
                 enable=animation and showUniversalAxes));
       parameter Boolean checkTotalPower=false
         "= true, if total power flowing into this component shall be determined (must be zero)"
@@ -5579,13 +5579,13 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor "Color of rod 1 connecting the two spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the revolute joint and spherical joint 2"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter revoluteDiameter=world.defaultJointWidth
         "Diameter of cylinder representing the revolute joint"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -5595,7 +5595,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       input Types.Color revoluteColor=Modelica.Mechanics.MultiBody.Types.
           Defaults.JointColor
         "Color of cylinder representing the revolute joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -5944,21 +5944,21 @@ component).
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
            JointColor
         "Color of the spheres representing the two spherical joints"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction
         "Diameter of rod 1 connecting the two spherical joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod1Color=Modelica.Mechanics.MultiBody.Types.Defaults.
           RodColor "Color of rod 1 connecting the two spherical joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
 
       parameter SI.Diameter rod2Diameter=rod1Diameter
         "Diameter of rod 2 connecting the revolute joint and spherical joint 2"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rod2Color=rod1Color
         "Color of rod 2 connecting the revolute joint and spherical joint 2"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
 
       parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint box, resolved in frame_b"
@@ -5971,7 +5971,7 @@ component).
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of prismatic joint box"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -6325,13 +6325,13 @@ component).
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the revolute joints"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rodDiameter=1.1*cylinderDiameter
         "Diameter of the two rods connecting the revolute joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of the two rods connecting the revolute joint"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -6657,7 +6657,7 @@ are connected by rigid rods.
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinders representing the revolute joints"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter Types.Axis boxWidthDirection={0,1,0}
         "Vector in width direction of prismatic joint, resolved in frame_b"
         annotation (Evaluate=true, Dialog(tab="Animation", group=
@@ -6668,13 +6668,13 @@ are connected by rigid rods.
       parameter SI.Distance boxHeight=boxWidth "Height of prismatic joint box"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color boxColor=cylinderColor "Color of prismatic joint box"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rodDiameter=1.1*cylinderDiameter
         "Diameter of the two rods connecting the joints"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color rodColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of the two rods connecting the joints"
-        annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));

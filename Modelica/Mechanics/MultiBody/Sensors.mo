@@ -96,7 +96,7 @@ package Sensors "Sensors to measure variables"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of absolute arrow from world frame to frame_b"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -529,7 +529,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of relative arrow from frame_a to frame_b"
-      annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -1985,7 +1985,7 @@ computed as:
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color arrowColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of relative arrow from frame_a to frame_b"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -2097,7 +2097,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
       " Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.
         ForceColor " Color of force arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -2224,7 +2224,7 @@ with negative sign at frame_a.
       "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of torque arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -2362,10 +2362,10 @@ with negative sign at frame_a.
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of force arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of torque arrow"
-      annotation (Dialog(group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
