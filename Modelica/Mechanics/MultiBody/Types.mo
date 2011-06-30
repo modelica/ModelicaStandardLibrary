@@ -89,9 +89,9 @@ Type <b>Color</b> is an Real vector with 3 elements,
 Note, r g, b are given in the range 0 .. 255.
 </p>
 </html>"));
-  type SpecularCoefficient = Modelica.Icons.TypeReal
+  type SpecularCoefficient = Modelica.Icons.TypeReal(min=0)
     "Reflection of ambient light (= 0: light is completely absorbed)"
-       annotation ( min=0,
+       annotation (
          choices(choice=0 "\"0.0 (dull)\"",choice=0.7 "\"0.7 (medium)\"", choice=1
         "\"1.0 (glossy)\""),
     Documentation(info="<html>
@@ -168,16 +168,17 @@ is currently ignored.
 
 </html>"));
   type ShapeExtra = Modelica.Icons.TypeReal
-    "Reflection of ambient light (= 0: light is completely absorbed)"
-       annotation ( min=0,
+    "Type of the additional data that can be defined for an elementary ShapeType"
+       annotation (
     Documentation(info="<html>
 <p>
 This type is used in shapes of visual objects to define
 extra data depending on the shape type. Usually, input
 variable <b>extra</b> is used as instance name:
 </p>
+
 <table border=1 cellspacing=0 cellpadding=2>
-<tr><th><b>shapeType</b></th><th>Meaning of variable <b>extra</b></th></tr>
+<tr><th><b>shapeType</b></th><th>Meaning of parameter <b>extra</b></th></tr>
 <tr>
   <td valign=\"top\">\"cylinder\"</td>
   <td valign=\"top\">if extra &gt; 0, a black line is included in the
@@ -197,7 +198,10 @@ variable <b>extra</b> is used as instance name:
 </tr>
 <tr>
   <td valign=\"top\">\"gearwheel\"</td>
-  <td valign=\"top\">extra is the number of teeth of the gear.</td>
+  <td valign=\"top\">extra is the number of teeth of the (external) gear.
+If extra &lt; 0, an internal gear is visualized with |extra| teeth.
+The axis of the gearwheel is along \"lengthDirection\", and usually:
+width = height = 2*radiusOfGearWheel.</td>
 </tr>
 <tr>
   <td valign=\"top\">\"spring\"</td>
@@ -206,6 +210,7 @@ variable <b>extra</b> is used as instance name:
       2*coil-width.</td>
 </tr>
 </table>
+
 </html>"));
 
   type ResolveInFrameA = enumeration(
