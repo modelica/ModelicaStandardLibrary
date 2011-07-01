@@ -122,8 +122,7 @@ equation
       color={191,0,0},
       thickness=0.5));
 
-    annotation (extent=[-90,-86; -70,-66], Diagram(coordinateSystem(
-          preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
+    annotation (
     Documentation(info="<html>
 <p>
 This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
@@ -149,24 +148,8 @@ derivative would be a dirac impulse.
 </p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
-</html>"),    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-                       experiment(StopTime=10),
+</html>"), experiment(StopTime=10),
     __Dymola_Commands(file(ensureSimulated=true)=
         "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"
-        "plotResults"),
-    Documentation(info="<html>
-<p>
-This model demonstrates the use of distributed pipe models with dynamic energy, mass and momentum balances.
-At time=2s the pressure of boundary4 jumps, which causes a pressure wave and flow reversal.
-</p>
-<p>
-Change system.momentumDynamics on the Assumptions tab of the system object from DynamicFreeInitial to SteadyState,
-in order to assume a steady-state momentum balance. This is the default for all models of the library.
-</p>
-<p>
-Change the Medium from MoistAir to StandardWater, in order to investigate a medium with sigificantly different density.
-Note the static head caused by the elevation of the pipes.
-</p>
-</html>"));
+        "plotResults"));
 end BranchingDynamicPipes;

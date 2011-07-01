@@ -1136,7 +1136,6 @@ end inverter;
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-
         experiment(StopTime=0.025),
         Documentation(info="<html>
 <p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
@@ -1272,7 +1271,6 @@ end inverter;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
-
         experiment(StopTime=0.025),
         Documentation(info="<html>
 <p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
@@ -2300,7 +2298,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
    equation
       i = I;
-      annotation(
+      annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2695,8 +2693,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 </html>"));
     end I_sffm;
 
-    annotation(preferredView="info",
-Documentation(info="<html>
+    annotation(preferredView="info", Documentation(info=
+                   "<html>
 <p>This package contains the SPICE sources.</p>
 <p><b>Note:</b> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <b>all</b> parameters of the source.</p>
 </html>", revisions="<html>

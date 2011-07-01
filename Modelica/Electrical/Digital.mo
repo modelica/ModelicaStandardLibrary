@@ -4746,7 +4746,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
           for i in 1:n loop
             y[i] = if x[i] then L.'1' else L.'0';
           end for;
-          annotation (extent=[40, -10; 60, 10],
+          annotation (
             Documentation(info="<HTML>
 <P>
 Conversion of a Boolean input into a digital output without any delay according to:
@@ -4880,7 +4880,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
             y[i] = if x[i] > upper_limit then upper_value else
               if x[i] < lower_limit then lower_value else middle_value;
           end for;
-          annotation (extent=[40, -10; 60, 10],
+          annotation (
             Documentation(info="<HTML>
 <P>
 Conversion of a real input into a digital output without any delay according to:
