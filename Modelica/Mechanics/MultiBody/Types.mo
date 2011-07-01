@@ -35,7 +35,7 @@ package Types "Constants and types with choices, especially to build menus"
   type Color = Modelica.Icons.TypeInteger[3] (each min=0, each max=255)
     "RGB representation of color (will be improved with a color editor)"
     annotation (
-      Dialog(colorSelector),
+      Dialog(__Dymola_colorSelector=true),
       choices(
         choice={0,0,0} "{0,0,0}       \"black\"",
         choice={155,0,0} "{155,0,0}     \"dark red\"",
@@ -64,7 +64,7 @@ Note, r g, b are given in the range 0 .. 255.
                Modelica.Icons.TypeReal[3] (each min=0, each max=255)
     "RGB representation of color as Real type "
     annotation (
-      Dialog(colorSelector),
+      Dialog(__Dymola_colorSelector=true),
       choices(
         choice={0,0,0} "{0,0,0}       \"black\"",
         choice={155,0,0} "{155,0,0}     \"dark red\"",
