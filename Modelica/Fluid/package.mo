@@ -622,7 +622,7 @@ mass flow rate varies only slowly). In this section it is explained how this cas
 handeled in the Modelica.Fluid library for pipes with
 <b>nonuniform roughness</b>, including the smooth pipe
 as a special case (see
-<a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.WallFriction\">Pipes.BaseClasses.WallFriction</a>.
+<a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.WallFriction\">Pipes.BaseClasses.WallFriction</a>).
 The treatment is non-standard in order to get a
 numerically well-posed description.
 </p>
