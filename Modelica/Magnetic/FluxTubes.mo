@@ -157,7 +157,7 @@ Magna Physics Publishing and Oxford University Press 1994
     01062 Dresden, Germany<br>
     Phone: +49 - 351 - 463 36296<br>
     Fax: +49 - 351 - 463 37183<br>
-    email: <A HREF=\"mailto:Thomas.Boedrich@mailbox.tu-dresden.de\">Thomas.Boedrich@mailbox.tu-dresden.de</A><br></dd>
+    email: <A HREF=\"mailto:Thomas.Boedrich@tu-dresden.de\">Thomas.Boedrich@tu-dresden.de</A><br></dd>
 </dl>
 
 <p><b>Acknowledgements:</b></p>
@@ -601,8 +601,9 @@ Whereas the steady state current is the same in both models, the steady state ac
         model PermeanceActuator
           "Detailed actuator model for rough magnetic design of actuator and system simulation"
 
-          parameter Real N = 140 "Number of turns"
-	    annotation(Dialog(group="Parameters",groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png"));
+          parameter Real N = 140 "Number of turns" annotation (Dialog(group=
+                  "Parameters", groupImage=
+                  "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/MovingCoilActuator/MovingCoilActuator_dimensions.png"));
           parameter SI.Resistance R = 2.86 "Coil resistance";
 
           parameter SI.Radius r_core = 12.5e-3
@@ -1535,9 +1536,9 @@ The characteristic current drop during pull-in is due to both armature motion an
           parameter Real N = 957 "Number of turns";
 
         //yoke
-          parameter SI.Radius r_yokeOut = 15e-3 "Outer yoke radius"
-	    annotation(Dialog(group="Parameters",
-			      groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
+          parameter SI.Radius r_yokeOut = 15e-3 "Outer yoke radius" annotation (
+             Dialog(group="Parameters",
+         groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
           parameter SI.Radius r_yokeIn = 13.5e-3 "Inner yoke radius";
           parameter SI.Length l_yoke = 35e-3 "Axial yoke length";
           parameter SI.Length t_yokeBot = 3.5e-3
@@ -1862,8 +1863,9 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
         model AdvancedSolenoid
           "Advanced network model of a lifting magnet with planar armature end face, split magnetomotive force"
 
-          parameter Real N = 957 "Number of turns"
-	    annotation(Dialog(group="Parameters",groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
+          parameter Real N = 957 "Number of turns" annotation (Dialog(group=
+                  "Parameters", groupImage=
+                  "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Examples/SolenoidActuator/Solenoid_dimensions.png"));
           parameter SI.Resistance R = 5 "Coil resistance";
           parameter SI.Resistance R_par = 1e5
             "Resistance parallel to the coil, in series to C_par";
@@ -2811,7 +2813,7 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
     equation
       V_m = Phi * R_m;
 
-      annotation(
+      annotation (
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2889,7 +2891,7 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
     equation
       LossPower = V_m*der(Phi);
       V_m = 1/R * der(Phi); //Magnetic voltage drop in magnetic network due to eddy current
-      annotation(
+      annotation (
         Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2978,13 +2980,15 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
 
-        parameter SI.Length l( start = 0.01) "Width (orthogonal to flux direction)"
-	  annotation(Dialog(group="Fixed geometry",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderRadialFlux.png"));
+        parameter SI.Length l( start = 0.01)
+          "Width (orthogonal to flux direction)" annotation (Dialog(group=
+                "Fixed geometry",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderRadialFlux.png"));
         parameter SI.Radius r_i( start = 0.01)
           "Inner radius of hollow cylinder" annotation(Dialog(group="Fixed geometry"));
-        parameter SI.Radius r_o( start = 0.02) "Outer radius of hollow cylinder"
-	  annotation(Dialog(group="Fixed geometry"));
+        parameter SI.Radius r_o( start = 0.02)
+          "Outer radius of hollow cylinder"
+          annotation (Dialog(group="Fixed geometry"));
 
       equation
         A = l * pi*(r_o + r_i); // Area at arithmetic mean radius for calculation of average flux density
@@ -3019,8 +3023,9 @@ For those flux tube sections of a magnetic device that have a nonlinear material
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialFixedShape;
 
-        parameter SI.Length l = 0.01 "Length in direction of flux"
-	  annotation(Dialog(group="Fixed geometry", groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"));
+        parameter SI.Length l = 0.01 "Length in direction of flux" annotation (
+            Dialog(group="Fixed geometry", groupImage=
+                "modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"));
         parameter SI.Length a = 0.01 "Width of rectangular cross-section"                           annotation(Dialog(group="Fixed geometry"));
         parameter SI.Length b = 0.01 "Height of rectangular cross-section" annotation(Dialog(group="Fixed geometry"));
 
@@ -3067,9 +3072,9 @@ For initial design of magnetic circuits, the relative permeability of possibly n
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (in direction of flux)"
-	  annotation(Dialog(group="Variable geometry",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderAxialFlux.png"));
+        SI.Length l = s "Axial length (in direction of flux)" annotation (
+            Dialog(group="Variable geometry",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderAxialFlux.png"));
         parameter SI.Radius r_i( start = 0) "Inner radius of (hollow) cylinder";
         parameter SI.Radius r_o( start = 0.01)
           "Outer radius of (hollow) cylinder";
@@ -3103,8 +3108,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
         SI.Length l = s "Axial length (orthogonal to direction of flux)"
-	  annotation(Dialog(group="Variable geometry",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderRadialFlux.png"));
+          annotation (Dialog(group="Variable geometry",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/HollowCylinderRadialFlux.png"));
         parameter SI.Radius r_i( start = 0.01)
           "Inner radius of hollow cylinder";
         parameter SI.Radius r_o( start = 0.015)
@@ -3138,9 +3143,9 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
 
-        SI.Length l = s "Axial length (in direction of flux)"
-	  annotation(Dialog(group="Variable geometry",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"));
+        SI.Length l = s "Axial length (in direction of flux)" annotation (
+            Dialog(group="Variable geometry",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidParallelFlux.png"));
         parameter SI.Length a( start = 0.01)
           "Width of rectangular cross-section";
         parameter SI.Length b( start = 0.01)
@@ -3174,7 +3179,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         SI.Length l = s "Length in direction of motion (orthogonal to flux)"
           annotation(Dialog(group="Variable geometry",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidOrthogonalFlux.png"));
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/CuboidOrthogonalFlux.png"));
         parameter SI.Length a( start = 0.01)
           "Width of rectangular cross-section";
         parameter SI.Length b( start = 0.01)
@@ -3207,7 +3212,7 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialForce;
         SI.Length l = s "Axial length (in direction of flux)"
           annotation(Dialog(group="Variable geometry",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/LeakageAroundPoles.png"));
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/LeakageAroundPoles.png"));
         parameter SI.Length w( start = 0.1)
           "Width orthogonal to flux; mean circumference of flux tube in case of cylindrical poles";
         parameter SI.Radius r( start = 0.01) "Radius of leakage field";
@@ -3273,8 +3278,8 @@ The shapes of the flux tubes defined in this package are rather simple. Only one
 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edge and plane)"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterCylinder.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterCylinder.png"));
       equation
         G_m = mu_0 * 0.52 * l;
 
@@ -3293,8 +3298,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowCylinder.png"));
         parameter Real ratio( start = 1) "Constant ratio t/r_i";
 
       equation
@@ -3314,8 +3319,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>distance between edges)"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/HalfCylinder.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/HalfCylinder.png"));
 
       equation
         G_m = mu_0 * 0.26 * l;
@@ -3335,8 +3340,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
 
         parameter SI.Length l( start = 0.1)
           "Axial length orthogonal to flux (=2*pi*r for cylindrical pole and r>>r_i)"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/HalfHollowCylinder.png"));
         parameter Real ratio( start = 1) "Constant ratio t/r_i";
 
       equation
@@ -3356,8 +3361,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r( start = 0.005) "Radius of quarter sphere"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterSphere.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterSphere.png"));
 
       equation
         G_m = mu_0 * 0.077 * 2*r;
@@ -3376,8 +3381,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length t( start = 0.01) "Thickness of sperical shell"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/QuarterHollowSphere.png"));
 
       equation
         G_m = mu_0 * 0.25 * t;
@@ -3396,8 +3401,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r( start = 0.01) "Radius of eighth of sphere"
-	  annotation(Dialog(group="Parameters",
-			    groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfSphere.png"));
+          annotation (Dialog(group="Parameters",
+       groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfSphere.png"));
 
       equation
         G_m = mu_0 * 0.308 * r;
@@ -3416,8 +3421,8 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Length t( start = 0.01) "Thickness of sperical shell"
-	   annotation(Dialog(group="Parameters",
-			     groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png"));
+          annotation (Dialog(group="Parameters",
+        groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/EighthOfHollowSphere.png"));
 
       equation
         G_m = mu_0 * 0.5 * t;
@@ -3436,9 +3441,9 @@ Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic
         extends Modelica.Magnetic.FluxTubes.Interfaces.PartialLeakage;
 
         parameter SI.Radius r_0( start = 10e-3)
-          "Radius of inner solid cylinder"
-	  annotation(Dialog(group="Parameters",
-			      groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png"));
+          "Radius of inner solid cylinder" annotation (Dialog(group=
+                "Parameters",
+         groupImage="modelica://Modelica/Resources/Images/Magnetic/FluxTubes/Shapes/Leakage/CoaxCylindersEndFaces.png"));
         parameter SI.Radius r_1( start = 17e-3)
           "Inner radius of outer hollow cylinder";
         parameter SI.Radius r_2( start = 20e-3)
@@ -4033,7 +4038,7 @@ Additional user-specific materials can be defined as needed.
     extends Modelica.Icons.InterfacesPackage;
 
     connector MagneticPort "Generic magnetic port"
-      SI.MagneticPotentialDifference V_m "Magnetic potential at the port";
+      SI.MagneticPotential V_m "Magnetic potential at the port";
       flow SI.MagneticFlux Phi "Magnetic flux flowing into the port";
 
       annotation (defaultComponentName = "mag",
@@ -4679,6 +4684,8 @@ Copyright &copy; 2005-2010, Modelica Association and Thomas B&ouml;drich.
 </thead>
 
 <tbody>
+<tr><td>1.4</td>  <td>2011-08-01</td>
+    <td>Thomas&nbsp;B&ouml;drich</td> <td>MagneticPort declared with MagneticPotential instead of MagneticPotentialDifference</td> </tr>
 <tr><td>1.3</td>  <td>2010-04-22</td>
     <td>Christian&nbsp;Kral</td> <td>Added conditional heat port to EddyCurrent model</td> </tr>
 <tr><td>1.2</td>  <td>2009-08-11</td>
