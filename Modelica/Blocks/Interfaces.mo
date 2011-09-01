@@ -1068,10 +1068,10 @@ end IntegerMIBooleanMOs;
           Text(
             extent={{110,-50},{250,-70}},
             lineColor={0,0,0},
-            textString=DynamicSelect(" ", realString(
+            textString=DynamicSelect(" ", String(
                     y,
-                    1,
-                    0))),
+                    minimumLength=1,
+                    significantDigits=0))),
           Text(
             extent={{-250,170},{250,110}},
             textString="%name",
@@ -1106,10 +1106,10 @@ end IntegerMIBooleanMOs;
           Text(
             extent={{110,-50},{250,-70}},
             lineColor={0,0,0},
-            textString=DynamicSelect(" ", realString(
+            textString=DynamicSelect(" ", String(
                     y,
-                    1,
-                    0))),
+                    minimumLength=1,
+                    significantDigits=0))),
           Text(
             extent={{-250,170},{250,110}},
             textString="%name",

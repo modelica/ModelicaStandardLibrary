@@ -883,10 +883,10 @@ equation
             Text(
               extent={{310,-25},{410,-45}},
               lineColor={0,0,0},
-              textString=DynamicSelect(" ", realString(
+              textString=DynamicSelect(" ", String(
                   y,
-                  1,
-                  integer(precision)))),
+                  minimumLength=1,
+                  significantDigits=integer(precision)))),
             Text(
               extent={{-100,-60},{300,-90}},
               lineColor={0,0,0},
