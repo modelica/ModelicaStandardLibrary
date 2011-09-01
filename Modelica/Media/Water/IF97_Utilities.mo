@@ -3068,7 +3068,7 @@ package IF97_Utilities
 
       // Inverses p_hs from the 2001 assition to IAPWS97
       function p1_hs
-        "pressure as a function of ehtnalpy and entropy in region 1"
+        "pressure as a function of enthalpy and entropy in region 1"
         extends Modelica.Icons.Function;
         input SI.SpecificEnthalpy h "specific enthalpy";
         input SI.SpecificEntropy s "specific entropy";
