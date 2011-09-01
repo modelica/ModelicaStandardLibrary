@@ -41,10 +41,10 @@ equation
             Text(
               extent={{310,-25},{410,-45}},
               lineColor={0,0,0},
-              textString=realString(
+              textString=String(
                   y,
-                  1,
-                  0)),
+                  minimumLength=1,
+                  significantDigits=0)),
             Text(
               visible=not use_pre_as_default,
               extent={{-100,-60},{300,-90}},
