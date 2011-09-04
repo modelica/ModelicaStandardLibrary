@@ -7489,7 +7489,7 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=7,
+versionBuild=8,
 versionDate="2010-10-25",
 dateModified = "2010-11-08 14:38:50Z",
 revisionId="$Id::                                       $",
