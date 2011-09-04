@@ -1419,13 +1419,11 @@ argument):</p>
       min=0);
   type MolarMass = Real (final quantity="MolarMass", final unit="kg/mol",min=0);
   type MolarVolume = Real (final quantity="MolarVolume", final unit="m3/mol", min=0);
-  type MolarEnergy = Real (final quantity="MolarEnergy", final unit="J/mol", nominal=2e4);
-  type MolarInternalEnergy = MolarEnergy;
+  type MolarInternalEnergy = Real (final quantity="MolarEnergy", final unit="J/mol", nominal=2e4);
   type MolarHeatCapacity = Real (final quantity="MolarHeatCapacity", final unit=
          "J/(mol.K)");
   type MolarEntropy = Real (final quantity="MolarEntropy", final unit=
           "J/(mol.K)");
-  type MolarEnthalpy = MolarEnergy;
   type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit=
           "mol/s");
   type NumberDensityOfMolecules = Real (final quantity=
