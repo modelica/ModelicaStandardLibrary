@@ -1467,7 +1467,6 @@ end inverter;
 </html>"));
     end CoupledInductors;
 
-
     model CascodeCircuit
 
       Spice3.Semiconductors.J_NJFJFET J1
@@ -2088,7 +2087,6 @@ The corresponding SPICE description
 </html>"));
   end Basic;
 
-
   package Semiconductors "Semiconductor devices and model cards"
     model R_Resistor "Semiconductor Resistor"
     extends Internal.R_SEMI;
@@ -2471,24 +2469,6 @@ The corresponding SPICE description
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 </html>"));
     end ModelcardMOS2;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     annotation(preferedView="info",
       Window(
@@ -3914,7 +3894,10 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               lineColor={170,85,255},
               smooth=Smooth.None,
               fillColor={170,85,255},
-              fillPattern=FillPattern.Solid)}));
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>The model InductivaCouplePin was introduced, the model the inductive coupling between two inductors in the same was SPICE3 does it. The InductiveCouplePin</p>
+<p>has three variables, the inductance, the derivation of the current and the voltage. It is used in the models K_CoupledInductors and L_Inductor, both part of package Basic.</p>
+</html>"));
     end InductiveCouplePin;
 
     partial model ConditionalSubstrate
@@ -4379,15 +4362,6 @@ on the model behaviour.
 </html>"));
      end ModelcardMOS2;
 
-
-
-
-
-
-
-
-
-
   model JFET "Junction Field-Effect Transistor"
 
     Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" annotation (Placement(transformation(
@@ -4533,8 +4507,6 @@ on the model behaviour.
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardJFET;
-
-
 
     model BJT "Bipolar junction transistor"
 
@@ -5074,17 +5046,6 @@ on the model behaviour.
 <p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardC;
-
-
-
-
-
-
-
-
-
-
-
 
      record SpiceConstants "General constants of SPICE simulator"
 
@@ -6921,11 +6882,6 @@ on the model behaviour.
 </html>"));
       end mos2CalcNoBypassCode;
 
-
-
-
-
-
       annotation (Documentation(info="<html>
 <p>This package Mos contains functions and records with data of the mosfet models level 1, 2, 3 and 6.</p>
 </html>"));
@@ -7907,8 +7863,6 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 <p>This package Mos2 contains functions and records with data of the mosfet model level 2.</p>
 </html>"));
     end Mos2;
-
-
 
     package Diode "Records and functions for diode model"
       extends Modelica.Icons.Package;
@@ -9499,7 +9453,6 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
     end Jfet;
 
-
     package Csemiconductor
       record Capacitor
         extends Model.Model;
@@ -9587,11 +9540,6 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end capacitorRenameParametersDev;
 
     end Csemiconductor;
-
-
-
-
-
 
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
