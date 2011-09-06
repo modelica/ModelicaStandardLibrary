@@ -1318,6 +1318,50 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </html>"));
         end WiredX;
 
+
+
+        model MUX2x1
+          import D = Modelica.Electrical.Digital;
+          D.Multiplexers.MUX2x1 Mux2x1
+            annotation (Placement(transformation(extent={{-34,-48},{56,48}})));
+          D.Sources.Table Input1(
+            y0=D.Interfaces.Logic.'U',
+            x={2,3,4,3,2,1},
+            t={2,4,6,8,10,12})
+            annotation (Placement(transformation(extent={{-90,14},{-70,34}})));
+          D.Sources.Step Select(
+            before=D.Interfaces.Logic.'0',
+            after=D.Interfaces.Logic.'1',
+            stepTime=7)
+            annotation (Placement(transformation(extent={{-90,58},{-70,78}})));
+          D.Sources.Table Input0(
+            y0=D.Interfaces.Logic.'U',
+            t={2,4,6,8,10,12},
+            x={4,2,3,2,4,1})
+            annotation (Placement(transformation(extent={{-90,-34},{-70,-14}})));
+        equation
+          connect(Select.y, Mux2x1.sel) annotation (Line(
+              points={{-70,68},{11,68},{11,43.2}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(Input0.y, Mux2x1.in0) annotation (Line(
+              points={{-70,-24},{-29.5,-24}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          connect(Input1.y, Mux2x1.in1) annotation (Line(
+              points={{-70,24},{-29.5,24}},
+              color={127,0,127},
+              smooth=Smooth.None));
+          annotation (Icon(graphics={            Ellipse(extent={{-100,100},{
+                  100,-100}},
+                    lineColor={95,95,95}), Polygon(
+                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
+                  lineColor={0,0,255},
+                  pattern=LinePattern.None,
+                  fillColor={95,95,95},
+                  fillPattern=FillPattern.Solid)}), Diagram(graphics));
+        end MUX2x1;
+
       package Utilities "Utility components used by package Examples"
         extends Modelica.Icons.Package;
 
@@ -2963,6 +3007,14 @@ The result can be seen in the output signals of the Fulladders according to:</p>
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'0',L.'H'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'U',L.'W',L.'L',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}}}]
       "Tristate Table by [strength, enable, input] reading, low-active enable";
+
+    constant D.Interfaces.Logic MUX2x1Table[R, R, R]=[
+        {{{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'0',L.'1'},{L.'U',L.'U',L.'U',L.'U'}},
+         {{L.'U',L.'X',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'U',L.'X',L.'0',L.'1'},{L.'X',L.'X',L.'X',L.'X'}},
+         {{L.'U',L.'U',L.'0',L.'U'},{L.'U',L.'X',L.'0',L.'X'},{L.'U',L.'X',L.'0',L.'1'},{L.'0',L.'0',L.'0',L.'0'}},
+         {{L.'U',L.'U',L.'U',L.'1'},{L.'U',L.'X',L.'X',L.'1'},{L.'U',L.'X',L.'0',L.'1'},{L.'1',L.'1',L.'1',L.'1'}}}]
+      "Multiplexer Table by [select, input1, input0] reading";
+
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}})),
                             Documentation(info="<html>
@@ -7581,6 +7633,704 @@ Wires n input signals in one output signal, without delay.
                 graphics));
     end WiredX;
   end Tristates;
+
+  package Memories
+
+    model DLATRAM "Level sensitive Random Access Memory"
+
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
+
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter Integer n_addr(min=1) = 2 "addr width";
+      parameter Integer n_data(min=1) = 2 "data width";
+      parameter String fileName="H:\Modelica\VHDL_Logik_Test\Test_AuslesenROM.txt"
+        "File where matrix for memory is stored"
+        annotation(Dialog(group="table data definition", enable = tableOnFile,
+                             __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                             caption="Open file in which table is present")));
+
+      D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
+              extent={{-100,-30},{-84,-14}}),
+                                            iconTransformation(extent={{-100,-28},{
+                -84,-12}})));
+      D.Interfaces.DigitalInput WE "write enable" annotation (Placement(transformation(
+              extent={{-100,-60},{-84,-44}}),
+                                       iconTransformation(extent={{-100,-58},{-84,
+                -42}})));
+      D.Interfaces.DigitalInput addr[n_addr] "address"
+                                             annotation (Placement(transformation(
+              extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,50},
+                {-80,70}})));
+      D.Interfaces.DigitalInput dataIn[n_data] "datat input"
+        annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
+      D.Interfaces.DigitalOutput dataOut[n_data] "datat output"
+                                          annotation (Placement(
+            transformation(extent={{80,10},{100,30}}), iconTransformation(
+              extent={{80,10},{100,30}})));
+
+    function getMemory
+      input String filename;
+      input Integer n_addr "addr width";
+      input Integer n_data "data width";
+      output D.Interfaces.Logic m[integer(2^n_addr),n_data]
+          "memory with data, lowest bit on left side";
+      output String data;
+      output Integer bit;
+    algorithm
+      for i in 1:(2^n_addr) loop
+        data :=Modelica.Utilities.Streams.readLine(filename,
+          integer(i));
+        for j in 1:n_data loop
+          bit := Modelica.Utilities.Strings.scanInteger( data,
+              (2*j-1));
+          if bit == 1 then
+            m[integer(i),j]:=L.'1';
+          elseif bit == 0 then
+            m[integer(i),j]:=L.'0';
+          else
+            m[integer(i),j]:=L.'X';
+          end if;
+
+           end for;
+      end for;
+    end getMemory;
+
+    public
+      D.Interfaces.Logic mem[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data));
+    protected
+      D.Interfaces.Logic nextstate[n_data](start=fill(L.'U',n_data));
+      D.Interfaces.Logic mem_word[n_data](start=fill(L.'U',n_data));
+      Integer int_addr;
+      // Boolean addr_change;
+
+      D.Interfaces.DigitalOutput yy[n_data](start=fill(L.'U',n_data));
+      D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
+
+    function address
+      // compute memory address
+      input Integer n_addr;
+      input L addr[n_addr];
+      output Integer int_addr;
+      protected
+      L addr_bit;
+    algorithm
+      int_addr := 1;
+      for i in 1:n_addr loop
+        addr_bit := T.X01Table[addr[i]];
+        if addr_bit == L.'1' then
+           int_addr := int_addr + integer(2^(i-1));
+        elseif addr_bit == L.'X' then
+           int_addr := 0;
+           break;
+        end if;
+      end for;
+    end address;
+
+    algorithm
+    when initial() then
+      mem := getMemory(fileName, n_addr, n_data);
+    end when;
+
+    /* assert: no address change during write 
+addr_change := false;
+for i in 1:n_addr loop
+    if change(addr[i]) then
+      addr_change := true;
+    end if;
+end for;
+ 
+if WE == L.'1' or WE == L.'H' then
+  assert(not addr_change, "Address lines changed while RAM is Write Enabled");
+end if;
+*/
+
+    /* write into memory */
+    if WE == L.'1' or WE == L.'H' then
+      // write data
+      int_addr := address(n_addr, addr);
+      //assert(int_addr > 0, "Attempted write to bad RAM address");
+      if int_addr > 0 then
+        for i in 1:n_data loop
+          mem_word[i] := T.X01Table[dataIn[i]];
+        end for;
+        mem[int_addr,1:n_data] := mem_word;
+      end if;
+    elseif WE == L.'X' or WE == L.'W' or WE == L.'Z' or WE == L.'U' or WE == L.'-' then
+      // write X
+      int_addr := address(n_addr, addr);
+      //assert(int_addr > 0, "Attempted write to bad RAM address");
+      if int_addr > 0 then
+        mem_word :=fill(L.'X',n_data);
+        mem[int_addr,1:n_data] := mem_word;
+      end if;
+    end if;
+
+    /* read from memory */
+    if RE == L.'0' or RE == L.'L' then
+      nextstate := fill(L.'Z',n_data);
+    elseif RE == L.'1' or RE == L.'H' then
+      int_addr := address(n_addr, addr);
+      // read data
+      if int_addr > 0 then
+        mem_word := mem[int_addr,1:n_data];
+        for i in 1:n_data loop
+          nextstate[i] := T.StrengthMap[mem_word[i], strength];
+        end for;
+      else
+        nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+      end if;
+    else
+      nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+    end if;
+    yy := nextstate;
+
+    equation
+      for i in 1:n_data loop
+        connect(yy[i], inertialDelaySensitive[i].x);
+        connect(inertialDelaySensitive[i].y, dataOut[i]);
+      end for;
+
+       annotation (
+        Documentation(info="<html>
+ 
+<p> Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd <p>
+
+<p><b>Truth Table for high active read enable RE:</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>RE</b></td>
+      <td valign=\"top\"><b>Addr</b></td>
+      <td valign=\"top\"><b>DataOut</b></td>
+  </tr>                         
+  <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">Z over all</td>  </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>     </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">X over all</td>  </tr>
+  <tr><td valign=\"top\">X</td>  <td valign=\"top\">*</td>              <td valign=\"top\">X over all</td>  </tr>
+</table>
+<p><b>Truth Table for high active write enable WE:</b></p>
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>WE</b></td>
+      <td valign=\"top\"><b>Addr</b></td>
+      <td valign=\"top\"><b>Memory</b></td>
+  </tr>                         
+  <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">no write</td>           </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=DataIn</td>     </tr>
+  <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">no write</td>  </tr>
+  <tr><td valign=\"top\">X</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=X over all</td> </tr>
+  <tr><td valign=\"top\">X</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">no write</td>  </tr>
+</table>
+<p>
+<PRE>
+  *  = don't care
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+  Z  = L.'Z'
+</PRE>
+</p>
+<p><b>Simultaneous read/write operations are allowed.
+Firstly Write is carried out, then Read.</b></p>
+</b></p>
+<br> 
+</HTML>
+",     revisions="<html>
+<ul>
+<PRE>
+<li><i>November 9, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-60,80},{60,-80}},
+              lineColor={127,0,127},
+              lineThickness=0.5),
+            Text(
+              extent={{-46,102},{46,-2}},
+              lineColor={127,33,107},
+              textString="DLATRAM"),
+            Line(
+              points={{-84,60},{-60,60}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{60,20},{84,20}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-84,-20},{-60,-20}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{-60,-10},{-46,-20},{-60,-30}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-41,-5},{-24,-34}},
+              lineColor={127,33,107},
+              textString="RE"),
+            Line(
+              points={{-60,-40},{-46,-50},{-60,-60}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-41,-35},{-24,-62}},
+              lineColor={127,33,107},
+              textString="WE"),
+            Line(
+              points={{-84,-50},{-60,-50}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{-80,20},{-60,20}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1)}),
+                  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),      graphics), Icon(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-50,60},{50,-60}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-80,30},{-50,30}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{50,30},{80,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-20},{-50,-20}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-84},{0,-60}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{-50,-8},{-34,-20},{-50,-32}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Text(
+              extent={{-30,58},{26,2}},
+              lineColor={127,33,107},
+              textString="DLATR"),
+            Text(
+              extent={{-29,-8},{6,-32}},
+              lineColor={127,33,107},
+              textString="enable"),
+            Text(
+              extent={{-14,-44},{12,-56}},
+              lineColor={127,33,107},
+              textString="reset")}));
+    end DLATRAM;
+
+    model DLATROM "Level sensitive Read Only Memory"
+
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
+
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      parameter Integer n_addr(min=1) = 2 "addr width";
+      parameter Integer n_data(min=1) = 2 "data width";
+
+      parameter String fileName="H:\Modelica\VHDL_Logik_Test\Test_AuslesenROM.txt"
+        "File where matrix for memory is stored"
+        annotation(Dialog(group="table data definition", enable = tableOnFile,
+                             __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                             caption="Open file in which table is present")));
+      D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
+              extent={{-100,-30},{-80,-10}}),
+                                            iconTransformation(extent={{-100,
+                -27},{-86,-13}})));
+      D.Interfaces.DigitalInput addr[n_addr] "address" annotation (Placement(transformation(
+              extent={{-100,50},{-80,70}}), iconTransformation(extent={{-100,52},{
+                -84,68}})));
+      D.Interfaces.DigitalOutput dataOut[n_data] "data output"
+                                            annotation (Placement(
+            transformation(extent={{80,8},{100,28}}),  iconTransformation(
+              extent={{84,12},{100,29}})));
+
+    function getMemory
+      input String filename;
+      input Integer n_addr "addr width";
+      input Integer n_data "data width";
+      output D.Interfaces.Logic m[integer(2^n_addr),n_data]
+          "memory with data, lowest bit on left side";
+      output String data;
+      output Integer bit;
+    algorithm
+      for i in 1:(2^n_addr) loop
+        data :=Modelica.Utilities.Streams.readLine(filename,
+          integer(i));
+        for j in 1:n_data loop
+          bit := Modelica.Utilities.Strings.scanInteger( data,
+              (2*j-1));
+          if bit == 1 then
+            m[integer(i),j]:=L.'1';
+          elseif bit == 0 then
+            m[integer(i),j]:=L.'0';
+          else
+            m[integer(i),j]:=L.'X';
+          end if;
+
+           end for;
+      end for;
+    end getMemory;
+
+    protected
+      D.Interfaces.Logic m[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data))
+        "memory with data, lowest bit on left side";
+      D.Interfaces.Logic nextstate[n_data](start=fill(L.'U',n_data));
+      //D.Interfaces.Logic mem[integer(2^n_addr),n_data](start=fill(L.'U',integer(2^n_addr),n_data));
+      D.Interfaces.Logic mem_word[n_data](start=fill(L.'U',n_data));
+      D.Interfaces.Logic addr_bit;
+      Integer int_addr;
+
+      D.Interfaces.DigitalOutput yy[n_data](start=fill(L.'U',n_data));
+      D.Delay.InertialDelaySensitive inertialDelaySensitive[n_data](each tLH=tLH, each tHL=tHL);
+
+    algorithm
+    when initial() then
+      m := getMemory(fileName, n_addr, n_data);
+    end when;
+
+    if RE == L.'0' or RE == L.'L' then
+      nextstate := fill(L.'Z',n_data);
+    elseif RE == L.'1' or RE == L.'H' then
+      // compute memory address
+      int_addr := 1;
+      for i in 1:n_addr loop
+        addr_bit :=T.X01Table[addr[i]];
+        if addr_bit == L.'1' then
+           int_addr := int_addr + integer(2^(i-1));
+        elseif addr_bit == L.'X' then
+           int_addr := 0;
+           break;
+        end if;
+      end for;
+      // read data
+      if int_addr > 0 then
+         mem_word := m[int_addr,1:n_data];
+         for i in 1:n_data loop
+            nextstate[i] := T.StrengthMap[mem_word[i], strength];
+         end for;
+      else
+         nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+      end if;
+    else
+      nextstate := fill(T.StrengthMap[L.'X', strength],n_data);
+    end if;
+    yy := nextstate;
+
+    equation
+
+      for i in 1:n_data loop
+        connect(yy[i], inertialDelaySensitive[i].x);
+        connect(inertialDelaySensitive[i].y, dataOut[i]);
+      end for;
+
+       annotation (
+        Documentation(info="<html>
+ 
+<p> Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd <p>
+<p><b>Truth Table for high active read enable RE:</b></p>
+ 
+<table border=1 cellspacing=0 cellpadding=2>
+  <tr><td valign=\"top\"><b>RE</b></td>
+      <td valign=\"top\"><b>Addr</b></td>
+      <td valign=\"top\"><b>DataOut</b></td>
+  </tr>
+                         
+  <tr><td valign=\"top\">0</td> <td valign=\"top\">*</td> <td valign=\"top\">Z over all</td>  </tr>
+  <tr><td valign=\"top\">1</td> <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>  </tr>
+  <tr><td valign=\"top\">1</td> <td valign=\"top\">X in Addr</td> <td valign=\"top\">X over all</td> </tr>
+  <tr><td valign=\"top\">X</td> <td valign=\"top\">*</td> <td valign=\"top\">X over all</td> </tr>
+</table>
+ 
+<p>
+<PRE>
+  *  = don't care
+  0  = L.'0' or L.'L'
+  1  = L.'1' or L.'H'
+  X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
+  Z  = L.'Z'
+</PRE>
+</p>
+ 
+</HTML>
+",     revisions="<html>
+<ul>
+<PRE>
+<li><i>October 19, 2010 </i> created by Ulrich Donath<br>
+       </li>
+</PRE>
+</ul>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),
+                        graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+                            graphics={
+            Rectangle(
+              extent={{-60,80},{60,-80}},
+              lineColor={127,0,127},
+              lineThickness=0.5),
+            Text(
+              extent={{-46,102},{46,-2}},
+              lineColor={127,33,107},
+              textString="DLATROM"),
+            Line(
+              points={{-84,60},{-60,60}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{60,20},{84,20}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-88,-20},{-60,-20}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Line(
+              points={{-60,-10},{-46,-20},{-60,-30}},
+              color={127,0,127},
+              smooth=Smooth.None),
+            Text(
+              extent={{-41,-5},{-24,-34}},
+              lineColor={127,33,107},
+              textString="RE")}),
+                  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}),      graphics), Icon(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-50,60},{50,-60}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillPattern=FillPattern.Solid,
+              fillColor={255,255,255}),
+            Line(
+              points={{-80,30},{-50,30}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{50,30},{80,30}},
+              color={127,33,107},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{-80,-20},{-50,-20}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{0,-84},{0,-60}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Line(
+              points={{-50,-8},{-34,-20},{-50,-32}},
+              color={127,33,107},
+              smooth=Smooth.None),
+            Text(
+              extent={{-30,58},{26,2}},
+              lineColor={127,33,107},
+              textString="DLATR"),
+            Text(
+              extent={{-29,-8},{6,-32}},
+              lineColor={127,33,107},
+              textString="enable"),
+            Text(
+              extent={{-14,-44},{12,-56}},
+              lineColor={127,33,107},
+              textString="reset")}));
+    end DLATROM;
+    annotation (Icon(graphics={            Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid)}));
+  end Memories;
+
+  package Multiplexers
+    model MUX2x1 "A two inputs MULTIPLEXER for multiple value logic
+(2 data inputs, 1 select input, 1 output)"
+
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
+      parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
+      parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
+      parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
+      D.Interfaces.DigitalInput in1 "data input 1"
+        annotation (Placement(transformation(extent={{-100,40},{-80,60}}),
+            iconTransformation(extent={{-100,40},{-80,60}})));
+      D.Interfaces.DigitalInput in0 "data input 0"
+        annotation (Placement(transformation(extent={{-100,-60},{-80,-40}}),
+            iconTransformation(extent={{-100,-60},{-80,-40}})));
+      D.Interfaces.DigitalInput sel "select input"
+      annotation (Placement(transformation(extent={{-10,80},{10,100}}),
+            iconTransformation(extent={{-10,80},{10,100}})));
+      D.Interfaces.DigitalOutput out "output"
+        annotation (Placement(transformation(extent={{80,-10},{100,10}}),
+            iconTransformation(extent={{80,-10},{100,10}})));
+
+    protected
+              D.Interfaces.Logic nextstate(start=L.'U');
+              D.Interfaces.DigitalOutput yy(start=L.'U');
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+
+    algorithm
+      nextstate := T.MUX2x1Table[T.UX01Table[in1], T.UX01Table[sel], T.UX01Table[in0]];
+
+      nextstate := T.StrengthMap[nextstate, strength];
+
+      yy := nextstate;
+    equation
+      connect(yy, inertialDelaySensitive.x);
+      connect(inertialDelaySensitive.y, out);
+
+      annotation (Diagram(graphics),
+        Icon(graphics={
+            Line(
+              points={{-80,50},{-40,50}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{-62,-50},{-62,-50}},
+              color={127,0,127},
+              smooth=Smooth.None,
+              thickness=1),
+            Line(
+              points={{-80,-50},{-40,-50}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{0,60},{0,80}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Line(
+              points={{40,0},{80,0}},
+              color={127,0,127},
+              thickness=1,
+              smooth=Smooth.None),
+            Polygon(
+              points={{-40,80},{-40,-80},{40,-40},{40,40},{-40,80}},
+              lineColor={213,170,255},
+              lineThickness=1,
+              smooth=Smooth.None,
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-36,-70},{38,-92}},
+              lineColor={0,0,255},
+              fillColor={213,170,255},
+              fillPattern=FillPattern.Solid,
+              textString="%name"),
+            Text(
+              extent={{-38,10},{38,-10}},
+              lineColor={127,0,127},
+              lineThickness=1,
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid,
+              textString="MUX2x1")}),
+        Documentation(info="<html>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
+<p>and for Multiplexer table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
+<p><h4>Truth Table</h4></p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td valign=\"top\"><p><h4>DataIn</h4></p></td>
+<td valign=\"top\"><p><h4>Select</h4></p></td>
+<td valign=\"top\"><p><h4>DataOut</h4></p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>*</p></td>
+<td valign=\"top\"><p>0</p></td>
+<td valign=\"top\"><p>Input0</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>*</p></td>
+<td valign=\"top\"><p>1</p></td>
+<td valign=\"top\"><p>Input1</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>Inputs equal</p></td>
+<td valign=\"top\"><p>U</p></td>
+<td valign=\"top\"><p>Input</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>Inputs not equal</p></td>
+<td valign=\"top\"><p>U</p></td>
+<td valign=\"top\"><p>U</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>U in Input</p></td>
+<td valign=\"top\"><p>X</p></td>
+<td valign=\"top\"><p>U</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>Inputs equal</p></td>
+<td valign=\"top\"><p>X</p></td>
+<td valign=\"top\"><p>Input</p></td>
+</tr>
+<tr>
+<td valign=\"top\"><p>no U in Input and Inputs not equal</p></td>
+<td valign=\"top\"><p>X</p></td>
+<td valign=\"top\"><p>X</p></td>
+</tr>
+</table>
+<pre> 
+
+  *  = don&apos;t care
+  0  = L.&apos;0&apos; or L.&apos;L&apos;
+  1  = L.&apos;1&apos; or L.&apos;H&apos;
+  X  = L.&apos;X&apos; or L.&apos;W&apos; or L.&apos;Z&apos; or L.&apos;-&apos; 
+  U  = L.&apos;U&apos; </pre>
+</html>",     revisions="<html>
+<p><ul>
+<li><code><i>January 24, 2011 </i></code><code> created by Christian G&uuml;nther<br/></code></li>
+</ul></p>
+</html>"));
+    end MUX2x1;
+    annotation (Icon(graphics={            Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid)}));
+  end Multiplexers;
       annotation (
         Documentation(info="<html>
 <p>
