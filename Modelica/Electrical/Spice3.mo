@@ -331,14 +331,13 @@ end inverter;
           smooth=Smooth.None));
       annotation ( Diagram(
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         experiment(
           StopTime=1e-011,
           NumberOfIntervals=2000,
           Tolerance=1e-007),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
 <p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
@@ -454,11 +453,10 @@ end inverter;
           smooth=Smooth.None));
       annotation ( Diagram(
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         experiment(StopTime=5),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
@@ -584,12 +582,10 @@ end inverter;
           smooth=Smooth.None));
       annotation ( Diagram(
             coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         experiment(StopTime=5),
-        experimentSetupOutput,
-        DymolaStoredErrors,
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
@@ -771,13 +767,12 @@ end inverter;
             coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            initialScale=0.1), graphics),
+            initialScale=0.1)),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            initialScale=0.1), graphics),
+            initialScale=0.1)),
         experiment(StopTime=5),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
 <p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
@@ -871,10 +866,9 @@ end inverter;
       connect(vconstant.n, ground.p)  annotation (Line(points={{62,24},{62,-80},
               {30,-80}},color={0,0,255}));
       annotation (                           Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-                                                     graphics),
+              preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -910,8 +904,7 @@ end inverter;
 <li><i>May 2009 </i>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
-        experiment(StopTime=2e-007),
-        experimentSetupOutput);
+        experiment(StopTime=2e-007));
     end Nand;
 
     model Nor "MOS NOR gate circuit"
@@ -1030,10 +1023,9 @@ end inverter;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (                           Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-                                                     graphics),
+              preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
@@ -1070,8 +1062,7 @@ end inverter;
 <li><i>March 2009 </i>by Kristin Majetta initially implemented</li>
 </ul>
 </html>"),
-        experiment(StopTime=5),
-        experimentSetupOutput);
+        experiment(StopTime=5));
     end Nor;
 
     model Graetz "Graetz rectifier circuit"
@@ -1145,10 +1136,7 @@ end inverter;
           color={0,0,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(graphics),
-        Icon(graphics),
         experiment(StopTime=0.025),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>The Graetz rectifier circuit is to show the behaviour of diodes.</p>
 <p>Simulator until 0.025 s. Then display the input voltge vsin.p.v. The rout.p.v voltage is the rectified voltage result, which is pulsing mostly in the positive range.</p>
@@ -1282,10 +1270,8 @@ end inverter;
           points={{-68,10},{-68,-14}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
-        Icon(graphics),
+      annotation (
         experiment(StopTime=0.025),
-        experimentSetupOutput,
         Documentation(info="<html>
 <p>The oscillator circuit demonstrates the usage of BJT transistors.</p>
 <p>Simulate until 0.025 s. Display v.p.v, which is rising until 5 V. Furthermore display r4.p.v, which starts oscillating.</p>
@@ -1295,252 +1281,6 @@ end inverter;
 </ul>
 </html>"));
     end Oscillator;
-
-    model CoupledInductors
-
-      Basic.Ground ground
-        annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
-      Sources.V_sin sineVoltage(VA=220, FREQ=50)
-        annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-90,20})));
-      Basic.R_Resistor R1(R=1)
-        annotation (Placement(transformation(extent={{-80,70},{-60,90}})));
-      Basic.L_Inductor L1(L=1)
-                           annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-40,40})));
-      Basic.L_Inductor L2(L=0.01)
-                              annotation (Placement(transformation(
-            extent={{-10,10},{10,-10}},
-            rotation=270,
-            origin={20,60})));
-      Basic.R_Resistor R2(R=1)                            annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=180,
-            origin={42,80})));
-      Basic.K_CoupledInductors k1(k=0.1)
-        annotation (Placement(transformation(extent={{-20,50},{0,70}})));
-      Basic.R_Resistor R3(R=1000)                            annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={60,50})));
-      Basic.C_Capacitor C1(C=1.e-6)                            annotation (
-          Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={80,50})));
-        Basic.L_Inductor L3(L=0.01)
-                              annotation (Placement(transformation(
-            extent={{-10,10},{10,-10}},
-            rotation=270,
-            origin={20,-40})));
-      Basic.R_Resistor R4(R=1)                            annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=180,
-            origin={42,-20})));
-      Basic.R_Resistor R5(R=1000)                            annotation (Placement(
-            transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={60,-50})));
-      Basic.C_Capacitor C2(C=2.e-3)                            annotation (
-          Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={80,-50})));
-      Basic.K_CoupledInductors k2(k=0.05)
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}})));
-      Basic.K_CoupledInductors k3(k=0.05)
-                                  annotation (Placement(transformation(
-            extent={{-10,-10},{10,10}},
-            rotation=90,
-            origin={10,10})));
-    equation
-      connect(sineVoltage.n, ground.p) annotation (Line(
-          points={{-90,10},{-90,-80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(R1.p, sineVoltage.p) annotation (Line(
-          points={{-80,80},{-90,80},{-90,30}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(R1.n, L1.p) annotation (Line(
-          points={{-60,80},{-40,80},{-40,50}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(L1.n, ground.p) annotation (Line(
-          points={{-40,30},{-40,-80},{-90,-80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(k1.inductiveCouplePin1, L1.ICP) annotation (Line(
-          points={{-20,60},{-26,60},{-26,40},{-33.6,40}},
-          color={170,85,255},
-          smooth=Smooth.None));
-      connect(k1.inductiveCouplePin2, L2.ICP) annotation (Line(
-          points={{0,60},{13.6,60}},
-          color={170,85,255},
-          smooth=Smooth.None));
-      connect(C1.n, R3.n) annotation (Line(
-          points={{80,40},{60,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(L2.n, R3.n) annotation (Line(
-          points={{20,50},{20,40},{60,40}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(C1.p, R2.p) annotation (Line(
-          points={{80,60},{80,80},{52,80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(R3.p, R2.p) annotation (Line(
-          points={{60,60},{60,80},{52,80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(R2.n, L2.p) annotation (Line(
-          points={{32,80},{20,80},{20,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(C2.n, R5.n) annotation (Line(
-          points={{80,-60},{60,-60}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(L3.n, R5.n) annotation (Line(
-          points={{20,-50},{20,-60},{60,-60}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(C2.p, R4.p) annotation (Line(
-          points={{80,-40},{80,-20},{52,-20}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(R5.p, R4.p) annotation (Line(
-          points={{60,-40},{60,-20},{52,-20}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(R4.n, L3.p) annotation (Line(
-          points={{32,-20},{20,-20},{20,-30}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(C1.n, ground.p) annotation (Line(
-          points={{80,40},{90,40},{90,-80},{-90,-80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(C2.n, ground.p) annotation (Line(
-          points={{80,-60},{90,-60},{90,-80},{-90,-80}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(k2.inductiveCouplePin2, L3.ICP) annotation (Line(
-          points={{0,-40},{13.6,-40}},
-          color={170,85,255},
-          smooth=Smooth.None));
-      connect(k2.inductiveCouplePin1, L1.ICP) annotation (Line(
-          points={{-20,-40},{-26,-40},{-26,40},{-33.6,40}},
-          color={170,85,255},
-          smooth=Smooth.None));
-      connect(k3.inductiveCouplePin1, L3.ICP) annotation (Line(
-          points={{10,0},{10,-40},{13.6,-40}},
-          color={170,85,255},
-          smooth=Smooth.None));
-      connect(k3.inductiveCouplePin2, L2.ICP) annotation (Line(
-          points={{10,20},{10,60},{13.6,60}},
-          color={170,85,255},
-          smooth=Smooth.None));
-      annotation (
-        Diagram(graphics),
-        experiment(StopTime=0.1),
-        experimentSetupOutput,
-        Icon(graphics={                      Ellipse(extent={{-100,100},{
-                  100,-100}},
-                lineColor={95,95,95}), Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
-        Documentation(info="<html>
-<p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
-</html>"));
-    end CoupledInductors;
-
-    model CascodeCircuit
-
-      Spice3.Semiconductors.J_NJFJFET J1
-        annotation (Placement(transformation(extent={{-54,38},{-34,58}})));
-      Spice3.Semiconductors.J_NJFJFET J2
-        annotation (Placement(transformation(extent={{-54,4},{-34,24}})));
-      Basic.R_Resistor RC(R=200)
-        annotation (Placement(transformation(extent={{-44,60},{-24,80}})));
-      Basic.Ground ground
-        annotation (Placement(transformation(extent={{-54,-26},{-34,-6}})));
-      Sources.V_constant UDD(V=10)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-10,60})));
-      Sources.V_constant U0(V=2)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-72,38})));
-      Sources.V_sin v_sin(FREQ=10, VA=2)
-        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
-            rotation=270,
-            origin={-66,4})));
-    equation
-      connect(J2.D, J1.S)        annotation (Line(
-          points={{-44,24},{-44,38}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(ground.p, J2.S)     annotation (Line(
-          points={{-44,-6},{-44,4}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v_sin.p, J2.G) annotation (Line(
-          points={{-66,14},{-60,14},{-60,13.9},{-54,13.9}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(v_sin.n, ground.p) annotation (Line(
-          points={{-66,-6},{-44,-6}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(U0.p, J1.G) annotation (Line(
-          points={{-72,48},{-63,48},{-63,47.9},{-54,47.9}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(U0.n, ground.p) annotation (Line(
-          points={{-72,28},{-80,28},{-80,-6},{-44,-6}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(J1.D, RC.p) annotation (Line(
-          points={{-44,58},{-44,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(UDD.p, RC.n) annotation (Line(
-          points={{-10,70},{-24,70}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      connect(UDD.n, ground.p) annotation (Line(
-          points={{-10,50},{-10,-6},{-44,-6}},
-          color={0,0,255},
-          smooth=Smooth.None));
-      annotation (Diagram(graphics),
-        Documentation(info="<html>
-<p>This model of a cascode circuit contains of an emitter circuit and a base circuit that are connected in series. The base circuit works as load for the emiiter circuits.</p>
-<p>The advantage of the cascode circuit compared to a single emitter circuit is, that it has a high amplification without miller effect and so without the problem of low bandwith.</p>
-<p><br/>The user is recommended to look at the outputvoltage (J1.D.v). Also the current through the transistors (J1.D.i) is an interesting value to look at. The plot time should be T=1.</p>
-</html>"),
-        Icon(graphics={                      Ellipse(extent={{-100,100},{100,
-                  -100}},
-                lineColor={95,95,95}), Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}));
-    end CascodeCircuit;
     annotation (Documentation(info="<html>
 <p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
 </html>"));
@@ -1599,12 +1339,7 @@ by this gound element.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.23,
-          y=0.23,
-          width=0.59,
-          height=0.63));
+            grid={2,2})));
     end Ground;
 
     model R_Resistor "Ideal linear electrical resistor"
@@ -1639,12 +1374,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.2,
-          y=0.06,
-          width=0.62,
-          height=0.69));
+            grid={2,2})));
     end R_Resistor;
 
     model C_Capacitor "Ideal linear electrical capacitor"
@@ -1653,26 +1383,12 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
       parameter SI.Voltage IC=0 "Initial value";
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
-
     protected
-      SI.Voltage vinternal;
-
-    initial equation
-      if UIC then
-        vinternal = IC;
-      else
-        der(vinternal) = 0;
-      end if;
-
+      SI.Voltage vinternal(start=IC, fixed=UIC);
     equation
         vinternal = p.v - n.v;
         i = C*der(vinternal);
       annotation (
-        Window(
-          x=0.32,
-          y=0.33,
-          width=0.48,
-          height=0.58),
         Documentation(info="<HTML>
 <p>
 The linear capacitor connects the branch voltage <i>v</i> with the
@@ -1711,24 +1427,10 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       parameter SI.Current IC=0 "Initial value";
       parameter Boolean UIC=false
         "Use initial conditions: true, if initial condition is used";
-      SI.Current iinternal;
-
-        Interfaces.InductiveCouplePin ICP
-        annotation (Placement(transformation(extent={{-24,40},{16,80}}),
-            iconTransformation(extent={{-16,48},{16,80}})));
-
-    initial equation
-      if UIC then
-        iinternal = IC;
-      else
-        der(iinternal) = 0;
-      end if;
-
+      SI.Current iinternal(start=IC, fixed=UIC);
     equation
       iinternal = p.i;
-      L*der(iinternal) = v + ICP.v;
-      ICP.L=L;
-      ICP.di = der(iinternal);
+      L*der(iinternal) = v;
       annotation (
         Documentation(info="<html>
 <p>The linear inductor connects the branch voltage <i>v</i> with the branch current <i>i</i> by <i>v = L * di/dt</i>. The inductance <i>L</i> is allowed to be positive, zero, or negative.</p>
@@ -1756,58 +1458,8 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics),
-        Window(
-          x=0.3,
-          y=0.12,
-          width=0.6,
-          height=0.6));
+            grid={2,2})));
     end L_Inductor;
-
-    model K_CoupledInductors
-      parameter Real k( start=0) "Coupling Factor";
-      Interfaces.InductiveCouplePin inductiveCouplePin1
-        "Couple pin for inductances"
-        annotation (Placement(transformation(extent={{-110,-10},{-90,10}})));
-      Interfaces.InductiveCouplePin inductiveCouplePin2
-        "Couple pin for inductances"
-          annotation (Placement(transformation(extent={{90,-10},{110,10}})));
-    Modelica.SIunits.Inductance M "mutual inductance";
-    equation
-      assert(k>=0,"Coupling factor must be not negative");
-      assert(k<1,"coupling factor must be less than one");
-      M = k*sqrt(inductiveCouplePin1.L*inductiveCouplePin2.L);
-      inductiveCouplePin1.v = - M*inductiveCouplePin2.di;
-      inductiveCouplePin2.v = - M*inductiveCouplePin1.di;
-      annotation (Diagram(graphics), Icon(graphics={
-            Polygon(
-              points={{-60,0},{0,20},{60,0},{0,-20},{-60,0}},
-              lineColor={170,85,255},
-              smooth=Smooth.None),
-            Line(
-              points={{-60,0},{-96,0},{-98,0}},
-              color={170,85,255},
-              smooth=Smooth.None),
-            Line(
-              points={{60,0},{100,0}},
-              color={170,85,255},
-              smooth=Smooth.None),
-            Text(
-              extent={{-74,76},{74,30}},
-              lineColor={170,85,255},
-              fillPattern=FillPattern.Solid,
-              textString="%name"),
-            Text(
-              extent={{-72,-24},{76,-70}},
-              lineColor={170,85,255},
-              fillPattern=FillPattern.Solid,
-              textString="k=%k")}),
-        Documentation(info="<html>
-<p>K_CoupledInductors is a component that allows the coupling of two inductors. K is coefficient of coupling</p>
-<p>which must be lgreater than or equal to zero and less than one.</p>
-<p>The usage is demonstrated in example CoupledInductors from package examples.</p>
-</html>"));
-    end K_CoupledInductors;
 
     model E_VCV "Linear voltage-controlled voltage source"
       extends Interfaces.TwoPortControlledSources;
@@ -1843,12 +1495,7 @@ The corresponding SPICE description
     VALUE -> gain
 </pre>
 </HTML>
-"),     Window(
-          x=0.28,
-          y=0.02,
-          width=0.59,
-          height=0.92),
-        Icon(coordinateSystem(
+"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1934,12 +1581,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.34,
-          y=0.05,
-          width=0.6,
-          height=0.6));
+            grid={1,1})));
     end G_VCC;
 
     model H_CCV "Linear current-controlled voltage source"
@@ -1992,12 +1634,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.3,
-          y=0.13,
-          width=0.6,
-          height=0.6));
+            grid={1,1})));
     end H_CCV;
 
     model F_CCC "Linear current-controlled current source"
@@ -2052,21 +1689,10 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.31,
-          y=0.09,
-          width=0.6,
-          height=0.6));
+            grid={1,1})));
     end F_CCC;
 
-    annotation(preferedView="info", Window(
-         x=0.03,
-         y=0.04,
-         width=0.54,
-         height=0.35,
-         library=1,
-         autolayout=1),
+    annotation(preferredView="info",
   Documentation(info="<html>
 <p>This Package contains the basic components of the SPICE3 models. The first letter of the</p><p>name of the component shows the SPICE name, e.g., <b>R</b>_Resistor: <b>R</b> is the SPICE-name of the component</p><p>resistor which is used in SPICE-Netlists.</p>
 </html>",
@@ -2088,396 +1714,170 @@ The corresponding SPICE description
   end Basic;
 
   package Semiconductors "Semiconductor devices and model cards"
-    model R_Resistor "Semiconductor Resistor"
-    extends Internal.R_SEMI;
-     annotation (
-        Documentation(info="<html>
-<p>R_Resistor is a Semiconductor Resistor model.</p>
-<p>This resistor model allows the modeling of temperature effects and the calculation of the actual resistance value from strictly geometric information and the specification of the process.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),
-    Placement(transformation(extent={{-110,-10},{
-                -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
-                20}})),         Placement(transformation(extent={{110,-10},{90,
-                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})),
-                  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),      graphics));
-    end R_Resistor;
-
-    record ModelcardRESISTOR
-      "Record for the specification of modelcard parameters for Semiconductor Resistor"
-      extends Internal.ModelcardR;
-      annotation (Documentation(info="<html>
-<p>Technology parameters of the semiconductor resistor model.</p>
-<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
-</html>"));
-    end ModelcardRESISTOR;
     extends Modelica.Icons.Package;
     import Modelica.SIunits;
 
-    model C_Capacitor "Semiconductor capacitor"
-    extends Internal.C_SEMI;
-                    annotation (
-        Documentation(info="<html>
-<p>C_Capacitor is a Semiconductor Capacitor model.</p>
-<p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
+    model M_PMOS "PMOS MOSFET device"
+      extends Modelica.Electrical.Spice3.Internal.MOS(
+                              final mtype=1);
+    equation
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+              points={{60,0},{40,5},{40,-5},{60,0}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>The model M_PMOS is a P channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>"),
-    Placement(transformation(extent={{-110,-10},{
-                -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
-                20}})),         Placement(transformation(extent={{110,-10},{90,
-                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})),
-                  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),      graphics));
-    end C_Capacitor;
+</html>"));
+    end M_PMOS;
 
-    record ModelcardCAPACITOR
-      "Record for the specification of modelcard parameters for Semiconductor Capacitor"
-      extends Internal.ModelcardC;
+    model M_NMOS "NMOS MOSFET device"
+      extends Modelica.Electrical.Spice3.Internal.MOS(
+                              final mtype=0);
+    equation
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+              points={{40,0},{60,5},{60,-5},{40,0}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>The model M_NMOS is a N channel MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul>
+</html>"));
+    end M_NMOS;
+
+    record ModelcardMOS "Record for the specification of modelcard parameters"
+      extends Modelica.Electrical.Spice3.Internal.ModelcardMOS;
       annotation (Documentation(info="<html>
-<p>Technology parameters of the semiconductor capacitor model.</p>
+<p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 </html>"));
-    end ModelcardCAPACITOR;
+    end ModelcardMOS;
 
-   model D_DIODE "Junction Diode"
-     extends Internal.DIODE;
+    model Q_NPNBJT "Bipolar junction transistor"
+     extends Modelica.Electrical.Spice3.Internal.BJT(
+                            final TBJT=1);
 
-     annotation (
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+              points={{8,-68},{2,-55},{-4,-62},{8,-68}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
+                                     Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
-<p>D_DIODE is a Junction diode model.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
+<p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>November 2008 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),
-       Icon(coordinateSystem(
-     preserveAspectRatio=true,
-     extent={{-100,-100},{100,100}},
-     grid={1,1}), graphics={
-     Polygon(
-       points={{30,0},{-30,40},{-30,-40},{30,0}},
-       lineColor={0,0,0},
-       fillColor={255,255,255},
-       fillPattern=FillPattern.Solid),
-     Line(points={{-90,0},{40,0}}, color={0,0,255}),
-     Line(points={{40,0},{90,0}}, color={0,0,255}),
-     Line(points={{30,40},{30,-40}}, color={0,0,255}),
-     Line(
-       visible=useHeatPort,
-       points={{0,-100},{0,-20}},
-       color={127,0,0},
-       smooth=Smooth.None,
-       pattern=LinePattern.Dot),
-     Text(
-       extent={{-156,101},{144,61}},
-       textString="%name",
-       lineColor={0,0,255})}),
-       Diagram(coordinateSystem(
-     preserveAspectRatio=true,
-     extent={{-100,-100},{100,100}},
-     grid={1,1}), graphics={
-     Line(points={{-80,0},{80,0}}, color={128,128,128}),
-     Polygon(
-       points={{70,4},{80,0},{70,-4},{70,4}},
-       lineColor={128,128,128},
-       fillColor={128,128,128},
-       fillPattern=FillPattern.Solid),
-     Line(points={{0,80},{0,-80}}, color={128,128,128}),
-     Polygon(
-       points={{-4,70},{0,80},{4,70},{-4,70}},
-       lineColor={128,128,128},
-       fillColor={128,128,128},
-       fillPattern=FillPattern.Solid),
-     Text(
-       extent={{10,80},{20,70}},
-       lineColor={128,128,128},
-       textString="i"),
-     Text(
-       extent={{70,-10},{80,-20}},
-       lineColor={128,128,128},
-       textString="v"),
-     Line(
-       points={{-80,-40},{-20,-10},{20,10},{40,70}},
-       color={0,0,0},
-       thickness=0.5),
-     Line(
-       points={{20,9},{20,0}},
-       color={128,128,128},
-       pattern=LinePattern.Dot),
-     Text(
-       extent={{20,0},{40,-10}},
-       lineColor={128,128,128},
-       pattern=LinePattern.Dot,
-       textString="Vknee"),
-     Text(
-       extent={{20,70},{40,60}},
-       lineColor={128,128,128},
-       pattern=LinePattern.Dot,
-       textString="Ron"),
-     Text(
-       extent={{-20,10},{0,0}},
-       lineColor={128,128,128},
-       pattern=LinePattern.Dot,
-       textString="Goff"),
-     Ellipse(
-       extent={{18,12},{22,8}},
-       pattern=LinePattern.Dot,
-       lineColor={0,0,255})}));
-   end D_DIODE;
-
-   record ModelcardDIODE
-      "Record for the specification of modelcard parameters for Junction Diode"
-     extends Internal.ModelcardDIODE;
-     annotation (Documentation(info="<html>
-<p>Technology parameters of the junction diode model.</p>
-<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
-</html>"));
-   end ModelcardDIODE;
-
-    model Q_PNPBJT "PNP Bipolar junction transistor model (BJT)"
-     extends Spice3.Internal.BJT(final TBJT=-1);
-
-      annotation (
-        Documentation(info="<html>
-<p>Q_PNPBJT is a P-channel bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p>This modified Gummel and Poon model extends the original model to include several effects at high bias levels. If certain parameters are not specified, it automatically simplifies to the less exact Ebers-Moll model.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</html>"));
+
+    end Q_NPNBJT;
+
+    model Q_PNPBJT "Bipolar junction transistor"
+     extends Modelica.Electrical.Spice3.Internal.BJT(
+                            final TBJT=-1);
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{0,-60},{14,-67},{8,-74},{0,-60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
                                      Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
+        Documentation(info="<html>
+<p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul>
+</html>"));
 
     end Q_PNPBJT;
 
-    model Q_NPNBJT "NPN Bipolar junction transistor model (BJT)"
-     extends Spice3.Internal.BJT(final TBJT=1);
-
-      annotation (
-        Documentation(info="<html>
-<p>Q_NPNBJT is a N-channel bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p>This modified Gummel and Poon model extends the original model to include several effects at high bias levels. If certain parameters are not specified, it automatically simplifies to the less exact Ebers-Moll model.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{8,-68},{2,-55},{-4,-62},{8,-68}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
-
-    end Q_NPNBJT;
-
-    record ModelcardBJT
-      "Record for the specification of modelcard parameters for BJT"
-      extends Internal.ModelcardBJT;
+    record ModelcardBJT "Record for the specification of modelcard parameters"
+      extends Modelica.Electrical.Spice3.Internal.ModelcardBJT;
       annotation (Documentation(info="<html>
-<p>Technology parameters of the modified Gummel-Poon bipolar junction transistor model.</p>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
 </html>"));
     end ModelcardBJT;
 
-    model J_PJFJFET "P-channel Junction Field-Effect Transistor model (JFET)"
-     extends Internal.JFET(final mtype=1);
+   model D_DIODE "Diode model"
+     extends Modelica.Electrical.Spice3.Internal.DIODE;
 
-      annotation (
+     annotation (
+       Icon(
+          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}})),
         Documentation(info="<html>
-<p>J_PJFJFET is a P-channel junction field-effect transistor.</p>
-<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
+<p>The model D_DIODE is a Junction diode model</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><i>Nov. 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{8,-68},{2,-55},{-4,-62},{8,-68}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
-
-    end J_PJFJFET;
-
-    model J_NJFJFET "N-channel Junction Field-Effect Transistor model (JFET)"
-     extends Internal.JFET(final mtype=0);
-
-      annotation (
-        Documentation(info="<html>
-<p>J_NJFJFET is a N-channel junction field-effect transistor.</p>
-<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{8,-68},{2,-55},{-4,-62},{8,-68}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
-
-    end J_NJFJFET;
-
-    record ModelcardJFET
-      "Record for the specification of modelcard parameters for JFET"
-      extends Internal.ModelcardJFET;
-      annotation (Documentation(info="<html>
-<p>Technology parameters of the junction field-effect transistor model.</p>
-<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 </html>"));
-    end ModelcardJFET;
 
-    model M_PMOS "P-channel MOSFET model  (MOS1)"
-      extends Internal.MOS(final mtype=1);
-    equation
+   end D_DIODE;
 
+   record ModelcardDIODE "Record for the specification of modelcard parameters"
+     extends Modelica.Electrical.Spice3.Internal.ModelcardDIODE;
       annotation (Documentation(info="<html>
-<p>M_PMOS is a P-channel MOSFET transistor with fixed level 1: Shichman-Hodges model.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{60,0},{40,5},{40,-5},{60,0}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
-    end M_PMOS;
-
-    model M_NMOS "N-channel MOSFET model  (MOS1)"
-      extends Internal.MOS(final mtype=0);
-    equation
-
-      annotation (Documentation(info="<html>
-<p>M_NMOS is a N-channel MOSFET transistor with fixed level 1: Shichman-Hodges model.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{40,0},{60,5},{60,-5},{40,0}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
-    end M_NMOS;
-
-    record ModelcardMOS
-      "Record for the specification of modelcard parameters for MOS"
-      extends Internal.ModelcardMOS;
-      annotation (Documentation(info="<html>
-<p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model.</p>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the junction diode model</p>
 </html>"));
-    end ModelcardMOS;
+   end ModelcardDIODE;
 
-    model M_PMOS2 "P-channel MOSFET 2 model (MOS2)"
-      extends Internal.MOS2(final mtype=1);
-    equation
-
-      annotation (Documentation(info="<html>
-<p>M_PMOS2 is a P-channel MOSFET transistor with fixed level 2.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
+    model R_Resistor "Semiconductor resistor from SPICE3"
+    extends Modelica.Electrical.Spice3.Internal.R_SEMI;
+                    annotation (Documentation(info="<html>
+<p>The model R_Resistor is a Semiconductor resistor model.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>records and data are stored and modeled that are neede for the semiconductor models.</p>
+<p>The package Semiconductors is for user access but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+<li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{60,0},{40,5},{40,-5},{60,0}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
-    end M_PMOS2;
+</html>"));
+    end R_Resistor;
 
-    model M_NMOS2 "N-channel MOSFET 2 model (MOS2)"
-      extends Internal.MOS2(final mtype=0);
-    equation
-
+    record ModelcardRESISTOR
+      "Record for the specification of modelcard parameters"
+      extends Modelica.Electrical.Spice3.Internal.ModelcardR;
       annotation (Documentation(info="<html>
-<p>M_NMOS2 is a N-channel MOSFET transistor with fixed level 2.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
-</html>", revisions="<html>
-<ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul>
-</html>"),
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics={Polygon(
-              points={{40,0},{60,5},{60,-5},{40,0}},
-              lineColor={0,0,255},
-              fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}));
-    end M_NMOS2;
-
-    record ModelcardMOS2
-      "Record for the specification of modelcard parameters for MOS2"
-      extends Internal.ModelcardMOS2;
-      annotation (Documentation(info="<html>
-<p>Technology model parameters of MOSFET transistor with fixed level 2.</p>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+<p>Technology parameters of the semiconductor resistor model</p>
 </html>"));
-    end ModelcardMOS2;
-
-    annotation(preferedView="info",
-      Window(
-        x=0.03,
-        y=0.04,
-        width=0.50,
-        height=0.36,
-        library=1,
-        autolayout=1),
+    end ModelcardRESISTOR;
+    annotation(preferredView="info",
       Documentation(info="<html>
 <p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should apply the models of this package.</p>
 <p>All models of this package extend models of the package Repository, which contains the functions, parameters and data which are necessary to model the behaviour of the semiconductor devices.The modelcard records contain the SPICE3 technology parameters, which can be adjusted for more than one MOS simultaneously.</p>
@@ -2494,16 +1894,11 @@ The corresponding SPICE description
     extends Modelica.Icons.SourcesPackage;
 
     model V_constant "Constant independent voltage sources"
-      parameter SI.Voltage V(start = 0) "Value of constant voltage";
+      parameter SI.Voltage V=1 "Value of constant voltage";
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
     equation
       v = V;
       annotation (
-        Window(
-          x=0.33,
-          y=0.18,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2516,7 +1911,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
 <p></p>
@@ -2525,11 +1920,11 @@ The corresponding SPICE description
 
     model V_sin "Sinusoidal voltage source"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Voltage VO(start = 0.0) "Offset";
-      parameter SI.Voltage VA(start = 0.0) "Amplitude";
-      parameter SI.Frequency FREQ(start = 1) "Frequency";
-      parameter SI.Time TD = 0.0 "Delay";
-      parameter SI.Damping THETA = 0.0 "Damping factor";
+      parameter SI.Voltage VO=0.0 "Offset";
+      parameter SI.Voltage VA=0.0 "Amplitude";
+      parameter SI.Frequency FREQ(start=1) "Frequency";
+      parameter SI.Time TD=0.0 "Delay";
+      parameter SI.Damping THETA=0.0 "Damping factor";
     protected
         constant Real pi=Modelica.Constants.pi;
     equation
@@ -2567,7 +1962,7 @@ The corresponding SPICE description
               textString="%name",
               lineColor={0,0,255})}),                            Diagram(
             coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}}), graphics),
+                100,100}})),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -2575,8 +1970,7 @@ The corresponding SPICE description
 <li>All parameters of sources should be set explicitly.</li>
 <li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.<br></li>
 </ul>
-</html>"),
-        DymolaStoredErrors);
+</html>"));
     end V_sin;
 
     model V_exp "Exponential voltage source"
@@ -2590,7 +1984,7 @@ The corresponding SPICE description
       parameter SI.Time TAU2=1 "Fall time constant";
 
     equation
-      v = V1 + (if (time < TD1) then 0 else if (time < (TD2)) then
+    v = V1 + (if (time < TD1) then 0 else if (time < (TD2)) then
               (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) else
               (V2-V1)*(1 - Modelica.Math.exp(-(time - TD1)/TAU1)) +
               (V1-V2)*(1 - Modelica.Math.exp(-(time - TD2)/TAU2)));
@@ -2629,12 +2023,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.11,
-          y=0.12,
-          width=0.78,
-          height=0.83),
+            grid={1,1})),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -2648,8 +2037,8 @@ The corresponding SPICE description
     model V_pulse "Pulse voltage source"
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
 
-      parameter SI.Voltage V1(start = 0) "Initial value";
-      parameter SI.Voltage V2(start = 0) "Pulsed value";
+      parameter SI.Voltage V1 = 0 "Initial value";
+      parameter SI.Voltage V2 = 0 "Pulsed value";
       parameter SI.Time TD = 0.0 "Delay time";
       parameter SI.Time TR(start=1) "Rise time";
       parameter SI.Time TF = TR "Fall time";
@@ -2706,12 +2095,7 @@ The corresponding SPICE description
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.21,
-          y=0.22,
-          width=0.6,
-          height=0.63),
+            grid={1,1})),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
@@ -2827,15 +2211,10 @@ The corresponding SPICE description
                                    Line(points={{-40,-50},{-40,70},{60,70},{60,
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
                   60,40},{60,70},{10,70},{10,-51}},color={192,192,192})}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties:</p>
 <ul>
@@ -2863,11 +2242,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 
     model V_sffm "Single-frequency FM voltage source"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Voltage VO(start = 0) "Offset";
-      parameter SI.Voltage VA(start = 0) "Amplitude";
-      parameter SI.Frequency FC(start = 0) "Carrier frequency";
-      parameter Real MDI(start = 0) "Modulation index";
-      parameter SI.Frequency FS = FC "Singnal frequency";
+      parameter SI.Voltage VO = 0 "Offset";
+      parameter SI.Voltage VA = 0 "Amplitude";
+      parameter SI.Frequency FC( start=0) "Carrier frequency";
+      parameter Real MDI=0 "Modulation index";
+      parameter SI.Frequency FS= FC "Singnal frequency";
     protected
         constant Real pi=Modelica.Constants.pi;
     equation
@@ -2900,15 +2279,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               extent={{-51,57},{55,18}},
               lineColor={0,0,255},
               textString="SFFM")}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
 <h4>Attention:</h4>
@@ -2920,16 +2294,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     end V_sffm;
 
    model I_constant "Constant independent current sources"
-      parameter SI.Current I(start = 0) "Value of constant voltage";
+      parameter SI.Current I=1 "Value of constant voltage";
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
    equation
       i = I;
       annotation (
-        Window(
-          x=0.33,
-          y=0.18,
-          width=0.6,
-          height=0.6),
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -2947,7 +2316,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
 </html>"));
@@ -2956,11 +2325,11 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     model I_sin "Sinusoidal current source"
 
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Current IO(start = 0) "Offset";
-      parameter SI.Current IA(start = 0) "Amplitude";
-      parameter SI.Frequency FREQ(start = 1) "Frequency";
-      parameter SI.Time TD = 0 "Delay";
-      parameter SI.Damping THETA = 0 "Damping factor";
+      parameter SI.Current IO=0 "Offset";
+      parameter SI.Current IA=0 "Amplitude";
+      parameter SI.Frequency FREQ(start=1) "Frequency";
+      parameter SI.Time TD=0.0 "Delay";
+      parameter SI.Damping THETA=0.0 "Damping factor";
     protected
         constant Real pi=Modelica.Constants.pi;
     equation
@@ -3001,12 +2370,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.33,
-          y=0.06,
-          width=0.6,
-          height=0.75),
+            grid={1,1})),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -3061,12 +2425,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.11,
-          y=0.12,
-          width=0.78,
-          height=0.83),
+            grid={1,1})),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -3080,10 +2439,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
     model I_pulse "Pulse current source"
      extends Modelica.Electrical.Analog.Interfaces.OnePort;
 
-      parameter SI.Current I1(start = 0) "Initial value";
-      parameter SI.Current I2(start = 0) "Pulsed value";
-      parameter SI.Time TD = 0 "Delay time";
-      parameter SI.Time TR(start = 1) "Rise time";
+      parameter SI.Current I1 = 0 "Initial value";
+      parameter SI.Current I2 = 0 "Pulsed value";
+      parameter SI.Time TD = 0.0 "Delay time";
+      parameter SI.Time TR(start=1) "Rise time";
       parameter SI.Time TF = TR "Fall time";
       parameter SI.Time PW = Modelica.Constants.inf "Pulse width";
       parameter SI.Time PER= Modelica.Constants.inf "Period";
@@ -3110,7 +2469,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         (T0 + Tfalling - time)*(I2-I1)/(Tfalling - Twidth));
 
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}), graphics),
+                -100},{100,100}})),
                                Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
                                   Polygon(
@@ -3218,7 +2577,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
      parameter Real valuelast = table[x,2];
      parameter Real lastvaluematrix[1,2]=[tlast, valuelast];
      parameter Real tablenew[:,2]=cat(1,table,lastvaluematrix);
-      Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
+     Modelica.Blocks.Sources.TimeTable tab(table=tablenew);
 
     equation
       i = tab.y;
@@ -3248,15 +2607,10 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
 
@@ -3288,11 +2642,11 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 
     model I_sffm "Single-frequency FM current source"
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Current IO(start = 0) "Offset";
-      parameter SI.Current IA(start = 0) "Amplitude";
-      parameter SI.Frequency FC(start = 0) "Carrier frequency";
-      parameter Real MDI(start = 0) "Modulation index";
-      parameter SI.Frequency FS = FC "Singnal frequency";
+      parameter SI.Current IO = 0 "Offset";
+      parameter SI.Current IA = 0 "Amplitude";
+      parameter SI.Frequency FC( start=0) "Carrier frequency";
+      parameter Real MDI=0 "Modulation index";
+      parameter SI.Frequency FS= FC "Singnal frequency";
 
     protected
         constant Real pi=Modelica.Constants.pi;
@@ -3325,15 +2679,10 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               extent={{-58,53},{48,14}},
               lineColor={0,0,255},
               textString="SFFM")}),
-        Window(
-          x=0.25,
-          y=0.01,
-          width=0.72,
-          height=0.86),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
+            grid={1,1})),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
 <h4>Note:</h4>
@@ -3344,14 +2693,8 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 </html>"));
     end I_sffm;
 
-    annotation(preferedView="info",
-      Window(
-        x=0.03,
-        y=0.04,
-        width=0.50,
-        height=0.60,
-        library=1,
-        autolayout=1),Documentation(info="<html>
+    annotation(preferredView="info", Documentation(info=
+                   "<html>
 <p>This package contains the SPICE sources.</p>
 <p><b>Note:</b> There are differences between SPICE3 and Modelica concerning the default values of the parameter. Therefore it is recommended to specify <b>all</b> parameters of the source.</p>
 </html>", revisions="<html>
@@ -3369,14 +2712,15 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       input Real a[:] "Coefficients";
       output Real v "Value of polynomial";
     protected
-      Integer n = size(s,1) "number of polynomial variables, like POLY(n)";
-      Integer na= size(a,1) "number of polynomial coefficients, like POLY(n)";
-      Integer multiindex[na]=fill(1,1) "index vector for current monom";
-      Integer order "degree of current monom";
-      Real x "value of current monom";
+      Integer n "number of polynomial variables, like POLY(n)";
+      Integer na "number of polynomial coefficients, like POLY(n)";
+      Integer ia "state of the usage of a";
     algorithm
+      n := size(s,1);
+      na := size(a,1);
       assert(n > 0,"poly: number of variables zero");
       assert(na > 0,"poly: number of coefficients zero");
+      ia := 0;
 
     // case one coefficient
       if (na == 1) then
@@ -3386,43 +2730,82 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 
     // absolute term
       v := a[1];
+      ia := 1;
 
-      order:=1;
-      for ia in 2:na loop
-
-        //compute and add next monom
-        x:=a[ia];
-        for io in 1:order loop
-          x:=x*s[multiindex[io]];
-        end for;
-        v:=v+x;
-
-        //compute indices for next monom
-        multiindex[1]:=multiindex[1]+1;
-        for io in 1:order-1 loop
-          if (multiindex[io]>n) then
-            multiindex[io+1]:=multiindex[io+1]+1;
-            for io2 in 1:io loop
-              multiindex[io2]:=multiindex[io + 1];
-            end for;
-          end if;
-        end for;
-
-        if (multiindex[order]>n) then
-          order:=order+1;
-          multiindex:=fill(1, order);
-        end if;
-
+    // linear terms
+      for i1 in 1:n loop
+        ia := ia + 1;
+        if ia > na then
+                        return;
+                                end if;
+        v := v + a[ia] * s[i1];
       end for;
 
+    // quadratic terms
+      for i1 in 1:n loop
+        for i2 in i1:n loop
+          ia := ia + 1;
+          if ia > na then
+             return;
+          end if;
+          v := v + a[ia] * s[i1] * s[i2];
+        end for;
+      end for;
+
+    // cubic terms
+      for i1 in 1:n loop
+        for i2 in i1:n loop
+          for i3 in i2:n loop
+            ia := ia + 1;
+            if ia > na then
+               return;
+            end if;
+            v := v + a[ia] * s[i1] * s[i2] * s[i3];
+          end for;
+        end for;
+      end for;
+
+    // fourth potential terms
+      for i1 in 1:n loop
+        for i2 in i1:n loop
+          for i3 in i2:n loop
+            for i4 in i3:n loop
+              ia := ia + 1;
+              if ia > na then
+                return;
+              end if;
+              v := v + a[ia] * s[i1] * s[i2] * s[i3] * s[i4];
+            end for;
+          end for;
+        end for;
+      end for;
+
+     // fifth potential terms
+      for i1 in 1:n loop
+        for i2 in i1:n loop
+          for i3 in i2:n loop
+            for i4 in i3:n loop
+              for i5 in i4:n loop
+                ia := ia + 1;
+                if ia > na then
+                  return;
+                end if;
+                v := v + a[ia] * s[i1] * s[i2] * s[i3] * s[i4] * s[i5];
+              end for;
+            end for;
+          end for;
+        end for;
+      end for;
+
+      v := na;
      annotation (Documentation(info="<html>
 <p>Function needed for polynomial interpolation of POLY controlled sources:</p>
-<p><ul>
+<ul>
 <li>E_VCV_POLY</li>
 <li>G_VCC_POLY</li>
 <li>H_CCV_POLY</li>
 <li>F_CCC_POLY</li>
-</ul></p>
+</ul>
 </html>"));
     end poly;
 
@@ -3483,8 +2866,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               textString="VCV")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
@@ -3582,8 +2964,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
               lineColor={0,0,255},
               textString="VCC")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
@@ -3682,8 +3063,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
               lineColor={0,0,255},
               textString="CCV")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
@@ -3788,8 +3168,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               lineColor={0,0,255},
               textString="CCC")}),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics),
+                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
@@ -3874,83 +3253,14 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics),
-        Window(
-          x=0.16,
-          y=0.12,
-          width=0.6,
-          height=0.6),
+            grid={1,1})),
         Documentation(info="<html>
 <p>TwoPort is a partial model that consists of two ports. It is assumed that the current flowing into the positive pin is identical to the current flowing out of pin n. This currents of each port are provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
 </html>"));
     end TwoPortControlledSources;
 
-    connector InductiveCouplePin
-      Modelica.SIunits.Inductance L;
-      Real di "di/dt";
-      flow SI.Voltage v;
-      annotation (Icon(graphics={Polygon(
-              points={{-100,0},{0,100},{100,0},{0,-100},{-2,-98},{-100,0}},
-              lineColor={170,85,255},
-              smooth=Smooth.None,
-              fillColor={170,85,255},
-              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
-<p>The model InductivaCouplePin was introduced, the model the inductive coupling between two inductors in the same was SPICE3 does it. The InductiveCouplePin</p>
-<p>has three variables, the inductance, the derivation of the current and the voltage. It is used in the models K_CoupledInductors and L_Inductor, both part of package Basic.</p>
-</html>"));
-    end InductiveCouplePin;
-
-    partial model ConditionalSubstrate
-      "Partial model to include a conditional subtrat node"
-
-      parameter Boolean useSubstrateNode = false
-        "=true, if SubtrateNodet is enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-      Modelica.Electrical.Analog.Interfaces.PositivePin S(v = substrateVoltage, i = -substrateCurrent) if useSubstrateNode annotation (Placement(
-            transformation(extent={{90,0},{110,20}}),    iconTransformation(extent={{90,-10},
-                {110,10}})));
-      SI.Voltage substrateVoltage;
-      SI.Current substrateCurrent;
-
-    equation
-      if not useSubstrateNode then
-        substrateVoltage = 0;
-      end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),                                                                       graphics),
-        Documentation(revisions="<html>
-<ul>
-<li><i> February 17, 2009   </i>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
-</html>",     info="<html>
-<p>
-This partial model provides a conditional heating port for the connection to a thermal network.
-</p>
-<ul>
-<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
-     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
-     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
-<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
-</ul>
-
-<p>
-If this model is used, the loss power has to be provided by an equation in the model which inherits from
-ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
-<b>T_heatPort</b> can be used to describe the influence of the device temperature
-on the model behaviour.
-</p>
-</html>"),
-        Diagram(graphics));
-    end ConditionalSubstrate;
-    annotation(preferedView="info", Window(
-        x=0.03,
-        y=0.04,
-        width=0.21,
-        height=0.49,
-        library=1,
-        autolayout=1),Documentation(info="<html>
+    annotation(preferredView="info",
+        Documentation(info="<html>
 <p>The SPICE3 package uses the Modelica.Electrical.Analog interfaces. Only special partial models used in the SPICE3 package are located in this Interfaces package.</p>
 </html>"));
   end Interfaces;
@@ -3980,49 +3290,46 @@ on the model behaviour.
     parameter SI.Length PS =  0 "Perimeter of the source junction";
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
-    parameter Boolean OFF = false
+    parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-    parameter SI.Voltage IC_VDS = -1e40
-        "Initial condition value (VDS, not implemented yet)";
-    parameter SI.Voltage IC_VGS = -1e40
-        "Initial condition value (VGS, not implemented yet)";
-    parameter SI.Voltage IC_VBS = -1e40
-        "Initial condition value VBS, not implemented yet)";
-    parameter Boolean UIC = false
-        "Use initial conditions: true, if initial condition is used";
+    parameter SI.Voltage IC( start = -1e40)
+        "Initial condition values, not implemented yet";
     parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
 
     parameter ModelcardMOS modelcard "MOSFET modelcard"            annotation(Evaluate=true);
-    final parameter Mos1.Mos1ModelLineParams p = Mos1.mos1RenameParameters(modelcard)
-        "Model line parameters"   annotation(Evaluate=true);
-    final parameter Mosfet.Mosfet m = Mosfet.mosfetRenameParametersDev(
+    SpiceConstants C "General constants of SPICE simulator";
+    final parameter Mos1.Mos1ModelLineParams p = Mos1.mos1RenameParameters(modelcard, C)
+        "Model line parameters"                                                                                  annotation(Evaluate=true);
+    final parameter Mosfet.Mosfet m = Mos1.mos1RenameParametersDev(
+      modelcard,
+      mtype,
       W,
       L,
-      AD,
+      AS,
       AS,
       PD,
       PS,
       NRD,
       NRS,
       OFF,
-      IC_VDS,
-      IC_VGS,
-      IC_VBS,
-      UIC,
+      IC,
       TEMP) "Renamed parameters" annotation(Evaluate=true);
-
-    final parameter Mosfet.Mosfet m1 = Mosfet.mosfetInitEquations(m);
-    final parameter Integer m_type = if (mtype > 0.5) then -1 else 1
+    final parameter Integer m_type = if (m.m_bPMOS > 0.5) then -1 else 1
         "Type of the transistor";
-    final parameter Mos1.Mos1ModelLineParams p1 = Mos1.mos1ModelLineParamsInitEquations(
+    final parameter Mos.MosModelLineVariables vp = Mos1.mos1ModelLineParamsInitEquations(
           p,
+          C,
           m_type) "Model line variables";
     final parameter Mos1.Mos1Calc c1 = Mos.mosCalcInitEquations(
-          p1,
-          m1) "Precalculated parameters";
+          p,
+          C,
+          vp,
+          m) "Precalculated parameters";
     final parameter Mos1.Mos1Calc c2 = Mos.mosCalcCalcTempDependencies(
-          p1,
-          m1,
+          p,
+          C,
+          vp,
+          m,
           c1,
           m_type) "Precalculated parameters";
 
@@ -4032,80 +3339,74 @@ on the model behaviour.
 
     SI.Voltage Dinternal;  //internal drain node
     SI.Voltage Sinternal;  //internal source node
-    SI.Voltage vBD;
-    SI.Voltage  vBS;
-    SI.Voltage vGB;
-    SI.Voltage  vGD;
-    SI.Voltage vGS;
-    SI.Voltage  vDS;
     SI.Current ird;
     SI.Current irs;
     SI.Current ibdgmin;
     SI.Current ibsgmin;
+
     SI.Current icBD;
     SI.Current icBS;
     SI.Current icGB;
     SI.Current icGS;
     SI.Current icGD;
+    SI.Voltage vDS "Drain - source voltage";
+    SI.Voltage vGS "Gate - source voltage";
 
   equation
     assert( NRD <> 0, "NRD, length of drain in squares, must not be zero");
     assert( NRS <> 0, "NRS, length of source in squares, must not be zero");
 
+    vDS = D.v - S.v;
+    vGS = G.v - S.v;
+
     cc = Mos.mosCalcNoBypassCode(
-      m1,
+      m,
       m_type,
       c2,
-      p1,
+      p,
+      C,
+      vp,
       m_bInit,
       {G.v, B.v, Dinternal, Sinternal});
-
-    // voltages
-    // --------
-    vBD = B.v - Dinternal;
-    vBS = B.v - Sinternal;
-    vGB = G.v - B.v;
-    vGD = G.v - Dinternal;
-    vGS = G.v - Sinternal;
-    vDS = Dinternal - Sinternal;
 
     // drain- and sourceresistances
     // ----------------------------
     ird * c1.m_drainResistance = (D.v - Dinternal);
-    irs * c1.m_sourceResistance = (S.v - Sinternal);
+    irs * p.m_sourceResistance = (S.v - Sinternal);
 
     // capacitances
     // ------------
-    icBD = cc.cBD * der(vBD);
-    icBS = cc.cBS * der(vBS);
-    icGB = cc.cGB * der(vGB);
-    icGD = cc.cGD * der(vGD);
-    icGS = cc.cGS * der(vGS);
+
+     icBD = cc.cBD * (der(B.v) - der(Dinternal));
+     icBS = cc.cBS * (der(B.v) - der(Sinternal));
+     icGB = cc.cGB * (der(G.v) - der(B.v));
+     icGD = cc.cGD * (der(G.v) - der(Dinternal));
+     icGS = cc.cGS * (der(G.v) - der(Sinternal));
 
     // currents
     // --------
-    ibsgmin = SpiceConstants.CKTgmin * (B.v - Sinternal);
-    ibdgmin = SpiceConstants.CKTgmin * (B.v - Dinternal);
+     ibsgmin = SpiceConstants.CKTgmin * (B.v - Sinternal);
+     ibdgmin = SpiceConstants.CKTgmin * (B.v - Dinternal);
     G.i = icGB + icGD + icGS;
     B.i = cc.iBD + cc.iBS + ibdgmin + ibsgmin - icGB + icBD + icBS;
     D.i = ird;
     S.i = irs;
 
-    //currentsum at inner node
-    //------------------------
+  //currentsum at inner node
+  //------------------------
     0    = -ird + cc.idrain - cc.iBD - ibdgmin - icGD - icBD;
     0    = -irs - cc.idrain - cc.iBS - ibsgmin - icGS - icBS;
 
     annotation (Documentation(info="<html>
 <p>MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
@@ -4116,8 +3417,7 @@ on the model behaviour.
             Text(
               extent={{8,-34},{92,-86}},
               lineColor={0,0,255},
-              textString="%name")}),
-        DymolaStoredErrors);
+              textString="%name")}));
   end MOS;
 
      record ModelcardMOS "Record with technological parameters (.model)"
@@ -4126,7 +3426,7 @@ on the model behaviour.
        parameter SI.Transconductance KP=-1e40
         "Transconductance parameter, default 2e-5";
        parameter Real GAMMA=-1e40 "Bulk threshold parameter, default 0";
-       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";
+       parameter SI.Voltage PHI=-1e40 "Surface potential, default 0.6";  //Substrat Sperrschicht Potential
        parameter SI.InversePotential LAMBDA=0
         "Channel-length modulation, default 0";
        parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
@@ -4144,7 +3444,7 @@ on the model behaviour.
        parameter SI.Permittivity CGBO=0.0
         "Gate-bulk overlap capacitance per meter channel width";
        parameter SI.Resistance RSH=0.0
-        "Drain and source diffusion sheet resistance";
+        "Drain and source diffusion sheet resistance";                                   //!!Diffusionswiderstand/Flächenquadrat
        parameter SI.CapacitancePerArea CJ=0.0
         "Zero-bias bulk junction bottom cap. per sq-meter of junction area";
        parameter Real MJ=0.5 "Bulk junction bottom grading coefficient";
@@ -4153,10 +3453,8 @@ on the model behaviour.
        parameter Real MJSW=0.5 "Bulk junction sidewall grading coefficient";
        parameter SI.CurrentDensity JS=0.0
         "Bulk junction saturation current per sq-meter of junction area";
-       parameter SI.Length TOX=-1e40
-        "Oxide thickness, default (MOS1,MOS6)=0, (MOS2,MOS3)=1e-7";
-       parameter SI.Conversions.NonSIunits.PerVolume_cm NSUB=-1e40
-        "Substrate doping, default 0";
+       parameter SI.Length TOX=-1e40 "Oxide thickness, default 1e-7";
+       parameter Real NSUB=-1e40 "Substrate doping, default 0";
        parameter SI.Conversions.NonSIunits.PerArea_cm NSS=0.0
         "Surface state density";
        parameter Real TPG=1.0
@@ -4168,11 +3466,14 @@ on the model behaviour.
        parameter Real AF=1.0 "Flicker noise exponent";
        parameter Real FC=0.5
         "Coefficient for forward-bias depletion capacitance formula";
-       parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
+       parameter SI.Temp_C TNOM=-1e40
+        "Parameter measurement temperature, default 27";
+       constant Integer LEVEL=1 "Model level: Shichman-Hodges";
+     equation
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end ModelcardMOS;
 
@@ -4193,139 +3494,147 @@ on the model behaviour.
 
     parameter Integer mtype(start = 0)
         "MOSFET type: 0 - N channel, 1 - P channel";
-    parameter SI.Length L=1e-4 "Length";
-    parameter SI.Length W=1e-4 "Width";
-    parameter SI.Area AD=0 "Area of the drain diffusion";
-    parameter SI.Area AS=0 "Area of the source diffusion";
-    parameter SI.Length PD=0 "Perimeter of the drain junction";
-    parameter SI.Length PS=0 "Perimeter of the source junction";
+    parameter SI.Length L = 1e-4 "Length";
+    parameter SI.Length W = 1e-4 "Width";
+    parameter SI.Area AD = 0 "Area of the drain diffusion";
+    parameter SI.Area AS = 0 "Area of the source diffusion";
+    parameter SI.Length PD = 0 "Perimeter of the drain junction";
+    parameter SI.Length PS = 0 "Perimeter of the source junction";
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
-    parameter Boolean OFF = false
+    parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-    parameter SI.Voltage IC_VDS = -1e40
-        "Initial condition value (VDS, not implemented yet)";
-    parameter SI.Voltage IC_VGS = -1e40
-        "Initial condition value (VGS, not implemented yet)";
-    parameter SI.Voltage IC_VBS = -1e40
-        "Initial condition value (VBS, not implemented yet)";
-    parameter Boolean UIC = false
-        "Use initial conditions: true, if initial condition is used";
-    parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
+    parameter SI.Voltage IC( start = -1e40)
+        "Initial condition values, not implemented yet";
+    parameter Real TEMP = 27 "Operating temperature of the device";
 
-    parameter ModelcardMOS2 modelcard "MOSFET modelcard" annotation(Evaluate=true);
-    final parameter Mos2.Mos2ModelLineParams p = Mos2.mos2RenameParameters(
-        modelcard) "Model line parameters"
+    Real MOScapgd = qm.qm_capgd;
+    Real MOScapgs = qm.qm_capgs;
+    Real MOScapgb = qm.qm_capgb;
+
+    parameter ModelcardMOS2 modelcard "MOSFET modelcard"
+                annotation(Evaluate=true);
+    constant SpiceConstants C "General constants of SPICE simulator";
+    final parameter Mos2.Mos2ModelLineParams p=Mos2.mos2RenameParameters(
+          modelcard, C) "Model line parameters"
                       annotation(Evaluate=true);
-    final parameter Mosfet.Mosfet m = Mosfet.mosfetRenameParametersDev(
-      W,
-      L,
-      AD,
-      AS,
-      PD,
-      PS,
-      NRD,
-      NRS,
-      OFF,
-      IC_VDS,
-      IC_VGS,
-      IC_VBS,
-      UIC,
-      TEMP) "Renamed parameters"  annotation(Evaluate=true);
-    final parameter Mosfet.Mosfet m1 = Mosfet.mosfetInitEquations(m);
-    final parameter Integer m_type = if (mtype > 0.5) then -1 else 1
+    final parameter Mosfet.Mosfet m=Mos2.mos2RenameParametersDev(
+            modelcard,
+            mtype,
+            W,
+            L,
+            AD,
+            AS,
+            PD,
+            PS,
+            NRD,
+            NRS,
+            OFF,
+            IC,
+            TEMP) "Renamed parameters"
+                                    annotation(Evaluate=true);
+    final parameter Integer m_type = if (m.m_bPMOS > 0.5) then -1 else 1
         "Type of the transistor";
-    final parameter Mos2.Mos2ModelLineParams p1 = Mos2.mos2ModelLineParamsInitEquations(
-        p,
-        m_type) "Model line variables";
-    final parameter Mos2.Mos2Calc c1 = Mos.mos2CalcInitEquations(
-        p1,
-        m1) "Precalculated parameters";
-    final parameter Mos2.Mos2Calc c2 = Mos.mos2CalcCalcTempDependencies(
-        p1,
-        m1,
-        c1,
-        m_type) "Precalculated parameters";
-
+    final parameter Mos2.Mos2ModelLineVariables vp=
+          Mos2.mos2ModelLineParamsInitEquations(
+            p,
+            C,
+            m_type) "Model line variables";
+    final parameter Mos2.Mos2Calc c1=Mos.mos2CalcInitEquations(
+            p,
+            C,
+            vp,
+            m) "Precalculated parameters";
+    final parameter Mos2.Mos2Calc c2=Mos.mos2CalcCalcTempDependencies(
+            p,
+            C,
+            vp,
+            m,
+            c1,
+            m_type) "Precalculated parameters";
+    Mos.DEVqmeyer qm;
     Mos.CurrrentsCapacitances cc;
 
     constant Boolean m_bInit = false;
 
-    SI.Voltage Dinternal;
-    SI.Voltage Sinternal;
-    SI.Voltage vBD;
-    SI.Voltage  vBS;
-    SI.Voltage vGB;
-    SI.Voltage  vGD;
-    SI.Voltage vGS;
-                          SI.Current ird;
-    SI.Current irs;
-    SI.Current ibdgmin;
-    SI.Current ibsgmin;
+    Real Dinternal;
+    Real Sinternal;
+    Real ird;
+    Real irs;
+    Real ibdgmin;
+    Real ibsgmin;
 
-    SI.Current icBD;
-    SI.Current icBS;
-    SI.Current icGB;
-    SI.Current icGS;
-    SI.Current icGD;
+    Real icBD;
+    Real icBS;
+    Real icGB;
+    Real icGS;
+    Real icGD;
+
+    Real icqmGB;
+    Real icqmGS;
+    Real icqmGD;
+    SI.Voltage vDS "Drain - source voltage";
+    SI.Voltage vGS "Gate - source voltage";
 
   equation
     assert( NRD <> 0, "NRD, length of drain in squares, must not be zero");
     assert( NRS <> 0, "NRS, length of source in squares, must not be zero");
 
-    cc = Mos.mos2CalcNoBypassCode(
-      m1,
-      m_type,
-      c2,
-      p1,
-      m_bInit,
-      {G.v,B.v,Dinternal,Sinternal});
+    vDS = D.v - S.v;
+    vGS = G.v - S.v;
 
-    // voltages
-    // --------
-    vBD = B.v - Dinternal;
-    vBS = B.v - Sinternal;
-    vGB = G.v - B.v;
-    vGD = G.v - Dinternal;
-    vGS = G.v - Sinternal;
+      (cc,qm) = Mos.mos2CalcNoBypassCode(
+          m,
+          m_type,
+          c2,
+          p,
+          C,
+          vp,
+          m_bInit,
+          {G.v,B.v,Dinternal,Sinternal});
 
     // drain- and sourceresistances
     // ----------------------------
     ird * c1.m_drainResistance  = (D.v - Dinternal);
-    irs * c1.m_sourceResistance =  (S.v - Sinternal);
+    irs * p.m_sourceResistance =  (S.v - Sinternal);
 
     // capacitances
     // ------------
-    icBD = cc.cBD * der(vBD);
-    icBS = cc.cBS * der(vBS);
-    icGB = cc.cGB * der(vGB);
-    icGD = cc.cGD * der(vGD);
-    icGS = cc.cGS * der(vGS);
+
+    icBD = cc.cBD * (der(B.v) - der(Dinternal));
+    icBS = cc.cBS * (der(B.v) - der(Sinternal));
+    icGB = cc.cGB * (der(G.v) - der(B.v));
+    icGD = cc.cGD * (der(G.v) - der(Dinternal));
+    icGS = cc.cGS * (der(G.v) - der(Sinternal));
+
+    icqmGB = qm.qm_capgb*(der(G.v) - der(B.v));
+    icqmGS = qm.qm_capgs*(der(G.v) - der(Sinternal));
+    icqmGD = qm.qm_capgd*(der(G.v) - der(Dinternal));
 
     // currents
     // --------
-    ibsgmin = SpiceConstants.CKTgmin * (B.v - Sinternal);
-    ibdgmin = SpiceConstants.CKTgmin * (B.v - Dinternal);
-    G.i =  icGB + icGD + icGS;
-    B.i = cc.iBD + cc.iBS+ ibdgmin + ibsgmin -icGB + icBD + icBS;
+      ibsgmin = SpiceConstants.CKTgmin*(B.v - Sinternal);
+      ibdgmin = SpiceConstants.CKTgmin*(B.v - Dinternal);
+    G.i =  icGB + icGD + icGS + icqmGB + icqmGD + icqmGS;
+    B.i = cc.iBD + cc.iBS+ ibdgmin + ibsgmin -icGB + icBD + icBS - icqmGB;
     D.i = ird;
     S.i = irs;
 
-    //currentsum at inner node
-    //------------------------
-    0    = -ird + cc.idrain - cc.iBD - ibdgmin - icGD - icBD;
-    0    = -irs - cc.idrain - cc.iBS - ibsgmin - icGS - icBS;
+  //currentsum at inner node
+  //------------------------
+    0    = -ird + cc.idrain - cc.iBD - ibdgmin - icGD - icBD  - icqmGD;
+    0    = -irs - cc.idrain - cc.iBS - ibsgmin - icGS - icBS  - icqmGS;
 
     annotation (Documentation(info="<html>
 <p>MOSFET model, both N and P channel, LEVEL 2</p>
-<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
-<p><ul>
+<ul>
 <li><i>January 2009 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul></p>
+</ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}), graphics),
+                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
@@ -4336,177 +3645,28 @@ on the model behaviour.
             Text(
               extent={{8,-34},{92,-86}},
               lineColor={0,0,255},
-              textString="%name")}),
-        DymolaStoredErrors);
+              textString="%name")}));
   end MOS2;
 
      record ModelcardMOS2 "Record with technological parameters (.model)"
-
      extends ModelcardMOS(MJSW=0.33);
 
-       parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
-        "Fast surface state density";
-       parameter SI.Length XJ=0.0 "Metallurgiecal junction depth";
-       parameter SI.Conversions.NonSIunits.VoltagePer_cm UCRIT=1.e4
+       parameter Real NFS=0.0 "Fast surface state density";
+       parameter Real XJ=0.0 "Metallurgiecal junction depth";
+       parameter Real UCRIT=1.e4
         "Critical field for mobility degradation (MOS2 only)";
        parameter Real UEXP=0.0
         "Critical field exponent in mobility degradation (MOS2 only)";
-       parameter SI.Velocity VMAX=0.0 "Maximum drift velocity of carries";
+       parameter Real VMAX=0.0 "Maximum drift velocity of carries";
        parameter Real NEFF=1.0
         "Total channel charge (fixed and mobile) coefficient (MOS2 only)";
        parameter Real DELTA=0.0 "Width effect on theshold voltage";
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 2</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end ModelcardMOS2;
-
-  model JFET "Junction Field-Effect Transistor"
-
-    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" annotation (Placement(transformation(
-              extent={{-110,-12},{-90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node" annotation (Placement(transformation(
-              extent={{-10,90},{10,110}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node" annotation (Placement(
-            transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
-
-    parameter Integer mtype( start = 0)
-        "JFET type: 0 - N channel, 1 - P channel";
-    parameter Real AREA( start = 1)
-        "Number of parallel connected identical elements";
-    parameter Boolean OFF = false
-        "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-    parameter SI.Voltage IC_VDS = -1e40
-        "Initial condition value (VDS, not implemented yet)";
-    parameter SI.Voltage IC_VGS = -1e40
-        "Initial condition value (VGS, not implemented yet)";
-    parameter Boolean UIC = false
-        "Use initial conditions: true, if initial condition is used";
-    parameter SI.Temp_C TEMP=27 "Operating temperature of the device";
-
-    parameter ModelcardJFET modelcard "JFET modelcard"     annotation(Evaluate=true);
-    final parameter Jfet.JfetModelLine p = Jfet.jfetRenameParameters(
-          modelcard) "Model line parameters"  annotation(Evaluate=true);
-    final parameter FET.Fet m = FET.fetRenameParametersDev(
-                AREA,
-                OFF,
-                IC_VDS,
-                IC_VGS,
-                UIC,
-                TEMP) "Renamed parameters"   annotation(Evaluate=true);
-
-    final parameter Integer m_type = if (mtype > 0.5) then -1 else 1
-        "Type of the transistor";
-    //    enum fet_type { NFET = 1, PFET = -1 };
-    final parameter Jfet.JfetModelLine p1 = Jfet.jfetInitEquations(
-          m, p) "Precalculated parameters";
-    final parameter Jfet.JfetModelLine p2 = Jfet.jfetModelLineInitEquations(
-          p1) "Model line variables";
-    final parameter FET.Fet m1 = Jfet.jfetCalcTempDependencies(
-          m, p2) "Precalculated parameters";
-    FET.CurrrentsCapacitances cc;
-
-    constant Boolean m_bInit = false;
-
-    SI.Voltage Dinternal;  //internal drain node
-    SI.Voltage Sinternal;  //internal source node
-    SI.Voltage vGD;
-    SI.Voltage  vGS;
-    SI.Current ird;
-    SI.Current irs;
-    SI.Current igdgmin;
-    SI.Current igsgmin;
-
-    SI.Current icGS;
-    SI.Current icGD;
-
-  equation
-    cc = Jfet.jfetNoBypassCode(
-              m1,
-              p2,
-              m_type,
-              m_bInit,
-              {G.v,Dinternal,Sinternal});
-
-    // voltages
-    // --------
-    vGD = G.v - Dinternal;
-    vGS = G.v - Sinternal;
-
-    // drain- and sourceresistances
-    // ----------------------------
-    ird * p2.m_drainResist = (D.v - Dinternal);
-    irs * p2.m_sourceResist = (S.v - Sinternal);
-
-    // capacitances
-    // ------------
-    icGD = cc.cGD * der(vGD);
-    icGS = cc.cGS * der(vGS);
-
-    // currents
-    // --------
-    igsgmin = SpiceConstants.CKTgmin * (G.v - Sinternal);
-    igdgmin = SpiceConstants.CKTgmin * (G.v - Dinternal);
-    G.i = icGD + icGS + cc.iGD + igdgmin + cc.iGS + igsgmin;
-    D.i = ird;
-    S.i = irs;
-
-    //currentsum at inner node
-    //------------------------
-    0    = -ird + cc.idrain - cc.iGD - igdgmin - icGD;
-    0    = -irs - cc.idrain - cc.iGS - igsgmin - icGS;
-
-    annotation (Documentation(info="<html>
-<p>JFET model, both N and P channel</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
-</html>", revisions="<html>
-<p><ul>
-<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul></p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics),
-        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}}), graphics={
-            Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
-                color={0,0,255}),
-            Line(points={{-92,0},{-20,0}}, color={0,0,255}),
-            Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
-            Text(
-              extent={{8,-34},{96,-54}},
-              lineColor={0,0,255},
-              textString="%name")}),
-        DymolaStoredErrors);
-  end JFET;
-
-    record ModelcardJFET "Record with technological parameters (.model)"
-
-      parameter SI.Capacitance CGS=-1e40
-        "Zero-bias G-S junction capacitance, default 0";
-      parameter SI.Capacitance CGD=-1e40
-        "Zero-bias G-D junction capacitance, default 0";
-      parameter SI.Current IS=1.e-14 "Saturation current of pn junctions";
-      parameter Real FC=0.5
-        "Coefficient for forward-bias depletion capacitance formula";
-      parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
-      parameter SI.Resistance RS=-1e40 "Source ohmic resistance, default 0";
-      parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
-      parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default -2";
-      parameter SI.InversePotential B=-1e40
-        "Dotierungsverlauf parameter, default 1";
-      parameter Real BETA=-1e40 "Output admittance parameter, default 1e-4";
-      parameter SI.InversePotential LAMBDA=0
-        "Channel-length modulation, default 0";
-      parameter SI.Voltage PB=1.0 "Junction potential of pn junctions";
-      parameter Real AF=1.0 "Flicker noise exponent";
-      parameter Real KF=0 "Flicker noise coefficient";
-
-     annotation (Documentation(info="<html>
-<p>Modelcard parameters for JFET model, both N and P channel</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
-</html>"));
-    end ModelcardJFET;
 
     model BJT "Bipolar junction transistor"
 
@@ -4519,100 +3679,102 @@ on the model behaviour.
       Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node"
         annotation (Placement(transformation(extent={{10,-108},{30,-88}}),
             iconTransformation(extent={{20,-110},{40,-90}})));
-      extends Spice3.Interfaces.ConditionalSubstrate;
+
       parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
       parameter Real AREA = 1.0 "Area factor";
       parameter Boolean OFF = false
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-      parameter SI.Voltage IC_VBE = -1e40
-        "Initial condition value (VBC, not implemented yet)";
-      parameter SI.Voltage IC_VCE = -1e40
-        "Initial condition value (VBE, not implemented yet)";
-      parameter Boolean UIC = false
-        "Use initial conditions: true, if initial condition is used";
-      parameter SI.Temp_C TEMP=27 "Operating temperature of the device";
+      parameter SI.Voltage IC_VCE( start = -1e40)
+        "Initial condition value (VBE, not implemented yet";
+      parameter SI.Voltage IC_VBE( start = -1e40)
+        "Initial condition value (VBC, not implemented yet";
+      parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
-      parameter ModelcardBJT modelcard "BJT modelcard"   annotation(Evaluate=true);
+      parameter ModelcardBJT modelcard "BJT modelcard"                                              annotation(Evaluate=true);
 
-      final parameter Bjt.BjtModelLineParams p = Bjt.bjtRenameParameters(
-          modelcard, TBJT) "Model line parameters"  annotation(Evaluate=true);
-      final parameter Bjt.Bjt dev = Bjt.bjtRenameParametersDev(
-                  AREA,
-                  OFF,
-                  IC_VBE,
-                  IC_VCE,
-                  UIC,
-                  SENS_AREA,
-                  TEMP) "Renamed parameters"    annotation(Evaluate=true);
-      final parameter Bjt.BjtModelLineParams p1 = Bjt.bjtModelLineInitEquations(
-          p) "Model line variables";
-      final parameter Bjt.Bjt dev1 = Bjt.bjtInitEquations(dev,
-          p1) "Precalculated parameters";
-      final parameter Bjt.BjtCalc c = Bjt.bjtCalcTempDependencies(
-          dev1, p1) "Precalculated parameters";
+      final parameter Bjt3.BjtModelLineParams p=Bjt3.bjtRenameParameters(modelcard,
+          Con) "Model line parameters"                                                                                                     annotation(Evaluate=true);
+      constant SpiceConstants Con "General constants of SPICE simulator";
+      final parameter Bjt3.Bjt p1=Bjt3.bjtRenameParametersDev(
+              AREA,
+              OFF,
+              IC_VBE,
+              IC_VCE,
+              SENS_AREA) "Renamed parameters"
+                   annotation(Evaluate=true);
+      final parameter Model.Model m=Bjt3.bjtRenameParametersDevTemp(TEMP)
+        "Renamed parameters"                                                                                                     annotation(Evaluate=true);
+      final parameter Bjt3.BjtModelLineParams p2=Bjt3.bjtRenameParametersType(TBJT);
+      final parameter Bjt3.BjtModelLineVariables vl=
+          Bjt3.bjtModelLineInitEquations(p) "Model line variables";
+      final parameter Bjt3.Bjt3Calc c=Bjt3.bjt3CalcTempDependencies(
+              p1,
+              p,
+              m,
+              vl) "Precalculated parameters";
+      final parameter Bjt3.BjtVariables v=Bjt3.bjtInitEquations(
+              p1,
+              p,
+              vl) "Precalculated parameters";
 
       constant Boolean m_bInit = false;
-      Bjt.CurrentsCapacitances cc;
-      SI.Voltage Cinternal;    // inner collector node
-      SI.Voltage Binternal;    // inner base node
-      SI.Voltage Einternal;    // inner emitter node
-      SI.Voltage vbe;
-      SI.Voltage vbc;
-      SI.Voltage vbx;
-      SI.Voltage vcs;
-      SI.Current irc;
-      SI.Current ire;
-      SI.Current irb;
-      SI.Current ibcgmin;
-      SI.Current ibegmin;
-      SI.Current icapbe;
-      SI.Current icapbc;
-      SI.Current icapbx;
-      SI.Current icapcs;
-      SI.Current icaptt;
+      Bjt3.CurrentsCapacitances cc;
+      Real Cinternal;    //inner collector node
+      Real Binternal;    //inner base node
+      Real Einternal;    //inner emitter node
+      Real irc;
+      Real ire;
+      Real irb;
+      Real ibcgmin;
+      Real ibegmin;
+      Real capbe;
+      Real icapbe;
+      Real capbc;
+      Real icapbc;
+      Real capbx;
+      Real icapbx;
+      SI.Voltage vBE "Base - emitter voltage";
+      SI.Voltage vCE "Collector - emitter voltage";
+      SI.Voltage vBC "Base - collector voltage";
 
     equation
-      cc = Bjt.bjtNoBypassCode(
-            dev1,
-            p1,
-            c,
-            {C.v,B.v,E.v,Cinternal,Binternal,Einternal},
-            m_bInit);
+      vBE = B.v - E.v;
+      vCE = C.v - E.v;
+      vBC = B.v - C.v;
 
-      // voltages
-      vbe = Binternal - Einternal;
-      vbc = Binternal - Cinternal;
-      vbx = B.v - Cinternal;
-      vcs = Cinternal - substrateVoltage;
+       (cc,capbe,capbc,capbx) = Bjt3.bjtNoBypassCode(
+             m,
+             p1,
+             p,
+             c,
+             v,
+             vl,
+             {C.v,B.v,E.v,Cinternal,Binternal,Einternal},
+             m_bInit);
 
-      // currents through capacitances
-      icapbe = if (m_bInit) then 0.0 else cc.capbe*der(vbe);
-      icapbc = if (m_bInit) then 0.0 else cc.capbc*der(vbc);
-      icaptt = if (m_bInit) then 0.0 else cc.captt*der(vbc);
-      icapbx = if (m_bInit) then 0.0 else cc.capbx*der(vbx);
-      icapcs = if (m_bInit) then 0.0 else cc.capcs*der(vcs);
+          //currents through capacitances
+         icapbe = if (m_bInit) then 0.0 else capbe*(der(Binternal) - der(Einternal));
+         icapbc = if (m_bInit) then 0.0 else capbc*(der(Binternal) - der(Cinternal));
+         icapbx = if (m_bInit) then 0.0 else capbx*(der(B.v) - der(Cinternal));
+         //Resistances
+         irc * p.m_collectorResist = (C.v - Cinternal);
+         ire * p.m_emitterResist = (E.v -Einternal);
+         irb * p.m_baseResist = (B.v - Binternal);
 
-      // resistances
-      irc * p1.m_collectorResist = (C.v - Cinternal);
-      ire * p1.m_emitterResist = (E.v -Einternal);
-    //  irb * cc.rx = (B.v - Binternal);  // exact resistance
-      irb * p.m_baseResist = (B.v - Binternal); // faulty resistance
+        //currents
+        ibcgmin = SpiceConstants.CKTgmin * (Binternal - Cinternal);
+        ibegmin = SpiceConstants.CKTgmin * (Binternal - Einternal);
+        C.i = irc;
+        E.i = ire;
+        B.i = irb + icapbx;
+        //current sum at inner nodes
+        0 =  ibcgmin + irc -cc.iCC + cc.iBCN + cc.iBC + icapbc + icapbx;  //current sum for inner node Cinternal
+        0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Einternal
+        0 = - ibcgmin - ibegmin + irb - cc.iBC - cc.iBE - cc.iBCN - cc.iBEN -icapbc - icapbe; //current sum for inner node Binternal
 
-      // currents
-      ibcgmin = SpiceConstants.CKTgmin*(Binternal - Cinternal);
-      ibegmin = SpiceConstants.CKTgmin*(Binternal - Einternal);
-      C.i = irc;
-      E.i = ire;
-      B.i = irb + icapbx;
-      //current sum at inner nodes
-      0 =  ibcgmin + irc -cc.iCC + cc.iBCN + cc.iBC + icapbc + icapbx - icapcs + icaptt; //current sum for inner node Cinternal
-      0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Einternal
-      0 = - ibcgmin - ibegmin + irb - cc.iBC - cc.iBE - cc.iBCN - cc.iBEN -icapbc - icapbe - icaptt; //current sum for inner node Binternal
-      substrateCurrent = icapcs;
-      annotation(Evaluate=true,
-                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(
               points={{-20,60},{-20,-60}},
@@ -4634,60 +3796,62 @@ on the model behaviour.
               extent={{-94,56},{206,16}},
               textString="%name",
               lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics),
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
-<p><br/>Bibpolar junction transistor model, both NPN and PNP</p><p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>Bibpolar junction transistor model</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
-<p><ul>
+<ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul></p>
+</ul>
 </html>"));
     end BJT;
 
     record ModelcardBJT "Record with technological parameters (.model)"
 
-      parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
-      parameter SI.Current IS=1e-16 "Transport saturation current";
+      parameter SI.Temp_C TNOM = -1e40
+        "Parameter measurement temperature, default 27";
+      parameter SI.Current IS = 1e-16 "Transport saturation current";
       parameter Real BF = 100.00 "Ideal maximum forward beta F";
       parameter Real NF = 1.0 "Forward current emission coefficientF";
       parameter Real NE = 1.5 "B-E leakage emission coefficient ";
-      parameter SI.Current ISE=-1e40
+      parameter SI.Current ISE = -1e40
         "B-E leakage saturation current, default = 0";
       constant Real C2 =  -1e40 "Obsolete parameter name, default = 0";
-      parameter SI.Current ISC=-1e40
+      parameter SI.Current ISC = -1e40
         "B-C leakage saturation current, default = 0";
       constant Real C4 =   -1e40 "Obsolete parameter name, default = 0";
       parameter Real BR = 1.0 "Ideal maximum reverse beta";
       parameter Real NR = 1.0 "Reverse current emission coefficient ";
       parameter Real NC = 2.0 "B-C leakage emission coefficient";
-      parameter SI.Voltage VAF=0.0 "Forward Early voltage";
-      parameter SI.Current IKF=0.0 "Forward beta roll-off corner current";
-      parameter SI.Voltage VAR=0.0 "Reverse Early voltage";
-      parameter SI.Current IKR=0.0 "Reverse beta roll-off corner current";
-      parameter SI.Resistance RE=0.0 "Emitter resistance";
-      parameter SI.Resistance RC=0.0 "Collector resistance";
-      parameter SI.Current IRB=0.0 "Current for base resistance = (rb+rbm)/2";
-      parameter SI.Resistance RB=0.0 "Zero bias base resistance";
-      parameter SI.Resistance RBM=0.0 "Minimum base resistance, default = 0.0";
-      parameter SI.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
-      parameter SI.Voltage VJE=0.75 "B-E built in potential";
+      parameter SI.Voltage VAF = 0.0 "Forward Early voltage";
+      parameter SI.Current IKF = 0.0 "Forward beta roll-off corner current";
+      parameter SI.Voltage VAR = 0.0 "Reverse Early voltage";
+      parameter SI.Current IKR = 0.0 "Reverse beta roll-off corner current";
+      parameter SI.Resistance RE = 0.0 "Emitter resistance";
+      parameter SI.Resistance RC = 0.0 "Collector resistance";
+      parameter SI.Current IRB = 0.0 "Current for base resistance = (rb+rbm)/2";
+      parameter SI.Resistance RB = 0.0 "Zero bias base resistance";
+      parameter SI.Resistance RBM = -1e40
+        "Minimum base resistance, default = 0.0";
+      parameter SI.Capacitance CJE = 0.0 "Zero bias B-E depletion capacitance";
+      parameter SI.Voltage VJE = 0.75 "B-E built in potential";
       parameter Real MJE = 0.33 "B-E junction exponential faktor";
-      parameter SI.Time TF=0.0 "Ideal forward transit time";
+      parameter SI.Time TF = 0.0 "Ideal forward transit time";
       parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
-      parameter SI.Current ITF=0.0 "High current dependence of TF,";
-      parameter SI.Voltage VTF=0.0 "Voltage giving VBC dependence of TF";
-      parameter SI.Frequency PTF=0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
-      parameter SI.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
-      parameter SI.Voltage VJC=0.75 " B-C built in potential";
+      parameter SI.Current ITF = 0.0 "High current dependence of TF,";
+      parameter SI.Voltage VTF = 0.0 "Voltage giving VBC dependence of TF";
+      parameter SI.Temp_C PTF = 0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
+      parameter SI.Capacitance CJC = 0.0 "Zero bias B-C depletion capacitance";
+      parameter SI.Voltage VJC = 0.75 " B-C built in potential";
       parameter Real MJC = 0.33 "B-C junction grading coefficient";
       parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
-      parameter SI.Time TR=0.0 "Ideal reverse transit time";
-      parameter SI.Capacitance CJS=0.0 "Zero bias C-S capacitance ";
-      parameter SI.Voltage VJS=0.75 "Substrate junction built-in potential ";
+      parameter SI.Time TR = 0.0 "Ideal reverse transit time";
+      parameter SI.Capacitance CJS = 0.0 "Zero bias C-S capacitance ";
+      parameter SI.Voltage VJS = 0.75 "Substrate junction built-in potential ";
       parameter Real MJS = 0.0 "Substrate junction grading coefficient ";
       parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent ";
-      parameter SI.GapEnergy EG=1.11
+      parameter SI.GapEnergy EG = 1.11
         "Energy gap for IS temperature effect on IS ";
       parameter Real XTI = 3.0 "Temperature exponent for IS";
       parameter Real KF = 0.0 "Flicker Noise Coefficient ";
@@ -4696,7 +3860,7 @@ on the model behaviour.
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
-<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardBJT;
 
@@ -4709,46 +3873,52 @@ on the model behaviour.
         "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
      parameter SI.Voltage IC( start = -1e40)
         "Initial condition value (VD, not implemented yet";
-     parameter Boolean UIC = false
-        "Use initial conditions: true, if initial condition is used";
      parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
      parameter Boolean SENS_AREA( start = false)
         "Flag to request sensitivity WRT area, not implemented yet";
 
      parameter ModelcardDIODE modelcarddiode "DIODE modelcard"                    annotation(Evaluate=true);
+     SpiceConstants C "General constants of SPICE simulator";
      final parameter Diode.DiodeModelLineParams param=
-          Diode.diodeRenameParameters(modelcarddiode) "Model line parameters";
-     final parameter Diode.Diode dp=Diode.diodeRenameParametersDev(
+          Diode.diodeRenameParameters(modelcarddiode, C)
+        "Model line parameters";
+     final parameter Diode.DiodeParams dp=Diode.diodeRenameParametersDev(
              TEMP,
              AREA,
              IC,
-             UIC,
              OFF,
              SENS_AREA) "Renamed parameters"
                       annotation(Evaluate=true);
+     final parameter Model.Model m=Diode.diodeRenameParametersDevTemp(TEMP)
+        "Renamed parameters"
+                 annotation(Evaluate=true);
+     final parameter Diode.DiodeVariables c1=Diode.diodeInitEquations(param)
+        "Precalculated values";
      final parameter Diode.DiodeCalc c2=Diode.diodeCalcTempDependencies(
              param,
-             dp) "Precalculated values";
+             dp,
+             m,
+             c1) "Precalculated values";
      constant Boolean m_mbInit = false;
 
      Diode.CurrentsCapacitances cc;
-     SI.Current icap;
-     SI.Voltage pin;
-     SI.Voltage  vinternal;
-     SI.Current ir;
-     SI.Current igmin;
+     Real icap;
+     Real m_dCap;
+     Real pin;
+     Real ir;
+     Real igmin;
 
    equation
-      cc = Diode.diodeNoBypassCode(
+      (cc,m_dCap) = Diode.diodeNoBypassCode(
            param,
            dp,
            c2,
+           m,
            m_mbInit,
            {pin,n.v});
 
      //current through capacitance
-     vinternal = pin - n.v;
-     icap = if (m_mbInit) then 0.0 else cc.m_dCap*der(pin - n.v);
+     icap = if (m_mbInit) then 0.0 else m_dCap*(der(pin)-der(n.v));
      //resistance
        ir*param.m_resist = (p.v - pin);
 
@@ -4760,151 +3930,94 @@ on the model behaviour.
 
    //currentsum at inner node
      0 =  -ir + cc.m_dCurrent + igmin +icap;
-     annotation (Documentation(info="<html>
+
+     annotation (
+       Icon(graphics={
+            Line(points={{90,0},{-90,0}},     color={0,0,255}),
+           Polygon(
+             points={{30,0},{-30,40},{-30,-40},{30,0}},
+             lineColor={0,0,0},
+             fillColor={255,255,255},
+             fillPattern=FillPattern.Solid),
+           Line(points={{-90,0},{40,0}}, color={0,0,255}),
+           Line(points={{40,0},{90,0}}, color={0,0,255}),
+           Line(points={{30,40},{30,-40}}, color={0,0,255}),
+           Text(
+             extent={{-154,100},{146,60}},
+             textString="%name",
+             lineColor={0,0,255})}),
+       Documentation(info="<html>
 <p>DIODE model</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
-</html>"),
-       Icon(coordinateSystem(
-     preserveAspectRatio=true,
-     extent={{-100,-100},{100,100}},
-     grid={1,1}), graphics={
-     Polygon(
-       points={{30,0},{-30,40},{-30,-40},{30,0}},
-       lineColor={0,0,0},
-       fillColor={255,255,255},
-       fillPattern=FillPattern.Solid),
-     Line(points={{-90,0},{40,0}}, color={0,0,255}),
-     Line(points={{40,0},{90,0}}, color={0,0,255}),
-     Line(points={{30,40},{30,-40}}, color={0,0,255}),
-     Line(
-       visible=useHeatPort,
-       points={{0,-100},{0,-20}},
-       color={127,0,0},
-       smooth=Smooth.None,
-       pattern=LinePattern.Dot),
-     Text(
-       extent={{-156,101},{144,61}},
-       textString="%name",
-       lineColor={0,0,255})}),
-       Diagram(coordinateSystem(
-     preserveAspectRatio=true,
-     extent={{-100,-100},{100,100}},
-     grid={1,1}), graphics={
-     Line(points={{-80,0},{80,0}}, color={128,128,128}),
-     Polygon(
-       points={{70,4},{80,0},{70,-4},{70,4}},
-       lineColor={128,128,128},
-       fillColor={128,128,128},
-       fillPattern=FillPattern.Solid),
-     Line(points={{0,80},{0,-80}}, color={128,128,128}),
-     Polygon(
-       points={{-4,70},{0,80},{4,70},{-4,70}},
-       lineColor={128,128,128},
-       fillColor={128,128,128},
-       fillPattern=FillPattern.Solid),
-     Text(
-       extent={{10,80},{20,70}},
-       lineColor={128,128,128},
-       textString="i"),
-     Text(
-       extent={{70,-10},{80,-20}},
-       lineColor={128,128,128},
-       textString="v"),
-     Line(
-       points={{-80,-40},{-20,-10},{20,10},{40,70}},
-       color={0,0,0},
-       thickness=0.5),
-     Line(
-       points={{20,9},{20,0}},
-       color={128,128,128},
-       pattern=LinePattern.Dot),
-     Text(
-       extent={{20,0},{40,-10}},
-       lineColor={128,128,128},
-       pattern=LinePattern.Dot,
-       textString="Vknee"),
-     Text(
-       extent={{20,70},{40,60}},
-       lineColor={128,128,128},
-       pattern=LinePattern.Dot,
-       textString="Ron"),
-     Text(
-       extent={{-20,10},{0,0}},
-       lineColor={128,128,128},
-       pattern=LinePattern.Dot,
-       textString="Goff"),
-     Ellipse(
-       extent={{18,12},{22,8}},
-       pattern=LinePattern.Dot,
-       lineColor={0,0,255})}));
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>Nov. 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul>
+</html>"));
    end DIODE;
 
    record ModelcardDIODE "Record with technological parameters (.model)"
-
-     parameter SI.Current IS=1e-14 "Saturation Current";
-     parameter SI.Resistance RS=0.0 "Ohmic resistance";
-     parameter Real N=1.0 "Emission coefficient";
-     parameter SI.Time TT=0.0 "Transit time";
-     parameter SI.Capacitance CJO=0.0 "Junction capacitance";
-     parameter SI.Voltage VJ=1.0 "Junction Potential";
-     parameter Real M=0.5 "Grading coefficient";
-     parameter SI.Voltage EG=1.11 "Activation Energy";
-     parameter Real XTI=3.0 "Saturation current temperature exponent";
-     parameter Real FC=0.5 "Forward bias junction fit parameter";
-     parameter SI.Voltage BV=-1e40
-        "Reverse breakdown voltage, default infinity";
-     parameter SI.Current IBV=1e-3 "Current at reverse breakdown voltage";
-     parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
-     parameter Real KF=0.0 "Flicker noise coefficient";
-     parameter Real AF=1.0 "Flicker noise exponent";
-     parameter SI.Conductance G=0 "Ohmic conductance";
+    parameter SI.Current IS=1e-14 "Saturation Current";
+    parameter SI.Resistance RS=0.0 "Ohmic resistance";
+    parameter Real N=1.0 "Emission coefficient";
+    parameter SI.Time TT=0.0 "Transit time";
+    parameter SI.Capacitance CJO=0.0 "Junction capacitance";
+    parameter SI.Voltage VJ=1.0 "Junction Potential";
+    parameter Real M=0.5 "Grading coefficient";
+    parameter SI.ActivationEnergy EG=1.11 "Activation Energy";
+    parameter Real XTI=3.0 "Saturation current temperature exponent";
+    parameter Real FC=0.5 "Forward bias junction fit parameter";
+    parameter SI.Voltage BV=-1e40 "Reverse breakdown voltage, default infinity";
+    parameter SI.Current IBV=1e-3 "Current at reverse breakdown voltage";
+    parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
+    parameter Real KF=0.0 "Flicker noise coefficient";
+    parameter Real AF=1.0 "Flicker noise exponent";
+    parameter SI.Conductance G=0 "Ohmic conductance";
      annotation (Documentation(info="<html>
 <p>Modelcard parameters for DIODE model</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
    end ModelcardDIODE;
 
     model R_SEMI "Semiconductor resistor"
 
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Resistance R = -1e40
+      parameter SI.Resistance R= -1e40
         "Resistance, if specified, geometrical information is overwritten";
-      parameter SI.Temp_C TEMP = 27 "Temperature of resistor";
-      parameter SI.Length  L(start = 0) "Lenght of the resistor";
-      parameter SI.Length  W = -1e40
+      parameter SI.Temp_C TEMP = -1e40 "Temperature of resistor";
+      parameter SI.Length L = -1e40 "Lenght of the resistor";
+      parameter SI.Length W = -1e40
         "Width of the resistor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA= false
         "Parameter for sensitivity analyses, not implemented yet";
       parameter ModelcardR modelcard "Resistor modelcard";
+      SpiceConstants C "General constants of SPICE simulator";
       final parameter Rsemiconductor.ResistorModelLineParams lp=
-          Rsemiconductor.resistorRenameParameters(modelcard)
+          Rsemiconductor.resistorRenameParameters(modelcard, C)
         "Model Line Parameters";
-      final parameter Rsemiconductor.Resistor rp=
+      final parameter Rsemiconductor.ResistorParams rp=
           Rsemiconductor.resistorRenameParametersDev(
               R,
               W,
               L,
               TEMP,
               SENS_AREA,
-              lp) "Renamed parameters";
+              C) "Renamed parameters";
 
-      Rsemiconductor.Resistor vp;
+        Rsemiconductor.ResistorVariables vp;
 
     algorithm
-      if (rp.m_dResIsGiven < 0.5) then
-        assert( L > 0, "Length of resistor must be greater then zero");
-      end if;
-
       vp := Rsemiconductor.resistorInitEquations(rp, lp);
 
-      (vp.m_dConduct,vp.m_dCond_dTemp) := Functions.resDepTemp(
+      (vp.m_dConduct,vp.m_dCond_dTemp) :=
+        Modelica.Electrical.Spice3.Internal.Functions.resDepTemp(
             vp.m_dResist,
             rp.m_dTemp,
             lp.m_dTnom,
             lp.m_dTC1,
             lp.m_dTC2);
 
-     i := vp.m_dConduct*v;
+     i :=vp.m_dConduct*v;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -4933,182 +4046,72 @@ on the model behaviour.
 </ul>
 </html>", info="<html>
 <p>Semiconductor resistance model</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end R_SEMI;
 
     record ModelcardR "Record with technological parameters (.model)"
-
-     parameter SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient TC1=0.0
+     parameter SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient TC1 =        0.0
         "First order temperature coefficient";
-     parameter SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient TC2 = 0.0
-        "Second order temperature coefficient";
-     parameter SI.Resistance RSH = 0 "Sheet resistance";
-     parameter SI.Temp_C TNOM = 27 "Parameter measurement temperature";
-     parameter SI.Length  DEFW = 1e-5 "Default device width";
-     parameter SI.Length  NARROW = 0
-        "Narrowing of resistor due to side etching";
+     parameter SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient TC2 =               0.0
+        "In Ohm/(deg C*deg C), Second2 order temperature coefficient";
+     parameter SI.Resistance RSH = -1e40 "Sheet resistance";
+     parameter SI.Temp_C TNOM = -1e40
+        "Parameter measurement temperature, default 27";
+     parameter SI.Length DEFW = 1e-5 "Default device width";
+     parameter SI.Length NARROW = 0 "Narrowing of resistor due to side etching";
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for semiconductor resistance model</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardR;
 
-    model C_SEMI "Semiconductor capacitor"
-
-      extends Modelica.Electrical.Analog.Interfaces.OnePort;
-      parameter SI.Capacitance C = -1e40
-        "Capacitance, if specified, geometrical information is overwritten";
-      parameter SI.Temp_C TEMP = 27 "Temperature of capcitor";
-      parameter SI.Length  L(start = 0) "Lenght of the capcitor";
-      parameter SI.Length  W = -1e40
-        "Width of the capcitor, default DEFW (modelcard)";
-      parameter Boolean SENS_AREA = false
-        "Parameter for sensitivity analyses, not implemented yet";
-      parameter SI.Voltage IC = 0 "Initial value";
-      parameter Boolean UIC = false
-        "Use initial conditions: true, if initial condition is used";
-      parameter ModelcardC modelcard "Capcitor modelcard";
-      final parameter Csemiconductor.CapacitorModelLineParams lp=
-          Csemiconductor.capacitorRenameParameters(modelcard)
-        "Model Line Parameters";
-      final parameter Csemiconductor.Capacitor cp=
-          Csemiconductor.capacitorRenameParametersDev(
-                  C,
-                  W,
-                  L,
-                  TEMP,
-                  SENS_AREA,
-                  lp) "Renamed parameters";
-
-      Csemiconductor.Capacitor vp;
-
-    protected
-      SI.Voltage vinternal;
-
-    initial equation
-      if UIC then
-        vinternal = IC;
-      else
-        der(vinternal) = 0;
-      end if;
-
-    algorithm
-      if (cp.m_dCapIsGiven < 0.5) then
-        assert( L > 0, "Length of capacitor must be greater then zero");
-      end if;
-
-      vp := Csemiconductor.capacitorInitEquations(cp, lp);
-
-      vinternal := p.v - n.v;
-      i         := vp.m_dCapac*der(vinternal);
-
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={
-            Line(
-              points={{-14,28},{-14,-28}},
-              color={0,0,255},
-              thickness=0.5),
-            Line(
-              points={{14,28},{14,-28}},
-              color={0,0,255},
-              thickness=0.5),
-            Line(points={{-90,0},{-14,0}}),
-            Line(points={{14,0},{90,0}}),
-            Text(
-              extent={{-130,-40},{134,-60}},
-              lineColor={0,0,0},
-              textString="C=%C"),
-            Text(extent={{-138,42},{136,62}},  textString="%name")}),
-                                     Documentation(revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> April 2009 </i>
-       by Kristin Majetta <br>initially implemented</li>
-</ul>
-</html>", info="<html>
-<p>Semiconductor capacitance model</p>
-<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
-</html>"));
-    end C_SEMI;
-
-    record ModelcardC "Record with technological parameters (.model)"
-
-      parameter SI.CapacitancePerArea CJ = 0.0
-        "Junction bottom capacitance     F/meters2";
-      parameter SI.Permittivity CJSW = 0.0
-        "Junction sidewall capacitance   F/meters";
-      parameter SI.Length  DEFW=1e-5 "Default device width";
-      parameter SI.Length  NARROW=0 "Narrowing due to side etching";
-      annotation (Documentation(info="<html>
-<p>Modelcard parameters for semiconductor capacitance model</p>
-<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
-</html>"));
-    end ModelcardC;
-
      record SpiceConstants "General constants of SPICE simulator"
+       constant Real EPSSIL =     (11.7 * 8.854214871e-12);
+       constant Real EPSOX =      3.453133e-11;
+       constant SI.Charge CHARGE =     (1.6021918e-19);
+       constant SI.Temp_K CONSTCtoK =  (273.15);
+       constant SI.Temp_K REFTEMP =    300.15;  /* 27 deg C */
 
-       constant SI.Permittivity EPSSIL =     (11.7 * 8.854214871e-12); // rel. permittivity of Si
-       constant SI.Permittivity EPSOX =      (3.9 * 8.854214871e-12); // rel. permittivity of SiO2
-       constant SI.Charge CHARGE =           (1.6021918e-19);
-       constant SI.Temp_K CONSTCtoK =        (273.15);
-       constant SI.HeatCapacity CONSTboltz = (1.3806226e-23); // J/K
-       constant SI.Temp_K REFTEMP =          300.15;  /* 27 deg C */
-
-       constant Real CONSTroot2 = sqrt(2.0);
-       constant SI.Voltage CONSTvt0 = Modelica.Constants.k * SI.Conversions.from_degC(27)  / CHARGE; // deg C
-       constant SI.SeebeckCoefficient CONSTKoverQ = Modelica.Constants.k / CHARGE;
-       constant Real CONSTe = exp(1.0);
+       constant Real CONSTroot2 =  sqrt(2.0);
+       constant Real CONSTvt0(   final unit= "(J/K)/(A.s)") = Modelica.Constants.k * Modelica.SIunits.Conversions.from_degC(27)  / CHARGE; // deg C
+       constant Real CONSTKoverQ(  final unit= "(J/K)/(A.s)")= Modelica.Constants.k / CHARGE;
+       constant Real CONSTe =      exp(1.0);
 
        // options
 
-       constant SI.Conductance CKTgmin =   1e-12;
-       constant SI.Temp_K CKTnomTemp =     300.15;
-       constant SI.Temp_K CKTtemp =        300.15;
-       constant SI.Area CKTdefaultMosAD =  0.0;
-       constant SI.Area CKTdefaultMosAS =  0.0;
-       constant SI.Length CKTdefaultMosL = 100e-6;
-       constant SI.Length CKTdefaultMosW = 100e-6;
-       constant Real CKTreltol =           1e-10;
-       constant Real CKTabstol =           1e-15;
-       constant Real CKTvolttol =          1e-10;
-       constant Real CKTtemptol =          1e-3;
+       constant SI.Conductance CKTgmin =         1e-12;
+       constant SI.Temp_K CKTnomTemp =      300.15;
+       constant SI.Temp_K CKTtemp =         300.15;
+       constant SI.Area CKTdefaultMosAD = 0.0;
+       constant SI.Area CKTdefaultMosAS = 0.0;
+       constant SI.Length CKTdefaultMosL =  100e-6;
+       constant SI.Length CKTdefaultMosW =  100e-6;
+       constant Real CKTreltol =       1e-10;
+       constant Real CKTabstol =       1e-15;
+       constant Real CKTvolttol =      1e-10;
+       constant Real CKTtemptol =      1e-3;
       annotation (Documentation(info="<html>
 <p>General constants used by SPICE</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end SpiceConstants;
-
-    record MaterialParameters
-
-      // enregy gap for silicium
-      constant SI.GapEnergy EnergyGapSi = 1.16;
-      // first band correction factor of silicium
-      constant SI.GapEnergyPerTemperature FirstBandCorrFactorSi=7.02e-4;
-      // second band correction factor of silicium
-      constant SI.Temperature SecondBandCorrFactorSi = 1108;
-      // band correction factor for T = 300K
-      constant SI.GapEnergy BandCorrFactorT300 = 1.1150877;
-      // intrinsic conduction carrier density
-      constant SI.PerVolume IntCondCarrDensity = 1.45e16;
-     annotation (Documentation(info="<html>
-<p>Definition of Material parameters</p>
-<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
-</html>"));
-    end MaterialParameters;
 
   package Functions "Equations for semiconductor calculation"
     extends Modelica.Icons.Package;
 
       function energyGapDepTemp "Temperature dependency of energy gap"
 
-        input SI.Temp_K temp "Temperature";
-        output SI.Voltage ret "Output voltage";
+        input Modelica.SIunits.Temp_K temp "Temperature";
+        output Modelica.SIunits.Voltage ret "Output voltage";
+
+      protected
+         Modelica.SIunits.Voltage gap0 =   1.16;
+         Real coeff1( final unit = "V/K") = 7.02e-4;
+         Modelica.SIunits.Temp_K coeff2 = 1108.0;
 
       algorithm
-        ret := MaterialParameters.EnergyGapSi - (MaterialParameters.FirstBandCorrFactorSi * temp * temp)
-               / (temp + MaterialParameters.SecondBandCorrFactorSi);
+        ret := gap0 - (coeff1 * temp * temp) / (temp + coeff2);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
@@ -5118,22 +4121,22 @@ on the model behaviour.
       function junctionPotDepTemp
         "Temperature dependency of junction potential"
 
-        input SI.Voltage phi0;
-        input SI.Temp_K temp "Device Temperature";
-        input SI.Temp_K tnom "Nominal Temperature";
+        input Modelica.SIunits.Voltage phi0;
+        input Modelica.SIunits.Temp_K temp "Device Temperature";
+        input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
 
-        output SI.Voltage ret "Output voltage";
+        output Modelica.SIunits.Voltage ret "Output voltage";
 
       protected
-        SI.Voltage phibtemp;
-        SI.Voltage phibtnom;
-        SI.Voltage vt;
+        Modelica.SIunits.Voltage phibtemp;
+        Modelica.SIunits.Voltage phibtnom;
+        Modelica.SIunits.Voltage vt;
 
       algorithm
         phibtemp := energyGapDepTemp( temp);
         phibtnom := energyGapDepTemp( tnom);
-        vt       := SpiceConstants.CONSTKoverQ *temp;
-        ret      := (phi0 - phibtnom)*temp/tnom + phibtemp + vt*3* Modelica.Math.log(tnom/temp);
+        vt       := SpiceConstants.CONSTKoverQ * temp;
+        ret := (phi0 - phibtnom) * temp / tnom + phibtemp + vt * 3 * Modelica.Math.log( tnom / temp);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent junction potential based on the actual and the nominal temperature.</p>
@@ -5143,24 +4146,24 @@ on the model behaviour.
       function saturationCurDepTempSPICE3MOSFET
         "Temperature dependency of saturation current"
 
-        input Real satcur0 "Satuaration current"; // Real -> input mit unterschiedlichen Einheiten
-        input SI.Temp_K temp "Device Temperature";
-        input SI.Temp_K tnom "Nominal Temperature";
+        input Modelica.SIunits.Current satcur0 "Satuaration current";
+        input Modelica.SIunits.Temp_K temp "Device Temperature";
+        input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
 
-        output Real ret "Output current";
+        output Modelica.SIunits.Current ret "Output current";
 
       protected
-        SI.Voltage vt;
-        SI.Voltage vtnom;
-        SI.Voltage energygaptnom;
-        SI.Voltage energygaptemp;
+        Modelica.SIunits.Voltage vt;
+        Modelica.SIunits.Voltage vtnom;
+        Modelica.SIunits.Voltage energygaptnom;
+        Modelica.SIunits.Voltage energygaptemp;
 
       algorithm
         vt            := SpiceConstants.CONSTKoverQ * temp;
         vtnom         := SpiceConstants.CONSTKoverQ * tnom;
         energygaptnom := energyGapDepTemp( tnom);
         energygaptemp := energyGapDepTemp( temp);
-        ret           := satcur0 * exp( energygaptnom / vtnom - energygaptemp / vt);
+        ret           := satcur0  * exp( energygaptnom / vtnom - energygaptemp / vt);
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
@@ -5169,18 +4172,18 @@ on the model behaviour.
 
       function junctionVCrit "Voltage limitation"
 
-        input SI.Temp_K temp "temperature";
+        input Modelica.SIunits.Temp_K temp "temperature";
         input Real ncoeff;
-        input SI.Current satcur "Saturation current";
+        input Modelica.SIunits.Current satcur "Saturation current";
 
-        output SI.Voltage ret "Output value";
+        output Real ret "Output value";
 
       protected
-        SI.Voltage vte;
+        Modelica.SIunits.Voltage vte;
 
       algorithm
         vte := SpiceConstants.CONSTKoverQ * temp * ncoeff;
-        ret := vte*Modelica.Math.log(vte/(sqrt(2)*satcur));
+        ret := vte * Modelica.Math.log( vte / (sqrt(2) * satcur));
         ret := if ( ret > 1e10) then  1e10 else ret;
 
         annotation (Documentation(info="<html>
@@ -5191,20 +4194,20 @@ on the model behaviour.
       function junctionParamDepTempSPICE3
         "Temperature dependency of junction parameters"
 
-        input SI.Voltage phi0;
-        input Real cap0; // Real -> input mit unterschiedlichen Einheiten
+        input Real phi0;
+        input Real cap0;
         input Real mcoeff;
-        input SI.Temp_K temp "Device temperature";
-        input SI.Temp_K tnom "Nominal temperature";
+        input Modelica.SIunits.Temp_K temp "Device temperature";
+        input Modelica.SIunits.Temp_K tnom "Nominal temperature";
 
-        output SI.Voltage junctionpot "Junction potential";
-        output Real jucntioncap "Junction capacitance"; // Real -> input mit unterschiedlichen Einheiten
+        output Real junctionpot "Junction potential";
+        output Real jucntioncap "Junction capacitance";
 
       protected
-        SI.Voltage phibtemp;
-        SI.Voltage phibtnom;
-        SI.Voltage vt;
-        SI.Voltage vtnom;
+        Real phibtemp;
+        Real phibtnom;
+        Modelica.SIunits.Temp_K vt;       //unit checked by maj
+        Modelica.SIunits.Temp_K vtnom;    //unit checked by maj
         Real arg;
         Real fact2;
         Real pbfact;
@@ -5220,20 +4223,21 @@ on the model behaviour.
         phibtnom    := energyGapDepTemp( tnom);
         vt          := SpiceConstants.CONSTKoverQ * temp;
         vtnom       := SpiceConstants.CONSTKoverQ * tnom;
-        arg         := -phibtemp/(2*SpiceConstants.CONSTboltz * temp) + 1.1150877/(SpiceConstants.CONSTboltz
-                       *(2*SpiceConstants.REFTEMP));
+        arg         := -phibtemp/(2*Modelica.Constants.k*temp) +
+                       1.1150877/(Modelica.Constants.k*(2*SpiceConstants.REFTEMP));
         fact2       := temp/SpiceConstants.REFTEMP;
-        pbfact      := -2*vt*(1.5*Modelica.Math.log(fact2) + SpiceConstants.CHARGE*arg);
-        arg1        := -phibtnom/(SpiceConstants.CONSTboltz*2*tnom) + 1.1150877/(2*SpiceConstants.CONSTboltz
-                       *SpiceConstants.REFTEMP);
+        pbfact      := -2*vt*(1.5*Modelica.Math.log(fact2)+SpiceConstants.CHARGE*arg);
+        arg1        := -phibtnom/(Modelica.Constants.k*2*tnom) +
+                       1.1150877/(2*Modelica.Constants.k*SpiceConstants.REFTEMP);
         fact1       := tnom/SpiceConstants.REFTEMP;
-        pbfact1     := -2*vtnom*(1.5*Modelica.Math.log(fact1) + SpiceConstants.CHARGE*arg1);
+        pbfact1     := -2 * vtnom*(1.5*Modelica.Math.log(fact1)+SpiceConstants.CHARGE*arg1);
         pbo         := (phi0-pbfact1)/fact1;
         junctionpot := pbfact+fact2*pbo;
         gmaold      := (phi0 -pbo)/pbo;
         gmanew      := (junctionpot-pbo)/pbo;
-        jucntioncap := cap0/(1 + mcoeff*(400e-6*(tnom - SpiceConstants.REFTEMP)
-                       - gmaold))*(1 + mcoeff*(400e-6*(temp - SpiceConstants.REFTEMP) - gmanew));
+        jucntioncap := cap0 /
+                       (1+mcoeff* (400e-6*(tnom-SpiceConstants.REFTEMP)-gmaold))  *
+                       (1+mcoeff* (400e-6*(temp-SpiceConstants.REFTEMP)-gmanew));
 
         annotation (Documentation(info="<html>
 <p>This internal function calculates several temperature dependent junction parameters based on the actual and the nominal temperature.</p>
@@ -5244,9 +4248,9 @@ on the model behaviour.
 
         input Real mj;
         input Real fc;
-        input SI.Voltage phij;
+        input Real phij;
 
-        output SI.Voltage f1;
+        output Real f1;
         output Real f2;
         output Real f3;
 
@@ -5267,26 +4271,29 @@ on the model behaviour.
     function junction2SPICE3MOSFET
         "Junction current and conductance calculation"
 
-      input SI.Voltage voltage "Input voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input Modelica.SIunits.Current current "Input current";
+      input Modelica.SIunits.Conductance cond "Input conductance";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
-      input SI.Current satcur "Saturation current";
+      input Modelica.SIunits.Current satcur "Saturation current";
 
-      output SI.Current out_current "Calculated current";
-      output SI.Conductance out_cond "Calculated conductance";
+      output Modelica.SIunits.Current out_current "Calculated current";
+      output Modelica.SIunits.Conductance out_cond "Calculated conductance";
 
       protected
-      SI.Voltage vte;
+      Modelica.SIunits.Voltage vte;
       Real max_exponent;
       Real evbd;
       Real evd;
       constant Real max_exp =     50.;
-      constant SI.Current max_current=1.e4;
+      constant Modelica.SIunits.Current max_current = 1.e4;
 
     algorithm
-        if (satcur > 1e-101) then
-        vte := SpiceConstants.CONSTKoverQ
-          *temp*ncoeff;
+      out_current := current;
+      out_cond := cond;
+      if (satcur > 1e-101) then
+        vte := SpiceConstants.CONSTKoverQ * temp * ncoeff;
 
         max_exponent := Modelica.Math.log(max_current/satcur);
         max_exponent := min(max_exp, max_exponent);
@@ -5294,7 +4301,7 @@ on the model behaviour.
         if (voltage <= 0) then
           out_cond    := satcur/vte;
           out_current := out_cond * voltage;
-          out_cond := out_cond + SpiceConstants.CKTgmin;
+          out_cond    := out_cond + SpiceConstants.CKTgmin;
         elseif (voltage >= max_exponent * vte) then
           evd         := exp( max_exponent);
           out_cond    := satcur * evd / vte;
@@ -5317,17 +4324,17 @@ on the model behaviour.
 
     function junctionCap "Junction capacity"
 
-      input SI.Capacitance capin "Input capacitance";
-      input SI.Voltage voltage "Input voltage";
-      input SI.Voltage depcap;
+      input Modelica.SIunits.Capacitance capin "Input capacitance";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
+      input Modelica.SIunits.Voltage depcap;
       input Real mj;
       input Real phij;
-      input SI.Voltage f1;
+      input Modelica.SIunits.Voltage f1;
       input Real f2;
       input Real f3;
 
-      output SI.Capacitance capout "Output capacitance";
-      output SI.Charge charge "Output charge";
+      output Modelica.SIunits.Capacitance capout "Output capacitance";
+      output Modelica.SIunits.Charge charge "Output charge";
 
       protected
       Real arg;
@@ -5340,7 +4347,7 @@ on the model behaviour.
         if (mj == 0.5) then
           sarg := 1 / sqrt(arg);
         else
-            sarg := exp(-1*mj*Modelica.Math.log(arg));
+          sarg := exp( -1 * mj * Modelica.Math.log( arg));
         end if;
         capout := capin * sarg;
         charge := phij * (capin * (1 - arg * sarg) / (1 - mj));
@@ -5359,24 +4366,24 @@ on the model behaviour.
     function saturationCurDepTempSPICE3
         "Temperature dependency of saturation current"
 
-      input SI.Current satcur0 "Saturation current";
-      input SI.Temp_K temp "Device Temperature";
-      input SI.Temp_K tnom "Nominal Temperature";
+      input Modelica.SIunits.Current satcur0 "Saturation current";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
+      input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
       input Real emissioncoeff;
-      input SI.Voltage energygap;
+      input Real energygap;
       input Real satcurexp;
 
-      output SI.Current ret "Output value";
+      output Modelica.SIunits.Current ret "Output value";
 
       protected
-      SI.Voltage vt;
-      SI.Voltage  vte;
+      Modelica.SIunits.Voltage vt;
+      Modelica.SIunits.Voltage vte;
 
     algorithm
-      vt  := SpiceConstants.CONSTKoverQ * temp;
+        vt := SpiceConstants.CONSTKoverQ*temp;
       vte := emissioncoeff * vt;
-      ret := satcur0 * exp(((temp/tnom) - 1)*energygap/vte + satcurexp/
-             emissioncoeff*Modelica.Math.log(temp/tnom));
+      ret := satcur0 * exp( ((temp / tnom) - 1) * energygap / vte
+             + satcurexp / emissioncoeff * Modelica.Math.log( temp / tnom));
 
       annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent saturation current based on the actual and the nominal temperature.</p>
@@ -5385,34 +4392,32 @@ on the model behaviour.
 
     function junctionVoltage23SPICE3 "Junction Voltage"
 
-      input SI.Voltage vb;
-      input SI.Current ivb;
-      input SI.Current satcur "Saturation current";
-      input SI.Temp_K temp "Device temperature";
+      input Modelica.SIunits.Voltage vb;
+      input Modelica.SIunits.Current ivb;
+      input Modelica.SIunits.Current satcur "Saturation current";
+      input Modelica.SIunits.Temp_K temp "Device temperature";
       input Real ncoeff;
 
-      output SI.Voltage v23 "Output value";
+      output Modelica.SIunits.Voltage v23 "Output value";
 
       protected
-      SI.Voltage vt;
-      SI.Current cbv;
+      Modelica.SIunits.Voltage vt;
+      Modelica.SIunits.Current cbv;
       Real tol;
       Integer iter;
 
     algorithm
-      vt := SpiceConstants.CONSTKoverQ*
-        temp;
+        vt := SpiceConstants.CONSTKoverQ*temp;
       v23 := vb;
       cbv := ivb;
 
       if (cbv < satcur * vb / vt) then
         cbv := satcur * vb / vt;
       else
-        tol := SpiceConstants.CKTreltol
-          *cbv;
-          v23 := vb - vt*Modelica.Math.log(1 + cbv/satcur);
+          tol := SpiceConstants.CKTreltol*cbv;
+        v23 := vb - vt * Modelica.Math.log( 1 + cbv / satcur);
         for iter in 0:24 loop
-            v23 := vb - vt*Modelica.Math.log(cbv/satcur + 1 - v23/vt);
+          v23 := vb - vt * Modelica.Math.log( cbv / satcur + 1 - v23 / vt);
           if (abs( satcur * ( exp(( vb - v23) / vt) - 1 + v23 / vt) - cbv) <= tol) then
 
           end if;
@@ -5426,30 +4431,29 @@ on the model behaviour.
 
     function junction3 "Junction current and conductance calculation"
 
-      input SI.Voltage voltage "Input voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
-      input SI.Current satcur "Saturation current";
-      input SI.Voltage v23;
+      input Modelica.SIunits.Current satcur "Saturation current";
+      input Modelica.SIunits.Voltage v23;
 
-      output SI.Current current "Output curret";
-      output SI.Conductance cond "Output conductance";
+      output Modelica.SIunits.Current current "Output curret";
+      output Modelica.SIunits.Conductance cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
-      constant SI.Current max_current=1.0e4;
-      SI.Voltage vte;
+      constant Modelica.SIunits.Current max_current = 1.0e4;
+      Modelica.SIunits.Voltage vte;
       Real max_exponent;
       Real evd;
       Real arg;
       Real evrev;
-      SI.Voltage vr;
+      Modelica.SIunits.Voltage vr;
 
     algorithm
       if (satcur > 1.0e-101) then
-        vte := SpiceConstants.CONSTKoverQ
-          *temp*ncoeff;
-          max_exponent := Modelica.Math.log(max_current/satcur);
+          vte := SpiceConstants.CONSTKoverQ*temp*ncoeff;
+        max_exponent := Modelica.Math.log( max_current / satcur);
         max_exponent := min( max_exp, max_exponent);
         if (voltage >= max_exponent * vte) then
           evd     := exp( max_exponent);
@@ -5457,15 +4461,13 @@ on the model behaviour.
           current := satcur * (evd - 1) + cond * (voltage - max_exponent * vte);
         elseif (voltage >= -3 * vte) then
           evd     := exp( voltage / vte);
-          current := satcur*(evd - 1) + SpiceConstants.CKTgmin
-            *voltage;
-          cond := satcur*evd/vte + SpiceConstants.CKTgmin;
+            current := satcur*(evd - 1) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*evd/vte + SpiceConstants.CKTgmin;
         elseif (voltage >= -v23) then
-          arg := 3*vte/(voltage*SpiceConstants.CONSTe);
+            arg := 3*vte/(voltage*SpiceConstants.CONSTe);
           arg     := arg * arg * arg;
-          current := -1.*satcur*(1 + arg) + SpiceConstants.CKTgmin
-            *voltage;
-          cond := satcur*3*arg/voltage + SpiceConstants.CKTgmin;
+            current := -1.*satcur*(1 + arg) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*3*arg/voltage + SpiceConstants.CKTgmin;
         else
           vr := -( v23 + voltage);
           if (vr > max_exponent * vte) then
@@ -5474,9 +4476,8 @@ on the model behaviour.
             current := -1. * (satcur * (evd - 1) + cond * (vr - max_exponent * vte));
           else
             evrev   := exp( vr / vte);
-            current := -1.*satcur*evrev + SpiceConstants.CKTgmin
-              *voltage;
-            cond := satcur*evrev/vte + SpiceConstants.CKTgmin;
+              current := -1.*satcur*evrev + SpiceConstants.CKTgmin*voltage;
+              cond := satcur*evrev/vte + SpiceConstants.CKTgmin;
           end if;
         end if;
       else
@@ -5492,20 +4493,20 @@ on the model behaviour.
     function junctionCapTransTime
         "Junction capacitance transittime calculation"
 
-      input SI.Capacitance capin "Input capacitance";
-      input SI.Voltage voltage "Input voltage";
-      input SI.Voltage depcap;
+      input Modelica.SIunits.Capacitance capin "Input capacitance";
+      input Modelica.SIunits.Voltage voltage "Input voltage";
+      input Modelica.SIunits.Voltage depcap;
       input Real mj;
       input Real phij;
-      input SI.Voltage f1;
+      input Modelica.SIunits.Voltage f1;
       input Real f2;
       input Real f3;
-      input SI.Time transittime;
-      input SI.Conductance conduct "Input conductance";
-      input SI.Current current "Input current";
+      input Modelica.SIunits.Time transittime;
+      input Modelica.SIunits.Conductance conduct "Input conductance";
+      input Modelica.SIunits.Current current "Input current";
 
-      output SI.Capacitance capout "Output capacitance";
-      output SI.Charge charge "Output charge";
+      output Modelica.SIunits.Capacitance capout "Output capacitance";
+      output Modelica.SIunits.Charge charge "Output charge";
 
     algorithm
         (capout,charge) := junctionCap(
@@ -5527,27 +4528,26 @@ on the model behaviour.
 
     function junction2 "Junction current and conductance calculation"
 
-      input SI.Voltage voltage "Input Voltage";
-      input SI.Temp_K temp "Device Temperature";
+      input Modelica.SIunits.Voltage voltage "Input Voltage";
+      input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
-      input SI.Current satcur "Saturation current";
+      input Modelica.SIunits.Current satcur "Saturation current";
 
-      output SI.Current current "Output current";
-      output SI.Conductance cond "Output conductance";
+      output Modelica.SIunits.Current current "Output current";
+      output Modelica.SIunits.Conductance cond "Output conductance";
 
       protected
       constant Real max_exp = 50.0;
       constant Real max_current = 1.0e4;
-      SI.Voltage vte;
+      Modelica.SIunits.Voltage vte;
       Real max_exponent;
       Real evd;
       Real arg;
 
     algorithm
       if (satcur > 1.0e-101) then
-        vte := SpiceConstants.CONSTKoverQ
-          *temp*ncoeff;
-          max_exponent := Modelica.Math.log(max_current/satcur);
+          vte := SpiceConstants.CONSTKoverQ*temp*ncoeff;
+        max_exponent := Modelica.Math.log( max_current / satcur);
         max_exponent := min( max_exp, max_exponent);
         if (voltage >= max_exponent * vte) then
           evd     := exp( max_exponent);
@@ -5556,45 +4556,19 @@ on the model behaviour.
 
         elseif (voltage >= -5 * vte) then
           evd     := exp( voltage / vte);
-          current := satcur*(evd - 1) + SpiceConstants.CKTgmin
-            *voltage;
-          cond := satcur*evd/vte + SpiceConstants.CKTgmin;
+            current := satcur*(evd - 1) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*evd/vte + SpiceConstants.CKTgmin;
         else
-          arg := 3*vte/(voltage*SpiceConstants.CONSTe);
+            arg := 3*vte/(voltage*SpiceConstants.CONSTe);
           arg     := arg * arg * arg;
-          current := -1*satcur*(1 + arg) + SpiceConstants.CKTgmin
-            *voltage;
-          cond := satcur*3*arg/voltage + SpiceConstants.CKTgmin;
+            current := -1*satcur*(1 + arg) + SpiceConstants.CKTgmin*voltage;
+            cond := satcur*3*arg/voltage + SpiceConstants.CKTgmin;
         end if;
       else
         current := 0.0;
         cond    := 0.0;
       end if;
 
-    /*
-  if (satcur > 1e-101) then
-      max_exponent := Modelica.Math.log(max_current/satcur);
-    max_exponent := min( max_exp, max_exponent);
-    if (voltage <= 0.0) then
-      cond := satcur/SpiceConstants.CONSTvt0
-         + SpiceConstants.CKTgmin;
-      current := cond * voltage;
-    elseif (voltage >= max_exponent*SpiceConstants.CONSTvt0) then
-      evd     := exp( max_exponent);
-      cond := satcur*evd/SpiceConstants.CONSTvt0;
-      current := satcur*(evd - 1) + cond*(voltage - max_exponent*
-        SpiceConstants.CONSTvt0);
-    else
-      evbs := exp(voltage/SpiceConstants.CONSTvt0);
-      cond := satcur*evbs/SpiceConstants.CONSTvt0
-         + SpiceConstants.CKTgmin;
-      current := satcur*(evbs - 1) + SpiceConstants.CKTgmin
-        *voltage;
-    end if;
-  else
-    current := 0.;
-    cond    := 0.;
-  end if;*/
       annotation (Documentation(info="<html>
 <p>This internal function calculates both the junction current and the junction conductance dependent from the given voltage.</p>
 </html>"));
@@ -5602,17 +4576,17 @@ on the model behaviour.
 
     function resDepTemp "Temperature dependent conductance"
 
-    input SI.Resistance resist "Input resistance";
-    input SI.Temp_K temp "Device temperature";
-    input SI.Temp_K tnom "Nominal temperature";
-    input SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient tc1;
-    input SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient tc2;
+    input Modelica.SIunits.Resistance resist "Input resistance";
+    input Modelica.SIunits.Temp_K temp "Device temperature";
+    input Modelica.SIunits.Temp_K tnom "Nominal temperature";
+    input Real tc1;
+    input Real tc2;
 
-    output SI.Conductance conduct "Output conductance";
+    output Modelica.SIunits.Conductance conduct "Output conductance";
     output Real dCond_dTemp "Output value";
 
       protected
-      SI.Temp_K difference;
+      Real difference;
       Real factor;
 
     algorithm
@@ -5628,12 +4602,12 @@ on the model behaviour.
 
     function resDepGeom "Resistance dependent from width and narrow"
 
-    input SI.Resistance rsh "Input sheet resistance";
-    input SI.Length  width "Input transistor width";
-    input SI.Length  length "Input transistor length";
-    input SI.Length  narrow "Input narrow";
+    input Real rsh "Input sheet resistance";
+    input Modelica.SIunits.Length width "Input transistor width";
+    input Modelica.SIunits.Length length "Input transistor length";
+    input Modelica.SIunits.Length narrow "Input narrow";
 
-    output SI.Resistance out "Output value";
+    output Real out "Output value";
 
     algorithm
       out :=rsh*(length - narrow)/(width - narrow);
@@ -5642,156 +4616,6 @@ on the model behaviour.
 <p>This internal function calculates the resistance in dependency from the geometrical values (width, narrow) and resistivity.</p>
 </html>"));
     end resDepGeom;
-
-    function capDepGeom "Capacitance dependent from width and narrow"
-
-    input SI.CapacitancePerArea cap0 "Junction bottom capacitance";
-    input SI.Permittivity capsw0 "Junction sidewall capacitance";
-    input SI.Length  width "Input capacitor width";
-    input SI.Length  length "Input capacitor length";
-    input SI.Length  narrow "Input narrow";
-
-    output SI.Capacitance out "Output value";
-
-    algorithm
-      out := cap0 * (width - narrow) * (length - narrow)
-             + capsw0 * 2 * ((length - narrow) + (width - narrow));
-
-    end capDepGeom;
-
-    function saturationCurDepTempSPICE3JFET
-        "Temperature dependency of saturation current"
-
-      input SI.Current satcur0 "Saturation current";
-      input SI.Temp_K temp "Device Temperature";
-      input SI.Temp_K tnom "Nominal Temperature";
-
-      output SI.Current ret "Output value";
-
-      protected
-      SI.Voltage vt;
-
-    algorithm
-      vt := SpiceConstants.CONSTKoverQ*
-        temp;
-      ret := satcur0  * exp( (temp / tnom - 1) * 1.11 / vt);
-
-    end saturationCurDepTempSPICE3JFET;
-
-    function junction2_SPICE3_BSIM
-
-      input SI.Voltage voltage;
-      input SI.Current satcur;
-
-      output SI.Current current;
-      output SI.Conductance cond;
-
-      protected
-      Real max_exponent;
-      Real evd;
-      Real evbs;
-      constant Real max_exp =     50;
-      constant Real max_current = 1.0e4;
-
-    algorithm
-      if (satcur > 1e-101) then
-          max_exponent := Modelica.Math.log(max_current/satcur);
-        max_exponent := min( max_exp, max_exponent);
-        if (voltage <= 0.0) then
-          cond := satcur/SpiceConstants.CONSTvt0
-             + SpiceConstants.CKTgmin;
-          current := cond * voltage;
-        elseif (voltage >= max_exponent*SpiceConstants.CONSTvt0) then
-          evd     := exp( max_exponent);
-          cond := satcur*evd/SpiceConstants.CONSTvt0;
-          current := satcur*(evd - 1) + cond*(voltage - max_exponent*
-            SpiceConstants.CONSTvt0);
-        else
-          evbs := exp(voltage/SpiceConstants.CONSTvt0);
-          cond := satcur*evbs/SpiceConstants.CONSTvt0
-             + SpiceConstants.CKTgmin;
-          current := satcur*(evbs - 1) + SpiceConstants.CKTgmin
-            *voltage;
-        end if;
-      else
-        current := 0.;
-        cond    := 0.;
-      end if;
-
-    end junction2_SPICE3_BSIM;
-
-    function junctionCapBSIM
-
-      input SI.Capacitance capin;
-      input SI.Voltage voltage;
-      input Real mj;
-      input SI.Voltage phij;
-
-      output SI.Capacitance capout;
-      output SI.Charge charge;
-
-      protected
-      Real arg;
-      Real sarg;
-
-    algorithm
-      if ( voltage < 0) then
-        arg    := 1 - voltage / phij;
-          sarg := exp(-mj*Modelica.Math.log(arg));
-        charge := phij * capin * (1-arg*sarg)/(1-mj);
-        capout := capin * sarg;
-      else
-        charge := voltage * capin + voltage * voltage * (capin * mj * 0.5 / phij);
-        capout := capin + voltage * (capin * mj / phij);
-      end if;
-
-    end junctionCapBSIM;
-
-    function junction2SPICE3BJT "Junction current and conductance calculation"
-
-      input SI.Voltage voltage "Input Voltage";
-      input SI.Temp_K temp "Device Temperature";
-      input Real ncoeff1;
-      input Real ncoeff2;
-      input SI.Current satcur1 "Saturation current";
-      input SI.Current satcur2 "Saturation current";
-
-      output SI.Current current1 "Output current";
-      output SI.Conductance cond1 "Output conductance";
-      output SI.Current current2 "Output current";
-      output SI.Conductance cond2 "Output conductance";
-
-      protected
-      SI.Voltage vte;
-      SI.Voltage vtn;
-      Real evd;
-
-    algorithm
-      vtn := SpiceConstants.CONSTKoverQ*temp*
-        ncoeff1;
-      vte := SpiceConstants.CONSTKoverQ*temp*
-        ncoeff2;
-      if (voltage > -5 * vtn) then
-        evd     := exp( voltage / vtn);
-        current1 := satcur1*(evd - 1) + SpiceConstants.CKTgmin
-          *voltage;
-        cond1 := satcur1*evd/vtn + SpiceConstants.CKTgmin;
-        if (satcur2 == 0) then
-          current2 := 0;
-          cond2    := 0;
-        else
-          evd      := exp(voltage/vte);
-          current2 := satcur2 * (evd-1);
-          cond2    := satcur2 * evd / vte;
-        end if;
-      else
-        cond1 := -satcur1/voltage + SpiceConstants.CKTgmin;
-        current1 := cond1 * voltage;
-        cond2    := -satcur2/voltage;
-        current2 := -satcur2;
-      end if;
-
-    end junction2SPICE3BJT;
       annotation (Documentation(info="<html>
 <p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
 </html>"));
@@ -5799,6 +4623,29 @@ on the model behaviour.
 
     package SpiceRoot "Basic records and functions"
       extends Modelica.Icons.Package;
+
+      record SpiceRoot "Data for insertion to matrices"
+
+        Modelica.SIunits.Current[6] m_pCurrentValues(   start = zeros(6));
+        Real[36] m_pResJacobi(      start = zeros(36));
+        Real[36] m_pCapJacobi(      start = zeros(36));
+
+        annotation (Documentation(info="<html>
+<p>This data are to collect intermediate results to be inserted into SPICE-like matrices for linear ssystems of equations.</p>
+</html>"));
+      end SpiceRoot;
+
+      function useInitialConditions "Initial condition handling"
+
+        output Boolean ret;
+
+      algorithm
+        ret := false;
+
+        annotation (Documentation(info="<html>
+<p>This function useInitialConditions appoints wether the initial conditions that are given in the description are used or not.</p>
+</html>"));
+      end useInitialConditions;
 
       function initJunctionVoltages "Choice of junction voltage handling"
 
@@ -5814,9 +4661,9 @@ on the model behaviour.
 
       function limitJunctionVoltage "Limitation of junction voltage"
 
-        input SI.Voltage voltage "Input voltage";
+        input Modelica.SIunits.Voltage voltage "Input voltage";
 
-        output SI.Voltage ret;
+        output Modelica.SIunits.Voltage ret;
 
       algorithm
         ret := voltage;
@@ -5835,7 +4682,7 @@ on the model behaviour.
 
     record Model "Device Temperature"
 
-      SI.Temp_K m_dTemp( start = SpiceConstants.CKTnomTemp)
+      Modelica.SIunits.Temp_K m_dTemp( start = SpiceConstants.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
 <p>The record Model includes the device temperture which has a default value of 27&deg;C.</p>
@@ -5853,25 +4700,33 @@ on the model behaviour.
       record Mosfet "Record for Mosfet parameters"
         extends Model.Model;
 
-        SI.Length  m_len(start=1e-4) "L, length of channel region";
-        SI.Length  m_width(start=1e-4) "W, width of channel region";
-        SI.Area m_drainArea(start=SpiceConstants.CKTdefaultMosAD)
+        Modelica.SIunits.Length m_len(             start = 1e-4)
+          "L, length of channel region";
+        Modelica.SIunits.Length m_width(           start = 1e-4)
+          "W, width of channel region";
+        Modelica.SIunits.Area m_drainArea(       start = SpiceConstants.CKTdefaultMosAD)
           "AD, area of drain diffusion";
-        SI.Area m_sourceArea(start=SpiceConstants.CKTdefaultMosAS)
+        Modelica.SIunits.Area m_sourceArea(      start = SpiceConstants.CKTdefaultMosAS)
           "AS, area of source diffusion";
         Real m_drainSquares(    start = 1.0) "NRD, length of drain in squares";
         Real m_sourceSquares(   start = 1.0) "NRS, length of source in squares";
-        SI.Length  m_drainPerimiter(start=0.0) "PD, Drain perimeter";
-        SI.Length  m_sourcePerimiter(start=0.0) "PS, Source perimeter";
-        SI.Voltage m_dICVDS(start=0.0) "IC_VDS, Initial D-S voltage";
+        Modelica.SIunits.Length m_drainPerimiter(  start = 0.0)
+          "PD, Drain perimeter";
+        Modelica.SIunits.Length m_sourcePerimiter( start = 0.0)
+          "PS, Source perimeter";
+        Modelica.SIunits.Voltage m_dICVDS(          start = 0.0)
+          "IC_VDS, Initial D-S voltage";
         Real m_dICVDSIsGiven "IC_VDS, IsGivenValue";
-        SI.Voltage m_dICVGS(start=0.0) "IC_VGS, Initial G-S voltage";
+        Modelica.SIunits.Voltage m_dICVGS(          start = 0.0)
+          "IC_VGS, Initial G-S voltage";
         Real m_dICVGSIsGiven "IC_VGS, IsGivenValue";
-        SI.Voltage m_dICVBS(start=0.0) "IC_VBS, Initial B-S voltage";
+        Modelica.SIunits.Voltage m_dICVBS(          start = 0.0)
+          "IC_VBS, Initial B-S voltage";
         Real m_dICVBSIsGiven "IC_VBS, IsGivenValue";
-        Boolean m_off(start = false)
+        Integer m_off(          start = 0)
           "Device initially off, non-zero to indicate device is off for dc analysis";
-        Boolean m_uic(start = false) "Use inital conditions, UIC";
+        Integer m_bPMOS(        start = 0) "P type MOSfet model";
+        Integer m_nLevel(       start = 1) "MOS model level";
 
         annotation (Documentation(info="<html>
 <p>This record Mosfet contains parameters that are used for all types of Mosfet transistors in SPICE3.</p>
@@ -5880,70 +4735,79 @@ on the model behaviour.
 
       record MosfetModelLineParams "Record for Mosfet model line parameters"
 
-         SI.CurrentDensity m_jctSatCurDensity( start = 0.0)
+         Real m_jctSatCurDensity(           start = 0.0)
           "JS, Bulk jct. sat. current density, input - use tSatCurDens";
-         SI.Resistance m_sheetResistance(start=0.0) "RSH, Sheet resistance";
-         SI.Voltage m_bulkJctPotential( start = 0.8)
+         Modelica.SIunits.Resistance m_sheetResistance(            start = 0.0)
+          "RSH, Sheet resistance";
+         Real m_bulkJctPotential(           start = 0.8)
           "PB, Bulk junction potential, input - use tBulkPot";
-         Real m_bulkJctBotGradingCoeff( start = 0.5)
-          "MJ, Bottom grading coefficient";
-         Real m_bulkJctSideGradingCoeff( start = 0.5)
-          "MJSW, Side grading coefficient";
-         // TOX -> unit Length for Mos1,2,3,6
-         // TOX -> unit Length_um for Bsim1
-         // -> different units -> Real
-         Real m_oxideThickness( start = 1.0e-7) "TOX, Oxide thickness";
-         SI.Permittivity m_gateSourceOverlapCapFactor( start= 0.0)
+         Modelica.SIunits.LinearTemperatureCoefficient m_bulkJctBotGradingCoeff(     start = 0.5)
+          "MJ, Bottom grading coefficient";    //unit checked by maj
+         Modelica.SIunits.LinearTemperatureCoefficient m_bulkJctSideGradingCoeff(    start = 0.5)
+          "MJSW, Side grading coefficient";    //unit checked by maj
+         Real m_oxideThickness(             start = 1.0e-7)
+          "TOX, Oxide thickness unit: micron";
+         Real m_oxideThicknessIsGiven "TOX, IsGiven value";
+         Real m_gateSourceOverlapCapFactor( start= 0.0)
           "CGS0, Gate-source overlap cap";
-         SI.Permittivity m_gateDrainOverlapCapFactor( start= 0.0)
+         Real m_gateDrainOverlapCapFactor( start= 0.0)
           " CGD0, Gate-drain overlap cap";
-         SI.Permittivity m_gateBulkOverlapCapFactor( start= 0.0)
+         Real m_gateBulkOverlapCapFactor( start= 0.0)
           "CGB0, Gate-bulk overlap cap";
-         Real m_fNcoef( start = 0.0) "KF, Flicker noise coefficient";
-         Real m_fNexp( start = 1.0) "AF, Flicker noise exponent";
+         Real m_fNcoef(                     start = 0.0)
+          "KF, Flicker noise coefficient";
+         Real m_fNexp(                      start = 1.0)
+          "AF, Flicker noise exponent";
 
         annotation (Documentation(info="<html>
 <p>This record MosfetModelLineParams contains the model line parameters that are used for all kinds of mosfet transistors in SPICE3.</p>
 </html>"));
       end MosfetModelLineParams;
 
+      record MosfetModelLine "Type of the transistor"
+
+        Integer m_type(   start = 1) "device type : 1 = n,  -1 = p";
+
+        annotation (Documentation(info="<html>
+<p>This record contains only one variable and it provides the information on the transistor type (pmos or nmos).</p>
+</html>"));
+      end MosfetModelLine;
+
       record MosfetCalc "Mosfet Variables"
 
-        SI.Voltage m_vds "Vds,  Drain-Source voltage";
-        SI.Voltage m_vgs "Vgs, Gate-Source voltage";
-        SI.Voltage m_vbs "Vbs, Bulk-Source voltage";
-        SI.Current m_cbs "Ibs, B-S junction current";
-        SI.Conductance m_gbs "Gbs, Bulk-Source conductance";
-        SI.Current m_cbd "Ibd, B-D junction current";
-        SI.Conductance m_gbd "Gbd, Bulk-Drain conductance";
-        SI.Current m_cdrain "Ids";
-        SI.Conductance m_gds "Gds, Drain-Source conductance";
-        SI.Conductance m_gm "Gm, Transconductance";
-        SI.Conductance m_gmbs "Gmbs, Bulk-Source transconductance";
-        SI.Capacitance m_capbsb "Cbsb";
-        SI.Charge m_chargebsb "Qbsb";
-        SI.Capacitance m_capbss "Cbss";
-        SI.Charge m_chargebss "Qbss";
-        SI.Capacitance m_capbdb "Cbdb";
-        SI.Charge m_chargebdb "Qbdb";
-        SI.Capacitance m_capbds "Cbds";
-        SI.Charge m_chargebds "Qbds";
-        SI.Resistance m_sourceResistance "Rs";
-        SI.Resistance m_drainResistance "Rd";
+        Modelica.SIunits.Voltage m_vds "Vds,  Drain-Source voltage";
+        Modelica.SIunits.Voltage m_vgs "Vgs, Gate-Source voltage";
+        Modelica.SIunits.Voltage m_vbs "Vbs, Bulk-Source voltage";
+        Modelica.SIunits.Current m_cbs "Ibs, B-S junction current";
+        Modelica.SIunits.Conductance m_gbs "Gbs, Bulk-Source conductance";
+        Modelica.SIunits.Current m_cbd "Ibd, B-D junction current";
+        Modelica.SIunits.Conductance m_gbd "Gbd, Bulk-Drain conductance";
+        Modelica.SIunits.Current m_cdrain "Ids";
+        Modelica.SIunits.Conductance m_gds "Gds, Drain-Source conductance";
+        Modelica.SIunits.Transconductance m_gm "Gm, Transconductance";
+        Modelica.SIunits.Transconductance m_gmbs
+          "Gmbs, Bulk-Source transconductance";
+        Modelica.SIunits.Capacitance m_capbsb "Cbsb";
+        Modelica.SIunits.Charge m_chargebsb "Qbsb";
+        Modelica.SIunits.Capacitance m_capbss "Cbss";
+        Modelica.SIunits.Charge m_chargebss "Qbss";
+        Modelica.SIunits.Capacitance m_capbdb "Cbdb";
+        Modelica.SIunits.Charge m_chargebdb "Qbdb";
+        Modelica.SIunits.Capacitance m_capbds "Cbds";
+        Modelica.SIunits.Charge m_chargebds "Qbds";
+        Modelica.SIunits.Resistance m_sourceResistance "Rs";
+        Modelica.SIunits.Resistance m_drainResistance "Rd";
         Real m_Beta "Beta";
-        SI.Capacitance m_capGSovl "Cgso, Gate-source overlap cap.";
-        SI.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
-        SI.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
-        SI.Capacitance m_capOx "Cox";
-        SI.Voltage m_von "Von, Turn-on voltage";
-        SI.Voltage m_vdsat "Vdsat";
+        Modelica.SIunits.Capacitance m_capGSovl
+          "Cgso, Gate-source overlap cap.";
+        Modelica.SIunits.Capacitance m_capGDovl "Cgdo, Gate-drain overlap cap.";
+        Modelica.SIunits.Capacitance m_capGBovl "Cgbo, Gate-bulk overlap cap.";
+        Modelica.SIunits.Capacitance m_capOx "Cox";
+        Modelica.SIunits.Voltage m_von "Von, Turn-on voltage";
+        Modelica.SIunits.Voltage m_vdsat "Vdsat";
         Integer m_mode(start = 1) "Mode";
 
-        SI.Length  m_lEff;
-
-        // BSIM
-        SI.Conductance m_sourceConductance "Gs";
-        SI.Conductance m_drainConductance "Gd";
+        Real m_lEff;
 
         annotation (Documentation(info="<html>
 <p>This record MosfetCalc contains variables that are neede for calculation within modeling the semiconductor models.</p>
@@ -5971,63 +4835,32 @@ on the model behaviour.
 </html>"));
       end mosfetInitEquations;
 
-      function mosfetRenameParametersDev
-        "Device parameter renaming to internal names"
-        input SI.Length  W "Channel Width";
-        input SI.Length  L "Channel Length";
-        input SI.Area AD "Area of the drain diffusion";
-        input SI.Area AS "Area of the source diffusion";
-        input SI.Length  PD "Perimeter of the drain junction";
-        input SI.Length  PS "Perimeter of the source junction";
-        input Real NRD "Number of squares of the drain diffusions";
-        input Real NRS "Number of squares of the source diffusions";
-        input Boolean OFF
-          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-        input SI.Voltage IC_VDS
-          "Initial condition value VDS, not implemented yet";
-        input SI.Voltage IC_VGS
-          "Initial condition value VGS, not implemented yet";
-        input SI.Voltage IC_VBS
-          "Initial condition value VBS, not implemented yet";
-        input Boolean UIC "Use initial condition, UIC";
-        input SI.Temp_C TEMP "Temperature";
+      function mosfetModelLineInitEquations "Type transscription"
 
-        output Mosfet dev "Output record Mosfet";
+        input Mosfet in_m "Input parameter set";
+
+        output MosfetModelLine out_ml "Changed parameter set";
 
       algorithm
-        /*device parameters*/
-        dev.m_len             := L "L, length of channel region";
-        dev.m_width           := W "W, width of channel region";
-        dev.m_drainArea       := AD "AD, area of drain diffusion";
-        dev.m_sourceArea      := AS "AS, area of source diffusion";
-        dev.m_drainSquares    := NRD "NRD, length of drain in squares";
-        dev.m_sourceSquares   := NRS "NRS, length of source in squares";
-        dev.m_drainPerimiter  := PD "PD, Drain perimeter";
-        dev.m_sourcePerimiter := PS "PS, Source perimeter";
-
-        dev.m_dICVDSIsGiven := if (IC_VDS > -1e40) then 1 else 0
-          "IC_VDS IsGivenValue";
-        dev.m_dICVDS := if (IC_VDS > -1e40) then IC_VDS else 0
-          "Initial condition of VDS";
-
-        dev.m_dICVGSIsGiven := if (IC_VGS > -1e40) then 1 else 0
-          "IC_VGS IsGivenValue";
-        dev.m_dICVGS := if (IC_VGS > -1e40) then IC_VGS else 0
-          "Initial condition of VGS";
-
-        dev.m_dICVBSIsGiven := if (IC_VBS > -1e40) then 1 else 0
-          "IC_VBS IsGivenValue";
-        dev.m_dICVBS := if (IC_VBS > -1e40) then IC_VBS else 0
-          "Initial condition of VBS";
-
-        dev.m_off   := OFF "Non-zero to indicate device is off for dc analysis";
-        dev.m_uic   := UIC "Use initial conditions";
-        dev.m_dTemp := TEMP + SpiceConstants.CONSTCtoK "Device temperature";
+        out_ml.m_type := if (in_m.m_bPMOS > 0.5) then -1 else 1;
+        // -1: PMOS ; 1: NMOS
 
         annotation (Documentation(info="<html>
-<pre>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</pre>
+<p>In this function during the initialization phase the transistor type is transscibed to another parameter for further usage.</p>
 </html>"));
-      end mosfetRenameParametersDev;
+      end mosfetModelLineInitEquations;
+
+      function getNumberOfElectricalPins "Number of Pins"
+
+        output Integer ret "Number of pins";
+
+      algorithm
+        ret := 4;
+        annotation (Documentation(info="<html>
+<p>This function getNumberOfElectricalPins identifies the number of elecrtical pins. At the current library version it is fixed to 4.</p>
+</html>"));
+      end getNumberOfElectricalPins;
+
       annotation (Documentation(info="<html>
 <p>The package Mosfet contains all functions and records that are used for all types of Mosfet transistors in SPICE3.</p>
 </html>"));
@@ -6038,45 +4871,54 @@ on the model behaviour.
 
       record MosModelLineParams
         "Record for Mosfet model line parameters (for level 1, 2, 3 and 6)"
-
         extends Mosfet.MosfetModelLineParams;
 
-         SI.CapacitancePerArea m_oxideCapFactor(start = 0.0);
-         SI.Voltage m_vt0(start=0.0) "VTO, Threshold voltage";
+         Real m_oxideCapFactor(      start = 0.0);
+         Modelica.SIunits.Voltage m_vt0(                 start = 0.0)
+          "VTO, Threshold voltage";
          Real m_vtOIsGiven "VTO IsGivenValue";
-         SI.Capacitance m_capBD(start=0.0) "CBD, B-D junction capacitance";
+         Modelica.SIunits.Capacitance m_capBD(               start = 0.0)
+          "CBD, B-D junction capacitance";
          Real m_capBDIsGiven "CapBD IsGivenValue";
-         SI.Capacitance m_capBS(start=0.0) "CBS, B-S junction capacitance";
+         Modelica.SIunits.Capacitance m_capBS(               start = 0.0)
+          "CBS, B-S junction capacitance";
          Real m_capBSIsGiven "CapBS IsGivenValue";
-         SI.CapacitancePerArea m_bulkCapFactor(start=0.0)
+         Modelica.SIunits.CapacitancePerArea m_bulkCapFactor(       start = 0.0)
           "CJ, Bottom junction cap per area";
          Real m_bulkCapFactorIsGiven "Bulk cap factor IsGivenValue";
-         SI.Permittivity m_sideWallCapFactor(start=0.0)
+         Modelica.SIunits.Permittivity m_sideWallCapFactor(   start = 0.0)
           "CJSW, Side grading coefficient";
-         Real m_fwdCapDepCoeff(start = 0.5) "FC, Forward bias jct. fit parm.";
-         SI.Voltage m_phi(start=0.6) "PHI, Surface potential";
+         Real m_fwdCapDepCoeff(      start = 0.5)
+          "FC, Forward bias jct. fit parm.";
+         Modelica.SIunits.Voltage m_phi(                 start = 0.6)
+          "PHI, Surface potential";
          Real m_phiIsGiven "Phi IsGivenValue";
-         Real m_gamma(start=0.0) "GAMMA, Bulk threshold parameter";
+         Modelica.SIunits.Voltage m_gamma(               start = 0.0)
+          "GAMMA, Bulk threshold parameter";
          Real m_gammaIsGiven "Gamma IsGivenValue";
-         SI.InversePotential m_lambda "Channel-length modulation";
-         SI.Conversions.NonSIunits.PerVolume_cm m_substrateDoping(start=0.0)
-          "NSUB, Substrate doping";
+         Modelica.SIunits.InversePotential m_lambda "Channel-length modulation";
+         Real m_substrateDoping(start = 0.0) "NSUB, Substrate doping";
          Real m_substrateDopingIsGiven "Substrate doping IsGivenValue";
          Real m_gateType(start = 1.0) "TPG, Gate type";
-         SI.Conversions.NonSIunits.PerArea_cm m_surfaceStateDensity(start=0.0)
-          "NSS, Gate type";
-         SI.Conversions.NonSIunits.Area_cmPerVoltageSecond
-          m_surfaceMobility(start=600.0) "UO, Surface mobility";
-         SI.Length  m_latDiff(start=0.0) "LD, Lateral diffusion";
-         SI.Current m_jctSatCur(start=1.0e-14) "IS, Bulk junction sat. current";
-         SI.Resistance m_drainResistance(start=0) "RD, Drain ohmic resistance";
+         Modelica.SIunits.Conversions.NonSIunits.PerArea_cm
+          m_surfaceStateDensity(start = 0.0) "NSS, Gate type";
+         Real m_surfaceStateDensityIsGiven "surfaceStateDensityIsGivenValue";
+         Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond
+          m_surfaceMobility( start = 600.0) "UO, Surface mobility";
+         Modelica.SIunits.Length m_latDiff(             start = 0.0)
+          "LD, Lateral diffusion";
+         Modelica.SIunits.Current m_jctSatCur(           start = 1.0e-14)
+          "IS, Bulk junction sat. current";
+         Modelica.SIunits.Resistance m_drainResistance(     start = 0)
+          "RD, Drain ohmic resistance";
          Real m_drainResistanceIsGiven "Drain resistance IsGivenValue";
-         SI.Resistance m_sourceResistance(start=0)
+         Modelica.SIunits.Resistance m_sourceResistance(    start = 0)
           "RS, Source ohmic resistance";
          Real m_sourceResistanceIsGiven "Source resistance IsGivenValue";
-         SI.Transconductance m_transconductance "input - use tTransconductance";
+         Modelica.SIunits.Transconductance m_transconductance
+          "input - use tTransconductance";
          Real m_transconductanceIsGiven "Transconductance IsGivenValue";
-         SI.Temp_K m_tnom(start=SpiceConstants.CKTnomTemp)
+         Modelica.SIunits.Temp_K m_tnom(start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
@@ -6084,97 +4926,384 @@ on the model behaviour.
 </html>"));
       end MosModelLineParams;
 
-      record MosCalc "Further mosfet variables (for level 1, 2, 3 and 6)"
+      record MosModelLineVariables
+        "Record for Mosfet model line variables (for level 1)"
 
-        extends Mosfet.MosfetCalc;
-
-        SI.Transconductance m_tTransconductance(start=0.);
-        SI.Conversions.NonSIunits.Area_cmPerVoltageSecond m_tSurfMob(start=0.);
-        SI.Voltage m_tPhi(start=0.7);
-        SI.Voltage m_tVto(start=1.);
-        SI.CurrentDensity m_tSatCurDens( start = 0.);
-        SI.Current m_tDrainSatCur(start=0.);
-        SI.Current m_tSourceSatCur(start=0.);
-        SI.Capacitance m_tCBDb(start=0.);
-        SI.Capacitance m_tCBDs(start=0.);
-        SI.Capacitance m_tCBSb(start=0.);
-        SI.Capacitance m_tCBSs(start=0.);
-        SI.CapacitancePerArea m_tCj( start = 0.);
-        SI.Permittivity m_tCjsw( start = 0.);
-        SI.Voltage m_tBulkPot(start=0.7);
-        SI.Voltage m_tDepCap( start = 0.35);
-        SI.Voltage m_tVbi(start=1.);
-        SI.Voltage m_VBScrit(start=0.7);
-        SI.Voltage m_VBDcrit(start=0.7);
-        SI.Voltage m_f1b( start = 0.);
-        Real m_f2b( start = 0.);
-        Real m_f3b( start = 0.);
-        SI.Voltage m_f1s( start = 0.);
-        Real m_f2s( start = 0.);
-        Real m_f3s( start = 0.);
-        SI.Voltage m_dVt( start = 0.);
-
-        SI.Capacitance m_capgd(start=0.);
-        SI.Capacitance m_capgs(start=0.);
-        SI.Capacitance m_capgb(start=0.);
-        SI.Charge m_qgs(start=0.);
-        SI.Charge m_qgd(start=0.);
-        SI.Charge m_qgb(start=0.);
+        Real m_oxideCapFactor;
+        Modelica.SIunits.Voltage m_vt0;
+        Modelica.SIunits.Voltage m_phi;
+        Real m_gamma;
+        Modelica.SIunits.Transconductance m_transconductance;
 
         annotation (Documentation(info="<html>
-<pre>This record MosCalc contains further mosfet variables (for level 1, 2, 3 and 6).</pre>
+<p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 1 SPICE3.</p>
+</html>"));
+      end MosModelLineVariables;
+
+      record MosCalc "Further mosfet variables (for level 1, 2, 3 and 6)"
+        extends Mosfet.MosfetCalc;
+
+        Modelica.SIunits.Transconductance m_tTransconductance( start = 0.);
+        Real m_tSurfMob( start = 0.);
+        Modelica.SIunits.Voltage m_tPhi( start = 0.7);
+        Modelica.SIunits.Voltage m_tVto( start = 1.);
+        Real m_tSatCurDens( start = 0.);
+        Modelica.SIunits.Current m_tDrainSatCur( start = 0.);
+        Modelica.SIunits.Current m_tSourceSatCur( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBDb( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBDs( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBSb( start = 0.);
+        Modelica.SIunits.Capacitance m_tCBSs( start = 0.);
+        Real m_tCj( start = 0.);
+        Real m_tCjsw( start = 0.);
+        Modelica.SIunits.Voltage m_tBulkPot( start = 0.7);
+        Real m_tDepCap( start = 0.35);
+        Modelica.SIunits.Voltage m_tVbi( start = 1.);
+        Modelica.SIunits.Voltage m_VBScrit( start = 0.7);
+        Modelica.SIunits.Voltage m_VBDcrit( start = 0.7);
+        Real m_f1b( start = 0.);
+        Real m_f2b( start = 0.);
+        Real m_f3b( start = 0.);
+        Real m_f1s( start = 0.);
+        Real m_f2s( start = 0.);
+        Real m_f3s( start = 0.);
+        Real m_dVt( start = 0.);
+
+        Modelica.SIunits.Capacitance m_capgd( start = 0.);
+        Modelica.SIunits.Capacitance m_capgs( start = 0.);
+        Modelica.SIunits.Capacitance m_capgb( start = 0.);
+        Modelica.SIunits.Charge m_qgs( start = 0.);
+        Modelica.SIunits.Charge m_qgd( start = 0.);
+        Modelica.SIunits.Charge m_qgb( start = 0.);
+
+        annotation (Documentation(info="<html>
+<p>This record MosCalc contains further mosfet variables (for level 1, 2, 3 and 6).</p>
 </html>"));
       end MosCalc;
 
       record DEVqmeyer "Meyer capacities and charge"
 
-        SI.Capacitance qm_capgb(start=0);
-        SI.Capacitance qm_capgs(start=0);
-        SI.Capacitance qm_capgd(start=0);
-        SI.Charge qm_qgs(start=0);
-        SI.Charge qm_qgb(start=0);
-        SI.Charge qm_qgd(start=0);
-        SI.Voltage qm_vgs(start=0);
-        SI.Voltage qm_vgb(start=0);
-        SI.Voltage qm_vgd(start=0);
+        Modelica.SIunits.Capacitance qm_capgb(  start = 0);
+        Modelica.SIunits.Capacitance qm_capgs(  start = 0);
+        Modelica.SIunits.Capacitance qm_capgd(  start = 0);
+        Modelica.SIunits.Charge qm_qgs(  start = 0);
+        Modelica.SIunits.Charge qm_qgb(  start = 0);
+        Modelica.SIunits.Charge qm_qgd(  start = 0);
+        Modelica.SIunits.Voltage qm_vgs(  start = 0);
+        Modelica.SIunits.Voltage qm_vgb(  start = 0);
+        Modelica.SIunits.Voltage qm_vgd(  start = 0);
 
         annotation (Documentation(info="<html>
-<pre>This record DEVqmeyer contains values that are needed for the calculation of the meyer capacities and charge.</pre>
+<p>This record DEVqmeyer contains values that are needed for the calculation of the meyer capacities and charge.</p>
 </html>"));
       end DEVqmeyer;
 
       record CurrrentsCapacitances "Currents and Capacities"
 
-        SI.Current idrain(start=0);
-        SI.Current iBD(start=0);
-        SI.Current iBS(start=0);
-        SI.Capacitance cGS(start=0);
-        SI.Capacitance cGB(start=0);
-        SI.Capacitance cGD(start=0);
-        SI.Capacitance cBS(start=0);
-        SI.Capacitance cBD(start=0);
-        SI.Capacitance m_capgd;
+        Modelica.SIunits.Current idrain( start = 0);
+        Modelica.SIunits.Current iBD( start = 0);
+        Modelica.SIunits.Current iBS( start = 0);
+        Modelica.SIunits.Capacitance cGS( start = 0);
+        Modelica.SIunits.Capacitance cGB( start = 0);
+        Modelica.SIunits.Capacitance cGD( start = 0);
+        Modelica.SIunits.Capacitance cBS( start = 0);
+        Modelica.SIunits.Capacitance cBD( start = 0);
+        Modelica.SIunits.Capacitance m_capgd;
 
         annotation (Documentation(info="<html>
-<pre>This record CurrentsCapacities contains values for the currents and the capacities inside the mosfet models level 1, 2, 3 and 6.</pre>
+<p>This record CurrentsCapacities contains values for the currents and the capacities inside the mosfet models level 1, 2, 3 and 6.</p>
 </html>"));
       end CurrrentsCapacitances;
 
+      function mosCalcInitEquations "Mosfet initial precalculations (level 1)"
+
+        input Mos1.Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Input record SPICE constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+
+        output Mos1.Mos1Calc out_c "Output record Mos1 calculated values";
+
+      algorithm
+         out_c.m_drainResistance := if
+                                      (in_p.m_drainResistanceIsGiven > 0.5) then
+             in_p.m_drainResistance else
+             in_p.m_sheetResistance * in_m.m_drainSquares;
+
+         out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
+             in_p.m_sourceResistance else
+             in_p.m_sheetResistance * in_m.m_sourceSquares;
+
+        out_c.m_lEff := in_m.m_len - 2 * in_p.m_latDiff;
+
+        if ( abs( out_c.m_lEff) < 1e-18) then
+          out_c.m_lEff := 1e-6;
+        end if;
+        out_c.m_capGSovl := in_p.m_gateSourceOverlapCapFactor * in_m.m_width;
+        out_c.m_capGDovl := in_p.m_gateDrainOverlapCapFactor * in_m.m_width;
+
+        out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
+        out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
+
+        annotation (Documentation(info="<html>
+<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 1).</p>
+</html>"));
+      end mosCalcInitEquations;
+
+      function mosCalcCalcTempDependencies
+        "Precalculation relating to temperature"
+
+        input Mos1.Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Input record SPICE constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+        input Mos1.Mos1Calc in_c "Input record Mos1Calc";
+        input Integer in_m_type "Type of MOS transistor";
+
+        output Mos1.Mos1Calc out_c "Output record with calculated values";
+
+      protected
+         Real ratio;
+         Real ratio4;
+         Real res;
+
+      algorithm
+        out_c := in_c;
+
+        ratio                     := in_m.m_dTemp / in_p.m_tnom;
+        ratio4                    := ratio * sqrt(ratio);
+        out_c.m_tTransconductance := in_vp.m_transconductance / ratio4;
+        out_c.m_Beta              := out_c.m_tTransconductance * in_m.m_width / out_c.m_lEff;
+
+        out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
+
+        out_c.m_tPhi := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                    in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
+
+        out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +0.5  *
+                        (Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                    in_p.m_tnom) - Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                                                              in_m.m_dTemp))
+                        + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
+        out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
+
+        out_c.m_tBulkPot := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                        in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
+        out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
+
+       if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
+          out_c.m_tDrainSatCur  := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
+                                   in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
+          out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := out_c.m_VBScrit;
+        else
+          out_c.m_tSatCurDens   := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
+                                   in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
+          out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
+          out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
+        end if;
+
+        if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
+          (res,out_c.m_tCj)   := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
+                                    in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+          (res,out_c.m_tCjsw) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
+                                    in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+          (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+                                    in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+        end if;
+
+        if (in_p.m_capBDIsGiven > 0.5) then
+          (res,out_c.m_tCBDb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_capBD,
+                                    in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+          out_c.m_tCBDs          := 0.0;
+        else
+          out_c.m_tCBDb := out_c.m_tCj * in_m.m_drainArea;
+          out_c.m_tCBDs := out_c.m_tCjsw * in_m.m_drainPerimiter;
+        end if;
+
+        if (in_p.m_capBSIsGiven > 0.5) then
+          (res,out_c.m_tCBSb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_capBS,
+                                    in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+          out_c.m_tCBSs          := 0.0;
+        else
+          out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
+          out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
+        end if;
+         (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+                                                    in_p.m_bulkJctBotGradingCoeff,
+                                                    in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+        out_c.m_dVt   := in_m.m_dTemp * SpiceConstants.CONSTKoverQ;
+
+        annotation (Documentation(info="<html>
+<p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 1).</p>
+</html>"));
+      end mosCalcCalcTempDependencies;
+
+      function mosCalcNoBypassCode
+        "Calculation of currents and capacities (level 1)"
+
+        input Mosfet.Mosfet in_m "Input record mosfet parameters";
+        input Integer in_m_type "Type of MOS transistor";
+        input Mos1.Mos1Calc in_c "Input record Mos1Calc";
+        input Mos1.Mos1ModelLineParams in_p
+          "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Input record SPICE constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
+        input Boolean in_m_bInit;
+        input Modelica.SIunits.Voltage[4] in_m_pVoltageValues; /* gate bulk drain source */
+
+        output CurrrentsCapacitances out_cc;
+
+      protected
+        Modelica.SIunits.Voltage vbd;
+        Modelica.SIunits.Voltage vgd;
+        Modelica.SIunits.Voltage vgb;
+        Modelica.SIunits.Current cur;
+        Integer n;
+        DEVqmeyer qm;
+        Mos1.Mos1Calc int_c;
+        Real hlp;
+
+      algorithm
+        int_c := in_c;
+
+        int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]); // ( G , SP)
+        int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( B , SP)
+        int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]); // ( DP, SP)
+
+        if ( SpiceRoot.useInitialConditions())    and (in_m.m_dICVBSIsGiven >0.5) then
+          int_c.m_vbs := in_m_type * in_m.m_dICVBS;
+        elseif ( SpiceRoot.initJunctionVoltages()) then
+          int_c.m_vbs := if (in_m.m_off >0.5) then 0. else int_c.m_VBScrit;
+        end if;
+        if ( SpiceRoot.useInitialConditions()) and (in_m.m_dICVDSIsGiven > 0.5) then
+          int_c.m_vds := in_m_type * in_m.m_dICVDS;
+        elseif ( SpiceRoot.initJunctionVoltages()) then
+          int_c.m_vds := if (in_m.m_off > 0.5) then 0. else (int_c.m_VBDcrit - int_c.m_VBScrit);
+        end if;
+        if ( SpiceRoot.useInitialConditions()) and (in_m.m_dICVGSIsGiven > 0.5) then
+          int_c.m_vgs := in_m_type * in_m.m_dICVGS;
+        elseif ( SpiceRoot.initJunctionVoltages()) then
+          if ( in_m.m_off > 0.5) then
+            int_c.m_vgs := 0.;
+          end if;
+        end if;
+
+        vbd := int_c.m_vbs - int_c.m_vds;
+        vgd := int_c.m_vgs - int_c.m_vds;
+
+        if ( int_c.m_vds >= 0) then
+          vbd         := int_c.m_vbs - int_c.m_vds;
+        else
+            int_c.m_vbs := vbd + int_c.m_vds;
+        end if;
+
+        vgb := int_c.m_vgs - int_c.m_vbs;
+
+         (int_c.m_cbd, int_c.m_gbd) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbd, int_c.m_gbd, vbd,
+                                       in_m.m_dTemp, 1.0, int_c.m_tDrainSatCur);
+         out_cc.iBD                 := in_m_type * int_c.m_cbd;
+         (int_c.m_cbs, int_c.m_gbs) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
+                                       in_m.m_dTemp, 1.0, int_c.m_tSourceSatCur);
+         out_cc.iBS                 := in_m_type * int_c.m_cbs;
+
+        int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
+
+        if (int_c.m_mode == 1) then
+
+          int_c := Mos1.drainCur( int_c.m_vbs, int_c.m_vgs, int_c.m_vds, int_c, in_p, in_C, in_vp, in_m_type);
+        else
+          int_c := Mos1.drainCur( vbd,               vgd,  -int_c.m_vds, int_c, in_p, in_C, in_vp, in_m_type);
+        end if;
+
+        n      := if (int_c.m_mode == 1) then 6 else 5;
+        out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
+
+        int_c.m_capbss    := 0.0;
+        int_c.m_chargebss := 0.0;
+        int_c.m_capbds    := 0.0;
+        int_c.m_chargebds := 0.0;
+        (int_c.m_capbsb, int_c.m_chargebsb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBSb, int_c.m_vbs, int_c.m_tDepCap,
+               in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
+
+        (int_c.m_capbdb, int_c.m_chargebdb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBDb, vbd, int_c.m_tDepCap,
+               in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
+
+        if ( not (in_p.m_capBSIsGiven > 0.5)) then
+          (int_c.m_capbss, int_c.m_chargebss) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
+               in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
+        end if;
+
+        if (not (in_p.m_capBDIsGiven > 0.5)) then
+          (int_c.m_capbds, int_c.m_chargebds) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBDs, vbd, int_c.m_tDepCap,
+               in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
+        end if;
+
+        out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss);
+
+        out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);
+        if (int_c.m_mode > 0) then
+          qm := mosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
+        else
+          qm := mosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
+          hlp := qm.qm_capgd;
+          qm.qm_capgd := qm.qm_capgs;
+          qm.qm_capgs := hlp;
+        end if;
+
+          int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
+          int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
+          int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
+
+        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;
+        out_cc.cGD := if (in_m_bInit) then -1e40 else int_c.m_capgd;
+        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;
+
+        annotation (Documentation(info="<html>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 1).</p>
+</html>"));
+      end mosCalcNoBypassCode;
+
       function mosCalcDEVqmeyer "Calculation of meyer capacities"
 
-        input SI.Voltage vgs;
-        input SI.Voltage vgd;
-        input SI.Voltage vgb;
+        input Modelica.SIunits.Voltage vgs;
+        input Modelica.SIunits.Voltage vgd;
+        input Modelica.SIunits.Voltage vgb;
         input MosCalc in_c "Input variable set";
 
         output DEVqmeyer out_qm "Qmeyer values";
 
       protected
-        SI.Voltage vds;
-        SI.Voltage vddif;
-        SI.Voltage vddif1;
-        SI.VoltageSquare vddif2;
-        SI.Voltage vgst;
+        Modelica.SIunits.Voltage vds;
+        Real vddif;
+        Real vddif1;
+        Real vddif2;
+        Modelica.SIunits.Voltage vgst;
 
       algorithm
         vgst := vgs - in_c.m_von;
@@ -6211,354 +5340,22 @@ on the model behaviour.
 </html>"));
       end mosCalcDEVqmeyer;
 
-      function mosCalcInitEquations "Mosfet initial precalculations (level 1)"
-
-        input Mos1.Mos1ModelLineParams in_p
-          "Input record model line parameters for MOS1";
-        input Mosfet.Mosfet in_m "Input record mosfet parameters";
-
-        output Mos1.Mos1Calc out_c "Output record Mos1 calculated values";
-
-      algorithm
-        out_c.m_drainResistance := if (in_p.m_drainResistanceIsGiven > 0.5) then
-             in_p.m_drainResistance else
-             in_p.m_sheetResistance * in_m.m_drainSquares;
-
-        out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
-             in_p.m_sourceResistance else
-             in_p.m_sheetResistance * in_m.m_sourceSquares;
-
-        out_c.m_lEff := in_m.m_len - 2 * in_p.m_latDiff;
-
-        if ( abs( out_c.m_lEff) < 1e-18) then
-          out_c.m_lEff := 1e-6;
-        end if;
-        out_c.m_capGSovl := in_p.m_gateSourceOverlapCapFactor * in_m.m_width;
-        out_c.m_capGDovl := in_p.m_gateDrainOverlapCapFactor * in_m.m_width;
-
-        out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
-        out_c.m_capOx    := in_p.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
-
-        annotation (Documentation(info="<html>
-<p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 1).</p>
-</html>"));
-      end mosCalcInitEquations;
-
-      function mosCalcCalcTempDependencies
-        "Precalculation relating to temperature"
-
-        input Mos1.Mos1ModelLineParams in_p
-          "Input record model line parameters for MOS1";
-        input Mosfet.Mosfet in_m "Input record mosfet parameters";
-        input Mos1.Mos1Calc in_c "Input record Mos1Calc";
-        input Integer in_m_type "Type of MOS transistor";
-
-        output Mos1.Mos1Calc out_c "Output record with calculated values";
-
-      protected
-         Real ratio;
-         Real ratio4;
-         Real res;
-
-      algorithm
-        out_c := in_c;
-
-        ratio                     := in_m.m_dTemp / in_p.m_tnom;
-        ratio4                    := ratio * sqrt(ratio);
-        out_c.m_tTransconductance := in_p.m_transconductance / ratio4;
-        out_c.m_Beta              := out_c.m_tTransconductance * in_m.m_width / out_c.m_lEff;
-
-        out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
-
-        out_c.m_tPhi := Functions.junctionPotDepTemp(
-                    in_p.m_phi,
-                    in_m.m_dTemp,
-                    in_p.m_tnom);
-
-        out_c.m_tVbi := in_p.m_vt0 - in_m_type*(in_p.m_gamma*sqrt(in_p.m_phi))
-           + 0.5*(Functions.energyGapDepTemp(in_p.m_tnom) -
-          Functions.energyGapDepTemp(in_m.m_dTemp)) + in_m_type*0.5*(out_c.m_tPhi - in_p.m_phi);
-        out_c.m_tVto := out_c.m_tVbi + in_m_type * in_p.m_gamma * sqrt(out_c.m_tPhi);
-
-        out_c.m_tBulkPot := Functions.junctionPotDepTemp(
-                    in_p.m_bulkJctPotential,
-                    in_m.m_dTemp,
-                    in_p.m_tnom);
-        out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
-
-       if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
-          out_c.m_tDrainSatCur := Functions.saturationCurDepTempSPICE3MOSFET(
-                      in_p.m_jctSatCur,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
-          out_c.m_VBScrit := Functions.junctionVCrit(
-                      in_m.m_dTemp,
-                      1.0,
-                      out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit       := out_c.m_VBScrit;
-        else
-          out_c.m_tSatCurDens := Functions.saturationCurDepTempSPICE3MOSFET(
-                      in_p.m_jctSatCurDensity,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
-          out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
-          out_c.m_VBScrit := Functions.junctionVCrit(
-                      in_m.m_dTemp,
-                      1.0,
-                      out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit := Functions.junctionVCrit(
-                      in_m.m_dTemp,
-                      1.0,
-                      out_c.m_tDrainSatCur);
-        end if;
-
-        if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
-          (res,out_c.m_tCj) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_bulkCapFactor,
-                      in_p.m_bulkJctBotGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          (res,out_c.m_tCjsw) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_sideWallCapFactor,
-                      in_p.m_bulkJctSideGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          (out_c.m_f1s,out_c.m_f2s,out_c.m_f3s) := Functions.junctionCapCoeffs(
-                      in_p.m_bulkJctSideGradingCoeff,
-                      in_p.m_fwdCapDepCoeff,
-                      out_c.m_tBulkPot);
-        end if;
-
-        if (in_p.m_capBDIsGiven > 0.5) then
-          (res,out_c.m_tCBDb) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_capBD,
-                      in_p.m_bulkJctBotGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          out_c.m_tCBDs          := 0.0;
-        else
-          out_c.m_tCBDb := out_c.m_tCj * in_m.m_drainArea;
-          out_c.m_tCBDs := out_c.m_tCjsw * in_m.m_drainPerimiter;
-        end if;
-
-        if (in_p.m_capBSIsGiven > 0.5) then
-          (res,out_c.m_tCBSb) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_capBS,
-                      in_p.m_bulkJctBotGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          out_c.m_tCBSs          := 0.0;
-        else
-          out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
-          out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
-        end if;
-        (out_c.m_f1b,out_c.m_f2b,out_c.m_f3b) := Functions.junctionCapCoeffs(
-                    in_p.m_bulkJctBotGradingCoeff,
-                    in_p.m_fwdCapDepCoeff,
-                    out_c.m_tBulkPot);
-        out_c.m_dVt := in_m.m_dTemp*SpiceConstants.CONSTKoverQ;
-
-        annotation (Documentation(info="<html>
-<p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 1).</p>
-</html>"));
-      end mosCalcCalcTempDependencies;
-
-      function mosCalcNoBypassCode
-        "Calculation of currents and capacities (level 1)"
-
-        input Mosfet.Mosfet in_m "Input record mosfet parameters";
-        input Integer in_m_type "Type of MOS transistor";
-        input Mos1.Mos1Calc in_c "Input record Mos1Calc";
-        input Mos1.Mos1ModelLineParams in_p
-          "Input record model line parameters for MOS1";
-        input Boolean in_m_bInit;
-        input SI.Voltage[4] in_m_pVoltageValues; // gate bulk drain source
-
-        output CurrrentsCapacitances out_cc;
-
-      protected
-        SI.Voltage vbd;
-        SI.Voltage vgd;
-        SI.Voltage vgb;
-        DEVqmeyer qm;
-        Mos1.Mos1Calc int_c;
-        Real hlp;
-
-      algorithm
-        int_c := in_c;
-
-        int_c.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[4]); // ( G , SP)
-        int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( B , SP)
-        int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]); // ( DP, SP)
-      /*
-  if (in_m.m_uic and in_m.m_dICVBSIsGiven > 0.5) then
-    int_c.m_vbs := in_m_type * in_m.m_dICVBS;
-  elseif (SpiceRoot.initJunctionVoltages()) then
-    int_c.m_vbs := if (in_m.m_off == true) then 0. else int_c.m_VBScrit;
-  end if;
-  if (in_m.m_uic and in_m.m_dICVDSIsGiven > 0.5) then
-    int_c.m_vds := in_m_type * in_m.m_dICVDS;
-  elseif (SpiceRoot.initJunctionVoltages()) then
-    int_c.m_vds := if (in_m.m_off == true) then 0. else (int_c.m_VBDcrit - int_c.m_VBScrit);
-  end if;
-  if (in_m.m_uic and in_m.m_dICVGSIsGiven > 0.5) then
-    int_c.m_vgs := in_m_type * in_m.m_dICVGS;
-  elseif (SpiceRoot.initJunctionVoltages()) then
-    if ( in_m.m_off == true) then
-      int_c.m_vgs := 0.;
-    end if;
-  end if;
-
-  if (int_c.m_vds == 0 and int_c.m_vgs == 0 and int_c.m_vbs == 0 and not (
-      in_m.m_uic) and (in_m.m_off == false)) then
-    int_c.m_vbs := -1;
-    int_c.m_vgs := in_m_type * int_c.m_tVto;
-    int_c.m_vds := 0;
-  end if;
-*/
-        vbd := int_c.m_vbs - int_c.m_vds;
-        vgd := int_c.m_vgs - int_c.m_vds;
-
-        if ( int_c.m_vds >= 0) then
-          int_c.m_vbs := SpiceRoot.limitJunctionVoltage(int_c.m_vbs);
-          vbd         := int_c.m_vbs - int_c.m_vds;
-        else
-          vbd := SpiceRoot.limitJunctionVoltage(vbd);
-          int_c.m_vbs := vbd + int_c.m_vds;
-        end if;
-
-        vgb := int_c.m_vgs - int_c.m_vbs;
-
-        (int_c.m_cbd,int_c.m_gbd) := Functions.junction2SPICE3MOSFET(
-                    vbd,
-                    in_m.m_dTemp,
-                    1.0,
-                    int_c.m_tDrainSatCur);
-        out_cc.iBD                := in_m_type * int_c.m_cbd;
-        (int_c.m_cbs,int_c.m_gbs) := Functions.junction2SPICE3MOSFET(
-                    int_c.m_vbs,
-                    in_m.m_dTemp,
-                    1.0,
-                    int_c.m_tSourceSatCur);
-        out_cc.iBS                := in_m_type * int_c.m_cbs;
-
-        int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
-
-        if (int_c.m_mode == 1) then
-          int_c := Mos1.drainCur(
-              int_c.m_vbs,
-              int_c.m_vgs,
-              int_c.m_vds,
-              int_c,
-              in_p,
-              in_m_type);
-        else
-          int_c := Mos1.drainCur(
-              vbd,
-              vgd,
-              -int_c.m_vds,
-              int_c,
-              in_p,
-              in_m_type);
-        end if;
-
-        out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
-
-        int_c.m_capbss    := 0.0;
-        int_c.m_chargebss := 0.0;
-        int_c.m_capbds    := 0.0;
-        int_c.m_chargebds := 0.0;
-        (int_c.m_capbsb,int_c.m_chargebsb) := Functions.junctionCap(
-                    int_c.m_tCBSb,
-                    int_c.m_vbs,
-                    int_c.m_tDepCap,
-                    in_p.m_bulkJctBotGradingCoeff,
-                    int_c.m_tBulkPot,
-                    int_c.m_f1b,
-                    int_c.m_f2b,
-                    int_c.m_f3b);
-
-        (int_c.m_capbdb,int_c.m_chargebdb) := Functions.junctionCap(
-                    int_c.m_tCBDb,
-                    vbd,
-                    int_c.m_tDepCap,
-                    in_p.m_bulkJctBotGradingCoeff,
-                    int_c.m_tBulkPot,
-                    int_c.m_f1b,
-                    int_c.m_f2b,
-                    int_c.m_f3b);
-
-        if ( not (in_p.m_capBSIsGiven > 0.5)) then
-          (int_c.m_capbss,int_c.m_chargebss) := Functions.junctionCap(
-                      int_c.m_tCBSs,
-                      int_c.m_vbs,
-                      int_c.m_tDepCap,
-                      in_p.m_bulkJctSideGradingCoeff,
-                      int_c.m_tBulkPot,
-                      int_c.m_f1s,
-                      int_c.m_f2s,
-                      int_c.m_f3s);
-        end if;
-
-        if (not (in_p.m_capBDIsGiven > 0.5)) then
-          (int_c.m_capbds,int_c.m_chargebds) := Functions.junctionCap(
-                      int_c.m_tCBDs,
-                      vbd,
-                      int_c.m_tDepCap,
-                      in_p.m_bulkJctSideGradingCoeff,
-                      int_c.m_tBulkPot,
-                      int_c.m_f1s,
-                      int_c.m_f2s,
-                      int_c.m_f3s);
-        end if;
-
-        out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss);
-        out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);
-
-        if (int_c.m_mode > 0) then
-          qm := mosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
-        else
-          qm := mosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
-          // Inverser Betrieb -> Drain und Source vertauschen
-          // Tausch der Spannungen bei Aufruf von DEVqmeyer
-          // Tausch der Kapazitaeten GD und GS
-          hlp         := qm.qm_capgd;
-          qm.qm_capgd := qm.qm_capgs;
-          qm.qm_capgs := hlp;
-        end if;
-
-        int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
-        int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
-        int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
-
-        out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;
-        out_cc.cGD := if (in_m_bInit) then -1e40 else int_c.m_capgd;
-        out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;
-
-        annotation (Documentation(info="<html>
-<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 1).</p>
-</html>"));
-      end mosCalcNoBypassCode;
-
       function mos2CalcInitEquations "Mosfet initial precalculations (level 1)"
 
         input Mos2.Mos2ModelLineParams in_p "Input record Mos2 values";
+        input SpiceConstants in_C "Spice constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
         input Mosfet.Mosfet in_m "Input record mosfet parameters";
 
         output Mos2.Mos2Calc out_c "Output record Mos2 calculated values";
 
       algorithm
-        out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then
+       out_c.m_drainResistance := if  (in_p.m_drainResistanceIsGiven > 0.5) then
              in_p.m_drainResistance else
              in_p.m_sheetResistance * in_m.m_drainSquares;
 
-        out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
+      out_c.m_sourceResistance := if  (in_p.m_sourceResistanceIsGiven > 0.5) then
              in_p.m_sourceResistance else
              in_p.m_sheetResistance * in_m.m_sourceSquares;
 
@@ -6571,7 +5368,7 @@ on the model behaviour.
         out_c.m_capGDovl := in_p.m_gateDrainOverlapCapFactor * in_m.m_width;
         out_c.m_capGBovl := in_p.m_gateBulkOverlapCapFactor * out_c.m_lEff;
 
-        out_c.m_capOx    := in_p.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
+        out_c.m_capOx    := in_vp.m_oxideCapFactor * out_c.m_lEff * in_m.m_width;
 
         annotation (Documentation(info="<html>
 <p>This function mosCalcInitEquations does the initial precalculation of the mosfet parameters (level 2).</p>
@@ -6583,6 +5380,9 @@ on the model behaviour.
 
         input Mos2.Mos2ModelLineParams in_p
           "Output record Mos1 calculated values";
+        input SpiceConstants in_C "Spice constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
         input Mosfet.Mosfet in_m "Input record mosfet parameters";
         input Mos2.Mos2Calc in_c "Input record Mos2Calc";
         input Integer in_m_type "Type of MOS transistor";
@@ -6592,88 +5392,64 @@ on the model behaviour.
       protected
          Real ratio;
          Real ratio4;
-         Real res;
 
       algorithm
         out_c := in_c;
 
         ratio                     := in_m.m_dTemp / in_p.m_tnom;
         ratio4                    := ratio * sqrt(ratio);
-        out_c.m_tTransconductance := in_p.m_transconductance / ratio4;
+        out_c.m_tTransconductance := in_vp.m_transconductance / ratio4;
         out_c.m_Beta              := out_c.m_tTransconductance * in_m.m_width / out_c.m_lEff;
 
         out_c.m_tSurfMob          := in_p.m_surfaceMobility / ratio4;
 
-        out_c.m_tPhi := Functions.junctionPotDepTemp(
-                    in_p.m_phi,
-                    in_m.m_dTemp,
-                    in_p.m_tnom);
+        out_c.m_tPhi := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                    in_vp.m_phi, in_m.m_dTemp, in_p.m_tnom);
 
-        out_c.m_tVbi := in_p.m_vt0 - in_m_type*(in_p.m_gamma*sqrt(in_p.m_phi))
-           + 0.5*(Functions.energyGapDepTemp(in_p.m_tnom) -
-          Functions.energyGapDepTemp(in_m.m_dTemp)) + in_m_type*0.5*(out_c.m_tPhi - in_p.m_phi);
-        out_c.m_tVto := out_c.m_tVbi + in_m_type * in_p.m_gamma * sqrt(out_c.m_tPhi);
+        out_c.m_tVbi := in_vp.m_vt0 - in_m_type * (in_vp.m_gamma * sqrt(in_vp.m_phi)) +0.5  *
+                        (Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                    in_p.m_tnom) - Modelica.Electrical.Spice3.Internal.Functions.energyGapDepTemp(
+                                                                                              in_m.m_dTemp))
+                        + in_m_type *0.5  * (out_c.m_tPhi - in_vp.m_phi);
+        out_c.m_tVto := out_c.m_tVbi + in_m_type * in_vp.m_gamma * sqrt(out_c.m_tPhi);
 
-        out_c.m_tBulkPot := Functions.junctionPotDepTemp(
-                    in_p.m_bulkJctPotential,
-                    in_m.m_dTemp,
-                    in_p.m_tnom);
+        out_c.m_tBulkPot := Modelica.Electrical.Spice3.Internal.Functions.junctionPotDepTemp(
+                                                        in_p.m_bulkJctPotential,in_m.m_dTemp, in_p.m_tnom);
         out_c.m_tDepCap  := in_p.m_fwdCapDepCoeff * out_c.m_tBulkPot;
 
         if (in_p.m_jctSatCurDensity == 0.0 or in_m.m_sourceArea == 0.0 or in_m.m_drainArea == 0.0) then
-          out_c.m_tDrainSatCur := Functions.saturationCurDepTempSPICE3MOSFET(
-                      in_p.m_jctSatCur,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
+          out_c.m_tDrainSatCur  := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
+                                   in_p.m_jctSatCur, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tSourceSatCur := out_c.m_tDrainSatCur;
-          out_c.m_VBScrit := Functions.junctionVCrit(
-                      in_m.m_dTemp,
-                      1.0,
-                      out_c.m_tSourceSatCur);
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
           out_c.m_VBDcrit       := out_c.m_VBScrit;
         else
-          out_c.m_tSatCurDens := Functions.saturationCurDepTempSPICE3MOSFET(
-                      in_p.m_jctSatCurDensity,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
+          out_c.m_tSatCurDens   := Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3MOSFET(
+                                   in_p.m_jctSatCurDensity, in_m.m_dTemp,in_p.m_tnom);
           out_c.m_tDrainSatCur  := out_c.m_tSatCurDens * in_m.m_drainArea;
           out_c.m_tSourceSatCur := out_c.m_tSatCurDens * in_m.m_sourceArea;
-          out_c.m_VBScrit := Functions.junctionVCrit(
-                      in_m.m_dTemp,
-                      1.0,
-                      out_c.m_tSourceSatCur);
-          out_c.m_VBDcrit := Functions.junctionVCrit(
-                      in_m.m_dTemp,
-                      1.0,
-                      out_c.m_tDrainSatCur);
+          out_c.m_VBScrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tSourceSatCur);
+          out_c.m_VBDcrit       := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                                                           in_m.m_dTemp, 1.0, out_c.m_tDrainSatCur);
         end if;
 
         if ( not (in_p.m_capBDIsGiven > 0.5) or not (in_p.m_capBSIsGiven > 0.5)) then
-          (res,out_c.m_tCj) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_bulkCapFactor,
-                      in_p.m_bulkJctBotGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          (res,out_c.m_tCjsw) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_sideWallCapFactor,
-                      in_p.m_bulkJctSideGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
-          (out_c.m_f1s,out_c.m_f2s,out_c.m_f3s) := Functions.junctionCapCoeffs(
-                      in_p.m_bulkJctSideGradingCoeff,
-                      in_p.m_fwdCapDepCoeff,
-                      out_c.m_tBulkPot);
+          (out_c.m_tCj)   := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_bulkCapFactor,
+                                    in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+          (out_c.m_tCjsw) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_sideWallCapFactor,
+                                    in_p.m_bulkJctSideGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
+          (out_c.m_f1s, out_c.m_f2s, out_c.m_f3s) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+                                    in_p.m_bulkJctSideGradingCoeff, in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
         end if;
 
         if (in_p.m_capBDIsGiven > 0.5) then
-          (res,out_c.m_tCBDb) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_capBD,
-                      in_p.m_bulkJctBotGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
+          (out_c.m_tCBDb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_capBD,
+                                    in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBDs          := 0.0;
         else
           out_c.m_tCBDb := out_c.m_tCj * in_m.m_drainArea;
@@ -6681,22 +5457,18 @@ on the model behaviour.
         end if;
 
         if (in_p.m_capBSIsGiven > 0.5) then
-          (res,out_c.m_tCBSb) := Functions.junctionParamDepTempSPICE3(
-                      in_p.m_bulkJctPotential,
-                      in_p.m_capBS,
-                      in_p.m_bulkJctBotGradingCoeff,
-                      in_m.m_dTemp,
-                      in_p.m_tnom);
+          (out_c.m_tCBSb) := Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                                    in_p.m_bulkJctPotential, in_p.m_capBS,
+                                    in_p.m_bulkJctBotGradingCoeff, in_m.m_dTemp, in_p.m_tnom);
           out_c.m_tCBSs          := 0.0;
         else
           out_c.m_tCBSb := out_c.m_tCj * in_m.m_sourceArea;
           out_c.m_tCBSs := out_c.m_tCjsw * in_m.m_sourcePerimiter;
         end if;
-        (out_c.m_f1b,out_c.m_f2b,out_c.m_f3b) := Functions.junctionCapCoeffs(
-                    in_p.m_bulkJctBotGradingCoeff,
-                    in_p.m_fwdCapDepCoeff,
-                    out_c.m_tBulkPot);
-        out_c.m_dVt := in_m.m_dTemp*SpiceConstants.CONSTKoverQ;
+         (out_c.m_f1b, out_c.m_f2b, out_c.m_f3b) := Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+                                                    in_p.m_bulkJctBotGradingCoeff,
+                                                    in_p.m_fwdCapDepCoeff, out_c.m_tBulkPot);
+        out_c.m_dVt   := in_m.m_dTemp * SpiceConstants.CONSTKoverQ;
 
         annotation (Documentation(info="<html>
 <p>This function mosCalcCalcTempDependencies does precalculation relating to the temperature (level 2).</p>
@@ -6711,20 +5483,28 @@ on the model behaviour.
         input Mos2.Mos2Calc in_c "Input record Mos2Calc";
         input Mos2.Mos2ModelLineParams in_p
           "Input record model line parameters";
+        input SpiceConstants in_C "Spice constants";
+        input Mos2.Mos2ModelLineVariables in_vp
+          "Input record model line variables";
         input Boolean in_m_bInit;
-        input SI.Voltage[4] in_m_pVoltageValues; // gate bulk drain source
+        input Modelica.SIunits.Voltage[4] in_m_pVoltageValues; /* gate bulk drain source */
 
         output CurrrentsCapacitances out_cc
           "Calculated currents and capacitances";
 
-      protected
-        SI.Voltage vbd "Voltage";
-        SI.Voltage vgd "Volatge";
-        SI.Voltage vgb "Voltage";
-        DEVqmeyer qm "Qmeyer capacitances";
-        Mos2.Mos2Calc int_c "Record Mos2Calc";
-        Real hlp;
+        output DEVqmeyer qm "Calculated qmeyer values";
 
+      protected
+        Modelica.SIunits.Voltage vbd "Voltage";
+        Modelica.SIunits.Voltage vgd "Volatge";
+        Modelica.SIunits.Voltage vgb "Voltage";
+        Modelica.SIunits.Current cur "Voltage";
+        Integer n;
+
+        DEVqmeyer in_qm "Qmeyer capacitances";
+        Mos2.Mos2Calc int_c "Record Mos2Calc";
+        Mosfet.Mosfet int_m "Record Mosfet";
+        Real hlp;
       algorithm
         int_c := in_c;
 
@@ -6732,26 +5512,25 @@ on the model behaviour.
         int_c.m_vbs := in_m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( B , SP)
         int_c.m_vds := in_m_type * (in_m_pVoltageValues[3] - in_m_pVoltageValues[4]); // ( DP, SP)
 
-        if (in_m.m_uic and in_m.m_dICVBSIsGiven > 0.5) then
+        if ( SpiceRoot.useInitialConditions())    and (in_m.m_dICVBSIsGiven >0.5) then
           int_c.m_vbs := in_m_type * in_m.m_dICVBS;
-        elseif (SpiceRoot.initJunctionVoltages()) then
-          int_c.m_vbs := if (in_m.m_off == true)  then 0. else int_c.m_VBScrit;
+        elseif ( SpiceRoot.initJunctionVoltages()) then
+          int_c.m_vbs := if (in_m.m_off >0.5) then 0. else int_c.m_VBScrit;
         end if;
-        if (in_m.m_uic and in_m.m_dICVDSIsGiven > 0.5) then
+        if ( SpiceRoot.useInitialConditions()) and (in_m.m_dICVDSIsGiven > 0.5) then
           int_c.m_vds := in_m_type * in_m.m_dICVDS;
-        elseif (SpiceRoot.initJunctionVoltages()) then
-          int_c.m_vds := if (in_m.m_off == true)  then 0. else (int_c.m_VBDcrit - int_c.m_VBScrit);
+        elseif ( SpiceRoot.initJunctionVoltages()) then
+          int_c.m_vds := if (in_m.m_off > 0.5) then 0. else (int_c.m_VBDcrit - int_c.m_VBScrit);
         end if;
-        if (in_m.m_uic and in_m.m_dICVGSIsGiven > 0.5) then
+        if ( SpiceRoot.useInitialConditions()) and (in_m.m_dICVGSIsGiven > 0.5) then
           int_c.m_vgs := in_m_type * in_m.m_dICVGS;
-        elseif (SpiceRoot.initJunctionVoltages()) then
-          if ( in_m.m_off == true) then
+        elseif ( SpiceRoot.initJunctionVoltages()) then
+          if ( in_m.m_off > 0.5) then
             int_c.m_vgs := 0.;
           end if;
         end if;
 
-        if (int_c.m_vds == 0 and int_c.m_vgs == 0 and int_c.m_vbs == 0 and not (
-            in_m.m_uic) and (in_m.m_off == false)) then
+        if (int_c.m_vds<>0 and  int_c.m_vgs<>0 and int_c.m_vbs<>0 and not (SpiceRoot.useInitialConditions()) and  (in_m.m_off<>0)) then
           int_c.m_vbs := -1;
           int_c.m_vgs := in_m_type * int_c.m_tVto;
           int_c.m_vds := 0;
@@ -6761,127 +5540,112 @@ on the model behaviour.
         vgd := int_c.m_vgs - int_c.m_vds;
 
         if ( int_c.m_vds >= 0) then
-          int_c.m_vbs := SpiceRoot.limitJunctionVoltage(int_c.m_vbs);
+         int_c.m_vbs := SpiceRoot.limitJunctionVoltage(int_c.m_vbs);
           vbd         := int_c.m_vbs - int_c.m_vds;
         else
-          vbd := SpiceRoot.limitJunctionVoltage(vbd);
+          vbd         := SpiceRoot.limitJunctionVoltage(vbd);
           int_c.m_vbs := vbd + int_c.m_vds;
         end if;
 
         vgb := int_c.m_vgs - int_c.m_vbs;
 
-        (int_c.m_cbd,int_c.m_gbd) := Functions.junction2SPICE3MOSFET(
-                    vbd,
-                    in_m.m_dTemp,
-                    1.0,
-                    int_c.m_tDrainSatCur);
-        out_cc.iBD                := in_m_type * int_c.m_cbd;
-        (int_c.m_cbs,int_c.m_gbs) := Functions.junction2SPICE3MOSFET(
-                    int_c.m_vbs,
-                    in_m.m_dTemp,
-                    1.0,
-                    int_c.m_tSourceSatCur);
-        out_cc.iBS                := in_m_type * int_c.m_cbs;
+         (int_c.m_cbd, int_c.m_gbd) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbd, int_c.m_gbd, vbd,
+                                       in_m.m_dTemp, 1.0, int_c.m_tDrainSatCur);
+         out_cc.iBD                 := in_m_type * int_c.m_cbd;
+         (int_c.m_cbs, int_c.m_gbs) := Modelica.Electrical.Spice3.Internal.Functions.junction2SPICE3MOSFET(
+                                                                       int_c.m_cbs, int_c.m_gbs, int_c.m_vbs,
+                                       in_m.m_dTemp, 1.0, int_c.m_tSourceSatCur);
+         out_cc.iBS                 := in_m_type * int_c.m_cbs;
 
         int_c.m_mode := if (int_c.m_vds >= 0) then 1 else -1; // 1: normal mode, -1: inverse mode
 
         if (int_c.m_mode == 1) then
-          int_c := Mos2.drainCur(
-              int_c.m_vbs,
-              int_c.m_vgs,
-              int_c.m_vds,
-              in_m,
-              int_c,
-              in_p,
-              in_m_type);
+
+          int_c := Mos2.drainCur( int_c.m_vbs, int_c.m_vgs, int_c.m_vds,int_m, int_c, in_p, in_C, in_vp, in_m_type);
         else
-          int_c := Mos2.drainCur(
-              vbd,
-              vgd,
-              -int_c.m_vds,
-              in_m,
-              int_c,
-              in_p,
-              in_m_type);
+          int_c := Mos2.drainCur( vbd,               vgd,  -int_c.m_vds,int_m, int_c, in_p, in_C, in_vp, in_m_type);
         end if;
+
+        n      := if (int_c.m_mode == 1) then 6 else 5;
         out_cc.idrain := in_m_type * int_c.m_cdrain * int_c.m_mode;
 
         int_c.m_capbss    := 0.0;
         int_c.m_chargebss := 0.0;
         int_c.m_capbds    := 0.0;
         int_c.m_chargebds := 0.0;
-        (int_c.m_capbsb,int_c.m_chargebsb) := Functions.junctionCap(
-                    int_c.m_tCBSb,
-                    int_c.m_vbs,
-                    int_c.m_tDepCap,
-                    in_p.m_bulkJctBotGradingCoeff,
-                    int_c.m_tBulkPot,
-                    int_c.m_f1b,
-                    int_c.m_f2b,
-                    int_c.m_f3b);
+        (int_c.m_capbsb, int_c.m_chargebsb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBSb, int_c.m_vbs, int_c.m_tDepCap,
+               in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
-        (int_c.m_capbdb,int_c.m_chargebdb) := Functions.junctionCap(
-                    int_c.m_tCBDb,
-                    vbd,
-                    int_c.m_tDepCap,
-                    in_p.m_bulkJctBotGradingCoeff,
-                    int_c.m_tBulkPot,
-                    int_c.m_f1b,
-                    int_c.m_f2b,
-                    int_c.m_f3b);
+        (int_c.m_capbdb, int_c.m_chargebdb) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBDb, vbd, int_c.m_tDepCap,
+               in_p.m_bulkJctBotGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1b, int_c.m_f2b, int_c.m_f3b);
 
         if ( not (in_p.m_capBSIsGiven > 0.5)) then
-          (int_c.m_capbss,int_c.m_chargebss) := Functions.junctionCap(
-                      int_c.m_tCBSs,
-                      int_c.m_vbs,
-                      int_c.m_tDepCap,
-                      in_p.m_bulkJctSideGradingCoeff,
-                      int_c.m_tBulkPot,
-                      int_c.m_f1s,
-                      int_c.m_f2s,
-                      int_c.m_f3s);
+          (int_c.m_capbss, int_c.m_chargebss) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBSs,int_c. m_vbs, int_c.m_tDepCap,
+               in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
 
         if (not (in_p.m_capBDIsGiven > 0.5)) then
-          (int_c.m_capbds,int_c.m_chargebds) := Functions.junctionCap(
-                      int_c.m_tCBDs,
-                      vbd,
-                      int_c.m_tDepCap,
-                      in_p.m_bulkJctSideGradingCoeff,
-                      int_c.m_tBulkPot,
-                      int_c.m_f1s,
-                      int_c.m_f2s,
-                      int_c.m_f3s);
+          (int_c.m_capbds, int_c.m_chargebds) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+               int_c.m_tCBDs, vbd, int_c.m_tDepCap,
+               in_p.m_bulkJctSideGradingCoeff, int_c.m_tBulkPot,
+               int_c.m_f1s, int_c.m_f2s, int_c.m_f3s);
         end if;
 
         out_cc.cBS := if (in_m_bInit) then 1e-15 else (int_c.m_capbsb + int_c.m_capbss);
+
         out_cc.cBD := if (in_m_bInit) then 1e-15 else (int_c.m_capbdb + int_c.m_capbds);
 
         if (int_c.m_mode > 0) then
           qm := mosCalcDEVqmeyer( int_c.m_vgs, vgd, vgb, int_c);
         else
           qm := mosCalcDEVqmeyer( vgd, int_c.m_vgs, vgb, int_c);
-          // Inverser Betrieb -> Drain und Source vertauschen
-          // Tausch der Spannungen bei Aufruf von DEVqmeyer
-          // Tausch der Kapazitaeten GD und GS
-          hlp         := qm.qm_capgd;
+          hlp := qm.qm_capgd;
           qm.qm_capgd := qm.qm_capgs;
           qm.qm_capgs := hlp;
         end if;
 
-        int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
-        int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
-        int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
+        if (in_m_bInit) then
+          int_c.m_capgd := 2 * qm.qm_capgd + int_c.m_capGDovl;
+          int_c.m_capgs := 2 * qm.qm_capgs + int_c.m_capGSovl;
+          int_c.m_capgb := 2 * qm.qm_capgb + int_c.m_capGBovl;
+
+          int_c.m_qgs   := int_c.m_capgs * int_c.m_vgs;
+          int_c.m_qgb   := int_c.m_capgb * vgb;
+          int_c.m_qgd   := int_c.m_capgd * vgd;
+        else
+          int_c.m_capgd := qm.qm_capgd + in_qm.qm_capgd + int_c.m_capGDovl;
+          int_c.m_capgs := qm.qm_capgs + in_qm.qm_capgs + int_c.m_capGSovl;
+          int_c.m_capgb := qm.qm_capgb + in_qm.qm_capgb + int_c.m_capGBovl;
+
+          int_c.m_qgs   := (int_c.m_vgs - in_qm.qm_vgs) * int_c.m_capgs + in_qm.qm_qgs;
+          int_c.m_qgb   := (vgb - in_qm.qm_vgb) * int_c.m_capgb + in_qm.qm_qgb;
+          int_c.m_qgd   := (vgd - in_qm.qm_vgd) * int_c.m_capgd + in_qm.qm_qgd;
+        end if;
+
+          out_cc.m_capgd := int_c.m_capgd;
+
+        qm.qm_qgs := int_c.m_qgs;
+        qm.qm_qgb := int_c.m_qgb;
+        qm.qm_qgd := int_c.m_qgd;
+        qm.qm_vgs := int_c.m_vgs;
+        qm.qm_vgb := vgb;
+        qm.qm_vgd := vgd;
 
         out_cc.cGB := if (in_m_bInit) then -1e40 else int_c.m_capgb;
-        out_cc.cGD := if (in_m_bInit) then -1e40 else int_c.m_capgd;
+        out_cc.cGD := if (in_m_bInit) then -1e40 else out_cc.m_capgd;
         out_cc.cGS := if (in_m_bInit) then -1e40 else int_c.m_capgs;
 
         annotation (Documentation(info="<html>
 <p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents sum in the toplevelmodel (level 2).</p>
 </html>"));
       end mos2CalcNoBypassCode;
-
       annotation (Documentation(info="<html>
 <p>This package Mos contains functions and records with data of the mosfet models level 1, 2, 3 and 6.</p>
 </html>"));
@@ -6913,14 +5677,15 @@ on the model behaviour.
 
         input Mos1ModelLineParams in_p
           "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Spice constants";
         input Integer in_m_type "Type of MOS transistor";
 
-        output Mos1ModelLineParams out_p
-          "Input record model line parameters for MOS1";
+        output Mos.MosModelLineVariables out_v
+          "Output record model line variables";
 
       protected
-        SI.Voltage vtnom;
-        SI.Voltage fermis;
+        Modelica.SIunits.Voltage vtnom;
+        Modelica.SIunits.Voltage fermis;
         Real fermig;
         Real wkfng;
         Real wkfngs;
@@ -6928,41 +5693,48 @@ on the model behaviour.
         Real vfb;
 
       algorithm
-        out_p := in_p;
+        out_v.m_oxideCapFactor   := in_p.m_oxideCapFactor;
+        out_v.m_transconductance := in_p.m_transconductance;
+        out_v.m_phi              := in_p.m_phi;
+        out_v.m_gamma            := in_p.m_gamma;
+        out_v.m_vt0              := in_p.m_vt0;
 
-        vtnom  := out_p.m_tnom*SpiceConstants.CONSTKoverQ;
-        egfet1 := MaterialParameters.EnergyGapSi - (MaterialParameters.FirstBandCorrFactorSi*out_p.m_tnom*out_p.m_tnom)/(out_p.m_tnom + MaterialParameters.SecondBandCorrFactorSi);
+        vtnom  := in_p.m_tnom*SpiceConstants.CONSTKoverQ;
+        egfet1 := 1.16 - (7.02e-4*in_p.m_tnom*in_p.m_tnom)/(in_p.m_tnom + 1108);
 
-        if (out_p.m_oxideThickness == 0) then
-          out_p.m_oxideCapFactor := 0;
+        if (not (in_p.m_oxideThicknessIsGiven > 0.5) or in_p.m_oxideThickness == 0) then
+          if
+            (in_p.m_oxideThickness == 0) then
+            out_v.m_oxideCapFactor := 0;
+          end if;
         else
-          out_p.m_oxideCapFactor := SpiceConstants.EPSOX / out_p.m_oxideThickness;
+          out_v.m_oxideCapFactor := 3.9 * 8.854214871e-12 / in_p.m_oxideThickness;
 
-          if (out_p.m_oxideCapFactor <> 0) then
+          if (out_v.m_oxideCapFactor <> 0) then
 
-            if (not (out_p.m_transconductanceIsGiven > 0.5)) then
-              out_p.m_transconductance := out_p.m_surfaceMobility * out_p.m_oxideCapFactor * 1e-4; // (m**2/cm**2)
+            if (not (in_p.m_transconductanceIsGiven > 0.5)) then
+              out_v.m_transconductance := in_p.m_surfaceMobility * out_v.m_oxideCapFactor * 1e-4; // (m**2/cm**2)
             end if;
-            if (out_p.m_substrateDopingIsGiven > 0.5) then
-              if (out_p.m_substrateDoping * 1e6 > MaterialParameters.IntCondCarrDensity) then // (cm**3/m**3)
-                if (not (out_p.m_phiIsGiven > 0.5)) then
-                  out_p.m_phi := 2*vtnom*Modelica.Math.log(out_p.m_substrateDoping*1e6/MaterialParameters.IntCondCarrDensity); // (cm**3/m**3)
-                  out_p.m_phi := max(0.1, out_p.m_phi);
+            if (in_p.m_substrateDopingIsGiven > 0.5) then
+              if (in_p.m_substrateDoping * 1e6 > 1.45e16) then // (cm**3/m**3)
+                if (not (in_p.m_phiIsGiven > 0.5)) then
+                  out_v.m_phi := 2*vtnom*Modelica.Math.log(in_p.m_substrateDoping*1e6/1.45e16); // (cm**3/m**3)
+                  out_v.m_phi := max(0.1, out_v.m_phi);
                 end if;
-                fermis := in_m_type *0.5  * out_p.m_phi;
+                fermis := in_m_type *0.5  * out_v.m_phi;
                 wkfng  := 3.2;
-                if (out_p.m_gateType <> 0) then
-                  fermig := in_m_type * out_p.m_gateType *0.5  * egfet1;
+                if (in_p.m_gateType <> 0) then
+                  fermig := in_m_type * in_p.m_gateType *0.5  * egfet1;
                   wkfng  := 3.25 +0.5  * egfet1 - fermig;
                 end if;
                 wkfngs := wkfng - (3.25 +0.5  * egfet1 + fermis);
-                if (not (out_p.m_gammaIsGiven > 0.5)) then
-                  out_p.m_gamma := sqrt(2 * SpiceConstants.EPSSIL * SpiceConstants.CHARGE *
-                                   out_p.m_substrateDoping * 1e6 / out_p.m_oxideCapFactor);         // (cm**3/m**3)
+                if (not (in_p.m_gammaIsGiven > 0.5)) then
+                  out_v.m_gamma := sqrt(2 * 11.70 * 8.854214871e-12 * SpiceConstants.CHARGE *
+                                   in_p.m_substrateDoping * 1e6 / out_v.m_oxideCapFactor);         // (cm**3/m**3)
                 end if;
-                if (not (out_p.m_vtOIsGiven > 0.5)) then
-                  vfb         := wkfngs - out_p.m_surfaceStateDensity * 1e4 * SpiceConstants.CHARGE / out_p.m_oxideCapFactor; // (cm**2/m**2)
-                  out_p.m_vt0 := vfb + in_m_type * (out_p.m_gamma * sqrt(out_p.m_phi) + out_p.m_phi);
+                if (not (in_p.m_vtOIsGiven > 0.5)) then
+                  vfb         := wkfngs - in_p.m_surfaceStateDensity * 1e4 * SpiceConstants.CHARGE / out_v.m_oxideCapFactor; // (cm**2/m**2)
+                  out_v.m_vt0 := vfb + in_m_type * (out_v.m_gamma * sqrt(out_v.m_phi) + out_v.m_phi);
                  end if;
               end if;
             end if;
@@ -6976,13 +5748,16 @@ on the model behaviour.
 
       function drainCur "Drain current calculation"
 
-        input SI.Voltage vb;
-        input SI.Voltage vg;
-        input SI.Voltage vds;
+        input Modelica.SIunits.Voltage vb;
+        input Modelica.SIunits.Voltage vg;
+        input Modelica.SIunits.Voltage vds;
 
         input Mos1Calc in_c "Input record Mos1Calc";
         input Mos1ModelLineParams in_p
           "Input record model line parameters for MOS1";
+        input SpiceConstants in_C "Spice constants";
+        input Mos.MosModelLineVariables in_vp
+          "Input record model line variables";
         input Integer in_m_type "Type of Mos transistor";
 
         output Mos1Calc out_c "Output record Mos1Calc";
@@ -6991,7 +5766,7 @@ on the model behaviour.
         Real arg;
         Real betap;
         Real sarg;
-        SI.Voltage vgst;
+        Modelica.SIunits.Voltage vgst;
 
       algorithm
         out_c := in_c;
@@ -7004,10 +5779,10 @@ on the model behaviour.
             sarg := max( 0., sarg);
          end if;
 
-         out_c.m_von   := (out_c.m_tVbi * in_m_type) + in_p.m_gamma * sarg;
+         out_c.m_von   := (out_c.m_tVbi * in_m_type) + in_vp.m_gamma * sarg;
          vgst          := vg - out_c.m_von;
          out_c.m_vdsat := max( vgst, 0.);
-         arg           := if (sarg <= 0) then 0 else in_p.m_gamma / (sarg + sarg);
+         arg           := if (sarg <= 0) then 0 else in_vp.m_gamma / (sarg + sarg);
 
          if (vgst <= 0) then
             /* cutoff region */
@@ -7042,6 +5817,7 @@ on the model behaviour.
       function mos1RenameParameters "Parameter renaming to internal names"
 
         input ModelcardMOS ex "Modelcard with technologieparameters";
+        input SpiceConstants con "Spice constants";
 
         output Mos.MosModelLineParams intern
           "Output record model line parameters";
@@ -7049,34 +5825,34 @@ on the model behaviour.
       algorithm
           intern.m_oxideCapFactor := 0;
 
-          intern.m_vtOIsGiven := if (ex.VTO > -1e40) then 1 else 0;
-          intern.m_vt0 := if (ex.VTO > -1e40) then ex.VTO else 0;
+          intern.m_vtOIsGiven := if          (ex.VTO > -1e40) then 1 else 0;
+          intern.m_vt0 := if         (ex.VTO > -1e40) then ex.VTO else 0;
 
-          intern.m_capBDIsGiven := if (ex.CBD > -1e40) then 1 else 0;
-          intern.m_capBD := if (ex.CBD > -1e40) then ex.CBD else 0;
+          intern.m_capBDIsGiven := if          (ex.CBD > -1e40) then 1 else 0;
+          intern.m_capBD := if         (ex.CBD > -1e40) then ex.CBD else 0;
 
-          intern.m_capBSIsGiven := if (ex.CBS > -1e40) then 1 else 0;
-          intern.m_capBS := if (ex.CBS > -1e40) then ex.CBS else 0;
+          intern.m_capBSIsGiven := if          (ex.CBS > -1e40) then 1 else 0;
+          intern.m_capBS := if         (ex.CBS > -1e40) then ex.CBS else 0;
 
-          intern.m_bulkCapFactorIsGiven := if (ex.CJ > -1e40) then 1 else 0;
-          intern.m_bulkCapFactor := if (ex.CJ > -1e40) then ex.CJ else 0;
+            intern.m_bulkCapFactorIsGiven := if          (ex.CJ > -1e40) then 1 else 0;
+          intern.m_bulkCapFactor := if         (ex.CJ > -1e40) then ex.CJ else 0;
 
           intern.m_sideWallCapFactor := ex.CJSW
           "F/m zero-bias junction sidewall cap. per meter of junction perimeter (default 0)";
           intern.m_fwdCapDepCoeff := ex.FC
           "Coefficient for forward-bias depletion capacitance formula (default 0.5)";
 
-          intern.m_phiIsGiven := if (ex.PHI > -1e40) then 1 else 0;
-          intern.m_phi := if (ex.PHI > -1e40) then ex.PHI else 0.6;
+          intern.m_phiIsGiven := if          (ex.PHI > -1e40) then 1 else 0;
+          intern.m_phi := if         (ex.PHI > -1e40) then ex.PHI else 0.6;
 
-           intern.m_gammaIsGiven := if (ex.GAMMA > -1e40) then 1 else 0;
-          intern.m_gamma := if (ex.GAMMA > -1e40) then ex.GAMMA else 0;
+           intern.m_gammaIsGiven := if          (ex.GAMMA > -1e40) then 1 else 0;
+          intern.m_gamma := if         (ex.GAMMA > -1e40) then ex.GAMMA else 0;
 
           intern.m_lambda := ex.LAMBDA
           "1/V channel-length modulation (default 0)";
 
-          intern.m_substrateDopingIsGiven := if (ex.NSUB > -1e40) then 1 else 0;
-          intern.m_substrateDoping := if (ex.NSUB > -1e40) then ex.NSUB else 0;
+          intern.m_substrateDopingIsGiven := if          (ex.NSUB > -1e40) then 1 else 0;
+          intern.m_substrateDoping := if         (ex.NSUB > -1e40) then ex.NSUB else 0;
 
           intern.m_gateType := ex.TPG
           "Type of gate material: +1 opp. to substrate, -1 same as substrate, 0 Al gate (default 1)";
@@ -7088,16 +5864,20 @@ on the model behaviour.
           intern.m_jctSatCur := ex.IS
           "A bulk junction saturation current (defaul 1e-14)";
 
-          intern.m_drainResistanceIsGiven := if (ex.RD > -1e40) then 1 else 0;
-          intern.m_drainResistance := if (ex.RD > -1e40) then ex.RD else 0;
+          intern.m_drainResistanceIsGiven := if
+                                               (ex.RD > -1e40) then 1 else 0;
+          intern.m_drainResistance := if
+                                       (ex.RD > -1e40) then ex.RD else 0;
 
-          intern.m_sourceResistanceIsGiven := if (ex.RS > -1e40) then 1 else 0;
-          intern.m_sourceResistance := if (ex.RS > -1e40) then ex.RS else 0;
+          intern.m_sourceResistanceIsGiven := if
+                                               (ex.RS > -1e40) then 1 else 0;
+          intern.m_sourceResistance := if
+                                       (ex.RS > -1e40) then ex.RS else 0;
 
-          intern.m_transconductanceIsGiven := if (ex.KP > -1e40) then 1 else 0;
-          intern.m_transconductance := if (ex.KP > -1e40) then ex.KP else 2e-5;
+          intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
+          intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-          intern.m_tnom :=ex.TNOM + SpiceConstants.CONSTCtoK
+          intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15
           "parameter measurement temperature (default 27 deg C)";
 
          intern.m_jctSatCurDensity := ex.JS
@@ -7111,7 +5891,8 @@ on the model behaviour.
          intern.m_bulkJctSideGradingCoeff := ex.MJSW
           "bulk junction sidewall grading coeff. (default 0.5)";
 
-         intern.m_oxideThickness := if (ex.TOX > -1e40) then ex.TOX else 0;
+         intern.m_oxideThicknessIsGiven := if          (ex.TOX > -1e40) then 1 else 0;
+          intern.m_oxideThickness := if         (ex.TOX > -1e40) then ex.TOX else 0;
 
          intern.m_gateSourceOverlapCapFactor := ex.CGSO
           " F/m gate-source overlap capacitance per meter channel width (default 0)";
@@ -7128,6 +5909,61 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 </html>"));
       end mos1RenameParameters;
 
+      function mos1RenameParametersDev
+        "Device parameter renaming to internal names"
+        input ModelcardMOS ex;
+        input Integer mtype;
+        input Modelica.SIunits.Length W "Channel Width";
+        input Modelica.SIunits.Length L "Channel Length";
+        input Modelica.SIunits.Area AD "Area of the drain diffusion";
+        input Modelica.SIunits.Area AS "Area of the source diffusion";
+        input Modelica.SIunits.Length PD "Perimeter of the drain junction";
+        input Modelica.SIunits.Length PS "Perimeter of the source junction";
+        input Real NRD "Number of squares of the drain diffusions";
+        input Real NRS "Number of squares of the source diffusions";
+        input Integer OFF
+          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+        input Real IC "Initial condition values, not implemented yet";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
+
+        output Mosfet.Mosfet dev "Output record Mosfet";
+
+      algorithm
+      /*device parameters*/
+        dev.m_len := L "L, length of channel region";
+        dev.m_width := W "W, width of channel region";
+        dev.m_drainArea := AD "AD, area of drain diffusion";
+        dev.m_sourceArea := AS "AS, area of source diffusion";
+        dev.m_drainSquares := NRD "NRD, length of drain in squares";
+        dev.m_sourceSquares := NRS "NRS, length of source in squares";
+        dev.m_drainPerimiter := PD "PD, Drain perimeter";
+        dev.m_sourcePerimiter := PS "PS, Source perimeter";
+
+          dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0
+          "ICVDS IsGivenValue";
+          dev.m_dICVDS := if         (IC > -1e40) then IC else 0
+          "Initial condition of VDS";
+
+          dev.m_dICVGSIsGiven := if          (IC > -1e40) then 1 else 0
+          "ICVGS IsGivenValue";
+          dev.m_dICVGS := if         (IC > -1e40) then IC else 0
+          "Initial condition of VGS";
+
+          dev.m_dICVBSIsGiven := if          (IC > -1e40) then 1 else 0
+          "ICVBS IsGivenValue";
+          dev.m_dICVBS := if         (IC > -1e40) then IC else 0
+          "Initial condition of VBS";
+
+        dev.m_off := OFF "Non-zero to indicate device is off for dc analysis";
+        dev.m_bPMOS := mtype "P type MOSfet model";
+        dev.m_nLevel := ex.LEVEL "Level";
+        assert(ex.LEVEL== 1, "only MOS Level1 implemented");
+        dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK "Device temperature";
+
+        annotation (Documentation(info="<html>
+<p>This function mos1RenameParametersDev assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 1).</p>
+</html>"));
+      end mos1RenameParametersDev;
       annotation (Documentation(info="<html>
 <p>This package Mos1 contains functions and record with data of the mosfet model level 1.</p>
 </html>"));
@@ -7138,7 +5974,6 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       record Mos2ModelLineParams
         "Record for Mosfet model line parameters (for level 2)"
-
         extends Mos.MosModelLineParams(
           m_lambda(start=0.0),
           m_transconductance(start=2.0e-5),
@@ -7147,26 +5982,38 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         Real m_narrowFactor( start = 0.0) "DELTA, Width effect on threshold";
         Real m_critFieldExp( start = 0.0) "UEXP, Crit. field exp for mob. deg";
-        SI.Conversions.NonSIunits.VoltagePer_cm m_critField(start=1.0e4)
+        Real m_critField( start = 1.0e4)
           "UCRIT, Crit. field for mob. degradation";
-        SI.Velocity m_maxDriftVel( start = 0.0)
-          "VMAX, Maximum carrier drift velocity";
-        SI.Length  m_junctionDepth( start = 0.0) "XJ, Junction depth";
-        Real m_channelCharge( start = 1.0) "NEFF, Total channel charge coeff";
-        SI.Conversions.NonSIunits.PerArea_cm m_fastSurfaceStateDensity( start = 0.0)
+        Real m_maxDriftVel( start = 0.0) "VMAX, Maximum carrier drift velocity";
+        Real m_junctionDepth( start = 0.0) "XJ, Junction depth";
+        Modelica.SIunits.Charge m_channelCharge( start = 1.0)
+          "NEFF, Total channel charge coeff";
+        Real m_fastSurfaceStateDensity( start = 0.0)
           "NFS, Fast surface state density";
 
-        Real m_xd; // unit m/V(-0.5) -> m/Wurzel V
         annotation (Documentation(info="<html>
-<p>This record Mos2ModelLineParams contains the model line parameters that are used for the mosfet transistors level 2 in SPICE3.</p>
+<p>This record Mos1ModelLineParams contains the model line parameters that are used for the mosfet transistors level 2 in SPICE3.</p>
 </html>"));
       end Mos2ModelLineParams;
+
+      record Mos2ModelLineVariables
+        "Record for Mosfet model line variables (for level 2)"
+        extends Mos.MosModelLineVariables;
+
+        Real m_bulkCapFactor;
+        Real m_substrateDoping;
+        Real m_xd;
+
+        annotation (Documentation(info="<html>
+<p>This record MosModelLineVariables contains the model line variables that are used for the mosfet transistors level 2 SPICE3.</p>
+</html>"));
+      end Mos2ModelLineVariables;
 
       record Mos2Calc "Further mosfet variables (for level 2)"
         extends Mos.MosCalc;
 
         annotation (Documentation(info="<html>
-<p>This record Mos2Calc contains further mosfet variables (for level 2) that are needed for the calculations.</p>
+<p>This record Mos1Calc contains further mosfet variables (for level 2) that are needed for the calculations.</p>
 </html>"));
       end Mos2Calc;
 
@@ -7174,14 +6021,15 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         input Mos2ModelLineParams in_p
           "Input record model line parameters for MOS2";
+        input SpiceConstants in_C "Spice constants";
         input Integer in_m_type "Type of MOS transistor";
 
-        output Mos2ModelLineParams out_p
-          "Input record model line parameters for MOS2";
+        output Mos2ModelLineVariables out_v
+          "Output record with model line variables";
 
       protected
-        SI.Voltage vtnom;
-        SI.Voltage fermis;
+        Modelica.SIunits.Voltage vtnom;
+        Modelica.SIunits.Voltage fermis;
         Real fermig;
         Real wkfng;
         Real wkfngs;
@@ -7189,65 +6037,73 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Real vfb;
 
       algorithm
-        out_p := in_p;
+        out_v.m_oxideCapFactor   := in_p.m_oxideCapFactor;
+        out_v.m_transconductance := in_p.m_transconductance;
+        out_v.m_phi              := in_p.m_phi;
+        out_v.m_gamma            := in_p.m_gamma;
+        out_v.m_vt0              := in_p.m_vt0;
+        out_v.m_substrateDoping  := in_p.m_substrateDoping;
+        out_v.m_bulkCapFactor    := in_p.m_bulkCapFactor;
 
-        vtnom                  := out_p.m_tnom * SpiceConstants.CONSTKoverQ;
-        egfet1                 := MaterialParameters.EnergyGapSi - (MaterialParameters.FirstBandCorrFactorSi * out_p.m_tnom * out_p.m_tnom) / (out_p.m_tnom + MaterialParameters.SecondBandCorrFactorSi);
-        out_p.m_oxideCapFactor := SpiceConstants.EPSOX / out_p.m_oxideThickness;
+        vtnom                  := in_p.m_tnom * in_C.CONSTKoverQ;
+        egfet1                 := 1.16 - (7.02e-4 * in_p.m_tnom * in_p.m_tnom) / (in_p.m_tnom + 1108);
+        out_v.m_oxideCapFactor := 3.9 * 8.854214871e-12 / in_p.m_oxideThickness;
 
-        if ( not (out_p.m_transconductanceIsGiven > 0.5)) then
-          out_p.m_transconductance := out_p.m_surfaceMobility * 1.0e-4 * out_p.m_oxideCapFactor;
+        if ( not (in_p.m_transconductanceIsGiven > 0.5)) then
+          out_v.m_transconductance := in_p.m_surfaceMobility * 1.0e-4 * out_v.m_oxideCapFactor;
         end if;
 
-        if  (out_p.m_substrateDopingIsGiven > 0.5) then
-          if ( out_p.m_substrateDoping * 1.0e6 > MaterialParameters.IntCondCarrDensity) then
-            if ( not (out_p.m_phiIsGiven > 0.5)) then
-              out_p.m_phi := 2 * vtnom * Modelica.Math.log( out_p.m_substrateDoping * 1.0e6 / MaterialParameters.IntCondCarrDensity);
-              out_p.m_phi := max( 0.1, out_p.m_phi);
+        if  (in_p.m_substrateDopingIsGiven > 0.5) then
+          if ( out_v.m_substrateDoping * 1.0e6 > 1.45e16) then
+            if ( not (in_p.m_phiIsGiven > 0.5)) then
+              out_v.m_phi := 2 * vtnom * Modelica.Math.log( out_v.m_substrateDoping * 1.0e6 / 1.45e16);
+              out_v.m_phi := max( 0.1, out_v.m_phi);
             end if;
-            fermis := in_m_type * 0.5 * out_p.m_phi;
+            fermis := in_m_type * 0.5 * out_v.m_phi;
             wkfng  := 3.2;
-            if ( out_p.m_gateType <> 0) then
-              fermig := in_m_type * out_p.m_gateType * 0.5 * egfet1;
+            if ( in_p.m_gateType <> 0) then
+              fermig := in_m_type * in_p.m_gateType * 0.5 * egfet1;
               wkfng  := 3.25 + 0.5 * egfet1 - fermig;
             end if;
             wkfngs := wkfng - (3.25 + 0.5 * egfet1 + fermis);
-            if ( not (out_p.m_gammaIsGiven > 0.5)) then
-              out_p.m_gamma := sqrt(2.0 * SpiceConstants.EPSSIL * SpiceConstants.CHARGE * out_p.m_substrateDoping
-                                 * 1.0e6) / out_p.m_oxideCapFactor;
+            if ( not (in_p.m_gammaIsGiven > 0.5)) then
+              out_v.m_gamma := sqrt(2.0 * 11.70 * 8.854214871e-12 * in_C.CHARGE * out_v.m_substrateDoping
+                                 * 1.0e6) / out_v.m_oxideCapFactor;
             end if;
-            if ( not (out_p.m_vtOIsGiven > 0.5)) then
-              vfb         := wkfngs - out_p.m_surfaceStateDensity * 1.0e4 * SpiceConstants.CHARGE / out_p.m_oxideCapFactor;
-              out_p.m_vt0 := vfb + in_m_type * (out_p.m_gamma * sqrt(out_p.m_phi)+ out_p.m_phi);
+            if ( not (in_p.m_vtOIsGiven > 0.5)) then
+              vfb         := wkfngs - in_p.m_surfaceStateDensity * 1.0e4 * in_C.CHARGE / out_v.m_oxideCapFactor;
+              out_v.m_vt0 := vfb + in_m_type * (out_v.m_gamma * sqrt(out_v.m_phi)+ out_v.m_phi);
             else
-              vfb        := out_p.m_vt0 - in_m_type * (out_p.m_gamma * sqrt(out_p.m_phi) + out_p.m_phi);
+              vfb        := out_v.m_vt0 - in_m_type * (out_v.m_gamma * sqrt(out_v.m_phi) + out_v.m_phi);
             end if;
-            out_p.m_xd := sqrt( (SpiceConstants.EPSSIL + SpiceConstants.EPSSIL) / (SpiceConstants.CHARGE * out_p.m_substrateDoping * 1.0e6));
+            out_v.m_xd := sqrt( (in_C.EPSSIL + in_C.EPSSIL) / (in_C.CHARGE * out_v.m_substrateDoping * 1.0e6));
           else
-            out_p.m_substrateDoping := 0.0;
+            out_v.m_substrateDoping := 0.0;
           end if;
         end if;
 
-        if ( not (out_p.m_bulkCapFactorIsGiven > 0.5)) then
-          out_p.m_bulkCapFactor := sqrt( SpiceConstants.EPSSIL * SpiceConstants.CHARGE * out_p.m_substrateDoping
-                                    * 1e6 /(2 * out_p.m_bulkJctPotential));
+        if ( not (in_p.m_bulkCapFactorIsGiven > 0.5)) then
+          out_v.m_bulkCapFactor := sqrt( in_C.EPSSIL * in_C.CHARGE * out_v.m_substrateDoping
+                                    * 1e6 /(2 * in_p.m_bulkJctPotential));
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function mos2ModelLineParamsInitEquation does the initial precalculation of the mosfet model line parameters for level 2.</p>
+<p>This function mos1ModelLineParamsInitEquation does the initial precalculation of the mosfet model line parameters for level 2.</p>
 </html>"));
       end mos2ModelLineParamsInitEquations;
 
       function drainCur "Drain current calculation"
 
-         input SI.Voltage vbs;
-         input SI.Voltage vgs;
-         input SI.Voltage vds;
+         input Modelica.SIunits.Voltage vbs;
+         input Modelica.SIunits.Voltage vgs;
+         input Modelica.SIunits.Voltage vds;
 
          input Mosfet.Mosfet in_m "Record mosfet";
          input Mos2Calc in_c "Input record Mos2Calc";
          input Mos2ModelLineParams in_p
           "Input record model line parameters for MOS2";
+         input SpiceConstants in_C "Spice constants";
+         input Mos2ModelLineVariables in_vp "Input record model line variables";
          input Integer in_m_type "Type of MOS transistor";
 
          output Mos2Calc out_c "Output record Mos2Calc";
@@ -7380,7 +6236,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       algorithm
          out_c := in_c;
 
-        vt := SpiceConstants.CONSTKoverQ * SpiceConstants.REFTEMP;
+        vt := in_C.CONSTKoverQ * in_C.REFTEMP;
 
         phiMinVbs := out_c.m_tPhi - vbs;
         if ( vbs <= 0.0) then
@@ -7407,13 +6263,13 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           d2bdb2 := -dbrgdb * tmp;
         end if;
 
-        factor := 0.125 * in_p.m_narrowFactor * 2.0 * Modelica.Constants.pi*SpiceConstants.EPSSIL / out_c.m_capOx * out_c.m_lEff;
+        factor := 0.125 * in_p.m_narrowFactor * 2.0 * Modelica.Constants.pi*in_C.EPSSIL / out_c.m_capOx * out_c.m_lEff;
 
         eta    := 1.0 + factor;
         vbin   := out_c.m_tVbi * in_m_type + factor * phiMinVbs;
-        if ( (in_p.m_gamma > 0.0) or (in_p.m_substrateDoping > 0.0)) then
-          xwd := in_p.m_xd * barg;
-          xws := in_p.m_xd * sarg;
+        if ( (in_vp.m_gamma > 0.0) or (in_vp.m_substrateDoping > 0.0)) then
+          xwd := in_vp.m_xd * barg;
+          xws := in_vp.m_xd * sarg;
 
           argss  := 0.0;
           argsd  := 0.0;
@@ -7431,28 +6287,28 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
             argss := tmp * (args - 1.0);
             argsd := tmp * (argd - 1.0);
           end if;
-          gamasd := in_p.m_gamma * (1.0 - argss - argsd);
-          dbxwd  := in_p.m_xd * dbrgdb;
-          dbxws  := in_p.m_xd * dsrgdb;
+          gamasd := in_vp.m_gamma * (1.0 - argss - argsd);
+          dbxwd  := in_vp.m_xd * dbrgdb;
+          dbxws  := in_vp.m_xd * dsrgdb;
           if ( in_p.m_junctionDepth > 0) then
             tmp    := 0.5 / out_c.m_lEff;
             dbargs := tmp * dbxws / args;
             dbargd := tmp * dbxwd / argd;
-            dasdb2 := -in_p.m_xd * (d2sdb2 + dsrgdb * dsrgdb * in_p.m_xd
+            dasdb2 := -in_vp.m_xd * (d2sdb2 + dsrgdb * dsrgdb * in_vp.m_xd
                       / (in_p.m_junctionDepth * argxs)) / (out_c.m_lEff * args);
-            daddb2 := -in_p.m_xd * (d2bdb2 + dbrgdb * dbrgdb * in_p.m_xd
+            daddb2 := -in_vp.m_xd * (d2bdb2 + dbrgdb * dbrgdb * in_vp.m_xd
                       / (in_p.m_junctionDepth * argxd))
                       / (out_c.m_lEff * argd);
-            dgddb2 := -0.5 * in_p.m_gamma * (dasdb2 + daddb2);
+            dgddb2 := -0.5 * in_vp.m_gamma * (dasdb2 + daddb2);
           end if;
-          dgddvb := -in_p.m_gamma * (dbargs + dbargd);
+          dgddvb := -in_vp.m_gamma * (dbargs + dbargd);
           if ( in_p.m_junctionDepth > 0) then
             ddxwd  := -dbxwd;
-            dgdvds := -in_p.m_gamma * 0.5 * ddxwd / (out_c.m_lEff * argd);
+            dgdvds := -in_vp.m_gamma * 0.5 * ddxwd / (out_c.m_lEff * argd);
           end if;
         else
-          gamasd := in_p.m_gamma;
-          gammad := in_p.m_gamma;
+          gamasd := in_vp.m_gamma;
+          gammad := in_vp.m_gamma;
           dgddvb := 0.0;
           dgdvds := 0.0;
           dgddb2 := 0.0;
@@ -7462,7 +6318,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         vth           := out_c.m_von;
         out_c.m_vdsat := 0.0;
         if ( in_p.m_fastSurfaceStateDensity <> 0.0 and out_c.m_capOx <> 0.0) then
-          cfs          := SpiceConstants.CHARGE * in_p.m_fastSurfaceStateDensity * 1.0e4;
+          cfs          := in_C.CHARGE * in_p.m_fastSurfaceStateDensity * 1.0e4;
           cdonco       := -(gamasd * dsrgdb + dgddvb * sarg) + factor;
           xn           := 1.0 + cfs / out_c.m_capOx * in_m.m_width * out_c.m_lEff + cdonco;
           tmp          := vt * xn;
@@ -7502,7 +6358,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         dudvds := 0.0;
         dudvbs := 0.0;
         if (out_c.m_capOx > 0.0) then
-          tmp := in_p.m_critField * SpiceConstants.EPSSIL * 100 / in_p.m_oxideCapFactor;
+          tmp := in_p.m_critField * in_C.EPSSIL * 100 / in_vp.m_oxideCapFactor;
           if (vgst > tmp) then
             ufact  := exp( in_p.m_critFieldExp * Modelica.Math.log( tmp / vgst));
             ueff   := in_p.m_surfaceMobility * 1.0e-4 * ufact;
@@ -7631,11 +6487,11 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           bodys  := bsarg * bsarg * bsarg - sarg3;
           gdbdvs := 2.0 * gammad * (bsarg * bsarg * dbsrdb - sarg * sarg * dsrgdb);
           if (in_p.m_maxDriftVel <= 0) then
-            if (in_p.m_substrateDoping <> 0.0 and (xlamda <= 0.0)) then
+            if (in_vp.m_substrateDoping <> 0.0 and (xlamda <= 0.0)) then
               argv   := (vds - out_c.m_vdsat) / 4.0;
               sargv  := sqrt(1.0 + argv * argv);
               arg    := sqrt(argv + sargv);
-              xlfact := in_p.m_xd / (out_c.m_lEff * vds);
+              xlfact := in_vp.m_xd / (out_c.m_lEff * vds);
               xlamda := xlfact * arg;
               dldsat := vds * xlamda / (8.0 * sargv);
 
@@ -7645,7 +6501,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
             end if;
           else
             argv   := (vgsx - vbin) / eta - out_c.m_vdsat;
-            xdv    := in_p.m_xd / sqrt(in_p.m_channelCharge);
+            xdv    := in_vp.m_xd / sqrt(in_p.m_channelCharge);
             xlv    := in_p.m_maxDriftVel * xdv / (2.0 * ueff);
             vqchan := argv - gammad * bsarg;
             dqdsat := -1.0 + gammad * dbsrdb;
@@ -7656,7 +6512,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
                (gdbdvs - dgdvbs * bodys / 1.5) / eta;
             dsdvgs := -dfundg / dfunds;
             dsdvbs := -dfundb / dfunds;
-            if ((in_p.m_substrateDoping <> 0.0) and (xlamda <= 0.0)) then
+            if ((in_vp.m_substrateDoping <> 0.0) and (xlamda <= 0.0)) then
               argv   := vds - out_c.m_vdsat;
               argv   := max(argv,0.0);
               xls    := sqrt(xlv * xlv + argv);
@@ -7673,13 +6529,13 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         end if;
 
         // limit channel shortening at punch-through
-        xwb    :=in_p.m_xd*sqrt(out_c.m_tBulkPot);
+        xwb    :=in_vp.m_xd*sqrt(out_c.m_tBulkPot);
         xld    :=out_c.m_lEff - xwb;
         clfact :=1.0 - xlamda*vds;
         dldvds :=-xlamda - dldvds;
         xleff  :=out_c.m_lEff*clfact;
         deltal :=xlamda*vds*out_c.m_lEff;
-        if (in_p.m_substrateDoping == 0.0) then
+        if (in_vp.m_substrateDoping == 0.0) then
           xwb := 0.25e-6;
         end if;
         if (xleff < xwb) then
@@ -7784,6 +6640,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       function mos2RenameParameters "Parameter renaming to internal names"
 
         input ModelcardMOS2 ex "Modelcard with technologie parameters";
+        input SpiceConstants con "Spice constants";
 
         output Mos2ModelLineParams intern "Output record model line parameters";
 
@@ -7828,16 +6685,21 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
           intern.m_latDiff := ex.LD;                 // m lateral diffusion (default 0)
           intern.m_jctSatCur := ex.IS;               // A bulk junction saturation current (defaul 1e-14)
 
-          intern.m_drainResistanceIsGiven := if (ex.RD > -1e40) then 1 else 0;
-          intern.m_drainResistance := if (ex.RD > -1e40) then ex.RD else 0;
+          intern.m_drainResistanceIsGiven := if
+                                               (ex.RD > -1e40) then 1 else 0;
+          intern.m_drainResistance := if
+                                       (ex.RD > -1e40) then ex.RD else 0;
 
-          intern.m_sourceResistanceIsGiven := if (ex.RS > -1e40) then 1 else 0;
-          intern.m_sourceResistance := if (ex.RS > -1e40) then ex.RS else 0;
+                intern.m_sourceResistanceIsGiven := if
+                                               (ex.RS > -1e40) then 1 else 0;
+          intern.m_sourceResistance := if
+                                       (ex.RS > -1e40) then ex.RS else 0;
 
-          intern.m_transconductanceIsGiven := if          ( ex.KP > -1e40) then 1 else 0;
-          intern.m_transconductance := if         ( ex.KP > -1e40) then ex.KP else 2e-5;
+          intern.m_transconductanceIsGiven := if          (ex.KP > -1e40) then 1 else 0;
+          intern.m_transconductance := if         (ex.KP > -1e40) then ex.KP else 2e-5;
 
-         intern.m_tnom := ex.TNOM + SpiceConstants.CONSTCtoK;
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else
+          300.15;
 
          intern.m_jctSatCurDensity := ex.JS;             // A/(m*m) bulk junction saturation current per sq-meter of junction area (default 0)
          intern.m_sheetResistance := ex.RSH;             // Ohm drain and source diffusion sheet resistance (default 0)
@@ -7845,7 +6707,10 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
          intern.m_bulkJctBotGradingCoeff := ex.MJ;       // bulk junction bottom grading coeff. (default 0.5)
          intern.m_bulkJctSideGradingCoeff := ex.MJSW;    // bulk junction sidewall grading coeff. (default 0.5)
 
-         intern.m_oxideThickness := if (ex.TOX > -1e40) then ex.TOX else 1e-7; // m oxide thickness (default 1e-7)
+         intern.m_oxideThickness := ex.TOX;              // m oxide thickness (default 1e-7)
+
+         intern.m_oxideThicknessIsGiven := if          (ex.TOX > -1e40) then 1 else 0;
+         intern.m_oxideThickness := if         (ex.TOX > -1e40) then ex.TOX else 1e-7;
 
          intern.m_gateSourceOverlapCapFactor := ex.CGSO; // F/m gate-source overlap capacitance per meter channel width (default 0)
          intern.m_gateDrainOverlapCapFactor := ex.CGDO;  // F/m gate-drain overlap capacitance per meter channel width (default 0)
@@ -7859,6 +6724,54 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 </html>"));
       end mos2RenameParameters;
 
+      function mos2RenameParametersDev
+        "Device parameter renaming to internal names"
+        input ModelcardMOS2 ex;
+        input Integer mtype;
+        input Modelica.SIunits.Length W "Width of channel region";
+        input Modelica.SIunits.Length L "Length of channel region";
+        input Modelica.SIunits.Area AD "Area of drain diffusion";
+        input Modelica.SIunits.Area AS "Area of source diffusion";
+        input Modelica.SIunits.Length PD "Drain perimeter";
+        input Modelica.SIunits.Length PS "Source perimeter";
+        input Real NRD "Length of drain squares";
+        input Real NRS "Length of Source squares";
+        input Integer OFF
+          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+        input Real IC "Initial condition values, not implemented yet";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
+
+        output Mosfet.Mosfet dev "Output record Mosfet";
+
+      algorithm
+      /*device parameters*/
+        dev.m_len := L;               // L, length of channel region
+        dev.m_width := W;             // W, width of channel region
+        dev.m_drainArea := AD;        // AD, area of drain diffusion
+        dev.m_sourceArea := AS;       // AS, area of source diffusion
+        dev.m_drainSquares := NRD;    // NRD, length of drain in squares
+        dev.m_sourceSquares := NRS;   // NRS, length of source in squares
+        dev.m_drainPerimiter := PD;   // PD, Drain perimeter;
+        dev.m_sourcePerimiter := PS;  // PS, Source perimeter
+
+          dev.m_dICVDSIsGiven := if          (IC > -1e40) then 1 else 0;
+          dev.m_dICVDS := if         (IC > -1e40) then IC else 0;
+
+          dev.m_dICVGSIsGiven := if          (IC > -1e40) then 1 else 0;
+          dev.m_dICVGS := if         (IC > -1e40) then IC else 0;
+
+          dev.m_dICVBSIsGiven := if          (IC > -1e40) then 1 else 0;
+          dev.m_dICVBS := if         (IC > -1e40) then IC else 0;
+
+        dev.m_off := OFF;             // non-zero to indicate device is off for dc analysis
+        dev.m_bPMOS := mtype;         // P type MOSfet model
+        dev.m_nLevel := ex.LEVEL;
+        assert(ex.LEVEL== 1, "only MOS Level1 implemented");
+        dev.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK;
+        annotation (Documentation(info="<html>
+<p>This function mos2RenameParameters assigns the external (given by the user) device parameters to the internal parameters. It also does the analysis of the IsGiven values (level 2).</p>
+</html>"));
+      end mos2RenameParametersDev;
       annotation (Documentation(info="<html>
 <p>This package Mos2 contains functions and records with data of the mosfet model level 2.</p>
 </html>"));
@@ -7867,61 +6780,89 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
     package Diode "Records and functions for diode model"
       extends Modelica.Icons.Package;
 
-      record Diode "Record for Diode device parameters"
-        extends Model.Model;
-
-        Real m_area(start = 1.0) "AREA, Area factor";
-        Boolean m_uic "UIC, Use initial conditions";
-        Boolean m_bOff(start = false) "OFF, Initially off";
-        SI.Voltage m_dIC(start = 0.0) "IC, Initial device voltage";
-        Real m_dICIsGiven(start = 0) "IC-IsGiven value";
-        Boolean m_bSensArea(start = false)
-          "SENS_AREA, flag to request sensitivity WRT area";
-
-        annotation (Documentation(info="<html>
-<p>This record contains the device parameters that are used for the diode model in SPICE3.</p>
-</html>"));
-      end Diode;
-
       record DiodeModelLineParams "Record for Diode model line parameters"
 
-        SI.Current m_satCur( start = 1.0e-14) "IS, Saturation current";
-        SI.Resistance m_resist( start = 0.0) "RS, Ohmic resistance";
+        Modelica.SIunits.Current m_satCur( start = 1.0e-14)
+          "IS, Saturation current";
+        Modelica.SIunits.Resistance m_resist( start = 0.0)
+          "RS, Ohmic resistance";
         Real m_emissionCoeff( start = 1.0) "N, Emission Coefficient";
-        SI.Time m_transitTime( start = 0.0) "TT, Transit Time";
-        SI.Capacitance m_junctionCap( start = 0.0) "CJO, Junction capacitance";
-        SI.Voltage m_junctionPot( start = 1.0) "VJ, Junction potential";
-        Real m_gradingCoeff( start = 0.5) "M, Grading coefficient";
-        SI.Voltage m_activationEnergy( start = 1.11) "EG, Activation energy";
+        Modelica.SIunits.Time m_transitTime( start = 0.0) "TT, Transit Time";
+        Modelica.SIunits.Capacitance m_junctionCap( start = 0.0)
+          "CJO, Junction capacitance";
+        Modelica.SIunits.Voltage m_junctionPot( start = 1.0)
+          "VJ, Junction potential";
+        Modelica.SIunits.LinearTemperatureCoefficient m_gradingCoeff( start = 0.5)
+          "M, Grading coefficient";                                                                           //unit check by maj
+        Modelica.SIunits.ActivationEnergy m_activationEnergy( start = 1.11)
+          "EG, Activation energy";
         Real m_saturationCurrentExp( start = 3.0)
           "XTI, Saturation current temperature exp.";
         Real m_depletionCapCoeff( start = 0.5)
           "FC, Forward bias junction fit parameter";
-        SI.Voltage m_breakdownVoltage "BV, Reverse breakdown voltage";
+        Modelica.SIunits.Voltage m_breakdownVoltage
+          "BV, Reverse breakdown voltage";
         Real m_pBvIsGiven "BV is given value";
-        SI.Current m_breakdownCurrent( start = 1.0e-3)
+        Modelica.SIunits.Current m_breakdownCurrent( start = 1.0e-3)
           "IBV, Current at reverse breakdown voltage";
-        SI.Temp_K m_nomTemp( start=SpiceConstants.CKTnomTemp)
+        Modelica.SIunits.Temp_K m_nomTemp( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Real m_fNcoef( start = 0.0) "KF, flicker noise coefficient";
         Real m_fNexp( start = 1.0) "AF, flicker noise exponent";
+        Modelica.SIunits.Conductance m_conductance "G, Ohmic conductance";
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the diode model  in SPICE3.</p>
 </html>"));
       end DiodeModelLineParams;
 
+      record DiodeModelLineVariables "Record for Diode model line variables"
+
+        Real m_gradingCoeff;
+        Real m_activationEnergy;
+        Real m_depletionCapCoeff;
+        Modelica.SIunits.Conductance m_conductance;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model line (also called model card) variables  that are used for the diode model in SPICE3.</p>
+</html>"));
+      end DiodeModelLineVariables;
+
+      record DiodeParams "Record for Diode device parameters"
+
+        Real m_area(start = 1.0) "AREA, Area factor";
+        Boolean m_bOff(start = false) "OFF, Initially off";
+        Modelica.SIunits.Voltage m_dIC(start = 0.0)
+          "IC, Initial device voltage";
+        Real m_pIcIsGiven "IC is giben value";
+        Boolean m_bSensArea(start = false)
+          "SENS_AREA, flag to request sensitivity WRT area";
+
+        annotation (Documentation(info="<html>
+<p>This record contains the device parameters that are used for the diode model in SPICE3.</p>
+</html>"));
+      end DiodeParams;
+
+      record DiodeVariables "Variables for the diode model"
+
+        Real m_pBvIsGiven "Additional BV is given variable";
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model  variables that are used for the diode model in SPICE3.</p>
+</html>"));
+      end DiodeVariables;
+
       record DiodeCalc "Diode variables"
 
-        SI.Voltage m_tJctPot;
-        SI.Capacitance m_tJctCap;
-        SI.Voltage m_tF1;
+        Modelica.SIunits.Voltage m_tJctPot;
+        Modelica.SIunits.Capacitance m_tJctCap;
+        Real m_tF1;
         Real m_f2;
         Real m_f3;
-        SI.Current m_tSatCur;
-        SI.Voltage m_tVcrit;
-        SI.Voltage m_dVte;
-        SI.Voltage m_tBrkdwnV;
+        Modelica.SIunits.Current m_tSatCur;
+        Modelica.SIunits.Voltage m_tVcrit;
+        Real m_dVte;
+        Modelica.SIunits.Voltage m_tBrkdwnV;
 
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the diode model in SPICE3.</p>
@@ -7930,54 +6871,109 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       record CurrentsCapacitances "Diode variables"
 
-        SI.Current m_dCurrent;
-        SI.Capacitance m_dCap;
+        Modelica.SIunits.Current m_dCurrent;
 
         annotation (Documentation(info="<html>
 <p>This record contains the model variables that are used for the diode model in SPICE3.</p>
 </html>"));
       end CurrentsCapacitances;
 
+      function diodeModelLineInitEquations
+        "Initial precalculation of model line parameters"
+
+        input DiodeModelLineParams in_p
+          "Input record with diode model line parameters";
+
+        output DiodeModelLineVariables out_v
+          "Output record with diode model line variables";
+
+      algorithm
+        // limit grading coeff to max of 0.9
+        if (in_p.m_gradingCoeff > 0.9) then
+          out_v.m_gradingCoeff := 0.9;
+        end if;
+        // limit activation energy to min of 0.1
+        if (in_p.m_activationEnergy < 0.1) then
+          out_v.m_activationEnergy := 0.1;
+        end if;
+        // limit depletion cap coeff to max of 0.95
+        if (in_p.m_depletionCapCoeff > 0.95) then
+          out_v.m_depletionCapCoeff := 0.95;
+        end if;
+
+        out_v.m_conductance := if (in_p.m_resist == 0.0) then 0.0 else 1.0 / in_p.m_resist;
+
+        annotation (Documentation(info="<html>
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+</html>"));
+      end diodeModelLineInitEquations;
+
+      function diodeInitEquations "Initial calculation"
+
+        input DiodeModelLineParams in_p
+          "Input record with diode model line parameters";
+
+        output DiodeVariables out_v "Output record with diode variables";
+
+      algorithm
+       out_v.m_pBvIsGiven := in_p.m_pBvIsGiven;
+        if (out_v.m_pBvIsGiven > 0.5) then
+          if (in_p.m_breakdownVoltage > 1.0e+100) then
+            out_v.m_pBvIsGiven := 1.0e-41; // set to false
+          end if;
+        end if;
+
+        annotation (Documentation(info="<html>
+<p>In this function some initial calculations for the diode model are done, especially concerning the handling of the breakthrough voltage.</p>
+</html>"));
+      end diodeInitEquations;
+
       function diodeCalcTempDependencies "Temperature dependency calculation"
 
         input DiodeModelLineParams in_p
           "Input record diode model line parameters";
-        input Diode in_dp "Input record diode paramters";
+        input DiodeParams in_dp "Input record diode paramters";
+        input Model.Model in_m "Input record Model";
+        input DiodeVariables in_v "Input record diode variables";
 
         output DiodeCalc out_c "Output record with calculated values";
 
       algorithm
         (out_c.m_tJctPot,out_c.m_tJctCap) :=
-          Functions.junctionParamDepTempSPICE3(
+          Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
                 in_p.m_junctionPot,
                 in_p.m_junctionCap,
                 in_p.m_gradingCoeff,
-                in_dp.m_dTemp,
+                in_m.m_dTemp,
                 in_p.m_nomTemp);
         out_c.m_tJctCap := in_dp.m_area * out_c.m_tJctCap;
-        (out_c.m_tF1,out_c.m_f2,out_c.m_f3) := Functions.junctionCapCoeffs(
+        (out_c.m_tF1,out_c.m_f2,out_c.m_f3) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_gradingCoeff,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tJctPot);
 
-        out_c.m_tSatCur := Functions.saturationCurDepTempSPICE3(
+        out_c.m_tSatCur :=
+          Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3(
                 in_p.m_satCur,
-                in_dp.m_dTemp,
+                in_m.m_dTemp,
                 in_p.m_nomTemp,
                 in_p.m_emissionCoeff,
                 in_p.m_activationEnergy,
                 in_p.m_saturationCurrentExp);
-        out_c.m_tVcrit := Functions.junctionVCrit(
-                in_dp.m_dTemp,
+        out_c.m_tVcrit :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                in_m.m_dTemp,
                 in_p.m_emissionCoeff,
                 out_c.m_tSatCur);
-        out_c.m_dVte := in_dp.m_dTemp*SpiceConstants.CONSTKoverQ*in_p.m_emissionCoeff;
-        if (in_p.m_pBvIsGiven > 0.5) then
-          out_c.m_tBrkdwnV := Functions.junctionVoltage23SPICE3(
+        out_c.m_dVte := in_m.m_dTemp*SpiceConstants.CONSTKoverQ*in_p.m_emissionCoeff;
+        if (in_v.m_pBvIsGiven > 0.5) then
+          out_c.m_tBrkdwnV :=
+            Modelica.Electrical.Spice3.Internal.Functions.junctionVoltage23SPICE3(
                   in_p.m_breakdownVoltage,
                   in_p.m_breakdownCurrent,
                   out_c.m_tSatCur,
-                  in_dp.m_dTemp,
+                  in_m.m_dTemp,
                   in_p.m_emissionCoeff);
         end if;
         out_c.m_tSatCur := in_dp.m_area * out_c.m_tSatCur;
@@ -7991,23 +6987,28 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         input DiodeModelLineParams in_p
           "Input record model line parameters for diode";
-        input Diode in_dp "Input record with parameters for diode";
+        input DiodeParams in_dp "Input record with parameters for diode";
         input DiodeCalc in_c "Input record DiodeCalc";
+        input Model.Model in_m "Input record model";
         input Boolean in_m_mbInit;
-        input SI.Voltage[2] in_m_pVoltageValues; /* DPP, DN */
+        input Modelica.SIunits.Voltage[2] in_m_pVoltageValues; /* DPP, DN */
 
         output CurrentsCapacitances out_cc
           "Output record with calculated currents and capacitances";
 
+        output Modelica.SIunits.Capacitance m_dCap "Output capacitance";
+
       protected
-        SI.Voltage m_dPNVoltage "Voltage";
-        SI.Conductance m_dCond "Conductance";
-        SI.Charge m_dCharge "Charge";
+        Modelica.SIunits.Voltage m_dPNVoltage "Voltage";
+        Modelica.SIunits.Current m_dCurrent "Current";
+        Modelica.SIunits.Conductance m_dCond "Conductance";
+        Modelica.SIunits.Charge m_dCharge "Charge";
+        Modelica.SIunits.Current m_dCapCurrent "Current";
 
       algorithm
         m_dPNVoltage := in_m_pVoltageValues[1] - in_m_pVoltageValues[2];
 
-        if (in_dp.m_uic and in_dp.m_dICIsGiven > 0.5) then
+        if (SpiceRoot.useInitialConditions() and in_dp.m_pIcIsGiven > 0.5) then
           m_dPNVoltage := in_dp.m_dIC;
         elseif (SpiceRoot.initJunctionVoltages()) then
           if (in_dp.m_bOff) then
@@ -8018,21 +7019,24 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         end if;
 
         if (in_p.m_pBvIsGiven > 0.5) then
-          (out_cc.m_dCurrent,m_dCond) := Functions.junction3(
+          (out_cc.m_dCurrent,m_dCond) :=
+            Modelica.Electrical.Spice3.Internal.Functions.junction3(
                   m_dPNVoltage,
-                  in_dp.m_dTemp,
+                  in_m.m_dTemp,
                   in_p.m_emissionCoeff,
                   in_c.m_tSatCur,
                   in_c.m_tBrkdwnV);
         else
-          (out_cc.m_dCurrent,m_dCond) := Functions.junction2(
+          (out_cc.m_dCurrent,m_dCond) :=
+            Modelica.Electrical.Spice3.Internal.Functions.junction2(
                   m_dPNVoltage,
-                  in_dp.m_dTemp,
+                  in_m.m_dTemp,
                   in_p.m_emissionCoeff,
                   in_c.m_tSatCur);
         end if;
 
-        (out_cc.m_dCap,m_dCharge) := Functions.junctionCapTransTime(
+        (m_dCap,m_dCharge) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
                 in_c.m_tJctCap,
                 m_dPNVoltage,
                 in_c.m_tJctPot*in_p.m_depletionCapCoeff,
@@ -8043,16 +7047,35 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
                 in_c.m_f3,
                 in_p.m_transitTime,
                 m_dCond,
-                out_cc.m_dCurrent);
+                m_dCurrent);
 
         annotation (Documentation(info="<html>
 <p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
 </html>"));
       end diodeNoBypassCode;
 
+      function diodeCalcAdditionalValues "Calculation of additional values"
+
+        input DiodeVariables in_v "Input record with diode variables";
+        input DiodeModelLineParams in_p
+          "Input record with diode model line parameters";
+        input DiodeParams in_dp "Input record with diode parameters";
+        input Modelica.SIunits.Voltage[2] in_m_pVoltageValues; /* DP, DPP */
+
+        output DiodeVariables out_v "Output record with diode variables";
+
+      algorithm
+        out_v := in_v;
+
+        annotation (Documentation(info="<html>
+<p>This function is prepared for additional calculations but it is plain (inputs are written to the outputs) in the actual version of this library.</p>
+</html>"));
+      end diodeCalcAdditionalValues;
+
       function diodeRenameParameters "Technology parameter renaming"
 
         input ModelcardDIODE ex "Modelcard with technologie parameters";
+        input SpiceConstants con "Spice constants";
 
         output DiodeModelLineParams intern
           "Output record diode model line parameters";
@@ -8077,6 +7100,9 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
          intern.m_nomTemp := ex.TNOM + SpiceConstants.CONSTCtoK;
          intern.m_fNcoef := ex.KF;
          intern.m_fNexp := ex.AF;
+
+         intern.m_conductance := if (ex.RS == 0) then  0 else 1/ex.RS;
+
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g., IS) technology parameters
 to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</p>
@@ -8084,27 +7110,25 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
       end diodeRenameParameters;
 
       function diodeRenameParametersDev "Temperature calculation"
-
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.SIunits.Temp_K TEMP "Temperature";
         input Real AREA "Area factor";
-        input SI.Voltage IC "Initial condition value (VD, not implemented yet";
-        input Boolean UIC "Use inital conditions, UIC";
+        input Real IC "Initial condition value (VD, not implemented yet";
         input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
         input Boolean SENS_AREA
           "Flag to request sensitivity WRT area, not implemented yet";
 
-        output Diode dev "Output record with calculated diode parameters";
+        output DiodeParams dev "Output record with calculated diode parameters";
 
       algorithm
       /*device parameters*/
         dev.m_area := AREA;
-        dev.m_dICIsGiven := if (IC > -1e40) then 1 else 0;
-        dev.m_dIC := if (IC > -1e40) then IC else 0;
+
+        dev.m_pIcIsGiven := if (IC > -1e40) then 1 else 0;
+        dev.m_dIC := if
+                       (IC > -1e40) then IC else 0;
         dev.m_bOff := OFF;
-        dev.m_uic := UIC;
         dev.m_bSensArea := SENS_AREA;
-        dev.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
 
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g., AREA) device parameters
@@ -8112,6 +7136,18 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end diodeRenameParametersDev;
 
+      function diodeRenameParametersDevTemp "Temperature calculation"
+
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
+        output Model.Model dev_temp "Input record Model";
+
+      algorithm
+        dev_temp.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
+
+        annotation (Documentation(info="<html>
+<p>This function calculates device parameters wehich are temperature dependent.</p>
+</html>"));
+      end diodeRenameParametersDevTemp;
       annotation (Documentation(info="<html>
 <p>This package Diode contains functions and record with data of the semiconductor diode model.</p>
 </html>"));
@@ -8121,89 +7157,72 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       "Records and functions for semiconductor resistor model"
         extends Modelica.Icons.Package;
 
-      record Resistor "Resistor device parameters"
-        extends Model.Model;
+      record ResistorParams "Resistor device parameters"
 
-        SI.Resistance m_dResist( start=1000) "Device is a resistor model";
-        Real m_dResIsGiven "Resistance is given value";
-        SI.Length  m_dWidth( start = 0) "Width";
-        SI.Length  m_dLength "Length";
-        Boolean m_bSensResist( start = false)
+          Modelica.SIunits.Resistance m_dResist( start=1000)
+          "Device is a resistor model";
+          Real m_dResIsGiven "Resistance is given value";
+          Modelica.SIunits.Length m_dWidth( start=0) "Width";
+          Real m_dWidthIsGiven "Width is given value";
+          Modelica.SIunits.Length m_dLength "Length";
+          Real m_dLengthIsGiven "Length is given value";
+          Boolean m_bSensResist( start = false)
           "flag to request sensitivity WRT resistance";
+          Modelica.SIunits.Temp_C m_dTemp(start = 27)
+          "Resistor device temperature";
 
-        SI.Conductance m_dConduct;
-        SI.Temp_C m_dCond_dTemp;
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the resistor model in SPICE3.</p>
 </html>"));
-      end Resistor;
+      end ResistorParams;
 
       record ResistorModelLineParams "Record for Diode model line parameters"
 
-          SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient m_dTC1
-          "First order temp, coefficient";
-          SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient
+          Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient
+          m_dTC1 "First order temp, coefficient";
+          Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient
           m_dTC2 "Second order temp, coefficient";
-          SI.Resistance m_dRsh "Sheet resistance";
-          SI.Length  m_dDefW "Default device width";
-          SI.Length  m_dNarrow "Narrowing of resistor";
-          SI.Temp_K m_dTnom "Parameter measurement temperature";
+          Modelica.SIunits.Resistance m_dRsh "Sheet resistance";
+          Real m_dRshIsGiven;
+          Modelica.SIunits.Length m_dDefW "Default device width";
+          Modelica.SIunits.Length m_dNarrow "Narrowing of resistor";
+          Modelica.SIunits.Temp_C m_dTnom "Parameter measurement temperature";
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the resistor model in SPICE3.</p>
 </html>"));
       end ResistorModelLineParams;
 
-      function resistorInitEquations "Initial calculation"
-
-        input Resistor in_p "Input record with resistor parameters";
-        input ResistorModelLineParams in_p2
-          "Input record with resistor model line parameters";
-
-        output Resistor out "Output record with resistor parameters";
-
-      algorithm
-        out := in_p;
-
-        out.m_dWidth := in_p.m_dWidth;
-        if ( in_p.m_dResIsGiven < 0.5) then
-          if (abs(in_p.m_dLength)>1e-8) and (abs(in_p2.m_dRsh)>1e-25) then
-            (out.m_dResist) := Functions.resDepGeom(
-                    in_p2.m_dRsh,
-                    out.m_dWidth,
-                    in_p.m_dLength,
-                    in_p2.m_dNarrow);
-          else
-            out.m_dResist :=1000;
-          end if;
-        end if;
-        if
-          (in_p.m_dResist < 1e-12) and (in_p.m_dResIsGiven > 0.5) then
-            out.m_dResist := 1e-12;
-        end if;
-        if (in_p.m_dResist > 1e-12) and (in_p.m_dResIsGiven > 0.5) then
-          out.m_dResist := in_p.m_dResist;
-        end if;
-
+      record ResistorVariables "Variables for the diode model"
+       Modelica.SIunits.Length m_dWidth;
+       Modelica.SIunits.Length m_dLength;
+       Modelica.SIunits.Resistance m_dResist;
+       Modelica.SIunits.Conductance m_dConduct;
+       Modelica.SIunits.Temp_C m_dCond_dTemp;
         annotation (Documentation(info="<html>
-<p>In this function some initial calculations for the resistor model are done, especially concerning the handling of the breakthrough voltage.</p>
+<p>This record contains the model variables that are used for the resistor model in SPICE3.</p>
 </html>"));
-      end resistorInitEquations;
+      end ResistorVariables;
 
       function resistorRenameParameters "Technology parameter renaming"
 
-        input ModelcardR ex "Modelcard with technologie parameters";
+      input ModelcardR ex "Modelcard with technologie parameters";
+      input SpiceConstants con "Spice constants";
 
-        output ResistorModelLineParams intern
+      output ResistorModelLineParams intern
           "Output record with resistor model line parameters";
 
       algorithm
         intern.m_dTC1 := ex.TC1;
         intern.m_dTC2 := ex.TC2;
-        intern.m_dRsh := ex.RSH;
+
+        intern.m_dRshIsGiven := if (ex.RSH > -1e40) then 1 else 0;
+        intern.m_dRsh := if (ex.RSH > -1e40) then ex.RSH else 0;
+
         intern.m_dDefW := ex.DEFW;
         intern.m_dNarrow := ex.NARROW;
-        intern.m_dTnom := ex.TNOM + SpiceConstants.CONSTCtoK;
+        intern.m_dTnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else
+                300.15;
 
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g., N) technology parameters
@@ -8213,25 +7232,35 @@ to the internal parameters (e.g., m_emissionCoeff). It also does the analysis of
 
       function resistorRenameParametersDev "Device parameter renaming"
 
-        input SI.Resistance R "Resistance";
-        input SI.Length  W "Width";
-        input SI.Length  L "Length";
-        input SI.Temp_C TEMP "Temperature";
+        input Modelica.SIunits.Resistance R "Resistance";
+        input Modelica.SIunits.Length W "Width";
+        input Modelica.SIunits.Length L "Length";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
         input Boolean SENS_AREA
           "Parameter for sensitivity analyses, not implemented yet";
-        input ResistorModelLineParams p "Model line parameters";
 
-        output Resistor intern "Output record with resistor parameters";
+       input SpiceConstants con "Spice constants";
+
+       output ResistorParams intern "Output record with resistor parameters";
 
       algorithm
-        intern.m_dResIsGiven := if (R > -1e40) then 1 else 0;
-        intern.m_dResist := if (R > -1e40) then R else 0;
+         intern.m_dResIsGiven := if
+                                   (R > -1e40) then 1 else 0;
+         intern.m_dResist := if
+                               (R > -1e40) then R else 0;
 
-        intern.m_dWidth := if (W > -1e40) then W else p.m_dDefW;
+         intern.m_dWidthIsGiven := if
+                                     (W >-1e40) then 1 else 0;
+         intern.m_dWidth := if
+                              (W > -1e40) then W else 0;
 
-        intern.m_dLength := L;
-        intern.m_bSensResist := SENS_AREA;
-        intern.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
+         intern.m_dLengthIsGiven := if
+                                     (L >-1e40) then 1 else 0;
+         intern.m_dLength := if
+                              (L > -1e40) then L else 0;
+         intern.m_bSensResist := SENS_AREA;
+        intern.m_dTemp := if (TEMP > -1e40) then TEMP + SpiceConstants.CONSTCtoK else
+                300.15;
 
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g., AREA) device parameters
@@ -8239,52 +7268,69 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end resistorRenameParametersDev;
 
+      function resistorInitEquations "Initial calculation"
+       input ResistorParams in_p "Input record with resistor parameters";
+       input ResistorModelLineParams in_p2
+          "Input record with resistor model line parameters";
+       output ResistorVariables out "Output record with resistor variables";
+
+      algorithm
+      out.m_dWidth := in_p.m_dWidth;
+        if ( in_p.m_dResIsGiven < 0.5) then
+            if (abs(in_p.m_dLength)>1e-8) and (abs(in_p2.m_dRsh)>1e-25) then
+                if (not (in_p.m_dWidthIsGiven > 0.5)) then
+                    out.m_dWidth :=in_p2.m_dDefW;
+                end if;
+
+            (out.m_dResist) :=
+              Modelica.Electrical.Spice3.Internal.Functions.resDepGeom(
+                    in_p2.m_dRsh,
+                    out.m_dWidth,
+                    in_p.m_dLength,
+                    in_p2.m_dNarrow);
+             else
+                  out.m_dResist :=1000;
+             end if;
+        end if;
+        if
+          (in_p.m_dResist < 1e-12) and (in_p.m_dResIsGiven > 0.5) then
+            out.m_dResist :=1e-12;
+        end if;
+       if (in_p.m_dResist > 1e-12) and (in_p.m_dResIsGiven > 0.5) then
+          out.m_dResist := in_p.m_dResist;
+       end if;
+
+        annotation (Documentation(info="<html>
+<p>In this function some initial calculations for the resistor model are done, especially concerning the handling of the breakthrough voltage.</p>
+</html>"));
+      end resistorInitEquations;
+
       annotation (Documentation(info="<html>
 <p>This package Rsemiconductor contains functions and records with data of the semiconductor resistor model.</p>
 </html>"));
     end Rsemiconductor;
 
-    package Bjt "Records and functions for bjt model"
+    package Bjt3 "Records and functions for bjt model"
       extends Modelica.Icons.Package;
-
-      record Bjt "Record for bjt3 device parameters"
-
-        extends Model.Model;
-
-        Real m_area(  start = 1.0) "AREA";
-        Boolean m_bOff(  start = false) "OFF";
-        SI.Voltage m_dICvbe(start=0.0) "IC_VBE";
-        Real m_bICvbeIsGiven( start = 0.0);
-        SI.Voltage m_dICvce(start=0.0) "IC_VCE";
-        Real m_bICvceIsGiven( start = 0.0);
-        Boolean m_uic "Use initial conditions, UIC";
-        Boolean m_bSensArea( start = false) "SENS_AREA";
-
-        SI.Current m_transitTimeHighCurrentF(start = 0.0);
-        SI.InverseElectricCurrent m_invRollOffF(start=0);
-        SI.InverseElectricCurrent m_invRollOffR( start = 0);
-
-        SI.Capacitance m_CScap( start = 0);
-        annotation (Documentation(info="<html>
-<p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
-</html>"));
-      end Bjt;
 
       record BjtModelLineParams "Record for bjt model line parameters"
 
         Real m_type( start = 1) "device type : 1 = n,  -1 = p";
 
-        SI.Temp_K m_tnom(start=SpiceConstants.CKTnomTemp)
+        Boolean m_bNPN( start = true) "NPN type device";
+        Boolean m_bPNP( start = false) "PNP type device";
+        Modelica.SIunits.Temp_C m_tnom( start=SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
-        SI.Current m_satCur(start=1.0e-16) "IS, Saturation Current";
+        Modelica.SIunits.Current m_satCur( start = 1.0e-16)
+          "IS, Saturation Current";
         Real m_betaF( start = 100.0) "BF, Ideal forward beta";
         Real m_emissionCoeffF(  start = 1.0) "NF, Forward emission coefficient";
         Real m_leakBEemissionCoeff( start = 1.5)
           "NE, B-E leakage emission coefficient";
-        SI.Current m_leakBEcurrent(start=0.)
+        Modelica.SIunits.Current m_leakBEcurrent( start = 0.)
           "ISE, B-E leakage saturation current";
         Real m_c2( start = 0.) "C2, Obsolete parameter name";
-        SI.Current m_leakBCcurrent(start=0.)
+        Modelica.SIunits.Current m_leakBCcurrent( start = 0.)
           "ISC, B-C leakage saturation current";
         Real m_c4( start = 0.) "C4, Obsolete parameter name";
         Real m_leakBEcurrentIsGiven;
@@ -8295,46 +7341,57 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_emissionCoeffR( start = 1.0) "NR, Reverse emission coefficient";
         Real m_leakBCemissionCoeff( start = 2.0)
           "NC, B-C leakage emission coefficient";
-        SI.Voltage m_earlyVoltF(start=0.0) "VAF, Forward Early voltage";
-        SI.Current m_rollOffF(start=0.0)
+        Modelica.SIunits.Voltage m_earlyVoltF( start = 0.0)
+          "VAF, Forward Early voltage";
+        Modelica.SIunits.Current m_rollOffF( start = 0.0)
           "IKF, Forward beta roll-off corner current";
-        SI.Voltage m_earlyVoltR(start=0.0) "VAR, Reverse Early voltage";
-        SI.Current m_rollOffR(start=0.0)
+        Modelica.SIunits.Voltage m_earlyVoltR( start = 0.0)
+          "VAR, Reverse Early voltage";
+        Modelica.SIunits.Current m_rollOffR( start = 0.0)
           "IKR, reverse beta roll-off corner current";
-        SI.Resistance m_emitterResist(start=0.0) "RE, Emitter resistance";
-        SI.Resistance m_collectorResist(start=0.0) "RC, Collector resistance";
-        SI.Current m_baseCurrentHalfResist(start=0.0)
+        Modelica.SIunits.Resistance m_emitterResist( start = 0.0)
+          "RE, Emitter resistance";
+        Modelica.SIunits.Resistance m_collectorResist( start = 0.0)
+          "RC, Collector resistance";
+        Modelica.SIunits.Current m_baseCurrentHalfResist( start = 0.0)
           "IRB, Current for base resistance=(rb+rbm)/2";
-        SI.Resistance m_baseResist(start=0.0) "RB, Zero bias base resistance";
-        SI.Resistance m_minBaseResist(start=0.0) "RBM, Minimum base resistance";
+        Modelica.SIunits.Resistance m_baseResist( start = 0.0)
+          "RB, Zero bias base resistance";
+        Modelica.SIunits.Resistance m_minBaseResist( start = 0.0)
+          "RBM, Minimum base resistance";
         Real m_minBaseResistIsGiven;
-        SI.Capacitance m_depletionCapBE(start=0.0)
+        Modelica.SIunits.Capacitance m_depletionCapBE( start = 0.0)
           "CJE, Zero bias B-E depletion capacitance";
-        SI.Voltage m_potentialBE(start=0.75) "VJE, B-E built in potential";
+        Modelica.SIunits.Voltage m_potentialBE( start = 0.75)
+          "VJE, B-E built in potential";
         Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
-        SI.Time m_transitTimeF(start=0.0) "TF, Ideal forward transit time";
+        Modelica.SIunits.Time m_transitTimeF( start = 0.0)
+          "TF, Ideal forward transit time";
         Real m_transitTimeBiasCoeffF( start = 0.0)
           "XTF, Coefficient for bias dependence of TF";
-        SI.Current m_transitTimeHighCurrentF(start=0.0)
+        Modelica.SIunits.Current m_transitTimeHighCurrentF( start = 0.0)
           "ITF, High current dependence of TF";
-        SI.Voltage m_transitTimeFVBC(start=0.0)
+        Modelica.SIunits.Voltage m_transitTimeFVBC( start = 0.0)
           "VTF, Voltage giving VBC dependence of TF";
-        SI.Frequency m_excessPhase(start=0.0) "PTF, Excess phase";
-        SI.Capacitance m_depletionCapBC(start=0.0)
+        Modelica.SIunits.Temp_C m_excessPhase( start = 0.0) "PTF, Excess phase";
+        Modelica.SIunits.Capacitance m_depletionCapBC( start = 0.0)
           "CJC, Zero bias B-C depletion capacitance";
-        SI.Voltage m_potentialBC(start=0.75) "VJC, B-C built in potential";
+        Modelica.SIunits.Voltage m_potentialBC( start = 0.75)
+          "VJC, B-C built in potential";
         Real m_junctionExpBC( start = 0.33)
           "MJC, B-C junction grading coefficient";
         Real m_baseFractionBCcap( start = 1.0)
           "XCJC, Fraction of B-C cap to internal base";
-        SI.Time m_transitTimeR(start=0.0) "TR, Ideal reverse transit time";
-        SI.Capacitance m_capCS(start=0.0) "CJS, Zero bias C-S capacitance";
-        SI.Voltage m_potentialSubstrate(start=0.75)
+        Modelica.SIunits.Time m_transitTimeR( start = 0.0)
+          "TR, Ideal reverse transit time";
+        Modelica.SIunits.Capacitance m_capCS( start = 0.0)
+          "CJS, Zero bias C-S capacitance";
+        Modelica.SIunits.Voltage m_potentialSubstrate( start = 0.75)
           "VJS, Zero bias C-S capacitance";
         Real m_exponentialSubstrate( start = 0.0)
           "MJS, Substrate junction grading coefficient";
         Real m_betaExp( start = 0.0) "XTB, Forward and reverse beta temp. exp.";
-        SI.GapEnergy m_energyGap(start=1.11)
+        Modelica.SIunits.GapEnergy m_energyGap( start = 1.11)
           "EG, Energy gap for IS temp. dependency";
         Real m_tempExpIS( start = 3.0) "XTI,Temp. exponent for IS";
         Real m_fNcoef( start = 0.0) "KF, Flicker Noise Coefficient";
@@ -8342,222 +7399,284 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_depletionCapCoeff( start = 0.5)
           "FC, Forward bias junction fit parameter";
 
-        SI.Conductance m_collectorConduct( start = 0.0);
-        SI.Conductance m_emitterConduct( start = 0.0);
-        SI.InversePotential m_transitTimeVBCFactor( start = 0.0);
+        Real m_collectorConduct( start = 0.0);
+        Real m_emitterConduct( start = 0.0);
+        Real m_transitTimeVBCFactor( start = 0.0);
         Real m_excessPhaseFactor( start = 0.0);
-        SI.InversePotential m_invEarlyVoltF( start = 0.0);
-        SI.InverseElectricCurrent m_invRollOffF(start=0.0);
-        SI.InversePotential m_invEarlyVoltR( start = 0.0);
-        SI.InverseElectricCurrent m_invRollOffR( start = 0.0);
+        Real m_invEarlyVoltF( start = 0.0);
+        Real m_invRollOffF( start = 0.0);
+        Real m_invEarlyVoltR( start = 0.0);
+        Real m_invRollOffR( start = 0.0);
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
 </html>"));
       end BjtModelLineParams;
 
-      record BjtCalc "Bjt3 variables"
+      record BjtModelLineVariables "Record for bjt model line variables"
 
-        SI.Current m_tSatCur(start=0);
-        Real m_tBetaF( start = 1);
-        Real m_tBetaR( start = 1);
-        SI.Current m_tBEleakCur(start=1e-14);
-        SI.Current m_tBCleakCur(start=1e-14);
-        SI.Capacitance m_tBEcap( start = 0);
-        SI.Voltage m_tBEpot( start = 0.7);
-        SI.Capacitance m_tBCcap( start = 0);
-        SI.Voltage m_tBCpot( start = 0.7);
-        SI.Voltage m_tDepCapBE( start = 0.7);
-        SI.Voltage m_tDepCapBC( start = 0.7);
-        SI.Voltage m_tVcrit( start = 0.7);
-        SI.Voltage m_dVt( start = 0.025);
-        SI.Voltage m_tF1c( start = 0);
-        Real m_f2c( start = 0);
-        Real m_f3c( start = 0);
-        SI.Voltage m_tF1e( start = 0);
-        Real m_f2e( start = 0);
-        Real m_f3e( start = 0);
+        Modelica.SIunits.Current m_leakBEcurrent;
+        Modelica.SIunits.Current m_leakBCcurrent;
+        Modelica.SIunits.Resistance m_minBaseResist;
+        Real m_invEarlyVoltF;
+        Real m_invRollOffF;
+        Real m_invEarlyVoltR;
+        Real m_invRollOffR;
+        Modelica.SIunits.Conductance m_collectorConduct;
+        Modelica.SIunits.Conductance m_emitterConduct;
+        Real m_transitTimeVBCFactor;
+        Real m_excessPhaseFactor;
+
+        Integer m_type;
 
         annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+<p>This record contains the model line (also called model card) variables that are used for the bipolar transistor model in SPICE3.</p>
 </html>"));
-      end BjtCalc;
-
-      record CurrentsCapacitances "Bjt3 variables"
-
-        SI.Current iBE(start=0.0); //current through diode dE1 (ideal part)
-        SI.Current iBEN(start=0.0);//current through diode dE2 (non ideal part)
-        SI.Current iBC(start=0.0);//current through diode dC1 (ideal part)
-        SI.Current iBCN(start=0.0);//current through diode dC2 (non ideal part)
-        SI.Current iCC(start=0.0); //channel current
-        SI.Capacitance capbc(start=0.0);
-        SI.Capacitance capbe(start=0.0);
-        SI.Capacitance capbx(start=0.0);
-        SI.Capacitance captt(start=0.0);
-        SI.Capacitance capcs(start=0.0);
-        SI.Resistance rx(start=0.0);
-
-        annotation (Documentation(info="<html>
-<p>This record contains the model variables that are used for the bipoar transistor model in SPICE3.</p>
-</html>"));
-      end CurrentsCapacitances;
+      end BjtModelLineVariables;
 
       function bjtModelLineInitEquations "Initial calculation"
 
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
 
-        output BjtModelLineParams out_p
+        output BjtModelLineVariables out_v
           "Output record with Bjt model line variables";
 
-      algorithm
-        out_p := in_p;
+      protected
+        Real xfc;
 
-        if ( not (out_p.m_leakBEcurrentIsGiven > 0.5) and (out_p.m_c2IsGiven > 0.5)) then
-          out_p.m_leakBEcurrent := out_p.m_c2 * out_p.m_satCur;
+      algorithm
+        out_v.m_type := if
+                          (in_p.m_bPNP) then -1 else 1;
+
+        if ( not (in_p.m_leakBEcurrentIsGiven > 0.5) and (in_p.m_c2IsGiven > 0.5)) then
+          out_v.m_leakBEcurrent := in_p.m_c2 * in_p.m_satCur;
         end if;
-        if ( not (out_p.m_leakBCcurrentIsGiven > 0.5) and (out_p.m_c4IsGiven > 0.5)) then
-          out_p.m_leakBCcurrent := out_p.m_c4 * out_p.m_satCur;
+        if ( not (in_p.m_leakBCcurrentIsGiven > 0.5) and (in_p.m_c4IsGiven > 0.5)) then
+          out_v.m_leakBCcurrent := in_p.m_c4 * in_p.m_satCur;
         end if;
-        if (out_p.m_earlyVoltF <> 0) then
-          out_p.m_invEarlyVoltF := 1 / out_p.m_earlyVoltF;
+        if ( not (in_p.m_minBaseResistIsGiven > 0.5)) then
+          out_v.m_minBaseResist := in_p.m_baseResist;
         end if;
-        if (out_p.m_rollOffF <> 0) then
-          out_p.m_invRollOffF := 1 / out_p.m_rollOffF;
+        if (in_p.m_earlyVoltF <> 0) then
+          out_v.m_invEarlyVoltF := 1 / in_p.m_earlyVoltF;
         end if;
-        if (out_p.m_earlyVoltR <> 0) then
-          out_p.m_invEarlyVoltR := 1 / out_p.m_earlyVoltR;
+        if (in_p.m_rollOffF <> 0) then
+          out_v.m_invRollOffF := 1 / in_p.m_rollOffF;
         end if;
-        if (out_p.m_rollOffR <> 0) then
-          out_p.m_invRollOffR := 1 / out_p.m_rollOffR;
+        if (in_p.m_earlyVoltR <> 0) then
+          out_v.m_invEarlyVoltR := 1 / in_p.m_earlyVoltR;
         end if;
-        if (out_p.m_collectorResist <> 0) then
-          out_p.m_collectorConduct := 1 / out_p.m_collectorResist;
+        if (in_p.m_rollOffR <> 0) then
+          out_v.m_invRollOffR := 1 / in_p.m_rollOffR;
         end if;
-        if (out_p.m_emitterResist <> 0) then
-          out_p.m_emitterConduct := 1 / out_p.m_emitterResist;
+        if (in_p.m_collectorResist <> 0) then
+          out_v.m_collectorConduct := 1 / in_p.m_collectorResist;
         end if;
-        if (out_p.m_transitTimeFVBC <> 0) then
-          out_p.m_transitTimeVBCFactor := 1 / (out_p.m_transitTimeFVBC * 1.44);
+        if (in_p.m_emitterResist <> 0) then
+          out_v.m_emitterConduct := 1 / in_p.m_emitterResist;
         end if;
-        out_p.m_excessPhaseFactor := (out_p.m_excessPhase/(180.0/
-          Modelica.Constants.pi))*out_p.m_transitTimeF;
-        if (out_p.m_depletionCapCoeff > 0.9999) then
-          out_p.m_depletionCapCoeff := 0.9999;
+        if (in_p.m_transitTimeFVBC <> 0) then
+          out_v.m_transitTimeVBCFactor := 1 / (in_p.m_transitTimeFVBC * 1.44);
         end if;
+        out_v.m_excessPhaseFactor := (in_p.m_excessPhase / (180.0 / Modelica.Constants.pi)) * in_p.m_transitTimeF;
+
+        xfc  := Modelica.Math.log(1 - in_p.m_depletionCapCoeff);
+
         annotation (Documentation(info="<html>
 <p>Within this function some parameters are initially precalculated from model line parameters.</p>
 </html>"));
       end bjtModelLineInitEquations;
 
-      function bjtInitEquations "Initial calculation"
+      record Bjt3 "Record for bjt3 device parameters"
+        extends Model.Model;
 
-        input Bjt in_p "Input record Bjt3";
+       Real m_area(  start = 1.0) "AREA";
+       Boolean m_bOff(  start = false) "OFF";
+       Modelica.SIunits.Voltage m_dICvbe( start = 0.0) "IC_VBE";
+       Real m_bICvbeIsGiven( start = 0.0);
+       Modelica.SIunits.Voltage m_dICvce( start = 0.0) "IC_VCE";
+       Real m_bICvceIsGiven( start = 0.0);
+       Boolean m_bSensArea( start = false) "SENS_AREA";
+
+        Real m_transitTimeHighCurrentF(start = 0.0);
+        Real m_invRollOffF( start = 0);
+        Real m_invRollOffR( start = 0);
+
+        annotation (Documentation(info="<html>
+<p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
+</html>"));
+      end Bjt3;
+
+      record Bjt3Variables "Variables for the bjt3 model"
+
+        Modelica.SIunits.Current m_transitTimeHighCurrentF( start = 0.0);
+        Real m_invRollOffF( start = 0.0);
+        Real m_invRollOffR( start = 0.0);
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipoar transistor bjt3 model in SPICE3.</p>
+</html>"));
+      end Bjt3Variables;
+
+      record Bjt3Calc "Bjt3 variables"
+
+        Modelica.SIunits.Current m_tSatCur = 0;
+        Real m_tBetaF = 1;
+        Real m_tBetaR = 1;
+        Modelica.SIunits.Current m_tBEleakCur = 1e-14;
+        Modelica.SIunits.Current m_tBCleakCur = 1e-14;
+        Real m_tBEcap = 0;
+        Real m_tBEpot = 0.7;
+        Real m_tBCcap = 0;
+        Real m_tBCpot = 0.7;
+        Real m_tDepCapBE = 0.7;
+        Real m_tDepCapBC = 0.7;
+        Real m_tVcrit = 0.7;
+        Real m_dVt = 0.25;
+        Real m_tF1c = 0;
+        Real m_f2c = 0;
+        Real m_f3c = 0;
+        Real m_tF1e = 0;
+        Real m_f2e = 0;
+        Real m_f3e = 0;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+</html>"));
+      end Bjt3Calc;
+
+      record CurrentsCapacitances "Bjt3 variables"
+
+        Modelica.SIunits.Current iBE( start = 0.0);  //current through diode dE1 (ideal part)
+        Modelica.SIunits.Current iBEN( start = 0.0); //current through diode dE2 (non ideal part)
+        Modelica.SIunits.Current iBC( start = 0.0); //current through diode dC1 (ideal part)
+        Modelica.SIunits.Current iBCN( start = 0.0); //current through diode dC2 (non ideal part)
+        Modelica.SIunits.Current iCC( start = 0.0);  //channel current
+        Modelica.SIunits.Current capbc( start = 0.0);
+        Modelica.SIunits.Capacitance capbe( start = 0.0);
+        Modelica.SIunits.Capacitance capbx( start = 0.0);
+        Real iXX( start = 0.0);
+        Modelica.SIunits.Capacitance capcs( start = 0.0);
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipoar transistor model in SPICE3.</p>
+</html>"));
+      end CurrentsCapacitances;
+
+      function bjt3InitEquations "Initial calculation"
+
+        input Bjt3 in_p "Input record Bjt3";
         input BjtModelLineParams in_pml
           "Input record with Bjt model line parameters";
-
-        output Bjt out_v "Output record with Bjt";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
+        output Bjt3Variables out_v "Output record with Bjt variables";
 
       algorithm
-        out_v := in_p;
-
         // calculate the parameters that depend on the area factor
-        out_v.m_transitTimeHighCurrentF := in_pml.m_transitTimeHighCurrentF * out_v.m_area;
-        out_v.m_invRollOffF             := in_pml.m_invRollOffF / out_v.m_area;
-        out_v.m_invRollOffR             := in_pml.m_invRollOffR / out_v.m_area;
-        out_v.m_CScap                   := in_pml.m_capCS * out_v.m_area;
+        out_v.m_transitTimeHighCurrentF := in_pml.m_transitTimeHighCurrentF * in_p.m_area;
+        out_v.m_invRollOffF             := in_vl.m_invRollOffF / in_p.m_area;
+        out_v.m_invRollOffR             := in_vl.m_invRollOffR / in_p.m_area;
 
         annotation (Documentation(info="<html>
 <p>Within this function some parameters are initially precalculated from model line parameters.</p>
 </html>"));
-      end bjtInitEquations;
+      end bjt3InitEquations;
 
-      function bjtCalcTempDependencies "Temperature dependency calculation"
+      function bjt3CalcTempDependencies "Temperature dependency calculation"
 
-        input Bjt in_p3 "Input record Bjt3";
+        input Bjt3 in_p3 "Input record Bjt3";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
+        input Model.Model m "Input record model";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
 
-        output BjtCalc out_c "Output record Bjt3Calc";
+        output Bjt3Calc out_c "Output record Bjt3Calc";
 
       protected
+        Real xfc;
+        Real gmanew;
         Real fact1;
+        Modelica.SIunits.Voltage vt;
         Real fact2;
-        SI.Voltage vt;
-        SI.GapEnergy egfet;
-        SI.GapEnergyPerEnergy arg;
-        SI.Voltage pbfact;
+        Real egfet;
+        Real arg;
+        Real pbfact;
         Real ratlog;
         Real ratio1;
         Real factlog;
         Real factor;
         Real bfactor;
-        SI.Voltage pbo;
-        Real gmanew;
+        Real pbo;
         Real gmaold;
-
       algorithm
+
         fact1 := in_p.m_tnom/SpiceConstants.REFTEMP;
-        vt    := in_p3.m_dTemp*SpiceConstants.CONSTKoverQ;
-        fact2 := in_p3.m_dTemp/SpiceConstants.REFTEMP;
+        vt := m.m_dTemp*SpiceConstants.CONSTKoverQ;
+        fact2 := m.m_dTemp/SpiceConstants.REFTEMP;
 
-        egfet := MaterialParameters.EnergyGapSi - (MaterialParameters.FirstBandCorrFactorSi * in_p3.m_dTemp * in_p3.m_dTemp)
-                 / (in_p3.m_dTemp + MaterialParameters.SecondBandCorrFactorSi);
+        egfet  := 1.16 - (7.02e-4 * m.m_dTemp * m.m_dTemp) / (m.m_dTemp + 1108);
 
-        arg   := -egfet/(2*SpiceConstants.CONSTboltz*in_p3.m_dTemp) + MaterialParameters.BandCorrFactorT300/(SpiceConstants.CONSTboltz
-          *(SpiceConstants.REFTEMP + SpiceConstants.REFTEMP));
-        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + SpiceConstants.CHARGE * arg);
+        arg := -egfet/(2*Modelica.Constants.k*m.m_dTemp) + 1.1150877/(
+          Modelica.Constants.k*(SpiceConstants.REFTEMP + SpiceConstants.REFTEMP));
+        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + SpiceConstants.CHARGE*
+          arg);
 
-        ratlog  := Modelica.Math.log(in_p3.m_dTemp/in_p.m_tnom);
-        ratio1  := in_p3.m_dTemp / in_p.m_tnom - 1;
+        ratlog  := Modelica.Math.log( m.m_dTemp / in_p.m_tnom);
+        ratio1  := m.m_dTemp / in_p.m_tnom - 1;
         factlog := ratio1 * in_p.m_energyGap / vt + in_p.m_tempExpIS * ratlog;
         factor  := exp( factlog);
         bfactor := exp(ratlog * in_p.m_betaExp);
-        pbo     := (in_p.m_potentialBE - pbfact) / fact1;
-        gmaold  := (in_p.m_potentialBE - pbo) / pbo;
+        pbo    := (in_p.m_potentialBE - pbfact) / fact1;
+        gmaold := (in_p.m_potentialBE - pbo) / pbo;
 
         out_c.m_tSatCur    := in_p.m_satCur * factor * in_p3.m_area;
         out_c.m_tBetaF     := in_p.m_betaF * bfactor;
         out_c.m_tBetaR     := in_p.m_betaR * bfactor;
-        out_c.m_tBEleakCur := in_p.m_leakBEcurrent * exp(factlog / in_p.m_leakBEemissionCoeff) / bfactor
+        out_c.m_tBEleakCur := in_vl.m_leakBEcurrent * exp(factlog / in_p.m_leakBEemissionCoeff) / bfactor
                               * in_p3.m_area;
-        out_c.m_tBCleakCur := in_p.m_leakBCcurrent * exp(factlog / in_p.m_leakBCemissionCoeff) / bfactor
+        out_c.m_tBCleakCur := in_vl.m_leakBCcurrent * exp(factlog / in_p.m_leakBCemissionCoeff) / bfactor
                               * in_p3.m_area;
 
-        out_c.m_tBEcap := in_p.m_depletionCapBE/(1 + in_p.m_junctionExpBE*(4e-4*(
-                          in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
+        out_c.m_tBEcap := in_p.m_depletionCapBE/(1 + in_p.m_junctionExpBE*(4e-4
+          *(in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
         out_c.m_tBEpot := fact2 * pbo + pbfact;
 
         gmanew := (out_c.m_tBEpot - pbo) / pbo;
 
-        out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(in_p3.m_dTemp
-                          - SpiceConstants.REFTEMP) - gmanew));
+        out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(m.m_dTemp
+           - SpiceConstants.REFTEMP) - gmanew));
 
         pbo    := (in_p.m_potentialBC - pbfact) / fact1;
         gmaold := (in_p.m_potentialBC - pbo) / pbo;
 
-        out_c.m_tBCcap := in_p.m_depletionCapBC/(1 + in_p.m_junctionExpBC*(4e-4*(
-                          in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
+        out_c.m_tBCcap := in_p.m_depletionCapBC/(1 + in_p.m_junctionExpBC*(4e-4
+          *(in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
         out_c.m_tBCpot := fact2 * pbo + pbfact;
 
         gmanew := (out_c.m_tBCpot - pbo) / pbo;
 
-        out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(in_p3.m_dTemp
-                          - SpiceConstants.REFTEMP) - gmanew));
+        out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(m.m_dTemp
+           - SpiceConstants.REFTEMP) - gmanew));
 
         out_c.m_tDepCapBE := in_p.m_depletionCapCoeff * out_c.m_tBEpot;
         out_c.m_tDepCapBC := in_p.m_depletionCapCoeff * out_c.m_tBCpot;
-        out_c.m_tVcrit    := vt*Modelica.Math.log(vt/(SpiceConstants.CONSTroot2*in_p.m_satCur));
+        xfc               := Modelica.Math.log( 1 - in_p.m_depletionCapCoeff);
+        out_c.m_tVcrit := vt*Modelica.Math.log(vt/(SpiceConstants.CONSTroot2*in_p.m_satCur));
         out_c.m_dVt       := vt;
 
         // calculate the parameters that depend on the area factor
         out_c.m_tBEcap := out_c.m_tBEcap * in_p3.m_area;
         out_c.m_tBCcap := out_c.m_tBCcap * in_p3.m_area;
-        (out_c.m_tF1c,out_c.m_f2c,out_c.m_f3c) := Functions.junctionCapCoeffs(
+        (out_c.m_tF1c,out_c.m_f2c,out_c.m_f3c) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_junctionExpBC,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tBCpot);
-        (out_c.m_tF1e,out_c.m_f2e,out_c.m_f3e) := Functions.junctionCapCoeffs(
+        (out_c.m_tF1e,out_c.m_f2e,out_c.m_f3e) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_junctionExpBE,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tBEpot);
@@ -8565,81 +7684,84 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         annotation (Documentation(info="<html>
 <p>In this function for the bipolar transistor model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
 </html>"));
-      end bjtCalcTempDependencies;
+      end bjt3CalcTempDependencies;
 
-      function bjtNoBypassCode "Calculation of currents"
+      function bjt3NoBypassCode "Calculation of currents"
 
+        input Model.Model in_m "Input record model";
         input Bjt in_p3 "Input record Bjt3";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
-        input BjtCalc in_c "Input record Bjt3Calc";
-        input SI.Voltage[6] in_m_pVoltageValues;
-                                                               /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
+        input Bjt3Calc in_c "Input record Bjt3Calc";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
+        input Modelica.SIunits.Voltage[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
         input Boolean in_m_bInit;
 
         output CurrentsCapacitances out_cc
           "Output record with calculated currents and capacitances";
 
-      protected
-        SI.Voltage vce;
-        SI.Voltage vbe;
-        SI.Voltage vbx;
-        SI.Voltage vbc;
-        SI.Conductance gbe;
-        SI.Current cbe;
-        SI.Conductance gbc;
-        SI.Current cbc;
-        SI.Conductance gben;
-        SI.Current cben;
-        SI.Conductance gbcn;
-        SI.Current cbcn;
-        SI.Current cjbe;
-        SI.Current cjbc;
-        Real dqbdve;
-        Real dqbdvc;
-        Real qb;
-        Real q1;
-        Real q2;
-        Real arg;
-        Real sqarg;
-        Real cc;
-        SI.Current cex;
-        SI.Conductance gex;
-        SI.Time ttime;
-        Real step;
-        Real laststep;
-        SI.Current bcex0;
-        SI.Current bcex1;
-        Real arg1;
-        Real arg2;
-        Real denom;
-        Real arg3;
-        Real rbpr;
-        Real rbpi;
-        Real gx;
-        Real xjrb;
-        Real go;
-        Real gm;
-        SI.Capacitance captt;
-        SI.Charge chargebe;
-        SI.Charge chargebc;
-        SI.Charge chargebx;
-        Real argtf;
-        Real exponent;
-        SI.Temp_K temp;
+        output Modelica.SIunits.Capacitance capbe "Capacitance";
+        output Modelica.SIunits.Capacitance capbc "Capacitance";
+        output Modelica.SIunits.Capacitance capbx "Capacitance";
 
-        Real aux1;
-        Real aux2;
-        SI.Charge chargecs;
-        SI.Voltage vcs;
-        Real sarg;
+      protected
+        Modelica.SIunits.Voltage vce;
+        Modelica.SIunits.Voltage vbe;
+        Modelica.SIunits.Voltage vbx;
+        Modelica.SIunits.Voltage vbc;
+        Modelica.SIunits.Conductance gbe;
+        Modelica.SIunits.Current cbe;
+        Modelica.SIunits.Conductance gbc;
+        Modelica.SIunits.Current cbc;
+        Modelica.SIunits.Conductance gben;
+        Modelica.SIunits.Current cben;
+        Modelica.SIunits.Conductance gbcn;
+        Modelica.SIunits.Current cbcn;
+        Modelica.SIunits.Current cjbe;
+        Modelica.SIunits.Current cjbc;
+          Real dqbdve;
+          Real dqbdvc;
+          Real qb;
+          Real q1;
+          Real q2;
+          Real arg;
+          Real sqarg;
+          Real cc;
+        Modelica.SIunits.Current cex;
+        Modelica.SIunits.Conductance gex;
+        Modelica.SIunits.Time ttime;
+          Real step;
+          Real laststep;
+        Modelica.SIunits.Current bcex0;
+        Modelica.SIunits.Current bcex1;
+          Real arg1;
+          Real arg2;
+          Real denom;
+          Real arg3;
+          Real rbpr;
+          Real rbpi;
+          Real gx;
+          Real xjrb;
+          Real go;
+          Real gm;
+        Real captt;
+        Modelica.SIunits.Charge chargebe;
+        Modelica.SIunits.Charge chargebc;
+        Modelica.SIunits.Charge chargebx;
+          Real argtf;
+          Real exponent;
+        Modelica.SIunits.Temp_K temp;
+
+          Real aux1;
+          Real aux2;
 
       algorithm
         vce := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[6]); // ( ColP, EmitP);
         vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
         vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
 
-        if (in_p3.m_uic) then
+        if (SpiceRoot.useInitialConditions()) then
           if (in_p3.m_bICvbeIsGiven > 0.5) then
             vbe := in_p.m_type * in_p3.m_dICvbe;
           end if;
@@ -8661,44 +7783,51 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         vbc := vbe - vce;
 
-        // junction current
-        (cbe,gbe,cben,gben) := Functions.junction2SPICE3BJT(
+          // junction current
+        (cbe,gbe) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
                 vbe,
-                in_p3.m_dTemp,
+                in_m.m_dTemp,
                 in_p.m_emissionCoeffF,
+                in_c.m_tSatCur);
+
+        out_cc.iBE   := in_p.m_type * cbe / in_c.m_tBetaF;
+        (cben,gben) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
+                vbe,
+                in_m.m_dTemp,
                 in_p.m_leakBEemissionCoeff,
-                in_c.m_tSatCur,
                 in_c.m_tBEleakCur);
-        out_cc.iBE  := in_p.m_type * cbe / in_c.m_tBetaF;
-        out_cc.iBEN := in_p.m_type * cben;
-        (cbc,gbc,cbcn,gbcn) := Functions.junction2SPICE3BJT(
+        out_cc.iBEN  := in_p.m_type * cben;
+        (cbc,gbc) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
                 vbc,
-                in_p3.m_dTemp,
+                in_m.m_dTemp,
                 in_p.m_emissionCoeffR,
+                in_c.m_tSatCur);
+        out_cc.iBC   := in_p.m_type * cbc / in_c.m_tBetaR;
+        (cbcn,gbcn) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
+                vbc,
+                in_m.m_dTemp,
                 in_p.m_leakBCemissionCoeff,
-                in_c.m_tSatCur,
                 in_c.m_tBCleakCur);
-        out_cc.iBC  := in_p.m_type * cbc / in_c.m_tBetaR;
-        out_cc.iBCN := in_p.m_type * cbcn;
-        cjbe        := cbe / in_c.m_tBetaF + cben;
-        cjbc        := cbc / in_c.m_tBetaR + cbcn;
+        out_cc.iBCN  := in_p.m_type * cbcn;
+        cjbe         := cbe / in_c.m_tBetaF + cben;
+        cjbc         := cbc / in_c.m_tBetaR + cbcn;
 
         // determine base charge terms
         q1 := 1.0/(1.0 - in_p.m_invEarlyVoltF * vbc - in_p.m_invEarlyVoltR * vbe);
-        if (in_p.m_invRollOffF == 0 and in_p.m_invRollOffR == 0) then
+        if (in_vl.m_invRollOffF == 0 and in_vl.m_invRollOffR == 0) then
           qb     := q1;
           dqbdve := q1*qb*in_p.m_invEarlyVoltR;
           dqbdvc := q1*qb*in_p.m_invEarlyVoltF;
         else
-          q2    := in_p.m_invRollOffF*cbe + in_p.m_invRollOffR*cbc;
+          q2    := in_vl.m_invRollOffF*cbe + in_vl.m_invRollOffR*cbc;
           arg   := max( 0.0, 1+4*q2);
           sqarg := 1;
           if (arg <> 0) then
             sqarg := sqrt(arg);
           end if;
           qb     := q1*(1+sqarg)/2;
-          dqbdve := q1*(qb*in_p.m_invEarlyVoltR + in_p.m_invRollOffF*gbe/sqarg);
-          dqbdvc := q1*(qb*in_p.m_invEarlyVoltF + in_p.m_invRollOffR*gbc/sqarg);
+          dqbdve := q1*(qb*in_p.m_invEarlyVoltR + in_vl.m_invRollOffF*gbe/sqarg);
+          dqbdvc := q1*(qb*in_p.m_invEarlyVoltF + in_vl.m_invRollOffR*gbc/sqarg);
         end if;
 
         // determine dc incremental conductances - Weil's approximation
@@ -8706,7 +7835,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         cex   := cbe;
         gex   := gbe;
         ttime := 1;
-        if ((in_p.m_excessPhaseFactor <> 0) and (ttime > 0.0)) then
+        if ((in_vl.m_excessPhaseFactor <> 0) and (ttime > 0.0)) then
           step     :=0;
           laststep :=1;
           bcex0    :=0;
@@ -8716,7 +7845,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                bcex0 := bcex1;
 
           end if;
-          arg1  := step / in_p.m_excessPhaseFactor;
+          arg1  := step / in_vl.m_excessPhaseFactor;
           arg2  := 3 * arg1;
           arg1  := arg2 * arg1;
           denom := 1 + arg1 + arg2;
@@ -8730,22 +7859,19 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         cc := cc+(cex-cbc)/qb;
 
         // resistances
-        rbpr := in_p.m_minBaseResist / in_p3.m_area;
+        rbpr := in_vl.m_minBaseResist / in_p3.m_area;
         rbpi := in_p.m_baseResist / in_p3.m_area-rbpr;
         gx   := rbpr + rbpi / qb;
         xjrb := in_p.m_baseCurrentHalfResist * in_p3.m_area;
         if (xjrb <> 0) then
           arg1 := max( (cjbe + cjbc) / xjrb, 1e-9);
-          arg2 := (-1 + sqrt( 1 + 14.59025 * arg1)) / 2.4317 / sqrt( arg1); // z s. Gl. (11-44a)
+          arg2 := (-1 + sqrt( 1 + 14.59025 * arg1)) / 2.4317 / sqrt( arg1);
           arg1 := tan(arg2);
           gx   := rbpr + 3 * rbpi * (arg1-arg2) / arg2 / arg1 / arg1;
         end if;
-        // keine if-Abfrage falls gx als Widerstand in Top_level genutzt wird !!!
-        // ----------------------------------------------------------------------
         if (gx <> 0) then
           gx := 1 / gx;
         end if;
-        out_cc.rx := gx;
 
         // determine dc incremental conductances
         go := (gbc+(cex-cbc)*dqbdvc/qb)/qb;
@@ -8760,8 +7886,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           arg3  := 0.0;
           if (in_p.m_transitTimeBiasCoeffF <> 0.0) then
             argtf := in_p.m_transitTimeBiasCoeffF;
-            if (in_p.m_transitTimeVBCFactor <> 0.0) then
-              exponent := min( 50., vbc * in_p.m_transitTimeVBCFactor);
+            if (in_vl.m_transitTimeVBCFactor <> 0.0) then
+              exponent := min( 50., vbc * in_vl.m_transitTimeVBCFactor);
               argtf    := argtf * exp( exponent);
             end if;
               arg2 := argtf;
@@ -8770,15 +7896,14 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                 argtf := argtf * temp * temp;
                 arg2  := argtf * (3-temp-temp);
               end if;
-              arg3 := cbe * argtf * in_p.m_transitTimeVBCFactor;
+              arg3 := cbe * argtf * in_vl.m_transitTimeVBCFactor;
           end if;
           cbe   := cbe * (1 + argtf) / qb;
           gbe   := (gbe * (1 + arg2) - cbe * dqbdve) / qb;
           captt := in_p.m_transitTimeF * (arg3 - cbe * dqbdvc) / qb;
         end if;
-        out_cc.captt := captt; // (BaseP, ColP)
-
-        (out_cc.capbe,chargebe) := Functions.junctionCapTransTime(
+        (capbe,chargebe) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
                 in_c.m_tBEcap,
                 vbe,
                 in_c.m_tDepCapBE,
@@ -8791,8 +7916,10 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                 gbe,
                 cbe);
 
+        out_cc.iXX        := 0;
         aux1 := in_c.m_tBCcap*in_p.m_baseFractionBCcap;
-        (out_cc.capbc,chargebc) := Functions.junctionCapTransTime(
+        (capbc,chargebc) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
                 aux1,
                 vbc,
                 in_c.m_tDepCapBC,
@@ -8806,7 +7933,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                 cbc);
 
         aux2:= in_c.m_tBCcap*(1. - in_p.m_baseFractionBCcap);
-        (out_cc.capbx,chargebx) := Functions.junctionCap(
+        (capbx,chargebx) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
                 aux2,
                 vbx,
                 in_c.m_tDepCapBC,
@@ -8816,43 +7944,125 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                 in_c.m_f2c,
                 in_c.m_f3c);
 
-        out_cc.capcs := 0;
+        annotation (Documentation(info="<html>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
+</html>"));
+      end bjt3NoBypassCode;
+
+      record Bjt "Record for bjt device parameters"
+        extends Bjt3;
+        annotation (Documentation(info="<html>
+<p>This record contains the device parameters that are used for the bipolar transistor bjt model in SPICE3.</p>
+</html>"));
+      end Bjt;
+
+      record BjtVariables "Variables for the bjt model"
+        extends Bjt3Variables;
+
+        Real m_CScap;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipoar transistor bjt model in SPICE3.</p>
+</html>"));
+      end BjtVariables;
+
+      function bjtInitEquations "Initial calculation"
+
+        input Bjt in_p "Input record Bjt";
+        input BjtModelLineParams in_pml
+          "Input record with Bjt model line parameters";
+        input BjtModelLineVariables in_vl
+          "Input record with Bjt model line variables";
+        output BjtVariables out_v "Output record with Bjt variables";
+
+      protected
+        Bjt3Variables v3 "Record with Bjt variables";
+
+      algorithm
+        v3 := bjt3InitEquations(in_p, in_pml, in_vl);
+        // calculate the parameters that depend on the area factor
+        out_v.m_CScap := in_pml.m_capCS * in_p.m_area;
+
+        annotation (Documentation(info="<html>
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+</html>"));
+      end bjtInitEquations;
+
+      function bjtNoBypassCode "Calculation of currents"
+
+        input Model.Model in_m "Input record model";
+        input Bjt3 in_p3 "Input record Bjt3";
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+        input Bjt3Calc in_c "Input record Bjt3Calc";
+        input BjtVariables in_v "Input record with Bjt variables";
+        input BjtModelLineVariables in_vl;
+        input Modelica.SIunits.Voltage[6] in_m_pVoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 Subst; 5 ColP; 6 BaseP; 7 EmitP */
+
+        input Boolean in_m_bInit;
+
+        output CurrentsCapacitances out_cc
+          "Output record with calculated currents and capacitances";
+
+        output Modelica.SIunits.Capacitance capbe "Capacitance";
+        output Modelica.SIunits.Capacitance capbc "Capacitance";
+        output Modelica.SIunits.Capacitance capbx "Capacitance";
+      protected
+        Modelica.SIunits.Voltage[6] bjt3_VoltageValues; /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
+        Integer i;
+        Modelica.SIunits.Capacitance capcs;
+        Modelica.SIunits.Charge chargecs;
+        Modelica.SIunits.Voltage vcs;
+        Real arg;
+        Real sarg;
+
+      algorithm
+        // Bjt3 has got only 6 pins, therefore new vector VoltageValues
+        for i in 1:3 loop
+          bjt3_VoltageValues[i] := in_m_pVoltageValues[i];
+        end for;
+        for i in 4:6 loop
+          bjt3_VoltageValues[i] := in_m_pVoltageValues[i];
+        end for;
+
+        (out_cc, capbe, capbc, capbx)   := bjt3NoBypassCode(in_m, in_p3, in_p, in_c, in_vl, bjt3_VoltageValues,
+                     in_m_bInit);
+        capcs    := 0;
         chargecs := 0;
         vcs      := in_p.m_type * (0- in_m_pVoltageValues[4]); // ( Subst,  ColP);
         if (vcs < 0) then
-          arg          := 1 - vcs / in_p.m_potentialSubstrate;
-          sarg := exp(-in_p.m_exponentialSubstrate*Modelica.Math.log(
-            arg));
-          out_cc.capcs := in_p3.m_CScap * sarg;
-          chargecs     := in_p.m_potentialSubstrate * in_p3.m_CScap *
-                         (1-arg*sarg)/(1-in_p.m_exponentialSubstrate);
+          arg      := 1 - vcs / in_p.m_potentialSubstrate;
+          sarg     := exp( -in_p.m_exponentialSubstrate * Modelica.Math.log( arg));
+          capcs    := in_v.m_CScap * sarg;
+          chargecs := in_p.m_potentialSubstrate * in_v.m_CScap *
+                      (1-arg*sarg)/(1-in_p.m_exponentialSubstrate);
         else
-          out_cc.capcs := in_p3.m_CScap * (1 + in_p.m_exponentialSubstrate * vcs / in_p.m_potentialSubstrate);
-          chargecs     := vcs * in_p3.m_CScap *(1+in_p.m_exponentialSubstrate*vcs/
+          capcs    := in_v.m_CScap * (1 + in_p.m_exponentialSubstrate * vcs / in_p.m_potentialSubstrate);
+          chargecs := vcs * in_v.m_CScap *(1+in_p.m_exponentialSubstrate*vcs/
                                        (2*in_p.m_potentialSubstrate));
         end if;
 
-        annotation (smoothOrder(normallyConstant=in_p3)=1,Documentation(info="<html>
+        annotation (Documentation(info="<html>
 <p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
 </html>"));
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming"
-
         input ModelcardBJT ex "Modelcard with technologie parameters";
-        input Real TBJT;
+        input SpiceConstants con "Spice constants";
 
         output BjtModelLineParams intern
           "Output record with Bjt model line parameters";
-
       algorithm
+
         intern.m_satCur := ex.IS;
         intern.m_betaF := ex.BF;
         intern.m_emissionCoeffF := ex.NF;
         intern.m_leakBEemissionCoeff := ex.NE;
 
         intern.m_leakBEcurrentIsGiven := if (ex.ISE > -1e40) then 1 else 0;
-        intern.m_leakBEcurrent := if (ex.ISE > -1e40) then ex.ISE else 0;
+        intern.m_leakBEcurrent := if
+                                    (ex.ISE > -1e40) then ex.ISE else 0;
 
         intern.m_c2IsGiven := if (ex.C2 > -1e40) then 1 else 0;
         intern.m_c2 := if (ex.C2 > -1e40) then ex.C2 else 0;
@@ -8874,7 +8084,10 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         intern.m_collectorResist := ex.RC;
         intern.m_baseCurrentHalfResist := ex.IRB;
         intern.m_baseResist := ex.RB;
-        intern.m_minBaseResist := if (ex.RBM > -1e40) then ex.RBM else intern.m_baseResist;
+
+        intern.m_minBaseResistIsGiven := if (ex.RBM > -1e40) then 1 else 0;
+        intern.m_minBaseResist := if (ex.RBM > -1e40) then ex.RBM else 0;
+
         intern.m_depletionCapBE :=ex.CJE;
         intern.m_potentialBE :=ex.VJE;
         intern.m_junctionExpBE := ex.MJE;
@@ -8897,29 +8110,26 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         intern.m_fNcoef := ex.KF;
         intern.m_fNexp := ex.AF;
         intern.m_depletionCapCoeff :=ex.FC;
-        intern.m_tnom := ex.TNOM + SpiceConstants.CONSTCtoK;
-
-        intern.m_type := TBJT;
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15;
 
         annotation (Documentation(info="<html>
-<p>This function assigns the external (given by the user, e.g. IS) technology parameters</p>
-<p>to the internal parameters (e.g. m_satCur). It also does the analysis of the IsGiven values.</p>
+<p>This function assigns the external (given by the user, e.g., IS) technology parameters
+to the internal parameters (e.g., m_satCur). It also does the analysis of the IsGiven values.</p>
 </html>"));
       end bjtRenameParameters;
 
       function bjtRenameParametersDev "Temperature calculation"
-
-        input Real AREA "Area factor";
-        input Boolean OFF
+       input Real AREA "Area factor";
+       input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
-        input SI.Voltage IC_VBE "Initial condition value, not yet implemented";
-        input SI.Voltage IC_VCE "Initial condition value, not yet implemented";
-        input Boolean UIC "Use initial conditions, UIC";
-        input Boolean SENS_AREA
+       input Modelica.SIunits.Voltage IC_VBE
+          "Initial condition value, not yet implemented";
+       input Modelica.SIunits.Voltage IC_VCE
+          "Initial condition value, not yet implemented";
+       input Boolean SENS_AREA
           "Flag for sensitivity analysis, not yet implemented";
-        input SI.Temp_C TEMP "Temperature";
 
-        output Bjt dev "Output record Bjt3";
+       output Bjt3 dev "Output record Bjt3";
 
       algorithm
         dev.m_area := AREA;
@@ -8931,628 +8141,48 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         dev.m_bICvceIsGiven := if (IC_VCE > -1e40) then 1 else 0;
         dev.m_dICvce := if (IC_VCE > -1e40) then IC_VCE else 0;
 
-        dev.m_uic := UIC;
         dev.m_bSensArea := SENS_AREA;
-        dev.m_dTemp := TEMP + SpiceConstants.CONSTCtoK "Device temperature";
+
         annotation (Documentation(info="<html>
-<p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
-<p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+<p>This function assigns the external (given by the user, e.g., AREA) device parameters to the internal parameters (e.g., m_area). It also does the analysis of the IsGiven values.</p>
 </html>"));
       end bjtRenameParametersDev;
+
+      function bjtRenameParametersDevTemp "Temperature calculation"
+       input Modelica.SIunits.Temp_C TEMP "Temperature";
+
+      output Model.Model m "Output record model";
+      algorithm
+
+       m.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK;
+
+        annotation (Documentation(info="<html>
+<p>This function calculates device parameters wehich are temperature dependent.</p>
+</html>"));
+      end bjtRenameParametersDevTemp;
+
+      function bjtRenameParametersType "Type"
+
+       input Real TBJT "Type";
+       output BjtModelLineParams dev_type "Outputrecord Bjt3";
+      algorithm
+        dev_type.m_type := TBJT;
+
+        annotation (Documentation(info="<html>
+<p>This function assigns the external (given by the user, e.g. AREA) device parameters to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+</html>"));
+      end bjtRenameParametersType;
 
       annotation (Documentation(info="<html>
 <p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
 </html>"));
-    end Bjt;
-
-    package FET
-      record Fet "Record for Fet parameters"
-        extends Model.Model;
-
-        Real m_area(start = 1.0) "AREA, Area factor";
-        Boolean m_off(start = false) "OFF, Device initially off";
-        SI.Voltage m_dICVDS(start = 0.0) "IC_VDS";
-        Real m_bICVDSIsGiven "IC_VDS, IsGivenValue";
-        SI.Voltage m_dICVGS(start = 0.0) "IC_VGS";
-        Real m_bICVGSIsGiven "IC_VGS, IsGivenValue";
-        Boolean m_uic "Use initial conditions, UIC";
-
-        SI.Current m_tSatCur(start = 0);
-        SI.Voltage m_tGatePot(start = 0);
-        SI.Capacitance m_tCGS(start = 0);
-        SI.Capacitance m_tCGD(start = 0);
-        SI.Voltage m_corDepCap(start = 0);
-        SI.Voltage m_vcrit(start = 0);
-        SI.Voltage m_f1(start = 0);
-        Real m_f2(start = 0);
-        Real m_f3(start = 0);
-        SI.Voltage m_dVt(start = 0);
-
-        SI.Voltage m_vgs "Vgs, Voltage G-S";
-        SI.Voltage m_vgd "Vgd, Voltage G-D";
-        SI.Voltage m_vds "Vds";
-        SI.Current m_cgd "Igd";
-        SI.Conductance m_ggd "Ggd";
-        SI.Current m_cgs "Igs";
-        SI.Conductance m_ggs "Ggs";
-        SI.Charge m_chargegd "Qgd";
-        SI.Capacitance m_capgd "Cgd, G-D junction cap";
-        SI.Charge m_chargegs "Qgs";
-        SI.Capacitance m_capgs "Cgs, G-S junction capactance";
-        SI.Current m_cdrain "Idrain";
-        SI.Conductance m_gm "Gm";
-        SI.Conductance m_gds "Gds";
-
-      /*
-Fet::Fet( const String& modelname, const String& elementname)
-        : Model( modelname, elementname), m_pModel( NULL)
-{
-   AddParameter( "AREA", m_area, 1.);//Area factor
-   AddParameter( "OFF", m_off, false);//Device initially off
-   m_bICVDSValue = AddParameter( "IC_VDS", m_dICVDS, 0.0)->Alias( "IC_1")->Alias( "IC");
-   m_bICVGSValue = AddParameter( "IC_VGS", m_dICVGS, 0.0)->Alias( "IC_2");
-   
-   m_tSatCur = 0.;
-   m_tGatePot = 0.;
-   m_tCGS = 0.;
-   m_tCGD = 0.;
-   m_corDepCap = 0.;
-   m_vcrit = 0.;
-   m_f1   = 0.;
-   m_f2 = 0.;
-   m_f3 = 0.;
-   m_dVt = 0.0;
-   
-   AddValue( "Vgs", m_vgs);//Voltage G-S
-   AddValue( "Vgd", m_vgd);//Voltage G-D
-   AddValue( "Vds", m_vds);
-   AddValue( "Igd", m_cgd);
-   AddValue( "Ggd", m_ggd);
-   AddValue( "Igs", m_cgs);
-   AddValue( "Ggs", m_ggs);
-   AddValue( "Qgd", m_chargegd);
-   AddValue( "Cgd", m_capgd);//G-D junction cap
-   AddValue( "Qgs", m_chargegs);
-   AddValue( "Cgs", m_capgs);//G-S junction capactance
-   AddValue( "Idrain", m_cdrain);
-   AddValue( "Gm", m_gm);
-   AddValue( "Gds", m_gds);
-}
-
-*/
-        annotation (Documentation(info="<html>
-<p>This record contains the device parameters that are used for the junction gate field-effect transistor jfet model in SPICE3.</p>
-</html>"));
-      end Fet;
-
-      record FetModelLine "Record for Fet model line parameters"
-
-        SI.Voltage m_threshold(start = -2.0) "VTO";
-        Real m_beta(start = 1e-4) "BETA";
-        SI.InversePotential m_lModulation(start = 0.0) "LAMBDA";
-        SI.Resistance m_drainResist(start = 0.0) "RD";
-        SI.Resistance m_sourceResist(start = 0) "RS";
-        SI.Capacitance m_capGS(start = 0) "CGS";
-        SI.Capacitance m_capGD(start = 0) "CGD";
-        SI.Voltage m_gatePotential(start = 1.0) "PB";
-        SI.Current m_gateSatCurrent(start = 1e-14) "IS";
-        Real m_depletionCapCoeff(start = 0.5) "FC";
-        Real m_b(start = 1.0) "B";
-        Real m_fNcoef(start = 0.0) "KF";
-        Real m_fNexp(start = 1.0) "AF";
-
-        SI.Conductance m_drainConduct(start = 0);
-        SI.Conductance m_sourceConduct(start = 0);
-        SI.Temp_K m_tnom(start=SpiceConstants.CKTnomTemp) "TNOM";
-
-      /*
-Fet_Model_Line::Fet_Model_Line(
-   const String& modelname, const String& elementname)
-        : DotModel( modelname, elementname)
-{
-   AddParameter( "VTO", m_threshold, -2.)->Alias( "VT0");
-   AddParameter( "BETA", m_beta, 1e-4);
-   AddParameter( "LAMBDA", m_lModulation, 0.);
-   AddParameter( "RD", m_drainResist, 0.);
-   AddParameter( "RS", m_sourceResist, 0.);
-   AddParameter( "CGS", m_capGS, 0.);
-   AddParameter( "CGD", m_capGD, 0.);
-   AddParameter( "PB", m_gatePotential, 1.);
-   AddParameter( "IS", m_gateSatCurrent, 1e-14);
-   AddParameter( "FC", m_depletionCapCoeff, .5);
-   AddParameter( "B", m_b, 1.0);
-   AddParameter( "KF", m_fNcoef, 0.0);
-   AddParameter( "AF", m_fNexp, 1.0);
-   
-   m_drainConduct = 0.;
-   m_sourceConduct = 0.;
-   m_tnom = CKTnomTemp;
-   m_type = NFET;
-}
-*/
-      end FetModelLine;
-
-      record CurrrentsCapacitances "Currents and Capacities"
-
-        SI.Current idrain(start=0);
-        SI.Current iGD(start=0);
-        SI.Current iGS(start=0);
-        SI.Capacitance cGS(start=0);
-        SI.Capacitance cGD(start=0);
-
-        annotation (Documentation(info="<html>
-<pre>This record CurrentsCapacities contains values for the currents and the capacities inside the mosfet models level 1, 2, 3 and 6.</pre>
-</html>"));
-      end CurrrentsCapacitances;
-
-      function fetRenameParametersDev
-        "Device parameter renaming to internal names"
-
-        input Real AREA "Number of parallel connected identical elements";
-        input Boolean OFF
-          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
-        input SI.Voltage IC_VDS
-          "Initial condition value VDS, not implemented yet";
-        input SI.Voltage IC_VGS
-          "Initial condition value VGS, not implemented yet";
-        input Boolean UIC "Use initial conditions, UIC";
-        input SI.Temp_C TEMP "Temperature";
-
-        output Fet dev "Output record Mesfet";
-
-      algorithm
-        dev.m_bICVDSIsGiven := if ( IC_VDS > -1e40) then 1 else 0;
-        dev.m_dICVDS := if ( IC_VDS > -1e40) then IC_VDS else 0;
-
-        dev.m_bICVGSIsGiven := if ( IC_VGS > -1e40) then 1 else 0;
-        dev.m_dICVGS := if ( IC_VGS > -1e40) then IC_VGS else 0;
-
-        dev.m_off   := OFF;           // non-zero to indicate device is off for dc analysis
-        dev.m_uic   := UIC;
-        dev.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
-        dev.m_area  := AREA;          // Number of parallel connected identical elements
-
-      end fetRenameParametersDev;
-    end FET;
-
-    package Jfet "Records and functions for Jfet"
-
-      record JfetModelLine "Record for Jfet model line parameters"
-        extends FET.FetModelLine;
-
-        SI.InversePotential m_bFac;
-
-      end JfetModelLine;
-
-      function jfetInitEquations "FET initial precalculations"
-
-        input FET.Fet in_f;
-        input JfetModelLine in_fm;
-
-        output JfetModelLine out_fm;
-
-      algorithm
-        out_fm := in_fm;
-
-        out_fm.m_beta           := in_fm.m_beta * in_f.m_area;
-        out_fm.m_drainConduct   := in_fm.m_drainConduct * in_f.m_area;
-        out_fm.m_sourceConduct  := in_fm.m_sourceConduct * in_f.m_area;
-        out_fm.m_gateSatCurrent := in_fm.m_gateSatCurrent * in_f.m_area;
-
-      end jfetInitEquations;
-
-      function jfetModelLineInitEquations "Initial precalculation"
-
-        input JfetModelLine in_fm;
-
-        output JfetModelLine out_fm;
-
-      algorithm
-        out_fm := in_fm;
-
-        //  Fet_Model_Line::InitEquations();
-        //  algorithm aus FET.fetModelLineInitEquations kopiert, statt Funktionsaufruf
-        if (in_fm.m_drainResist <> 0) then
-          out_fm.m_drainConduct := 1 / in_fm.m_drainResist;
-        end if;
-        if (in_fm.m_sourceResist <> 0) then
-          out_fm.m_sourceConduct := 1 / in_fm.m_sourceResist;
-        end if;
-
-        if (out_fm.m_depletionCapCoeff > 0.95) then
-          out_fm.m_depletionCapCoeff := 0.95;
-        end if;
-        out_fm.m_bFac := (1 - out_fm.m_b) / (out_fm.m_gatePotential - out_fm.m_threshold);
-
-      end jfetModelLineInitEquations;
-
-      function drainCur "Drain current calculation"
-
-        input SI.Voltage vds;
-        input SI.Voltage vgs;
-        input SI.Voltage vgd;
-
-        input FET.Fet in_f;
-        input JfetModelLine in_fm;
-
-        output FET.Fet out_f;
-
-      protected
-        SI.Voltage vto;
-        SI.Voltage vgst;
-        Real betap;
-        SI.InversePotential Bfac;
-        Real apart;
-        Real cpart;
-        SI.Voltage vgdt;
-
-      algorithm
-        out_f := in_f;
-
-        // Modification for Sydney University JFET model
-        vto := in_fm.m_threshold;
-
-        if (vds >= 0) then
-          vgst := vgs - vto;
-          // compute drain current and derivatives for normal mode
-          if (vgst <= 0) then
-            // normal mode, cutoff region
-            out_f.m_cdrain := 0;
-            out_f.m_gm     := 0;
-            out_f.m_gds    := 0;
-          else
-            betap := in_fm.m_beta*(1 + in_fm.m_lModulation*vds);
-            Bfac  := in_fm.m_bFac;
-            if (vgst >= vds) then
-              // normal mode, linear region
-              apart          := 2*in_fm.m_b + 3*Bfac*(vgst - vds);
-              cpart          := vds*(vds*(Bfac*vds - in_fm.m_b)+vgst*apart);
-              out_f.m_cdrain := betap*cpart;
-              out_f.m_gm     := betap*vds*(apart + 3*Bfac*vgst);
-              out_f.m_gds    := betap*(vgst - vds)*apart + in_fm.m_beta*in_fm.m_lModulation*cpart;
-            else
-              Bfac       := vgst*Bfac;
-              out_f.m_gm := betap*vgst*(2*in_fm.m_b+3*Bfac);
-              // normal mode, saturation region
-              cpart          := vgst*vgst*(in_fm.m_b+Bfac);
-              out_f.m_cdrain := betap*cpart;
-              out_f.m_gds    := in_fm.m_lModulation*in_fm.m_beta*cpart;
-            end if;
-          end if;
-        else
-          vgdt := vgd - vto;
-          // compute drain current and derivatives for inverse mode
-          if (vgdt <= 0) then
-            // inverse mode, cutoff region
-            out_f.m_cdrain := 0;
-            out_f.m_gm     := 0;
-            out_f.m_gds    := 0;
-          else
-            betap := in_fm.m_beta*(1 - in_fm.m_lModulation*vds);
-            Bfac  := in_fm.m_bFac;
-            if (vgdt + vds >= 0) then
-              // inverse mode, linear region
-              apart := 2*in_fm.m_b + 3*Bfac*(vgdt + vds);
-              cpart := vds*(-vds*(-Bfac*vds-in_fm.m_b)+vgdt*apart);
-              out_f.m_cdrain := betap*cpart;
-              out_f.m_gm     := betap*vds*(apart + 3*Bfac*vgdt);
-              out_f.m_gds    := betap*(vgdt + vds)*apart - in_fm.m_beta*in_fm.m_lModulation*cpart - out_f.m_gm;
-            else
-              Bfac :=vgdt*Bfac;
-              out_f.m_gm     := -betap*vgdt*(2*in_fm.m_b+3*Bfac);
-              // inverse mode, saturation region
-              cpart          := vgdt*vgdt*(in_fm.m_b+Bfac);
-              out_f.m_cdrain := - betap*cpart;
-              out_f.m_gds    := in_fm.m_lModulation*in_fm.m_beta*cpart - out_f.m_gm;
-            end if;
-          end if;
-        end if;
-
-      end drainCur;
-
-      function calculateGateCap "Gate capactance calculation"
-
-        input FET.Fet in_f;
-        input SI.Voltage vgs "Input voltage gate source";
-        input SI.Voltage vgd "Input voltage gate drain";
-
-        output SI.Capacitance capgs "Output capacitance gate source";
-        output SI.Charge chargegs "Output charge gate source";
-        output SI.Capacitance capgd "Output capacitance gate drain";
-        output SI.Charge chargegd "Output charge gate drain";
-
-      algorithm
-        (capgs,chargegs) := Functions.junctionCap(
-                in_f.m_tCGS,
-                vgs,
-                in_f.m_corDepCap,
-                0.5,
-                in_f.m_tGatePot,
-                in_f.m_f1,
-                in_f.m_f2,
-                in_f.m_f3);
-        (capgd,chargegd) := Functions.junctionCap(
-                in_f.m_tCGD,
-                vgd,
-                in_f.m_corDepCap,
-                0.5,
-                in_f.m_tGatePot,
-                in_f.m_f1,
-                in_f.m_f2,
-                in_f.m_f3);
-
-      end calculateGateCap;
-
-      function jfetCalcTempDependencies
-        "Precalculations relating to temperature"
-
-        input FET.Fet in_f;
-        input JfetModelLine in_fm;
-
-        output FET.Fet out_f;
-
-      algorithm
-        out_f := in_f;
-
-        (out_f.m_tGatePot,out_f.m_tCGS) := Functions.junctionParamDepTempSPICE3(
-                in_fm.m_gatePotential,
-                in_fm.m_capGS,
-                0.5,
-                out_f.m_dTemp,
-                in_fm.m_tnom);
-        out_f.m_tCGS := out_f.m_area * out_f.m_tCGS;
-        (out_f.m_tGatePot,out_f.m_tCGD) := Functions.junctionParamDepTempSPICE3(
-                in_fm.m_gatePotential,
-                in_fm.m_capGD,
-                0.5,
-                out_f.m_dTemp,
-                in_fm.m_tnom);
-        out_f.m_tCGD := out_f.m_area * out_f.m_tCGD;
-        (out_f.m_f1,out_f.m_f2,out_f.m_f3) := Functions.junctionCapCoeffs(
-                0.5,
-                in_fm.m_depletionCapCoeff,
-                out_f.m_tGatePot);
-
-        out_f.m_tSatCur := Functions.saturationCurDepTempSPICE3JFET(
-                in_fm.m_gateSatCurrent,
-                out_f.m_dTemp,
-                in_fm.m_tnom);
-        out_f.m_vcrit := Functions.junctionVCrit(
-                out_f.m_dTemp,
-                1.0,
-                out_f.m_tSatCur);
-        out_f.m_dVt := out_f.m_dTemp*SpiceConstants.CONSTKoverQ;
-        out_f.m_corDepCap := in_fm.m_depletionCapCoeff * out_f.m_tGatePot;
-
-      end jfetCalcTempDependencies;
-
-      function jfetNoBypassCode "Calculations of currents and capacities"
-
-        input FET.Fet in_f "Input record fet parameters";
-        input JfetModelLine in_fm "Input record model line parameters";
-        input Integer in_m_type "Type of MOS transistor";
-        input Boolean in_m_bInit;
-        input SI.Voltage[3] in_m_pVoltageValues; // gate drain source
-
-        output FET.CurrrentsCapacitances out_cc
-          "Calculated currents and capacitances";
-
-      protected
-        FET.Fet int_f "Record Fet";
-
-      algorithm
-        int_f := in_f;
-
-        int_f.m_vgd := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[2]); // ( G,  DP);
-        int_f.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[3]); // ( G,  SP);
-
-        if (in_f.m_uic and int_f.m_bICVGSIsGiven > 0.5) then
-          int_f.m_vgs := in_m_type * int_f.m_dICVGS;
-        elseif (SpiceRoot.initJunctionVoltages()) then
-          if (int_f.m_off == true) then
-            int_f.m_vgs := 0;
-          else
-            int_f.m_vgs := int_f.m_vcrit;
-          end if;
-        end if;
-        if (in_f.m_uic and int_f.m_bICVDSIsGiven > 0.5) then
-          int_f.m_vgd := in_m_type * int_f.m_dICVDS + int_f.m_vgs;
-        elseif (SpiceRoot.initJunctionVoltages()) then
-          if (int_f.m_off == true) then
-            int_f.m_vgd := 0;
-          else
-            int_f.m_vgd := int_f.m_vcrit;
-          end if;
-        end if;
-
-        int_f.m_vgs := SpiceRoot.limitJunctionVoltage(int_f.m_vgs);
-        int_f.m_vgd := SpiceRoot.limitJunctionVoltage(int_f.m_vgd);
-        int_f.m_vds := int_f.m_vgs - int_f.m_vgd;
-
-        //////////////////////////////////////////////////////////////////////
-        // junction currents
-        (int_f.m_cgd,int_f.m_ggd) := Functions.junction2(
-                int_f.m_vgd,
-                int_f.m_dTemp,
-                1.0,
-                int_f.m_tSatCur);
-        out_cc.iGD := in_m_type * int_f.m_cgd;
-        (int_f.m_cgs,int_f.m_ggs) := Functions.junction2(
-                int_f.m_vgs,
-                int_f.m_dTemp,
-                1.0,
-                int_f.m_tSatCur);
-        out_cc.iGS := in_m_type * int_f.m_cgs;
-
-        //////////////////////////////////////////////////////////////////////
-        // channel current calculation
-        // Let the actual instance calculate the values
-        int_f := drainCur(
-                    int_f.m_vds,
-                    int_f.m_vgs,
-                    int_f.m_vgd,
-                    int_f,
-                    in_fm);
-        out_cc.idrain := in_m_type * int_f.m_cdrain;
-
-        //////////////////////////////////////////////////////////////////////
-        // channel charge calculation
-        if (not in_m_bInit) then
-          (int_f.m_capgs,int_f.m_chargegs,int_f.m_capgd,int_f.m_chargegd)
-            := calculateGateCap(
-                      int_f,
-                      int_f.m_vgs,
-                      int_f.m_vgd);
-          out_cc.cGD := if (in_m_bInit) then -1e40 else int_f.m_capgd;
-          out_cc.cGS := if (in_m_bInit) then -1e40 else int_f.m_capgs;
-        end if;
-
-      end jfetNoBypassCode;
-
-      function jfetRenameParameters "Parameter renaming to internal names"
-
-        input ModelcardJFET ex "Modelcard with technologieparameters";
-
-        output JfetModelLine intern "Output record model line parameters";
-
-      algorithm
-        intern.m_capGS := if ( ex.CGS > -1e40) then ex.CGS else 0;
-        // Zero-bias G-S junction capacitance, default 0
-        intern.m_capGD := if ( ex.CGD > -1e40) then ex.CGD else 0;
-        // Zero-bias G-D junction capacitance, default 0
-        intern.m_gateSatCurrent := ex.IS;
-        // Saturation current of pn junctions
-        intern.m_depletionCapCoeff := ex.FC;
-        // Coefficient for forward-bias depletion capacitance formula
-        intern.m_drainResist := if ( ex.RD > -1e40) then ex.RD else 0;
-        // Drain ohmic resistance, default 0
-        intern.m_sourceResist := if ( ex.RS > -1e40) then ex.RS else 0;
-        // Source ohmic resistance, default 0
-        intern.m_tnom := ex.TNOM + SpiceConstants.CONSTCtoK;
-        // Parameter measurement temperature, default 27
-        intern.m_threshold := if ( ex.VTO > -1e40) then ex.VTO else -2.0;
-        // Zero-bias threshold voltage, default -2
-        intern.m_b := if ( ex.B > -1e40) then ex.B else 1.0;
-        // Dotierungsverlauf parameter, default 1
-        intern.m_beta := if ( ex.BETA > -1e40) then ex.BETA else 1e-4;
-        // Output admittance parameter, default 1e4
-        intern.m_lModulation := ex.LAMBDA;
-        // Channel-length modulation, default 0
-        intern.m_gatePotential := ex.PB;
-        // Junction potential of pn junctions
-        intern.m_fNexp := ex.AF;
-        // Flicker noise exponent
-        intern.m_fNcoef := ex.KF;
-        // Flicker noise coefficient
-
-        annotation (Documentation(info="<html>
-<pre>This function mos1RenameParameters assigns the external (given by the user, e.g. RD) technology parameters
-to the internal parameters (e.g. m_drainResistance). It also does the analysis of the IsGiven values (level 1).</pre>
-</html>"));
-      end jfetRenameParameters;
-
-    end Jfet;
-
-    package Csemiconductor
-      record Capacitor
-        extends Model.Model;
-
-          SI.Capacitance m_dCapac(start=1e-9) "Device is a Capacitor model";
-          Real m_dCapIsGiven "Capacitor is given value";
-          SI.Length  m_dWidth(start=0) "Width";
-          SI.Length  m_dLength(start=0) "Length";
-          Boolean m_bSensCapac( start = false)
-          "flag to request sensitivity WRT Capacitor";
-
-      end Capacitor;
-
-      record CapacitorModelLineParams
-        "Record for Capacitor model line parameters"
-
-          SI.CapacitancePerArea m_dCj "Junction bottom capacitance";
-          SI.Permittivity m_dCjsw "Junction sidewall capacitance";
-          SI.Length  m_dDefW "Default device width";
-          SI.Length  m_dNarrow "Narrowing due to side etching";
-
-      end CapacitorModelLineParams;
-
-      function capacitorInitEquations
-
-        input Capacitor in_p "Input record with capacitor parameters";
-        input CapacitorModelLineParams in_p2
-          "Input record with capacitor model line parameters";
-
-        output Capacitor out "Output record with capacitor variables";
-
-      algorithm
-        out := in_p;
-
-        if (in_p.m_dCapIsGiven < 0.5) then
-          if (abs(in_p.m_dLength)>1e-18 and abs(in_p2.m_dCj)>1e-25) then
-            out.m_dCapac := Functions.capDepGeom(
-                    in_p2.m_dCj,
-                    in_p2.m_dCjsw,
-                    out.m_dWidth,
-                    in_p.m_dLength,
-                    in_p2.m_dNarrow);
-          end if;
-        end if;
-
-      end capacitorInitEquations;
-
-      function capacitorRenameParameters
-
-        input ModelcardC ex "Modelcard with technologie parameters";
-
-        output CapacitorModelLineParams intern
-          "Output record with capacitor model line parameters";
-
-      algorithm
-        intern.m_dCj := ex.CJ;
-        intern.m_dCjsw := ex.CJSW;
-        intern.m_dDefW := ex.DEFW;
-        intern.m_dNarrow := ex.NARROW;
-
-      end capacitorRenameParameters;
-
-      function capacitorRenameParametersDev
-
-        input SI.Capacitance C "Capacitance";
-        input SI.Length  W "Width";
-        input SI.Length  L "Length";
-        input SI.Temp_C TEMP "Temperature";
-        input Boolean SENS_AREA
-          "Parameter for sensitivity analyses, not implemented yet";
-        input CapacitorModelLineParams p;
-
-        output Capacitor intern "Output record with capacitor parameters";
-
-      algorithm
-        intern.m_dCapIsGiven := if (C > -1e40) then 1 else 0;
-        intern.m_dCapac := if (C > -1e40) then C else 1e-9;
-
-        intern.m_dWidth := if (W > -1e40) then W else p.m_dDefW;
-
-        intern.m_dLength := L;
-        intern.m_bSensCapac := SENS_AREA;
-        intern.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
-
-      end capacitorRenameParametersDev;
-
-    end Csemiconductor;
-
+    end Bjt3;
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
 </html>"));
   end Internal;
 
-annotation(preferedView="info", Window(
-    x=0.05,
-    y=0.06,
-    width=0.16,
-    height=0.58,
-    library=1,
-    autolayout=1),
+annotation(preferredView="info",
   Documentation(info="<html>
 <p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). The semiconductor models are transferred from the SPICE3 code, up to now</p>
 <ul>

@@ -302,38 +302,6 @@ end UsersGuide;
       type Area_cmPerVoltageSecond =
                        Real (final quantity="AreaPerVoltageSecond", final unit="cm2/(V.s)")
         "Area in cm per voltage second";
-      type PerVolume_cm = Real (final quantity="PerVolume", final unit="1/cm3")
-        "Per Volume in cm";
-      type VoltagePer_cm = Real (final quantity="VoltagePer_cm", final unit="V/cm")
-        "voltage per cm";
-      type Length_um = Real (final quantity="Length_um", final unit="um")
-        "Length per um";
-      type VoltageLength_um = Real (final quantity="VoltageLength_um", final unit="V.um")
-        "VoltageLength in um";
-      type Length_umPerVoltage =
-                       Real (final quantity="Length_umPerVoltage", final unit="um/V")
-        "Length in um per Voltage";
-      type Area_umPerVoltage =
-                       Real (final quantity="Area_umPerVoltage", final unit="um2/V")
-        "Area in um per Voltage";
-      type Area_cmPerAreaVoltageSecond =
-                       Real (final quantity="AreaPerAreaVoltageSecond", final unit="cm2/(V2.s)")
-        "Area in cm per Areavoltage second";
-      type Volume_um_cmPerVoltageSecond =
-                       Real (final quantity="VolumePerVoltageSecond", final unit="um.cm2/(V.s)")
-        "Volume in um.cm2 per voltage second";
-      type Volume_um_cmPerAreaVoltageSecond =
-                       Real (final quantity="VolumePerAreaVoltageSecond", final unit="um.cm2/(V2.s)")
-        "Volume in um.cm2 per Areavoltage second";
-      type Length_umPerAreaVoltage =
-                              Real (final quantity="Length_umPerAreaVoltage", final unit=
-              "um/V2") "Length in um per Areavoltage";
-      type Area_umPerAreaVoltage =
-                              Real (final quantity="Area_umPerAreaVoltage", final unit=
-              "um2/V2") "Area in um per Areavoltage";
-      type CapacitancePerArea_cm =
-                  Real (final quantity="CapacitancePerArea_cm", final unit="F/cm2")
-        "Capacitance per area in cm";
       annotation (Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
@@ -1881,30 +1849,6 @@ argument):</p>
   record ComplexPower =
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
-  type VoltageSquare = Real (final quantity="ElectricPotential2", final unit=
-         "V2");
-  type GapEnergyPerTemperature =
-                   Real (final quantity="Energy per Temperature", final unit="eV/K");
-  type GapEnergyPerEnergy =
-                   Real (final quantity="Energy per Energy", final unit="eV/J");
-  type PerVolume =    Real (final quantity="PerVolume", final unit="1/m3")
-    "Per Volume";
-  type InductanceLoadPerLength =
-                    Real (
-      final quantity="Inductance per length",
-      final unit="H/m") "Inductance per length";
-  type ConductanceLoadPerLength =
-                     Real (
-      final quantity="Conductance per length",
-      final unit="S/m") "Conductance per length";
-  type CapacitanceLoadPerLength =
-                     Real (
-      final quantity="Capacitance per length",
-      final unit="F/m",
-      min=0) "Capacitance per length";
-  type InverseElectricCurrent =
-                       Real (final quantity="InverseElectricCurrent", final unit="1/A")
-    "Inverse of electric current";
   annotation (
     Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
