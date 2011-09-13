@@ -8162,6 +8162,17 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
 </html>"));
       end bjtRenameParametersDevTemp;
 
+      function bjtRenameParametersType "Type"
+
+       input Real TBJT "Type";
+       output BjtModelLineParams dev_type "Outputrecord Bjt3";
+      algorithm
+        dev_type.m_type := TBJT;
+
+        annotation (Documentation(info="<html>
+<p>This function assigns the external (given by the user, e.g. AREA) device parameters to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+</html>"));
+      end bjtRenameParametersType;
 
       annotation (Documentation(info="<html>
 <p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
