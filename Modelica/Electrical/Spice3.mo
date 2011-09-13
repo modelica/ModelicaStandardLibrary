@@ -3837,7 +3837,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
                    annotation(Evaluate=true);
       final parameter Model.Model m=Bjt3.bjtRenameParametersDevTemp(TEMP)
         "Renamed parameters"                                                                                                     annotation(Evaluate=true);
-     // final parameter Bjt3.BjtModelLineParams p2=Bjt3.bjtRenameParametersType(TBJT);
       final parameter Bjt3.BjtModelLineVariables vl=
           Bjt3.bjtModelLineInitEquations(p) "Model line variables";
       final parameter Bjt3.Bjt3Calc c=Bjt3.bjt3CalcTempDependencies(
