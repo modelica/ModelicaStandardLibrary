@@ -3826,7 +3826,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       parameter ModelcardBJT modelcard "BJT modelcard"                                              annotation(Evaluate=true);
 
       final parameter Bjt3.BjtModelLineParams p=Bjt3.bjtRenameParameters(modelcard,
-          Con) "Model line parameters"                                                                                                     annotation(Evaluate=true);
+          Con,TBJT) "Model line parameters"                                                                                                     annotation(Evaluate=true);
       constant SpiceConstants Con "General constants of SPICE simulator";
       final parameter Bjt3.Bjt p1=Bjt3.bjtRenameParametersDev(
               AREA,
@@ -3837,7 +3837,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
                    annotation(Evaluate=true);
       final parameter Model.Model m=Bjt3.bjtRenameParametersDevTemp(TEMP)
         "Renamed parameters"                                                                                                     annotation(Evaluate=true);
-      final parameter Bjt3.BjtModelLineParams p2=Bjt3.bjtRenameParametersType(TBJT);
+     // final parameter Bjt3.BjtModelLineParams p2=Bjt3.bjtRenameParametersType(TBJT);
       final parameter Bjt3.BjtModelLineVariables vl=
           Bjt3.bjtModelLineInitEquations(p) "Model line variables";
       final parameter Bjt3.Bjt3Calc c=Bjt3.bjt3CalcTempDependencies(
@@ -8184,11 +8184,13 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       function bjtRenameParameters "Technology parameter renaming"
         input ModelcardBJT ex "Modelcard with technologie parameters";
         input SpiceConstants con "Spice constants";
+        input Real TBJT "Type";
 
         output BjtModelLineParams intern
           "Output record with Bjt model line parameters";
       algorithm
 
+        intern.m_type := TBJT;
         intern.m_satCur := ex.IS;
         intern.m_betaF := ex.BF;
         intern.m_emissionCoeffF := ex.NF;
