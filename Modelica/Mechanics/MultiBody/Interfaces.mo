@@ -803,7 +803,7 @@ It is used by inheritance from all visualizer objects.
 
   model ZeroPosition
     "Set absolute position vector of frame_resolve to a zero vector and the orientation object to a null rotation"
-     extends Modelica.Blocks.Interfaces.BlockIcon;
+     extends Modelica.Blocks.Icons.Block;
     Interfaces.Frame_resolve frame_resolve
       annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
   equation

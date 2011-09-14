@@ -2431,7 +2431,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
     model InitializeFlange
       "Initializes a flange with pre-defined position, speed and acceleration (usually, this is reference data from a control bus)"
-      extends Modelica.Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       parameter Boolean use_s_start = true
         "= true, if initial position is defined by input s_start, otherwise not initialized";
       parameter Boolean use_v_start = true
@@ -2465,7 +2465,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     protected
       encapsulated model Set_s_start "Set s_start"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Blocks.Interfaces.RealInput s_start "Start position"
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
@@ -2482,7 +2482,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       encapsulated model Set_v_start "Set v_start"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Blocks.Interfaces.RealInput v_start "Start velocity"
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
@@ -2499,7 +2499,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       encapsulated model Set_a_start "Set a_start"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Blocks.Interfaces.RealInput a_start "Start acceleration"
         annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                 -100,20}}, rotation=0)));
@@ -2517,7 +2517,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 
       encapsulated model Set_flange_f "Set flange_f to zero"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Mechanics.Translational.Interfaces.Flange_b flange
             annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));

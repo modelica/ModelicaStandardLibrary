@@ -236,31 +236,9 @@ connector BooleanVectorInput =
 Connector with one input signal of type Boolean.
 </p>
 </html>"));
-    partial block BlockIcon "Basic graphical layout of input/output block"
-
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(
-            extent={{-100,-100},{100,100}},
-            lineColor={0,0,127},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Documentation(info="<html>
-<p>
-Block that has only the basic icon for an input/output
-block (no declarations, no equations). Most blocks
-of package Modelica.Blocks inherit directly or indirectly
-from this block.
-</p>
-</html>"));
-
-    end BlockIcon;
 
     partial block SO "Single Output continuous control block"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       RealOutput y "Connector of Real output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
@@ -279,7 +257,7 @@ Block has one continuous Real output signal.
     end SO;
 
     partial block MO "Multiple Output continuous control block"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       parameter Integer nout(min=1) = 1 "Number of outputs";
       RealOutput y[nout] "Connector of Real output signals"
@@ -295,7 +273,7 @@ Block has one continuous Real output signal vector.
     end MO;
 
     partial block SISO "Single Input Single Output continuous control block"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       RealInput u "Connector of Real input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -313,7 +291,7 @@ Block has one continuous Real input and one continuous Real output signal.
 
     partial block SI2SO
     "2 Single Input / 1 Single Output continuous control block"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       RealInput u1 "Connector of Real input signal 1"
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
@@ -340,7 +318,7 @@ continuous Real output signal y.
     end SI2SO;
 
 partial block SIMO "Single Input Multiple Output continuous control block"
-  extends BlockIcon;
+  extends Modelica.Blocks.Icons.Block;
   parameter Integer nout=1 "Number of outputs";
       RealInput u "Connector of Real input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -359,7 +337,7 @@ end SIMO;
 
     partial block MISO "Multiple Input Single Output continuous control block"
 
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       parameter Integer nin=1 "Number of inputs";
       RealInput u[nin] "Connector of Real input signals"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -416,7 +394,7 @@ one continuous Real output signal.
     partial block MIMO
     "Multiple Input Multiple Output continuous control block"
 
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       parameter Integer nin=1 "Number of inputs";
       parameter Integer nout=1 "Number of outputs";
       RealInput u[nin] "Connector of Real input signals"
@@ -437,7 +415,7 @@ The signal sizes of the input and output vector may be different.
     partial block MIMOs
     "Multiple Input Multiple Output continuous control block with same number of inputs and outputs"
 
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       parameter Integer n=1 "Number of inputs (= number of outputs)";
       RealInput u[n] "Connector of Real input signals"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -457,7 +435,7 @@ where the signal sizes of the input and output vector are identical.
 
     partial block MI2MO
     "2 Multiple Input / Multiple Output continuous control block"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       parameter Integer n=1 "Dimension of input and output vectors.";
 
@@ -501,7 +479,7 @@ generated signal.
     end SignalSource;
 
     partial block SVcontrol "Single-Variable continuous controller"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       RealInput u_s "Connector of setpoint input signal"
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -541,7 +519,7 @@ to be used as base class for a corresponding controller.
     end SVcontrol;
 
     partial block MVcontrol "Multi-Variable continuous controller"
-      extends BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       parameter Integer nu_s=1 "Number of setpoint inputs";
       parameter Integer nu_m=1 "Number of measurement inputs";
@@ -583,29 +561,9 @@ to be used as base class for a corresponding controller.
 </html>"));
     end MVcontrol;
 
-    partial block DiscreteBlockIcon
-    "Graphical layout of discrete block component icon"
-
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,-100},{100,100}},
-            lineColor={0,0,127},
-            fillColor={223,223,159},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
-                           Documentation(info="<html>
-<p>
-Block that has only the basic icon for an input/output,
-discrete block (no declarations, no equations), e.g.,
-from Blocks.Discrete.
-</p>
-</html>"));
-    end DiscreteBlockIcon;
 
     partial block DiscreteBlock "Base class of discrete control blocks"
-      extends DiscreteBlockIcon;
+      extends Modelica.Blocks.Icons.DiscreteBlock;
 
       parameter SI.Time samplePeriod(min=100*Modelica.Constants.eps, start = 0.1)
       "Sample period of component";
@@ -809,31 +767,11 @@ to be used as base class for a corresponding controller.
 </html>"));
     end MVdiscrete;
 
-    partial block BooleanBlockIcon "Basic graphical layout of Boolean block"
-
-      annotation (
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics={Rectangle(
-            extent={{-100,-100},{100,100}},
-            lineColor={255,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
-      Documentation(info="<html>
-<p>
-Block that has only the basic icon for an input/output,
-Boolean block (no declarations, no equations).
-</p>
-</html>"));
-
-    end BooleanBlockIcon;
 
     partial block BooleanSISO
     "Single Input Single Output control block with signals of type Boolean"
 
-      extends BooleanBlockIcon;
+      extends Modelica.Blocks.Icons.BooleanBlock;
 
   public
       BooleanInput u "Connector of Boolean input signal"
@@ -854,7 +792,7 @@ Block has one continuous Boolean input and one continuous Boolean output signal.
 partial block BooleanMIMOs
     "Multiple Input Multiple Output continuous control block with same number of inputs and outputs of boolean type"
 
-  extends BooleanBlockIcon;
+  extends Modelica.Blocks.Icons.BooleanBlock;
   parameter Integer n=1 "Number of inputs (= number of outputs)";
   BooleanInput u[n] "Connector of Boolean input signals"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -874,7 +812,7 @@ end BooleanMIMOs;
 partial block MI2BooleanMOs
     "2 Multiple Input / Boolean Multiple Output block with same signal lengths"
 
-  extends BooleanBlockIcon;
+  extends Modelica.Blocks.Icons.BooleanBlock;
   parameter Integer n=1 "Dimension of input and output vectors.";
   RealInput u1[n] "Connector 1 of Boolean input signals"
     annotation (Placement(transformation(extent={{-140,40},{-100,80}}, rotation=
@@ -894,7 +832,7 @@ end MI2BooleanMOs;
 
     partial block SI2BooleanSO "2 Single Input / Boolean Single Output block"
 
-      extends BooleanBlockIcon;
+      extends Modelica.Blocks.Icons.BooleanBlock;
       input RealInput u1 "Connector 1 of Boolean input signals"
         annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
@@ -916,7 +854,7 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
 
     partial block BooleanSignalSource "Base class for Boolean signal sources"
 
-      extends BooleanBlockIcon;
+      extends Modelica.Blocks.Icons.BooleanBlock;
       BooleanOutput y "Connector of Boolean output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
@@ -950,27 +888,9 @@ This component has one continuous Boolean output signal y.
 
     end BooleanSignalSource;
 
-partial block IntegerBlockIcon "Basic graphical layout of Integer block"
-
-  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,-100},{100,100}},
-            lineColor={255,127,0},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),
-        Documentation(info="<html>
-<p>
-Block that has only the basic icon for an input/output,
-Integer block (no declarations, no equations).
-</p>
-</html>"));
-end IntegerBlockIcon;
 
 partial block IntegerSO "Single Integer Output continuous control block"
-  extends IntegerBlockIcon;
+  extends Modelica.Blocks.Icons.IntegerBlock;
 
   IntegerOutput y "Connector of Integer output signal"
     annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
@@ -983,7 +903,7 @@ Block has one continuous Integer output signal.
 end IntegerSO;
 
 partial block IntegerMO "Multiple Integer Output continuous control block"
-  extends IntegerBlockIcon;
+  extends Modelica.Blocks.Icons.IntegerBlock;
 
   parameter Integer nout(min=1) = 1 "Number of outputs";
   IntegerOutput y[nout] "Connector of Integer output signals"
@@ -1014,7 +934,7 @@ end IntegerSignalSource;
 partial block IntegerSIBooleanSO
     "Integer Input Boolean Output continuous control block"
 
-  extends BooleanBlockIcon;
+  extends Modelica.Blocks.Icons.BooleanBlock;
   IntegerInput u "Connector of Integer input signal"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
@@ -1032,7 +952,7 @@ end IntegerSIBooleanSO;
 partial block IntegerMIBooleanMOs
     "Multiple Integer Input Multiple Boolean Output continuous control block with same number of inputs and outputs"
 
-  extends BooleanBlockIcon;
+  extends Modelica.Blocks.Icons.BooleanBlock;
   parameter Integer n=1 "Number of inputs (= number of outputs)";
   IntegerInput u[n] "Connector of Integer input signals"
     annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -1122,30 +1042,10 @@ end IntegerMIBooleanMOs;
             fillPattern=FillPattern.Solid)}));
   end PartialIntegerMISO;
 
-  partial block partialBooleanBlockIcon
-    "Basic graphical layout of logical block"
-
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}}), graphics={Rectangle(
-            extent={{-100,100},{100,-100}},
-            lineColor={0,0,0},
-            fillColor={210,210,210},
-            fillPattern=FillPattern.Solid,
-            borderPattern=BorderPattern.Raised), Text(
-            extent={{-150,150},{150,110}},
-            textString="%name",
-            lineColor={0,0,255})}),                        Documentation(info="<html>
-<p>
-Block that has only the basic icon for an input/output,
-Boolean block (no declarations, no equations) used especially
-in the Blocks.Logical library.
-</p>
-</html>"));
-  end partialBooleanBlockIcon;
 
   partial block partialBooleanSISO
     "Partial block with 1 input and 1 output Boolean signal"
-    extends partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
            Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                             annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -1178,7 +1078,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
 
   partial block partialBooleanSI2SO
     "Partial block with 2 input and 1 output Boolean signal"
-    extends partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
            Blocks.Interfaces.BooleanInput u1
       "Connector of first Boolean input signal"
                                              annotation (Placement(
@@ -1227,7 +1127,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
 
   partial block partialBooleanSI3SO
     "Partial block with 3 input and 1 output Boolean signal"
-    extends partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
            Blocks.Interfaces.BooleanInput u1
       "Connector of first Boolean input signal"
                                              annotation (Placement(
@@ -1285,7 +1185,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
   end partialBooleanSI3SO;
 
   partial block partialBooleanSI "Partial block with 1 input Boolean signal"
-    extends partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
            Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                             annotation (Placement(
@@ -1313,7 +1213,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
            Blocks.Interfaces.BooleanOutput y
       "Connector of Boolean output signal"   annotation (Placement(
           transformation(extent={{100,-10},{120,10}}, rotation=0)));
-    extends partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Ellipse(
@@ -1334,7 +1234,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
 
   partial block partialBooleanSource
     "Partial source block (has 1 output Boolean signal and an appropriate default icon)"
-    extends partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
     Blocks.Interfaces.BooleanOutput y "Connector of Boolean output signal"
       annotation (Placement(transformation(extent={{100,-10},{120,10}},
@@ -1826,6 +1726,114 @@ converts from one unit into another one.
 
   end PartialConversionBlock;
 
+    partial block BlockIcon
+    "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.Block instead."
+     extends Modelica.Icons.ObsoleteModel;
+
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={0,0,127},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.Block\">Modelica.Blocks.Icons.Block</a> shall be used.
+</p>
+</html>"));
+
+    end BlockIcon;
+
+    partial block BooleanBlockIcon
+    "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.BooleanBlock instead."
+     extends Modelica.Icons.ObsoleteModel;
+
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+              100,100}}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={255,0,255},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+      Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.BooleanBlock\">Modelica.Blocks.Icons.BooleanBlock</a> shall be used.
+</p>
+</html>"));
+
+    end BooleanBlockIcon;
+
+    partial block DiscreteBlockIcon
+    "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.DiscreteBlock instead."
+      extends Modelica.Icons.ObsoleteModel;
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={0,0,127},
+            fillColor={223,223,159},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+                           Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.DiscreteBlock\">Modelica.Blocks.Icons.DiscreteBlock</a> shall be used.
+</p>
+</html>"));
+    end DiscreteBlockIcon;
+
+partial block IntegerBlockIcon
+    "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.IntegerBlock instead."
+  extends Modelica.Icons.ObsoleteModel;
+
+  annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-100,-100},{100,100}},
+            lineColor={255,127,0},
+            fillColor={255,255,255},
+            fillPattern=FillPattern.Solid), Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),
+        Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.IntegerBlock\">Modelica.Blocks.Icons.IntegerBlock</a> shall be used.
+</p>
+</html>"));
+end IntegerBlockIcon;
+
+  partial block partialBooleanBlockIcon
+    "This icon will be removed in future Modelica versions, use Modelica.Blocks.Icons.PartialBooleanBlock instead."
+    extends Modelica.Icons.ObsoleteModel;
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+              -100},{100,100}}), graphics={Rectangle(
+            extent={{-100,100},{100,-100}},
+            lineColor={0,0,0},
+            fillColor={210,210,210},
+            fillPattern=FillPattern.Solid,
+            borderPattern=BorderPattern.Raised), Text(
+            extent={{-150,150},{150,110}},
+            textString="%name",
+            lineColor={0,0,255})}),                        Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Blocks.Icons.PartialBooleanBlock\">Modelica.Blocks.Icons.PartialBooleanBlock</a> shall be used.
+</p>
+</html>"));
+  end partialBooleanBlockIcon;
     annotation (
       Documentation(info="<HTML>
 <p>

@@ -384,7 +384,7 @@ results in the following equations:
   end StateSpace;
 
   block TriggeredSampler "Triggered sampling of continuous signals"
-    extends Interfaces.DiscreteBlockIcon;
+    extends Modelica.Blocks.Icons.DiscreteBlock;
     parameter Real y_start=0 "initial value of output signal";
 
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
@@ -452,7 +452,7 @@ the initial value defined via parameter <b>y0</b>.
   block TriggeredMax
     "Compute maximum, absolute value of continuous signal at trigger instants"
 
-    extends Interfaces.DiscreteBlockIcon;
+    extends Modelica.Blocks.Icons.DiscreteBlock;
     Modelica.Blocks.Interfaces.RealInput u "Connector with a Real input signal"
                                            annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));

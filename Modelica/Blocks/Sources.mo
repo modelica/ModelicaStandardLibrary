@@ -1667,7 +1667,7 @@ a flange according to a given acceleration.
     parameter Modelica.SIunits.Time startTime=0
       "Time instant at which movement starts";
 
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     final parameter Integer nout=max([size(q_begin, 1); size(q_end, 1); size(
         qd_max, 1); size(qdd_max, 1)])
       "Number of output signals (= dimension of q, qd, qdd, moving)";

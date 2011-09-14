@@ -3312,7 +3312,7 @@ transformed output vector as \"Real r_out[3]\";
     end BasicTransformRelativeVector;
 
     model ZeroForceAndTorque "Set force and torque to zero"
-       extends Modelica.Blocks.Interfaces.BlockIcon;
+       extends Modelica.Blocks.Icons.Block;
       Interfaces.Frame_a frame_a
         annotation (Placement(transformation(extent={{-116,-16},{-84,16}})));
     equation

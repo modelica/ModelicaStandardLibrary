@@ -4086,7 +4086,7 @@ no rolling resistance. This component defines the kinematic constraint:
 
     model InitializeFlange
       "Initializes a flange with pre-defined angle, speed and angular acceleration (usually, this is reference data from a control bus)"
-      extends Modelica.Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       parameter Boolean use_phi_start = true
         "= true, if initial angle is defined by input phi_start, otherwise not initialized";
       parameter Boolean use_w_start = true
@@ -4120,7 +4120,7 @@ no rolling resistance. This component defines the kinematic constraint:
     protected
       encapsulated model Set_phi_start "Set phi_start"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Blocks.Interfaces.RealInput phi_start "Start angle"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
@@ -4137,7 +4137,7 @@ no rolling resistance. This component defines the kinematic constraint:
 
       encapsulated model Set_w_start "Set w_start"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Blocks.Interfaces.RealInput w_start "Start angular velocity"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
                   -100,20}}, rotation=0)));
@@ -4154,7 +4154,7 @@ no rolling resistance. This component defines the kinematic constraint:
 
       encapsulated model Set_a_start "Set a_start"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Blocks.Interfaces.RealInput a_start
           "Start angular acceleration"
           annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{
@@ -4176,7 +4176,7 @@ no rolling resistance. This component defines the kinematic constraint:
 
       encapsulated model Set_flange_tau "Set flange.tau to zero"
         import Modelica;
-        extends Modelica.Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         Modelica.Mechanics.Rotational.Interfaces.Flange_b flange
                                               annotation (Placement(
               transformation(extent={{90,-10},{110,10}}, rotation=0)));

@@ -667,7 +667,7 @@ package AST_BatchPlant
   package BaseClasses
     extends Modelica.Icons.BasesPackage;
     block TriggeredTrapezoid "Triggered trapezoid generator"
-      extends Modelica.Blocks.Interfaces.partialBooleanBlockIcon;
+      extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
       parameter Real amplitude=1 "Amplitude of trapezoid";
       parameter Modelica.SIunits.Time rising(final min=0)=0
@@ -878,7 +878,7 @@ handled properly.</p>
               "Time varying input signal"), Placement(transformation(extent={{
                 -140,-20},{-100,20}}, rotation=0)));
 
-      annotation(
+      annotation (
         Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},

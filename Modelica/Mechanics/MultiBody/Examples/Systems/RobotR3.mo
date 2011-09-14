@@ -787,7 +787,7 @@ motion on the controlBus of the r3 robot.
     end PathPlanning6;
 
     model PathToAxisControlBus "Map path planning to one axis control bus"
-      extends Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
 
       parameter Integer nAxis=6 "Number of driven axis";
       parameter Integer axisUsed=1

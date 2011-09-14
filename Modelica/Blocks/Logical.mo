@@ -70,9 +70,9 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nor")}),
-		Diagram(coordinateSystem(preserveAspectRatio=
+  Diagram(coordinateSystem(preserveAspectRatio=
               false, extent={{-100,-100},{100,100}})),
-		Documentation(info="<html>
+  Documentation(info="<html>
 <p>
 The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
 the output is <b>false</b>.
@@ -89,9 +89,9 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nand")}),
-		Diagram(coordinateSystem(preserveAspectRatio=
+  Diagram(coordinateSystem(preserveAspectRatio=
               false, extent={{-100,-100},{100,100}})),
-		Documentation(info="<html>
+  Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
 the output is <b>false</b>.
@@ -529,7 +529,7 @@ u1, else it is set equal to u3.</p>
   end LogicalSwitch;
 
   block Switch "Switch between two Real signals"
-    extends Blocks.Interfaces.partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.RealInput u1 "Connector of first Real input signal"
                                    annotation (Placement(transformation(extent=
               {{-140,60},{-100,100}}, rotation=0)));
@@ -595,7 +595,7 @@ u1, else it is set equal to u3.</p>
 
   block Hysteresis "Transform Real to Boolean signal with Hysteresis"
 
-    extends Blocks.Interfaces.partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
     parameter Real uLow(start=0) "if y=true and u<=uLow, switch to y=false";
     parameter Real uHigh(start=1) "if y=false and u>=uHigh, switch to y=true";
     parameter Boolean pre_y_start = false "Value of pre(y) at initial time";
@@ -739,7 +739,7 @@ The default value of this parameter is <b>false</b>.
   end Hysteresis;
 
   block OnOffController "On-off controller"
-    extends Interfaces.partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.RealInput reference
       "Connector of Real input signal used as reference signal"
                                           annotation (Placement(transformation(
@@ -787,7 +787,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
   end OnOffController;
 
   block TriggeredTrapezoid "Triggered trapezoid generator"
-    extends Interfaces.partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
 
     parameter Real amplitude=1 "Amplitude of trapezoid";
     parameter Modelica.SIunits.Time rising(final min=0)=0
@@ -976,7 +976,7 @@ handled properly.</p>
   block Timer
     "Timer measuring the time from the time instant where the Boolean input became true"
 
-    extends Interfaces.partialBooleanBlockIcon;
+    extends Modelica.Blocks.Icons.PartialBooleanBlock;
     Blocks.Interfaces.BooleanInput u "Connector of Boolean input signal"
                                      annotation (Placement(transformation(
             extent={{-140,-20},{-100,20}}, rotation=0)));

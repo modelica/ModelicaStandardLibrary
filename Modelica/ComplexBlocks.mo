@@ -98,7 +98,7 @@ Connector with one output signal of type Complex.
 </html>"));
 
       partial block ComplexSO "Single Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         ComplexOutput y "Connector of Complex output signal"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
         annotation (Documentation(info="<html>
@@ -109,7 +109,7 @@ Block has one continuous Complex output signal.
       end ComplexSO;
 
       partial block ComplexMO "Multiple Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         parameter Integer nout(min=1) = 1 "Number of outputs";
         ComplexOutput y[nout] "Connector of Complex output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=0)));
@@ -122,7 +122,7 @@ Block has one continuous Complex output signal vector.
 
       partial block ComplexSISO
       "Single Input Single Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         ComplexInput u "Connector of Complex input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
         ComplexOutput y "Connector of Complex output signal"
@@ -136,7 +136,7 @@ Block has one continuous Complex input and one continuous Complex output signal.
 
       partial block ComplexSI2SO
       "2 Single Input / 1 Single Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         ComplexInput u1 "Connector of Complex input signal 1"
           annotation (Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
         ComplexInput u2 "Connector of Complex input signal 2"
@@ -153,7 +153,7 @@ continuous Complex output signal y.
 
       partial block ComplexSIMO
       "Single Input Multiple Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         parameter Integer nout=1 "Number of outputs";
         ComplexInput u "Connector of Complex input signal"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -169,7 +169,7 @@ vector of continuous Complex output signals.
 
       partial block ComplexMISO
       "Multiple Input Single Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         parameter Integer nin=1 "Number of inputs";
         ComplexInput u[nin] "Connector of Complex input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -185,7 +185,7 @@ one continuous Complex output signal.
 
       partial block ComplexMIMO
       "Multiple Input Multiple Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         parameter Integer nin=1 "Number of inputs";
         parameter Integer nout=1 "Number of outputs";
         ComplexInput u[nin] "Connector of Complex input signals"
@@ -202,7 +202,7 @@ The signal sizes of the input and output vector may be different.
 
       partial block ComplexMIMOs
       "Multiple Input Multiple Output continuous control block with same number of inputs and outputs"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         parameter Integer n=1 "Number of inputs (= number of outputs)";
         ComplexInput u[n] "Connector of Complex input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -218,7 +218,7 @@ where the signal sizes of the input and output vector are identical.
 
       partial block ComplexMI2MO
       "2 Multiple Input / Multiple Output continuous control block"
-        extends Blocks.Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
         parameter Integer n=1 "Dimension of input and output vectors.";
         ComplexInput u1[n] "Connector 1 of Complex input signals"
           annotation (Placement(transformation(extent={{-140,40},{-100,80}}, rotation=0)));
@@ -562,7 +562,7 @@ Example:
         end Add;
 
         block Add3 "Output the sum of the three inputs"
-          extends Blocks.Interfaces.BlockIcon;
+          extends Modelica.Blocks.Icons.Block;
 
           parameter Complex k1=Complex(1,0) "Gain of upper input";
           parameter Complex k2=Complex(1,0) "Gain of middle input";
@@ -1940,7 +1940,7 @@ zero or negative.
     end PolarToComplex;
 
     block ComplexToReal "Converts complex to cartesian representation"
-      extends Modelica.Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       Blocks.Interfaces.RealOutput re  annotation (Placement(transformation(extent={{100,40},
                 {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
       Blocks.Interfaces.RealOutput im  annotation (Placement(transformation(extent={{100,-80},
@@ -1980,7 +1980,7 @@ zero or negative.
     end ComplexToReal;
 
     block ComplexToPolar "Converts complex to polar representation"
-      extends Modelica.Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       Blocks.Interfaces.RealOutput len annotation (Placement(transformation(extent={{100,40},
                 {140,80}}),          iconTransformation(extent={{100,40},{140,80}})));
       Blocks.Interfaces.RealOutput phi annotation (Placement(transformation(extent={{100,-80},

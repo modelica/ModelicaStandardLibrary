@@ -1172,7 +1172,7 @@ Example:
 
       block Add3
     "Output the sum of the three inputs (this is an obsolet block. Use instead MultiSum)"
-        extends Interfaces.BlockIcon;
+        extends Modelica.Blocks.Icons.Block;
 
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
@@ -2865,7 +2865,7 @@ zero or negative.
       end Log10;
 
   block RealToInteger "Convert Real to Integer signal"
-    extends Interfaces.IntegerBlockIcon;
+    extends Modelica.Blocks.Icons.IntegerBlock;
   public
     Interfaces.RealInput u "Connector of Real input signal"
                            annotation (Placement(transformation(extent={{-140,
@@ -2904,7 +2904,7 @@ as <i>nearest integer value</i> of the input <b>u</b>:
   end RealToInteger;
 
   block IntegerToReal "Convert integer to real signals"
-    extends Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     Interfaces.IntegerInput u "Connector of Integer input signal"
                                                                annotation (Placement(
           transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
@@ -3131,7 +3131,7 @@ where <b>threshold</b> is a parameter.
 
   block RectangularToPolar
     "Convert rectangular coordinates to polar coordinates"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     Modelica.Blocks.Interfaces.RealInput u_re
       "Real part of rectangular representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
@@ -3187,7 +3187,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
 
   block PolarToRectangular
     "Convert polar coordinates to rectangular coordinates"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     Modelica.Blocks.Interfaces.RealInput u_abs "Length of polar representation"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
@@ -3363,7 +3363,7 @@ Note: The output is updated after each period defined by 1/f.
   end RootMeanSquare;
 
   block Harmonic "Calculate harmonic over period 1/f"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     parameter Integer k(start=1) "Order of harmonic";
     Blocks.Sources.Sine sin1(

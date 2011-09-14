@@ -7,7 +7,7 @@ package Routing "Library of blocks to combine and extract signals"
   equation
     y = fill(u, nout);
     annotation (
-	Icon(coordinateSystem(
+      Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -350,7 +350,7 @@ value of the additional u index:</p>
 end Extractor;
 
   block Multiplex2 "Multiplexer block for two input connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u1[n1]
@@ -400,7 +400,7 @@ explicitly defined via parameters n1 and n2.
   end Multiplex2;
 
   block Multiplex3 "Multiplexer block for three input connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
@@ -455,7 +455,7 @@ explicitly defined via parameters n1, n2 and n3.
   end Multiplex3;
 
   block Multiplex4 "Multiplexer block for four input connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
@@ -517,7 +517,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
   end Multiplex4;
 
   block Multiplex5 "Multiplexer block for five input connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
@@ -585,7 +585,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
   end Multiplex5;
 
   block Multiplex6 "Multiplexer block for six input connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of input signal connector 1";
     parameter Integer n2=1 "dimension of input signal connector 2";
     parameter Integer n3=1 "dimension of input signal connector 3";
@@ -660,7 +660,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
   end Multiplex6;
 
   block DeMultiplex2 "DeMultiplexer block for two output connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     Modelica.Blocks.Interfaces.RealInput u[n1 + n2]
@@ -710,7 +710,7 @@ explicitly defined via parameters n1 and n2.
   end DeMultiplex2;
 
   block DeMultiplex3 "DeMultiplexer block for three output connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
@@ -767,7 +767,7 @@ explicitly defined via parameters n1, n2 and n3.
 
   block DeMultiplex4 "DeMultiplexer block for four output connectors"
 
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
@@ -829,7 +829,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
 
   block DeMultiplex5 "DeMultiplexer block for five output connectors"
 
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
@@ -896,7 +896,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
   end DeMultiplex5;
 
   block DeMultiplex6 "DeMultiplexer block for six output connectors"
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer n1=1 "dimension of output signal connector 1";
     parameter Integer n2=1 "dimension of output signal connector 2";
     parameter Integer n3=1 "dimension of output signal connector 3";
@@ -970,7 +970,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 
   model RealPassThrough "Pass a Real signal through without modification"
 
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
 
     Modelica.Blocks.Interfaces.RealInput u "Input signal"
       annotation (HideResult=true, Placement(transformation(extent={{-140,-20},{-100,
@@ -991,7 +991,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
   end RealPassThrough;
 
   model IntegerPassThrough "Pass a Integer signal through without modification"
-    extends Modelica.Blocks.Interfaces.IntegerBlockIcon;
+    extends Modelica.Blocks.Icons.IntegerBlock;
 
     Modelica.Blocks.Interfaces.IntegerInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
@@ -1011,7 +1011,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
   end IntegerPassThrough;
 
   model BooleanPassThrough "Pass a Boolean signal through without modification"
-    extends Modelica.Blocks.Interfaces.BooleanBlockIcon;
+    extends Modelica.Blocks.Icons.BooleanBlock;
 
     Modelica.Blocks.Interfaces.BooleanInput u "Input signal"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
