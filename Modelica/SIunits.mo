@@ -2,6 +2,31 @@ within Modelica;
 package SIunits
   "Library of type and unit definitions based on SI units according to ISO 31-1992"
   extends Modelica.Icons.Package;
+  package Icons "Icons for SIunits"
+    extends Modelica.Icons.Package;
+
+    partial function Conversion "Base icon for conversion functions"
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-100,100},{100,-100}},
+              lineColor={191,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-90,0},{30,0}}, color={191,0,0}),
+            Polygon(
+              points={{90,0},{30,20},{30,-20},{90,0}},
+              lineColor={191,0,0},
+              fillColor={191,0,0},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-115,155},{115,105}},
+              textString="%name",
+              lineColor={0,0,255})}));
+    end Conversion;
+  end Icons;
+
 package UsersGuide "User's Guide of SIunits Library"
   extends Modelica.Icons.Information;
 
@@ -329,7 +354,7 @@ still kept in Modelica.SIunits.</p>
     end NonSIunits;
 
     function to_degC "Convert from Kelvin to degCelsius"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degC Celsius "Celsius value";
     algorithm
@@ -345,7 +370,7 @@ still kept in Modelica.SIunits.</p>
     end to_degC;
 
     function from_degC "Convert from degCelsius to Kelvin"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Temperature_degC Celsius "Celsius value";
       output Temperature Kelvin "Kelvin value";
     algorithm
@@ -361,7 +386,7 @@ still kept in Modelica.SIunits.</p>
     end from_degC;
 
     function to_degF "Convert from Kelvin to degFahrenheit"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
     algorithm
@@ -377,7 +402,7 @@ still kept in Modelica.SIunits.</p>
     end to_degF;
 
     function from_degF "Convert from degFahrenheit to Kelvin"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Temperature_degF Fahrenheit "Fahrenheit value";
       output Temperature Kelvin "Kelvin value";
     algorithm
@@ -396,7 +421,7 @@ still kept in Modelica.SIunits.</p>
     end from_degF;
 
     function to_degRk "Convert from Kelvin to degRankine"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Temperature Kelvin "Kelvin value";
       output NonSIunits.Temperature_degRk Rankine "Rankine value";
     algorithm
@@ -412,7 +437,7 @@ still kept in Modelica.SIunits.</p>
     end to_degRk;
 
     function from_degRk "Convert from degRankine to Kelvin"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Temperature_degRk Rankine "Rankine value";
       output Temperature Kelvin "Kelvin value";
     algorithm
@@ -428,7 +453,7 @@ still kept in Modelica.SIunits.</p>
     end from_degRk;
 
     function to_deg "Convert from radian to degree"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Angle radian "radian value";
       output NonSIunits.Angle_deg degree "degree value";
     algorithm
@@ -444,7 +469,7 @@ still kept in Modelica.SIunits.</p>
     end to_deg;
 
     function from_deg "Convert from degree to radian"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Angle_deg degree "degree value";
       output Angle radian "radian value";
     algorithm
@@ -460,7 +485,7 @@ still kept in Modelica.SIunits.</p>
     end from_deg;
 
     function to_rpm "Convert from radian per second to revolutions per minute"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input AngularVelocity rs "radian per second value";
       output NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
     algorithm
@@ -477,7 +502,7 @@ still kept in Modelica.SIunits.</p>
 
     function from_rpm
       "Convert from revolutions per minute to radian per second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.AngularVelocity_rpm rpm "revolutions per minute value";
       output AngularVelocity rs "radian per second value";
     algorithm
@@ -493,7 +518,7 @@ still kept in Modelica.SIunits.</p>
     end from_rpm;
 
     function to_kmh "Convert from metre per second to kilometre per hour"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Velocity ms "metre per second value";
       output NonSIunits.Velocity_kmh kmh "kilometre per hour value";
     algorithm
@@ -509,7 +534,7 @@ still kept in Modelica.SIunits.</p>
     end to_kmh;
 
     function from_kmh "Convert from kilometre per hour to metre per second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Velocity_kmh kmh "kilometre per hour value";
       output Velocity ms "metre per second value";
     algorithm
@@ -525,7 +550,7 @@ still kept in Modelica.SIunits.</p>
     end from_kmh;
 
     function to_day "Convert from second to day"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Time s "second value";
       output NonSIunits.Time_day day "day value";
     algorithm
@@ -541,7 +566,7 @@ still kept in Modelica.SIunits.</p>
     end to_day;
 
     function from_day "Convert from day to second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Time_day day "day value";
       output Time s "second value";
     algorithm
@@ -557,7 +582,7 @@ still kept in Modelica.SIunits.</p>
     end from_day;
 
     function to_hour "Convert from second to hour"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Time s "second value";
       output NonSIunits.Time_hour hour "hour value";
     algorithm
@@ -573,7 +598,7 @@ still kept in Modelica.SIunits.</p>
     end to_hour;
 
     function from_hour "Convert from hour to second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Time_hour hour "hour value";
       output Time s "second value";
     algorithm
@@ -589,7 +614,7 @@ still kept in Modelica.SIunits.</p>
     end from_hour;
 
     function to_minute "Convert from second to minute"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Time s "second value";
       output NonSIunits.Time_minute minute "minute value";
     algorithm
@@ -605,7 +630,7 @@ still kept in Modelica.SIunits.</p>
     end to_minute;
 
     function from_minute "Convert from minute to second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Time_minute minute "minute value";
       output Time s "second value";
     algorithm
@@ -621,7 +646,7 @@ still kept in Modelica.SIunits.</p>
     end from_minute;
 
     function to_litre "Convert from cubic metre to litre"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Volume m3 "cubic metre value";
       output NonSIunits.Volume_litre litre "litre value";
     algorithm
@@ -637,7 +662,7 @@ still kept in Modelica.SIunits.</p>
     end to_litre;
 
     function from_litre "Convert from litre to cubic metre"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Volume_litre litre "litre value";
       output Volume m3 "cubic metre value";
     algorithm
@@ -653,7 +678,7 @@ still kept in Modelica.SIunits.</p>
     end from_litre;
 
     function from_Ah "Convert from Ampere hours to Coulomb"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Modelica.SIunits.Conversions.NonSIunits.ElectricCharge_Ah
             AmpereHour "Ampere hours";
       output Modelica.SIunits.ElectricCharge Coulomb "Coulomb";
@@ -670,7 +695,7 @@ still kept in Modelica.SIunits.</p>
     end from_Ah;
 
     function to_Ah "Convert from Coulomb to Ampere hours"
-      extends Modelica.SIunits.Conversions.ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Modelica.SIunits.ElectricCharge Coulomb "Coulomb";
       output Modelica.SIunits.Conversions.NonSIunits.ElectricCharge_Ah
                                           AmpereHour "Ampere hours";
@@ -687,7 +712,7 @@ still kept in Modelica.SIunits.</p>
     end to_Ah;
 
     function from_Wh "Convert from Watt hour to Joule"
-      extends Modelica.SIunits.Conversions.ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Energy_Wh WattHour "Watt hour";
       output Modelica.SIunits.Energy Joule "Joule";
     algorithm
@@ -703,7 +728,7 @@ still kept in Modelica.SIunits.</p>
     end from_Wh;
 
     function to_Wh "Convert from Joule to Watt hour"
-      extends Modelica.SIunits.Conversions.ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Modelica.SIunits.Energy Joule "Joule";
       output NonSIunits.Energy_Wh WattHour "Watt hour";
     algorithm
@@ -719,7 +744,7 @@ still kept in Modelica.SIunits.</p>
     end to_Wh;
 
     function to_kWh "Convert from Joule to kilo Watt hour"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Energy J "Joule value";
       output NonSIunits.Energy_kWh kWh "kWh value";
     algorithm
@@ -735,7 +760,7 @@ still kept in Modelica.SIunits.</p>
     end to_kWh;
 
     function from_kWh "Convert from kilo Watt hour to Joule"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Energy_kWh kWh "kWh value";
       output Energy J "Joule value";
     algorithm
@@ -751,7 +776,7 @@ still kept in Modelica.SIunits.</p>
     end from_kWh;
 
     function to_bar "Convert from Pascal to bar"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input Pressure Pa "Pascal value";
       output NonSIunits.Pressure_bar bar "bar value";
     algorithm
@@ -767,7 +792,7 @@ still kept in Modelica.SIunits.</p>
     end to_bar;
 
     function from_bar "Convert from bar to Pascal"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Pressure_bar bar "bar value";
       output Pressure Pa "Pascal value";
     algorithm
@@ -783,7 +808,7 @@ still kept in Modelica.SIunits.</p>
     end from_bar;
 
     function to_gps "Convert from kilogram per second to gram per second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input MassFlowRate kgps "kg/s value";
       output NonSIunits.MassFlowRate_gps gps "g/s value";
     algorithm
@@ -799,7 +824,7 @@ still kept in Modelica.SIunits.</p>
     end to_gps;
 
     function from_gps "Convert from gram per second to kilogram per second"
-      extends ConversionIcon;
+      extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.MassFlowRate_gps gps "g/s value";
       output MassFlowRate kgps "kg/s value";
     algorithm
@@ -814,7 +839,74 @@ still kept in Modelica.SIunits.</p>
               textString="kg/s")}));
     end from_gps;
 
-    partial function ConversionIcon "Base icon for conversion functions"
+    function from_Hz "Convert from Hz to rad/s"
+      extends Modelica.SIunits.Icons.Conversion;
+      input SIunits.Frequency f "frequency";
+      output SIunits.AngularVelocity w "angular velocity";
+
+    algorithm
+      w := 2*Modelica.Constants.pi*f;
+      annotation (Inline=true,Icon(graphics={
+                                    Text(
+              extent={{2,100},{-100,52}},
+              lineColor={0,0,0},
+              textString="Hz"),              Text(
+              extent={{100,-56},{12,-100}},
+              lineColor={0,0,0},
+              textString="1/s")}));
+    end from_Hz;
+
+    function to_Hz "Convert from rad/s to Hz"
+      extends Modelica.SIunits.Icons.Conversion;
+      input SIunits.AngularVelocity w "angular velocity";
+      output SIunits.Frequency f "frequency";
+    algorithm
+      f := w/(2*Modelica.Constants.pi);
+      annotation (Inline=true,Icon(graphics={
+                                    Text(
+              extent={{100,-52},{-2,-100}},
+              lineColor={0,0,0},
+              textString="Hz"),              Text(
+              extent={{-12,100},{-100,56}},
+              lineColor={0,0,0},
+              textString="1/s")}));
+    end to_Hz;
+
+    function to_cm2 "Convert from square metre to square centrimetre"
+      extends Modelica.SIunits.Icons.Conversion;
+      input Area m2 "square metre value";
+      output NonSIunits.Area_cm cm2 "square centimetre value";
+    algorithm
+      cm2 := 0.0001*m2;
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{-20,100},{-100,58}},
+              lineColor={0,0,0},
+              textString="m/s"), Text(
+              extent={{100,-50},{-18,-100}},
+              lineColor={0,0,0},
+              textString="cm2")}));
+    end to_cm2;
+
+    function from_cm2 "Convert from square centrimetre to square metre"
+      extends Modelica.SIunits.Icons.Conversion;
+      input NonSIunits.Area_cm cm2 "square centimetre value";
+      output Area m2 "square metre value";
+    algorithm
+      m2 :=10000*cm2;
+      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Text(
+              extent={{2,100},{-100,58}},
+              lineColor={0,0,0},
+              textString="cm2"),  Text(
+              extent={{100,-50},{-16,-98}},
+              lineColor={0,0,0},
+              textString="m/s")}));
+    end from_cm2;
+
+    partial function ConversionIcon
+      "This icon will be removed in future Modelica versions."
+      extends Modelica.Icons.ObsoleteModel;
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
@@ -832,73 +924,12 @@ still kept in Modelica.SIunits.</p>
             Text(
               extent={{-115,155},{115,105}},
               textString="%name",
-              lineColor={0,0,255})}));
+              lineColor={0,0,255})}), Documentation(info="<html>
+<p>
+This icon of a <b>conversion symbol</b> will be removed in future versions of the library. Instead the icon <a href=\"modelica://Modelica.SIunits.Icons.Conversion\">Modelica.SIunits.Icons.Conversion</a> shall be used.
+</p>
+</html>"));
     end ConversionIcon;
-
-    function from_Hz "Convert from Hz to rad/s"
-      extends SIunits.Conversions.ConversionIcon;
-      input SIunits.Frequency f "frequency";
-      output SIunits.AngularVelocity w "angular velocity";
-
-    algorithm
-      w := 2*Modelica.Constants.pi*f;
-      annotation (Inline=true,Icon(graphics={
-                                    Text(
-              extent={{2,100},{-100,52}},
-              lineColor={0,0,0},
-              textString="Hz"),              Text(
-              extent={{100,-56},{12,-100}},
-              lineColor={0,0,0},
-              textString="1/s")}));
-    end from_Hz;
-
-    function to_Hz "Convert from rad/s to Hz"
-      extends SIunits.Conversions.ConversionIcon;
-      input SIunits.AngularVelocity w "angular velocity";
-      output SIunits.Frequency f "frequency";
-    algorithm
-      f := w/(2*Modelica.Constants.pi);
-      annotation (Inline=true,Icon(graphics={
-                                    Text(
-              extent={{100,-52},{-2,-100}},
-              lineColor={0,0,0},
-              textString="Hz"),              Text(
-              extent={{-12,100},{-100,56}},
-              lineColor={0,0,0},
-              textString="1/s")}));
-    end to_Hz;
-
-    function to_cm2 "Convert from square metre to square centrimetre"
-      extends ConversionIcon;
-      input Area m2 "square metre value";
-      output NonSIunits.Area_cm cm2 "square centimetre value";
-    algorithm
-      cm2 := 0.0001*m2;
-      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-20,100},{-100,58}},
-              lineColor={0,0,0},
-              textString="m/s"), Text(
-              extent={{100,-50},{-18,-100}},
-              lineColor={0,0,0},
-              textString="cm2")}));
-    end to_cm2;
-
-    function from_cm2 "Convert from square centrimetre to square metre"
-      extends ConversionIcon;
-      input NonSIunits.Area_cm cm2 "square centimetre value";
-      output Area m2 "square metre value";
-    algorithm
-      m2 :=10000*cm2;
-      annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{2,100},{-100,58}},
-              lineColor={0,0,0},
-              textString="cm2"),  Text(
-              extent={{100,-50},{-16,-98}},
-              lineColor={0,0,0},
-              textString="m/s")}));
-    end from_cm2;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true,
                      extent={{-100,-100},{100,100}})),
                               Documentation(info="<HTML>
@@ -921,6 +952,7 @@ argument):</p>
 </HTML>
 "));
   end Conversions;
+
 
   // Space and Time (chapter 1 of ISO 31-1992)
 
