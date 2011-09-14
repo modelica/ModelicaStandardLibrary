@@ -30,7 +30,7 @@ package Icons "Library of icons"
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                               Documentation(info="<html>
-<p>This icon indicate classes containing only documentation, intended for general description of e.g., concepts and features of a package.</p>
+<p>This icon indicate classes containing only documentation, intended for general description of, e.g., concepts and features of a package.</p>
 </html>"));
   end Information;
   extends Icons.Package;
@@ -763,7 +763,7 @@ This icon is designed for a <b>sub-bus</b> in a signal connector.
 
   end SignalSubBus;
 
-  partial class UnderConstruction
+  partial class UnderConstruction "Icon for classes that are still under construction"
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Polygon(
@@ -794,7 +794,7 @@ corresponding library in a future release.
 
   partial package Library
     "This icon will be removed in future Modelica versions, use Package instead"
-
+    extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
             extent={{-80,100},{100,-80}},
@@ -814,6 +814,7 @@ corresponding library in a future release.
 
   partial package Library2
     "This icon will be removed in future Modelica versions, use Package instead"
+    extends Modelica.Icons.ObsoleteModel;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={Rectangle(
@@ -833,6 +834,7 @@ corresponding library in a future release.
 
   partial class GearIcon
     "This icon will be removed in future Modelica versions"
+    extends Modelica.Icons.ObsoleteModel;
 
     annotation (             Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -880,6 +882,7 @@ This icon of a <b>gearbox</b> will be removed in future versions of the library.
 
   partial class MotorIcon
     "This icon will be removed in future Modelica versions."
+    extends Modelica.Icons.ObsoleteModel;
 
     annotation (             Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -908,8 +911,8 @@ This icon of an <b>electrical motor</b> model will be removed in future versions
 </html>"));
   end MotorIcon;
 
-  partial class Info "Icon for general information packages"
-
+  partial class Info "This icon will be removed in future Modelica versions."
+    extends Modelica.Icons.ObsoleteModel;
     annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
               -100},{100,100}}), graphics={
           Ellipse(
