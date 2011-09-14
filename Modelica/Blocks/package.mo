@@ -328,7 +328,7 @@ end FilterWithDifferentiation;
 
   model FilterWithRiseTime
     "Demonstrates to use the rise time instead of the cut-off frequency to define a filter"
-    extends Icons.Example;
+    extends Modelica.Icons.Example;
     parameter Integer order=2 "Filter order";
     parameter Modelica.SIunits.Time riseTime=2 "Time to reach the step input";
     constant Real pi=Modelica.Constants.pi;
