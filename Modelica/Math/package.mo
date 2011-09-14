@@ -6,6 +6,94 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Package;
 
 
+package Icons "Icons for Math"
+  extends Modelica.Icons.Package;
+
+  partial function AxisLeft
+    "Basic icon for mathematical function with y-axis on left side"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            -100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(points={{-80,-80},{-80,68}}, color={192,192,192}),
+        Polygon(
+          points={{-80,90},{-88,68},{-72,68},{-80,90}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-150,150},{150,110}},
+          textString="%name",
+          lineColor={0,0,255})}),                          Diagram(
+        coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+            100}}), graphics={
+        Line(points={{-80,80},{-88,80}}, color={95,95,95}),
+        Line(points={{-80,-80},{-88,-80}}, color={95,95,95}),
+        Line(points={{-80,-90},{-80,84}}, color={95,95,95}),
+        Text(
+          extent={{-75,104},{-55,84}},
+          lineColor={95,95,95},
+          textString="y"),
+        Polygon(
+          points={{-80,98},{-86,82},{-74,82},{-80,98}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid)}),
+    Documentation(info="<html>
+<p>
+Icon for a mathematical function, consisting of an y-axis on the left side.
+It is expected, that an x-axis is added and a plot of the function.
+</p>
+</html>"));
+  end AxisLeft;
+
+  partial function AxisCenter
+    "Basic icon for mathematical function with y-axis in the center"
+
+    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+            -100},{100,100}}), graphics={
+        Rectangle(
+          extent={{-100,100},{100,-100}},
+          lineColor={0,0,0},
+          fillColor={255,255,255},
+          fillPattern=FillPattern.Solid),
+        Line(points={{0,-80},{0,68}}, color={192,192,192}),
+        Polygon(
+          points={{0,90},{-8,68},{8,68},{0,90}},
+          lineColor={192,192,192},
+          fillColor={192,192,192},
+          fillPattern=FillPattern.Solid),
+        Text(
+          extent={{-150,150},{150,110}},
+          textString="%name",
+          lineColor={0,0,255})}),                          Diagram(graphics={
+        Line(points={{0,80},{-8,80}}, color={95,95,95}),
+        Line(points={{0,-80},{-8,-80}}, color={95,95,95}),
+        Line(points={{0,-90},{0,84}}, color={95,95,95}),
+        Text(
+          extent={{5,104},{25,84}},
+          lineColor={95,95,95},
+          textString="y"),
+        Polygon(
+          points={{0,98},{-6,82},{6,82},{0,98}},
+          lineColor={95,95,95},
+          fillColor={95,95,95},
+          fillPattern=FillPattern.Solid)}),
+    Documentation(info="<html>
+<p>
+Icon for a mathematical function, consisting of an y-axis in the middle.
+It is expected, that an x-axis is added and a plot of the function.
+</p>
+</html>"));
+  end AxisCenter;
+
+end Icons;
+
+
 package Vectors "Library of functions operating on vectors"
   extends Modelica.Icons.Package;
 
@@ -10699,7 +10787,7 @@ end isEqual;
 
 
 function sin "Sine"
-  extends baseIcon1;
+  extends Modelica.Math.Icons.AxisLeft;
   input Modelica.SIunits.Angle u;
   output Real y;
 
@@ -10779,7 +10867,7 @@ end sin;
 
 
 function cos "Cosine"
-  extends baseIcon1;
+  extends Modelica.Math.Icons.AxisLeft;
   input SI.Angle u;
   output Real y;
 
@@ -10855,7 +10943,7 @@ end cos;
 
 
 function tan "Tangent (u shall not be -pi/2, pi/2, 3*pi/2, ...)"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input SI.Angle u;
   output Real y;
 
@@ -10934,7 +11022,7 @@ end tan;
 
 
 function asin "Inverse sine (-1 <= u <= 1)"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output SI.Angle y;
 
@@ -11014,7 +11102,7 @@ end asin;
 
 
 function acos "Inverse cosine (-1 <= u <= 1)"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output SI.Angle y;
 
@@ -11090,7 +11178,7 @@ end acos;
 
 
 function atan "Inverse tangent"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output SI.Angle y;
 
@@ -11160,7 +11248,7 @@ end atan;
 
 
 function atan2 "Four quadrant inverse tangent"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u1;
   input Real u2;
   output SI.Angle y;
@@ -11263,7 +11351,7 @@ end atan2;
 function atan3
   "Four quadrant inverse tangent (select solution that is closest to given angle y0)"
   import Modelica.Math;
-  extends Modelica.Math.baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u1;
   input Real u2;
   input Modelica.SIunits.Angle y0=0 "y shall be in the range: -pi < y-y0 < pi";
@@ -11366,7 +11454,7 @@ end atan3;
 
 
 function sinh "Hyperbolic sine"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output Real y;
 
@@ -11448,7 +11536,7 @@ end sinh;
 
 
 function cosh "Hyperbolic cosine"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output Real y;
 
@@ -11530,7 +11618,7 @@ end cosh;
 
 
 function tanh "Hyperbolic tangent"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output Real y;
 
@@ -11600,7 +11688,7 @@ end tanh;
 
 
 function asinh "Inverse of sinh (area hyperbolic sine)"
-  extends Modelica.Math.baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output Real y;
 
@@ -11685,7 +11773,7 @@ end asinh;
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
   import Modelica.Utilities.Streams.*;
-  extends Modelica.Math.baseIcon1;
+  extends Modelica.Math.Icons.AxisLeft;
   input Real u;
   output Real y;
 
@@ -11779,7 +11867,7 @@ end acosh;
 
 
 function exp "Exponential, base e"
-  extends baseIcon2;
+  extends Modelica.Math.Icons.AxisCenter;
   input Real u;
   output Real y;
 
@@ -11859,7 +11947,7 @@ end exp;
 
 
 function log "Natural (base e) logarithm (u shall be > 0)"
-  extends baseIcon1;
+  extends Modelica.Math.Icons.AxisLeft;
   input Real u;
   output Real y;
 
@@ -11941,7 +12029,7 @@ end log;
 
 
 function log10 "Base 10 logarithm (u shall be > 0)"
-  extends baseIcon1;
+  extends Modelica.Math.Icons.AxisLeft;
   input Real u;
   output Real y;
 
@@ -12023,7 +12111,9 @@ end log10;
 
 
 partial function baseIcon1
-  "Basic icon for mathematical function with y-axis on left side"
+  "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead"
+  import Modelica;
+  extends Modelica.Icons.ObsoleteModel;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
@@ -12057,16 +12147,17 @@ partial function baseIcon1
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
-<p>
-Icon for a mathematical function, consisting of an y-axis on the left side.
-It is expected, that an x-axis is added and a plot of the function.
+<p>This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisLeft\">Modelica.Math.Icons.AxisLeft</a> shall be used.
 </p>
 </html>"));
 end baseIcon1;
 
 
 partial function baseIcon2
-  "Basic icon for mathematical function with y-axis in middle"
+  "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead"
+  import Modelica;
+  extends Modelica.Icons.ObsoleteModel;
 
   annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}}), graphics={
@@ -12098,9 +12189,8 @@ partial function baseIcon2
           fillColor={95,95,95},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
-<p>
-Icon for a mathematical function, consisting of an y-axis in the middle.
-It is expected, that an x-axis is added and a plot of the function.
+<p>This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Math.Icons.AxisCenter\">Modelica.Math.Icons.AxisCenter</a> shall be used.
 </p>
 </html>"));
 end baseIcon2;
@@ -12108,6 +12198,9 @@ end baseIcon2;
 
 function tempInterpol1
   "Temporary function for linear interpolation (will be removed)"
+  extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
+
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
   input Integer icol "column of table to be interpolated";
@@ -12166,6 +12259,8 @@ end tempInterpol1;
 
 function tempInterpol2
   "Temporary function for vectorized linear interpolation (will be removed)"
+  extends Modelica.Icons.Function;
+  extends Modelica.Icons.ObsoleteModel;
 
   input Real u "input value (first column of table)";
   input Real table[:, :] "table to be interpolated";
