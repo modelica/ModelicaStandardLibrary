@@ -12111,7 +12111,7 @@ end log10;
 
 
 partial function baseIcon1
-  "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead"
+  "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisLeft instead."
   import Modelica;
   extends Modelica.Icons.ObsoleteModel;
 
@@ -12155,7 +12155,7 @@ end baseIcon1;
 
 
 partial function baseIcon2
-  "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead"
+  "This icon will be removed in future Modelica versions, use Modelica.Math.Icons.AxisCenter instead."
   import Modelica;
   extends Modelica.Icons.ObsoleteModel;
 
