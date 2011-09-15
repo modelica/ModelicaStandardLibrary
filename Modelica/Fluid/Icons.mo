@@ -2,21 +2,27 @@ within Modelica.Fluid;
 package Icons
   extends Modelica.Icons.Package;
   partial class VariantLibrary
-    "Icon for a library that contains several variants of one component"
+    "This icon will be removed in future Modelica versions, use Modelica.Icons.VariantsPackage instead."
     extends Modelica.Icons.VariantsPackage;
-
-    annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+    extends Modelica.Icons.ObsoleteModel;
+    annotation(Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.Icons.VariantsPackage</a> shall be used.
+</p>
+</html>"));
   end VariantLibrary;
 
-  partial package BaseClassLibrary "Icon for library"
+  partial class BaseClassLibrary
+    "This icon will be removed in future Modelica versions, use Modelica.Icons.BasePackage instead."
     extends Modelica.Icons.BasesPackage;
+    extends Modelica.Icons.ObsoleteModel;
+    annotation(Documentation(info="<html>
+<p>
+This icon will be removed in future versions of the Modelica Standard Library.
+Instead the icon <a href=\"modelica://Modelica.Icons.BasePackage\">Modelica.Icons.BasePackage</a> shall be used.
+</p>
+</html>"));
 
-    annotation (             Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
   end BaseClassLibrary;
 end Icons;

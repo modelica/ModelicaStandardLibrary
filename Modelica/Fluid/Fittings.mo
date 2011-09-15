@@ -794,6 +794,7 @@ of the modeller.
 
     package QuadraticTurbulent
       "Pressure loss components that are mainly defined by a quadratic turbulent regime with constant loss factor data"
+      extends Modelica.Icons.Package;
      record LossFactorData
         "Data structure defining constant loss factor data for dp = zeta*rho*v*|v|/2 and functions providing the data for some loss types"
 

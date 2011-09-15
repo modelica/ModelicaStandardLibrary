@@ -6657,7 +6657,7 @@ extends Modelica.Icons.ExamplesPackage;
 
     package PressureLoss
       "Test package for pressure loss models implemented in Modelica.Fluid"
-    extends Modelica.Fluid.Icons.VariantLibrary;
+    extends Modelica.Icons.VariantsPackage;
 
       model Bend "Test cases of generic pressure loss functions"
 
