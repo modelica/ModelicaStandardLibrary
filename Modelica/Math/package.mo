@@ -2750,7 +2750,7 @@ For more details, see <a href=\"http://en.wikipedia.org/wiki/Condition_number\">
 
   algorithm
     if min(size(A)) > 0 then
-      (LU,,info) := Modelica.Math.Matrices.LAPACK.dgetrf(A);
+      (LU,info) := Modelica.Math.Matrices.LAPACK.dgetrf(A);
       anorm := Modelica.Math.Matrices.LAPACK.dlange(A,normspec);
       (rcond,info) := Modelica.Math.Matrices.LAPACK.dgecon(LU,inf,anorm);
     else
@@ -2926,7 +2926,7 @@ This function computes the Frobenius norm of a general real matrix <b>A</b>, i.e
     Integer i=n;
 
   algorithm
-    (sigma,,V) := Modelica.Math.Matrices.singularValues(A);
+    (sigma,V) := Modelica.Math.Matrices.singularValues(A);
     V := transpose(V);
     // rank computation
     eps := max(size(A, 1), size(A, 2))*max(sigma)*Modelica.Constants.eps;
