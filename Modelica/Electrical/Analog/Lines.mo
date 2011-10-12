@@ -661,12 +661,11 @@ The capacitances are calculated with: C=c*length/N.
   protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
-    Modelica.SIunits.Time TD;
+    parameter Modelica.SIunits.Time TD = NL/F;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
     assert(F > 0, "F  has to be positive");
-    TD = NL/F;
     i1 = (v1 - es)/Z0;
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
@@ -736,11 +735,10 @@ The capacitances are calculated with: C=c*length/N.
   protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
-    Modelica.SIunits.Time TD;
+    parameter Modelica.SIunits.Time TD = 1/F/4;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F  has to be positive");
-    TD = 1/F/4;
     i1 = (v1 - es)/Z0;
     i2 = (v2 - er)/Z0;
     es = 2*delay(v2, TD) - delay(er, TD);
