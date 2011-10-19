@@ -541,7 +541,7 @@ e.g., with one of the following equations:
               lineColor={0,0,0},
               pattern=LinePattern.None,
               fillColor={192,192,192},
-              fillPattern=FillPattern.Backward),
+              fillPattern=FillPattern.Forward),
             Line(
               points={{-90,70},{-90,-70}},
               color={0,0,0},
@@ -771,7 +771,7 @@ McGraw-Hill, 1997, p.270):
               extent={{-90,80},{-60,-80}},
               lineColor={0,0,0},
               fillColor={192,192,192},
-              fillPattern=FillPattern.Backward),
+              fillPattern=FillPattern.Forward),
             Text(
               extent={{-150,-90},{150,-130}},
               textString="%name",
@@ -814,7 +814,7 @@ especially if it shall be allowed that a convective resistance is defined to be 
               extent={{-90,80},{-60,-80}},
               lineColor={0,0,0},
               fillColor={192,192,192},
-              fillPattern=FillPattern.Backward),
+              fillPattern=FillPattern.Forward),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
