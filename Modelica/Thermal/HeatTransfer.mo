@@ -466,16 +466,17 @@ compute C:
               thickness=0.5,
               arrow={Arrow.None,Arrow.Filled}),
             Text(
-              extent={{-26,-10},{27,-39}},
+              extent={{-100,-20},{100,-40}},
               lineColor={255,0,0},
               textString="Q_flow"),
             Text(
-              extent={{-80,50},{80,20}},
+              extent={{-100,40},{100,20}},
               lineColor={0,0,0},
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<HTML>
 <p>
-This is a model for transport of heat without storing it.
+This is a model for transport of heat without storing it; see also: 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalResistor\">ThermalResistor</a>. 
 It may be used for complicated geometries where
 the thermal conductance G (= inverse of thermal resistance)
 is determined by measurements and is assumed to be constant
@@ -523,6 +524,66 @@ e.g., with one of the following equations:
 </HTML>
 "));
     end ThermalConductor;
+
+    model ThermalResistor
+      "Lumped thermal element transporting heat without storing it"
+      extends Interfaces.Element1D;
+      parameter Modelica.SIunits.ThermalResistance R
+        "Constant thermal resistance of material";
+
+    equation
+      dT = R*Q_flow;
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-90,70},{90,-70}},
+              lineColor={0,0,0},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Line(
+              points={{-90,70},{-90,-70}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{90,70},{90,-70}},
+              color={0,0,0},
+              thickness=0.5),
+            Text(
+              extent={{-150,115},{150,75}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-75},{150,-105}},
+              lineColor={0,0,0},
+              textString="R=%R")}),
+        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Line(
+              points={{-80,0},{80,0}},
+              color={255,0,0},
+              thickness=0.5,
+              arrow={Arrow.None,Arrow.Filled}),
+            Text(
+              extent={{-100,-20},{100,-40}},
+              lineColor={255,0,0},
+              textString="Q_flow"),
+            Text(
+              extent={{-100,40},{100,20}},
+              lineColor={0,0,0},
+              textString="dT = port_a.T - port_b.T")}),
+        Documentation(info="<HTML>
+<p>
+This is a model for transport of heat without storing it, same as the 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalConductor\">ThermalConductor</a> 
+but using the thermal resistance instead of the thermal conductance as a parameter. 
+This is advantageous for series connections of ThermalResistors, 
+especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference). 
+</p>
+</HTML>
+"));
+    end ThermalResistor;
 
     model Convection
       "Lumped thermal element for heat convection (Q_flow = Gc*dT)"
@@ -585,11 +646,10 @@ e.g., with one of the following equations:
               textString="Gc")}),
         Documentation(info="<HTML>
 <p>
-This is a model of linear heat convection, e.g., the heat transfer
-between a plate and the surrounding air. It may be used for complicated
-solid geometries and fluid flow over the solid by determining the
-convective thermal conductance Gc by measurements. The basic constitutive
-equation for convection is
+This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also: 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor\">ConvectiveResistor</a>.
+It may be used for complicated solid geometries and fluid flow over the solid by determining the
+convective thermal conductance Gc by measurements. The basic constitutive equation for convection is
 </p>
 <pre>
    Q_flow = Gc*(solid.T - fluid.T);
@@ -657,7 +717,7 @@ McGraw-Hill, 1997, p.270):
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Line(points={{100,0},{100,0}}, color={0,127,255}),
             Text(
-              extent={{-35,42},{-5,20}},
+              extent={{-40,40},{80,20}},
               lineColor={255,0,0},
               textString="Q_flow"),
             Line(points={{-60,20},{76,20}}, color={191,0,0}),
@@ -679,6 +739,108 @@ McGraw-Hill, 1997, p.270):
             Line(points={{56,10},{76,20}}, color={191,0,0}),
             Line(points={{56,30},{76,20}}, color={191,0,0})}));
     end Convection;
+
+    model ConvectiveResistor
+      "Lumped thermal element for heat convection (dT = Rc*Q_flow)"
+      Modelica.SIunits.HeatFlowRate Q_flow "Heat flow rate from solid -> fluid";
+      Modelica.SIunits.TemperatureDifference dT "= solid.T - fluid.T";
+      Modelica.Blocks.Interfaces.RealInput Rc
+        "Signal representing the convective thermal resistance in [K/W]"
+        annotation (Placement(transformation(
+            origin={0,100},
+            extent={{-20,-20},{20,20}},
+            rotation=270)));
+      Interfaces.HeatPort_a solid annotation (Placement(transformation(extent={{
+                -110,-10},{-90,10}}, rotation=0)));
+      Interfaces.HeatPort_b fluid annotation (Placement(transformation(extent={{
+                90,-10},{110,10}}, rotation=0)));
+    equation
+      dT = solid.T - fluid.T;
+      solid.Q_flow = Q_flow;
+      fluid.Q_flow = -Q_flow;
+      dT = Rc*Q_flow;
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                100,100}}), graphics={
+            Rectangle(
+              extent={{-62,80},{98,-80}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-90,80},{-60,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Text(
+              extent={{-150,-90},{150,-130}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Line(points={{-60,20},{76,20}}, color={191,0,0}),
+            Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
+            Line(points={{-34,80},{-34,-80}}, color={0,127,255}),
+            Line(points={{6,80},{6,-80}}, color={0,127,255}),
+            Line(points={{40,80},{40,-80}}, color={0,127,255}),
+            Line(points={{76,80},{76,-80}}, color={0,127,255}),
+            Line(points={{-34,-80},{-44,-60}}, color={0,127,255}),
+            Line(points={{-34,-80},{-24,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{-4,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{16,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{30,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{50,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{66,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{86,-60}}, color={0,127,255}),
+            Line(points={{56,-30},{76,-20}}, color={191,0,0}),
+            Line(points={{56,-10},{76,-20}}, color={191,0,0}),
+            Line(points={{56,10},{76,20}}, color={191,0,0}),
+            Line(points={{56,30},{76,20}}, color={191,0,0}),
+            Text(
+              extent={{22,124},{92,98}},
+              lineColor={0,0,0},
+              textString="Rc")}),
+        Documentation(info="<HTML>
+<p>
+This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.Convection\">Convection</a> component 
+but using the convective resistance instead of the convective conductance as an input. 
+This is advantageous for series connections of ConvectiveResistors, 
+especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
+</p>
+</HTML>
+"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+                100}}),      graphics={
+            Rectangle(
+              extent={{-90,80},{-60,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Backward),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Line(points={{100,0},{100,0}}, color={0,127,255}),
+            Text(
+              extent={{-40,40},{80,20}},
+              lineColor={255,0,0},
+              textString="Q_flow"),
+            Line(points={{-60,20},{76,20}}, color={191,0,0}),
+            Line(points={{-60,-20},{76,-20}}, color={191,0,0}),
+            Line(points={{-34,80},{-34,-80}}, color={0,127,255}),
+            Line(points={{6,80},{6,-80}}, color={0,127,255}),
+            Line(points={{40,80},{40,-80}}, color={0,127,255}),
+            Line(points={{76,80},{76,-80}}, color={0,127,255}),
+            Line(points={{-34,-80},{-44,-60}}, color={0,127,255}),
+            Line(points={{-34,-80},{-24,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{-4,-60}}, color={0,127,255}),
+            Line(points={{6,-80},{16,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{30,-60}}, color={0,127,255}),
+            Line(points={{40,-80},{50,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{66,-60}}, color={0,127,255}),
+            Line(points={{76,-80},{86,-60}}, color={0,127,255}),
+            Line(points={{56,-30},{76,-20}}, color={191,0,0}),
+            Line(points={{56,-10},{76,-20}}, color={191,0,0}),
+            Line(points={{56,10},{76,20}}, color={191,0,0}),
+            Line(points={{56,30},{76,20}}, color={191,0,0})}));
+    end ConvectiveResistor;
 
     model BodyRadiation "Lumped thermal element for radiation heat transfer"
       extends Interfaces.Element1D;
