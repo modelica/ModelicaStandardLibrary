@@ -939,6 +939,7 @@ part of the string is printed.
   end syntaxError;
 
   package Advanced "Advanced scanning functions"
+  extends Modelica.Icons.Package;
 
     function scanReal "Scans a signed real number"
       extends Modelica.Icons.Function;
