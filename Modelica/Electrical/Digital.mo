@@ -1318,8 +1318,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </html>"));
         end WiredX;
 
-
-
         model MUX2x1
           import D = Modelica.Electrical.Digital;
           D.Multiplexers.MUX2x1 Mux2x1
@@ -5096,7 +5094,7 @@ The values val... are given by parameters.</P>
                   extent={{-90,20},{-70,40}}), iconTransformation(extent={{-90,20},{-70,
                     40}})));
           D.Interfaces.DigitalOutput dataOut[n] annotation (Placement(
-                transformation(extent={{68,20},{88,40}}),  iconTransformation(
+                transformation(extent={{64,26},{84,46}}),  iconTransformation(
                   extent={{69,20},{89,40}})));
     protected
                   Integer clock_flag(start=0);
@@ -5163,7 +5161,7 @@ The values val... are given by parameters.</P>
         next_assign_val := nextstate;
         dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),             Icon(coordinateSystem(
+                -100},{100,100}}), graphics),   Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5305,10 +5303,6 @@ Clock transition definitions:
             strength=strength)
             annotation (Placement(transformation(extent={{-78,-23},{18,74}})));
         equation
-          connect(dataOut, dataOut) annotation (Line(
-              points={{92,40},{92,40}},
-              color={127,0,127},
-              smooth=Smooth.None));
           connect(delay.y, dataOut) annotation (Line(
               points={{75.01,40},{92,40}},
               color={127,0,127},
@@ -5333,7 +5327,7 @@ Clock transition definitions:
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),             Icon(coordinateSystem(
+                -100},{100,100}}), graphics),   Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5471,7 +5465,8 @@ Clock transition definitions:
               pattern=LinePattern.None), Text(
               extent={{-28,48},{24,-1}},
               lineColor={127,33,107},
-              textString="low active")}));
+              textString="low active")}),
+        Diagram(graphics));
         end DFFREGL;
 
         model DFFSR "Edge triggered register bank with set and reset"
@@ -5603,7 +5598,7 @@ Clock transition definitions:
         next_assign_val := nextstate;
         dataOut := nextstate;
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),             Icon(coordinateSystem(
+                -100},{100,100}}), graphics),   Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5803,7 +5798,7 @@ Clock transition definitions:
               thickness=1,
               smooth=Smooth.None));
           annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),             Icon(coordinateSystem(
+                -100},{100,100}}), graphics),   Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -5964,7 +5959,8 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"));
+</html>"),
+        Diagram(graphics));
         end DFFREGSRL;
 
         model DLATR "Level sensitive register bank with reset"
@@ -5990,7 +5986,7 @@ Clock transition definitions:
                   extent={{-90,20},{-70,40}}), iconTransformation(extent={{-90,20},
                     {-70,40}})));
           D.Interfaces.DigitalOutput dataOut[n] annotation (Placement(
-                transformation(extent={{68,20},{88,40}}),  iconTransformation(
+                transformation(extent={{66,24},{86,44}}),  iconTransformation(
                   extent={{69,20},{89,40}})));
 
     protected
@@ -6158,7 +6154,8 @@ Clock transition definitions:
             Text(
               extent={{-14,-44},{12,-56}},
               lineColor={127,33,107},
-              textString="reset")})));
+              textString="reset")}),
+          graphics));
         end DLATR;
 
         model DLATREG "Level sensitive register bank with reset active high"
@@ -6202,10 +6199,6 @@ Clock transition definitions:
             annotation (Placement(transformation(extent={{-78,-23},{18,74}})));
         equation
 
-          connect(dataOut, dataOut) annotation (Line(
-              points={{92,40},{92,40}},
-              color={127,0,127},
-              smooth=Smooth.None));
           connect(delay.y, dataOut) annotation (Line(
               points={{72.08,40},{92,40}},
               color={127,0,127},
@@ -6265,7 +6258,7 @@ Clock transition definitions:
        </li>
 </ul>
 </html>"),            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),         Icon(coordinateSystem(
+                -100},{100,100}}),             Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6311,7 +6304,8 @@ Clock transition definitions:
             Text(
               extent={{-26,44},{26,2}},
               lineColor={127,33,107},
-              textString="high active")})));
+              textString="high active")}),
+          graphics));
         end DLATREG;
 
         model DLATREGL "Level sensitive register bank with reset active low"
@@ -6365,7 +6359,8 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid), Text(
               extent={{-26,48},{26,-1}},
               lineColor={127,33,107},
-              textString="low active")}));
+              textString="low active")}),
+        Diagram(graphics));
         end DLATREGL;
 
         model DLATSR "Level sensitive register bank with set and reset"
@@ -6572,7 +6567,7 @@ Clock transition definitions:
        </li>
 </ul>
 </html>"),            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}}),         Icon(coordinateSystem(
+                -100},{100,100}}),             Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6622,7 +6617,8 @@ Clock transition definitions:
             Text(
               extent={{-13,56},{13,44}},
               lineColor={127,33,107},
-              textString="set")})));
+              textString="set")}),
+          graphics));
         end DLATSR;
 
         model DLATREGSRH
@@ -6674,10 +6670,6 @@ Clock transition definitions:
             annotation (Placement(transformation(extent={{-78,-23},{18,74}})));
         equation
 
-          connect(dataOut, dataOut) annotation (Line(
-              points={{92,40},{92,40}},
-              color={127,0,127},
-              smooth=Smooth.None));
           connect(delay.y, dataOut) annotation (Line(
               points={{72.08,40},{92,40}},
               color={127,0,127},
@@ -6747,7 +6739,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
                 -100},{100,100}}),
                       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}})),        Icon(coordinateSystem(
@@ -6804,7 +6796,8 @@ Clock transition definitions:
             Text(
               extent={{-28,38},{30,10}},
               lineColor={127,0,127},
-              textString="high active")})));
+              textString="high active")}),
+          graphics));
         end DLATREGSRH;
 
         model DLATREGSRL
@@ -6863,7 +6856,8 @@ Clock transition definitions:
               fillPattern=FillPattern.Solid), Text(
               extent={{-30,30},{30,16}},
               lineColor={127,0,127},
-              textString="low active")}));
+              textString="low active")}),
+        Diagram(graphics));
         end DLATREGSRL;
 
         annotation (Documentation(info=
