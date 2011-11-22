@@ -1869,8 +1869,6 @@ This sensor can be used to measure <i>m</i> complex currents, using <i>m</i>
               -40},{-80,-58}}, color={85,170,255}));
       connect(sum.y, y) annotation (Line(points={{-80,-81},{-80,-110}}, color={85,
               170,255}));
-      connect(currentP, currentP) annotation (Line(points={{-100,0},{-100,0},{-100,0}},
-                                                       color={85,170,255}));
       annotation (         Icon(graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
