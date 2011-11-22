@@ -3962,10 +3962,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
                 1.22465e-015}},
             color={0,0,0},
             smooth=Smooth.None));
-        connect(plug_rn, plug_rn) annotation (Line(
-            points={{-100,-60},{-100,-60}},
-            color={0,0,255},
-            smooth=Smooth.None));
         connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
             points={{20,10},{10,10},{10,10}},
             color={0,0,255},
