@@ -2393,7 +2393,6 @@ maintenance branch of Version 3.2. All these changes are backwards compatible.
 The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
 that can lead to wrong simulation results):
 </p>
-
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Magnetic.FundamentalWave.</b></td></tr>
 <tr><td valign=\"top\">&lt;core conductance&gt;</td>
@@ -2427,6 +2426,12 @@ units are wrong or errors in documentation):
 <tr><td valign=\"top\">Interfaces<br>Math<br>MathInteger</td>
     <td valign=\"top\"> Replaced non-standard annotation \"realString\" by \"String\".</td></tr>
 
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Digital.</b></td></tr>
+<tr><td valign=\"top\">Registers.DFFREG<br />
+		       Registers.DLATREG<br />
+		       Registers.DLATREGSRH</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/642\">#642</a> Superfluous self-connects were removed.</td></tr>
+
 <tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.Basic.Continuous.</b></td></tr>
 <tr><td valign=\"top\">PID<br>LimPID</td>
     <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/574\">#574</a>
@@ -2445,6 +2450,17 @@ units are wrong or errors in documentation):
                       This gives a singular system during translation. This has been fixed
                       by making the heatPort of the \"friction\" element optional
                       with the default that the heatPort is not present</td></tr>
+<tr><td valign=\"top\">BasicMachines.AsynchronousInductionMachines.AIM_SlipRing</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/642\">#642</a> A superfluous self-connect was removed></td.</tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Electrical.QuasiStationary.</b></td></tr>
+<tr><td valign=\"top\">MultiPhase.Sensors.PowerSensor</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/642\">#642</a> A superfluous self-connect was removed></td.</tr>
+
+<tr><td colspan=\"2\"><b>Modelica.Math.</b><br />
+		      <b>Modelica.ComplexMath.</b><td></tr>
+<tr><td valign=\"top\">&lt;*&gt;</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/636\">#636</a> Not all functions extended from <code>Modelica.Icons.Function</code></td></tr>
 
 <tr><td colspan=\"2\"><b>Modelica.Math.Matrices.</b></td></tr>
 <tr><td valign=\"top\"> rcond<br>
@@ -7489,9 +7505,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=9,
+versionBuild=10,
 versionDate="2010-10-25",
-dateModified = "2011-09-04 09:46:40Z",
+dateModified = "2011-11-22 13:12:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.0"), ModelicaServices(version="1.1")),
 conversion(
