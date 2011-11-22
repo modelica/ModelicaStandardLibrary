@@ -6,10 +6,10 @@ package Nonlinear "Library of functions operating on nonlinear equations"
     extends Modelica.Icons.ExamplesPackage;
 
     function quadratureLobatto1 "Integrate integral with fixed inputs"
-      input Real tolerance=1e-5 "Error tolerance of integral values";
-
+      extends Modelica.Icons.Function;
       import Modelica.Utilities.Streams.print;
 
+      input Real tolerance=1e-5 "Error tolerance of integral values";
     protected
       Real I_numerical[3] "Numerical integral values";
       Real I_analytical[size(I_numerical, 1)] "Analytical integral values";
@@ -67,7 +67,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
 
       annotation (Documentation(info="<html>
 <p>
-This examples integrates the following integrands with function
+This example integrates the following integrands with function
 <a href=\"Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>
 and compares the result with an analytical solution.
 The examples also demonstrate how additional input arguments to the integrand
@@ -85,6 +85,9 @@ The following integrals are computed:
     end quadratureLobatto1;
 
     function quadratureLobatto2 "Integrate integral with user dependent inputs"
+      extends Modelica.Icons.Function;
+      import Modelica.Utilities.Streams.print;
+
       input Real Tolerance=1e-5 "Error tolerance of integral value"
         annotation (Dialog(group="General"));
       input Real a1=0 "Lower limit" annotation (Dialog(group="Sine"));
@@ -100,8 +103,6 @@ The following integrals are computed:
         annotation (Dialog(group="Elliptic integral"));
       input Real k=1/sqrt(2) "Modul"
         annotation (Dialog(group="Elliptic integral"));
-
-      import Modelica.Utilities.Streams.print;
 
     protected
       Real I[3] "Numerical integral values";
@@ -139,7 +140,7 @@ The following integrals are computed:
 
       annotation (Documentation(info="<html>
 <p>
-This examples solves the following integrands with function
+This example solves the following integrands with function
 <a href=\"Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>.
 The user can set the parameters, like \"w\" or \"k\", and can experiment with
 different integration intervals.
@@ -157,6 +158,9 @@ The following integrals are computed:
 
     function solveNonlinearEquations1
       "Solve nonlinear equations with fixed inputs"
+      extends Modelica.Icons.Function;
+      import Modelica.Utilities.Streams.print;
+
       input Real tolerance=100*Modelica.Constants.eps
         "Relative tolerance of solution u";
 
@@ -164,8 +168,6 @@ The following integrals are computed:
       Real u_numerical[3];
       Real u_analytical[3];
       Real u_err[3];
-
-      import Modelica.Utilities.Streams.print;
 
     algorithm
       u_numerical[1] := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
@@ -213,7 +215,7 @@ The following integrals are computed:
 
       annotation (Documentation(info="<html>
 <p>
-This examples solves the following nonlinear equations with function
+This example solves the following nonlinear equations with function
 <a href=\"Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>
 and compares the result with the available analytical solution.
 The examples also demonstrate how additional input arguments to the nonlinear equation
@@ -232,7 +234,10 @@ The following nonlinear equations are solved:
 
     function solveNonlinearEquations2
       "Solve nonlinear equations with user dependent inputs"
-        input Real tolerance=100*Modelica.Constants.eps
+      extends Modelica.Icons.Function;
+      import Modelica.Utilities.Streams.print;
+
+      input Real tolerance=100*Modelica.Constants.eps
         "Relative tolerance of solution u"
         annotation (Dialog(group="General"));
       input Real u_min1=-0.5 "Lower limit" annotation (Dialog(group="u^2-1"));
@@ -254,8 +259,6 @@ The following nonlinear equations are solved:
 
     protected
       Real u[3];
-
-      import Modelica.Utilities.Streams.print;
 
     algorithm
       u[1] := Modelica.Math.Nonlinear.solveOneNonlinearEquation(
@@ -293,7 +296,7 @@ The following nonlinear equations are solved:
 
       annotation (Documentation(info="<html>
 <p>
-This examples solves the following nonlinear equations with function
+This example solves the following nonlinear equations with function
 <a href=\"Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
 The user can set the parameters, like \"w\" or \"m\", and can experiment with
 different start intervals.
@@ -338,12 +341,14 @@ to a function in a model.
       extends Modelica.Icons.Package;
 
       function fun1 "y = u^2 - 1"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       algorithm
         y := u^2 - 1;
       end fun1;
 
       function fun2 "y = 3*u - sin(w*u) - 1"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real w "Angular velocity";
       algorithm
@@ -352,6 +357,7 @@ to a function in a model.
       end fun2;
 
       function fun3 "y = p[1] + log(p[2]*u) - m*u"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real p[2];
         input Real m;
@@ -361,12 +367,14 @@ to a function in a model.
       end fun3;
 
       function fun4 "y = sin(u)"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       algorithm
         y := sin(u);
       end fun4;
 
       function fun5 "y = sin(w*u)"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real w "Angular velocity";
       algorithm
@@ -374,6 +382,7 @@ to a function in a model.
       end fun5;
 
       function fun6 "y = sqrt(1/(1 - k^2*sin(u)^2))"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real k "Modul";
       algorithm
@@ -381,6 +390,7 @@ to a function in a model.
       end fun6;
 
       function fun7 "y = A*sin(w*u)*q(t)"
+	extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real A "Amplitude";
         input Real w "Angular frequency";
@@ -428,6 +438,7 @@ to a function, see, .e.g.,
 
   function quadratureLobatto
     "Return the integral of an integrand function using an adaptive Lobatto rule"
+    extends Modelica.Icons.Function;
     input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction
                                                          f "Integrand function";
     input Real a "Lower limit of integration interval";
@@ -619,6 +630,7 @@ See the examples in <a href=\"modelica://Modelica.Math.Nonlinear.Examples\">Mode
 
   function solveOneNonlinearEquation
     "Solve f(u) = 0 in a very reliable and efficient way (f(u_min) and f(u_max) must have different signs)"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams.error;
 
     input Modelica.Math.Nonlinear.Interfaces.partialScalarFunction

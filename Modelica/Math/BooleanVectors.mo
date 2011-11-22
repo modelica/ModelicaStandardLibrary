@@ -136,8 +136,9 @@ end oneTrue;
 
 function firstTrueIndex
     "Returns the index of the first element of the Boolean vector that is true and returns 0, if no element is true"
-   input Boolean b[:];
-   output Integer index;
+  extends Modelica.Icons.Function;
+  input Boolean b[:];
+  output Integer index;
 algorithm
    index :=0;
    for i in 1:size(b,1) loop
