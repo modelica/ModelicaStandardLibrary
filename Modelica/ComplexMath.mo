@@ -8,6 +8,7 @@ package Vectors "Library of functions operating on complex vectors"
   extends Modelica.Icons.Package;
 
 function norm "Returns the p-norm of a complex vector"
+  extends Modelica.Icons.Function;
   input Complex v[:] "Vector";
   input Real p(min=1) = 2
         "Type of p-norm (often used: 1, 2, or Modelica.Constants.inf)";
@@ -84,6 +85,7 @@ Note, for any vector norm the following inequality holds:
 end norm;
 
 function length "Return length of a complex vector"
+  extends Modelica.Icons.Function;
   input Complex v[:] "Vector";
   output Real result "Length of vector v";
 
@@ -122,6 +124,7 @@ end length;
 
 function normalize
       "Return normalized complex vector such that length = 1 and prevent zero-division for zero vector"
+  extends Modelica.Icons.Function;
   input Complex v[:] "Vector";
   input Real eps = 100*Modelica.Constants.eps "if |v| < eps then result = v";
   output Complex result[size(v, 1)] "Input vector v normalized to length=1";
@@ -194,6 +197,7 @@ The function call &quot;<code>Vectors.<b>reverse</b>(v)</code>&quot; returns the
 end reverse;
 
 function sort "Sort elements of complex vector"
+  extends Modelica.Icons.Function;
   input Complex v[:] "Vector to be sorted";
   input Boolean ascending = true
         "= true if ascending order, otherwise descending order";
@@ -321,6 +325,7 @@ of Complex numbers.
 end Vectors;
 
   function sin "Sine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "sin(c1)";
   algorithm
@@ -331,6 +336,7 @@ end Vectors;
   end sin;
 
   function cos "Cosine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= cos(c1)";
   algorithm
@@ -341,6 +347,7 @@ end Vectors;
   end cos;
 
   function tan "Tangent of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= tan(c1)";
   algorithm
@@ -351,6 +358,7 @@ end Vectors;
   end tan;
 
   function asin "Arc-sine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "arc_sin(c1)";
   algorithm
@@ -361,6 +369,7 @@ end Vectors;
   end asin;
 
   function acos "Arc-cosine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_cos(c1)";
   algorithm
@@ -371,6 +380,7 @@ end Vectors;
   end acos;
 
   function atan "Arc-tangent of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= arc_tan(c1)";
   algorithm
@@ -381,6 +391,7 @@ end Vectors;
   end atan;
 
   function sinh "Hyperbolic-sine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "sinh(c1)";
   algorithm
@@ -391,6 +402,7 @@ end Vectors;
   end sinh;
 
   function cosh "Hyperbolic-cosine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= cosh(c1)";
   algorithm
@@ -401,6 +413,7 @@ end Vectors;
   end cosh;
 
   function tanh "Hyperbolic-tangent of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= tanh(c1)";
   algorithm
@@ -411,6 +424,7 @@ end Vectors;
   end tanh;
 
   function asinh "Area-hyperbolic-sine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "ar_sinh(c1)";
   algorithm
@@ -421,6 +435,7 @@ end Vectors;
   end asinh;
 
   function acosh "Area-hyperbolic-cosine of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= ar_cosh(c1)";
   algorithm
@@ -431,6 +446,7 @@ end Vectors;
   end acosh;
 
   function atanh "Area-hyperbolic-tangent of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= ar_tanh(c1)";
   algorithm
@@ -441,6 +457,7 @@ end Vectors;
   end atanh;
 
   function exp "Exponential of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= exp(c1)";
   algorithm
@@ -451,6 +468,7 @@ end Vectors;
   end exp;
 
   function log "Logarithm of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= log(c1)";
   algorithm
@@ -461,6 +479,7 @@ end Vectors;
   end log;
 
   function 'abs' "Absolute value of complex number"
+    extends Modelica.Icons.Function;
     input Complex c "Complex number";
     output Real result "= abs(c)";
   algorithm
@@ -471,6 +490,7 @@ end Vectors;
   end 'abs';
 
   function arg "Phase angle of complex number"
+    extends Modelica.Icons.Function;
     input Complex c "Complex number";
     input Modelica.SIunits.Angle phi0=0
       "Phase angle phi shall be in the range: -pi < phi-phi0 < pi";
@@ -486,6 +506,7 @@ end Vectors;
   end arg;
 
   function conj "Conjugate of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= c1.re - j*c1.im";
   algorithm
@@ -496,6 +517,7 @@ end Vectors;
   end conj;
 
   function real "Real part of complex number"
+    extends Modelica.Icons.Function;
     input Complex c "Complex number";
     output Real r "= c.re ";
   algorithm
@@ -506,6 +528,7 @@ end Vectors;
   end real;
 
   function imag "Imaginary part of complex number"
+    extends Modelica.Icons.Function;
     input Complex c "Complex number";
     output Real r "= c.im ";
   algorithm
@@ -516,6 +539,7 @@ end Vectors;
   end imag;
 
   function fromPolar "Complex from polar representation"
+    extends Modelica.Icons.Function;
     input Real len "abs of complex";
     input Modelica.SIunits.Angle phi "arg of complex";
     output Complex c "= len*cos(phi) + j*len*sin(phi)";
@@ -527,6 +551,7 @@ end Vectors;
   end fromPolar;
 
   function 'sqrt' "Square root of complex number"
+    extends Modelica.Icons.Function;
     input Complex c1 "Complex number";
     output Complex c2 "= sqrt(c1)";
   algorithm
@@ -537,6 +562,7 @@ end Vectors;
   end 'sqrt';
 
   function 'max' "Return maximum element of complex vector"
+    extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Element of v with largest absolute value";
     output Integer index "v[index] has the largest absolute value";
@@ -565,6 +591,7 @@ end Vectors;
   end 'max';
 
   function 'min' "Return minium element of complex vector"
+    extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Element of v with smallest absolute value";
     output Integer index "v[index] has the smallest absolute value";
@@ -593,6 +620,7 @@ end Vectors;
   end 'min';
 
   function 'sum' "Return sum of complex vector"
+    extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Complex sum of vector elements";
   algorithm
@@ -606,6 +634,7 @@ end Vectors;
   end 'sum';
 
   function 'product' "Return product of complex vector"
+    extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Complex product of vector elements";
   algorithm
