@@ -939,7 +939,8 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
 <h4>Emphasis</h4>
 
 <ol>
-<li> For <b>emphasizing</b> text fragments <code>&lt;b&gt;</code> and <code>&lt;b&gt;</code> has to be used.</li>
+<li> For setting text in <strong>strong font</strong> (normally interpreted as <strong>boldface</strong>) the tags <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code> have to be used.</li>
+<li> For <em>emphasizing</em> text fragments <code>&lt;em&gt;</code> and <code>&lt;/em&gt;</code> has to be used.</li>
 <li> Modelica terms such as expandable bus, array, etc. should not be emphasized anyhow.</li>
 </ol>
 
