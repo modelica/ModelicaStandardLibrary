@@ -1360,77 +1360,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   fillPattern=FillPattern.Solid)}), Diagram(graphics));
         end MUX2x1;
 
-        model RAM
-
-          Modelica.Electrical.Digital.Memories.DLATRAM
-                         dLATRAM
-            annotation (Placement(transformation(extent={{-11,-41},{103,73}})));
-          Modelica.Electrical.Digital.Sources.Table
-                        addr_1(
-            y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-            x={2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,
-                9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,
-                7,8,9,1,2,3,4,5,6,7,8,9},
-            t={5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,
-                115,120,125,130,135,140,145,150,155,160,165,170,175,180,185,190,195,
-                200,205,210,215,220,225,230,235,240,245,250,255,260,265,270,275,280,
-                285,290,295,300,305,310,315,320,325,330,335,340,345,350,355,360,365,
-                370,375,380,385,390,395,400})
-            annotation (Placement(transformation(extent={{-78,76},{-58,96}})));
-          Modelica.Electrical.Digital.Sources.Set
-                      data_1(x=Modelica.Electrical.Digital.Interfaces.Logic.'0')
-            annotation (Placement(transformation(extent={{-78,20},{-58,40}})));
-          Modelica.Electrical.Digital.Sources.Set
-                      data_0(x=Modelica.Electrical.Digital.Interfaces.Logic.'0')
-            annotation (Placement(transformation(extent={{-78,-8},{-58,12}})));
-          Modelica.Electrical.Digital.Sources.Set
-                      WE(x=Modelica.Electrical.Digital.Interfaces.Logic.'1')
-            annotation (Placement(transformation(extent={{-78,-70},{-58,-50}})));
-          Modelica.Electrical.Digital.Sources.Table
-                        addr_0(
-            y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-            t={45,90,135,180,225,270,315,360},
-            x={2,3,4,5,6,7,8,9})
-            annotation (Placement(transformation(extent={{-78,48},{-58,68}})));
-          Modelica.Electrical.Digital.Sources.Set
-                      RE(x=Modelica.Electrical.Digital.Interfaces.Logic.'1')
-            annotation (Placement(transformation(extent={{-78,-38},{-58,-18}})));
-        equation
-          connect(RE.y,dLATRAM. RE) annotation (Line(
-              points={{-58,-28},{-28,-28},{-28,4.6},{-6.44,4.6}},
-              color={127,0,127},
-              smooth=Smooth.None));
-          connect(WE.y,dLATRAM. WE) annotation (Line(
-              points={{-58,-60},{-24,-60},{-24,-12.5},{-6.44,-12.5}},
-              color={127,0,127},
-              smooth=Smooth.None));
-          connect(addr_0.y,dLATRAM. addr[1]) annotation (Line(
-              points={{-58,58},{-34,58},{-34,47.35},{-5.3,47.35}},
-              color={127,0,127},
-              smooth=Smooth.None));
-          connect(addr_1.y,dLATRAM. addr[2]) annotation (Line(
-              points={{-58,86},{-32,86},{-32,53.05},{-5.3,53.05}},
-              color={127,0,127},
-              smooth=Smooth.None));
-          connect(data_1.y,dLATRAM. dataIn[2]) annotation (Line(
-              points={{-58,30},{-32,30},{-32,30.25},{-5.3,30.25}},
-              color={127,0,127},
-              smooth=Smooth.None));
-          connect(data_0.y,dLATRAM. dataIn[1]) annotation (Line(
-              points={{-58,2},{-34,2},{-34,24.55},{-5.3,24.55}},
-              color={127,0,127},
-              smooth=Smooth.None));
-          annotation (                                   Diagram(graphics), Icon(
-            graphics={                           Ellipse(extent={{-100,100},{
-                  100,-100}},
-                    lineColor={95,95,95}), Polygon(
-                  points={{-36,60},{64,0},{-36,-60},{-36,60}},
-                  lineColor={0,0,255},
-                  pattern=LinePattern.None,
-                  fillColor={95,95,95},
-                  fillPattern=FillPattern.Solid)}));
-        end RAM;
-
       package Utilities "Utility components used by package Examples"
         extends Modelica.Icons.Package;
 
@@ -2653,7 +2582,6 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 <p>This package contains utility components used by package Examples. Each component is built up hierarchically by components of the Gates package. In this way the Gates components were tested, and their usage is demonstrated.</p>
 </html>"));
       end Utilities;
-
         annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}})),
                                 Documentation(info="<html>
@@ -7714,7 +7642,7 @@ Wires n input signals in one output signal, without delay.
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
+      parameter String fileName="H:\Modelica\VHDL_Logik_Test\Test_AuslesenROM.txt"
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
                              __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
@@ -8019,12 +7947,12 @@ Firstly Write is carried out, then Read.</b></p>
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
+
+      parameter String fileName="H:\Modelica\VHDL_Logik_Test\Test_AuslesenROM.txt"
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
                              __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                              caption="Open file in which table is present")));
-
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
               extent={{-100,-30},{-80,-10}}),
                                             iconTransformation(extent={{-100,
