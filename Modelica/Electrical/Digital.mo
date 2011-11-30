@@ -7642,7 +7642,7 @@ Wires n input signals in one output signal, without delay.
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-      parameter String fileName="H:\Modelica\VHDL_Logik_Test\Test_AuslesenROM.txt"
+      parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
                              __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
@@ -7947,12 +7947,12 @@ Firstly Write is carried out, then Read.</b></p>
       parameter D.Interfaces.Strength strength = S.'S_X01' "output strength";
       parameter Integer n_addr(min=1) = 2 "addr width";
       parameter Integer n_data(min=1) = 2 "data width";
-
-      parameter String fileName="H:\Modelica\VHDL_Logik_Test\Test_AuslesenROM.txt"
+      parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
                              __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                              caption="Open file in which table is present")));
+
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
               extent={{-100,-30},{-80,-10}}),
                                             iconTransformation(extent={{-100,
