@@ -100,7 +100,7 @@ are proportional to the lengths of the force and torque vectors
 (constant scaling factors are defined as parameters in the
 forceAndTorque component):
 </p>
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ForceAndTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png\">
 </HTML>
 "), experiment(StopTime=1.01));
 end ForceAndTorque;

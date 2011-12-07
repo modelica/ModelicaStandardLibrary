@@ -221,7 +221,7 @@ but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/Fig.translational.examples.InitialConditions.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Fig.translational.examples.InitialConditions.png\">
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
@@ -909,17 +909,17 @@ the ElastoGap elements this design can be modelled easily.
 Drawing of spool.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad.png\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad3.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad3.png\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad4.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad4.png\">
 
 <p>
 Spool position s as a function of working force f.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/PreLoad2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/PreLoad2.png\">
 </html>"),
         experiment(StopTime=100, Interval=0.1));
     end PreLoad;
@@ -1902,7 +1902,7 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-<img src=\"modelica://Modelica/Resources/Images/Translational/ElastoGap1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/ElastoGap1.png\">
 </html>"),        Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -2780,7 +2780,7 @@ The frictional force f is given for positive velocity v by:</P>
 f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/Stribeck.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
 
 <p>
 The distance between the left and the right connector is given by parameter L.
@@ -3062,7 +3062,7 @@ in the following way:
 An example is given in the next figure
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/relativeStates2.png\" ALT=\"relativeStates2\">
 
 <p>
 Here, the relative position and the relative velocity between

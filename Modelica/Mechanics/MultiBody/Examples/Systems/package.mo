@@ -18,7 +18,7 @@ from different domains are used, including 3-dimensional mechanics.
            controllers, motors, brakes, gears and mechanics.
            \"oneAxis\" models only one drive train. \"fullRobot\" is
            the complete, detailed robot model.<br>
-      <img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Systems/r3_fullRobot_small.png\">
+      <img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/r3_fullRobot_small.png\">
       </td>
   </tr>
 </table>

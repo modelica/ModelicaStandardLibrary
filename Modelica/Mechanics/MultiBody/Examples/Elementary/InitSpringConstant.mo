@@ -87,7 +87,7 @@ The spring constant is computed as c = 49.05 N/m.
 An animation of this simulation is shown in the figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/InitSpringConstant.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/InitSpringConstant.png\"
 ALT=\"model Examples.Elementary.InitSpringConstant\">
 </html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
             -100},{100,100}})),

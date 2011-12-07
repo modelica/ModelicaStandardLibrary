@@ -37,7 +37,7 @@ systems are available in the simulation tool, the simulation of
 <b>efficient</b> and <b>reliable</b>.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive1.png\" ALT=\"drive1\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive1.png\" ALT=\"drive1\">
 
 <p>
 A simple example of the usage of this library is given in the
@@ -67,9 +67,9 @@ possible to connect two springs or two shafts with inertia directly
 together, see figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections1.png\" ALT=\"driveConnections1\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections1.png\" ALT=\"driveConnections1\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections2.png\" ALT=\"driveConnections2\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections2.png\" ALT=\"driveConnections2\">
 
 </HTML>"));
 
@@ -119,7 +119,7 @@ the ground via spring-damper-systems (cf. example
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/bearing.png\" ALT=\"bearing\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing.png\" ALT=\"bearing\">
 
 <p>
 Depending on the setting of <b>useSupport</b>, the icon of the corresponding
@@ -127,7 +127,7 @@ component is changing, to either show the support flange or a ground mounting.
 For example, the two implementations in the following figure give
 identical results.</p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/bearing2.png\" ALT=\"bearing2\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" ALT=\"bearing2\">
 
 </HTML>"));
 
@@ -146,7 +146,7 @@ signs of variables shall be interpreted. The basic idea is explained
 at hand of the following figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive2.png\" ALT=\"drive2\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive2.png\" ALT=\"drive2\">
 
 <p>
 In the figure, three identical drive trains are shown. The only
@@ -168,7 +168,7 @@ inertias of the figure above are displayed with the positive
 vector direction displayed according to this rule:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive3.png\" ALT=\"drive3\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive3.png\" ALT=\"drive3\">
 
 <p>
 The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
@@ -180,7 +180,7 @@ direction of rotation if the values are positive. Some special
 cases are shown in the next figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/drive4.png\" ALT=\"drive4\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/drive4.png\" ALT=\"drive4\">
 
 <p>
 In the upper part of the figure, two variants of the connection of an
@@ -289,7 +289,7 @@ Examples for such a definition are given in the following figure
 for an inertia component and a planetary gearbox:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveAxis.png\" ALT=\"driveAxis\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveAxis.png\" ALT=\"driveAxis\">
 
 <p>
 As can be seen, all vectors are directed into the direction
@@ -305,7 +305,7 @@ coordinate system has an influence on the usage of the
 component. But this is not the case, as shown in the next figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/inertias.png\" ALT=\"inertias\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/inertias.png\" ALT=\"inertias\">
 
 <p>
 In the figure the <b>local</b> axes of rotation of the components
@@ -375,7 +375,7 @@ Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
 the elements become stuck:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/driveConnections3.png\" ALT=\"driveConnections3\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections3.png\" ALT=\"driveConnections3\">
 
 <p>
 In the figure above two typical situations are shown: In the upper part of
@@ -2223,7 +2223,7 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
-<img src=\"modelica://Modelica/Resources/Images/Rotational/elastoBacklash1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/elastoBacklash1.png\">
 
 </html>
 "),     Icon(coordinateSystem(
@@ -4306,7 +4306,7 @@ in the following way:
 An example is given in the next figure
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Rotational/relativeStates.png\" ALT=\"relativeStates\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/relativeStates.png\" ALT=\"relativeStates\">
 
 <p>
 Here, the relative angle and the relative angular velocity between
@@ -6836,7 +6836,7 @@ drive trains with frictional losses. A typical, simple example is shown
 in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Rotational/driveExample.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveExample.png\">
 
 <p>
 For an introduction, have especially a look at:

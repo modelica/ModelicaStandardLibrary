@@ -921,7 +921,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             lineColor={0,0,255},
             textString="%name"),
           Bitmap(extent={{-97,75},{99,-39}}, fileName=
-                "modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/EngineV6_CAD.png")}),
+                "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD.png")}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -1058,7 +1058,7 @@ well-formed.
 An animation of this example is shown in the figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Engine.png\" ALT=\"model Examples.Loops.Engine\">
 </html>"));
   end Engine1bBase;
 end Utilities;

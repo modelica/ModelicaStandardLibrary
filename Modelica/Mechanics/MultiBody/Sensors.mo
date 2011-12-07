@@ -418,7 +418,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 
 <p>
 Velocity, acceleration, angular velocity and angular acceleration are
@@ -920,7 +920,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 
 <p>
 Note, derivatives
@@ -2056,7 +2056,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/Distance.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/Distance.png\">
 
 <p>
 If the distance is smaller as parameter <b>s_small</b> (in the \"advanced\" menu),
@@ -2198,7 +2198,7 @@ and the green arrow is the cut force acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForce.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForce.png\">
 </HTML>"));
   end CutForce;
 
@@ -2324,7 +2324,7 @@ and the green arrow is the cut torque acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutTorque.png\">
 </HTML>"));
   end CutTorque;
 
@@ -2506,7 +2506,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
 </HTML>"));
   end CutForceAndTorque;
 

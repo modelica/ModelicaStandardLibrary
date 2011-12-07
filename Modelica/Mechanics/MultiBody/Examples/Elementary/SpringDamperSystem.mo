@@ -135,7 +135,7 @@ This example demonstrates:
     body \"body1\" in the left part (click on \"Initialization\").</li>
 </ul>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/SpringDamperSystem.png\"
 ALT=\"model Examples.Elementary.SpringDamperSystem\">
 
 </html>"));

@@ -640,13 +640,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque1.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/WorldForceAndTorque2.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 </HTML>
 "),         Documentation(info="
 An external force element exerts the inport signal
@@ -823,13 +823,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque1.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/FrameForceAndTorque2.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
 </HTML>
 "),         Documentation(info="
 An external force element exerts the inport signal
@@ -1030,7 +1030,7 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque1.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -1041,7 +1041,7 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Forces/ForceAndTorque2.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 </HTML>
 "),         Documentation(info="
 An external force element exerts the inport signal
@@ -2141,7 +2141,7 @@ component is shown. The light blue coordinate system is
 frame_a and the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/AbsoluteSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/AbsoluteSensor.png\">
 
 <p>
 If <b>frame_resolve</b> is connected to another frame, then the
@@ -2526,7 +2526,7 @@ frame_a, the dark blue coordinate system is frame_b, and
 the yellow arrow is the animated sensor.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Sensors/RelativeSensor.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/RelativeSensor.png\">
 
 <p>
 If parameter <b>resolveInFrame_a</b> = <b>true</b>, then the
@@ -2778,7 +2778,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
 </HTML>"));
         end CutForceAndTorque;
       end Sensors;

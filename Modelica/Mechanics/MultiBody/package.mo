@@ -27,9 +27,9 @@ animation of a double pendulum is shown in the figure below, together
 with its schematic.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/DoublePendulumSmall.png\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/DoublePendulumDiagramSmall.png\" ALT=\"double pendulum (diagram layer)\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/DoublePendulumDiagramSmall.png\" ALT=\"double pendulum (diagram layer)\">
 
 <p>
 Note, that all components - the coordinate system of the world frame,
@@ -158,7 +158,7 @@ with <b>linear damping</b> in the joint, is first build-up as
 Modelica composition diagram, resulting in:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/PenulumSchematic1.png\"
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic1.png\"
 ALT=\"Modelica composition diagram of simple pendulum\">
 
 <p>
@@ -167,7 +167,7 @@ model components is shown. Drag these components in the diagram layer
 and connect them according to the figure:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/PenulumSchematic2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/PenulumSchematic2.png\">
 
 <p>
 Every model that uses model components from the MultiBody library
@@ -203,9 +203,9 @@ In the following figures the definition of this reference configuration
 is shown in the parameter menus of the revolute joint and the body:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/ActuatedRevolute.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/ActuatedRevolute.png\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/Body.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/Body.png\">
 
 <p>
 Translate and simulate the model, e.g., with Dymola.
@@ -220,7 +220,7 @@ to the size of the sphere (half of the sphere size).
 With default settings, the following animation is defined:
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/FirstExample/Pendulum.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/FirstExample/Pendulum.png\">
 
 <p>
 The world coordinate system is visualized as coordinate system
@@ -249,7 +249,7 @@ An example is presented in the figure below. It is available as
 MultiBody.Examples.Loops.Fourbar1</a>
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/Fourbar1a.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1a.png\">
 
 <p>
 This mechanism consists of 6 revolute joints, 1 prismatic joint and forms a
@@ -260,7 +260,7 @@ red cylinders and that the axis of the prismatic joint is represented by the
 red box on the lower right side.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/Fourbar1b.png\" width=\"205\" height=\"107\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/Fourbar1b.png\" width=\"205\" height=\"107\">
 
 <p>
 Whenever loop structures occur, non-linear algebraic
@@ -310,7 +310,7 @@ shown that has a simple combustion model. It is available as
 MultiBody.Examples.Loops.EngineV6</a>.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
 
 <p>
 The Modelica schematic of one cylinder
@@ -319,7 +319,7 @@ cylinder appropriately together results in the engine schematic displayed
 above.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 
 <p>
 In the next figure the animation of the engine is
@@ -330,7 +330,7 @@ the revolute joint axes. All 6 cylinders together form a coupled set of 6
 loops that have together 1 degree of freedom.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
 
 <p>
 All planar loops, and especially the engine, result in
@@ -438,7 +438,7 @@ As an example, a variant of the four bar mechanism is given in
 the figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/FourbarAnalytic1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic1.png\">
 
 <p>
 Here, the mechanism is modeled with one revolute
@@ -450,7 +450,7 @@ called \"jointSSP\" from
 MultiBody.Joints.Assemblies.JointSSP</a>.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/FourbarAnalytic2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/FourbarAnalytic2.png\">
 
 <p>
 The JointSSP joint aggregation has a frame at the
@@ -673,7 +673,7 @@ MacPherson suspension in the next figure
 is from the Modelica VehicleDynamics library.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/MacPherson1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/MacPherson1.png\">
 
 <p>
 It has three frame
@@ -711,9 +711,9 @@ see next figure for an animation view and the original definition
 of one cylinder with elementary joints.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_3.png\" width=\"303\" height=\"136\">
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_2.png\">
 
 <p>
 It is sufficient to rewrite the basic cylinder model
@@ -721,7 +721,7 @@ by replacing the joints with a JointRRP object that has two
 revolute and one prismatic joint, see next figure.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_4.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_4.png\">
 
 <p>
 Since 6
@@ -735,7 +735,7 @@ The composition diagram of the connected 6 cylinders is
 shown in the next figure
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Tutorial/LoopStructures/EngineV6_1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/Tutorial/LoopStructures/EngineV6_1.png\">
 
 <p>
 It can be seen that the revolute joint
@@ -796,7 +796,7 @@ For an example, see model
 <a href=\"Modelica.Mechanics.MultiBody.Examples.Elementary.ThreeSprings\">ThreeSprings</a>:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Elementary/ThreeSprings.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ThreeSprings.png\">
 
 <p>
 Here, three springs are connected together at one point, without having a body
@@ -820,7 +820,7 @@ frame in the line force icon is marked with a red circle and with the text \"R=0
 This is shown in the next figure, where this option is selected for spring3.frame_b:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/MultiBody/UsersGuide/ThreeSpringsDiagramLayer.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSpringsDiagramLayer.png\">
 
 <p>
 Note, if this flag is not set to <b>true</b>, a translation error will occur.
@@ -840,7 +840,7 @@ on the orientation object that was arbitrarily set in parallel to the world fram
 A typical example is shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/MultiBody/UsersGuide/ThreeSprings2DiagramLayer.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/UsersGuide/ThreeSprings2DiagramLayer.png\">
 
 <p>
 Here, spring3.frame_b.R is defined to be in parallel to the world frame.
@@ -1521,7 +1521,7 @@ ground. This model serves several purposes:
 <li> It is used to define a <b>visual representation</b> of the
      world model (= 3 coordinate axes with labels) and of the defined
      gravity field.<br>
-    <IMG src=\"modelica://Modelica/Resources/Images/MultiBody/world.png\" ALT=\"MultiBodys.World\">
+    <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/world.png\" ALT=\"MultiBodys.World\">
 </li>
 </ul>
 <p>
@@ -1571,7 +1571,7 @@ Typical animations generated with this library are shown
 in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/MultiBody/MultiBody.png\">
+<img src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/MultiBody.png\">
 
 <p>
 For an introduction, have especially a look at:

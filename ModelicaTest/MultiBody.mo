@@ -267,7 +267,7 @@ ALT=\"model Examples.Elementary.DoublePendulum\">
 This is a second version of the \"four-bar\" mechanism, see figure:
 </p>
 
-<IMG src=\"modelica://ModelicaTest/Images/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
+<IMG src=\"modelica://ModelicaTest/Images/Mechanics/MultiBody/Examples/Loops/Fourbar2.png\" ALT=\"model Examples.Loops.Fourbar2\">
 
 <p>
 In this case

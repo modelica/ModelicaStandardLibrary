@@ -168,7 +168,7 @@ modeling of one cylinder, see example
 An animation of the engine is shown in the figure below.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6.png\" ALT=\"model Examples.Loops.EngineV6\">
 
 <p>
 Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
