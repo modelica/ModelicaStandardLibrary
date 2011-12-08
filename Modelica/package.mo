@@ -1070,12 +1070,14 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
         annotation (Documentation(info="<html>
 
 <ol>
-<li> <b>Class and instance names</b> are written in upper and lower case
-     letters, e.g., <code>ElectricCurrent</code>. An underscore is only used
-     at the end of a name to characterize a lower or upper index,
-     e.g., <code>pin_a</code>.</li>
+<li> <b>Class and instance names</b> are usually written in upper and lower case
+     letters, e.g., \"ElectricCurrent\". An underscore may be used in names.
+     However, it has to be taken into account that the last underscore in a
+     name might indicate that the following characters are rendered as a subscript.
+     Example: \"pin_a\" may be rendered as \"pin<sub>a</sub>\".</li>
 
-<li> <b>Class names</b> start always with an upper case letter.</li>
+<li> <b>Class names</b> start always with an upper case letter,
+     with the exception of functions, that start with a lower case letter.</li>
 
 <li> <b>Instance names</b>, i.e., names of component instances and
      of variables (with the exception of constants),
