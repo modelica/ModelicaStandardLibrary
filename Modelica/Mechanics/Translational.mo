@@ -221,7 +221,7 @@ but they cannot be used as state for pure springs (only for the spring/damper
 combination). In this case the system is not at rest.
 </p>
 
-<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Fig.translational.examples.InitialConditions.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
