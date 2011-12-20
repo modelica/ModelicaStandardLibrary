@@ -6221,6 +6221,12 @@ It is based on the
       <th>Author</th>
       <th>Comment</th>
     </tr>
+     <tr>
+      <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4781/Modelica\">r4781</a></td>
+      <td valign=\"top\">2011-12-15</td>
+      <td valign=\"top\"><a href=\"http://claimid.com/dietmarw\">Dietmar Winkler</a></td>
+      <td valign=\"top\">Use quoted class names for function descriptions (closes ticket <a href=\"http://trac.modelica.org/Modelica/ticket/565\">#565</a>)</td>
+    </tr>
     <tr>
       <td valign=\"top\"><a href=\"http://trac.modelica.org/Modelica/changeset/4256/Modelica\">r4256</a></td>
       <td valign=\"top\">2010-10-06</td>
@@ -6274,6 +6280,5 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"),
-  uses(Modelica(version="3.2")));
+</html>"));
 end ModelicaReference;
