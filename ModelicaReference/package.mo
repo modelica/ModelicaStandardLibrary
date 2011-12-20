@@ -6197,7 +6197,10 @@ end Contact;
 
 
 annotation (__Dymola_DocumentationClass=true,
-     dateModified="2010-10-06 17:00:00Z",
+     version="3.2",
+     versionBuild=1,
+     versionDate="2012-XX-XX",
+     dateModified="2011-12-20 12:00:00Z",
      revisionId="$Id::                                       $",
      Documentation(info="<html>
 <p>
@@ -6205,11 +6208,11 @@ This package is a reference to Modelica keywords,
 <a href=\"modelica://ModelicaReference.Operators\">Modelica builtin operators</a>
 , and the <a href=\"modelica://ModelicaReference.ModelicaGrammar\">Modelica grammar</a>.
 It is based on the
-<a href=\"http://www.modelica.org/documents/ModelicaSpec32.pdf\">Modelica Language Specification version 3.2</a> from March 2010. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
+<a href=\"http://www.modelica.org/documents/ModelicaSpec32rev1.pdf\">Modelica Language Specification version 3.2 Revision 1</a> from December 2011. Currently, not the whole Modelica language is documented in ModelicaReference (but a large subset).
 </p>
 
 <p>
-<b>Copyright &copy; 2003-2010 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
+<b>Copyright &copy; 2003-2012 Modelica Association, DLR, Telemark University College, and Maplesoft.</b>
 </p>
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
