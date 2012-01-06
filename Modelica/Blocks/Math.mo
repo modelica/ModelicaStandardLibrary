@@ -3273,7 +3273,7 @@ Note: The output is updated after each period defined by 1/f.
             textString="f=%f")}));
   end Mean;
 
-  block RectifiedMean "Calculate refctified mean over period 1/f"
+  block RectifiedMean "Calculate rectified mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
     Mean mean(final f=f)
