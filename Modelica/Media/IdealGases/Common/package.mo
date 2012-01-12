@@ -654,6 +654,22 @@ thermal conductivity (lambda) at low temperatures.
     T := Internal.solve(s, 200, 6000, p, {1}, data);
   end T_ps;
 
+  function s0_Tlow_der "Compute derivative of specific entropy, low T region"
+    extends Modelica.Icons.Function;
+    input IdealGases.Common.DataRecord data "Ideal gas data";
+    input SI.Temperature T "Temperature";
+    input Real dT(unit="K/s") "Temperature derivative";
+    output Real s_der(unit="J/(kg.K.s)")
+      "Derivative of specific entropy at temperature T";
+
+  algorithm
+    s_der := data.R*(data.alow[1]/(T*T*T) + data.alow[2]/(T*T) + data.alow[3]/T + (
+      data.alow[4] + T*(data.alow[5] + T*(data.alow[6] + data.alow[
+      7]*T))));
+    annotation (Documentation(revisions="<html>
+<p>2012-01-02	Initial release of this function. Stefan Wischhusen.</p>
+</html>"));
+  end s0_Tlow_der;
   annotation (
     Documentation(info="<HTML>
 <p>

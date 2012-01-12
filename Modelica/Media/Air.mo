@@ -878,15 +878,9 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.specifi
    redeclare function extends specificEntropy
       "Return specific entropy from thermodynamic state record, only valid for phi<1"
 
-    protected
-      MoleFraction[2] Y = massToMoleFractions(state.X,{steam.MM,dryair.MM})
-        "molar fraction";
    algorithm
-     s:=SingleGasNasa.s0_Tlow(dryair, state.T)*(1-state.X[Water])
-       + SingleGasNasa.s0_Tlow(steam, state.T)*state.X[Water]
-       - (state.X[Water]*Modelica.Constants.R/MMX[Water]*(if state.X[Water]<Modelica.Constants.eps then state.X[Water] else Modelica.Math.log(Y[Water]*state.p/reference_p))
-         + (1-state.X[Water])*Modelica.Constants.R/MMX[Air]*(if (1-state.X[Water])<Modelica.Constants.eps then (1-state.X[Water]) else Modelica.Math.log(Y[Air]*state.p/reference_p)));
-       annotation(Inline=false,smoothOrder=2,
+    s := s_pTX(state.p, state.T, state.X);
+   annotation(Inline=false,smoothOrder=2,
         Documentation(info="<html>
 Specific entropy is calculated from the thermodynamic state record, assuming ideal gas behavior and including entropy of mixing. Liquid or solid water is not taken into account, the entire water content X[1] is assumed to be in the vapor state (relative humidity below 1.0).
 </html>"));
@@ -1174,6 +1168,230 @@ It must be noted that the relationship of both axis variables is not right-angle
 </html>"));
     end PsychrometricData;
 
+    redeclare function extends velocityOfSound
+    algorithm
+      a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end velocityOfSound;
+
+    redeclare function extends isobaricExpansionCoefficient
+
+    algorithm
+      beta := 1 / temperature(state);
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end isobaricExpansionCoefficient;
+
+    redeclare function extends isothermalCompressibility
+
+    algorithm
+      kappa := 1 / pressure(state);
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end isothermalCompressibility;
+
+    redeclare function extends density_derp_h
+
+    algorithm
+      ddph := 1 / (gasConstant(state) * temperature(state));
+
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end density_derp_h;
+
+    redeclare function extends density_derh_p
+
+    algorithm
+      ddhp := - density(state) / (specificHeatCapacityCp(state) * temperature(state));
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end density_derh_p;
+
+    redeclare function extends density_derp_T
+
+    algorithm
+      ddpT := 1 / (gasConstant(state) * temperature(state));
+
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end density_derp_T;
+
+    redeclare function extends density_derT_p
+
+    algorithm
+      ddTp := - density(state) / temperature(state);
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end density_derT_p;
+
+    redeclare function extends density_derX
+
+    algorithm
+      dddX[Water] := pressure(state) * (steam.R - dryair.R) / ((steam.R - dryair.R) * state.X[Water] * temperature(state) + dryair.R * temperature(state))^2;
+      dddX[Air] := pressure(state) * (dryair.R - steam.R) / ((dryair.R - steam.R) * state.X[Air] * temperature(state) + steam.R * temperature(state))^2;
+
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end density_derX;
+
+    redeclare function extends molarMass
+    algorithm
+      MM := Modelica.Media.Air.MoistAir.gasConstant(state)/Modelica.Constants.R;
+      annotation (Icon(graphics), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end molarMass;
+
+  function T_psX
+      "Return temperature as a function of pressure p, specific entropy s and composition X"
+    input AbsolutePressure p "Pressure";
+    input SpecificEntropy s "Specific entropy";
+    input MassFraction[:] X "Mass fractions of composition";
+    output Temperature T "Temperature";
+
+    protected
+  package Internal "Solve s(data,T) for T with given s"
+    extends Modelica.Media.Common.OneNonLinearEquation;
+    redeclare record extends f_nonlinear_Data
+          "Data to be passed to non-linear function"
+      extends Modelica.Media.IdealGases.Common.DataRecord;
+    end f_nonlinear_Data;
+
+    redeclare function extends f_nonlinear
+    algorithm
+        y := s_pTX(p,x,X);
+    end f_nonlinear;
+
+    // Dummy definition has to be added for current Dymola
+    redeclare function extends solve
+    end solve;
+  end Internal;
+
+  algorithm
+    T := Internal.solve(s, 240, 400, p, X[1:nX], steam);
+      annotation (Documentation(info="<html>
+Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
+</html>", revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"), Icon(graphics));
+  end T_psX;
+
+    redeclare function extends setState_psX
+    algorithm
+      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
+             ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));
+      annotation(smoothOrder=2,
+                  Documentation(info="<html>
+The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
+</html>", revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"),
+        Icon(graphics));
+    end setState_psX;
+
+  function s_pTX
+      "Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi<1)"
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "Pressure";
+    input SI.Temperature T "Temperature";
+    input SI.MassFraction X[:] "Mass fractions of moist air";
+    output SI.SpecificEntropy s "Specific entropy at p, T, X";
+    protected
+     MoleFraction[2] Y = massToMoleFractions(X,{steam.MM,dryair.MM})
+        "molar fraction";
+
+  algorithm
+    s:=SingleGasNasa.s0_Tlow(dryair, T)*(1-X[Water])
+      + SingleGasNasa.s0_Tlow(steam, T)*X[Water]
+      - Modelica.Constants.R*(Utilities.smoothMax(X[Water]/MMX[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p), 0.0, 1e-9)
+        - Utilities.smoothMax((1-X[Water])/MMX[Air]*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p), 0.0, 1e-9));
+    annotation(derivative=s_pTX_der, Inline=false,
+        Documentation(info="<html>
+Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
+</html>", revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"),
+        Icon(graphics={
+          Text(
+            extent={{-100,100},{100,-100}},
+            lineColor={255,127,0},
+            textString=
+                 "f")}));
+  end s_pTX;
+
+  function s_pTX_der
+      "Return specific entropy of moist air as a function of pressure p, temperature T and composition X (only valid for phi<1)"
+    extends Modelica.Icons.Function;
+    input SI.Pressure p "Pressure";
+    input SI.Temperature T "Temperature";
+    input SI.MassFraction X[:] "Mass fractions of moist air";
+    input Real dp(unit="Pa/s") "derivative of pressure";
+    input Real dT(unit="K/s") "derivative of temperature";
+    input Real dX[nX](unit="1/s") "derivative of mass fractions";
+    output Real ds(unit="J/(kg.K.s)") "Specific entropy at p, T, X";
+    protected
+     MoleFraction[2] Y = massToMoleFractions(X,{steam.MM,dryair.MM})
+        "molar fraction";
+
+  algorithm
+    ds:=SingleGasNasa.s0_Tlow_der(dryair, T, dT)*(1-X[Water]) + SingleGasNasa.s0_Tlow_der(steam, T, dT)*X[Water]
+      + SingleGasNasa.s0_Tlow(dryair, T)*dX[Air] + SingleGasNasa.s0_Tlow(steam, T)*dX[Water]
+      - Modelica.Constants.R*(1/MMX[Water]*
+      Utilities.smoothMax_der(X[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p),
+      0.0,
+      1e-9,
+      (Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p)+(X[Water]/Y[Water]*(X[Air]*MMX[Water]/(X[Air]*MMX[Water]+X[Water]*MMX[Air])^2)))*dX[Water]+X[Water]*reference_p/p*dp,
+      0,
+      0)
+      - 1/MMX[Air]*
+      Utilities.smoothMax_der((1-X[Water])*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p),
+      0.0,
+      1e-9,
+      (Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p)+(X[Air]/Y[Air]*(X[Water]*MMX[Air]/(X[Air]*MMX[Water]+X[Water]*MMX[Air])^2)))*dX[Air]+X[Air]*reference_p/p*dp,
+      0,
+      0));
+    annotation(Inline=false, smoothOrder=1,
+        Documentation(info="<html>
+Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
+</html>", revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"),
+        Icon(graphics={
+          Text(
+            extent={{-100,100},{100,-100}},
+            lineColor={255,127,0},
+            textString=
+                 "f")}));
+  end s_pTX_der;
+
+    redeclare function extends isentropicEnthalpy
+      "isentropic enthalpy (only valid for phi<1)"
+
+    algorithm
+      h_is := Modelica.Media.Air.MoistAir.h_pTX(p_downstream,
+                   Modelica.Media.Air.MoistAir.T_psX(p_downstream,
+                       Modelica.Media.Air.MoistAir.specificEntropy(refState),
+                       refState.X),
+                   refState.X);
+
+      annotation (Icon(graphics={
+            Text(
+              extent={{-100,100},{100,-100}},
+              lineColor={255,127,0},
+              textString=
+                   "f")}), Documentation(revisions="<html>
+<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+</html>"));
+    end isentropicEnthalpy;
     annotation (Documentation(info="<html>
 <h4>Thermodynamic Model</h4>
 <p>This package provides a full thermodynamic model of moist air including the fog region and temperatures below zero degC.
