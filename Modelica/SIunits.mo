@@ -1877,7 +1877,7 @@ argument):</p>
              redeclare Reactance im) "Complex electrical impedance";
   record ComplexAdmittance =
     Complex(redeclare Conductance re,
-             redeclare Susceptance im) "Complex electrical impedance";
+             redeclare Susceptance im) "Complex electrical admittance";
   record ComplexPower =
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
