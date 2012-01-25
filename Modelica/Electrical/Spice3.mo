@@ -13,7 +13,7 @@ extends Modelica.Icons.Package;
 <h4>Overview of Spice3 library</h4>
 <p>The Spice3 library is a Modelica library that contains some models of the Berkeley SPICE3 analog simulator.</p>
 <p><u>General information about the analog simulator SPICE3 </u></p>
-<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley. SPICE netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE netlist exists. Today the actual version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build as SPICE netlists.</p>
+<p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley. SPICE netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE netlist exists. Today the current version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build as SPICE netlists.</p>
 <p><u>The Spice3-library for Modelica</u></p>
 <p>The Spice3 library was extraced from orinial SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3. This way was chosen since SPICE3 is the only open source Spice simulator.</p>
 <p>The Spice3-library was built in accordance to the model structure in SPICE. It contains the following packages:</p>
@@ -37,10 +37,10 @@ extends Modelica.Icons.Package;
     annotation (Documentation(info="<html>
 <p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
 <p>To parametrice more than one model two ways are possible:</p>
-<p><ol>
+<ol>
 <li>Apart record:<br>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
 <li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
-</ol></p>
+</ol>
 </html>"));
 
   end Useofsemiconductors;
@@ -187,7 +187,7 @@ end inverter;
 </tr>
 <tr>
 <td valign=\"top\"><p>[Johnson1991]</p></td>
-<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3e User&#39;;s Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991) <a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf\">SPICE3 user's manual</a></p></td>
+<td valign=\"top\"><p>B. Johnson, T. Quarles, A.R. Newton, D. O. Pederson, A. Sangiovanni-Vincentelli, <i>SPICE3 Version 3f User's Manual.</i>, University of Berkeley, Department of Electrical Engineering and Computer Sciences, USA (1991): <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a> (&copy; Regents of the University of California)</p></td>
 <td></td>
 </tr>
 <tr>
@@ -206,7 +206,6 @@ end inverter;
 <ul>
 <li>Version 1.0 (2010-02-18): first version of the library was released</li>
 </ul>
-<p></p>
 </html>"));
 
   end ReleaseNotes;
@@ -1707,8 +1706,8 @@ The corresponding SPICE description
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
+    D-01069 Dresden
+</dd>
 </dl>
 </html>"));
   end Basic;
@@ -1881,11 +1880,6 @@ The corresponding SPICE description
       Documentation(info="<html>
 <p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should apply the models of this package.</p>
 <p>All models of this package extend models of the package Repository, which contains the functions, parameters and data which are necessary to model the behaviour of the semiconductor devices.The modelcard records contain the SPICE3 technology parameters, which can be adjusted for more than one MOS simultaneously.</p>
-</html>",
-     revisions="<html>
-<dl>
-
-</dl>
 </html>"));
   end Semiconductors;
 
@@ -1914,7 +1908,6 @@ The corresponding SPICE description
             grid={1,1})),
         Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
-<p></p>
 </html>"));
     end V_constant;
 
@@ -2614,7 +2607,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         Documentation(info="<html>
 <p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
 
-<p>
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
@@ -2623,7 +2615,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
 <li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
 </ul>
-</p>
 
 <p>Example:</p>
 <pre>   table = [0  0
@@ -4037,12 +4028,10 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               extent={{-150,64},{150,24}},
               textString="%name",
               lineColor={0,0,255})}),Documentation(revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> April 2009 </i>
-       by Kristin Majetta <br>initially implemented</li>
-</ul>
+<dl>
+<dt><i> April 2009 </i></dt>
+<dd>by Kristin Majetta initially implemented</dt>
+</dl>
 </html>", info="<html>
 <p>Semiconductor resistance model</p>
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -8192,7 +8181,7 @@ annotation(preferredView="info",
 <li>Diode </li>
 <li>Semiconductor resistor</li>
 </ul>
-<p>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.130.9471&rep=rep1&type=pdf\">SPICE3 user's manual</a> which modelling relied on.</p>
+<p>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a>  (&copy; Regents of the University of California) on which the modelling relied on.</p>
 <p><b>Open issues</b>:
 <ul>
 <li>devices from SPICE3 that are not modelled yet: </li>
