@@ -214,26 +214,25 @@ end inverter;
     extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-<dl><dt><b>Main Authors:</b> </dt>
-<dd>Kristin Majetta</dd>
-<dd>Fraunhofer Institute Integrated Circuits</dd>
-<dd>Design Automation Division</dd>
-<dd>Zeunerstrasse 38</dd>
-<dd>01069 Dresden, Germany</dd>
+
+<h4>Main Authors:</h4>
+<dl>
+<dt><b>Kristin Majetta</b></dt>
 <dd>email: <a href=\"mailto:Kristin.Majetta@eas.iis.fraunhofer.de\">Kristin Majetta@eas.iis.fraunhofer.de</a></dd>
-<dd>Christoph Clauss</dd>
-<dd>Fraunhofer Institute Integrated Circuits</dd>
-<dd>Design Automation Division</dd>
-<dd>Zeunerstrasse 38</dd>
-<dd>01069 Dresden, Germany</dd>
+<dt><b>Christoph Clauss</b></dt>
 <dd>email: <a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a></dd>
-<dd>Sandra Boehme</dd>
-<dd>Fraunhofer Institute Integrated Circuits</dd>
-<dd>Design Automation Division</dd>
-<dd>Zeunerstrasse 38</dd>
-<dd>01069 Dresden, Germany</dd>
+<dt><b>Sandra Boehme</b></dt>
 <dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
 </dl>
+
+<h5>Address</h5>
+<dl>
+<dd>Fraunhofer Institute Integrated Circuits</dd>
+<dd>Design Automation Division</dd>
+<dd>Zeunerstrasse 38</dd>
+<dd>01069 Dresden, Germany</dd>
+<dl>
+
 <h4>Acknowledgements:</h4>
 <ul>
 <li>The development of this library was done within the European ITEA2 projects EUROSYSLIB and MODELISAR. </li>
