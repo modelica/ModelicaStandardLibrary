@@ -1571,9 +1571,9 @@ This blocks computes the output <b>y</b>
 as <b>sign</b> of the input <b>u</b>:
 </p>
 <pre>
-         1  <b>if</b> u > 0
+         1  <b>if</b> u &gt; 0
     y =  0  <b>if</b> u == 0
-        -1  <b>if</b> u < 0
+        -1  <b>if</b> u &lt; 0
 </pre>
 <p>
 The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
