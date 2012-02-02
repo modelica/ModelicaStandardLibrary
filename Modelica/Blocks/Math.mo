@@ -1399,8 +1399,14 @@ the two inputs <b>u1</b> and <b>u2</b>:
 
       block Abs "Output the absolute value of the input"
         extends Interfaces.SISO;
+        parameter Boolean generateEvent=false
+      "Choose whether events shall be generated"
+          annotation(Evaluate=true);
       equation
-        y = abs(u);
+      //y = abs(u);
+        y=if generateEvent then
+          (if         u>=0  then u else -u) else
+          (if noEvent(u>=0) then u else -u);
         annotation (defaultComponentName="abs1",
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1474,15 +1480,23 @@ as <i>absolute value</i> of the input <b>u</b>:
 <pre>
     y = <b>abs</b>( u );
 </pre>
-
+<p>
+The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
+</p>
 </HTML>
 "));
       end Abs;
 
       block Sign "Output the sign of the input"
         extends Interfaces.SISO;
+        parameter Boolean generateEvent=false
+      "Choose whether events shall be generated"
+          annotation(Evaluate=true);
       equation
-        y = sign(u);
+      //y = sign(u);
+        y=if generateEvent then
+          (if         u>0  then 1 elseif         u<0  then -1 else 0) else
+          (if noEvent(u>0) then 1 elseif noEvent(u<0) then -1 else 0);
         annotation (defaultComponentName="sign1",
           Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -1561,7 +1575,9 @@ as <b>sign</b> of the input <b>u</b>:
     y =  0  <b>if</b> u == 0
         -1  <b>if</b> u < 0
 </pre>
-
+<p>
+The Boolean parameter generateEvent decides whether Events are generated at zero crossing (Modelica specification before 3) or not.
+</p>
 </HTML>
 "));
       end Sign;
