@@ -1068,7 +1068,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <tr><td>Power factor </td><td>pf_sim  </td><td>pf_meas </td></tr>
 <tr><td>Efficiency   </td><td>eff_sim </td><td>eff_meas</td></tr>
 </table>
-<p>Machine parameters are taken from a standard 18.5 kW 400 V 50 Hz motor, simulation results are compared with measurements.<p>
+<p>Machine parameters are taken from a standard 18.5 kW 400 V 50 Hz motor, simulation results are compared with measurements.</p>
 <table>
 <tr><td>Nominal stator current            </td><td>     32.85  </td><td>A      </td></tr>
 <tr><td>Power factor                      </td><td>      0.898 </td><td>       </td></tr>
@@ -2809,7 +2809,7 @@ The coolant flow circuit consists of inlet, volume flow, a pipe connected to the
 <li>All unused heat ports of the thermal port (i.e., without loss sources in the machine: brush, stray, friction, permanent magnet) have to be connected to a constant temperature source.</li>
 <li>The thermal capacitances (i.e., time constants) are unusual small to provide short simulation time!</li>
 <li>The coolant is a theoretical coolant with specific mass = 1 kg/m3 and cp = 1 J/kg.K.</li>
-<li>The thermal conductances as well as the coolant flow are parametrized such way, that:<li>
+<li>The thermal conductances as well as the coolant flow are parametrized such way, that:</li>
 </ul>
 <ol>
 <li>the total coolant's temperature rise is 10 K (over coolant inlet)</li>
@@ -10029,6 +10029,7 @@ Space phasors are defined as vectors of length = 2,
 the first element representing the real part and the second element representing the imaginary part of the space phasor.
 </p>
 </HTML>", revisions="<HTML>
+  <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -10527,7 +10528,7 @@ If it is desired to neglect friction losses, set <code>frictionParameters.PRef =
 Model of voltage drop and losses of carbon brushes. This threephase model uses three
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Brush\">DC Brush</a> loss models.
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end Brush;
 
       model StrayLoad
@@ -10664,8 +10665,8 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
 The current implementation has thus the drawback over a model that considers <code>ratioHysteresis &gt; 0</code>:
 </p>
 <ul>
-<li>underestimation of the losses in the constant field region (<code>w</code> &lt; <code>wRef</code>)</il>
-<li>overestimation of the losses in the field weakening region (<code>w</code> &gt; <code>wRef</code>)</il>
+<li>underestimation of the losses in the constant field region (<code>w</code> &lt; <code>wRef</code>)</li>
+<li>overestimation of the losses in the field weakening region (<code>w</code> &gt; <code>wRef</code>)</li>
 </ul>
 
 <table border=0 cellspacing=0 cellpadding=1>
@@ -10765,9 +10766,9 @@ Model of voltage drop and losses of carbon brushes. For currents between <code>-
 <p>
 The voltage drop <code>v</code> is the total voltage drop of all series connected brushes.
 </p>
-<p>
-</p>
+
 <h4>See also</h4>
+
 <p>
 <a href=\"modelica://Modelica.Electrical.Machines.Losses.BrushParameters\">BrushParameters</a>
 </p>

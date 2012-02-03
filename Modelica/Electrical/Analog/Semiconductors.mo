@@ -361,7 +361,6 @@ is included to avoid numerical difficulties.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled yet. The parameters are not temperature dependent.
 </P>
-<P>
 <PRE>
   W       L      Beta         Vt      K2     K5       DW       DL
   m       m      A/V^2        V       -      -        m        m
@@ -385,11 +384,10 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </PRE>
 
-<P>
 <DL>
-<DT><b>References:</b>
+<DT><b>References:</b></DT>
 <DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
-Muenchen Wien 1990.
+Muenchen Wien 1990.</DD>
 </DL>
 </HTML>
 ",
@@ -549,15 +547,12 @@ A typical parameter set is:
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
-
-<P>
 <DL>
-<DT><b>References:</b>
+<DT><b>References:</b></DT>
 <DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
 Van Nostrand Reinhold, New York 1983
-on page 317 ff.
+on page 317 ff.</DD>
 </DL>
-<P>
 </HTML>
 ",
  revisions="<html>
@@ -709,15 +704,12 @@ A typical parameter set is:
   -   -   A      V    s       s     F     F       F       V     -    V      -      mS     mS     V
   50  0.1 1e-16  0.02 0.12e-9 5e-9  1e-12 0.4e-12 0.5e-12 0.8   0.4  0.8    0.333  1e-15  1e-15  0.02585
 </PRE>
-
-<P>
 <DL>
-<DT><b>References:</b>
+<DT><b>References:</b></DT>
 <DD>Vlach, J.; Singal, K.: Computer methods for circuit analysis and design.
 Van Nostrand Reinhold, New York 1983
-on page 317 ff.
+on page 317 ff.</DD>
 </DL>
-<P>
 </HTML>
 ",
  revisions="<html>
@@ -949,7 +941,7 @@ end HeatingDiode;
 <p>The NMos model is a simple model of a n-channel metal-oxide semiconductor FET. It differs slightly from the device used in the SPICE simulator. For more details please care for H. Spiro.
 <br> A heating port is added for thermal electric simulation. The heating port is defined in the Modelica.Thermal library.
 <br>The model does not consider capacitances. A high drain-source resistance RDS is included to avoid numerical difficulties.
-<br>
+</p>
 <PRE>
   W       L      Beta         Vt      K2     K5       DW       DL
   m       m      A/V^2        V       -      -        m        m
@@ -972,8 +964,6 @@ end HeatingDiode;
   12.e-6  4.e-6  0.038e-3    -0.8     0.33   0.6      0        0           zero
   20.e-6  6.e-6  0.022e-3     0.8     1      0.66     0        0
 </PRE>
-
-</p>
 <p><b>References:</b></p>
 <p>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag Muenchen Wien 1990.</p>
 </html>",  revisions="<html>
@@ -1892,6 +1882,7 @@ public
 <dl>
 <dt>
 <b>Main Authors:</b>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
@@ -1900,9 +1891,7 @@ Christoph Clau&szlig;
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
-<dt>
+    D-01069 Dresden
 </dl>
 </html>"));
 end Semiconductors;

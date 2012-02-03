@@ -6,7 +6,6 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
 
 
     annotation (preferredView="info", Documentation(info="<HTML>
-<p>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>
@@ -26,7 +25,6 @@ package QuasiStationary "Library for quasi-stationary electrical singlephase and
 </p>
   </dd>
 </dl>
-</p>
 <p>
 Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
 </p>

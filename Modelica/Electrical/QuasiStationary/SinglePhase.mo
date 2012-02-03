@@ -649,7 +649,7 @@ The Inductance <i>L</i> is allowed to be positive, zero, or negative.
 The linear resistor connects the voltage <i><u>v</u></i> with the
 current <i><u>i</u></i> by <i><u>i</u>*R = <u>v</u></i>.
 The resistance <i>R</i> is given as input signal.
-<p>
+</p>
 
 <p>
 The variable resistor model also has an optional

@@ -465,10 +465,9 @@ delay.
 The standard text book version uses order \"m=n\", which is
 also the default setting of this block. The setting
 \"m=n-1\" may yield a better approximation in certain cases.
-<p>
-<p>
-Literature:<br>
-Otto Foellinger: Regelungstechnik, 8. Auflage,
+</p>
+<h5>Literature:</h5>
+<p>Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>
 </html>

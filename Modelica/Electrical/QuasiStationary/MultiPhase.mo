@@ -1439,6 +1439,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealIntermediateSwitch).
 </p>
+<p>
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
@@ -1510,6 +1511,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 <p>
 Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealOpeningSwitch).
 </p>
+<p>
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
@@ -1580,6 +1582,7 @@ This switch is only intended to be used for structural changes, not fast switchi
 <p>
 Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePhase.Ideal.IdealClosingSwitch).
 </p>
+<p>
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>

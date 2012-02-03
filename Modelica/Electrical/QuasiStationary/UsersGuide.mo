@@ -431,7 +431,7 @@ ideal AC DC converter</a>, which is used in the
       <td valign=\"top\">[Boas1966]</td>
       <td valign=\"top\">M. L. Boas
         <i>Mathematical Methods in the Physical Sciences</i>,
-        J. Wiley & Sons, New York, 1966.</td>
+        J. Wiley &amp; Sons, New York, 1966.</td>
     </tr>
 
     <tr>

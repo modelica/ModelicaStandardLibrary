@@ -13,7 +13,7 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
 
       annotation(Inline=true, Documentation(info="<html>
-<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</im> (default=0).</p>
+<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</i> (default=0).</p>
 </html>"));
     end fromReal;
     annotation(Documentation(info="<html>

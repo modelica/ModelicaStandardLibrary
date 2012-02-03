@@ -83,13 +83,10 @@ equation
       NumberOfIntervals=2500,
       Tolerance=2e-007),
     Documentation(revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i>Juni 17, 2009   </i>
-       by Susann Wolf<br> realized<br>
-       </li>
-</ul>
+<dl>
+<dt>Juni 17, 2009</dt>
+<dd>by Susann Wolf realized</dd>
+</dl>
 </html>", info="<html>
 <p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.</p>
 </html>"));

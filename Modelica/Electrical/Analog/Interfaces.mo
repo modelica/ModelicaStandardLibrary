@@ -100,10 +100,11 @@ The reason could be that
       Documentation(info="<html>
 <p>Connectors PositivePin and NegativePin are nearly identical. The only difference is that the icons are different in order to identify more easily the pins of a component. Usually, connector PositivePin is used for the positive and connector NegativePin for the negative pin of an electrical component.</p>
 </html>",               revisions="<html>
-<li><i> 1998   </i>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
+<dl>
+<dt><i>1998</i></dt>
+<dd>by Christoph Clauss initially implemented
+</dd>
+</dl>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Rectangle(
@@ -523,6 +524,7 @@ on the model behaviour.
 <dl>
 <dt>
 <b>Main Authors:</b>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
@@ -531,20 +533,18 @@ Christoph Clau&szlig;
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
+    D-01069 Dresden
+</dd>
 <dt>
-</dl>
-
 <b>Copyright:</b>
-<dl>
+</dt>
 <dd>
 Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
+Modelica in file \"Modelica/package.mo\".</i>
+</dd>
 </dl>
 
 <ul>

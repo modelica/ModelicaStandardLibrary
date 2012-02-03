@@ -2174,22 +2174,21 @@ When the control pin <code>control.v</code> signals to close the switch again, t
 i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
+<b>Please note:</b>
+In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
+</p>
+<p>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
 </HTML>
 ", revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> 1998   </i>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
+<dl>
+<dt><i>1998</i></dt>
+<dd>by Christoph Clauss initially implemented</dd>
+</dl>
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2277,12 +2276,10 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
      LossPower = v*i;
       annotation (
         Documentation(info="
-<HTML>
-
+<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
-
 <p>
 The basic model interupts the current through the switch in an infinitesimal time span.
 If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
@@ -2312,24 +2309,23 @@ When the control pin <code>control.v</code> signals to close the switch again, t
 i.e., the equation for the on-state is activated <code>v=Ron*i</code>.
 </p>
 <p>
-Please note: In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
+<b>Please note:</b>
+In an AC circuit, at least the arc quenches when the next natural zero-crossing of the current occurs.
 In a DC circuit, the arc will not quench if the arc voltage is not sufficient that a zero-crossing of the current occurs.
-<br> <br>
+</p>
+<p>
 <b>Please note:</b>
 In case of useHeatPort=true the temperature dependence of the electrical
-behavior is <b> not </b> modelled. The parameters are not temperature dependent.
+behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 
 </HTML>
 ",     revisions=
              "<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> 1998   </i>
-       by Christoph Clauss<br> initially implemented<br>
-       </li>
-</ul>
+<dl>
+<dt><i>1998</i></dt>
+<dd>by Christoph Clauss<br> initially implemented</dd>
+</dl>
 </html>"),
         Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2693,6 +2689,7 @@ The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced 
 <dl>
 <dt>
 <b>Main Authors:</b>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
@@ -2701,17 +2698,18 @@ Christoph Clau&szlig;
     Fraunhofer Institute for Integrated Circuits<br>
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
-    D-01069 Dresden<br>
-<p>
+    D-01069 Dresden
+</dd>
 <dt>
 <b>Copyright:</b>
+</dt>
 <dd>
 Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.<br>
 <i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified
 under the terms of the <b>Modelica license</b>, see the license conditions
 and the accompanying <b>disclaimer</b> in the documentation of package
-Modelica in file \"Modelica/package.mo\".</i><br>
-<p>
+Modelica in file \"Modelica/package.mo\".</i>
+</dd>
 </dl>
 </html>"));
 end Ideal;

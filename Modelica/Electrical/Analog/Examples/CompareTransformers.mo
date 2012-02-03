@@ -154,13 +154,10 @@ equation
           textString="Basic.Transformer (mutual inductance)")}),
     experiment(StopTime=50, Interval=0.001),
     Documentation(revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> 2009   </i>
-       by Anton Haumer<br> initially implemented<br>
-       </li>
-</ul>
+<dl>
+<dt><i>2009</i></dt>
+<dd>by Anton Haumer<br> initially implemented</dd>
+</dl>
 </html>",
         info="<html>
 <p>This example is to demonstrate the behaviour of transformer models. The Basic.Transformer, which consists of mutual coupled inductors, is compared with the ideal transformer model. If the ideal model is used with considerMagnetization=true leakage inductances are taken into account, otherwise not.

@@ -222,13 +222,14 @@ the output y is identical to parameter yStart.
 transfer function between the input signal u and the output
 signal y. The numerator has the order nb-1, the denominator
 has the order na-1.</p>
-<pre>          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
+<pre>
+          b(1)*z^(nb-1) + b(2)*z^(nb-2) + ... + b(nb)
    y(z) = -------------------------------------------- * u(z)
           a(1)*z^(na-1) + a(2)*z^(na-2) + ... + a(na)
 </pre>
 <p>State variables <b>x</b> are defined according to
 <b>controller canonical</b> form. Initial values of the
-states can be set as start values of <b>x</b>.<p>
+states can be set as start values of <b>x</b>.</p>
 <p>Example:</p>
 <pre>     Blocks.Discrete.TransferFunction g(b = {2,4}, a = {1,3});
 </pre>

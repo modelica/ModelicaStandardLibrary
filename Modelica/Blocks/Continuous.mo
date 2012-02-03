@@ -2075,13 +2075,13 @@ See a comparision of \"normalized\" and \"non-normalized\" filters at hand of
 CriticalDamping filters of order 1,2,3:
 </p>
 
-<p>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNormalized.png\">
-</p>
+</blockquote>
 
-<p>
+<blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Blocks/CriticalDampingNonNormalized.png\">
-</p>
+</blockquote>
 
 <h4>Implementation</h4>
 
@@ -2126,7 +2126,6 @@ The filters are implemented in the following, reliable way:
   <dt><b>Main Author:</b></dt>
   <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>,
       DLR Oberpfaffenhofen.</dd>
-  </dt>
 </dl>
 
 <h4>Acknowledgement</h4>
@@ -2182,10 +2181,6 @@ The development of this block was partially funded by BMBF within the
           (cr,c0,c1) :=
             Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne(
             den1, den2);
-
-        annotation (Documentation(info="<html>
-
-</html> "));
       end CriticalDamping;
 
       function Bessel
@@ -2227,10 +2222,6 @@ The development of this block was partially funded by BMBF within the
           (cr,c0,c1) :=
             Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne(
             den1, den2);
-
-        annotation (Documentation(info="<html>
-
-</html> "));
       end Bessel;
 
       function Butterworth
@@ -2285,10 +2276,6 @@ The development of this block was partially funded by BMBF within the
           (cr,c0,c1) :=
             Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne(
             den1, den2);
-
-        annotation (Documentation(info="<html>
-
-</html> "));
       end Butterworth;
 
       function ChebyshevI
@@ -2355,10 +2342,6 @@ The development of this block was partially funded by BMBF within the
           (cr,c0,c1) :=
             Modelica.Blocks.Continuous.Internal.Filter.Utilities.toHighestPowerOne(
             den1, den2);
-
-        annotation (Documentation(info="<html>
-
-</html> "));
       end ChebyshevI;
       end base;
 
@@ -2397,9 +2380,6 @@ The development of this block was partially funded by BMBF within the
         c1 := w_cut*c1_in;
         c0 := w_cut2*c0_in;
 
-        annotation (Documentation(info="<html>
-
-</html> "));
       end lowPass;
 
       function highPass
@@ -2449,9 +2429,6 @@ The development of this block was partially funded by BMBF within the
            c1[i] := w_cut*c1_in[i]/c0_in[i];
         end for;
 
-        annotation (Documentation(info="<html>
-
-</html> "));
       end highPass;
 
       function bandPass
@@ -2541,9 +2518,6 @@ The development of this block was partially funded by BMBF within the
 
           cn :=w_band*w_cut;
 
-        annotation (Documentation(info="<html>
-
-</html> "));
       end bandPass;
 
       function bandStop
@@ -2654,9 +2628,6 @@ The development of this block was partially funded by BMBF within the
              c0[j+1] := w_cut2*alpha^2;
           end for;
 
-        annotation (Documentation(info="<html>
-
-</html> "));
       end bandStop;
       end coefficients;
 
@@ -4028,88 +3999,84 @@ This representation has the following transfer function:
               ") of Bessel filter is not in the range 1..41");
           end if;
 
-          annotation (Documentation(info="<html> The transfer function H(p) of a <i>n</i> 'th order Bessel filter is given by
-
+          annotation (Documentation(info="<html><p>The transfer function H(p) of a <i>n</i> 'th order Bessel filter is given by</p>
 <blockquote><pre>
-         Bn(0)
- H(p) = -------
-         Bn(p)
+        Bn(0)
+H(p) = -------
+        Bn(p)
  </pre>
-</blockquote> with the denominator polynomial
-
+</blockquote>
+<p>with the denominator polynomial</p>
 <blockquote><pre>
-          n             n  (2n - k)!       p^k
- Bn(p) = sum c_k*p^k = sum ----------- * -------   (1)
-         k=0           k=0 (n - k)!k!    2^(n-k)
+         n             n  (2n - k)!       p^k
+Bn(p) = sum c_k*p^k = sum ----------- * -------   (1)
+        k=0           k=0 (n - k)!k!    2^(n-k)
 </pre></blockquote>
-
-and the numerator
-
+<p>and the numerator</p>
 <blockquote><pre>
                (2n)!     1
-Bn(0) = c_0 = ------- * ---- .                     (2)
+Bn(0) = c_0 = ------- * ---- .                    (2)
                 n!      2^n
  </pre></blockquote>
-
-Although the coefficients c_k are integer numbers, it is not advisable to use the
+<p>Although the coefficients c_k are integer numbers, it is not advisable to use the
 polynomials in an unfactorized form because the coefficients are fast growing with order
 n (c_0 is approximately 0.3e24 and 0.8e59 for order n=20 and order n=40
-respectively).<br>
+respectively).</p>
 
-Therefore, the polynomial Bn(p) is factorized to first and second order polynomials with
-real coefficients corresponding to zeros and poles representation that is used in this library.
-<p>
-The function returns the coefficients which resulted from factorization of the normalized transfer function
+<p>Therefore, the polynomial Bn(p) is factorized to first and second order polynomials with
+real coefficients corresponding to zeros and poles representation that is used in this library.</p>
 
+<p>The function returns the coefficients which resulted from factorization of the normalized transfer function</p>
 <blockquote><pre>
 H'(p') = H(p),  p' = p/w0
 </pre></blockquote>
-as well as
+<p>as well as</p>
 <blockquote><pre>
 alpha = 1/w0
 </pre></blockquote>
-the reciprocal of the cut of frequency w0 where the gain of the transfer function is
-decreased 3dB.<p>
+<p>the reciprocal of the cut of frequency w0 where the gain of the transfer function is
+decreased 3dB.</p>
 
-Both, coefficients and cut off frequency were calculated symbolically and were eventually evaluated
+<p>Both, coefficients and cut off frequency were calculated symbolically and were eventually evaluated
 with high precision calculation. The results were stored in this function as real
-numbers.<p>
+numbers.</p>
 
-<br><br><b>Calculation of normalized Bessel filter coefficients</b><br><br>
-
-Equation <blockquote><pre>
-   abs(H(j*w0)) = abs(Bn(0)/Bn(j*w0)) = 10^(-3/20)
- </pre></blockquote>
-which must be fulfilled for cut off frequency w = w0 leads to
+<h4>Calculation of normalized Bessel filter coefficients</h4>
+<p>Equation</p>
 <blockquote><pre>
-   [Re(Bn(j*w0))]^2 + [Im(Bn(j*w0))]^2 - (Bn(0)^2)*10^(3/10) = 0
+abs(H(j*w0)) = abs(Bn(0)/Bn(j*w0)) = 10^(-3/20)
 </pre></blockquote>
-which has exactly one real solution w0 for each order n. This solutions of w0 are
+<p>which must be fulfilled for cut off frequency w = w0 leads to</p>
+<blockquote><pre>
+[Re(Bn(j*w0))]^2 + [Im(Bn(j*w0))]^2 - (Bn(0)^2)*10^(3/10) = 0
+</pre></blockquote>
+<p>which has exactly one real solution w0 for each order n. This solutions of w0 are
 calculated symbolically first and evaluated by using high precise values of the
-coefficients c_k calculated by following (1) and (2). <br>
+coefficients c_k calculated by following (1) and (2).</p>
 
-With w0, the coefficients of the factorized polynomial can be computed by calculating the
-zeros of the denominator polynomial
-
+<p>With w0, the coefficients of the factorized polynomial can be computed by calculating the
+zeros of the denominator polynomial</p>
 <blockquote><pre>
-         n
- Bn(p) = sum w0^k*c_k*(p/w0)^k
-         k=0
+        n
+Bn(p) = sum w0^k*c_k*(p/w0)^k
+        k=0
 </pre></blockquote>
-
-of the normalized transfer function H'(p'). There exist n/2 of conjugate complex
+<p>of the normalized transfer function H'(p'). There exist n/2 of conjugate complex
 pairs of zeros (beta +-j*gamma) if n is even and one additional real zero (alpha) if n is
-odd. Finally, the coefficients a, b1_k, b2_k of the polynomials
-
-<blockquote><pre> a*p + 1,  n is odd </pre></blockquote> and
-
-<blockquote><pre> b2_k*p^2 + b1_k*p + 1,   k = 1,... div(n,2) </pre></blockquote>
-
-results from <blockquote><pre> a = -1/alpha </pre></blockquote> and
-<blockquote><pre> b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
+odd. Finally, the coefficients a, b1_k, b2_k of the polynomials</p>
+<blockquote><pre> a*p + 1,  n is odd </pre></blockquote>
+<p>and</p>
+<blockquote><pre>
+b2_k*p^2 + b1_k*p + 1,   k = 1,... div(n,2)
 </pre></blockquote>
-</p>
-
+<p>results from</p>
+<blockquote><pre>
+a = -1/alpha
+</pre></blockquote>
+<p>and</p>
+<blockquote><pre>
+b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
+</pre></blockquote>
 </html>
 "));
         end BesselBaseCoefficients;

@@ -52,7 +52,9 @@ extends Modelica.Icons.Package;
 <h4>Translation of SPICE3 netlists to Modelica </h4>
 <p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
 
-<table cellspacing=\"0\" cellpadding=\"0\" border=\"1\"><tr>
+<table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">
+<caption>Table 1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
+<tr>
 <td valign=\"top\"><pre>
 inverter
 
@@ -111,7 +113,6 @@ equation
 end inverter;
 </pre></td>
 </tr>
-<caption>Table 1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
 </table>
 
 <p>Given is a SPICE3 netlist that contains two inverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the</p>
@@ -243,7 +244,7 @@ end inverter;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
 <p>Package Spice3 is a <b>free</b> Modelica package</p>
-<p>This is a short <b>User&#39;;s Guide</b> for the overall library.</p>
+<p>This is a short <b>User's Guide</b> for the overall library.</p>
 </html>",   revisions="<html>
 <ul>
 <li><i>Feb 2010 </i>by Kristin Majetta initially written</li>

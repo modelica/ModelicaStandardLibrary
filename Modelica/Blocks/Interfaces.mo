@@ -1176,7 +1176,7 @@ with a 3D icon (e.g., used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
+      Documentation(info="<html><p>
 Block has three continuous Boolean input and one continuous Boolean output signal
 with a 3D icon (e.g., used in Blocks.Logical library).
 </p>

@@ -35,17 +35,17 @@ throughout the library in the same manner.
 All thermohydraulic systems using pressure loss calculations can be modelled for an <b>
 incompressible case </b>, where the pressure loss (DP) is calculated in dependence of a
 known mass flow rate (m_flow)
+</p>
 <pre>
    DP = f(m_flow,...)
 </pre>
-</p>
 <p>
 or a <b> compressible case </b> , where the mass flow rate (M_FLOW) is calculated in
 dependence of a known pressure loss (dp)
+</p>
 <pre>
    M_FLOW = f(dp,...).
 </pre>
-</p>
 <p>
 In both cases one target variable (DP for the compressible or M_FLOW for the
 incompressible case) is calculated as a function of the corresponding input variable
@@ -59,6 +59,7 @@ To create a simplified thermohydraulic model, the pressure loss (dp) and the mas
 rate (M_FLOW) have to be defined as unknown variables and only a functional correlation
 between them is still missing. Here the implementation for the compressible case of a
 flow model will be explained as example.
+</p>
 <pre>
    model straightPipe
     //compressible case M_FLOW = f(dp)
@@ -69,7 +70,6 @@ flow model will be explained as example.
    equation
   end straightPipe
 </pre>
-</p>
 
 <h4>Step 2: Choose pressure loss <b> function </b> of interest</h4>
 
@@ -77,13 +77,15 @@ flow model will be explained as example.
 The HTPL correlations are modelled with functions for several devices. The pressure loss
 of a straight pipe to be modelled can be found by browsing through the <b>
 Fluid.Dissipation </b> library and looking up the function of interest, here:
+</p>
 <pre>
    Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW
 </pre>
-</p>
+
 <p>
 This HTPL correlation for the compressible case of a straight pipe have to be dragged and
 dropped in the equation section of the <b> equation layer </b> of the model in Step 1.
+</p>
 <pre>
    model straightPipe
     //compressible case M_FLOW = f(dp)
@@ -94,7 +96,7 @@ dropped in the equation section of the <b> equation layer </b> of the model in S
     Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_<b>MFLOW</b>
    end straightPipe
 </pre>
-</p>
+
 <h4>Step 3: Choose corresponding pressure loss <b> records </b>
 </h4>
 <p>
@@ -105,16 +107,17 @@ input records are identical with the corresponding function but with the extensi
 _IN_con </b> for parameters and <b> _IN_var </b> for variables as input. These
 corresponding input record for the chosen function have to be dragged and dropped on the
 <b> diagram layer </b> of the model in Step 1.
+</p>
 <pre>
   Input parameter record:
 Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall<b>_IN_con</b> IN_con
   Input variable record:
 Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall<b>_IN_var</b> IN_var
 </pre>
-</p>
 <p>
 Now the equation layer of the model in Step 1 should look similar to the following
 (without comments and annotation):
+</p>
 <pre>
   model straightPipe
    ...
@@ -126,12 +129,13 @@ Now the equation layer of the model in Step 1 should look similar to the followi
    Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW
   end straightPipe
 </pre>
-</p>
+
 <h4>Step 4: Build function-record construction </h4>
 <p>
 Now the input record have to be assigned to the chosen function in the equation layer.
 The resulting function-record implementation for the compressible case looks like the
 following:
+</p>
 <pre>
 model straightPipe
    ...
@@ -140,7 +144,7 @@ model straightPipe
   M_FLOW = Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW(IN_con,IN_var,dp);
 end straightPipe
 </pre>
-</p>
+
 <p>
 Here the compressible case for the unknown mass flow rate (M_FLOW) is calculated by the
 known pressure difference (dp) out of the interfaces of the thermohydraulic framework and
@@ -154,6 +158,7 @@ The assignment of the record variables can either be done directly in the record
 diagram layer or in the equation layer.
 The assignment of the input record in the equation layer results into the following
 model:
+</p>
 <pre>
 model straightPipe
  ...
@@ -176,7 +181,7 @@ sureLossInput_var
  ...
 end straight Pipe;
 </pre>
-</p>
+
 <p>
 If the implementation of a HTPL correlation is done in an existing application model, the
 unknown variables out of Step 1 (M_FLOW and dp for compressible or DP and m_flow for
@@ -265,7 +270,7 @@ loss functions.
 <li> Included Modelica.Fluid application models for available heat transfer and pressure
 loss functions.
 </li>
-<li> Adaption of complete library to Modelica Standard nomenclature.
+<li> Adaption of complete library to Modelica Standard nomenclature.</li>
 </ul>
 
 <h4>Version 1.0 Beta 1, 2008-10-08</h4>
@@ -279,11 +284,11 @@ Initial release of Fluid.Dissipation.
     extends Modelica.Icons.Contact;
       annotation (Documentation(info="<html>
 <dl>
-<dt><h4>Maintainer and co-author </h4>
+<dt><h4>Maintainer and co-author</h4></dt>
 <dd>Stefan Wischhusen<br>
     XRG Simulation GmbH<br>
     Hamburg, Germany<br>
-    email: <A HREF=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</A><br>
+    email: <A HREF=\"mailto:wischhusen@xrg-simulation.de\">wischhusen@xrg-simulation.de</A></dd>
 </dl>
 <h4>  Acknowledgements </h4>
 <p>
@@ -901,7 +906,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 </p>
 
-</p>
+<p>
 A detailled documentation for this convective heat transfer calculation can be found in its underlying function
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\">kc_approxForcedConvection_KC</a> .
 Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
@@ -2941,7 +2946,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
       annotation (preferredView="info", Documentation(info="<html>
 <h4>Straight pipe</h4>
 <h5>Laminar flow</h5>
-<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a>.
+<p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a>.</p>
 
 <h5>Turbulent flow</h5>
 <p>Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a>.</p>
@@ -5778,7 +5783,7 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
 
 <p>
 Generally the pressure loss for two phase flow in a horizontal or a vertical straight pipe can be calculated for the following fluid flow regimes:
-<p>
+</p>
 <p>
 <b>Horizontal fluid flow</b> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
 </p>
@@ -6199,6 +6204,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 <h4>Functions <b>kc_evenGapLaminar</b> and <b>kc_evenGapLaminar_KC</b></h4>
 <p>
 There are basically three differences:
+</p>
 <ul>
 <li>
 The function <b>kc_evenGapLaminar</b>  is using <b>kc_evenGapLaminar_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
@@ -6208,10 +6214,9 @@ Generally the  function <b>kc_evenGapLaminar_KC</b> is numerically best used for
 You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-</p>
+
 
 <h4>Restriction</h4>
-<p>
 <ul>
 <li> laminar regime (Reynolds number &le; 2200)</li>
 <li> developed fluid flow</li>
@@ -6231,30 +6236,30 @@ You can perform an inverse calculation from <b>kc_evenGapLaminar_KC</b>, where a
        </ul>
    </ul>
 </ul>
-</p>
+
 <h4>Geometry</h4>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\"/>
 
 <h4>Calculation</h4>
 <p>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_lam</b> according to <i>[VDI 2002, p. Gb 7, eq. 43]</i> :
+</p>
 <pre>
     Nu_lam = [(Nu_1)^3 + (Nu_2)^3 + (Nu_3)^3]^(1/3)
 </pre>
-</p>
+
 <p>
 with the corresponding mean convective heat transfer coefficient <b> kc </b> :
 </p>
-<p>
+
 <pre>
     kc =  Nu_lam * lambda / d_hyd
 </pre>
-</p>
+
 <p>
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> cp                      </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
 <tr><td><b> d_hyd = 2*s             </b></td><td> as hydraulic diameter of gap [m],</td></tr>
@@ -6270,9 +6275,10 @@ with
 <tr><td><b> Re = rho*v*d_hyd/eta    </b></td><td> as Reynolds number [-],</td></tr>
 <tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s].</td></tr>
 </table>
-</p>
+
 <p>
 The summands for the mean Nusselt number <b> Nu_lam </b> at a chosen fluid flow and heat transfer situation are calculated as follows:
+</p>
 <ul>
 <li> developed fluid flow</li>
    <ul>
@@ -6305,7 +6311,7 @@ The summands for the mean Nusselt number <b> Nu_lam </b> at a chosen fluid flow 
         </ul>
    </ul>
 </ul>
-</p>
+
 <p>
 Note that the fluid properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
 </p>
@@ -6327,8 +6333,6 @@ the chosen fluid flow and heat transfer situations (targets) is shown in the fig
     <dd><b>VDI - W&auml;rmeatlas: Berechnungsbl&auml;tter f&uuml;r den W&auml;rme&uuml;bergang</b>.
     Springer Verlag, 9th edition, 2002.</dd>
 </dl>
-
-
 </html>"));
         end kc_evenGapLaminar;
 
@@ -6389,14 +6393,13 @@ and <b>kc_evenGapTurbulent</b>. A smooth transition between both functions is ca
 The mean Nusselt number <b> Nu </b> representing the mean convective heat transfer coefficient <b> kc </b> for Prandtl numbers of different fluids in dependence of
 the chosen fluid flow and heat transfer situations (targets) is shown in the figures below.
 </p>
-<p>
+
 <ul>
    <li> Target 1: Developed fluid flow and heat transfer from one side of the gap</li>
    <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
    <li> Target 3: Undeveloped fluid flow and heat transfer from one side of the gap</li>
    <li> Target 4: Undeveloped fluid flow and heat transfer from both sides of the gap</li>
 </ul>
-</p>
 <p>
 The verification for all targets is shown in the following figure w.r.t. the reference:
 </p>
@@ -6426,6 +6429,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 <h4>Functions <b>kc_evenGapTurbulent</b> and <b>kc_evenGapTurbulent_KC</b></h4>
 <p>
 There are basically three differences:
+</p>
 <ul>
 <li>
 The function <b>kc_evenGapTurbulent</b> is using <b>kc_evenGapTurbulent_KC</b> but offers additional output variables like e.g. Reynolds number or Nusselt number and failure status (an output of <b>1</b> means that the function is not valid for the inputs).</li>
@@ -6435,10 +6439,9 @@ Generally the  function <b>kc_evenGapTurbulent_KC</b> is numerically best used f
 You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where an unknown mass flow rate is calculated out of a given mean convective heat transfer coefficient <b> kc </b>
 </li>
 </ul>
-</p>
 
 <h4>Restriction</h4>
-<p>
+
 <ul>
 <li> identical and constant wall tempertures</li>
 <li> hydraulic diameter per gap lenght (d_hyd / L) &le; 1</li>
@@ -6447,7 +6450,6 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 <li> developed fluid flow</li>
 <li> heat transfer from both sides of the gap (Target = 2)</li>
 </ul>
-</p>
 
 <h4>Geometry</h4>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/heatTransfer/channel/pic_gap.png\" alt=\"pic_gap\"/>
@@ -6455,30 +6457,28 @@ You can perform an inverse calculation from <b>kc_evenGapTurbulent_KC</b>, where
 <h4>Calculation</h4>
 <p>
 The mean convective heat transfer coefficient <b> kc</b> for an even gap is calculated through the corresponding Nusselt number <b> Nu_turb</b> according to <i> Gnielinski in [VDI 2002, p. Gb 7, sec. 2.4]</i>
+</p>
 <pre>
     Nu_turb =(zeta/8)*Re*Pr/{1+12.7*[zeta/8]^(0.5)*[Pr^(2/3) -1]}*{1+[d_hyd/L]^(2/3)}
 </pre>
-</p>
 
 <p>
 where the pressure loss coefficient <b> zeta </b> according to <i> Konakov in [VDI 2002, p. Ga 5, eq. 27]</i> is determined by
 <pre>
     zeta =  1/[1.8*log10(Re) - 1.5]^2
 </pre>
-</p>
 
 <p>
 resulting to the corresponding mean convective heat transfer coefficient <b> kc </b>
+</p>
 <pre>
     kc =  Nu_turb * lambda / d_hyd
 </pre>
-</p>
 
 <p>
 with
 </p>
 
-<p>
 <table>
 <tr><td><b> cp                      </b></td><td> as specific heat capacity at constant pressure [J/(kg.K)],</td></tr>
 <tr><td><b> d_hyd = 2*s             </b></td><td> as hydraulic diameter of gap [m],</td></tr>
@@ -6495,7 +6495,7 @@ with
 <tr><td><b> v                       </b></td><td> as mean velocity in gap [m/s],</td></tr>
 <tr><td><b> zeta                    </b></td><td> as pressure loss coefficient [-].</td></tr>
 </table>
-</p>
+
 <p>
 Note that the fluid flow properties shall be calculated with an arithmetic mean temperature out of the fluid flow temperatures at the entrance and the exit of the gap.
 </p>
@@ -6504,6 +6504,7 @@ Note that the fluid flow properties shall be calculated with an arithmetic mean 
 <p>
 The mean Nusselt number <b> Nu_turb </b> representing the mean convective heat transfer coefficient <b> kc </b> in dependence of
 the chosen fluid flow and heat transfer situations (targets) is shown in the figure below.
+</p>
 <ul>
    <li> Target 2: Developed fluid flow and heat transfer from both sides of the gap</li>
 </ul>
@@ -10303,12 +10304,13 @@ The gaseous and the liquid part of a fluid in a two phase flow are often discont
 A <b> mean density </b> assuming a continuous distribution out of a discontinuous two phase fluid flow situation can be calculated with a <b> homogeneous or a heterogeneous approach </b> (see <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_twoPhaseOverall_DP\">dp_twoPhaseOverall_DP</a>).</p>
 <p>
 The following <b> modelling approaches </b> can be used to calculate the mean density of two phase flow:
+</p>
 <ul>
 <li>        <b> homogeneous density </b> (homogeneous approach) </li>
 <li>         <b> momentum flux density </b> (heterogeneous approach) </li>
 <li>         <b> kinetic energy flow density </b> (heterogeneous approach) </li>
 </ul>
-</p>
+
 
 <p>
 The heterogeneous approaches are analytically derived by minimising the momentum flux or the kinetic energy flow assuming implicitly that the two-phase flow will tend towards the minimum of this quantity.
@@ -10745,10 +10747,11 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
 <p>
 This function calculates an approximation of the <b> inverse </b> for
+</p>
 <pre>
     f(x) = y = x * exp( x )
 </pre>
-</p>
+
 <p>
 within &infin; > y > -1/e.  The relative deviation of this approximation for lambert's w function <b>x = W(y)</b> is diplayed in the following graph.
 </p>
@@ -10808,10 +10811,11 @@ For y > 10 and higher values the relative deviation is smaller 2%.
 
 <p>
 This function calculates an approximation of the <b> inverse </b> for
+</p>
 <pre>
     f(x) = y = x * exp( x )
 </pre>
-</p>
+
 <p>
 within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solutions exists. The function currently delivers the result x = -1 ... 0 for that particular range.
 </p>
@@ -10883,10 +10887,11 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
             Documentation(info="<html>
 <p>
 The function is used to limit the derivative of the following function at x=0:
+</p>
 <pre>
    y = <b>if</b> x &ge; 0 <b>then</b> x<sup><b>pow</b></sup> <b>else</b> -(-x)<sup><b>pow</b></sup>;  // pow &gt; 0
 </pre>
-</p>
+
 <p>
 by approximating the function in the range -<b>deltax</b>&lt; x &lt; <b>deltax</b>
 with a third order polynomial that has the same derivative at <b>abs</b>(x)=deltax, as the
@@ -10896,10 +10901,11 @@ function above.
 <h4>Example </h4>
 <p>
 In the picture below the input x is increased from -1 to 1. The range of interpolation is defined by the same range. Displayed is the output of the function SmoothPower compared to
+</p>
 <pre>
 y=x*|x|
 </pre>
-</p>
+<p>
 For |x| &gt; 1 both functions return identical results.
 </p>
 
@@ -10974,24 +10980,25 @@ For |x| &gt; 1 both functions return identical results.
 <p>
 The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g., laminar and turbulent pressure drop or correlations for certain ranges.
 </p>
-<h4>Function </h4>
+<h4>Function</h4>
 <p>
 The tanh-function is used, since it provides an existing derivative and the derivative is zero at the borders [<b>nofunc</b>, <b>func</b>] of the interpolation domain (smooth derivative for transitions).<br>
 <br>
 In order to work correctly, the internal interpolation range in terms of the external arbitrary input <b> x </b> needs to be scaled such that:
+</p>
 <pre>
 f(func)   = 0.5 &pi;
 f(nofunc) = -0.5 &pi;
 </pre>
-</p>
+
 <h4>Example </h4>
 <p>
 In the picture below the input x is increased from 0 to 1. The range of interpolation is defined by:
+</p>
 <ul>
 <li> func = 0.75</li>
 <li> nofunc = 0.25</li>
 </ul>
-</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/utilities/Stepsmoother.png\" alt=\"Stepsmoother\"/>
 

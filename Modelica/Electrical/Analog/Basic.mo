@@ -475,7 +475,6 @@ end Conductor;
 </html>",
    revisions="<html>
 <dl>
-<p>
   <dt><b>Main Author:</b></dt>
   <dd>
   <a href=\"http://www.haumer.at/\">Anton Haumer</a><br>
@@ -483,15 +482,9 @@ end Conductor;
   A-3423 St.Andrae-Woerdern<br>Austria<br>
   email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a>
   </dd>
-</p>
-<p>
   <dt><b>Release Notes:</b></dt>
-  <dd>
-  <ul>
-  <li> May 27, 2004: Implemented by Anton Haumer</li>
-  </ul>
-  </dd>
-</dl>
+  <dd>May 27, 2004: Implemented by Anton Haumer</dd>
+ </dl>
 </html>"),
       Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
               100,100}}), graphics={
@@ -1182,13 +1175,10 @@ end M_Transformer;
 <p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection.</p>
 </html>",
    revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> 2009   </i>
-       by Anton Haumer<br> initially implemented<br>
-       </li>
-</ul>
+<dl>
+<dt>2009</dt>
+<dd>by Anton Haumer<br> initially implemented</dd>
+</dl>
 </html>"));
   end TranslationalEMF;
 
@@ -1777,13 +1767,10 @@ end M_Transformer;
 <dd><b>[CP92]</b> Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992 </dd>
 </dl></html>",
    revisions="<html>
-<ul>
-<li><i>  </i>
-       </li>
-<li><i> Juni 17, 2009   </i>
-       by Susann Wolf<br> initially implemented<br>
-       </li>
-</ul>
+<dl>
+<dt><i>Juni 17, 2009</i></dt>
+<dd>by Susann Wolf initially implemented</dd>
+</dl>
 </html>"),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
@@ -2010,7 +1997,7 @@ end M_Transformer;
           annotation (
             Documentation(info="<html>
 <p>The linear capacitor connects the branch voltage <i>v</i> with the branch current <i>i</i> by
-<br><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i><b> </b>.
+<br><i><b>i = dQ/dt</b></i> with <i><b>Q = C * v</b></i>.
 <br>The capacitance <i>C</i> is given as input signal.
 It is required that C &ge; 0, otherwise an assertion is raised. To avoid a variable index system,
 C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Modelica.Constants.eps.</p>
@@ -2145,6 +2132,7 @@ Documentation(info="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
+</dt>
 <dd>
 Christoph Clau&szlig;
     &lt;<a href=\"mailto:Christoph.Clauss@eas.iis.fraunhofer.de\">Christoph.Clauss@eas.iis.fraunhofer.de</a>&gt;<br>
@@ -2154,7 +2142,7 @@ Christoph Clau&szlig;
     Design Automation Department<br>
     Zeunerstra&szlig;e 38<br>
     D-01069 Dresden<br>
-<p>
+</dd>
 </dl>
 </html>"));
 end Basic;

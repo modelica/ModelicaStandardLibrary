@@ -403,7 +403,7 @@ The simulation stop time should be 5 seconds.
                   -12},{-10,-21},{0,-21}}, color={127,0,127}));
           annotation (
             Documentation(info="<HTML>
-<P>
+<p>
 <br>It is an adding circuit for binary numbers with input carry bit, which consists of two HalfAdders.
 <br>
 <br>
@@ -412,7 +412,7 @@ The simulation stop time should be 5 seconds.
 <b>c</b>out = <b>Or1</b>.y and <b>h</b>.s are the outputs of the Fulladder.
 <br>
 <br>
-<b>t</b> is the pick-up instant of the next bit(s) in the simulation.
+<b>t</b> is the pick-up instant of the next bit(s) in the simulation.</p>
 <pre>   <b>a</b>.y      <b>b</b>.y      <b>c</b>.y     <b>c</b>out        <b>h</b>.s        <b>t</b> </pre>
 
 <pre>
@@ -425,8 +425,9 @@ The simulation stop time should be 5 seconds.
      1        1        1        1          1        7
      0        0        0        0          0        8
 </pre>
-</P>
+<p>
 The simulation stop time should be 10 seconds.
+</p>
 </HTML>
 "),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
@@ -1196,7 +1197,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
-<p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the bUF3S<code> </code>component. To verify the result compare to the truth table Buf3sTable.</p>
+<p>This example is a simple test of the Tristates.BUF3S component.  After simulation until 12 s plot x, enable, and y of the <code>bUF3S</code> component. To verify the result compare to the truth table Buf3sTable.</p>
 </html>"));
         end BUF3S;
 
@@ -1235,7 +1236,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
             experiment(StopTime=12),
             Documentation(info="<html>
-<p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the iNV3S<code> </code>component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
+<p>This example is a simple test of the Tristates.INV3S component. After simulation until 12 s plot x, enable, and y of the <code>iNV3S</code> component. To verify the result compare to the truth table <code>T.UX01Table</code>.</p>
 </html>"));
         end INV3S;
 
@@ -3127,14 +3128,10 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </HTML>
 ",       revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 11, 2003</i>
-       by Christoph Clauss<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 11, 2003</i></dt>
+<dd>by Christoph Clauss initially modelled.</dd>
+</dl>
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -3192,17 +3189,12 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </HTML>
 ",       revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 12, 2003   </i>
-       by Christoph Clauss<br>
-       reviced</li>
-<li><i>March 19, 2003</i>
-       by Martin Otter<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 12, 2003</i></dt>
+<dd>by Christoph Clauss revised</dd>
+<dt><i>March 19, 2003</i></dt>
+<dd>by Martin Otter initially modelled.</dd>
+</dl>
 </HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3293,6 +3285,7 @@ is used, if it is zero, the input is not delayed.
 <li><i>October 12, 2003   </i>
        by Christoph Clauss<br>
        initially modelled</li>
+</ul>
 </HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -3419,14 +3412,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>To avoid loops in the numerical treatment, the pre operator is applied to the output.</p>
 </html>",  revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 14, 2003</i>
-       by Teresa Schlegel<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 14, 2003</i></dt>
+<dd>by Teresa Schlegel initially modelled.</dd>
+</dl>
 </HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
@@ -3748,14 +3737,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
 </html>", revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 14, 2003</i>
-       by Teresa Schlegel<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 14, 2003</i></dt>
+<dd>by Teresa Schlegel initially modelled.</dd>
+</dl>
 </HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -4165,14 +4150,10 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
 </html>", revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 21, 2004</i>
-       by Andre Schneider<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>September 21, 2004</i></dt>
+<dd>by Andre Schneider initially modelled.</dd>
+</dl>
 </HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}),
             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -4251,14 +4232,10 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </HTML>
 ",       revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 20, 2003</i>
-       by Teresa Schlegel<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 20, 2003</i></dt>
+<dd>by Teresa Schlegel initially modelled.</dd>
+</dl>
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -4335,14 +4312,10 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </HTML>
 ",       revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 20, 2003</i>
-       by Teresa Schlegel<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 20, 2003</i></dt>
+<dd>by Teresa Schlegel initially modelled.</dd>
+</dl>
 </HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
@@ -4419,14 +4392,10 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
 </HTML>
 ",         revisions="<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>August 20, 2003</i>
-       by Teresa Schlegel<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>August 20, 2003</i></dt>
+<dd>by Teresa Schlegel initially modelled.</dd>
+</dl>
 </HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
@@ -4528,14 +4497,10 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </HTML>
 ",         revisions=
                  "<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 2, 2003</i>
-       by Christoph Clauss<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>September 2, 2003</i></dt>
+<dd>by Christoph Clauss initially modelled.</dd>
+</dl>
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -4587,14 +4552,10 @@ The number of periods is unlimited. The first pulse starts at startTime.
 </P>
 </HTML>
 ",         revisions="<HTML>
-<ul>
-<li><i>   </i>
-       by ...<br>
-       </li>
-<li><i>September 18, 2004</i>
-       by Andre Schneider<br>
-       initially modelled.</li>
-</ul>
+<dl>
+<dt><i>September 18, 2004</i></dt>
+<dd>by Andre Schneider initially modelled.</dd>
+</dl>
 </HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -5277,7 +5238,7 @@ The values val... are given by parameters.</P>
               lineColor={127,33,107},
               textString="reset")}),
             Documentation(info="<html>
-<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities<p>
+<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities</p>
 <p><b>Truth Table for high active reset:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -5315,6 +5276,7 @@ The values val... are given by parameters.</P>
 </table>
 
 <PRE>
+
   *  = don't care
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6130,7 +6092,7 @@ Clock transition definitions:
            annotation (
             Documentation(info="<html>
 
-<p> Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd <p>
+<p> Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
 <p><b>Truth Table for high active reset:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -6170,6 +6132,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
+
   *  = don't care
   ~  = not equal
   U  = L.'U'
@@ -7802,14 +7765,14 @@ Wires n input signals in one output signal, without delay.
       mem := getMemory(fileName, n_addr, n_data);
     end when;
 
-    /* assert: no address change during write 
+    /* assert: no address change during write
 addr_change := false;
 for i in 1:n_addr loop
     if change(addr[i]) then
       addr_change := true;
     end if;
 end for;
- 
+
 if WE == L.'1' or WE == L.'H' then
   assert(not addr_change, "Address lines changed while RAM is Write Enabled");
 end if;
@@ -7863,15 +7826,16 @@ end if;
 
        annotation (
         Documentation(info="<html>
- 
-<p> Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd <p>
+<p>
+Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
+</p>
 
 <p><b>Truth Table for high active read enable RE:</b></p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>RE</b></td>
       <td valign=\"top\"><b>Addr</b></td>
       <td valign=\"top\"><b>DataOut</b></td>
-  </tr>                         
+  </tr>
   <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">Z over all</td>  </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>     </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">X over all</td>  </tr>
@@ -7882,34 +7846,31 @@ end if;
   <tr><td valign=\"top\"><b>WE</b></td>
       <td valign=\"top\"><b>Addr</b></td>
       <td valign=\"top\"><b>Memory</b></td>
-  </tr>                         
+  </tr>
   <tr><td valign=\"top\">0</td>  <td valign=\"top\">*</td>              <td valign=\"top\">no write</td>           </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=DataIn</td>     </tr>
   <tr><td valign=\"top\">1</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">no write</td>  </tr>
   <tr><td valign=\"top\">X</td>  <td valign=\"top\">no X in Addr</td>   <td valign=\"top\">m(Addr)=X over all</td> </tr>
   <tr><td valign=\"top\">X</td>  <td valign=\"top\">X in Addr</td>      <td valign=\"top\">no write</td>  </tr>
 </table>
-<p>
+
 <PRE>
+
   *  = don't care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
   Z  = L.'Z'
 </PRE>
-</p>
+
 <p><b>Simultaneous read/write operations are allowed.
 Firstly Write is carried out, then Read.</b></p>
-</b></p>
-<br> 
 </HTML>
 ",     revisions="<html>
-<ul>
-<PRE>
-<li><i>November 9, 2010 </i> created by Ulrich Donath<br>
-       </li>
-</PRE>
-</ul>
+<dl>
+<dt><i>November 9, 2010 </i></dt>
+<dd>created by Ulrich Donath</dd>
+</dl>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics),
@@ -8118,40 +8079,38 @@ Firstly Write is carried out, then Read.</b></p>
 
        annotation (
         Documentation(info="<html>
- 
-<p> Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd <p>
+<p>
+Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a>
+</p>
 <p><b>Truth Table for high active read enable RE:</b></p>
- 
+
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>RE</b></td>
       <td valign=\"top\"><b>Addr</b></td>
       <td valign=\"top\"><b>DataOut</b></td>
   </tr>
-                         
+
   <tr><td valign=\"top\">0</td> <td valign=\"top\">*</td> <td valign=\"top\">Z over all</td>  </tr>
   <tr><td valign=\"top\">1</td> <td valign=\"top\">  no X in Addr</td> <td valign=\"top\">DataOut=m(Addr)</td>  </tr>
   <tr><td valign=\"top\">1</td> <td valign=\"top\">X in Addr</td> <td valign=\"top\">X over all</td> </tr>
   <tr><td valign=\"top\">X</td> <td valign=\"top\">*</td> <td valign=\"top\">X over all</td> </tr>
 </table>
- 
-<p>
+
 <PRE>
+
   *  = don't care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
   Z  = L.'Z'
 </PRE>
-</p>
- 
-</HTML>
+
+</html>
 ",     revisions="<html>
-<ul>
-<PRE>
-<li><i>October 19, 2010 </i> created by Ulrich Donath<br>
-       </li>
-</PRE>
-</ul>
+<dl>
+<dt><i>October 19, 2010</i></dt>
+<dd>created by Ulrich Donath</dd>
+</dl>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),
@@ -8330,13 +8289,13 @@ Firstly Write is carried out, then Read.</b></p>
               fillPattern=FillPattern.Solid,
               textString="MUX2x1")}),
         Documentation(info="<html>
-<p>Description in VHDL is given by http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</p>
-<p>and for Multiplexer table http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</p>
-<p><h4>Truth Table</h4></p>
+<p>Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_entities.vhd</a></p>
+<p>and for Multiplexer table <a href=\"http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd\">http://www.cs.sfu.ca/~ggbaker/reference/std_logic/src/std_logic_misc.vhd</a></p>
+<h4>Truth Table</h4>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<td valign=\"top\"><p><h4>DataIn</h4></p></td>
-<td valign=\"top\"><p><h4>Select</h4></p></td>
-<td valign=\"top\"><p><h4>DataOut</h4></p></td>
+<td valign=\"top\"><h4>DataIn</h4></td>
+<td valign=\"top\"><h4>Select</h4></td>
+<td valign=\"top\"><h4>DataOut</h4></td>
 </tr>
 <tr>
 <td valign=\"top\"><p>*</p></td>
@@ -8374,17 +8333,18 @@ Firstly Write is carried out, then Read.</b></p>
 <td valign=\"top\"><p>X</p></td>
 </tr>
 </table>
-<pre> 
+<pre>
 
   *  = don&apos;t care
   0  = L.&apos;0&apos; or L.&apos;L&apos;
   1  = L.&apos;1&apos; or L.&apos;H&apos;
-  X  = L.&apos;X&apos; or L.&apos;W&apos; or L.&apos;Z&apos; or L.&apos;-&apos; 
+  X  = L.&apos;X&apos; or L.&apos;W&apos; or L.&apos;Z&apos; or L.&apos;-&apos;
   U  = L.&apos;U&apos; </pre>
 </html>",     revisions="<html>
-<p><ul>
-<li><code><i>January 24, 2011 </i></code><code> created by Christian G&uuml;nther<br/></code></li>
-</ul></p>
+<dl>
+<dt><i>January 24, 2011</i></dt>
+<dd>created by Christian G&uuml;nther</dd>
+</dl>
 </html>"));
     end MUX2x1;
     annotation (Icon(graphics={            Rectangle(
@@ -8403,6 +8363,8 @@ Firstly Write is carried out, then Read.</b></p>
 This library contains packages for digital electrical components. Both, type system
 and models are based on the VHDL standard (IEEE Std 1076-1987 VHDL, IEEE Std 1076-1993 VHDL,
 IEEE Std 1164 Multivalue Logic System):
+</p>
+
 <ul>
 <li>Interfaces: Definition of signals and interfaces</li>
 <li>Tables: All truth tables needed</li>
@@ -8419,11 +8381,12 @@ IEEE Std 1164 Multivalue Logic System):
 <li>Converters</li>
 <li>Examples</li>
 </ul>
-</p>
+
 <p>
 The logic values are coded by integer values. The following code table is necessary
 for both setting of input and interpreting the output values.
 </p>
+
 <p><b>Code Table:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>

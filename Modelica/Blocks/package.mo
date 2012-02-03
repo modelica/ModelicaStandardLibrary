@@ -1350,10 +1350,8 @@ This package contains the bus definitions needed for the
               extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
-<p>
 This model is used to demonstrate the bus usage in example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
-</p>
 </p>
 </html>"));
    end Part;
