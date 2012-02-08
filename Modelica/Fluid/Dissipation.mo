@@ -5788,13 +5788,13 @@ Generally the pressure loss for two phase flow in a horizontal or a vertical str
 <b>Horizontal fluid flow</b> [(a) bubble flow, (b) stratified flow, (c) wavy flow, (d) slug flow, (e) annular flow]:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_horizontal.png\" alt=\"pic_twoPhaseFlowRegimes_horizontal\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_horizontal.png\" alt=\"pic_twoPhaseFlowRegimes_horizontal\"/>
 
 <p>
 <b>Vertical fluid flow</b> [(a) bubble flow, (b) plug slug flow, (c) foam flow, (d) annular streak flow, (e) annular flow]:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/pic_twoPhaseFlowRegimes_vertical.png\" alt=\"pic_twoPhaseFlowRegimes_vertical\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_twoPhaseFlowRegimes_vertical.png\" alt=\"pic_twoPhaseFlowRegimes_vertical\"/>
 
 <p>
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.PressureLoss.StraightPipe.dp_twoPhaseOverall\">See more information</a>.
@@ -9572,13 +9572,13 @@ with
 The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Friedel </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_1.png\" alt=\"fig_dp_twoPhaseOverall_1\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_1.png\" alt=\"fig_dp_twoPhaseOverall_1\"/>
 
 <p>
 The two phase pressure loss for a horizontal pipe calculated by the correlation of <i> Chisholm </i> neglecting momentum and geodetic pressure loss is shown in the figure below.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/StraightPipe/fig_dp_twoPhaseOverall_4.png\" alt=\"fig_dp_twoPhaseOverall_4\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/fig_dp_twoPhaseOverall_4.png\" alt=\"fig_dp_twoPhaseOverall_4\"/>
 
 <h4>References</h4>
 <dl>
