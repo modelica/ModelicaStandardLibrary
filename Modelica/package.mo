@@ -2455,7 +2455,18 @@ units are wrong or errors in documentation):
 
 <tr><td colspan=\"2\"><b>Modelica.Electrical.QuasiStationary.</b></td></tr>
 <tr><td valign=\"top\">MultiPhase.Sensors.PowerSensor</td>
-    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/642\">#642</a> A superfluous self-connect was removed></td.</tr>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/642\">#642</a> A superfluous self-connect was removed></td></tr>
+
+
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Examples.</b></td></tr>
+<tr><td valign=\"top\">HeatingSystem</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/680\">#680</a> 
+    The model did not simulate since initialization failed. 
+    With the changes in Modelica.Medium and Modelica.SIunits below, the model simulated.
+    The convergence of the initialization was further improved by setting the start values
+    of ports.p to 1 bar.
+   </td></tr>
+
 
 <tr><td colspan=\"2\"><b>Modelica.Math.</b><br />
 		      <b>Modelica.ComplexMath.</b><td></tr>

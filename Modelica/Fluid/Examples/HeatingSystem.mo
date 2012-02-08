@@ -17,7 +17,8 @@ model HeatingSystem "Simple model of a heating system"
         0.01),Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
         0.01)},
     redeclare model HeatTransfer =
-        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=10))
+        Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=10),
+    ports(each p(start=1e5)))
               annotation (Placement(transformation(extent={{-80,30},{-60,50}},
           rotation=0)));
   Machines.ControlledPump pump(
@@ -241,5 +242,6 @@ could be additionally introduced to model the fitting between the heater and the
 </html>
 "), experiment(StopTime=6000),
     __Dymola_Commands(file(ensureSimulated=true)=
-        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/HeatingSystem/plotResults.mos" "plotResults"));
+        "modelica://Modelica/Resources/Scripts/Dymola/Fluid/HeatingSystem/plotResults.mos"
+        "plotResults"));
 end HeatingSystem;
