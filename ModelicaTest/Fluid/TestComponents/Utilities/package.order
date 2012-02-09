@@ -1,5 +1,6 @@
 TestRegFunctions
 TestRegRoot2Derivatives
+TestRegRoot2ZeroDerivative
 TestRegRootDerivative
 TestRegSquare2Derivatives
 TestRegStep
