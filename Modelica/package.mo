@@ -2468,6 +2468,29 @@ units are wrong or errors in documentation):
    </td></tr>
 
 
+<tr><td colspan=\"2\"><b>Modelica.Fluid.Utilities.</b></td></tr>
+<tr><td valign=\"top\">regRoot2</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/693\">#693</a> 
+    The problem was that the function fails if k2 is zero (or k1 is zero) and the 
+    function is differentiated. The reason is that sqrt(k2*x) appears in the 
+    function and when differentiated results in 1/sqrt(k2*x) and if k2 is zero, 
+    this gives a division by zero. The problem was fixed by introducing an intermediate variable:
+    \"sqrt_k2 = if k2 > 0 then sqrt(k2) else 0\" and using sqrt_k2 in the code. 
+   </td></tr>
+
+<tr><td valign=\"top\">regFun3</td>
+    <td valign=\"top\"> <a href=\"http://trac.modelica.org/Modelica/ticket/495\">#495</a> 
+    The issue was due to division by zero in the computation of xstar, the inflection point 
+    of the cubic polynomial. This variable is used in the co-monotonicity criteria of 
+    [Gasparo and Morandi 1991]; therefore, the criteria did not evaluate properly.
+    The problem was solved by arguing that if the inflection point is at +/- infinity, i.e.,
+    outside of the interpolation interval, that then the cubic S0 is co-monotone if the signs 
+    of y0d and y1d are identical (also allowing that they are zero). Therefore, the cubic 
+    S0 can be returned directly. Additionally, some additional minor improvements have been
+    performed.
+   </td></tr>
+
+
 <tr><td colspan=\"2\"><b>Modelica.Math.</b><br />
 		      <b>Modelica.ComplexMath.</b><td></tr>
 <tr><td valign=\"top\">&lt;*&gt;</td>

@@ -252,20 +252,26 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
        Real y0d;
        Real w1;
        Real w2;
+       Real sqrt_k1 = if k1 > 0 then sqrt(k1) else 0;
+       Real sqrt_k2 = if k2 > 0 then sqrt(k2) else 0;
     algorithm
        if k2 > 0 then
+          // Since k1 >= k2 required, k2 > 0 means that k1 > 0
           x2 :=-x1*(k2/k1);
-       else
+       elseif k1 > 0 then
           x2 := -x1;
+       else
+          y := 0;
+          return;
        end if;
 
        if x <= x2 then
-          y := -sqrt(k2*abs(x));
+          y := -sqrt_k2*sqrt(abs(x));
        else
-          y1 :=sqrt(k1*x1);
-          y2 :=-sqrt(k2*abs(x2));
-          y1d :=sqrt(k1/x1)/2;
-          y2d :=sqrt(k2/abs(x2))/2;
+          y1 :=sqrt_k1*sqrt(x1);
+          y2 :=-sqrt_k2*sqrt(abs(x2));
+          y1d :=sqrt_k1/sqrt(x1)/2;
+          y2d :=sqrt_k2/sqrt(abs(x2))/2;
 
           if use_yd0 then
              y0d :=yd0;
@@ -315,8 +321,8 @@ With the default value of delta=0.01, the difference between sqrt(x) and sqrtReg
            monotonically increasing. A sufficient condition is
              0 <= y0d <= sqrt(8.75*k_i/|x_i|)
         */
-          w1 :=sqrt(8.75*k1/x1);
-          w2 :=sqrt(8.75*k2/abs(x2));
+          w1 :=sqrt_k1*sqrt(8.75/x1);
+          w2 :=sqrt_k2*sqrt(8.75/abs(x2));
           y0d :=min(y0d, 0.9*min(w1, w2));
 
           /* Perform interpolation in scaled polynomial:
