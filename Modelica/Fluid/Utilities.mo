@@ -613,8 +613,8 @@ for a smooth transition from y1 to y2.
     input Real x "Abscissa value";
     input Real x0 "Lower abscissa value";
     input Real x1 "Upper abscissa value";
-    input Real y0 "Ordinate value at lower ordinate value";
-    input Real y1 "Ordinate value at upper ordinate value";
+    input Real y0 "Ordinate value at lower abscissa value";
+    input Real y1 "Ordinate value at upper abscissa value";
     input Real y0d "Derivative at lower abscissa value";
     input Real y1d "Derivative at upper abscissa value";
 
@@ -641,48 +641,57 @@ for a smooth transition from y1 to y2.
     Real const3 "Integration constant of right cubic";
     Real aux01;
     Real aux02;
-    Boolean useSingleCubicPolynomial = false
+    Boolean useSingleCubicPolynomial=false
       "Indicate to override further logic and use single cubic";
   algorithm
-    assert(x0<x1, "regFun3(): Data points not sorted appropriately (x0 = "+String(x0)+" > x1 = "+String(x1)+"). Please flip arguments.");
+    assert(x0 < x1, "regFun3(): Data points not sorted appropriately (x0 = " +
+      String(x0) + " > x1 = " + String(x1) + "). Please flip arguments.");
+    assert(y0d*y1d >= 0, "regFun3(): Deriavtives at data points do not allow co-monotone interpolation, as both are non-zero and of opposite sign (y0d = " +
+      String(y0d) + ", y1d = " + String(y1d) + "). Please correct arguments.");
 
-    h0 :=x1 - x0;
-    Delta0 :=(y1 - y0)/h0;
+    h0 := x1 - x0;
+    Delta0 := (y1 - y0)/h0;
 
-    if abs(Delta0)<=0 then
+    if abs(Delta0) <= 0 then
       // Points (x0,y0) and (x1,y1) on horizonzal line
       // Degenerate case as we cannot fulfill the C1 goal an comonotone behaviour at the same time
-      y := y0; // == y1
+      y := y0;     // == y1
+    elseif abs(y1d + y0d - 2*Delta0) < 100*Modelica.Constants.eps then
+      // Inflection point at +/- infinity, thus S0 is co-monotone and can be returned directly
+      y := y0 + (x-x0)*(y0d + (x-x0)/h0*( (-2*y0d-y1d+3*Delta0) + (x-x0)*(y0d+y1d-2*Delta0)/h0));
+      // Provide a "dummy linear section slope" as the slope of the cubic at x:=(x0+x1)/2
+      aux01 := (x0 + x1)/2;
+      c := 3*(y0d + y1d - 2*Delta0)*(aux01 - x0)^2/h0^2 + 2*(-2*y0d - y1d + 3*Delta0)*(aux01 - x0)/h0
+         + y0d;
     else
-      // Points (x0,y0) and (x1,y1) not on horizonzal line
-      if abs(y1d+y0d-2*Delta0)<100*Modelica.Constants.eps then
-        xstar := (x1-x0)*(2*y0d+y1d-3*Delta0)*(if (y0d+y1d-2*Delta0)>=0 then 1 else -1)*Modelica.Constants.inf;
-      else
-        xstar :=1/3*(-3*x0*y0d - 3*x0*y1d + 6*x0*Delta0 - 2*h0*y0d - h0*y1d + 3*h0*
-          Delta0)/(-y0d - y1d + 2*Delta0);
-      end if;
-      mu :=xstar - x0;
-      eta :=x1 - xstar;
-      omega :=3*(y0d + y1d - 2*Delta0)*(xstar - x0)^2/h0^2 + 2*(-2*y0d - y1d + 3*
+      // Points (x0,y0) and (x1,y1) not on horizonzal line and inflection point of S0 not at +/- infinity
+      // Do actual interpolation
+      xstar := 1/3*(-3*x0*y0d - 3*x0*y1d + 6*x0*Delta0 - 2*h0*y0d - h0*y1d + 3*h0*
+        Delta0)/(-y0d - y1d + 2*Delta0);
+      mu := xstar - x0;
+      eta := x1 - xstar;
+      omega := 3*(y0d + y1d - 2*Delta0)*(xstar - x0)^2/h0^2 + 2*(-2*y0d - y1d + 3*
         Delta0)*(xstar - x0)/h0 + y0d;
 
-      aux01 := 0.25 * sign(Delta0) * min(abs(omega), abs(Delta0))
+      aux01 := 0.25*sign(Delta0)*min(abs(omega), abs(Delta0))
         "Slope c if not using plain cubic S0";
-      if abs(y0d-y1d)<=100*Modelica.Constants.eps then
+      if abs(y0d - y1d) <= 100*Modelica.Constants.eps then
         // y0 == y1 (value and sign equal) -> resolve indefinite 0/0
         aux02 := y0d;
-        if y1 > y0 + y0d*(x1-x0) then
+        if y1 > y0 + y0d*(x1 - x0) then
           // If y1 is above the linear extension through (x0/y0)
           // with slope y0d (when slopes are identical)
           //  -> then always used single cubic polynomial
           useSingleCubicPolynomial := true;
         end if;
-      elseif abs(y1d+y0d-2*Delta0)<100*Modelica.Constants.eps then
+      elseif abs(y1d + y0d - 2*Delta0) < 100*Modelica.Constants.eps then
         // (y1d+y0d-2*Delta0) approximately 0 -> avoid division by 0
-        aux02 := (6*Delta0*(y1d+y0d-3/2*Delta0)-y1d*y0d-y1d^2-y0d^2)*(if (y1d+y0d-2*Delta0)>=0 then 1 else -1)*Modelica.Constants.inf;
+        aux02 := (6*Delta0*(y1d + y0d - 3/2*Delta0) - y1d*y0d - y1d^2 - y0d^2)*(
+          if (y1d + y0d - 2*Delta0) >= 0 then 1 else -1)*Modelica.Constants.inf;
       else
         // Okay, no guarding necessary
-        aux02 := (6*Delta0*(y1d+y0d-3/2*Delta0)-y1d*y0d-y1d^2-y0d^2)/(3*(y1d+y0d-2*Delta0));
+        aux02 := (6*Delta0*(y1d + y0d - 3/2*Delta0) - y1d*y0d - y1d^2 - y0d^2)/(3*
+          (y1d + y0d - 2*Delta0));
       end if;
 
       //aux02 := -1/3*(y0d^2+y0d*y1d-6*y0d*Delta0+y1d^2-6*y1d*Delta0+9*Delta0^2)/(y0d+y1d-2*Delta0);
@@ -702,26 +711,26 @@ for a smooth transition from y1 to y2.
       //     is too close to zero (less than 1/10 of Delta0).
       //       (c < Delta0 / 10)
       //
-      if (((mu > 0) and (eta < h0) and (Delta0*omega <= 0))
-          or (abs(aux01)<abs(aux02) and aux02*Delta0>=0)
-          or (abs(aux01)<abs(0.1*Delta0))) and not useSingleCubicPolynomial then
+      if (((mu > 0) and (eta < h0) and (Delta0*omega <= 0)) or (abs(aux01) < abs(
+          aux02) and aux02*Delta0 >= 0) or (abs(aux01) < abs(0.1*Delta0))) and
+          not useSingleCubicPolynomial then
         // NOT monotonic using plain cubic S0, use piecewise function S0 tilde instead
         c := aux01;
         // Avoid saddle points that are co-monotonic but lead to integrator contraction
-        if abs(c)<abs(aux02) and aux02*Delta0>=0 then
+        if abs(c) < abs(aux02) and aux02*Delta0 >= 0 then
           c := aux02;
         end if;
-        if abs(c)<abs(0.1*Delta0) then
+        if abs(c) < abs(0.1*Delta0) then
           c := 0.1*Delta0;
         end if;
         theta0 := (y0d*mu + y1d*eta)/h0;
-        if abs(theta0 - c)<1e-6 then
+        if abs(theta0 - c) < 1e-6 then
           // Slightly reduce c in order to avoid ill-posed problem
-          c := (1-1e-6)*theta0;
+          c := (1 - 1e-6)*theta0;
         end if;
         rho := 3*(Delta0 - c)/(theta0 - c);
-        mu_tilde := rho * mu;
-        eta_tilde := rho * eta;
+        mu_tilde := rho*mu;
+        eta_tilde := rho*eta;
         xi1 := x0 + mu_tilde;
         xi2 := x1 - eta_tilde;
         a1 := (y0d - c)/max(mu_tilde^2, 100*Modelica.Constants.eps);
@@ -738,19 +747,19 @@ for a smooth transition from y1 to y2.
         end if;
       else
         // Cubic S0 is monotonic, use it as is
-        y := (y0d+y1d-2*Delta0)*(x-x0)^3/h0^2+(-2*y0d-y1d+3*Delta0)*(x-x0)^2/h0+y0d*(x-x0)+y0;
+        y := y0 + (x-x0)*(y0d + (x-x0)/h0*( (-2*y0d-y1d+3*Delta0) + (x-x0)*(y0d+y1d-2*Delta0)/h0));
         // Provide a "dummy linear section slope" as the slope of the cubic at x:=(x0+x1)/2
-        aux01 := (x0+x1)/2;
-        c := 3*(y0d+y1d-2*Delta0)*(aux01-x0)^2/h0^2+2*(-2*y0d-y1d+3*Delta0)*(aux01-x0)/h0+y0d;
+        aux01 := (x0 + x1)/2;
+        c := 3*(y0d + y1d - 2*Delta0)*(aux01 - x0)^2/h0^2 + 2*(-2*y0d - y1d + 3*Delta0)*(aux01 - x0)/h0
+           + y0d;
       end if;
     end if;
 
-    annotation(smoothOrder=1, Documentation(revisions="<html>
-<ul>
-<li><i>May 2008</i>
-    by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br>
-    Designed and implemented.</li>
-</ul>
+    annotation (smoothOrder=1, Documentation(revisions="<html>
+<p><ul>
+<li><i>May 2008</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
+<li><i>February 2011</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test critetia of <i>[Gasparo and Morandi, 1991]</i> result in division by zero. This case is handled properly now.</li>
+</ul></p>
 </html>",   info="<html>
 <p>
 Approximates a function in a region between <code>x0</code> and <code>x1</code>
