@@ -762,10 +762,10 @@ for a smooth transition from y1 to y2.
     end if;
 
     annotation (smoothOrder=1, Documentation(revisions="<html>
-<p><ul>
+<ul>
 <li><i>May 2008</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>Designed and implemented.</li>
 <li><i>February 2011</i> by <a href=\"mailto:Michael.Sielemann@dlr.de\">Michael Sielemann</a>:<br/>If the inflection point of the cubic S0 was at +/- infinity, the test critetia of <i>[Gasparo and Morandi, 1991]</i> result in division by zero. This case is handled properly now.</li>
-</ul></p>
+</ul>
 </html>",   info="<html>
 <p>
 Approximates a function in a region between <code>x0</code> and <code>x1</code>
