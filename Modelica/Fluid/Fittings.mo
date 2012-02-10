@@ -1235,13 +1235,12 @@ where
      laminar flow at small velocities is defined by the often occuring
      approximation c0/Re. If c0 is different for the two
      flow directions, the mean value has to be used
-     (c0 = (c0_ab + c0_ba)/2).<li>
+     (c0 = (c0_ab + c0_ba)/2).</li>
 <li> The equation \"&Delta;p = 0.5*&zeta;*&rho;*v*|v|\" is either with
      respect to port_a or to port_b, depending on the definition
      of the particular loss factor &zeta; (in some references loss
      factors are defined with respect to port_a, in other references
      with respect to port_b).</li>
-
 <li> Re = |v|*D_Re*&rho;/&mu; = |m_flow|*D_Re/(A_Re*&mu;)
      is the Reynolds number at the smallest cross
      section area. This is often at port_a or at port_b, but can
@@ -1254,7 +1253,7 @@ where
 <li> D is the diameter of the pipe. If the pipe has not a
      circular cross section, D = 4*A/P, where A is the cross section
      area and P is the wetted perimeter.</li>
-<li> A is the cross section area with A = &pi;(D/2)^2.
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
 <li> &mu; is the dynamic viscosity.</li>
 </ul>
 <p>
@@ -1694,13 +1693,12 @@ where
      laminar flow at small velocities is defined by the often occuring
      approximation c0/Re. If c0 is different for the two
      flow directions, the mean value has to be used
-     (c0 = (c0_ab + c0_ba)/2).<li>
+     (c0 = (c0_ab + c0_ba)/2).</li>
 <li> The equation \"&Delta;p = 0.5*&zeta;*&rho;*v*|v|\" is either with
      respect to port_a or to port_b, depending on the definition
      of the particular loss factor &zeta; (in some references loss
      factors are defined with respect to port_a, in other references
      with respect to port_b).</li>
-
 <li> Re = |v|*D_Re*&rho;/&mu; = |m_flow|*D_Re/(A_Re*&mu;)
      is the Reynolds number at the smallest cross
      section area. This is often at port_a or at port_b, but can
@@ -1713,7 +1711,7 @@ where
 <li> D is the diameter of the pipe. If the pipe has not a
      circular cross section, D = 4*A/P, where A is the cross section
      area and P is the wetted perimeter.</li>
-<li> A is the cross section area with A = &pi;(D/2)^2.
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
 <li> &mu; is the dynamic viscosity.</li>
 </ul>
 <p>
@@ -1942,7 +1940,7 @@ where
      laminar flow at small velocities is defined by the often occuring
      approximation c0/Re. If c0 is different for the two
      flow directions, the mean value has to be used
-     (c0 = (c0_ab + c0_ba)/2).<li>
+     (c0 = (c0_ab + c0_ba)/2).</li>
 <li> The equation \"&Delta;p = 0.5*&zeta;*&rho;*v*|v|\" is either with
      respect to port_a or to port_b, depending on the definition
      of the particular loss factor &zeta; (in some references loss
@@ -1961,7 +1959,7 @@ where
 <li> D is the diameter of the pipe. If the pipe has not a
      circular cross section, D = 4*A/P, where A is the cross section
      area and P is the wetted perimeter.</li>
-<li> A is the cross section area with A = &pi;(D/2)^2.
+<li> A is the cross section area with A = &pi;(D/2)^2.</li>
 <li> &mu; is the dynamic viscosity.</li>
 </ul>
 <p>
@@ -2066,7 +2064,7 @@ where
 <li> &zeta; is the loss factor that depends on the geometry of
      the pipe. In the turbulent flow regime, it is assumed that
      &zeta; is constant and is given by \"zeta1\" and
-     \"zeta2\" depending on the flow direction.<li>
+     \"zeta2\" depending on the flow direction.</li>
 <li> D is the diameter of the pipe segment. If this is not a
      circular cross section, D = 4*A/P, where A is the cross section
      area and P is the wetted perimeter.</li>

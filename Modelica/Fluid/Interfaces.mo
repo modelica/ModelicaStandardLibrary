@@ -395,12 +395,12 @@ equation
 <p>
 This component transports fluid between its two ports, without storing mass or energy.
 Energy may be exchanged with the environment though, e.g., in the form of work.
-<code>PartialTwoPortTransport</code> is intended as base class for devices like orifices, valves and simple fluid machines.
+<code>PartialTwoPortTransport</code> is intended as base class for devices like orifices, valves and simple fluid machines.</p>
 <p>
 Three equations need to be added by an extending class using this component:
 </p>
 <ul>
-<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code></li>,
+<li>the momentum balance specifying the relationship between the pressure drop <code>dp</code> and the mass flow rate <code>m_flow</code>,</li>
 <li><code>port_b.h_outflow</code> for flow in design direction, and</li>
 <li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
 </ul>
@@ -807,7 +807,7 @@ The following boundary flow and force terms are part of the momentum balance and
 <li><code><b>F_p[m]</b></code>, pressure force, and</li>
 <li><code><b>F_fg[m]</b></code>, friction and gravity forces.</li>
 </ul>
-</p>
+<p>
 The length of the flow path <code><b>pathLength</b></code> is an input that needs to be set in an extending class to complete the model.
 </p>
 </html>"));
@@ -1205,7 +1205,6 @@ The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input 
        Fluid.Interfaces.PartialTwoPortTransport is a component
        for elementary two port transport elements, whereas PartialTwoPort
        is a component for a container component.</li>
-</li>
 </ul>
 </html>"));
 

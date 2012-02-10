@@ -113,10 +113,13 @@ which provide simple models for a broad variety of applications.
     annotation (Documentation(info="<html>
 <p>
 In this section the design of the fluid connectors is
-explained.</p>
-<p>Fluid connectors represent the points in a device (e.g., the
+explained.
+</p>
+<p>
+Fluid connectors represent the points in a device (e.g., the
 flanges) through which a fluid can flow into or out of the component, carrying its
-thermodynamic properties; these flanges are assumed to be fixed in space.</p>
+thermodynamic properties; these flanges are assumed to be fixed in space.
+</p>
 <p>
 A major design goal is that components can be arbitrarily
 connected and that the important balance equations are automatically
@@ -170,17 +173,14 @@ if connected FluidPorts do not have a medium with the same medium name.
 In the future, automatic propagation of fluid models through the ports will be
 introduced, but this still not possible with Modelica 3.0.
 </p>
-
 <p>
 The thermodynamic pressure is an <i>effort</i> variable, which means that the connection
 of two or more ports states that the port pressures are the same.
 </p>
-
 <p>
 The mass flow rate is a <i>flow </i>variable, which means that the connection of two or
 more ports states that the sum of all flow rates is zero.
-<p>
-
+</p>
 <p>
 The last variable is a <i>stream</i> variable, i.e., a specific quantity carried by the
 flow variable. The quantity on the connector always
@@ -332,14 +332,15 @@ sum(port_j.m_flow*C_connection) = 0;  // Trace components mass balances
 </pre>
 <p>
 It is <b>very important</b> to bear in mind that
+</p>
 <ul>
 <li> the mass balances are always exact; </li>
 <li> the momentum and energy balance are only exact when two port with the same
 diameter are connected, because there is no friction and no change in fluid velocity. </li>
 </ul>
-</p>
 <p>
 In all other cases, i.e., different port diameters and/or multple port connections:
+</p>
 <ul>
 <li> The momentum balance does not consider friction effects and changes of pressure due to changes
 in velocity. </li>
@@ -348,6 +349,7 @@ of the dynamic pressure &rho;v<sup>2</sup>/2.</li>
 <li> The energy balance does not consider the kinetic terms (gravity terms cancel out due
 to the infinitesimal size of the connection volume). There might thus be errors in the momentum balance of the order of magnitude of the kinetic energy v^2/2. </li>
 </ul>
+<p>
 In many applications, where fluid speeds are low and thermal phenomena are mainly of interest,
 these approximations are commonly made and lead to acceptable results.
 In all other cases, explicit fitting and junction models should be used, that model explicitly
@@ -961,7 +963,6 @@ Please note that the design of the connectors has been changed with respect to t
       extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
-
 <p>
 The Modelica.Fluid library is designed so that each model of a system must
 include an instance <code>system</code> of the <code>System</code> component at the top level, in the same way as the <code>World</code> model of the MultiBody Library. The System component contains the parameters that
@@ -984,7 +985,7 @@ used by all the components.
 used by all the components (see the section <i>Customizing a system model later</i>)</li>
 <li> The <i>Initialization</i> tab allows to define default start values for mass flow rates, pressures and temperatures in the model; this can be useful to help nonlinear solver converge to the solution of any nonlinear system of equations that involves such variables, by providing meaningful guess values. </li>
 <li> The <i>Advanced</i> tab contains default values for parameters used in
-the advanced settings of some components.</i>
+the advanced settings of some components.</li>
 </ul>
 <p>
 Remember to <b>always add a System component</b> at the top level of
@@ -1022,7 +1023,6 @@ all named Medium).
       extends Modelica.Icons.Information;
 
       annotation (Documentation(info="<html>
-
 <p>
 Once a system model has been built, it is possible to obtain different approximations by
 appropriately setting the defaults in the System component (and/or the settings of specific
@@ -1040,6 +1040,7 @@ possibly more robust simulation code.
 <p>
 The flags in the Assumptions | Dynamics tab allow different degrees of approximation on
 the mass, energy, and momentum equations of the components.
+</p>
 <ul>
 <li>DynamicFreeInitial: dynamic equations are considered (nonzero storage), no
 initial equations are provided, and the start values are used as guess values.</li>
@@ -1052,6 +1053,7 @@ initialization) and the start values are used as guess values for the nonlinear 
 <li>SteadyState: algebraic (or static) balance equations are considered (no storage)
 and the start values are used as guess values for the nonlinear solver.</li>
 </ul>
+<p>
 It is then possible to neglect the storage of mass, momentum, and energy in the whole system
 (or just in parts of it) just by a few mouse clicks in a GUI, and also to change the type of
 initialization when considering dynamic models. Please note that some combinations of the
@@ -1228,7 +1230,7 @@ Modelica.Fluid was further improved:
 <li> PartialDistributedFlow models<br>
      Adapted determination of velocities to usage of
      upstream properties at ports.<br>
-     Corrected and unified initialization of p_start[*] values.<li>
+     Corrected and unified initialization of p_start[*] values.</li>
 
 <li> DistributedPipe models<br>
      Changed treatment of port densities and viscosities
@@ -1243,7 +1245,7 @@ Modelica.Fluid was further improved:
      and discrete valve interfaces. Added test cases.<br>
      Adapted Examples to new LinearValve and DiscreteValve,
      using nominal values instead of Kv. <br>
-     Changed default flow coefficient selection to OpPoint<li>
+     Changed default flow coefficient selection to OpPoint</li>
 
 <li> Fixed units for Kv and Cv in control valve models.</li>
 
@@ -1407,7 +1409,7 @@ Other changes:
 <li> Deleted Modelica.Fluid.WorkInProgress since it seems to be too much work
      to convert it to stream connectors</li>
 <li> Added Modelica.Fluid.Media (contains ConstantLiquidWater
-     medium because functions are missing in Modelica.Media),<lI>
+     medium because functions are missing in Modelica.Media)</li>
 <li> Added two additional test cases with LumpedPipes
     (to identify problems with hierarchically connected stream connectors).</li>
 <li> Deleted TestPortVolumes since PortVolumes can no longer be implemented with
@@ -1544,10 +1546,10 @@ standard library.
        Modelica design meeting in Dearborn, Sept. 2-4, 2003.
        Fluid library splitt in to two packages: Modelica.Media
        that contains the media models and Modelica.Fluid that
-       contains fluid flow components. Modelica.Media is
+       contains fluid flow components. Modelca.Media is
        independent of Modelica.Fluid and my be used also from
        other packages that may have a different design as
-       Modelica.Fluid.
+       Modelica.Fluid.</li>
 <li><i>Aug., 2003</i><br>
        by Martin Otter: Improved documentation, PortVicinity (now called semiLinear)
        manually expanded, two different volume types,
@@ -1598,7 +1600,6 @@ class Contact "Contact"
   extends Modelica.Icons.Contact;
 
     annotation (Documentation(info="<html>
-
 <dl>
 <dt><b>Library Officers:</b><br>&nbsp;</dt>
 <dd>
@@ -1650,7 +1651,7 @@ and many have contributed.
 
 <li>R&uuml;diger Franke initiated the stream connector concept as an extension
      and improved version of the ThermoPower concept. In Nov. 2008 - Jan. 2009 he
-     greatly restructured and improved the library.<li>
+     greatly restructured and improved the library.</li>
 
 <li>Michael Wetter introduced trace constituents in Modelica.Fluid consistently and
      provided corresponding examples under Examples.TraceSubstances.</li>
@@ -1676,7 +1677,6 @@ and many have contributed.
 </html>"));
 end Contact;
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
-
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for
 <b>1-dimensional thermo-fluid flow</b> in networks of pipes. A unique feature is that the

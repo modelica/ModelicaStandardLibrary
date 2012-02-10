@@ -61,17 +61,16 @@ package Pipes "Devices for conveying fluid"
 There exist two thermodynamic states, one at each fluid port. The momentum balance is formulated for the two states, taking into account
 momentum flows, friction and gravity. The same result can be obtained by using <a href=\"modelica://Modelica.Fluid.Pipes.DynamicPipe\">DynamicPipe</a> with
 steady-state dynamic settings. The intended use is to provide simple connections of vessels or other devices with storage, as it is done in:
+</p>
 <ul>
 <li><a href=\"modelica://Modelica.Fluid.Examples.Tanks.EmptyTanks\">Examples.Tanks.EmptyTanks</a></li>
 <li><a href=\"modelica://Modelica.Fluid.Examples.InverseParameterization\">Examples.InverseParameterization</a></li>
 </ul>
-
 <h4>Numerical Issues</h4>
+<p>
 With the stream connectors the thermodynamic states on the ports are generally defined by models with storage or by sources placed upstream and downstream of the static pipe.
 Other non storage components in the flow path may yield to state transformation. Note that this generally leads to nonlinear equation systems if multiple static pipes,
 or other flow models without storage, are directly connected.
-<br><br><br><br>
-
 </p>
 </html>"),
   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -197,12 +196,12 @@ The <code>HeatTransfer</code> model is replaceable and can be exchanged with any
 <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>.
 </p>
 <p>
-The intended use is for complex networks of pipes and other flow devices, like valves. See e.g.
+The intended use is for complex networks of pipes and other flow devices, like valves. See, e.g.,
+</p>
 <ul>
 <li><a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or </li>
 <li><a href=\"modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
 </ul>
-</p>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -665,24 +664,30 @@ Base class for one dimensional flow models. It specializes a PartialTwoPort with
 <p>Base class for distributed flow models. The total volume is split into nNodes segments along the flow path.
 The default value is nNodes=2.
 </p>
-<p><b>Mass and Energy balances</b></p>
+<h4>Mass and Energy balances</h4>
+<p>
 The mass and energy balances are inherited from <a href=\"modelica://Modelica.Fluid.Interfaces.PartialDistributedVolume\">Interfaces.PartialDistributedVolume</a>.
 One total mass and one energy balance is formed across each segment according to the finite volume approach.
 Substance mass balances are added if the medium contains more than one component.
+</p>
 <p>
 An extending model needs to define the geometry and the difference in heights between the flow segments (static head).
 Moreover it needs to define two vectors of source terms for the distributed energy balance:
+</p>
 <ul>
 <li><code><b>Qb_flows[nNodes]</b></code>, the heat flow source terms, e.g., conductive heat flows across segment boundaries, and</li>
 <li><code><b>Wb_flows[nNodes]</b></code>, the work source terms.</li>
 </ul>
-</p>
 
-<p><b>Momentum balance</b></p>
+<h4>Momentum balance</h4>
+<p>
 The momentum balance is determined by the <b><code>FlowModel</code></b> component, which can be replaced with any model extended from
 <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel\">BaseClasses.FlowModels.PartialStaggeredFlowModel</a>.
 The default setting is <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow\">DetailedPipeFlow</a>.
+</p>
+<p>
 This considers
+</p>
 <ul>
 <li>pressure drop due to friction and other dissipative losses, and</li>
 <li>gravity effects for non-horizontal devices.</li>
@@ -690,10 +695,12 @@ This considers
 which occur due to changes in the cross sectional area or the fluid density, provided that <code>flowModel.use_Ib_flows</code> is true.
 </ul>
 
-<p><b>Model Structure</b></p>
+<h4>Model Structure</h4>
+<p>
 The momentum balances are formulated across the segment boundaries along the flow path according to the staggered grid approach.
 The configurable <b><code>modelStructure</code></b> determines the formulation of the boundary conditions at <code>port_a</code> and <code>port_b</code>.
 The options include (default: av_vb):
+</p>
 <ul>
 <li><code>av_vb</code>: Symmetric setting with nNodes-1 momentum balances between nNodes flow segments.
     The ports <code>port_a</code> and <code>port_b</code> expose the first and the last thermodynamic state, respectively.
@@ -705,7 +712,7 @@ The options include (default: av_vb):
 <li><code>av_b</code>: Unsymmetric setting with nNodes momentum balances, one between nth volume and <code>port_b</code>, potential pressure state at <code>port_a</code></li>
 <li><code>a_vb</code>: Unsymmetric setting with nNodes momentum balance, one between first volume and <code>port_a</code>, potential pressure state at <code>port_b</code></li>
 </ul>
-
+<p>
 When connecting two components, e.g., two pipes, the momentum balance across the connection point reduces to
 </p>
 <pre>pipe1.port_b.p = pipe2.port_a.p</pre>
@@ -715,7 +722,6 @@ Consider using a fitting for any significant change in diameter or fluid density
 such as change in kinetic energy, cannot be neglected.
 This also allows for taking into account friction losses with respect to the actual geometry of the connection point.
 </p>
-
 </html>",
         revisions="<html>
 <ul>
@@ -1488,7 +1494,7 @@ and can be related to <code>m_flow_small</code> and <code>dp_small</code>.
 </html>", revisions="<html>
 <ul>
 <li><i>6 Dec 2008</i>
-    by Ruediger Franke</a>:<br>
+    by Ruediger Franke:<br />
        Model added to the Fluid library</li>
 </ul>
 </html>"));
@@ -1643,7 +1649,9 @@ Ideal heat transfer without thermal resistance.
     equation
       Q_flows = {alpha0*surfaceAreas[i]*(heatPorts[i].T - Ts[i])*nParallel for i in 1:n};
       annotation(Documentation(info="<html>
-Simple heat transfer correlation with constant heat transfer coefficient, used as default component in <a distributed pipe models.
+<p>
+Simple heat transfer correlation with constant heat transfer coefficient, used as default component in distributed pipe models.
+</p>
 </html>"));
     end ConstantFlowHeatTransfer;
 
@@ -1670,7 +1678,9 @@ Simple heat transfer correlation with constant heat transfer coefficient, used a
       Nus = CharacteristicNumbers.NusseltNumber(alphas, diameters, lambdas);
       Q_flows={alphas[i]*surfaceAreas[i]*(heatPorts[i].T - Ts[i])*nParallel for i in 1:n};
         annotation (Documentation(info="<html>
+<p>
 Base class for heat transfer models that are expressed in terms of the Nusselt number and which can be used in distributed pipe models.
+</p>
 </html>"));
     end PartialPipeFlowHeatTransfer;
 
@@ -1693,7 +1703,9 @@ Base class for heat transfer models that are expressed in terms of the Nusselt n
        Nus[i]=Modelica.Media.Air.MoistAir.Utilities.spliceFunction(Nus_turb[i], Nus_lam[i], Res[i]-6150, 3850);
       end for;
       annotation (Documentation(info="<html>
+<p>
 Heat transfer model for laminar and turbulent flow in pipes. Range of validity:
+</p>
 <ul>
 <li>fully developed pipe flow</li>
 <li>forced convection</li>
@@ -1702,9 +1714,10 @@ Heat transfer model for laminar and turbulent flow in pipes. Range of validity:
 <li>0 &le; Re &le; 1e6, 0.6 &le; Pr &le; 100, d/L &le; 1</li>
 <li>The correlation holds for non-circular pipes only in the turbulent region. Use diameter=4*crossArea/perimeter as characteristic length.</li>
 </ul>
+<p>
 The correlation takes into account the spatial position along the pipe flow, which changes discontinuously at flow reversal. However, the heat transfer coefficient itself is continuous around zero flow rate, but not its derivative.
+</p>
 <h4>References</h4>
-
 <dl><dt>Verein Deutscher Ingenieure (1997):</dt>
     <dd><b>VDI W&auml;rmeatlas</b>.
          Springer Verlag, Ed. 8, 1997.</dd>
@@ -1712,7 +1725,9 @@ The correlation takes into account the spatial position along the pipe flow, whi
 </html>"));
     end LocalPipeFlowHeatTransfer;
     annotation (Documentation(info="<html>
+<p>
 Heat transfer correlations for pipe models
+</p>
 </html>"));
   end HeatTransfer;
 
@@ -1730,9 +1745,11 @@ Heat transfer correlations for pipe models
         annotation (Documentation(info="<html>
 <p>
 Calculation of Reynolds Number
+</p>
 <pre>
    Re = |v|&rho;D/&mu;
 </pre>
+<p>
 a measure of the relationship between inertial forces (v&rho;) and viscous forces (D/&mu;).
 </p>
 <p>

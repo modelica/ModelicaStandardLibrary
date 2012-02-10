@@ -510,9 +510,9 @@ The sensor is ideal, i.e., it does not influence the fluid.
 </p>
 </HTML>
 ",   revisions="<html>
-<p><ul>
+<ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
-</ul></p>
+</ul>
 </html>"));
   end MassFractions;
 
@@ -567,9 +567,9 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the mass fraction of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p> </HTML>", revisions="<html>
-<p><ul>
+<ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
-</ul></p>
+</ul>
 </html>
 "));
   end MassFractionsTwoPort;

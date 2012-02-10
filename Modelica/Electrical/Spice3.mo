@@ -226,13 +226,13 @@ end inverter;
 <dd>email: <a href=\"mailto:Sandra.Boehme@eas.iis.fraunhofer.de\">Sandra.Boehme@eas.iis.fraunhofer.de</a></dd>
 </dl>
 
-<h5>Address</h5>
 <dl>
-<dd>Fraunhofer Institute Integrated Circuits</dd>
-<dd>Design Automation Division</dd>
-<dd>Zeunerstrasse 38</dd>
-<dd>01069 Dresden, Germany</dd>
-<dl>
+<dt>Address</dt>
+<dd>Fraunhofer Institute Integrated Circuits<br />
+Design Automation Division<br />
+Zeunerstrasse 38<br />
+01069 Dresden, Germany</dd>
+</dl>
 
 <h4>Acknowledgements:</h4>
 <ul>
@@ -4030,7 +4030,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               lineColor={0,0,255})}),Documentation(revisions="<html>
 <dl>
 <dt><i> April 2009 </i></dt>
-<dd>by Kristin Majetta initially implemented</dt>
+<dd>by Kristin Majetta initially implemented</dd>
 </dl>
 </html>", info="<html>
 <p>Semiconductor resistance model</p>

@@ -238,7 +238,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         revisions="<html>
 <ul>
 <li><i>15 Dec 2008</i>
-    by Ruediger Franke</a>:<br>
+    by Ruediger Franke:<br />
        Model added to the Fluid library</li>
 </ul>
 </html>"));

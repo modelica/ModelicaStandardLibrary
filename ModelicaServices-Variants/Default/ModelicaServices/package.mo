@@ -613,10 +613,7 @@ end ReleaseNotes;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
   annotation (Documentation(info="<html>
-<dl>
-<dt><b>Main Author:</b>
-<dd>
-</dl>
+<h5>Main Author:</h5>
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr>
