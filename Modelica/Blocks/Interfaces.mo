@@ -161,7 +161,8 @@ Connector with one output signal of type Integer.
 </p>
 </html>"));
 connector RealVectorInput =
-                         input Real "Vector of Real inputs"
+                         input Real
+    "Real input connector used for vector of connectors"
   annotation (defaultComponentName="u",
        Icon(graphics={Ellipse(
           extent={{-100,100},{100,-100}},
@@ -182,12 +183,15 @@ connector RealVectorInput =
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-Connector with one input signal of type Boolean.
+Real input connector that is used for a vector of connectors,
+for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialRealMISO\">PartialRealMISO</a>,
+and has therefore a different icon as RealInput connector.
 </p>
 </html>"));
 
 connector IntegerVectorInput =
-                         input Integer "Vector of Integer inputs"
+                         input Integer
+    "Integer input connector used for vector of connectors"
   annotation (defaultComponentName="u",
        Icon(graphics={Ellipse(
           extent={{-100,100},{100,-100}},
@@ -207,12 +211,17 @@ connector IntegerVectorInput =
           fillColor={255,128,0},
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
+
 <p>
-Connector with one input signal of type Boolean.
+Integer input connector that is used for a vector of connectors,
+for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialIntegerMISO\">PartialIntegerMISO</a>,
+and has therefore a different icon as IntegerInput connector.
 </p>
+
 </html>"));
 connector BooleanVectorInput =
-                         input Boolean "Vector of Boolean inputs"
+                         input Boolean
+    "Boolean input connector used for vector of connectors"
   annotation (defaultComponentName="u",
        Icon(graphics={Ellipse(
           extent={{-100,-100},{100,100}},
@@ -233,7 +242,9 @@ connector BooleanVectorInput =
           fillPattern=FillPattern.Solid)}),
     Documentation(info="<html>
 <p>
-Connector with one input signal of type Boolean.
+Boolean input connector that is used for a vector of connectors,
+for example <a href=\"modelica://Modelica.Blocks.Interfaces.PartialBooleanMISO\">PartialBooleanMISO</a>,
+and has therefore a different icon as BooleanInput connector.
 </p>
 </html>"));
 
@@ -561,7 +572,6 @@ to be used as base class for a corresponding controller.
 </html>"));
     end MVcontrol;
 
-
     partial block DiscreteBlock "Base class of discrete control blocks"
       extends Modelica.Blocks.Icons.DiscreteBlock;
 
@@ -767,7 +777,6 @@ to be used as base class for a corresponding controller.
 </html>"));
     end MVdiscrete;
 
-
     partial block BooleanSISO
     "Single Input Single Output control block with signals of type Boolean"
 
@@ -887,7 +896,6 @@ This component has one continuous Boolean output signal y.
 </html>"));
 
     end BooleanSignalSource;
-
 
 partial block IntegerSO "Single Integer Output continuous control block"
   extends Modelica.Blocks.Icons.IntegerBlock;
@@ -1041,7 +1049,6 @@ end IntegerMIBooleanMOs;
             borderPattern=BorderPattern.Raised,
             fillPattern=FillPattern.Solid)}));
   end PartialIntegerMISO;
-
 
   partial block partialBooleanSISO
     "Partial block with 1 input and 1 output Boolean signal"
