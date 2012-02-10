@@ -17,7 +17,6 @@ package FundamentalWave
 The exact magnetic field in the air gap of an electric machine is usually determined by an electro magnetic finite element analysis. The waveform of the magnetic field, e.g., the magnetic potential difference <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/V_m_phi.png\">, consists of a spatial fundamental wave - with respect to an equivalent two pole machine - and additional harmonic waves of different order. The fundamental wave is however dominant in the air gap of an electric machine.
 </p>
 
-<p>
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Field lines of a four pole induction machine</caption>
   <tr>
@@ -26,8 +25,6 @@ The exact magnetic field in the air gap of an electric machine is usually determ
     </td>
   </tr>
 </table>
-
-</p>
 
 <p>
 In the fundamental wave theory only a pure sinusoidal distribution of magnetic quantities is assumed. It is thus assumed that all other harmonic wave effects are not taken into account.</p>
@@ -115,14 +112,14 @@ Christian Kral<br>
 <a href=\"http://www.ait.ac.at\">AIT Austrian Institute of Technology GmbH</a><br>
 Mobility Department<br>
 Giefinggasse 2, 1210 Vienna, Austria<br>
-email: <a HREF=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a><br></dd>
+email: <a HREF=\"mailto:christian.kral@ait.ac.at\">christian.kral@ait.ac.at</a><br>
 </p>
 
 <p>
 Anton Haumer<br>
 <a href=\"http://www.haumer.at\">Technical Consulting &amp; Electrical Engineering</a><br>
 3423 St. Andrae-Woerdern, Austria<br>
-email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br></dd>
+email: <a HREF=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a><br>
 </p>
 
 <h4>Acknowledgements</h4>
@@ -353,7 +350,6 @@ model from R to G</li>
 
     end References;
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
-
 <p>
 This library contains components for modelling of electromagnetic fundamental wave models for the application in three phase
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines\">electric machines</a>. DC machines are (currently) not included in this library. The FundamentalWave library is an alternative approach to the <a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a> library. A great advantage of this library is the strict object orientation of the electrical and magnetic components that the electric machines models are composed of. From a didactic point of view this library is very beneficial for students in the field of electrical engineering.
@@ -361,11 +357,14 @@ This library contains components for modelling of electromagnetic fundamental wa
 
 <p>
 For more details see the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Concept\">concept.</a>
+</p>
 
 <h5>Note</h5>
 
-<p>All the machine models provided in this library are equivalent two pole machines.
-The magnetic potential difference of the connecter therefore also refers to an equivalent two pole machine<p>
+<p>
+All the machine models provided in this library are equivalent two pole machines.
+The magnetic potential difference of the connecter therefore also refers to an equivalent two pole machine
+</p>
 
 </html>
 "));
@@ -2083,7 +2082,6 @@ The voltage <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamental
               fillPattern=FillPattern.Solid,
               textString="%name")}),
         Documentation(info="<html>
-
 <p>
 Each phase <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/k.png\"> of an <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/m.png\"> phase winding has an effective number of turns, <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/effectiveTurns_k.png\"> and an respective winging angle <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/orientation_k.png\"> and a phase current <img src=\"modelica://Modelica/Resources/Images/Magnetic/FundamentalWave/i_k.png\">.
 </p>
@@ -2121,7 +2119,6 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
-<p>
 </p>
 </html>"),
         defaultComponentName="converter");
@@ -4966,7 +4963,7 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 
 <p>The table below refers to internal version numbers of the FundamentalWave library. A more detailed list of changes is summarized in the <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.ReleaseNotes\">release notes</a>.</p>
 
-<p>
+
 <table border=\"1\" rules=\"groups\" cellpadding=\"2\">
 <thead>
 <tr><td>Version</td> <td>Revision</td> <td>Date</td> <td>Authors</td> <td>Comments</td></tr>
@@ -4988,7 +4985,6 @@ Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, h
 <tr><td>0.1.0</td> <td></td>  <td>2009-07-22</td>  <td>C. Kral</td>  <td>First version based on the concept of the FluxTubes library and the Magnetics library of Michael Beuschel</td></tr>
 </tbody>
 </table>
-</p>
 </html>", info="<html>
 <p>
 Copyright &copy; 2009-2011, <a href=\"modelica://Modelica.Magnetic.FundamentalWave.UsersGuide.Contact\">Christian Kral</a> and

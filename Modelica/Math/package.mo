@@ -857,7 +857,7 @@ This function computes the roots of a polynomial P of x
 with the coefficient vector <b>p</b>. It is assumed that the first element of <b>p</b> is not zero, i.e., that the polynomial is of order size(p,1)-1.
 <p>
 To compute the roots, the eigenvalues of the corresponding companion matrix <b>C</b>
-<p>
+</p>
 <blockquote><pre>
          |-p[2]/p[1]  -p[3]/p[1]  ...  -p[n-2]/p[1]  -p[n-1]/p[1]  -p[n]/p[1] |
          |    1            0                0               0           0     |
@@ -1672,7 +1672,7 @@ more convenient to just use the function
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>.
 </p>
 <p>
-The optional third (Integer) output argument has the following meaning:
+The optional third (Integer) output argument has the following meaning:</p>
 <table border=0 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\">info = 0:</td>
       <td valign=\"top\">successful exit</td></tr>
@@ -1683,7 +1683,6 @@ The optional third (Integer) output argument has the following meaning:
           singular, and division by zero will occur<br> if it is used
           to solve a system of equations.</td></tr>
 </table>
-</p>
 <p>
 The LU factorization is computed
 with the LAPACK function \"dgetrf\",
@@ -1709,8 +1708,10 @@ matrix A was interchanged with row pivots[i].
   x2 := Matrices.LU_solve(LU, pivots, b2);  // x2 = {1,0,2}
 </pre></blockquote>
 <h4>See also</h4>
+<p>
 <a href=\"modelica://Modelica.Math.Matrices.LU_solve\">Matrices.LU_solve</a>,
 <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>,
+</p>
 </HTML>"));
   end LU;
 
@@ -1967,7 +1968,7 @@ the same).
 <p>
 i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 </p>
-</pre></blockquote>
+
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
 <a href=\"modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
@@ -2069,7 +2070,7 @@ value decomposition of A is computed, i.e.,
 <blockquote><pre>
 <b>A</b> = <b>U</b> <b><font face=\"Symbol\">S</font></b> <b>V</b><sup>T</sup>
   = U*Sigma*VT
-</blockquote></pre>
+</pre></blockquote>
 <p>
 where <b>U </b>and <b>V</b> are orthogonal matrices (<b>UU</b><sup>T</sup>=<b>I,
 </b><b>VV</b><sup>T</sup>=<b>I</b>). <b><font face=\"Symbol\">S
@@ -2571,21 +2572,25 @@ or computation of eigenvalues.
 
 <p>
 The Algorithm is taken from
+</p>
 <dl>
 <dt>H. D. Joos, G. Grbel:
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
     DLR - Control Systems Group 1991
 </dl>
-which based on the balanc function from EISPACK.
+<p>
+which based on the <code>balanc</code> function from EISPACK.
 </p>
 
 </HTML>
 ", revisions="<html>
-<p><b>Release Notes:</b></p>
+<h4>Release Notes:</h4>
+<ul>
 <li><i>July 5, 2002</i>
        by H. D. Joos and Nico Walther<br>
        Implemented.
 </li>
+</ul>
 </html>"));
   end balance;
 
@@ -2706,7 +2711,7 @@ as by computing directly the inverse. Example:
 <blockquote>
 Use x = <a href=\"modelica://Modelica.Math.Matrices.solve\">Matrices.solve</a>(A,b)
 to solve the linear equation A*x = b, instead of computing the solution by
-x = inv(A)*b, because this is much more efficient and much more reliable.</li>
+x = inv(A)*b, because this is much more efficient and much more reliable.
 </blockquote>
 
 <h4>See also</h4>
@@ -3385,11 +3390,12 @@ simply <b>&Psi;</b>*B.
 <p>Balancing put the bad condition of a square matrix <i>A</i> into a diagonal
 transformation matrix <i>D</i>. This reduce the effort of following calculations.
 Afterwards the result have to be re-balanced by transformation D*A<small>transf</small>
- *inv(D).<br>
+*inv(D).<br>
 Scaling halfen T&nbsp; k-times, until the norm of A*T is less than 0.5. This
 garantees minumum rounding errors in the following series
 expansion. The re-scaling based on the equation&nbsp; exp(A*2T) = exp(AT)^2.
-The needed re-scaling formula for psi thus becomes:</p>
+The needed re-scaling formula for psi thus becomes:
+</p>
 <pre>         <b>&Phi;</b> = <b>&Phi;</b>'*<b>&Phi;</b>'
    I + A*<b>&Psi;</b> = I + 2A*<b>&Psi;</b>' + A^2*<b>&Psi;</b>'^2
          <b>&Psi;</b> = A*<b>&Psi;</b>'^2 + 2*<b>&Psi;</b>'
@@ -3424,13 +3430,12 @@ is discribed in
 </pre>
 <p>
 The Algorithm to calculate psi is taken from
+</p>
 <dl>
 <dt>H. D. Joos, G. Gruebel:
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
     DLR - Control Systems Group 1991
 </dl>
-</p>
-
 </HTML>
 ", revisions="<html>
 <p><b>Release Notes:</b></p>
@@ -10320,10 +10325,11 @@ This transformation is widely used for transforming non-symmetric matrices to a 
          (H, V, tau, info) = Matrices.Utilities.<b>toUpperHessenberg</b>(A,ilo, ihi);
 </pre></blockquote>
 <h4>Description</h4>
+<p>
 Function <b>toUpperHessenberg</b> computes a upper Hessenberg form <b>H</b> of a matrix <b>A</b> by orthogonal similarity transformation:  <b>Q</b>' * <b>A</b> * <b>Q</b> = <b>H</b>.
 With the optional inputs ilo and ihi, also partial transformation is possible. The function calls LAPACK function DGEHRD.
 See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.dgehrd</a> for more information about the additional outputs V, tau, info and inputs ilo, ihi.
-<p>
+</p>
 
 <h4>Example</h4>
 <blockquote><pre>
@@ -10343,7 +10349,6 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.
 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
-
 </html>", revisions="<html><ul>
 <li><i>2010/04/30 </i>
        by Marcus Baur, DLR-RM</li>
@@ -11373,6 +11378,7 @@ external "builtin" y = atan2(u1, u2);
           color={175,175,175},
           smooth=Smooth.None)}),
     Documentation(info="<HTML>
+<p>
 This function returns y = atan2(u1,u2) such that tan(y) = u1/u2 and
 y is in the range -pi &lt; y &le; pi. u2 may be zero, provided
 u1 is not zero. Usually u1, u2 is provided in such a form that

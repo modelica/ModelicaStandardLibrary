@@ -62,7 +62,7 @@ vector <b>v</b> resolved in frame 2, the following relationship holds:
 <pre>
     <b>v</b><sub>2</sub> = <b>R.T</b> * <b>v</b><sub>1</sub>
 </pre>
-</p>
+<p>
 The <b>inverse</b> orientation
 <b>R_inv.T</b> = <b>R.T</b><sup>T</sup> describes the rotation
 from frame 2 into frame 1.
@@ -83,10 +83,8 @@ with
    <b>skew</b>(w) = |  w[3]   0   -w[1] |
              | -w[2]  w[1]     0 |
 </pre>
-
 </html>
 "));
-
   end Orientation;
 
   function orientationConstraint
@@ -808,7 +806,7 @@ frame 2 and \"phi\" is the <b>rotation angle</b> for this rotation.
 Vector \"n\" is either resolved in frame 1 or in frame 2
 (the result is the same since the coordinates of \"n\" with respect to
 frame 1 are identical to its coordinates with respect to frame 2).
-<p>
+</p>
 <p>
 The term \"quaternions\" is prefered over the historically
 more reasonable \"Euler parameters\" in order to not get
@@ -1267,7 +1265,7 @@ vector <b>v</b> resolved in frame 2, the following relationship holds:
 <pre>
     <b>v</b><sub>2</sub> = <b>T</b> * <b>v</b><sub>1</sub>
 </pre>
-</p>
+<p>
 The <b>inverse</b> orientation
 <b>T_inv</b> = <b>T</b><sup>T</sup> describes the rotation
 from frame 2 into frame 1.

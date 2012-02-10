@@ -73,15 +73,18 @@ package Translational
 If all arrows point in the same direction a positive force
 results in a positive acceleration a, velocity v and position s.
 </p>
+<p>
 For a force of 1 N and a mass of 1 Kg this leads to
+</p>
 <pre>
         a = 1 m/s2
         v = 1 m/s after 1 s (SlidingMass1.v)
         s = 0.5 m after 1 s (SlidingMass1.s)
 </pre>
-The acceleration is not available for plotting.
 <p>
+The acceleration is not available for plotting.
 </p>
+<p>
 System 1) and 2) are equivalent. It doesn't matter whether the
 force pushes at flange_a in system 1 or pulls at flange_b in system 2.
 </p><p>
@@ -93,7 +96,6 @@ In the third system the two arrows are opposed which means that the
 force acts in the opposite direction (in the same direction as in
 the two other examples).
 </p>
-
 </HTML>
 "), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1688,7 +1690,7 @@ The component can be
 connected either between two sliding masses to describe the elasticity
 and damping, or between a sliding mass and the housing (model Fixed),
 to describe a coupling of the sliding mass with the housing via a spring/damper.
-<p>
+</p>
 </HTML>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -2056,7 +2058,7 @@ i.e., a frictional force acting between a flange and the housing.
 The positive sliding friction force \"f\" has to be defined
 by table \"f_pos\" as function of the absolute velocity \"v\".
 E.g.
-<p>
+</p>
 <pre>
        v |   f
       ---+-----
@@ -2771,14 +2773,16 @@ Additionally, a left and right stop are handled.
       annotation (
         Documentation(info="
 <HTML>
-<P>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
+<p>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
-<i>hard stop</i> for the position. <BR>
+<i>hard stop</i> for the position. </p>
+<p>
 The surface is fixed and there is friction between sliding mass and surface.
-The frictional force f is given for positive velocity v by:</P>
-<i><uL>
-f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)</i> </ul><br>
+The frictional force f is given for positive velocity v by:
 </p>
+<blockquote><pre>
+f = F_Coulomb + F_prop * v + F_Stribeck * exp (-fexp * v)
+</pre></blockquote>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/Stribeck.png\">
 
@@ -2787,18 +2791,16 @@ The distance between the left and the right connector is given by parameter L.
 The position of the center of gravity, coordinate s, is in the middle between
 the two flanges.</p>
 <p>
-There are hard stops at smax and smin, i. e. if <i><uL>
-flange_a.s &gt;= smin
-<ul>    and </ul>
-flange_b.s &lt;= xmax </ul></i>
-the sliding mass can move freely.</p>
+There are hard stops at smax and smin, i. e. if
+<i><code>flange_a.s &gt;= smin</code></i> and <i><code>flange_b.s &lt;= xmax </code></i> the sliding mass can move freely.</p>
 <p>When the absolute velocity becomes zero, the sliding mass becomes stuck, i.e., the absolute position remains constant. In this phase the
 friction force is calculated from a force balance due to the requirement that the
 absolute acceleration shall be zero. The elements begin to slide when the friction
-force exceeds a threshold value, called the maximum static friction force, computed via: </P>
-<i><uL>
+force exceeds a threshold value, called the maximum static friction force, computed via:</p>
+<blockquote><pre>
    maximum_static_friction =  F_Coulomb + F_Stribeck
-</i> </ul>
+</pre></blockquote>
+<p>
 <font color=\"#ff0000\"> <b>This requires the states Stop.s and Stop.v</b> </font>. If these states are eliminated during the index reduction
 the model will not work. To avoid this any inertias should be connected via springs
 to the Stop element, other sliding masses, dampers or hydraulic chambers must be avoided.</p>
@@ -2853,7 +2855,7 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 
 </HTML>
 ",   revisions="<html>
-<p><b>Release Notes:</b></p>
+<h4>Release Notes:</h4>
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
 <li><i>July 14, 2001 by P. Beater, assert on initialization added, diagram modified </i> </li>
@@ -4119,6 +4121,7 @@ This package contains ideal sources to drive 1D mechanical translational drive t
       flow SI.Force f "Cut force directed into flange";
       annotation(defaultComponentName = "flange_a",
         Documentation(info="<html>
+<p>
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
 INTO the cut plane, i. e. from left to right. All vectors in the cut plane are
@@ -4130,6 +4133,7 @@ flanges are identical.
 </p>
 <p>
 The following variables are transported through this connector:
+</p>
 <pre>
   s: Absolute position of the flange in [m]. A positive translation
      means that the flange is translated along the flange axis.
@@ -4160,6 +4164,7 @@ The following variables are transported through this connector:
       flow SI.Force f "Cut force directed into flange";
       annotation(defaultComponentName = "flange_b",
         Documentation(info="<html>
+<p>
 This is a flange for 1D translational mechanical systems. In the cut plane of
 the flange a unit vector n, called flange axis, is defined which is directed
 OUT OF the cut plane. All vectors in the cut plane are resolved with respect to
@@ -4295,14 +4300,13 @@ PartialElementaryOneFlangeAndSupport</a>,<br>
 <a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
 PartialElementaryTwoFlangesAndSupport</a>,<br>
 <a href=\"modelica://Modelica.Mechanics.Translational.Interfaces.PartialElementaryRotationalToTranslational\">
-PartialElementaryRotationalToTranslational</a>.</li>
+PartialElementaryRotationalToTranslational</a>.
 </blockquote>
 
 <p>
 Note, the support position can always be accessed as internalSupport.s, and
 the support force can always be accessed as internalSupport.f.
 </p>
-
 </html>"));
     end InternalSupport;
 
@@ -4324,7 +4328,6 @@ This is a 1D translational component with two flanges.
 It is used e.g., to built up parts of a drive train consisting
 of several base components.
 </p>
-
 </HTML>
 "),     Diagram(coordinateSystem(
             preserveAspectRatio=true,

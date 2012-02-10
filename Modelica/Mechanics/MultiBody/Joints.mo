@@ -1762,6 +1762,7 @@ a <b>body fixed frame</b>.
 Therefore, if these potential state variables are suited,
 a FreeMotion joint is not needed.
 </p>
+<p>
 The states of the FreeMotion object are:
 </p>
 <ul>
@@ -2940,12 +2941,13 @@ part of the default animation):
 This joint aggregation has no mass and no inertia and introduces the constraint
 that the distance between the origin of frame_a and the origin of frame_b is constant
 (= Frames.length(rRod_ia)). The universal joint is defined in the following way:
-<p>
+</p>
+
 <ul>
 <li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
-     vector n1_a which is fixed in frame_a.<li>
+     vector n1_a which is fixed in frame_a.</li>
 <li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
-     axis 1 and to the line connecting the universal and the spherical joint.
+     axis 1 and to the line connecting the universal and the spherical joint.</li>
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
@@ -2983,7 +2985,7 @@ This joint aggregation can be used in cases where
 in reality a rod with spherical joints at end are present.
 Such a system has an additional degree of freedom to rotate
 the rod along its axis. In practice this rotation is usually
-of no interested and is mathematically removed by replacing one
+of no interest and is mathematically removed by replacing one
 of the spherical joints by a universal joint. Still, in most
 cases the Joints.SphericalSpherical joint aggregation can be used instead
 of the UniversalSpherical joint
@@ -4107,12 +4109,12 @@ into account.
 </p>
 <p>
 The universal joint is defined in the following way:
-<p>
+</p>
 <ul>
 <li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
-     vector n1_a which is fixed in frame_a.<li>
+     vector n1_a which is fixed in frame_a.</li>
 <li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
-     axis 1 and to the line connecting the universal and the spherical joint.
+     axis 1 and to the line connecting the universal and the spherical joint.</li>
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
@@ -4148,7 +4150,7 @@ Note, this joint aggregation can be used in cases where
 in reality a rod with spherical joints at each end are present.
 Such a system has an additional degree of freedom to rotate
 the rod along its axis. In practice this rotation is usually
-of no interested and is mathematically removed by replacing one
+of no interest and is mathematically removed by replacing one
 of the spherical joints by a universal joint.
 </p>
 <p>
@@ -4751,13 +4753,13 @@ unique solution exists).
 </p>
 <p>
 The universal joint is defined in the following way:
-<p>
+</p>
 <ul>
 <li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
-     vector n1_a which is fixed in frame_a.<li>
+     vector n1_a which is fixed in frame_a.</li>
 <li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
      axis 1 and to the line connecting the universal and the spherical joint
-     (= rod 1).
+     (= rod 1).</li>
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
@@ -4790,8 +4792,7 @@ The rest of this joint aggregation is defined by the following parameters:
      vector <b>n_b</b>. It is fixed and resolved in frame_b.</li>
 <li> When specifying this joint aggregation with the definitions above, <b>two</b>
      different <b>configurations</b> are possible. Via parameter <b>phi_guess</b>
-     a guess value for revolute.phi(t0) at the initial time t0 is given. The configuration
-     is selected that is closest to phi_guess (|revolute.phi - phi_guess|is minimal).
+     a guess value for revolute.phi(t0) at the initial time t0 is given. The configuration is selected that is closest to phi_guess (|revolute.phi - phi_guess|is minimal).</li>
 </ul>
 <p>
 An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the rod
@@ -5261,13 +5262,13 @@ unique solution exists).
 </p>
 <p>
 The universal joint is defined in the following way:
-<p>
+</p>
 <ul>
 <li> The rotation <b>axis</b> of revolute joint <b>1</b> is along parameter
-     vector n1_a which is fixed in frame_a.<li>
+     vector n1_a which is fixed in frame_a.</li>
 <li> The rotation <b>axis</b> of revolute joint <b>2</b> is perpendicular to
      axis 1 and to the line connecting the universal and the spherical joint
-     (= rod 1).
+     (= rod 1).</li>
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
@@ -5307,7 +5308,7 @@ The rest of this joint aggregation is defined by the following parameters:
 <li> When specifying this joint aggregation with the definitions above, <b>two</b>
      different <b>configurations</b> are possible. Via parameter <b>s_guess</b>
      a guess value for prismatic.s(t0) at the initial time t0 is given. The configuration
-     is selected that is closest to s_guess (|prismatic.s - s_guess|is minimal).
+     is selected that is closest to s_guess (|prismatic.s - s_guess|is minimal).</li>
 </ul>
 <p>
 An additional <b>frame_ia</b> is present. It is <b>fixed</b> in the rod

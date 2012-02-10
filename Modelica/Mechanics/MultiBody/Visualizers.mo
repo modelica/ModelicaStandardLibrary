@@ -1645,7 +1645,7 @@ with
        = \"E\": Exponential notation using an upper case E<br>
        = \"f\": Fixed point notation<br>
        = \"g\": Either \"e\" or \"f\"<br>
-       = \"G\": Same as \"g\", but with upper case E</td></tr></table>
+       = \"G\": Same as \"g\", but with upper case E</td></tr>
 </table>
 </blockquote>
 </html>"));
@@ -2434,7 +2434,7 @@ These components have also to be used for models,
 where the forces and torques in the frame connector are set via
 equations (in this case, the models of the Visualizers package cannot be used,
 since they all have frame connectors).
-<p>
+</p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Arrow\">Arrow</a></td>
@@ -2715,7 +2715,7 @@ Modelica tools. The components are used to construct the \"x\", \"y\",
 Package <b>Visualizers</b> contains components to visualize
 3-dimensional shapes. These components are the basis for the
 animation features of the MultiBody library.
-<p>
+</p>
 <h4>Content</h4>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.FixedShape\">FixedShape</a><br>

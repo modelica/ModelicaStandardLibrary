@@ -2451,7 +2451,7 @@ i.e., a frictional torque acting between a flange and the housing.
 The positive sliding friction torque \"tau\" has to be defined
 by table \"tau_pos\" as function of the absolute angular velocity \"w\".
 E.g.
-<p>
+</p>
 <pre>
        w | tau
       ---+-----
@@ -3859,17 +3859,17 @@ in the flanges, are along the axis vector displayed in the icon.
 <p>This component models the essential effects of a gearbox, in
 particular</p>
 <ul>
-  <li>in component <b>lossyGear</b></li>
+  <li>in component <b>lossyGear</b>
     <ul>
       <li>gear <b>efficiency</b> due to friction between the teeth</li>
       <li><b>bearing friction</b></li>
-    </ul>
-  <li>in component <b>elastoBacklash</b></li>
+    </ul></li>
+  <li>in component <b>elastoBacklash</b>
     <ul>
       <li>gear <b>elasticity</b></li>
       <li><b>damping</b></li>
       <li><b>backlash</b></li>
-    </ul>
+    </ul></li>
 </ul>
 <p>The inertia of the gear wheels is not modeled. If necessary,
 inertia has to be taken into account by connecting components of
@@ -3909,6 +3909,7 @@ Gearbox.
       0 = ratio*flangeR.tau + flangeT.f;
       annotation (
         Documentation(info="<html>
+<p>
 This is an ideal mass- and inertialess gearbox which transforms a
 1D-rotational into a 1D-translational motion. If elasticity, damping
 or backlash has to be considered, this ideal gearbox has to be
@@ -3919,7 +3920,6 @@ This component defines the kinematic constraint:
 <pre>
   (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
 </pre>
-
 </html>
 "),     Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5711,7 +5711,7 @@ PartialElementaryOneFlangeAndSupport</a>,<br>
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">
 PartialElementaryTwoFlangesAndSupport</a>,<br>
 <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">
-PartialElementaryRotationalToTranslational</a>.</li>
+PartialElementaryRotationalToTranslational</a>.
 </blockquote>
 
 <p>

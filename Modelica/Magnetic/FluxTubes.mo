@@ -3799,10 +3799,10 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 </p>
 <p>
 Source of B(H) characteristics:
-<dd>
-<p><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</p>
-</dd>
 </p>
+<ul>
+<li><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</li>
+</ul>
 </html>"));
         end MuMetall;
 
@@ -3820,10 +3820,10 @@ Please refer to the description of  the enclosing package <a href=\"modelica://M
 </p>
 <p>
 Source of B(H) characteristics:
-<dd>
-<p><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</p>
-</dd>
 </p>
+<ul>
+<li><i>Boll, R.</i>: Weichmagnetische Werkstoffe: Einf&uuml;hrung in den Magnetismus, VAC-Werkstoffe und ihre Anwendungen. 4th ed. Berlin, M&uuml;nchen: Siemens Aktiengesellschaft 1990</li>
+</ul>
 </html>"));
         end Permenorm3601K3;
       end NickelIron;

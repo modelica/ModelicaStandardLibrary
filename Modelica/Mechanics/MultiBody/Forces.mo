@@ -124,7 +124,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the force coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If force={100,0,0}, and for all parameters the default setting is used,
@@ -265,7 +265,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the torque coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If torque={100,0,0}, and for all parameters the default setting is used,
@@ -525,7 +525,7 @@ coordinates shall be resolved:
 If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the force and
 torque coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If force={100,0,0}, and for all parameters the default setting is used,
@@ -570,11 +570,7 @@ This leads to the following animation
         extent=[-100, -100; 100, 100],
         grid=[1, 1],
         component=[20, 20]),
-      Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
-"),   Icon(Text(extent=[-132, 99; 128, 39], string="%name",
+      Icon(Text(extent=[-132, 99; 128, 39], string="%name",
           lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10],
@@ -745,7 +741,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = ResolveInFrameAB.frame_resolve, the force coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If force={100,0,0}, and for all parameters the default setting is used,
@@ -945,7 +941,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = ResolveInFrameAB.frame_resolve, the torque coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If torque={100,0,0}, and for all parameters the default setting is used,
@@ -1194,6 +1190,7 @@ clarity this is not shown in the animation):
             lineColor={0,0,0},
             textString="t")}),
       Documentation(info="<HTML>
+<p>
 The <b>3</b> signals of the <b>force</b> connector and the
 <b>3</b> signals of the <b>torque</b> connector
 are interpreted
@@ -1222,7 +1219,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = ResolveInFrameAB.frame_resolve, the force and torque coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If force={100,0,0}, and for all parameters the default setting is used,
@@ -2749,7 +2746,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = ResolveInFrameAB.frame_resolve, the force coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If resolveInFrame is not ResolveInFrameAB.frame_resolve, then the position
@@ -2887,7 +2884,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = ResolveInFrameAB.frame_resolve, the torque coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If resolveInFrame is not ResolveInFrameAB.frame_resolve, then the position
@@ -2993,7 +2990,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the force coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If resolveInFrame is not Types.ResolveInFrameB.frame_resolve, then the position
@@ -3112,7 +3109,7 @@ coordinates shall be resolved:
 <p>
 If resolveInFrame = Types.ResolveInFrameB.frame_resolve, the torque coordinates
 are with respect to the frame, that is connected to <b>frame_resolve</b>.
-<p>
+</p>
 
 <p>
 If resolveInFrame is not Types.ResolveInFrameB.frame_resolve, then the position

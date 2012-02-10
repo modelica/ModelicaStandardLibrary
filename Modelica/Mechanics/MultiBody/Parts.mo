@@ -640,7 +640,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of sphere" annotation (Dialog(__Dymola_colorSelector=true, 
+      "Color of sphere" annotation (Dialog(__Dymola_colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -651,7 +651,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     input Types.Color cylinderColor=sphereColor "Color of cylinder"
-      annotation (Dialog(__Dymola_colorSelector=true, 
+      annotation (Dialog(__Dymola_colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -873,7 +873,7 @@ states of the body are:
 <li> The <b>position vector</b> frame_a.r_0 from the origin of the
      world frame to the origin of frame_a of the body, resolved in
      the world frame and the <b>absolute velocity</b> v_0 of the origin of
-     frame_a, resolved in the world frame (= der(frame_a.r_0)).</li>
+     frame_a, resolved in the world frame (= der(frame_a.r_0)).
 </li>
 <li> If parameter <b>useQuaternions</b> in the \"Advanced\" menu
      is <b>true</b> (this is the default), then <b>4 quaternions</b>
@@ -1679,7 +1679,7 @@ states and of the \"Advanced\" menu parameters, see model
         group="if animation = true",
         enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of sphere" annotation (Dialog(__Dymola_colorSelector=true, 
+      "Color of sphere" annotation (Dialog(__Dymola_colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));

@@ -471,7 +471,7 @@ the form
 </p>
 <p>
 where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
-r</b><sup>b</sup>, <b>R</b><sup>b</sup><b> </b>are the variables defining the
+r</b><sup>b</sup>, <b>R</b><sup>b</sup> are the variables defining the
 position and orientation of the frame_a and frame_b connector,
 <b>q</b> are the generalized positional coordinates inside the
 assembly, e.g., the angle of a revolute joint. Given angle
@@ -581,7 +581,7 @@ the form
 </p>
 <p>
 where<b> r</b><sup>a</sup>, <b>R</b><sup>a</sup>,<b>
-r</b><sup>b</sup>, <b>R</b><sup>b</sup><b> </b>are the variables defining the
+r</b><sup>b</sup>, <b>R</b><sup>b</sup> are the variables defining the
 position and orientation of the frame_a and frame_b connector,
 <b>q</b> are the generalized positional coordinates inside the
 assembly, e.g., the angle of a revolute joint. Given angle

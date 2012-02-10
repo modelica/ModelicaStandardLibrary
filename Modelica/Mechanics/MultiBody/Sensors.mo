@@ -432,6 +432,7 @@ For example, if resolveInFrame = <b>Types.ResolveInFrameA.frame_a</b>, then
    v0 = <b>der</b>(frame_a.r0);
    v  = resolve2(frame_a.R, v0);
 </pre>
+<p>
 is returned, i.e., the derivative of the absolute distance from the
 world frame to the origin of frame_a, resolved in frame_a.
 </p>
@@ -934,16 +935,20 @@ vector in another frame.
 <p>
 For example, if resolveInFrame = <b>Types.ResolveInFrameAB.frame_b</b>, then
 </p>
+
 <pre>
    r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0);
    v_rel = <b>der</b>(r_rel);
 </pre>
+
+<p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
 the derivative of the relative distance from frame_a to frame_b,
 resolved in frame_b. If
 <b>resolveInFrameAfterDifferentiation</b> = Types.ResolveInFrameAB.world, then
 v_rel is additionally transformed to:
 </p>
+
 <pre>
    v_rel = resolve1(frame_b.R, <b>der</b>(r_rel))
 </pre>
@@ -1312,6 +1317,7 @@ computed as:
             textString="angles")}),Diagram(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
+<p>
 This model determines the 3 angles to rotate the world frame
 into frame_a along the axes defined by parameter <b>sequence</b>.
 For example, if sequence = {3,1,2} then the world frame is
@@ -1803,6 +1809,7 @@ computed as:
             textString="angles")}),Diagram(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
+<p>
 This model determines the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <b>sequence</b>.
 For example, if sequence = {3,1,2} then frame_a is
