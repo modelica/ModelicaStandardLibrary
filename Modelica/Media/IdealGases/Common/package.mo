@@ -697,7 +697,7 @@ The following quantities are always computed:
       <td valign=\"top\">specific enthalpy h = h(T)</td></tr>
   <tr><td valign=\"top\">u</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy u = u(T)</b></td></tr>
+      <td valign=\"top\">specific internal energy u = u(T)</td></tr>
   <tr><td valign=\"top\">d</td>
       <td valign=\"top\">kg/m^3</td>
       <td valign=\"top\">density d = d(p,T)</td></tr>

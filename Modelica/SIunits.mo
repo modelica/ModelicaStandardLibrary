@@ -143,6 +143,7 @@ in the declaration as in the example at the beginning.
 
 <p>
 <b>Complex units</b> are also included in Modelica.SIunits. A complex unit is declared as:
+</p>
 <pre>
   <b>model</b> QuasiStationaryMachine
     <b>parameter</b> Modelica.SIunits.ComplexPower SNominal = Complex(10000,4400)
@@ -150,8 +151,6 @@ in the declaration as in the example at the beginning.
    ...
    <b>end</b> QuasiStationaryMachine;
 </pre>
-</p>
-
 </html>"));
 
   end HowToUseSIunits;
@@ -286,11 +285,7 @@ end UsersGuide;
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit=
                  "1/min")
-        "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min"
-        annotation (Documentation(info="<html>
-<p>
-
-</html>"));
+        "Angular velocity in revolutions per minute. Alias unit names that are outside of the SI system: rpm, r/min, rev/min";
       type Velocity_kmh = Real (final quantity="Velocity", final unit="km/h")
         "Velocity in kilometers per hour";
       type Time_day = Real (final quantity="Time", final unit="d")

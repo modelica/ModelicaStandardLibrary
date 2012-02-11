@@ -223,9 +223,9 @@ changed to be any of the blocks defined in Modelica.Blocks.Math.UnitConversions,
 blocks that extend from Modelica.Blocks.Interfaces.PartialConversionBlock.
 </p>
 
-<p
+<p>
 The desired conversion can be selected in the parameter menu
-(the selected units are then displayed in the icon):</p>
+(the selected units are then displayed in the icon):
 </p>
 
 <p>
@@ -424,8 +424,6 @@ connectors are set to zero.</p>
 ",         revisions=
                  "<html>
 <ul>
-<li><i>  </i>
-       </li>
 <li><i> 2002   </i>
        by Anton Haumer<br> initially implemented<br>
        </li>
@@ -451,7 +449,7 @@ connectors are set to zero.</p>
 This partial block is intended to provide a <u>default icon
 for an obsolete block</u> that will be removed from the
 corresponding library in a future release.
-<p>
+</p>
 </html>"));
     end ObsoleteBlock;
 
@@ -469,7 +467,7 @@ corresponding library in a future release.
 This partial model is intended to provide a <u>default icon
 for an obsolete model</u> that will be removed from the
 corresponding library in a future release.
-<p>
+</p>
 </html>"));
     end ObsoleteModel;
 
@@ -2552,6 +2550,7 @@ get_v = <b>true</b>, then
   y = v_rel
     = <b>der</b>(r_rel)
 </pre>
+<p>
 is returned (r_rel = resolve2(frame_b.R, frame_b.r_0 - frame_a.r0)), i.e.,
 the derivative of the relative distance from frame_a to frame_b,
 resolved in frame_b. If frame_resolve is connected, then
@@ -2649,7 +2648,7 @@ and resolved in the following frame
       <td valign=\"top\">false</td>
       <td valign=\"top\"><b>frame_b</b></td>
   </tr>
-</table><br>
+</table>
 </HTML>"));
         end RelativeSensor;
 

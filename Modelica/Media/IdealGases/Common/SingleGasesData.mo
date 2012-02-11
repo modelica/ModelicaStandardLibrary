@@ -17486,6 +17486,5 @@ package SingleGasesData "Ideal gas data based on the NASA Glenn coefficients"
  BaO+      CH3CO_acetyl    DBr             In2F6   Na3Cl3   ScO
  BaOH      C2H4            DCl             In2I2   Na3F3    ScO+
 </pre>
-
 </HTML>"));
 end SingleGasesData;

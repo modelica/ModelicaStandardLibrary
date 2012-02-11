@@ -34,7 +34,6 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
   Streams.print(\"y = \" + String(y));
   Streams.print(\"x = \" + String(y), \"mytestfile.txt\");
 </pre></blockquote>
-<p>
 <h4>See also</h4>
 <p>
 <a href=\"modelica://Modelica.Utilities.Streams\">Streams</a>,

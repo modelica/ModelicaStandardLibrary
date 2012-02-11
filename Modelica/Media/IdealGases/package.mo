@@ -23,6 +23,7 @@ subtypes of
 <a href=\"modelica://Modelica.Media.Interfaces.PartialMedium\">Interfaces.PartialMedium</a>
 (i.e., can be utilized at all places where PartialMedium is defined),
 a few additional steps have to be performed:
+</p>
 <ol>
 <li>
 All single gas media need to define a constant instance of record
@@ -34,15 +35,14 @@ the data from a commercial or public data base. A public source of the needed da
 
 <li>When the data is available, and a user has an instance of a
 <a href=\"modelica://Modelica.Media.IdealGases.Common.SingleGasNasa.FluidConstants\">FluidConstants</a> record filled with data, a medium package has to be written. Note that only the dipole moment, the accentric factor and critical data are necessary for the viscosity and thermal conductivity functions.</li>
-<ul>
+<li><ul>
 <li>For single components, a new package following the pattern in
 <a href=\"modelica://Modelica.Media.IdealGases.SingleGases\">IdealGases.SingleGases</a> has to be created, pointing both to a data record for cp and to a user-defined fluidContants record.</li>
 <li>For mixtures of several components, a new package following the pattern in
 <a href=\"modelica://Modelica.Media.IdealGases.MixtureGases\">IdealGases.MixtureGases</a> has to be created, building an array of data records for cp and an array of (partly) user-defined fluidContants records.</li>
-</ul>
+</ul></li>
 </ol>
 <p>Note that many properties can computed for the full set of 1241 gases listed below, but due to the missing viscosity and thermal conductivity functions, no fully Modelica.Media-compliant media can be defined.</p>
-</p>
 <p>
 Data records for heat capacity, specific enthalpy and specific entropy exist for the following substances and ions:
 </p>

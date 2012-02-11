@@ -12,7 +12,7 @@ package UsersGuide "User's Guide of Utilities Library"
     annotation (Documentation(info="<html>
 <p>
 Below the major design decisions of this library are summarized.
-<p>
+</p>
 <ul>
 <li> <b>C-Function Interface</b><br>
      This library contains several interfaces to C-functions in order

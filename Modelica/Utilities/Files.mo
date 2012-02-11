@@ -552,7 +552,6 @@ directory. The error message has the following structure:
   File \"&lt;name&gt;\" already exists.
   &lt;message&gt;
 </pre>
-</p>
 </html>"));
 end assertNew;
 

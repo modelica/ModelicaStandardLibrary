@@ -1520,7 +1520,7 @@ package IF97_Utilities
  The checking for the phase has to be done outside the region functions because many properties are not
  differentiable at the region boundary. If the input phase is 2, the output region will be set to 4 immediately.</p>
  <h4>Package contents</h4>
- <p> The main 4 functions in this package are the functions returning the appropriate region for two input variables.
+ <p> The main 4 functions in this package are the functions returning the appropriate region for two input variables.</p>
  <ul>
  <li>Function <b>region_ph</b> compute the region of IAPWS/IF97 for input pair pressure and specific enthalpy.</li>
  <li>Function <b>region_ps</b> compute the region of IAPWS/IF97 for input pair pressure and specific entropy</li>
@@ -1546,7 +1546,6 @@ package IF97_Utilities
  <li>Function <b>rhol_T</b> computes the vapour density as a function of temperature. For overcritical temperatures,
  the critical density is returned. An approximation is used for temperatures > 623.15 K.</li>
  </ul>
-</p>
  <p>All other functions are auxiliary functions called from the region functions to check a specific boundary.</p>
  <ul>
  <li>Function <b>boundary23ofT</b> computes the boundary pressure between regions 2 and 3 (input temperature)</li>
@@ -1574,10 +1573,9 @@ package IF97_Utilities
  <li>Function <b>rhol_p_R4b</b> computes a high accuracy approximation to the liquid density for temperatures > 623.15 K (input p)</li>
  <li>Function <b>rhov_p_R4b</b> computes a high accuracy approximation to the vapour density for temperatures > 623.15 K (input p)</li>
  </ul>
-</p>
-<h4>Version Info and Revision history
-</h4>
- <ul>
+
+<h4>Version Info and Revision history</h4>
+<ul>
 <li>First implemented: <i>July, 2000</i>
        by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>
        </li>
@@ -3261,7 +3259,8 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
       Documentation(info="<html>
       <p>
-      &nbsp;Equation number 1 from:<br>
+      &nbsp;Equation number 1 from:
+      </p>
       <div style=\"text-align: center;\">&nbsp;[1] The international Association
       for the Properties of Water and Steam<br>
       &nbsp;Vejle, Denmark<br>
@@ -3271,7 +3270,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
       the Thermodynamic Properties of<br>
       &nbsp;Water and Steam</div>
-   </p>
       </html>"));
       end h3ab_p;
 
@@ -3302,8 +3300,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 2 from:<br>
+<p>
+ &nbsp;Equation number 2 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3313,7 +3312,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
  </html>"));
       end T3a_ph;
 
@@ -3345,7 +3343,8 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
             Documentation(
        info="<html>
  <p>
- &nbsp;Equation number 3 from:<br>
+ &nbsp;Equation number 3 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3355,7 +3354,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
  </html>"));
       end T3b_ph;
 
@@ -3386,8 +3384,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 4 from:<br>
+<p>
+&nbsp;Equation number 4 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3397,7 +3396,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
  </html>"));
       end v3a_ph;
 
@@ -3428,8 +3426,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 5 from:<br>
+<p>
+ &nbsp;Equation number 5 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3439,7 +3438,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
  </html>"));
       end v3b_ph;
 
@@ -3470,8 +3468,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 6 from:<br>
+<p>
+ &nbsp;Equation number 6 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3481,7 +3480,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
  </html>"));
       end T3a_ps;
 
@@ -3510,8 +3508,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 7 from:<br>
+<p>
+ &nbsp;Equation number 7 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3521,8 +3520,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
- </html>"));
+</html>"));
       end T3b_ps;
 
       function v3a_ps "Region 3 a: inverse function v(p,s)"
@@ -3550,8 +3548,9 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 8 from:<br>
+<p>
+ &nbsp;Equation number 8 from:
+</p>
  <div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
@@ -3561,8 +3560,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
- </html>"));
+</html>"));
       end v3a_ps;
 
       function v3b_ps "Region 3 b: inverse function v(p,s)"
@@ -3592,9 +3590,10 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           annotation (
             Documentation(
        info="<html>
- <p>
- &nbsp;Equation number 9 from:<br>
- <div style=\"text-align: center;\">&nbsp;[1] The international Association
+<p>
+ &nbsp;Equation number 9 from:
+</p>
+<div style=\"text-align: center;\">&nbsp;[1] The international Association
  for the Properties of Water and Steam<br>
  &nbsp;Vejle, Denmark<br>
  &nbsp;August 2003<br>
@@ -3603,8 +3602,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
  &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
  the Thermodynamic Properties of<br>
  &nbsp;Water and Steam</div>
-</p>
- </html>"));
+</html>"));
       end v3b_ps;
 
       annotation (Documentation(info="<HTML><h4>Package description</h4>
@@ -3615,7 +3613,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           functions. The C-code has than been transformed into Modelica code. An important feature of this optimization was to
           simultaneously optimize the functions and the directional derivatives because they share many common subexpressions.</p>
           <h4>Package contents</h4>
-          <p>
           <ul>
           <li>Function <b>g1</b> computes the dimensionless Gibbs function for region 1 and all derivatives up
           to order 2 w.r.t. pi and tau. Inputs: p and T.</li>
@@ -3643,7 +3640,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           a function of temperature.</li>
           <li>Function <b>psat_der</b> computes the Modelica derivative function of psat.</li>
           </ul>
-       </p>
           <h4>Version Info and Revision history
           </h4>
           <ul>
@@ -3665,7 +3661,8 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           "),     Documentation(
        info="<html>
        <p>
-       &nbsp;Equation from:<br>
+       &nbsp;Equation from:
+       </p>
        <div style=\"text-align: center;\">&nbsp;[1] The international Association
        for the Properties of Water and Steam<br>
        &nbsp;Vejle, Denmark<br>
@@ -3675,7 +3672,6 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
        &nbsp;v(p,s) for Region 3 of the IAPWS Industrial Formulation 1997 for
        the Thermodynamic Properties of<br>
        &nbsp;Water and Steam</div>
-    </p>
        </html>"));
     end Basic;
 
@@ -4058,9 +4054,7 @@ Ordinary Water Substance<br>
       end surfaceTension;
 
       annotation (Documentation(info="<HTML><h4>Package description</h4>
-          <p></p>
           <h4>Package contents</h4>
-          <p>
           <ul>
           <li>Function <b>visc_dTp</b> implements a function to compute the industrial formulation of the
           dynamic viscosity of water as a function of density and temperature.
@@ -4074,7 +4068,6 @@ Ordinary Water Substance<br>
           and liquid water as a function of temperature.
           The details are described in the document <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>.</li>
           </ul>
-       </p>
           <h4>Version Info and Revision history
           </h4>
           <ul>
@@ -4655,9 +4648,7 @@ Ordinary Water Substance<br>
       end water_hisentropic_dyn;
 
       annotation (Documentation(info="<HTML><h4>Package description</h4>
-          <p></p>
           <h4>Package contents</h4>
-          <p>
           <ul>
           <li>Function <b>hofpT1</b> computes h(p,T) in region 1.</li>
           <li>Function <b>handsofpT1</b> computes (s,h)=f(p,T) in region 1, needed for two-phase properties.</li>
@@ -4677,7 +4668,6 @@ Ordinary Water Substance<br>
           values for the density and temperature consistent with p and s. This function should be preferred in
           dynamic simulations where good guesses are often available.</li>
           </ul>
-       </p>
           <h4>Version Info and Revision history
           </h4>
           <ul>
@@ -5280,9 +5270,7 @@ Ordinary Water Substance<br>
       end tofpst5;
 
       annotation (Documentation(info="<HTML><h4>Package description</h4>
-          <p></p>
           <h4>Package contents</h4>
-          <p>
           <ul>
           <li>Function <b>fixdT</b> constrains density and temperature to allowed region</li>
           <li>Function <b>dofp13</b> computes d as a function of p at boundary between regions 1 and 3</li>
@@ -5296,9 +5284,7 @@ Ordinary Water Substance<br>
           <li>Function <b>tofph5</b> iteration to compute T as a function of p and h in region 5</li>
           <li>Function <b>tofps5</b> iteration to compute T as a function of p and s in region 5</li>
           <li>Function <b>tofpst5</b> iteration to compute T as a function of p and s in region 5, with initial guess in T</li>
-          <li>Function <b></b></li>
           </ul>
-       </p>
           <h4>Version Info and Revision history
           </h4>
           <ul>
@@ -5386,16 +5372,14 @@ Ordinary Water Substance<br>
       annotation (Documentation(info="<HTML><h4>Package description</h4>
           <p>Package ByRegion provides fast forward calls for dynamic property calculation records for all
           one phase regions of IAPWS/IF97
-       </p>
+          </p>
           <h4>Package contents</h4>
-          <p>
           <ul>
           <li>Function <b>waterR1_pT</b> computes dynamic properties for region 1 using  (p,T) as inputs</li>
           <li>Function <b>waterR2_pT</b> computes dynamic properties for region 2 using  (p,T) as inputs</li>
           <li>Function <b>waterR3_dT</b> computes dynamic properties for region 3 using  (d,T) as inputs</li>
           <li>Function <b>waterR5_pT</b> computes dynamic properties for region 5 using  (p,T) as inputs</li>
           </ul>
-       </p>
           <h4>Version Info and Revision history
           </h4>
           <ul>
@@ -5634,7 +5618,6 @@ Ordinary Water Substance<br>
           <p>Package TwoPhase provides functions to compute the steam properties
           in the two-phase region and on the phase boundaries</p>
           <h4>Package contents</h4>
-          <p>
           <ul>
           <li>Function <b>WaterLiq_p</b> computes properties on the boiling boundary as a function of p</li>
           <li>Function <b>WaterVap_p</b> computes properties on the dew line boundary as a function of p</li>
@@ -5643,7 +5626,6 @@ Ordinary Water Substance<br>
           <li>Function <b>WaterR4_ph</b> computes dynamic simulation properties in region 4 with (p,h) as inputs</li>
           <li>Function <b>WaterR4_dT</b> computes dynamic simulation properties in region 4 with (d,T) as inputs</li>
           </ul>
-       </p>
           <h4>Version Info and Revision history
           </h4>
           <ul>
@@ -5744,8 +5726,7 @@ Ordinary Water Substance<br>
     end extraDerivs_pT;
 
     annotation (Documentation(info="<HTML>
-    <h4>Version Info and Revision history
-        </h4>
+    <h4>Version Info and Revision history</h4>
         <ul>
         <li>First implemented: <i>July, 2000</i>
         by Hubertus Tummescheit
@@ -5761,13 +5742,13 @@ Ordinary Water Substance<br>
       SE-22370 Lund, Sweden<br>
       email: hubertus@modelon.se
       </address>
-        <P>In September 1997, the International Association for the Properties
+        <p>In September 1997, the International Association for the Properties
         of Water and Steam (<A HREF=\"http://www.iapws.org\">IAPWS</A>) adopted a
         new formulation for the thermodynamic properties of water and steam for
         industrial use. This new industrial standard is called \"IAPWS Industrial
         Formulation for the Thermodynamic Properties of Water and Steam\" (IAPWS-IF97).
         The formulation IAPWS-IF97 replaces the previous industrial standard IFC-67.
-        <P>Based on this new formulation, a new steam table, titled \"<a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
+        <p>Based on this new formulation, a new steam table, titled \"<a href=\"http://www.springer.de/cgi-bin/search_book.pl?isbn=3-540-64339-7\">Properties of Water and Steam</a>\" by W. Wagner and A. Kruse, was published by
         the Springer-Verlag, Berlin - New-York - Tokyo in April 1998. This
         steam table, ref. <a href=\"#steamprop\">[1]</a> is bilingual (English /
         German) and contains a complete description of the equations of
@@ -5782,12 +5763,12 @@ Ordinary Water Substance<br>
         and thermal conductivity (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a>)
         and equations for the surface tension (standards document: <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/surf.pdf\">surf.pdf</a>)
         are also implemented in this library and included for reference.</p>
-        <P>
+        <p>
         The functions in BaseIF97.mo are low level functions which should
         only be used in those exceptions when the standard user level
         functions in Water.mo do not contain the wanted properties.
      </p>
-<P>Based on IAPWS-IF97, Modelica functions are available for calculating
+<p>Based on IAPWS-IF97, Modelica functions are available for calculating
 the most common thermophysical properties (thermodynamic and transport
 properties). The implementation requires part of the common medium
 property infrastructure of the Modelica.Thermal.Properties library in the file
@@ -5797,8 +5778,8 @@ dynamic simulations. Input variables for calculating the properties are
 only implemented for a limited number of variable pairs which make sense as dynamic states: (p,h), (p,T), (p,s) and (d,T).
 </p>
 <hr size=3 width=\"70%\">
-<p><a name=\"regions\"><h4>1. Structure and Regions of IAPWS-IF97</h4></a>
-<P>The IAPWS Industrial Formulation 1997 consists of
+<h4><a name=\"regions\">1. Structure and Regions of IAPWS-IF97</a></h4>
+<p>The IAPWS Industrial Formulation 1997 consists of
 a set of equations for different regions which cover the following range
 of validity:</p>
 <table border=0 cellpadding=4>
@@ -5828,7 +5809,6 @@ region 5 is also covered by a <nobr><I>g</I>(<I> p</I>,<I>T </I>)</nobr> equatio
 5 equations, shown in rectangular boxes in Fig. 1, form the so-called <I>basic
 equations</I>.
 </p>
-
 <table border=\"0\" cellspacing=\"0\" cellpadding=\"2\">
   <caption align=\"bottom\">Figure 1: Regions and equations of IAPWS-IF97</caption>
   <tr>
@@ -5837,8 +5817,8 @@ equations</I>.
     </td>
   </tr>
 </table>
-
-<P>In addition to these basic equations, so-called <I>backward
+<p>
+In addition to these basic equations, so-called <I>backward
 equations</I> are provided for regions 1, 2, and 4 in form of
 <nobr><I>T </I>(<I> p</I>,<I>h </I>)</nobr> and <nobr><I>T </I>(<I>
 p</I>,<I>s </I>)</nobr> for regions 1 and 2, and <nobr><I>T</I><FONT
@@ -5852,20 +5832,26 @@ result of this special concept for the development of the new
 industrial standard IAPWS-IF97, the most important properties can be
 calculated extremely quickly. All modelica functions are optimized
 with regard to short computing times.
-<P>The complete description of the individual equations of the new industrial
+</p>
+<p>
+The complete description of the individual equations of the new industrial
 formulation IAPWS-IF97 is given in <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. Comprehensive information on
 IAPWS-IF97 (requirements, concept, accuracy, consistency along region boundaries,
 and the increase of computing speed in comparison with IFC-67, etc.) can
 be taken from <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> or [2].
-<P><a name=\"steamprop\">[1]<I>Wagner, W., Kruse, A.</I> Properties of Water
+</p>
+<p>
+<a name=\"steamprop\">[1]<I>Wagner, W., Kruse, A.</I> Properties of Water
 and Steam / Zustandsgr&ouml;&szlig;en von Wasser und Wasserdampf / IAPWS-IF97.
-Springer-Verlag, Berlin, 1998.
-<P>[2] <I>Wagner, W., Cooper, J. R., Dittmann, A., Kijima,
+Springer-Verlag, Berlin, 1998.</a>
+</p>
+<p>
+[2] <I>Wagner, W., Cooper, J. R., Dittmann, A., Kijima,
 J., Kretzschmar, H.-J., Kruse, A., Mare&#353; R., Oguchi, K., Sato, H., St&ouml;cker,
 I., &#352;ifner, O., Takaishi, Y., Tanishita, I., Tr&uuml;benbach, J., and Willkommen,
 Th.</I> The IAPWS Industrial Formulation 1997 for the Thermodynamic Properties
 of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (2000), 150 - 182.
-<p>
+</p>
 <HR size=3 width=\"90%\">
 <h4>2. Calculable Properties      </h4>
 <table border=\"1\" cellpadding=\"2\" cellspacing=\"0\">
@@ -6113,7 +6099,6 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
         <li>Function <b>extraDerivs_pT</b> computes all entries to Bridgmans tables for all
         one-phase regions of IF97 using inputs (p,T).</li>
         </ul>
-     </p>
         </HTML>"));
   end BaseIF97;
 
@@ -7823,12 +7808,13 @@ public
       is that this implementation has been explicitly designed to work well in dynamic simulations. Computational
       performance has been of high importance. This means that there often exist several ways to get the same result
       from different functions if one of the functions is called often but can be optimized for that purpose.
-   </p>
+      </p>
       <p>
       The original documentation of the IAPWS/IF97 steam properties can freely be distributed with computer
       implementations, so for curious minds the complete standard documentation is provided with the Modelica
       properties library. The following documents are included
       (in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
+      </p>
       <ul>
       <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
       <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>
@@ -7838,10 +7824,8 @@ public
       <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/thcond.pdf\">thcond.pdf</a> The thermal conductivity standard definition</li>
       <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/visc.pdf\">visc.pdf</a> The viscosity standard definition</li>
       </ul>
-   </p>
       <h4>Package contents
       </h4>
-      <p>
       <ul>
       <li>Package <b>BaseIF97</b> contains the implementation of the IAPWS-IF97 as described in
       <a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a>. The explicit backwards equations for region 3 from
@@ -7885,7 +7869,6 @@ public
           values for the density and temperature consistent with p and s. This function should be preferred in
           dynamic simulations where good guesses are often available.</li>
       </ul>
-   </p>
       <h4>Version Info and Revision history
       </h4>
       <ul>

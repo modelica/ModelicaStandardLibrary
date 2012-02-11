@@ -698,7 +698,6 @@ in particular to determine the derivative and the integral
 of a polynomial and to use a polynomial to fit a given set
 of data points.
 </p>
-<p>
 
 <p><b>Copyright &copy; 2004-2010, Modelica Association and DLR.</b></p>
 
@@ -716,12 +715,11 @@ Modelica in file \"Modelica/package.mo\".
 <li><i>Oct. 22, 2004</i> by Martin Otter (DLR):<br>
        Renamed functions to not have abbrevations.<br>
        Based fitting on LAPACK<br>
-       New function to return the polynomial of an indefinite integral<li>
+       New function to return the polynomial of an indefinite integral</li>
 <li><i>Sept. 3, 2004</i> by Jonas Eborn (Scynamics):<br>
-       polyderval, polyintval added<li>
+       polyderval, polyintval added</li>
 <li><i>March 1, 2004</i> by Martin Otter (DLR):<br>
-       first version implemented
-</li>
+       first version implemented</li>
 </ul>
 </html>"));
     end Polynomials_Temp;
@@ -814,19 +812,21 @@ water, the equivalent change of temperature to increasing pressure 1 bar is
 </p>
 <p>
 Two boolean flags are used to choose how enthalpy and inner energy is calculated:
+</p>
 <ul>
 <li><b>enthalpyOfT</b>=true, means assuming that enthalpy is only a function
 of temperature, neglecting the pressure dependent term.</li>
 <li><b>singleState</b>=true, means also neglect the pressure influence on inner
 energy, which makes all medium properties pure functions of temperature.</li>
 </ul>
+<p>
 The default setting for both these flags is true, which enables the simulation tool
 to choose temperature as the only medium state and avoids non-linear equation
 systems, see the section about
 <a href=\"modelica://Modelica.Media.UsersGuide.MediumDefinition.StaticStateSelection\">Static
 state selection</a> in the Modelica.Media User's Guide.
-
 </p>
+
 <h4>Contents</h4>
 <p>
 Currently, the package contains the following parts:

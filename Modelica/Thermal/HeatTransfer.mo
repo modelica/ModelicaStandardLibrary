@@ -253,17 +253,20 @@ An approppriate simulating time would be 10 seconds.
       annotation (Documentation(info="<HTML>
 <p>
 This example contains a simple second order thermal model of a motor.
-The periodic power losses are described by table \"lossTable\":<br>
+The periodic power losses are described by table \"lossTable\":
+</p>
 <table>
 <tr><td valign=\"top\">time</td><td valign=\"top\">winding losses</td><td valign=\"top\">core losses</td></tr>
 <tr><td valign=\"top\">   0</td><td valign=\"top\">           100</td><td valign=\"top\">        500</td></tr>
 <tr><td valign=\"top\"> 360</td><td valign=\"top\">           100</td><td valign=\"top\">        500</td></tr>
 <tr><td valign=\"top\"> 360</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
 <tr><td valign=\"top\"> 600</td><td valign=\"top\">          1000</td><td valign=\"top\">        500</td></tr>
-</table><br>
+</table>
+<p>
 Since constant speed is assumed, the core losses keep constant
 whereas the winding losses are low for 6 minutes (no-load) and high for 4 minutes (over load).
-<br>
+</p>
+<p>
 The winding losses are corrected by (1 + alpha*(T - T_ref)) because the winding's resistance is temperature dependent whereas the core losses are kept constant (alpha = 0).
 </p>
 <p>
@@ -475,8 +478,8 @@ compute C:
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<HTML>
 <p>
-This is a model for transport of heat without storing it; see also: 
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalResistor\">ThermalResistor</a>. 
+This is a model for transport of heat without storing it; see also:
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalResistor\">ThermalResistor</a>.
 It may be used for complicated geometries where
 the thermal conductance G (= inverse of thermal resistance)
 is determined by measurements and is assumed to be constant
@@ -509,7 +512,6 @@ e.g., with one of the following equations:
     r_in : Inner radius of cylinder
     </pre>
     </li>
-</li>
 </ul>
 <pre>
     Typical values for k at 20 degC in W/(m.K):
@@ -575,11 +577,11 @@ e.g., with one of the following equations:
               textString="dT = port_a.T - port_b.T")}),
         Documentation(info="<HTML>
 <p>
-This is a model for transport of heat without storing it, same as the 
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalConductor\">ThermalConductor</a> 
-but using the thermal resistance instead of the thermal conductance as a parameter. 
-This is advantageous for series connections of ThermalResistors, 
-especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference). 
+This is a model for transport of heat without storing it, same as the
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ThermalConductor\">ThermalConductor</a>
+but using the thermal resistance instead of the thermal conductance as a parameter.
+This is advantageous for series connections of ThermalResistors,
+especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference).
 </p>
 </HTML>
 "));
@@ -646,7 +648,7 @@ especially if it shall be allowed that a ThermalResistance is defined to be zero
               textString="Gc")}),
         Documentation(info="<HTML>
 <p>
-This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also: 
+This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; see also:
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.ConvectiveResistor\">ConvectiveResistor</a>.
 It may be used for complicated solid geometries and fluid flow over the solid by determining the
 convective thermal conductance Gc by measurements. The basic constitutive equation for convection is
@@ -801,10 +803,10 @@ McGraw-Hill, 1997, p.270):
               textString="Rc")}),
         Documentation(info="<HTML>
 <p>
-This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the 
-<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.Convection\">Convection</a> component 
-but using the convective resistance instead of the convective conductance as an input. 
-This is advantageous for series connections of ConvectiveResistors, 
+This is a model of linear heat convection, e.g., the heat transfer between a plate and the surrounding air; same as the
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Components.Convection\">Convection</a> component
+but using the convective resistance instead of the convective conductance as an input.
+This is advantageous for series connections of ConvectiveResistors,
 especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
 </p>
 </HTML>

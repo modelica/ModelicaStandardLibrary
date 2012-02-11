@@ -323,7 +323,7 @@ Strings.<b>replace</b>(string, searchString, replaceString,
 <p>
 Search in \"string\" for \"searchString\" and replace the found
 substring by \"replaceString\".
-<p>
+</p>
 <ul>
 <li> The search starts at the first character of \"string\",
      or at character position \"startIndex\",
@@ -524,7 +524,7 @@ with constants) that can have the following values:
       <td valign=\"top\">Modelica identifier (e.g., \"force_a\")</td></tr>
   <tr><td valign=\"top\">T.DelimiterToken</td>
       <td valign=\"top\">any character without white space that does not appear<br>
-          as first character in the tokens above (e.g., \"&\")</td></tr>
+          as first character in the tokens above (e.g., \"&amp;\")</td></tr>
   <tr><td valign=\"top\">T.NoToken</td>
       <td valign=\"top\">White space, line comments and no other token<br>
           until the end of the string</td></tr>

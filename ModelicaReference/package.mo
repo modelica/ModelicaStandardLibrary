@@ -11,7 +11,7 @@ class ModelicaGrammar "Modelica Grammar"
 A.HREF { text-decoration:none; color:#003399 }
 </style>
 </head>
-<body><h4>Modelica 3.2 Revision 1 Grammar</h4>
+<h4>Modelica 3.2 Revision 1 Grammar</h4>
 <p>This is the grammar of Modelica 3.2 Revision 1 in EBNF form. Each
 non-terminal appearing on the right hand side of a production is a link to the
 production for that non-terminal. This grammar is identical to that in the
@@ -232,7 +232,7 @@ following typographic conventions are used:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><font color=green size=\"+1\">[</font><tt>&nbsp;</tt><i>STRING</i><tt>&nbsp;</tt><font color=green size=\"+1\">{</font><tt>&nbsp;</tt><font color=green>\"</font><tt>+</tt><font color=green>\"</font><tt>&nbsp;</tt><i>STRING</i><tt>&nbsp;</tt><font color=green size=\"+1\">}</font><tt>&nbsp;</tt><font color=green size=\"+1\">]</font>
 <p><a name=\"annotation\" class=NAME><i>annotation</i></a>:
 <br><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt><b>annotation</b><tt>&nbsp;</tt><a href=\"#class_modification\" class=HREF><i>class_modification</i></a>
-</body></html>"));
+</html>"));
 end ModelicaGrammar;
 
 
@@ -429,7 +429,7 @@ the equation
 
 <p>
 implies that:
-<p>
+</p>
 
 <pre>(...,d y(t)/dt,...)=foo1(...,x(t),b,..., ...,d x(t)/dt,...);
 (...,d^2 y(t)/dt^2,...)=foo2(...,x(t),b,...,d x(t)/dt,..., ...,d^2 x(t)/dt^2,...);
@@ -514,7 +514,6 @@ end f_der;
 </pre>
 This is useful if g represents the major computational effort of fg).</li>
 </ul>
-
 </html>"));
   end derivative;
 
@@ -2791,7 +2790,7 @@ Return a Real, Integer, Boolean or String array with all elements equal
 Returns the n1 x n2 x n3 x ... array with all elements equal
 to scalar or array expression s (ni >= 0). The returned
 array has the same type as s. Recursive definition:
-<p>
+</p>
 <blockquote><pre>
 fill(s,n1,n2,n3, ...) = fill(fill(s,n2,n3, ...), n1);
 fill(s,n) = {s,s,..., s}
@@ -3983,7 +3982,7 @@ elements above the diagonal are identical to the
 corresponding elements of matrix A and where the
 elements below the diagonal are set equal to the elements
 above the diagonal of A, i.e.,
-<p>
+</p>
 <blockquote><pre>
 B := <b>symmetric</b>(A)
      -> B[i,j] := A[i,j], <b>if</b> i &le; j,

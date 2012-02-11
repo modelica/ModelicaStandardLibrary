@@ -687,11 +687,13 @@ and best compromise between accuracy and computation time.
 For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
+</p>
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
 <li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
 <li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
 </ol>
+<p>
 The following quantities are always computed:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -703,7 +705,7 @@ The following quantities are always computed:
       <td valign=\"top\">temperature</td></tr>
   <tr><td valign=\"top\">u</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</b></td></tr>
+      <td valign=\"top\">specific internal energy</td></tr>
   <tr><td valign=\"top\">d</td>
       <td valign=\"top\">kg/m^3</td>
       <td valign=\"top\">density</td></tr>
@@ -712,7 +714,7 @@ The following quantities are always computed:
       <td valign=\"top\">pressure</td></tr>
   <tr><td valign=\"top\">h</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</b></td></tr>
+      <td valign=\"top\">specific enthalpy</td></tr>
 </table>
 <p>
 In some cases additional medium properties are needed.
@@ -722,7 +724,6 @@ one of the functions listed in
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
 <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
-</p>
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
 </HTML>
@@ -1288,11 +1289,13 @@ and best compromise between accuracy and computation time.
 For more details see <a href=\"modelica://Modelica.Media.Water.IF97_Utilities\">
 Modelica.Media.Water.IF97_Utilities</a>. Three variable pairs can be the
 independent variables of the model:
+</p>
 <ol>
 <li>Pressure <b>p</b> and specific enthalpy <b>h</b> are the most natural choice for general applications. This is the recommended choice for most general purpose applications, in particular for power plants.</li>
 <li>Pressure <b>p</b> and temperature <b>T</b> are the most natural choice for applications where water is always in the same phase, both for liquid water and steam.</li>
 <li>Density <b>d</b> and temperature <b>T</b> are explicit variables of the Helmholtz function in the near-critical region and can be the best choice for applications with super-critical or near-critial states.</li>
 </ol>
+<p>
 The following quantities are always computed:
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
@@ -1304,7 +1307,7 @@ The following quantities are always computed:
       <td valign=\"top\">temperature</td></tr>
   <tr><td valign=\"top\">u</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</b></td></tr>
+      <td valign=\"top\">specific internal energy</td></tr>
   <tr><td valign=\"top\">d</td>
       <td valign=\"top\">kg/m^3</td>
       <td valign=\"top\">density</td></tr>
@@ -1313,7 +1316,7 @@ The following quantities are always computed:
       <td valign=\"top\">pressure</td></tr>
   <tr><td valign=\"top\">h</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</b></td></tr>
+      <td valign=\"top\">specific enthalpy</td></tr>
 </table>
 <p>
 In some cases additional medium properties are needed.
@@ -1323,7 +1326,6 @@ one of the functions listed in
 Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
 <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
-</p>
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
@@ -1491,7 +1493,7 @@ The following quantities are always computed in Medium.Baseproperties:
       <td valign=\"top\">temperature</td></tr>
   <tr><td valign=\"top\">u</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific internal energy</b></td></tr>
+      <td valign=\"top\">specific internal energy</td></tr>
   <tr><td valign=\"top\">d</td>
       <td valign=\"top\">kg/m^3</td>
       <td valign=\"top\">density</td></tr>
@@ -1500,7 +1502,7 @@ The following quantities are always computed in Medium.Baseproperties:
       <td valign=\"top\">pressure</td></tr>
   <tr><td valign=\"top\">h</td>
       <td valign=\"top\">J/kg</td>
-      <td valign=\"top\">specific enthalpy</b></td></tr>
+      <td valign=\"top\">specific enthalpy</td></tr>
 </table>
 <p>
 In some cases additional medium properties are needed.
@@ -1511,7 +1513,7 @@ one of the following functions:
   <tr><td valign=\"top\"><b>Function call</b></td>
       <td valign=\"top\"><b>Unit</b></td>
       <td valign=\"top\"><b>Description</b></td></tr>
-  <tr><td valign=\"top\">Medium.dynamicViscosity(medium.state)</b></td>
+  <tr><td valign=\"top\">Medium.dynamicViscosity(medium.state)</td>
       <td valign=\"top\">Pa.s</td>
       <td valign=\"top\">dynamic viscosity</td></tr>
   <tr><td valign=\"top\">Medium.thermalConductivity(medium.state)</td>
@@ -1574,60 +1576,57 @@ set starting from either the saturation pressure or the saturation temperature.
 With reference to a model defining a pressure p, a temperature T, and a
 SaturationProperties record sat, the following functions are provided:
 </p>
-<p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td valign=\"top\"><b>Function call</b></td>
       <td valign=\"top\"><b>Unit</b></td>
       <td valign=\"top\"><b>Description</b></td></tr>
-  <tr><td valign=\"top\">Medium.saturationPressure(T)</b></td>
+  <tr><td valign=\"top\">Medium.saturationPressure(T)</td>
       <td valign=\"top\">Pa</td>
       <td valign=\"top\">Saturation pressure at temperature T</td></tr>
-  <tr><td valign=\"top\">Medium.saturationTemperature(p)</b></td>
+  <tr><td valign=\"top\">Medium.saturationTemperature(p)</td>
       <td valign=\"top\">K</td>
       <td valign=\"top\">Saturation temperature at pressure p</td></tr>
-  <tr><td valign=\"top\">Medium.saturationTemperature_derp(p)</b></td>
+  <tr><td valign=\"top\">Medium.saturationTemperature_derp(p)</td>
       <td valign=\"top\">K/Pa</td>
       <td valign=\"top\">Derivative of saturation temperature with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.bubbleEnthalpy(sat)</b></td>
+  <tr><td valign=\"top\">Medium.bubbleEnthalpy(sat)</td>
       <td valign=\"top\">J/kg</td>
       <td valign=\"top\">Specific enthalpy at bubble point</td></tr>
-  <tr><td valign=\"top\">Medium.dewEnthalpy(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dewEnthalpy(sat)</td>
       <td valign=\"top\">J/kg</td>
       <td valign=\"top\">Specific enthalpy at dew point</td></tr>
-  <tr><td valign=\"top\">Medium.bubbleEntropy(sat)</b></td>
+  <tr><td valign=\"top\">Medium.bubbleEntropy(sat)</td>
       <td valign=\"top\">J/(kg.K)</td>
       <td valign=\"top\">Specific entropy at bubble point</td></tr>
-  <tr><td valign=\"top\">Medium.dewEntropy(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dewEntropy(sat)</td>
       <td valign=\"top\">J/(kg.K)</td>
       <td valign=\"top\">Specific entropy at dew point</td></tr>
-  <tr><td valign=\"top\">Medium.bubbleDensity(sat)</b></td>
+  <tr><td valign=\"top\">Medium.bubbleDensity(sat)</td>
       <td valign=\"top\">kg/m3</td>
       <td valign=\"top\">Density at bubble point</td></tr>
-  <tr><td valign=\"top\">Medium.dewDensity(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dewDensity(sat)</td>
       <td valign=\"top\">kg/m3</td>
       <td valign=\"top\">Density at dew point</td></tr>
-  <tr><td valign=\"top\">Medium.dBubbleDensity_dPressure(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dBubbleDensity_dPressure(sat)</td>
       <td valign=\"top\">kg/(m3.Pa)</td>
       <td valign=\"top\">Derivative of density at bubble point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dDewDensity_dPressure(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dDewDensity_dPressure(sat)</td>
       <td valign=\"top\">kg/(m3.Pa)</td>
       <td valign=\"top\">Derivative of density at dew point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dBubbleEnthalpy_dPressure(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dBubbleEnthalpy_dPressure(sat)</td>
       <td valign=\"top\">J/(kg.Pa)</td>
       <td valign=\"top\">Derivative of specific enthalpy at bubble point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.dDewEnthalpy_dPressure(sat)</b></td>
+  <tr><td valign=\"top\">Medium.dDewEnthalpy_dPressure(sat)</td>
       <td valign=\"top\">J/(kg.Pa)</td>
       <td valign=\"top\">Derivative of specific enthalpy at dew point with respect to pressure</td></tr>
-  <tr><td valign=\"top\">Medium.surfaceTension(sat)</b></td>
+  <tr><td valign=\"top\">Medium.surfaceTension(sat)</td>
       <td valign=\"top\">N/m</td>
       <td valign=\"top\">Surface tension between liquid and vapour phase</td></tr>
 </table>
-
 <p>Details on usage and some examples are given in:
 <a href=\"modelica://Modelica.Media.UsersGuide.MediumUsage.TwoPhase\">
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
-
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables,
 all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
@@ -1635,6 +1634,7 @@ all first partial derivatives of the standard thermodynamic variables can be com
 The documentation of the IAPWS/IF97 steam properties can be freely
 distributed with computer implementations and are included here
 (in directory Modelica/Resources/Documentation/Media/Water/IF97documentation):
+</p>
 <ul>
 <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/IF97.pdf\">IF97.pdf</a> The standards document for the main part of the IF97.</li>
 <li><a href=\"modelica://Modelica/Resources/Documentation/Media/Water/IF97documentation/Back3.pdf\">Back3.pdf</a> The backwards equations for region 3.</li>

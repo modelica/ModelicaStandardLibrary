@@ -1378,22 +1378,28 @@ temperature rise defined by storing heat in medium's mass.
       // no energy exchange with medium
       Q_flow = frictionLoss*V_flow*dp;
     annotation (Documentation(info="<HTML>
-Simple controlled valve.<br>
-Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),<br>
-<code>
+<p>Simple controlled valve.</p>
+<p>
+Standard characteristic Kv=<i>f </i>(y) is given at standard conditions (dp0, rho0),
+</p>
 <ul>
-<li>either linear : Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</li>
-<li>or exponential: Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) * y/Y1]</li>
+<li>either linear :<code> Kv/Kv1 = Kv0/Kv1 + (1-Kv0/Kv1) * y/Y1</code></li>
+<li>or exponential:<code> Kv/Kv1 = Kv0/Kv1 * exp[log(Kv1/Kv0) * y/Y1]</code></li>
 </ul>
+<p>
 where:
+</p>
 <ul>
-<li>Kv0 ... min. flow @ y = 0</li>
-<li>Y1 .... max. valve opening</li>
-<li>Kv1 ... max. flow @ y = Y1</li>
+<li><code>Kv0 ... min. flow @ y = 0</code></li>
+<li><code>Y1 .... max. valve opening</code></li>
+<li><code>Kv1 ... max. flow @ y = Y1</code></li>
 </ul>
-</code>
-Flow resistance under real conditions is calculated by<br>
-<code>V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0</code>
+<p>
+Flow resistance under real conditions is calculated by
+</p>
+<blockquote><pre>
+V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
+</pre></blockquote>
 </HTML>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={

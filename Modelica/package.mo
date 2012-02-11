@@ -375,7 +375,7 @@ Pin connector can be directly connected to the phase or ground of
 a Plug connector, such as \"connect(resistor.p, plug.phase)\".
 </p>
 
-<h4 name=\"ConnectorEquations\">Connector Equations</h4>
+<h4 id=\"ConnectorEquations\">Connector Equations</h4>
 
 <p>
 The connector variables listed above have been basically determined
@@ -1086,7 +1086,7 @@ For parameters, connectors, as well as inputs and outputs of function automatic 
 <li> <b>Constant names</b>, i.e., names of variables declared with the
      \"constant\" prefix, follow the usual naming conventions
      (= upper and lower case letters) and start usually with an
-     upper case letter, e.g., UniformGravity, SteadyState.<li>
+     upper case letter, e.g., UniformGravity, SteadyState.</li>
 
 <li> The two <b>connectors</b> of a domain that have identical declarations
      and different icons are usually distinguished by <code>_a</code>, <code>_b</code>
@@ -1730,7 +1730,6 @@ th      { solid #000; vertical-align:top; font-weight: bold; }
 table   { solid #000; border-collapse: collapse;}
 </style>
 </head>
-<body lang=\"en-US\">
 
 <p>All files in this directory (Modelica) and in all
 subdirectories, especially all files that build package \"Modelica\" and all
@@ -2266,7 +2265,6 @@ Modelica Language Specification?</b></p>
 if you are not the copyright-holder, since article 2c) does not allow
 a selling fee for a (in this case physical) copy. However, mere
 printing and shipping costs may be recovered.</p>
-</body>
 </html>"));
 end ModelicaLicense2;
 
@@ -3685,8 +3683,7 @@ the following new language elements (compared to Modelica Specification 3.0):
 <li> Modifiers can be used in connectors instances (so balanced models
      are less restrictive). This allowed to make the implementation
      of conditional connectors (support and heatPort) in the Rotational,
-     Translational and Electrical libraries simpler.<li>
-<li>
+     Translational and Electrical libraries simpler.</li>
 </ul>
 
 <p>
@@ -6375,7 +6372,7 @@ The following <b>new libraries</b> have been added:
                                 balance equations have to be implemented.<br>
                                 Used independent variables: \"p,T\", \"p,T,X\", \"p,h\", \"d,T\".</li>
                    <li> Optional variables, e.g., dynamic viscosity, are only computed
-                                if needed.<li>
+                                if needed.</li>
                    <li> The medium models are implemented with regards to efficient
                                 dynamic simulation.</li>
                    </ul>
@@ -6454,12 +6451,12 @@ The following <b>new libraries</b> have been added:
 <table border=\"1\" cellspacing=0 cellpadding=2>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Digital\">Modelica.Electrical.Digital</a></td>
           <td valign=\"top\">Digital electrical components based on 2-,3-,4-, and 9-valued logic<br>
-                  according to the VHDL standard</td><tr>
+                  according to the VHDL standard</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Electrical.Machines\">Modelica.Electrical.Machines</a></td>
-          <td valign=\"top\">Asynchronous, synchronous and DC motor and generator models</td><tr>
+          <td valign=\"top\">Asynchronous, synchronous and DC motor and generator models</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.Math.Matrices\">Modelica.Math.Matrices</a></td>
           <td valign=\"top\">Functions operatinng on matrices such as solve() (A*x=b), leastSquares(),<br>
-                  norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td><tr>
+                  norm(), LU(), QR(),  eigenValues(), singularValues(), exp(), ...</td></tr>
 <tr><td valign=\"top\"><a href=\"modelica://Modelica.StateGraph\">Modelica.StateGraph</a></td>
           <td valign=\"top\"> Modeling of <b>discrete event</b> and <b>reactive</b> systems in a convenient way using<br>
                    <b>hierarchical state machines</b> and <b>Modelica</b> as <b>action language</b>. <br>
