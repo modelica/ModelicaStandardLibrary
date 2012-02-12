@@ -638,13 +638,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 </HTML>
 "),         Documentation(info="
 An external force element exerts the inport signal
@@ -821,13 +821,13 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque1.png\">
 
 <p>
 This leads to the following animation
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
 </HTML>
 "),         Documentation(info="
 An external force element exerts the inport signal
@@ -1028,7 +1028,7 @@ An example how to use this model is given in the
 following figure:
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque1.png\">
 
 <p>
 This leads to the following animation (the yellow cylinder
@@ -1039,7 +1039,7 @@ also on the opposite side of this cylinder, but for
 clarity this is not shown in the animation):
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 </HTML>
 "),         Documentation(info="
 An external force element exerts the inport signal
@@ -2777,7 +2777,7 @@ respectively, acting at frame_b and
 with negative sign at frame_a.
 </p>
 
-<IMG src=\"modelica://ObsoleteModelica3/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
+<IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Sensors/CutForceAndTorque.png\">
 </HTML>"));
         end CutForceAndTorque;
       end Sensors;
