@@ -7733,7 +7733,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
       annotation (Documentation(info="
 
-  Purpose
+    Purpose
     =======
 
     DGECON estimates the reciprocal of the condition number of a general
