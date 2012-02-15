@@ -4215,7 +4215,7 @@ These models use package SpacePhasors.
             Machines.Interfaces.InductionMachines.PowerBalanceSMPM
             powerBalance(final lossPowerRotorWinding = heatFlowSensorDamperCage.Q_flow,
                          final lossPowerRotorCore = 0,
-                         final lossPowerPermanentMagnet = 0),
+                         final lossPowerPermanentMagnet = -permanentMagnetLosses.heatPort.Q_flow),
           statorCore(final w=statorCoreParameters.wRef));
         Machines.BasicMachines.Components.AirGapR airGapR(
           final p=p,
@@ -4262,6 +4262,10 @@ These models use package SpacePhasors.
           start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters(
+          IRef(start=100), wRef(start=2*pi*fsNominal/p))
+          "Permanent magnet loss losses"
+          annotation(Dialog(tab="Losses"));
         output Modelica.SIunits.Current idq_dr[2](each stateSelect=StateSelect.prefer)=
           damperCage.spacePhasor_r.i_ if useDamperCage
           "Damper space phasor current / rotor fixed frame";
@@ -4271,7 +4275,7 @@ These models use package SpacePhasors.
       public
         Machines.BasicMachines.Components.PermanentMagnet permanentMagnet(final Ie=Ie)
           annotation (Placement(transformation(
-              origin={-70,-30},
+              origin={-30,-30},
               extent={{-10,10},{10,-10}},
               rotation=180)));
         Machines.BasicMachines.Components.DamperCage damperCage(
@@ -4291,12 +4295,16 @@ These models use package SpacePhasors.
                                                         heatFlowSensorDamperCage(final useFixedTemperature=
                                 not useDamperCage)
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}})));
+        Losses.InductionMachines.PermanentMagnetLosses permanentMagnetLosses(final
+            permanentMagnetLossParameters=permanentMagnetLossParameters, final
+            useHeatPort=true)
+          annotation (Placement(transformation(extent={{-30,70},{-50,90}})));
       equation
         connect(airGapR.spacePhasor_r, damperCage.spacePhasor_r) annotation (Line(
               points={{10,-10},{10,-30},{10,-30}},
                                           color={0,0,255}));
         connect(airGapR.spacePhasor_r, permanentMagnet.spacePhasor_r)
-          annotation (Line(points={{10,-10},{10,-10},{10,-20},{-60,-20}},color=
+          annotation (Line(points={{10,-10},{10,-10},{10,-20},{-20,-20}},color=
                 {0,0,255}));
         connect(airGapR.support, internalSupport) annotation (Line(
             points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
@@ -4323,13 +4331,30 @@ These models use package SpacePhasors.
             points={{10,-60},{10,-80},{0,-80}},
             color={191,0,0},
             smooth=Smooth.None));
-        connect(spacePhasorS.plug_n, plug_sn) annotation (Line(
-            points={{-10,80},{-60,80},{-60,100}},
+        connect(spacePhasorS.plug_n, permanentMagnetLosses.plug_p) annotation (Line(
+            points={{-10,80},{-30,80}},
             color={0,0,255},
             smooth=Smooth.None));
+        connect(permanentMagnetLosses.plug_n, plug_sn) annotation (Line(
+            points={{-50,80},{-60,80},{-60,100}},
+            color={0,0,255},
+            smooth=Smooth.None));
+        connect(permanentMagnetLosses.flange, strayLoad.flange) annotation (Line(
+            points={{-40,90},{80,90}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(permanentMagnetLosses.support, airGapR.support) annotation (Line(
+            points={{-40,70},{-40,1.83697e-015},{-10,1.83697e-015}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(permanentMagnetLosses.heatPort, internalThermalPort.heatPortPermanentMagnet)
+          annotation (Line(
+            points={{-30,70},{-30,40},{50,40},{50,-80},{0,-80}},
+            color={191,0,0},
+            smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}), graphics),
+          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
+                  100}}),            graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
@@ -4354,6 +4379,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <li>friction losses</li>
 <li>core losses (only eddy current losses, no hysteresis losses)</li>
 <li>stray load losses</li>
+<li>permanent magnet losses</li>
 </ul>
 
 <p>Whether a damper cage is present or not, can be selected with Boolean parameter useDamperCage (default = true).
@@ -10320,7 +10346,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
 </html>"));
     end BrushParameters;
 
-    record StrayLoadParameters "Parameter record for stray load  losses"
+    record StrayLoadParameters "Parameter record for stray load losses"
       extends Modelica.Icons.Record;
       parameter Modelica.SIunits.Power PRef(min=0, start=0)
         "Reference stray load losses at IRef and wRef";
@@ -10331,7 +10357,7 @@ Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.In
       parameter Real power_w(min=Modelica.Constants.small) = 1
         "Exponent of stray load loss torque w.r.t. angular velocity";
       final parameter Modelica.SIunits.Torque tauRef = if (PRef<=0) then 0 else PRef / wRef
-        "Reference friction torque at reference angular velocity and reference current";
+        "Reference stray load torque at reference angular velocity and reference current";
     annotation (defaultComponentPrefixes="parameter ",
     Documentation(info="<html>
 <p>
@@ -10365,6 +10391,31 @@ and <a href=\"modelica://Modelica.Electrical.Machines.Losses.DCMachines.Core\">c
 </p>
 </html>"));
     end CoreParameters;
+
+    record PermanentMagnetLossParameters
+      "Parameter record for permanent magnet losses"
+      extends Modelica.Icons.Record;
+      parameter Modelica.SIunits.Power PRef(min=0, start=0)
+        "Reference permanent magnet losses at IRef and wRef";
+      parameter Real c(min=0, max=1) = 0
+        "Part of permanent magnet losses at current = 0, i.e. independent of current";
+      parameter Modelica.SIunits.Current IRef(min=Modelica.Constants.small)
+        "Reference stator RMS current that PRef refers to";
+      parameter Real power_I(min=Modelica.Constants.small) = 2
+        "Exponent of permanent magnet loss torque w.r.t. stator current";
+      parameter Modelica.SIunits.AngularVelocity wRef(displayUnit="1/min", min=Modelica.Constants.small)
+        "Reference angular velocity that PRef refers to";
+      parameter Real power_w(min=Modelica.Constants.small) = 1
+        "Exponent of permanent magnet loss torque w.r.t. angular velocity";
+      final parameter Modelica.SIunits.Torque tauRef = if (PRef<=0) then 0 else PRef / wRef
+        "Reference permanent magnet loss torque at reference angular velocity and reference current";
+    annotation (defaultComponentPrefixes="parameter ",
+    Documentation(info="<html>
+<p>
+Parameter record for <a href=\"modelica://Modelica.Electrical.Machines.Losses.InductionMachines.PermanentMagnetLosses\">permanent magnet losses</a>.
+</p>
+</html>"));
+    end PermanentMagnetLossParameters;
 
     model Friction "Model of angular velocity dependent friction losses"
       extends Machines.Interfaces.FlangeSupport;
@@ -10593,6 +10644,81 @@ If it is desired to neglect stray load losses, set <code>strayLoadParameters.PRe
 </p>
 </html>"));
       end StrayLoad;
+
+      model PermanentMagnetLosses
+        "Model of permanent magnet losses dependent on current and speed"
+        extends Modelica.Electrical.MultiPhase.Interfaces.OnePort(final m=3);
+        extends Machines.Interfaces.FlangeSupport;
+        parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters
+          "Permanent magnet loss parameters";
+        extends
+          Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPortWithoutT(
+           useHeatPort=false);
+        Modelica.SIunits.Current iRMS=Machines.SpacePhasors.Functions.quasiRMS(i);
+      equation
+        v = zeros(m);
+        if (permanentMagnetLossParameters.PRef<=0) then
+          tau = 0;
+        else
+          tau = -permanentMagnetLossParameters.tauRef*(permanentMagnetLossParameters.c + (1 - permanentMagnetLossParameters.c)*
+                   (iRMS/permanentMagnetLossParameters.IRef)^permanentMagnetLossParameters.power_I)*
+                 smooth(1,if w >= 0 then +(+w/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w else
+                                         -(-w/permanentMagnetLossParameters.wRef)^permanentMagnetLossParameters.power_w);
+        end if;
+        lossPower = -tau*w;
+        annotation (Icon(graphics={
+              Rectangle(
+                extent={{-60,40},{60,0}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid),
+              Rectangle(
+                extent={{-60,0},{60,-40}},
+                lineColor={0,255,0},
+                pattern=LinePattern.None,
+                lineThickness=0.5,
+                fillColor={0,255,0},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-60,60},{60,20}},
+                lineColor={255,0,0},
+                fillColor={255,0,0},
+                fillPattern=FillPattern.Solid),
+              Ellipse(
+                extent={{-60,-20},{60,-60}},
+                lineColor={0,255,0},
+                fillColor={0,255,0},
+                fillPattern=FillPattern.Solid),
+                                   Line(points={{-90,0},{90,0}}, color={0,0,255})}),
+          Documentation(info="<html>
+<p>
+Permanent magnet losses are modeled dependent on current and speed.
+</p>
+<p>
+The permanent magnet losses are modeled such way that they do not cause a voltage drop in the electric circuit.
+Instead, the dissipated losses are considered through an equivalent braking torque at the shaft.
+</p>
+<p>
+The permanent magnet loss torque is
+</p>
+<pre>
+  tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
+</pre>
+<p>
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity. 
+The parameter <code>c</code> designates the part of the permanent magnet losses that are present even at current = 0, i.e. independent of current. 
+The dependency of the permanent magnet loss torque on the stator current is modeled by the exponent <code>power_I</code>. 
+The dependency of the permanent magnet loss torque on the angular velocity is modeled by the exponent <code>power_w</code>.
+</p>
+<h4>See also</h4>
+<p>
+<a href=\"modelica://Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters\">Permanent magnet loss parameters</a>
+</p>
+<p>
+If it is desired to neglect permanent magnet losses, set <code>strayLoadParameters.PRef = 0</code> (this is the default).
+</p>
+</html>"));
+      end PermanentMagnetLosses;
 
       model Core "Model of core losses"
         parameter Machines.Losses.CoreParameters coreParameters(final m=3);
