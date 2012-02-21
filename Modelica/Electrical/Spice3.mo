@@ -249,8 +249,7 @@ Zeunerstrasse 38<br />
 <ul>
 <li><i>Feb 2010 </i>by Kristin Majetta initially written</li>
 </ul>
-</html>"),  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
   end UsersGuide;
 
   package Examples "Example circuits"
@@ -1436,7 +1435,6 @@ Zeunerstrasse 38<br />
           color={170,85,255},
           smooth=Smooth.None));
       annotation (
-        Diagram(graphics),
         experiment(StopTime=0.1),
         experimentSetupOutput,
         Icon(graphics={                      Ellipse(extent={{-100,100},{
@@ -1449,8 +1447,7 @@ Zeunerstrasse 38<br />
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
 <p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
-<p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via K, such as C1.p.v, and C2.p.v.</p>
-</html>", revisions="<html>
+<p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
 </html>"));
     end CoupledInductors;
     annotation (Documentation(info="<html>
@@ -1586,11 +1583,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
               extent={{-130,-40},{134,-60}},
               lineColor={0,0,0},
               textString="C=%C"),
-            Text(extent={{-138,42},{136,62}},  textString="%name")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+            Text(extent={{-138,42},{136,62}},  textString="%name")}));
     end C_Capacitor;
 
     model L_Inductor "Ideal linear electrical inductor"
@@ -1640,11 +1633,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
               extent={{-142,-40},{142,-60}},
               lineColor={0,0,0},
               textString="L=%L"),
-            Text(extent={{-136,36},{138,56}},  textString="%name")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+            Text(extent={{-136,36},{138,56}},  textString="%name")}));
     end L_Inductor;
 
     model K_CoupledInductors "Inductive coupling via coupling factor K"
@@ -1662,7 +1651,7 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
       M = k*sqrt(inductiveCouplePin1.L*inductiveCouplePin2.L);
       inductiveCouplePin1.v = - M*inductiveCouplePin2.di;
       inductiveCouplePin2.v = - M*inductiveCouplePin1.di;
-      annotation (Diagram(graphics), Icon(graphics={
+      annotation (Icon(graphics={
             Polygon(
               points={{-60,0},{0,20},{60,0},{0,-20},{-60,0}},
               lineColor={170,85,255},
@@ -1686,9 +1675,13 @@ The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
               fillPattern=FillPattern.Solid,
               textString="k=%k")}),
         Documentation(info="<html>
-<p>K_CoupledInductors is a component that allows the coupling of two inductors. K is coefficient of coupling</p>
-<p>which must be greater than or equal to zero and less than one.</p>
-<p>The usage is demonstrated in example CoupledInductors from package examples.</p>
+<p>
+<code>K_CoupledInductors</code> is a component that allows the coupling of two inductors.
+<code>K</code> is the coefficient of coupling which must be greater than or equal to zero and less than one.
+</p>
+<p>
+The usage is demonstrated in the example <a href=\"modelica://Modelica.Electrical.Spice3.Examples.CoupledInductors\">CoupledInductors</a>.
+</p>
 </html>"));
     end K_CoupledInductors;
 
@@ -1745,11 +1738,7 @@ The corresponding SPICE description
               points={{20,60},{10,63},{10,57},{20,60}},
               lineColor={0,0,255},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              fillPattern=FillPattern.Solid)}));
     end E_VCV;
 
     model G_VCC "Linear voltage-controlled current source"
