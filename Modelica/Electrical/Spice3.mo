@@ -115,15 +115,25 @@ end inverter;
 </tr>
 </table>
 
-<p>Given is a SPICE3 netlist that contains two inverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the</p>
-<p>output voltage of the second (node number 2)later will be connected with the surrounding circuit. The following steps are necessary:</p>
+<p>Given is a SPICE3 netlist that contains two inverter circuits. This netlist should be translated to Modelica in which the input voltage of the first inverter (node number 1) and the output voltage of the second inverter (node number 2) will later be connected with the surrounding circuit.</p>
+<p>The following steps are necessary:</p>
 <ol>
 <li>A name for the Modelica model has to be chosen. It could be taken from the first line of the SPICE3 netlist.</li>
-<li>The ground node has to be instantiated (Spice3.Basic.Ground).</li>
-<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE lineVdrain 11 0 PULSE(0 5 0 1)becomes the following Modelica line:Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1); <br/></li>
-<li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomesprotected Spice3.Interfaces.Pin n2;in Modelica. The code letter (here n) is needed because a single number is no name in Modelica.<br/></li>
-<li>According to the netlist the internal pins have to be connected with the components, e.g., connect(Mp1.D, n11).</li>
-<li>In the last step the external pins have to be allocated ant connected to the according internal pin. In table 1 this is done as follows: Spice3.Interfaces.Pin p_in, p_out;connect(p_in, n1); connect(p_out, n2); </li>
+<li>The ground node has to be instantiated (i.e., <code>Spice3.Basic.Ground</code>).</li>
+<li>For each component of the netlist an instant has to be created. According to the first letter of the SPICE3 model identifier in the netlist, the needed component has to be chosen, instantiated and according to the given parameters parametrized, e.g., the SPICE lineVdrain 11 0 PULSE(0 5 0 1)becomes the following Modelica line: <code>Spice3&hellip;V_pulse vdrain(V1=0, V2=5, TD=0, TR=1);</code></li>
+<li>For all node numbers an internal pin has to be created. For example the node number 2 from the SPICE3 netlist becomes
+<pre>
+protected Spice3.Interfaces.Pin n2;
+</pre>
+in Modelica. The code letter (here <code>n</code>) is needed because a single number is no name in Modelica.</li>
+<li>According to the netlist the internal pins have to be connected with the components, e.g., <code>connect(Mp1.D, n11)</code>.</li>
+<li>In the last step the external pins have to be allocated ant connected to the according internal pin. In Table&nbsp;1 this is done as follows:
+<pre>
+Spice3.Interfaces.Pin p_in, p_out;
+connect(p_in, n1);
+connect(p_out, n2);
+</pre>
+</li>
 </ol>
 </html>"));
   end Spicenetlist;
