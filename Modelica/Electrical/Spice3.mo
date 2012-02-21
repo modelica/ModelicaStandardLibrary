@@ -1281,7 +1281,7 @@ Zeunerstrasse 38<br />
     end Oscillator;
 
     model CoupledInductors
-
+      extends Modelica.Icons.Example;
       Modelica.Electrical.Spice3.Basic.Ground ground
         annotation (Placement(transformation(extent={{-100,-100},{-80,-80}})));
       Modelica.Electrical.Spice3.Sources.V_sin sineVoltage(VA=220, FREQ=50)
@@ -1435,16 +1435,7 @@ Zeunerstrasse 38<br />
           color={170,85,255},
           smooth=Smooth.None));
       annotation (
-        experiment(StopTime=0.1),
-        experimentSetupOutput,
-        Icon(graphics={                      Ellipse(extent={{-100,100},{
-                  100,-100}},
-                lineColor={95,95,95}), Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
+        experiment(StopTime=0.2),
         Documentation(info="<html>
 <p>The coupled inductor circuit demonstrates how different inductors can be coupled using the Component K_CoupledInductors from package Basic</p>
 <p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
