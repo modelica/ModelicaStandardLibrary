@@ -2098,6 +2098,36 @@ The corresponding SPICE description
 <p>Technology parameters of the semiconductor resistor model</p>
 </html>"));
     end ModelcardRESISTOR;
+
+    model C_Capacitor "Semiconductor capacitor"
+    extends Modelica.Electrical.Spice3.Internal.C_SEMI;
+                    annotation (
+        Documentation(info="<html>
+<p>C_Capacitor is a Semiconductor Capacitor model.</p>
+<p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.<p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
+</html>", revisions="<html>
+<ul>
+<li><i>September 2011 </i>revised by Sandra Böhme</br/>
+<li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul>
+</html>"),
+    Placement(transformation(extent={{-110,-10},{
+                -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
+                20}})),         Placement(transformation(extent={{110,-10},{90,
+                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})),
+                  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                -100},{100,100}}),      graphics));
+    end C_Capacitor;
+
+    record ModelcardCAPACITOR
+      "Record for the specification of modelcard parameters for Semiconductor Capacitor"
+      extends Modelica.Electrical.Spice3.Internal.ModelcardC;
+      annotation (Documentation(info="<html>
+<p>Technology parameters of the semiconductor capacitor model.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+</html>"));
+    end ModelcardCAPACITOR;
     annotation(preferredView="info",
       Documentation(info="<html>
 <p>This package contains both the semiconductor devices models of SPICE3, which are available, and their modelcards. The user should apply the models of this package.</p>
@@ -4287,6 +4317,104 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </html>"));
     end ModelcardR;
 
+    model C_SEMI "Semiconductor capacitor"
+
+      extends Modelica.Electrical.Analog.Interfaces.OnePort;
+      parameter SI.Capacitance C = -1e40
+        "Capacitance, if specified, geometrical information is overwritten";
+      parameter SI.Temp_C TEMP = 27 "Temperature of capcitor";
+      parameter SI.Length  L(start = 0) "Lenght of the capcitor";
+      parameter SI.Length  W = -1e40
+        "Width of the capcitor, default DEFW (modelcard)";
+      parameter Boolean SENS_AREA = false
+        "Parameter for sensitivity analyses, not implemented yet";
+      parameter SI.Voltage IC = 0 "Initial value";
+      parameter Boolean UIC = false
+        "Use initial conditions: true, if initial condition is used";
+      parameter Modelica.Electrical.Spice3.Internal.ModelcardC modelcard
+        "Capcitor modelcard";
+      final parameter
+        Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams
+                                                                                    lp=
+          Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParameters(
+           modelcard) "Model Line Parameters";
+      final parameter
+        Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor               cp=
+          Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorRenameParametersDev(
+              C,
+              W,
+              L,
+              TEMP,
+              SENS_AREA,
+              lp) "Renamed parameters";
+
+      Modelica.Electrical.Spice3.Internal.Csemiconductor.Capacitor vp;
+
+    protected
+      SI.Voltage vinternal;
+
+    initial equation
+      if UIC then
+        vinternal = IC;
+      else
+        der(vinternal) = 0;
+      end if;
+
+    algorithm
+      if (cp.m_dCapIsGiven < 0.5) then
+        assert( L > 0, "Length of capacitor must be greater then zero");
+      end if;
+
+      vp := Modelica.Electrical.Spice3.Internal.Csemiconductor.capacitorInitEquations(
+         cp, lp);
+
+      vinternal := p.v - n.v;
+      i         := vp.m_dCapac*der(vinternal);
+
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{-14,28},{-14,-28}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(
+              points={{14,28},{14,-28}},
+              color={0,0,255},
+              thickness=0.5),
+            Line(points={{-90,0},{-14,0}}),
+            Line(points={{14,0},{90,0}}),
+            Text(
+              extent={{-130,-40},{134,-60}},
+              lineColor={0,0,0},
+              textString="C=%C"),
+            Text(extent={{-138,42},{136,62}},  textString="%name")}),
+                                     Documentation(revisions="<html>
+<ul>
+<li><i>  </i>
+       </li>
+<li><i> April 2009 </i>
+       by Kristin Majetta <br>initially implemented</li>
+</ul>
+</html>", info="<html>
+<p>Semiconductor capacitance model</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</html>"));
+    end C_SEMI;
+
+    record ModelcardC "Record with technological parameters (.model)"
+
+      parameter SI.CapacitancePerArea CJ = 0.0
+        "Junction bottom capacitance     F/meters2";
+      parameter SI.Permittivity CJSW = 0.0
+        "Junction sidewall capacitance   F/meters";
+      parameter SI.Length  DEFW=1e-5 "Default device width";
+      parameter SI.Length  NARROW=0 "Narrowing due to side etching";
+      annotation (Documentation(info="<html>
+<p>Modelcard parameters for semiconductor capacitance model</p>
+<p><br/>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</html>"));
+    end ModelcardC;
+
      record SpiceConstants "General constants of SPICE simulator"
        constant Real EPSSIL =     (11.7 * 8.854214871e-12);
        constant Real EPSOX =      3.453133e-11;
@@ -4837,6 +4965,22 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 <p>This internal function calculates the resistance in dependency from the geometrical values (width, narrow) and resistivity.</p>
 </html>"));
     end resDepGeom;
+
+    function capDepGeom "Capacitance dependent from width and narrow"
+
+    input SI.CapacitancePerArea cap0 "Junction bottom capacitance";
+    input SI.Permittivity capsw0 "Junction sidewall capacitance";
+    input SI.Length  width "Input capacitor width";
+    input SI.Length  length "Input capacitor length";
+    input SI.Length  narrow "Input narrow";
+
+    output SI.Capacitance out "Output value";
+
+    algorithm
+      out := cap0 * (width - narrow) * (length - narrow)
+             + capsw0 * 2 * ((length - narrow) + (width - narrow));
+
+    end capDepGeom;
       annotation (Documentation(info="<html>
 <p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
 </html>"));
@@ -8403,6 +8547,94 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
     annotation (Documentation(info="<html>
 <p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
 </html>"));
+    package Csemiconductor
+      record Capacitor
+        extends Modelica.Electrical.Spice3.Internal.Model.Model;
+
+          SI.Capacitance m_dCapac(start=1e-9) "Device is a Capacitor model";
+          Real m_dCapIsGiven "Capacitor is given value";
+          SI.Length  m_dWidth(start=0) "Width";
+          SI.Length  m_dLength(start=0) "Length";
+          Boolean m_bSensCapac( start = false)
+          "flag to request sensitivity WRT Capacitor";
+
+      end Capacitor;
+
+      record CapacitorModelLineParams
+        "Record for Capacitor model line parameters"
+
+          SI.CapacitancePerArea m_dCj "Junction bottom capacitance";
+          SI.Permittivity m_dCjsw "Junction sidewall capacitance";
+          SI.Length  m_dDefW "Default device width";
+          SI.Length  m_dNarrow "Narrowing due to side etching";
+
+      end CapacitorModelLineParams;
+
+      function capacitorInitEquations
+
+        input Capacitor in_p "Input record with capacitor parameters";
+        input CapacitorModelLineParams in_p2
+          "Input record with capacitor model line parameters";
+
+        output Capacitor out "Output record with capacitor variables";
+
+      algorithm
+        out := in_p;
+
+        if (in_p.m_dCapIsGiven < 0.5) then
+          if (abs(in_p.m_dLength)>1e-18 and abs(in_p2.m_dCj)>1e-25) then
+            out.m_dCapac := Modelica.Electrical.Spice3.Internal.Functions.capDepGeom(
+                    in_p2.m_dCj,
+                    in_p2.m_dCjsw,
+                    out.m_dWidth,
+                    in_p.m_dLength,
+                    in_p2.m_dNarrow);
+          end if;
+        end if;
+
+      end capacitorInitEquations;
+
+      function capacitorRenameParameters
+
+        input Modelica.Electrical.Spice3.Internal.ModelcardC ex
+          "Modelcard with technologie parameters";
+
+        output CapacitorModelLineParams intern
+          "Output record with capacitor model line parameters";
+
+      algorithm
+        intern.m_dCj := ex.CJ;
+        intern.m_dCjsw := ex.CJSW;
+        intern.m_dDefW := ex.DEFW;
+        intern.m_dNarrow := ex.NARROW;
+
+      end capacitorRenameParameters;
+
+      function capacitorRenameParametersDev
+
+        input SI.Capacitance C "Capacitance";
+        input SI.Length  W "Width";
+        input SI.Length  L "Length";
+        input SI.Temp_C TEMP "Temperature";
+        input Boolean SENS_AREA
+          "Parameter for sensitivity analyses, not implemented yet";
+        input CapacitorModelLineParams p;
+
+        output Capacitor intern "Output record with capacitor parameters";
+
+      algorithm
+        intern.m_dCapIsGiven := if (C > -1e40) then 1 else 0;
+        intern.m_dCapac := if (C > -1e40) then C else 1e-9;
+
+        intern.m_dWidth := if (W > -1e40) then W else p.m_dDefW;
+
+        intern.m_dLength := L;
+        intern.m_bSensCapac := SENS_AREA;
+        intern.m_dTemp := TEMP + Modelica.Electrical.Spice3.Internal.SpiceConstants.CONSTCtoK;
+
+      end capacitorRenameParametersDev;
+
+    end Csemiconductor;
   end Internal;
 
 annotation(preferredView="info",
@@ -8452,9 +8684,11 @@ Sandra  Boehme
 <p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &quot;Modelica/package.mo&quot;.</i></p>
 </html>",
    revisions="<html>
-<ul>
+<p><ul>
+<li><i>23rd February 2012 by Kristin Majetta</i></li>
+<i>Semiconductor Capacitor added</i>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
-<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User's Guide added</li>
+<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
 <li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
 <li><i>September 2009 </i>by Kristin Majetta <br/>Bipolar transistor implemented</li>
 <li><i>August 2009 </i>by Jonathan Kress <br/>default values in sources improved</li>
@@ -8464,6 +8698,6 @@ Sandra  Boehme
 <li><i>25th February 2009 </i>by Kristin Majetta <br/>MOS Level 2 implemented</li>
 <li><i>15th October 2008 </i>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
 <li><i>April, 2008 </i>by Sandra Boehme <br/>initially implemented<br/></li>
-</ul>
+</ul></p>
 </html>"));
 end Spice3;
