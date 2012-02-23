@@ -8684,9 +8684,8 @@ Sandra  Boehme
 <p><i>The Modelica package is <b>free</b> software; it can be redistributed and/or modified under the terms of the <b>Modelica license</b>, see the license conditions and the accompanying <b>disclaimer</b> in the documentation of package Modelica in file &quot;Modelica/package.mo&quot;.</i></p>
 </html>",
    revisions="<html>
-<p><ul>
-<li><i>23rd February 2012 by Kristin Majetta</i></li>
-<i>Semiconductor Capacitor added</i>
+<ul>
+<li><i>23rd February 2012 by Kristin Majetta</i></br>Semiconductor Capacitor added</li>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
 <li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
 <li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
@@ -8698,6 +8697,6 @@ Sandra  Boehme
 <li><i>25th February 2009 </i>by Kristin Majetta <br/>MOS Level 2 implemented</li>
 <li><i>15th October 2008 </i>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
 <li><i>April, 2008 </i>by Sandra Boehme <br/>initially implemented<br/></li>
-</ul></p>
+</ul>
 </html>"));
 end Spice3;
