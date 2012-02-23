@@ -8685,7 +8685,7 @@ Sandra  Boehme
 </html>",
    revisions="<html>
 <ul>
-<li><i>23rd February 2012 by Kristin Majetta</i></br>Semiconductor Capacitor added</li>
+<li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
 <li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
 <li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
