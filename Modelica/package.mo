@@ -520,12 +520,16 @@ In a more equation oriented case additional equations or code segments can be ad
 <ul>
   <li>if <code>usePolar == true</code>, assign magnitude and angle to output <br>
 
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"> <br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\">
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_polar.png\"
+       alt=\"y[i,1] = sqrt( a[i]^2 + b[i]^2 )\"> <br>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_polar.png\"
+       alt=\"y[i,2] = atan2( b[i], a[i] )\">
   </li>
   <li>if <code>usePolar == false</code>, assign cosine and sine to output <br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"> <br>
-  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\">
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i1_rect.png\"
+       alt=\"y[i,1] = a[i]\"> <br>
+  <img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Cases/y_i2_rect.png\"
+       alt=\" y[i,2] = b[i]\">
   </li>
 </ul>
 
@@ -536,9 +540,6 @@ In a more equation oriented case additional equations or code segments can be ad
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-
-<h4>Code</h4>
-
 <p>
 <a href=\"modelica://Modelica.UsersGuide.Conventions.ModelicaCode\">Modelica code</a> conventions of class and instance names,
 parameters and variables are specified separately. In this section it is summarized how to refer to
@@ -547,7 +548,8 @@ Modelica code in the HTML documentation.
 
 <ol>
 <li> For constants, parameters and variables in code segments <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>
-     should to be used, e.g., <code><b>parameter</b> Modelica.SIunits.Time tStart \"Start time\"</code></li>
+     should to be used, e.g., <br>
+     <code><b>parameter</b> Modelica.SIunits.Time tStart \"Start time\"</code></li>
 <li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Multi line or single line code shall not be indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
@@ -575,13 +577,17 @@ Modelica code in the HTML documentation.
 
 <h5>Example 2</h5>
 
-<pre>&lt;pre&gt;
-&lt;b&gt;parameter&lt;/b&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;&lt;/pre&gt;
+<pre>
+&lt;pre&gt;
+&lt;b&gt;parameter&lt;/b&gt; Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
+&lt;/pre&gt;
 </pre>
+
 <p>appears as</p>
 
 <pre>
-<b>parameter</b> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;</pre>
+<b>parameter</b> Modelica.SIunits.Conductance G=1 &quot;Conductance&quot;;
+</pre>
 </html>"));
         end Code;
 
@@ -607,7 +613,7 @@ or <br>
 <img
  src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png\"
  alt=\"y=a_1+a_2\"><br>
-In an <code>alt</code> tag the original equation can be stored, e.g.</p>
+In an <code>alt</code> tag the original equation should be stored, e.g.,</p>
 <pre>
 &lt;img
 &nbsp;src=&quot;modelica://Modelica/Resources/Images/UsersGuide/Conventions/Documentation/Format/Equations/sample.png&quot;
@@ -618,9 +624,13 @@ In an <code>alt</code> tag the original equation can be stored, e.g.</p>
 If one wants to refer to particular variables and parameters in the documentation text, either a
 graphical representation (PNG file) or italic fonts for regular physical symbols and lower case
 <a href=\"http://www.w3.org/TR/html4/sgml/entities.html\">greek letters</a>
-should be used. Full word variables and full word indices should be spelled within &lt;code&gt; and &lt;/code&gt;. Vector and array indices should be typeset
-as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such variables and parameters are:
-<i>&phi;</i>, <i>&phi;</i><sub>ref</sub>, <i>v<sub>2</sub></i>, <code>useDamperCage</code>.</p>
+should be used. Full word variables and full word indices should be spelled within &lt;code&gt; and &lt;/code&gt;.
+Vector and array indices should be typeset as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags.
+</p>
+
+<p> Examples for such variables and parameters are:
+<i>&phi;</i>, <i>&phi;</i><sub>ref</sub>, <i>v<sub>2</sub></i>, <code>useDamperCage</code>.
+</p>
 
 <h4>Numbered equations</h4>
 
@@ -655,12 +665,13 @@ as subscripts using the &lt;sub&gt; and &lt;/sub&gt; tags. Examples for such var
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
+<p>
+Figures should in particular be included to examples to discuss the problems and results of the respective model. The library developers are yet encouraged to add figures to the documentation of other components to support the understanding of the users of the library.
+</p>
 
-<h4>Figures</h4>
-
-<p>Figures should in particular be included to examples to discuss the problems and results of the respective model. The library developers are yet encouraged to add figures to the documentation of other components to support the understanding of the users of the library.</p>
 <ol>
-<li> Figures have to be placed outside of paragraphs to be HTML compliant.</li>
+<li> Figures have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
+<li> Figures need to have <strong>at least</strong> a <code>src</code> and an <code>alt</code> attribute defined to be HTML compliant.</li>
 <li> Technical figures should be placed within a table environment. Each technical figure should then also have a caption. The figure caption starts with a capital letter.</li>
 <li> Illustration can be embedded without table environment.</li>
 </ol>
@@ -676,7 +687,9 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 <a href=\"modelica://Modelica.Blocks\">Blocks</a> package.</p>
 
 <pre>
-&lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;</pre>
+&lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"
+     alt=\"PID_controller.png\"&gt;
+</pre>
 
 <h5>Example 2</h5>
 
@@ -687,7 +700,8 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
   &lt;caption align=\"bottom\"&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"
+           alt=\"PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -695,15 +709,17 @@ The <code>PNG</code> files should be placed in a folder which exactly represents
 
 <h5>Example 3</h5>
 
-<p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;b&gt;</code> and <code>&lt;/b&gt;</code>. The figure name
-and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumerated manually. </p>
+<p>To refer to a certain figure, a figure number may be added. In such case the figure name (Fig.) including the figure enumeration (1,2,...) have to be displayed bold using <code>&lt;strong&gt;</code> and <code>&lt;/strong&gt;</code>.</p>
+<p>The figure name and enumeration should look like this: <strong>Fig. 1:</strong></p>
+<p>Figures have to be enumerated manually. </p>
 
 <pre>
 &lt;table border=\"0\" cellspacing=\"0\" cellpadding=\"2\"&gt;
-  &lt;caption align=\"bottom\"&gt;&lt;b&gt;Fig. 2: &lt;/b&gt;Caption starts with a capital letter&lt;/caption&gt;
+  &lt;caption align=\"bottom\"&gt;&lt;strong&gt;Fig. 2: &lt;/strong&gt;Caption starts with a capital letter&lt;/caption&gt;
   &lt;tr&gt;
     &lt;td&gt;
-      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"&gt;
+      &lt;img src=\"modelica://Modelica/Resources/Images/UsersGuide/Conventions/Images/Blocks/Examples/PID_controller.png\"
+           alt=\"PID_controller.png\"&gt;
     &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;
@@ -751,8 +767,9 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-
-<h4>Lists</h4>
+<p>
+Lists have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.
+</p>
 
 <ol>
 <li> Items of a list shall start with
@@ -827,13 +844,10 @@ and enumeration should look like this: <b>Fig. 1:</b> Figures have to be enumera
           extends Modelica.Icons.Information;
 
           annotation (Documentation(info="<html>
-
-<h4>Tables</h4>
-
 <ol>
 <li> Tables should always be typeset with <code>&lt;table&gt;</code> and <code>&lt;/table&gt;</code>,
      not with <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
-<li> Tables have to be placed outside of paragraphs to be HTML compliant.</li>
+<li> Tables have to be placed <strong>outside</strong> of paragraphs to be HTML compliant.</li>
 <li> Each table must have a table caption. </li>
 <li> Table headers and entries start with capital letters.</li>
 </ol>
@@ -931,7 +945,8 @@ The <a href=\"modelica://Modelica.UsersGuide.Conventions.Documentation.Structure
 <li> In each section the paragraphs should start with <code>&lt;p&gt;</code>
      and terminate with <code>&lt;/p&gt;</code>.</li>
 <li> Do not write plain text without putting it in a paragraph.</li>
-<li> No artificial line breaks <code>&lt;br&gt;</code><br> should be added within text paragraphs.</li>
+<li> No artificial line breaks <code>&lt;br&gt;</code> should be added within text paragraphs if possible.
+     Use seperate paragraphs instead.</li>
 <li> After a colon (:) continue with capital letter if new sentence starts;
      for text fragments continue with lower case letter</li>
 </ol>
