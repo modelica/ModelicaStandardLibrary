@@ -2104,8 +2104,8 @@ The corresponding SPICE description
                     annotation (
         Documentation(info="<html>
 <p>C_Capacitor is a Semiconductor Capacitor model.</p>
-<p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.<p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.<p>
+<p>This capacitor model allows the calculation of the actual capacitance value from strictly geometric information and the specification of the process.</p>
+<p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>September 2011 </i>revised by Sandra Böhme</br/>
@@ -4390,10 +4390,8 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
             Text(extent={{-138,42},{136,62}},  textString="%name")}),
                                      Documentation(revisions="<html>
 <ul>
-<li><i>  </i>
-       </li>
-<li><i> April 2009 </i>
-       by Kristin Majetta <br>initially implemented</li>
+<li><i>April 2009</i> by Kristin Majetta
+    <br>initially implemented</li>
 </ul>
 </html>", info="<html>
 <p>Semiconductor capacitance model</p>
