@@ -1451,6 +1451,91 @@ Zeunerstrasse 38<br />
 <p>Simulate until 0.2s, and display the behaviour of the parts that are coupled via <code>K</code>, such as <code>C1.p.v</code>, and <code>C2.p.v</code>.</p>
 </html>"));
     end CoupledInductors;
+
+    model CascodeCircuit
+
+      Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
+                                  J1
+        annotation (Placement(transformation(extent={{-54,38},{-34,58}})));
+      Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
+                                  J2
+        annotation (Placement(transformation(extent={{-54,4},{-34,24}})));
+      Modelica.Electrical.Spice3.Basic.R_Resistor RC(R=200)
+        annotation (Placement(transformation(extent={{-44,60},{-24,80}})));
+      Modelica.Electrical.Spice3.Basic.Ground ground
+        annotation (Placement(transformation(extent={{-54,-26},{-34,-6}})));
+      Modelica.Electrical.Spice3.Sources.V_constant UDD(V=10)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-10,60})));
+      Modelica.Electrical.Spice3.Sources.V_constant U0(V=2)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-72,38})));
+      Modelica.Electrical.Spice3.Sources.V_sin v_sin(FREQ=10, VA=2)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={-66,4})));
+    equation
+      connect(J2.D, J1.S)        annotation (Line(
+          points={{-44,24},{-44,38}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(ground.p, J2.S)     annotation (Line(
+          points={{-44,-6},{-44,4}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(v_sin.p, J2.G) annotation (Line(
+          points={{-66,14},{-60,14},{-60,13.9},{-54,13.9}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(v_sin.n, ground.p) annotation (Line(
+          points={{-66,-6},{-44,-6}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(U0.p, J1.G) annotation (Line(
+          points={{-72,48},{-63,48},{-63,47.9},{-54,47.9}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(U0.n, ground.p) annotation (Line(
+          points={{-72,28},{-80,28},{-80,-6},{-44,-6}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(J1.D, RC.p) annotation (Line(
+          points={{-44,58},{-44,70}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(UDD.p, RC.n) annotation (Line(
+          points={{-10,70},{-24,70}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      connect(UDD.n, ground.p) annotation (Line(
+          points={{-10,50},{-10,-6},{-44,-6}},
+          color={0,0,255},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics),
+        Documentation(info="<html>
+<p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v). </p>
+<p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>Aug. 2011 </i>by Kristin Majetta initially implemented</li>
+</ul>
+</html>"),
+        Icon(graphics={                      Ellipse(extent={{-100,100},{100,
+                  -100}},
+                lineColor={95,95,95}), Polygon(
+              points={{-36,60},{64,0},{-36,-60},{-36,60}},
+              lineColor={0,0,255},
+              pattern=LinePattern.None,
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid)}),
+        experiment(
+          StopTime=0.2,
+          NumberOfIntervals=1000,
+          Tolerance=1e-007),
+        __Dymola_experimentSetupOutput);
+    end CascodeCircuit;
     annotation (Documentation(info="<html>
 <p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
 </html>"));
@@ -2047,6 +2132,66 @@ The corresponding SPICE description
 <p>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
 </html>"));
     end ModelcardBJT;
+
+    model J_PJFJFET "P-channel Junction Field-Effect Transistor model (JFET)"
+     extends Modelica.Electrical.Spice3.Internal.JFET(final mtype=1);
+
+      annotation (
+        Documentation(info="<html>
+<p>J_PJFJFET is a P-channel junction field-effect transistor.</p>
+<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>September 2011 </i>revised by Sandra Böhme</br/>
+<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul>
+</html>"),
+    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+              points={{8,-68},{2,-55},{-4,-62},{8,-68}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
+                                     Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+            graphics));
+
+    end J_PJFJFET;
+
+    model J_NJFJFET "N-channel Junction Field-Effect Transistor model (JFET)"
+     extends Modelica.Electrical.Spice3.Internal.JFET(final mtype=0);
+
+      annotation (
+        Documentation(info="<html>
+<p>J_NJFJFET is a N-channel junction field-effect transistor.</p>
+<p>The junction field-effect transistor is derived from the FET model of Shichman and Hodges.</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
+</html>", revisions="<html>
+<ul>
+<li><i>September 2011 </i>revised by Sandra Böhme</br/>
+<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul>
+</html>"),    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={Polygon(
+              points={{8,-68},{2,-55},{-4,-62},{8,-68}},
+              lineColor={0,0,255},
+              fillColor={0,0,255},
+              fillPattern=FillPattern.Solid)}),
+                                     Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+            graphics));
+
+    end J_NJFJFET;
+
+    record ModelcardJFET
+      "Record for the specification of modelcard parameters for JFET"
+      extends Modelica.Electrical.Spice3.Internal.ModelcardJFET;
+      annotation (Documentation(info="<html>
+<p>Technology parameters of the junction field-effect transistor model.</p>
+<p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
+</html>"));
+    end ModelcardJFET;
 
    model D_DIODE "Diode model"
      extends Modelica.Electrical.Spice3.Internal.DIODE;
@@ -4117,6 +4262,160 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 </html>"));
     end ModelcardBJT;
 
+  model JFET "Junction Field-Effect Transistor"
+
+    Modelica.Electrical.Analog.Interfaces.PositivePin G "gate node" annotation (Placement(transformation(
+              extent={{-110,-12},{-90,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.PositivePin D "drain node" annotation (Placement(transformation(
+              extent={{-10,90},{10,110}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin S "source node" annotation (Placement(
+            transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
+
+    parameter Integer mtype( start = 0)
+        "JFET type: 0 - N channel, 1 - P channel";
+    parameter Real AREA( start = 1)
+        "Number of parallel connected identical elements";
+    parameter Boolean OFF = false
+        "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+    parameter SI.Voltage IC_VDS = -1e40
+        "Initial condition value (VDS, not implemented yet)";
+    parameter SI.Voltage IC_VGS = -1e40
+        "Initial condition value (VGS, not implemented yet)";
+    parameter Boolean UIC = false
+        "Use initial conditions: true, if initial condition is used";
+    parameter SI.Temp_C TEMP=27 "Operating temperature of the device";
+
+    parameter Modelica.Electrical.Spice3.Internal.ModelcardJFET modelcard
+        "JFET modelcard"                                   annotation(Evaluate=true);
+    final parameter Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine p=
+          Modelica.Electrical.Spice3.Internal.Jfet.jfetRenameParameters(modelcard)
+        "Model line parameters"               annotation(Evaluate=true);
+    final parameter Modelica.Electrical.Spice3.Internal.Fet.Fet m=
+          Modelica.Electrical.Spice3.Internal.Fet.fetRenameParametersDev(
+            AREA,
+            OFF,
+            IC_VDS,
+            IC_VGS,
+            UIC,
+            TEMP) "Renamed parameters"       annotation(Evaluate=true);
+
+    final parameter Integer m_type = if (mtype > 0.5) then -1 else 1
+        "Type of the transistor";
+    //    enum fet_type { NFET = 1, PFET = -1 };
+    final parameter Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine p1=
+          Modelica.Electrical.Spice3.Internal.Jfet.jfetInitEquations(m, p)
+        "Precalculated parameters";
+    final parameter Modelica.Electrical.Spice3.Internal.Jfet.JfetModelLine p2=
+          Modelica.Electrical.Spice3.Internal.Jfet.jfetModelLineInitEquations(p1)
+        "Model line variables";
+    final parameter Modelica.Electrical.Spice3.Internal.Fet.Fet m1=
+          Modelica.Electrical.Spice3.Internal.Jfet.jfetCalcTempDependencies(m, p2)
+        "Precalculated parameters";
+    Modelica.Electrical.Spice3.Internal.Fet.CurrrentsCapacitances cc;
+
+    constant Boolean m_bInit = false;
+
+    SI.Voltage Dinternal;  //internal drain node
+    SI.Voltage Sinternal;  //internal source node
+    SI.Voltage vGD;
+    SI.Voltage  vGS;
+    SI.Current ird;
+    SI.Current irs;
+    SI.Current igdgmin;
+    SI.Current igsgmin;
+
+    SI.Current icGS;
+    SI.Current icGD;
+
+  equation
+      cc = Modelica.Electrical.Spice3.Internal.Jfet.jfetNoBypassCode(
+          m1,
+          p2,
+          m_type,
+          m_bInit,
+          {G.v,Dinternal,Sinternal});
+
+    // voltages
+    // --------
+    vGD = G.v - Dinternal;
+    vGS = G.v - Sinternal;
+
+    // drain- and sourceresistances
+    // ----------------------------
+    ird * p2.m_drainResist = (D.v - Dinternal);
+    irs * p2.m_sourceResist = (S.v - Sinternal);
+
+    // capacitances
+    // ------------
+    icGD = cc.cGD * der(vGD);
+    icGS = cc.cGS * der(vGS);
+
+    // currents
+    // --------
+      igsgmin = Modelica.Electrical.Spice3.Internal.SpiceConstants.CKTgmin*(G.v -
+        Sinternal);
+      igdgmin = Modelica.Electrical.Spice3.Internal.SpiceConstants.CKTgmin*(G.v -
+        Dinternal);
+    G.i = icGD + icGS + cc.iGD + igdgmin + cc.iGS + igsgmin;
+    D.i = ird;
+    S.i = irs;
+
+    //currentsum at inner node
+    //------------------------
+    0    = -ird + cc.idrain - cc.iGD - igdgmin - icGD;
+    0    = -irs - cc.idrain - cc.iGS - igsgmin - icGS;
+
+    annotation (Documentation(info="<html>
+<p>JFET model, both N and P channel</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
+</html>", revisions="<html>
+<p><ul>
+<li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul></p>
+</html>"),
+        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+                {100,100}}), graphics),
+        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+                100,100}}), graphics={
+            Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
+                color={0,0,255}),
+            Line(points={{-92,0},{-20,0}}, color={0,0,255}),
+            Line(points={{-20,40},{-20,-40}}, color={0,0,255}),
+            Text(
+              extent={{8,-34},{96,-54}},
+              lineColor={0,0,255},
+              textString="%name")}),
+        DymolaStoredErrors);
+  end JFET;
+
+    record ModelcardJFET "Record with technological parameters (.model)"
+
+      parameter SI.Capacitance CGS=-1e40
+        "Zero-bias G-S junction capacitance, default 0";
+      parameter SI.Capacitance CGD=-1e40
+        "Zero-bias G-D junction capacitance, default 0";
+      parameter SI.Current IS=1.e-14 "Saturation current of pn junctions";
+      parameter Real FC=0.5
+        "Coefficient for forward-bias depletion capacitance formula";
+      parameter SI.Resistance RD=-1e40 "Drain ohmic resistance, default 0";
+      parameter SI.Resistance RS=-1e40 "Source ohmic resistance, default 0";
+      parameter SI.Temp_C TNOM=27 "Parameter measurement temperature";
+      parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default -2";
+      parameter SI.InversePotential B=-1e40
+        "Dotierungsverlauf parameter, default 1";
+      parameter Real BETA=-1e40 "Output admittance parameter, default 1e-4";
+      parameter SI.InversePotential LAMBDA=0
+        "Channel-length modulation, default 0";
+      parameter SI.Voltage PB=1.0 "Junction potential of pn junctions";
+      parameter Real AF=1.0 "Flicker noise exponent";
+      parameter Real KF=0 "Flicker noise coefficient";
+
+     annotation (Documentation(info="<html>
+<p>Modelcard parameters for JFET model, both N and P channel</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
+</html>"));
+    end ModelcardJFET;
+
    model DIODE "Diode model"
 
      extends Modelica.Electrical.Analog.Interfaces.TwoPin;
@@ -4979,6 +5278,24 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
              + capsw0 * 2 * ((length - narrow) + (width - narrow));
 
     end capDepGeom;
+
+    function saturationCurDepTempSPICE3JFET
+        "Temperature dependency of saturation current"
+
+      input SI.Current satcur0 "Saturation current";
+      input SI.Temp_K temp "Device Temperature";
+      input SI.Temp_K tnom "Nominal Temperature";
+
+      output SI.Current ret "Output value";
+
+      protected
+      SI.Voltage vt;
+
+    algorithm
+        vt := Modelica.Electrical.Spice3.Internal.SpiceConstants.CONSTKoverQ*temp;
+      ret := satcur0  * exp( (temp / tnom - 1) * 1.11 / vt);
+
+    end saturationCurDepTempSPICE3JFET;
       annotation (Documentation(info="<html>
 <p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
 </html>"));
@@ -8542,9 +8859,522 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
 <p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
 </html>"));
     end Bjt3;
-    annotation (Documentation(info="<html>
-<p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
+
+    package Fet
+      record Fet "Record for Fet parameters"
+        extends Modelica.Electrical.Spice3.Internal.Model.Model;
+
+        Real m_area(start = 1.0) "AREA, Area factor";
+        Boolean m_off(start = false) "OFF, Device initially off";
+        SI.Voltage m_dICVDS(start = 0.0) "IC_VDS";
+        Real m_bICVDSIsGiven "IC_VDS, IsGivenValue";
+        SI.Voltage m_dICVGS(start = 0.0) "IC_VGS";
+        Real m_bICVGSIsGiven "IC_VGS, IsGivenValue";
+        Boolean m_uic "Use initial conditions, UIC";
+
+        SI.Current m_tSatCur(start = 0);
+        SI.Voltage m_tGatePot(start = 0);
+        SI.Capacitance m_tCGS(start = 0);
+        SI.Capacitance m_tCGD(start = 0);
+        SI.Voltage m_corDepCap(start = 0);
+        SI.Voltage m_vcrit(start = 0);
+        SI.Voltage m_f1(start = 0);
+        Real m_f2(start = 0);
+        Real m_f3(start = 0);
+        SI.Voltage m_dVt(start = 0);
+
+        SI.Voltage m_vgs "Vgs, Voltage G-S";
+        SI.Voltage m_vgd "Vgd, Voltage G-D";
+        SI.Voltage m_vds "Vds";
+        SI.Current m_cgd "Igd";
+        SI.Conductance m_ggd "Ggd";
+        SI.Current m_cgs "Igs";
+        SI.Conductance m_ggs "Ggs";
+        SI.Charge m_chargegd "Qgd";
+        SI.Capacitance m_capgd "Cgd, G-D junction cap";
+        SI.Charge m_chargegs "Qgs";
+        SI.Capacitance m_capgs "Cgs, G-S junction capactance";
+        SI.Current m_cdrain "Idrain";
+        SI.Conductance m_gm "Gm";
+        SI.Conductance m_gds "Gds";
+
+      /*
+Fet::Fet( const String& modelname, const String& elementname)
+        : Model( modelname, elementname), m_pModel( NULL)
+{
+   AddParameter( "AREA", m_area, 1.);//Area factor
+   AddParameter( "OFF", m_off, false);//Device initially off
+   m_bICVDSValue = AddParameter( "IC_VDS", m_dICVDS, 0.0)->Alias( "IC_1")->Alias( "IC");
+   m_bICVGSValue = AddParameter( "IC_VGS", m_dICVGS, 0.0)->Alias( "IC_2");
+   
+   m_tSatCur = 0.;
+   m_tGatePot = 0.;
+   m_tCGS = 0.;
+   m_tCGD = 0.;
+   m_corDepCap = 0.;
+   m_vcrit = 0.;
+   m_f1   = 0.;
+   m_f2 = 0.;
+   m_f3 = 0.;
+   m_dVt = 0.0;
+   
+   AddValue( "Vgs", m_vgs);//Voltage G-S
+   AddValue( "Vgd", m_vgd);//Voltage G-D
+   AddValue( "Vds", m_vds);
+   AddValue( "Igd", m_cgd);
+   AddValue( "Ggd", m_ggd);
+   AddValue( "Igs", m_cgs);
+   AddValue( "Ggs", m_ggs);
+   AddValue( "Qgd", m_chargegd);
+   AddValue( "Cgd", m_capgd);//G-D junction cap
+   AddValue( "Qgs", m_chargegs);
+   AddValue( "Cgs", m_capgs);//G-S junction capactance
+   AddValue( "Idrain", m_cdrain);
+   AddValue( "Gm", m_gm);
+   AddValue( "Gds", m_gds);
+}
+
+*/
+      end Fet;
+
+      record FetModelLine "Record for Fet model line parameters"
+
+        SI.Voltage m_threshold(start = -2.0) "VTO";
+        Real m_beta(start = 1e-4) "BETA";
+        SI.InversePotential m_lModulation(start = 0.0) "LAMBDA";
+        SI.Resistance m_drainResist(start = 0.0) "RD";
+        SI.Resistance m_sourceResist(start = 0) "RS";
+        SI.Capacitance m_capGS(start = 0) "CGS";
+        SI.Capacitance m_capGD(start = 0) "CGD";
+        SI.Voltage m_gatePotential(start = 1.0) "PB";
+        SI.Current m_gateSatCurrent(start = 1e-14) "IS";
+        Real m_depletionCapCoeff(start = 0.5) "FC";
+        Real m_b(start = 1.0) "B";
+        Real m_fNcoef(start = 0.0) "KF";
+        Real m_fNexp(start = 1.0) "AF";
+
+        SI.Conductance m_drainConduct(start = 0);
+        SI.Conductance m_sourceConduct(start = 0);
+        SI.Temp_K m_tnom(start=Modelica.Electrical.Spice3.Internal.SpiceConstants.CKTnomTemp) "TNOM";
+
+      /*
+Fet_Model_Line::Fet_Model_Line(
+   const String& modelname, const String& elementname)
+        : DotModel( modelname, elementname)
+{
+   AddParameter( "VTO", m_threshold, -2.)->Alias( "VT0");
+   AddParameter( "BETA", m_beta, 1e-4);
+   AddParameter( "LAMBDA", m_lModulation, 0.);
+   AddParameter( "RD", m_drainResist, 0.);
+   AddParameter( "RS", m_sourceResist, 0.);
+   AddParameter( "CGS", m_capGS, 0.);
+   AddParameter( "CGD", m_capGD, 0.);
+   AddParameter( "PB", m_gatePotential, 1.);
+   AddParameter( "IS", m_gateSatCurrent, 1e-14);
+   AddParameter( "FC", m_depletionCapCoeff, .5);
+   AddParameter( "B", m_b, 1.0);
+   AddParameter( "KF", m_fNcoef, 0.0);
+   AddParameter( "AF", m_fNexp, 1.0);
+   
+   m_drainConduct = 0.;
+   m_sourceConduct = 0.;
+   m_tnom = CKTnomTemp;
+   m_type = NFET;
+}
+*/
+      end FetModelLine;
+
+      record CurrrentsCapacitances "Currents and Capacities"
+
+        SI.Current idrain(start=0);
+        SI.Current iGD(start=0);
+        SI.Current iGS(start=0);
+        SI.Capacitance cGS(start=0);
+        SI.Capacitance cGD(start=0);
+
+        annotation (Documentation(info="<html>
+<p>This record CurrentsCapacities contains values for the currents and the capacities inside the model Jfet.</p>
 </html>"));
+      end CurrrentsCapacitances;
+
+      function fetRenameParametersDev
+        "Device parameter renaming to internal names"
+
+        input Real AREA "Number of parallel connected identical elements";
+        input Boolean OFF
+          "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
+        input SI.Voltage IC_VDS
+          "Initial condition value VDS, not implemented yet";
+        input SI.Voltage IC_VGS
+          "Initial condition value VGS, not implemented yet";
+        input Boolean UIC "Use initial conditions, UIC";
+        input SI.Temp_C TEMP "Temperature";
+
+        output Fet dev "Output record Mesfet";
+
+      algorithm
+        dev.m_bICVDSIsGiven := if ( IC_VDS > -1e40) then 1 else 0;
+        dev.m_dICVDS := if ( IC_VDS > -1e40) then IC_VDS else 0;
+
+        dev.m_bICVGSIsGiven := if ( IC_VGS > -1e40) then 1 else 0;
+        dev.m_dICVGS := if ( IC_VGS > -1e40) then IC_VGS else 0;
+
+        dev.m_off   := OFF;           // non-zero to indicate device is off for dc analysis
+        dev.m_uic   := UIC;
+        dev.m_dTemp := TEMP + Modelica.Electrical.Spice3.Internal.SpiceConstants.CONSTCtoK;
+        dev.m_area  := AREA;          // Number of parallel connected identical elements
+
+      end fetRenameParametersDev;
+    end Fet;
+
+    package Jfet "Records and functions for Jfet"
+
+      record JfetModelLine "Record for Jfet model line parameters"
+        extends Modelica.Electrical.Spice3.Internal.Fet.FetModelLine;
+
+        SI.InversePotential m_bFac;
+
+      end JfetModelLine;
+
+      function jfetInitEquations "FET initial precalculations"
+
+        input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
+        input JfetModelLine in_fm;
+
+        output JfetModelLine out_fm;
+
+      algorithm
+        out_fm := in_fm;
+
+        out_fm.m_beta           := in_fm.m_beta * in_f.m_area;
+        out_fm.m_drainConduct   := in_fm.m_drainConduct * in_f.m_area;
+        out_fm.m_sourceConduct  := in_fm.m_sourceConduct * in_f.m_area;
+        out_fm.m_gateSatCurrent := in_fm.m_gateSatCurrent * in_f.m_area;
+
+      end jfetInitEquations;
+
+      function jfetModelLineInitEquations "Initial precalculation"
+
+        input JfetModelLine in_fm;
+
+        output JfetModelLine out_fm;
+
+      algorithm
+        out_fm := in_fm;
+
+        //  Fet_Model_Line::InitEquations();
+        //  algorithm aus FET.fetModelLineInitEquations kopiert, statt Funktionsaufruf
+        if (in_fm.m_drainResist <> 0) then
+          out_fm.m_drainConduct := 1 / in_fm.m_drainResist;
+        end if;
+        if (in_fm.m_sourceResist <> 0) then
+          out_fm.m_sourceConduct := 1 / in_fm.m_sourceResist;
+        end if;
+
+        if (out_fm.m_depletionCapCoeff > 0.95) then
+          out_fm.m_depletionCapCoeff := 0.95;
+        end if;
+        out_fm.m_bFac := (1 - out_fm.m_b) / (out_fm.m_gatePotential - out_fm.m_threshold);
+
+      end jfetModelLineInitEquations;
+
+      function drainCur "Drain current calculation"
+
+        input SI.Voltage vds;
+        input SI.Voltage vgs;
+        input SI.Voltage vgd;
+
+        input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
+        input JfetModelLine in_fm;
+
+        output Modelica.Electrical.Spice3.Internal.Fet.Fet out_f;
+
+      protected
+        SI.Voltage vto;
+        SI.Voltage vgst;
+        Real betap;
+        SI.InversePotential Bfac;
+        Real apart;
+        Real cpart;
+        SI.Voltage vgdt;
+
+      algorithm
+        out_f := in_f;
+
+        // Modification for Sydney University JFET model
+        vto := in_fm.m_threshold;
+
+        if (vds >= 0) then
+          vgst := vgs - vto;
+          // compute drain current and derivatives for normal mode
+          if (vgst <= 0) then
+            // normal mode, cutoff region
+            out_f.m_cdrain := 0;
+            out_f.m_gm     := 0;
+            out_f.m_gds    := 0;
+          else
+            betap := in_fm.m_beta*(1 + in_fm.m_lModulation*vds);
+            Bfac  := in_fm.m_bFac;
+            if (vgst >= vds) then
+              // normal mode, linear region
+              apart          := 2*in_fm.m_b + 3*Bfac*(vgst - vds);
+              cpart          := vds*(vds*(Bfac*vds - in_fm.m_b)+vgst*apart);
+              out_f.m_cdrain := betap*cpart;
+              out_f.m_gm     := betap*vds*(apart + 3*Bfac*vgst);
+              out_f.m_gds    := betap*(vgst - vds)*apart + in_fm.m_beta*in_fm.m_lModulation*cpart;
+            else
+              Bfac       := vgst*Bfac;
+              out_f.m_gm := betap*vgst*(2*in_fm.m_b+3*Bfac);
+              // normal mode, saturation region
+              cpart          := vgst*vgst*(in_fm.m_b+Bfac);
+              out_f.m_cdrain := betap*cpart;
+              out_f.m_gds    := in_fm.m_lModulation*in_fm.m_beta*cpart;
+            end if;
+          end if;
+        else
+          vgdt := vgd - vto;
+          // compute drain current and derivatives for inverse mode
+          if (vgdt <= 0) then
+            // inverse mode, cutoff region
+            out_f.m_cdrain := 0;
+            out_f.m_gm     := 0;
+            out_f.m_gds    := 0;
+          else
+            betap := in_fm.m_beta*(1 - in_fm.m_lModulation*vds);
+            Bfac  := in_fm.m_bFac;
+            if (vgdt + vds >= 0) then
+              // inverse mode, linear region
+              apart := 2*in_fm.m_b + 3*Bfac*(vgdt + vds);
+              cpart := vds*(-vds*(-Bfac*vds-in_fm.m_b)+vgdt*apart);
+              out_f.m_cdrain := betap*cpart;
+              out_f.m_gm     := betap*vds*(apart + 3*Bfac*vgdt);
+              out_f.m_gds    := betap*(vgdt + vds)*apart - in_fm.m_beta*in_fm.m_lModulation*cpart - out_f.m_gm;
+            else
+              Bfac :=vgdt*Bfac;
+              out_f.m_gm     := -betap*vgdt*(2*in_fm.m_b+3*Bfac);
+              // inverse mode, saturation region
+              cpart          := vgdt*vgdt*(in_fm.m_b+Bfac);
+              out_f.m_cdrain := - betap*cpart;
+              out_f.m_gds    := in_fm.m_lModulation*in_fm.m_beta*cpart - out_f.m_gm;
+            end if;
+          end if;
+        end if;
+
+      end drainCur;
+
+      function calculateGateCap "Gate capactance calculation"
+
+        input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
+        input SI.Voltage vgs "Input voltage gate source";
+        input SI.Voltage vgd "Input voltage gate drain";
+
+        output SI.Capacitance capgs "Output capacitance gate source";
+        output SI.Charge chargegs "Output charge gate source";
+        output SI.Capacitance capgd "Output capacitance gate drain";
+        output SI.Charge chargegd "Output charge gate drain";
+
+      algorithm
+        (capgs,chargegs) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+                in_f.m_tCGS,
+                vgs,
+                in_f.m_corDepCap,
+                0.5,
+                in_f.m_tGatePot,
+                in_f.m_f1,
+                in_f.m_f2,
+                in_f.m_f3);
+        (capgd,chargegd) := Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+                in_f.m_tCGD,
+                vgd,
+                in_f.m_corDepCap,
+                0.5,
+                in_f.m_tGatePot,
+                in_f.m_f1,
+                in_f.m_f2,
+                in_f.m_f3);
+
+      end calculateGateCap;
+
+      function jfetCalcTempDependencies
+        "Precalculations relating to temperature"
+
+        input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
+        input JfetModelLine in_fm;
+
+        output Modelica.Electrical.Spice3.Internal.Fet.Fet out_f;
+
+      algorithm
+        out_f := in_f;
+
+        (out_f.m_tGatePot,out_f.m_tCGS) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                in_fm.m_gatePotential,
+                in_fm.m_capGS,
+                0.5,
+                out_f.m_dTemp,
+                in_fm.m_tnom);
+        out_f.m_tCGS := out_f.m_area * out_f.m_tCGS;
+        (out_f.m_tGatePot,out_f.m_tCGD) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionParamDepTempSPICE3(
+                in_fm.m_gatePotential,
+                in_fm.m_capGD,
+                0.5,
+                out_f.m_dTemp,
+                in_fm.m_tnom);
+        out_f.m_tCGD := out_f.m_area * out_f.m_tCGD;
+        (out_f.m_f1,out_f.m_f2,out_f.m_f3) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+                0.5,
+                in_fm.m_depletionCapCoeff,
+                out_f.m_tGatePot);
+
+        out_f.m_tSatCur :=
+          Modelica.Electrical.Spice3.Internal.Functions.saturationCurDepTempSPICE3JFET(
+                in_fm.m_gateSatCurrent,
+                out_f.m_dTemp,
+                in_fm.m_tnom);
+        out_f.m_vcrit := Modelica.Electrical.Spice3.Internal.Functions.junctionVCrit(
+                out_f.m_dTemp,
+                1.0,
+                out_f.m_tSatCur);
+        out_f.m_dVt := out_f.m_dTemp*Modelica.Electrical.Spice3.Internal.SpiceConstants.CONSTKoverQ;
+        out_f.m_corDepCap := in_fm.m_depletionCapCoeff * out_f.m_tGatePot;
+
+      end jfetCalcTempDependencies;
+
+      function jfetNoBypassCode "Calculations of currents and capacities"
+
+        input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f
+          "Input record fet parameters";
+        input JfetModelLine in_fm "Input record model line parameters";
+        input Integer in_m_type "Type of MOS transistor";
+        input Boolean in_m_bInit;
+        input SI.Voltage[3] in_m_pVoltageValues; // gate drain source
+
+        output Modelica.Electrical.Spice3.Internal.Fet.CurrrentsCapacitances out_cc
+          "Calculated currents and capacitances";
+
+      protected
+        Modelica.Electrical.Spice3.Internal.Fet.Fet int_f "Record Fet";
+
+      algorithm
+        int_f := in_f;
+
+        int_f.m_vgd := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[2]); // ( G,  DP);
+        int_f.m_vgs := in_m_type * (in_m_pVoltageValues[1] - in_m_pVoltageValues[3]); // ( G,  SP);
+
+        if (in_f.m_uic and int_f.m_bICVGSIsGiven > 0.5) then
+          int_f.m_vgs := in_m_type * int_f.m_dICVGS;
+        elseif (Modelica.Electrical.Spice3.Internal.SpiceRoot.initJunctionVoltages()) then
+          if (int_f.m_off == true) then
+            int_f.m_vgs := 0;
+          else
+            int_f.m_vgs := int_f.m_vcrit;
+          end if;
+        end if;
+        if (in_f.m_uic and int_f.m_bICVDSIsGiven > 0.5) then
+          int_f.m_vgd := in_m_type * int_f.m_dICVDS + int_f.m_vgs;
+        elseif (Modelica.Electrical.Spice3.Internal.SpiceRoot.initJunctionVoltages()) then
+          if (int_f.m_off == true) then
+            int_f.m_vgd := 0;
+          else
+            int_f.m_vgd := int_f.m_vcrit;
+          end if;
+        end if;
+
+        int_f.m_vgs :=
+          Modelica.Electrical.Spice3.Internal.SpiceRoot.limitJunctionVoltage(int_f.m_vgs);
+        int_f.m_vgd :=
+          Modelica.Electrical.Spice3.Internal.SpiceRoot.limitJunctionVoltage(int_f.m_vgd);
+        int_f.m_vds := int_f.m_vgs - int_f.m_vgd;
+
+        //////////////////////////////////////////////////////////////////////
+        // junction currents
+        (int_f.m_cgd,int_f.m_ggd) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junction2(
+                int_f.m_vgd,
+                int_f.m_dTemp,
+                1.0,
+                int_f.m_tSatCur);
+        out_cc.iGD := in_m_type * int_f.m_cgd;
+        (int_f.m_cgs,int_f.m_ggs) :=
+          Modelica.Electrical.Spice3.Internal.Functions.junction2(
+                int_f.m_vgs,
+                int_f.m_dTemp,
+                1.0,
+                int_f.m_tSatCur);
+        out_cc.iGS := in_m_type * int_f.m_cgs;
+
+        //////////////////////////////////////////////////////////////////////
+        // channel current calculation
+        // Let the actual instance calculate the values
+        int_f := drainCur(
+                    int_f.m_vds,
+                    int_f.m_vgs,
+                    int_f.m_vgd,
+                    int_f,
+                    in_fm);
+        out_cc.idrain := in_m_type * int_f.m_cdrain;
+
+        //////////////////////////////////////////////////////////////////////
+        // channel charge calculation
+        if (not in_m_bInit) then
+          (int_f.m_capgs,int_f.m_chargegs,int_f.m_capgd,int_f.m_chargegd)
+            := calculateGateCap(
+                      int_f,
+                      int_f.m_vgs,
+                      int_f.m_vgd);
+          out_cc.cGD := if (in_m_bInit) then -1e40 else int_f.m_capgd;
+          out_cc.cGS := if (in_m_bInit) then -1e40 else int_f.m_capgs;
+        end if;
+
+      end jfetNoBypassCode;
+
+      function jfetRenameParameters "Parameter renaming to internal names"
+
+        input Modelica.Electrical.Spice3.Internal.ModelcardJFET ex
+          "Modelcard with technologieparameters";
+
+        output JfetModelLine intern "Output record model line parameters";
+
+      algorithm
+        intern.m_capGS := if ( ex.CGS > -1e40) then ex.CGS else 0;
+        // Zero-bias G-S junction capacitance, default 0
+        intern.m_capGD := if ( ex.CGD > -1e40) then ex.CGD else 0;
+        // Zero-bias G-D junction capacitance, default 0
+        intern.m_gateSatCurrent := ex.IS;
+        // Saturation current of pn junctions
+        intern.m_depletionCapCoeff := ex.FC;
+        // Coefficient for forward-bias depletion capacitance formula
+        intern.m_drainResist := if ( ex.RD > -1e40) then ex.RD else 0;
+        // Drain ohmic resistance, default 0
+        intern.m_sourceResist := if ( ex.RS > -1e40) then ex.RS else 0;
+        // Source ohmic resistance, default 0
+        intern.m_tnom := ex.TNOM + Modelica.Electrical.Spice3.Internal.SpiceConstants.CONSTCtoK;
+        // Parameter measurement temperature, default 27
+        intern.m_threshold := if ( ex.VTO > -1e40) then ex.VTO else -2.0;
+        // Zero-bias threshold voltage, default -2
+        intern.m_b := if ( ex.B > -1e40) then ex.B else 1.0;
+        // Dotierungsverlauf parameter, default 1
+        intern.m_beta := if ( ex.BETA > -1e40) then ex.BETA else 1e-4;
+        // Output admittance parameter, default 1e4
+        intern.m_lModulation := ex.LAMBDA;
+        // Channel-length modulation, default 0
+        intern.m_gatePotential := ex.PB;
+        // Junction potential of pn junctions
+        intern.m_fNexp := ex.AF;
+        // Flicker noise exponent
+        intern.m_fNcoef := ex.KF;
+        // Flicker noise coefficient
+
+        annotation (Documentation(info="<html>
+<p>This function jfetRenameParameters assigns the external (given by the user, e.g. RD) technology parameters
+to the internal parameters (e.g. m_drainResistance). It also does the analysis of the IsGiven values.</p>
+</html>"));
+      end jfetRenameParameters;
+
+    end Jfet;
+
     package Csemiconductor
       record Capacitor
         extends Modelica.Electrical.Spice3.Internal.Model.Model;
@@ -8633,6 +9463,9 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
       end capacitorRenameParametersDev;
 
     end Csemiconductor;
+    annotation (Documentation(info="<html>
+<p>This package contains all function, parameters and data of semiconductor models, that are transformed from SPICE3 into Modelica. The models of the package semiconductors access to repository models. This package should not be used via direct access by a user of the Spice-Library for Modelica. It is restricted to the development.</p>
+</html>"));
   end Internal;
 
 annotation(preferredView="info",
@@ -8683,6 +9516,7 @@ Sandra  Boehme
 </html>",
    revisions="<html>
 <ul>
+<li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
 <li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
 <li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
