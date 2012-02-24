@@ -9470,12 +9470,14 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
 annotation(preferredView="info",
   Documentation(info="<html>
-<p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). The semiconductor models are transferred from the SPICE3 code, up to now</p>
+<p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). Up to now the following semiconductor models are transformed from the SPICE3 code to modelica</p>
 <ul>
 <li>MOSFET Level 1 </li>
 <li>Bipolar junction transistor, </li>
+<li>Juction-field effect transistor,</li>
 <li>Diode </li>
 <li>Semiconductor resistor</li>
+<li>Semiconductor capacitor</li>
 </ul>
 <p>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a>  (&copy; Regents of the University of California) on which the modelling relied on.</p>
 <p><b>Open issues</b>:
@@ -9484,10 +9486,8 @@ annotation(preferredView="info",
 <li>
 <ul>
 <li>MESFETs </li>
-<li>JFETs </li>
 <li>MOSFET Level 2,3,6, BSIM </li>
 <li>Line models </li>
-<li>Semiconductor C </li>
 </ul>
 </li>
 <li>unit check (at the moment many parameters of type Real) </li>
