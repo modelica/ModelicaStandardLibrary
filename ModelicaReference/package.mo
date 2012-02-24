@@ -1275,13 +1275,13 @@ class_specifier :
 The keyword class is used to define general classes (without any restrictions).
 It is identical to the keyword model.
 In most cases, it is recommended to use specialized classes as
-<a href=\"modelica://ModelicaReference.Classes.Connector\">connector</a>,
-<a href=\"modelica://ModelicaReference.Classes.Model\">model</a>,
-<a href=\"modelica://ModelicaReference.Classes.Block\">block</a>,
-<a href=\"modelica://ModelicaReference.Classes.Package\">package</a>,
-<a href=\"modelica://ModelicaReference.Classes.Record\">record</a>,
-<a href=\"modelica://ModelicaReference.Classes.Function\">function</a>,
-<a href=\"modelica://ModelicaReference.Classes.Type\">type</a>.
+<a href=\"modelica://ModelicaReference.Classes.connector\">connector</a>,
+<a href=\"modelica://ModelicaReference.Classes.model\">model</a>,
+<a href=\"modelica://ModelicaReference.Classes.block\">block</a>,
+<a href=\"modelica://ModelicaReference.Classes.package\">package</a>,
+<a href=\"modelica://ModelicaReference.Classes.record\">record</a>,
+<a href=\"modelica://ModelicaReference.Classes.function\">function</a>,
+<a href=\"modelica://ModelicaReference.Classes.type\">type</a>.
 \"class\" should only be used to define
 <a href=\"modelica://ModelicaReference.Classes.ExternalObject\">ExternalObject</a>s.
 </p>
@@ -1316,7 +1316,7 @@ class_specifier :
 <h4>Description</h4>
 <p>The keyword connector is used to define connectors, which are used
 in
-<a href=\"modelica://ModelicaReference.Connect\">connect</a>
+<a href=\"modelica://ModelicaReference.connect()\">connect()</a>
 statements. In connectors, no equations are allowed in the
 definition or in any of its components.
 With respect to \"class\", it is enhanced to allow connect(..) to components
@@ -1325,13 +1325,13 @@ of connector classes.
 
 <p>
 Variable declarations in a connector can have the additional prefixes
-<a href=\"modelica://ModelicaReference.Flow\">flow</a> or
-<a href=\"modelica://ModelicaReference.Stream\">stream</a>, besides
+<a href=\"modelica://ModelicaReference.flow\">flow</a> or
+<a href=\"modelica://ModelicaReference.stream\">stream</a>, besides
 the prefixes
-<a href=\"modelica://ModelicaReference.Input\">input</a> and
-<a href=\"modelica://ModelicaReference.Output\">output</a>, that are
+<a href=\"modelica://ModelicaReference.input\">input</a> and
+<a href=\"modelica://ModelicaReference.output\">output</a>, that are
 also allowed outside of a connector. Based on the prefix, a
-<a href=\"modelica://ModelicaReference.Connect\">connect</a>
+<a href=\"modelica://ModelicaReference.connect()\">connect()</a>
 statement leads to specific connection equations, that describe the
 balance equations in the infinitesimal connection points.
 </p>
@@ -2866,7 +2866,7 @@ is used.
 
 <p>
 For an introduction into stream variables and an example for the inStream(..) operator, see
-<a href=\"modelica://ModelicaReference.Stream\">stream</a>.
+<a href=\"modelica://ModelicaReference.stream\">stream</a>.
 </p>
 
 <h4>Syntax</h4>
@@ -2876,7 +2876,7 @@ For an introduction into stream variables and an example for the inStream(..) op
 
 <p>
 where IDENT must be a variable reference in a connector component declared with the
-<a href=\"modelica://ModelicaReference.Stream\">stream</a> prefix.
+<a href=\"modelica://ModelicaReference.stream\">stream</a> prefix.
 </p>
 
 <h4>Description</h4>
@@ -4145,7 +4145,7 @@ In this chapter <b>operators</b> of Modelica are documented.
 Elementary operators, such as \"+\" or \"-\" are overloaded and
 operate on scalar and array variables. Other operators
 have the same syntax as a
-<a href=\"modelica://ModelicaReference.Classes.Function\">Modelica function</a>
+<a href=\"modelica://ModelicaReference.Classes.function\">Modelica function</a>
 call. However, they do not behave as a Modelica function,
 either because the result depends not only on the input arguments but
 also on the status of the simulation (such as \"pre(..)\"), or
@@ -5599,7 +5599,7 @@ The stream variable h_outflow is the stream property inside the component
 close to the boundary, when fluid flows out of the component into
 the connection point. The stream properties for the other flow direction
 can be inquired with the built-in operator
-<a href=\"modelica://ModelicaReference.Operators.InStream\">inStream()</a>. The value of the
+<a href=\"modelica://ModelicaReference.Operators.inStream()\">inStream()</a>. The value of the
 stream variable corresponding to the actual flow direction can be
 inquired through the built-in operator actualStream().
 </p>
@@ -5818,7 +5818,7 @@ is called <b>stream connector</b> and the corresponding variable is called
 
 <p>
 For further details, see the definition of the
-<a href=\"modelica://ModelicaReference.Operators.InStream\">inStream()</a> operator.
+<a href=\"modelica://ModelicaReference.Operators.inStream()\">inStream()</a> operator.
 </p>
 
 </html>"));

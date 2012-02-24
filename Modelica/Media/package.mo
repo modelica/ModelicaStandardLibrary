@@ -412,8 +412,8 @@ The <b>semiLinear</b>(..) operator is basically defined as:
 that is, it computes the enthalpy flow rate either from the port_a or
 from the port_b properties, depending on flow direction. The exact
 details of this operator are given in
-<a href=\"modelica://ModelicaReference.Operators.SemiLinear\">
-ModelicaReference.Operators.SemiLinear</a>. Especially, rules
+<a href=\"modelica://ModelicaReference.Operators.semiLinear()\">
+ModelicaReference.Operators.semiLinear()</a>. Especially, rules
 are defined in the Modelica specification that m_flow = 0 can be treated
 in a \"meaningful way\". Especially, if n fluid components (such as pipes)
 are connected together and the fluid connector from above is used,

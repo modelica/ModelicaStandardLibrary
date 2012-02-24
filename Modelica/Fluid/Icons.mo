@@ -20,7 +20,7 @@ Instead the icon <a href=\"modelica://Modelica.Icons.VariantsPackage\">Modelica.
     annotation(Documentation(info="<html>
 <p>
 This icon will be removed in future versions of the Modelica Standard Library.
-Instead the icon <a href=\"modelica://Modelica.Icons.BasePackage\">Modelica.Icons.BasePackage</a> shall be used.
+Instead the icon <a href=\"modelica://Modelica.Icons.BasesPackage\">Modelica.Icons.BasesPackage</a> shall be used.
 </p>
 </html>"));
 

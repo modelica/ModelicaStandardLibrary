@@ -3036,7 +3036,7 @@ This gives the following result:
 
 <p>
 This example is also available in
-<a href=\"Modelica.Blocks.Examples.Interaction1\">Modelica.Blocks.Examples.Interaction1</a>
+<a href=\"modelica://Modelica.Blocks.Examples.Interaction1\">Modelica.Blocks.Examples.Interaction1</a>
 </p>
 
 </html>"));

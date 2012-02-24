@@ -707,7 +707,7 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
       Documentation(info="<html>
 <p>
 This example demonstrates a network of mathematical Real blocks.
-from package <a href=\"Modelica.Blocks.Math\">Modelica.Blocks.Math</a>.
+from package <a href=\"modelica://Modelica.Blocks.Math\">Modelica.Blocks.Math</a>.
 Note, that
 </p>
 
@@ -825,7 +825,7 @@ Note, that
       Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
-from package <a href=\"Modelica.Blocks.MathInteger\">Modelica.Blocks.MathInteger</a>.
+from package <a href=\"modelica://Modelica.Blocks.MathInteger\">Modelica.Blocks.MathInteger</a>.
 Note, that
 </p>
 
@@ -1019,7 +1019,7 @@ Note, that
       Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
-from package <a href=\"Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
+from package <a href=\"modelica://Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
 Note, that
 </p>
 
@@ -1078,7 +1078,7 @@ Note, that
       Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks
-from package <a href=\"Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
+from package <a href=\"modelica://Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
 to show how diagram animations can be constructed.
 </p>
 

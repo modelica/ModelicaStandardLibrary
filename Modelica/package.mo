@@ -5022,9 +5022,7 @@ ModelManagement.compare function.
 
 <p>
 In this version, <b>no</b> new libraries have been added. The <b>documentation</b>
-of the whole library was improved. Especially, the documentation is now also
-available as
-<a href=\"modelica://Modelica/Resources/Documentation/ModelicaStandardLibrary.pdf\">one pdf file</a>.
+of the whole library was improved.
 </p>
 
 <p><br>

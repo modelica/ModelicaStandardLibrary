@@ -68,7 +68,7 @@ package Nonlinear "Library of functions operating on nonlinear equations"
       annotation (Documentation(info="<html>
 <p>
 This example integrates the following integrands with function
-<a href=\"Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>
+<a href=\"modelica://Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>
 and compares the result with an analytical solution.
 The examples also demonstrate how additional input arguments to the integrand
 function can be passed as additional arguments.
@@ -141,7 +141,7 @@ The following integrals are computed:
       annotation (Documentation(info="<html>
 <p>
 This example solves the following integrands with function
-<a href=\"Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>.
+<a href=\"modelica://Modelica.Math.Nonlinear.quadratureLobatto\">quadratureLobatto</a>.
 The user can set the parameters, like \"w\" or \"k\", and can experiment with
 different integration intervals.
 The following integrals are computed:
@@ -216,7 +216,7 @@ The following integrals are computed:
       annotation (Documentation(info="<html>
 <p>
 This example solves the following nonlinear equations with function
-<a href=\"Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>
+<a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>
 and compares the result with the available analytical solution.
 The examples also demonstrate how additional input arguments to the nonlinear equation
 function can be passes as additional arguments.
@@ -297,7 +297,7 @@ The following nonlinear equations are solved:
       annotation (Documentation(info="<html>
 <p>
 This example solves the following nonlinear equations with function
-<a href=\"Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
+<a href=\"modelica://Modelica.Math.Nonlinear.solveOneNonlinearEquation\">solveOneNonlinearEquation</a>.
 The user can set the parameters, like \"w\" or \"m\", and can experiment with
 different start intervals.
 The following nonlinear equations are solved:
@@ -814,7 +814,7 @@ functions.
 <p>
 For details about how to define and to use functions as input arguments
 to functions, see
-<a href=\"modelica://ModelicaReference.Classes.Function\">ModelicaReference.Classes.Function</a>
+<a href=\"modelica://ModelicaReference.Classes.function\">ModelicaReference.Classes.function</a>
 or the Modelica Language  Specification, Chapter 12.4.2.
 </p>
 

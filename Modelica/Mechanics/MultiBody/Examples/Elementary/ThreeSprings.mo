@@ -112,7 +112,7 @@ ALT=\"model Examples.Elementary.ThreeSprings\">
 
 <p>
 For a more thorough explanation, see
-<a href=\"Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
+<a href=\"modelica://Modelica.Mechanics.MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces\">MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces</a>.
 </p>
 </html>"));
 end ThreeSprings;
