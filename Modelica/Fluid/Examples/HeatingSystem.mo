@@ -237,7 +237,8 @@ is treated as high-index DAE, as opposed to a nonlinear equation system for conn
 could be additionally introduced to model the fitting between the heater and the pipe, e.g., to adapt different diameters.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatingSystem.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatingSystem.png\" border=\"1\"
+     alt=\"HeatingSystem.png\">
 </html>
 "), experiment(StopTime=6000),
     __Dymola_Commands(file(ensureSimulated=true)=

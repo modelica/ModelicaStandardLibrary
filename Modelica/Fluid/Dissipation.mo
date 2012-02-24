@@ -7671,7 +7671,7 @@ Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>fo
 </ul>
 
 <h4>Geometry </h4>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt\"pic_straightPipe\"/>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/pic_straightPipe.png\" alt=\"pic_straightPipe\"/>
 
 <h4>Calculation</h4>
 <p><b>Boiling in a horizontal pipe (target = 1):</b></p>

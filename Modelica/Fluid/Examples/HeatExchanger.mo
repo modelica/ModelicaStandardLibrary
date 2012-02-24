@@ -100,7 +100,8 @@ package HeatExchanger "Demo of a heat exchanger model"
               -100},{100,100}})),
                          experiment(StopTime=100, Tolerance=1e-005),
       Documentation(info="<html>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger.png\" border=\"1\"
+     alt=\"HeatExchanger.png\">
 </html>"));
   end HeatExchangerSimulation;
 

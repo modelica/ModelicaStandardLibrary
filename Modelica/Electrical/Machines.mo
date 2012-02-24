@@ -10523,7 +10523,8 @@ in the range <code> -wLinear &le; w &le; wLinear</code> with <code>wLinear = 0.0
 and angular velocity is depicted in Fig. 1
 </p>
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/frictiontorque.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/frictiontorque.png\"
+                alt=\"frictiontorque.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Friction loss torque versus angular velocity for <code>power_w = 2</code></td>
   </tr>
@@ -10705,9 +10706,9 @@ The permanent magnet loss torque is
   tau = PRef/wRef * (c + (1 - c) * (i/IRef)^power_I) * (w/wRef)^power_w
 </pre>
 <p>
-where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity. 
-The parameter <code>c</code> designates the part of the permanent magnet losses that are present even at current = 0, i.e. independent of current. 
-The dependency of the permanent magnet loss torque on the stator current is modeled by the exponent <code>power_I</code>. 
+where <code>i</code> is the current of the machine and <code>w</code> is the actual angular velocity.
+The parameter <code>c</code> designates the part of the permanent magnet losses that are present even at current = 0, i.e. independent of current.
+The dependency of the permanent magnet loss torque on the stator current is modeled by the exponent <code>power_I</code>.
 The dependency of the permanent magnet loss torque on the angular velocity is modeled by the exponent <code>power_w</code>.
 </p>
 <h4>See also</h4>
@@ -10800,14 +10801,16 @@ The current implementation has thus the drawback over a model that considers <co
 </ul>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"
+                alt=\"corelossesVw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
   </tr>
 </table>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"
+                alt=\"corelossesPcw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>
@@ -10889,7 +10892,8 @@ Model of voltage drop and losses of carbon brushes. For currents between <code>-
 </p>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/brush.png\"> </td> </tr>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/brush.png\"
+                alt=\"brush.png\"> </td> </tr>
   <tr><td> <b> Fig. 1: </b>Model of voltage drop of carbon brushes</td> </tr>
 </table>
 <h4>Note:</h4>
@@ -11034,14 +11038,16 @@ the dependency of total core losses on the parameter <code>ratioHysteresis</code
 </p>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesVw.png\"
+                alt=\"corelossesVw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 1: </b>Voltage versus angular velocity</td>
   </tr>
 </table>
 
 <table border=0 cellspacing=0 cellpadding=1>
-  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"> </td>
+  <tr><td> <img src=\"modelica://Modelica/Resources/Images/Electrical/Machines/corelossesPcw.png\"
+                alt=\"corelossesPcw.png\"> </td>
   </tr>
   <tr><td> <b> Fig. 2: </b>Core losses versus angular velocity with parameter <code>ratioHysteresis</code></td>
   </tr>

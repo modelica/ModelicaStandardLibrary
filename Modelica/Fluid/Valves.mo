@@ -647,12 +647,10 @@ from inlet to outlet are neglected in the energy balance.</p>
 </p>
 
 <blockquote>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveCharacteristics1a.png\">
-</p>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveCharacteristics1b.png\">
-</p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveCharacteristics1a.png\"
+     alt=\"ValveCharacteristics1a.png\"><br>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveCharacteristics1b.png\"
+     alt=\"Components/ValveCharacteristics1b.png\">
 </blockquote>
 
 <p>
@@ -674,9 +672,8 @@ a step input of opening. The icon of a valve changes in the following way
 </p>
 
 <blockquote>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/FilteredValveIcon.png\">
-</p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/FilteredValveIcon.png\"
+     alt=\"FilteredValveIcon.png\">
 </blockquote>
 
 <p>
@@ -694,9 +691,8 @@ filteredOpening = <b>true</b>, riseTime = 1 s, and leackageOpening = 0.02.
 </p>
 
 <blockquote>
-<p>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveFilteredOpening.png\">
-</p>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Components/ValveFilteredOpening.png\"
+     alt=\"ValveFilteredOpening.png\">
 </blockquote>
 
 </HTML>", revisions="<html>

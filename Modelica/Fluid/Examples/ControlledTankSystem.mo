@@ -223,7 +223,8 @@ This example is based on
      Lund, Sweden, March 30, 2004<br>&nbsp;</dd>
 </dl>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/ControlledTanks.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/ControlledTanks.png\" border=\"1\"
+     alt=\"ControlledTanks.png\">
 </html>"),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/ControlledTanks/plot level and ports.m_flow.mos"

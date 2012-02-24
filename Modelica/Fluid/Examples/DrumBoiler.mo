@@ -180,7 +180,8 @@ package DrumBoiler
       experiment(StopTime=5400),
       Documentation(info="<html>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/DrumBoiler.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/DrumBoiler.png\" border=\"1\"
+     alt=\"DrumBoiler.png\">
 </html>"));
   end DrumBoiler;
 

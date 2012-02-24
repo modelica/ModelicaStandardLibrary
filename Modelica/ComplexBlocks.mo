@@ -941,7 +941,8 @@ as <b>sine</b> of the input <b>u</b>:
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/sin.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/sin.png\"
+     alt=\"sin.png\">
 </p>
 
 </HTML>
@@ -1031,7 +1032,8 @@ as <b>cos</b> of the input <b>u</b>:
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/cos.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/cos.png\"
+     alt=\"cos.png\">
 </p>
 
 </HTML>
@@ -1119,7 +1121,8 @@ as <b>tan</b> of the input <b>u</b>:
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/tan.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/tan.png\"
+     alt=\"tan.png\">
 </p>
 
 </HTML>
@@ -1214,7 +1217,8 @@ Otherwise an error occurs.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/asin.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/asin.png\"
+     alt=\"asin.png\">
 </p>
 
 </HTML>
@@ -1305,7 +1309,8 @@ Otherwise an error occurs.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/acos.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/acos.png\"
+     alt=\"acos.png\">
 </p>
 
 </HTML>
@@ -1397,7 +1402,8 @@ This blocks computes the output <b>y</b> as the
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/atan.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/atan.png\"
+     alt=\"atan.png\">
 </p>
 
 </HTML>
@@ -1489,7 +1495,8 @@ This blocks computes the output <b>y</b> as the
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/sinh.png\"
+     alt=\"sinh.png\">
 </p>
 
 </HTML>
@@ -1581,7 +1588,8 @@ This blocks computes the output <b>y</b> as the
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/cosh.png\"
+     alt=\"cosh.png\">
 </p>
 
 </HTML>
@@ -1673,7 +1681,8 @@ This blocks computes the output <b>y</b> as the
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/tanh.png\"
+     alt=\"tanh.png\">
 </p>
 
 </HTML>
@@ -1763,7 +1772,8 @@ This blocks computes the output <b>y</b> as the
 </pre>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/exp.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/exp.png\"
+     alt=\"exp.png\">
 </p>
 
 </HTML>
@@ -1860,7 +1870,8 @@ zero or negative.
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Math/log.png\">
+<img src=\"modelica://Modelica/Resources/Images/Math/log.png\"
+     alt=\"log.png\">
 </p>
 
 </HTML>
@@ -2152,7 +2163,8 @@ The Complex output y is a constant signal:
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Constant.png\"
+     alt=\"Constant.png\">
 </p>
 </html>"));
         end ComplexConstant;
@@ -2259,7 +2271,8 @@ The Complex output y is a step signal (of real and imaginary part):
 </p>
 
 <p>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Sources/Step.png\"
+     alt=\"Step.png\">
 </p>
 
 </html>"));

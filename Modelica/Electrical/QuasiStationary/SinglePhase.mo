@@ -780,7 +780,8 @@ The capacitance <i>C</i> is given as input signal.
 <h4>Note</h4>
 <p>
 The abstraction of a variable capacitor at quasi stationary operation assumes:<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/dc_dt.png\">.
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/dc_dt.png\"
+     alt=\"dc_dt.png\">.
 </p>
 
 <h4>See also</h4>
@@ -832,7 +833,8 @@ branch current <i><u>i</u></i> by <i><u>v</u> = j*&omega;*L*<u>i</u></i>. The in
 <h4>Note</h4>
 <p>
 The abstraction of a variable inductor at quasi stationary operation assumes:<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/dl_dt.png\">
+<img src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/SinglePhase/Basic/dl_dt.png\"
+     alt=\"dl_dt.png\">
 </p>
 
 <h4>See also</h4>

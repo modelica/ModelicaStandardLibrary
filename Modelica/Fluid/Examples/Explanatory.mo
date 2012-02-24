@@ -162,7 +162,8 @@ how the temperature is measured:
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MeasuringTemperature1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MeasuringTemperature1.png\"
+     alt=\"MeasuringTemperature1.png\">
 </blockquote>
 
 <p>
@@ -192,7 +193,8 @@ present as for T_twoPort.T.
 </p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MeasuringTemperature2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MeasuringTemperature2.png\"
+     alt=\"MeasuringTemperature2.png\">
 </blockquote>
 
 </html>"),
@@ -290,7 +292,8 @@ To do so, two additional sudden expansions / contractions are included in the mo
 The total pressures offer an additional perspective on the model. After setting the parameter <code>show_totalPressures</code> on the Advanced tab of the <code>AbruptAdaptor</code>s to <code>true</code>, the total pressures are included in said models and may be plotted. This allows to confirm that the <b>total</b> pressure <i>always</i> reduces along the flow direction, even in the upper model.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/MomentumBalanceFittings.png\" border=\"1\"
+     alt=\"MomentumBalanceFittings.png\">
 </html>"),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/MomentumBalanceFittings/Plot the model results.mos"

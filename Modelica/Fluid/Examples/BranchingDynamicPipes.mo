@@ -147,7 +147,8 @@ derivative because the input pressure is changing disontinuously and its
 derivative would be a dirac impulse.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BranchingDynamicPipes.png\" border=\"1\"
+     alt=\"BranchingDynamicPipes.png\">
 </html>"), experiment(StopTime=10),
     __Dymola_Commands(file(ensureSimulated=true)=
         "modelica://Modelica/Resources/Scripts/Dymola/Fluid/BranchingDynamicPipes/plotResults.mos"

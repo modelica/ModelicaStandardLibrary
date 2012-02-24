@@ -127,7 +127,8 @@ fulfilled when 2 or more components are connected together at
 one point as shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/MixingConnections.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/MixingConnections.png\"
+     alt=\"MixingConnections.png\">
 
 <p>
 In such a case the balance equations define <b>ideal mixing</b>,
@@ -369,16 +370,20 @@ equations hold
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td> Mass balance</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/massBalance.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/massBalance.png\"
+                alt=\"massBalance.png\"></td>
   </tr>
   <tr><td> Momentum balance</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/momentumBalance.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/momentumBalance.png\"
+                alt=\"momentumBalance.png\"></td>
   </tr>
   <tr><td> Energy balance 1</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance1.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance1.png\"
+	        alt=\"energyBalance1.png\"></td>
   </tr>
   <tr><td> Pipe friction</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/pipeFriction.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/pipeFriction.png\"
+                alt=\"pipeFriction.png\"></td>
   </tr>
   <tr><td></td>
       <td>x: independent spatial coordinate (flow is along coordinate x)<br>
@@ -403,7 +408,8 @@ the \"energy balance 2\":
 </p>
 <table border=1 cellspacing=0 cellpadding=2>
   <tr><td> Energy balance 2</td>
-      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance2.png\"></td>
+      <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance2.png\"
+                alt=\"energyBalance2.png\"></td>
   </tr>
 </table>
 
@@ -561,7 +567,8 @@ are present, e.g., for turbulent flow in a pipe:
 A plot of this characteristic is shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/sqrt.png\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/sqrt.png\"
+     alt=\"sqrt.png\">
 
 <p>
 The difficulty with this function is that the derivative at x=0 is infinity.
@@ -1712,7 +1719,8 @@ In the next figure, several features of the library are demonstrated with
 a simple heating system with a closed flow cycle. By just changing one configuration parameter in the system object the equations are changed between steady-state and dynamic simulation with fixed or steady-state initial conditions.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=1>
+<img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/HeatingSystem.png\" border=\"1\"
+     alt=\"HeatingSystem.png\">
 
 <p>
 With respect to previous versions, the design

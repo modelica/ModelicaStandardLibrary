@@ -140,6 +140,7 @@ TurbulentPipeFlow or DetailedPipeFlow correlations. Similarily the ControlledPum
 to investigate a real controller or with a Pump with rotational shaft to investigate inertia effects.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\">
+<img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/InverseParametrization.png\" border=\"1\"
+     alt=\"InverseParametrization.png\">
 </html>"));
 end InverseParameterization;

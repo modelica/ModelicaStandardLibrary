@@ -91,7 +91,8 @@ package Lines
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"
+     alt=\"OLine.png\">
 
 <p>The capacitances are calculated with: C=c*length/N.
 <br> The conductances are calculated with: G=g*length/N.
@@ -408,7 +409,8 @@ equation
 <p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"
+     alt=\"segment.png\">
 </blockquote>
 
 <p>The complete multi line consists of N segments and an auxiliary segment_last:</p>
@@ -416,7 +418,8 @@ equation
 <p>In the picture of the segment can be seen, that a single segment is unsymmetric. Connecting such unsymmetric segments in a series forces also an unsymmetric multi line. To get a symmetric model which is useful for coupling and which guaranties the same pin properties, in the segment_1 only half valued resistors and inductors are used. The remaining resistors and inductors are at the other end of the line within the auxiliary segment_last. For the example with 4 lines the schematic of segment_last is like this:</p>
 
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment_last.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment_last.png\"
+     alt=\"segment_last.png\">
 </blockquote>
 
 <p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
@@ -560,7 +563,8 @@ end M_OLine;
 <br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
 </p>
 <blockquote>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"
+     alt=\"ULine.png\">
 </blockquote>
 <p>
 The capacitances are calculated with: C=c*length/N.
@@ -893,7 +897,8 @@ The capacitances are calculated with: C=c*length/N.
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"/>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"
+     alt=\"OLine.png\">
 
 <p>The capacitances are calculated with: C=c*length/N.
 <br> The conductances are calculated with: G=g*length/N.
@@ -988,9 +993,10 @@ The capacitances are calculated with: C=c*length/N.
       Documentation(info="<html>
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
 <br>To get a symmetric line model, the first resistor is cut into two parts (R1 and R_Nplus1). These two new resistors have the half of the resistance of the original resistor.
-<br>
-<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"/>
-<br>
+</p>
+<img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/ULine.png\"
+     alt=\"ULine.png\">
+<p>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
 <br>For all capacitors and resistors the values of each segment are the same exept of the first and last resistor, that only has the half of the above calculated value.

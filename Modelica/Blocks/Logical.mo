@@ -1116,7 +1116,8 @@ to describe logical networks. A typical example for a logical
 network built with package Logical is shown in the next figure:
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/LogicalNetwork1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/LogicalNetwork1.png\"
+     alt=\"LogicalNetwork1.png\">
 
 <p>
 The actual value of Boolean input and/or output signals is displayed

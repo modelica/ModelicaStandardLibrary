@@ -446,9 +446,11 @@ Simulation results of a typical example with a delay time of 0.1 s
 is shown in the next figure.
 </p>
 
-<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay1.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay1.png\"
+     alt=\"OnDelay1.png\">
 <br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay2.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/MathBoolean/OnDelay2.png\"
+     alt=\"OnDelay2.png\">
 
 <p>
 The usage is demonstrated, e.g., in example

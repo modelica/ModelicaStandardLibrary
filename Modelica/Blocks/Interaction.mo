@@ -59,7 +59,8 @@ The number to be visualized can be defined in the following ways:
 <p>
 The two versions of the block are shown in the following image (in the right variant, the
 name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/RealValue.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/RealValue.png\"
+     alt=\"RealValue.png\">
 </p>
 
 <p>
@@ -118,7 +119,8 @@ The number to be visualized can be defined in the following ways:
 <p>
 The two versions of the block are shown in the following image (in the right variant, the
 name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/IntegerValue.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/IntegerValue.png\"
+     alt=\"IntegerValue.png\">
 </p>
 
 <p>
@@ -177,7 +179,8 @@ The Boolean variable to be visualized can be defined in the following ways:
 If the Boolean variable is <b>false</b> the block is \"grey\", otherwise, it is \"green\".
 The two versions of the block are shown in the following image (in the right variant, the
 name of the variable value that is displayed is also shown below the icon):<br>
-<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/BooleanValue.png\">
+<img src=\"modelica://Modelica/Resources/Images/Blocks/Interaction/BooleanValue.png\"
+     alt=\"BooleanValue.png\">
 </p>
 
 <p>
