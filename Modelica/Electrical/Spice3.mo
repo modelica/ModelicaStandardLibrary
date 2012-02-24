@@ -4369,9 +4369,9 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 <p>JFET model, both N and P channel</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for modeling the semiconductor models of the package Semiconductors.</p>
 </html>", revisions="<html>
-<p><ul>
+<ul>
 <li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul></p>
+</ul>
 </html>"),
         Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}), graphics),
@@ -8906,7 +8906,7 @@ Fet::Fet( const String& modelname, const String& elementname)
    AddParameter( "OFF", m_off, false);//Device initially off
    m_bICVDSValue = AddParameter( "IC_VDS", m_dICVDS, 0.0)->Alias( "IC_1")->Alias( "IC");
    m_bICVGSValue = AddParameter( "IC_VGS", m_dICVGS, 0.0)->Alias( "IC_2");
-   
+
    m_tSatCur = 0.;
    m_tGatePot = 0.;
    m_tCGS = 0.;
@@ -8917,7 +8917,7 @@ Fet::Fet( const String& modelname, const String& elementname)
    m_f2 = 0.;
    m_f3 = 0.;
    m_dVt = 0.0;
-   
+
    AddValue( "Vgs", m_vgs);//Voltage G-S
    AddValue( "Vgd", m_vgd);//Voltage G-D
    AddValue( "Vds", m_vds);
@@ -8975,7 +8975,7 @@ Fet_Model_Line::Fet_Model_Line(
    AddParameter( "B", m_b, 1.0);
    AddParameter( "KF", m_fNcoef, 0.0);
    AddParameter( "AF", m_fNexp, 1.0);
-   
+
    m_drainConduct = 0.;
    m_sourceConduct = 0.;
    m_tnom = CKTnomTemp;
