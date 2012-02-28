@@ -10058,11 +10058,12 @@ the first element representing the real part and the second element representing
 
       function ToSpacePhasor "Conversion: three phase -> space phasor"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "Number of phases";
-        constant Real pi=Modelica.Constants.pi;
         input Real x[3];
         output Real y[2];
         output Real y0;
+      protected
+        constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       algorithm
         y := zeros(2);
         for k in 1:m loop
@@ -10078,11 +10079,12 @@ were y designates three phase values, X[Re,Im] designates the space phasor and X
 
       function FromSpacePhasor "Conversion: space phasor -> three phase"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "Number of phases";
-        constant Real pi=Modelica.Constants.pi;
         input Real x[2];
         input Real x0;
         output Real y[3];
+      protected
+        constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       algorithm
         for k in 1:m loop
           y[k] := x0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*x;
@@ -10113,10 +10115,11 @@ where y[Re,Im] designates the space phasor in the new coordinate system (twisted
 
       function ToPolar "Converts a space phasor to polar coordinates"
         extends Modelica.Icons.Function;
-        constant Real small=Modelica.Constants.small;
         input Real x[2];
         output Real absolute;
         output Modelica.SIunits.Angle angle;
+      protected
+        constant Real small=Modelica.Constants.small;
       algorithm
         absolute := sqrt(x[1]^2 + x[2]^2);
         angle := if absolute <= small then 0 else Modelica.Math.atan2(x[2], x[1]);
@@ -10138,11 +10141,12 @@ Converts a space phasor from rectangular coordinates to polar coordinates, provi
 
       function FromPolar "Converts a space phasor from polar coordinates"
         extends Modelica.Icons.Function;
-        constant Real pi=Modelica.Constants.pi;
-        constant Real small=Modelica.Constants.small;
         input Real absolute;
         input Modelica.SIunits.Angle angle;
         output Real x[2];
+      protected
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+        constant Real small=Modelica.Constants.small;
       algorithm
         x := absolute*{cos(angle),sin(angle)};
         annotation (Inline=true, Documentation(info="<HTML>
@@ -10152,11 +10156,11 @@ Converts a space phasor from polar coordinates to rectangular coordinates.
 
       function quasiRMS "Calculate quasi-RMS value of input"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "Number of phases";
-        constant Real pi=Modelica.Constants.pi;
         input Real x[3];
         output Real y;
       protected
+        constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         Real h[2];
       algorithm
         h := zeros(2);
@@ -10172,12 +10176,12 @@ Transformation of three phase values (voltages or currents) to space phasor and 
       function activePower
         "Calculate active power of voltage and current input"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "Number of phases";
-        import Modelica.Constants.pi;
         input Modelica.SIunits.Voltage v[m] "phase voltages";
         input Modelica.SIunits.Current i[m] "phase currents";
         output Modelica.SIunits.Power p "Active power";
       protected
+        constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
         Modelica.SIunits.Voltage v_[2] "Voltage space phasor";
         Modelica.SIunits.Current i_[2] "Current space phasor";
       algorithm
