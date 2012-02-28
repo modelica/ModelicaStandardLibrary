@@ -1197,7 +1197,7 @@ protected
 
   // Point gravity visualization
   parameter Integer ndim_pointGravity=if enableAnimation and animateGravity
-       and gravityType == 2 then 1 else 0;
+       and gravityType == GravityTypes.UniformGravity then 1 else 0;
   Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape gravitySphere(
     shapeType="sphere",
     r_shape={-gravitySphereDiameter/2,0,0},
