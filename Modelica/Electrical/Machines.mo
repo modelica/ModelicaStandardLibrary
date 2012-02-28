@@ -7050,36 +7050,38 @@ the first element representing the real part and the second element representing
 
       function ToSpacePhasor "Conversion: three phase -> space phasor"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "number of phases";
-        constant Real pi=Modelica.Constants.pi;
         input Real x[3];
         output Real y[2];
         output Real y0;
+      protected
+        constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       algorithm
         y := zeros(2);
         for k in 1:m loop
           y := y + 2/m*{+cos((k - 1)/m*2*pi), +sin(+(k - 1)/m*2*pi)}*x[k];
         end for;
         y0 := 1/m*sum(x);
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Transformation of three phase values (voltages or currents) to space phasor and zero sequence value:<br>
-y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi) * X[Re,Im]<br>
+y[k] = X0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*X[Re,Im]<br>
 were y designates three phase values, X[Re,Im] designates the space phasor and X0 designates the zero sequence system.
 </HTML>"));
       end ToSpacePhasor;
 
       function FromSpacePhasor "Conversion: space phasor -> three phase"
         extends Modelica.Icons.Function;
-        constant Integer m=3 "number of phases";
-        constant Real pi=Modelica.Constants.pi;
         input Real x[2];
         input Real x0;
         output Real y[3];
+      protected
+        constant Integer m=3 "Number of phases";
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
       algorithm
         for k in 1:m loop
           y[k] := x0 + {cos(-(k - 1)/m*2*pi),-sin(-(k - 1)/m*2*pi)}*x;
         end for;
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Transformation of space phasor and zero sequence value to three phase values (voltages or currents):<br>
 Y0 = sum(x[k])/m<br>
 Y[Re,Im] = sum(2/m*{cos((k - 1)/m*2*pi),sin((k - 1)/m*2*pi)}*x[k])<br>
@@ -7096,7 +7098,7 @@ were x designates three phase values, Y[Re,Im] designates the space phasor and Y
         Real RotationMatrix[2,2] = {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}};
       algorithm
         y := RotationMatrix*x;
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Rotates a space phasor (voltage or current) by the angle provided by input argument \"angle\" from one coordinate system into another:<br>
 y[Re,Im] := {{+cos(-angle),-sin(-angle)},{+sin(-angle),+cos(-angle)}}*x[Re,Im]<br>
 where y[Re,Im] designates the space phasor in the new coordinate system (twisted by angle against old coordinate system) and y[Re,Im] designates the space phasor in the old coordinate system.
@@ -7105,10 +7107,11 @@ where y[Re,Im] designates the space phasor in the new coordinate system (twisted
 
       function ToPolar "Converts a space phasor to polar coordinates"
         extends Modelica.Icons.Function;
-        constant Real small=Modelica.Constants.small;
         input Real x[2];
         output Real absolute;
         output Modelica.SIunits.Angle angle;
+      protected
+        constant Real small=Modelica.Constants.small;
       algorithm
         absolute := sqrt(x[1]^2 + x[2]^2);
         angle := if absolute <= small then 0 else Modelica.Math.atan2(x[2], x[1]);
@@ -7123,24 +7126,26 @@ where y[Re,Im] designates the space phasor in the new coordinate system (twisted
     end if;
   end if;
 */
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Converts a space phasor from rectangular coordinates to polar coordinates, providing angle=0 for {0,0}.
 </HTML>"));
       end ToPolar;
 
       function FromPolar "Converts a space phasor from polar coordinates"
         extends Modelica.Icons.Function;
-        constant Real pi=Modelica.Constants.pi;
-        constant Real small=Modelica.Constants.small;
         input Real absolute;
         input Modelica.SIunits.Angle angle;
         output Real x[2];
+      protected
+        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
+        constant Real small=Modelica.Constants.small;
       algorithm
         x := absolute*{cos(angle),sin(angle)};
-        annotation (Documentation(info="<HTML>
+        annotation (Inline=true, Documentation(info="<HTML>
 Converts a space phasor from polar coordinates to rectangular coordinates.
 </HTML>"));
       end FromPolar;
+
       annotation (Documentation(info="<HTML>
 This package contains space phasor transformation functions for use in calculations:
 <ul>
@@ -7151,7 +7156,7 @@ This package contains space phasor transformation functions for use in calculati
 <li>FromPolar: Converts a space phasor from polar coordinates to rectangular coordinates</li>
 </ul>
 <p>
-Space phasors are defined as vectors of length = 2, 
+Space phasors are defined as vectors of length = 2,
 the first element representing the real part and the second element representing the imaginary part of the space phasor.
 </p>
 </HTML>", revisions="<HTML>
