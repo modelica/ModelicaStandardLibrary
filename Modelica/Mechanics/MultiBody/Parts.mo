@@ -372,10 +372,10 @@ the animation may be switched off via parameter animation = <b>false</b>.
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
-    final parameter Frames.Orientation R_rel=if rotationType == 1 then
+    final parameter Frames.Orientation R_rel=if rotationType == Types.RotationTypes.RotationAxis then
         Frames.planarRotation(Modelica.Math.Vectors.normalize(
                                                n,0.0), Cv.from_deg(angle), 0) else
-        if rotationType == 2 then Frames.from_nxy(n_x, n_y) else
+        if rotationType == Types.RotationTypes.TwoAxesVectors then Frames.from_nxy(n_x, n_y) else
         Frames.axesRotations(sequence, Cv.from_deg(angles), zeros(3))
       "Fixed rotation object from frame_a to frame_b";
   /*
