@@ -814,7 +814,7 @@ functions.
 <p>
 For details about how to define and to use functions as input arguments
 to functions, see
-<a href=\"modelica://ModelicaReference.Classes.function\">ModelicaReference.Classes.function</a>
+<a href=\"modelica://ModelicaReference.Classes.'function'\">ModelicaReference.Classes.'function'</a>
 or the Modelica Language  Specification, Chapter 12.4.2.
 </p>
 

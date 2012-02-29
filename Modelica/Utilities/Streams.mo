@@ -38,7 +38,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
 <p>
 <a href=\"modelica://Modelica.Utilities.Streams\">Streams</a>,
 <a href=\"modelica://Modelica.Utilities.Streams.error\">Streams.error</a>,
-<a href=\"modelica://ModelicaReference.Operators.String()\">String()</a>
+<a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>
 </p>
 </HTML>"));
   end print;
@@ -146,7 +146,7 @@ by \"\\n\" in the string.
 <p>
 <a href=\"modelica://Modelica.Utilities.Streams\">Streams</a>,
 <a href=\"modelica://Modelica.Utilities.Streams.print\">Streams.print</a>,
-<a href=\"modelica://ModelicaReference.Operators.String()\">String()</a>
+<a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>
 </p>
 </html>"));
   end error;
@@ -226,7 +226,7 @@ to parse a string.
 If Real, Integer or Boolean values shall be printed
 or used in an error message, they have to be first converted
 to strings with the builtin operator
-<a href=\"modelica://ModelicaReference.Operators.String()\">String()</a>(...).
+<a href=\"modelica://ModelicaReference.Operators.'String()'\">ModelicaReference.Operators.'String()'</a>(...).
 Example:
 </p>
 <pre>
