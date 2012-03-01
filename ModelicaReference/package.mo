@@ -2275,6 +2275,40 @@ The acos function can also be accessed as Modelica.Math.acos.
 </html>"));
   end 'acos()';
 
+  class 'actualStream()' "actualStream()"
+  extends ModelicaReference.Icons.Information;
+    annotation (Documentation(info="<html>
+<p>
+The <code><strong>actualStream</strong>(v)</code> operator is provided for convenience, in order to return the actual value of the stream variable, depending on the actual flow direction. The only argument of this built-in operator needs to be a reference to a stream variable. The operator is vectorizable, in the case of vector arguments. For the following definition it is assumed that an (inside or outside) connector <code>c</code> contains a stream variable <code>h_outflow</code> which is associated with a flow variable <code>m_flow</code> in the same connector <code>c</code>:</p>
+
+<pre>
+<strong>actualStream</strong>(port.h_outflow) = <strong>if</strong> port.m_flow &gt; 0 <strong>then inStream</strong>(port.h_outflow)
+                                                  <strong>else</strong> port.h_outflow;
+</pre>
+
+
+<h4>Example</h4>
+<p>
+The <code><strong>actualStream</strong>(v)</code> operator is typically used in two contexts:
+</p>
+<pre>
+der(U) = c.m_flow*actualStream(c.h_outflow); // (1)energy balance equation
+h_port = actualStream(port.h);               // (2)monitoring the enthalpy at a port
+</pre>
+<p>
+In the case of equation (1), although the  <code><strong>actualStream()</strong></code> operator is discontinuous, the product with the flow variable is not, because <code><strong>actualStream())</strong></code> is discontinuous when the flow is zero by construction.
+Therefore, a tool might infer that the expression is  <code><strong>smooth(0, ...)</strong></code> automatically, and decide whether or not to generate an event.
+If a user wants to avoid events entirely, he/she may enclose the right-hand side of (1) with the  <code><strong>noEvent()</strong></code> operator.
+</p>
+<p>
+Equations like (2) might be used for monitoring purposes (e.g. plots), in order to inspect what the <em>actual</em> enthalpy of the fluid flowing through a port is.
+In this case, the user will probably want to see the change due to flow reversal at the exact instant, so an event should be generated.
+If the user does not bother, then he/she should enclose the right-hand side of (2) with  <code><strong>noEvent()</strong></code>.
+Since the output of <code><strong>actualStream()</strong></code> will be discontinuous, it should not be used by itself to model physical behaviour (e.g., to compute densities used in momentum balances) -  <code><strong>inStream()</strong></code> should be used for this purpose.The operator  <code><strong>actualStream()</strong></code> should be used to model physical behaviour only when multiplied by the corresponding flow variable (like in the above energy balance equation), because this removes the discontinuity.
+</p>
+</html>"));
+  end 'actualStream()';
+
   class 'asin()' "asin()"
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -2866,7 +2900,7 @@ is used.
 
 <p>
 For an introduction into stream variables and an example for the inStream(..) operator, see
-<a href=\"modelica://ModelicaReference.'stream'\">'stream'</a>.
+<a href=\"modelica://ModelicaReference.'stream'\">stream</a>.
 </p>
 
 <h4>Syntax</h4>
@@ -4160,6 +4194,41 @@ log, log10 that are provided for convenience as built-in functions).
 </html>"));
 end Operators;
 
+class 'array()' "array()"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+The constructor function <code>array(A,B,C,...)</code> constructs an array from its arguments.
+</p>
+
+<h4>Examples</h4>
+
+<pre>
+{1,2,3} <em>is a 3-vector of type Integer</em>
+{{11,12,13}, {21,22,23}} <em>is a 2x3 matrix of type Integer</em>
+{{{1.0, 2.0, 3.0}}} <em>is a 1x1x3 array of type Real</em>
+
+Real[3] v = array(1, 2, 3.0);
+<strong>type</strong> Angle = Real(unit=\"rad\");
+<strong>parameter</strong> Angle alpha = 2.0; // type of alpha is Real.
+// array(alpha, 2, 3.0) or {alpha, 2, 3.0} is a 3-vector of type Real.
+Angle[3] a = {1.0, alpha, 4}; // type of a is Real[3].
+</pre>
+
+<h4>Description</h4>
+
+The constructor function <code>array(A,B,C,...)</code> constructs an array from its arguments according to the following
+rules:
+<ul>
+<li>Size matching: All arguments must have the same sizes, i.e., <code>size(A)=size(B)=size(C)=...</code></li>
+<li>All arguments must be type compatible expressions giving the type of the elements. The data type of the result array is the maximally expanded type of the arguments. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
+<li>Each application of this constructor function adds a one-sized dimension to the left in the result compared to the dimensions of the argument arrays, i.e., <code>ndims(array(A,B,C)) = ndims(A) + 1 = ndims(B) + 1, ...</code></li>
+<li><code>{A, B, C, ...}</code> is a shorthand notation for <code>array(A, B, C, ...)</code>.</li>
+<li>There must be at least one argument [i.e., <code>array()</code> or <code>{}</code> are not defined].
+</ul>
+</html>"));
+end 'array()';
+
 
 class BalancedModel "Balanced model"
   extends ModelicaReference.Icons.Information;
@@ -4556,6 +4625,43 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 
 </html>"));
 end BalancedModel;
+
+class 'cat()' "cat()"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code>.
+</p>
+
+<h4>Examples</h4>
+
+<pre>
+Real[2,3] r1 = cat(1, {{1.0, 2.0, 3}}, {{4, 5, 6}});
+Real[2,6] r2 = cat(2, r1, 2*r1);
+</pre>
+
+<h4>Description</h4>
+
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code> according to the following rules:
+<ul>
+<li>Arrays <code>A, B, C, ...</code> must have the same number of dimensions, i.e., <code>ndims(A) = ndims(B) = ...</code></li>
+<li>Arrays <code>A, B, C, ...</code> must be type compatible expressions giving the type of the elements of theresult. The maximally expanded types should be equivalent. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
+<li><code>k</code> has to characterize an existing dimension, i.e., <code>1 &lt;= k &lt;= ndims(A) = ndims(B) = ndims(C)</code>; <code>k</code> shall be an integer number.</li>
+<li>Size matching: Arrays <code>A, B, C, ...</code> must have identical array sizes with the exception of the size of dimension <code>k</code>, i.e., <code>size(A,j) = size(B,j), for 1 &lt;= j &lt;= ndims(A) and j &lt;&gt; k</code>.</li>
+</ul>
+
+<p>Concatenation is formally defined according to:</p>
+<pre>
+Let R = cat(k,A,B,C,...), and let n = ndims(A) = ndims(B) = ndims(C) = ...., then
+size(R,k) = size(A,k) + size(B,k) + size(C,k) + ...
+size(R,j) = size(A,j) = size(B,j) = size(C,j) = ...., for 1 &lt;= j &lt;= n and j &lt;&gt; k.
+R[i_1, ..., i_k, ..., i_n] = A[i_1, ..., i_k, ..., i_n], for i_k &lt;= size(A,k),
+R[i_1, ..., i_k, ..., i_n] = B[i_1, ..., i_k - size(A,i), ..., i_n], for i_k &lt;= size(A,k) + size(B,k),
+....
+where 1 &lt;= i_j &lt;= size(R,j) for 1 &lt;= j &lt;= n.
+</pre>
+</html>"));
+end 'cat()';
 
 
 class 'connect()' "connect()"
