@@ -1,8 +1,8 @@
 within ;
 operator record Complex "Complex number with overloaded operators"
 //record Complex "Complex number with overloaded operators"
-  Real re "Real part of complex number" annotation(Dialog);
-  Real im "Imaginary part of complex number" annotation(Dialog);
+  replaceable Real re constrainedby Real "Real part of complex number" annotation(Dialog);
+  replaceable Real im constrainedby Real "Imaginary part of complex number" annotation(Dialog);
 
   encapsulated operator 'constructor' "Constructor"
     function fromReal "Construct Complex from Real"
@@ -13,7 +13,7 @@ operator record Complex "Complex number with overloaded operators"
     algorithm
 
       annotation(Inline=true, Documentation(info="<html>
-<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</im> (default=0).</p>
+<p>This function returns a Complex number defined by real part <i>re</i> and optional imaginary part <i>im</i> (default=0).</p>
 </html>"));
     end fromReal;
     annotation(Documentation(info="<html>
@@ -191,11 +191,12 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end 'String';
 
+//Protection(access=Access.hide),
 annotation (__Dymola_Protection(hideFromBrowser=true),
-version="1.0",
-versionBuild=3,
-versionDate="2010-10-16",
-dateModified = "2010-10-16 20:53:07Z",
+version="1.1",
+versionBuild=4,
+versionDate="2012-03-02",
+dateModified = "2012-03-02 14:15:02Z",
 revisionId="$Id::                                       $",
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
