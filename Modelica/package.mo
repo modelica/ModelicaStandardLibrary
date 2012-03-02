@@ -35,7 +35,7 @@ For an introduction, have especially a look at:
 </p>
 <ul>
 <li> <a href=\"Modelica://Modelica.UsersGuide.Overview\">Overview</a>
-	 provides an overview of the Modelica Standard Library
+	 provides an overview of the Modelica Standard Library 
 	 inside the <a href=\"Modelica://Modelica.UsersGuide\">User's Guide</a>.</li>
 <li><a href=\"Modelica://Modelica.UsersGuide.ReleaseNotes\">Release Notes</a>
 	summarizes the changes of new versions of this package.</li>
