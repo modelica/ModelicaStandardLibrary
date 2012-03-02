@@ -15,7 +15,7 @@ annotation (
   Settings(NewStateSelection=true),
   Documentation(info="<HTML>
 <p>
-Package <b>Modelica</b> is a <b>standardized</b> and <b>free</b> package
+Package <b>Modelica</b> is a <b>standardized</b> and <b>free</b> package 
 that is developed together with the Modelica language from the
 Modelica Association, see
 <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
