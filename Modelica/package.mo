@@ -7420,10 +7420,10 @@ annotation (
 preferredView="info",
 version="3.2.1 dev",
 versionBuild=0,
-versionDate="2011-XX-XX",
+versionDate="2012-XX-XX",
 dateModified = "2010-11-08 14:38:50Z",
 revisionId="$Id::                                       $",
-uses(Complex(version="1.0"), ModelicaServices(version="1.1")),
+uses(Complex(version="1.1"), ModelicaServices(version="1.1")),
 conversion(
  noneFromVersion="3.2",
  noneFromVersion="3.1",
