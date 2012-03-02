@@ -7421,7 +7421,7 @@ preferredView="info",
 version="3.2.1 dev",
 versionBuild=0,
 versionDate="2012-XX-XX",
-dateModified = "2010-11-08 14:38:50Z",
+dateModified = "2012-03-02 14:15:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.1"), ModelicaServices(version="1.1")),
 conversion(
