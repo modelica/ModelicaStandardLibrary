@@ -196,6 +196,70 @@ is passed as output.
                 0,0,255})}));
   end VariableLimiter;
 
+  block SlewRateLimiter "Limits the slew rate of a signal"
+    extends Modelica.Blocks.Interfaces.SISO;
+    import Modelica.Constants.small;
+    parameter Modelica.SIunits.DampingCoefficient Rising( min= small) = 1
+      "Maximum rising slew rate [+small..+inf)";
+    parameter Modelica.SIunits.DampingCoefficient Falling(min=-small) = -Rising
+      "Maximum falling slew rate (-inf..-small]";
+    parameter Modelica.SIunits.Time Td(min=small) = 0.001
+      "Derivative time constant";
+  initial equation
+      y = u;
+  equation
+    der(y) = smooth(1, min(max((u - y)/Td, Falling), Rising));
+    annotation (Icon(graphics={
+      Line(points={{-90,0},{68,0}}, color={192,192,192}),
+      Line(points={{0,-90},{0,68}}, color={192,192,192}),
+      Polygon(
+        points={{0,90},{-8,68},{8,68},{0,90}},
+        lineColor={192,192,192},
+        fillColor={192,192,192},
+        fillPattern=FillPattern.Solid),
+      Polygon(
+        points={{90,0},{68,-8},{68,8},{90,0}},
+        lineColor={192,192,192},
+        fillColor={192,192,192},
+        fillPattern=FillPattern.Solid),
+          Line(
+            points={{-50,-70},{50,70}},
+            color={0,0,0},
+            smooth=Smooth.None)},
+        Line(points=[-2,-90; -2,68], style(color=8)),
+        Polygon(points=[-2,90; -10,68; 6,68; -2,90],  style(color=8,
+              fillColor=8)),
+        Polygon(points=[88,0; 66,-8; 66,8; 88,0],     style(color=8,
+              fillColor=8)),
+        Line(points=[-92,0; 66,0],   style(color=8)),
+        Line(points=[-52,-70; 48,70], style(
+            color=0,
+            rgbcolor={0,0,0},
+            pattern=2,
+            smooth=0))),
+  Documentation(info="<html>
+<p>The <code>SlewRateLimiter</code> block limits the slew rate of its input signal in the range of <code>[Falling, Rising]</code>.</p>
+<p>To ensure this for arbitrary inputs and in order to produce a differential output, the input is numerically differentiated
+with derivative time constant <code>Td</code>. Smaller time constant <code>Td</code> means nearer ideal derivative.</p>
+<p><em>Note: The user has to choose the derivative time constant according to the nature of the input signal.</em></p>
+</html>",
+  revisions="<html>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<th>Revision</th>
+<th>Date</th>
+<th>Author</th>
+<th>Comment</th>
+</tr>
+<tr>
+<td valign=\"top\">4954</td>
+<td valign=\"top\">2012-03-02</td>
+<td valign=\"top\">A. Haumer &amp; D. Winkler</td>
+<td valign=\"top\"><p>Initial version based on discussion in <a href=\"https://trac.modelica.org/Modelica/ticket/529/Modelica\">#529</a></p></td>
+</tr>
+</table>
+</html>"));
+  end SlewRateLimiter;
+
       block DeadZone "Provide a region of zero output"
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
@@ -712,78 +776,6 @@ the following relationship:
           Line(points={{-64,-30},{-64,0}}, color={192,192,192})}));
   end VariableDelay;
 
-  block SlewRateLimiter "Limits the slew rate of a signal"
-    extends Modelica.Blocks.Interfaces.SISO;
-    import Modelica.Constants.small;
-    parameter Modelica.SIunits.DampingCoefficient Rising( min= small) = 1
-      "Maximum rising slew rate (0..+inf)";
-    parameter Modelica.SIunits.DampingCoefficient Falling(min=-small) = -Rising
-      "Maximum falling slew rate (-inf..0)";
-    parameter Modelica.SIunits.Time Td(min=small) = 0.001
-      "Derivative time constant";
-  initial equation
-      y = u;
-  equation
-    der(y) = smooth(1, min(max((u - y)/Td, Falling), Rising));
-    annotation (Icon(graphics={
-      Line(points={{-90,0},{68,0}}, color={192,192,192}),
-      Line(points={{0,-90},{0,68}}, color={192,192,192}),
-      Polygon(
-        points={{0,90},{-8,68},{8,68},{0,90}},
-        lineColor={192,192,192},
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid),
-      Polygon(
-        points={{90,0},{68,-8},{68,8},{90,0}},
-        lineColor={192,192,192},
-        fillColor={192,192,192},
-        fillPattern=FillPattern.Solid),
-          Line(
-            points={{-50,-70},{50,70}},
-            color={0,0,0},
-            smooth=Smooth.None)},
-        Line(points=[-2,-90; -2,68], style(color=8)),
-        Polygon(points=[-2,90; -10,68; 6,68; -2,90],  style(color=8,
-              fillColor=8)),
-        Polygon(points=[88,0; 66,-8; 66,8; 88,0],     style(color=8,
-              fillColor=8)),
-        Line(points=[-92,0; 66,0],   style(color=8)),
-        Line(points=[-52,-70; 48,70], style(
-            color=0,
-            rgbcolor={0,0,0},
-            pattern=2,
-            smooth=0))),
-  Documentation(info="<html>
-<p>The <code>SlewRateLimiter</code> block limits the slew rate of its input signal in the range of <code>[Falling, Rising]</code>.</p>
-<p>To ensure this for arbitrary inputs and in order to produce a differential output, the input is numerically differentiated 
-with derivative time constant <code>Td</code>. Smaller time constant <code>Td</code> means nearer ideal derivative.</p>
-<p><em>Note: The user has to choose the derivative time constant according to the nature of the input signal.</em></p>
-</html>",
-  revisions="<html>
-<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
-<th>Version</th>
-<th>Revision</th>
-<th>Date</th>
-<th>Author</th>
-<th>Comment</th>
-</tr>
-<tr>
-<td valign=\"top\"><p>0.2</p></td>
-<td valign=\"top\"></td>
-<td valign=\"top\"><p>2011-04-20</p></td>
-<td valign=\"top\"><p>D. Winkler</p></td>
-<td valign=\"top\"><p>Improved documentation and set sane start values</p></td>
-</tr>
-<tr>
-<td valign=\"top\"><p>0.1</p></td>
-<td valign=\"top\"></td>
-<td valign=\"top\"><p>2011-04-11</p></td>
-<td valign=\"top\"><p>D. Winkler</p></td>
-<td valign=\"top\"><p>Initial (proposed) version</p></td>
-</tr>
-</table>
-</html>"));
-  end SlewRateLimiter;
       annotation (
         Documentation(info="
 <HTML>

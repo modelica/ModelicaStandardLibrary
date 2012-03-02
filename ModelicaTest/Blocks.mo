@@ -184,6 +184,15 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Blocks.Continuous.Der idealDerivative
       annotation (Placement(transformation(extent={{40,40},{60,60}})));
   equation
+    assert(idealDerivative.y <= slewRateLimiter.Rising
+           and idealDerivative.y >= slewRateLimiter.Falling,
+           "Test of Modelica.Blocks.Nonlinear.SlewRateLimiter failed!");
+    assert(limiter.y <= limiter.uMax
+           and limiter.y >= limiter.uMin,
+           "Test of Modelica.Blocks.Nonlinear.Limiter failed!");
+    assert(variableLimiter.y <= constPos.y
+           and variableLimiter.y >= constNeg.y,
+           "Test of Modelica.Blocks.Nonlinear.VariableLimiter failed!");
     connect(sine.y, limiter.u) annotation (Line(points={{-59,30},{-20,30},{-20,
             10},{-2,10}},
           color={0,0,127}));
