@@ -163,34 +163,52 @@ extends Modelica.Icons.ExamplesPackage;
   model Limiters
     extends Modelica.Icons.Example;
     Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false)
-      annotation (Placement(transformation(extent={{-20,40},{0,60}}, rotation=0)));
+      annotation (Placement(transformation(extent={{0,0},{20,20}},   rotation=0)));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
-          false) annotation (Placement(transformation(extent={{-20,0},{0,20}},
+          false) annotation (Placement(transformation(extent={{0,-40},{20,-20}},
             rotation=0)));
     Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false)
-      annotation (Placement(transformation(extent={{-20,-40},{0,-20}}, rotation=
+      annotation (Placement(transformation(extent={{0,-80},{20,-60}},  rotation=
              0)));
-    Modelica.Blocks.Sources.Sine sine(amplitude=2)
-      annotation (Placement(transformation(extent={{-60,40},{-40,60}}, rotation=
+    Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=1)
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}}, rotation=
              0)));
-    Modelica.Blocks.Sources.Constant const annotation (Placement(transformation(
-            extent={{-80,16},{-60,36}}, rotation=0)));
-    Modelica.Blocks.Sources.Constant const1(k=-1)
-      annotation (Placement(transformation(extent={{-80,-26},{-60,-6}},
+    Modelica.Blocks.Sources.Constant constPos(k=+1)
+                                           annotation (Placement(transformation(
+            extent={{-80,-20},{-60,0}}, rotation=0)));
+    Modelica.Blocks.Sources.Constant constNeg(k=-1)
+      annotation (Placement(transformation(extent={{-80,-60},{-60,-40}},
             rotation=0)));
+    Modelica.Blocks.Nonlinear.SlewRateLimiter slewRateLimiter(Rising=10)
+      annotation (Placement(transformation(extent={{0,40},{20,60}})));
+    Modelica.Blocks.Continuous.Der idealDerivative
+      annotation (Placement(transformation(extent={{40,40},{60,60}})));
   equation
-    connect(sine.y, limiter.u) annotation (Line(points={{-39,50},{-22,50}},
+    connect(sine.y, limiter.u) annotation (Line(points={{-59,30},{-20,30},{-20,
+            10},{-2,10}},
           color={0,0,127}));
-    connect(const.y, variableLimiter.limit1) annotation (Line(points={{-59,26},
-            {-42,26},{-42,18},{-22,18}}, color={0,0,127}));
-    connect(const1.y, variableLimiter.limit2) annotation (Line(points={{-59,-16},
-            {-40,-16},{-40,2},{-22,2}}, color={0,0,127}));
-    connect(sine.y, variableLimiter.u) annotation (Line(points={{-39,50},{-32,
-            50},{-32,10},{-22,10}}, color={0,0,127}));
-    connect(sine.y, deadZone.u) annotation (Line(points={{-39,50},{-32,50},{-32,
-            -30},{-22,-30}}, color={0,0,127}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}})),
+    connect(constPos.y, variableLimiter.limit1)
+                                             annotation (Line(points={{-59,-10},
+            {-40,-10},{-40,-22},{-2,-22}},
+                                         color={0,0,127}));
+    connect(constNeg.y, variableLimiter.limit2)
+                                              annotation (Line(points={{-59,-50},
+            {-40,-50},{-40,-38},{-2,-38}},
+                                        color={0,0,127}));
+    connect(sine.y, variableLimiter.u) annotation (Line(points={{-59,30},{-20,
+            30},{-20,-30},{-2,-30}},color={0,0,127}));
+    connect(sine.y, deadZone.u) annotation (Line(points={{-59,30},{-20,30},{-20,
+            -70},{-2,-70}},  color={0,0,127}));
+    connect(sine.y, slewRateLimiter.u) annotation (Line(
+        points={{-59,30},{-20,30},{-20,50},{-2,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(slewRateLimiter.y, idealDerivative.u) annotation (Line(
+        points={{21,50},{38,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
+              -100},{100,100}}), graphics),
       experiment(StopTime=1.1));
   end Limiters;
 

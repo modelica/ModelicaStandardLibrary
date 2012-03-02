@@ -1424,7 +1424,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(linearSpeedDependentTorque.support,fixed1.flange)    annotation (Line(
-        points={{-132,-42},{-132,-50},{-70,-50}},
+        points={{-132,-40},{-132,-50},{-70,-50}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(quadraticSpeedDependentTorque.flange, inertia8.flange_b)
@@ -1433,7 +1433,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(fixed1.flange,quadraticSpeedDependentTorque.support)    annotation (Line(
-        points={{-70,-50},{-5,-50},{-5,-42}},
+        points={{-70,-50},{-5,-50},{-5,-40}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(constantTorque.flange, inertia14.flange_a) annotation (Line(
@@ -1445,15 +1445,16 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(fixed6.flange,torqueStep.support)    annotation (Line(
-        points={{-110,-152},{-110,-142}},
+        points={{-110,-152},{-110,-140}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(fixed6.flange,constantTorque.support)    annotation (Line(
-        points={{-110,-152},{-130,-152},{-130,-102},{-110,-102}},
+        points={{-110,-152},{-130,-152},{-130,-100},{-110,-100}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(torqueStep.support,constantSpeed.support)  annotation (Line(
-        points={{-110,-142},{-50,-142}},
+        points={{-110,-140},{-95,-140},{-95,-138},{-80,-138},{-80,-142},{-50,
+            -142}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(constantSpeed.flange, inertia15.flange_a) annotation (Line(
