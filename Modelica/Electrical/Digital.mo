@@ -1859,15 +1859,15 @@ components of the Electrical.Digital library.
     connector DigitalOutput = output DigitalSignal
       "output DigitalSignal as connector"
       annotation (defaultComponentName="y", Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                                        Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics
-          ={Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
@@ -2108,7 +2108,6 @@ If time less than <i>delayTime</i> the initial value <i>y0</i> holds.
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
-
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Text(
@@ -2179,7 +2178,6 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               fillColor={213,170,255},
               fillPattern=FillPattern.Solid),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
-
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0}),
             Text(
@@ -2213,7 +2211,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
 
     algorithm
       when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
-        x_old := if initial() or pre(x) == 0 then y0 else pre(x);
+        x_old := if initial() or pre(x) == L.'U' then y0 else pre(x);
         lh := delayTable[x_old, x];
         delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
         t_next := time + delayTime;
@@ -2283,7 +2281,6 @@ is used, if it is zero, the input is not delayed.
               lineThickness=0.5,
               textString="sensitive"),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
-
             Line(points={{10,60},{10,40}}, color={0,0,0}),
             Line(points={{0,60},{20,60}}, color={0,0,0})}));
     end InertialDelaySensitive;
@@ -3964,7 +3961,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
       parameter Integer n(final min=1, start=2) "signal width";
     equation
       for i in 1:n loop
-        y[i] = if x[i] == 4 or x[i] == 8 then true else false;
+        y[i] = if x[i] == L.'1' or x[i] == L.'H' then true else false;
       end for;
       annotation (Documentation(info="<HTML>
 <P>
