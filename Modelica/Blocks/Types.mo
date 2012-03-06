@@ -24,7 +24,7 @@ package Types
         "Steady state initialization (derivatives of states are zero)",
       InitialState "Initialization with initial states",
       InitialOutput
-        "Initialization with initial outputs (and steady state of the states if possibles)")
+        "Initialization with initial outputs (and steady state of the states if possible)")
     "Enumeration defining initialization of a block"
       annotation (Evaluate=true);
 
@@ -36,10 +36,10 @@ package Types
         "Steady state initialization (derivatives of states are zero)",
       InitialState "Initialization with initial states",
       InitialOutput
-        "Initialization with initial outputs (and steady state of the states if possibles)",
+        "Initialization with initial outputs (and steady state of the states if possible)",
 
       DoNotUse_InitialIntegratorState
-        "Don't use, only for backward compatibility (initialize only integrator state)")
+        "Don not use, only for backward compatibility (initialize only integrator state)")
     "Enumeration defining initialization of PID and LimPID blocks"
     annotation (Documentation(info="<html>
 <p>
