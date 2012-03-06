@@ -18,7 +18,7 @@ Documentation(info="<HTML>
 <p>
 Package <b>Modelica</b> is a <b>standardized</b> and <b>free</b> package
 that is developed together with the Modelica language from the 
-Modelica Association, see
+Modelica Association, see 
 <a href=\"http://www.Modelica.org\">http://www.Modelica.org</a>.
 It is also called <b>Modelica Standard Library</b>.
 It provides model components in many domains that are based on

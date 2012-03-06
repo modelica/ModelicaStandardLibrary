@@ -20,7 +20,7 @@ values are visualized in a diagram animation.
 </p>
 </html>"));
 
-  model And "Logical 'and': y = u1 and u2"
+  block And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="and1",
            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -41,7 +41,7 @@ the output is <b>false</b>.
     y = u1 and u2;
   end And;
 
-  model Or "Logical 'or': y = u1 or u2"
+  block Or "Logical 'or': y = u1 or u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="or1",
            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -62,7 +62,7 @@ the output is <b>false</b>.
     y = u1 or u2;
   end Or;
 
-  model Xor "Logical 'xor': y = u1 xor u2"
+  block Xor "Logical 'xor': y = u1 xor u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
@@ -82,7 +82,7 @@ the output is <b>false</b>.
     y =not  ( (u1 and u2) or (not u1 and not u2));
   end Xor;
 
-  model Nor "Logical 'nor': y = not (u1 or u2)"
+  block Nor "Logical 'nor': y = not (u1 or u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
@@ -102,7 +102,7 @@ the output is <b>false</b>.
     y =not  ( u1 or u2);
   end Nor;
 
-  model Nand "Logical 'nand': y = not (u1 and u2)"
+  block Nand "Logical 'nand': y = not (u1 and u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={Text(
@@ -122,7 +122,7 @@ the output is <b>false</b>.
     y =not  ( u1 and u2);
   end Nand;
 
-  model Not "Logical 'not': y = not u"
+  block Not "Logical 'not': y = not u"
     extends Blocks.Interfaces.partialBooleanSISO;
 
     annotation (defaultComponentName="not1",
@@ -144,7 +144,7 @@ the output is <b>false</b>.
     y =not  u;
   end Not;
 
-  model Pre
+  block Pre
     "Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))"
 
     parameter Boolean pre_u_start = false
@@ -180,7 +180,7 @@ values are identical (u = pre(u)).
     y = pre(u);
   end Pre;
 
-  model Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
+  block Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
 
     parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
@@ -208,7 +208,7 @@ the output is <b>false</b>.
     y = edge(u);
   end Edge;
 
-  model FallingEdge
+  block FallingEdge
     "Output y is true, if the input u has a falling edge (y = edge(not u))"
 
     parameter Boolean pre_u_start = false
@@ -238,7 +238,7 @@ the output is <b>false</b>.
     y = edge(not_u);
   end FallingEdge;
 
-  model Change
+  block Change
     "Output y is true, if the input u has a rising or falling edge (y = change(u))"
 
     parameter Boolean pre_u_start = false
