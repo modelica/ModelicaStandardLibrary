@@ -2404,6 +2404,18 @@ maintenance branch of Version 3.2. All these changes are backwards compatible.
 </p>
 
 <p><br>
+The following <b style=\"color:red\">critical errors</b> have been fixed (i.e., errors
+that can lead to wrong simulation results):
+</p>
+
+<table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
+<tr><td colspan=\"2\"><b>Modelica.Math.Mechanic.Translational.Components.</b></td></tr>
+<tr><td valign=\"top\"> SupportFriction</td>
+    <td valign=\"top\"> Corrected wrong calculation of position s (and consequently velocity and acceleration) relative to support. 
+                      (Maintenance back to Version 3.0)</td></tr>
+</table>
+
+<p><br>
 The following <b style=\"color:red\">uncritical errors</b> have been fixed (i.e., errors
 that do <b style=\"color:red\">not</b> lead to wrong simulation results, but, e.g.,
 units are wrong or errors in documentation):
@@ -2420,6 +2432,15 @@ units are wrong or errors in documentation):
 <tr><td valign=\"top\"> householderSimilarityTransformation</td>
     <td valign=\"top\"> The unspecified dimensions in an array in the protected section
                       replaced by concrete dimensions.</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.machines.SpacePhacors.Functions.</b></td></tr>
+<tr><td valign=\"top\"> ToSpacePhasor<br>
+                      FromSpacePhasor<br>
+                      ToPolar<br>
+                      FromPolar<br>
+                      quasiRMS<br>
+                      activePower</td>
+    <td valign=\"top\"> Moved constants (like pi) to protected section.
+                      (Maintenance back to version 2.2.1)</td> </tr>
 </table>
 
 </html>"));
