@@ -3244,12 +3244,11 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
   protected
-    discrete Modelica.SIunits.Time t0 "Start time of simulation";
+    parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
     Real x(start=0) "Integrator state";
+  initial equation
+    t0 = time;
   equation
-    when initial() then
-        t0 = time;
-    end when;
     der(x) = u;
     when sample(t0+1/f, 1/f) then
       y=f*x;

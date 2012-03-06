@@ -7539,9 +7539,9 @@ end UsersGuide;
 annotation (
 preferredView="info",
 version="3.2",
-versionBuild=13,
+versionBuild=14,
 versionDate="2010-10-25",
-dateModified = "2012-03-06 10:50:00Z",
+dateModified = "2012-03-06 21:00:00Z",
 revisionId="$Id::                                       $",
 uses(Complex(version="1.1"), ModelicaServices(version="1.1")),
 conversion(
