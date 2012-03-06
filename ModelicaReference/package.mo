@@ -5460,7 +5460,8 @@ Import classes
 
 <pre><b>class</b> Lookup
   <b>import</b> SI = Modelica.SIunits; // #1
-  <b>import</b> Modelica.Math.*; // #2
+  <b>import</b> Modelica.Math.*; // #2 (Try to avoid wildcard imports,
+                          //     consider using #1 or #3  instead!)
   <b>import</b> Modelica.Mechanics.Rotational; // #3
 
   SI.Torque torque; // due to #1 (Modelica.SIunits.Torque)
@@ -5519,6 +5520,8 @@ The generated import names are:</p>
   <li><code>D</code> for <code><b>import</b> D = A.B.C;</code></li>
   <li><code>C</code> and all other classes in B for <code><b>import</b> A.B.*;</code></li>
 </ul>
+<h5>Note</h5>
+<p><em>Especially the last wildcard import statement should be avoided since it might lead to name-lookup conflicts.</em></p>
 </html>"));
 end 'import';
 
