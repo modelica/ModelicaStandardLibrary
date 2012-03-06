@@ -3,7 +3,6 @@ within Modelica.Thermal;
 
 package HeatTransfer
   "Library of 1-dimensional heat transfer with lumped elements"
-  import Modelica.SIunits.Conversions.*;
   extends Modelica.Icons.Package;
   package Examples
     "Example models to demonstrate the usage of package Modelica.Thermal.HeatTransfer"
@@ -81,8 +80,8 @@ Tsensor1.T, Tsensor2.T, T_final_degC
               rotation=0)));
       Modelica.Electrical.Analog.Basic.HeatingResistor heatingResistor(
         R_ref=10,
-        T_ref=from_degC(20),
-        alpha=1/(235 + 20)) annotation (Placement(transformation(
+        T_ref=293.15,
+        alpha=1/255) annotation (Placement(transformation(
             origin={-30,-50},
             extent={{-10,10},{10,-10}},
             rotation=270)));
@@ -173,15 +172,14 @@ An approppriate simulating time would be 10 seconds.
             origin={-40,70},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Sources.PrescribedHeatFlow windingLosses(
-                                                    T_ref=from_degC(95), alpha=
-            3.03E-3)                         annotation (Placement(
+      HeatTransfer.Sources.PrescribedHeatFlow windingLosses(T_ref=368.15,
+        alpha=3.03E-3)           annotation (Placement(
             transformation(
             origin={-80,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Components.HeatCapacitor winding(               C=2500, T(start=
-              TAmb, fixed=true))            annotation (Placement(
+      HeatTransfer.Components.HeatCapacitor winding(C=2500, T(start=TAmb, fixed=true))
+                  annotation (Placement(
             transformation(extent={{-90,-20},{-70,-40}}, rotation=0)));
       HeatTransfer.Celsius.TemperatureSensor Twinding
                                                      annotation (Placement(
@@ -189,8 +187,7 @@ An approppriate simulating time would be 10 seconds.
             origin={-60,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Components.ThermalConductor winding2core(
-                                                 G=10)
+      HeatTransfer.Components.ThermalConductor winding2core(G=10)
                                             annotation (Placement(
             transformation(extent={{-50,-20},{-30,0}}, rotation=0)));
       HeatTransfer.Sources.PrescribedHeatFlow coreLosses
@@ -199,8 +196,7 @@ An approppriate simulating time would be 10 seconds.
             origin={0,10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      HeatTransfer.Components.HeatCapacitor core(               C=25000, T(start=
-              TAmb, fixed=true))            annotation (Placement(
+      HeatTransfer.Components.HeatCapacitor core(C=25000, T(start=TAmb, fixed=true))            annotation (Placement(
             transformation(extent={{-10,-20},{10,-40}}, rotation=0)));
       HeatTransfer.Celsius.TemperatureSensor Tcore   annotation (Placement(
             transformation(
@@ -215,8 +211,7 @@ An approppriate simulating time would be 10 seconds.
       HeatTransfer.Components.Convection convection
                                          annotation (Placement(transformation(
               extent={{30,-20},{50,0}}, rotation=0)));
-      HeatTransfer.Sources.FixedTemperature environment(
-                                                T=TAmb)       annotation (Placement(
+      HeatTransfer.Sources.FixedTemperature environment(T=TAmb)       annotation (Placement(
             transformation(
             origin={80,-10},
             extent={{-10,-10},{10,10}},
@@ -1696,7 +1691,7 @@ in order to simulate temperature dependent losses (which are given an reference 
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
-      Kelvin = from_degC(Celsius);
+      Kelvin = Modelica.SIunits.Conversions.from_degC(Celsius);
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
@@ -1758,7 +1753,7 @@ and provide is as output signal.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
-      Celsius = to_degC(Kelvin);
+      Celsius = Modelica.SIunits.Conversions.to_degC(Kelvin);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1818,7 +1813,7 @@ and provides is as output signal.
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation
-      port.T = from_degC(T);
+      port.T = Modelica.SIunits.Conversions.from_degC(T);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1886,7 +1881,7 @@ i.e., it defines a fixed temperature as a boundary condition.
       Modelica.Blocks.Interfaces.RealInput T                       annotation (Placement(
             transformation(extent={{-140,-20},{-100,20}}, rotation=0)));
     equation
-      port.T = from_degC(T);
+      port.T = Modelica.SIunits.Conversions.from_degC(T);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -1956,7 +1951,7 @@ as required to keep the temperature at the specified value.
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
     equation
-      T = to_degC(port.T);
+      T = Modelica.SIunits.Conversions.to_degC(port.T);
       port.Q_flow = 0;
       annotation (
         Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
@@ -2082,7 +2077,7 @@ Example:
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
-      Kelvin = from_degF(Fahrenheit);
+      Kelvin = Modelica.SIunits.Conversions.from_degF(Fahrenheit);
       annotation (
         Diagram(graphics={
             Ellipse(
@@ -2148,7 +2143,7 @@ and provides is as output signal.
      annotation (Placement(transformation(extent={{100,-10},{120,10}}, rotation=
                0)));
     equation
-      Fahrenheit = to_degF(Kelvin);
+      Fahrenheit = Modelica.SIunits.Conversions.to_degF(Kelvin);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2212,7 +2207,7 @@ and provides them as output signals.
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation
-      port.T = from_degF(T);
+      port.T = Modelica.SIunits.Conversions.from_degF(T);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2285,7 +2280,7 @@ i.e., it defines a fixed temperature as a boundary condition.
         annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
     equation
-      port.T = from_degF(T);
+      port.T = Modelica.SIunits.Conversions.from_degF(T);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2358,7 +2353,7 @@ as required to keep the temperature at the specified value.
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
     equation
-      T = to_degF(port.T);
+      T = Modelica.SIunits.Conversions.to_degF(port.T);
       port.Q_flow = 0;
       annotation (
         Diagram(graphics={
@@ -2488,7 +2483,7 @@ Example:
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
-      Kelvin = from_degRk(Rankine);
+      Kelvin = Modelica.SIunits.Conversions.from_degRk(Rankine);
       annotation (
         Diagram(graphics={
             Ellipse(
@@ -2549,7 +2544,7 @@ and provides them as output signals.
          annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
     equation
-      Rankine = to_degRk(Kelvin);
+      Rankine = Modelica.SIunits.Conversions.to_degRk(Kelvin);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2608,7 +2603,7 @@ and provides them as output signals.
       Interfaces.HeatPort_b port annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
     equation
-      port.T = from_degRk(T);
+      port.T = Modelica.SIunits.Conversions.from_degRk(T);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2677,7 +2672,7 @@ This model defines a fixed temperature T at its port in degree Rankine,
          annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
               rotation=0)));
     equation
-      port.T = from_degRk(T);
+      port.T = Modelica.SIunits.Conversions.from_degRk(T);
       annotation (
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
@@ -2746,7 +2741,7 @@ as required to keep the temperature at the specified value.
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
     equation
-      T = to_degRk(port.T);
+      T = Modelica.SIunits.Conversions.to_degRk(port.T);
       port.Q_flow = 0;
       annotation (
         Diagram(graphics={
