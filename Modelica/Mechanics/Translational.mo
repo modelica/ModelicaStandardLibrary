@@ -2033,8 +2033,8 @@ where the different effects are visualized:
       f0_max = peak*f0;
       free = false;
 
-      s = s_a - s_support;
-      s_a = s_b;
+      s = flange_a.s - s_support;
+      flange_a.s = flange_b.s;
 
     // velocity and acceleration of flanges
       v = der(s);
