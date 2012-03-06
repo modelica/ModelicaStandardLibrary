@@ -187,7 +187,6 @@ The Electrical.Digital library is based on the following references:
 end UsersGuide;
 
   annotation (
-
     Documentation(info="<html>
 <p>
 This library contains packages for digital electrical components. Both, type system
@@ -345,8 +344,7 @@ The multiplexer converts a parallel 4 bit signal in a sequential
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=250));
       D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
               extent={{-80,-56},{-60,-36}}, rotation=0)));
@@ -428,8 +426,7 @@ Pulse-triggered master-slave flip-flop.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=250));
       D.Examples.Utilities.JKFF FF
                      annotation (Placement(transformation(extent={{-10,-40},{70,
@@ -513,8 +510,7 @@ The simulation stop time should be 5 seconds.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=5));
 
       Sources.Table a(
@@ -592,8 +588,7 @@ The simulation stop time should be 10 seconds.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=10));
 
       Digital.Examples.Utilities.FullAdder Adder1            annotation (Placement(
@@ -681,8 +676,7 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=5));
 
       Digital.Sources.Table b4(
@@ -799,8 +793,7 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=10));
       D.Sources.Step Enable       annotation (Placement(transformation(extent={
                 {-90,8},{-50,48}}, rotation=0)));
@@ -836,8 +829,7 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics)
-        ,
+            grid={2,2}), graphics),
         experiment(StopTime=100));
       D.Sources.Step Enable       annotation (Placement(transformation(extent={
                 {-90,8},{-50,48}}, rotation=0)));
@@ -1561,29 +1553,23 @@ The simulation stop time has to be 5s.
 
               equation
                 connect(AND.y, c)
-                               annotation (Line(
-            points={{20,-62},{60,-62},{60,-70},{100,-70}},
-            color={127,0,127}));
+                               annotation (Line(points={{20,-62},{60,-62},{60,-70},
+                {100,-70}}, color={127,0,127}));
                 connect(XOR.y, s)
-                               annotation (Line(
-            points={{20,62},{60,62},{60,70},{100,70}},
-            color={127,0,127}));
+                               annotation (Line(points={{20,62},{60,62},{60,70},
+                {100,70}}, color={127,0,127}));
                 connect(b, AND.x[1])
-                                  annotation (Line(
-            points={{-100,-70},{-12,-70}},
-            color={127,0,127}));
+                                  annotation (Line(points={{-100,-70},{-12,-70}},
+              color={127,0,127}));
                 connect(b, XOR.x[1])
-                                  annotation (Line(
-            points={{-100,-70},{-30,-70},{-30,54},{-12,54}},
-            color={127,0,127}));
+                                  annotation (Line(points={{-100,-70},{-30,-70},
+                {-30,54},{-12,54}}, color={127,0,127}));
                 connect(a, XOR.x[2])
-                                  annotation (Line(
-            points={{-100,70},{-12,70}},
-            color={127,0,127}));
+                                  annotation (Line(points={{-100,70},{-12,70}},
+              color={127,0,127}));
                 connect(a, AND.x[2])
-                                  annotation (Line(
-            points={{-100,70},{-40,70},{-40,-54},{-12,-54}},
-            color={127,0,127}));
+                                  annotation (Line(points={{-100,70},{-40,70},{
+                -40,-54},{-12,-54}}, color={127,0,127}));
               end HalfAdder;
 
     model FullAdder "adding circuit for binary numbers with input carry bit"
@@ -1667,8 +1653,7 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics)
-        );
+              grid={2,2}), graphics));
 
       HalfAdder Adder2(delayTime=0.001)
                                       annotation (Placement(transformation(
@@ -1790,8 +1775,7 @@ The simulation stop time has to be 5s.
         Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
-              grid={2,2}), graphics)
-        );
+              grid={2,2}), graphics));
       parameter Integer n=2 "number of single adders";
       Digital.Examples.Utilities.FullAdder Adder[n]
                                    annotation (Placement(transformation(extent=
@@ -2142,15 +2126,15 @@ components of the Electrical.Digital library.
     connector DigitalOutput = output DigitalSignal
       "output DigitalSignal as connector"
       annotation (defaultComponentName="y", Icon(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid)}),
                                        Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics=
-           {Polygon(
+            preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
+            Polygon(
             points={{-100,100},{100,0},{-100,-100},{-100,100}},
             lineColor={127,0,127},
             fillColor={255,255,255},
@@ -2555,7 +2539,7 @@ is used, if it is zero, the input is not delayed.
 
     algorithm
       when {initial(),(tLH > 0 or tHL > 0) and change(x) and not initial()} then
-        x_old := if initial() or pre(x) == 0 then y0 else pre(x);
+        x_old := if initial() or pre(x) == L.'U' then y0 else pre(x);
         lh := delayTable[x_old, x];
         delayTime := if (lh > 0) then tLH else (if (lh < 0) then tHL else 0);
         t_next := time + delayTime;
@@ -4300,7 +4284,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
               lineThickness=0.5)}));
     equation
       for i in 1:n loop
-        y[i] = if x[i] == 4 or x[i] == 8 then true else false;
+        y[i] = if x[i] == L.'1' or x[i] == L.'H' then true else false;
       end for;
     end LogicToBoolean;
 
