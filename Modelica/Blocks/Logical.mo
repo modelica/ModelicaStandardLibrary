@@ -2,7 +2,7 @@ within Modelica.Blocks;
 package Logical "Library of components with Boolean input and output signals"
     extends Modelica.Icons.Package;
 
-  model And "Logical 'and': y = u1 and u2"
+  block And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
     y = u1 and u2;
@@ -22,7 +22,7 @@ the output is <b>false</b>.
 </html>"));
   end And;
 
-  model Or "Logical 'or': y = u1 or u2"
+  block Or "Logical 'or': y = u1 or u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
     y = u1 or u2;
@@ -42,7 +42,7 @@ the output is <b>false</b>.
 </html>"));
   end Or;
 
-  model Xor "Logical 'xor': y = u1 xor u2"
+  block Xor "Logical 'xor': y = u1 xor u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
     y =not  ( (u1 and u2) or (not u1 and not u2));
@@ -61,7 +61,7 @@ the output is <b>false</b>.
 </html>"));
   end Xor;
 
-  model Nor "Logical 'nor': y = not (u1 or u2)"
+  block Nor "Logical 'nor': y = not (u1 or u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
     y =not  ( u1 or u2);
@@ -80,7 +80,7 @@ the output is <b>false</b>.
 </html>"));
   end Nor;
 
-  model Nand "Logical 'nand': y = not (u1 and u2)"
+  block Nand "Logical 'nand': y = not (u1 and u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
   equation
     y =not  ( u1 and u2);
@@ -99,7 +99,7 @@ the output is <b>false</b>.
 </html>"));
   end Nand;
 
-  model Not "Logical 'not': y = not u"
+  block Not "Logical 'not': y = not u"
     extends Blocks.Interfaces.partialBooleanSISO;
 
   equation
@@ -120,7 +120,7 @@ the output is <b>false</b>.
 </html>"));
   end Not;
 
-  model Pre
+  block Pre
     "Breaks algebraic loops by an infinitesimal small time delay (y = pre(u): event iteration continues until u = pre(u))"
 
     parameter Boolean pre_u_start = false
@@ -155,7 +155,7 @@ values are identical (u = pre(u)).
 </html>"));
   end Pre;
 
-  model Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
+  block Edge "Output y is true, if the input u has a rising edge (y = edge(u))"
 
     parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
@@ -182,7 +182,7 @@ the output is <b>false</b>.
 </html>"));
   end Edge;
 
-  model FallingEdge
+  block FallingEdge
     "Output y is true, if the input u has a falling edge (y = edge(not u))"
 
     parameter Boolean pre_u_start = false
@@ -211,7 +211,7 @@ the output is <b>false</b>.
 </html>"));
   end FallingEdge;
 
-  model Change
+  block Change
     "Output y is true, if the input u has a rising or falling edge (y = change(u))"
 
     parameter Boolean pre_u_start = false

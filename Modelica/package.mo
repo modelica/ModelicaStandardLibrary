@@ -2432,7 +2432,7 @@ units are wrong or errors in documentation):
 <tr><td valign=\"top\"> householderSimilarityTransformation</td>
     <td valign=\"top\"> The unspecified dimensions in an array in the protected section
                       replaced by concrete dimensions.</td> </tr>
-<tr><td colspan=\"2\"><b>Modelica.Electrical.machines.SpacePhacors.Functions.</b></td></tr>
+<tr><td colspan=\"2\"><b>Modelica.Electrical.Machines.SpacePhacors.Functions.</b></td></tr>
 <tr><td valign=\"top\"> ToSpacePhasor<br>
                       FromSpacePhasor<br>
                       ToPolar<br>
@@ -2440,6 +2440,23 @@ units are wrong or errors in documentation):
                       quasiRMS<br>
                       activePower</td>
     <td valign=\"top\"> Moved constants (like pi) to protected section.
+                      (Maintenance back to version 2.2.1)</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
+<tr><td valign=\"top\"> Mean</td>
+    <td valign=\"top\"> Changed discrete t0 to parameter t0(fixed=false). 
+                      (Maintenance back to version 3.2)</td> </tr>
+<tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
+<tr><td valign=\"top\"> And<br>
+                      Or<br>
+                      Xor<br>
+                      Nor<br>
+                      Nand<br>
+                      Not<br>
+                      Pre<br>
+                      Edge<br>
+                      FallingEdge<br>
+                      Change</td>
+    <td valign=\"top\"> Changed component definition from model to block. 
                       (Maintenance back to version 2.2.1)</td> </tr>
 </table>
 
