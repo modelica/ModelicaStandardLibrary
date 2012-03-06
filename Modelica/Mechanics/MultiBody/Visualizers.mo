@@ -2470,7 +2470,7 @@ since they all have frame connectors).
   end Advanced;
 
   package Internal
-    "Visualizers that will be replaced by improved versions in the future (don't use them)"
+    "Visualizers that will be replaced by improved versions in the future (do not use them)"
 
     extends Modelica.Icons.Package;
 

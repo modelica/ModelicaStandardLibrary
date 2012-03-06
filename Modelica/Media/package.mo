@@ -7722,7 +7722,7 @@ public
 Important: the phase equilibrium conditions are not yet considered.
 this means that bridgemans tables do not yet work in the two phase region.
 Some derivatives are 0 or infinity anyways.
-Idea: don't use the values in Bridgmans table directly, all
+Idea: Do not use the values in Bridgmans table directly, all
 derivatives are calculated as the quotient of two entries in the
 table. The last letter indicates which variable is held constant in
 taking the derivative. The second letters are the two variables

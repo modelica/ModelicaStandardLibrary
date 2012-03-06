@@ -4631,7 +4631,7 @@ values of initType are defined in
       <td valign=\"top\">Initialization with initial states</td></tr>
 
   <tr><td valign=\"top\"><b>Init.InitialOutput</b></td>
-      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possibles)</td></tr>
+      <td valign=\"top\">Initialization with initial outputs (and steady state of the states if possible)</td></tr>
 </table>
 
 <p>

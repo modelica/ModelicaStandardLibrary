@@ -2676,7 +2676,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         'W' "W  Weak    Unknown",
         'L' "L  Weak    0",
         'H' "H  Weak    1",
-        '-' "-  Don't care")
+        '-' "-  Do not care")
       "Logic values and their coding according to IEEE 1164 STD_ULOGIC type"
               annotation (Documentation(info="<html>
 <p><b>Code Table:</b></p>
@@ -2694,7 +2694,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
   <tr><td valign=\"top\">'W'</td> <td valign=\"top\">Weak Unknown</td></tr>
   <tr><td valign=\"top\">'L'</td> <td valign=\"top\">Weak 0</td></tr>
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 
 </html>"));
@@ -4222,7 +4222,7 @@ To specify <i>setval</i>, the integer code has to be used.
   <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
   <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 
 <P>
@@ -4303,7 +4303,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
   <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
@@ -4384,7 +4384,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
   <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
@@ -4488,7 +4488,7 @@ To specify the logic value parameters, the integer code has to be used.
   <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
   <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 <P>
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
@@ -5277,7 +5277,7 @@ The values val... are given by parameters.</P>
 
 <PRE>
 
-  *  = don't care
+  *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
@@ -5428,7 +5428,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
@@ -5475,7 +5475,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   U  = L.'U'
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
@@ -5735,7 +5735,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -5913,7 +5913,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -5975,7 +5975,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6133,7 +6133,7 @@ Clock transition definitions:
 
 <PRE>
 
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6279,7 +6279,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6374,7 +6374,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6588,7 +6588,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6761,7 +6761,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -6871,7 +6871,7 @@ Clock transition definitions:
 </table>
 
 <PRE>
-  *  = don't care
+  *  = do not care
   ~  = not equal
   U  = L.'U'
   0  = L.'0' or L.'L'
@@ -7856,7 +7856,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 
 <PRE>
 
-  *  = don't care
+  *  = do not care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
@@ -8098,7 +8098,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 
 <PRE>
 
-  *  = don't care
+  *  = do not care
   0  = L.'0' or L.'L'
   1  = L.'1' or L.'H'
   X  = L.'X' or L.'W' or L.'Z' or L.'-' or L.'U'
@@ -8403,7 +8403,7 @@ for both setting of input and interpreting the output values.
   <tr><td valign=\"top\">'W'</td> <td valign=\"top\">6</td> <td valign=\"top\">Weak Unknown</td></tr>
   <tr><td valign=\"top\">'L'</td> <td valign=\"top\">7</td> <td valign=\"top\">Weak 0</td></tr>
   <tr><td valign=\"top\">'H'</td> <td valign=\"top\">8</td> <td valign=\"top\">Weak 1</td></tr>
-  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Don't care</td></tr>
+  <tr><td valign=\"top\">'-'</td> <td valign=\"top\">9</td> <td valign=\"top\">Do not care</td></tr>
 </table>
 
 <p>

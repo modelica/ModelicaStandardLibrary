@@ -1186,7 +1186,7 @@ Modelica_Fluid was refactored and finalized for the release:
      when using multiple ports. Moreover a
      <a href=\"modelica://Modelica.Fluid.Fittings.MultiPort\">Fittings.MultiPort</a>
      has been introduced. It can be attached to components like pipes,
-     which don't have vectorized ports on their own.</li>
+     which do not have vectorized ports on their own.</li>
 
 <li> Inverse parameterization of flow models with nominal operational conditions<br>
      Flow models have been added or extended to support the parameterization with nominal values
