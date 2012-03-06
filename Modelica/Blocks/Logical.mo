@@ -12,7 +12,7 @@ network built with package Logical is shown in the next figure:
 </p>
 </html>"));
 
-  model And "Logical 'and': y = u1 and u2"
+  block And "Logical 'and': y = u1 and u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="and1",
            Icon(Text(extent=[-90,40; 90,-40],
@@ -25,7 +25,7 @@ network built with package Logical is shown in the next figure:
     y = u1 and u2;
   end And;
 
-  model Or "Logical 'or': y = u1 or u2"
+  block Or "Logical 'or': y = u1 or u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (defaultComponentName="or1",
            Icon(Text(extent=[-90,40; 90,-40],
@@ -38,7 +38,7 @@ network built with package Logical is shown in the next figure:
     y = u1 or u2;
   end Or;
 
-  model Xor "Logical 'xor': y = u1 xor u2"
+  block Xor "Logical 'xor': y = u1 xor u2"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="xor",
@@ -50,7 +50,7 @@ network built with package Logical is shown in the next figure:
     y =not  ( (u1 and u2) or (not u1 and not u2));
   end Xor;
 
-  model Nor "Logical 'nor': y = not (u1 or u2)"
+  block Nor "Logical 'nor': y = not (u1 or u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nor",
@@ -62,7 +62,7 @@ network built with package Logical is shown in the next figure:
     y =not  ( u1 or u2);
   end Nor;
 
-  model Nand "Logical 'nand': y = not (u1 and u2)"
+  block Nand "Logical 'nand': y = not (u1 and u2)"
     extends Blocks.Interfaces.partialBooleanSI2SO;
     annotation (Icon(Text(extent=[-90,40; 90,-40],
             string="nand",
@@ -74,7 +74,7 @@ network built with package Logical is shown in the next figure:
     y =not  ( u1 and u2);
   end Nand;
 
-  model Not "Logical 'not': y = not u"
+  block Not "Logical 'not': y = not u"
     extends Blocks.Interfaces.partialBooleanSISO;
 
     annotation (defaultComponentName="not1",
@@ -88,7 +88,7 @@ network built with package Logical is shown in the next figure:
     y =not  u;
   end Not;
 
-  model Pre
+  block Pre
     "y = pre(u): Breaks algebraic loops by an infinitesimal small time delay (event iteration continues until u = pre(u))"
 
     parameter Boolean pre_u_start = false
@@ -108,7 +108,7 @@ network built with package Logical is shown in the next figure:
     y = pre(u);
   end Pre;
 
-  model Edge "y = edge(u): Output y is true, if the input u has a rising edge"
+  block Edge "y = edge(u): Output y is true, if the input u has a rising edge"
 
     parameter Boolean pre_u_start = false
       "Start value of pre(u) at initial time";
@@ -127,7 +127,7 @@ network built with package Logical is shown in the next figure:
     y = edge(u);
   end Edge;
 
-  model FallingEdge
+  block FallingEdge
     "y = edge(not u): Output y is true, if the input u has a falling edge"
 
     parameter Boolean pre_u_start = false
@@ -148,7 +148,7 @@ network built with package Logical is shown in the next figure:
     y = edge(not_u);
   end FallingEdge;
 
-  model Change
+  block Change
     "y = change(u): Output y is true, if the input u has a rising or falling edge"
 
     parameter Boolean pre_u_start = false
