@@ -45,7 +45,6 @@ package Water "Medium models for water"
 package ConstantPropertyLiquidWater
   "Water: Simple liquid water medium (incompressible, constant data)"
 
-  import Cv = Modelica.SIunits.Conversions;
   extends Interfaces.PartialSimpleMedium(
      mediumName="SimpleLiquidWater",
      cp_const=4184,

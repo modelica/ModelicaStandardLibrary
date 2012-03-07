@@ -1,7 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1b
   "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP"
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   extends Utilities.Engine1bBase;
   Joints.RevolutePlanarLoopConstraint B2(

@@ -6,7 +6,6 @@ package Frames "Functions to transform rotational frame quantities"
   record Orientation
     "Orientation object defining rotation from a frame 1 into a frame 2"
 
-    import SI = Modelica.SIunits;
     extends Modelica.Icons.Record;
     Real T[3, 3] "Transformation matrix from world frame to local frame";
     SI.AngularVelocity w[3]
@@ -325,7 +324,6 @@ and/or a division by zero will occur.
   function axisRotation
     "Return rotation object to rotate around an angle along one frame axis"
 
-    import Modelica.Math.*;
     extends Modelica.Icons.Function;
     input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
     input Modelica.SIunits.Angle angle
@@ -372,7 +370,6 @@ and/or a division by zero will occur.
   function axesRotationsAngles
     "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
 
-    import SI = Modelica.SIunits;
 
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
@@ -1584,7 +1581,6 @@ and/or a division by zero will occur.
 
     function axisRotation
       "Return rotation object to rotate around one frame axis"
-      import Modelica.Math.*;
       extends Modelica.Icons.Function;
       input Integer axis(min=1, max=3) "Rotate around 'axis' of frame 1";
       input Modelica.SIunits.Angle angle
@@ -1620,7 +1616,6 @@ and/or a division by zero will occur.
     function axesRotationsAngles
       "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
 
-      import SI = Modelica.SIunits;
 
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T

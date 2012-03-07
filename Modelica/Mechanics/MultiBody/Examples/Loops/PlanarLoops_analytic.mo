@@ -1,8 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
 model PlanarLoops_analytic
   "Mechanism with three planar kinematic loops and one degree-of-freedom with analytic loop handling (with JointRRR joints)"
-
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   parameter SI.Length rh[3]={0.5,0,0}
     "Position vector from 'lower left' revolute to 'lower right' revolute joint for all the 3 loops";

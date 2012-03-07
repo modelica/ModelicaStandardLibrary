@@ -15,8 +15,6 @@ package Air "Medium models for air"
        Temperature(min = Modelica.SIunits.Conversions.from_degC(0),
                    max = Modelica.SIunits.Conversions.from_degC(100)));
 
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     import Modelica.Constants;
 
     constant FluidConstants[nS] fluidConstants=
@@ -40,7 +38,6 @@ package Air "Medium models for air"
      data=IdealGases.Common.SingleGasesData.Air,
      fluidConstants={IdealGases.Common.FluidData.N2});
 
-    import Cv = Modelica.SIunits.Conversions;
 
   redeclare function dynamicViscosity
       "Simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
@@ -101,8 +98,6 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
 
     import Modelica.Media.Interfaces;
     import Modelica.Math;
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     import Modelica.Constants;
     import Modelica.Media.IdealGases.Common.SingleGasNasa;
     import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;

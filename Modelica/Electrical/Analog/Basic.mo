@@ -1541,7 +1541,6 @@ end M_Transformer;
 
   model OpAmpDetailed "Detailed model of an operational amplifier"
   // literature: Conelly, J.A.; Choi, P.: Macromodelling with SPICE. Englewood Cliffs: Prentice-Hall, 1992
-    import SI = Modelica.SIunits;
     parameter SI.Resistance Rdm=2.0e6
       "Input resistance (differential input mode)";
     parameter SI.Resistance Rcm=2.0e9 "Input resistance (common mode)";

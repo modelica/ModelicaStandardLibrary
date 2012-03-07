@@ -5,7 +5,6 @@ package Sensors "Sensors to measure variables"
   model AbsoluteSensor
     "Measure absolute kinematic quantities of frame connector"
 
-    import SI = Modelica.SIunits;
 
     Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final
               unit =                                                                    "m") if get_r
@@ -481,7 +480,6 @@ and sequence[2] &ne; sequence[3]. Often used values are:
   model RelativeSensor
     "Measure relative kinematic quantities between two frame connectors"
 
-    import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeSensor;
 
     Interfaces.Frame_resolve frame_resolve if
@@ -1972,7 +1970,6 @@ computed as:
   model Distance
     "Measure the distance between the origins of two frame connectors"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
 
@@ -2083,7 +2080,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
   model CutForce "Measure cut force vector"
 
-    import SI = Modelica.SIunits;
 
     Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
       "Cut force resolved in frame defined by resolveInFrame"
@@ -2211,7 +2207,6 @@ with negative sign at frame_a.
 
   model CutTorque "Measure cut torque vector"
 
-    import SI = Modelica.SIunits;
 
     Modelica.Blocks.Interfaces.RealOutput torque[3]
       "Cut torque resolved in frame defined by resolveInFrame"
@@ -2337,7 +2332,6 @@ with negative sign at frame_a.
 
   model CutForceAndTorque "Measure cut force and cut torque vector"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
     Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
@@ -2518,7 +2512,6 @@ with negative sign at frame_a.
   end CutForceAndTorque;
 
   model Power "Measure power flowing from frame_a to frame_b"
-    import SI = Modelica.SIunits;
     extends Modelica.Icons.RotationalSensor;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
@@ -3492,7 +3485,6 @@ with the blocks of package Modelica.Blocks.
     model BasicCutForce
       "Measure cut force vector (frame_resolve must be connected)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
 
@@ -3538,7 +3530,6 @@ with the blocks of package Modelica.Blocks.
     model BasicCutTorque
       "Measure cut torque vector (frame_resolve must be connected)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameA;
       import Modelica.Mechanics.MultiBody.Frames;
 

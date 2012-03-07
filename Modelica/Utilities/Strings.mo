@@ -537,9 +537,9 @@ is not allowed to start with a \"+\" or \"-\" sign.
 </p>
 <h4>Example</h4>
 <blockquote><pre>
-  import Modelica.Utilities.Strings.*;
+  import Modelica.Utilities.Strings;
   import T = Modelica.Utilities.Types.TokenType;
-  (token, index) := scanToken(string);
+  (token, index) := Strings.scanToken(string);
   <b>if</b> token.tokenType == T.RealToken <b>then</b>
      realValue := token.real;
   <b>elseif</b> token.tokenType == T.IntegerToken <b>then</b>
@@ -549,7 +549,7 @@ is not allowed to start with a \"+\" or \"-\" sign.
   <b>elseif</b> token.tokenType == T.Identifier <b>then</b>
      name := token.string;
   <b>else</b>
-     syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
+     Strings.syntaxError(string,index,\"Expected Real, Integer, Boolean or identifier token\");
   <b>end if</b>;
 </pre></blockquote>
 </html>"));

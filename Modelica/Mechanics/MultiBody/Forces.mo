@@ -1,12 +1,10 @@
 within Modelica.Mechanics.MultiBody;
 package Forces "Components that exert forces and/or torques between frames"
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.SourcesPackage;
 
   model WorldForce
     "External force acting at frame_b, defined by 3 input signals and resolved in frame world, frame_b or frame_resolve"
 
-    import SI = Modelica.SIunits;
     extends Interfaces.PartialOneFrame_b;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve
@@ -341,7 +339,6 @@ This leads to the following animation
   model WorldForceAndTorque
     "External force and torque acting at frame_b, defined by 3+3 input signals and resolved in frame world, frame_b or in frame_resolve"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialOneFrame_b;
     Interfaces.Frame_resolve frame_resolve if
@@ -583,7 +580,6 @@ This leads to the following animation
   model Force
     "Force acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
-    import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -779,7 +775,6 @@ clarity this is not shown in the animation):
   model Torque
     "Torque acting between two frames, defined by 3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
-    import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     Interfaces.Frame_resolve frame_resolve if
          resolveInFrame == Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve
@@ -979,7 +974,6 @@ clarity this is not shown in the animation):
   model ForceAndTorque
     "Force and torque acting between two frames, defined by 3+3 input signals and resolved in frame world, frame_a, frame_b or frame_resolve"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
@@ -1257,7 +1251,6 @@ clarity this is not shown in the animation):
   model LineForceWithMass
     "General line force component with an optional point mass on the connection line"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialTwoFrames;
     Modelica.Mechanics.Translational.Interfaces.Flange_a flange_b
@@ -1627,7 +1620,6 @@ in the other flange connector.
   model LineForceWithTwoMasses
     "General line force component with two optional point masses on the connection line"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
     extends Interfaces.PartialTwoFrames;
@@ -2377,7 +2369,6 @@ where a mass is hanging on a damper.
   end Damper;
 
   model SpringDamperParallel "Linear spring and linear damper in parallel"
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.TranslationalSpringConstant c(final min=0) "Spring constant";
@@ -2510,7 +2501,7 @@ and der(s) is the time derivative of s.
 
   model SpringDamperSeries
     "Linear spring and linear damper in series connection"
-    import SI = Modelica.SIunits;
+
     parameter SI.TranslationalSpringConstant c(final min=0) "Spring constant";
     parameter SI.Length s_unstretched=0 "Unstretched spring length";
     parameter SI.TranslationalDampingConstant d(final min=0) = 0
@@ -2628,9 +2619,8 @@ force element) and der(s_damper) is the time derivative of s_damper.
 
     model BasicForce
       "Force acting between two frames, defined by 3 input signals"
-
-      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       Interfaces.Frame_resolve frame_resolve
         "The input signals are optionally resolved in this frame"
         annotation (Placement(transformation(
@@ -2761,8 +2751,6 @@ values from the outside in order that the model remains balanced
 
     model BasicTorque
       "Torque acting between two frames, defined by 3 input signals"
-
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Interfaces.Frame_resolve frame_resolve
@@ -2898,8 +2886,6 @@ values from the outside in order that the model remains balanced
 
     model BasicWorldForce
       "External force acting at frame_b, defined by 3 input signals"
-
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameB;
       extends Interfaces.PartialOneFrame_b;
       Interfaces.Frame_resolve frame_resolve
@@ -3005,8 +2991,6 @@ values from the outside in order that the model remains balanced
 
     model BasicWorldTorque
       "External torque acting at frame_b, defined by 3 input signals"
-
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types.ResolveInFrameB;
       extends Interfaces.PartialOneFrame_b;
       Interfaces.Frame_resolve frame_resolve

@@ -2150,7 +2150,6 @@ where
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
-          import SI = Modelica.SIunits;
         input SI.Pressure dp "Pressure loss";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2199,7 +2198,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
 
-          import SI = Modelica.SIunits;
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2242,7 +2240,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       end pressureLoss;
 
         record Geometry "Geometric data for a curved bend"
-          import SI = Modelica.SIunits;
           extends Modelica.Icons.Record;
 
           SI.Diameter d_hyd "Hydraulic diameter"
@@ -2274,7 +2271,6 @@ for the CurvedBend fitting component.
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
-        import SI = Modelica.SIunits;
         input SI.Pressure dp "Pressure loss";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2326,7 +2322,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
 
-        import SI = Modelica.SIunits;
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2372,7 +2367,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       end pressureLoss;
 
         record Geometry "Geometric data for a curved bend"
-          import SI = Modelica.SIunits;
           extends Modelica.Icons.Record;
 
           SI.Diameter d_hyd "Hydraulic diameter"
@@ -2407,7 +2401,6 @@ for the EdgedBend fitting component.
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a thick edged orifice"
-          import SI = Modelica.SIunits;
         input SI.Pressure dp "Pressure loss";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2461,7 +2454,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a thick edged orifice"
 
-          import SI = Modelica.SIunits;
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2510,7 +2502,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       end pressureLoss;
 
         record Geometry "Geometric data for a thick edged orifice"
-          import SI = Modelica.SIunits;
           extends Modelica.Icons.Record;
 
           SI.Area crossArea "Inner cross sectional area"
@@ -2538,7 +2529,6 @@ The details of the record are described
         extends Modelica.Icons.Package;
 
         function circular "Circular cross section"
-            import SI = Modelica.SIunits;
             import Modelica.Constants.pi;
 
           input SI.Diameter diameter "Inner diameter of circular orifice"
@@ -2574,7 +2564,6 @@ cross section of the orifice.
         end circular;
 
         function rectangular "Rectangular cross section"
-            import SI = Modelica.SIunits;
             import Modelica.Constants.pi;
 
           input SI.Length width "Inner width of rectangular orifice"
@@ -2614,7 +2603,6 @@ cross section of the orifice.
         end rectangular;
 
         function general "General cross section"
-            import SI = Modelica.SIunits;
             import Modelica.Constants.pi;
 
           input SI.Area crossArea "Inner cross sectional area"
@@ -2679,7 +2667,6 @@ for the ThickEdgedOrifice fitting component.
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
-          import SI = Modelica.SIunits;
         input SI.Pressure dp "Pressure loss";
         input Real a(unit="(Pa.s2)/m6")
             "Coefficient for quadratic term (dp = a*V_flow^2 + b*V_flow)";
@@ -2729,7 +2716,6 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
 
-          import SI = Modelica.SIunits;
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Real a(unit="(Pa.s2)/m6")
             "Coefficient for quadratic term (dp = a*V_flow^2 + b*V_flow)";

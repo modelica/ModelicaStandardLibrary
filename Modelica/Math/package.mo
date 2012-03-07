@@ -11818,7 +11818,6 @@ end asinh;
 
 
 function acosh "Inverse of cosh (area hyperbolic cosine)"
-  import Modelica.Utilities.Streams.*;
   extends Modelica.Math.Icons.AxisLeft;
   input Real u;
   output Real y;

@@ -5,7 +5,6 @@ package RobotR3
   model oneAxis
     "Model of one axis of robot (controller, motor, gearbox) with simple load"
 
-    import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
     parameter SI.Mass mLoad(min=0)=15 "Mass of load";
     parameter Real kp=5 "Gain of position controller of axis 2";
@@ -83,8 +82,6 @@ load inertia.
   model fullRobot
     "6 degree of freedom robot with path planning, controllers, motors, brakes, gears and mechanics"
     extends Modelica.Icons.Example;
-
-    import SI = Modelica.SIunits;
 
     parameter SI.Mass mLoad(min=0) = 15 "Mass of load";
     parameter SI.Position rLoad[3]={0.1,0.25,0.1}
@@ -364,14 +361,12 @@ to plot variables.
 </HTML>"));
   end fullRobot;
   extends Modelica.Icons.ExamplesPackage;
-  import SI = Modelica.SIunits;
 
   package Components "Library of components of the robot"
     extends Modelica.Icons.Package;
 
     expandable connector AxisControlBus "Data bus for one robot axis"
       extends Modelica.Icons.SignalSubBus;
-      import SI = Modelica.SIunits;
 
       Boolean motion_ref "= true, if reference motion is not in rest" annotation(HideResult=false);
       SI.Angle angle_ref "Reference angle of axis flange" annotation(HideResult=false);
@@ -439,8 +434,6 @@ determined from the connections to this bus.
     model PathPlanning1
       "Generate reference angles for fastest kinematic movement"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       parameter Real angleBegDeg(unit="deg") = 0 "Start angle";
       parameter Real angleEndDeg(unit="deg") = 1 "End angle";
       parameter SI.AngularVelocity speedMax = 3 "Maximum axis speed";
@@ -564,8 +557,6 @@ motion on the controlBus of the r3 robot.
     model PathPlanning6
       "Generate reference angles for fastest kinematic movement"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       parameter Integer naxis=6 "number of driven axis";
       parameter Real angleBegDeg[naxis](unit="deg") = zeros(naxis)
         "Start angles";

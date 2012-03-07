@@ -101,7 +101,6 @@ partial package SingleGasNasa
       "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
   end FluidConstants;
 
-    import SI = Modelica.SIunits;
     import Modelica.Math;
     import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
 
@@ -1146,7 +1145,7 @@ end gasMixtureViscosity;
   function mixtureViscosityChung
     "Return the viscosity of gas mixtures without access to component viscosities (Chung, et. al. rules)"
   extends Modelica.Icons.Function;
-      import SI = Modelica.SIunits;
+
     input Temperature T "Temperature";
     input Temperature[:] Tc "Critical temperatures";
     input MolarVolume[:] Vcrit "Critical volumes (m3/mol)";

@@ -1,7 +1,8 @@
 within Modelica;
 package Media "Library of media property models"
-extends Modelica.Icons.Package;
-import SI = Modelica.SIunits;
+  extends Modelica.Icons.Package;
+  import SI = Modelica.SIunits;
+  import Cv = Modelica.SIunits.Conversions;
 
 
 package UsersGuide "User's Guide of Media Library"
@@ -2169,9 +2170,8 @@ package Examples
   extends Modelica.Icons.ExamplesPackage;
 
   model SimpleLiquidWater "Example for Water.SimpleLiquidWater medium model"
-
-    import SI = Modelica.SIunits;
     extends Modelica.Icons.Example;
+
     parameter SI.Volume V=1 "Volume";
     parameter SI.EnthalpyFlowRate H_flow_ext=1.e6
       "Constant enthalpy flow rate into the volume";
@@ -2871,7 +2871,6 @@ is given to compare the approximation.
 
       model PortVolume
         "Fixed volume associated with a port by the finite volume method"
-        import SI = Modelica.SIunits;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model"
@@ -3219,7 +3218,6 @@ no mass or energy is stored in the pipe.
       end ShortPipe;
 
       partial model PartialTestModel "Basic test model to test a medium"
-        import SI = Modelica.SIunits;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (__Dymola_choicesAllMatching=true);
@@ -3282,7 +3280,6 @@ no mass or energy is stored in the pipe.
 
       partial model PartialTestModel2
         "slightly larger test model to test a medium"
-        import SI = Modelica.SIunits;
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model" annotation (__Dymola_choicesAllMatching=true);
@@ -3639,7 +3636,6 @@ output window.
 
    model Inverse_sh_T
       "Solve h = h_T(T), s = s_T(T) for T, if h or s is given for ideal gas NASA"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
       replaceable package Medium = Modelica.Media.Air.DryAirNasa
@@ -3692,8 +3688,6 @@ output window.
 
    model InverseIncompressible_sh_T
       "inverse computation for incmpressible media"
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
      extends Modelica.Icons.Example;
 
      replaceable package Medium =
@@ -3748,7 +3742,6 @@ output window.
 
    model Inverse_sh_TX
       "Solve h = h_TX(TX) for T, if h is given for ideal gas NASA"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
       replaceable package Medium =
@@ -3856,9 +3849,7 @@ end Examples;
 
 
 package Interfaces "Interfaces for media models"
-
   extends Modelica.Icons.InterfacesPackage;
-  import SI = Modelica.SIunits;
 
   partial package TemplateMedium "Template for media models"
     /* For a new medium, make a copy of this package and remove
@@ -4024,8 +4015,6 @@ Modelica source.
 
   partial package PartialMedium
     "Partial medium properties (base package of all media packages)"
-
-    import SI = Modelica.SIunits;
     extends Modelica.Icons.MaterialPropertiesPackage;
 
     // Constants to be set in Medium
@@ -4956,9 +4945,6 @@ are described in
 
 partial package PartialLinearFluid
     "Generic pure liquid model with constant cp, compressibility and thermal expansion coefficients"
-
-    import Modelica.Media.*;
-    import SI = Modelica.SIunits;
 
       extends Interfaces.PartialPureSubstance(
         ThermoStates = Choices.IndependentVariables.pTX,
@@ -6013,7 +5999,6 @@ end PartialMixtureMedium;
           final ThermoStates = Choices.IndependentVariables.pT,
           final singleState=true);
 
-    import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const
       "Constant specific heat capacity at constant pressure";
     constant SpecificHeatCapacity cv_const
@@ -6299,7 +6284,6 @@ This function computes the specific internal energy of the fluid, but neglects t
          ThermoStates = Choices.IndependentVariables.pT,
          final singleState=false);
 
-    import SI = Modelica.SIunits;
     constant SpecificHeatCapacity cp_const
       "Constant specific heat capacity at constant pressure";
     constant SpecificHeatCapacity cv_const= cp_const - R_gas

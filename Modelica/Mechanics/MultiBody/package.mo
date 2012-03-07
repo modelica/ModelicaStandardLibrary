@@ -1,11 +1,10 @@
 within Modelica.Mechanics;
 package MultiBody "Library to model 3-dimensional mechanical systems"
+  extends Modelica.Icons.Package;
 
-import SI = Modelica.SIunits;
-
-
-extends Modelica.Icons.Package;
-
+  import SI = Modelica.SIunits;
+  import Cv = Modelica.SIunits.Conversions;
+  import C = Modelica.Constants;
 
 package UsersGuide "User's Guide of MultiBody Library"
   extends Modelica.Icons.Information;
@@ -1124,7 +1123,6 @@ end UsersGuide;
 model World
   "World coordinate system + gravity field + default animation definition"
 
-  import SI = Modelica.SIunits;
   import Modelica.Mechanics.MultiBody.Types.GravityTypes;
   import Modelica.Mechanics.MultiBody.Types;
 

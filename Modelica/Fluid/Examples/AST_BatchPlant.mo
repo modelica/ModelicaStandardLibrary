@@ -907,7 +907,6 @@ handled properly.</p>
 
     model TankWith3InletOutletArraysWithEvaporatorCondensor
       "Tank with Heating and Evaporation"
-      import Modelica.SIunits.Conversions.*;
       import Modelica.Fluid.Examples.AST_BatchPlant.BaseClasses.Init;
       replaceable package Medium = Modelica.Media.Water.WaterIF97_ph
         constrainedby Modelica.Media.Interfaces.PartialTwoPhaseMedium

@@ -3,7 +3,6 @@ package Utilities "Utility models for Examples.Loops"
   extends Modelica.Icons.Package;
 
   model Cylinder "Cylinder with rod and crank of a combustion engine"
-    import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Length cylinderTopPosition=0.42
       "Length from crank shaft to end of cylinder.";
@@ -274,7 +273,6 @@ package Utilities "Utility models for Examples.Loops"
   end Cylinder;
 
   model GasForce "Simple gas force computation for combustion engine"
-    import SI = Modelica.SIunits;
 
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
@@ -372,7 +370,6 @@ package Utilities "Utility models for Examples.Loops"
   end GasForce;
 
   model GasForce2 "Rough approximation of gas force in a cylinder"
-    import SI = Modelica.SIunits;
 
     extends Modelica.Mechanics.Translational.Interfaces.PartialCompliant;
     parameter SI.Length L "Length of cylinder";
@@ -491,8 +488,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
   end GasForce2;
 
   model CylinderBase "One cylinder with analytic handling of kinematic loop"
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter SI.Length cylinderTopPosition=0.42
       "Length from crank shaft to end of cylinder.";
@@ -774,7 +769,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
   end Cylinder_analytic_CAD;
 
   model EngineV6_analytic "V6 engine with analytic loop handling"
-    import SI = Modelica.SIunits;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     replaceable model Cylinder = Cylinder_analytic_CAD constrainedby
       CylinderBase "Cylinder type"
@@ -929,7 +923,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
   end EngineV6_analytic;
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
-    import SI = Modelica.SIunits;
 
     Modelica.Mechanics.MultiBody.Parts.BodyCylinder Piston(diameter=0.1, r={0,-0.1,0})
       annotation (Placement(transformation(

@@ -1454,7 +1454,6 @@ the model.
   block LowpassButterworth
     "Output the input signal filtered with a low pass Butterworth filter of any order"
 
-    import Modelica.Math.*;
     import Modelica.Blocks.Types.Init;
 
     extends Modelica.Blocks.Interfaces.SISO;
@@ -2289,7 +2288,7 @@ The development of this block was partially funded by BMBF within the
 
       function ChebyshevI
           "Return base filter coefficients of Chebyshev I filter (= low pass filter with w_cut = 1 rad/s)"
-          import Modelica.Math.*;
+          import Modelica.Math.asinh;
 
         input Integer order(min=1) "Order of filter";
         input Real A_ripple = 0.5 "Pass band ripple in [dB]";

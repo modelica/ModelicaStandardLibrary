@@ -2,8 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model EngineV6_analytic
   "V6 engine with 6 cylinders, 6 planar loops, 1 degree-of-freedom and analytic handling of kinematic loops"
 
-  import Cv = Modelica.SIunits.Conversions;
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   output Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm

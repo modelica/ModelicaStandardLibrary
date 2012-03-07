@@ -1,6 +1,5 @@
 within Modelica.Mechanics.MultiBody.Examples.Elementary;
 model PointGravity "Two point masses in a point gravity field"
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
   inner Modelica.Mechanics.MultiBody.World world(
     mue=1,

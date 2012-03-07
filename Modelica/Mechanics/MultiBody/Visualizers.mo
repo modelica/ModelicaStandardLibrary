@@ -4,7 +4,6 @@ package Visualizers "3-dimensional visual objects used for animation"
 
   model FixedShape
     "Visualizing an elementary shape with dynamically varying shape attributes (has one frame connector)"
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
 
@@ -188,7 +187,6 @@ definition of the colors used in the MultiBody library
   model FixedShape2
     "Visualizing an elementary shape with dynamically varying shape attributes (has two frame connectors)"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
 
@@ -411,7 +409,6 @@ vector <b>r</b>.
   model FixedFrame
     "Visualizing a coordinate system including axes labels (visualization data may vary dynamically)"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -624,7 +621,6 @@ parameter menu.
   model FixedArrow
     "Visualizing an arrow with dynamically varying size in frame_a"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -723,7 +719,6 @@ parameter menu.
   model SignalArrow
     "Visualizing an arrow with dynamically varying size in frame_a based on input signal"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
@@ -960,7 +955,6 @@ settings:
   end Torus;
 
   model VoluminousWheel "Visualizing a voluminous wheel"
-    import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
 
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -1716,7 +1710,6 @@ This definition is also available as type
     model Arrow
       "Visualizing an arrow with variable size; all data have to be set as modifiers (see info layer)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
@@ -1831,7 +1824,6 @@ library (will be replaced by a color editor).
     model DoubleArrow
       "Visualizing a double arrow with variable size; all data have to be set as modifiers (see info layer)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;
       import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
@@ -2332,7 +2324,6 @@ settings:
 
       function pipeWithScalarField
         "Function defining the surface characteristic of a pipe where a scalar field value is displayed with color along the pipe axis"
-        import C = Modelica.Constants;
         extends
           Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic(
                   final multiColoredSurface=true);
@@ -2477,7 +2468,6 @@ since they all have frame connectors).
     model FixedLines
       "Visualizing a set of lines as cylinders (e.g., used to display characters)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
       import Modelica.Mechanics.MultiBody.Types;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialVisualizer;
@@ -2584,7 +2574,6 @@ The diameter and color of all line cylinders are identical.
     model Lines
       "Visualizing a set of lines as cylinders with variable size, e.g., used to display characters (no Frame connector)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody;
       import Modelica.Mechanics.MultiBody.Types;
       import Modelica.Mechanics.MultiBody.Frames;

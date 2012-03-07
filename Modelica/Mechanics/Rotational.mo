@@ -449,7 +449,6 @@ end UsersGuide;
     extends Modelica.Icons.ExamplesPackage;
 
     model First "First example: simple drive train"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
@@ -533,7 +532,6 @@ in the housing on one side via component Fixed.</p>
 
     model FirstGrounded
       "First example: simple drive train with grounded elments"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
@@ -612,7 +610,6 @@ in the housing on one side via component Fixed.</p>
 
     model Friction "Drive train with clutch and brake"
       import Modelica.Constants.pi;
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       parameter SI.Time startTime=0.5 "Start time of step";
       output SI.Torque tMotor = torque.tau "Driving torque of inertia3";
@@ -741,7 +738,6 @@ values (defined already in the model):</p>
     end Friction;
 
     model CoupledClutches "Drive train with 3 dynamically coupled clutches"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       parameter SI.Frequency freqHz=0.2
         "Frequency of sine function to invoke clutch1";
@@ -866,7 +862,6 @@ locked, forward sliding.</p>
 
     model LossyGearDemo1
       "Example to show that gear efficiency may lead to stuck motion"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       SI.Power PowerLoss=
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
@@ -948,7 +943,6 @@ gear.mode  :  1 = forward rolling
 
     model LossyGearDemo2
       "Example to show combination of LossyGear and BearingFriction"
-      import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       SI.Power PowerLoss=
         gear.flange_a.tau*der(gear.flange_a.phi) + gear.flange_b.tau*der(gear.flange_b.phi)
@@ -1048,8 +1042,6 @@ as component LossyGear includes the functionality of component BearingFriction
 
     model LossyGearDemo3
       "Example that failed in the previous version of the LossyGear version"
-      import SI = Modelica.SIunits;
-
       extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.LossyGear gear(
@@ -1669,7 +1661,6 @@ at an angle phi0 in the <b>housing</b>. May be used:
     end Fixed;
 
     model Inertia "1D-rotational component with inertia"
-      import SI = Modelica.SIunits;
       Rotational.Interfaces.Flange_a flange_a "Left flange of shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
@@ -1743,7 +1734,6 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
 
     model Disc
       "1-dim. rotational rigid component without inertia, where right flange is rotated by a fixed angle with respect to left flange"
-      import SI = Modelica.SIunits;
       extends Rotational.Interfaces.PartialTwoFlanges;
       parameter SI.Angle deltaPhi=0
         "Fixed rotation of left flange with respect to right flange (= flange_b.phi - flange_a.phi)";
@@ -1932,7 +1922,6 @@ between two inertia/gear elements.
     end Damper;
 
     model SpringDamper "Linear 1D rotational spring and damper in parallel"
-      import SI = Modelica.SIunits;
       parameter SI.RotationalSpringConstant c(final min=0, start=1.0e5)
         "Spring constant";
       parameter SI.RotationalDampingConstant d(final min=0, start=0)
@@ -2035,7 +2024,6 @@ to describe a coupling of the element with the housing via a spring/damper.
 
     model ElastoBacklash
       "Backlash connected in series to linear spring and damper (backlash is modeled with elasticity)"
-      import SI = Modelica.SIunits;
 
       parameter SI.RotationalSpringConstant c(final min=Modelica.Constants.small, start=1.0e5)
         "Spring constant (c > 0 required)";
@@ -4718,7 +4706,6 @@ Modelica.Blocks library.
 
     model Position
       "Forced movement of a flange according to a reference angle signal"
-      import SI = Modelica.SIunits;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       parameter Boolean exact=false
@@ -4832,7 +4819,6 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Speed
       "Forced movement of a flange according to a reference angular velocity signal"
-      import SI = Modelica.SIunits;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       parameter Boolean exact=false
@@ -4943,7 +4929,6 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Accelerate
       "Forced movement of a flange according to an acceleration signal"
-      import SI = Modelica.SIunits;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
       SI.Angle phi(start=0, fixed=true, stateSelect=StateSelect.prefer)
@@ -5014,7 +4999,6 @@ blocks of the block library Modelica.Blocks.Sources.
 
     model Move
       "Forced movement of a flange according to an angle, speed and angular acceleration signal"
-      import SI = Modelica.SIunits;
       extends
         Modelica.Mechanics.Rotational.Interfaces.PartialElementaryOneFlangeAndSupport2;
 

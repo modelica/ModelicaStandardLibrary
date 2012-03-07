@@ -1,12 +1,10 @@
 within Modelica.Mechanics.MultiBody;
 package Joints "Components that constrain the motion between two frames"
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Package;
 
   model Prismatic
     "Prismatic joint (1 translational degree-of-freedom, 2 potential states, optional axis flange)"
 
-    import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialElementaryJoint;
     Modelica.Mechanics.Translational.Interfaces.Flange_a axis if useAxisFlange
       "1-dim. translational flange that drives the joint"
@@ -219,8 +217,6 @@ vector \"n\" defining the translation axis
 
   model Revolute
     "Revolute joint (1 rotational degree-of-freedom, 2 potential states, optional axis flange)"
-
-    import SI = Modelica.SIunits;
 
     Modelica.Mechanics.Rotational.Interfaces.Flange_a axis if useAxisFlange
       "1-dim. rotational flange that drives the joint"
@@ -515,8 +511,6 @@ vector \"n\" defining the translation axis
   model RevolutePlanarLoopConstraint
     "Revolute joint that is described by 2 positional constraints for usage in a planar loop (the ambiguous cut-force perpendicular to the loop and the ambiguous cut-torques are set arbitrarily to zero)"
 
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     import T = Modelica.Mechanics.MultiBody.Frames.TransformationMatrices;
     import Modelica.Mechanics.MultiBody.Types;
 
@@ -710,7 +704,6 @@ this force is an unknown quantity).
 
   model Cylindrical
     "Cylindrical joint (2 degrees-of-freedom, 4 potential states)"
-    import SI = Modelica.SIunits;
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show cylinder)";
@@ -846,7 +839,6 @@ vector \"n\" defining the cylinder axis
   end Cylindrical;
 
   model Universal "Universal joint (2 degrees-of-freedom, 4 potential states)"
-    import SI = Modelica.SIunits;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -1026,7 +1018,6 @@ phi_b.start = 45<sup>o</sup>).
   end Universal;
 
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)"
-    import SI = Modelica.SIunits;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -1241,7 +1232,6 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
     "Spherical joint (3 constraints and no potential states, or 3 degrees-of-freedom and 3 states)"
 
     import Modelica.Mechanics.MultiBody.Frames;
-    import SI = Modelica.SIunits;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
     parameter Boolean animation=true
@@ -1548,9 +1538,6 @@ frame_b of the joint.
 
   model FreeMotion
     "Free motion joint (6 degrees-of-freedom, 12 potential states)"
-
-    import Modelica.Math.*;
-    import SI = Modelica.SIunits;
 
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
@@ -1914,9 +1901,6 @@ frame_b of the joint.
   model FreeMotionScalarInit
     "Free motion joint with scalar initialization and state selection (6 degrees-of-freedom, 12 potential states)"
 
-    import Modelica.Math.*;
-    import SI = Modelica.SIunits;
-
     extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
 
     parameter Boolean animation=true
@@ -2271,7 +2255,6 @@ its tip position, is shown in
   model SphericalSpherical
     "Spherical - spherical joint aggregation (1 constraint, no potential states) with an optional point mass in the middle"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     extends Interfaces.PartialTwoFrames;
 
@@ -2621,7 +2604,6 @@ that has this property.
   model UniversalSpherical
     "Universal - spherical joint aggregation (1 constraint, no potential states)"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
     extends Interfaces.PartialTwoFrames;
@@ -3381,7 +3363,6 @@ November 3-4, 2003, pp. 149-158</p>
     model RollingWheel
     "Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Frames;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -3515,7 +3496,6 @@ November 3-4, 2003, pp. 149-158</p>
 
     model RollingWheelSet
     "Joint (no mass, no inertia) that describes an ideal rolling wheel set (two ideal rolling wheels connected together by an axis)"
-      import SI = Modelica.SIunits;
      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
       "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-16,16},{16,-16}}),
@@ -3777,13 +3757,11 @@ November 3-4, 2003, pp. 149-158</p>
     end RollingWheelSet;
 
   package Assemblies "Joint aggregations for analytic loop handling"
-    import SI = Modelica.SIunits;
     extends Modelica.Icons.Package;
 
     model JointUPS
       "Universal - prismatic - spherical joint aggregation (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
       extends Interfaces.PartialTwoFramesDoubleSize;
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_ia
@@ -4471,8 +4449,6 @@ component).
     model JointUSR
       "Universal - spherical - revolute joint aggregation (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
@@ -4988,7 +4964,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
     model JointUSP
       "Universal - spherical - prismatic joint aggregation (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
       import Modelica.Mechanics.MultiBody.Types;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
@@ -5526,8 +5501,6 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
     model JointSSR
       "Spherical - spherical - revolute joint aggregation with mass (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
@@ -5897,8 +5870,6 @@ component).
     model JointSSP
       "Spherical - spherical - prismatic joint aggregation with mass (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
@@ -6269,8 +6240,6 @@ component).
     model JointRRR
       "Planar revolute - revolute - revolute joint aggregation (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
@@ -6602,8 +6571,6 @@ are connected by rigid rods.
     model JointRRP
       "Planar revolute - revolute - prismatic joint aggregation (no constraints, no potential states)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       import Modelica.Mechanics.MultiBody.Types;
 
       extends Interfaces.PartialTwoFramesDoubleSize;
@@ -7070,8 +7037,6 @@ pair of joints\" from Woernle and Hiller is described in:
     model RevoluteWithLengthConstraint
       "Revolute joint where the rotation angle is computed from a length constraint (1 degree-of-freedom, no potential state)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Rotational.Interfaces.Flange_a axis
         "1-dim. rotational flange that drives the joint"
@@ -7161,7 +7126,6 @@ pair of joints\" from Woernle and Hiller is described in:
       function selectBranch
         "Determine branch which is closest to initial angle=0"
 
-        import Modelica.Math.*;
         input SI.Length L "Length of length constraint";
         input Real e[3](each final unit="1")
           "Unit vector along axis of rotation, resolved in frame_a (= same in frame_b)";
@@ -7454,8 +7418,6 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
     model PrismaticWithLengthConstraint
       "Prismatic joint where the translational distance is computed from a length constraint (1 degree-of-freedom, no potential state)"
 
-      import SI = Modelica.SIunits;
-      import Cv = Modelica.SIunits.Conversions;
       extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
       Modelica.Mechanics.Translational.Interfaces.Flange_a axis
         "1-dim. translational flange that drives the joint"
@@ -7538,7 +7500,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
       function selectBranch
         "Determine branch which is closest to initial angle=0"
-        import Modelica.Math.*;
+
         input SI.Length L "Length of length constraint";
         input Real e[3](each final unit="1")
           "Unit vector along axis of translation, resolved in frame_a (= same in frame_b)";
@@ -7830,7 +7792,6 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
      model RollingConstraintVerticalWheel
       "Rolling constraint for wheel that is always perpendicular to x-y plane"
-        import SI = Modelica.SIunits;
         import Modelica.Mechanics.MultiBody.Frames;
 
         Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a

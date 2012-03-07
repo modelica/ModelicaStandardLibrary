@@ -1,12 +1,9 @@
 within Modelica.Mechanics.MultiBody;
 package Parts
   "Rigid components such as bodies with mass and inertia and massless rods"
-
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Package;
 
   model Fixed "Frame fixed in the world frame at a given position"
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
     Interfaces.Frame_b frame_b "Coordinate system fixed in the world frame"
@@ -119,7 +116,6 @@ animation = <b>false</b>.
 
   model FixedTranslation "Fixed translation of frame_b with respect to frame_a"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
@@ -290,8 +286,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     import Modelica.Mechanics.MultiBody.Frames;
     import Modelica.Mechanics.MultiBody.Types;
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the component with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
@@ -565,9 +559,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
   model Body
     "Rigid body with mass, inertia tensor and one frame connector (12 potential states)"
 
-    import SI = Modelica.SIunits;
-    import C = Modelica.Constants;
-    import Modelica.Math.*;
     import Modelica.Mechanics.MultiBody.Types;
     import Modelica.Mechanics.MultiBody.Frames;
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -929,8 +920,6 @@ to the setting of parameters \"useQuaternions\" and
   model BodyShape
     "Rigid body with mass, inertia tensor, different shapes for animation, and two frame connectors (12 potential states)"
 
-    import SI = Modelica.SIunits;
-    import C = Modelica.Constants;
     import Modelica.Mechanics.MultiBody.Types;
 
     Interfaces.Frame_a frame_a
@@ -1226,7 +1215,6 @@ states and of the \"Advanced\" menu parameters, see model
   model BodyBox
     "Rigid body with box shape. Mass and animation properties are computed from box data and density (12 potential states)"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
 
     Interfaces.Frame_a frame_a
@@ -1453,7 +1441,6 @@ states and of the \"Advanced\" menu parameters, see model
   model BodyCylinder
     "Rigid body with cylinder shape. Mass and animation properties are computed from cylinder data and density (12 potential states)"
 
-    import SI = Modelica.SIunits;
     import NonSI = Modelica.SIunits.Conversions.NonSIunits;
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a
@@ -1664,7 +1651,6 @@ states and of the \"Advanced\" menu parameters, see model
   model PointMass
     "Rigid body where body rotation and inertia tensor is neglected (6 potential states)"
 
-    import SI = Modelica.SIunits;
     import Modelica.Mechanics.MultiBody.Types;
     Interfaces.Frame_a frame_a
       "Coordinate system fixed at center of mass point"
@@ -1894,9 +1880,6 @@ November 3-4, 2003, pp. 149-158</p>
 
   model Rotor1D
     "1D inertia attachable on 3-dim. bodies (3D dynamic effects are taken into account if world.driveTrainMechanics3D=true)"
-
-    import SI = Modelica.SIunits;
-    import Cv = Modelica.SIunits.Conversions;
 
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show rotor as cylinder)";
@@ -2385,7 +2368,6 @@ November 3-4, 2003, pp. 149-158</p>
 
     model RollingWheel
     "Ideal rolling wheel on flat surface z=0 (5 positional, 3 velocity degrees of freedom)"
-      import SI = Modelica.SIunits;
 
       parameter Boolean animation=true
       "= true, if animation of wheel shall be enabled";
@@ -2500,7 +2482,6 @@ November 3-4, 2003, pp. 149-158</p>
 
     model RollingWheelSet
     "Ideal rolling wheel set consisting of two ideal rolling wheels connected together by an axis"
-      import SI = Modelica.SIunits;
      Modelica.Mechanics.MultiBody.Interfaces.Frame_a frameMiddle
       "Frame fixed in middle of axis connecting both wheels (y-axis: along wheel axis, z-Axis: upwards)"
         annotation (Placement(transformation(extent={{-16,16},{16,-16}}),

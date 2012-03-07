@@ -5,7 +5,7 @@ package Examples
 
   function calculator
     "Interpreter to evaluate simple expressions consisting of +,-,*,/,(),sin(), cos(), tan(), sqrt(), pi"
-    import Modelica.Utilities.Strings.*;
+    import Modelica.Utilities.Strings;
     extends Modelica.Icons.Function;
     input String string "Expression that is evaluated";
     output Real result "Value of expression";
@@ -250,7 +250,6 @@ function can be used as part of another scan operation.
   end expression;
 
   function readRealParameter "Read the value of a Real parameter from file"
-    import Modelica.Utilities.*;
     extends Modelica.Icons.Function;
     input String fileName "Name of file"       annotation(Dialog(
                            __Dymola_loadSelector(filter="Text files (*.txt)",

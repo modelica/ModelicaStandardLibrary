@@ -1668,7 +1668,7 @@ a flange according to a given acceleration.
 
   block KinematicPTP2
     "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
-    import SI = Modelica.SIunits;
+
     parameter Real q_begin[:] = {0} "Start position";
     parameter Real q_end[:] "End position";
     parameter Real qd_max[:](each final min=Modelica.Constants.small)

@@ -1,8 +1,6 @@
 within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Fourbar1
   "One kinematic loop with four bars (with only revolute joints; 5 non-linear equations)"
-
-  import SI = Modelica.SIunits;
   extends Modelica.Icons.Example;
 
   output SI.Angle j1_phi "angle of revolute joint j1";

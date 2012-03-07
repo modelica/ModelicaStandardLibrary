@@ -6,7 +6,7 @@ package Interfaces
 
   connector Frame
     "Coordinate system fixed to the component with one cut-force and cut-torque (no icon)"
-    import SI = Modelica.SIunits;
+
     SI.Position r_0[3]
       "Position vector from world frame to the connector frame origin, resolved in world frame";
     Frames.Orientation R
@@ -499,7 +499,6 @@ object and an assert to check that both frame connectors are connected.
   partial model PartialForce
     "Base model for force elements (provide frame_b.f and frame_b.t in subclasses)"
 
-    import SI = Modelica.SIunits;
     Interfaces.Frame_a frame_a
       "Coordinate system fixed to the joint with one cut-force and cut-torque"
                                annotation (Placement(transformation(extent={{
@@ -575,7 +574,7 @@ to which this force element is connected.
   end PartialForce;
 
   partial model PartialLineForce "Base model for line force elements"
-    import SI = Modelica.SIunits;
+
     parameter SI.Position s_small=1.E-6
       " Prevent zero-division if relative distance s=0"
       annotation (Dialog(tab="Advanced"));

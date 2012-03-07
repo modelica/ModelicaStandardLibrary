@@ -301,7 +301,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     extends Modelica.Icons.BasesPackage;
 
   partial model PartialPump "Base model for centrifugal pumps"
-      import Modelica.SIunits.Conversions.NonSIunits.*;
+      import NonSI = Modelica.SIunits.Conversions.NonSIunits;
       import Modelica.Constants;
 
     extends Modelica.Fluid.Interfaces.PartialTwoPort(
@@ -333,7 +333,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
         PumpCharacteristics.baseFlow
         "Head vs. V_flow characteristic at nominal speed and density"
       annotation(Dialog(group="Characteristics"), __Dymola_choicesAllMatching=true);
-    parameter AngularVelocity_rpm N_nominal
+    parameter NonSI.AngularVelocity_rpm N_nominal
         "Nominal rotational speed for flow characteristic"
       annotation(Dialog(group="Characteristics"));
     parameter Medium.Density rho_nominal = Medium.density_pTX(Medium.p_default, Medium.T_default, Medium.X_default)
@@ -403,7 +403,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     SI.VolumeFlowRate V_flow = m_flow/rho "Volume flow rate (total)";
     SI.VolumeFlowRate V_flow_single(start = m_flow_start/rho_nominal/nParallel) = V_flow/nParallel
         "Volume flow rate (single pump)";
-    AngularVelocity_rpm N(start = N_nominal) "Shaft rotational speed";
+    NonSI.AngularVelocity_rpm N(start = N_nominal) "Shaft rotational speed";
     SI.Power W_single "Power Consumption (single pump)";
     SI.Power W_total = W_single*nParallel "Power Consumption (total)";
     Real eta "Global Efficiency";

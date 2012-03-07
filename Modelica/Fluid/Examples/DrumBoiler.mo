@@ -6,7 +6,6 @@ package DrumBoiler
   model DrumBoiler
     "Complete drum boiler model, including evaporator and supplementary components"
     extends Modelica.Icons.Example;
-    import Modelica.SIunits.Conversions.*;
 
     Modelica.Fluid.Examples.DrumBoiler.BaseClasses.EquilibriumDrumBoiler
       evaporator(
@@ -24,7 +23,7 @@ package DrumBoiler
           origin={-36,-53},
           extent={{-10,-10},{10,10}},
           rotation=90)));
-    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1, p=from_bar(0.5),
+    Modelica.Fluid.Sources.FixedBoundary sink(nPorts=1, p=Cv.from_bar(0.5),
       redeclare package Medium = Modelica.Media.Water.StandardWaterOnePhase,
       T=500)
       annotation (Placement(transformation(
@@ -196,7 +195,6 @@ package DrumBoiler
         redeclare replaceable package Medium =
             Modelica.Media.Water.StandardWater
             constrainedby Modelica.Media.Interfaces.PartialTwoPhaseMedium);
-      import Modelica.SIunits.Conversions.*;
       import Modelica.Constants;
       import Modelica.Fluid.Types;
 

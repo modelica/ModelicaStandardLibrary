@@ -4,7 +4,6 @@ package Dissipation
     extends Modelica.Icons.Package;
   import PI = Modelica.Constants.pi;
   import REC = Modelica.Fluid.Dissipation.Utilities.Records;
-  import SI = Modelica.SIunits;
   import TYP = Modelica.Fluid.Dissipation.Utilities.Types;
 
   package UsersGuide "User's guide"
@@ -467,7 +466,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //icon
         extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
 
-        import SI = Modelica.SIunits;
         import MIN = Modelica.Constants.eps;
         // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
 
@@ -640,7 +638,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //icon
         extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
 
-        import SI = Modelica.SIunits;
         import MIN = Modelica.Constants.eps;
 
         //input records
@@ -10841,7 +10838,6 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
         function PrandtlNumber "calculation of Prandtl number"
 
-          import SI = Modelica.SIunits;
           import MIN = Modelica.Constants.eps;
 
           //fluid properties
@@ -10859,7 +10855,6 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
 
         function ReynoldsNumber "calculation of Reynolds number"
 
-          import SI = Modelica.SIunits;
           import MIN = Modelica.Constants.eps;
 
           //geometry
