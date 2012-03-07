@@ -809,13 +809,7 @@ package Examples
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{51.5,10},{70,10},{70,32},{-62,32},{-62,10},{-49,10}}, color={0,0,
               0}));
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-      experiment(StopTime=5),
-        Documentation(info="<html>
-
-</html>"));
+    annotation (experiment(StopTime=5));
   end FirstExample;
 
   model FirstExample_Variant2
@@ -856,13 +850,7 @@ package Examples
     connect(transition2.outPort, initialStep.inPort[1]) annotation (Line(points=
              {{63.5,10},{82,10},{82,32},{-80,32},{-80,10},{-71,10}}, color={0,0,
               0}));
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-      experiment(StopTime=5),
-        Documentation(info="<html>
-
-</html>"));
+    annotation (experiment(StopTime=5));
   end FirstExample_Variant2;
 
   model FirstExample_Variant3
@@ -904,13 +892,7 @@ package Examples
               0}));
     connect(SetBoolean1.y, transition2.condition) annotation (Line(points={{
               61.6,-30},{66,-30},{66,-2}}, color={255,0,255}));
-    annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-      experiment(StopTime=5),
-        Documentation(info="<html>
-
-</html>"));
+    annotation (experiment(StopTime=5));
   end FirstExample_Variant3;
 
   model ExecutionPaths
@@ -1117,11 +1099,7 @@ This is the same example as \"ExecutionPaths\". The only difference
 is that the alternative paths are included in a \"CompositeStep\".
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-      experiment(StopTime=15));
+"),   Diagram(experiment(StopTime=15)));
   end ShowCompositeStep;
 
   model ShowExceptions
@@ -1184,11 +1162,7 @@ according to their setting before leaving the \"compositeStep\" via its
 \"suspend\" port.
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-      experiment(StopTime=20));
+"),experiment(StopTime=20));
   end ShowExceptions;
 
   model ControlledTanks
@@ -1272,12 +1246,7 @@ according to their setting before leaving the \"compositeStep\" via its
           color={0,0,0},
           thickness=0.5));
 
-    annotation (
-      Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={0.5,0.5})),
-      experiment(StopTime=100),
+    annotation (experiment(StopTime=100),
       Documentation(info="<html>
 <p>
 With this example the controller of a tank filling/emptying system
@@ -1923,9 +1892,6 @@ buttons:
     end CompositeStep2;
 
   end Utilities;
-    annotation (Documentation(info="<html>
-
-</html>"));
 end Examples;
 
 package Interfaces "Connectors and partial models"
@@ -1934,8 +1900,7 @@ package Interfaces "Connectors and partial models"
   connector Step_in "Input port of a step"
     output Boolean occupied "true, if step is active" annotation (HideResult=true);
     input Boolean set "true, if transition fires and step is activated"
-      annotation (HideResult=true);
-    annotation (
+    annotation (HideResult=true,
    Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1944,7 +1909,7 @@ package Interfaces "Connectors and partial models"
               lineColor={0,0,0},
               fillColor={0,0,0},
               fillPattern=FillPattern.Solid)}),
-                                            Diagram(coordinateSystem(
+   Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Polygon(
@@ -1954,10 +1919,7 @@ package Interfaces "Connectors and partial models"
               fillPattern=FillPattern.Solid), Text(
               extent={{-141,100},{100,60}},
               lineColor={0,0,0},
-              textString="%name")}),
-        Documentation(info="<html>
-
-</html>"));
+              textString="%name")}));
   end Step_in;
 
   connector Step_out "Output port of a step"
@@ -1984,10 +1946,7 @@ package Interfaces "Connectors and partial models"
               fillPattern=FillPattern.Solid), Text(
               extent={{-100,100},{186,58}},
               lineColor={0,0,0},
-              textString="%name")}),
-        Documentation(info="<html>
-
-</html>"));
+              textString="%name")}));
   end Step_out;
 
   connector Transition_in "Input port of a transition"
@@ -2016,10 +1975,7 @@ package Interfaces "Connectors and partial models"
               fillPattern=FillPattern.Solid), Text(
               extent={{-141,100},{100,60}},
               lineColor={0,0,0},
-              textString="%name")}),
-        Documentation(info="<html>
-
-</html>"));
+              textString="%name")}));
   end Transition_in;
 
   connector Transition_out "Output port of a transition"
@@ -2038,7 +1994,7 @@ package Interfaces "Connectors and partial models"
               lineColor={0,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
-                              Diagram(coordinateSystem(
+            Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -2048,10 +2004,7 @@ package Interfaces "Connectors and partial models"
               extent={{-100,50},{0,-50}},
               lineColor={0,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)}),
-        Documentation(info="<html>
-
-</html>"));
+              fillPattern=FillPattern.Solid)}));
   end Transition_out;
 
   connector CompositeStep_resume
@@ -2070,10 +2023,7 @@ package Interfaces "Connectors and partial models"
             graphics={Rectangle(
               extent={{0,0},{0,0}},
               lineColor={255,255,255},
-              pattern=LinePattern.None)}),
-        Documentation(info="<html>
-
-</html>"));
+              pattern=LinePattern.None)}));
   end CompositeStep_resume;
 
   connector CompositeStep_suspend
@@ -2094,10 +2044,7 @@ package Interfaces "Connectors and partial models"
                        extent={{-100,-100},{100,100}}), graphics={Rectangle(
               extent={{0,0},{0,0}},
               lineColor={255,255,255},
-              pattern=LinePattern.None)}),
-        Documentation(info="<html>
-
-</html>"));
+              pattern=LinePattern.None)}));
   end CompositeStep_suspend;
 
   connector CompositeStepStatePort_in
@@ -2110,9 +2057,6 @@ package Interfaces "Connectors and partial models"
         "Dummy variable in order that connector fulfills restriction of connector"
                                                                                 annotation(HideResult=true);
     flow Real activeSteps "Number of active steps in the CompositeStep";
-    annotation(Documentation(info="<html>
-
-</html>"));
   end CompositeStepStatePort_in;
 
   connector CompositeStepStatePort_out
@@ -2125,9 +2069,6 @@ package Interfaces "Connectors and partial models"
         "Dummy variable in order that connector fulfills restriction of connector"
                                                                                  annotation(HideResult=true);
     flow Real activeSteps "Number of active steps in the CompositeStep";
-    annotation (Documentation(info="<html>
-
-</html>"));
   end CompositeStepStatePort_out;
 
   partial block PartialStep
@@ -2220,13 +2161,6 @@ package Interfaces "Connectors and partial models"
         outPort[i].reset = false;
       end if;
     end for;
-    annotation(Documentation(info="<html>
-
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}})),
-      Coordsys(grid=[1,1], component=[20,20])));
   end PartialStep;
 
   partial block PartialTransition
@@ -2282,17 +2216,6 @@ package Interfaces "Connectors and partial models"
     enableFire = localCondition and inPort.available and not outPort.occupied;
     inPort.reset = fire;
     outPort.set = fire;
-    annotation(Icon(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-      Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-      Documentation(info="<html>
-
-</html>"));
   end PartialTransition;
 
   partial block PartialStateGraphIcon "Icon for a StateGraph object"
@@ -2305,10 +2228,7 @@ package Interfaces "Connectors and partial models"
               fillPattern=FillPattern.Solid), Text(
               extent={{160,110},{-160,150}},
               textString="%name",
-              lineColor={0,0,255})}),
-          Documentation(info="<html>
-
-</html>"));
+              lineColor={0,0,255})}));
   end PartialStateGraphIcon;
 
   model CompositeStepState
@@ -2331,14 +2251,8 @@ top level your model.");
     annotation (
       defaultComponentName="stateGraphRoot",
       defaultComponentPrefixes="inner",
-      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.",
-        Documentation(info="<html>
-
-</html>"));
+      missingInnerMessage="A \"stateGraphRoot\" component was automatically introduced.");
   end CompositeStepState;
-    annotation (Documentation(info="<html>
-
-</html>"));
 end Interfaces;
 
 block InitialStep "Initial step (= step that is active when simulation starts)"
@@ -2373,10 +2287,7 @@ equation
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
               lineColor={0,0,0}), Rectangle(extent={{-80,80},{80,-80}},
-              lineColor={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
+              lineColor={0,0,0})}));
 end InitialStep;
 
 block InitialStepWithSignal
@@ -2413,10 +2324,7 @@ equation
             extent={{-92,-50},{94,-68}},
             lineColor={0,0,0},
             textString="active"),
-          Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
+          Rectangle(extent={{-80,80},{80,-80}}, lineColor={0,0,0})}));
 end InitialStepWithSignal;
 
 block Step "Ordinary step (= step that is not active when simulation starts)"
@@ -2447,10 +2355,7 @@ equation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Rectangle(extent={{-100,100},{100,-100}},
-              lineColor={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
+              lineColor={0,0,0})}));
 end Step;
 
 block StepWithSignal
@@ -2485,10 +2390,7 @@ equation
           Text(
             extent={{-92,-74},{94,-92}},
             lineColor={0,0,0},
-            textString="active")}),
-      Documentation(info="<html>
-
-</html>"));
+            textString="active")}));
 end StepWithSignal;
 
 block Transition
@@ -2534,10 +2436,7 @@ block Transition
             extent={{-10,100},{10,-100}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-
-</html>"));
+            fillPattern=FillPattern.Solid)}));
 
 end Transition;
 
@@ -2588,11 +2487,7 @@ block TransitionWithSignal
             extent={{-10,100},{10,-100}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
-      Documentation(info="<html>
-
-</html>"));
-
+            fillPattern=FillPattern.Solid)}));
 end TransitionWithSignal;
 
 block Alternative
@@ -2713,10 +2608,7 @@ equation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-            Line(points={{80,0},{100,0}}, color={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
+            Line(points={{80,0},{100,0}}, color={0,0,0})}));
 end Alternative;
 
 block Parallel
@@ -2880,10 +2772,7 @@ equation
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-100,0},{-80,0}}, color={0,0,0}),
-            Line(points={{80,0},{100,0}}, color={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
+            Line(points={{80,0},{100,0}}, color={0,0,0})}));
 end Parallel;
 
 partial model PartialCompositeStep
@@ -3063,10 +2952,7 @@ inside the CompositeStep to the outPort connector.");
           preserveAspectRatio=true,
           extent={{-150,-150},{150,150}},
           grid={1,1}), graphics={Rectangle(extent={{-150,150},{150,-150}},
-              lineColor={0,0,0})}),
-      Documentation(info="<html>
-
-</html>"));
+              lineColor={0,0,0})}));
 end PartialCompositeStep;
 
 model StateGraphRoot
@@ -3198,9 +3084,6 @@ value, still requires to go in to the text layer.
     for i in 1:size(b,1) loop
        result := result or b[i];
     end for;
-      annotation (Documentation(info="<html>
-
-</html>"));
   end anyTrue;
 
   function allTrue
@@ -3213,9 +3096,6 @@ value, still requires to go in to the text layer.
     for i in 1:size(b,1) loop
        result := result and b[i];
     end for;
-      annotation (Documentation(info="<html>
-
-</html>"));
   end allTrue;
 
   block RadioButton
@@ -3252,12 +3132,7 @@ value, still requires to go in to the text layer.
               lineColor={0,0,0},
               textString="%name")},
                             interaction={OnMouseDownSetBoolean(
-                            on, true)}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
-
-</html>"));
+                            on, true)}));
   end RadioButton;
 
   model NumericValue "Show value of Real input signal dynamically"
@@ -3283,10 +3158,7 @@ value, still requires to go in to the text layer.
                     Value,
                     minimumLength=1,
                     significantDigits=integer(precision))),
-              lineColor={0,0,255})}),
-        Documentation(info="<html>
-
-</html>"));
+              lineColor={0,0,255})}));
 
   end NumericValue;
 
@@ -3307,10 +3179,7 @@ value, still requires to go in to the text layer.
               fillPattern=FillPattern.Sphere), Text(
               extent={{-150,150},{150,110}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Documentation(info="<html>
-
-</html>"));
+              lineColor={0,0,255})}));
 
   end IndicatorLamp;
 
@@ -3322,7 +3191,6 @@ standard library (with the new block connectors) and in the
 UserInteraction library that is currently under development.
 </p>
 </html>"));
-
 end Temporary;
 annotation (
   Documentation(info="<html>
