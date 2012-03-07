@@ -3088,10 +3088,7 @@ equation
             lineColor={0,0,255}),
           Rectangle(
             extent={{-100,100},{100,-100}},
-            fillColor=DynamicSelect({255,255,255}, if active > 0.5 then {0,255,
-                0} else {255,255,255}),
-            lineColor={0,0,0},
-            fillPattern=FillPattern.Solid),
+            lineColor={0,0,0}),
           Text(
             extent={{-92,78},{96,34}},
             lineColor={0,0,0},
