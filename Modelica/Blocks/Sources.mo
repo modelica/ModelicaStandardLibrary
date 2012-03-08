@@ -2171,7 +2171,7 @@ a flange according to a given acceleration.
 <p>
 This block generates an output signal by <b>linear interpolation</b> in
 a table. The time points and function values are stored in a matrix
-<b>table[i,j]</b>, where the first column table[:,1] contains the
+<strong><code>table[i,j]</code></strong>, where the first column table[:,1] contains the
 time points and the second column contains the data to be interpolated.
 The table interpolation has the following proporties:
 </p>
@@ -2185,8 +2185,11 @@ The table interpolation has the following proporties:
 <li>If the table has only <b>one row</b>, no interpolation is performed and
     the function value is just returned independantly of the
     actual time instant.</li>
-<li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined
+<li>Via parameters <strong><code>startTime</code></strong> and <strong><code>offset</code></strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.
+<li>The first point in time <strong>always</strong> has to be set to <strong><code>0</code></strong>, e.g.,
+    <strong><code>table=[1,1;2,2]</code></strong> is <strong>illegal</strong>. If you want to
+    shift the time table in time use the  <strong><code>startTime</code></strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries,
     in order to not integrate over a discontinuous or not differentiable
@@ -2217,7 +2220,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
 </HTML>
 ",       revisions=
              "<html>
-<p><b>Release Notes:</b></p>
+<h4>Release Notes</h4>
 <ul>
 <li><i>Oct. 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
