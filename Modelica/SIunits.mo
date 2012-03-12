@@ -1885,7 +1885,6 @@ argument):</p>
     Complex(redeclare ActivePower re,
              redeclare ReactivePower im) "Complex electrical power";
   annotation (
-    Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={Text(
           extent={{-63,-13},{45,-67}},
@@ -1934,34 +1933,5 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 <li><i>April 8, 1998</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and Astrid Jaschinski:<br/>Complete ISO 31 chapters realized.</li>
 <li><i>Nov. 15, 1997</i> by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a> and <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>:<br/>Some chapters realized.</li>
 </ul>
-</html>"),
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}}), graphics={
-        Rectangle(
-          extent={{169,86},{349,236}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{169,236},{189,256},{369,256},{349,236},{169,236}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{369,256},{369,106},{349,86},{349,236},{369,256}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{179,226},{339,196}},
-          lineColor={160,160,164},
-          textString="Library"),
-        Text(
-          extent={{206,173},{314,119}},
-          lineColor={0,0,0},
-          textString="[kg.m2]"),
-        Text(
-          extent={{163,320},{406,264}},
-          lineColor={255,0,0},
-          textString="Modelica.SIunits")}));
+</html>"));
 end SIunits;

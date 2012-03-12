@@ -99,7 +99,6 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
        Realized.</li>
 </ul>
 </html>"),
-    Invisible=true,
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(
@@ -113,41 +112,5 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
         Line(
           points={{-2,-38},{2,-46},{8,-56},{14,-64}},
           color={0,0,0},
-          thickness=0.5)}),
-    Diagram(graphics={
-        Rectangle(
-          extent={{200,162},{380,312}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{200,312},{220,332},{400,332},{380,312},{200,312}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Polygon(
-          points={{400,332},{400,182},{380,162},{380,312},{400,332}},
-          fillColor={235,235,235},
-          fillPattern=FillPattern.Solid,
-          lineColor={0,0,255}),
-        Text(
-          extent={{210,302},{370,272}},
-          lineColor={160,160,164},
-          textString="Library"),
-        Line(
-          points={{266,224},{312,224}},
-          color={0,0,0},
-          thickness=1),
-        Line(
-          points={{280,224},{276,214},{272,206},{266,198}},
-          color={0,0,0},
-          thickness=1),
-        Line(
-          points={{298,224},{302,216},{308,206},{314,198}},
-          color={0,0,0},
-          thickness=1),
-        Text(
-          extent={{152,412},{458,334}},
-          lineColor={255,0,0},
-          textString="Modelica.Constants")}));
+          thickness=0.5)}));
 end Constants;

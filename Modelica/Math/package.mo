@@ -12365,7 +12365,6 @@ end tempInterpol2;
 
 
 annotation (
-  Invisible=true,
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={Text(
         extent={{-59,-9},{42,-56}},
