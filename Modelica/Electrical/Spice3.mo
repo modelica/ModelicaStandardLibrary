@@ -2141,9 +2141,9 @@ The corresponding SPICE description
               preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
 <p>records and data are stored and modeled that are neede for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Repository.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -2166,9 +2166,9 @@ The corresponding SPICE description
               preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
-<p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
+<p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
 <p>records and data are stored and modeled that are neede for the semiconductor models.</p>
-<p>The package Semiconductors is for user access but not the package Repository.</p>
+<p>The package Semiconductors is for user access but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
@@ -3710,6 +3710,51 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               fillColor={170,85,255},
               fillPattern=FillPattern.Solid)}));
     end InductiveCouplePin;
+
+    partial model ConditionalSubstrate
+      "Partial model to include a conditional subtrat node"
+
+      parameter Boolean useSubstrateNode = false
+        "=true, if SubtrateNodet is enabled"
+      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      Modelica.Electrical.Analog.Interfaces.PositivePin S(v = substrateVoltage, i = -substrateCurrent) if useSubstrateNode annotation (Placement(
+            transformation(extent={{90,0},{110,20}}),    iconTransformation(extent={{90,-10},
+                {110,10}})));
+      Modelica.SIunits.Voltage substrateVoltage;
+      Modelica.SIunits.Current substrateCurrent;
+
+    equation
+      if not useSubstrateNode then
+        substrateVoltage = 0;
+      end if;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}),                                                                       graphics),
+        Documentation(revisions="<html>
+<ul>
+<li><i> February 17, 2009   </i>
+       by Christoph Clauss<br> initially implemented<br>
+       </li>
+</ul>
+</html>",     info="<html>
+<p>
+This partial model provides a conditional heating port for the connection to a thermal network.
+</p>
+<ul>
+<li> If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal
+     loss power flows internally to the ground. In this case, the parameter <b>T</b> specifies
+     the fixed device temperature (the default for T = 20<sup>o</sup>C).</li>
+<li> If <b>useHeatPort</b> is set to <b>true</b>, a heat port is available.</li>
+</ul>
+
+<p>
+If this model is used, the loss power has to be provided by an equation in the model which inherits from
+ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
+<b>T_heatPort</b> can be used to describe the influence of the device temperature
+on the model behaviour.
+</p>
+</html>"),
+        Diagram(graphics));
+    end ConditionalSubstrate;
     annotation(preferredView="info",
         Documentation(info="<html>
 <p>The SPICE3 package uses the Modelica.Electrical.Analog interfaces. Only special partial models used in the SPICE3 package are located in this Interfaces package.</p>
@@ -4201,6 +4246,220 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node"
         annotation (Placement(transformation(extent={{10,-108},{30,-88}}),
             iconTransformation(extent={{20,-110},{40,-90}})));
+      extends Spice3.Interfaces.ConditionalSubstrate;
+      parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
+      parameter Real AREA = 1.0 "Area factor";
+      parameter Boolean OFF = false
+        "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
+      parameter SI.Voltage IC_VBE = -1e40
+        "Initial condition value (VBC, not implemented yet)";
+      parameter SI.Voltage IC_VCE = -1e40
+        "Initial condition value (VBE, not implemented yet)";
+      parameter Boolean UIC = false
+        "Use initial conditions: true, if initial condition is used";
+      parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
+      parameter Boolean SENS_AREA = false
+        "Flag to request sensitivity WRT area, not implemented yet";
+
+      parameter Spice3.Internal.ModelcardBJT
+                             modelcard "BJT modelcard"   annotation(Evaluate=true);
+
+      final parameter Spice3.Internal.Bjt.BjtModelLineParams p=
+          Spice3.Internal.Bjt.bjtRenameParameters(modelcard,
+          TBJT) "Model line parameters"             annotation(Evaluate=true);
+      final parameter Spice3.Internal.Bjt.Bjt dev=
+          Spice3.Internal.Bjt.bjtRenameParametersDev(
+            AREA,
+            OFF,
+            IC_VBE,
+            IC_VCE,
+            UIC,
+            SENS_AREA,
+            TEMP) "Renamed parameters"          annotation(Evaluate=true);
+      final parameter Spice3.Internal.Bjt.BjtModelLineParams p1=
+          Spice3.Internal.Bjt.bjtModelLineInitEquations(p)
+        "Model line variables";
+      final parameter Spice3.Internal.Bjt.Bjt dev1=
+          Spice3.Internal.Bjt.bjtInitEquations(dev, p1)
+        "Precalculated parameters";
+      final parameter Spice3.Internal.Bjt.BjtCalc c=
+          Spice3.Internal.Bjt.bjtCalcTempDependencies(dev1, p1)
+        "Precalculated parameters";
+
+      constant Boolean m_bInit = false;
+      Spice3.Internal.Bjt.CurrentsCapacitances cc;
+      SI.Voltage Cinternal;    // inner collector node
+      SI.Voltage Binternal;    // inner base node
+      SI.Voltage Einternal;    // inner emitter node
+      SI.Voltage vbe;
+      SI.Voltage vbc;
+      SI.Voltage vbx;
+      SI.Voltage vcs;
+      SI.Current irc;
+      SI.Current ire;
+      SI.Current irb;
+      SI.Current ibcgmin;
+      SI.Current ibegmin;
+      SI.Current icapbe;
+      SI.Current icapbc;
+      SI.Current icapbx;
+      SI.Current icapcs;
+      SI.Current icaptt;
+
+      //obsolete
+       final parameter Spice3.Internal.Model.Model m;
+       final parameter Spice3.Internal.Bjt.BjtModelLineVariables
+                                                 vl;
+       final parameter Spice3.Internal.Bjt.BjtVariables v;
+       constant Spice3.Internal.SpiceConstants Con;
+       Real capbe = 1;
+       Real capbc = 1;
+       Real capbx = 1;
+       Real vBE = 1;
+       Real vCE = 1;
+       Real vBC = 1;
+       //Real y = der(Einternal);
+
+    equation
+      cc = Spice3.Internal.Bjt.bjtNoBypassCode(
+          dev1,
+          p1,
+          c,
+          {C.v,B.v,E.v,Cinternal,Binternal,Einternal});
+
+      // voltages
+      vbe = Binternal - Einternal;
+      vbc = Binternal - Cinternal;
+      vbx = B.v - Cinternal;
+      vcs = Cinternal - substrateVoltage;
+
+      // currents through capacitances
+      icapbe = if (m_bInit) then 0.0 else cc.capbe*der(vbe);
+      icapbc = if (m_bInit) then 0.0 else cc.capbc*der(vbc);
+      icaptt = if (m_bInit) then 0.0 else cc.captt*der(vbc);
+      icapbx = if (m_bInit) then 0.0 else cc.capbx*der(vbx);
+      icapcs = if (m_bInit) then 0.0 else cc.capcs*der(vcs);
+
+      // resistances
+      irc * p1.m_collectorResist = (C.v - Cinternal);
+      ire * p1.m_emitterResist = (E.v -Einternal);
+    //  irb * cc.rx = (B.v - Binternal);  // exact resistance
+      irb * p.m_baseResist = (B.v - Binternal); // faulty resistance
+
+      // currents
+      ibcgmin = Spice3.Internal.SpiceConstants.CKTgmin*(
+        Binternal - Cinternal);
+      ibegmin = Spice3.Internal.SpiceConstants.CKTgmin*(
+        Binternal - Einternal);
+      C.i = irc;
+      E.i = ire;
+      B.i = irb + icapbx;
+      //current sum at inner nodes
+      0 =  ibcgmin + irc -cc.iCC + cc.iBCN + cc.iBC + icapbc + icapbx - icapcs + icaptt; //current sum for inner node Cinternal
+      0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Einternal
+      0 = - ibcgmin - ibegmin + irb - cc.iBC - cc.iBE - cc.iBCN - cc.iBEN -icapbc - icapbe - icaptt; //current sum for inner node Binternal
+      substrateCurrent = icapcs;
+      annotation(Evaluate=true,
+                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                -100},{100,100}}), graphics={
+            Line(
+              points={{-20,60},{-20,-60}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-20,0},{-86,0}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{34,94},{-20,40}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Line(
+              points={{-20,-40},{32,-92}},
+              color={0,0,255},
+              smooth=Smooth.None),
+            Text(
+              extent={{-94,56},{206,16}},
+              textString="%name",
+              lineColor={0,0,255})}),Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+            graphics),
+        Documentation(info="<html>
+<p>Bibpolar junction transistor model, both NPN and PNP</p>
+<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</html>",     revisions="<html>
+<p><ul>
+<li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
+</ul></p>
+</html>"));
+    end BJT;
+
+    record ModelcardBJT "Record with technological parameters (.model)"
+
+      parameter SI.Temp_C TNOM = 27 "Parameter measurement temperature";
+      parameter SI.Current IS = 1e-16 "Transport saturation current";
+      parameter Real BF = 100.00 "Ideal maximum forward beta F";
+      parameter Real NF = 1.0 "Forward current emission coefficientF";
+      parameter Real NE = 1.5 "B-E leakage emission coefficient ";
+      parameter SI.Current ISE = -1e40
+        "B-E leakage saturation current, default = 0";
+      constant Real C2 = -1e40 "Obsolete parameter name, default = 0";
+      parameter SI.Current ISC = -1e40
+        "B-C leakage saturation current, default = 0";
+      constant Real C4 = -1e40 "Obsolete parameter name, default = 0";
+      parameter Real BR = 1.0 "Ideal maximum reverse beta";
+      parameter Real NR = 1.0 "Reverse current emission coefficient ";
+      parameter Real NC = 2.0 "B-C leakage emission coefficient";
+      parameter SI.Voltage VAF=0.0 "Forward Early voltage";
+      parameter SI.Current IKF=0.0 "Forward beta roll-off corner current";
+      parameter SI.Voltage VAR=0.0 "Reverse Early voltage";
+      parameter SI.Current IKR=0.0 "Reverse beta roll-off corner current";
+      parameter SI.Resistance RE=0.0 "Emitter resistance";
+      parameter SI.Resistance RC=0.0 "Collector resistance";
+      parameter SI.Current IRB=0.0 "Current for base resistance = (rb+rbm)/2";
+      parameter SI.Resistance RB=0.0 "Zero bias base resistance";
+      parameter SI.Resistance RBM=0.0 "Minimum base resistance, default = 0.0";
+      parameter SI.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
+      parameter SI.Voltage VJE=0.75 "B-E built in potential";
+      parameter Real MJE = 0.33 "B-E junction exponential faktor";
+      parameter SI.Time TF=0.0 "Ideal forward transit time";
+      parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
+      parameter SI.Current ITF=0.0 "High current dependence of TF,";
+      parameter SI.Voltage VTF=0.0 "Voltage giving VBC dependence of TF";
+      parameter SI.Frequency PTF=0.0 "Excess phase at freq=1/(TF*2*Pi) Hz";
+      parameter SI.Capacitance CJC=0.0 "Zero bias B-C depletion capacitance";
+      parameter SI.Voltage VJC=0.75 " B-C built in potential";
+      parameter Real MJC = 0.33 "B-C junction grading coefficient";
+      parameter Real XCJC = 1.0 "Fraction of B-C cap to internal base";
+      parameter SI.Time TR=0.0 "Ideal reverse transit time";
+      parameter SI.Capacitance CJS=0.0 "Zero bias C-S capacitance ";
+      parameter SI.Voltage VJS=0.75 "Substrate junction built-in potential ";
+      parameter Real MJS = 0.0 "Substrate junction grading coefficient ";
+      parameter Real XTB = 0.0 "Forward and reverse beta temperature exponent ";
+      parameter SI.GapEnergy EG=1.11
+        "Energy gap for IS temperature effect on IS ";
+      parameter Real XTI = 3.0 "Temperature exponent for IS";
+      parameter Real KF = 0.0 "Flicker Noise Coefficient ";
+      parameter Real AF = 1.0 "Flicker Noise Exponent ";
+      parameter Real FC = 0.5 "Forward bias junction fit parameter";
+
+      annotation (Documentation(info="<html>
+<p>Modelcard parameters for BJT model, both PNP and NPN</p>
+<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+</html>"));
+    end ModelcardBJT;
+
+    model BJT_obsolete "Bipolar junction transistor, obsolete, use model BJT"
+     extends Modelica.Icons.ObsoleteModel;
+      Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node"
+        annotation (Placement(transformation(extent={{-108,-10},{-88,10}}),
+            iconTransformation(extent={{-106,-10},{-86,10}})));
+      Modelica.Electrical.Analog.Interfaces.PositivePin C "Collector node"
+        annotation (Placement(transformation(extent={{10,88},{30,108}}),
+            iconTransformation(extent={{20,90},{40,110}})));
+      Modelica.Electrical.Analog.Interfaces.NegativePin E "Emitter node"
+        annotation (Placement(transformation(extent={{10,-108},{30,-88}}),
+            iconTransformation(extent={{20,-110},{40,-90}})));
 
       parameter Real TBJT( start = 1) "Type of transistor (NPN=1, PNP=-1)";
       parameter Real AREA = 1.0 "Area factor";
@@ -4214,34 +4473,44 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
-      parameter ModelcardBJT modelcard "BJT modelcard"                                              annotation(Evaluate=true);
+      parameter Spice3.Internal.ModelcardBJT_obsolete
+                             modelcard "BJT modelcard"                                              annotation(Evaluate=true);
 
-      final parameter Bjt3.BjtModelLineParams p=Bjt3.bjtRenameParameters(modelcard,
+      final parameter Spice3.Internal.Bjt3.BjtModelLineParams
+                                              p=Spice3.Internal.Bjt3.bjtRenameParameters(
+                                                                         modelcard,
           Con,TBJT) "Model line parameters"                                                                                                     annotation(Evaluate=true);
-      constant SpiceConstants Con "General constants of SPICE simulator";
-      final parameter Bjt3.Bjt p1=Bjt3.bjtRenameParametersDev(
+      constant Spice3.Internal.SpiceConstants Con
+        "General constants of SPICE simulator";
+      final parameter Spice3.Internal.Bjt3.Bjt
+                               p1=Spice3.Internal.Bjt3.bjtRenameParametersDev(
               AREA,
               OFF,
               IC_VBE,
               IC_VCE,
               SENS_AREA) "Renamed parameters"
                    annotation(Evaluate=true);
-      final parameter Model.Model m=Bjt3.bjtRenameParametersDevTemp(TEMP)
+      final parameter Spice3.Internal.Model.Model m=
+          Spice3.Internal.Bjt3.bjtRenameParametersDevTemp(TEMP)
         "Renamed parameters"                                                                                                     annotation(Evaluate=true);
-      final parameter Bjt3.BjtModelLineVariables vl=
-          Bjt3.bjtModelLineInitEquations(p) "Model line variables";
-      final parameter Bjt3.Bjt3Calc c=Bjt3.bjt3CalcTempDependencies(
+      final parameter Spice3.Internal.Bjt3.BjtModelLineVariables vl=
+          Spice3.Internal.Bjt3.bjtModelLineInitEquations(p)
+        "Model line variables";
+      final parameter Spice3.Internal.Bjt3.Bjt3Calc
+                                    c=Spice3.Internal.Bjt3.bjt3CalcTempDependencies(
               p1,
               p,
               m,
               vl) "Precalculated parameters";
-      final parameter Bjt3.BjtVariables v=Bjt3.bjtInitEquations(
+      final parameter Spice3.Internal.Bjt3.BjtVariables
+                                        v=Spice3.Internal.Bjt3.bjtInitEquations(
               p1,
               p,
               vl) "Precalculated parameters";
 
       constant Boolean m_bInit = false;
-      Bjt3.CurrentsCapacitances cc;
+      Spice3.Internal.Bjt3.CurrentsCapacitances
+                                cc;
       Real Cinternal;    //inner collector node
       Real Binternal;    //inner base node
       Real Einternal;    //inner emitter node
@@ -4265,7 +4534,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       vCE = C.v - E.v;
       vBC = B.v - C.v;
 
-       (cc,capbe,capbc,capbx) = Bjt3.bjtNoBypassCode(
+       (cc,capbe,capbc,capbx) = Spice3.Internal.Bjt3.bjtNoBypassCode(
              m,
              p1,
              p,
@@ -4285,8 +4554,10 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
          irb * p.m_baseResist = (B.v - Binternal);
 
         //currents
-        ibcgmin = SpiceConstants.CKTgmin * (Binternal - Cinternal);
-        ibegmin = SpiceConstants.CKTgmin * (Binternal - Einternal);
+      ibcgmin = Spice3.Internal.SpiceConstants.CKTgmin*(
+        Binternal - Cinternal);
+      ibegmin = Spice3.Internal.SpiceConstants.CKTgmin*(
+        Binternal - Einternal);
         C.i = irc;
         E.i = ire;
         B.i = irb + icapbx;
@@ -4320,15 +4591,16 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>Bibpolar junction transistor model</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
-    end BJT;
+    end BJT_obsolete;
 
-    record ModelcardBJT "Record with technological parameters (.model)"
+    record ModelcardBJT_obsolete
+      "Record with technological parameters (.model)"
 
       parameter SI.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
@@ -4381,9 +4653,9 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
-    end ModelcardBJT;
+    end ModelcardBJT_obsolete;
 
   model JFET "Junction Field-Effect Transistor"
 
@@ -4840,6 +5112,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
        constant Real EPSOX =      3.453133e-11;
        constant SI.Charge CHARGE =     (1.6021918e-19);
        constant SI.Temp_K CONSTCtoK =  (273.15);
+       constant SI.HeatCapacity CONSTboltz = (1.3806226e-23); // J/K
        constant SI.Temp_K REFTEMP =    300.15;  /* 27 deg C */
 
        constant Real CONSTroot2 =  sqrt(2.0);
@@ -5595,9 +5868,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 
     end junction2SPICE3BJT;
 
-      annotation (Documentation(info="<html>
-<p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
-</html>"));
     function energyGapDepTemp_old "Temperature dependency of energy gap"
 
       input Modelica.SIunits.Temp_K temp "Temperature";
@@ -5614,8 +5884,10 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       annotation (Documentation(info="<html>
 <p>This internal function calculates the temperature dependent energy gap based on the actual temperature, and two coefficients given as input to the function.</p>
 </html>"));
-
     end energyGapDepTemp_old;
+      annotation (Documentation(info="<html>
+<p>The package Equation contains functions that are needed to model the semiconductor models. Some of these functions are used by several semiconductor models.</p>
+</html>"));
   end Functions;
 
     package SpiceRoot "Basic records and functions"
@@ -9677,7 +9949,794 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
     end Rsemiconductor;
 
-    package Bjt3 "Records and functions for bjt model"
+    package Bjt "Records and functions for bjt model"
+      extends Modelica.Icons.Package;
+
+      record Bjt "Record for bjt3 device parameters"
+        extends Spice3.Internal.Model.Model;
+
+        Real m_area(  start = 1.0) "AREA";
+        Boolean m_bOff(  start = false) "OFF";
+        Modelica.SIunits.Voltage m_dICvbe(start=0.0) "IC_VBE";
+        Real m_bICvbeIsGiven( start = 0.0);
+        Modelica.SIunits.Voltage m_dICvce(start=0.0) "IC_VCE";
+        Real m_bICvceIsGiven( start = 0.0);
+        Boolean m_uic "Use initial conditions, UIC";
+        Boolean m_bSensArea( start = false) "SENS_AREA";
+
+        Modelica.SIunits.Current m_transitTimeHighCurrentF(start=0.0);
+        Modelica.SIunits.InverseElectricCurrent m_invRollOffF(start=0);
+        Modelica.SIunits.InverseElectricCurrent m_invRollOffR(start=0);
+
+        Modelica.SIunits.Capacitance m_CScap(start=0);
+        annotation (Documentation(info="<html>
+<p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
+</html>"));
+      end Bjt;
+
+      record BjtModelLineParams "Record for bjt model line parameters"
+
+        Real m_type( start = 1) "device type : 1 = n,  -1 = p";
+
+        Modelica.SIunits.Temp_K m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
+          "TNOM, Parameter measurement temperature";
+        Modelica.SIunits.Current m_satCur(start=1.0e-16)
+          "IS, Saturation Current";
+        Real m_betaF( start = 100.0) "BF, Ideal forward beta";
+        Real m_emissionCoeffF(  start = 1.0) "NF, Forward emission coefficient";
+        Real m_leakBEemissionCoeff( start = 1.5)
+          "NE, B-E leakage emission coefficient";
+        Modelica.SIunits.Current m_leakBEcurrent(start=0.)
+          "ISE, B-E leakage saturation current";
+        Real m_c2( start = 0.) "C2, Obsolete parameter name";
+        Modelica.SIunits.Current m_leakBCcurrent(start=0.)
+          "ISC, B-C leakage saturation current";
+        Real m_c4( start = 0.) "C4, Obsolete parameter name";
+        Real m_leakBEcurrentIsGiven;
+        Real m_c2IsGiven;
+        Real m_leakBCcurrentIsGiven;
+        Real m_c4IsGiven;
+        Real m_betaR( start = 1.0) "BR, Ideal reverse beta";
+        Real m_emissionCoeffR( start = 1.0) "NR, Reverse emission coefficient";
+        Real m_leakBCemissionCoeff( start = 2.0)
+          "NC, B-C leakage emission coefficient";
+        Modelica.SIunits.Voltage m_earlyVoltF(start=0.0)
+          "VAF, Forward Early voltage";
+        Modelica.SIunits.Current m_rollOffF(start=0.0)
+          "IKF, Forward beta roll-off corner current";
+        Modelica.SIunits.Voltage m_earlyVoltR(start=0.0)
+          "VAR, Reverse Early voltage";
+        Modelica.SIunits.Current m_rollOffR(start=0.0)
+          "IKR, reverse beta roll-off corner current";
+        Modelica.SIunits.Resistance m_emitterResist(start=0.0)
+          "RE, Emitter resistance";
+        Modelica.SIunits.Resistance m_collectorResist(start=0.0)
+          "RC, Collector resistance";
+        Modelica.SIunits.Current m_baseCurrentHalfResist(start=0.0)
+          "IRB, Current for base resistance=(rb+rbm)/2";
+        Modelica.SIunits.Resistance m_baseResist(start=0.0)
+          "RB, Zero bias base resistance";
+        Modelica.SIunits.Resistance m_minBaseResist(start=0.0)
+          "RBM, Minimum base resistance";
+        Real m_minBaseResistIsGiven;
+        Modelica.SIunits.Capacitance m_depletionCapBE(start=0.0)
+          "CJE, Zero bias B-E depletion capacitance";
+        Modelica.SIunits.Voltage m_potentialBE(start=0.75)
+          "VJE, B-E built in potential";
+        Real m_junctionExpBE( start = 0.33) "MJE, B-E built in potential";
+        Modelica.SIunits.Time m_transitTimeF(start=0.0)
+          "TF, Ideal forward transit time";
+        Real m_transitTimeBiasCoeffF( start = 0.0)
+          "XTF, Coefficient for bias dependence of TF";
+        Modelica.SIunits.Current m_transitTimeHighCurrentF(start=0.0)
+          "ITF, High current dependence of TF";
+        Modelica.SIunits.Voltage m_transitTimeFVBC(start=0.0)
+          "VTF, Voltage giving VBC dependence of TF";
+        Modelica.SIunits.Frequency m_excessPhase(start=0.0) "PTF, Excess phase";
+        Modelica.SIunits.Capacitance m_depletionCapBC(start=0.0)
+          "CJC, Zero bias B-C depletion capacitance";
+        Modelica.SIunits.Voltage m_potentialBC(start=0.75)
+          "VJC, B-C built in potential";
+        Real m_junctionExpBC( start = 0.33)
+          "MJC, B-C junction grading coefficient";
+        Real m_baseFractionBCcap( start = 1.0)
+          "XCJC, Fraction of B-C cap to internal base";
+        Modelica.SIunits.Time m_transitTimeR(start=0.0)
+          "TR, Ideal reverse transit time";
+        Modelica.SIunits.Capacitance m_capCS(start=0.0)
+          "CJS, Zero bias C-S capacitance";
+        Modelica.SIunits.Voltage m_potentialSubstrate(start=0.75)
+          "VJS, Zero bias C-S capacitance";
+        Real m_exponentialSubstrate( start = 0.0)
+          "MJS, Substrate junction grading coefficient";
+        Real m_betaExp( start = 0.0) "XTB, Forward and reverse beta temp. exp.";
+        Modelica.SIunits.GapEnergy m_energyGap(start=1.11)
+          "EG, Energy gap for IS temp. dependency";
+        Real m_tempExpIS( start = 3.0) "XTI,Temp. exponent for IS";
+        Real m_fNcoef( start = 0.0) "KF, Flicker Noise Coefficient";
+        Real m_fNexp( start = 1.0) "AF, Flicker Noise Exponent";
+        Real m_depletionCapCoeff( start = 0.5)
+          "FC, Forward bias junction fit parameter";
+
+        Modelica.SIunits.Conductance m_collectorConduct(start=0.0);
+        Modelica.SIunits.Conductance m_emitterConduct(start=0.0);
+        Modelica.SIunits.InversePotential m_transitTimeVBCFactor(start=0.0);
+        Real m_excessPhaseFactor( start = 0.0);
+        Modelica.SIunits.InversePotential m_invEarlyVoltF(start=0.0);
+        Modelica.SIunits.InverseElectricCurrent m_invRollOffF(start=0.0);
+        Modelica.SIunits.InversePotential m_invEarlyVoltR(start=0.0);
+        Modelica.SIunits.InverseElectricCurrent m_invRollOffR(start=0.0);
+
+        //obsolete
+        Real m_bNPN= 1;
+        Real m_bPNP= 1;
+
+        parameter Real m_area = 1.0;
+        parameter Boolean m_bOff = false;
+        parameter Modelica.SIunits.Voltage m_dICvbe = 0;
+        parameter Real m_bICvbeIsGiven = 0;
+        parameter Modelica.SIunits.Voltage m_dICvce = 0;
+        parameter Real m_bICvceIsGiven = 0;
+        parameter Boolean m_bSensArea = false;
+        parameter Real m_dTemp = 1;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
+</html>"));
+      end BjtModelLineParams;
+
+      record BjtCalc "Bjt3 variables"
+
+        Modelica.SIunits.Current m_tSatCur(start=0);
+        Real m_tBetaF( start = 1);
+        Real m_tBetaR( start = 1);
+        Modelica.SIunits.Current m_tBEleakCur(start=1e-14);
+        Modelica.SIunits.Current m_tBCleakCur(start=1e-14);
+        Modelica.SIunits.Capacitance m_tBEcap(start=0);
+        Modelica.SIunits.Voltage m_tBEpot(start=0.7);
+        Modelica.SIunits.Capacitance m_tBCcap(start=0);
+        Modelica.SIunits.Voltage m_tBCpot(start=0.7);
+        Modelica.SIunits.Voltage m_tDepCapBE(start=0.7);
+        Modelica.SIunits.Voltage m_tDepCapBC(start=0.7);
+        Modelica.SIunits.Voltage m_tVcrit(start=0.7);
+        Modelica.SIunits.Voltage m_dVt(start=0.025);
+        Modelica.SIunits.Voltage m_tF1c(start=0);
+        Real m_f2c( start = 0);
+        Real m_f3c( start = 0);
+        Modelica.SIunits.Voltage m_tF1e(start=0);
+        Real m_f2e( start = 0);
+        Real m_f3e( start = 0);
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipolar transistor model in SPICE3.</p>
+</html>"));
+      end BjtCalc;
+
+      record CurrentsCapacitances "Bjt3 variables"
+
+        Modelica.SIunits.Current iBE(start=0.0);
+                                   //current through diode dE1 (ideal part)
+        Modelica.SIunits.Current iBEN(start=0.0);
+                                   //current through diode dE2 (non ideal part)
+        Modelica.SIunits.Current iBC(start=0.0);
+                                  //current through diode dC1 (ideal part)
+        Modelica.SIunits.Current iBCN(start=0.0);
+                                   //current through diode dC2 (non ideal part)
+        Modelica.SIunits.Current iCC(start=0.0);
+                                   //channel current
+        Modelica.SIunits.Capacitance capbc(start=0.0);
+        Modelica.SIunits.Capacitance capbe(start=0.0);
+        Modelica.SIunits.Capacitance capbx(start=0.0);
+        Modelica.SIunits.Capacitance captt(start=0.0);
+        Modelica.SIunits.Capacitance capcs(start=0.0);
+        Modelica.SIunits.Resistance rx(start=0.0);
+
+        //obsolete
+        Real iXX;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipoar transistor model in SPICE3.</p>
+</html>"));
+      end CurrentsCapacitances;
+
+      function bjtModelLineInitEquations "Initial calculation"
+
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+
+        output BjtModelLineParams out_p
+          "Output record with Bjt model line variables";
+
+      algorithm
+        out_p := in_p;
+
+        if ( not (out_p.m_leakBEcurrentIsGiven > 0.5) and (out_p.m_c2IsGiven > 0.5)) then
+          out_p.m_leakBEcurrent := out_p.m_c2 * out_p.m_satCur;
+        end if;
+        if ( not (out_p.m_leakBCcurrentIsGiven > 0.5) and (out_p.m_c4IsGiven > 0.5)) then
+          out_p.m_leakBCcurrent := out_p.m_c4 * out_p.m_satCur;
+        end if;
+        if (out_p.m_earlyVoltF <> 0) then
+          out_p.m_invEarlyVoltF := 1 / out_p.m_earlyVoltF;
+        end if;
+        if (out_p.m_rollOffF <> 0) then
+          out_p.m_invRollOffF := 1 / out_p.m_rollOffF;
+        end if;
+        if (out_p.m_earlyVoltR <> 0) then
+          out_p.m_invEarlyVoltR := 1 / out_p.m_earlyVoltR;
+        end if;
+        if (out_p.m_rollOffR <> 0) then
+          out_p.m_invRollOffR := 1 / out_p.m_rollOffR;
+        end if;
+        if (out_p.m_collectorResist <> 0) then
+          out_p.m_collectorConduct := 1 / out_p.m_collectorResist;
+        end if;
+        if (out_p.m_emitterResist <> 0) then
+          out_p.m_emitterConduct := 1 / out_p.m_emitterResist;
+        end if;
+        if (out_p.m_transitTimeFVBC <> 0) then
+          out_p.m_transitTimeVBCFactor := 1 / (out_p.m_transitTimeFVBC * 1.44);
+        end if;
+        out_p.m_excessPhaseFactor := (out_p.m_excessPhase/(180.0/
+          Modelica.Constants.pi))*out_p.m_transitTimeF;
+        if (out_p.m_depletionCapCoeff > 0.9999) then
+          out_p.m_depletionCapCoeff := 0.9999;
+        end if;
+        annotation (Documentation(info="<html>
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+</html>"));
+      end bjtModelLineInitEquations;
+
+      function bjtInitEquations "Initial calculation"
+
+        input Bjt in_p "Input record Bjt3";
+        input BjtModelLineParams in_pml
+          "Input record with Bjt model line parameters";
+
+        output Bjt out_v "Output record with Bjt";
+
+      algorithm
+        out_v := in_p;
+
+        // calculate the parameters that depend on the area factor
+        out_v.m_transitTimeHighCurrentF := in_pml.m_transitTimeHighCurrentF * out_v.m_area;
+        out_v.m_invRollOffF             := in_pml.m_invRollOffF / out_v.m_area;
+        out_v.m_invRollOffR             := in_pml.m_invRollOffR / out_v.m_area;
+        out_v.m_CScap                   := in_pml.m_capCS * out_v.m_area;
+
+        annotation (Documentation(info="<html>
+<p>Within this function some parameters are initially precalculated from model line parameters.</p>
+</html>"));
+      end bjtInitEquations;
+
+      function bjtCalcTempDependencies "Temperature dependency calculation"
+
+        input Bjt in_p3 "Input record Bjt3";
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+
+        output BjtCalc out_c "Output record Bjt3Calc";
+
+      protected
+        Real fact1;
+        Real fact2;
+        Modelica.SIunits.Voltage vt;
+        Modelica.SIunits.GapEnergy egfet;
+        Modelica.SIunits.GapEnergyPerEnergy arg;
+        Modelica.SIunits.Voltage pbfact;
+        Real ratlog;
+        Real ratio1;
+        Real factlog;
+        Real factor;
+        Real bfactor;
+        Modelica.SIunits.Voltage pbo;
+        Real gmanew;
+        Real gmaold;
+
+      algorithm
+        fact1 := in_p.m_tnom/Spice3.Internal.SpiceConstants.REFTEMP;
+        vt := in_p3.m_dTemp*Spice3.Internal.SpiceConstants.CONSTKoverQ;
+        fact2 := in_p3.m_dTemp/Spice3.Internal.SpiceConstants.REFTEMP;
+
+        egfet := Spice3.Internal.MaterialParameters.EnergyGapSi - (Spice3.Internal.MaterialParameters.FirstBandCorrFactorSi
+          *in_p3.m_dTemp*in_p3.m_dTemp)/(in_p3.m_dTemp + Spice3.Internal.MaterialParameters.SecondBandCorrFactorSi);
+
+        arg := -egfet/(2*Spice3.Internal.SpiceConstants.CONSTboltz*in_p3.m_dTemp)
+           + Spice3.Internal.MaterialParameters.BandCorrFactorT300/(Spice3.Internal.SpiceConstants.CONSTboltz
+          *(Spice3.Internal.SpiceConstants.REFTEMP + Spice3.Internal.SpiceConstants.REFTEMP));
+        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + Spice3.Internal.SpiceConstants.CHARGE
+          *arg);
+
+        ratlog  := Modelica.Math.log(in_p3.m_dTemp/in_p.m_tnom);
+        ratio1  := in_p3.m_dTemp / in_p.m_tnom - 1;
+        factlog := ratio1 * in_p.m_energyGap / vt + in_p.m_tempExpIS * ratlog;
+        factor  := exp( factlog);
+        bfactor := exp(ratlog * in_p.m_betaExp);
+        pbo     := (in_p.m_potentialBE - pbfact) / fact1;
+        gmaold  := (in_p.m_potentialBE - pbo) / pbo;
+
+        out_c.m_tSatCur    := in_p.m_satCur * factor * in_p3.m_area;
+        out_c.m_tBetaF     := in_p.m_betaF * bfactor;
+        out_c.m_tBetaR     := in_p.m_betaR * bfactor;
+        out_c.m_tBEleakCur := in_p.m_leakBEcurrent * exp(factlog / in_p.m_leakBEemissionCoeff) / bfactor
+                              * in_p3.m_area;
+        out_c.m_tBCleakCur := in_p.m_leakBCcurrent * exp(factlog / in_p.m_leakBCemissionCoeff) / bfactor
+                              * in_p3.m_area;
+
+        out_c.m_tBEcap := in_p.m_depletionCapBE/(1 + in_p.m_junctionExpBE*(4e-4*(
+          in_p.m_tnom - Spice3.Internal.SpiceConstants.REFTEMP) - gmaold));
+        out_c.m_tBEpot := fact2 * pbo + pbfact;
+
+        gmanew := (out_c.m_tBEpot - pbo) / pbo;
+
+        out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(in_p3.m_dTemp
+           - Spice3.Internal.SpiceConstants.REFTEMP) - gmanew));
+
+        pbo    := (in_p.m_potentialBC - pbfact) / fact1;
+        gmaold := (in_p.m_potentialBC - pbo) / pbo;
+
+        out_c.m_tBCcap := in_p.m_depletionCapBC/(1 + in_p.m_junctionExpBC*(4e-4*(
+          in_p.m_tnom - Spice3.Internal.SpiceConstants.REFTEMP) - gmaold));
+        out_c.m_tBCpot := fact2 * pbo + pbfact;
+
+        gmanew := (out_c.m_tBCpot - pbo) / pbo;
+
+        out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(in_p3.m_dTemp
+           - Spice3.Internal.SpiceConstants.REFTEMP) - gmanew));
+
+        out_c.m_tDepCapBE := in_p.m_depletionCapCoeff * out_c.m_tBEpot;
+        out_c.m_tDepCapBC := in_p.m_depletionCapCoeff * out_c.m_tBCpot;
+        out_c.m_tVcrit := vt*Modelica.Math.log(vt/(Spice3.Internal.SpiceConstants.CONSTroot2
+          *in_p.m_satCur));
+        out_c.m_dVt       := vt;
+
+        // calculate the parameters that depend on the area factor
+        out_c.m_tBEcap := out_c.m_tBEcap * in_p3.m_area;
+        out_c.m_tBCcap := out_c.m_tBCcap * in_p3.m_area;
+        (out_c.m_tF1c,out_c.m_f2c,out_c.m_f3c) :=
+          Spice3.Internal.Functions.junctionCapCoeffs(
+            in_p.m_junctionExpBC,
+            in_p.m_depletionCapCoeff,
+            out_c.m_tBCpot);
+        (out_c.m_tF1e,out_c.m_f2e,out_c.m_f3e) :=
+          Spice3.Internal.Functions.junctionCapCoeffs(
+            in_p.m_junctionExpBE,
+            in_p.m_depletionCapCoeff,
+            out_c.m_tBEpot);
+
+        annotation (Documentation(info="<html>
+<p>In this function for the bipolar transistor model temperature dependencies are calculated using temperature treating functions from the equation package.</p>
+</html>"));
+      end bjtCalcTempDependencies;
+
+      function bjtNoBypassCode "Calculation of currents"
+
+        input Bjt in_p3 "Input record Bjt3";
+        input BjtModelLineParams in_p
+          "Input record with Bjt model line parameters";
+        input BjtCalc in_c "Input record Bjt3Calc";
+        input Modelica.SIunits.Voltage[6] in_m_pVoltageValues;
+                                                   /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
+
+        output CurrentsCapacitances out_cc
+          "Output record with calculated currents and capacitances";
+
+      protected
+        Modelica.SIunits.Voltage vce;
+        Modelica.SIunits.Voltage vbe;
+        Modelica.SIunits.Voltage vbx;
+        Modelica.SIunits.Voltage vbc;
+        Modelica.SIunits.Conductance gbe;
+        Modelica.SIunits.Current cbe;
+        Modelica.SIunits.Conductance gbc;
+        Modelica.SIunits.Current cbc;
+        Modelica.SIunits.Conductance gben;
+        Modelica.SIunits.Current cben;
+        Modelica.SIunits.Conductance gbcn;
+        Modelica.SIunits.Current cbcn;
+        Modelica.SIunits.Current cjbe;
+        Modelica.SIunits.Current cjbc;
+        Real dqbdve;
+        Real dqbdvc;
+        Real qb;
+        Real q1;
+        Real q2;
+        Real arg;
+        Real sqarg;
+        Real cc;
+        Modelica.SIunits.Current cex;
+        Modelica.SIunits.Conductance gex;
+        Modelica.SIunits.Time ttime;
+        Real step;
+        Real laststep;
+        Modelica.SIunits.Current bcex0;
+        Modelica.SIunits.Current bcex1;
+        Real arg1;
+        Real arg2;
+        Real denom;
+        Real arg3;
+        Real rbpr;
+        Real rbpi;
+        Real gx;
+        Real xjrb;
+        Real go;
+        Real gm;
+        Modelica.SIunits.Capacitance captt;
+        Modelica.SIunits.Charge chargebe;
+        Modelica.SIunits.Charge chargebc;
+        Modelica.SIunits.Charge chargebx;
+        Real argtf;
+        Real exponent;
+        Modelica.SIunits.Temp_K temp;
+
+        Real aux1;
+        Real aux2;
+        Modelica.SIunits.Charge chargecs;
+        Modelica.SIunits.Voltage vcs;
+        Real sarg;
+
+      algorithm
+        vce := in_p.m_type * (in_m_pVoltageValues[4] - in_m_pVoltageValues[6]); // ( ColP, EmitP);
+        vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
+        vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
+
+        if (in_p3.m_uic) then
+          if (in_p3.m_bICvbeIsGiven > 0.5) then
+            vbe := in_p.m_type * in_p3.m_dICvbe;
+          end if;
+          if (in_p3.m_bICvceIsGiven > 0.5) then
+            vce := in_p.m_type * in_p3.m_dICvce;
+          end if;
+          vbx := vbe - vce;
+        elseif (Spice3.Internal.SpiceRoot.initJunctionVoltages()) then
+          if (in_p3.m_bOff) then
+            vbe := 0.0;
+            vce := 0.0;
+            vbx := 0.0;
+          else
+            vbe := in_c.m_tVcrit;
+            vce := vbe;
+            vbx := 0.0;
+          end if;
+        end if;
+
+        vbc := vbe - vce;
+
+        // junction current
+        (cbe,gbe,cben,gben) := Spice3.Internal.Functions.junction2SPICE3BJT(
+            vbe,
+            in_p3.m_dTemp,
+            in_p.m_emissionCoeffF,
+            in_p.m_leakBEemissionCoeff,
+            in_c.m_tSatCur,
+            in_c.m_tBEleakCur);
+        out_cc.iBE  := in_p.m_type * cbe / in_c.m_tBetaF;
+        out_cc.iBEN := in_p.m_type * cben;
+        (cbc,gbc,cbcn,gbcn) := Spice3.Internal.Functions.junction2SPICE3BJT(
+            vbc,
+            in_p3.m_dTemp,
+            in_p.m_emissionCoeffR,
+            in_p.m_leakBCemissionCoeff,
+            in_c.m_tSatCur,
+            in_c.m_tBCleakCur);
+        out_cc.iBC  := in_p.m_type * cbc / in_c.m_tBetaR;
+        out_cc.iBCN := in_p.m_type * cbcn;
+        cjbe        := cbe / in_c.m_tBetaF + cben;
+        cjbc        := cbc / in_c.m_tBetaR + cbcn;
+
+        // determine base charge terms
+        q1 := 1.0/(1.0 - in_p.m_invEarlyVoltF * vbc - in_p.m_invEarlyVoltR * vbe);
+        if (in_p.m_invRollOffF == 0 and in_p.m_invRollOffR == 0) then
+          qb     := q1;
+          dqbdve := q1*qb*in_p.m_invEarlyVoltR;
+          dqbdvc := q1*qb*in_p.m_invEarlyVoltF;
+        else
+          q2    := in_p.m_invRollOffF*cbe + in_p.m_invRollOffR*cbc;
+          arg   := max( 0.0, 1+4*q2);
+          sqarg := 1;
+          if (arg <> 0) then
+            sqarg := sqrt(arg);
+          end if;
+          qb     := q1*(1+sqarg)/2;
+          dqbdve := q1*(qb*in_p.m_invEarlyVoltR + in_p.m_invRollOffF*gbe/sqarg);
+          dqbdvc := q1*(qb*in_p.m_invEarlyVoltF + in_p.m_invRollOffR*gbc/sqarg);
+        end if;
+
+        // determine dc incremental conductances - Weil's approximation
+        cc    := 0.0;
+        cex   := cbe;
+        gex   := gbe;
+        ttime := 1;
+        if ((in_p.m_excessPhaseFactor <> 0) and (ttime > 0.0)) then
+          step     :=0;
+          laststep :=1;
+          bcex0    :=0;
+          bcex1    :=0;
+          if ( bcex1 == 0.0) then
+               bcex1 := cbe / qb;
+               bcex0 := bcex1;
+
+          end if;
+          arg1  := step / in_p.m_excessPhaseFactor;
+          arg2  := 3 * arg1;
+          arg1  := arg2 * arg1;
+          denom := 1 + arg1 + arg2;
+          arg3  := arg1 / denom;
+          cc    := (bcex0 * (1 + step / laststep + arg2) -
+                   bcex1 * step / laststep) / denom;
+          cex   := cbe * arg3;
+          gex   := gbe * arg3;
+
+        end if;
+        cc := cc+(cex-cbc)/qb;
+
+        // resistances
+        rbpr := in_p.m_minBaseResist / in_p3.m_area;
+        rbpi := in_p.m_baseResist / in_p3.m_area-rbpr;
+        gx   := rbpr + rbpi / qb;
+        xjrb := in_p.m_baseCurrentHalfResist * in_p3.m_area;
+        if (xjrb <> 0) then
+          arg1 := max( (cjbe + cjbc) / xjrb, 1e-9);
+          arg2 := (-1 + sqrt( 1 + 14.59025 * arg1)) / 2.4317 / sqrt( arg1); // z s. Gl. (11-44a)
+          arg1 := tan(arg2);
+          gx   := rbpr + 3 * rbpi * (arg1-arg2) / arg2 / arg1 / arg1;
+        end if;
+        // keine if-Abfrage falls gx als Widerstand in Top_level genutzt wird !!!
+        // ----------------------------------------------------------------------
+        if (gx <> 0) then
+          gx := 1 / gx;
+        end if;
+        out_cc.rx := gx;
+
+        // determine dc incremental conductances
+        go := (gbc+(cex-cbc)*dqbdvc/qb)/qb;
+        gm := (gex-(cex-cbc)*dqbdve/qb)/qb - go;
+        out_cc.iCC := in_p.m_type * cc;
+
+        // charge storage elements and transit time calculation
+        captt := 0.0;
+        if (in_p.m_transitTimeF <> 0.0 and vbe > 0.0) then
+          argtf := 0.0;
+          arg2  := 0.0;
+          arg3  := 0.0;
+          if (in_p.m_transitTimeBiasCoeffF <> 0.0) then
+            argtf := in_p.m_transitTimeBiasCoeffF;
+            if (in_p.m_transitTimeVBCFactor <> 0.0) then
+              exponent := min( 50., vbc * in_p.m_transitTimeVBCFactor);
+              argtf    := argtf * exp( exponent);
+            end if;
+              arg2 := argtf;
+              if (in_p.m_transitTimeHighCurrentF <> 0) then
+                temp  := cbe / (cbe + in_p.m_transitTimeHighCurrentF);
+                argtf := argtf * temp * temp;
+                arg2  := argtf * (3-temp-temp);
+              end if;
+              arg3 := cbe * argtf * in_p.m_transitTimeVBCFactor;
+          end if;
+          cbe   := cbe * (1 + argtf) / qb;
+          gbe   := (gbe * (1 + arg2) - cbe * dqbdve) / qb;
+          captt := in_p.m_transitTimeF * (arg3 - cbe * dqbdvc) / qb;
+        end if;
+        out_cc.captt := captt; // (BaseP, ColP)
+
+        (out_cc.capbe,chargebe) := Spice3.Internal.Functions.junctionCapTransTime(
+            in_c.m_tBEcap,
+            vbe,
+            in_c.m_tDepCapBE,
+            in_p.m_junctionExpBE,
+            in_c.m_tBEpot,
+            in_c.m_tF1e,
+            in_c.m_f2e,
+            in_c.m_f3e,
+            in_p.m_transitTimeF,
+            gbe,
+            cbe);
+
+        aux1 := in_c.m_tBCcap*in_p.m_baseFractionBCcap;
+        (out_cc.capbc,chargebc) := Spice3.Internal.Functions.junctionCapTransTime(
+            aux1,
+            vbc,
+            in_c.m_tDepCapBC,
+            in_p.m_junctionExpBC,
+            in_c.m_tBCpot,
+            in_c.m_tF1c,
+            in_c.m_f2c,
+            in_c.m_f3c,
+            in_p.m_transitTimeR,
+            gbc,
+            cbc);
+
+        aux2:= in_c.m_tBCcap*(1. - in_p.m_baseFractionBCcap);
+        (out_cc.capbx,chargebx) := Spice3.Internal.Functions.junctionCap(
+            aux2,
+            vbx,
+            in_c.m_tDepCapBC,
+            in_p.m_junctionExpBC,
+            in_c.m_tBCpot,
+            in_c.m_tF1c,
+            in_c.m_f2c,
+            in_c.m_f3c);
+
+        out_cc.capcs := 0;
+        chargecs := 0;
+        vcs      := in_p.m_type * (0- in_m_pVoltageValues[4]); // ( Subst,  ColP);
+        if (vcs < 0) then
+          arg          := 1 - vcs / in_p.m_potentialSubstrate;
+          sarg := exp(-in_p.m_exponentialSubstrate*Modelica.Math.log(
+            arg));
+          out_cc.capcs := in_p3.m_CScap * sarg;
+          chargecs     := in_p.m_potentialSubstrate * in_p3.m_CScap *
+                         (1-arg*sarg)/(1-in_p.m_exponentialSubstrate);
+        else
+          out_cc.capcs := in_p3.m_CScap * (1 + in_p.m_exponentialSubstrate * vcs / in_p.m_potentialSubstrate);
+          chargecs     := vcs * in_p3.m_CScap *(1+in_p.m_exponentialSubstrate*vcs/
+                                       (2*in_p.m_potentialSubstrate));
+        end if;
+
+        //obsolete --> for backwart compatibility
+
+        out_cc.iXX :=1;
+
+        annotation (smoothOrder(normallyConstant=in_p3)=1,Documentation(info="<html>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
+</html>"));
+      end bjtNoBypassCode;
+
+      function bjtRenameParameters "Technology parameter renaming, obsolete"
+
+        input Spice3.Internal.ModelcardBJT ex
+          "Modelcard with technologie parameters";
+        input Real TBJT;
+
+        output BjtModelLineParams intern
+          "Output record with Bjt model line parameters";
+
+      algorithm
+        intern.m_satCur := ex.IS;
+        intern.m_betaF := ex.BF;
+        intern.m_emissionCoeffF := ex.NF;
+        intern.m_leakBEemissionCoeff := ex.NE;
+
+        intern.m_leakBEcurrentIsGiven := if (ex.ISE > -1e40) then 1 else 0;
+        intern.m_leakBEcurrent := if (ex.ISE > -1e40) then ex.ISE else 0;
+
+        intern.m_c2IsGiven := if (ex.C2 > -1e40) then 1 else 0;
+        intern.m_c2 := if (ex.C2 > -1e40) then ex.C2 else 0;
+
+        intern.m_leakBCcurrentIsGiven := if (ex.ISC > -1e40) then 1 else 0;
+        intern.m_leakBCcurrent := if (ex.ISC > -1e40) then ex.ISC else 0;
+
+        intern.m_c4IsGiven := if (ex.C4 > -1e40) then 1 else 0;
+        intern.m_c4 := if (ex.C4 > -1e40) then ex.C4 else 0;
+
+        intern.m_betaR := ex. BR;
+        intern.m_emissionCoeffR := ex.NR;
+        intern.m_leakBCemissionCoeff := ex.NC;
+        intern.m_earlyVoltF := ex.VAF;
+        intern.m_rollOffF := ex.IKF;
+        intern.m_earlyVoltR := ex.VAR;
+        intern.m_rollOffR := ex.IKR;
+        intern.m_emitterResist := ex.RE;
+        intern.m_collectorResist := ex.RC;
+        intern.m_baseCurrentHalfResist := ex.IRB;
+        intern.m_baseResist := ex.RB;
+        intern.m_minBaseResist := if (ex.RBM > -1e40) then ex.RBM else intern.m_baseResist;
+        intern.m_depletionCapBE := ex.CJE;
+        intern.m_potentialBE := ex.VJE;
+        intern.m_junctionExpBE := ex.MJE;
+        intern.m_transitTimeF := ex.TF;
+        intern.m_transitTimeBiasCoeffF := ex.XTF;
+        intern.m_transitTimeHighCurrentF := ex.ITF;
+        intern.m_transitTimeFVBC :=ex.VTF;
+        intern.m_excessPhase := ex.PTF;
+        intern.m_depletionCapBC := ex.CJC;
+        intern.m_potentialBC := ex.VJC;
+        intern.m_junctionExpBC := ex.MJC;
+        intern.m_baseFractionBCcap := ex.XCJC;
+        intern.m_transitTimeR := ex.TR;
+        intern.m_capCS := ex.CJS;
+        intern.m_potentialSubstrate := ex.VJS;
+        intern.m_exponentialSubstrate := ex.MJS;
+        intern.m_betaExp := ex.XTB;
+        intern.m_energyGap := ex.EG;
+        intern.m_tempExpIS := ex.XTI;
+        intern.m_fNcoef := ex.KF;
+        intern.m_fNexp := ex.AF;
+        intern.m_depletionCapCoeff := ex.FC;
+        intern.m_tnom := ex.TNOM + Spice3.Internal.SpiceConstants.CONSTCtoK;
+
+        intern.m_type := TBJT;
+
+        annotation (Documentation(info="<html>
+<p>This function assigns the external (given by the user, e.g. IS) technology parameters</p>
+<p>to the internal parameters (e.g. m_satCur). It also does the analysis of the IsGiven values.</p>
+</html>"));
+      end bjtRenameParameters;
+
+      function bjtRenameParametersDev "Temperature calculation, obsolete"
+
+        input Real AREA "Area factor";
+        input Boolean OFF
+          "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
+        input Modelica.SIunits.Voltage IC_VBE
+          "Initial condition value, not yet implemented";
+        input Modelica.SIunits.Voltage IC_VCE
+          "Initial condition value, not yet implemented";
+        input Boolean UIC "Use initial conditions, UIC";
+        input Boolean SENS_AREA
+          "Flag for sensitivity analysis, not yet implemented";
+        input Modelica.SIunits.Temp_C TEMP "Temperature";
+
+        output Bjt dev "Output record Bjt3";
+
+      algorithm
+        dev.m_area := AREA;
+        dev.m_bOff := OFF;
+
+        dev.m_bICvbeIsGiven := if (IC_VBE > -1e40) then 1 else 0;
+        dev.m_dICvbe := if (IC_VBE > -1e40) then IC_VBE else 0;
+
+        dev.m_bICvceIsGiven := if (IC_VCE > -1e40) then 1 else 0;
+        dev.m_dICvce := if (IC_VCE > -1e40) then IC_VCE else 0;
+
+        dev.m_uic := UIC;
+        dev.m_bSensArea := SENS_AREA;
+        dev.m_dTemp := TEMP + Spice3.Internal.SpiceConstants.CONSTCtoK
+          "Device temperature";
+        annotation (Documentation(info="<html>
+<p>This function assigns the external (given by the user, e.g. AREA) device parameters</p>
+<p>to the internal parameters (e.g. m_area). It also does the analysis of the IsGiven values.</p>
+</html>"));
+      end bjtRenameParametersDev;
+
+      record BjtModelLineVariables
+        "Record for bjt model line variables, obsolete"
+
+        Modelica.SIunits.Current m_leakBEcurrent=1;
+        Modelica.SIunits.Current m_leakBCcurrent=1;
+        Modelica.SIunits.Resistance m_minBaseResist=1;
+        Real m_invEarlyVoltF=1;
+        Real m_invRollOffF=1;
+        Real m_invEarlyVoltR=1;
+        Real m_invRollOffR=1;
+        Modelica.SIunits.Conductance m_collectorConduct=1;
+        Modelica.SIunits.Conductance m_emitterConduct=1;
+        Real m_transitTimeVBCFactor=1;
+        Real m_excessPhaseFactor=1;
+
+        Integer m_type=1;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model line (also called model card) variables that are used for the bipolar transistor model in SPICE3.</p>
+</html>"));
+      end BjtModelLineVariables;
+
+      record BjtVariables "Variables for the bjt model, obsolete"
+        extends Bjt3Variables;
+
+        Real m_CScap= 1;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipoar transistor bjt model in SPICE3.</p>
+</html>"));
+      end BjtVariables;
+
+      record Bjt3Variables "Variables for the bjt3 model, obsolete"
+
+        Modelica.SIunits.Current m_transitTimeHighCurrentF=1;
+        Real m_invRollOffF=1;
+        Real m_invRollOffR=1;
+
+        annotation (Documentation(info="<html>
+<p>This record contains the model variables that are used for the bipoar transistor bjt3 model in SPICE3.</p>
+</html>"));
+      end Bjt3Variables;
+      annotation (Documentation(info="<html>
+<p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
+</html>"));
+    end Bjt;
+
+    package Bjt3 "Records and functions for bjt model, obsolete"
       extends Modelica.Icons.Package;
 
       record BjtModelLineParams "Record for bjt model line parameters"
@@ -9686,7 +10745,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         Boolean m_bNPN( start = true) "NPN type device";
         Boolean m_bPNP( start = false) "PNP type device";
-        Modelica.SIunits.Temp_C m_tnom( start=SpiceConstants.CKTnomTemp)
+        Modelica.SIunits.Temp_C m_tnom( start=Spice3.Internal.SpiceConstants.CKTnomTemp)
           "TNOM, Parameter measurement temperature";
         Modelica.SIunits.Current m_satCur( start = 1.0e-16)
           "IS, Saturation Current";
@@ -9771,9 +10830,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_transitTimeVBCFactor( start = 0.0);
         Real m_excessPhaseFactor( start = 0.0);
         Real m_invEarlyVoltF( start = 0.0);
-        Real m_invRollOffF( start = 0.0);
+        SI.InverseElectricCurrent m_invRollOffF( start = 0.0);
         Real m_invEarlyVoltR( start = 0.0);
-        Real m_invRollOffR( start = 0.0);
+        SI.InverseElectricCurrent m_invRollOffR( start = 0.0);
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
@@ -9856,7 +10915,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtModelLineInitEquations;
 
       record Bjt3 "Record for bjt3 device parameters"
-        extends Model.Model;
+        extends Spice3.Internal.Model.Model;
 
        Real m_area(  start = 1.0) "AREA";
        Boolean m_bOff(  start = false) "OFF";
@@ -9867,8 +10926,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
        Boolean m_bSensArea( start = false) "SENS_AREA";
 
         Real m_transitTimeHighCurrentF(start = 0.0);
-        Real m_invRollOffF( start = 0);
-        Real m_invRollOffR( start = 0);
+        SI.InverseElectricCurrent m_invRollOffF( start = 0);
+        SI.InverseElectricCurrent m_invRollOffR( start = 0);
 
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
@@ -9956,7 +11015,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         input Bjt3 in_p3 "Input record Bjt3";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
-        input Model.Model m "Input record model";
+        input Spice3.Internal.Model.Model m "Input record model";
         input BjtModelLineVariables in_vl
           "Input record with Bjt model line variables";
 
@@ -9969,7 +11028,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Voltage vt;
         Real fact2;
         Real egfet;
-        Real arg;
+        SI.GapEnergyPerEnergy arg;
         Real pbfact;
         Real ratlog;
         Real ratio1;
@@ -9980,16 +11039,17 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real gmaold;
       algorithm
 
-        fact1 := in_p.m_tnom/SpiceConstants.REFTEMP;
-        vt := m.m_dTemp*SpiceConstants.CONSTKoverQ;
-        fact2 := m.m_dTemp/SpiceConstants.REFTEMP;
+        fact1 := in_p.m_tnom/Spice3.Internal.SpiceConstants.REFTEMP;
+        vt := m.m_dTemp*Spice3.Internal.SpiceConstants.CONSTKoverQ;
+        fact2 := m.m_dTemp/Spice3.Internal.SpiceConstants.REFTEMP;
 
         egfet  := 1.16 - (7.02e-4 * m.m_dTemp * m.m_dTemp) / (m.m_dTemp + 1108);
 
-        arg := -egfet/(2*Modelica.Constants.k*m.m_dTemp) + 1.1150877/(
-          Modelica.Constants.k*(SpiceConstants.REFTEMP + SpiceConstants.REFTEMP));
-        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + SpiceConstants.CHARGE*
-          arg);
+        arg := -egfet/(2*Modelica.Constants.k*m.m_dTemp) + 1.1150877/(Modelica.Constants.k
+          *(Spice3.Internal.SpiceConstants.REFTEMP +
+          Spice3.Internal.SpiceConstants.REFTEMP));
+        pbfact := -2*vt*(1.5*Modelica.Math.log(fact2) + Spice3.Internal.SpiceConstants.CHARGE
+          *arg);
 
         ratlog  := Modelica.Math.log( m.m_dTemp / in_p.m_tnom);
         ratio1  := m.m_dTemp / in_p.m_tnom - 1;
@@ -10007,43 +11067,46 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         out_c.m_tBCleakCur := in_vl.m_leakBCcurrent * exp(factlog / in_p.m_leakBCemissionCoeff) / bfactor
                               * in_p3.m_area;
 
-        out_c.m_tBEcap := in_p.m_depletionCapBE/(1 + in_p.m_junctionExpBE*(4e-4
-          *(in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
+        out_c.m_tBEcap := in_p.m_depletionCapBE/(1 + in_p.m_junctionExpBE*(4e-4*(
+          in_p.m_tnom - Spice3.Internal.SpiceConstants.REFTEMP)
+           - gmaold));
         out_c.m_tBEpot := fact2 * pbo + pbfact;
 
         gmanew := (out_c.m_tBEpot - pbo) / pbo;
 
         out_c.m_tBEcap := out_c.m_tBEcap*(1 + in_p.m_junctionExpBE*(4e-4*(m.m_dTemp
-           - SpiceConstants.REFTEMP) - gmanew));
+           - Spice3.Internal.SpiceConstants.REFTEMP) - gmanew));
 
         pbo    := (in_p.m_potentialBC - pbfact) / fact1;
         gmaold := (in_p.m_potentialBC - pbo) / pbo;
 
-        out_c.m_tBCcap := in_p.m_depletionCapBC/(1 + in_p.m_junctionExpBC*(4e-4
-          *(in_p.m_tnom - SpiceConstants.REFTEMP) - gmaold));
+        out_c.m_tBCcap := in_p.m_depletionCapBC/(1 + in_p.m_junctionExpBC*(4e-4*(
+          in_p.m_tnom - Spice3.Internal.SpiceConstants.REFTEMP)
+           - gmaold));
         out_c.m_tBCpot := fact2 * pbo + pbfact;
 
         gmanew := (out_c.m_tBCpot - pbo) / pbo;
 
         out_c.m_tBCcap := out_c.m_tBCcap*(1 + in_p.m_junctionExpBC*(4e-4*(m.m_dTemp
-           - SpiceConstants.REFTEMP) - gmanew));
+           - Spice3.Internal.SpiceConstants.REFTEMP) - gmanew));
 
         out_c.m_tDepCapBE := in_p.m_depletionCapCoeff * out_c.m_tBEpot;
         out_c.m_tDepCapBC := in_p.m_depletionCapCoeff * out_c.m_tBCpot;
         xfc               := Modelica.Math.log( 1 - in_p.m_depletionCapCoeff);
-        out_c.m_tVcrit := vt*Modelica.Math.log(vt/(SpiceConstants.CONSTroot2*in_p.m_satCur));
+        out_c.m_tVcrit := vt*Modelica.Math.log(vt/(Spice3.Internal.SpiceConstants.CONSTroot2
+          *in_p.m_satCur));
         out_c.m_dVt       := vt;
 
         // calculate the parameters that depend on the area factor
         out_c.m_tBEcap := out_c.m_tBEcap * in_p3.m_area;
         out_c.m_tBCcap := out_c.m_tBCcap * in_p3.m_area;
         (out_c.m_tF1c,out_c.m_f2c,out_c.m_f3c) :=
-          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+          Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_junctionExpBC,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tBCpot);
         (out_c.m_tF1e,out_c.m_f2e,out_c.m_f3e) :=
-          Modelica.Electrical.Spice3.Internal.Functions.junctionCapCoeffs(
+          Spice3.Internal.Functions.junctionCapCoeffs(
                 in_p.m_junctionExpBE,
                 in_p.m_depletionCapCoeff,
                 out_c.m_tBEpot);
@@ -10055,7 +11118,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function bjt3NoBypassCode "Calculation of currents"
 
-        input Model.Model in_m "Input record model";
+        input Spice3.Internal.Model.Model in_m "Input record model";
         input Bjt in_p3 "Input record Bjt3";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
@@ -10128,7 +11191,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         vbe := in_p.m_type * (in_m_pVoltageValues[5] - in_m_pVoltageValues[6]); // ( BaseP, EmitP);
         vbx := in_p.m_type * (in_m_pVoltageValues[2] - in_m_pVoltageValues[4]); // ( Base, ColP);
 
-        if (SpiceRoot.useInitialConditions()) then
+        if (Spice3.Internal.SpiceRoot.useInitialConditions()) then
           if (in_p3.m_bICvbeIsGiven > 0.5) then
             vbe := in_p.m_type * in_p3.m_dICvbe;
           end if;
@@ -10136,7 +11199,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
             vce := in_p.m_type * in_p3.m_dICvce;
           end if;
           vbx := vbe - vce;
-        elseif (SpiceRoot.initJunctionVoltages()) then
+        elseif (Spice3.Internal.SpiceRoot.initJunctionVoltages()) then
           if (in_p3.m_bOff) then
             vbe := 0.0;
             vce := 0.0;
@@ -10151,26 +11214,26 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         vbc := vbe - vce;
 
           // junction current
-        (cbe,gbe) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
+        (cbe,gbe) := Spice3.Internal.Functions.junction2(
                 vbe,
                 in_m.m_dTemp,
                 in_p.m_emissionCoeffF,
                 in_c.m_tSatCur);
 
         out_cc.iBE   := in_p.m_type * cbe / in_c.m_tBetaF;
-        (cben,gben) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
+        (cben,gben) := Spice3.Internal.Functions.junction2(
                 vbe,
                 in_m.m_dTemp,
                 in_p.m_leakBEemissionCoeff,
                 in_c.m_tBEleakCur);
         out_cc.iBEN  := in_p.m_type * cben;
-        (cbc,gbc) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
+        (cbc,gbc) := Spice3.Internal.Functions.junction2(
                 vbc,
                 in_m.m_dTemp,
                 in_p.m_emissionCoeffR,
                 in_c.m_tSatCur);
         out_cc.iBC   := in_p.m_type * cbc / in_c.m_tBetaR;
-        (cbcn,gbcn) := Modelica.Electrical.Spice3.Internal.Functions.junction2(
+        (cbcn,gbcn) := Spice3.Internal.Functions.junction2(
                 vbc,
                 in_m.m_dTemp,
                 in_p.m_leakBCemissionCoeff,
@@ -10270,7 +11333,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           captt := in_p.m_transitTimeF * (arg3 - cbe * dqbdvc) / qb;
         end if;
         (capbe,chargebe) :=
-          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
+          Spice3.Internal.Functions.junctionCapTransTime(
                 in_c.m_tBEcap,
                 vbe,
                 in_c.m_tDepCapBE,
@@ -10286,7 +11349,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         out_cc.iXX        := 0;
         aux1 := in_c.m_tBCcap*in_p.m_baseFractionBCcap;
         (capbc,chargebc) :=
-          Modelica.Electrical.Spice3.Internal.Functions.junctionCapTransTime(
+          Spice3.Internal.Functions.junctionCapTransTime(
                 aux1,
                 vbc,
                 in_c.m_tDepCapBC,
@@ -10301,7 +11364,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         aux2:= in_c.m_tBCcap*(1. - in_p.m_baseFractionBCcap);
         (capbx,chargebx) :=
-          Modelica.Electrical.Spice3.Internal.Functions.junctionCap(
+          Spice3.Internal.Functions.junctionCap(
                 aux2,
                 vbx,
                 in_c.m_tDepCapBC,
@@ -10357,7 +11420,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function bjtNoBypassCode "Calculation of currents"
 
-        input Model.Model in_m "Input record model";
+        input Spice3.Internal.Model.Model in_m "Input record model";
         input Bjt3 in_p3 "Input record Bjt3";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
@@ -10415,8 +11478,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming"
-        input ModelcardBJT ex "Modelcard with technologie parameters";
-        input SpiceConstants con "Spice constants";
+        input Spice3.Internal.ModelcardBJT_obsolete           ex
+          "Modelcard with technologie parameters";
+        input Spice3.Internal.SpiceConstants con "Spice constants";
         input Real TBJT "Type";
 
         output BjtModelLineParams intern
@@ -10479,7 +11543,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         intern.m_fNcoef := ex.KF;
         intern.m_fNexp := ex.AF;
         intern.m_depletionCapCoeff :=ex.FC;
-        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM + SpiceConstants.CONSTCtoK else 300.15;
+        intern.m_tnom := if (ex.TNOM > -1e40) then ex.TNOM +
+          Spice3.Internal.SpiceConstants.CONSTCtoK else 300.15;
 
         annotation (Documentation(info="<html>
 <p>This function assigns the external (given by the user, e.g., IS) technology parameters
@@ -10520,10 +11585,10 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
       function bjtRenameParametersDevTemp "Temperature calculation"
        input Modelica.SIunits.Temp_C TEMP "Temperature";
 
-      output Model.Model m "Output record model";
+      output Spice3.Internal.Model.Model m "Output record model";
       algorithm
 
-       m.m_dTemp :=TEMP + SpiceConstants.CONSTCtoK;
+        m.m_dTemp := TEMP + Spice3.Internal.SpiceConstants.CONSTCtoK;
 
         annotation (Documentation(info="<html>
 <p>This function calculates device parameters wehich are temperature dependent.</p>
