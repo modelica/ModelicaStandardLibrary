@@ -4386,11 +4386,11 @@ on the model behaviour.
             graphics),
         Documentation(info="<html>
 <p>Bibpolar junction transistor model, both NPN and PNP</p>
-<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
-<p><ul>
+<ul>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
-</ul></p>
+</ul>
 </html>"));
     end BJT;
 
@@ -4445,7 +4445,7 @@ on the model behaviour.
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
-<p><br/>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
     end ModelcardBJT;
 
@@ -5135,7 +5135,7 @@ on the model behaviour.
        constant Real CKTtemptol =      1e-3;
       annotation (Documentation(info="<html>
 <p>General constants used by SPICE</p>
-<p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
+<p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
      end SpiceConstants;
 
@@ -12232,7 +12232,7 @@ annotation(preferredView="info",
 <li>Semiconductor capacitor</li>
 </ul>
 <p>For the usage of this package, especially for detailed explanation of parameters, it is useful to know the <a href=\"modelica://Modelica/Resources/Documentation/Electrical/Spice3/Spice_3f3_Users_Manual.pdf\">SPICE3 user's manual</a>  (&copy; Regents of the University of California) on which the modelling relied on.</p>
-<p><b>Open issues</b>:
+<p><b>Open issues</b>:</p>
 <ul>
 <li>devices from SPICE3 that are not modelled yet: </li>
 <li>
