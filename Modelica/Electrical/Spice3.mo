@@ -3785,7 +3785,7 @@ on the model behaviour.
     type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/K");
     type PerVolume = Real (final quantity="PerVolume", final unit="1/m3");
     type InverseElectricCurrent = Real (final quantity="InverseElectricCurrent", final unit="1/A")
-      "Inverseof electric current";
+      "Inverse of electric current";
     type ElectricFieldStrength_cm = Real (final quantity="ElectricFieldStrength",
           final unit="V/cm");
     annotation (Icon(graphics={            Rectangle(
