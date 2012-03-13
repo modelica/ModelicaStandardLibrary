@@ -217,6 +217,24 @@ connect(p_out, n2);
 <ul>
 <li>Version 1.0 (2010-02-18): first version of the library was released</li>
 </ul>
+</html>", revisions="<html>
+<ul>
+<li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
+<li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
+<li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
+<li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
+<li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
+<li><i>March 2010</i> by Kristin Majetta<br/>Guidelines applied, User&apos;s Guide added</li>
+<li><i>February 2010</i> by Kristin Majetta<br/>Spice3 library added to MSL and examples revised</li>
+<li><i>September 2009 </i>by Kristin Majetta <br/>Bipolar transistor implemented</li>
+<li><i>August 2009 </i>by Jonathan Kress <br/>default values in sources improved</li>
+<li><i>August 2009 </i>by Kristin Majetta <br/>Bipolar transistor started</li>
+<li><i>April 2009 </i>by Kristin Majetta <br/>Semiconductor Resistor implemented</li>
+<li><i>March 2009 </i>by Kristin Majetta <br/>DIODE implemented</li>
+<li><i>25th February 2009 </i>by Kristin Majetta <br/>MOS Level 2 implemented</li>
+<li><i>15th October 2008 </i>by Kristin Majetta <br/>minor errors fixed in L_Inductor, I_Pulse and SpiceRoot</li>
+<li><i>April, 2008 </i>by Sandra Boehme <br/>initially implemented<br/></li>
+</ul>
 </html>"));
 
   end ReleaseNotes;
@@ -3778,7 +3796,9 @@ on the model behaviour.
             extent={{-100,80},{80,-100}},
             lineColor={0,0,0},
             fillColor={240,240,240},
-            fillPattern=FillPattern.Solid)}));
+            fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+<p>This package Types contains units that are needed in the models of the Spice3 package.</p>
+</html>"));
   end Types;
 
   package Internal
@@ -12288,6 +12308,8 @@ Sandra  Boehme
 </html>",
    revisions="<html>
 <ul>
+<li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
+<li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
 <li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
 <li><i>23rd February 2012 by Kristin Majetta</i><br/>Semiconductor Capacitor added</li>
 <li><i>21st February 2012</i> by Kristin Majetta<br/>CoupledInductors (K) added</li>
