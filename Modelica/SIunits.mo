@@ -322,8 +322,7 @@ end UsersGuide;
       type Area_cmPerVoltageSecond =
                        Real (final quantity="AreaPerVoltageSecond", final unit="cm2/(V.s)")
         "Area in cm per voltage second";
-        type VoltagePer_cm = Real (final quantity="VoltagePer_cm", final unit="V/cm")
-        "Voltage per cm";
+
       annotation (Documentation(info="<HTML>
 <p>
 This package provides predefined types, such as <b>Angle_deg</b> (angle in
@@ -1800,13 +1799,6 @@ argument):</p>
   type LandauGinzburgParameter = Real (final quantity="LandauGinzburgParameter",
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
-
-  type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
-  type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
-  type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/K");
-  type PerVolume = Real (final quantity="PerVolume", final unit="1/m3");
-  type InverseElectricCurrent = Real (final quantity="InverseElectricCurrent", final unit="1/A")
-    "Inverseof electric current";
 
   record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re,

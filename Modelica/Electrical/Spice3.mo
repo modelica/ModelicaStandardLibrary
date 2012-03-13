@@ -3761,6 +3761,26 @@ on the model behaviour.
 </html>"));
   end Interfaces;
 
+  package Types
+    type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
+    type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
+    type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/K");
+    type PerVolume = Real (final quantity="PerVolume", final unit="1/m3");
+    type InverseElectricCurrent = Real (final quantity="InverseElectricCurrent", final unit="1/A")
+      "Inverseof electric current";
+    type ElectricFieldStrength_cm = Real (final quantity="ElectricFieldStrength",
+          final unit="V/cm");
+    annotation (Icon(graphics={            Rectangle(
+            extent={{-80,100},{100,-80}},
+            lineColor={0,0,0},
+            fillColor={215,230,240},
+            fillPattern=FillPattern.Solid), Rectangle(
+            extent={{-100,80},{80,-100}},
+            lineColor={0,0,0},
+            fillColor={240,240,240},
+            fillPattern=FillPattern.Solid)}));
+  end Types;
+
   package Internal
     "Collection of functions and records derived from the C++ Spice library"
     extends Modelica.Icons.Package;
@@ -4220,7 +4240,7 @@ on the model behaviour.
        parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
         "Fast surface state density";
        parameter SI.Length XJ=0.0 "Metallurgiecal junction depth";
-       parameter SI.Conversions.NonSIunits.VoltagePer_cm UCRIT=1.e4
+       parameter Types.ElectricFieldStrength_cm UCRIT=1.e4
         "Critical field for mobility degradation (MOS2 only)";
        parameter Real UEXP=0.0
         "Critical field exponent in mobility degradation (MOS2 only)";
@@ -5144,13 +5164,13 @@ on the model behaviour.
       // energy gap for silicium
       constant SI.GapEnergy EnergyGapSi = 1.16;
       // first band correction factor of silicium
-      constant SI.GapEnergyPerTemperature FirstBandCorrFactorSi = 7.02e-4;
+      constant Types.GapEnergyPerTemperature FirstBandCorrFactorSi = 7.02e-4;
       // second band correction factor of silicium
       constant SI.Temperature SecondBandCorrFactorSi = 1108;
       // band correction factor for T = 300K
       constant SI.GapEnergy BandCorrFactorT300 = 1.1150877;
       // intrinsic conduction carrier density
-      constant SI.PerVolume IntCondCarrDensity = 1.45e16;
+      constant Types.PerVolume IntCondCarrDensity = 1.45e16;
      annotation (Documentation(info="<html>
 <p>Definition of Material parameters</p>
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
@@ -6782,7 +6802,7 @@ on the model behaviour.
         SI.Voltage vds;
         SI.Voltage vddif;
         SI.Voltage vddif1;
-        SI.VoltageSquare vddif2;
+        Types.VoltageSquare vddif2;
         SI.Voltage vgst;
 
       algorithm
@@ -7922,7 +7942,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         Real m_narrowFactor( start = 0.0) "DELTA, Width effect on threshold";
         Real m_critFieldExp( start = 0.0) "UEXP, Crit. field exp for mob. deg";
-        SI.Conversions.NonSIunits.VoltagePer_cm m_critField( start = 1.0e4)
+        Types.ElectricFieldStrength_cm m_critField( start = 1.0e4)
           "UCRIT, Crit. field for mob. degradation";
         SI.Velocity m_maxDriftVel( start = 0.0)
           "VMAX, Maximum carrier drift velocity";
@@ -9965,8 +9985,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Boolean m_bSensArea( start = false) "SENS_AREA";
 
         Modelica.SIunits.Current m_transitTimeHighCurrentF(start=0.0);
-        Modelica.SIunits.InverseElectricCurrent m_invRollOffF(start=0);
-        Modelica.SIunits.InverseElectricCurrent m_invRollOffR(start=0);
+        Types.InverseElectricCurrent m_invRollOffF(start=0);
+        Types.InverseElectricCurrent m_invRollOffR(start=0);
 
         Modelica.SIunits.Capacitance m_CScap(start=0);
         annotation (Documentation(info="<html>
@@ -10063,9 +10083,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.InversePotential m_transitTimeVBCFactor(start=0.0);
         Real m_excessPhaseFactor( start = 0.0);
         Modelica.SIunits.InversePotential m_invEarlyVoltF(start=0.0);
-        Modelica.SIunits.InverseElectricCurrent m_invRollOffF(start=0.0);
+        Types.InverseElectricCurrent m_invRollOffF(start=0.0);
         Modelica.SIunits.InversePotential m_invEarlyVoltR(start=0.0);
-        Modelica.SIunits.InverseElectricCurrent m_invRollOffR(start=0.0);
+        Types.InverseElectricCurrent m_invRollOffR(start=0.0);
 
         //obsolete
         Real m_bNPN= 1;
@@ -10222,7 +10242,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real fact2;
         Modelica.SIunits.Voltage vt;
         Modelica.SIunits.GapEnergy egfet;
-        Modelica.SIunits.GapEnergyPerEnergy arg;
+        Types.GapEnergyPerEnergy arg;
         Modelica.SIunits.Voltage pbfact;
         Real ratlog;
         Real ratio1;
@@ -10830,9 +10850,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Real m_transitTimeVBCFactor( start = 0.0);
         Real m_excessPhaseFactor( start = 0.0);
         Real m_invEarlyVoltF( start = 0.0);
-        SI.InverseElectricCurrent m_invRollOffF( start = 0.0);
+        Types.InverseElectricCurrent m_invRollOffF( start = 0.0);
         Real m_invEarlyVoltR( start = 0.0);
-        SI.InverseElectricCurrent m_invRollOffR( start = 0.0);
+        Types.InverseElectricCurrent m_invRollOffR( start = 0.0);
 
         annotation (Documentation(info="<html>
 <p>This record contains the model line (also called model card) parameters that are used for the bipolar transistor model in SPICE3.</p>
@@ -10926,8 +10946,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
        Boolean m_bSensArea( start = false) "SENS_AREA";
 
         Real m_transitTimeHighCurrentF(start = 0.0);
-        SI.InverseElectricCurrent m_invRollOffF( start = 0);
-        SI.InverseElectricCurrent m_invRollOffR( start = 0);
+        Types.InverseElectricCurrent m_invRollOffF( start = 0);
+        Types.InverseElectricCurrent m_invRollOffR( start = 0);
 
         annotation (Documentation(info="<html>
 <p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
@@ -11028,7 +11048,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         Modelica.SIunits.Voltage vt;
         Real fact2;
         Real egfet;
-        SI.GapEnergyPerEnergy arg;
+        Types.GapEnergyPerEnergy arg;
         Real pbfact;
         Real ratlog;
         Real ratio1;
