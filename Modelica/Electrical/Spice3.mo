@@ -3782,7 +3782,7 @@ on the model behaviour.
   package Types
     type VoltageSquare = Real (final quantity="ElectricalPotential2", final unit="V2");
     type GapEnergyPerTemperature = Real (final quantity="Energy per Temperature", final unit="eV/K");
-    type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/K");
+    type GapEnergyPerEnergy = Real (final quantity="Energy per Energy", final unit="eV/J");
     type PerVolume = Real (final quantity="PerVolume", final unit="1/m3");
     type InverseElectricCurrent = Real (final quantity="InverseElectricCurrent", final unit="1/A")
       "Inverse of electric current";
