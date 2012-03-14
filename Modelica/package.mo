@@ -2411,7 +2411,7 @@ that can lead to wrong simulation results):
 <table border=\"1\" cellspacing=0 cellpadding=2 style=\"border-collapse:collapse;\">
 <tr><td colspan=\"2\"><b>Modelica.Math.Mechanic.Translational.Components.</b></td></tr>
 <tr><td valign=\"top\"> SupportFriction</td>
-    <td valign=\"top\"> Corrected wrong calculation of position s (and consequently velocity and acceleration) relative to support. 
+    <td valign=\"top\"> Corrected wrong calculation of position s (and consequently velocity and acceleration) relative to support.
                       (Maintenance back to Version 3.0)</td></tr>
 </table>
 
@@ -2443,7 +2443,7 @@ units are wrong or errors in documentation):
                       (Maintenance back to version 2.2.1)</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Math.</b></td></tr>
 <tr><td valign=\"top\"> Mean</td>
-    <td valign=\"top\"> Changed discrete t0 to parameter t0(fixed=false). 
+    <td valign=\"top\"> Changed discrete t0 to parameter t0(fixed=false).
                       (Maintenance back to version 3.2)</td> </tr>
 <tr><td colspan=\"2\"><b>Modelica.Blocks.Logical.</b></td></tr>
 <tr><td valign=\"top\"> And<br>
@@ -2456,7 +2456,7 @@ units are wrong or errors in documentation):
                       Edge<br>
                       FallingEdge<br>
                       Change</td>
-    <td valign=\"top\"> Changed component definition from model to block. 
+    <td valign=\"top\"> Changed component definition from model to block.
                       (Maintenance back to version 2.2.1)</td> </tr>
 </table>
 
@@ -4001,7 +4001,7 @@ units are wrong or errors in documentation):
 </html>"));
 end Version_3_1;
 
-class Version_3_0_1 "Version 3.0.1 (Jan.27, 2009)"
+class Version_3_0_1 "Version 3.0.1 (Jan. 27, 2009)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
@@ -4276,7 +4276,7 @@ units are wrong or errors in documentation):
 </html>"));
 end Version_3_0_1;
 
-class Version_3_0 "Version 3.0 (Feb., 2008)"
+class Version_3_0 "Version 3.0 (March 1, 2008)"
   extends Modelica.Icons.ReleaseNotes;
 
    annotation (Documentation(info="<html>
