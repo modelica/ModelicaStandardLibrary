@@ -1556,7 +1556,7 @@ Zeunerstrasse 38<br />
         __Dymola_experimentSetupOutput);
     end CascodeCircuit;
 
-    model Spice3BenchmarkDifferentialPair "SIMPLE DIFFERENTIAL PAIR"
+    model Spice3BenchmarkDifferentialPair "Simple differential pair"
       import Modelica.Electrical.Spice3.*;
 
       Sources.V_pulse VCC( V1=0, V2=12, TD=0, TR=2e-009, TF=2e-009, PW=3);
@@ -1628,7 +1628,7 @@ Zeunerstrasse 38<br />
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual. </p>
+<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of packge Spice3).</p>
 <p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
 is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the 
 amplified output voltage.</p>
