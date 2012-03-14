@@ -219,6 +219,7 @@ connect(p_out, n2);
 </ul>
 </html>", revisions="<html>
 <ul>
+<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li> 
 <li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
@@ -1635,6 +1636,61 @@ amplified output voltage.</p>
 </html>"),
         __Dymola_experimentSetupOutput);
     end Spice3BenchmarkDifferentialPair;
+
+    model Spice3BenchmarkMosfetCharacterization "Mos output characteristics"
+      import Modelica.Electrical.Spice3.*;
+
+      Sources.V_pulse VDS( V1=0, V2=10, TD=0, TR=1e-008, TF=1e-008, PW=1, PER=1);
+      Sources.V_pulse VGS( V1=0, V2=5, TD=4e-008, TR=1e-009, TF=1e-009, PW=1e-008, PER=2e-008);
+      Semiconductors.M_NMOS M1(modelcard=MOD1, L=4e-006, W=6e-006, AD=1e-011, AS=1e-011);
+      // * VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT ID WOULD BE NEGATIVE
+      Sources.V_constant VIDS(V=0);
+      parameter Semiconductors.ModelcardMOS MOD1(VTO=-2, NSUB=1e+015, UO=550);
+
+    record SpiceConstants
+      // NODE
+      // NOPAGE
+    end SpiceConstants;
+
+      Basic.Ground g;
+
+    protected
+      Modelica.Electrical.Analog.Interfaces.Pin n3;
+      Modelica.Electrical.Analog.Interfaces.Pin n0;
+      Modelica.Electrical.Analog.Interfaces.Pin n2;
+      Modelica.Electrical.Analog.Interfaces.Pin n1;
+
+    equation
+      connect(g.p,n0);
+      connect(VDS.p, n3);
+      connect(VDS.n, n0);
+      connect(VGS.p, n2);
+      connect(VGS.n, n0);
+      connect(M1.D, n1);
+      connect(M1.G, n2);
+      connect(M1.S, n0);
+      connect(M1.B, n0);
+      connect(VIDS.p, n3);
+      connect(VIDS.n, n1);
+
+      annotation (                               experiment(StopTime=1e-007, Interval=1e-009), Icon(
+            graphics={                       Ellipse(extent={{-100,100},{100,-100}},
+                lineColor={95,95,95},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+                                       Polygon(
+              points={{-36,60},{64,0},{-36,-60},{-36,60}},
+              lineColor={0,0,255},
+              pattern=LinePattern.None,
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<html>
+<p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
+<p>This circuit is a very simple one than consists of an nmos transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
+operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and observe the gate node voltage (\"VGS.p.v\") and the transistor current (\"M1.D.i\").
+It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage. </p>
+</html>"));
+    end Spice3BenchmarkMosfetCharacterization;
     annotation (Documentation(info="<html>
 <p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
 </html>"));
@@ -12389,6 +12445,7 @@ Sandra  Boehme
 </html>",
    revisions="<html>
 <ul>
+<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li> 
 <li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
