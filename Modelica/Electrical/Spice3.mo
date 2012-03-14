@@ -219,6 +219,7 @@ connect(p_out, n2);
 </ul>
 </html>", revisions="<html>
 <ul>
+<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
 <li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
@@ -1554,6 +1555,86 @@ Zeunerstrasse 38<br />
           Tolerance=1e-007),
         __Dymola_experimentSetupOutput);
     end CascodeCircuit;
+
+    model Spice3BenchmarkDifferentialPair "SIMPLE DIFFERENTIAL PAIR"
+      import Modelica.Electrical.Spice3.*;
+
+      Sources.V_pulse VCC( V1=0, V2=12, TD=0, TR=2e-009, TF=2e-009, PW=3);
+      Sources.V_pulse VEE( V1=0, V2=-12, TD=0, TR=2e-009, TF=2e-009, PW=3);
+      Sources.V_sin VIN( VO=0, VA=0.01, FREQ=5);
+      Basic.R_Resistor RS1(R=1000);
+      Basic.R_Resistor RS2(R=1000);
+      Semiconductors.Q_NPNBJT Q1(modelcard=MOD1);
+      Semiconductors.Q_NPNBJT Q2(modelcard=MOD1);
+      Basic.R_Resistor RC1(R=10000);
+      Basic.R_Resistor RC2(R=10000);
+      Basic.R_Resistor RE(R=10000);
+      Sources.V_constant VIE(V=0);
+      parameter Semiconductors.ModelcardBJT MOD1(BF=50, VAF=50, IS=1e-012, RB=100, CJC=5e-013, TF=6e-010);
+      Basic.Ground g;
+
+      Real OutputVoltage;
+
+    protected
+      Modelica.Electrical.Analog.Interfaces.Pin n7;
+      Modelica.Electrical.Analog.Interfaces.Pin n0;
+      Modelica.Electrical.Analog.Interfaces.Pin n8;
+      Modelica.Electrical.Analog.Interfaces.Pin n1;
+      Modelica.Electrical.Analog.Interfaces.Pin n2;
+      Modelica.Electrical.Analog.Interfaces.Pin n6;
+      Modelica.Electrical.Analog.Interfaces.Pin n3;
+      Modelica.Electrical.Analog.Interfaces.Pin n42;
+      Modelica.Electrical.Analog.Interfaces.Pin n5;
+      Modelica.Electrical.Analog.Interfaces.Pin n41;
+
+    equation
+      OutputVoltage=Q2.C.v - Q1.C.v;
+      connect(g.p,n0);
+      connect(VCC.p, n7);
+      connect(VCC.n, n0);
+      connect(VEE.p, n8);
+      connect(VEE.n, n0);
+      connect(VIN.p, n1);
+      connect(VIN.n, n0);
+      connect(RS1.p, n1);
+      connect(RS1.n, n2);
+      connect(RS2.p, n6);
+      connect(RS2.n, n0);
+      connect(Q1.C, n3);
+      connect(Q1.B, n2);
+      connect(Q1.E, n42);
+      connect(Q2.C, n5);
+      connect(Q2.B, n6);
+      connect(Q2.E, n42);
+      connect(RC1.p, n7);
+      connect(RC1.n, n3);
+      connect(RC2.p, n7);
+      connect(RC2.n, n5);
+      connect(RE.p, n41);
+      connect(RE.n, n8);
+      connect(VIE.p, n41);
+      connect(VIE.n, n42);
+
+      annotation (                               experiment(Interval=0.001,
+            Tolerance=1e-005),
+        Icon(graphics={                      Ellipse(extent={{-100,100},{100,-100}},
+                lineColor={95,95,95},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+                                       Polygon(
+              points={{-36,60},{64,0},{-36,-60},{-36,60}},
+              lineColor={0,0,255},
+              pattern=LinePattern.None,
+              fillColor={95,95,95},
+              fillPattern=FillPattern.Solid)}),
+        Documentation(info="<html>
+<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual. </p>
+<p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
+is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the 
+amplified output voltage.</p>
+</html>"),
+        __Dymola_experimentSetupOutput);
+    end Spice3BenchmarkDifferentialPair;
     annotation (Documentation(info="<html>
 <p>This package Example circuits contains some useful examples to demonstrate how the library is working and how the models can be used.</p>
 </html>"));
@@ -12308,6 +12389,7 @@ Sandra  Boehme
 </html>",
    revisions="<html>
 <ul>
+<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
 <li><i>24th February 2012 by Kristin Majetta</i><br/>JFet model added</li>
