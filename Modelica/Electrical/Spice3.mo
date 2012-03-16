@@ -1740,7 +1740,8 @@ It can be seen that the current is increasing with increasing gate voltage which
 has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v)
 and the output voltage (Q1.C.v)</p>
 <p>Original SPICE3 netlist of the RTL inverter:</p>
-<p>SIMPLE RL INVERTER<br/>
+<pre>
+SIMPLE RL INVERTER<br/>
 VCC 4 0 5<br/>
 VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br/>
 RB 1 2 10K<br/>
@@ -1749,7 +1750,8 @@ RC 3 4 1K<br/>
 .MODEL Q1 NPN BF 20 RB 100 TF .1NS CJC 2PF<br/>
 .DC VIN 0 5 0.1<br/>
 .TRAN 1NS 100NS<br/>
-.END</p>
+.END
+</pre>
 </html>"));
     end Spice3BenchmarkRtlInverter;
     annotation (Documentation(info="<html>
