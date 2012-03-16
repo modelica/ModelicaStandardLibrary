@@ -219,8 +219,8 @@ connect(p_out, n2);
 </ul>
 </html>", revisions="<html>
 <ul>
-<li><i>15th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark RTL Inverter</li> 
-<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li> 
+<li><i>15th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark RTL Inverter</li>
+<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li>
 <li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
@@ -1554,8 +1554,7 @@ Zeunerstrasse 38<br />
         experiment(
           StopTime=0.2,
           NumberOfIntervals=1000,
-          Tolerance=1e-007),
-        __Dymola_experimentSetupOutput);
+          Tolerance=1e-007));
     end CascodeCircuit;
 
     model Spice3BenchmarkDifferentialPair "Simple differential pair"
@@ -1632,10 +1631,9 @@ Zeunerstrasse 38<br />
         Documentation(info="<html>
 <p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of packge Spice3).</p>
 <p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
-is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the 
+is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the
 amplified output voltage.</p>
-</html>"),
-        __Dymola_experimentSetupOutput);
+</html>"));
     end Spice3BenchmarkDifferentialPair;
 
     model Spice3BenchmarkMosfetCharacterization "Mos output characteristics"
@@ -1739,11 +1737,10 @@ It can be seen that the current is increasing with increasing gate voltage which
               pattern=LinePattern.None,
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid)}),
-        __Dymola_experimentSetupOutput,
         Documentation(info="<html>
 <p>This RTL Inverter model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
-<p>This simple RTL inverter (resistor transistor logic) circuits inverts the inputvoltage which means the output voltage has high potential if the input voltage 
-has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v) 
+<p>This simple RTL inverter (resistor transistor logic) circuits inverts the inputvoltage which means the output voltage has high potential if the input voltage
+has low potential and the other way round. To comprehend this behaviour the user is recommended to simulate from t=0 to t=1e-7s and observe the input voltage (VIN.p.v)
 and the output voltage (Q1.C.v)</p>
 <p>Original SPICE3 netlist of the RTL inverter:</p>
 <p>SIMPLE RL INVERTER<br/>
@@ -12512,8 +12509,8 @@ Sandra  Boehme
 </html>",
    revisions="<html>
 <ul>
-<li><i>15th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark RTL Inverter</li> 
-<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li> 
+<li><i>15th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark RTL Inverter</li>
+<li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Mosfet characterisation</li>
 <li><i>14th March 2012 by Kristin Majetta</i><br/>SPICE3 benchmark Differential Pair added</li>
 <li><i>12th March 2012 by Kristin Majetta</i><br/>BJT model improved</li>
 <li><i>09th March 2012 by Kristin Majetta</i><br/>MOS Level 2 model added</li>
