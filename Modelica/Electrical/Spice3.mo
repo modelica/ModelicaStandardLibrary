@@ -1558,7 +1558,6 @@ Zeunerstrasse 38<br />
     end CascodeCircuit;
 
     model Spice3BenchmarkDifferentialPair "Simple differential pair"
-      import Modelica.Electrical.Spice3.*;
 
       Sources.V_pulse VCC( V1=0, V2=12, TD=0, TR=2e-009, TF=2e-009, PW=3);
       Sources.V_pulse VEE( V1=0, V2=-12, TD=0, TR=2e-009, TF=2e-009, PW=3);
@@ -1629,7 +1628,7 @@ Zeunerstrasse 38<br />
               fillColor={95,95,95},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of packge Spice3).</p>
+<p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
 <p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
 is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the
 amplified output voltage.</p>
@@ -1637,7 +1636,6 @@ amplified output voltage.</p>
     end Spice3BenchmarkDifferentialPair;
 
     model Spice3BenchmarkMosfetCharacterization "Mos output characteristics"
-      import Modelica.Electrical.Spice3.*;
 
       Sources.V_pulse VDS( V1=0, V2=10, TD=0, TR=1e-008, TF=1e-008, PW=1, PER=1);
       Sources.V_pulse VGS( V1=0, V2=5, TD=4e-008, TR=1e-009, TF=1e-009, PW=1e-008, PER=2e-008);
@@ -1692,7 +1690,6 @@ It can be seen that the current is increasing with increasing gate voltage which
     end Spice3BenchmarkMosfetCharacterization;
 
     model Spice3BenchmarkRtlInverter "Simple RTL inverter"
-      import Modelica.Electrical.Spice3.*;
 
       Sources.V_constant VCC(V=5);
       Sources.V_pulse VIN( V1=0, V2=5, TD=2e-009, TR=2e-009, TF=2e-009, PW=3e-008);
@@ -2240,7 +2237,6 @@ The corresponding SPICE description
 
   package Semiconductors "Semiconductor devices and model cards"
     extends Modelica.Icons.Package;
-    import Modelica.SIunits;
 
     model M_PMOS "PMOS MOSFET device"
       extends Modelica.Electrical.Spice3.Internal.MOS(
