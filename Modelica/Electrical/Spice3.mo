@@ -1632,6 +1632,24 @@ Zeunerstrasse 38<br />
 <p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
 is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the
 amplified output voltage.</p>
+<p>Original SPICE3 netlist of the Differential pair:</p>
+<pre>
+SIMPLE DIFFERENTIAL PAIR<br/>
+VCC 7 0 12<br/>
+VEE 8 0 -12<br/>
+VIN 1 0 AC 1<br/>
+RS1 1 2 1K<br/>
+RS2 6 0 1K<br/>
+Q1 3 2 4 MOD1<br/>
+Q2 5 6 4 MOD1<br/>
+RC1 7 3 10K<br/>
+RC2 7 5 10K<br/>
+RE 4 8 10K<br/>
+.MODEL MOD1 NPN BF=50 VAF=50 IS=1.E-12 RB=100 CJC=.5PF TF=.6NS<br/>
+.TF V(5) VIN<br/>
+.AC DEC 10 1 100MEG<br/>
+.END
+</pre>
 </html>"));
     end Spice3BenchmarkDifferentialPair;
 
@@ -1686,6 +1704,18 @@ amplified output voltage.</p>
 <p>This circuit is a very simple one than consists of an nmos transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
 operating voltage. The user is recommended to simulate from t=0 to t=1e-7s and observe the gate node voltage (\"VGS.p.v\") and the transistor current (\"M1.D.i\").
 It can be seen that the current is increasing with increasing gate voltage which means the conductivity of the transistor is increasing. The opposite case occurs for decreasing gate voltage. </p>
+<p>Original SPICE3 netlist of the MOSFET characterization circuit:</p>
+<pre>
+MOS OUTPUT CHARACTERISTICS<br/>
+.OPTIONS NODE NOPAGE<br/>
+VDS 3 0<br/>
+VGS 2 0<br/>
+M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
+*VIDS MEASURES ID, WE COULD HAVE USED VDS, BUT IT WOULD BE NEGATIVE VIDS 3 1
+.MODEL MOD1 NMOS VTO=-2 NSUB=1.0E15 UO=550<br/>
+.DC VDS 0 10 .5 VGS 0 5 1<br/>
+.END
+</pre>
 </html>"));
     end Spice3BenchmarkMosfetCharacterization;
 
@@ -1741,7 +1771,7 @@ has low potential and the other way round. To comprehend this behaviour the user
 and the output voltage (Q1.C.v)</p>
 <p>Original SPICE3 netlist of the RTL inverter:</p>
 <pre>
-SIMPLE RL INVERTER<br/>
+SIMPLE RTL INVERTER<br/>
 VCC 4 0 5<br/>
 VIN 1 0 PULSE 0 5 2NS 2NS 2NS 30NS<br/>
 RB 1 2 10K<br/>
