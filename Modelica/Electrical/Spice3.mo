@@ -7071,7 +7071,8 @@ on the model behaviour.
          Modelica.SIunits.Conversions.NonSIunits.PerArea_cm
           m_surfaceStateDensity(start = 0.0) "NSS, Gate type";
          //-----------------obsolete--------------------------------------------
-         Real m_surfaceStateDensityIsGiven "surfaceStateDensityIsGivenValue";
+         Real m_surfaceStateDensityIsGiven(start=0)
+          "surfaceStateDensityIsGivenValue";
          //---------------------------------------------------------------------
          Modelica.SIunits.Conversions.NonSIunits.Area_cmPerVoltageSecond
           m_surfaceMobility( start = 600.0) "UO, Surface mobility";
