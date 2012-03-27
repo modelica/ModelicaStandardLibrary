@@ -169,25 +169,25 @@ the library and has the following content:
           D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
                   extent={{-80,-56},{-60,-36}}, rotation=0)));
           D.Sources.Table D0(
-            y0=3,
-            x={4,3,4,3},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1',L.'0'},
             t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,
                     58},{-60,78}}, rotation=0)));
           D.Sources.Table D1(
-            y0=3,
-            x={4,3,4,3},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                     32},{-60,52}}, rotation=0)));
           D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent=
                    {{-10,0},{70,80}}, rotation=0)));
           D.Sources.Table D2(
-            y0=3,
-            x={4,3,4,3},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,6},
                     {-60,26}}, rotation=0)));
           D.Sources.Table D3(
-            y0=3,
-            x={4,3,4,3},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                     -20},{-60,0}}, rotation=0)));
           D.Examples.Utilities.JKFF FF annotation (Placement(transformation(extent=
@@ -247,13 +247,13 @@ the library and has the following content:
           D.Sources.Clock CLK(period=10)  annotation (Placement(transformation(
                   extent={{-80,-10},{-60,10}}, rotation=0)));
           D.Sources.Table J(
-            y0=3,
-            x={4,3,4,3},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1',L.'0'},
             t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,
                     18},{-60,38}}, rotation=0)));
           D.Sources.Table K(
-            y0=3,
-            x={4,3,4,3},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                     -38},{-60,-18}}, rotation=0)));
         equation
@@ -283,17 +283,18 @@ the library and has the following content:
         model HalfAdder
       "Adding circuit for binary numbers without input carry bit"
           import Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table a(
             t={1,2,3,4},
-            x={4,3,4,3},
-            y0=3)   annotation (Placement(transformation(extent={{-80,18},{-60,38}},
+            x={L.'1',L.'0',L.'1',L.'0'},
+            y0=L.'0')   annotation (Placement(transformation(extent={{-80,18},{-60,38}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Table b(
-            x={4,3},
+            x={L.'1',L.'0'},
             t={2,4},
-            y0=3)   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
+            y0=L.'0')    annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
                   rotation=0)));
           Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3)
                                 annotation (Placement(transformation(extent={{-40,
@@ -441,46 +442,48 @@ The simulation stop time should be 10 seconds.
 
         model Adder4 "4 Bit Adder Example"
           import Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table b4(
-            y0=3,
-            x={4,3},
+            y0=L.'0',
+            x={L.'1',L.'0'},
             t={1,3}) annotation (Placement(transformation(extent={{70,-20},{110,20}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Table b1(
-            x={4,3,4},
-            y0=3,
+            x={L.'1',L.'0',L.'1'},
+            y0=L.'0',
             t={1,2,3}) annotation (Placement(transformation(extent={{-170,-20},{
                     -130,20}}, rotation=0)));
           Modelica.Electrical.Digital.Sources.Table b2(
-            y0=3,
-            x={4},
+            y0=L.'0',
+            x={L.'1'},
             t={4}) annotation (Placement(transformation(extent={{-90,-20},{-50,20}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Table b3(
-            y0=3,
-            x={4},
+            y0=L.'0',
+            x={L.'1'},
             t={1}) annotation (Placement(transformation(extent={{-10,-20},{30,20}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Table a1(
-            y0=3,
-            x={4,3,4},
+            y0=L.'0',
+            x={L.'1',L.'0',L.'1'},
             t={1,2,3}) annotation (Placement(transformation(extent={{-170,40},{-130,
                     80}}, rotation=0)));
           Modelica.Electrical.Digital.Sources.Table a2(
-            y0=3,
-            x={4},
+            y0=L.'0',
+            x={L.'1'},
             t={1}) annotation (Placement(transformation(extent={{-90,40},{-50,80}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Table a3(
-            y0=3,
-            x={4,3},
+            y0=L.'0',
+            x={L.'1',L.'0'},
             t={1,4}) annotation (Placement(transformation(extent={{-8,40},{30,80}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Table a4(
-            y0=3,
-            x={3},
+            y0=L.'0',
+            x={L.'0'},
             t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
                   rotation=0)));
           Modelica.Electrical.Digital.Sources.Set Set(x=3)
@@ -574,14 +577,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </pre>
 <p>The simulation stop time has to be 5s.</p>
 </HTML>
-"),         Icon(coordinateSystem(
+"),         Diagram(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-200,-200},{200,200}},
-                grid={2,2}), graphics),
-            Diagram(coordinateSystem(
-                preserveAspectRatio=true,
-                extent={{-200,-200},{200,200}},
-                grid={2,2}), graphics),
+                grid={2,2})),
             experiment(StopTime=5));
         end Adder4;
 
@@ -670,6 +669,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end Counter;
 
         model VectorDelay "Vector delay"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
@@ -677,11 +677,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             final tLH=2,
             final n=3)
             annotation (Placement(transformation(extent={{-36,-28},{40,48}})));
-          Modelica.Electrical.Digital.Sources.Table table(x={3,4,3,4,3}, t={0,1,5,7,8})
+            Modelica.Electrical.Digital.Sources.Table table(x={L.'0',L.'1',L.'0', L.'1', L.'0'}, t={0,1,5,7,8})
             annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
-          Modelica.Electrical.Digital.Sources.Table table1(x={3,4}, t={0,1})
+          Modelica.Electrical.Digital.Sources.Table table1(x={L.'0',L.'1'}, t={0,1})
             annotation (Placement(transformation(extent={{-96,0},{-76,20}})));
-          Modelica.Electrical.Digital.Sources.Table table2(x={3,4,3}, t={0,1,6})
+          Modelica.Electrical.Digital.Sources.Table table2(x={L.'0', L.'1', L.'0'}, t={0,1,6})
             annotation (Placement(transformation(extent={{-96,-50},{-76,-30}})));
         equation
           connect(table.y, delay.x[1]) annotation (Line(
@@ -707,15 +707,16 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
+          Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,7,8,10,11,15,16})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={4,3}, t={0,12})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'1',L.'0'}, t={0,12})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3}, t={0,1,2})
+          Modelica.Electrical.Digital.Sources.Table reset(x={L.'0',L.'1',L.'0'}, t={0,1,2})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={8,2})
+          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={L.'H',L.'X'})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
           Modelica.Electrical.Digital.Registers.DFFREG dFFREG(
             n=2,
@@ -750,15 +751,16 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DFFREG;
 
         model DFFREGL "Pulse triggered D-Register-Bank, low active reset"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3,4,3,4,3}, t={0,7,8,10,11,15,16})
-            annotation (Placement(transformation(extent={{-86,-30},{-66,-10}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={4,3}, t={0,12})
-            annotation (Placement(transformation(extent={{-88,10},{-68,30}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,7,8,10,11,15,16})
+            annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'1',L.'0'}, t={0,12})
+            annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
+          Modelica.Electrical.Digital.Sources.Table reset(x={L.'0',L.'1',L.'0'}, t={0,1,2})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={8,2})
+          Modelica.Electrical.Digital.Sources.Table data_1(t={0,10}, x={L.'H',L.'X'})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
           Modelica.Electrical.Digital.Registers.DFFREGL dFFREGL(
             n=2,
@@ -772,12 +774,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(clock.y, dFFREGL.clock) annotation (Line(
-              points={{-66,-20},{-62,-20},{-62,2.6},{-36.88,2.6}},
+              points={{-66,-22},{-62,-22},{-62,2.6},{-36.88,2.6}},
               color={127,0,127},
               pattern=LinePattern.None,
               smooth=Smooth.None));
           connect(data_0.y, dFFREGL.dataIn[1]) annotation (Line(
-              points={{-68,20},{-52,20},{-52,31.72},{-36.88,31.72}},
+              points={{-66,18},{-52,18},{-52,31.72},{-36.88,31.72}},
               color={127,0,127},
               pattern=LinePattern.None,
               smooth=Smooth.None));
@@ -798,17 +800,18 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DFFREGSRH
       "Pulse triggered D-Register-Bank, high active set and reset"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11})
+          Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0'}, t={0,10,11})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6}, t={0})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'W'}, t={0})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3}, t={0,1,2})
+          Modelica.Electrical.Digital.Sources.Table reset(x={L.'0',L.'1',L.'0'}, t={0,1,2})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3}, t={0})
+          Modelica.Electrical.Digital.Sources.Table data_1(x={L.'0'}, t={0})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(x={3,4,3}, t={0,5,6})
+          Modelica.Electrical.Digital.Sources.Table set(x={L.'0',L.'1',L.'0'}, t={0,5,6})
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DFFREGSRH dFFREGSRH(
             tHL=2,
@@ -848,17 +851,18 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DFFREGSRL
       "Pulse triggered D-Register-Bank, low active set and reset"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table clock(x={3,4,3}, t={0,10,11})
+          Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0'}, t={0,10,11})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6}, t={0})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'W'}, t={0})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2}, x={L.'1',L.'0',L.'1'})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3}, t={0})
+          Modelica.Electrical.Digital.Sources.Table data_1(x={L.'0'}, t={0})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={L.'1',L.'0',L.'1'})
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DFFREGSRL dFFREGSRL(
             tHL=2,
@@ -896,15 +900,16 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DFFREGSRL;
 
         model DLATREG "Level sensitive D-Register-Bank, high active reset"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
+          Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'W',L.'1'}, t={0,15})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3,4,3}, t={0,1,2,20,21})
+          Modelica.Electrical.Digital.Sources.Table reset(x={L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,1,2,20,21})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+          Modelica.Electrical.Digital.Sources.Table data_1(x={L.'0',L.'1'}, t={0,16})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
           Modelica.Electrical.Digital.Registers.DLATREG dLATREG(
             n=2,
@@ -940,15 +945,16 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DLATREG;
 
         model DLATREGL "Level sensitive D-Register-Bank, low active reset"
+           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
+          Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'W',L.'1'}, t={0,15})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={4,3,4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={L.'1',L.'0',L.'1',L.'0',L.'1'})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+          Modelica.Electrical.Digital.Sources.Table data_1(x={L.'0',L.'1'}, t={0,16})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
           Modelica.Electrical.Digital.Registers.DLATREGL dLATREGL(
             tHL=2,
@@ -984,17 +990,18 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DLATREGSRH
       "Level sensitive D-Register-Bank, high active set and reset"
+           import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table enable(x={3,4,3}, t={0,10,18})
+          Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'W',L.'1'}, t={0,15})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(x={3,4,3,4,3}, t={0,1,2,20,21})
+          Modelica.Electrical.Digital.Sources.Table reset(x={L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,1,2,20,21})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+          Modelica.Electrical.Digital.Sources.Table data_1(x={L.'0',L.'1'}, t={0,16})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(x={3,4,3}, t={0,5,6})
+          Modelica.Electrical.Digital.Sources.Table set(x={L.'0',L.'1',L.'0'}, t={0,5,6})
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
           Modelica.Electrical.Digital.Registers.DLATREGSRH dLATREGSRH(
             tHL=2,
@@ -1039,18 +1046,20 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DLATREGSRL
       "Level sensitive D-Register-Bank, low active set and reset"
+            import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
-          Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={3,4,3})
+          Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={L.'0',L.'1',L.'0'})
             annotation (Placement(transformation(extent={{-86,-32},{-66,-12}})));
-          Modelica.Electrical.Digital.Sources.Table data_0(x={6,4}, t={0,15})
+          Modelica.Electrical.Digital.Sources.Table data_0(x={L.'W',L.'1'}, t={0,15})
             annotation (Placement(transformation(extent={{-86,8},{-66,28}})));
-          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={4,3,4,3,4})
+          Modelica.Electrical.Digital.Sources.Table reset(t={0,1,2,20,21}, x={L.'1',L.'0',L.'1',L.'0',L.'1'})
             annotation (Placement(transformation(extent={{-86,-70},{-66,-50}})));
-          Modelica.Electrical.Digital.Sources.Table data_1(x={3,4}, t={0,16})
+          Modelica.Electrical.Digital.Sources.Table data_1(x={L.'0',L.'1'}, t={0,16})
             annotation (Placement(transformation(extent={{-86,40},{-66,60}})));
-          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={4,3,4})
+          Modelica.Electrical.Digital.Sources.Table set(t={0,5,6}, x={L.'1',L.'0',L.'1'})
             annotation (Placement(transformation(extent={{-86,74},{-66,94}})));
+
           Modelica.Electrical.Digital.Registers.DLATREGSRL dLATREGSRL(
             tHL=2,
             tLH=3,
@@ -1092,15 +1101,16 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DLATREGSRL;
 
         model NXFER "Functionality test of NXFERGATE"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={3,4,5},
+        x={L.'0',L.'1',L.'Z'},
         t={0,5,9})
             annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
           Modelica.Electrical.Digital.Sources.Table x_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={4,3},
+        x={L.'1',L.'0'},
         t={1,7})
             annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
           Modelica.Electrical.Digital.Tristates.NXFERGATE nXFERGATE(
@@ -1133,15 +1143,15 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end NXFER;
 
         model NRXFER "Functionality test of NRXFERGATE"
-
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={3,4,5},
+        x={L.'0',L.'1',L.'Z'},
         t={0,5,9})
             annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
           Modelica.Electrical.Digital.Sources.Table x_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={4,3},
+        x={L.'1',L.'0'},
         t={1,7})
             annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
           Modelica.Electrical.Digital.Tristates.NRXFERGATE nRXFERGATE(
@@ -1174,15 +1184,15 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end NRXFER;
 
         model BUF3S "Functionality test of BUF3S"
-
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={3,4,5},
+        x={L.'0',L.'1',L.'Z'},
         t={0,5,9})
             annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
           Modelica.Electrical.Digital.Sources.Table x_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={4,3},
+        x={L.'1',L.'0'},
         t={1,7})
             annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
           Modelica.Electrical.Digital.Tristates.BUF3S bUF3S(
@@ -1217,15 +1227,16 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end BUF3S;
 
         model INV3S "Functionality test of INV3S"
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={3,4,5},
+        x={L.'0',L.'1',L.'Z'},
         t={0,5,9})
             annotation (Placement(transformation(extent={{-75,30},{-55,50}})));
           Modelica.Electrical.Digital.Sources.Table x_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={4,3},
+        x={L.'1',L.'0'},
         t={1,7})
             annotation (Placement(transformation(extent={{-75,-20},{-55,0}})));
           Modelica.Electrical.Digital.Tristates.INV3S iNV3S
@@ -1257,15 +1268,15 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end INV3S;
 
         model WiredX "Functionality test of WiredX"
-
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table2(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={3,4,3},
+        x={L.'0',L.'1',L.'0'},
         t={0,3,9})
             annotation (Placement(transformation(extent={{-85,68},{-65,88}})));
           Modelica.Electrical.Digital.Sources.Table x_table2(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={4,3},
+        x={L.'1',L.'0'},
         t={1,7})
             annotation (Placement(transformation(extent={{-85,18},{-65,38}})));
           Modelica.Electrical.Digital.Tristates.BUF3S bUF3S2(
@@ -1276,11 +1287,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Sources.Table e_table1(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         t={0,3,9},
-        x={3,4,3})
+        x={L.'0',L.'1',L.'0'})
             annotation (Placement(transformation(extent={{-85,-24},{-65,-4}})));
           Modelica.Electrical.Digital.Sources.Table x_table1(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
-        x={3,4,3},
+        x={L.'0',L.'1',L.'0'},
         t={1,5,7})
             annotation (Placement(transformation(extent={{-85,-74},{-65,-54}})));
           Modelica.Electrical.Digital.Tristates.BUF3S bUF3S1(
