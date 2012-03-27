@@ -155,25 +155,25 @@ end UsersGuide;
       D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
               extent={{-80,-56},{-60,-36}}, rotation=0)));
       D.Sources.Table D0(
-        y0=3,
-        x={4,3,4,3},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1',L.'0'},
         t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,
                 58},{-60,78}}, rotation=0)));
       D.Sources.Table D1(
-        y0=3,
-        x={4,3,4,3},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1',L.'0'},
         t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                 32},{-60,52}}, rotation=0)));
       D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent=
                {{-10,0},{70,80}}, rotation=0)));
       D.Sources.Table D2(
-        y0=3,
-        x={4,3,4,3},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1',L.'0'},
         t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,6},
                 {-60,26}}, rotation=0)));
       D.Sources.Table D3(
-        y0=3,
-        x={4,3,4,3},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1',L.'0'},
         t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                 -20},{-60,0}}, rotation=0)));
       D.Examples.Utilities.JKFF FF annotation (Placement(transformation(extent=
@@ -241,13 +241,13 @@ The multiplexer converts a parallel 4 bit signal in a sequential
       D.Sources.Clock CLK(period=10)  annotation (Placement(transformation(
               extent={{-80,-10},{-60,10}}, rotation=0)));
       D.Sources.Table J(
-        y0=3,
-        x={4,3,4,3},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1',L.'0'},
         t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,
                 18},{-60,38}}, rotation=0)));
       D.Sources.Table K(
-        y0=3,
-        x={4,3,4,3},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1',L.'0'},
         t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
                 -38},{-60,-18}}, rotation=0)));
     equation
@@ -285,16 +285,17 @@ Pulse-triggered master-slave flip-flop.
 
     model HalfAdder "adding circuit for binary numbers without input carry bit"
       import Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
       Sources.Table a(
         t={1,2,3,4},
-        x={4,3,4,3},
-        y0=3)   annotation (Placement(transformation(extent={{-80,18},{-60,38}},
+        x={L.'1',L.'0',L.'1',L.'0'},
+        y0=L.'0')   annotation (Placement(transformation(extent={{-80,18},{-60,38}},
               rotation=0)));
       Sources.Table b(
-        x={4,3},
+        x={L.'1',L.'0'},
         t={2,4},
-        y0=3)   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
+        y0=L.'0')   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
               rotation=0)));
       Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3)
                             annotation (Placement(transformation(extent={{-40,
@@ -455,45 +456,46 @@ The simulation stop time should be 10 seconds.
 
     model Adder4 "4 Bit Adder Example"
       import Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
       Digital.Sources.Table b4(
-        y0=3,
-        x={4,3},
+        y0=L.'0',
+        x={L.'1',L.'0'},
         t={1,3}) annotation (Placement(transformation(extent={{70,-20},{110,20}},
               rotation=0)));
       Digital.Sources.Table b1(
-        x={4,3,4},
-        y0=3,
+        x={L.'1',L.'0',L.'1'},
+        y0=L.'0',
         t={1,2,3}) annotation (Placement(transformation(extent={{-170,-20},{
                 -130,20}}, rotation=0)));
       Digital.Sources.Table b2(
-        y0=3,
-        x={4},
+        y0=L.'0',
+        x={L.'1'},
         t={4}) annotation (Placement(transformation(extent={{-90,-20},{-50,20}},
               rotation=0)));
       Digital.Sources.Table b3(
-        y0=3,
-        x={4},
+        y0=L.'0',
+        x={L.'1'},
         t={1}) annotation (Placement(transformation(extent={{-10,-20},{30,20}},
               rotation=0)));
       Digital.Sources.Table a1(
-        y0=3,
-        x={4,3,4},
+        y0=L.'0',
+        x={L.'1',L.'0',L.'1'},
         t={1,2,3}) annotation (Placement(transformation(extent={{-170,40},{-130,
                 80}}, rotation=0)));
       Digital.Sources.Table a2(
-        y0=3,
-        x={4},
+        y0=L.'0',
+        x={L.'1'},
         t={1}) annotation (Placement(transformation(extent={{-90,40},{-50,80}},
               rotation=0)));
       Digital.Sources.Table a3(
-        y0=3,
-        x={4,3},
+        y0=L.'0',
+        x={L.'0',L.'1'},
         t={1,4}) annotation (Placement(transformation(extent={{-8,40},{30,80}},
               rotation=0)));
       Digital.Sources.Table a4(
-        y0=3,
-        x={3},
+        y0=L.'0',
+        x={L.'0'},
         t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
               rotation=0)));
       Sources.Set Set(x=3)
