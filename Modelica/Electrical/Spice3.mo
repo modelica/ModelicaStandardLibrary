@@ -1878,7 +1878,7 @@ RC 3 4 1K<br/>
       connect(Q5.B, n8);
       connect(Q5.E, n0);
 
-      annotation (uses(Modelica(version="3.2")), experiment(StopTime=0, Interval=0));
+      annotation (experiment(StopTime=0, Interval=0));
     end NAND;
 
     model ONEBIT ".SUBCKT ONEBIT 1 2 3 4 5 6"
@@ -1962,7 +1962,7 @@ RC 3 4 1K<br/>
       connect(X9.p3, n5);
       connect(X9.p4, n6);
 
-      annotation (uses(Modelica(version="3.2")), experiment(StopTime=0, Interval=0));
+      annotation (experiment(StopTime=0, Interval=0));
     end ONEBIT;
 
     model TWOBIT ".SUBCKT TWOBIT 1 2 3 4 5 6 7 8 9"
@@ -2019,7 +2019,7 @@ RC 3 4 1K<br/>
       connect(X2.p5, n8);
       connect(X2.p6, n9);
 
-      annotation (uses(Modelica(version="3.2")), experiment(StopTime=0, Interval=0));
+      annotation (experiment(StopTime=0, Interval=0));
     end TWOBIT;
 
     model FOURBIT ".SUBCKT FOURBIT 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15"
@@ -2100,7 +2100,7 @@ RC 3 4 1K<br/>
       connect(X2.p8, n14);
       connect(X2.p9, n15);
 
-      annotation (uses(Modelica(version="3.2")), experiment(StopTime=0, Interval=0));
+      annotation (experiment(StopTime=0, Interval=0));
     end FOURBIT;
 
       // *** DEFINE NOMINAL CIRCUIT
@@ -2288,7 +2288,7 @@ RCOUT 13  0   1K
 
 .control
 run
-set options no break 
+set options no break
 
 *plot v(1) v(2)
 *plot v(3) v(4)
