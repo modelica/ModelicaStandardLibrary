@@ -5,8 +5,7 @@ extends Modelica.Icons.Example;
 //replaceable package Medium=Modelica.Media.Water.StandardWater;
  replaceable package Medium=Modelica.Media.Air.DryAirNasa(extraPropertiesNames={"CO2", "VOC"});
 
- Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                  pipe2(
+ Modelica.Fluid.Pipes.DynamicPipe pipe2(
     redeclare package Medium = Medium,
     use_T_start=true,
     diameter=0.01,
@@ -32,8 +31,7 @@ extends Modelica.Icons.Example;
     T=300,
     C={1.5E-3,0.05E-3})                                             annotation (Placement(
         transformation(extent={{70,54},{50,74}}, rotation=0)));
-  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                   pipe3(
+  Modelica.Fluid.Pipes.DynamicPipe pipe3(
     redeclare package Medium=Medium,
     length=1,
     use_T_start=true,
@@ -47,8 +45,7 @@ extends Modelica.Icons.Example;
             annotation (Placement(transformation(extent={{20,54},{40,74}},
           rotation=0)));
 
-  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                   pipe1(
+  Modelica.Fluid.Pipes.DynamicPipe pipe1(
     redeclare package Medium=Medium,
     use_T_start=true,
     T_start=300,
@@ -76,8 +73,7 @@ extends Modelica.Icons.Example;
                 annotation (Placement(transformation(extent={{90,64},{78,76}},
           rotation=0)));
 
-  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                   pipe4(
+  Modelica.Fluid.Pipes.DynamicPipe pipe4(
     redeclare package Medium=Medium,
     length=1,
     use_T_start=true,
@@ -114,8 +110,7 @@ extends Modelica.Icons.Example;
       each T_ref=350)
     annotation (Placement(transformation(extent={{-54,80},{-34,100}}, rotation=
             0)));
- Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                  pipe5(
+ Modelica.Fluid.Pipes.DynamicPipe pipe5(
     redeclare package Medium = Medium,
     use_T_start=true,
     diameter=0.01,
@@ -140,8 +135,7 @@ extends Modelica.Icons.Example;
     T=300,
     C={1.5E-3,0.05E-3})                                             annotation (Placement(
         transformation(extent={{68,-2},{48,18}}, rotation=0)));
-  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                   pipe6(
+  Modelica.Fluid.Pipes.DynamicPipe pipe6(
     redeclare package Medium=Medium,
     length=1,
     use_T_start=true,
@@ -154,8 +148,7 @@ extends Modelica.Icons.Example;
     p_a_start=100000)
             annotation (Placement(transformation(extent={{14,-2},{34,18}},
           rotation=0)));
-  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                   pipe7(
+  Modelica.Fluid.Pipes.DynamicPipe pipe7(
     redeclare package Medium=Medium,
     use_T_start=true,
     T_start=300,
@@ -179,8 +172,7 @@ extends Modelica.Icons.Example;
     height=1.0e5)
                 annotation (Placement(transformation(extent={{96,8},{84,20}},
           rotation=0)));
-  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
-                                   pipe8(
+  Modelica.Fluid.Pipes.DynamicPipe pipe8(
     redeclare package Medium=Medium,
     length=1,
     use_T_start=true,

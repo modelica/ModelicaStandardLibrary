@@ -11,7 +11,7 @@ extends Modelica.Icons.ExamplesPackage;
       p=10000000,
       h=2e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+    Modelica.Fluid.Pipes.DynamicPipe
                                      pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       h_start=2e6,
@@ -97,7 +97,7 @@ The initial equations are consistent however and a tool shall reduce them approp
       h=2e6,
       p=10000000)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+    Modelica.Fluid.Pipes.DynamicPipe
                                      pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       h_start=2e6,
