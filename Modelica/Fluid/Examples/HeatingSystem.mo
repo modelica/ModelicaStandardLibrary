@@ -70,7 +70,8 @@ public
       m_flow_small=1e-4)
                         annotation (Placement(transformation(extent={{-90,70},{
             -70,90}},   rotation=0)));
-  Pipes.DynamicPipe heater(
+  Pipes.PipeTwoPhaseHT
+                    heater(
     redeclare package Medium = Medium,
     use_T_start=true,
     T_start=Modelica.SIunits.Conversions.from_degC(80),
@@ -79,13 +80,14 @@ public
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.IdealFlowHeatTransfer,
     diameter=0.01,
     nNodes=1,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.a_vb,
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-    use_HeatTransfer=true)
+    use_HeatTransfer=true,
+    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_vb)
     annotation (Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
 
-  Pipes.DynamicPipe radiator(
+  Pipes.PipeTwoPhaseHT
+                    radiator(
     use_T_start=true,
     redeclare package Medium = Medium,
     length=10,
@@ -96,8 +98,8 @@ public
     nNodes=1,
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-    modelStructure=Modelica.Fluid.Types.ModelStructure.av_b,
-    use_HeatTransfer=true)
+    use_HeatTransfer=true,
+    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.av_b)
     annotation (Placement(transformation(extent={{20,-80},{0,-60}}, rotation=
             0)));
 
@@ -127,7 +129,8 @@ public
     height=0.9,
     offset=0.1)   annotation (Placement(transformation(extent={{26,-27},{40,-13}},
                   rotation=0)));
-  Pipes.DynamicPipe pipe(
+  Pipes.PipeTwoPhaseHT
+                    pipe(
     redeclare package Medium = Medium,
     use_T_start=true,
     T_start=Modelica.SIunits.Conversions.from_degC(80),

@@ -301,7 +301,7 @@ simulation accuracy could be increased in order to avoid errors.
               100,100}})),
       experiment(StopTime=50),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/EmptyTanks/plot level and port.p.mos"
-            "plot level and port.p"),
+          "plot level and port.p"),
       Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/EmptyTanks.png\" border=\"1\"
      alt=\"EmptyTanks.png\">

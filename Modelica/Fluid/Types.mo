@@ -318,6 +318,32 @@ ModelStructure.a_vb).
 
 </html>"));
 
+ type ModelStructureReduced = enumeration(
+      a_v_b "a_v_b: port_a - flow model - volume - flow model - port_b",
+      av_b "av_b: port_a - volume - flow model - port_b",
+      a_vb "a_vb: port_a - flow model - volume - port_b") "Enumeration with choices for model structure in simplified
+distributed pipe model" annotation (Documentation(info="<html>
+<p>Enumeration to define the discretization structure of<a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\"> PipeOnePhaseHT</a> and<a href=\"modelica://Modelica.Fluid.Pipes.PipeTwoPhaseHT\"> PipeTwoPhaseHT</a>.</p>
+<p>The available model structures are a subset of <a href=\"modelica://Modelica.Fluid.Types.ModelStructure\">Types.ModelStructure</a>.</p>
+<table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
+<td><p align=\"center\"><h4>ModelStructureReduced.</h4></p></td>
+<td><p align=\"center\"><h4>Meaning</h4></p></td>
+</tr>
+<tr>
+<td><p>a_v_b</p></td>
+<td><p>port_a - flow model - volume - flow model - port_b</p></td>
+</tr>
+<tr>
+<td><p>av_b</p></td>
+<td><p>port_a - volume - flow model - port_b</p></td>
+</tr>
+<tr>
+<td><p>a_vb</p></td>
+<td><p>port_a - flow model - volume - port_b</p></td>
+</tr>
+</table>
+<p><br/><br/><br/>The option &QUOT;a_vb&QUOT; cannot be used, if the dynamic pipe is connected to a model with non-differentiable pressure, like a Sources.Boundary_pT with prescribed jumping pressure. The modelStructure can be configured as appropriate in such situations, in order to place a momentum balance between a pressure state of the pipe and a non-differentiable boundary condition (e.g., if the jumping pressure component is connected to port_a, use model structure ModelStructure.a_vb). </p>
+</html>"));
   annotation (preferredView="info",
               Documentation(info="<html>
 

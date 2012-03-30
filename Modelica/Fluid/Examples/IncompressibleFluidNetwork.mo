@@ -6,15 +6,13 @@ model IncompressibleFluidNetwork
       Modelica.Media.Incompressible.Examples.Essotherm650
     constrainedby Modelica.Media.Interfaces.PartialMedium;
 
-  model Pipe = Modelica.Fluid.Pipes.DynamicPipe;
-  //model Pipe = Modelica.Fluid.Pipes.DynamicPipe(nNodes=1,modelStructure=Types.ModelStructure.a_v_b);
-
   Sources.Boundary_pT source(nPorts=1,
     redeclare package Medium = Medium,
     p=5.0e5,
     T=300) annotation (Placement(transformation(extent={{-98,4},{-86,16}},
           rotation=0)));
-  Pipe pipe1(
+  Pipes.PipeHydraulic
+       pipe1(
     use_T_start=true,
     length=10,
     diameter=2.5e-2,
@@ -24,7 +22,7 @@ model IncompressibleFluidNetwork
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-80,0},{-60,20}}, rotation=0)));
 
-  Pipe pipe2(
+  Pipes.PipeHydraulic pipe2(
     use_T_start=true,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
@@ -36,7 +34,7 @@ model IncompressibleFluidNetwork
         extent={{-10,-10},{10,10}},
         rotation=90)));
 
-  Pipe pipe3(
+  Pipes.PipeHydraulic pipe3(
     use_T_start=true,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
@@ -47,7 +45,7 @@ model IncompressibleFluidNetwork
         origin={-50,-10},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Pipe pipe4(
+  Pipes.PipeHydraulic pipe4(
     use_T_start=true,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
@@ -56,7 +54,7 @@ model IncompressibleFluidNetwork
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{-20,-40},{0,-20}}, rotation=0)));
-  Pipe pipe6(
+  Pipes.PipeHydraulic pipe6(
     use_T_start=true,
     diameter=2.5e-2,
     redeclare package Medium = Medium,
@@ -81,7 +79,7 @@ model IncompressibleFluidNetwork
     dp_nominal=30000)
                 annotation (Placement(transformation(extent={{-46,-20},{-26,
             -40}}, rotation=0)));
-  Pipe pipe7(
+  Pipes.PipeHydraulic pipe7(
     use_T_start=true,
     length=10,
     diameter=2.5e-2,
@@ -122,7 +120,7 @@ model IncompressibleFluidNetwork
     offset=1,
     startTime=3) annotation (Placement(transformation(extent={{40,70},{60,90}},
           rotation=0)));
-  Pipe pipe8(
+  Pipes.PipeHydraulic pipe8(
     use_T_start=true,
     length=10,
     diameter=2.5e-2,
@@ -133,7 +131,7 @@ model IncompressibleFluidNetwork
         origin={10,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Pipe pipe9(
+  Pipes.PipeHydraulic pipe9(
     use_T_start=true,
     length=10,
     diameter=2.5e-2,
@@ -142,7 +140,7 @@ model IncompressibleFluidNetwork
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,40},{40,60}}, rotation=0)));
-  Pipe pipe10(
+  Pipes.PipeHydraulic pipe10(
     use_T_start=true,
     length=10,
     diameter=2.5e-2,
@@ -151,7 +149,7 @@ model IncompressibleFluidNetwork
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.TurbulentPipeFlow,
     p_a_start=500000)                  annotation (Placement(transformation(
           extent={{20,0},{40,20}},  rotation=0)));
-  Pipe pipe5(
+  Pipes.PipeHydraulic pipe5(
     use_T_start=true,
     diameter=2.5e-2,
     redeclare package Medium = Medium,

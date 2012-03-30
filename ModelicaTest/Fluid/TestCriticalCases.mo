@@ -124,7 +124,8 @@ extends Modelica.Icons.ExamplesPackage;
         Medium =
           Modelica.Media.Water.StandardWater, p=200000)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.DynamicPipe pipe(
+    Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+                                     pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       length=1,
       diameter=0.32,
@@ -180,7 +181,8 @@ extends Modelica.Icons.ExamplesPackage;
       p=10000000,
       h=2e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.DynamicPipe pipe(
+    Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+                                     pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       nNodes=5,
       h_start=2e6,

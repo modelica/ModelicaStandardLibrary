@@ -2,7 +2,8 @@ within ModelicaTest.Fluid.TestComponents.Pipes;
 model DynamicPipeWithNominalLaminarFlow
   "Test NominalLaminarFlow model subject to varying nNodes and nParallel"
   extends Modelica.Icons.Example;
-  Modelica.Fluid.Pipes.DynamicPipe pipeN10(
+  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+                                   pipeN10(
     nParallel=1,
     length=100,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -31,7 +32,8 @@ model DynamicPipeWithNominalLaminarFlow
     nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=100000) annotation (Placement(transformation(extent={{70,30},{50,50}})));
-  Modelica.Fluid.Pipes.DynamicPipe pipeN20(
+  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+                                   pipeN20(
     nParallel=1,
     length=100,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -56,7 +58,8 @@ model DynamicPipeWithNominalLaminarFlow
     nPorts=1,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     p=100000) annotation (Placement(transformation(extent={{70,-10},{50,10}})));
-  Modelica.Fluid.Pipes.DynamicPipe pipeN10nParallel10(
+  Modelica.Fluid.Pipes.Obsolete.DynamicPipe
+                                   pipeN10nParallel10(
     length=100,
     redeclare package Medium = Modelica.Media.Water.StandardWater,
     use_T_start=false,

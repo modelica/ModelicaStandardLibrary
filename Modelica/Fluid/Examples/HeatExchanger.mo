@@ -257,7 +257,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         annotation (Placement(transformation(extent={{-29,-23},{9,35}},  rotation=
                0)));
 
-      Modelica.Fluid.Pipes.DynamicPipe pipe_1(
+      Pipes.PipeTwoPhaseHT             pipe_1(
         redeclare final package Medium = Medium_1,
         final isCircular=false,
         final diameter=0,
@@ -280,7 +280,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         redeclare final model FlowModel = FlowModel_1)   annotation (Placement(transformation(extent={{-40,-80},
                 {20,-20}},        rotation=0)));
 
-      Modelica.Fluid.Pipes.DynamicPipe pipe_2(
+      Pipes.PipeTwoPhaseHT             pipe_2(
         redeclare final package Medium = Medium_2,
         final nNodes=nNodes,
         final allowFlowReversal=allowFlowReversal,

@@ -339,7 +339,8 @@ package AST_BatchPlant
           Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=
               4.9))      annotation (Placement(transformation(extent={{-110,
               -140},{-70,-100}}, rotation=0)));
-    Pipes.DynamicPipe pipeB1B2(
+    Pipes.PipeHydraulic
+                      pipeB1B2(
       redeclare package Medium = BatchMedium,
       length=1,
       diameter=pipeDiameter,
@@ -390,7 +391,8 @@ package AST_BatchPlant
           origin={-90,-170},
           extent={{10,10},{-10,-10}},
           rotation=90)));
-    Pipes.DynamicPipe pipePump1B1(
+    Pipes.PipeHydraulic
+                      pipePump1B1(
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       height_ab=3,
@@ -398,7 +400,8 @@ package AST_BatchPlant
           origin={-180,10},
           extent={{-10,10},{10,-10}},
           rotation=90)));
-    Pipes.DynamicPipe pipePump2B2(
+    Pipes.PipeHydraulic
+                      pipePump2B2(
       redeclare package Medium = BatchMedium,
       diameter=pipeDiameter,
       height_ab=3,

@@ -118,7 +118,8 @@ of magnitude.
       massDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
       use_portsData=false,
       nPorts=4) annotation (Placement(transformation(extent={{0,-20},{20,0}})));
-    Pipes.DynamicPipe ductOut(
+    Pipes.PipeHydraulic
+                      ductOut(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
@@ -159,7 +160,8 @@ of magnitude.
       yMin=-1,
       Ti=10,
       k=10)   annotation (Placement(transformation(extent={{-40,40},{-20,60}})));
-    Pipes.DynamicPipe ductIn(
+    Pipes.PipeHydraulic
+                      ductIn(
       redeclare package Medium = Medium,
       length=1,
       diameter=0.15,
