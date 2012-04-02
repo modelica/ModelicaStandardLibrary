@@ -2213,7 +2213,7 @@ See also sketch at diagram layer.
               Text(
                 extent={{30,60},{60,40}},
                 lineColor={0,0,255},
-                textString="dp ~ V_flow²")}));
+                textString="dp ~ V_flow^2")}));
       end SimpleFriction;
 
       partial model TwoPort "Partial model of two port"

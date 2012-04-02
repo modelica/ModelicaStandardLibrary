@@ -3382,7 +3382,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
           "Darcy friction factor neglecting surface roughness";
 
         //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-        //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45°
+        //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45deg
         Real CF_fri=if delta <= 45 then max(1, min(1.4, (lambda_FRI_rough/
             lambda_FRI_smooth))) else 1
           "Correction factor for surface roughness";
@@ -3530,7 +3530,7 @@ Generally this function is numerically best used for the <b>incompressible case<
           "Darcy friction factor neglecting surface roughness";
 
         //SOURCE_2: p.207, sec. 9.2.4: correction factors CF w.r.t.surface roughness
-        //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45°
+        //SOURCE_2: p.214, sec. 9.4.2: no correction w.r.t. surface roughness for angle of turning >= 45deg
         Real CF_fri=if delta <= 45 then max(1, min(1.4, (lambda_FRI_rough/
             lambda_FRI_smooth))) else 1
           "Correction factor for surface roughness";
@@ -7985,7 +7985,7 @@ This function shall be used inside of the restricted limits according to the ref
       <b> edged bend with sharp corners at turning </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
  </li>
  <li>
-      <b> 0° &le; angle of turning &le; 180° </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
+      <b> 0&deg; &le; angle of turning &le; 180&deg; </b> <i>[Idelchik 2006, p. 338, sec. 19] </i>
  </li>
  <li>
       <b> length of edged bend along edged axis / diameter &ge; 10 </b> <i>[Idelchik 2006, p. 366, diag. 6-7] </i>
@@ -8062,7 +8062,7 @@ with
 </table>
 
 <p>
-Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45° according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
+Note that the Darcy friction factor for a smooth surface <b> lambda_FRI_smooth </b> is calculated with the previous equation and an absolute roughness of <b> K = 0 </b>. Additionally no influence of surface roughness is considered for angles of turning equal or smaller than 45&deg; according to <i>[Miller 1984, p. 214, eq. 9.4.2]</i>.
 </p>
 
 <p>
@@ -8533,7 +8533,7 @@ The generic mass flow rate <b> M_FLOW </b> in dependence of the pressure loss <b
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Wischhusen, S.:</dt>
     <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
-    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+    PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
 </dl>
 
 </html>
@@ -8675,7 +8675,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Wischhusen, S.:</dt>
     <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
-    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+    PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
 </dl>
 
 </html>
@@ -8732,7 +8732,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
  <dt>Wischhusen, S.:</dt>
     <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
-    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+    PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
 </dl>
 </html>
 "));
@@ -8792,7 +8792,7 @@ Note that the verification for <a href=\"modelica://Modelica.Fluid.Dissipation.U
     In Proceedings of European Simulation MultiConference, Praque, 1995.</dd>
 <dt>Wischhusen, S.:</dt>
     <dd><b>Dynamische Simulation zur wirtschaftlichen Bewertung von komplexen Energiesystemen.</b>.
-    PhD thesis, Technische Universität Hamburg-Harburg, 2005.</dd>
+    PhD thesis, Technische Universit&auml;t Hamburg-Harburg, 2005.</dd>
 </dl>
 </html>
 "));

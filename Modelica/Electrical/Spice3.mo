@@ -2965,7 +2965,7 @@ The corresponding SPICE description
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
+<li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
@@ -2991,7 +2991,7 @@ The corresponding SPICE description
 <p>The models from the package Semiconductors accesses to the package Internal where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Internal.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
+<li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -3075,7 +3075,7 @@ The corresponding SPICE description
 <p>The models from the package Semiconductors accesses to the package Repository where all functions, records and data are stored and modeled that are needed for the semiconductor models. The package Semiconductors is for user access, but not the package Repository.</p>
 </html>", revisions="<html>
 <ul>
-<li><i>September 2011 </i>revised by Sandra Böhme</br/>
+<li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
 <li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
@@ -4732,7 +4732,7 @@ on the model behaviour.
        parameter SI.Permittivity CGBO=0.0
         "Gate-bulk overlap capacitance per meter channel width";
        parameter SI.Resistance RSH=0.0
-        "Drain and source diffusion sheet resistance";                                   //!!Diffusionswiderstand/Flächenquadrat
+        "Drain and source diffusion sheet resistance";
        parameter SI.CapacitancePerArea CJ=0.0
         "Zero-bias bulk junction bottom cap. per sq-meter of junction area";
        parameter Real MJ=0.5 "Bulk junction bottom grading coefficient";

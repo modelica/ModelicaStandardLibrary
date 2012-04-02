@@ -6251,7 +6251,7 @@ extends Modelica.Icons.ExamplesPackage;
           parameter Modelica.SIunits.Length perimeter=PI*d_hyd;
           parameter Modelica.SIunits.Length length=0.503;
 
-          //fluid property variables for CO2 at saturation temperatures of 0°C, 10°C, 20°C
+          //fluid property variables for CO2 at saturation temperatures of 0degC, 10degC, 20degC
           Modelica.SIunits.DynamicViscosity eta_l[5]={9.835980551e-5,
               8.77888107e-5,7.368173278e-5,8.77888107e-5,8.77888107e-5};
           Modelica.SIunits.DynamicViscosity eta_g[n]={1.547810104e-5,
