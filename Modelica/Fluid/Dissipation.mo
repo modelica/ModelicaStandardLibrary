@@ -299,9 +299,6 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.Channel.kc_evenGapLaminar_IN_con
@@ -375,9 +372,6 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
         "Mean heat transfer coefficient of even gap | laminar flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures"
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
-
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
 
         //input records
         input
@@ -463,9 +457,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
-
         import MIN = Modelica.Constants.eps;
         // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
 
@@ -547,9 +538,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
-
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
@@ -598,7 +586,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
 </html>
-"), smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+"),       smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
       end kc_evenGapOverall_KC;
 
       record kc_evenGapOverall_IN_con
@@ -634,9 +622,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Mean heat transfer coefficient of even gap | turbulent flow regime | developed fluid flow | heat transfer at BOTH sides | identical and constant wall temperatures"
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
-
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
 
         import MIN = Modelica.Constants.eps;
 
@@ -714,9 +699,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
         "Mean heat transfer coefficient of even gap | turbulent flow regime | developed fluid flow | heat transfer at BOTH sides | identical and constant wall temperatures"
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
-
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Gap1_d;
 
         //input records
         input
@@ -1511,10 +1493,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.HelicalPipe1_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_laminar_IN_con
@@ -1587,10 +1565,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.HelicalPipe1_d;
 
         //input records
         input
@@ -1668,10 +1642,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.HelicalPipe1_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_overall_IN_con
@@ -1726,10 +1696,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.HelicalPipe1_d;
 
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -1825,10 +1791,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.HelicalPipe1_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.HelicalPipe.kc_turbulent_IN_con
@@ -1897,10 +1859,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.HelicalPipe1_d;
 
         //input records
         input
@@ -1999,10 +1957,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Plate1_d;
-
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_con
           IN_con "Input record for function kc_laminar"
@@ -2063,10 +2017,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
         "Mean heat transfer coefficient of plate | laminar regime"
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Plate1_d;
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_laminar_IN_con
@@ -2136,10 +2086,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Plate1_d;
-
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con
           IN_con "Input record for function kc_overall"
@@ -2200,10 +2146,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
         "Mean heat transfer coefficient of even plate | overall regime | constant wall temperature"
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Plate1_d;
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_overall_IN_con
@@ -2267,10 +2209,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Plate1_d;
-
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_con
           IN_con "Input record for function kc_turbulent"
@@ -2332,10 +2270,6 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
         "Mean heat transfer coefficient of even plate | turbulent regime | constant wall temperature"
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.HeatTransfer.Plate1_d;
 
         //input records
         input Modelica.Fluid.Dissipation.HeatTransfer.Plate.kc_turbulent_IN_con
@@ -3303,10 +3237,6 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.BendEdged_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_IN_con
@@ -3436,10 +3366,6 @@ Generally this function is numerically best used for the <b>incompressible case<
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Bend;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.BendEdged_d;
 
         //input records
         input
@@ -3616,10 +3542,6 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Channel_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_IN_con
@@ -3746,10 +3668,6 @@ Generally this function is numerically best used for the <b> incompressible case
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Channel;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Channel_d;
 
         //input records
         input
@@ -4672,10 +4590,6 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
 
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Orifice;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.OrificeSuddenChangeSection_d;
-
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
@@ -4773,10 +4687,6 @@ Generally this  function is numerically best used for the <b> incompressible cas
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Orifice;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.OrificeSuddenChangeSection_d;
 
         //input records
         input
@@ -4886,10 +4796,6 @@ This record is used as <b> input record </b> for the pressure loss functions
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.OrificeThickEdged_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_IN_con
@@ -4970,10 +4876,6 @@ Generally this  function is numerically best used for the <b> incompressible cas
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Orifice;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.OrificeThickEdged_d;
 
         //input records
         input
@@ -5098,10 +5000,6 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
 
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_IN_con
@@ -5151,10 +5049,6 @@ Generally this  function is numerically best used for the <b> incompressible cas
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
 
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
 
         //input records
         input
@@ -5227,10 +5121,6 @@ This record is used as <b> input record </b> for the pressure loss function
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
 
         //input records
         input
@@ -5308,10 +5198,6 @@ Generally this  function is numerically best used for the <b> incompressible cas
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
 
         //input records
         input
@@ -5445,10 +5331,6 @@ This record is used as <b> input record </b> for the pressure loss function
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con
@@ -5544,9 +5426,6 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
 
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_IN_con
@@ -5675,10 +5554,6 @@ This record is used as <b> input record </b> for the pressure loss function
         //SOURCE_3: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
         //SOURCE 4: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
         //SOURCE_5: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
-
-        //icon
-        extends
-          Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
 
         //input records
         input
@@ -5876,9 +5751,6 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
         import TYP = Modelica.Fluid.Dissipation.Utilities.Types;
 
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Valve_d;
-
         //input records
         input
           Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_IN_con
@@ -5988,9 +5860,6 @@ Generally this function is numerically best used for the <b> incompressible case
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
         import TYP = Modelica.Fluid.Dissipation.Utilities.Types;
-
-        //icon
-        extends Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.Valve_d;
 
         //input records
         input
@@ -9761,10 +9630,6 @@ documentation available in this package.
 
             //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
 
-            //icon
-            extends
-              Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
-
             //records
             input
               Modelica.Fluid.Dissipation.Utilities.Records.General.TwoPhaseFlow_con
@@ -9810,10 +9675,6 @@ documentation available in this package.
 
             //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
             //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
-
-            //icon
-            extends
-              Modelica.Fluid.Dissipation.Utilities.Icons.PressureLoss.StraightPipe_d;
 
             import SMOOTH =
               Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
