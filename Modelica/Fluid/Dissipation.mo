@@ -3016,7 +3016,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
           m_flow_smooth,
           2)/max(MIN, (IN_var.rho*A_cross)^2);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-          inverse(m_flow=FD.dp_curvedOverall_MFLOW(
+          inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
                 IN_con,
                 IN_var,
                 DP)),
@@ -3182,7 +3182,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
         M_FLOW := sign(dp)*IN_var.rho*A_cross*abs(velocity);
 
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-          inverse(dp=FD.dp_curvedOverall_DP(
+          inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)),
@@ -3338,7 +3338,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
                 v_min,
                 2);
        annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_edgedOverall_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -3470,7 +3470,7 @@ Generally this function is numerically best used for the <b>incompressible case<
         M_FLOW := sign(dp)*IN_var.rho*A_cross*velocity;
 
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_edgedOverall_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -3648,7 +3648,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
                 IN_2_var,
                 m_flow_turb);
       annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_internalFlowOverall_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -3801,7 +3801,7 @@ Generally this function is numerically best used for the <b> incompressible case
                 IN_2_var,
                 dp);
       annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_internalFlowOverall_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -3899,7 +3899,7 @@ Calculation of pressure loss for an internal flow through different geometries a
                 V_flow_min,
                 IN_con.exp);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_idealGas_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -3946,7 +3946,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 IN_con.dp_smooth,
                 1/IN_con.exp);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_idealGas_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -4032,7 +4032,7 @@ This record is used as <b> input record </b> for the pressure loss function
           m_flow/IN_con.m_flow_nom*(IN_var.eta/IN_con.eta_nom)^IN_con.exp_eta*
           IN_con.rho_nom/IN_var.rho*IN_con.dp_nom;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_nominalDensityViscosity_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -4081,7 +4081,7 @@ Generally this function is numerically best used for the <b> incompressible case
           *IN_con.m_flow_nom else dp/IN_con.dp_nom*(IN_con.eta_nom/IN_var.eta)^
           (IN_con.exp_eta)*IN_var.rho/IN_con.rho_nom*IN_con.m_flow_nom;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_nominalDensityViscosity_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -4175,7 +4175,7 @@ This record is used as <b> input record </b> for the pressure loss function
           ^(1);
 
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_nominalPressureLossLawDensity_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -4233,7 +4233,7 @@ Generally this function is numerically best used for the <b> incompressible case
           exp_density/1)*((dp/IN_con.dp_nom)*(IN_con.zeta_TOT_nom/IN_var.zeta_TOT))
           ^(1/1);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_nominalPressureLossLawDensity_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -4310,7 +4310,7 @@ This record is used as <b> input record </b> for the pressure loss function
             *IN_con.A_cross,
                 2)/(IN_var.rho*(IN_con.A_cross)^2);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_pressureLossCoefficient_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -4353,7 +4353,7 @@ Generally this function is numerically best used for the <b> incompressible case
                 IN_con.dp_smooth,
                 0.5)/(0.5*IN_var.zeta_TOT*IN_var.rho)^0.5;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=dp_pressureLossCoefficient_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -4448,7 +4448,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 V_flow_smooth,
                 2) + b*V_flow;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_volumeFlowRate_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -4499,7 +4499,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 (b/(2*a))^2 + (1/a)*dp_min,
                 0.5));
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_volumeFlowRate_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -4664,7 +4664,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
                 2);
 
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_suddenChange_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -4745,7 +4745,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 dp_min,
                 0.5)*(max(MIN, 2/(IN_var.rho*zeta_LOC)))^0.5;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_suddenChange_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -4853,7 +4853,7 @@ This record is used as <b> input record </b> for the pressure loss functions
                 Re_min,
                 2)*(d_hyd_1/d_hyd_0*A_0/A_1)^2;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_thickEdgedOverall_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -4927,7 +4927,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 IN_con.dp_smooth,
                 0.5)/(0.5*IN_var.rho*zeta_TOT_1)^0.5;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_thickEdgedOverall_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -5029,7 +5029,7 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
       algorithm
         DP := 32*IN_var.eta*velocity*IN_con.L/d_hyd^2;
       annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_laminar_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -5075,7 +5075,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
       algorithm
         M_FLOW := IN_var.rho*A_cross*(dp*d_hyd^2/(32*IN_var.eta*IN_con.L));
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_laminar_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -5179,7 +5179,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 IN_var,
                 m_flow);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_overall_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -5279,7 +5279,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 IN_var,
                 dp);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_overall_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -5404,7 +5404,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 v_min,
                 2);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_turbulent_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -5500,7 +5500,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
       algorithm
         M_FLOW := IN_var.rho*A_cross*velocity;
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_turbulent_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
@@ -5839,7 +5839,7 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
                 2);
 
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(m_flow=FD.dp_severalGeometryOverall_MFLOW(
+                    inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW(
                 IN_con,
                 IN_var,
                 DP)), Documentation(info="<html>
@@ -5944,7 +5944,7 @@ Generally this function is numerically best used for the <b> incompressible case
                 IN_con.dp_small,
                 0.5);
       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
-                    inverse(dp=FD.dp_severalGeometryOverall_DP(
+                    inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP(
                 IN_con,
                 IN_var,
                 M_FLOW)), Documentation(info="<html>
