@@ -165,8 +165,8 @@ or other flow models without storage, are directly connected.
     annotation (defaultComponentName="pipe",
   Documentation(info="<html>
 <p><b>Obsolete Model! </b>The DynamicPipe model will be replaced with a set of more application specific pipe models in order to limit the number of possible parameter setting combinations and reducing model structure complexity.</p>
-<p><a href=\"modelica://Modelica.Fluid.Pipes.HydraulicPipe\">Pipes.HydraulicPipe</a> is intended for use in applications without heat transfer. It is identical to this DynamicPipe, but the heat transfer model and thermal port have been removed.<\\p>
-<p><a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a> is intended for heat transfer applications without phase change. Either both dynamic or both static mass and energy balance equations  can be selected. A lumped, static momentum balance is always assumed.<\\p>
+<p><a href=\"modelica://Modelica.Fluid.Pipes.HydraulicPipe\">Pipes.HydraulicPipe</a> is intended for use in applications without heat transfer. It is identical to this DynamicPipe, but the heat transfer model and thermal port have been removed.</p>
+<p><a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a> is intended for heat transfer applications without phase change. Either both dynamic or both static mass and energy balance equations  can be selected. A lumped, static momentum balance is always assumed.</p>
 <p><a href=\"modelica://Modelica.Fluid.Pipes.PipeTwoPhaseHT\">PipeTwoPhaseHT</a> is intended for heat transfer applications where phase change can occur. The model assumes a distributed momentum balance, mass and energy balances are always dynamic.  </p>
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>. </p>
 <p>The partial differential equations are treated with the finite volume method and a staggered grid scheme for momentum balances. The pipe is split into nNodes equally spaced segments along the flow path. The default value is nNodes=2. This results in two lumped mass and energy balances and one lumped momentum balance across the dynamic pipe. </p>
@@ -174,10 +174,10 @@ or other flow models without storage, are directly connected.
 <p>The default <code><b>modelStructure</b></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
 <p>The <code><b>HeatTransfer</b></code> component specifies the source term <code>Qb_flows</code> of the energy balance. The default component uses a constant coefficient for the heat transfer between the bulk flow and the segment boundaries exposed through the <code>heatPorts</code>. The <code>HeatTransfer</code> model is replaceable and can be exchanged with any model extended from <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer\">BaseClasses.HeatTransfer.PartialFlowHeatTransfer</a>. </p>
 <p>The intended use is for complex networks of pipes and other flow devices, like valves. See, e.g., </p>
-<p><ul>
+<ul>
 <li><a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or </li>
 <li><a href=\"modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
-</ul></p>
+</ul>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -341,10 +341,10 @@ or other flow models without storage, are directly connected.
 <p>The default <code><b>modelStructure</b></code> is <code>av_vb</code> (see Advanced tab). The simplest possible alternative symetric configuration, avoiding potential high-index DAEs at the cost of the potential introduction of nonlinear equation systems, is obtained with the setting <code>nNodes=1, modelStructure=a_v_b</code>. Depending on the configured model structure, the first and the last pipe segment, or the flow path length of the first and the last momentum balance, are of half size. See the documentation of the base class <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.PartialTwoPortFlow\">Pipes.BaseClasses.PartialTwoPortFlow</a>, also covering asymmetric configurations. </p>
 <p>Heat loss or gain can be taken into account by the parameter Q_flow_set or by using the input connector Q_flow.</p>
 <p>The intended use is for complex networks of pipes and other flow devices, like valves. See e.g. </p>
-<p><ul>
+<ul>
 <li><a href=\"modelica://Modelica.Fluid.Examples.BranchingDynamicPipes\">Examples.BranchingDynamicPipes</a>, or </li>
 <li><a href=\"modelica://Modelica.Fluid.Examples.IncompressibleFluidNetwork\">Examples.IncompressibleFluidNetwork</a>.</li>
-</ul></p>
+</ul>
 </html>"),
   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
