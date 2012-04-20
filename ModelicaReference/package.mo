@@ -2922,9 +2922,11 @@ A Modelica translator should map this operator into either of the two forms:
 <ol>
 <li> Returns 'actual' <em>[a trivial implementation]</em>.</li>
 <li> <p>In order to solve algebraic systems of equations, the operator might during the solution process return a combination of the two arguments, ending at actual, <em>e.g.,</em></p>
-<blockquote><em><pre>
+<blockquote>
+<pre><em>
 actual*lambda + simplified*(1-lambda),
-</pre></em><blockquote>
+</em></pre>
+</blockquote>
 <p>where <code>lambda</code> is a homotopy parameter going from 0 to 1.</p>
 <p>The solution must fulfill the equations for homotopy returning 'actual'.</p></li>
 </ol>
