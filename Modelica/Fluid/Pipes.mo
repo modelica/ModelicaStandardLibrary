@@ -827,7 +827,7 @@ or other flow models without storage, are directly connected.
     end if;
 
     /*Static energy balances are not available in this model, therefore a energyDynamics == Types.Dynamics.SteadyState is illegal*/
-    assert(not (energyDynamics == Dynamics.SteadyState), "Bad setting for energyDynamics in component \"PipeTwoPhaseHT\"\! SteadyState is not a valid option for energyDynamics in this model.");
+    assert(not (energyDynamics == Dynamics.SteadyState), "Bad setting for energyDynamics in component \"PipeTwoPhaseHT\"! SteadyState is not a valid option for energyDynamics in this model.");
 
     if massDynamics == Dynamics.FixedInitial then
       if initialize_p then
