@@ -10839,15 +10839,6 @@ For |x| &gt; 1 both functions return identical results.
             -r_1))/(0.5*(exp(r_1) + exp(-r_1))) + 1)/2);
           annotation (
             derivative=Stepsmoother_der,
-            Coordsys(
-              extent=[-100, -100; 100, 100],
-              grid=[2, 2],
-              component=[20, 20]),
-            Window(
-              x=0.01,
-              y=0.09,
-              width=0.66,
-              height=0.6),
             Documentation(info="<html>
 <p>
 The function is used for continuous fading of variable inputs within a defined range. It allows a differentiable and smooth transition between function outputs, e.g., laminar and turbulent pressure drop or correlations for certain ranges.

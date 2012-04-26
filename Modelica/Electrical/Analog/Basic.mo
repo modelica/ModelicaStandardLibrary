@@ -1166,11 +1166,6 @@ end M_Transformer;
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-      Window(
-        x=0.21,
-        y=0,
-        width=0.65,
-        height=0.66),
       Documentation(info="<html>
 <p>EMF transforms electrical energy into translational mechanical energy. It is used as basic building block of an electrical linear motor. The mechanical connector flange can be connected to elements of the Modelica.Mechanics.Translational library. flange.f is the cut-force, flange.s is the distance at the translational connection.</p>
 </html>",

@@ -563,11 +563,7 @@ This leads to the following animation
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 
 </HTML>
-"),   Coordsys(
-        extent=[-100, -100; 100, 100],
-        grid=[1, 1],
-        component=[20, 20]),
-      Icon(Text(extent=[-132, 99; 128, 39], string="%name",
+"),      Icon(Text(extent=[-132, 99; 128, 39], string="%name",
           lineColor={0,0,255}),                              Polygon(points=[-100,
                10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
               10],

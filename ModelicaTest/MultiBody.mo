@@ -140,11 +140,6 @@ extends Modelica.Icons.ExamplesPackage;
         thickness=0.5));
     annotation (
       experiment(StopTime=3),
-      Window(
-        x=0.29,
-        y=0,
-        width=0.71,
-        height=0.85),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -3657,11 +3652,6 @@ a linear damper is connected here.
           thickness=0.5));
       annotation (
         experiment(StopTime=10),
-        Window(
-          x=0.29,
-          y=0,
-          width=0.71,
-          height=0.85),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -4635,11 +4625,6 @@ often possible to use the FreeMotion joint such that the singularity
           pattern=LinePattern.Dot));
       annotation (
         experiment(StopTime=5),
-        Window(
-          x=0.29,
-          y=0,
-          width=0.71,
-          height=0.85),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
@@ -4911,11 +4896,6 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=5),
-        Window(
-          x=0.29,
-          y=0,
-          width=0.71,
-          height=0.85),
         Diagram(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},

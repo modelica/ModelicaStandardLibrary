@@ -583,11 +583,6 @@ with exception of boundary pressure, do not have an effect.
             extent={{-155,-98},{-35,-126}},
             lineColor={0,0,0},
             textString="C")}),
-      Window(
-        x=0.45,
-        y=0.01,
-        width=0.44,
-        height=0.65),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -749,11 +744,6 @@ with exception of boundary flow rate, do not have an effect.
             extent={{-150,110},{150,150}},
             textString="%name",
             lineColor={0,0,255})}),
-      Window(
-        x=0.45,
-        y=0.01,
-        width=0.44,
-        height=0.65),
       Diagram(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},

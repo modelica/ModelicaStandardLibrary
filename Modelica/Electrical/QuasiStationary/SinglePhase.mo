@@ -887,11 +887,6 @@ Quasi stationary theory for single phase circuits can be found in the
             Text(extent={{-100,100},{100,70}}, textString=
                                                    "%name",
               lineColor={0,0,255})}),
-        Window(
-          x=0.36,
-          y=0.16,
-          width=0.6,
-          height=0.6),
         Documentation(info="<html>
 <p>
 This model is a simple idle branch considering the complex current <i><u>i</u></i> = 0.
@@ -919,11 +914,6 @@ This model is a simple idle branch considering the complex current <i><u>i</u></
             Text(extent={{-100,100},{100,70}}, textString=
                                                    "%name",
               lineColor={0,0,255})}),
-        Window(
-          x=0.31,
-          y=0.14,
-          width=0.6,
-          height=0.6),
         Documentation(info="<html>
 <p>
 This model is a simple short cut branch considering the complex voltage <i><u>v</u></i> = 0.
