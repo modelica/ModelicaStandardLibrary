@@ -375,8 +375,8 @@ problems.
 Demonstrate usage of component Sources.Accelerate by moving a massing
 with a predefined acceleration.
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-        experiment(StopTime=1.0, Interval=0.001)));
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
+        experiment(StopTime=1.0, Interval=0.001));
     end Accelerate;
 
     model Damper "Use of damper models."
