@@ -2080,10 +2080,6 @@ connected with continuous blocks or with sampled-data blocks.
               extent={{-150,90},{140,50}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>
 The (time varying) Complex output signal of this block can be defined in its
@@ -2323,10 +2319,6 @@ The Complex output y is a step signal (of real and imaginary part):
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1})),
     Documentation(info="<html>
 <p>
 The output y is a complex phasor with constant magnitude, spinning with constant angular velocity.

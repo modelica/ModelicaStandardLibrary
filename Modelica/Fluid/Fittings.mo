@@ -347,10 +347,6 @@ equation
   port_b.h_outflow = inStream(port_a.h_outflow);
 
   annotation (defaultComponentName="orifice",
-    Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
@@ -651,10 +647,7 @@ The mixing is shifted into the volume connected to port_a and the result is prop
 If multiple connections were directly made to the volume,
 then ideal mixing would take place in the connection set, outside the volume. This is normally not intended.
 </p>
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-40,-100},{
-              40,100}}),
-              graphics));
+</html>"));
   end MultiPort;
 
   model TeeJunctionIdeal
@@ -679,15 +672,7 @@ then ideal mixing would take place in the connection set, outside the volume. Th
   when not using a splitting/joining component. The reason for the confusion is that one exmanins the mixing
   enthalpy of the infinitesimal control volume introduced with the connect statement when
   looking at the specific enthalpy in the connector which
-  might not be equal to the specific enthalpy at the port in the \"real world\".</html>"),
-      Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+  might not be equal to the specific enthalpy at the port in the \"real world\".</html>"));
   end TeeJunctionIdeal;
 
   model TeeJunctionVolume
@@ -766,11 +751,7 @@ of the modeller.
             extent={{-9,10},{11,-10}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            fillPattern=FillPattern.Solid)}));
   end TeeJunctionVolume;
 
   package BaseClasses
@@ -1639,10 +1620,6 @@ The used sufficient criteria for monotonicity follows from:
         port_b.h_outflow = inStream(port_a.h_outflow);
 
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}})),
           Documentation(info="<html>
 <p>
 This model computes the pressure loss of a pipe
@@ -1762,8 +1739,6 @@ The used sufficient criteria for monotonicity follows from:
       parameter SI.Length roughness(min=1e-10)
           "Absolute roughness of pipe (> 0 required, details see info layer)";
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                   100,100}}), graphics={
               Text(
@@ -1886,10 +1861,6 @@ The used sufficient criteria for monotonicity follows from:
         state_a_nondes = Medium.setState_phX(port_a.p, inStream(port_b.h_outflow), inStream(port_b.Xi_outflow));
 
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
-          Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                  {100,100}})),
           Documentation(info="<html>
 <p>
 This model computes the pressure loss of a pipe
@@ -2135,11 +2106,7 @@ where
               fillPattern=FillPattern.Solid,
               fillColor={0,128,255},
               pattern=LinePattern.None,
-              lineColor={0,0,0})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              lineColor={0,0,0})}));
     end PartialTeeJunction;
 
     package Bends "Pressure loss functions for bends"
@@ -2546,9 +2513,7 @@ The details of the record are described
            geometry.venaCrossArea := venaDiameter^2*pi/4;
            geometry.venaPerimeter := pi*venaDiameter;
            geometry.venaLength := venaLength;
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}})),
-                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={Ellipse(
                   extent={{-80,80},{80,-80}},
                   lineColor={0,0,0},
@@ -2585,9 +2550,7 @@ cross section of the orifice.
            geometry.venaCrossArea := venaWidth*venaHeight;
            geometry.venaPerimeter := 2*venaWidth + 2*venaHeight;
            geometry.venaLength := venaLength;
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}})),
-                               Icon(coordinateSystem(preserveAspectRatio=true,
+          annotation (                               Icon(coordinateSystem(preserveAspectRatio=true,
                            extent={{-100,-100},{100,100}}), graphics={Rectangle(
                   extent={{-80,60},{80,-60}},
                   lineColor={0,0,0},
@@ -2626,9 +2589,7 @@ cross section of the orifice.
            geometry.venaCrossArea := venaCrossArea;
            geometry.venaPerimeter := venaPerimeter;
            geometry.venaLength := venaLength;
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                  extent={{-100,-100},{100,100}})),
-                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
                            extent={{-100,-100},{100,100}}), graphics={
                                                  Polygon(
                   points={{-80,8},{0,80},{80,40},{20,-20},{40,-80},{-60,-80},{-80,8}},

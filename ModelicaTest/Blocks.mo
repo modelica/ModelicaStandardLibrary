@@ -83,9 +83,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{21,-170},{38,-170}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (                                       Diagram(coordinateSystem(
-            preserveAspectRatio=false, extent={{-100,-200},{100,100}})),
-      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1));
   end Continuous;
 
   model Continuous_SteadyState
@@ -155,9 +153,7 @@ extends Modelica.Icons.ExamplesPackage;
       criticalDamping(initType=Modelica.Blocks.Types.Init.InitialOutput, y_start=
             2,
         normalized=false));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-200},{100,100}})),
-      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1));
   end Continuous_InitialOutput;
 
   model Limiters
@@ -216,9 +212,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{21,50},{38,50}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}}), graphics),
-      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1));
   end Limiters;
 
   model KinematicPTP
@@ -253,8 +247,6 @@ extends Modelica.Icons.ExamplesPackage;
     connect(integrator2.y, integrator3.u) annotation (Line(points={{3.1,-10},{
             17.8,-10}}, color={0,0,127}));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}})),
       experiment(StopTime=3));
   end KinematicPTP;
 
@@ -402,10 +394,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{244.8,-20},{222.4,-20},{222.4,-20},{200,-20}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{300,100}})), Icon(coordinateSystem(preserveAspectRatio=true,
-                    extent={{-100,-100},{100,100}})),
-      experiment(StopTime=1.01));
+    annotation (      experiment(StopTime=1.01));
   end UnitDeduction;
 
   model IntegerTable

@@ -140,10 +140,6 @@ extends Modelica.Icons.ExamplesPackage;
         thickness=0.5));
     annotation (
       experiment(StopTime=3),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 This example demonstrates that by using joint and body
@@ -772,9 +768,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})));
+</html>"));
     end JointUSR;
 
     encapsulated model JointSSR
@@ -1152,9 +1146,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           pattern=LinePattern.Dot));
       connect(der1.y, der2.u) annotation (Line(points={{41,-60},{52,-60}},
             color={0,0,127}));
-      annotation (experiment(StopTime=1.1),
-                  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})));
+      annotation (experiment(StopTime=1.1));
     end DifferentiationOfForces;
 
     model Force
@@ -1246,11 +1238,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           points={{80,-20},{70,-20},{70,-20},{60,-20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end Force;
 
     model Force2
@@ -1516,11 +1504,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           points={{80,-20},{70,-20},{70,-20},{60,-20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end ForcesAndTorques;
 
     model ForceWithTwoMasses
@@ -1577,8 +1561,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(force.flange_b, damper.flange_b)
         annotation (Line(points={{-4,-41},{-4,-54},{0,-54},{0,-70}}, color={0,
               191,0}));
-      annotation (experiment(StopTime=3), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
+      annotation (experiment(StopTime=3));
     end ForceWithTwoMasses;
 
     model FrameForces
@@ -1635,9 +1618,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(Constant1.y,frameForce2.force)
         annotation (Line(points={{79,50},{72,50},{72,10},{62,10}}, color={0,0,
               255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end FrameForces;
 
     model FrameForcesAndTorques
@@ -1709,9 +1690,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
       connect(fixed2.frame_b, FixedRotation1.frame_a)
         annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end FrameForcesAndTorques;
 
     model FrameTorques
@@ -1779,9 +1758,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           points={{79,10},{62,10}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end FrameTorques;
 
     model LineForceWithTwoMasses
@@ -1951,10 +1928,6 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Line(points={{4,-71},{0,-71},{0,-86}}, color={0,191,0}));
       annotation (
         experiment(StopTime=3),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>
 With this example it is demonstrated how to use the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS
@@ -2071,11 +2044,7 @@ a linear damper is connected here.
           points={{80,-20},{60,-20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end Torque;
 
     model Torque2
@@ -2252,11 +2221,7 @@ a linear damper is connected here.
           points={{80,-210},{60,-210}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-300},{100,100}},
-            grid={1,1})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end Torque2;
 
     model WorldForces
@@ -2346,9 +2311,7 @@ a linear damper is connected here.
           points={{79,30},{62,30}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end WorldForces;
   end Forces;
 
@@ -2412,9 +2375,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end Revolute;
 
     model RevoluteInitialization
@@ -2478,9 +2439,7 @@ a linear damper is connected here.
           points={{20,10},{50,10},{50,20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1),
-                  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})));
+      annotation (experiment(StopTime=1.1));
     end RevoluteInitialization;
 
     model Prismatic
@@ -2606,9 +2565,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end Cylindrical;
 
     model Universal
@@ -2767,9 +2724,7 @@ a linear damper is connected here.
           points={{-22,30},{-24,30},{-24,56},{-48,56},{-48,70},{-34,70}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end Planar;
 
     model Spherical
@@ -2877,9 +2832,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end FreeMotion;
 
     model FreeMotionScalarInit
@@ -2960,9 +2913,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end FreeMotionScalarInit;
 
     model FreeMotionScalarInit2
@@ -3044,9 +2995,7 @@ a linear damper is connected here.
           points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end FreeMotionScalarInit2;
 
     model SphericalSpherical
@@ -3145,9 +3094,7 @@ a linear damper is connected here.
               -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
       connect(prism.frame_a, jointUSP.frame_b)
         annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end JointUSP;
 
     model JointUPS
@@ -3198,9 +3145,7 @@ a linear damper is connected here.
               70},{-24,70},{-24,46},{-18,46},{-18,40}}, color={0,0,0}));
       connect(jointUPS.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
               40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end JointUPS;
 
     model JointSSR
@@ -3246,9 +3191,7 @@ a linear damper is connected here.
               -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
       connect(prism.frame_a, jointSSR.frame_b)
         annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end JointSSR;
 
     model JointUSR
@@ -3318,9 +3261,7 @@ a linear damper is connected here.
               -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
       connect(prism.frame_a, jointUSR.frame_b)
         annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                  experiment(StopTime=1.1));
+      annotation (                  experiment(StopTime=1.1));
     end JointUSR;
 
     model JointRRR
@@ -3566,10 +3507,6 @@ a linear damper is connected here.
           thickness=0.5));
       annotation (
         experiment(StopTime=1),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
                   experiment(StopTime=1.1));
     end FixedTranslation;
 
@@ -3652,10 +3589,6 @@ a linear damper is connected here.
           thickness=0.5));
       annotation (
         experiment(StopTime=10),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>
 This is the same example as \"FreeBody\". The only difference
@@ -3701,9 +3634,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{0,30},{20,30}},
           color={95,95,95},
           thickness=0.5));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-        experiment(StopTime=1.1),
+      annotation (        experiment(StopTime=1.1),
                   experiment(StopTime=1));
     end PointMass;
 
@@ -3780,9 +3711,7 @@ often possible to use the FreeMotion joint such that the singularity
               {-20,70}}));
       connect(Fixed2.frame_b, body2.frame_a) annotation (Line(points={{-60,30},
               {-20,30}}));
-      annotation (experiment(StopTime=1.1),
-                  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})));
+      annotation (experiment(StopTime=1.1));
     end Bodies;
 
     model FreeBodies
@@ -3978,10 +3907,6 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=10),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 
 </html>"));
@@ -4625,10 +4550,6 @@ often possible to use the FreeMotion joint such that the singularity
           pattern=LinePattern.Dot));
       annotation (
         experiment(StopTime=5),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info=""));
     end AbsoluteSensor;
 
@@ -4896,10 +4817,6 @@ often possible to use the FreeMotion joint such that the singularity
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=5),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info=""));
     end Distance;
 
@@ -6032,9 +5949,7 @@ often possible to use the FreeMotion joint such that the singularity
               -10},{-2,0}}));
       connect(fixed.frame_b, cone.frame_a) annotation (Line(points={{-80,50},{
               20,50},{20,60}}));
-      annotation (experiment(StopTime=1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-            graphics));
+      annotation (experiment(StopTime=1));
     end Shapes;
 
     encapsulated model Arrow "Test and show models Visualizers.FixedShape"
@@ -6078,8 +5993,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-9,30},{-18,30}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1), Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}})));
+      annotation (experiment(StopTime=1));
     end Arrow;
 
     model Torus "Test and show models Visualizers.Torus"
@@ -6312,8 +6226,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-140},
-                {100,100}})), experiment(StopTime=0.1));
+ experiment(StopTime=0.1));
     end ColorMaps;
   end Visualizers;
 
@@ -6477,8 +6390,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}})), experiment(StopTime=1.1));
+ experiment(StopTime=1.1));
     end Rotor1D;
 
     model Joints
@@ -6689,8 +6601,6 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}})),
         experiment(StopTime=0.2));
     end Joints;
 

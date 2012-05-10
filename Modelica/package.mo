@@ -3332,7 +3332,7 @@ have been fixed:
 
 <tr><td valign=\"top\">
     <a href=\"http://trac.modelica.org/Modelica/ticket/292\">#292</a></td>
-    <td valign=\"top\">Remove empty \"Diagram(graphics)\" annotations\"</td>
+    <td valign=\"top\">Remove empty \"\" annotations\"</td>
 </tr>
 <tr><td valign=\"top\">
     <a href=\"http://trac.modelica.org/Modelica/ticket/294\">#294</a></td>

@@ -268,10 +268,6 @@ to the FlangeWithBearing connector.
         thickness=0.5));
     annotation (
       defaultComponentName="adaptor",
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -336,11 +332,7 @@ object and an assert to check that both frame connectors are connected.
 Therefore, inherit from this partial model if the two frame connectors are
 needed and if the two frame connectors should be connected for a correct model.
 </p>
-</HTML>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+</HTML>"));
   end PartialTwoFrames;
 
   partial model PartialTwoFramesDoubleSize
@@ -361,10 +353,6 @@ needed and if the two frame connectors should be connected for a correct model.
     assert(cardinality(frame_b) > 0,
       "Connector frame_b of component is not connected");
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          initialScale=0.2)),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -402,9 +390,7 @@ joint aggregation models.
   equation
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of component is not connected");
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-                      Documentation(info="<html>
+    annotation (                      Documentation(info="<html>
 <p>
 This partial model provides one frame_a connector, access to the world
 object and an assert to check that the frame_a connector is connected.
@@ -441,11 +427,7 @@ object and an assert to check that the frame_b connector is connected.
 Therefore, inherit from this partial model if the frame_b connector is
 needed and if this connector should be connected for a correct model.
 </p>
-</HTML>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+</HTML>"));
   end PartialOneFrame_b;
 
   partial model PartialElementaryJoint
@@ -486,14 +468,7 @@ between frame_a and frame_b, access to the world
 object and an assert to check that both frame connectors are connected.
 </p>
 </HTML>
- "), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+ "));
   end PartialElementaryJoint;
 
   partial model PartialForce
@@ -713,11 +688,7 @@ with the blocks of package Modelica.Blocks.
           Text(
             extent={{-132,-125},{131,-79}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            lineColor={0,0,255})}));
   end PartialAbsoluteSensor;
 
   partial model PartialRelativeSensor
@@ -773,11 +744,7 @@ with the blocks of package Modelica.Blocks.
           Text(
             extent={{85,53},{121,28}},
             lineColor={128,128,128},
-            textString="b")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            textString="b")}));
   end PartialRelativeSensor;
 
   partial model PartialVisualizer
@@ -813,9 +780,7 @@ It is used by inheritance from all visualizer objects.
               -100},{100,100}}), graphics={Text(
             extent={{-74,24},{80,-20}},
             lineColor={0,0,0},
-            textString="r = 0")}), Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-          graphics));
+            textString="r = 0")}));
   end ZeroPosition;
 
   partial function partialGravityAcceleration

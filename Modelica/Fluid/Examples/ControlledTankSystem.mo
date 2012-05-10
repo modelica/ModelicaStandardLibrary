@@ -153,10 +153,6 @@ package ControlledTankSystem
         color={0,127,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       experiment(StopTime=900),
       Documentation(info="<html>
 <p>
@@ -471,9 +467,6 @@ This example is based on
       connect(T4.outPort,emptyTank2.inPort[1])
                                              annotation (Line(points={{93.5,0},
               {119,0}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -150,-150},{150,150}}),
-                          graphics));
     end NormalOperation;
 
     block RadioButton
@@ -513,10 +506,7 @@ This example is based on
               lineColor={0,0,0},
               textString="%name")},
                               interaction={OnMouseDownSetBoolean(
-                              on, true)}),
-                              Diagram(coordinateSystem(preserveAspectRatio=false,
-                       extent={{-100,-100},{100,100}}),
-                                      graphics));
+                              on, true)}));
     end RadioButton;
   end Utilities;
 end ControlledTankSystem;

@@ -926,9 +926,7 @@ This icon of a <b>conversion symbol</b> will be removed in future versions of th
 </p>
 </html>"));
     end ConversionIcon;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true,
-                     extent={{-100,-100},{100,100}})),
-                              Documentation(info="<HTML>
+    annotation (                              Documentation(info="<HTML>
 <p>This package provides conversion functions from the non SI Units
 defined in package Modelica.SIunits.Conversions.NonSIunits to the
 corresponding SI Units defined in package Modelica.SIunits and vice

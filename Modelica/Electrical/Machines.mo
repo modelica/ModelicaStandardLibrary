@@ -110,8 +110,6 @@ package Machines "Library for electric machines"
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage - direct on line starting</b><br>
@@ -231,8 +229,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=2.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
@@ -409,8 +405,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=2.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
@@ -537,8 +531,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with slipring rotor - resistance starting</b><br>
@@ -647,8 +639,6 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage fed by an ideal inverter</b><br>
@@ -837,8 +827,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Asynchronous induction machine with squirrel cage - Steinmetz-connection</b><br>
@@ -1052,8 +1040,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=5.0, Interval=0.001),
           Documentation(info="<HTML>
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
@@ -1198,8 +1184,6 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Steady-State Initialization of Asynchronous induction machine with squirrel cage</b><br>
@@ -1328,8 +1312,6 @@ This package contains test examples of asynchronous induction machines.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Synchronous induction machine with reluctance rotor fed by an ideal inverter</b><br>
@@ -1454,8 +1436,6 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=1.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by an ideal inverter</b><br>
@@ -1637,8 +1617,6 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet synchronous induction machine fed by a current source</b><br>
@@ -1808,8 +1786,6 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=30, Interval=0.005),
           Documentation(info="<HTML>
 <b>Test example: Electrical excited synchronous induction machine as generator</b><br>
@@ -2033,8 +2009,6 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=10, Interval=0.001),
           Documentation(info="<html>
 <b>Test example: Electrical excited synchronous induction machine with voltage controller</b><br>
@@ -2112,8 +2086,6 @@ This package contains test examples of synchronous induction machines.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Permanent magnet DC machine started with an armature voltage ramp</b><br>
@@ -2202,8 +2174,6 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
             color={0,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Electrically separate excited DC machine started with an armature voltage ramp</b><br>
@@ -2294,8 +2264,6 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Series excited DC machine started with a series resistor</b><br>
@@ -2385,8 +2353,6 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=2.0, Interval=0.0005),
           Documentation(info="<HTML>
 <b>Test example: Series excited DC machine at singlephase AC voltage started with a series resistor</b><br>
@@ -2490,8 +2456,6 @@ Due to the additional inductive voltage drops, output of the motor is lower, com
         color={0,0,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}})),
       experiment(StopTime=3, Interval=0.001),
       Documentation(info="<HTML>
 <b>Test example: Compare characteristic of DC motors</b><br>
@@ -2591,8 +2555,6 @@ Default machine parameters are used.
             color={195,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=3.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Investigate influence of armature temperature on a DCPM motor</b><br>
@@ -2794,8 +2756,6 @@ So the machine is at the beginning in cold condition, ending in warm condition
             color={191,0,0},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           experiment(StopTime=25, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Demonstrate cooling of a DCPM motor</b><br>
@@ -2925,8 +2885,6 @@ Default machine parameters are used, but:
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Compare DCPM motors transient and quasistationary</b><br>
@@ -3052,8 +3010,6 @@ Simulate for 2 seconds and plot (versus time):
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=2.0, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Investigate influence of losses on DCPM motor performance</b><br>
@@ -3261,9 +3217,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dd ... No grounding necessary.</li>
 <li>Dz ... No grounding necessary.</li>
 </ul>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
-          experiment(StopTime=0.1, Interval=0.001));
+</HTML>"),          experiment(StopTime=0.1, Interval=0.001));
       end TransformerTestbench;
 
       model AsymmetricalLoad "AsymmetricalLoad"
@@ -3366,9 +3320,7 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
 <li>Dy ... Load current in two   primary phases.</li>
 <li>Dz ... Load current in three primary phases.</li>
 </ul>
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
-          experiment(StopTime=0.1, Interval=0.001));
+</HTML>"),          experiment(StopTime=0.1, Interval=0.001));
       end AsymmetricalLoad;
 
       model Rectifier6pulse "6-pulse rectifier with 1 transformer"
@@ -3487,9 +3439,7 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via a transformer a diode bridge rectifier with a DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}})),
-          experiment(StopTime=0.1, Interval=0.0001));
+</HTML>"),          experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier6pulse;
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
@@ -3547,9 +3497,7 @@ Test example with multiphase components:<br>
 Star-connected voltage source feeds via two transformers (Dd0 and Dy1) two diode bridge rectifiers with a single DC burden.<br>
 Using f=50 Hz, simulate for 0.1 seconds (5 periods) and compare voltages and currents of source and DC burden,
 neglecting initial transient.
-</HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}})),
-          experiment(StopTime=0.1, Interval=0.0001));
+</HTML>"),          experiment(StopTime=0.1, Interval=0.0001));
       end Rectifier12pulse;
 
       model AIMC_Transformer
@@ -3557,8 +3505,6 @@ neglecting initial transient.
         extends
           Machines.Examples.AsynchronousInductionMachines.AIMC_Transformer;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                  100}})),
           experiment(StopTime=2.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage - transformer starting</b><br>
@@ -3828,9 +3774,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
 <td valign=\"top\">sqrt(Xs*Xr * (1-sigma))/(2*pi*fNominal)</td><td valign=\"top\"> </td>
 </tr>
 </table>
-</HTML>"),       Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                  {100,100}}),
-                         graphics));
+</HTML>"));
       end AIM_SquirrelCage;
 
       model AIM_SlipRing "Asynchronous induction machine with slipring rotor"
@@ -4353,8 +4297,6 @@ These models use package SpacePhasors.
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smpm",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}}),            graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
@@ -4730,8 +4672,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smee",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}}), graphics),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(extent={{-134,34},{-66,-34}}, lineColor={0,0,255}),
@@ -5038,8 +4978,6 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="smr",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
@@ -5333,8 +5271,6 @@ These models use package SpacePhasors.
             smooth=Smooth.None));
 
         annotation (defaultComponentName="dcpm",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Rectangle(
                 extent={{-130,10},{-100,-10}},
@@ -5566,8 +5502,6 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcee",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-130,-4},{-129,1},{-125,5},{-120,6},{-115,5},{-111,
@@ -5842,8 +5776,6 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={191,0,0},
             smooth=Smooth.None));
         annotation (defaultComponentName="dcse",
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-100,-10},{-105,-9},{-109,-5},{-110,0},{-109,5},{-105,
@@ -6138,9 +6070,7 @@ where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</
 Transformer Yy0
 <br>Typical parameters see:
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
-</html>"),            Diagram(coordinateSystem(preserveAspectRatio=true,
-                  extent={{-100,-100},{100,100}}),
-                              graphics));
+</html>"));
         end Yy00;
 
         model Yy02 "Transformer Yy2"
@@ -6421,8 +6351,7 @@ This package contains transformers primary Y connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Yy;
 
       package Yd "Transformers: primary Y / secondary d"
@@ -6706,8 +6635,7 @@ This package contains transformers primary Y connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Yd;
 
       package Yz "Transformers: primary Y / secondary zig-zag"
@@ -7097,8 +7025,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Yz;
 
       package Dy "Transformers: primary D / secondary y"
@@ -7400,8 +7327,7 @@ This package contains transformers primary D connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Dy;
 
       package Dd "Transformers: primary D / secondary d"
@@ -7656,8 +7582,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Dd;
 
       package Dz "Transformers: primary D / secondary ziag-zag"
@@ -8017,8 +7942,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Dz;
 
       annotation (
@@ -8246,8 +8170,6 @@ equation
         flange.tau = -tauElectrical;
         support.tau = tauElectrical;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(
@@ -8286,8 +8208,6 @@ Partial model of the airgap, using only equations.
         // Magnetizing flux linkage with respect to the rotor reference frame
         psi_mr = transpose(RotationMatrix)*psi_ms;
         annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{-80,40},{0,-40}},
@@ -8320,8 +8240,6 @@ Model of the airgap in stator-fixed coordinate system, using only equations.
         // Main flux linkage with respect to the stator reference frame
         psi_ms = RotationMatrix*psi_mr;
         annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{0,40},{80,-40}},
@@ -8375,8 +8293,7 @@ This is a model of an inductor, described with space phasors.
               Text(
                 extent={{-100,100},{100,60}},
                 lineColor={0,0,255},
-                textString="%name")}),
-          Diagram(graphics));
+                textString="%name")}));
       end Inductor;
 
       model SquirrelCage "Squirrel Cage"
@@ -8400,8 +8317,6 @@ This is a model of an inductor, described with space phasors.
         spacePhasor_r.v_ = Rr_actual*spacePhasor_r.i_ + Lrsigma*der(spacePhasor_r.i_);
         2/3*LossPower = Rr_actual*(spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + spacePhasor_r.i_[2]*spacePhasor_r.i_[2]);
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(extent={{-60,45},{-30,75}}, lineColor={0,0,255}),
@@ -8471,8 +8386,6 @@ Material properties alpha of both axis are the same.
         spacePhasor_r.v_[2] = Rrq_actual * spacePhasor_r.i_[2] + Lrsigmaq * der(spacePhasor_r.i_[2]);
         2/3*LossPower = Rrd_actual*spacePhasor_r.i_[1]*spacePhasor_r.i_[1] + Rrq_actual*spacePhasor_r.i_[2]*spacePhasor_r.i_[2];
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{60,60},{100,60}}, color={0,0,255}),
@@ -8545,8 +8458,6 @@ although reference temperature for both resistances is the same.
         spacePhasor_r.i_ = {-ie*turnsRatio,0};
         ve = spacePhasor_r.v_[1]*turnsRatio*3/2;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Text(
@@ -8580,8 +8491,6 @@ Model of an electrical excitation, converting excitation to space phasor.
       equation
         spacePhasor_r.i_ = {-Ie,0};
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(
@@ -8735,8 +8644,6 @@ If <code>quasiStationary == false</code>, the electrical transients are neglecte
         flange.tau = -tauElectrical;
         support.tau = tauElectrical;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Ellipse(
@@ -8786,8 +8693,6 @@ Induced armature voltage is calculated from flux times angular velocity.
         // excitation flux: linearly dependent on excitation current
         psi_e = Le * ie;
         annotation (defaultComponentName="airGap",
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={Text(
                 extent={{-150,-100},{150,-160}},
@@ -8932,8 +8837,6 @@ the connection to airgap has to be grounded at one point.
                 fillPattern=FillPattern.Solid),
               Line(points={{32,-40},{90,-40}}, color={0,0,255}),
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
           Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
 </html>"));
@@ -8946,9 +8849,7 @@ Partial model of transformer core with 3 windings; saturation function flux vers
         im = zeros(m);
         v1 = n12*v2;
         v1 = n13*v3;
-        annotation (defaultComponentName="core", Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-          Documentation(info="<html>
+        annotation (defaultComponentName="core",          Documentation(info="<html>
 Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
       end IdealCore;
@@ -9135,9 +9036,7 @@ The induction machine models use package SpacePhasors.
               -49.5},{2.20436e-015,-49.5},{2.20436e-015,-58}},   color={0,0,255}));
       connect(Gain1.y, V) annotation (Line(points={{-2.02067e-015,-81},{
               -2.02067e-015,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-                           Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -9218,9 +9117,7 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
               -49.5},{2.20436e-015,-49.5},{2.20436e-015,-58}},   color={0,0,255}));
       connect(Gain1.y,I)  annotation (Line(points={{-2.02067e-015,-81},{
               -2.02067e-015,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-                           Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
               extent={{-70,70},{70,-70}},
@@ -9321,8 +9218,6 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
             Line(points={{0,-70},{0,-90}}, color={0,0,255}),
             Line(points={{-10,70},{-10,80},{-50,80},{-50,100}}, color={0,0,255}),
             Line(points={{10,70},{10,80},{50,80},{50,100}}, color={0,0,255})}),
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<HTML>
 3-phase instantaneous voltages (plug_p - plug_nv) and currents (plug_p - plug_ni) are transformed to the corresponding space phasors, <br>
 which are used to calculate power quantities:<br>
@@ -9450,8 +9345,6 @@ Q = giving in stationary state reactive power.<br>
               points={{20,-100},{10,-120}},
               color={0,0,0},
               smooth=Smooth.None)}),
-                              Diagram(coordinateSystem(preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}})),
         Documentation(info="<HTML>
 Calculates (mechanical) power from torque times angular speed.
 </HTML>"));
@@ -9544,8 +9437,6 @@ Calculates (mechanical) power from torque times angular speed.
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Ellipse(
@@ -9652,8 +9543,7 @@ This package contains sensors that are usefull when modelling machines.
        removed mechanical flange support, also in sensor RotorDisplacementAngle<br>
        to ease the implementation of a 3D-frame in a future release</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</HTML>"));
   end Sensors;
 
   package SpacePhasors "Library with space phasor-models"
@@ -9701,8 +9591,6 @@ This package contains sensors that are usefull when modelling machines.
       //-i  = fill(zero.i,m) + InverseTransformation*spacePhasor.i_;
         ground.v = 0;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
@@ -9763,8 +9651,6 @@ Zero-sequence voltage and current are present at pin zero. An additional zero-se
         spacePhasor_b.i_ + RotationMatrix*spacePhasor_a.i_ = zeros(2);
       //spacePhasor_a.i_ + InverseRotator*spacePhasor_b.i_ = zeros(2);
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
@@ -9853,8 +9739,6 @@ a ground has to be used where necessary for currents flowing back.
         y = TransformationMatrix *u;
       //u = fill(zero,m) + InverseTransformation*y;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{0,0},{80,80},{60,72},{72,60},{80,80}}, color={0,0,
@@ -9897,8 +9781,6 @@ Transformation of threephase values (voltages or currents) to space phasor and z
       //m*zero = sum(y);
       //u = TransformationMatrix *y;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{0,0},{-80,80},{-60,72},{-72,60},{-80,80}}, color={0,
@@ -9938,8 +9820,6 @@ Transformation of space phasor and zero sequence value to threephase values (vol
         y = RotationMatrix*u;
       //u = InverseRotator*y;
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{0,0},{0,80},{-10,60},{10,60},{0,80}}, color={0,0,
@@ -9991,8 +9871,6 @@ Rotates a space phasor (voltage or current) by the angle provided by the input s
   end if;
 */
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
@@ -10021,8 +9899,6 @@ Converts a space phasor from rectangular coordinates to polar coordinates.
       equation
         y = u[1]*{cos(u[2]),sin(u[2])};
         annotation (
-          Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                  {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-60,60},{-60,-60},{60,-60}}, color={0,0,255}),
@@ -10304,8 +10180,7 @@ You may have a look at a short summary of space phasor theory at <a href=\"http:
   <li> v1.6.1 2005/11/10 Anton Haumer<br>
        improved Transformation and Rotation</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</HTML>"));
   end SpacePhasors;
 
   package Losses "Loss models for electric machines"
@@ -11262,7 +11137,7 @@ where <code>RRef</code> is the resistance at the reference temperature <code>TRe
                 textString="AIMC")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with squirrel cage to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientAIMC;
 
       model ThermalAmbientAIMS
@@ -11338,7 +11213,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="AIMS")}),  Documentation(info="<HTML>
 Thermal ambient for asynchronous induction machines with slipring rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientAIMS;
     annotation(Documentation(info="<HTML>
 Thermal parts for asynchronous induction machines
@@ -11440,7 +11315,7 @@ Thermal parts for asynchronous induction machines
                 textString="SMPM")}),  Documentation(info="<HTML>
 Thermal ambient for synchronous induction machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientSMPM;
 
       model ThermalAmbientSMEE
@@ -11547,7 +11422,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="SMEE")}), Documentation(info="<HTML>
 Thermal ambient for synchronous induction machines with electrical excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientSMEE;
 
       model ThermalAmbientSMR
@@ -11606,7 +11481,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="SMR")}),  Documentation(info="<HTML>
 Thermal ambient for synchronous induction machines with reluctance rotor to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientSMR;
     annotation(Documentation(info="<HTML>
 Thermal parts for synchronous induction machines
@@ -11669,7 +11544,7 @@ Thermal parts for synchronous induction machines
                 textString="DCPM")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with permanent magnets to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientDCPM;
 
       model ThermalAmbientDCEE
@@ -11724,7 +11599,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="DCEE")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with electrical (shunt) excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientDCEE;
 
       model ThermalAmbientDCSE
@@ -11778,7 +11653,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="DCSE")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with serial excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientDCSE;
 
       model ThermalAmbientDCCE
@@ -11866,7 +11741,7 @@ Additionally, all losses = heat flows are recorded.
                 textString="DCCE")}),  Documentation(info="<HTML>
 Thermal ambient for DC machines with compound excitation to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalAmbientDCCE;
     annotation(Documentation(info="<HTML>
 Thermal parts for DC machines
@@ -12006,8 +11881,7 @@ Thermal parts for DC machines
               textString="Trafo")}),  Documentation(info="<HTML>
 Thermal ambient for transformers to prescribe winding temperatures either constant or via signal connectors.
 Additionally, all losses = heat flows are recorded.
-</HTML>"),
-        Diagram(graphics));
+</HTML>"));
     end ThermalAmbientTransformer;
 
     annotation (Icon(graphics={             Ellipse(
@@ -12325,10 +12199,7 @@ Besides the mechanical connector <i>flange</i> (i.e., the shaft) the machines ha
 If <i>useSupport</i> = false, it is assumed that the stator is fixed.<br>
 Otherwise reaction torque (i.e., airGap torque, minus acceleration torque for stator's moment of inertia) can be measured at <i>support</i>.<br>
 One may also fix the the shaft and let rotate the stator; parameter Js is only of importance when the stator is rotating.
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end PartialBasicMachine;
 
     partial model PartialBasicInductionMachine
@@ -12893,7 +12764,7 @@ Partial thermal port for induction machines
                 origin={0,68},
                 rotation=90)}),      Documentation(info="<HTML>
 Partial thermal ambient for induction machines
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end PartialThermalAmbientInductionMachines;
 
       record PartialPowerBalanceInductionMachines
@@ -12988,7 +12859,7 @@ Power balance of asynchronous induction machines with slipring.
           annotation (Placement(transformation(extent={{-20,-10},{0,10}})));
         annotation (Documentation(info="<HTML>
 Thermal port for snychronous induction machine with permanent magnets
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end ThermalPortSMPM;
 
       record PowerBalanceSMPM
@@ -13252,8 +13123,7 @@ Interfaces and partial models for induction machines
 Partial model for DC machine models.
 </HTML>"), Icon(graphics={            Line(points={{-40,70},{-60,70},{-60,90}},
                 color={0,0,255}), Line(points={{40,70},{60,70},{60,90}},
-                color={0,0,255})}),
-        Diagram(graphics));
+                color={0,0,255})}));
     end PartialBasicDCMachine;
 
     package DCMachines "Thermal ports of DC machines"
@@ -13416,7 +13286,7 @@ Partial thermal port for DC machines
                 origin={0,68},
                 rotation=90)}),      Documentation(info="<HTML>
 Partial thermal ambient for induction machines
-</HTML>"),Diagram(graphics));
+</HTML>"));
       end PartialThermalAmbientDCMachines;
 
       record PartialPowerBalanceDCMachines
@@ -13683,9 +13553,7 @@ Thermal ports for DC machines
           points={{80,10},{80,60},{0,60},{0,80}},
           color={191,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
-                           Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{0,-60},{0,-100}},
@@ -13891,8 +13759,7 @@ This package contains the space phasor connector and partial models for machine 
   <li> v2.2.0 2011/02/10 Anton Haumer<br>
        conditional ThermalPort for all machines</li>
   </ul>
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</HTML>"));
   end Interfaces;
 
   package Icons "Icons for electrical machines"
@@ -14172,8 +14039,6 @@ The icons can be utilized by inheriting them in the desired class using \"extend
       der(x) = 2*pi*u;
       y = {amplitude*sin(x + BasePhase - (k - 1)*2/m*pi) for k in 1:m};
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{-100,-100},{0,60},{80,60}}, color={0,0,255}),
@@ -14329,9 +14194,7 @@ They can be used to feed a current source which in turn feeds an induction machi
       connect(control, idealCommutingSwitch.control) annotation (Line(
           points={{-110,0},{0,0},{0,-52}},
           color={255,0,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-                           Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Polygon(
               points={{-100,-60},{-60,-100},{58,-100},{100,-60},{100,60},{60,
@@ -14394,9 +14257,7 @@ If <i>control</i> is true, plug_sp and plug_sn are delta connected and they are 
               {0,-100},{0,-80}}, color={0,0,255}));
       connect(star.pin_n, starpoint) annotation (Line(points={{-80,-80},{-90,
               -80}}, color={0,0,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Polygon(
               points={{-80,-80},{-80,-84},{-80,-120},{-40,-140},{40,-140},{80,-110},
                   {80,-84},{76,-80},{-80,-80}},

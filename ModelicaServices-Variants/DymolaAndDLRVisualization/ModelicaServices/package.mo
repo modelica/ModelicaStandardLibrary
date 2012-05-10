@@ -635,10 +635,6 @@ model Shape
   extends Visualization.Internal.Shape_MSL32_Dymola;
 
   annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2})),
     Documentation(info="<html>
 <p>
 The interface of this model is documented at
@@ -660,10 +656,6 @@ end Shape;
     extends Visualization.Internal.SurfaceDymolaAndSimVis;
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 The interface of this model is documented at

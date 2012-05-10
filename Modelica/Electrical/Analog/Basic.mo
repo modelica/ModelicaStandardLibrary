@@ -722,9 +722,7 @@ equation
       Ellipse(extent=[18,-40; 36,-22]),
       Line(points=[62,-29; 36,-29]),
       Rectangle(extent=[42,-42; -44,-30], fillColor={255,255,255}),
-      Line(points=[0,8; 0,-18])), Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}})),
-Documentation(info="<html>
+      Line(points=[0,8; 0,-18])),Documentation(info="<html>
 <p>The model <i>M_Transformer</i> is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>

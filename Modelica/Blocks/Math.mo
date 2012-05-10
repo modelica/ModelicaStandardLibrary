@@ -594,8 +594,6 @@ All other blocks convert exactly between two different units.
     u1 = u2;
     y1 = y2;
     annotation(__Dymola_structurallyIncomplete=true,
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,-120},{
-              200,120}})),
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-120},{200,
               120}}), graphics={
           Line(
@@ -862,9 +860,7 @@ equation
   firstActiveIndex = Modelica.Math.BooleanVectors.firstTrueIndex(
                                                   u);
    y = if firstActiveIndex == 0 then y_default else expr[firstActiveIndex];
-  annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{300,100}},
-        grid={1,1})),              Icon(coordinateSystem(
+  annotation (defaultComponentName="multiSwitch1",              Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{300,100}},
         grid={1,1}), graphics={
@@ -3008,11 +3004,7 @@ and <b>realTrue</b> and <b>realFalse</b> are parameters.
           Text(
             extent={{8,-4},{92,-94}},
             textString="R",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+            lineColor={0,0,255})}));
   end BooleanToReal;
 
   block BooleanToInteger "Convert Boolean to Integer signal"
@@ -3055,11 +3047,7 @@ and <b>integerTrue</b> and <b>integerFalse</b> are parameters.
           Text(
             extent={{8,-4},{92,-94}},
             lineColor={255,170,85},
-            textString="I")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+            textString="I")}));
   end BooleanToInteger;
 
   block RealToBoolean "Convert Real to Boolean signal"
@@ -3103,11 +3091,7 @@ where <b>threshold</b> is a parameter.
           Text(
             extent={{8,-4},{92,-94}},
             lineColor={255,0,255},
-            textString="B")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+            textString="B")}));
   end RealToBoolean;
 
   block IntegerToBoolean "Convert Integer to Boolean signal"
@@ -3151,11 +3135,7 @@ where <b>threshold</b> is a parameter.
           Text(
             extent={{8,-4},{92,-94}},
             lineColor={255,0,255},
-            textString="B")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+            textString="B")}));
   end IntegerToBoolean;
 
   block RectangularToPolar
@@ -3180,9 +3160,7 @@ where <b>threshold</b> is a parameter.
   equation
      y_abs = sqrt(u_re*u_re + u_im*u_im);
      y_arg = Modelica.Math.atan2(u_im, u_re);
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-                         Icon(graphics={
+    annotation (                         Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
             lineColor={0,0,0},
@@ -3235,9 +3213,7 @@ the angle <code>y_arg</code> of the polar representation of this phasor.
   equation
     y_re = u_abs * Modelica.Math.cos(u_arg);
     y_im = u_abs * Modelica.Math.sin(u_arg);
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}})),
-                         Icon(graphics={
+    annotation (                         Icon(graphics={
           Text(
             extent={{-90,80},{-20,40}},
             lineColor={0,0,0},

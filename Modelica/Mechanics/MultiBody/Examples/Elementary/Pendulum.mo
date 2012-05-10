@@ -29,10 +29,6 @@ equation
       thickness=0.5));
   annotation (
     experiment(StopTime=5),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2})),
     Documentation(info="<html>
 <p>
 This simple model demonstrates that by just dragging components

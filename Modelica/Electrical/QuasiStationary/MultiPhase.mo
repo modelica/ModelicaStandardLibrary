@@ -259,7 +259,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
 
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
-</html>"),   Icon(graphics));
+</html>"));
   end Examples;
 
   package Basic "Basic components for AC multiphase models"
@@ -512,8 +512,7 @@ Connects all <i>m</i> single phase (positive) pins of the multi phase (positive)
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPin_n\">PlugToPin_n</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.PlugToPins_n\">PlugToPins_n</a>
 </p>
-</html>"),
-        Diagram(graphics));
+</html>"));
     end PlugToPins_p;
 
     model PlugToPins_n "Connect all (negative) pins"
@@ -1318,10 +1317,7 @@ Contains m singlephase ideal commuting switches (Modelica.Electrical.QuasiStatio
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                graphics));
+</HTML>"));
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
@@ -1443,10 +1439,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.QuasiStationary.Sing
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                100}}),
-                graphics));
+</HTML>"));
     end IdealIntermediateSwitch;
 
     model IdealOpeningSwitch "Multiphase ideal opener"
@@ -1515,10 +1508,7 @@ Contains m ideal opening switches (Modelica.Electrical.QuasiStationary.SinglePha
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                graphics));
+</HTML>"));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Multiphase ideal closer"
@@ -1586,10 +1576,7 @@ Contains m ideal closing switches (Modelica.Electrical.QuasiStationary.SinglePha
 <b>Use with care:</b>
 This switch is only intended to be used for structural changes, not fast switching sequences, due to the quasistationary formulation.
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-                graphics));
+</HTML>"));
     end IdealClosingSwitch;
   annotation (Icon(graphics={
         Line(points={{-100,-60},{-54,-60}}),
@@ -1655,8 +1642,7 @@ This sensor can be used to measure the frequency of the reference system, using 
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PotentialSensor\">PotentialSensor</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end FrequencySensor;
 
     model PotentialSensor "Potential sensor"
@@ -1705,8 +1691,7 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end PotentialSensor;
 
     model VoltageSensor "Voltage sensor"
@@ -1750,8 +1735,7 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.PowerSensor\">PowerSensor</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end VoltageSensor;
 
     model CurrentSensor "Current Sensor"
@@ -1922,8 +1906,7 @@ This sensor can be used to measure <i>m</i> complex apparent power values, using
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Sensors.CurrentSensor\">CurrentSensor</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end PowerSensor;
     annotation (Documentation(info="<html>
 <p>This package hosts sensors for quasi stationary multiphase circuits.
@@ -2308,7 +2291,7 @@ a <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Basic.Plug
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.PositivePlug\">PositivePlug</a>,
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.NegativePlug\">NegativePlug</a>,
 </p>
-</html>"), Diagram(graphics));
+</html>"));
     end TwoPlug;
 
     partial model OnePort
@@ -2372,8 +2355,7 @@ The absolute sensor partial model relies on the a
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.RelativeSensor\">SinglePhase.Interfaces.RelativeSensor</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial voltage / current sensor"
@@ -2458,7 +2440,6 @@ The source partial model relies on the
 </p>
 </html>"));
     end Source;
-    annotation (Icon(graphics));
   end Interfaces;
 
   annotation (Icon(graphics={

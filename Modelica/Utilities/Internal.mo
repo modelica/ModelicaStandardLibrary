@@ -40,10 +40,6 @@ partial package PartialModelicaServices
           "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 
 <p>

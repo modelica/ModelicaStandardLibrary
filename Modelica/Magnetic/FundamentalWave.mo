@@ -1855,8 +1855,7 @@ relationship of the voltage and current space phasor.
 
 <p><a href=\"modelica://Modelica.Magnetic.FluxTubes.Basic.EddyCurrent\">FluxTubes.Basic.EddyCurrent</a></p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end EddyCurrent;
 
     model SinglePhaseElectroMagneticConverter
@@ -1927,10 +1926,7 @@ relationship of the voltage and current space phasor.
       -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
       annotation (defaultComponentName="converter",
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),  Icon(coordinateSystem(
+  Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -2196,8 +2192,7 @@ This is a simple short cut branch.
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.Idle\">Idle</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end Short;
     annotation (Documentation(info="<html>
 <p>Basic components of the FundamentalWave library for modeling magnetic circuits. Machine specific components are
@@ -2458,7 +2453,7 @@ Resistances and stray inductances of the machine always refer to either stator o
 <p>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">AIM_SquirrelCage</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end AIM_SlipRing;
     annotation (Documentation(info="<html>
 <p>This package provides squirrel cage and slip ring induction machine models.</p>
@@ -2675,7 +2670,7 @@ Resistances and stray inductances of the machine refer to the stator phases. The
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SM_PermanentMagnet;
 
       model SM_ElectricalExcited
@@ -2906,7 +2901,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor\">SM_ReluctanceRotor</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SM_ElectricalExcited;
 
       model SM_ReluctanceRotor "Reluctance machine with optional damper cage"
@@ -3042,7 +3037,7 @@ The symmetry of the stator is assumed. For rotor asymmetries can be taken into a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited\">SM_ElectricalExcited</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet\">SM_PermanentMagnet</a>,
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SM_ReluctanceRotor;
     annotation (Documentation(info="<html>
 <p>This package contains various synchronous induction machine models.</p>
@@ -3187,7 +3182,7 @@ The single phase winding consists of a
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SinglePhaseWinding;
       extends Modelica.Icons.Package;
 
@@ -3372,7 +3367,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SymmetricMultiPhaseWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
@@ -3729,7 +3724,7 @@ The symmetric rotor cage model of this library does not consist of rotor bars an
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>,
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SymmetricMultiPhaseCageWinding;
 
       model SaliencyCageWinding "Rotor cage with saliency in d- and q-axis"
@@ -3895,7 +3890,7 @@ The salient cage model is a two axis model with two phases. The electro magnetic
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SymmetricMultiPhaseCageWinding\">SymmetricMultiPhaseCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),Diagram(graphics));
+</html>"));
       end SaliencyCageWinding;
 
     annotation (Documentation(info="<html>
@@ -4224,10 +4219,6 @@ Source of magnetic flux with complex signal input.
               lineColor={0,0,255}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
             Line(points={{0,-90},{0,-70}})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic flux.</p>
 
@@ -4282,10 +4273,6 @@ Source of magnetic flux with complex signal input.
               extent={{-140,120},{140,80}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
@@ -4331,10 +4318,6 @@ Source of magnetic flux with complex signal input.
               extent={{-140,120},{140,80}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>Sensor for magnetic potential difference.</p>
 
@@ -4785,8 +4768,6 @@ This model is mainly used to extend from in order build more complex - equation 
       annotation (Documentation(info="<HTML>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -5109,8 +5090,6 @@ This model is mainly used to extend from in order build more complex - equation 
       annotation (Documentation(info="<HTML>
 <p>This partial model for induction machines contains elements common in all machine models.</p>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(

@@ -155,9 +155,7 @@ and rises between t = 2 and 8 seconds linear to 50 degree C.
 An approppriate simulating time would be 10 seconds.
 </P>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}})),
-        experiment(StopTime=10, Interval=0.001));
+"),        experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
 
     model Motor "Second order thermal model of a motor"
@@ -277,12 +275,9 @@ Using Modelica.Thermal.FluidHeatFlow it would be possible to model the coolant a
 Simulate for 7200 s; plot Twinding.T and Tcore.T.
 </p>
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=7200, Interval=0.01));
     end Motor;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-                              Documentation(info="<html>
+    annotation (                              Documentation(info="<html>
 
 </html>"));
   end Examples;
@@ -996,9 +991,7 @@ place from the inner to the outer cylinder):
     equation
       port_b.Q_flow + sum(port_a.Q_flow) = 0;
       port_a.T = fill(port_b.T, m);
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+      annotation (        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-150,-30},{150,-70}},
@@ -1351,8 +1344,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 </p>
 </html>"));
     end ConditionalFixedHeatFlowSensor;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),   Documentation(info="<html>
+    annotation (   Documentation(info="<html>
 
 </html>"));
   end Sensors;
@@ -1672,8 +1664,7 @@ in order to simulate temperature dependent losses (which are given an reference 
               fillColor={191,0,0},
               fillPattern=FillPattern.Solid)}));
     end PrescribedHeatFlow;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),   Documentation(info="<html>
+    annotation (   Documentation(info="<html>
 
 </html>"));
   end Sources;
@@ -2969,11 +2960,7 @@ By extending this model, it is possible to write simple
 constitutive equations for many types of heat transfer components.
 </p>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics)));
+"));
     end Element1D;
 
     partial model PartialElementaryConditionalHeatPort
@@ -3009,7 +2996,7 @@ In this case, the parameter <b>T</b> specifies the fixed device temperature (the
 If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
 (<b>lossPower = ...</b>). The device temperature <b>TheatPort</b> can be used to describe the influence of the device temperature on the model behaviour.
 </p>
-</html>"),     Diagram(graphics));
+</html>"));
     end PartialElementaryConditionalHeatPort;
 
     partial model PartialElementaryConditionalHeatPortWithoutT
@@ -3036,7 +3023,7 @@ In this case, the parameter <b>T</b> specifies the fixed device temperature (the
 If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
 (<b>lossPower = ...</b>). The device temperature <b>TheatPort</b> can be used to describe the influence of the device temperature on the model behaviour.
 </p>
-</html>"),     Diagram(graphics));
+</html>"));
     end PartialElementaryConditionalHeatPortWithoutT;
 
     partial model PartialConditionalHeatPort
@@ -3079,9 +3066,7 @@ The device temperature <b>internalHeatPort.T</b> can be used to describe the inf
 </p>
 </html>"));
     end PartialConditionalHeatPort;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-                               Documentation(info="<html>
+    annotation (                               Documentation(info="<html>
 
 </html>"));
   end Interfaces;

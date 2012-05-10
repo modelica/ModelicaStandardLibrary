@@ -255,10 +255,6 @@ and has therefore a different icon as BooleanInput connector.
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
       annotation (
-        Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 Block has one continuous Real output signal.
@@ -320,11 +316,7 @@ Block has one continuous Real input and one continuous Real output signal.
 Block has two continuous Real input signals u1 and u2 and one
 continuous Real output signal y.
 </p>
-</html>"),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+</html>"));
 
     end SI2SO;
 
@@ -377,11 +369,7 @@ one continuous Real output signal.
       annotation (Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.RealOutput y
       annotation (Placement(transformation(extent={{100,-17},{134,17}})));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1},
-          initialScale=0.06)), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -466,11 +454,7 @@ Block has two continuous Real input vectors u1 and u2 and one
 continuous Real output vector y.
 All vectors have the same number of elements.
 </p>
-</html>"),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+</html>"));
 
     end MI2MO;
 
@@ -884,10 +868,6 @@ Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
             lineColor={192,192,192},
             fillColor={192,192,192},
             fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 Basic block for Boolean sources of package Blocks.Sources.
@@ -984,11 +964,7 @@ end IntegerMIBooleanMOs;
       annotation (Placement(transformation(extent={{-180,-40},{-100,40}})));
     Modelica.Blocks.Interfaces.IntegerOutput y "Integer output signal"
       annotation (Placement(transformation(extent={{100,-20},{140,20}})));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1},
-          initialScale=0.06)), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1022,11 +998,7 @@ end IntegerMIBooleanMOs;
       annotation (Placement(transformation(extent={{-120,70},{-80,-70}})));
     Modelica.Blocks.Interfaces.IntegerOutput y "Integer output signal"
       annotation (Placement(transformation(extent={{100,-15},{130,15}})));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1},
-          initialScale=0.06)), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1331,8 +1303,6 @@ and a 3D icon (e.g., used in Blocks.Logical library).
             fillColor=DynamicSelect({235,235,235}, if y > 0.5 then {0,255,0} else
                       {235,235,235}),
             fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}})),
       Documentation(info="<html>
 <p>
 Block has one continuous Real input and one continuous Boolean output signal
@@ -1372,8 +1342,6 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
             fillPattern=FillPattern.Solid),
           Ellipse(extent={{32,10},{52,-10}}, lineColor={0,0,255}),
           Line(points={{-100,-80},{42,-80},{42,0}}, color={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}})),
       Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
@@ -1391,11 +1359,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{-180,-40},{-100,40}})));
     Modelica.Blocks.Interfaces.BooleanOutput y "Boolean output signal"
       annotation (Placement(transformation(extent={{100,-20},{140,20}})));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1},
-          initialScale=0.04)), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},
@@ -1431,11 +1395,7 @@ has a 3D icon (e.g., used in Blocks.Logical library).
       annotation (Placement(transformation(extent={{100,-15},{130,15}})));
   initial equation
     pre(u) = fill(false,nu);
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1},
-          initialScale=0.06)), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1},

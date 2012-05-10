@@ -157,9 +157,7 @@ equation
         points={{-40,-10},{-60,-10}},
         color={95,95,95},
         thickness=0.5));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-                       Documentation(info="<html>
+  annotation (                       Documentation(info="<html>
 <p>
 In order to compare the results of the \"PointMass\" example where
 6 point masses are rigidly connected together, in this comparision model,
@@ -235,9 +233,7 @@ equation
       points={{-20,70},{-10,70},{-10,20},{10,20},{10,0},{0,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-    experiment(StopTime=3.0, Tolerance=1e-006),
+  annotation (    experiment(StopTime=3.0, Tolerance=1e-006),
     Documentation(info="<html>
 <p>
 This model demonstrates the usage of model Parts.PointMass in a

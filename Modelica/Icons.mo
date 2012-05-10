@@ -320,10 +320,6 @@ package Icons "Library of icons"
             lineColor={0,0,0},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<html>
 <p>
 This icon is designed for a <b>rotational sensor</b> model.
@@ -357,10 +353,6 @@ This icon is designed for a <b>rotational sensor</b> model.
           Line(points={{10,-40},{10,-60}}, color={0,0,0}),
           Line(points={{30,-40},{30,-60}}, color={0,0,0}),
           Line(points={{50,-40},{50,-60}}, color={0,0,0})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(Error, info="<html>
 <p>
 This icon is designed for a <b>translational sensor</b> model.

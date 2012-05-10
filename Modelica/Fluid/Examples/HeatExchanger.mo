@@ -96,9 +96,7 @@ package HeatExchanger "Demo of a heat exchanger model"
         points={{37,2.2},{42,2},{50,2},{50,-18},{62,-18}},
         color={0,127,255},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}})),
-                         experiment(StopTime=100, Tolerance=1e-005),
+    annotation (                         experiment(StopTime=100, Tolerance=1e-005),
       Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/HeatExchanger.png\" border=\"1\"
      alt=\"HeatExchanger.png\">
@@ -351,9 +349,7 @@ package HeatExchanger "Demo of a heat exchanger model"
           points={{-10.3,44.8},{-10.3,31.7},{-10,31.7},{-10,20.5}},
           color={127,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}},
-            grid={1,1})),   Icon(coordinateSystem(preserveAspectRatio=false,
+      annotation (   Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(

@@ -225,7 +225,6 @@ combination). In this case the system is not at rest.
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Translational/InitialConditions.png\">
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
     end InitialConditions;
 
@@ -377,8 +376,7 @@ problems.
 Demonstrate usage of component Sources.Accelerate by moving a massing
 with a predefined acceleration.
 </p>
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</html>"),        experiment(StopTime=1.0, Interval=0.001));
     end Accelerate;
 
     model Damper "Use of damper models."
@@ -452,7 +450,6 @@ with a predefined acceleration.
 Demonstrate usage of damper components in different variants.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         experiment(StopTime=1.0, Interval=0.001));
     end Damper;
 
@@ -549,7 +546,6 @@ are set.
 If damping is added the amplitudes are bounded.
 </p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2})),
         experiment(StopTime=1.0, Interval=0.001));
     end Oscillator;
 
@@ -626,7 +622,6 @@ Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
 </html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}, grid={2,2})),
         experiment(StopTime=1.0, Interval=0.001));
     end Sensors;
 
@@ -1023,7 +1018,6 @@ Since elastoGap1 lifts off at s &gt; -0.5 m and elastoGap2 lifts off s &lt; +0.5
 mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100}, {100,100}})),
         experiment(StopTime=1.0, Interval=0.01));
     end ElastoGap;
 
@@ -1074,9 +1068,7 @@ mass2 moves freely as long as -0.5 m &lt; s &lt; +0.5 m.
           points={{16,-70},{16,-60}},
           color={0,127,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>
 This model consists of a mass with an initial velocity of 1 m/s.
 After 0.1 s, a brake is activated and it is shown that the mass decelerates until
@@ -1252,9 +1244,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           points={{170,20},{170,0},{-10,0},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-120,
-                -100},{200,100}})),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a Translational model,
 by enabling the heatPort of all components and connecting these heatPorts via
@@ -1340,10 +1330,6 @@ simulate them according to the provided description in the models.
               extent={{-150,-90},{150,-130}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>
 The <i>flange</i> of a 1D translational mechanical system <i>fixed</i>
@@ -2406,9 +2392,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               points={{-100,-102},{-100,-16},{0,-16}},
               color={191,0,0},
               pattern=LinePattern.Dot,
-              smooth=Smooth.None)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics));
+              smooth=Smooth.None)}));
     end Brake;
 
     model IdealGearR2T
@@ -2580,8 +2564,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               extent={{-94,-46},{66,-74}},
               lineColor={0,0,0},
               textString="a_start")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the position, speed,
@@ -3184,11 +3166,7 @@ Modelica.Blocks library).
               Text(
               extent={{80,-28},{114,-62}},
               lineColor={0,0,0},
-              textString="s")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="s")}));
     end PositionSensor;
 
     model SpeedSensor "Ideal sensor to measure the absolute velocity"
@@ -3216,11 +3194,7 @@ Modelica.Blocks library).
               Text(
               extent={{80,-28},{111,-61}},
               lineColor={0,0,0},
-              textString="v")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="v")}));
     end SpeedSensor;
 
     model AccSensor "Ideal sensor to measure the absolute acceleration"
@@ -3251,11 +3225,7 @@ Modelica.Blocks library).
               Text(
               extent={{80,-28},{115,-60}},
               lineColor={0,0,0},
-              textString="a")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="a")}));
     end AccSensor;
 
     model RelPositionSensor "Ideal sensor to measure the relative position"
@@ -3288,11 +3258,7 @@ Modelica.Blocks library).
               extent={{8,-68},{42,-102}},
               lineColor={0,0,0},
               textString="s"),
-            Line(points={{0,-99},{0,-60}}, color={0,0,127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+            Line(points={{0,-99},{0,-60}}, color={0,0,127})}));
     end RelPositionSensor;
 
     model RelSpeedSensor "Ideal sensor to measure the relative speed"
@@ -3335,11 +3301,7 @@ Modelica.Blocks library).
               extent={{8,-68},{42,-102}},
               lineColor={0,0,0},
               textString="v"),
-            Line(points={{0,-100},{0,-61}}, color={0,0,127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+            Line(points={{0,-100},{0,-61}}, color={0,0,127})}));
     end RelSpeedSensor;
 
     model RelAccSensor "Ideal sensor to measure the relative acceleration"
@@ -3378,11 +3340,7 @@ Modelica.Blocks library).
               extent={{7,-68},{41,-102}},
               lineColor={0,0,0},
               textString="a"),
-            Line(points={{0,-99},{0,-60}}, color={0,0,127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+            Line(points={{0,-99},{0,-60}}, color={0,0,127})}));
     end RelAccSensor;
 
     model ForceSensor "Ideal sensor to measure the force between two flanges"
@@ -3415,11 +3373,7 @@ with blocks of the Modelica.Blocks library).
               textString="f"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}));
     end ForceSensor;
 
     model PowerSensor
@@ -3451,11 +3405,7 @@ and provides the result as output signal <b>power</b>
               textString="power"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
-            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+            Line(points={{-80,-100},{-80,0}}, color={0,0,127})}));
     end PowerSensor;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
@@ -3581,11 +3531,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{134,-68},{22,-96}},
               lineColor={0,0,0},
-              textString="%exact")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              textString="%exact")}));
     end Position;
 
     model Speed "Forced movement of a flange according to a reference speed"
@@ -3687,11 +3633,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{140,-76},{22,-102}},
               lineColor={0,0,0},
-              textString="%exact")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              textString="%exact")}));
     end Speed;
 
     model Accelerate
@@ -3754,11 +3696,7 @@ blocks of the block library Modelica.Blocks.Source.
             Text(
               extent={{150,60},{-150,100}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              lineColor={0,0,255})}));
     end Accelerate;
 
     model Move
@@ -3834,11 +3772,7 @@ blocks of the block library Modelica.Blocks.Sources.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Icon(coordinateSystem(
+"),        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3920,11 +3854,7 @@ blocks of Modelica.Blocks.Source.
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid),
             Line(points={{-31,-50},{50,-50}}, color={0,0,0}),
-            Line(points={{-50,-80},{-30,-60}}, color={0,0,0})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+            Line(points={{-50,-80},{-30,-60}}, color={0,0,0})}));
     end Force;
 
     model Force2 "Input signal acting as torque on two flanges"
@@ -3974,11 +3904,7 @@ blocks of Modelica.Blocks.Source.
               lineColor={0,127,0},
               smooth=Smooth.None,
               fillColor={215,215,215},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              fillPattern=FillPattern.Solid)}));
     end Force2;
 
     model LinearSpeedDependentForce "Linear dependency of force versus speed"
@@ -4102,8 +4028,7 @@ Positive force acts accelerating.
 </HTML>"));
     end ForceStep;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),                 Documentation(info="<html>
+    annotation (                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical translational drive trains.
 </p>
@@ -4262,8 +4187,7 @@ The following variables are transported through this connector:
     equation
       flange.f = f;
       flange.s = s;
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})), Icon(coordinateSystem(
+      annotation ( Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Text(
               extent={{-200,80},{200,40}},
@@ -4329,10 +4253,7 @@ It is used e.g., to built up parts of a drive train consisting
 of several base components.
 </p>
 </HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -4511,10 +4432,7 @@ The forces at the right and left flange can be different.
 It is used e.g., to built up sliding masses.
 </p>
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end PartialRigid;
 
     partial model PartialCompliant
@@ -4619,10 +4537,7 @@ and c have more meaningful values for the user.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end PartialCompliantWithRelativeStates;
 
     partial model PartialElementaryOneFlangeAndSupport
@@ -4744,11 +4659,7 @@ and instead the component is internally fixed to ground.
 </p>
 
 </HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+"),        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -4886,9 +4797,7 @@ connector is not connected).
 </p>
 
 </HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+"),        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -4939,8 +4848,6 @@ connector is not connected).
   equation
     f = flange.f;
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Rectangle(
@@ -5035,11 +4942,7 @@ with the Modelica.Blocks blocks.
             Text(
               extent={{-150,80},{150,40}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              lineColor={0,0,255})}));
     end PartialAbsoluteSensor;
 
     partial model PartialRelativeSensor
@@ -5083,11 +4986,7 @@ with the Modelica.Blocks blocks.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              lineColor={0,0,255})}));
     end PartialRelativeSensor;
 
     partial model PartialFriction "Base model of Coulomb friction elements"

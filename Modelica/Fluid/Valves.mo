@@ -37,14 +37,6 @@ package Valves "Components for the regulation and control of fluid flow"
       end if;
 
     annotation (
-    Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
     Documentation(info="<HTML>
 <p>
 Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluids.<
@@ -133,10 +125,6 @@ explained in detail in the
     end if;
 
     annotation (
-      Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}})),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<HTML>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, incompressible fluid at the inlet, and possibly two-phase fluid at the outlet, including choked flow conditions.</p>
 
@@ -230,10 +218,6 @@ explained in detail in the
     end if;
 
     annotation (
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}})),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}})),
     Documentation(info="<HTML>
 <p>Valve model according to the IEC 534/ISA S.75 standards for valve sizing, compressible fluid, no phase change, also covering choked-flow conditions.</p>
 
@@ -313,10 +297,6 @@ explained in detail in the
             fillPattern=FillPattern.Solid),
           Polygon(points={{-100,50},{100,-50},{100,50},{0,0},{-100,-50},{-100,
                 50}}, lineColor={0,0,0})}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
     Documentation(info="<HTML>
 <p>This very simple model provides a pressure drop which is proportional to the flowrate and to the <code>opening</code> input, without computing any fluid property. It can be used for testing purposes, when
 a simple model of a variable pressure loss is needed.</p>
@@ -370,10 +350,6 @@ a simple model of a variable pressure loss is needed.</p>
                       {255,255,255}),
             lineColor={0,0,0},
             fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
     Documentation(info="<HTML>
 <p>
 This very simple model provides a (small) pressure drop which is proportional to the flowrate if the Boolean open signal is <b>true</b>. Otherwise, the mass flow rate is zero. If opening_min > 0, a small leakage mass flow rate occurs when open = <b>false</b>.
@@ -625,10 +601,6 @@ y=uMin is passed as output.
               points={{40,60},{60,60}},
               color={0,0,127},
               smooth=Smooth.None)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<HTML>
 <p>This is the base model for the <code>ValveIncompressible</code>, <code>ValveVaporizing</code>, and <code>ValveCompressible</code> valve models. The model is based on the IEC 534 / ISA S.75 standards for valve sizing.</p>
 <p>The model optionally supports reverse flow conditions (assuming symmetrical behaviour) or check valve operation, and has been suitably regularized, compared to the equations in the standard, in order to avoid numerical singularities around zero pressure drop operating conditions.</p>

@@ -315,8 +315,7 @@ This package contains test examples of analog electrical multiphase circuits.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
   end Examples;
 
   package Basic "Basic components for electrical multiphase models"
@@ -625,10 +624,7 @@ Connects all pins of plug_n to the pin array pin_n.
 <p>
 Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end Resistor;
 
     model Conductor "Ideal linear electrical conductors"
@@ -679,10 +675,7 @@ Contains m resistors (Modelica.Electrical.Analog.Basic.Resistor)
 <p>
 Contains m conductors (Modelica.Electrical.Analog.Basic.Conductor)
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end Conductor;
 
     model Capacitor "Ideal linear electrical capacitors"
@@ -1003,10 +996,7 @@ Model of a multi phase zero sequence inductor.
 <p>
 Contains m transformers (Modelica.Electrical.Analog.Basic.Transformer)
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end Transformer;
 
     model VariableResistor
@@ -1067,10 +1057,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
   It is recomended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
 </P>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end VariableResistor;
 
     model VariableConductor
@@ -1131,10 +1118,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
   It is recomended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
 </P>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end VariableConductor;
 
     model VariableCapacitor
@@ -1344,10 +1328,7 @@ This package contains basic analog electrical multiphase components.
 <p>
 Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealThyristor;
 
     model IdealGTOThyristor "Multiphase ideal GTO thyristor"
@@ -1406,10 +1387,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
 <p>
 Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyristor).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealGTOThyristor;
 
     model IdealCommutingSwitch "Multiphase ideal commuting switch"
@@ -1483,10 +1461,7 @@ Contains m ideal GTO thyristors (Modelica.Electrical.Analog.Ideal.IdealGTOThyris
 <p>
 Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealCommutingSwitch;
 
     model IdealIntermediateSwitch "Multiphase ideal intermediate switch"
@@ -1568,10 +1543,7 @@ Contains m ideal commuting switches (Modelica.Electrical.Analog.Ideal.IdealCommu
 <p>
 Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIntermediateSwitch).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealIntermediateSwitch;
 
     model IdealDiode "Multiphase ideal diode"
@@ -1616,10 +1588,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
 <p>
 Contains m ideal diodes (Modelica.Electrical.Analog.Ideal.IdealDiode).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealDiode;
 
     model IdealTransformer "Multiphase ideal transformer"
@@ -1684,10 +1653,7 @@ Contains m ideal transformers (Modelica.Electrical.Analog.Ideal.IdealTransformer
 <p>
 <b>Note:</b> Due to the above equations, also DC signals will be transformed!
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealTransformer;
 
     model Idle "Multiphase idle branch"
@@ -1820,10 +1786,7 @@ Contains m short cuts (Modelica.Electrical.Analog.Ideal.Short)
 <p>
 Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealOpeningSwitch;
 
     model IdealClosingSwitch "Multiphase ideal closer"
@@ -1880,10 +1843,7 @@ Contains m ideal opening switches (Modelica.Electrical.Analog.Ideal.IdealOpening
 <p>
 Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosingSwitch).
 </p><
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</HTML>"));
     end IdealClosingSwitch;
 
     model OpenerWithArc "Multiphase opener with arc"
@@ -1949,10 +1909,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
             Line(points={{40,50},{32,34},{48,30},{40,20}}, color={255,0,0})}),
         Documentation(info="<html>
 <p>Contains m opening switches with arc (Modelica.Electrical.Analog.Ideal.OpenerWithArc).</p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</html>"));
     end OpenerWithArc;
 
     model CloserWithArc "Multiphase closer with arc"
@@ -2017,10 +1974,7 @@ Contains m ideal closing switches (Modelica.Electrical.Analog.Ideal.IdealClosing
             Line(points={{40,50},{32,24},{48,28},{40,0}}, color={255,0,0})}),
         Documentation(info="<html>
 <p>Contains m closing switches with arc (Modelica.Electrical.Analog.Ideal.CloserWithArc).</p>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}),
-                graphics));
+</html>"));
     end CloserWithArc;
     annotation (Documentation(info="<HTML>
 <p>
@@ -2335,8 +2289,7 @@ This package contains multiphase potential, voltage, and current sensors.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
   end Sensors;
 
   package Sources "Multiphase voltage and current sources"
@@ -2697,8 +2650,7 @@ This package contains time-dependend and controlled multiphase voltage and curre
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
   end Sources;
 
   package Interfaces "Interfaces for electrical multiphase models"
@@ -2790,9 +2742,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort[mh] if useHeatPort
         annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
             iconTransformation(extent={{-10,-110},{10,-90}})));
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        Documentation(revisions="<html>
+      annotation (        Documentation(revisions="<html>
 <ul>
 <li><i>August 26, 2009 </i>by Anton Haumer initially implemented</li>
 </ul>
@@ -2826,9 +2776,7 @@ Superclass of elements which have <b>two</b> electrical plugs:
 the positive plug connector <i>plug_p</i>, and the negative plug connector <i>plug_n</i>.
 The currents flowing into plug_p are provided explicitly as currents i[m].
 </p>
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                   graphics));
+</HTML>"));
     end TwoPlug;
 
     partial model OnePort
@@ -2919,8 +2867,7 @@ electrical multiphase components, based on Modelica.Electrical.Analog.
   and the accompanying <b>disclaimer</b> in the documentation of package
   Modelica in file \"Modelica/package.mo\".</i></dd>
 </dl>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
   end Interfaces;
 
   annotation (

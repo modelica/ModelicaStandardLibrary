@@ -18,8 +18,6 @@ model RollingWheel
   Modelica.Mechanics.MultiBody.Visualizers.Ground ground(length=4)
     annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}})),
     experiment(StopTime=4),
     Documentation(info="<html>
 

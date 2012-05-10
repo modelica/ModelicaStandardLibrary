@@ -525,9 +525,7 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
-</html>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</html>"),        experiment(StopTime=1.0, Interval=0.001));
     end First;
 
     model FirstGrounded
@@ -603,9 +601,7 @@ in the housing on one side via component Fixed.</p>
 <p>Simulate for 1 second and plot the following variables:<br>
    angular velocities of inertias inertia2 and 3: inertia2.w, inertia3.w</p>
 
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end FirstGrounded;
 
     model Friction "Drive train with clutch and brake"
@@ -729,12 +725,7 @@ values (defined already in the model):</p>
 <p>as well as the absolute angular velocities of the three inertia components
 (inertia1.w, inertia2.w, inertia3.w).</p>
 
-</HTML>"), Diagram(coordinateSystem(
-            initialScale=0.1,
-            preserveAspectRatio=true,
-            extent={{-180,-100},{120,100}},
-            grid={2,2})),
-        experiment(StopTime=3.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=3.0, Interval=0.001));
     end Friction;
 
     model CoupledClutches "Drive train with 3 dynamically coupled clutches"
@@ -854,9 +845,6 @@ locked, forward sliding.</p>
 
 </HTML>"), __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/Rotational/CoupledClutches.mos"
             "Simulate and Plot"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{
-                140,80}},
-            grid={2,2})),
         experiment(StopTime=1.5, Interval=0.001));
     end CoupledClutches;
 
@@ -936,9 +924,7 @@ gear.mode  :  1 = forward rolling
              -1 = backward rolling
 </pre>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-80},{100,
-                80}})),
-        experiment(StopTime=0.5, Interval=0.001));
+"),        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo1;
 
     model LossyGearDemo2
@@ -1035,9 +1021,7 @@ gear.mode           :  1 = forward rolling
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
 </HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-140,-80},{100,
-                80}})),
-        experiment(StopTime=0.5, Interval=0.001));
+"),        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo2;
 
     model LossyGearDemo3
@@ -1164,9 +1148,7 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
             color={0,0,127}));
       connect(fixed.flange, torque.support)   annotation (Line(points={{20,-60},
               {-40,-60},{-40,40}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-                           Documentation(info="<html>
+      annotation (                           Documentation(info="<html>
 <p>
 This model demonstrates the usage of the bearing flange.
 The gearbox is not connected rigidly to the ground, but by
@@ -1227,9 +1209,7 @@ Simulate for about 10 seconds and plot the angular velocities of the inertias <c
           points={{-40,-40},{-20,-40}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>
 This model demonstrates the effect of a backlash on eigenfrequency, and
 also that the damping torque does not lead to unphysical pulling torques
@@ -1286,8 +1266,6 @@ A torque (step) accelerates both the inertia (of the wheel) and the mass (of the
 Du to a speed dependent force (like driving resistance), we find an eqilibrium at 5 m/s after approx. 5 s.
 </p>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         experiment(StopTime=5.0, Interval=0.001));
     end RollingWheel;
 
@@ -1490,10 +1468,7 @@ Du to a speed dependent force (like driving resistance), we find an eqilibrium a
           color={191,0,0},
           smooth=Smooth.None));
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{180,140}})),         Icon(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>
 This model demonstrates how to model the dissipated power of a drive train,
 by enabling the heatPort of all components and connecting these heatPorts via
@@ -1725,11 +1700,7 @@ Rotational component with <b>inertia</b> and two rigidly connected flanges.
             Text(
               extent={{-150,-80},{150,-120}},
               lineColor={0,0,0},
-              textString="J=%J")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="J=%J")}));
     end Inertia;
 
     model Disc
@@ -1783,11 +1754,7 @@ flange.
             Text(
               extent={{-160,-62},{160,-87}},
               lineColor={0,0,0},
-              textString="deltaPhi = %deltaPhi")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="deltaPhi = %deltaPhi")}));
     end Disc;
 
     model Spring "Linear 1D rotational spring"
@@ -2584,11 +2551,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               points={{-100,-100},{-100,-35},{2,-35}},
               color={191,0,0},
               pattern=LinePattern.Dot,
-              smooth=Smooth.None)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              smooth=Smooth.None)}));
     end BearingFriction;
 
     model Brake "Brake based on Coulomb friction "
@@ -2797,10 +2760,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 </dl>
 
 </HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end Brake;
 
     model Clutch "Clutch based on Coulomb friction"
@@ -2955,10 +2915,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <br>
 
 </HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+"));
     end Clutch;
 
     model OneWayClutch "Series connection of freewheel and clutch"
@@ -3139,10 +3096,7 @@ are dynamically coupled. The method is described in:
 </dl>
 
 </HTML>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+"));
     end OneWayClutch;
 
     model IdealGear "Ideal gear without inertia"
@@ -3183,11 +3137,7 @@ connected to other elements in an appropriate way.
             Text(
               extent={{-146,-49},{154,-79}},
               lineColor={0,0,0},
-              textString="ratio=%ratio")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="ratio=%ratio")}));
     end IdealGear;
 
     model LossyGear
@@ -3561,10 +3511,7 @@ Sept. 11, 2009.</li>
               points={{-100,-100},{-100,-30},{0,-30},{0,0}},
               color={191,0,0},
               pattern=LinePattern.Dot,
-              smooth=Smooth.None)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}},
-            grid={1,1}), graphics));
+              smooth=Smooth.None)}));
     end LossyGear;
 
     model IdealPlanetary "Ideal planetary gear box"
@@ -3880,10 +3827,7 @@ Gearbox.
               points={{-100,-100},{-100,-30},{0,-30}},
               color={191,0,0},
               pattern=LinePattern.Dot,
-              smooth=Smooth.None)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics));
+              smooth=Smooth.None)}));
     end Gearbox;
 
     model IdealGearR2T
@@ -3967,11 +3911,7 @@ This component defines the kinematic constraint:
             Line(
               points={{100,-80},{100,-100}},
               color={0,0,0},
-              smooth=Smooth.None)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              smooth=Smooth.None)}));
     end IdealGearR2T;
 
     model IdealRollingWheel
@@ -4067,9 +4007,7 @@ no rolling resistance. This component defines the kinematic constraint:
 </pre>
 
 </html>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}},
-            grid={1,1}),    graphics));
+"));
     end IdealRollingWheel;
 
     model InitializeFlange
@@ -4157,9 +4095,6 @@ no rolling resistance. This component defines the kinematic constraint:
         der(w) = a_start;
       equation
         flange.tau = 0;
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent=
-                  {{-100,-100},{100,100}}),
-                            graphics));
       end Set_a_start;
 
       encapsulated model Set_flange_tau "Set flange.tau to zero"
@@ -4227,8 +4162,6 @@ no rolling resistance. This component defines the kinematic constraint:
               extent={{-92,-68},{68,-96}},
               lineColor={0,0,0},
               textString="a_start")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=true,
-                       extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
@@ -4424,11 +4357,7 @@ way and provides the result as output signal <b>phi</b>
             grid={1,1}), graphics={Text(
               extent={{70,-30},{120,-70}},
               lineColor={0,0,0},
-              textString="phi")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="phi")}));
     end AngleSensor;
 
     model SpeedSensor
@@ -4457,11 +4386,7 @@ way and provides the result as output signal <b>w</b>
             grid={1,1}), graphics={Text(
               extent={{70,-30},{120,-70}},
               lineColor={0,0,0},
-              textString="w")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="w")}));
     end SpeedSensor;
 
     model AccSensor
@@ -4492,11 +4417,7 @@ blocks of the Modelica.Blocks library).
             grid={1,1}), graphics={Text(
               extent={{70,-30},{120,-70}},
               lineColor={0,0,0},
-              textString="a")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              textString="a")}));
     end AccSensor;
 
     model RelAngleSensor
@@ -4529,11 +4450,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
               extent={{20,-84},{160,-114}},
               lineColor={0,0,0},
               textString="phi_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
-                  127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+                  127})}));
     end RelAngleSensor;
 
     model RelSpeedSensor
@@ -4570,11 +4487,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
               extent={{20,-88},{160,-118}},
               lineColor={0,0,0},
               textString="w_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
-                  127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+                  127})}));
     end RelSpeedSensor;
 
     model RelAccSensor
@@ -4613,11 +4526,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
               extent={{20,-86},{160,-116}},
               lineColor={0,0,0},
               textString="a_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
-                  127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+                  127})}));
     end RelAccSensor;
 
     model TorqueSensor
@@ -4650,11 +4559,7 @@ and provides the result as output signal <b>tau</b>
               extent={{-50,-80},{50,-120}},
               lineColor={0,0,0},
               textString="tau"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                  127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+                  127})}));
     end TorqueSensor;
 
     model PowerSensor
@@ -4685,14 +4590,9 @@ and provides the result as output signal <b>power</b>
               extent={{-50,-80},{100,-120}},
               lineColor={0,0,0},
               textString="power"), Line(points={{-80,-100},{-80,0}}, color={0,0,
-                  127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+                  127})}));
     end PowerSensor;
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),                 Documentation(info="<html>
+    annotation (                 Documentation(info="<html>
 <p>
 This package contains ideal sensor components that provide
 the connector variables as signals for further processing with the
@@ -4810,11 +4710,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{146,-64},{30,-98}},
               lineColor={0,0,0},
-              textString="%exact")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              textString="%exact")}));
     end Position;
 
     model Speed
@@ -4920,11 +4816,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{146,-62},{30,-96}},
               lineColor={0,0,0},
-              textString="%exact")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              textString="%exact")}));
     end Speed;
 
     model Accelerate
@@ -4990,11 +4882,7 @@ blocks of the block library Modelica.Blocks.Sources.
             Text(
               extent={{-150,100},{150,60}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              lineColor={0,0,255})}));
     end Accelerate;
 
     model Move
@@ -5074,11 +4962,7 @@ blocks of the block library Modelica.Blocks.Sources.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Icon(coordinateSystem(
+"),        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -5303,8 +5187,6 @@ blocks of Modelica.Blocks.Sources.</p>
         tau = tau_nominal*(w/w_nominal);
       end if;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{100,100}},
                 color={0,0,255})}),
@@ -5338,8 +5220,6 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
         tau = tau_nominal*smooth(1,if w >= 0 then (w/w_nominal)^2 else -(w/w_nominal)^2);
       end if;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-100,-100},{-80,-98},{-60,-92},
                   {-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{80,62},
@@ -5362,8 +5242,6 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       tau = -flange.tau;
       tau = tau_constant;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-98,0},{100,0}}, color={0,0,
                   255}), Text(
@@ -5387,8 +5265,6 @@ Positive torque acts accelerating.
       w = der(phi);
       w = w_fixed;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{0,-100},{0,100}}, color={0,
                   0,255}), Text(
@@ -5417,8 +5293,6 @@ Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
       tau = -flange.tau;
       tau = offsetTorque + (if time < startTime then 0 else stepTorque);
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,60},{80,
                   60}}, color={0,0,255}), Text(
@@ -5433,8 +5307,7 @@ Positive torque acts accelerating.
 </HTML>"));
     end TorqueStep;
 
-    annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),                 Documentation(info="<html>
+    annotation (                 Documentation(info="<html>
 <p>
 This package contains ideal sources to drive 1D mechanical rotational drive trains.
 </p>
@@ -5657,8 +5530,7 @@ It is most convenient to utilize it
     equation
       flange.tau = tau;
       flange.phi = phi;
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})), Icon(coordinateSystem(
+      annotation ( Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={Ellipse(
               extent={{-20,20},{20,-20}},
@@ -5724,10 +5596,7 @@ of several components.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -5912,10 +5781,7 @@ is used to built up force elements such as springs, dampers, friction.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end PartialCompliant;
 
     partial model PartialCompliantWithRelativeStates
@@ -5979,10 +5845,7 @@ and c are more meaningful for the user.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+"));
     end PartialCompliantWithRelativeStates;
 
     partial model PartialElementaryOneFlangeAndSupport
@@ -6093,11 +5956,7 @@ and instead the component is internally fixed to ground.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -6234,11 +6093,7 @@ and instead the component is internally fixed to ground.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -6378,11 +6233,7 @@ and instead the translational part is internally fixed to ground.
             Line(
               visible=not useSupportR,
               points={{-115,-100},{-85,-100}},
-              color={0,0,0})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              color={0,0,0})}));
     end PartialElementaryRotationalToTranslational;
 
     partial model PartialTorque
@@ -6395,8 +6246,6 @@ and instead the translational part is internally fixed to ground.
     equation
       phi = flange.phi - phi_support;
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -6508,11 +6357,7 @@ with the blocks of package Modelica.Blocks.
               extent={{-5,5},{5,-5}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              fillPattern=FillPattern.Solid)}));
     end PartialAbsoluteSensor;
 
     partial model PartialRelativeSensor
@@ -6568,11 +6413,7 @@ with the blocks of package Modelica.Blocks.
               extent={{-5,5},{5,-5}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              fillPattern=FillPattern.Solid)}));
     end PartialRelativeSensor;
 
     partial model PartialFriction "Partial model of Coulomb friction elements"

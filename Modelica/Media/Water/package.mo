@@ -67,8 +67,6 @@ package ConstantPropertyLiquidWater
           extent={{-90,-22},{90,-90}},
           lineColor={0,0,0},
           textString="water")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}})),
     Documentation(info="<html>
 
 </html>"));

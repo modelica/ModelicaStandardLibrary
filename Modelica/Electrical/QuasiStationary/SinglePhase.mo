@@ -369,7 +369,7 @@ wheras the transient model may have only one ground since AC side and DC side ar
 
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
-</html>"),   Icon(graphics));
+</html>"));
   end Examples;
 
   package Basic "Basic components for AC singlephase models"
@@ -1934,8 +1934,7 @@ The absolute sensor partial model provides a single
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.MultiPhase.Interfaces.RelativeSensor\">MultiPhase.Interfaces.RelativeSensor</a>
 </p>
 
-</html>"),
-        Diagram(graphics));
+</html>"));
     end AbsoluteSensor;
 
     partial model RelativeSensor "Partial voltage / current sensor"

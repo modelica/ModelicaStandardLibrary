@@ -291,9 +291,7 @@ package Sensors "Sensors to measure variables"
         points={{61,0},{80,0},{80,-30},{100,-30},{100,-38.8}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-                         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+    annotation (                         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Line(
             visible=get_r,
@@ -797,9 +795,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}},
-          grid={1,1})),   Icon(coordinateSystem(preserveAspectRatio=true,
+    annotation (   Icon(coordinateSystem(preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -1046,8 +1042,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1194,8 +1189,7 @@ computed as:
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),                                                 Icon(coordinateSystem(
+    annotation (                                                 Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{70,0},{100,0}},
@@ -1312,9 +1306,7 @@ computed as:
           Text(
             extent={{62,-22},{172,-44}},
             lineColor={0,0,0},
-            textString="angles")}),Diagram(coordinateSystem(
-            preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+            textString="angles")}),      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate the world frame
 into frame_a along the axes defined by parameter <b>sequence</b>.
@@ -1405,9 +1397,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,extent={{-100,
-              -100},{100,100}},
-          grid={1,1})),              Icon(coordinateSystem(
+    annotation (              Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -1529,8 +1519,7 @@ computed as:
         points={{0,-11},{0,-110}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -1669,9 +1658,7 @@ computed as:
         color={95,95,95},
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}},
-          grid={1,1})),              Icon(coordinateSystem(
+    annotation (              Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -1804,9 +1791,7 @@ computed as:
           Text(
             extent={{0,-76},{110,-98}},
             lineColor={0,0,0},
-            textString="angles")}),Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+            textString="angles")}),      Documentation(info="<html>
 <p>
 This model determines the 3 angles to rotate frame_a
 into frame_b along the axes defined by parameter <b>sequence</b>.
@@ -1903,8 +1888,7 @@ and sequence[2] &ne; sequence[3]. Often used values are:
         points={{0,-11},{0,-110}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -2158,8 +2142,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
             lineColor={0,0,0},
             textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<HTML>
 <p>
 The cut-force acting between the two frames to which this
@@ -2282,8 +2264,6 @@ with negative sign at frame_a.
             lineColor={0,0,0},
             textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                 127})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<HTML>
 <p>
 The cut-torque acting between the two frames to which this
@@ -2461,8 +2441,6 @@ with negative sign at frame_a.
             extent={{-56,-70},{60,-96}},
             lineColor={0,0,0},
             textString="torque")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting between the two frames to which this
@@ -2531,8 +2509,6 @@ with negative sign at frame_a.
     power = frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0))
        + frame_a.t*Frames.angularVelocity2(frame_a.R);
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-70,0},{-101,0}}, color={0,0,0}),
@@ -2621,8 +2597,7 @@ as output signal <b>power</b>.
         points={{0,12},{0,120}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
             preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
           graphics={
           Line(
@@ -2738,8 +2713,7 @@ transformed output vector as \"Real r_out[3]\";
         points={{0,12},{0,120}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})), Icon(coordinateSystem(
+    annotation ( Icon(coordinateSystem(
             preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
           Line(
             points={{0,-70},{0,-100}},
@@ -2781,10 +2755,7 @@ transformed output vector as \"Real r_out[3]\";
 
     equation
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={Text(
               extent={{-108,43},{-72,18}},
               lineColor={128,128,128},
@@ -2818,10 +2789,7 @@ transformed output vector as \"Real r_out[3]\";
        frame_a.t = zeros(3);
        frame_resolve.f = zeros(3);
        frame_resolve.t = zeros(3);
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Text(
@@ -2863,10 +2831,7 @@ transformed output vector as \"Real r_out[3]\";
     equation
        assert(cardinality(frame_a) > 0, "Connector frame_a must be connected at least once");
        assert(cardinality(frame_b) > 0, "Connector frame_b must be connected at least once");
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
@@ -2917,10 +2882,7 @@ transformed output vector as \"Real r_out[3]\";
        frame_b.t = zeros(3);
        frame_resolve.f = zeros(3);
        frame_resolve.t = zeros(3);
-      annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})), Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{-108,43},{-72,18}},
@@ -2986,10 +2948,7 @@ transformed output vector as \"Real r_out[3]\";
               textString="r"), Text(
               extent={{-127,75},{134,123}},
               textString="%name",
-              lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-            grid={1,1}),
-            graphics));
+              lineColor={0,0,255})}));
     end BasicAbsolutePosition;
 
     model BasicAbsoluteAngularVelocity "Measure absolute angular velocity"
@@ -3027,9 +2986,7 @@ transformed output vector as \"Real r_out[3]\";
               textString="w"), Text(
               extent={{-130,76},{131,124}},
               textString="%name",
-              lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-            graphics));
+              lineColor={0,0,255})}));
     end BasicAbsoluteAngularVelocity;
 
     model BasicRelativePosition
@@ -3071,10 +3028,7 @@ transformed output vector as \"Real r_out[3]\";
               textString="r_rel"), Text(
               extent={{-127,95},{134,143}},
               textString="%name",
-              lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-            grid={1,1}),
-            graphics));
+              lineColor={0,0,255})}));
     end BasicRelativePosition;
 
     model BasicRelativeAngularVelocity "Measure relative angular velocity"
@@ -3118,9 +3072,7 @@ transformed output vector as \"Real r_out[3]\";
               textString="w_rel"), Text(
               extent={{-132,90},{129,138}},
               textString="%name",
-              lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
+              lineColor={0,0,255})}));
     end BasicRelativeAngularVelocity;
 
     model BasicTransformAbsoluteVector
@@ -3234,11 +3186,7 @@ transformed output vector as \"Real r_out[3]\";
               points={{95,0},{95,0},{70,0},{70,0}},
               color={0,0,0},
               smooth=Smooth.None,
-              pattern=LinePattern.Dot)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}},
-            grid={1,1}),
-            graphics));
+              pattern=LinePattern.Dot)}));
     end BasicTransformAbsoluteVector;
 
     model BasicTransformRelativeVector
@@ -3306,9 +3254,7 @@ transformed output vector as \"Real r_out[3]\";
             Line(
               points={{0,100},{0,70}},
               color={0,0,127},
-              smooth=Smooth.None)}), Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}}),
-            graphics));
+              smooth=Smooth.None)}));
     end BasicTransformRelativeVector;
 
     model ZeroForceAndTorque "Set force and torque to zero"
@@ -3392,11 +3338,7 @@ with the blocks of package Modelica.Blocks.
             Line(
               points={{80,0},{80,-100}},
               color={95,95,95},
-              pattern=LinePattern.Dot)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              pattern=LinePattern.Dot)}));
     end PartialCutForceSensor;
 
     partial model PartialCutForceBaseSensor
@@ -3475,11 +3417,7 @@ with the blocks of package Modelica.Blocks.
             Line(
               points={{80,0},{80,-100}},
               color={95,95,95},
-              pattern=LinePattern.Dot)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              pattern=LinePattern.Dot)}));
     end PartialCutForceBaseSensor;
 
     model BasicCutForce
@@ -3519,9 +3457,6 @@ with the blocks of package Modelica.Blocks.
               lineColor={0,0,0},
               textString="force"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}},
-            grid={1,1})),
         Documentation(info="<HTML>
 
 </HTML>"));
@@ -3565,8 +3500,6 @@ with the blocks of package Modelica.Blocks.
               lineColor={0,0,0},
               textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
                   0,127})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<HTML>
 
 </HTML>"));

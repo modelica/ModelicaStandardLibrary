@@ -43,10 +43,7 @@ If <code>use_portsData=true</code>, the port pressures represent the pressures j
 The hydraulic resistances <code>portsData.zeta_in</code> and <code>portsData.zeta_out</code> determine the dissipative pressure drop between volume and port depending on
 the direction of mass flow. See <a href=\"modelica://Modelica.Fluid.Vessels.BaseClasses.VesselPortsData\">VesselPortsData</a> and <i>[Idelchik, Handbook of Hydraulic Resistance, 2004]</i>.
 </p>
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}),
-              graphics));
+</html>"));
     end ClosedVolume;
 
 model OpenTank "Simple tank with inlet/outlet ports"
@@ -181,12 +178,7 @@ Adapted to the new fluid library interfaces:
 <li><i>Apr. 25, 2006</i> by Katrin Pr&ouml;l&szlig; (TUHH):<br>
 Limitation to bottom ports only, added inlet and outlet loss factors.</li>
 </ul>
-</html>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1},
-          initialScale=0.2), graphics));
+</html>"));
 end OpenTank;
 
   package BaseClasses
@@ -468,8 +460,6 @@ should be used if these values are needed.
 <li><i>Dec. 2008</i> by R&uuml;diger Franke: derived from OpenTank, in order to make general use of configurable port diameters</li>
 </ul>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}})),
           Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-150,110},{150,150}},

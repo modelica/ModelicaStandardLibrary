@@ -35,10 +35,6 @@ equation
                                      expr[firstActiveIndex];
   annotation (
     defaultComponentName="set1",
-    Diagram(coordinateSystem(
-        preserveAspectRatio=false,
-        extent={{-100,-100},{300,100}},
-        grid={1,1})),
     Icon(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-100},{300,100}},

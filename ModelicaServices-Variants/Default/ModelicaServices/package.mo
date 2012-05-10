@@ -656,10 +656,6 @@ end Shape;
     "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
 
     annotation (
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 The interface of this model is documented at

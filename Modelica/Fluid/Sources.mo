@@ -281,11 +281,7 @@ is from the boundary into the port. If mass is flowing from
 the port into the boundary, the boundary definitions,
 with exception of boundary pressure, do not have an effect.
 </p>
-</html>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+</html>"));
   end Boundary_pT;
 
   model Boundary_ph
@@ -583,10 +579,6 @@ with exception of boundary pressure, do not have an effect.
             extent={{-155,-98},{-35,-126}},
             lineColor={0,0,0},
             textString="C")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<html>
 <p>
 Models an ideal flow source, with prescribed values of flow rate, temperature, composition and trace substances:
@@ -744,10 +736,6 @@ with exception of boundary flow rate, do not have an effect.
             extent={{-150,110},{150,150}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<html>
 <p>
 Models an ideal flow source, with prescribed values of flow rate, temperature and composition:
@@ -824,10 +812,7 @@ features are:
 <li> The outflow enthalpy rate (= port.h_outflow) and the composition of the
      substances (= port.Xi_outflow) are identical to the respective values in the volume.</li>
 </ul>
-</html>"),   Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}})),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}), graphics));
+</html>"));
   end PartialSource;
   end BaseClasses;
   annotation (Documentation(info="<html>

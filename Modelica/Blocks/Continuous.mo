@@ -831,10 +831,7 @@ to compute u by an algebraic equation.
 </p>
 
 </HTML>
-"),   Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+"));
   end PID;
 
   block LimPID
@@ -1190,10 +1187,7 @@ defined limits. For backward compatibility reasons
 to use <b>limitAtInit</b> = <b>false</b>.
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+"));
   end LimPID;
 
   block TransferFunction "Linear transfer function"
@@ -1986,10 +1980,6 @@ The critical damping filter is defined as
             fillColor={255,255,255},
             fillPattern=FillPattern.Backward),
           Line(points={{22,10},{30,-2},{36,-20},{40,-32},{44,-58},{46,-78}})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 
 <p>

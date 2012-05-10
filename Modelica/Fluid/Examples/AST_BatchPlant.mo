@@ -656,9 +656,7 @@ package AST_BatchPlant
         points={{-8,99},{-8,20},{-8,20}},
         color={0,127,255},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-300,
-              -300},{300,300}})),
-      experiment(StopTime=3600),
+    annotation (      experiment(StopTime=3600),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/AST_BatchPlant_StandardWater/plot level.mos"
           "plot level"),
@@ -898,10 +896,6 @@ handled properly.</p>
               lineColor={0,0,0},
               textString="%u"),
             Text(extent={{-150,90},{140,50}}, textString="%name")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 
 </html>"));
@@ -1254,9 +1248,7 @@ handled properly.</p>
 <p>
 Full steady state initialization is not supported, because the corresponding intial equations for temperature/enthalpy are undetermined (the flow rate through the port at steady state is zero).
 </p>
-</HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-200,-100},
-                {200,100}}), graphics));
+</HTML>"));
     end TankWith3InletOutletArraysWithEvaporatorCondensor;
 
     model InnerTank
@@ -2097,12 +2089,7 @@ Implemented trace substances and missing equation for outflow of multi substance
    (top, bottom, side ports; correctly treating kinetic energy for outlet
    and total dissipation for inlet; ports can be above the fluid level).</li>
 </ul>
-</html>"),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1},
-            initialScale=0.2), graphics));
+</html>"));
   end TankWithTopPorts;
   end BaseClasses;
 
@@ -2173,14 +2160,6 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{-39,70},{-24,70},{-24,60},{-12,60}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=100),
-        __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/OneTank/plot level and port.p.mos"
-              "plot level and port.p",
-                                     file=
-              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/OneTank/plot level, port.p and port.m_flow.mos"
-              "plot level, port.p and port.m_flow")));
     end OneTank;
 
     model TwoTanks
@@ -2227,11 +2206,6 @@ Implemented trace substances and missing equation for outflow of multi substance
               -20},{-30,-20}}, color={0,127,255}));
       connect(pipe.port_b, tank2.ports[1]) annotation (Line(points={{-10,-20},{20,
               -20},{20,-1}}, color={0,127,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=70),
-        __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/TwoTanks/plot level and port.p.mos"
-              "plot level and port.p")));
     end TwoTanks;
 
     model TankWithEmptyingPipe1
@@ -2305,15 +2279,6 @@ Implemented trace substances and missing equation for outflow of multi substance
                                color={0,127,255}));
       connect(pipe.port_a, tank1.ports[2]) annotation (Line(points={{40,0},{40,-28},
               {-18,-28},{-18,-20},{-18,-21}},                color={0,127,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=35),
-        __Dymola_Commands(file=
-              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TankWithEmptyingPipe1/plot level and port.p.mos"
-              "plot level and port.p",
-                                     file=
-              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TankWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
-              "plot level, port.p and port.m_flow")));
     end TankWithEmptyingPipe1;
 
     model TankWithEmptyingPipe2
@@ -2383,12 +2348,6 @@ Implemented trace substances and missing equation for outflow of multi substance
               -18,-21},{-18,-40},{30,-40},{30,-50}}, color={0,127,255}));
       connect(ambient_fixed1.ports[1], pipe2.port_a) annotation (Line(points={{20,-90},
               {30,-90},{30,-70}}, color={0,127,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=35),
-        __Dymola_Commands(file=
-              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TankWithEmptyingPipe2/plot level and port.p.mos"
-              "plot level and port.p")));
     end TankWithEmptyingPipe2;
 
     model TanksWithEmptyingPipe1
@@ -2488,13 +2447,6 @@ Implemented trace substances and missing equation for outflow of multi substance
               255}));
       connect(pipe3.port_b, tank2.ports[2]) annotation (Line(points={{0,20},{10,
               20},{10,-8},{38,-8},{38,0},{42,0},{42,-1}}, color={0,127,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=35),
-        __Dymola_Commands(
-          file=
-              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithEmptyingPipe1/plot level, port.p and port.m_flow.mos"
-              "plot level, port.p and port.m_flow")));
     end TanksWithEmptyingPipe1;
 
     model TanksWithEmptyingPipe2
@@ -2621,12 +2573,6 @@ Implemented trace substances and missing equation for outflow of multi substance
           points={{6.12323e-016,-12},{0,-12},{0,9},{2.22045e-016,9}},
           color={0,127,255},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-        experiment(StopTime=300),
-        __Dymola_Commands(file=
-              "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithEmptyingPipe2/plot level and port.m_flow.mos"
-              "plot level and port.m_flow")));
     end TanksWithEmptyingPipe2;
   end Test;
   annotation (preferredView="info",Documentation(info="<html>

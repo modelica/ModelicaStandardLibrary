@@ -62,9 +62,7 @@ equation
       points={{40.1,-6.1},{54,-6.1},{54,-20}},
       color={0,0,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-    experiment(StopTime=0.2),
+  annotation (    experiment(StopTime=0.2),
     Documentation(info="<html>
 <p>The simple converter circuit converts an analog sine signal into a N-bit (by default a 4 bit) logic signal, which is converted backward into an analog signal.</p>
 <ul>

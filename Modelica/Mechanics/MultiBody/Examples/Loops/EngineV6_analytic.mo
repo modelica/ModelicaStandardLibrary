@@ -56,10 +56,6 @@ equation
   connect(torqueSensor.tau, filter.u) annotation (Line(points={{14,9},{14,-10},
           {28,-10}}, color={0,0,127}));
   annotation (
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2})),
     Documentation(info="<HTML>
 <p>
 This is a similar model as the example \"EngineV6\". However, the cylinders

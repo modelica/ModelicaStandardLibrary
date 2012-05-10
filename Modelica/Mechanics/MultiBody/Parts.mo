@@ -827,10 +827,6 @@ the animation may be switched off via parameter animation = <b>false</b>.
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> with mass and inertia tensor.
@@ -1431,11 +1427,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{-87,12},{-51,-13}},
             lineColor={0,0,0},
-            textString="a")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            textString="a")}));
   end BodyBox;
 
   model BodyCylinder
@@ -1641,11 +1633,7 @@ states and of the \"Advanced\" menu parameters, see model
           Text(
             extent={{51,12},{87,-13}},
             lineColor={0,0,0},
-            textString="b")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            textString="b")}));
   end BodyCylinder;
 
   model PointMass
@@ -1750,10 +1738,6 @@ the only case where this is done.
             lineColor={0,0,0},
             fillPattern=FillPattern.Sphere,
             fillColor={0,127,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 <b>Rigid body</b> where the inertia tensor is neglected.
@@ -1874,8 +1858,7 @@ connecting to the <b>Mounting1D</b> component. In this case, a combination of se
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
 </HTML>
-"),   Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics));
+"));
   end Mounting1D;
 
   model Rotor1D
@@ -2099,10 +2082,7 @@ November 3-4, 2003, pp. 149-158</p>
               extent={{-148,112},{152,72}},
               textString="%name=%J",
               lineColor={0,0,255}),
-            Line(points={{0,-70},{0,-100}}, color={0,0,0})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),
-                          graphics));
+            Line(points={{0,-70},{0,-100}}, color={0,0,0})}));
   end RotorWith3DEffects;
 
   protected
@@ -2232,9 +2212,7 @@ November 3-4, 2003, pp. 149-158</p>
           Text(
             extent={{-150,80},{150,50}},
             lineColor={0,0,0},
-            textString="%J")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics));
+            textString="%J")}));
   end Rotor1D;
 
   model BevelGear1D
@@ -2361,9 +2339,7 @@ this component could be used to model any kind of gearbox with non-parallel axes
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}), graphics));
+</html>"));
   end BevelGear1D;
 
     model RollingWheel
@@ -2460,8 +2436,7 @@ November 3-4, 2003, pp. 149-158</p>
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (defaultComponentName="wheel",Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),        Icon(coordinateSystem(
+      annotation (defaultComponentName="wheel",        Icon(coordinateSystem(
               preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(

@@ -50,9 +50,7 @@ equation
   connect(Ground1.p, IdealCommutingSwitch1.n1) annotation (Line(
         points={{-60,-20},{-60,-5}},
         color={0,0,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-              -100},{100,100}})),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+  annotation (    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-80,32},{80,-30}},
@@ -131,9 +129,7 @@ equation
   connect(IdealCommutingSwitch2.n1, n2) annotation (Line(
         points={{60,5},{80,5},{80,2},{100,2}},
         color={0,0,255}));
-  annotation (Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+  annotation (    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
             extent={{-80,30},{80,-32}},

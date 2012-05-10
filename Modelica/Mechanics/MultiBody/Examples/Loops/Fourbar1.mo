@@ -126,7 +126,5 @@ of revolute joint j1 is set to 300 deg/s in order to drive this loop.
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/Fourbar1.png\" ALT=\"model Examples.Loops.Fourbar1\">
 </html>
-"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-            100,100}}),
-            graphics));
+"));
 end Fourbar1;

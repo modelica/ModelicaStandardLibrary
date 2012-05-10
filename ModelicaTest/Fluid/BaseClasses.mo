@@ -217,10 +217,6 @@ Note, if the \"heatPort\" is not connected, then the pipe
 is totally insulated (= no thermal flow from the fluid to the
 pipe wall/environment).
 </p>
-</html>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})));
+</html>"));
   end LumpedPipe;
 end BaseClasses;

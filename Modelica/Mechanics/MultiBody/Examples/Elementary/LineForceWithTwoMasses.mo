@@ -157,10 +157,6 @@ equation
     annotation (Line(points={{4,-71},{0,-71},{0,-86}}, color={0,191,0}));
   annotation (
     experiment(StopTime=3),
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1})),
     Documentation(info="<html>
 <p>
 It is demonstrated how to implement line force components

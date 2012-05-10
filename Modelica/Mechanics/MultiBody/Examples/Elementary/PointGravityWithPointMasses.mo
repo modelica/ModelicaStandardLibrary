@@ -47,8 +47,6 @@ equation
       color={95,95,95},
       thickness=0.5));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-            100}})),
     experiment(StopTime=2),
     Documentation(info="<HTML>
 <p>

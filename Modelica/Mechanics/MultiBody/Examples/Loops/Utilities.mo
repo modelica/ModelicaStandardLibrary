@@ -212,10 +212,6 @@ package Utilities "Utility models for Examples.Loops"
         thickness=0.5));
 
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-150},{100,150}},
-          grid={1,1})),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-150},{100,150}},
@@ -677,10 +673,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -761,11 +753,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         points={{-20,-70},{-64,-70}},
         color={95,95,95},
         thickness=0.5));
-    annotation (                                           Diagram(
-          coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
   end Cylinder_analytic_CAD;
 
   model EngineV6_analytic "V6 engine with analytic loop handling"
@@ -915,11 +902,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
             lineColor={0,0,255},
             textString="%name"),
           Bitmap(extent={{-97,75},{99,-39}}, fileName=
-                "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD.png")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+                "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Loops/EngineV6_CAD.png")}));
   end EngineV6_analytic;
 
   partial model Engine1bBase "Model of one cylinder engine with gas force"
@@ -1023,10 +1006,6 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=0.5));
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-120},{150,120}},
-          grid={1,1})),
       Documentation(info="<html>
 <p>
 This is a model of the mechanical part of one cylinder of an engine.

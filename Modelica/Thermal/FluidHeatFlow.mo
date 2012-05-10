@@ -119,9 +119,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
 <td valign=\"top\">10 K</td>
 </tr>
 </table>
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end SimpleCooling;
 
     model ParallelCooling "Example: coolig circuit with parallel branches"
@@ -320,9 +318,7 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
 <td valign=\"top\">15 K</td>
 </tr>
 </table>
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end ParallelCooling;
 
     model IndirectCooling "Example: indirect cooling circuit"
@@ -525,9 +521,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
 <td valign=\"top\">10 K</td>
 </tr>
 </table>
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.5, Interval=0.001));
+</HTML>"),        experiment(StopTime=1.5, Interval=0.001));
     end IndirectCooling;
 
     model PumpAndValve "Example: cooling circuit with pump and valve"
@@ -650,9 +644,7 @@ You may try to:
 <li>drive the pump with constant speed and throttle the valve
     to regulate the volume flow rate of coolant</li>
 </ul>
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=2.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=2.0, Interval=0.001));
     end PumpAndValve;
 
     model PumpDropOut "Example: cooling circuit with drop out of pump"
@@ -740,9 +732,7 @@ You may try to:
 Same as 1st test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=2.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=2.0, Interval=0.001));
     end PumpDropOut;
 
     model ParallelPumpDropOut
@@ -893,9 +883,7 @@ then started again (using a ramp of 0.2 s).
 Same as 2nd test example, but with a drop out of the pump:<br>
 The pump is running for 0.2 s, then shut down (using a ramp of 0.2 s) for 0.2 s,
 then started again (using a ramp of 0.2 s).
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=2.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=2.0, Interval=0.001));
     end ParallelPumpDropOut;
 
     model OneMass "Example: ccoling of one hot mass"
@@ -971,9 +959,7 @@ then started again (using a ramp of 0.2 s).
 A thermal capacity is coupled with a coolant flow.
 Different inital temperatures of thermal capacity and pipe's coolant get ambient's temperature,
 the time behaviour depending on coolant flow.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end OneMass;
 
     model TwoMass "Example: cooling of two hot masses"
@@ -1094,9 +1080,7 @@ the time behaviour depending on coolant flow.
 Two thermal capacities are coupled with two parallel coolant flow.
 Different inital temperatures of thermal capacities and pipe's coolants get ambient's temperature,
 the time behaviour depending on coolant flow.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        experiment(StopTime=1.0, Interval=0.001));
+</HTML>"),        experiment(StopTime=1.0, Interval=0.001));
     end TwoMass;
 
     package Utilities "Utility models for examples"
@@ -1146,9 +1130,7 @@ the time behaviour depending on coolant flow.
         annotation (
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
-</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}})),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
               Polygon(
@@ -1252,8 +1234,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
        <i>new test example: TwoMass</i></li>
   </ul>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics));
+"));
   end Examples;
 
   package Components "Basic components (pipes, valves)"
@@ -1283,9 +1264,7 @@ leads to neglection of temperature transient cv*m*der(T).
               lineColor={255,0,0},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid), Text(extent={{-150,100},{150,40}},
-                textString="%name")}),                          Diagram(
-            coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}),                                             graphics));
+                textString="%name")}));
     end IsolatedPipe;
 
     model HeatedPipe "Pipe with heat exchange"
@@ -1324,10 +1303,7 @@ temperature rise defined by storing heat in medium's mass.
             Text(extent={{-150,100},{150,40}}, textString="%name"),
             Polygon(
               points={{-10,-90},{-10,-40},{0,-20},{10,-40},{10,-90},{-10,-90}},
-              lineColor={255,0,0})}),
-                                Diagram(coordinateSystem(preserveAspectRatio=
-                false, extent={{-100,-100},{100,100}}),
-                                        graphics));
+              lineColor={255,0,0})}));
     end HeatedPipe;
 
     model Valve "Simple valve"
@@ -1411,10 +1387,7 @@ V_flow**2 * rho / dp = Kv(y)**2 * rho0 / dp0
               lineColor={255,0,0},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{0,80},{0,0}}, color={0,0,127})}),
-                                Diagram(coordinateSystem(preserveAspectRatio=false,
-                       extent={{-100,-100},{100,100}}),
-                                        graphics));
+            Line(points={{0,80},{0,0}}, color={0,0,127})}));
     end Valve;
   annotation (Documentation(info="<HTML>
 This package contains components:
@@ -1561,8 +1534,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
        corrected usage of cv and cp</li>
   </ul>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics));
+"));
   end Media;
 
   package Sensors "Ideal sensors to measure port properties"
@@ -1734,8 +1706,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
        first stable official release</li>
   </ul>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics));
+"));
   end Sensors;
 
   package Sources "Ideal fluid sources, e.g., ambient, volume flow"
@@ -1777,9 +1748,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
     annotation (Documentation(info="<HTML>
 (Infinite) ambient with constant pressure and temperature.<br>
 Thermodynamic equations are defined by Partials.Ambient.
-</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</HTML>"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{20,80},{80,20}},
               lineColor={0,0,0},
@@ -1866,10 +1835,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             Text(
               extent={{-40,20},{0,-20}},
               lineColor={0,0,0},
-              textString="V")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics));
+              textString="V")}));
     end VolumeFlow;
 
     model PressureIncrease "Enforces constant pressure increase"
@@ -1920,10 +1886,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
             Text(
               extent={{-40,20},{0,-20}},
               lineColor={0,0,0},
-              textString="dp")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                        graphics));
+              textString="dp")}));
     end PressureIncrease;
 
     model IdealPump "Model of an ideal pump"
@@ -1993,10 +1956,7 @@ Thermodynamic equations are defined by Partials.TwoPort.
               points={{-60,68},{90,10},{90,-10},{-60,-68},{-60,68}},
               lineColor={0,0,0},
               fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+              fillColor={0,0,255})}));
     end IdealPump;
   annotation (Documentation(info="<HTML>
 This package contains different types of sources:
@@ -2040,8 +2000,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
        <i>new model: IdealPump</i></li>
   </ul>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics));
+"));
   end Sources;
 
   package Interfaces "Connectors and partial models"
@@ -2358,10 +2317,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
               Text(
                 extent={{-150,130},{150,70}},
                 lineColor={0,0,255},
-                textString="%name")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=true,
-                         extent={{-100,-100},{100,100}}),
-                                        graphics));
+                textString="%name")}));
       end AbsoluteSensor;
 
       partial model RelativeSensor "Partial model of relative sensor"
@@ -2419,10 +2375,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
               Text(
                 extent={{-150,130},{150,70}},
                 lineColor={0,0,255},
-                textString="%name")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=true,
-                         extent={{-100,-100},{100,100}}),
-                                        graphics));
+                textString="%name")}));
       end RelativeSensor;
 
       partial model FlowSensor "Partial model of flow sensor"
@@ -2470,10 +2423,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected, b
               Text(
                 extent={{-150,130},{150,70}},
                 lineColor={0,0,255},
-                textString="%name")}),
-                                Diagram(coordinateSystem(preserveAspectRatio=
-                  false, extent={{-100,-100},{100,100}}),
-                                        graphics));
+                textString="%name")}));
       end FlowSensor;
     annotation (Documentation(info="<HTML>
 This package contains partial models, defining in a very compact way the basic thermodynamic equations used by the different components.<br>
@@ -2573,8 +2523,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
        semiLinear works fine</li>
   </ul>
 </HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}), graphics));
+"));
   end Interfaces;
   annotation (
     Documentation(info="<HTML>

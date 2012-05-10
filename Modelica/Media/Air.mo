@@ -1167,7 +1167,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     redeclare function extends velocityOfSound
     algorithm
       a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end velocityOfSound;
@@ -1176,7 +1176,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 
     algorithm
       beta := 1 / temperature(state);
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isobaricExpansionCoefficient;
@@ -1185,7 +1185,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 
     algorithm
       kappa := 1 / pressure(state);
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isothermalCompressibility;
@@ -1195,7 +1195,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       ddph := 1 / (gasConstant(state) * temperature(state));
 
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derp_h;
@@ -1204,7 +1204,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 
     algorithm
       ddhp := - density(state) / (specificHeatCapacityCp(state) * temperature(state));
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derh_p;
@@ -1214,7 +1214,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       ddpT := 1 / (gasConstant(state) * temperature(state));
 
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derp_T;
@@ -1223,7 +1223,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 
     algorithm
       ddTp := - density(state) / temperature(state);
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derT_p;
@@ -1234,7 +1234,7 @@ It must be noted that the relationship of both axis variables is not right-angle
       dddX[Water] := pressure(state) * (steam.R - dryair.R) / ((steam.R - dryair.R) * state.X[Water] * temperature(state) + dryair.R * temperature(state))^2;
       dddX[Air] := pressure(state) * (dryair.R - steam.R) / ((dryair.R - steam.R) * state.X[Air] * temperature(state) + steam.R * temperature(state))^2;
 
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derX;
@@ -1242,7 +1242,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     redeclare function extends molarMass
     algorithm
       MM := Modelica.Media.Air.MoistAir.gasConstant(state)/Modelica.Constants.R;
-      annotation (Icon(graphics), Documentation(revisions="<html>
+      annotation ( Documentation(revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end molarMass;
@@ -1278,7 +1278,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
 </html>", revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
-</html>"), Icon(graphics));
+</html>"));
   end T_psX;
 
     redeclare function extends setState_psX
@@ -1290,8 +1290,7 @@ Temperature is computed from pressure, specific entropy and composition via nume
 The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 </html>", revisions="<html>
 <p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
-</html>"),
-        Icon(graphics));
+</html>"));
     end setState_psX;
 
   function s_pTX

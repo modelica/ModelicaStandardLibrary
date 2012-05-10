@@ -26,7 +26,7 @@ Connector with one signal of type Boolean (no icon, no input/output prefix).
         annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
-Connector with one signal of type Icon (no icon, no input/output prefix).
+Connector with one signal of type .
 </p>
 </html>"));
       package Adaptors
@@ -650,11 +650,7 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
-                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10])),
-            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10])));
+"));
         end WorldForceAndTorque;
 
         model FrameForceAndTorque
@@ -833,11 +829,7 @@ This leads to the following animation
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
-                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10])),
-            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10])));
+"));
         end FrameForceAndTorque;
 
         model ForceAndTorque
@@ -951,8 +943,6 @@ is resolved in the world frame).
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
             preferredView="info",
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}})),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -1045,11 +1035,7 @@ clarity this is not shown in the animation):
 An external force element exerts the inport signal
 as negative force on the connector frame (the force vector
 is resolved in the world frame).
-"),         Icon(Text(extent=[-132, 99; 128, 39], string="%name"), Polygon(points=[-100,
-                     10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-                    10])),
-            Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-                     -90, -10; -90, 10])));
+"));
         end ForceAndTorque;
       end Forces;
 
@@ -2742,10 +2728,6 @@ and resolved in the following frame
           annotation (
             __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
             preferredView="info",
-            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                    {100,100}})),
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}})),
             Documentation(info="<HTML>
 <p>
 The cut-force and cut-torque acting at the component to which frame_b is
@@ -2898,10 +2880,7 @@ with inertia.
 </p>
 
 </HTML>
-"),         Diagram(coordinateSystem(
-                preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}},
-                grid={2,2})));
+"));
         end Rigid;
 
         partial model Bearing
@@ -3047,8 +3026,6 @@ of several base components.</p>
             bearing.tau = -flange.tau;
           end if;
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}})),
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(

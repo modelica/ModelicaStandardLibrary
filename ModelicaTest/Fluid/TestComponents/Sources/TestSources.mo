@@ -168,6 +168,5 @@ equation
       points={{46,-40},{52,-40},{52,-58},{76,-58}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}})), experiment(StopTime=2));
+  annotation ( experiment(StopTime=2));
 end TestSources;

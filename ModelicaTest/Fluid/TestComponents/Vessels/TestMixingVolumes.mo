@@ -64,7 +64,5 @@ equation
       points={{-17.3333,40},{-17.3333,36},{22.6667,36},{22.6667,40}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-                       experiment(StopTime=10));
+  annotation (                       experiment(StopTime=10));
 end TestMixingVolumes;

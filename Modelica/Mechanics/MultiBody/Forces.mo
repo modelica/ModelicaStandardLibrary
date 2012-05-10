@@ -75,8 +75,6 @@ package Forces "Components that exert forces and/or torques between frames"
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (defaultComponentName="force",
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
@@ -329,11 +327,7 @@ This leads to the following animation
             points={{94,10},{75,59},{41,24},{94,10}},
             lineColor={0,0,0},
             fillColor={0,0,0},
-            fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            fillPattern=FillPattern.Solid)}));
   end WorldTorque;
 
   model WorldForceAndTorque
@@ -457,8 +451,6 @@ This leads to the following animation
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (defaultComponentName="forceAndTorque",
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Text(
@@ -563,14 +555,7 @@ This leads to the following animation
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 
 </HTML>
-"),      Icon(Text(extent=[-132, 99; 128, 39], string="%name",
-          lineColor={0,0,255}),                              Polygon(points=[-100,
-               10; 49, 10; 49, 31; 100, 0; 49, -31; 49, -10; -100, -10; -100,
-              10],
-          lineColor={0,0,255})),
-      Diagram(Polygon(points=[-90, 10; 40, 10; 40, 31; 91, 0; 40, -31; 40, -10;
-               -90, -10; -90, 10],
-          lineColor={0,0,255})));
+"));
   end WorldForceAndTorque;
 
   model Force
@@ -669,8 +654,6 @@ This leads to the following animation
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -866,8 +849,6 @@ clarity this is not shown in the animation):
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Rectangle(
@@ -1118,9 +1099,6 @@ clarity this is not shown in the animation):
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}},
-          grid={2,2})),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}},
           grid={2,2}), graphics={
@@ -2199,8 +2177,6 @@ in the other flange connector.
             extent={{62,50},{140,30}},
             lineColor={255,0,0},
             textString="R=0")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<HTML>
 <p>
 <b>Linear spring</b> acting as line force between frame_a and frame_b.
@@ -2668,8 +2644,6 @@ force element) and der(s_damper) is the time derivative of s_damper.
        zeros(3) = frame_a.f + Frames.resolve2(frame_a.R, f_b_0);
        zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, cross(r_0, f_b_0));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
@@ -2802,8 +2776,6 @@ values from the outside in order that the model remains balanced
        // torque balance
        zeros(3) = frame_a.t + Frames.resolve2(frame_a.R, t_b_0);
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(

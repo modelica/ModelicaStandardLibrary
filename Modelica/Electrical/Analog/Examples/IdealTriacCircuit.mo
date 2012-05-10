@@ -41,9 +41,7 @@ equation
       points={{11.2,21.04},{0,21.04},{0,8},{-5.2,8}},
       color={255,0,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-    experiment(StopTime=2),
+  annotation (    experiment(StopTime=2),
     Documentation(revisions="<html>
 <ul>
 <li><i>November 25, 2009   </i> <br>

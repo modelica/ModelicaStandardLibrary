@@ -169,10 +169,6 @@ Possible reasons:
             extent={{-150,60},{150,100}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 Joint where frame_b is translated along axis n which is fixed in frame_a.
@@ -448,10 +444,6 @@ Possible reasons:
             extent={{-150,70},{150,110}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<html>
 
 <p>
@@ -1010,11 +1002,7 @@ phi_b.start = 45<sup>o</sup>).
           Line(
             points={{32,38},{-12,-36}},
             color={0,0,0},
-            thickness=0.5)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            thickness=0.5)}));
   end Universal;
 
   model Planar "Planar joint (3 degrees-of-freedom, 6 potential states)"
@@ -3354,10 +3342,7 @@ of <code>frame_a</code> and <code>frame_b</code> may be arbitrary.</p>
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-</html>"),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}}),
-              graphics));
+</html>"));
   end GearConstraint;
 
     model RollingWheel
@@ -4953,12 +4938,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
             Line(
               points={{90,30},{90,40},{95,40}},
               color={95,95,95},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1},
-            initialScale=0.2), graphics));
+              thickness=0.5)}));
     end JointUSR;
 
     model JointUSP
@@ -5859,12 +5839,7 @@ component).
             Line(
               points={{90,30},{90,40},{95,40}},
               color={95,95,95},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1},
-            initialScale=0.2), graphics));
+              thickness=0.5)}));
     end JointSSR;
 
     model JointSSP
@@ -6229,12 +6204,7 @@ component).
             Line(
               points={{99,40},{90,40},{90,30}},
               color={95,95,95},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1},
-            initialScale=0.2), graphics));
+              thickness=0.5)}));
     end JointSSP;
 
     model JointRRR
@@ -6560,12 +6530,7 @@ are connected by rigid rods.
             Line(
               points={{100,40},{93,40},{93,3}},
               color={95,95,95},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1},
-            initialScale=0.2), graphics));
+              thickness=0.5)}));
     end JointRRR;
 
     model JointRRP
@@ -6910,12 +6875,7 @@ and 1 prismatic joint are connected by rigid rods.
             Line(
               points={{80,100},{80,80},{57,11}},
               color={95,95,95},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1},
-            initialScale=0.2), graphics));
+              thickness=0.5)}));
     end JointRRP;
     annotation ( Documentation(info="<HTML>
 <p>
@@ -7890,8 +7850,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
                 lineColor={0,0,0},
                 smooth=Smooth.None,
                 fillColor={255,255,255},
-                fillPattern=FillPattern.Solid)}), Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}}), graphics));
+                fillPattern=FillPattern.Solid)}));
      end RollingConstraintVerticalWheel;
 
     annotation (Documentation(info="<HTML>

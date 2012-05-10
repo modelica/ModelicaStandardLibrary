@@ -219,13 +219,11 @@ The primary and secondary starpoint are available as connectors, if the connecti
 In some cases it may be necessary to ground the transformer's starpoint
 even though the source's or load's starpoint are grounded; you may use a reasonable high earthing resistance.
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}})),
         experiment(StopTime=0.1, Interval=0.001));
     end TransformerTestbench;
     annotation (Documentation(info="<html>
 Examples to demonstrate the usage of quasistationary electric components.
-</html>"),   Icon(graphics));
+</html>"));
   end Examples;
 
   package BasicMachines "Basic machine models"
@@ -276,9 +274,7 @@ Examples to demonstrate the usage of quasistationary electric components.
 Transformer Yy0
 <br>Typical parameters see:
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
-</html>"),            Diagram(coordinateSystem(preserveAspectRatio=true,
-                  extent={{-100,-100},{100,100}}),
-                              graphics));
+</html>"));
         end Yy00;
 
         model Yy02 "Transformer Yy2"
@@ -531,8 +527,7 @@ This package contains transformers primary Y connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Yy;
 
       package Yd "Transformers: primary Y / secondary d"
@@ -790,8 +785,7 @@ This package contains transformers primary Y connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Yd;
 
       package Yz "Transformers: primary Y / secondary zig-zag"
@@ -1138,8 +1132,7 @@ This package contains transformers primary Y connected / secondary zig-zag conne
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Yz;
 
       package Dy "Transformers: primary D / secondary y"
@@ -1407,8 +1400,7 @@ This package contains transformers primary D connected / secondary y connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Dy;
 
       package Dd "Transformers: primary D / secondary d"
@@ -1636,8 +1628,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Dd;
 
       package Dz "Transformers: primary D / secondary ziag-zag"
@@ -1955,8 +1946,7 @@ This package contains transformers primary D connected / secondary d connected i
   <ul>
   <li> v1.0.0 2006/11/19 Anton Haumer</li>
   </ul>
-</HTML>"),      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics));
+</HTML>"));
       end Dz;
 
       annotation (
@@ -2191,8 +2181,6 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
                 fillPattern=FillPattern.Solid),
               Line(points={{32,-40},{90,-40}}, color={0,0,255}),
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
-          Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-                  100}})),
           Documentation(info="<html>
 Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
 </html>"));
@@ -2204,9 +2192,7 @@ Partial model of transformer core with 3 windings; saturation function flux vers
         im = fill(Complex(0), m);
         v1 = n12*v2;
         v1 = n13*v3;
-        annotation (defaultComponentName="core", Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-          Documentation(info="<html>
+        annotation (defaultComponentName="core",          Documentation(info="<html>
 Ideal transformer with 3 windings: no magnetizing current.
 </html>"));
       end IdealCore;
@@ -2398,9 +2384,7 @@ This package contains components for modeling quasi stationary electrical induct
           points={{80,10},{80,60},{0,60},{0,80}},
           color={191,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
-                           Icon(coordinateSystem(preserveAspectRatio=true,
+      annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Text(
               extent={{0,-60},{0,-100}},

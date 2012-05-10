@@ -123,9 +123,7 @@ equation
                                 color={0,127,255}));
   connect(junctionIdeal.port_2, openTankHot3.ports[1]) annotation (Line(points={{40,-80},
           {55.5,-80},{55.5,-80},{70,-80}},               color={0,127,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}})),
-                       Documentation(info="<html>
+  annotation (                       Documentation(info="<html>
 <p align = justify>In that test model the behaviour of one port temperature sensors with and without explicit junction models and two port temperature sensor are compared. Therefor each sensor is connected to two tanks with different temperatures and a flow source with changing flow direction.<p>
 <p align = justify>With Modelica.Fluid stream connectors, all three sensors show the same expected result.</p>
 </html>"),

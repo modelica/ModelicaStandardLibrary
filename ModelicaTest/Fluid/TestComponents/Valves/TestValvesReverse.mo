@@ -133,8 +133,6 @@ equation
   connect(V5.port_b, SinkP1.ports[1])
     annotation (Line(points={{50,6},{62,6}}, color={0,127,255}));
 annotation (
-  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}})),
   experiment(StopTime=4, Tolerance=1e-006),
   Documentation(info=""));
 end TestValvesReverse;

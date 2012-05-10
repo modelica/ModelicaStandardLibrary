@@ -32,9 +32,7 @@ equation
                                                   u);
   y = if firstActiveIndex > 0 then expr[firstActiveIndex] else
       if use_pre_as_default then pre(y) else y_default;
-  annotation (defaultComponentName="multiSwitch1",Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{300,100}},
-        grid={1,1})),             Icon(coordinateSystem(
+  annotation (defaultComponentName="multiSwitch1",             Icon(coordinateSystem(
         preserveAspectRatio=false,
         extent={{-100,-100},{300,100}},
         grid={1,1}), graphics={
@@ -244,9 +242,7 @@ the output is set to zero: y=0.
     when {trigger, local_reset} then
        y = if local_reset then local_set else pre(y) + u;
     end when;
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}},
-          initialScale=0.06)),       Icon(coordinateSystem(
+    annotation (       Icon(coordinateSystem(
             preserveAspectRatio=false, extent={{-100,-100},{100,100}},
           initialScale=0.06), graphics={
             Line(

@@ -72,9 +72,7 @@ With the stream connectors the thermodynamic states on the ports are generally d
 Other non storage components in the flow path may yield to state transformation. Note that this generally leads to nonlinear equation systems if multiple static pipes,
 or other flow models without storage, are directly connected.
 </p>
-</html>"),
-  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}}),                 graphics));
+</html>"));
   end StaticPipe;
 
   model DynamicPipe
@@ -985,11 +983,7 @@ or other flow models without storage, are directly connected.
 <p>
 Base class for one dimensional flow models. It specializes a PartialTwoPort with a parameter interface and icon graphics.
 </p>
-</html>"),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+</html>"));
     end PartialStraightPipe;
 
     partial model PartialTwoPortFlow "Base class for distributed flow models"

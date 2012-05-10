@@ -51,6 +51,5 @@ equation
       points={{-39,30},{-16,30},{-16,-4}},
       color={0,0,127},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-            {100,100}})), experiment(StopTime=2));
+  annotation ( experiment(StopTime=2));
 end TestCheckValve;

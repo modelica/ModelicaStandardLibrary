@@ -72,9 +72,7 @@ equation
       color={95,95,95},
       thickness=0.5,
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-            -100},{100,100}})),
-    experiment(StopTime=3),
+  annotation (    experiment(StopTime=3),
     Documentation(info="<html>
 
 </html>"));

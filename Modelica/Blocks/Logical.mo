@@ -12,8 +12,6 @@ package Logical "Library of components with Boolean input and output signals"
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="and")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if all inputs are <b>true</b>, otherwise
@@ -32,8 +30,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="or")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>true</b>, otherwise
@@ -51,8 +47,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="xor")}),
-                              Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if exactly one input is <b>true</b>, otherwise
@@ -70,8 +64,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nor")}),
-  Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}})),
   Documentation(info="<html>
 <p>
 The output is <b>true</b> if none of the inputs is <b>true</b>, otherwise
@@ -89,8 +81,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="nand")}),
-  Diagram(coordinateSystem(preserveAspectRatio=
-              false, extent={{-100,-100},{100,100}})),
   Documentation(info="<html>
 <p>
 The output is <b>true</b> if at least one input is <b>false</b>, otherwise
@@ -110,8 +100,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="not")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the input is <b>false</b>, otherwise
@@ -137,8 +125,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="pre")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 This block delays the Boolean input by an infinitesimal small time delay and
@@ -171,8 +157,6 @@ values are identical (u = pre(u)).
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="edge")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a rising edge
@@ -200,8 +184,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="falling")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has a falling edge
@@ -228,8 +210,6 @@ the output is <b>false</b>.
             extent={{-90,40},{90,-40}},
             lineColor={0,0,0},
             textString="change")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Boolean input has either a rising edge
@@ -250,8 +230,6 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             lineColor={0,0,0},
             textString=">")}),
-                        Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than
@@ -272,8 +250,6 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             lineColor={0,0,0},
             textString=">=")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is greater than or equal to
@@ -293,8 +269,6 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             lineColor={0,0,0},
             textString="<")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than
@@ -314,8 +288,6 @@ the output is <b>false</b>.
             extent={{-90,-40},{60,40}},
             lineColor={0,0,0},
             textString="<=")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
       Documentation(info="<html>
 <p>
 The output is <b>true</b> if the Real input is less than or equal to
@@ -521,11 +493,7 @@ u1, else it is set equal to u3.</p>
             extent={{2,8},{18,-6}},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+            lineColor={0,0,255})}));
   end LogicalSwitch;
 
   block Switch "Switch between two Real signals"
@@ -586,11 +554,7 @@ u1, else it is set equal to u3.</p>
             extent={{2,8},{18,-6}},
             fillColor={0,0,0},
             fillPattern=FillPattern.Solid,
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+            lineColor={0,0,255})}));
   end Switch;
 
   block Hysteresis "Transform Real to Boolean signal with Hysteresis"
@@ -1090,11 +1054,6 @@ input becomes false.
             extent={{-200,46},{200,22}},
             lineColor={0,0,255},
             textString="%name")}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-200,-20},{200,20}},
-          grid={2,2},
-          initialScale=0.2)),
       Documentation(info="<html>
 <p>
 In the parameter menu, a <b>time varying</b> expression can be defined

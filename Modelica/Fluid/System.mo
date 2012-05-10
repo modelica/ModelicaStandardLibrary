@@ -105,8 +105,6 @@ is used for the current simulation.
           lineColor={0,0,0},
           fillColor={255,0,0},
           fillPattern=FillPattern.Solid)}),
-    Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-            100,100}})),
     Documentation(info="<html>
 <p>
  A system component is needed in each fluid model to provide system-wide settings, such as ambient conditions and overall modeling assumptions.

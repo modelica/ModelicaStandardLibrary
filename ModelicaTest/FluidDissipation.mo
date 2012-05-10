@@ -7189,9 +7189,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
               Text(
                 extent={{10,-83},{92,-97}},
                 lineColor={0,0,255},
-                textString="CurvedBend")}),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-200},{200,
-                  200}})));
+                textString="CurvedBend")}));
       end SeveralTestCases;
 
     end PressureLoss;

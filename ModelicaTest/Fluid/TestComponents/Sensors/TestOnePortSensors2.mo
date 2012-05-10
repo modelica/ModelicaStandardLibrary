@@ -116,7 +116,5 @@ equation
       points={{44,-30},{61,-30},{61,-20},{80,-20}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-                       experiment(StopTime=15, Algorithm="Euler"));
+  annotation (                       experiment(StopTime=15, Algorithm="Euler"));
 end TestOnePortSensors2;

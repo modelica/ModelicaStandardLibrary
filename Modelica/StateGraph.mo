@@ -1030,11 +1030,7 @@ have priorities according to the port index (alternative.split[1]
 has a higher priority to fire as alternative.split[2]).
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-160,-160},{160,160}},
-            grid={2,2})),
-      experiment(StopTime=15));
+"),      experiment(StopTime=15));
   end ExecutionPaths;
 
   model ShowCompositeStep
@@ -1099,7 +1095,7 @@ This is the same example as \"ExecutionPaths\". The only difference
 is that the alternative paths are included in a \"CompositeStep\".
 </p>
 </HTML>
-"),   Diagram(experiment(StopTime=15)));
+"), experiment(StopTime=15));
   end ShowCompositeStep;
 
   model ShowExceptions
@@ -1530,9 +1526,6 @@ buttons:
       connect(T4.outPort,emptyTank2.inPort[1])
                                              annotation (Line(points={{93.5,0},
                 {119,0}}, color={0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
-                  -150},{150,150}}),
-                          graphics));
     end MakeProduct;
 
     connector inflow1
@@ -1667,10 +1660,6 @@ buttons:
       levelSensor = level;
 
       annotation (
-        Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={1,1})),
         Icon(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
@@ -1716,9 +1705,7 @@ buttons:
                 fillPattern=FillPattern.Solid), Text(
                 extent={{-144,54},{152,114}},
                 textString="%name",
-                lineColor={0,0,255})}), Diagram(coordinateSystem(
-                preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
-              graphics));
+                lineColor={0,0,255})}));
     end Source;
 
     model CompositeStep
@@ -1791,9 +1778,6 @@ buttons:
       connect(transition6a.outPort, Alternative1.join[3]) annotation (Line(
               points={{47.5,-60},{60.725,-60},{60.725,-60},{75.42,-60}}, color=
                 {0,0,0}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-150,
-                  -150},{150,150}}),
-                          graphics));
     end CompositeStep;
 
     model CompositeStep1
@@ -1856,10 +1840,6 @@ buttons:
               points={{40.5,30},{69.155,30}},  color={0,0,0}));
       connect(transition4.outPort, Alternative1.join[2]) annotation (Line(
               points={{40.5,-30},{69.155,-30}},  color={0,0,0}));
-      annotation (            Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-150,-150},{150,150}},
-              grid={1,1}), graphics));
     end CompositeStep1;
 
     model CompositeStep2
@@ -1885,10 +1865,6 @@ buttons:
         annotation (Line(points={{-119.5,0},{-24,0}}, color={0,0,0}));
       connect(transition.outPort, exitStep.inPort[1])
         annotation (Line(points={{-18.5,0},{109,0}}, color={0,0,0}));
-      annotation (            Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-150,-150},{150,150}},
-              grid={1,1}), graphics));
     end CompositeStep2;
 
   end Utilities;
@@ -3035,10 +3011,6 @@ type SetRealParameter = Real "Define Real parameter (GUI not yet satisfactory)"
             extent={{-96,15},{96,-15}},
             lineColor={0,0,0},
             textString="%value")}),
-  Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
   Documentation(info="<html>
 <p>
 This is an <b>experimental component</b> to define a

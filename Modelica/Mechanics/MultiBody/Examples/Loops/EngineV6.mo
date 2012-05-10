@@ -154,10 +154,6 @@ equation
   connect(torqueSensor.flange_a, bearing.axis) annotation (Line(points={{-72,
           -20},{-80,-20},{-80,0}}, color={0,0,0}));
   annotation (
-    Diagram(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-120,-100},{120,100}},
-        grid={1,1})),
     Documentation(info="<HTML>
 <p>
 This is a V6 engine with 6 cylinders. It is hierarchically built

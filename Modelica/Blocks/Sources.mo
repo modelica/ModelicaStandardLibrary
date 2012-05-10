@@ -33,10 +33,6 @@ package Sources
             extent={{-150,90},{140,50}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 The (time varying) Real output signal of this block can be defined in its
@@ -79,10 +75,6 @@ Variable <b>y</b> is both a variable and a connector.
             extent={{-150,90},{140,50}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 The (time varying) Integer output signal of this block can be defined in its
@@ -132,10 +124,6 @@ Variable <b>y</b> is both a variable and a connector.
             fillColor=DynamicSelect({255,255,255}, if y > 0.5 then {0,255,0} else
                       {255,255,255}),
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 The (time varying) Boolean output signal of this block can be defined in its
@@ -3030,8 +3018,6 @@ changes its value to the negated value of the previous one.
             extent={{-300,110},{300,175}},
             lineColor={0,0,255},
             textString="%name")}),
-                            Diagram(coordinateSystem(preserveAspectRatio=false,
-                     extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>
 Boolean signal source that mimics a radio button:

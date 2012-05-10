@@ -70,11 +70,7 @@ The mechanical structure is replaced by a simple
 load inertia.
 </p>
 </HTML>
-"),   Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
-      experiment(StopTime=1.6),
+"),      experiment(StopTime=1.6),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
   end oneAxis;
@@ -334,14 +330,6 @@ load inertia.
         color={255,204,51},
         thickness=0.5));
     annotation (
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={0.5,0.5})),
-      Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={0.5,0.5})),
       experiment(StopTime=2),
       __Dymola_Commands(
         file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/Run.mos"
@@ -419,8 +407,6 @@ determined from the connections to this bus.
               extent={{-20,2},{22,-2}},
               lineColor={255,204,51},
               lineThickness=0.5)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<html>
 <p>
 Signal bus that is used to communicate <b>all signals</b> of the robot.
@@ -548,10 +534,7 @@ motion on the controlBus of the r3 robot.
 </p>
 
 </html>
-"),     Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+"));
     end PathPlanning1;
 
     model PathPlanning6
@@ -770,11 +753,7 @@ and angular acceleration and this information is stored as reference
 motion on the controlBus of the r3 robot.
 </p>
 
-</html>"),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+</html>"));
     end PathPlanning6;
 
     model PathToAxisControlBus "Map path planning to one axis control bus"
@@ -846,11 +825,6 @@ motion on the controlBus of the r3 robot.
           extent=[6,3; 6,3]), Line(points={{-19,60},{40,60},{40,
               4},{96,4}}, color={0,0,127}));
       annotation (defaultComponentName="pathToAxis1",
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2},
-            initialScale=0.1)),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1104,11 +1078,7 @@ Default values for all parameters are given for joint 4.
             Text(
               extent={{-36,40},{38,-30}},
               textString="2",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+              lineColor={0,0,255})}));
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors "
@@ -1321,11 +1291,7 @@ produced by the motor).
               lineColor={0,0,255}), Line(
               points={{80,-102},{80,-10}},
               color={255,204,51},
-              thickness=0.5)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              thickness=0.5)}));
     end Motor;
 
     model Controller "P-PI cascade controller for one axis"
@@ -1383,10 +1349,6 @@ produced by the motor).
                                      annotation (Line(points={{81,10},{90,10},{
               90,-100},{0,-100}}, color={0,0,127}));
       annotation (
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -1596,11 +1558,7 @@ Default values of the parameters are given for the axis of joint 1.
               fillColor={160,160,164}), Text(
               extent={{-150,57},{150,97}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics));
+              lineColor={0,0,255})}));
     end AxisType2;
 
     model MechanicalStructure
@@ -1945,11 +1903,7 @@ This model contains the mechanical components of the r3 robot
               textString="6",
               lineColor={0,0,255}),
             Bitmap(extent={{-130,195},{195,-195}}, fileName=
-                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.bmp")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-200,-200},{200,200}},
-            grid={2,2}), graphics));
+                  "modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Systems/robot_kr15.bmp")}));
     end MechanicalStructure;
 
     annotation (Documentation(info="<html>

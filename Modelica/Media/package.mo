@@ -2965,9 +2965,7 @@ transport elements that just transport energy, mass and momentum
 between the internal ports without storing these quantities during the
 transport.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-                  graphics));
+</html>"));
       end PortVolume;
 
       model FixedMassFlowRate
@@ -3054,10 +3052,6 @@ transport.
                 lineColor={255,0,0},
                 fillColor={255,0,0},
                 fillPattern=FillPattern.Solid)}),
-          Diagram(coordinateSystem(
-              preserveAspectRatio=true,
-              extent={{-100,-100},{100,100}},
-              grid={2,2})),
           Documentation(info="<html>
 
 </html>"));
@@ -3271,9 +3265,7 @@ no mass or energy is stored in the pipe.
           annotation (Line(points={{-30,10},{-1,10}}, color={0,127,255}));
         connect(shortPipe.port_b, ambient.port)
           annotation (Line(points={{21,10},{39,10}}, color={0,127,255}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
-                             Documentation(info="<html>
+        annotation (                             Documentation(info="<html>
 
 </html>"));
       end PartialTestModel;

@@ -205,11 +205,7 @@ tankLevel = tank.level;
       points={{0,-70},{-72,-70},{-72,30}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-                       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}})),
-                             Documentation(info="<html>
+  annotation (                             Documentation(info="<html>
 <p>
 Simple heating system with a closed flow cycle. It is set up for steady-state initial values.
 After 2000s of simulation time the valve fully opens. A simple idealized control is embedded

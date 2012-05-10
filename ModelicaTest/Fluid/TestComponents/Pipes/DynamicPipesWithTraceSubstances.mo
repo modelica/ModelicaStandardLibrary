@@ -309,9 +309,7 @@ equation
       points={{-38,6},{-38,8},{-32,8},{-32,-2},{-30,-2}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-            -100},{100,100}})),
-                       experiment(StopTime=20, Tolerance=1e-005),
+  annotation (                       experiment(StopTime=20, Tolerance=1e-005),
     Documentation(info="<html>
 Test of different dynamic pipe models with trace substances.
 </html>"));

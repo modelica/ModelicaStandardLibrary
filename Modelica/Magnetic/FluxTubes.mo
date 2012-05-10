@@ -290,14 +290,7 @@ The magnetisation characteristics of the flux tube element representing the ferr
 <p>
 If the supply voltage has a zero-crossing when applied to the inductor at time t=0 (i.e., source.phase set to zero instead of &pi;/2), then the inrush current that is typical for switching of inductive loads can be observed.
 </p>
-</html>"),Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+</html>"));
     end SaturatedInductor;
 
     package MovingCoilActuator
@@ -465,8 +458,7 @@ Simulation of the force-current characteristics of both converter models with th
               10},{-10,10}}, color={0,127,0}));
         connect(feedX.s_ref, comparisonWithFEA.u) annotation (Line(points={{32,
               10},{32,50},{48,50}}, color={0,0,127}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})),                 experiment(
+        annotation (                 experiment(
             StartTime=-4,
             StopTime=4,
             Tolerance=1e-007),
@@ -774,8 +766,6 @@ Whereas the steady state current is the same in both models, the steady state ac
             color={255,127,0},
             smooth=Smooth.None));
           annotation (
-            Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}})),
             Documentation(info="<html>
 <p>
 In the <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a> model the force F is strictly proportional to the current i as indicated by the converter constant c. However, there is an additional non-linear force component in such an actuator that is due to the dependency of the coil inductance L on the armature position x. The inductance increases as the armature moves into the stator. The total force is
@@ -911,9 +901,7 @@ Both force components are properly considered with a simple permeance model as s
           connect(electroTranslationalConverter.flange, armature.flange_a)
             annotation (Line(points={{-20,0},{0,0},{0,-6.10623e-016},{20,
                 -6.10623e-016},{20,0},{60,0}}, color={0,127,0}));
-          annotation (Diagram(coordinateSystem(preserveAspectRatio=false,
-                extent={{-100,-100},{100,100}})),
-                               Icon(coordinateSystem(preserveAspectRatio=false,
+          annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
                 extent={{-80,100},{80,-100}},
@@ -959,8 +947,7 @@ The converter constant c as well as coil resistance R and inductance L are assum
 <p>
 Moving coil actuators are often called electrodynamic actuators and a proportional behaviour between force and current is expressed by a converter constant (see <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.ConstantActuator\">ConstantActuator</a>). However, in a simple moving coil actuator as presented in this example there is an additional non-linear force component that is due to the increase of the inductance when the armature coil moves into the ferromagnetic stator. A simple <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.MovingCoilActuator.Components.PermeanceActuator\">PermeanceActuator</a> can be used to describe this non-linear force component.
 </p>
-</html>"),     Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-              -100},{100,100}}), graphics));
+</html>"));
     end MovingCoilActuator;
 
     package SolenoidActuator
@@ -1063,8 +1050,7 @@ Moving coil actuators are often called electrodynamic actuators and a proportion
         connect(simpleGround.p, simpleSource.n)
                                         annotation (Line(points={{-70,-70},{-70,
               -60}}, color={0,0,255}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})),                  experiment(StopTime=
+        annotation (                  experiment(StopTime=
                 10, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
@@ -1487,8 +1473,7 @@ As mentioned in the description of both magnetic network models, one can tell th
             color={0,0,255}));
         connect(simpleSolenoid.flange, simpleLoad.flange_a)
           annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
-        annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent=
-                {{-100,-100},{100,100}})),                  experiment(StopTime=
+        annotation (                  experiment(StopTime=
                 0.05, Tolerance=1e-007),
           Documentation(info="<html>
 <p>
@@ -1838,10 +1823,6 @@ The characteristic current drop during pull-in is due to both armature motion an
                 extent={{0,160},{0,120}},
                 lineColor={0,0,255},
                 textString="%name")}),
-            Diagram(coordinateSystem(
-              preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={2,2})),
           Documentation(info="<html>
 <p>
 Please refer to the <b>Parameters</b> section for a schematic drawing of this axisymmetric lifting magnet.
@@ -2275,10 +2256,6 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
                 extent={{0,160},{0,120}},
                 lineColor={0,0,255},
                 textString="%name")}),
-            Diagram(coordinateSystem(
-              preserveAspectRatio=false,
-              extent={{-100,-100},{100,100}},
-              grid={2,2})),
           Documentation(info="<html>
 <p>
 Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.Components.SimpleSolenoid\">SimpleSolenoid</a> for a general description of this actuator. Unlike in that simple magnetic network model, the coil is split into two lumped elements here. This enables for more realistic modelling of the radial leakage flux between armature and yoke (leakage permeance G_mLeakRad). Especially for large air gaps, the influence of this leakage flux on the actuator's inductance and its electromagnetic force is rather strong. Please have a look at <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a> for a comparison of both models with FEA-based results included as reference.
@@ -2304,8 +2281,7 @@ As an example of a reluctance actuator, a simple axisymmetric lifting magnet wit
 <p>
 The differences between these two models in static behaviour can be analysed and compared to results obtained with a more accurate finite element analysis (FEA) in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonQuasiStationary\">ComparisonQuasiStationary</a>. The resulting differences in dynamic behaviour can be analysed and compared to FEA results with simulation of a pull-in stroke in <a href=\"modelica://Modelica.Magnetic.FluxTubes.Examples.SolenoidActuator.ComparisonPullInStroke\">ComparisonPullInStroke</a>.
 </p>
-</html>"), Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-              {100,100}}), graphics));
+</html>"));
     end SolenoidActuator;
 
     package Utilities "Utilities to be used in examples"
@@ -2829,10 +2805,6 @@ The flux linkage &Psi; and the static inductance L_stat = |&Psi;/i| are calculat
             extent={{-100,-100},{100,-62}},
             textString="%name",
             lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 This constant reluctance is provided for test purposes and simple magnetic network models. The reluctance is not calculated from geometry and permeability of a flux tube, but is provided as a parameter.
@@ -2867,10 +2839,7 @@ that are calculated from their geometry, this leakage reluctance is calculated w
 <p>
 This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-magneto-mechanical <b>actuators</b>, where the shape of at least one flux tube element with reluctance force generation in the useful flux path changes with armature motion (e.g., air gap). This change results in a non-zero derivative dG_m/dx of those elements permeance G_m with respect to armature position x, which in turn will lead to a non-zero derivative of the leakage permeance with respect to armature position. This would generate a reluctance force in the leakage element that is not accounted for properly. <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force.LeakageAroundPoles\">Shapes.Force.LeakageAroundPoles</a> provides a simple leakage reluctance with force generation.
 </p>
-</html>"),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}),
-             graphics));
+</html>"));
     end LeakageWithCoefficient;
 
     model EddyCurrent
@@ -2912,10 +2881,6 @@ This element must <b>not</b> be used <b>for dynamic simulation of</b> electro-ma
             extent={{-100,-98},{100,-60}},
             textString="%name",
             lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 Eddy currents are induced in a conductive magnetic flux tube when the flux changes with time. This causes a magnetic voltage drop in addition to the voltage drop that is due to the reluctance of this flux tube. The eddy current component can be thought of as a short-circuited secundary winding of a transformer with only one turn. Its resistance is calculated from the geometry and resistivity of the eddy current path.
@@ -2956,14 +2921,6 @@ Partitioning of a solid conductive cylinder or prism into several hollow cylinde
         G_m = (mu_0 * mu_r * A)/ l;
 
         annotation (
-          Icon(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-          Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -2995,14 +2952,6 @@ Set the inner radius r_i=0 for modelling of a solid cylindric flux tube.
         G_m = 2* pi* mu_0* mu_r* l/ Modelica.Math.log(r_o/r_i);
 
         annotation (
-          Icon(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-          Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3034,14 +2983,6 @@ For those flux tube sections of a magnetic device that have a nonlinear material
         G_m = (mu_0 * mu_r * A)/ l;
 
         annotation (
-          Icon(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
-          Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})),
         Documentation(info="<html>
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">FixedShape</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
@@ -3097,9 +3038,7 @@ For initial design of magnetic circuits, the relative permeability of possibly n
 <p>
 Please refer to the enclosing sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Force</a> for a description of all elements of this package and to <a href=\"modelica://Modelica.Magnetic.FluxTubes.UsersGuide.Literature\">[Ro41]</a> for derivation and/or coefficients of the equation for permeance G_m.
 </p>
-</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),
-                  graphics));
+</html>"));
       end HollowCylinderAxialFlux;
 
       model HollowCylinderRadialFlux
@@ -4041,12 +3980,7 @@ Additional user-specific materials can be defined as needed.
       SI.MagneticPotential V_m "Magnetic potential at the port";
       flow SI.MagneticFlux Phi "Magnetic flux flowing into the port";
 
-      annotation (defaultComponentName = "mag",
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}}),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),
-                graphics)));
+      annotation (defaultComponentName = "mag");
     end MagneticPort;
 
     connector PositiveMagneticPort "Positive magnetic port"
@@ -4113,14 +4047,7 @@ the positive port connector port_p, and the negative port
 connector port_n.
 </p>
 </html>
-"),     Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
-        Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics));
+"));
     end PartialTwoPortsElementary;
 
     partial model PartialTwoPorts
@@ -4200,10 +4127,6 @@ This magnetic flux is provided explicitly as flux Phi.
             extent={{-150,-100},{150,-60}},
             textString="%name",
             lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.FixedShape\">Shapes.FixedShape</a> for utilisation of this partial model.
@@ -4288,10 +4211,6 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             lineColor={0,0,0},
             fillColor={0,127,0},
             fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Force\">Shapes.Force</a> for utilisation of this partial model.
@@ -4327,10 +4246,6 @@ Please refer to the description of  the sub-package <a href=\"modelica://Modelic
             extent={{-150,-100},{150,-60}},
             textString="%name",
             lineColor={0,0,255})}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 Please refer to the description of  the sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> for utilisation of this partial model.
@@ -4387,10 +4302,6 @@ This package contains connectors for the magnetic domain and partial models for 
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{-50,0},{50,0}}, color={255,127,0})}),
-        Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
         Documentation(info="<html>
 <p>
 Magnetic circuits under steady-state conditions, i.e., with stationary magnetic fields (change of magnetic flux  d&Phi;/dt = 0) can be described with constant sources of a magnetic potential difference or magnetomotive force (mmf). Constant magnetic potential differences are imposed by
@@ -4446,10 +4357,6 @@ For modelling of reluctance actuators with this source component it is assumed t
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{-50,0},{50,0}}, color={255,127,0})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
         Documentation(info="<html>
 <p>
 In electromagnetic devices, a change of a coil's magnetic flux linkage &Psi; reacts on the electrical subsystem in that a voltage v is induced due to <i>Faraday</i>'s law:
@@ -4554,10 +4461,6 @@ Sources of a constant magnetic flux are useful for modelling of permanent magnet
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
           Line(points={{0,50},{0,-50}}, color={255,127,0})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
         Documentation(info="<html>
 <p>
 This source of a magnetic flux is intended for test purposes, e.g., for simulation and subsequent plotting of a softmagnetic material's magnetisation characteristics if used together with a non-linear reluctance element.

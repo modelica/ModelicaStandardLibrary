@@ -177,11 +177,7 @@ definition of the colors used in the MultiBody library
           Text(
             extent={{-150,100},{150,60}},
             textString="%name",
-            lineColor={0,0,255})}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+            lineColor={0,0,255})}));
   end FixedShape;
 
   model FixedShape2
@@ -292,10 +288,6 @@ MultiBody.Visualizers.FixedShape2 object is connected");
             lineColor={255,255,255},
             fillColor={160,160,164},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
       Documentation(info="<HTML>
 <p>
 Model <b>FixedShape2</b> defines a visual shape that is
@@ -611,11 +603,7 @@ ambient light) can vary dynamically by
 providing appropriate expressions in the input fields of the
 parameter menu.
 </p>
-</HTML>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
+</HTML>"));
   end FixedFrame;
 
   model FixedArrow
@@ -696,8 +684,6 @@ parameter menu.
             extent={{-150,-75},{150,-105}},
             lineColor={0,0,0},
             textString="%length")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<html>
 <p>
 Model <b>FixedArrow</b> defines an arrow that is
@@ -775,8 +761,6 @@ parameter menu.
             textString="%name",
             lineColor={0,0,255}),
           Line(points={{0,-102},{0,-30}}, color={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       Documentation(info="<HTML>
 <p>
 Model <b>SignalArrow</b> defines an arrow that is dynamically visualized
@@ -865,9 +849,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
             Text(
             extent={{-150,-105},{150,-145}},
             textString="%name",
-            lineColor={0,0,255})}),             Diagram(coordinateSystem(
-              preserveAspectRatio=false, extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
+            lineColor={0,0,255})}),        Documentation(info="<html>
 <p>
 This shape visualizes the x-y plane by a box
 </p>
@@ -1815,10 +1797,7 @@ library (will be replaced by a color editor).
             Text(
               extent={{-150,105},{150,65}},
               textString="%name",
-              lineColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),
-                graphics));
+              lineColor={0,0,255})}));
     end Arrow;
 
     model DoubleArrow
@@ -1920,8 +1899,6 @@ library (will be replaced by a color editor).
               lineColor={128,128,128},
               fillColor={128,128,128},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<HTML>
 <p>
 Model <b>DoubleArrow</b> defines a double arrow that is dynamically
@@ -2543,8 +2520,6 @@ since they all have frame connectors).
               lineColor={0,127,255},
               fillColor={0,127,255},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<HTML>
 <p>
 With model <b>FixedLines</b> a set of lines is defined
@@ -2656,8 +2631,6 @@ The diameter and color of all line cylinders are identical.
               extent={{-150,145},{150,105}},
               textString="%name",
               lineColor={0,0,255})}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<HTML>
 <p>
 With model <b>Lines</b> a set of dynamic lines is defined

@@ -358,12 +358,7 @@ Zeunerstrasse 38<br />
           points={{-40,-26},{-40,-40},{-4,-40}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation ( Diagram(
-            coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-        experiment(
+      annotation (        experiment(
           StopTime=1e-011,
           NumberOfIntervals=2000,
           Tolerance=1e-007),
@@ -480,12 +475,7 @@ Zeunerstrasse 38<br />
           points={{60,-42},{60,-60},{-28,-60}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation ( Diagram(
-            coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-        experiment(StopTime=5),
+      annotation (        experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterApartModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
@@ -609,12 +599,7 @@ Zeunerstrasse 38<br />
           points={{56,-32},{56,-60},{-30,-60}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation ( Diagram(
-            coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-        experiment(StopTime=5),
+      annotation (        experiment(StopTime=5),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS. Its task is to turn the input voltage from high potential to low potential or the other way round. This circuit<i> InverterExtendedModel</i> contains two inverters. The input voltage of the first inverter is nearly equal to the output voltage of the second inverter. Capacities cause some differences.</p>
 <p>To see the typical behavior of the circuit the input voltages and the output voltages should be plotted. Besides that it can be interesting to watch the outputvoltage of the first inverter. Simulated until t=5s.</p>
@@ -792,16 +777,7 @@ Zeunerstrasse 38<br />
           points={{-64,40},{-24,40}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(
-            coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            initialScale=0.1)),
-        Icon(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            initialScale=0.1)),
-        experiment(StopTime=5),
+      annotation (        experiment(StopTime=5),
         Documentation(info="<html>
 <p>This circuit that contains four inverter was designed to show the functionality of the MOS transistor models. To see the behavior of the circuit the output voltages of each inverter should be displayed (mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v). The output voltages of the second an fourth inverter and the inputvoltage of the first inverter have the same potential. The output voltages of the first and third inverter have the opposite potential compared with inverter 2 and 4.</p>
 <p>Simulate until t=5s. The outputvalues should be: mp1.NS.v, mp2.NS.v, mp3.NS.v, mp4.NS.v and vgate.p.v</p>
@@ -894,11 +870,7 @@ Zeunerstrasse 38<br />
               {-14,10}}, color={0,0,255}));
       connect(vconstant.n, ground.p)  annotation (Line(points={{62,24},{62,-80},
               {30,-80}},color={0,0,255}));
-      annotation (                           Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nand&quot; are used. A nand contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two input voltages have high potential, the output voltage has low potential, otherwise the output voltage has high potential.</p>
 <p>Nand truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
@@ -1051,11 +1023,7 @@ Zeunerstrasse 38<br />
           points={{62,24},{62,-80},{38,-80}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (                           Diagram(coordinateSystem(
-              preserveAspectRatio=true,  extent={{-100,-100},{100,100}})),
-        Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>In nearly every electronic the basic circuit &quot;nor&quot; is used. A nor contains two PMOS and two NMOS. The faulty wiring can be seen in the graphical mode. If and only if the two inputvoltages have low potential, the outputvoltage has high potential, otherwise the outputvoltage has low potential.</p>
 <p>Nor truth table (1 means true, it is represented by the 5V voltage):</p>
 <table cellspacing=\"2\" cellpadding=\"0\" border=\"1\"><tr>
@@ -1534,8 +1502,7 @@ Zeunerstrasse 38<br />
           points={{-10,50},{-10,-6},{-44,-6}},
           color={0,0,255},
           smooth=Smooth.None));
-      annotation (Diagram(graphics),
-        Documentation(info="<html>
+      annotation (        Documentation(info="<html>
 <p>This model is a simple JFET cascode circuit. The J2 gate variation (v_sin.p.v) is transformed to the J2 drain variation (J2.D.v). </p>
 <p><br/>Simulate until 0.2s, and display the mentioned voltages.</p>
 </html>", revisions="<html>
@@ -2361,11 +2328,7 @@ by this gound element.
             Text(
               extent={{-50,-14},{58,-54}},
               lineColor={0,0,255},
-              textString="%name")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})));
+              textString="%name")}));
     end Ground;
 
     model R_Resistor "Ideal linear electrical resistor"
@@ -2396,11 +2359,7 @@ The Resistance <i>R</i> is allowed to be positive, zero, or negative.
               extent={{-136,-46},{140,-62}},
               lineColor={0,0,0},
               textString="R=%R"),
-            Text(extent={{-136,34},{138,54}},  textString="%name")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={2,2})));
+            Text(extent={{-136,34},{138,54}},  textString="%name")}));
     end R_Resistor;
 
     model C_Capacitor "Ideal linear electrical capacitor"
@@ -2654,11 +2613,7 @@ The corresponding SPICE description
               fillPattern=FillPattern.Solid),
             Line(points={{89,50},{29,50},{29,20}}),
             Line(points={{90,-50},{29,-50},{29,-20}}),
-            Line(points={{9,0},{49,0}})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})));
+            Line(points={{9,0},{49,0}})}));
     end G_VCC;
 
     model H_CCV "Linear current-controlled voltage source"
@@ -2707,11 +2662,7 @@ The corresponding SPICE description
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid),
-            Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})));
+            Line(points={{-90,50},{-20,50},{-20,-50},{-90,-50}})}));
     end H_CCV;
 
     model F_CCC "Linear current-controlled current source"
@@ -2762,11 +2713,7 @@ The corresponding SPICE description
               fillPattern=FillPattern.Solid),
             Line(points={{90,50},{30,50},{30,20}}),
             Line(points={{91,-50},{30,-50},{30,-20}}),
-            Line(points={{10,0},{50,0}})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})));
+            Line(points={{10,0},{50,0}})}));
     end F_CCC;
 
     annotation(preferredView="info",
@@ -2907,8 +2854,6 @@ The corresponding SPICE description
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>The model Q_NPNBJT is a NPN bipolar junction transistor model: Modified Gummel-Poon.</p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
@@ -2932,8 +2877,6 @@ The corresponding SPICE description
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
         Documentation(info="<html>
 <p>The model Q_PNPBJT is a PNP bipolar junction transistor model: Modified Gummel-Poon.</p>
 <p>The models from the package Semiconductors accesses to the package Internal where all functions,</p>
@@ -2974,10 +2917,7 @@ The corresponding SPICE description
               points={{8,-68},{2,-55},{-4,-62},{8,-68}},
               lineColor={0,0,255},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
+              fillPattern=FillPattern.Solid)}));
 
     end J_PJFJFET;
 
@@ -2999,10 +2939,7 @@ The corresponding SPICE description
               points={{8,-68},{2,-55},{-4,-62},{8,-68}},
               lineColor={0,0,255},
               fillColor={0,0,255},
-              fillPattern=FillPattern.Solid)}),
-                                     Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics));
+              fillPattern=FillPattern.Solid)}));
 
     end J_NJFJFET;
 
@@ -3019,9 +2956,6 @@ The corresponding SPICE description
      extends Modelica.Electrical.Spice3.Internal.DIODE;
 
      annotation (
-       Icon(
-          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-                100}})),
         Documentation(info="<html>
 <p>The model D_DIODE is a Junction diode model</p>
 <p>The models from the package Semiconductors accesses to the package Repository where all functions,</p>
@@ -3082,9 +3016,7 @@ The corresponding SPICE description
     Placement(transformation(extent={{-110,-10},{
                 -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
                 20}})),         Placement(transformation(extent={{110,-10},{90,
-                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})),
-                  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}}),      graphics));
+                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})));
     end C_Capacitor;
 
     record ModelcardCAPACITOR
@@ -3121,10 +3053,6 @@ The corresponding SPICE description
             Line(points={{0,30},{0,-30}}, color={0,0,0}),
             Line(points={{0,0},{90,0}}, color={0,0,0}),
             Text(extent={{-100,-120},{100,-80}}, textString="%name=%V")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>The V_constant source is a  source is a simple constant voltage source for an ideal constant voltage which is provided by a parameter.</p>
 </html>"));
@@ -3172,10 +3100,7 @@ The corresponding SPICE description
             Text(
               extent={{-150,-56},{150,-96}},
               textString="%name",
-              lineColor={0,0,255})}),                            Diagram(
-            coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-                100,100}})),
-        Documentation(info="<html>
+              lineColor={0,0,255})}),        Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
 <ul>
@@ -3232,10 +3157,6 @@ The corresponding SPICE description
                   36.8,-25.4},{43.1,-31.3},{50.9,-36.5},{60.8,-40.8},{70,-43.4}},
                                                                       color={
                   192,192,192})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -3304,10 +3225,6 @@ The corresponding SPICE description
              Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-86,-74},{-65,-74},{-35,66},{-4,66},{25,-74},{46,-74},
                   {75,66}}, color={192,192,192})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>Periodic pulse source with not limited number of periods.</p>
 <p>A single pulse is described by the following table:</p>
@@ -3423,10 +3340,6 @@ The corresponding SPICE description
                                    Line(points={{-40,-50},{-40,70},{60,70},{60,
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
                   60,40},{60,70},{10,70},{10,-51}},color={192,192,192})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties:</p>
 <ul>
@@ -3491,10 +3404,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               extent={{-51,57},{55,18}},
               lineColor={0,0,255},
               textString="SFFM")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
 <h4>Attention:</h4>
@@ -3525,10 +3434,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
             Line(points={{50,0},{90,0}}, color={0,0,255}),
             Line(points={{-1,-50},{-1,50}},
                                           color={0,0,255})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>The I_constant source is a simple constant current source for an ideal constant current which is provided by a parameter.</p>
 </html>"));
@@ -3579,10 +3484,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                   {54.1,-22.5},{60.5,-33.2},{66.1,-37.9},{71.7,-37.9},{78.2,
                   -32.5},{83,-25.8}},
                 color={192,192,192})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>Damped sinusoidal source</p>
 <h4>Note:</h4>
@@ -3634,10 +3535,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
                   17.2,-15.6},{22.1,-23.5},{27.8,-30.4},{34.1,-36.3},{41.9,
                   -41.5},{51.8,-45.8},{61,-48.4}},
                                            color={192,192,192})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>Rising and falling exponential source.</p>
 <h4>Note:</h4>
@@ -3680,9 +3577,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
         (I2-I1)/Trising else if (time < T0 + Twidth) then I2-I1 else
         (T0 + Tfalling - time)*(I2-I1)/(Tfalling - Twidth));
 
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                -100},{100,100}})),
-                               Icon(coordinateSystem(preserveAspectRatio=false,
+      annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
               extent={{-100,-100},{100,100}}), graphics={
                                   Polygon(
               points={{90,0},{60,10},{60,-10},{90,0}},
@@ -3819,10 +3714,6 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
 
@@ -3889,10 +3780,6 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               extent={{-58,53},{48,14}},
               lineColor={0,0,255},
               textString="SFFM")}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
 <h4>Note:</h4>
@@ -4075,8 +3962,6 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               extent={{-54,-26},{22,-60}},
               lineColor={0,0,255},
               textString="VCV")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled voltage source. The &quot;right&quot; port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the &quot;left&quot; port vector of voltages at the pin vector pc[:] via</p>
@@ -4173,8 +4058,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})</pre>
               extent={{-60,-24},{16,-58}},
               lineColor={0,0,255},
               textString="VCC")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear voltage controlled current source. The right port current at pin p2 (=p2.i) is controlled by the left port vector of voltages at the pin vector pc[:] via</p>
@@ -4272,8 +4155,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...}) </pre>
               extent={{-60,-26},{16,-60}},
               lineColor={0,0,255},
               textString="CCV")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear current controlled voltage source. The right port voltage between pin p2 and n2 (=p2.v - n2.v) is controlled by the left port vector of currents at pin pc (=pc.i) via</p>
@@ -4377,8 +4258,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
               extent={{-60,-24},{16,-58}},
               lineColor={0,0,255},
               textString="CCC")}),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}})),
         Documentation(info="<html>
 <p>The polynomial source is a SPICE2 model, which is also known in other SPICE derivates.</p>
 <p>Nonlinear current controlled current source. The &quot;right&quot; port current at pin p2 (=p2.i) is controlled by the &quot;left&quot; port vector of currents at pin pc[:] via</p>
@@ -4460,10 +4339,6 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       i1 = p1.i;
       i2 = p2.i;
       annotation (
-        Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
         Documentation(info="<html>
 <p>TwoPort is a partial model that consists of two ports. It is assumed that the current flowing into the positive pin is identical to the current flowing out of pin n. This currents of each port are provided explicitly as currents i1 and i2, the voltages respectively as v1 and v2.</p>
 </html>"));
@@ -4497,9 +4372,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
       if not useSubstrateNode then
         substrateVoltage = 0;
       end if;
-      annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),                                                                       graphics),
-        Documentation(revisions="<html>
+      annotation (        Documentation(revisions="<html>
 <ul>
 <li><i> February 17, 2009   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -4522,8 +4395,7 @@ ConditionalHeatingPort model (<b>lossPower = ...</b>). As device temperature
 <b>T_heatPort</b> can be used to describe the influence of the device temperature
 on the model behaviour.
 </p>
-</html>"),
-        Diagram(graphics));
+</html>"));
     end ConditionalSubstrate;
     annotation(preferredView="info",
         Documentation(info="<html>
@@ -4693,8 +4565,6 @@ on the model behaviour.
 <li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
@@ -4991,8 +4861,6 @@ on the model behaviour.
 <li><i>January 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}})),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},
@@ -5173,10 +5041,7 @@ on the model behaviour.
             Text(
               extent={{-94,56},{206,16}},
               textString="%name",
-              lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-            graphics),
-        Documentation(info="<html>
+              lineColor={0,0,255})}),        Documentation(info="<html>
 <p>Bibpolar junction transistor model, both NPN and PNP</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
@@ -5379,9 +5244,7 @@ on the model behaviour.
             Text(
               extent={{-94,56},{206,16}},
               textString="%name",
-              lineColor={0,0,255})}),Diagram(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}})),
-        Documentation(info="<html>
+              lineColor={0,0,255})}),        Documentation(info="<html>
 <p>Bibpolar junction transistor model</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
@@ -5560,8 +5423,6 @@ on the model behaviour.
 <li><i>March 2008 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-                {100,100}}), graphics),
         Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,92},{0,40},{-12,40},{-12,-40},{0,-40},{0,-94}},

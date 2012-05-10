@@ -93,9 +93,7 @@ package Tanks "Library demonstrating the usage of the tank model"
         color={0,127,255},
         smooth=Smooth.None));
 
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}})),
-      experiment(StopTime=200),
+    annotation (      experiment(StopTime=200),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/ThreeTanks/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
@@ -221,11 +219,7 @@ package Tanks "Library demonstrating the usage of the tank model"
         color={0,127,255},
         smooth=Smooth.None));
 
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-160,-120},{100,120}},
-          initialScale=0.1)),
-      experiment(StopTime=25000, NumberOfIntervals=5000),
+    annotation (      experiment(StopTime=25000, NumberOfIntervals=5000),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
@@ -297,8 +291,6 @@ simulation accuracy could be increased in order to avoid errors.
         smooth=Smooth.None));
 
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}})),
       experiment(StopTime=50),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Fluid/EmptyTanks/plot level and port.p.mos"
           "plot level and port.p"),

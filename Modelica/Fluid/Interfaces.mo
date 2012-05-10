@@ -252,10 +252,6 @@ package Interfaces
       "= false to hide the arrow in the model icon";
 
     annotation (
-      Diagram(coordinateSystem(
-            preserveAspectRatio=false,
-            extent={{-100,-100},{100,100}},
-            grid={1,1})),
       Documentation(info="<html>
 <p>
 This partial model defines an interface for components with two ports.
@@ -387,10 +383,6 @@ equation
   port_b.C_outflow = inStream(port_a.C_outflow);
 
   annotation (
-    Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})),
     Documentation(info="<html>
 <p>
 This component transports fluid between its two ports, without storing mass or energy.
@@ -404,11 +396,7 @@ Three equations need to be added by an extending class using this component:
 <li><code>port_b.h_outflow</code> for flow in design direction, and</li>
 <li><code>port_a.h_outflow</code> for flow in reverse direction.</li>
 </ul>
-</html>"),
-    Icon(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})));
+</html>"));
 end PartialTwoPortTransport;
 
   connector HeatPorts_a
@@ -729,10 +717,7 @@ Further source terms must be defined by an extending class for fluid flow across
 <li><code><b>mbXi_flow</b></code>, substance mass flow, and</li>
 <li><code><b>mbC_flow</b></code>, trace substance mass flow.</li>
 </ul>
-</html>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
-              {100,100}}),
-                graphics));
+</html>"));
     end PartialLumpedVolume;
 
       partial model PartialLumpedFlow
@@ -1020,11 +1005,7 @@ initial equation
     end for;
   end if;
 
-   annotation (Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-              -100},{100,100}})),
-                        Icon(coordinateSystem(preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}})),
-      Documentation(info="<html>
+   annotation (      Documentation(info="<html>
 <p>
 Interface and base class for <code><b>n</b></code> ideally mixed fluid volumes with the ability to store mass and energy.
 It is inteded to model a one-dimensional spatial discretization of fluid flow according to the finite volume method.
@@ -1163,13 +1144,6 @@ The lengths along the flow path <code><b>pathLengths[m]</b></code> are an input 
       eta_b = eta_a;
     end if;
 
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})), Icon(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics));
   end PartialPressureLoss;
 
   annotation (Documentation(info="<html>

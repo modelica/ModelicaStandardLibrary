@@ -701,10 +701,6 @@ equation
     specularCoefficient);
   Extra = extra;
   annotation (
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={2,2}), graphics),
     Documentation(info="<html>
 <p>The interface of this model is documented at <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>. </p>
 <p>This implementation is targeted for Dymola. Here, the following data is stored on the result file (using Dymola specific functions &QUOT;PackShape&QUOT; and &QUOT;PackMaterial&QUOT; to pack data on a Real number): </p>

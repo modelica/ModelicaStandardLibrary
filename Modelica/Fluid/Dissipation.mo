@@ -10907,8 +10907,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Gap1_d "Geometry figure for gap"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -11103,8 +11102,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model HelicalPipe1_d "Geometry figure for helical pipe"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Line(
@@ -11405,8 +11403,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Plate1_d "Geometry figure 1 for plate"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -11442,8 +11439,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Plate2_d "Geometry figure 2 for plate"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                    {100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
                   Rectangle(
                   extent={{-100,-20},{60,-40}},
@@ -11547,8 +11543,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model BendEdged_d "Geometry figure of edged bend"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -11670,8 +11665,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Channel_d "Geometry figure for channel"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Line(
@@ -12057,8 +12051,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model OrificeSuddenChangeSection_d
           "Geometry figure for orifice with sudden change of cross sectional area"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -12168,8 +12161,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
         partial model OrificeThickEdged_d
           "Geometry figure for orifice with thick edged vena contraction"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -12304,8 +12296,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model StraightPipe_d "Geometry figure for straight pipe"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Ellipse(
@@ -12414,8 +12405,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
 
         partial model Valve_d "Icon for valve"
 
-          annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                    -100},{100,100}})), Diagram(coordinateSystem(
+          annotation ( Diagram(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                 graphics={
                 Rectangle(
@@ -13262,8 +13252,6 @@ Germany<br>
 <br>
 <a href=mailto:info@xrg-simulation.de>info@xrg-simulation.de</a> </html>
 
-"),
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-      graphics));
+"));
 
 end Dissipation;

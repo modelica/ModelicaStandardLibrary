@@ -96,6 +96,5 @@ equation
                                   annotation (Line(points={{-30,-40},{2,-40}},
         color={0,127,255}));
 annotation (
-  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-            100}})), experiment(StopTime=4, Tolerance=1e-006));
+ experiment(StopTime=4, Tolerance=1e-006));
 end TestValveIncompressible;

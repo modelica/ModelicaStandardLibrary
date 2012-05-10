@@ -137,9 +137,6 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   annotation (
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}},
-        grid={1,1})),
     Documentation(info="<html>
 <p>
 Water is pumped from a source by a pump (fitted with check valves), through a pipe whose outlet is 50 m higher than the source, into a reservoir. The users are represented by an equivalent valve, connected to the reservoir.
@@ -172,9 +169,5 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
     experiment(
       StopTime=2000,
       NumberOfIntervals=5000,
-      Tolerance=1e-006),
-    Icon(coordinateSystem(
-        preserveAspectRatio=true,
-        extent={{-100,-100},{100,100}},
-        grid={1,1})));
+      Tolerance=1e-006));
 end PumpingSystem;

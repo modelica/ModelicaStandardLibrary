@@ -49,9 +49,7 @@ extends Modelica.Icons.ExamplesPackage;
           points={{10,10},{20,10}},
           color={0,0,0},
           smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                         experiment(StopTime=1.1));
+    annotation (                         experiment(StopTime=1.1));
   end SimpleDriveTrain;
 
     model ConnectionPossibilities
@@ -94,9 +92,7 @@ extends Modelica.Icons.ExamplesPackage;
           points={{20,-10},{30,-10}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-        experiment(StopTime=2),
+      annotation (        experiment(StopTime=2),
                   Diagram, experiment(StopTime=1.1));
     end ConnectionPossibilities;
 
@@ -165,9 +161,7 @@ extends Modelica.Icons.ExamplesPackage;
           points={{-34,-10},{56,-10},{56,0}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-                           experiment(StopTime=1.1),
+      annotation (                           experiment(StopTime=1.1),
                   Diagram,
         experiment(StopTime=2));
     end SupportTorque1;
@@ -739,9 +733,7 @@ extends Modelica.Icons.ExamplesPackage;
           points={{72,-30},{80,-30}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-                -100,-100},{100,100}})),
-        experiment(StopTime=1.1));
+      annotation (        experiment(StopTime=1.1));
     end Inertia;
 
     model SpringDamper
@@ -878,8 +870,6 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}})),
         experiment(StopTime=1.1));
     end SpringDamper;
 
@@ -941,9 +931,7 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
     connect(sine4.y, speed4.v_ref) annotation (Line(points={{-39,-50},{-22,-50}},
           color={0,0,127}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}})),
-      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1));
   end TestSpeed;
 
   model TestMove
@@ -997,9 +985,7 @@ extends Modelica.Icons.ExamplesPackage;
             {-28,-30},{-22,-30}}, color={0,0,127}));
     connect(move1.flange,   slidingMass.flange_a)
       annotation (Line(points={{0,-30},{20,-30}}, color={0,127,0}));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}})),
-      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1));
   end TestMove;
 
   model AllComponents
@@ -1517,11 +1503,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{-68,-160},{-58,-160}},
         color={0,0,0},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-140,-200},{200,100}},
-          initialScale=0.1)),
-      experiment(StopTime=0.9));
+    annotation (      experiment(StopTime=0.9));
   end AllComponents;
 
   model TestBearingConversion
@@ -2018,11 +2000,7 @@ extends Modelica.Icons.ExamplesPackage;
         points={{242,92},{242,100},{236,100}},
         color={0,127,0},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-300},{300,200}},
-          initialScale=0.1)),
-      experiment(StopTime=0.5));
+    annotation (      experiment(StopTime=0.5));
   end TestBearingConversion;
 
   model TestFriction "Test friction elements"
@@ -2158,8 +2136,6 @@ extends Modelica.Icons.ExamplesPackage;
         points={{46,-90},{60,-90}},
         color={0,0,0},
         smooth=Smooth.None));
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
-              -100,-100},{100,100}})),
-      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1));
   end TestFriction;
 end Rotational;

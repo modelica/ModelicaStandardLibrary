@@ -104,8 +104,6 @@ equation
       color={0,0,0},
       smooth=Smooth.None));
 annotation (
-  Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{100,
-            100}})),
   experiment(StopTime=8, Tolerance=1e-006),
   Documentation(info=""));
 end TestWaterPumpDCMotorHeatTransfer;

@@ -66,8 +66,6 @@ package TraceSubstances "Library demonstrating the usage of trace substances"
         color={0,127,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       experiment(StopTime=3600),
       Documentation(info="<html>
 <p>
@@ -240,8 +238,6 @@ of magnitude.
         color={0,127,255},
         smooth=Smooth.None));
     annotation (
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-              100,100}})),
       experiment(StopTime=86400, Tolerance=1e-006),
       __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/RoomCO2WithControls/plotStatesWithControl.mos"
           "plot states and controls"),

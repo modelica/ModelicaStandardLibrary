@@ -112,8 +112,6 @@ equation
   annotation (
     __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
-    Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-            100,100}})),
     experiment(StopTime=10, NumberOfIntervals=10000),
     Documentation(info="<html>
 <p>

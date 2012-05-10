@@ -2471,8 +2471,6 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
             extent={{-102,130},{98,100}},
             textString="%name",
             lineColor={0,0,255})}),
-      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-              100}})),
       Documentation(info="<html>
 <p>This is an ideal triac model based on an ideal thyristor model.</p>
 
@@ -2601,9 +2599,7 @@ Hence the output will change instantaniously when the trigger signal rises.
           Text(
             extent={{-60,0},{60,-40}},
             lineColor={0,0,255},
-            textString="ADC")}),
-      Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-              100,100}}), graphics));
+            textString="ADC")}));
     annotation (Documentation(info="<html>
 <p>
 Simple analog to digital converter with a variable resolution of N bits. It converts the input voltage p.v-n.v to an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by Rin. Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.
@@ -2686,9 +2682,7 @@ The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced 
           Text(
             extent={{-60,0},{60,-40}},
             lineColor={0,0,255},
-            textString="DAC")}),
-      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
-              100,100}}), graphics));
+            textString="DAC")}));
   end DA_Converter;
   annotation (Documentation(info="<html>
 <p>This package contains electrical components with idealized behaviour. To enable more realistic applications than it is possible with pure realistic behavior some components are improved by additional features. E.g. the switches have resistances for the open or close case which can be parametrized.</p>

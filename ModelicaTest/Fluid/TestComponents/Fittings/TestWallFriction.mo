@@ -106,9 +106,7 @@ equation
   connect(ambient_a.ports[4], pipe4.port_a)
                                       annotation (Line(points={{-18,47},{-12,47},
           {-12,-40},{0,-40}}, color={0,127,255}));
-  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-            -100},{100,100}})),
-    experiment(StopTime=10, NumberOfIntervals=10000),
+  annotation (    experiment(StopTime=10, NumberOfIntervals=10000),
     Documentation(info="<html>
 <p>
 5 different wall friction models are compared.

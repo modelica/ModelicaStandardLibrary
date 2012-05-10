@@ -20,10 +20,6 @@ package Routing "Library of blocks to combine and extract signals"
             lineColor={0,0,0},
             fillColor={0,0,127},
             fillPattern=FillPattern.Solid)}),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=false,
-          extent={{-100,-100},{100,100}},
-          grid={2,2})),
       Documentation(info="<html>
 <p>
 This block replicates the input signal to an array of <code>nout</code> identical output signals.
@@ -342,11 +338,7 @@ value of the additional u index:</p>
 <pre>    y = u [ index ] ;
 </pre>
 <p>where index is an additional Integer input signal.</p>
-</html>"),
-      Diagram(coordinateSystem(
-          preserveAspectRatio=true,
-          extent={{-100,-100},{100,100}},
-          grid={1,1})));
+</html>"));
 end Extractor;
 
   block Multiplex2 "Multiplexer block for two input connectors"
@@ -1021,9 +1013,7 @@ Passes a Real signal through without modification.  Enables signals to be read o
             rotation=0)));
   equation
     y = u;
-    annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-              -100,-100},{100,100}})),
-                         Documentation(info="<html>
+    annotation (                         Documentation(info="<html>
 <p>Passes a Boolean signal through without modification.  Enables signals to be read out of one bus, have their name changed and be sent back to a bus.</p>
 </html>"),
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
