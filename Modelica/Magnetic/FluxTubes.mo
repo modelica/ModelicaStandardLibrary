@@ -4539,8 +4539,6 @@ This package contains sources of a magnetic potential difference or a magnetic f
     0 = port_p.Phi + port_n.Phi;
 
         annotation (
-        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
-                {100,100}}),
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(points={{0,-100},{0,-70}}, color={0,0,0}),
@@ -4551,7 +4549,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
               extent=[-150,120; 150,80],
               textString="%name",
               lineColor={0,0,255}),
-            Line(points=[0,-90; 0,-70])})));
+            Line(points=[0,-90; 0,-70])}));
   end MagneticFluxSensor;
     annotation (Documentation(info="<html>
 <p>
