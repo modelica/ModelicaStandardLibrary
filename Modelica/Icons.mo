@@ -353,7 +353,7 @@ This icon is designed for a <b>rotational sensor</b> model.
           Line(points={{10,-40},{10,-60}}, color={0,0,0}),
           Line(points={{30,-40},{30,-60}}, color={0,0,0}),
           Line(points={{50,-40},{50,-60}}, color={0,0,0})}),
-      Documentation(Error, info="<html>
+      Documentation(info="<html>
 <p>
 This icon is designed for a <b>translational sensor</b> model.
 </p></html>"));
@@ -402,8 +402,8 @@ This icon is designed for a <b>translational sensor</b> model.
           Text(
             extent={{-100,100},{100,-100}},
             lineColor={255,127,0},
-            textString=
-                 "f")}),Documentation(Error, info="<html>
+            textString="f")}),
+		Documentation(info="<html>
 <p>This icon indicates Modelica functions.</p>
 </html>"));
   end Function;
@@ -503,8 +503,8 @@ This icon is designed for an <b>Integer</b> type.
             lineColor={0,0,0},
             fillColor={181,181,181},
             fillPattern=FillPattern.Solid,
-            textString=
-                 "B")}),Documentation(Error, info="<html>
+            textString="B")}),
+		 Documentation(info="<html>
 <p>
 This icon is designed for a <b>Boolean</b> type.
 </p></html>"));
@@ -612,9 +612,8 @@ This icon is designed for a <b>String</b> type.
           Text(
             extent={{-150,70},{150,40}},
             lineColor={0,0,0},
-            textString=
-                 "%name")}),
-      Documentation(Error, info="<html>
+            textString="%name")}),
+      Documentation(info="<html>
 This icon is designed for a <b>signal bus</b> connector.
 </html>"));
   end SignalBus;
