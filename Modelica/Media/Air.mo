@@ -38,7 +38,6 @@ package Air "Medium models for air"
      data=IdealGases.Common.SingleGasesData.Air,
      fluidConstants={IdealGases.Common.FluidData.N2});
 
-
   redeclare function dynamicViscosity
       "Simple polynomial for dry air (moisture influence small), valid from 73.15 K to 373.15 K"
     extends Modelica.Icons.Function;
@@ -65,10 +64,11 @@ Thermal conductivity is computed from temperature using a second order polynomia
 </html>"));
     end thermalConductivity;
 
-    annotation ( Documentation(info="<HTML>
-      <IMG src=\"modelica://Modelica/Resources/Images/Media/IdealGases/SingleGases/Air.png\"></HTML>"),
-                Documentation(info="<html>
+    annotation ( Documentation(info="<html>
+      <IMG src=\"modelica://Modelica/Resources/Images/Media/IdealGases/SingleGases/Air.png\">
+<p>              
 Ideal gas medium model for dry air based on the package <a href=\"modelica://Modelica.Media.IdealGases\">IdealGases</a> with additional functions for dynamic viscosity and thermal conductivity in a limited temperature range.
+</p>
 </html>"));
   end DryAirNasa;
 

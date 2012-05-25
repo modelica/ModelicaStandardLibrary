@@ -65,28 +65,5 @@ IdealThyristor1.v and IdealGTOThyristor1.v</p>
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),  Documentation(info="<HTML>
-<P>
-Two examples of thyristors are shown:<br><br>
-the <b>ideal thyristor</b>  <br>
-and the <b>ideal GTO thyristor</b>  with <i>Vknee=5</i>  <br><br>
-</P>
-<P>
-Simulate until T=2 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-IdealThyristor1.i and IdealGTOThyristor1.i <br>
-IdealThyristor1.v and IdealGTOThyristor1.v <br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Mai 7, 2004   </i>
-       by Christoph Clauss<br> realized<br>
-       </li>
-</ul>
-</HTML>
-"),
-  experiment(
-     StopTime=2));
+</html>"), experiment(StopTime=2));
 end CharacteristicThyristors;

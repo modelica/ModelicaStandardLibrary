@@ -1488,8 +1488,8 @@ Full steady state initialization is not supported, because the corresponding int
         annotation (Line(points={{18.5,-30},{34,-30}}, color={0,0,0}));
       connect(Transition13.outPort, Step14.inPort[1])
         annotation (Line(points={{39.5,-30},{57,-30}}, color={0,0,0}));
-      connect(Step14.outPort[1], Parallel1.join[1]) annotation (Line(points={{
-              78.5,-30},{152.375,-30},{152.375,-25}}, color={0,0,0}));
+      connect(Step14.outPort[1], Parallel1.join[1]) annotation (Line(points={{78.5,
+              -30},{152.375,-30},{152.375,-25}},      color={0,0,0}));
       connect(Step7.inPort[1], Parallel1.split[2]) annotation (Line(points={{
               -123,-70},{-138,-70},{-138,-75},{-134.375,-75}}, color={0,0,0}));
       connect(Step7.outPort[1], Transition8.inPort) annotation (Line(points={{
@@ -1508,8 +1508,8 @@ Full steady state initialization is not supported, because the corresponding int
         annotation (Line(points={{78.5,-70},{94,-70}}, color={0,0,0}));
       connect(Transition11.outPort, Step11.inPort[1])
         annotation (Line(points={{99.5,-70},{117,-70}}, color={0,0,0}));
-      connect(Step11.outPort[1], Parallel1.join[2]) annotation (Line(points={{
-              138.5,-70},{154,-70},{154,-75},{152.375,-75}}, color={0,0,0}));
+      connect(Step11.outPort[1], Parallel1.join[2]) annotation (Line(points={{138.5,
+              -70},{154,-70},{154,-75},{152.375,-75}},       color={0,0,0}));
       connect(Transition7.outPort, Parallel1.inPort) annotation (Line(points={{
               -78.5,40},{-40,40},{-40,20},{-190,20},{-190,-50},{-181.55,-50}},
             color={0,0,0}));
@@ -1520,8 +1520,7 @@ Full steady state initialization is not supported, because the corresponding int
               0}));
       connect(BooleanExpression1.y, TransitionWithSignal1.condition) annotation (Line(
             points={{-13.7,-132},{-2,-132},{-2,-138}}, color={255,0,255}));
-      annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,
-                -200},{200,200}}),
+      annotation (
         Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-200},{
                 200,200}}), graphics={
             Rectangle(
@@ -1547,7 +1546,7 @@ Full steady state initialization is not supported, because the corresponding int
               points={{-24,10},{0,0},{-24,-10},{-24,10}},
               lineColor={0,0,0},
               fillColor={0,0,0},
-              fillPattern=FillPattern.Solid)})));
+              fillPattern=FillPattern.Solid)}));
     end Controller;
 
     package ControllerUtilities

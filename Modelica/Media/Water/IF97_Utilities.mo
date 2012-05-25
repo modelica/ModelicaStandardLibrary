@@ -3657,11 +3657,8 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
           <li>Initial version: July 2000</li>
           <li>Documentation added: December 2002</li>
           </ul>
-          </HTML>
-          "),     Documentation(
-       info="<html>
        <p>
-       &nbsp;Equation from:
+       Equation from:
        </p>
        <div style=\"text-align: center;\">&nbsp;[1] The international Association
        for the Properties of Water and Steam<br>

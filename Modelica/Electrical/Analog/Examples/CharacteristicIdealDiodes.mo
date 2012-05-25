@@ -91,33 +91,5 @@ Ideal.i versus Ideal.v, With_Ron_Goff.i versus With_Ron_Goff.v, With_Ron_Goff_Vk
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),  Documentation(info="<HTML>
-<P>
-Three examples of ideal diodes are shown:<br><br>
-the <b>totally ideal diode</b> (Ideal) with all parameters to be zero <br>
-the <b>nearly ideal diode</b> with <i>Ron=0.1</i> and <i>Goff=0.1</i> <br>
-the nearly ideal but <b>displaced diode</b> with <i>Vknee=5</i> and <i>Ron=0.1</i> and
-<i>Goff=0.1</i> <br><br>
-The resistance and conductance are chosen untypically high since the slopes should
-be seen in the graphics.
-</P>
-<P>
-Simulate until T=1 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-Ideal.i versus Ideal.v <br>
-With_Ron_Goff.i versus With_Ron_Goff.v<br>
-With_Ron_Goff_Vknee.i versus With_Ron_Goff_Vknee.v<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Mai 7, 2004   </i>
-       by Christoph Clauss<br> realized<br>
-       </li>
-</ul>
-</HTML>
-"),
-  experiment(
-     StopTime=1));
+</html>"),experiment(StopTime=1));
 end CharacteristicIdealDiodes;

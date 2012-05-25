@@ -51,27 +51,5 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
           lineColor={0,0,255})}),
                                 Documentation(info="<html>
 <p>This is a very simple circuit consisting of a voltage source and a resistor. The loss power in the resistor is transported to the environment via its heatPort.</p>
-</html>"),  Documentation(info="<HTML>
-<P>
-The heating rectifier shows a heat flow always if the electrical capacitor is loaded.
-</P>
-<P>
-Simulate until T=5 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-SineVoltage1.v  and  Capacitor1.p.v <br>
-HeatCapacitor1.port.T and HeatingDiode1.heatPort.T<br>
-HeatingDiode1.heatPort.Q_flow<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Mai 6, 2004   </i>
-       by Christoph Clauss<br> realized<br>
-       </li>
-</ul>
-</HTML>
-"),
-  experiment(
-     StopTime=5));
+</html>"), experiment(StopTime=5));
 end HeatingResistor;

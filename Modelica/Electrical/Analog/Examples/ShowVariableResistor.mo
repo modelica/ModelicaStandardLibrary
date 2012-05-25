@@ -70,6 +70,5 @@ annotation (Documentation(info="<html>
             100,100}}), graphics={Text(
           extent={{-100,112},{80,40}},
           lineColor={0,0,255},
-          textString="Example VariableResistor")}),
-           Diagram);
+          textString="Example VariableResistor")}));
 end ShowVariableResistor;

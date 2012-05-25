@@ -966,9 +966,6 @@ This record is used as <b> input record </b> for the heat transfer function <a h
       annotation (Documentation(info="<html>
 This record is used as <b> input record </b> for the heat transfer function <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection</a> and
 <a href=\"Modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC</a>.
-</html>"),          Documentation(info="<html>
-This record is used as <b> input record </b> for the heat transfer function <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection\"> kc_approxForcedConvection </a> and
-<a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\"> kc_approxForcedConvection_KC </a>.
 </html>"));
       end kc_approxForcedConvection_IN_var;
     annotation (preferredView="info", Documentation(info="<html>
@@ -10555,8 +10552,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         algorithm
           Re := Re1*(lambda2/lambda2_1)^(1 + dx*(c2 + dx*c3));
-          annotation (smoothOrder=1,
-                      smoothOrder=5);
+          annotation (smoothOrder=5);
         end CubicInterpolation_DP;
 
         function CubicInterpolation_MFLOW
@@ -10592,8 +10588,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         algorithm
           lambda2 := 64*Re1*(Re/Re1)^(1 + dx*(c2 + dx*c3));
-          annotation (smoothOrder=1,
-                      smoothOrder=5);
+          annotation (smoothOrder=5);
         end CubicInterpolation_MFLOW;
 
         function LambertW

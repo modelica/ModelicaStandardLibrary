@@ -2729,8 +2729,6 @@ for the VolumeFlowRate fitting component.
     end GenericResistances;
   end BaseClasses;
   annotation (Documentation(info="<html>
-
-</html>"),    Documentation(info="<html>
 <p>
 This sublibrary contains models and functions providing pressure
 loss correlations. All models in this library have the property

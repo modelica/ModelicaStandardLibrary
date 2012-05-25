@@ -1273,7 +1273,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               color={127,0,127},
               smooth=Smooth.None));
           connect(Input1.y, Mux2x1.in1) annotation (Line(
-              points={{-70,24},{-29.5,24}},
+              points={{-70,24},{-49.75,24},{-49.75,24},{-29.5,24}},
               color={127,0,127},
               smooth=Smooth.None));
           annotation (Icon(graphics={            Ellipse(extent={{-100,100},{
@@ -2006,8 +2006,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                     connect(a, AND.x[2])
                                       annotation (Line(points={{-100,70},{-40,70},{
                     -40,-54},{-12,-54}}, color={127,0,127}));
-                    annotation (
-                                 Icon(coordinateSystem(preserveAspectRatio=true,
+                    annotation ( Icon(coordinateSystem(preserveAspectRatio=true,
                     extent={{-100,-100},{100,100}}), graphics={Rectangle(
                                   extent={{-90,100},{90,-100}},
                                   lineColor={0,0,0},
@@ -7716,49 +7715,7 @@ Firstly Write is carried out, then Read.</b></p>
               points={{-80,20},{-60,20}},
               color={127,0,127},
               smooth=Smooth.None,
-              thickness=1)}),
- Icon(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-50,60},{50,-60}},
-              lineColor={127,0,127},
-              lineThickness=0.5,
-              fillPattern=FillPattern.Solid,
-              fillColor={255,255,255}),
-            Line(
-              points={{-80,30},{-50,30}},
-              color={127,0,127},
-              smooth=Smooth.None,
-              thickness=1),
-            Line(
-              points={{50,30},{80,30}},
-              color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
-            Line(
-              points={{-80,-20},{-50,-20}},
-              color={127,33,107},
-              smooth=Smooth.None),
-            Line(
-              points={{0,-84},{0,-60}},
-              color={127,33,107},
-              smooth=Smooth.None),
-            Line(
-              points={{-50,-8},{-34,-20},{-50,-32}},
-              color={127,33,107},
-              smooth=Smooth.None),
-            Text(
-              extent={{-30,58},{26,2}},
-              lineColor={127,33,107},
-              textString="DLATR"),
-            Text(
-              extent={{-29,-8},{6,-32}},
-              lineColor={127,33,107},
-              textString="enable"),
-            Text(
-              extent={{-14,-44},{12,-56}},
-              lineColor={127,33,107},
-              textString="reset")}));
+              thickness=1)}));
     end DLATRAM;
 
     model DLATROM "Level sensitive Read Only Memory"
@@ -7936,49 +7893,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
             Text(
               extent={{-41,-5},{-24,-34}},
               lineColor={127,33,107},
-              textString="RE")}),
- Icon(coordinateSystem(
-              preserveAspectRatio=true, extent={{-100,-100},{100,100}}), graphics={
-            Rectangle(
-              extent={{-50,60},{50,-60}},
-              lineColor={127,0,127},
-              lineThickness=0.5,
-              fillPattern=FillPattern.Solid,
-              fillColor={255,255,255}),
-            Line(
-              points={{-80,30},{-50,30}},
-              color={127,0,127},
-              smooth=Smooth.None,
-              thickness=1),
-            Line(
-              points={{50,30},{80,30}},
-              color={127,33,107},
-              thickness=1,
-              smooth=Smooth.None),
-            Line(
-              points={{-80,-20},{-50,-20}},
-              color={127,33,107},
-              smooth=Smooth.None),
-            Line(
-              points={{0,-84},{0,-60}},
-              color={127,33,107},
-              smooth=Smooth.None),
-            Line(
-              points={{-50,-8},{-34,-20},{-50,-32}},
-              color={127,33,107},
-              smooth=Smooth.None),
-            Text(
-              extent={{-30,58},{26,2}},
-              lineColor={127,33,107},
-              textString="DLATR"),
-            Text(
-              extent={{-29,-8},{6,-32}},
-              lineColor={127,33,107},
-              textString="enable"),
-            Text(
-              extent={{-14,-44},{12,-56}},
-              lineColor={127,33,107},
-              textString="reset")}));
+              textString="RE")}));
     end DLATROM;
     annotation (Icon(graphics={            Rectangle(
             extent={{-80,100},{100,-80}},

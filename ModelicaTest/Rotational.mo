@@ -92,8 +92,7 @@ extends Modelica.Icons.ExamplesPackage;
           points={{20,-10},{30,-10}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (        experiment(StopTime=2),
-                  Diagram, experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end ConnectionPossibilities;
 
     model SupportTorque1
@@ -161,9 +160,7 @@ extends Modelica.Icons.ExamplesPackage;
           points={{-34,-10},{56,-10},{56,0}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (                           experiment(StopTime=1.1),
-                  Diagram,
-        experiment(StopTime=2));
+      annotation (experiment(StopTime=1.1));
     end SupportTorque1;
 
     model Directions

@@ -198,27 +198,5 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),  Documentation(info="<HTML>
-<P>
-The heating NPN nand gate shows a heat flow always if a transistor is leading.
-</P>
-<P>
-Simulate until T=200 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-V1.v and V2.v and C2.v <br>
-HeatCapacitor1.port.T and T1.heatPort.T and T2.heatPort.T<br>
-T1.heatPort.Q_flow and T2.heatPort.Q_flow<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Mai 6, 2004   </i>
-       by Christoph Clauss<br> realized<br>
-       </li>
-</ul>
-</HTML>
-"),
-  experiment(
-     StopTime=200));
+</html>"), experiment(StopTime=200));
 end HeatingNPN_OrGate;

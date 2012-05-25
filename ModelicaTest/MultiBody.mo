@@ -3505,9 +3505,7 @@ a linear damper is connected here.
           points={{-40,30},{-60,30}},
           color={0,0,0},
           thickness=0.5));
-      annotation (
-        experiment(StopTime=1),
-                  experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end FixedTranslation;
 
     encapsulated model BodyShape "Simple spring/damper/mass system"
@@ -3634,8 +3632,7 @@ often possible to use the FreeMotion joint such that the singularity
           points={{0,30},{20,30}},
           color={95,95,95},
           thickness=0.5));
-      annotation (        experiment(StopTime=1.1),
-                  experiment(StopTime=1));
+      annotation (experiment(StopTime=1.1));
     end PointMass;
 
     model Bodies

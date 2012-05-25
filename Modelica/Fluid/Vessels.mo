@@ -459,8 +459,7 @@ should be used if these values are needed.
 </li>
 <li><i>Dec. 2008</i> by R&uuml;diger Franke: derived from OpenTank, in order to make general use of configurable port diameters</li>
 </ul>
-</html>"),
-          Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+</html>"),Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-150,110},{150,150}},
               textString="%name",

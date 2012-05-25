@@ -758,32 +758,6 @@ data for a useful medium model is thus density and heat capacity. Transport
 properties and vapor pressure are optional, if the data tables are empty the corresponding
 function calls can not be used.
 </p>
-</HTML>"),
-    Documentation(info="<HTML>
-<h4>Table based media</h4>
-<p>
-This is the base package for medium models of incompressible fluids based on
-tables. The minimal data to provide for a useful medium description is tables
-of density and heat capacity as functions of temperature.
-</p>
-<h4>Using the package TableBased</h4>
-<p>
-To implement a new medium model, create a package that <b>extends</b> TableBased
-and provides one or more of the constant tables:
-<pre>
-tableDensity        = [T, d];
-tableHeatCapacity   = [T, Cp];
-tableConductivity   = [T, lam];
-tableViscosity      = [T, eta];
-tableVaporPressure  = [T, pVap];
-</pre>
-The table data is used to fit constant polynomials of order <b>npol</b>, the
-temperature data points do not need to be same for different properties. Properties
-like enthalpy, inner energy and entropy are calculated consistently from integrals
-and derivatives of d(T) and Cp(T). The minimal
-data for a useful medium model is thus density and heat capacity. Transport
-properties and vapor pressure are optional, if the data tables are empty the corresponding
-function calls can not be used.
 </HTML>"));
   end TableBased;
 

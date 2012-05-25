@@ -100,27 +100,5 @@ annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
        by Christoph Clauss<br> realized<br>
        </li>
 </ul>
-</html>"),  Documentation(info="<HTML>
-<P>
-The heating MOS inverter shows a heat flow always if a transistor is leading.
-</P>
-<P>
-Simulate until T=5 s.
-</P>
-<P>
-Plot in separate windows:<br> <br>
-Sin.p.v  and  Capacitor1.p.v <br>
-HeatCapacitor1.port.T and H_PMOS.heatPort.T and H_NMOS.heatPort.T<br>
-H_PMOS.heatPort.Q_flow and H_NMOS.heatPort.Q_flow<br>
-</P>
-<p><b>Release Notes:</b></p>
-<ul>
-<li><i>Mai 6, 2004   </i>
-       by Christoph Clauss<br> realized<br>
-       </li>
-</ul>
-</HTML>
-"),
-  experiment(
-     StopTime=5));
+</html>"), experiment(StopTime=5));
 end HeatingMOSInverter;
