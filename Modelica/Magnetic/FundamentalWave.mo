@@ -1926,7 +1926,7 @@ relationship of the voltage and current space phasor.
       -v = Modelica.ComplexMath.real(Modelica.ComplexMath.conj(N)*Complex(der(Phi.re),der(Phi.im)));
 
       annotation (defaultComponentName="converter",
-  Icon(coordinateSystem(
+        Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={

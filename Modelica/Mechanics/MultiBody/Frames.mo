@@ -370,7 +370,6 @@ and/or a division by zero will occur.
   function axesRotationsAngles
     "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
 
-
     extends Modelica.Icons.Function;
     input Orientation R "Orientation object to rotate frame 1 into frame 2";
     input Integer sequence[3](
@@ -1615,7 +1614,6 @@ and/or a division by zero will occur.
 
     function axesRotationsAngles
       "Return the 3 angles to rotate in sequence around 3 axes to construct the given orientation object"
-
 
       extends Modelica.Icons.Function;
       input TransformationMatrices.Orientation T

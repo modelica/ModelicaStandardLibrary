@@ -3348,7 +3348,7 @@ November 3-4, 2003, pp. 149-158</p>
     model RollingWheel
     "Joint (no mass, no inertia) that describes an ideal rolling wheel (rolling on the plane z=0)"
 
-      import Modelica.Mechanics.MultiBody.Frames;
+    import Modelica.Mechanics.MultiBody.Frames;
 
       Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
       "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"
@@ -7752,7 +7752,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
      model RollingConstraintVerticalWheel
       "Rolling constraint for wheel that is always perpendicular to x-y plane"
-        import Modelica.Mechanics.MultiBody.Frames;
+      import Modelica.Mechanics.MultiBody.Frames;
 
         Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
         "Frame fixed in wheel center point. x-Axis: upwards, y-axis: along wheel axis"

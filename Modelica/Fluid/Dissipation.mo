@@ -538,8 +538,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-        import SMOOTH =
-          Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+        import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
         //input records
         input
@@ -9797,8 +9796,7 @@ documentation available in this package.
 
             import PI = Modelica.Constants.pi;
             import MIN = Modelica.Constants.eps;
-            import SMOOTH =
-              Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
+            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
 
             //choices
             input
@@ -10421,8 +10419,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
             //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-            import SMOOTH =
-              Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
             //records
             input

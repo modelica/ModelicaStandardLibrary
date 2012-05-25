@@ -3012,11 +3012,7 @@ The corresponding SPICE description
 <li><i>September 2011 </i>revised by Sandra B&ouml;hme</br/>
 <li><i>April 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
-</html>"),
-    Placement(transformation(extent={{-110,-10},{
-                -90,10}}, rotation=0), iconTransformation(extent={{-100,0},{-80,
-                20}})),         Placement(transformation(extent={{110,-10},{90,
-                10}}, rotation=0), iconTransformation(extent={{120,0},{100,20}})));
+</html>"));
     end C_Capacitor;
 
     record ModelcardCAPACITOR
@@ -5432,8 +5428,7 @@ on the model behaviour.
             Text(
               extent={{8,-34},{96,-54}},
               lineColor={0,0,255},
-              textString="%name")}),
-        DymolaStoredErrors);
+              textString="%name")}));
   end JFET;
 
     record ModelcardJFET "Record with technological parameters (.model)"
@@ -11227,11 +11222,11 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                                        (2*in_p.m_potentialSubstrate));
         end if;
 
-        //obsolete --> for backwart compatibility
+        //obsolete --> for backward compatibility
 
         out_cc.iXX :=1;
 
-        annotation (smoothOrder(normallyConstant=in_p3)=1,Documentation(info="<html>
+        annotation (smoothOrder(__Dymola_normallyConstant=in_p3)=1,Documentation(info="<html>
 <p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
 </html>"));
       end bjtNoBypassCode;

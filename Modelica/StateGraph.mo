@@ -1531,7 +1531,7 @@ buttons:
     connector inflow1
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       input Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1546,7 +1546,7 @@ buttons:
     connector inflow2
         "Inflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       output Units.VolumeFlowRate Fi "inflow";
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -1561,7 +1561,7 @@ buttons:
     connector outflow1
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       output Units.VolumeFlowRate Fo "outflow";
       input Boolean open "valve open";
@@ -1577,7 +1577,7 @@ buttons:
     connector outflow2
         "Outflow connector (this is a copy from Isolde Dressler's master thesis project)"
 
-      import Units = Modelica.SIunits;
+        import Units = Modelica.SIunits;
 
       input Units.VolumeFlowRate Fo "outflow";
       output Boolean open "valve open";

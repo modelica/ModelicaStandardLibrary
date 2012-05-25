@@ -2,7 +2,6 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model EngineV6
   "V6 engine with 6 cylinders, 6 planar loops and 1 degree-of-freedom"
 
-
   extends Modelica.Icons.Example;
   parameter Boolean animation=true "= true, if animation shall be enabled";
   output Modelica.SIunits.Conversions.NonSIunits.AngularVelocity_rpm

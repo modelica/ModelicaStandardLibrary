@@ -225,18 +225,7 @@ is passed as output.
           Line(
             points={{-50,-70},{50,70}},
             color={0,0,0},
-            smooth=Smooth.None)},
-        Line(points=[-2,-90; -2,68], style(color=8)),
-        Polygon(points=[-2,90; -10,68; 6,68; -2,90],  style(color=8,
-              fillColor=8)),
-        Polygon(points=[88,0; 66,-8; 66,8; 88,0],     style(color=8,
-              fillColor=8)),
-        Line(points=[-92,0; 66,0],   style(color=8)),
-        Line(points=[-52,-70; 48,70], style(
-            color=0,
-            rgbcolor={0,0,0},
-            pattern=2,
-            smooth=0))),
+            smooth=Smooth.None)}),
   Documentation(info="<html>
 <p>The <code>SlewRateLimiter</code> block limits the slew rate of its input signal in the range of <code>[Falling, Rising]</code>.</p>
 <p>To ensure this for arbitrary inputs and in order to produce a differential output, the input is numerically differentiated

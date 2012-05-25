@@ -656,7 +656,7 @@ partial package WaterIF97_base
 
       redeclare function extends setSmoothState
     "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
-      import Modelica.Media.Common.smoothStep;
+    import Modelica.Media.Common.smoothStep;
       algorithm
         state :=ThermodynamicState(
           p=smoothStep(x, state_a.p, state_b.p, x_small),
@@ -1258,7 +1258,7 @@ partial package WaterIF97_fixedregion
 
       redeclare function extends setSmoothState
     "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
-      import Modelica.Media.Common.smoothStep;
+    import Modelica.Media.Common.smoothStep;
       algorithm
         state :=ThermodynamicState(
           p=smoothStep(x, state_a.p, state_b.p, x_small),

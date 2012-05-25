@@ -1,6 +1,4 @@
 within Modelica.Blocks;
-
-
 package Tables
   "Library of blocks to interpolate in one and two-dimensional tables"
   extends Modelica.Icons.Package;
@@ -776,3 +774,4 @@ interpolation in tables.
 </p>
 </html>"));
 end Tables;
+

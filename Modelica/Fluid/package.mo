@@ -1,8 +1,8 @@
 within Modelica;
 package Fluid "Library of 1-dim. thermo-fluid flow models using the Modelica.Media media description"
   extends Modelica.Icons.Package;
-  import SI = Modelica.SIunits;
-  import Cv = Modelica.SIunits.Conversions;
+import SI = Modelica.SIunits;
+import Cv = Modelica.SIunits.Conversions;
 
 
 package UsersGuide "User's Guide"

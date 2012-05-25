@@ -341,14 +341,14 @@ to a function in a model.
       extends Modelica.Icons.Package;
 
       function fun1 "y = u^2 - 1"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       algorithm
         y := u^2 - 1;
       end fun1;
 
       function fun2 "y = 3*u - sin(w*u) - 1"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real w "Angular velocity";
       algorithm
@@ -357,7 +357,7 @@ to a function in a model.
       end fun2;
 
       function fun3 "y = p[1] + log(p[2]*u) - m*u"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real p[2];
         input Real m;
@@ -367,14 +367,14 @@ to a function in a model.
       end fun3;
 
       function fun4 "y = sin(u)"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
       algorithm
         y := sin(u);
       end fun4;
 
       function fun5 "y = sin(w*u)"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real w "Angular velocity";
       algorithm
@@ -382,7 +382,7 @@ to a function in a model.
       end fun5;
 
       function fun6 "y = sqrt(1/(1 - k^2*sin(u)^2))"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real k "Modul";
       algorithm
@@ -390,7 +390,7 @@ to a function in a model.
       end fun6;
 
       function fun7 "y = A*sin(w*u)*q(t)"
-	extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
         extends Modelica.Math.Nonlinear.Interfaces.partialScalarFunction;
         input Real A "Amplitude";
         input Real w "Angular frequency";

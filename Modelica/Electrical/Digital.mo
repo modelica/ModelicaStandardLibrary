@@ -162,8 +162,8 @@ the library and has the following content:
         extends Modelica.Icons.ExamplesPackage;
 
         model Multiplexer "4 to 1 Bit Multiplexer Example"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           D.Sources.Clock CLK(period=20)  annotation (Placement(transformation(
@@ -229,8 +229,8 @@ the library and has the following content:
         end Multiplexer;
 
         model FlipFlop "Pulse Triggered Master Slave Flip-Flop"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           D.Examples.Utilities.JKFF FF
@@ -266,8 +266,8 @@ the library and has the following content:
 
         model HalfAdder
       "Adding circuit for binary numbers without input carry bit"
-          import Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table a(
@@ -342,8 +342,8 @@ The simulation stop time should be 5 seconds.
         end HalfAdder;
 
         model FullAdder "Full 1 Bit Adder Example"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           D.Examples.Utilities.FullAdder Adder1                  annotation (Placement(
@@ -410,8 +410,8 @@ The simulation stop time should be 10 seconds.
         end FullAdder;
 
         model Adder4 "4 Bit Adder Example"
-          import Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           extends Modelica.Icons.Example;
 
@@ -550,7 +550,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end Adder4;
 
         model Counter3 "3 Bit Counter Example"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends Modelica.Icons.Example;
 
           D.Sources.Step Enable       annotation (Placement(transformation(extent={
@@ -576,7 +576,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end Counter3;
 
         model Counter "Generic N Bit Counter Example"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends Modelica.Icons.Example;
 
           D.Sources.Step Enable       annotation (Placement(transformation(extent={
@@ -618,7 +618,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end Counter;
 
         model VectorDelay "Vector delay"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
@@ -652,7 +652,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,7,8,10,11,15,16})
@@ -692,7 +692,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DFFREG;
 
         model DFFREGL "Pulse triggered D-Register-Bank, low active reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,7,8,10,11,15,16})
@@ -737,7 +737,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DFFREGSRH
       "Pulse triggered D-Register-Bank, high active set and reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0'}, t={0,10,11})
@@ -784,7 +784,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DFFREGSRL
       "Pulse triggered D-Register-Bank, low active set and reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0'}, t={0,10,11})
@@ -829,7 +829,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DFFREGSRL;
 
         model DLATREG "Level sensitive D-Register-Bank, high active reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
@@ -870,7 +870,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DLATREG;
 
         model DLATREGL "Level sensitive D-Register-Bank, low active reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
@@ -911,7 +911,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DLATREGSRH
       "Level sensitive D-Register-Bank, high active set and reset"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
@@ -963,7 +963,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DLATREGSRL
       "Level sensitive D-Register-Bank, low active set and reset"
-            import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={L.'0',L.'1',L.'0'})
@@ -1013,7 +1013,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DLATREGSRL;
 
         model NXFER "Functionality test of NXFERGATE"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1051,7 +1051,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end NXFER;
 
         model NRXFER "Functionality test of NRXFERGATE"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1089,7 +1089,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end NRXFER;
 
         model BUF3S "Functionality test of BUF3S"
-        import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1129,7 +1129,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end BUF3S;
 
         model INV3S "Functionality test of INV3S"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
@@ -1167,7 +1167,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end INV3S;
 
         model WiredX "Functionality test of WiredX"
-        import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table2(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'0'},
@@ -1244,8 +1244,8 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end WiredX;
 
         model MUX2x1
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           D.Multiplexers.MUX2x1 Mux2x1
             annotation (Placement(transformation(extent={{-34,-48},{56,48}})));
           D.Sources.Table Input1(
@@ -1287,7 +1287,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end MUX2x1;
 
         model RAM
-         import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Memories.DLATRAM
                          dLATRAM
             annotation (Placement(transformation(extent={{-11,-41},{103,73}})));
@@ -1361,8 +1361,8 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         extends Modelica.Icons.Package;
 
         model MUX4 "4 to 1 Bit Multiplexer"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
@@ -1458,9 +1458,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             Documentation(info="<html>
 <p>MUX4 is a four bit multiplexer which is built up by And, Not, and Or gates according to the schematic.</p>
 <p>The parameters delayTime and q0 are prepared but<b> not</b> yet used in the component. The MUX4 component uses standard values in its components.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1532,7 +1530,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
-                textString="A0")})));
+                textString="A0")}));
         end MUX4;
 
         model RS "Unclocked RS FlipFlop"
@@ -1576,9 +1574,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>RS is a basic component for e.g., the RS (set-reset) flipflop, which is built up by Nor gates according to the schematic. To avoid a numerical loop a small transport delay is inserted which delay time is a parameter of the RS component. Also its initial value can be set by parameter.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1629,12 +1625,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                textString="%name")})));
+                textString="%name")}));
         end RS;
 
         model RSFF "Unclocked RS FlipFlop"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0.01 "Delay time";
           parameter D.Interfaces.Logic q0=L.'U' "Initial value";
@@ -1686,9 +1682,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component RSFF is a RS (set-reset) flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1740,7 +1734,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               Text(
                 extent={{-150,-100},{150,-160}},
                 lineColor={0,0,255},
-                textString="%name")})));
+                textString="%name")}));
         end RSFF;
 
         model DFF "D FlipFlop"
@@ -1776,7 +1770,8 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                 points={{-30,-28},{-10,-28}},
                 color={127,0,127}));
           connect(clk, RSFF1.clk)  annotation (Line(
-                points={{-100,0},{-10,0}},
+                points={{-100,5.55112e-16},{-77.5,5.55112e-16},{-77.5,
+                2.9976e-15},{-55,2.9976e-15},{-55,2.44249e-15},{-10,2.44249e-15}},
                 color={127,0,127}));
           connect(d, Not1.x)  annotation (Line(
                 points={{-100,70},{-80,70},{-80,-28},{-62,-28}},
@@ -1787,9 +1782,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1834,12 +1827,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               Text(
                 extent={{-100,100},{100,40}},
                 lineColor={0,0,0},
-                textString="D")})));
+                textString="D")}));
         end DFF;
 
         model JKFF "JK FlipFlop"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay time";
           parameter D.Interfaces.Logic q0=L.'0' "Initial value";
@@ -2267,7 +2260,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end FullAdder;
 
         model Adder "Generic N Bit Adder"
-          import Modelica.Electrical.Digital;
+        import Modelica.Electrical.Digital;
 
           parameter Integer n=2 "Number of single adders";
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder[n]
@@ -2358,8 +2351,8 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end Adder;
 
         model Counter3 "3 Bit Counter"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           D.Interfaces.DigitalInput enable
                                          annotation (Placement(transformation(
@@ -2430,9 +2423,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
            annotation (
              Documentation(info="<html>
 <p>The Counter3 counts the high-low slopes of the count signal, if the enable signal is set to be true. It is composed by three JK flipflops. q0, q1, and q2 are the bits of the resulting number, where q0 is the lowest, and q2 the highest bit.</p>
-</html>"),   Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
-                  -100},{100,100}}),
-             Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -2482,12 +2473,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
-                textString="Q1")})));
+                textString="Q1")}));
         end Counter3;
 
         model Counter "Generic N Bit Counter"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+        import D = Modelica.Electrical.Digital;
+        import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           parameter Integer n=3 "Number of bits";
           parameter Modelica.SIunits.Time delayTime=0.001 "Delay of each JKFF";
@@ -2716,7 +2707,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 </html>"));
 
         partial block SISO "Single input, single output"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           D.Interfaces.DigitalInput x "Connector of Digital input signal"
                        annotation (Placement(transformation(extent={{-70,-10},{-50,
                     10}}, rotation=0)));
@@ -2738,7 +2729,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end SISO;
 
         partial block MISO "Multiple input - single output"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
 
           parameter Integer n(final min=2) = 2 "Number of inputs";
           D.Interfaces.DigitalInput x[n]
@@ -2762,7 +2753,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end MISO;
 
         partial block MIMO "Multiple input - multiple output"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
 
           parameter Integer n(final min=1) = 1
         "Number of inputs = Number of outputs";
@@ -2996,7 +2987,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         extends Modelica.Icons.Package;
 
         partial block DelayParams "Definition of delay parameters"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter Modelica.SIunits.Time tLH(start=0) "Rise inertial delay";
           parameter Modelica.SIunits.Time tHL(start=0) "Fall inertial delay";
           parameter L y0=L.'U' "Initial value of output";
@@ -3006,8 +2997,8 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DelayParams;
 
         model TransportDelay "Transport delay with initial parameter"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
           parameter Modelica.SIunits.Time delayTime(start=0) "delay time";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
@@ -3060,8 +3051,8 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
         end TransportDelay;
 
         block InertialDelay "Inertial delay with initial parameter"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO;
           parameter Modelica.SIunits.Time delayTime(start=0)
         "Minimum time to hold value";
@@ -3094,9 +3085,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
 <dt><i>March 19, 2003</i></dt>
 <dd>by Martin Otter initially modelled.</dd>
 </dl>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3120,14 +3109,14 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
               extent={{-50,-60},{50,-40}},
               lineColor={0,0,0},
               lineThickness=0.5,
-              textString="Delay")})));
+              textString="Delay")}));
         end InertialDelay;
 
         model InertialDelaySensitive
       "Provide the input as output if it holds its value for a specific amount of time"
 
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO(x(start=L.'U',fixed=true));
           parameter Modelica.SIunits.Time tLH(start=0) "rise inertial delay";
           parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
@@ -3185,9 +3174,7 @@ is used, if it is zero, the input is not delayed.
        by Christoph Clauss<br>
        initially modelled</li>
 </ul>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3216,15 +3203,15 @@ is used, if it is zero, the input is not delayed.
               textString="sensitive"),
             Polygon(points={{-6,60},{-16,40},{4,40},{-6,60}}, lineColor={0,0,0}),
             Line(points={{10,60},{10,40}}, color={0,0,0}),
-            Line(points={{0,60},{20,60}}, color={0,0,0})})));
+            Line(points={{0,60},{20,60}}, color={0,0,0})}));
         end InertialDelaySensitive;
 
         model InertialDelaySensitiveVector
       "Delay of a vector of digital signals"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter Integer n(min=1) = 1 "Data width";
@@ -3292,8 +3279,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         extends Modelica.Icons.Package;
 
         model Not "Not logic component without delay"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.SISO;
     protected
           D.Interfaces.Logic auxiliary(start=L.'0', fixed=true);
@@ -3331,8 +3318,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Not;
 
         model And "And logic component with multiple input and one output"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3370,8 +3357,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end And;
 
         model Nand "Nand logic component with multiple input and one output"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3417,8 +3404,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Nand;
 
         model Or "Or logic component with multiple input and one output"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3456,8 +3443,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Or;
 
         model Nor "Nor logic component with multiple input and one output"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3503,8 +3490,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Nor;
 
         model Xor "Xor logic component with multiple input and one output"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3542,8 +3529,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end Xor;
 
         model Xnor "Xnor logic component with multiple input and one output"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends D.Interfaces.MISO;
     protected
           D.Interfaces.Logic auxiliary[n](each start=L.'U', each fixed=true);
@@ -3589,7 +3576,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 
         model InvGate
       "InvGate with 1 input value, composed by Not and sensitive intertial delay"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
           D.Basic.Not G1         annotation (Placement(transformation(extent={{-60,
@@ -3613,9 +3600,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <dt><i>August 14, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
 </dl>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -3643,11 +3628,11 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               lineColor={0,0,0},
               lineThickness=0.5,
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)})));
+              fillPattern=FillPattern.Solid)}));
         end InvGate;
 
         model AndGate "AndGate with multiple input"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Interfaces.MISO;
           extends D.Delay.DelayParams;
           D.Basic.And G1(final n=n)     annotation (Placement(transformation(extent={
@@ -3702,7 +3687,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end AndGate;
 
         model NandGate "NandGate with multiple input"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Nand G1(final n=n)      annotation (Placement(transformation(extent=
@@ -3762,7 +3747,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end NandGate;
 
         model OrGate "OrGate with multiple input"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Or G1(final n=n)    annotation (Placement(transformation(extent={{
@@ -3817,7 +3802,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end OrGate;
 
         model NorGate "NorGate with multiple input"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Nor G1(final n=n)     annotation (Placement(transformation(extent={
@@ -3878,7 +3863,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end NorGate;
 
         model XorGate "XorGate with multiple input"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Xor G1(final n=n)     annotation (Placement(transformation(extent={
@@ -3933,7 +3918,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         end XorGate;
 
         model XnorGate "XnorGate with multiple input"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.MISO;
           D.Basic.Xnor G1(final n=n)      annotation (Placement(transformation(extent=
@@ -3989,7 +3974,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 
         model BufGate
       "BufGate with 1 input value, composed by Not and sensitive intertial delay"
-          import D = Modelica.Electrical.Digital;
+      import D = Modelica.Electrical.Digital;
           extends D.Delay.DelayParams;
           extends D.Interfaces.SISO;
           D.Delay.InertialDelaySensitive G1(tLH=tLH, tHL=tHL)
@@ -4009,9 +3994,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 <dt><i>September 21, 2004</i></dt>
 <dd>by Andre Schneider initially modelled.</dd>
 </dl>
-</HTML>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-160},{-148,-100}},
@@ -4033,7 +4016,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
               lineThickness=0.5,
               fillColor={255,191,127},
               fillPattern=FillPattern.Solid,
-              textString="1")})));
+              textString="1")}));
         end BufGate;
         annotation (                                Documentation(info="<html>
 <p>Gates contains the basic gates according to standard logic as they are provided in the Basic package. Additionally they contain an InertialDelaySensitive component They are composed graphically, not using any equations.</p>
@@ -4044,8 +4027,8 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
         extends Modelica.Icons.SourcesPackage;
 
         block Set "Digital Set Source"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter D.Interfaces.Logic x(start=L.'1') "Logic value to be set";
           D.Interfaces.DigitalOutput y
                         annotation (Placement(transformation(extent={{90,-10},{110,
@@ -4111,8 +4094,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Set;
 
         block Step "Digital Step Source"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter D.Interfaces.Logic before(start=L.'0')
         "Logic value before step";
           parameter D.Interfaces.Logic after(start=L.'1')
@@ -4186,8 +4169,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Step;
 
         block Table "Digital Tabular Source"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter D.Interfaces.Logic x[:]={1} "vector of values";
           parameter Real t[size(x, 1)]={1}
         "vector of corresponding time points";
@@ -4275,8 +4258,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Table;
 
         model Pulse "Digital Pulse Source"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter Real width(
             final min=Modelica.Constants.small,
             final max=100, start=50) "Widths of pulses in % of periods";
@@ -4368,8 +4351,8 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         end Pulse;
 
         model Clock "Digital Clock Source"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           parameter Modelica.SIunits.Time startTime(start=0)
         "Output = offset for time < startTime";
           parameter Modelica.SIunits.Time period(
@@ -4430,8 +4413,8 @@ The number of periods is unlimited. The first pulse starts at startTime.
         extends Modelica.Icons.Package;
 
         block LogicToXO1 "Conversion to XO1"
-          import D = Modelica.Electrical.Digital;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
@@ -4505,8 +4488,8 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToXO1;
 
         block LogicToXO1Z "Conversion to XO1Z"
-          import D = Modelica.Electrical.Digital;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
@@ -4579,8 +4562,8 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToXO1Z;
 
         block LogicToUX01 "Conversion to UXO1"
-          import D = Modelica.Electrical.Digital;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
@@ -4653,7 +4636,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToUX01;
 
         block BooleanToLogic "Boolean to Logic converter"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Blocks.Interfaces.BooleanInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
@@ -4688,8 +4671,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  extent=[-60, -10; -40, 10],
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}},
@@ -4712,7 +4694,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end BooleanToLogic;
 
         block LogicToBoolean "Logic to Boolean converter"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
@@ -4777,7 +4759,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end LogicToBoolean;
 
         block RealToLogic "Real to Logic converter"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Blocks.Interfaces.RealInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
@@ -4819,8 +4801,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>"),  extent=[-60, -10; -40, 10],
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Polygon(
               points={{-40,-40},{40,40},{40,-40},{-40,-40}},
@@ -4840,7 +4821,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
         end RealToLogic;
 
         block LogicToReal "Logic to Real converter"
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Interfaces.DigitalInput x[n]
             annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                   rotation=0)));
@@ -4930,10 +4911,10 @@ The values val... are given by parameters.</P>
         extends Modelica.Icons.Package;
 
         model DFFR "Edge triggered register bank with reset"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetMap[9] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
         "function selection, defaults for high active reset";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -5120,10 +5101,10 @@ Clock transition definitions:
         end DFFR;
 
         model DFFREG "Edge triggered register bank with high active reset"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -5324,10 +5305,10 @@ Clock transition definitions:
         end DFFREGL;
 
         model DFFSR "Edge triggered register bank with set and reset"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetSetMap[9, 9]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
@@ -5577,10 +5558,10 @@ Clock transition definitions:
 
         model DFFREGSRH
       "Edge triggered register bank with high active set and reset"
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -5816,10 +5797,10 @@ Clock transition definitions:
 
         model DLATR "Level sensitive register bank with reset"
 
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetMap[9] = {1, 4, 3, 2, 4, 4, 3, 2, 4}
         "function selection, defaults for high active reset";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -5963,8 +5944,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+</html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6006,16 +5986,15 @@ Clock transition definitions:
             Text(
               extent={{-14,-44},{12,-56}},
               lineColor={127,33,107},
-              textString="reset")}),
-          graphics));
+              textString="reset")}));
         end DLATR;
 
         model DLATREG "Level sensitive register bank with reset active high"
 
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -6109,8 +6088,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+</html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6156,8 +6134,7 @@ Clock transition definitions:
             Text(
               extent={{-26,44},{26,2}},
               lineColor={127,33,107},
-              textString="high active")}),
-          graphics));
+              textString="high active")}));
         end DLATREG;
 
         model DLATREGL "Level sensitive register bank with reset active low"
@@ -6216,10 +6193,10 @@ Clock transition definitions:
 
         model DLATSR "Level sensitive register bank with set and reset"
 
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Integer ResetSetMap[9, 9]=[
                      1,  1,  1,  1,  1,  1,  1,  1,  1;
                      1,  4,  7,  2,  4,  4,  7,  2,  4;
@@ -6417,8 +6394,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),            Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),             Icon(coordinateSystem(
+</html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6468,17 +6444,16 @@ Clock transition definitions:
             Text(
               extent={{-13,56},{13,44}},
               lineColor={127,33,107},
-              textString="set")}),
-          graphics));
+              textString="set")}));
         end DLATSR;
 
         model DLATREGSRH
       "Level sensitive register bank with set and reset, active high"
 
-          import D = Modelica.Electrical.Digital;
-          import L = Modelica.Electrical.Digital.Interfaces.Logic;
-          import S = Modelica.Electrical.Digital.Interfaces.Strength;
-          import T = Modelica.Electrical.Digital.Tables;
+      import D = Modelica.Electrical.Digital;
+      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+      import T = Modelica.Electrical.Digital.Tables;
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -6590,9 +6565,7 @@ Clock transition definitions:
 <li><i>September 11, 2009 </i> created by Ulrich Donath<br>
        </li>
 </ul>
-</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,
-                -100},{100,100}}),
-        Icon(coordinateSystem(
+</html>"),  Icon(coordinateSystem(
                   preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
             graphics={
             Rectangle(
@@ -6646,8 +6619,7 @@ Clock transition definitions:
             Text(
               extent={{-28,38},{30,10}},
               lineColor={127,0,127},
-              textString="high active")}),
-          graphics));
+              textString="high active")}));
         end DLATREGSRH;
 
         model DLATREGSRL
@@ -6717,10 +6689,10 @@ Clock transition definitions:
 
   package Tristates "Transfergates, Buffers, Inverters, and WiredX"
       extends Modelica.Icons.Package;
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import T = Modelica.Electrical.Digital.Tables;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
+    import D = Modelica.Electrical.Digital;
+    import L = Modelica.Electrical.Digital.Interfaces.Logic;
+    import T = Modelica.Electrical.Digital.Tables;
+    import S = Modelica.Electrical.Digital.Interfaces.Strength;
 
     model NXFERGATE "Transfergate with enable active high"
       parameter Modelica.SIunits.Time tHL=0 "High->Low delay";

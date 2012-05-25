@@ -573,7 +573,7 @@ agreement. A typical simulation result is shown in the next figure:
       Sources.BooleanExpression booleanExpression(
                                                 y=pulse.y and step.y)
       annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
-       annotation(      experiment(StopTime=10),
+       annotation (     experiment(StopTime=10),
       Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in
@@ -618,7 +618,7 @@ model.
     connect(Or1.y, Pre1.u) annotation (Line(points={{61,30},{68,30},{68,-70},{
             -60,-70},{-60,-50},{-42,-50}}, color={255,0,255}));
 
-    annotation(        experiment(StopTime=10),
+    annotation (       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
 This example demonstrates a network of logical blocks. Note, that
@@ -702,7 +702,7 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
         points={{29.02,30},{44.5,30}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation(        experiment(StopTime=10),
+    annotation (       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
 This example demonstrates a network of mathematical Real blocks.
@@ -818,7 +818,7 @@ Note, that
         points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
         color={255,0,255},
         smooth=Smooth.None));
-    annotation(        experiment(StopTime=10),
+    annotation (       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
@@ -1010,7 +1010,7 @@ Note, that
         points={{-47.2,-90},{-33.5,-90}},
         color={255,0,255},
         smooth=Smooth.None));
-    annotation(        experiment(StopTime=10),
+    annotation (       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
@@ -1067,7 +1067,7 @@ Note, that
           points={{-59,-10},{-41.5,-10}},
           color={255,0,255},
           smooth=Smooth.None));
-    annotation(        experiment(StopTime=10),
+    annotation (       experiment(StopTime=10),
       Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks

@@ -3896,14 +3896,14 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
       equation
 
         connect(airGapS.support, internalSupport) annotation (Line(
-            points={{-10,1.83697e-015},{-40,1.83697e-015},{-40,-90},{60,-90},{
-                60,-100}},
+            points={{-10,2.33651e-15},{-40,2.33651e-15},{-40,-90},{60,-90},{60,
+                -100}},
             color={0,0,0},
             smooth=Smooth.None));
 
         connect(airGapS.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,-1.83697e-015},{34,-1.83697e-015},{34,1.22465e-015},{70,
-                1.22465e-015}},
+            points={{10,-1.33731e-15},{34,-1.33731e-15},{34,7.25006e-16},{70,
+                7.25006e-16}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
@@ -3940,12 +3940,12 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
             smooth=Smooth.None));
         connect(rotorCore.heatPort, internalThermalPort.heatPortRotorCore)
           annotation (Line(
-            points={{10,-40},{0,-40},{0,-80}},
+            points={{10,-40},{8.32667e-17,-40},{8.32667e-17,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(rr.heatPort, internalThermalPort.heatPortRotorWinding) annotation (
             Line(
-            points={{-70,40},{50,40},{50,-80},{0,-80}},
+            points={{-70,40},{50,40},{50,-80},{8.32667e-17,-80}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(plug_rp, rr.plug_p) annotation (Line(
@@ -4083,12 +4083,10 @@ at standstill with open rotor circuit at nominal voltage and nominal frequency, 
 using the locked-rotor voltage VR, no-load stator current I0 and powerfactor PF0:<br>
 turnsRatio * <u>V</u><sub>R</sub> = <u>V</u><sub>s</sub> - (R<sub>s</sub> + j X<sub>s,sigma</sub>) <u>I</u><sub>0</sub>
 </p>
-</HTML>"),   Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
-                  100,100}}),
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,
-                    20}}, color={0,0,255}), Line(points={{-100,-50},{-100,-20},
-                    {-60,-20}}, color={0,0,255})})));
+</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Line(points={{-100,50},{-100,20},{-60,20}},
+                  color={0,0,255}),       Line(points={{-100,-50},{-100,-20},
+                    {-60,-20}}, color={0,0,255})}));
       end AIM_SlipRing;
 
       annotation (Documentation(info="<HTML>
@@ -12131,7 +12129,7 @@ Connector for Space Phasors:
     equation
       connect(inertiaRotor.flange_b, flange)
                                             annotation (Line(points={{90,
-              -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
+              -1.72421e-15},{92,-1.72421e-15},{92,5.55112e-16},{100,5.55112e-16}},
                                                                color={0,0,0}));
       connect(inertiaStator.flange_b, support)
         annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
@@ -12144,7 +12142,7 @@ Connector for Space Phasors:
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, friction.flange) annotation (Line(
-          points={{90,-1.22465e-015},{90,-30}},
+          points={{90,-1.72421e-15},{90,-30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.support, internalSupport) annotation (Line(
@@ -12324,11 +12322,12 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={0,0,255},
           smooth=Smooth.None));
       connect(thermalPort, internalThermalPort) annotation (Line(
-          points={{0,-100},{0,-80}},
+          points={{5.55112e-16,-100},{5.55112e-16,-95},{6.38379e-16,-95},{
+              6.38379e-16,-90},{8.32667e-17,-90},{8.32667e-17,-80}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(thermalAmbient.thermalPort, internalThermalPort) annotation (Line(
-          points={{-20,-80},{0,-80}},
+          points={{-20,-80},{8.32667e-17,-80}},
           color={199,0,0},
           smooth=Smooth.None));
       connect(strayLoad.plug_n, rs.plug_p) annotation (Line(
@@ -12340,7 +12339,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,90},{100,90},{100,60},{90,60},{90,-1.22465e-015}},
+          points={{80,90},{100,90},{100,60},{90,60},{90,-1.72421e-15}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
@@ -12352,7 +12351,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={0,0,255},
           smooth=Smooth.None));
       connect(spacePhasorS.zero,lszero. p) annotation (Line(
-          points={{-6.12323e-016,60},{0,60},{0,50}},
+          points={{-1.1119e-15,60},{5.55112e-16,60},{5.55112e-16,50}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(lszero.n, spacePhasorS.ground) annotation (Line(
@@ -12369,33 +12368,31 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           smooth=Smooth.None));
       connect(statorCore.heatPort, internalThermalPort.heatPortStatorCore)
         annotation (Line(
-          points={{10,40},{50,40},{50,-80},{0,-80}},
+          points={{10,40},{50,40},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.heatPort, internalThermalPort.heatPortStrayLoad)
         annotation (Line(
-          points={{90,70},{90,60},{50,60},{50,-80},{0,-80}},
+          points={{90,70},{90,60},{50,60},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(rs.heatPort, internalThermalPort.heatPortStatorWinding) annotation (
           Line(
-          points={{50,70},{50,-80},{0,-80}},
+          points={{50,70},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
           Line(
-          points={{80,-50},{50,-50},{50,-80},{0,-80}},
+          points={{80,-50},{50,-50},{50,-80},{8.32667e-17,-80}},
           color={191,0,0},
           smooth=Smooth.None));
         annotation(Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
-                color={0,0,255})})));
+                color={0,0,255})}));
     end PartialBasicInductionMachine;
 
     partial model PartialBasicNewInductionMachine
@@ -12582,12 +12579,10 @@ Partial model for induction machine models
         annotation(Documentation(info="<HTML>
 Partial model for induction machine models
 </HTML>"),
-        Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Line(points={{-50,100},{-20,100},{-20,70}},
                 color={0,0,255}), Line(points={{50,100},{20,100},{20,70}},
-                color={0,0,255})})));
+                color={0,0,255})}));
     end PartialBasicNewInductionMachine;
 
     package InductionMachines

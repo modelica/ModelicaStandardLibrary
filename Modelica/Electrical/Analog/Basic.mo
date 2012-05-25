@@ -700,29 +700,8 @@ equation
           Text(
             extent={{-150,103},{150,63}},
             textString="%name",
-            lineColor={0,0,255})},
-      Ellipse(extent=[-36,24; -18,42]),
-      Ellipse(extent=[18,24; 36,42]),
-      Ellipse(extent=[0,24; 18,42]),
-      Ellipse(extent=[-18,24; 0,42]),
-      Rectangle(extent=[42,24; -44,34], fillColor={255,255,255}),
-      Line(points=[-36,34; -62,34]),
-      Line(points=[62,34; 36,34]),
-      Ellipse(extent=[-36,8; -18,26]),
-      Ellipse(extent=[18,8; 36,26]),
-      Ellipse(extent=[0,8; 18,26]),
-      Ellipse(extent=[-18,8; 0,26]),
-      Rectangle(extent=[42,6; -44,18], fillColor={255,255,255}),
-      Line(points=[-36,18; -62,18]),
-      Line(points=[62,18; 36,18]),
-      Line(points=[-36,-29; -62,-29]),
-      Ellipse(extent=[-36,-40; -18,-22]),
-      Ellipse(extent=[-18,-40; 0,-22]),
-      Ellipse(extent=[0,-40; 18,-22]),
-      Ellipse(extent=[18,-40; 36,-22]),
-      Line(points=[62,-29; 36,-29]),
-      Rectangle(extent=[42,-42; -44,-30], fillColor={255,255,255}),
-      Line(points=[0,8; 0,-18])),Documentation(info="<html>
+            lineColor={0,0,255})}),
+            Documentation(info="<html>
 <p>The model <i>M_Transformer</i> is a model of a transformer with the posibility to choose the number of inductors. Inside the model, an inductance matrix is built based on the inductance of the inductors and the coupling inductances between the inductors given as a parameter vector from the user of the model.</p>
 
 <p>An example shows that approach:<br>

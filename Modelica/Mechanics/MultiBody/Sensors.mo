@@ -5,7 +5,6 @@ package Sensors "Sensors to measure variables"
   model AbsoluteSensor
     "Measure absolute kinematic quantities of frame connector"
 
-
     Blocks.Interfaces.RealOutput r[3](each final quantity="Position", each final
               unit =                                                                    "m") if get_r
       "Absolute position vector frame_a.r_0 resolved in frame defined by resolveInFrame"
@@ -2064,7 +2063,6 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
   model CutForce "Measure cut force vector"
 
-
     Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
       "Cut force resolved in frame defined by resolveInFrame"
          annotation (Placement(transformation(
@@ -2188,7 +2186,6 @@ with negative sign at frame_a.
   end CutForce;
 
   model CutTorque "Measure cut torque vector"
-
 
     Modelica.Blocks.Interfaces.RealOutput torque[3]
       "Cut torque resolved in frame defined by resolveInFrame"

@@ -403,7 +403,7 @@ This icon is designed for a <b>translational sensor</b> model.
             extent={{-100,100},{100,-100}},
             lineColor={255,127,0},
             textString="f")}),
-		Documentation(info="<html>
+  Documentation(info="<html>
 <p>This icon indicates Modelica functions.</p>
 </html>"));
   end Function;
@@ -504,7 +504,7 @@ This icon is designed for an <b>Integer</b> type.
             fillColor={181,181,181},
             fillPattern=FillPattern.Solid,
             textString="B")}),
-		 Documentation(info="<html>
+   Documentation(info="<html>
 <p>
 This icon is designed for a <b>Boolean</b> type.
 </p></html>"));

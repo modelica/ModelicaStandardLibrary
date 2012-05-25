@@ -678,7 +678,7 @@ at the left and at the right side of the pipe), see next figure:
   function householderVector
       "Calculate a normalized householder vector to reflect vector a onto vector b"
     extends Modelica.Icons.Function;
-    import Modelica.Math.Vectors.norm;
+      import Modelica.Math.Vectors.norm;
 
     input Real a[:] "Real vector to be reflected";
     input Real b[size(a, 1)] "Real vector b vector a is mapped onto";
@@ -818,7 +818,7 @@ where <b>Q</b> is an orthogonal matrix, i.e.
 
       encapsulated function roots
       "Compute zeros of a polynomial where the highest coefficient is assumed as not to be zero"
-       import Modelica.Math.Matrices;
+      import Modelica.Math.Matrices;
 
         input Real p[:]
         "Vector with polynomial coefficients p[1]*x^n + p[2]*x^(n-1) + p[n]*x +p[n-1]";
@@ -9085,11 +9085,11 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
    =====================================================================
 "));
-    end dhgeqz;
+   end dhgeqz;
 
     function dormhr
       "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix as returne by dgehrd"
-   extends Modelica.Icons.Function;
+      extends Modelica.Icons.Function;
 
       input Real C[:,:];
       input Real A[:,:];
@@ -9219,7 +9219,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
     function dormqr
       "overwrites the general real M-by-N matrix C with Q * C or C * Q or Q' * C or C * Q', where Q is an orthogonal matrix of a QR factorization as returned by dgeqrf"
-   extends Modelica.Icons.Function;
+      extends Modelica.Icons.Function;
 
       input Real C[:,:];
       input Real A[:,:];

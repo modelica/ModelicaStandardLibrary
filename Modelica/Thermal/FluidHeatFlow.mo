@@ -1146,9 +1146,7 @@ Block generating the sum of two ramps.
                 fillPattern=FillPattern.Solid),
               Line(
                 points={{-80,-60},{-50,-60},{-30,60},{10,60},{30,-20},{70,-20}},
-                color={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid)}));
+                color={0,0,0})}));
       end DoubleRamp;
       annotation (Documentation(info="<html>
 This package contains utility components used for the test examples.<br>
@@ -1548,14 +1546,12 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
     annotation (Documentation(info="<HTML>
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="p")}),
-                          Diagram));
+              textString="p")}));
     end PressureSensor;
 
     model TemperatureSensor "Absolute temperature sensor"
@@ -1566,13 +1562,11 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="T")})));
+              textString="T")}));
     end TemperatureSensor;
 
     model RelPressureSensor "Pressure difference sensor"
@@ -1583,13 +1577,11 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="dp")})));
+              textString="dp")}));
     end RelPressureSensor;
 
     model RelTemperatureSensor "Temperature difference sensor"
@@ -1603,13 +1595,11 @@ Thermodynamic equations are defined by Partials.RelativeSensor.<br>
 <b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br>
 Outlet temperature is defined by variable T of the corresponding component.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="dT")})));
+              textString="dT")}));
     end RelTemperatureSensor;
 
     model MassFlowSensor "Mass flow sensor"
@@ -1620,13 +1610,11 @@ Outlet temperature is defined by variable T of the corresponding component.
     annotation (Documentation(info="<HTML>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="m")})));
+              textString="m")}));
     end MassFlowSensor;
 
     model VolumeFlowSensor "Volume flow sensor"
@@ -1637,13 +1625,11 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="V")})));
+              textString="V")}));
     end VolumeFlowSensor;
 
     model EnthalpyFlowSensor "Enthapy flow sensor"
@@ -1654,13 +1640,12 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{
-                -100,-100},{100,100}}),
-                 Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+</HTML>"),
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
-              textString="H")})));
+              textString="H")}));
     end EnthalpyFlowSensor;
   annotation (Documentation(info="<HTML>
 This package contains sensors:
@@ -1775,8 +1760,7 @@ Thermodynamic equations are defined by Partials.Ambient.
     annotation (Documentation(info="<HTML>
 AbsolutePressure to define pressure level of a closed cooling cycle.
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
-</HTML>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}),
+</HTML>"),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Text(
               extent={{-150,150},{150,90}},
@@ -1785,7 +1769,7 @@ Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
               extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
-              fillPattern=FillPattern.Solid)})));
+              fillPattern=FillPattern.Solid)}));
     end AbsolutePressure;
 
     model VolumeFlow "Enforces constant volume flow"

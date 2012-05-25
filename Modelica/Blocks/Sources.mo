@@ -1,6 +1,4 @@
 within Modelica.Blocks;
-
-
 package Sources
   "Library of signal source blocks generating Real and Boolean signals"
   import Modelica.Blocks.Interfaces;
@@ -3455,3 +3453,4 @@ usually requires a trimming calculation.
 </ul>
 </html>"));
 end Sources;
+

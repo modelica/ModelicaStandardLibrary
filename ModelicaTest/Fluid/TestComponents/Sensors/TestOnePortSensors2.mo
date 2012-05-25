@@ -105,7 +105,7 @@ equation
       color={0,127,255},
       smooth=Smooth.None));
   connect(MixingVolume3.ports[2], Tmix2.port_a) annotation (Line(
-      points={{-22,-30},{-12,-30},{-12,-20},{0,-20}},
+      points={{-22,-30},{-12,-30},{-12,-20},{-5.55112e-16,-20}},
       color={0,127,255},
       smooth=Smooth.None));
   connect(Tmix2.port_b, MixingVolume4.ports[2]) annotation (Line(
@@ -116,5 +116,5 @@ equation
       points={{44,-30},{61,-30},{61,-20},{80,-20}},
       color={0,127,255},
       smooth=Smooth.None));
-  annotation (                       experiment(StopTime=15, Algorithm="Euler"));
+  annotation (experiment(StopTime=15));
 end TestOnePortSensors2;

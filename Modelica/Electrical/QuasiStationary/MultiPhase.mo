@@ -404,7 +404,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString =                        "k = %k")}),
+              textString=                         "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.

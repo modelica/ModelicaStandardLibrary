@@ -646,10 +646,6 @@ This leads to the following animation
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 </HTML>
-"),         Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
 "));
         end WorldForceAndTorque;
 
@@ -825,10 +821,6 @@ This leads to the following animation
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
 </HTML>
-"),         Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
 "));
         end FrameForceAndTorque;
 
@@ -1031,10 +1023,6 @@ clarity this is not shown in the animation):
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 </HTML>
-"),         Documentation(info="
-An external force element exerts the inport signal
-as negative force on the connector frame (the force vector
-is resolved in the world frame).
 "));
         end ForceAndTorque;
       end Forces;

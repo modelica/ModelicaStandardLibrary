@@ -7454,6 +7454,20 @@ User's Guides that can be accessed by the following links:
 end UsersGuide;
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 annotation (
 preferredView="info",
 version="3.2.1 dev",
@@ -7473,7 +7487,6 @@ conversion(
  from(version="2.2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos")),
 __Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Magnetic","Mechanics","Fluid","Media","Thermal",
       "Math","Utilities","Constants", "Icons", "SIunits"},
-Settings(NewStateSelection=true),
 Documentation(info="<HTML>
 <p>
 Package <b>Modelica&reg;</b> is a <b>standardized</b> and <b>free</b> package

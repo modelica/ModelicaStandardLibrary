@@ -9,9 +9,9 @@ partial package PartialModelicaServices
     extends Modelica.Icons.Package;
   partial model PartialShape "Interface for 3D animation of elementary shapes"
 
-      import SI = Modelica.SIunits;
-      import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types;
+        import SI = Modelica.SIunits;
+        import Modelica.Mechanics.MultiBody.Frames;
+        import Modelica.Mechanics.MultiBody.Types;
 
     parameter Types.ShapeType shapeType="box"
           "Type of shape (box, sphere, cylinder, pipecylinder, cone, pipe, beam, gearwheel, spring)";
@@ -54,8 +54,8 @@ This model is documented at
 
     model PartialSurface "Interface for 3D animation of surfaces"
 
-      import Modelica.Mechanics.MultiBody.Frames;
-      import Modelica.Mechanics.MultiBody.Types;
+        import Modelica.Mechanics.MultiBody.Frames;
+        import Modelica.Mechanics.MultiBody.Types;
 
       input Frames.Orientation R=Frames.nullRotation()
           "Orientation object to rotate the world frame into the surface frame"

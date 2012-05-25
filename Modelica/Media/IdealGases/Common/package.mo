@@ -101,8 +101,8 @@ partial package SingleGasNasa
       "Difference between specific enthalpy model (s_m) and f.eq. (s_f) (s_m - s_f)";
   end FluidConstants;
 
-    import Modelica.Math;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
+  import Modelica.Math;
+  import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
 
   constant Boolean excludeEnthalpyOfFormation=true
     "If true, enthalpy of formation Hf is not included in specific enthalpy h";
@@ -362,7 +362,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
 
   function h_T "Compute specific enthalpy from temperature and gas data; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
-      import Modelica.Media.Interfaces.PartialMedium.Choices;
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
@@ -393,7 +393,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end h_T;
 
   function h_T_der "derivative function for h_T"
-      import Modelica.Media.Interfaces.PartialMedium.Choices;
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
@@ -411,7 +411,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
 
   function h_Tlow "Compute specific enthalpy, low T region; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
-      import Modelica.Media.Interfaces.PartialMedium.Choices;
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
@@ -440,7 +440,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
 
   function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the
     refChoice input, or by the referenceChoice package constant by default"
-      import Modelica.Media.Interfaces.PartialMedium.Choices;
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
@@ -771,8 +771,8 @@ end SingleGasNasa;
 partial package MixtureGasNasa
   "Medium model of a mixture of ideal gases based on NASA source"
 
-    import Modelica.Math;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
+  import Modelica.Math;
+  import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
 
   extends Modelica.Media.Interfaces.PartialMixtureMedium(
      ThermoStates = Choices.IndependentVariables.pTX,
@@ -814,7 +814,7 @@ partial package MixtureGasNasa
     final standardOrderComponents=true)
     "Base properties (p, d, T, h, u, R, MM, X, and Xi of NASA mixture gas"
 
-      import Modelica.Media.IdealGases.Common.SingleGasNasa;
+    import Modelica.Media.IdealGases.Common.SingleGasNasa;
       //    SpecificEnthalpy h_component[nX];
   equation
     assert(T >= 200 and T <= 6000, "
@@ -942,7 +942,7 @@ required from medium model \""   + mediumName + "\".");
   end specificHelmholtzEnergy;
 
   function h_TX "Return specific enthalpy"
-      import Modelica.Media.Interfaces.PartialMedium.Choices;
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
      input MassFraction X[:]=reference_X
@@ -961,7 +961,7 @@ required from medium model \""   + mediumName + "\".");
   end h_TX;
 
   function h_TX_der "Return specific enthalpy derivative"
-      import Modelica.Media.Interfaces.PartialMedium.Choices;
+    import Modelica.Media.Interfaces.PartialMedium.Choices;
      extends Modelica.Icons.Function;
      input SI.Temperature T "Temperature";
      input MassFraction X[nX] "Independent Mass fractions of gas mixture";
