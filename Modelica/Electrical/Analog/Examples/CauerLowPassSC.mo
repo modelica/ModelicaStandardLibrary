@@ -476,7 +476,7 @@ equation
           extent={{-100,180},{94,140}},
           textString="CauerLowPassSC",
           lineColor={0,0,255})}),
-    experiment(StopTime=60, NumberOfIntervals=1500),
+    experiment(StopTime=60, __Dymola_NumberOfIntervals=1500),
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i>

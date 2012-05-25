@@ -66,7 +66,7 @@ equation
   connect(orifice2.port_b, ambient_p2.ports[1])
                                             annotation (Line(points={{20,20},{
           40,20}}, color={0,127,255}));
-  annotation (    experiment(StopTime=10, NumberOfIntervals=10000),
+  annotation (    experiment(StopTime=10, __Dymola_NumberOfIntervals=10000),
     Documentation(info="<html>
 </html>"));
 end TestSharpEdgedOrifice;

@@ -360,7 +360,7 @@ Zeunerstrasse 38<br />
           smooth=Smooth.None));
       annotation (        experiment(
           StopTime=1e-011,
-          NumberOfIntervals=2000,
+          __Dymola_NumberOfIntervals=2000,
           Tolerance=1e-007),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
@@ -1520,7 +1520,7 @@ Zeunerstrasse 38<br />
               fillPattern=FillPattern.Solid)}),
         experiment(
           StopTime=0.2,
-          NumberOfIntervals=1000,
+          __Dymola_NumberOfIntervals=1000,
           Tolerance=1e-007));
     end CascodeCircuit;
 

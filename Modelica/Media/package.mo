@@ -2487,7 +2487,7 @@ end MoistAir;
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
-      annotation (experiment(StopTime=22, NumberOfIntervals=2500),
+      annotation (experiment(StopTime=22, __Dymola_NumberOfIntervals=2500),
         Documentation(info="<html>
 <p> For details see the documentation of the example package TwoPhaseWater</p>
 </html>

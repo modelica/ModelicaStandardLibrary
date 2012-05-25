@@ -46,7 +46,7 @@ equation
       color={0,0,127},
       smooth=Smooth.None));
   annotation (
-    experiment(StopTime=10, NumberOfIntervals=10000),
+    experiment(StopTime=10, __Dymola_NumberOfIntervals=10000),
     Documentation(info="<html>
 Test of the StaticPipe model.
 </html>"));

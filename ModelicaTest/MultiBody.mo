@@ -4882,7 +4882,7 @@ often possible to use the FreeMotion joint such that the singularity
       annotation (
         experiment(
           StopTime=0.5,
-          NumberOfIntervals=50000,
+          __Dymola_NumberOfIntervals=50000,
           Tolerance=1e-010));
     end Distance2;
 

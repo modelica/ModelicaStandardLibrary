@@ -483,7 +483,7 @@ equation
 </HTML>"),
     experiment(
       StopTime=1e-009,
-      NumberOfIntervals=2000,
+      __Dymola_NumberOfIntervals=2000,
       Tolerance=1e-009));
 end M_OLine;
 

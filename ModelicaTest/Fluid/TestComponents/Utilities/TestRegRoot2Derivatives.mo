@@ -28,5 +28,5 @@ equation
   y2 = Modelica.Fluid.Utilities.regRoot2(x,x_small, k1, k2, true, 10);
   y2d = der(y2);
   y2dd = der(y2d);
-  annotation (experiment(StopTime=2, NumberOfIntervals=5000));
+  annotation (experiment(StopTime=2, __Dymola_NumberOfIntervals=5000));
 end TestRegRoot2Derivatives;

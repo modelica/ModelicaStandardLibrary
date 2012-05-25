@@ -219,7 +219,7 @@ package Tanks "Library demonstrating the usage of the tank model"
         color={0,127,255},
         smooth=Smooth.None));
 
-    annotation (      experiment(StopTime=25000, NumberOfIntervals=5000),
+    annotation (      experiment(StopTime=25000, __Dymola_NumberOfIntervals=5000),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),
