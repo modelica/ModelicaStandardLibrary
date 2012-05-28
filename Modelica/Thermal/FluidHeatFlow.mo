@@ -1130,9 +1130,8 @@ the time behaviour depending on coolant flow.
         annotation (
           Documentation(info="<HTML>
 Block generating the sum of two ramps.
-</HTML>"),          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={
-              Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
+</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+            graphics={Line(points={{-80,68},{-80,-80}}, color={192,192,192}),
               Polygon(
                 points={{-80,90},{-88,68},{-72,68},{-80,90}},
                 lineColor={192,192,192},
@@ -1547,8 +1546,8 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
 pSensor measures the absolute pressure.<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+          graphics={Text(
               extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="p")}));
@@ -1562,9 +1561,9 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 TSensor measures the absolute temperature (Kelvin).<br>
 Thermodynamic equations are defined by Partials.AbsoluteSensor.
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}},
+</HTML>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="T")}));
     end TemperatureSensor;
@@ -1577,9 +1576,9 @@ Thermodynamic equations are defined by Partials.AbsoluteSensor.
     annotation (Documentation(info="<HTML>
 dpSensor measures the pressure drop between flowPort_a and flowPort_b.<br>
 Thermodynamic equations are defined by Partials.RelativeSensor.
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}},
+</HTML>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="dp")}));
     end RelPressureSensor;
@@ -1595,9 +1594,9 @@ Thermodynamic equations are defined by Partials.RelativeSensor.<br>
 <b>Note:</b> Connected flowPorts have the same temperature (mixing temperature)!<br>
 Since mixing my occur, the outlet temperature of a component may be different from the connector's temperature.<br>
 Outlet temperature is defined by variable T of the corresponding component.
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}},
+</HTML>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="dT")}));
     end RelTemperatureSensor;
@@ -1610,9 +1609,9 @@ Outlet temperature is defined by variable T of the corresponding component.
     annotation (Documentation(info="<HTML>
 m_flowSensor measures the mass flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"),Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}},
+</HTML>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="m")}));
     end MassFlowSensor;
@@ -1625,9 +1624,9 @@ Thermodynamic equations are defined by Partials.FlowSensor.
     annotation (Documentation(info="<HTML>
 V_flowSensor measures the volume flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
-</HTML>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}},
+</HTML>"),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="V")}));
     end VolumeFlowSensor;
@@ -1641,9 +1640,8 @@ Thermodynamic equations are defined by Partials.FlowSensor.
 H_flowSensor measures the enthalpy flow rate.<br>
 Thermodynamic equations are defined by Partials.FlowSensor.
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-              extent={{-22,-20},{20,-60}},
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-22,-20},{20,-60}},
               lineColor={0,0,255},
               textString="H")}));
     end EnthalpyFlowSensor;
@@ -1761,12 +1759,11 @@ Thermodynamic equations are defined by Partials.Ambient.
 AbsolutePressure to define pressure level of a closed cooling cycle.
 Coolant's mass flow, temperature and enthalpy flow are not affected.<br>
 </HTML>"),
-        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Text(
-              extent={{-150,150},{150,90}},
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+        graphics={Text(extent={{-150,150},{150,90}},
               lineColor={0,0,255},
-              textString="%name"), Ellipse(
-              extent={{-90,90},{90,-90}},
+              textString="%name"),
+           Ellipse(extent={{-90,90},{90,-90}},
               lineColor={255,0,0},
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}));
