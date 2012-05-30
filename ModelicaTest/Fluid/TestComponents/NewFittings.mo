@@ -10,7 +10,8 @@ extends Modelica.Icons.ExamplesPackage;
     inner Modelica.Fluid.System system(p_ambient(displayUnit="Pa") = 100000,
         m_flow_small=0.01,
       T_ambient(displayUnit="K"))
-                           annotation (extent=[80, -100; 100, -80]);
+                           annotation (Placement(
+          transformation(extent={{80,-100},{100,-80}})));
 
     Modelica.Fluid.Sources.Boundary_pT source_left(
       redeclare package Medium = Medium,
