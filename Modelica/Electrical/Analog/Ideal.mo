@@ -2551,7 +2551,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
   equation
         p.v - n.v = u;
         p.i*Rin = u;
-        p.i + n.i = 0
+        p.i + n.i = 0;
     annotation (Documentation(info="
 <HTML>
 <P>
@@ -2600,16 +2600,6 @@ Hence the output will change instantaniously when the trigger signal rises.
             extent={{-60,0},{60,-40}},
             lineColor={0,0,255},
             textString="ADC")}));
-    annotation (Documentation(info="<html>
-<p>
-Simple analog to digital converter with a variable resolution of N bits. It converts the input voltage p.v-n.v to an N-vector of type Logic (9-valued logic according to IEEE 1164 STD_ULOGIC). The input resistance between positive and negative pin is determined by Rin. Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model.
-</p>
-<p>
-The input singnal range (VRefLow,VRefHigh) is divided into 2^N-1 equally spaced stages of lenght Vlsb:=(VRefHigh-VRefLow)/(2^N-1). The output signal is the binary code of k as long as the input voltage takes values in the k-th stage, namely in the range from Vlsb*(k-0.5) to m*(k+0.5) . This is called mid-tread operation. Additionally the output can only change its value if the trigger signal trig of type Logic changes to &#39;;1&#39;; (forced or weak).
-</p>
-<p>The output vector is a &#39;;little-endian&#39;;. i.e., that the first bit y[1] is the least significant one (LSB).</p>
-<p>This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter. Hence the output will change instantaniously when the trigger signal rises.</p>
-</html>"));
   end AD_Converter;
 
   model DA_Converter "Simple digital to analog converter"

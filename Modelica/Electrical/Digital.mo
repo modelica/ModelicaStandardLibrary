@@ -1902,9 +1902,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component JKFF is a J-K-flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
-</html>"),  Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}),
-            Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                   {100,100}}), graphics={
               Rectangle(
                 extent={{-90,100},{90,-100}},
@@ -1956,7 +1954,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                 lineThickness=0.5,
                 fillColor={255,255,255},
                 fillPattern=FillPattern.Solid,
-                textString="K")})));
+                textString="K")}));
         end JKFF;
 
                   model HalfAdder "Half adder"

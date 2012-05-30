@@ -5015,8 +5015,8 @@ on the model behaviour.
       0 =  ibegmin + ire + cc.iCC + cc.iBEN + cc.iBE + icapbe;          //current sum for inner node Einternal
       0 = - ibcgmin - ibegmin + irb - cc.iBC - cc.iBE - cc.iBCN - cc.iBEN -icapbc - icapbe - icaptt; //current sum for inner node Binternal
       substrateCurrent = icapcs;
-      annotation(Evaluate=true,
-                  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+      annotation (
+        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={
             Line(
               points={{-20,60},{-20,-60}},
@@ -5037,7 +5037,8 @@ on the model behaviour.
             Text(
               extent={{-94,56},{206,16}},
               textString="%name",
-              lineColor={0,0,255})}),        Documentation(info="<html>
+              lineColor={0,0,255})}),
+        Documentation(info="<html>
 <p>Bibpolar junction transistor model, both NPN and PNP</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>

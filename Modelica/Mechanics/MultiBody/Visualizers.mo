@@ -877,7 +877,7 @@ This shape visualizes the x-y plane by a box
       "= true: 3D model will be displayed without faces"
       annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
     input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
-      "Color of surface"  annotation(Dialog(enable=animation,__Dymola_colorSelector=true,group="Material properties", enable=not multiColoredSurface));
+      "Color of surface"  annotation(Dialog(enable=animation and not multiColoredSurface,__Dymola_colorSelector=true,group="Material properties"));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     input Real transparency=0
@@ -947,7 +947,7 @@ settings:
     parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
 
     parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
-      "Color of tire"  annotation(Dialog(enable=animation,__Dymola_colorSelector=true,group="Material properties", enable=not multiColoredSurface));
+      "Color of tire"  annotation(Dialog(enable=animation and not multiColoredSurface,__Dymola_colorSelector=true,group="Material properties"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.5
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     parameter Integer n_rTire=40 "Number of points along rTire" annotation(Dialog(enable=animation,tab="Discretization"));

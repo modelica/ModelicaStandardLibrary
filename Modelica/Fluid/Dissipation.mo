@@ -538,7 +538,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
-        import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+        import SMOOTH =
+          Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
         //input records
         input
@@ -936,8 +937,7 @@ Approximate calculation of the mean convective heat transfer coefficient <b> kc 
         "Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC"
         //generic variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General            annotation (
-            Dialog(group="Generic variables"));
+          Modelica.Fluid.Dissipation.Utilities.Records.HeatTransfer.General;
         parameter Real exp_Pr=0.4
           "Exponent for Prandtl number w.r.t. Dittus/Boelter | 0.4 for heating | 0.3 for cooling"
           annotation (Dialog(group="Generic variables",enable=if target == 1 then
@@ -953,8 +953,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
         "Input record for function kc_approxForcedConvection and kc_approxForcedConvection_KC"
         //fluid property variables
         extends
-          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties
-          annotation (Dialog(group="Fluid properties"));
+          Modelica.Fluid.Dissipation.Utilities.Records.General.FluidProperties;
         SI.DynamicViscosity eta_wall
           "Dynamic viscosity of fluid at wall temperature" annotation (Dialog(group=
                 "Fluid properties", enable=if target == 2 then true else false));
@@ -9796,7 +9795,8 @@ documentation available in this package.
 
             import PI = Modelica.Constants.pi;
             import MIN = Modelica.Constants.eps;
-            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
+            import SMOOTH =
+              Modelica.Fluid.Dissipation.Utilities.Functions.General.SmoothPower;
 
             //choices
             input
@@ -10419,7 +10419,8 @@ The heterogeneous approaches are analytically derived by minimising the momentum
             //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
             //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
-            import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+            import SMOOTH =
+              Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
             //records
             input

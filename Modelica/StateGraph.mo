@@ -1875,8 +1875,8 @@ package Interfaces "Connectors and partial models"
 
   connector Step_in "Input port of a step"
     output Boolean occupied "true, if step is active" annotation (HideResult=true);
-    input Boolean set "true, if transition fires and step is activated"
-    annotation (HideResult=true,
+    input Boolean set "true, if transition fires and step is activated" annotation (HideResult=true);
+    annotation (
    Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},

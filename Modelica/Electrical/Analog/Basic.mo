@@ -610,15 +610,16 @@ model M_Transformer "Generic transformer with free number of inductors"
   parameter Modelica.SIunits.Inductance L[dimL]={1,0.1,0.2,2,0.3,3}
       "inductances and coupling inductances";
   Modelica.Electrical.Analog.Interfaces.PositivePin p[N] "Positive pin"
-              annotation (extent=[-80,-40; -62,40], Placement(transformation(
-          extent={{-80,-40},{-62,40}}, rotation=0)));
+              annotation (Placement(transformation(
+          extent={{-80,-40},{-62,40}})));
   Modelica.Electrical.Analog.Interfaces.NegativePin n[N] "Negative pin"
-              annotation (extent=[62,-40; 80,40], Placement(transformation(
-          extent={{62,-40},{80,40}}, rotation=0)));
+              annotation (Placement(transformation(
+          extent={{62,-40},{80,40}})));
 
   Modelica.SIunits.Voltage v[N];
   Modelica.SIunits.Current i[N];
   Modelica.SIunits.Inductance Lm[N,N];
+
 algorithm
   for s in 1:N loop
      for z in 1:N loop
