@@ -52,4 +52,33 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
 </p>
 </html>"));
   end Surface;
+
+  partial class MotorIcon "Icon of an electrical motor."
+
+    annotation (             Icon(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          grid={1,1}), graphics={
+          Rectangle(
+            extent={{-100,50},{30,-50}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={255,0,0}),
+          Polygon(
+            points={{-100,-90},{-90,-90},{-60,-20},{-10,-20},{20,-90},{30,-90},
+                {30,-100},{-100,-100},{-100,-90}},
+            lineColor={0,0,0},
+            fillColor={0,0,0},
+            fillPattern=FillPattern.Solid),
+          Rectangle(
+            extent={{30,10},{90,-10}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192})}),
+      Documentation(info="<html>
+<p>
+Icon of an <b>electrical motor</b> model.
+</p>
+</html>"));
+  end MotorIcon;
 end Icons;

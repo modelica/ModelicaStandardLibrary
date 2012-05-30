@@ -1082,7 +1082,7 @@ Default values for all parameters are given for joint 4.
     end GearType2;
 
     model Motor "Motor model including current controller of r3 motors "
-      extends Modelica.Icons.MotorIcon;
+      extends Modelica.Mechanics.MultiBody.Icons.MotorIcon;
       parameter SI.Inertia J(min=0)=0.0013 "Moment of inertia of motor";
       parameter Real k=1.1616 "Gain of motor";
       parameter Real w=4590 "Time constant of motor";
