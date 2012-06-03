@@ -220,7 +220,8 @@ the library and has the following content:
               points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}},
               color={127,0,127}));
           connect(FF.q, MUX.a1) annotation (Line(
-              points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}},
+              points={{5.55112e-16,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,
+              12}},
               color={127,0,127}));
           annotation (
             Documentation(info="<html>
@@ -4999,7 +5000,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
           annotation (
             Documentation(info="<HTML>
 <h4>Obsoletion Note</h4>
-<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01\">LogicToX01Z</a> shall be used.</p>
+<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01Z\">LogicToX01Z</a> shall be used.</p>
 <hr>
 <P>
 Conversion of a nine valued digital input into a X01Z digital output without
