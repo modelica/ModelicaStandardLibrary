@@ -4410,7 +4410,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
       package Converters "Converters between 2-,3-,4- and 9-valued logic"
         extends Modelica.Icons.Package;
 
-        block LogicToXO1 "Conversion to XO1"
+        block LogicToX01 "Conversion to X01"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
@@ -4483,9 +4483,9 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
               lineThickness=0.5)}));
-        end LogicToXO1;
+        end LogicToX01;
 
-        block LogicToXO1Z "Conversion to XO1Z"
+        block LogicToX01Z "Conversion to X01Z"
       import D = Modelica.Electrical.Digital;
       import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
@@ -4557,11 +4557,11 @@ If the signal width is greater than 1 this conversion is done for each signal.
               extent={{-40,40},{40,-40}},
               lineColor={0,0,0},
               lineThickness=0.5)}));
-        end LogicToXO1Z;
+        end LogicToX01Z;
 
-        block LogicToUX01 "Conversion to UXO1"
-      import D = Modelica.Electrical.Digital;
-      import T = Modelica.Electrical.Digital.Tables;
+        block LogicToUX01 "Conversion to UX01"
+          import D = Modelica.Electrical.Digital;
+          import T = Modelica.Electrical.Digital.Tables;
           D.Interfaces.DigitalInput x[n]
                             annotation (Placement(transformation(extent={{-60,-10},
                     {-40,10}}, rotation=0)));
@@ -4900,6 +4900,164 @@ The values val... are given by parameters.</P>
               lineThickness=0.5)}));
         end LogicToReal;
 
+        block LogicToXO1
+      "This model will be removed in future Modelica versions, use 'LocgicToX01' instead!"
+          extends Modelica.Icons.ObsoleteModel;
+          import D = Modelica.Electrical.Digital;
+          import T = Modelica.Electrical.Digital.Tables;
+          D.Interfaces.DigitalInput x[n]
+                            annotation (Placement(transformation(extent={{-60,-10},
+                    {-40,10}}, rotation=0)));
+          D.Interfaces.DigitalOutput y[n]
+                             annotation (Placement(transformation(extent={{40,-10},
+                    {60,10}}, rotation=0)));
+          parameter Integer n(final min=1, start=1) "signal width";
+        algorithm
+          for i in 1:n loop
+            y[i] := T.X01Table[x[i]];
+          end for;
+          annotation (
+            Documentation(info="<HTML>
+<h4>Obsoletion Note</h4>
+<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01\">LogicToX01</a> shall be used.</p>
+<hr>
+<P>
+Conversion of a nine valued digital input into a X01 digital output without
+any delay according to IEEE 1164 To_X01 function.
+</p>
+<p><b>Conversion Table:</b></p>
+<pre>
+  input                  output
+  'U' (coded by 1)       'X'  (coded by 2)
+  'X' (coded by 2)       'X'  (coded by 2)
+  '0' (coded by 3)       '0'  (coded by 3)
+  '1' (coded by 4)       '1'  (coded by 4)
+  'Z' (coded by 5)       'X'  (coded by 2)
+  'W' (coded by 6)       'X'  (coded by 2)
+  'L' (coded by 7)       '0'  (coded by 3)
+  'H' (coded by 8)       '1'  (coded by 4)
+  '-' (coded by 9)       'X'  (coded by 2)
+</pre>
+<P>
+If the signal width is greater than 1 this conversion is done for each signal.
+</P>
+</HTML>
+",         revisions="<HTML>
+<ul>
+<li><i>September 15, 2004   </i>
+       by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
+       </li>
+<li><i>November 5, 2003</i>
+       by Christoph Clauss<br>
+       initially modelled.</li>
+</ul>
+</HTML>
+"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="X01"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}));
+        end LogicToXO1;
+
+        block LogicToXO1Z
+      "This model will be removed in future Modelica versions, use 'LocgicToX01Z' instead!"
+          extends Modelica.Icons.ObsoleteModel;
+          import D = Modelica.Electrical.Digital;
+          import T = Modelica.Electrical.Digital.Tables;
+          D.Interfaces.DigitalInput x[n]
+                            annotation (Placement(transformation(extent={{-60,-10},
+                    {-40,10}}, rotation=0)));
+          D.Interfaces.DigitalOutput y[n]
+                             annotation (Placement(transformation(extent={{40,-10},
+                    {60,10}}, rotation=0)));
+          parameter Integer n(final min=1, start=1) "signal width";
+        algorithm
+          for i in 1:n loop
+            y[i] := T.X01ZTable[x[i]];
+          end for;
+          annotation (
+            Documentation(info="<HTML>
+<h4>Obsoletion Note</h4>
+<p>This model will be removed in future versions of the Modelica Standard Library. Instead the model <a href=\"modelica://Modelica.Electrical.Digital.Converters.LogicToX01\">LogicToX01Z</a> shall be used.</p>
+<hr>
+<P>
+Conversion of a nine valued digital input into a X01Z digital output without
+any delay according to IEEE 1164 To_X01Z function.
+</P>
+<p><b>Conversion Table:</b></p>
+<pre>
+ input                  output
+ 'U' (coded by 1)       'X'  (coded by 2)
+ 'X' (coded by 2)       'X'  (coded by 2)
+ '0' (coded by 3)       '0'  (coded by 3)
+ '1' (coded by 4)       '1'  (coded by 4)
+ 'Z' (coded by 5)       'Z'  (coded by 5)
+ 'W' (coded by 6)       'X'  (coded by 2)
+ 'L' (coded by 7)       '0'  (coded by 3)
+ 'H' (coded by 8)       '1'  (coded by 4)
+ '-' (coded by 9)       'X'  (coded by 2)
+</pre>
+<P>
+If the signal width is greater than 1 this conversion is done for each signal.
+</P>
+</HTML>
+",         revisions="<HTML>
+<ul>
+<li><i>September 15, 2004   </i>
+       by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
+       </li>
+<li><i>November 5, 2003</i>
+       by Christoph Clauss<br>
+       initially modelled.</li>
+</ul>
+</HTML>"),  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+                {100,100}}), graphics={
+            Text(
+              extent={{152,-100},{-148,-40}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-40,-40},{-40,40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              fillColor={127,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,-40},{40,-40},{40,40},{-40,-40}},
+              lineColor={127,0,127},
+              lineThickness=0.5,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{0,-20},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              textString="X01Z"),
+            Rectangle(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,0,0},
+              lineThickness=0.5)}));
+        end LogicToXO1Z;
         annotation (                                Documentation(info="<html>
 <p>The Converter BooleanToLogic, LogicToBoolean, RealToLogic, and LogicTo Real components are not standard logic components. They were designed to easily convert from or to Boolean or Real valued signals. The LogicToX01, LogicToX01Z and LogicTo UX01 converters correspond to standard logic functions. They transform 9-valued logic to 3- or 4-valued logic.</p>
 </html>"));
