@@ -24,8 +24,8 @@ package Sensors "Potential, voltage, current, and power sensors"
             extent={{-29,-11},{30,-70}},
             lineColor={0,0,0},
             textString="V"),
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-          Line(points={{100,0},{70,0}}, color={0,0,255}),
+          Line(points={{-70,0},{-90,0}}, color={0,0,255}),
+          Line(points={{100,0},{70,0}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
@@ -34,7 +34,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={Line(points={{-70,0},{-96,0}}, color={0,0,0}),
-            Line(points={{100,0},{70,0}}, color={0,0,255})}),
+            Line(points={{100,0},{70,0}}, color={0,0,127})}),
       Documentation(revisions="<html>
 <ul>
 <li><i> 1998   </i>
@@ -73,9 +73,9 @@ package Sensors "Potential, voltage, current, and power sensors"
             extent={{-29,-11},{30,-70}},
             lineColor={0,0,0},
             textString="V"),
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-          Line(points={{70,0},{90,0}}, color={0,0,0}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,255}),
+          Line(points={{-70,0},{-90,0}}, color={0,0,255}),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,127}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
@@ -125,13 +125,13 @@ package Sensors "Potential, voltage, current, and power sensors"
             extent={{-29,-11},{30,-70}},
             lineColor={0,0,0},
             textString="A"),
-          Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+          Line(points={{-70,0},{-90,0}}, color={0,0,255}),
           Text(
             extent={{-150,80},{150,120}},
             textString="%name",
             lineColor={0,0,255}),
-          Line(points={{70,0},{90,0}}, color={0,0,0}),
-          Line(points={{0,-90},{0,-70}}, color={0,0,255})}),
+          Line(points={{70,0},{90,0}}, color={0,0,255}),
+          Line(points={{0,-90},{0,-70}}, color={0,0,127})}),
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
@@ -178,7 +178,7 @@ model PowerSensor "Sensor to measure the power"
   Modelica.Electrical.Analog.Sensors.VoltageSensor voltageSensor
     annotation (Placement(transformation(
           origin={0,-30},
-          extent={{10,-10},{-10,10}},
+          extent={{10,10},{-10,-10}},
           rotation=90)));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
     annotation (Placement(transformation(extent={{-50,-10},{-30,10}}, rotation=
@@ -200,8 +200,8 @@ equation
     annotation (Line(points={{-30,0},{100,0}}, color={0,0,255}));
   connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-10},{-40,
             -30},{-36,-30},{-36,-38}}, color={0,0,127}));
-  connect(voltageSensor.v, product.u1) annotation (Line(points={{10,-30},{-24,
-          -30},{-24,-38}},   color={0,0,127}));
+  connect(voltageSensor.v, product.u1) annotation (Line(points={{-10,-30},{-24,
+            -30},{-24,-38}}, color={0,0,127}));
   connect(product.y, power) annotation (Line(points={{-30,-61},{-30,-80},{-80,
             -80},{-80,-110}}, color={0,0,127}));
   annotation (Icon(coordinateSystem(
@@ -215,7 +215,8 @@ equation
             fillPattern=FillPattern.Solid),
           Line(points={{0,100},{0,70}}, color={0,0,255}),
           Line(points={{0,-70},{0,-100}}, color={0,0,255}),
-          Line(points={{-80,-100},{-80,0}}, color={0,0,255}),
+          Line(points={{-80,-100},{-80,-80},{-46,-52}},
+                                            color={0,0,127}),
           Line(points={{-100,0},{100,0}}, color={0,0,255}),
           Text(
             extent={{150,120},{-150,160}},
