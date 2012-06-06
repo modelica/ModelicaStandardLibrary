@@ -13,7 +13,7 @@ package Semiconductors
       "Max. exponent for linear continuation";
     parameter SIunits.Resistance R=1.e8 "Parallel ohmic resistance";
     extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-       T=293.15);
+       T=300.15);
   equation
     i = smooth(1,(if (v/Vt > Maxexp) then Ids*(exp(Maxexp)*(1 + v/Vt - Maxexp) - 1) +
       v/R else Ids*(exp(v/Vt) - 1) + v/R));
@@ -90,7 +90,7 @@ package Semiconductors
    parameter Modelica.SIunits.Current Ibv=0.7 "Breakthrough knee current";
    parameter Real Nbv=0.74 "Breakthrough emission coefficient";
    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-      T=293.15);
+      T=300.15);
 
    Real maxexp=exp(Maxexp);
  equation
@@ -173,7 +173,7 @@ model PMOS "Simple MOS Transistor"
   parameter SIunits.Length dL=-2.1e-6 "Shortening of channel";
   parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     T=293.15);
+     T=300.15);
   protected
   Real v;
   Real uds;
@@ -317,7 +317,7 @@ model NMOS "Simple MOS Transistor"
   parameter SIunits.Length dW=-2.5e-6 "narrowing of channel";
   parameter SIunits.Length dL=-1.5e-6 "shortening of channel";
   parameter SIunits.Resistance RDS=1.e+7 "Drain-Source-Resistance";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=300.15);
   protected
   Real v;
   Real uds;
@@ -471,8 +471,7 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-     T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=300.15);
   protected
   Real vbc;
   Real vbe;
@@ -629,7 +628,7 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                     T=293.15);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T=300.15);
   protected
   Real vbc;
   Real vbe;
@@ -1769,7 +1768,7 @@ public
 
   parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+  parameter Modelica.SIunits.Temperature T=300.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
 
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort

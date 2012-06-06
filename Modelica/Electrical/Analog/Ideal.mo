@@ -13,7 +13,7 @@ package Ideal
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-               final T=293.15);
+               final T=300.15);
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (Placement(transformation(
@@ -156,7 +156,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
             parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
             extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
-               final T=293.15);
+               final T=300.15);
             Boolean off(start=true) "Switching state";
             Modelica.Blocks.Interfaces.BooleanInput fire
               annotation (Placement(transformation(
@@ -294,7 +294,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
@@ -400,7 +400,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
               -110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{
@@ -511,7 +511,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n2 annotation (Placement(transformation(extent={{90,
@@ -621,7 +621,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Resistance Ron(final min=0) = 1.E-5 "Closed switch resistance";
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Interfaces.PositivePin p1 annotation (Placement(transformation(extent={{
               -110,40},{-90,60}}, rotation=0)));
     Interfaces.PositivePin p2 annotation (Placement(transformation(extent={{
@@ -843,6 +843,7 @@ are possible (norator).
 
   model IdealOpAmp3Pin
     "Ideal operational amplifier (norator-nullator pair), but 3 pins"
+
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
           transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
@@ -925,6 +926,7 @@ are possible.
   end IdealOpAmp3Pin;
 
   model IdealOpAmpLimited "Ideal operational amplifier with limitation"
+
     Interfaces.PositivePin in_p "Positive pin of the input port" annotation (Placement(
           transformation(extent={{-110,-60},{-90,-40}}, rotation=0)));
     Interfaces.NegativePin in_n "Negative pin of the input port" annotation (Placement(
@@ -1035,7 +1037,7 @@ If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
       "Backward state-off conductance (opened diode conductance)";
           parameter Modelica.SIunits.Voltage Vknee(final min=0, start=0)
       "Forward threshold voltage";
-          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort;
+          extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
           Boolean off(start=true) "Switching state";
   protected
           Real s(final unit="1")
@@ -1453,7 +1455,7 @@ where the constant <i>G</i> is called the gyration conductance.
    parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {10,10},{56.6667,56.6667}}, rotation=0)));
-   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
    Modelica.Blocks.Interfaces.BooleanInput control
       "true => switch open, false => p--n connected" annotation (Placement(
           transformation(
@@ -1546,7 +1548,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{10,10},{56.6667,56.6667}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
       Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"   annotation (Placement(
           transformation(
@@ -1638,7 +1640,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance" annotation (Placement(transformation(extent={
               {-56.6667,-56.6667},{-10,-10}}, rotation=0)));
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Interfaces.PositivePin p annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n annotation (Placement(transformation(extent={{90,
@@ -1735,7 +1737,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter SI.Conductance Goff(final min=0) = 1.E-5
       "Opened switch conductance"   annotation (Placement(transformation(extent=
              {{-56.6667,-56.6667},{-10,-10}}, rotation=0)));
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
@@ -1829,7 +1831,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "false => p--n connected, true => switch open"
       annotation (Placement(transformation(
@@ -1964,7 +1966,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"
       annotation (Placement(transformation(
@@ -2103,7 +2105,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
     Modelica.Electrical.Analog.Interfaces.PositivePin p
                              annotation (Placement(transformation(extent={{-110,
               -10},{-90,10}}, rotation=0)));
@@ -2242,7 +2244,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
       parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+      extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=300.15);
       Modelica.Electrical.Analog.Interfaces.PositivePin p annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Modelica.Electrical.Analog.Interfaces.NegativePin n annotation (Placement(
