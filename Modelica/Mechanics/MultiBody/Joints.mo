@@ -3741,7 +3741,8 @@ November 3-4, 2003, pp. 149-158</p>
               textString="y")}));
     end RollingWheelSet;
 
-  package Assemblies "Joint aggregations for analytic loop handling"
+  package Assemblies
+    "Components that aggregate several joints for analytic loop handling"
     extends Modelica.Icons.Package;
 
     model JointUPS
@@ -6989,6 +6990,1551 @@ pair of joints\" from Woernle and Hiller is described in:
 </HTML>"));
   end Assemblies;
 
+  package Constraints "Components that define joints by constraints"
+    extends Modelica.Icons.Package;
+
+    package Examples
+      "Collection of simulatable models involving constraints in a multibody system"
+      extends Modelica.Icons.ExamplesPackage;
+
+      model ConstrainPrismaticJoint
+        "Body attached by one spring and two prismatic joints or coinstraint to environment"
+        extends Modelica.Icons.Example;
+        parameter Boolean animation=true "True, if animation shall be enabled";
+
+        Prismatic jointPrismatic_x(stateSelect=StateSelect.never, n={1,0,0})
+          annotation (Placement(transformation(extent={{80,-30},{60,-10}})));
+        Prismatic jointPrismatic_y(stateSelect=StateSelect.never, n={0,1,0})
+          annotation (Placement(transformation(extent={{40,-30},{20,-10}})));
+        PrismaticJoints constraint(
+          x_locked=false,
+          y_locked=false)
+          annotation (Placement(transformation(extent={{60,10},{40,30}})));
+        Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
+          get_r_rel=true,
+          get_a_rel=false,
+          get_angles=true)
+          annotation (Placement(transformation(extent={{60,60},{40,40}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfJoint(
+          m=1,
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          r={0.4,0,0},
+          r_CM={0.2,0,0},
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561},
+          final color={0,0,255})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={-10,-20})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfConstraint(
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          width=0.05,
+          w_0_fixed=false,
+          final color={0,128,0},
+          r=bodyOfJoint.r,
+          r_CM=bodyOfJoint.r_CM,
+          m=bodyOfJoint.m,
+          r_0(start={.2,-.3,.2}),
+          angles_fixed=false,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={-10,20})));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfJoint(
+          c=20,
+          s_unstretched=0,
+          width=0.1,
+          coilWidth=0.005,
+          numberOfWindings=5) annotation (Placement(transformation(
+              origin={-50,-20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
+          width=0.1,
+          coilWidth=0.005,
+          c=springOfJoint.c,
+          s_unstretched=springOfJoint.s_unstretched,
+          numberOfWindings=springOfJoint.numberOfWindings)
+                              annotation (Placement(transformation(
+              origin={-50,20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+              transformation(extent={{-100,-100},{-80,-80}},
+                                                         rotation=0)));
+        Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+          r={.2,-.3,.2},
+          rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+          angles={10,55,68})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={90,-50})));
+
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
+             false, r={0.8,0,0.3})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      rotation=90,
+              origin={-70,-50})));
+      equation
+        connect(fixedTranslation.frame_a, world.frame_b)
+          annotation (Line(
+            points={{-70,-60},{-70,-90},{-80,-90}},
+            color={95,95,95},
+            thickness=0.5));
+        connect(bodyOfConstraint.frame_b, springOfConstraint.frame_b)
+                                               annotation (Line(
+            points={{-20,20},{-40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+            points={{-80,-90},{90,-90},{90,-60}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
+            points={{90,-40},{90,20},{60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(constraint.frame_a,sensorConstraintRelative. frame_a)
+                                                            annotation (Line(
+            points={{60,20},{70,20},{70,50},{60,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
+                                               annotation (Line(
+            points={{-20,-20},{-40,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
+            Line(
+            points={{40,50},{30,50},{30,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfJoint.frame_a)
+                                                    annotation (Line(
+            points={{-70,-40},{-70,-20},{-60,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
+                                                         annotation (Line(
+            points={{-70,-40},{-70,20},{-60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
+            points={{0,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(jointPrismatic_x.frame_b, jointPrismatic_y.frame_a)
+                                                        annotation (Line(
+            points={{60,-20},{40,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedRotation.frame_b, jointPrismatic_x.frame_a) annotation (Line(
+            points={{90,-40},{90,-20},{80,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfJoint.frame_a, jointPrismatic_y.frame_b) annotation (Line(
+            points={{0,-20},{20,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        annotation (
+          experiment(StopTime=10),
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics),
+          Documentation(info="<html>
+<p>This example demonstrates the functionality of <b>constraint</b> representing <b>prismatic joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by two serial coupled prismatic joints or by appropriate constraint. Therefore, the body can only perform translation in two directions specified in the two joints depending on working forces.</p>
+<p><b>Simulation results</b> </p>
+<p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
+</html>"));
+      end ConstrainPrismaticJoint;
+
+      model ConstrainRevoluteJoint
+        "Body attached by one spring and revolute joint or coinstraint to environment"
+        extends Modelica.Icons.Example;
+        parameter Boolean animation=true
+          "= true, if animation shall be enabled";
+        Modelica.Mechanics.MultiBody.Joints.Revolute joint(stateSelect=
+              StateSelect.never, n={0,1,0})
+          annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
+        RevoluteJoint constraint(n=joint.n)
+          annotation (Placement(transformation(extent={{60,10},{40,30}})));
+        Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
+          get_r_rel=true,
+          get_a_rel=false,
+          get_angles=true)
+          annotation (Placement(transformation(extent={{60,60},{40,40}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfJoint(
+          m=1,
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          r={0.4,0,0},
+          r_CM={0.2,0,0},
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561},
+          final color={0,0,255})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={-10,-20})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfConstraint(
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          final color={0,128,0},
+          r=bodyOfJoint.r,
+          r_CM=bodyOfJoint.r_CM,
+          m=bodyOfJoint.m,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={-10,20})));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfJoint(
+          c=20,
+          s_unstretched=0,
+          width=0.1,
+          coilWidth=0.005,
+          numberOfWindings=5) annotation (Placement(transformation(
+              origin={-50,-20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
+          width=0.1,
+          coilWidth=0.005,
+          c=springOfJoint.c,
+          s_unstretched=springOfJoint.s_unstretched,
+          numberOfWindings=springOfJoint.numberOfWindings)
+                              annotation (Placement(transformation(
+              origin={-50,20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+              transformation(extent={{-100,-100},{-80,-80}},
+                                                         rotation=0)));
+        Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+          r={.2,-.3,.2},
+          rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+          angles={10,55,68})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={80,-50})));
+
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
+             false, r={0.8,0,0.3})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      rotation=90,
+              origin={-70,-50})));
+      equation
+        connect(fixedTranslation.frame_a, world.frame_b)
+          annotation (Line(
+            points={{-70,-60},{-70,-90},{-80,-90}},
+            color={95,95,95},
+            thickness=0.5));
+        connect(bodyOfConstraint.frame_b, springOfConstraint.frame_b)
+                                               annotation (Line(
+            points={{-20,20},{-40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+            points={{-80,-90},{80,-90},{80,-60}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
+            points={{80,-40},{80,20},{60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(constraint.frame_a,sensorConstraintRelative. frame_a)
+                                                            annotation (Line(
+            points={{60,20},{80,20},{80,50},{60,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
+                                               annotation (Line(
+            points={{-20,-20},{-40,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+            Line(
+            points={{40,-20},{0,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
+            Line(
+            points={{40,50},{30,50},{30,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfJoint.frame_a)
+                                                    annotation (Line(
+            points={{-70,-40},{-70,-20},{-60,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
+                                                         annotation (Line(
+            points={{-70,-40},{-70,20},{-60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
+            points={{0,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
+            points={{60,-20},{80,-20},{80,-40}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        annotation (
+          experiment(StopTime=10),
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics),
+          Documentation(info="<html>
+<p>This example demonstrates the functionality of <b>constraint</b> representing <b>revolute joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by revolute joint or by appropriate constraint. Therefore, the body can only perform rotation about the revolute axis depending on working forces.</p>
+<p><b>Simulation results</b> </p>
+<p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict both position and angle deviations in the constraining element.</p>
+</html>"));
+      end ConstrainRevoluteJoint;
+
+      model ConstrainSphericalJoint
+        "Body attached by one spring and spherical joint or coinstraint to environment"
+        extends Modelica.Icons.Example;
+        parameter Boolean animation=true
+          "= true, if animation shall be enabled";
+        Spherical joint
+          annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
+        SphericalJoint constraint
+          annotation (Placement(transformation(extent={{60,10},{40,30}})));
+        Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
+          get_r_rel=true,
+          get_a_rel=false,
+          get_angles=true)
+          annotation (Placement(transformation(extent={{60,60},{40,40}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfJoint(
+          m=1,
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          r={0.4,0,0},
+          r_CM={0.2,0,0},
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561},
+          final color={0,0,255})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={-10,-20})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfConstraint(
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          final color={0,128,0},
+          r=bodyOfJoint.r,
+          r_CM=bodyOfJoint.r_CM,
+          m=bodyOfJoint.m,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={-10,20})));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfJoint(
+          c=20,
+          s_unstretched=0,
+          width=0.1,
+          coilWidth=0.005,
+          numberOfWindings=5) annotation (Placement(transformation(
+              origin={-50,-20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
+          width=0.1,
+          coilWidth=0.005,
+          c=springOfJoint.c,
+          s_unstretched=springOfJoint.s_unstretched,
+          numberOfWindings=springOfJoint.numberOfWindings)
+                              annotation (Placement(transformation(
+              origin={-50,20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+              transformation(extent={{-100,-100},{-80,-80}},
+                                                         rotation=0)));
+        Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+          r={.2,-.3,.2},
+          rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+          angles={10,55,68})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={80,-50})));
+
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
+             false, r={0.8,0,0.3})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      rotation=90,
+              origin={-70,-50})));
+      equation
+        connect(fixedTranslation.frame_a, world.frame_b)
+          annotation (Line(
+            points={{-70,-60},{-70,-90},{-80,-90}},
+            color={95,95,95},
+            thickness=0.5));
+        connect(bodyOfConstraint.frame_b, springOfConstraint.frame_b)
+                                               annotation (Line(
+            points={{-20,20},{-40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+            points={{-80,-90},{80,-90},{80,-60}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
+            points={{80,-40},{80,20},{60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(constraint.frame_a,sensorConstraintRelative. frame_a)
+                                                            annotation (Line(
+            points={{60,20},{80,20},{80,50},{60,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfJoint.frame_b, springOfJoint.frame_b)
+                                               annotation (Line(
+            points={{-20,-20},{-40,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+            Line(
+            points={{40,-20},{0,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
+            Line(
+            points={{40,50},{30,50},{30,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfJoint.frame_a)
+                                                    annotation (Line(
+            points={{-70,-40},{-70,-20},{-60,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
+                                                         annotation (Line(
+            points={{-70,-40},{-70,20},{-60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
+            points={{0,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
+            points={{60,-20},{80,-20},{80,-40}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        annotation (
+          experiment(StopTime=10),
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics),
+          Documentation(info="<html>
+<p>This example demonstrates the functionality of <b>constraint</b> representing <b>spherical joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by spherical joint or by appropriate constraint. Therefore, the body can only perform spherical movement depending on working forces.</p>
+<p><b>Simulation results</b> </p>
+<p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
+</html>"));
+      end ConstrainSphericalJoint;
+
+      model ConstrainUniversalJoint
+        "Body attached by one spring and universal joint or coinstraint to environment"
+        extends Modelica.Icons.Example;
+        parameter Boolean animation=true
+          "= true, if animation shall be enabled";
+        Universal joint(
+          n_a={0,0,1},
+          n_b={1,0,0},
+          stateSelect=StateSelect.always)
+          annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
+        UniversalJoint constraint(n_a=joint.n_a, n_b=joint.n_b)
+          annotation (Placement(transformation(extent={{60,10},{40,30}})));
+        Modelica.Mechanics.MultiBody.Sensors.RelativeSensor sensorConstraintRelative(
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
+          get_r_rel=true,
+          get_a_rel=false,
+          get_angles=true)
+          annotation (Placement(transformation(extent={{60,60},{40,40}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfJoint(
+          m=1,
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          r={0.4,0,0},
+          r_CM={0.2,0,0},
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561},
+          final color={0,0,255})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={10,-20})));
+        Modelica.Mechanics.MultiBody.Parts.BodyShape bodyOfConstraint(
+          I_11=1,
+          I_22=1,
+          I_33=1,
+          width=0.05,
+          r_0(start={0.2,-0.5,0.1}, fixed=false),
+          v_0(fixed=false),
+          angles_fixed=false,
+          w_0_fixed=false,
+          final color={0,128,0},
+          color={0,0,255},
+          r=bodyOfJoint.r,
+          r_CM=bodyOfJoint.r_CM,
+          m=bodyOfJoint.m,
+          angles_start={0.17453292519943,0.95993108859688,1.1868238913561})
+          annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
+              origin={10,20})));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfJoint(
+          c=20,
+          s_unstretched=0,
+          width=0.1,
+          coilWidth=0.005,
+          numberOfWindings=5) annotation (Placement(transformation(
+              origin={-50,-20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        Modelica.Mechanics.MultiBody.Forces.Spring springOfConstraint(
+          width=0.1,
+          coilWidth=0.005,
+          c=springOfJoint.c,
+          s_unstretched=springOfJoint.s_unstretched,
+          numberOfWindings=springOfJoint.numberOfWindings)
+                              annotation (Placement(transformation(
+              origin={-50,20},
+              extent={{-10,-10},{10,10}},
+              rotation=0)));
+        inner Modelica.Mechanics.MultiBody.World world annotation (Placement(
+              transformation(extent={{-100,-100},{-80,-80}},
+                                                         rotation=0)));
+        Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
+          r={.2,-.3,.2},
+          rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
+          angles={10,55,68})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+              origin={80,-50})));
+
+        Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(animation=
+             false, r={0.8,0,0.3})
+          annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+      rotation=90,
+              origin={-70,-50})));
+        Parts.FixedTranslation fixedTranslationOfJoint(r={.1,.15,.2})
+          annotation (Placement(transformation(extent={{-10,-30},{-30,-10}})));
+        Parts.FixedTranslation fixedTranslationOfConstraint(r=
+              fixedTranslationOfJoint.r)
+          annotation (Placement(transformation(extent={{-10,10},{-30,30}})));
+      equation
+        connect(fixedTranslation.frame_a, world.frame_b)
+          annotation (Line(
+            points={{-70,-60},{-70,-90},{-80,-90}},
+            color={95,95,95},
+            thickness=0.5));
+        connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+            points={{-80,-90},{80,-90},{80,-60}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedRotation.frame_b, constraint.frame_a) annotation (Line(
+            points={{80,-40},{80,20},{60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(constraint.frame_a,sensorConstraintRelative. frame_a)
+                                                            annotation (Line(
+            points={{60,20},{80,20},{80,50},{60,50}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(joint.frame_b, bodyOfJoint.frame_a)                annotation (
+            Line(
+            points={{40,-20},{20,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(sensorConstraintRelative.frame_b, constraint.frame_b) annotation (
+            Line(
+            points={{40,50},{30,50},{30,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfJoint.frame_a)
+                                                    annotation (Line(
+            points={{-70,-40},{-70,-20},{-60,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(fixedTranslation.frame_b, springOfConstraint.frame_a)
+                                                         annotation (Line(
+            points={{-70,-40},{-70,20},{-60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfConstraint.frame_a, constraint.frame_b) annotation (Line(
+            points={{20,20},{40,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(joint.frame_a, fixedRotation.frame_b)  annotation (Line(
+            points={{60,-20},{80,-20},{80,-40}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfJoint.frame_b, fixedTranslationOfJoint.frame_a) annotation (
+            Line(
+            points={{0,-20},{-10,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(bodyOfConstraint.frame_b, fixedTranslationOfConstraint.frame_a)
+          annotation (Line(
+            points={{0,20},{-10,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(springOfJoint.frame_b, fixedTranslationOfJoint.frame_b) annotation (
+            Line(
+            points={{-40,-20},{-30,-20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(springOfConstraint.frame_b, fixedTranslationOfConstraint.frame_b)
+          annotation (Line(
+            points={{-40,20},{-30,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        annotation (
+          experiment(StopTime=10),
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics),
+          Documentation(info="<html>
+<p>This example demonstrates the functionality of <b>constraint</b> representing <b>universal joint</b>. Each of two bodies is at one of its end connected by spring to the world. The other end is also connected to the world either by universal joint or by appropriate constraint. Therefore, the body can only perform rotation about two revolute axes depending on working forces.</p>
+<p><b>Simulation results</b> </p>
+<p>After simulating the model, see the animation of the multibody system and compare movement of body connected by joint (blue colored) with movement of that one connected by constraint (of green color). Additionally, the outputs from <code>sensorConstraintRelative</code> depict position deviations in the constraining element.</p>
+</html>"));
+      end ConstrainUniversalJoint;
+
+      model CheckConstaintTorqueUniversalJoint
+        extends Modelica.Icons.Example;
+
+        inner Modelica.Mechanics.MultiBody.World world
+          annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute_x(n={1,0,0})
+          annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
+        Modelica.Mechanics.MultiBody.Joints.Revolute revolute_y(n={0,1,0})
+          annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+        Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(r={1,0,0})
+          annotation (Placement(transformation(extent={{20,10},{40,30}})));
+        Modelica.Mechanics.MultiBody.Forces.WorldTorque torque
+          annotation (Placement(transformation(extent={{-20,-40},{0,-60}})));
+        Modelica.Blocks.Sources.Constant signalTorque_y(k=3)
+          annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+        Modelica.Blocks.Sources.Constant signalTorque_x(k=2)
+          annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
+        Modelica.Blocks.Sources.Constant signalTorque_z(k=4)
+          annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
+      equation
+        connect(world.frame_b, revolute_x.frame_a)
+                                                 annotation (Line(
+            points={{-80,20},{-60,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(revolute_x.frame_b, revolute_y.frame_a)
+                                                     annotation (Line(
+            points={{-40,20},{-20,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(revolute_y.frame_b, bodyCylinder.frame_a)
+                                                         annotation (Line(
+            points={{0,20},{20,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(torque.frame_b, bodyCylinder.frame_a) annotation (Line(
+            points={{0,-50},{10,-50},{10,20},{20,20}},
+            color={95,95,95},
+            thickness=0.5,
+            smooth=Smooth.None));
+        connect(signalTorque_x.y, torque.torque[1])
+                                            annotation (Line(
+            points={{-39,-20},{-30,-20},{-30,-48.6667},{-22,-48.6667}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(signalTorque_y.y, torque.torque[2])
+                                           annotation (Line(
+            points={{-39,-50},{-22,-50}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        connect(signalTorque_z.y, torque.torque[3])
+                                            annotation (Line(
+            points={{-39,-80},{-30,-80},{-30,-51.3333},{-22,-51.3333}},
+            color={0,0,127},
+            smooth=Smooth.None));
+        annotation (Diagram(graphics));
+      end CheckConstaintTorqueUniversalJoint;
+    annotation (Documentation(info="<html>
+<p>This package is a collection of simulatable models involving constraints in a multibody system. The examples mainly show comparison of constraints to the joints.</p>
+</html>"));
+    end Examples;
+
+    model SphericalJoint
+      "Spherical cut joint and translational directions may be constrained or released"
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      import MBS = Modelica.Mechanics.MultiBody;
+
+      parameter Boolean x_locked=true
+        "= true: constraint force in x-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints"), choices(checkBox=true));
+      parameter Boolean y_locked=true
+        "= true: constraint force in y-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints"), choices(checkBox=true));
+      parameter Boolean z_locked=true
+        "= true: constraint force in z-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints"), choices(checkBox=true));
+
+      parameter Boolean animation=true
+        "= true, if animation shall be enabled (show sphere)"
+        annotation (Dialog(group="Animation"));
+      parameter Modelica.SIunits.Distance sphereDiameter=world.defaultJointLength /3
+        "Diameter of sphere representing the spherical joint"
+        annotation (Dialog(group="Animation", enable=animation));
+      input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
+        "Color of sphere representing the spherical joint"
+        annotation (Dialog(group="Animation", enable=animation));
+      input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
+        annotation (Dialog(group="Animation", enable=animation));
+
+      Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape sphere(
+        shapeType="sphere",
+        color=sphereColor,
+        specularCoefficient=specularCoefficient,
+        length=sphereDiameter,
+        width=sphereDiameter,
+        height=sphereDiameter,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        r_shape={-0.5,0,0}*sphereDiameter,
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
+    protected
+      MBS.Frames.Orientation R_rel
+        "Dummy or relative orientation object from frame_a to frame_b";
+      Modelica.SIunits.Position r_rel_a[3]
+        "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+      Modelica.SIunits.InstantaneousPower P;
+
+    equation
+      // Determine relative position vector resolved in frame_a
+      R_rel = MBS.Frames.relativeRotation(frame_a.R, frame_b.R);
+      r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+
+      // Constraint equations concering translation
+      if x_locked and y_locked and z_locked then
+        r_rel_a=zeros(3);
+      elseif x_locked and y_locked and not z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[2]=0;
+        frame_a.f[3]=0;
+      elseif x_locked and not y_locked and z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[3]=0;
+        frame_a.f[2]=0;
+      elseif x_locked and not y_locked and not z_locked then
+        r_rel_a[1]=0;
+        frame_a.f[2]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and y_locked and z_locked then
+        r_rel_a[2]=0;
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+      elseif not x_locked and y_locked and not z_locked then
+        r_rel_a[2]=0;
+        frame_a.f[1]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and not y_locked and z_locked then
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+        frame_a.f[2]=0;
+      else
+        frame_a.f=zeros(3);
+      end if;
+
+      //frame_a.t = zeros(3);
+      frame_b.t = zeros(3);
+      frame_b.f = -MBS.Frames.resolve2(R_rel, frame_a.f);
+      zeros(3) = frame_a.t + MBS.Frames.resolve1(R_rel, frame_b.t) - cross(r_rel_a, frame_a.f);
+      P= frame_a.t*MBS.Frames.angularVelocity2(frame_a.R)+frame_b.t*MBS.Frames.angularVelocity2(frame_b.R) + MBS.Frames.resolve1(frame_b.R,frame_b.f)*der(frame_b.r_0)+MBS.Frames.resolve1(frame_a.R,frame_a.f)*der(frame_a.r_0);
+      annotation (
+        defaultComponentName="constraint",
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Text(
+              extent={{-150,120},{150,80}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x",
+              visible=x_locked and not y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: y",
+              visible=not x_locked and y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: z",
+              visible=not x_locked and not y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, y",
+              visible=x_locked and y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, z",
+              visible=x_locked and not y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: y, z",
+              visible=not x_locked and y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, y, z",
+              visible=x_locked and y_locked and z_locked),
+            Ellipse(
+              extent={{-66,-70},{74,70}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
+            Ellipse(
+              extent={{-45,-50},{55,50}},
+              lineColor={128,128,128},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{34,70},{75,-68}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-96,10},{-64,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{27,10},{104,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Ellipse(
+              extent={{-20,25},{30,-25}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={160,160,164}),
+            Line(
+              points={{-81,-66},{-23,25},{40,-39},{97,71}},
+              color={255,0,0},
+              thickness=0.5,
+              smooth=Smooth.None)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Documentation(info="<html>
+<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint. </p>
+</html>"));
+    end SphericalJoint;
+
+    model UniversalJoint
+      "Universal cut-joint and translational directions may be constrained or released"
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      import MBS = Modelica.Mechanics.MultiBody;
+
+      parameter MBS.Types.Axis n_a={1,0,0}
+        "Axis of revolute joint 1 resolved in frame_a" annotation (Evaluate=true);
+      parameter MBS.Types.Axis n_b={0,1,0}
+        "Axis of revolute joint 2 resolved in frame_b" annotation (Evaluate=true);
+
+      parameter Boolean x_locked=true
+        "= true: constraint force in x-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints in translational motion"), choices(checkBox=true));
+      parameter Boolean y_locked=true
+        "= true: constraint force in y-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints in translational motion"), choices(checkBox=true));
+      parameter Boolean z_locked=true
+        "= true: constraint force in z-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints in translational motion"), choices(checkBox=true));
+
+      parameter Boolean animation=true
+        "= true, if animation shall be enabled (show sphere)"
+        annotation (Dialog(group="Animation"));
+      parameter SI.Distance sphereDiameter=world.defaultJointLength /3
+        "Diameter of sphere representing the spherical joint"
+        annotation (Dialog(group="Animation", enable=animation));
+      input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
+        "Color of sphere representing the spherical joint"
+        annotation (Dialog(group="Animation", enable=animation));
+      input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
+        annotation (Dialog(group="Animation", enable=animation));
+    protected
+      MBS.Frames.Orientation R_rel
+        "Dummy or relative orientation object from frame_a to frame_b";
+      Real w_rel[3];
+      Modelica.SIunits.Position r_rel_a[3]
+        "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+      //Modelica.SIunits.Angle phi_rel[3];
+      Modelica.SIunits.InstantaneousPower P;
+    equation
+      // Determine relative position vector resolved in frame_a
+      R_rel = MBS.Frames.relativeRotation(frame_a.R, frame_b.R);
+      w_rel = MBS.Frames.angularVelocity1(R_rel);
+      r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+
+      //phi_rel=MBS.Frames.smallRotation(R_rel,false);
+      // Constraint equations concering translations
+      if x_locked and y_locked and z_locked then
+        r_rel_a=zeros(3);
+      elseif x_locked and y_locked and not z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[2]=0;
+        frame_a.f[3]=0;
+      elseif x_locked and not y_locked and z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[3]=0;
+        frame_a.f[2]=0;
+      elseif x_locked and not y_locked and not z_locked then
+        r_rel_a[1]=0;
+        frame_a.f[2]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and y_locked and z_locked then
+        r_rel_a[2]=0;
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+      elseif not x_locked and y_locked and not z_locked then
+        r_rel_a[2]=0;
+        frame_a.f[1]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and not y_locked and z_locked then
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+        frame_a.f[2]=0;
+      else
+        frame_a.f=zeros(3);
+      end if;
+
+      // Constraint equations concerning rotations
+      if n_a[2]==1 and n_b[3]==1 then
+        // Rotation order 1-2-3, 1 locked
+        R_rel.T[3,2]=0;
+        frame_a.t[2]=0;
+        frame_b.t[3]=0;
+        elseif n_a[3]==1 and n_b[2]==1 then
+         // Rotation order 1-3-2, 1 locked
+        R_rel.T[2,3]=0;
+        frame_a.t[3]=0;
+        frame_b.t[2]=0;
+        elseif n_a[1]==1 and n_b[2]==1 then
+         // Rotation order 3-1-2, 3 locked
+        R_rel.T[2,1]=0;
+        frame_a.t[1]=0;
+        frame_b.t[2]=0;
+        elseif n_a[2]==1 and n_b[1]==1 then
+         // Rotation order 3-2-1, 3 locked
+        R_rel.T[1,2]=0;
+        frame_a.t[2]=0;
+        frame_b.t[1]=0;
+        elseif n_a[1]==1 and n_b[3]==1 then
+         // Rotation order 2-1-3, 2 locked
+        R_rel.T[3,1]=0;
+        frame_a.t[1]=0;
+        frame_b.t[3]=0;
+        elseif n_a[3]==1 and n_b[1]==1 then
+         // Rotation order 2-3-1, 2 locked
+        R_rel.T[1,3]=0;
+        frame_a.t[3]=0;
+        frame_b.t[1]=0;
+      else
+        // No rotation
+        {1,1,1}=R_rel.T * {1,1,1};
+      end if;
+
+      zeros(3)=frame_a.f + MBS.Frames.resolve1(R_rel, frame_b.f);
+      zeros(3) = frame_a.t+MBS.Frames.resolve1(R_rel, frame_b.t)- cross(r_rel_a, frame_a.f);
+      P = frame_a.t*MBS.Frames.angularVelocity2(frame_a.R)+frame_b.t*MBS.Frames.angularVelocity2(frame_b.R) + MBS.Frames.resolve1(frame_b.R,frame_b.f)*der(frame_b.r_0)+MBS.Frames.resolve1(frame_a.R,frame_a.f)*der(frame_a.r_0);
+
+      annotation (
+        defaultComponentName="constraint",
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x",
+              visible=x_locked and not y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: y",
+              visible=not x_locked and y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: z",
+              visible=not x_locked and not y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, y",
+              visible=x_locked and y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, z",
+              visible=x_locked and not y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: y, z",
+              visible=not x_locked and y_locked and z_locked),
+            Text(
+              extent={{-100,-76},{100,-106}},
+              lineColor={95,95,95},
+              textString="lock: x, y, z",
+              visible=x_locked and y_locked and z_locked),
+            Rectangle(
+              extent={{-96,15},{-61,-15}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={235,235,235}),
+            Ellipse(
+              extent={{-76,-80},{84,80}},
+              lineColor={160,160,164},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-56,-60},{64,60}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{16,82},{84,-82}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{60,15},{104,-15}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={235,235,235}),
+            Line(
+              points={{16,78},{16,-78}},
+              color={0,0,0},
+              thickness=0.5),
+            Ellipse(
+              extent={{-48,-40},{84,40}},
+              lineColor={160,160,164},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-28,-20},{64,26}},
+              lineColor={160,160,164},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-18,-54},{-56,0},{-18,50},{44,52},{-18,-54}},
+              pattern=LinePattern.None,
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Line(
+              points={{16,78},{16,-20}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{36,38},{-8,-36}},
+              color={0,0,0},
+              thickness=0.5),
+            Text(
+              extent={{-150,120},{150,80}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(
+              points={{-81,-66},{-23,25},{40,-39},{97,71}},
+              color={255,0,0},
+              thickness=0.5,
+              smooth=Smooth.None)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Documentation(info="<html>
+<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint. </p>
+</html>"));
+    end UniversalJoint;
+
+    model PrismaticJoints
+      "Prismatic cut-joint and translational directions may be constrained or released"
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+      import Cv = Modelica.SIunits.Conversions;
+
+      parameter Boolean x_locked=true
+        "= true: constraint force in x-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints"),choices(checkBox=true));
+      parameter Boolean y_locked=true
+        "= true: constraint force in y-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints"),choices(checkBox=true));
+      parameter Boolean z_locked=true
+        "= true: constraint force in z-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints"),choices(checkBox=true));
+
+      parameter Boolean animation=true
+        "= true, if animation shall be enabled (show sphere)";
+      parameter SI.Distance sphereDiameter=world.defaultJointLength /3
+        "Diameter of sphere representing the spherical joint"
+          annotation (Dialog(group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Types.Defaults.JointColor
+        "Color of sphere representing the spherical joint"
+          annotation (Dialog(group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient=world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
+          annotation (Dialog(group="if animation = true", enable=animation));
+
+    protected
+      outer World world;
+      Frames.Orientation R_rel
+        "Dummy or relative orientation object from frame_a to frame_b";
+      Modelica.SIunits.Position r_rel_a[3]
+        "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+      Modelica.SIunits.InstantaneousPower P;
+
+    public
+      Visualizers.Advanced.Shape sphere(
+        shapeType="sphere",
+        color=sphereColor,
+        specularCoefficient=specularCoefficient,
+        length=sphereDiameter,
+        width=sphereDiameter,
+        height=sphereDiameter,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        r_shape={-0.5,0,0}*sphereDiameter,
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
+    equation
+      // Determine relative position vector resolved in frame_a
+      R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
+      r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+
+      // Constraint equations concerning rotations
+      ones(3)={R_rel.T[1,1], R_rel.T[2,2], R_rel.T[3,3]};
+
+      // Constraint equations concering translations
+      if x_locked and y_locked and z_locked then
+        r_rel_a=zeros(3);
+      elseif x_locked and y_locked and not z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[2]=0;
+        frame_a.f[3]=0;
+      elseif x_locked and not y_locked and z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[3]=0;
+        frame_a.f[2]=0;
+      elseif x_locked and not y_locked and not z_locked then
+        r_rel_a[1]=0;
+        frame_a.f[2]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and y_locked and z_locked then
+        r_rel_a[2]=0;
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+      elseif not x_locked and y_locked and not z_locked then
+        r_rel_a[2]=0;
+        frame_a.f[1]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and not y_locked and z_locked then
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+        frame_a.f[2]=0;
+      else
+        frame_a.f=zeros(3);
+      end if;
+
+      zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) + cross(r_rel_a,
+        Frames.resolve1(R_rel, frame_b.f));
+      zeros(3) = Frames.resolve1(R_rel, frame_b.f) + frame_a.f;
+      P = frame_a.t*Frames.angularVelocity2(frame_a.R) + frame_b.t*
+        Frames.angularVelocity2(frame_b.R) + frame_b.f*Frames.resolve2(frame_b.R,
+        der(frame_b.r_0)) + frame_a.f*Frames.resolve2(frame_a.R, der(frame_a.r_0));
+
+      annotation (
+        defaultComponentName="constraint",
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x",
+              visible=x_locked and not y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: y",
+              visible=not x_locked and y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: z",
+              visible=not x_locked and not y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, y",
+              visible=x_locked and y_locked and not z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, z",
+              visible=x_locked and not y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: y, z",
+              visible=not x_locked and y_locked and z_locked),
+            Text(
+              extent={{-100,-70},{100,-100}},
+              lineColor={95,95,95},
+              textString="lock: x, y, z",
+              visible=x_locked and y_locked and z_locked),
+            Rectangle(
+              extent={{-100,46},{-30,56}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-100,-44},{-30,47}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-30,24},{100,34}},
+              pattern=LinePattern.None,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-30,-26},{100,24}},
+              pattern=LinePattern.None,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid,
+              lineColor={0,0,255}),
+            Line(points={{100,-26},{100,25}}, color={0,0,0}),
+            Line(points={{-30,-44},{-30,56}}, color={0,0,0}),
+            Text(
+              extent={{-150,120},{150,80}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Line(
+              points={{-81,-66},{-23,25},{40,-39},{97,71}},
+              color={255,0,0},
+              thickness=0.5,
+              smooth=Smooth.None)}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics),
+        Documentation(info="<html>
+<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint. </p>
+</html>"),  DymolaStoredErrors,
+        experiment(StopTime=10, Tolerance=1e-012),
+        experimentSetupOutput);
+    end PrismaticJoints;
+
+    model RevoluteJoint
+      "Revolute cut-joint and translational directions may be constrained or released"
+      extends Modelica.Mechanics.MultiBody.Interfaces.PartialTwoFrames;
+
+      parameter Boolean x_locked=true
+        "= true: constraint force in x-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints in translational motion"),choices(checkBox=true));
+      parameter Boolean y_locked=true
+        "= true: constraint force in y-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints in translational motion"),choices(checkBox=true));
+      parameter Boolean z_locked=true
+        "= true: constraint force in z-direction, resolved in frame_a"
+        annotation (Dialog(group="Constraints in translational motion"),choices(checkBox=true));
+
+      parameter Boolean animation=true
+        "= true, if animation shall be enabled (show sphere)";
+      parameter Types.Axis n={0,1,0}
+        "Axis of rotation resolved in frame_a (= same as in frame_b)"
+        annotation (Evaluate=true);
+
+      parameter SI.Distance sphereDiameter=world.defaultJointLength /3
+        "Diameter of sphere representing the spherical joint"
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input Types.Color sphereColor=Types.Defaults.JointColor
+        "Color of sphere representing the spherical joint"
+        annotation (Dialog(group="if animation = true", enable=animation));
+      input Types.SpecularCoefficient specularCoefficient=world.defaultSpecularCoefficient
+        "Reflection of ambient light (= 0: light is completely absorbed)"
+        annotation (Dialog(group="if animation = true", enable=animation));
+
+    protected
+      outer World world;
+      Frames.Orientation R_rel
+        "Dummy or relative orientation object from frame_a to frame_b";
+      Modelica.SIunits.Position r_rel_a[3]
+        "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a";
+      Real c[3];
+      Modelica.SIunits.InstantaneousPower P;
+
+    public
+      Visualizers.Advanced.Shape sphere(
+        shapeType="sphere",
+        color=sphereColor,
+        specularCoefficient=specularCoefficient,
+        length=sphereDiameter,
+        width=sphereDiameter,
+        height=sphereDiameter,
+        lengthDirection={1,0,0},
+        widthDirection={0,1,0},
+        r_shape={-0.5,0,0}*sphereDiameter,
+        r=frame_a.r_0,
+        R=frame_a.R) if world.enableAnimation and animation;
+
+    equation
+      // Determine relative position vector resolved in frame_a
+      R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
+      r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
+
+      // Constraint equations concering translations
+      if x_locked and y_locked and z_locked then
+        r_rel_a=zeros(3);
+      elseif x_locked and y_locked and not z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[2]=0;
+        frame_a.f[3]=0;
+      elseif x_locked and not y_locked and z_locked then
+        r_rel_a[1]=0;
+        r_rel_a[3]=0;
+        frame_a.f[2]=0;
+      elseif x_locked and not y_locked and not z_locked then
+        r_rel_a[1]=0;
+        frame_a.f[2]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and y_locked and z_locked then
+        r_rel_a[2]=0;
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+      elseif not x_locked and y_locked and not z_locked then
+        r_rel_a[2]=0;
+        frame_a.f[1]=0;
+        frame_a.f[3]=0;
+      elseif not x_locked and not y_locked and z_locked then
+        r_rel_a[3]=0;
+        frame_a.f[1]=0;
+        frame_a.f[2]=0;
+      else
+        frame_a.f=zeros(3);
+      end if;
+
+      // Constraint equations concerning rotations
+      c = R_rel.T*n;
+      if n[1]==0 then
+        c[1]=0;
+      else
+        frame_a.t[1]=0;
+      end if;
+      if n[2]==0 then
+        c[2]=0;
+      else
+        frame_a.t[2]=0;
+      end if;
+      if n[3]==0 then
+        c[3]=0;
+      else
+        frame_a.t[3]=0;
+      end if;
+
+      zeros(3) = frame_a.f + Frames.resolve1(R_rel, frame_b.f);
+      zeros(3) = frame_a.t + Frames.resolve1(R_rel, frame_b.t) - cross(r_rel_a,
+        frame_a.f);
+      P = frame_a.t*Frames.angularVelocity2(frame_a.R) + frame_b.t*
+        Frames.angularVelocity2(frame_b.R) + Frames.resolve1(frame_b.R, frame_b.f)
+        *der(frame_b.r_0) + Frames.resolve1(frame_a.R, frame_a.f)*der(frame_a.r_0);
+
+        annotation ( defaultComponentName="constraint",
+          Icon(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics={
+            Text(
+    extent={{-63,-63},{53,-93}},
+    lineColor={0,0,0},
+    textString="n=%n",
+    fillColor={0,0,0},
+    fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-100,-60},{-30,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{30,-60},{100,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(extent={{-100,59},{-30,-60}}, lineColor={0,0,0}),
+            Rectangle(extent={{30,60},{100,-60}}, lineColor={0,0,0}),
+            Text(
+              extent={{-90,14},{-54,-11}},
+              lineColor={128,128,128},
+              textString="a"),
+            Text(
+              extent={{51,11},{87,-14}},
+              lineColor={128,128,128},
+              textString="b"),
+            Rectangle(
+              extent={{-30,11},{30,-10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-81,-66},{-23,25},{40,-39},{97,71}},
+              color={255,0,0},
+              thickness=0.5,
+              smooth=Smooth.None),
+            Text(
+              extent={{-49,-36},{45,-59}},
+              textString="constraint",
+              pattern=LinePattern.None),
+            Text(
+              extent={{-150,120},{150,80}},
+              lineColor={0,0,255},
+              textString="%name")}),
+          Diagram(coordinateSystem(
+              preserveAspectRatio=true,
+              extent={{-100,-100},{100,100}},
+              grid={2,2}), graphics),
+          Documentation(info="<html>
+<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
+<p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
+<p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
+<p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint. </p>
+</html>"));
+    end RevoluteJoint;
+
+    annotation (Documentation(revisions="<html>
+</html>",   info="<html>
+<p>
+This package contains <b>constraint components</b>, that is, idealized, massless elements that 
+constrain the motion between frames by means of constraint forces and/or torques. The constraint
+elements are especially aimed to be used for multibody models which contain <b>kinematic loops</b>. 
+Usually, kinematic loops are automatically handled. However, the performance might be improved
+by either solving certain kinds of loops analytically with the help of the components of
+subpackage  <a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">Assemblies</a>, or
+by providing numerically better loop constraint formulations with the help of the components
+of this subpackage.
+</p>
+</html>"));
+  end Constraints;
+
   package Internal
     "Components used for analytic solution of kinematic loops (use only if you know what you are doing)"
 
@@ -7932,6 +9478,10 @@ solved, i.e., robustly and efficiently).
   </tr>
   <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">MultiBody.Joints.Assemblies</a></td>
       <td valign=\"top\"><b>Package</b> of joint aggregations for analytic loop handling.
+      </td>
+  </tr>
+  <tr><td valign=\"top\"><a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.Constraints\">MultiBody.Joints.Constraints</a></td>
+      <td valign=\"top\"><b>Package</b> of components that define joints by constraints
       </td>
   </tr>
 </table>
