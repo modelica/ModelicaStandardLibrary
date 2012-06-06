@@ -550,11 +550,13 @@ If damping is added the amplitudes are bounded.
     end Oscillator;
 
     model Sensors "Sensors for translational systems."
+      import Modelica;
 
       extends Modelica.Icons.Example;
 
       Translational.Sensors.ForceSensor forceSensor  annotation (Placement(
-            transformation(extent={{-20,40},{0,60}}, rotation=0)));
+            transformation(extent={{-34,40},{-14,60}},
+                                                     rotation=0)));
       Translational.Sensors.SpeedSensor speedSensor1 annotation (Placement(
             transformation(extent={{40,-40},{60,-20}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor1 annotation (Placement(
@@ -567,21 +569,21 @@ If damping is added the amplitudes are bounded.
         m=1)                                      annotation (Placement(
             transformation(extent={{20,40},{40,60}}, rotation=0)));
       Translational.Sources.Force force
-                                 annotation (Placement(transformation(extent={{
-                -60,40},{-40,60}}, rotation=0)));
+                                 annotation (Placement(transformation(extent={{-64,40},
+                {-44,60}},         rotation=0)));
       Modelica.Blocks.Sources.Sine sineForce(amplitude=10, freqHz=4)
                                                                  annotation (Placement(
             transformation(extent={{-100,40},{-80,60}}, rotation=0)));
       Translational.Sensors.PositionSensor positionSensor2 annotation (Placement(
             transformation(extent={{60,40},{80,60}}, rotation=0)));
+      Modelica.Mechanics.Translational.Sensors.MultiSensor multiSensor
+        annotation (Placement(transformation(extent={{-8,40},{12,60}})));
     equation
-      connect(forceSensor.flange_b, mass.flange_a)          annotation (Line(
-            points={{0,50},{20,50}}, color={0,191,0}));
       connect(sineForce.y, force.f)
-                                 annotation (Line(points={{-79,50},{-62,50}},
+                                 annotation (Line(points={{-79,50},{-66,50}},
             color={0,0,127}));
       connect(forceSensor.flange_a, force.flange)   annotation (Line(
-          points={{-20,50},{-40,50}},
+          points={{-34,50},{-44,50}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass.flange_a, positionSensor1.flange)         annotation (Line(
@@ -598,6 +600,14 @@ If damping is added the amplitudes are bounded.
           smooth=Smooth.None));
       connect(mass.flange_b, positionSensor2.flange)         annotation (Line(
           points={{40,50},{60,50}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(forceSensor.flange_b, multiSensor.flange_a) annotation (Line(
+          points={{-14,50},{-8,50}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(multiSensor.flange_b, mass.flange_a) annotation (Line(
+          points={{12,50},{20,50}},
           color={0,127,0},
           smooth=Smooth.None));
       annotation (
@@ -622,7 +632,8 @@ Plot PositionSensor1.s, PositionSensor2.s and SlidingMass1.s
 to see the difference.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001));
+        experiment(StopTime=1.0, Interval=0.001),
+        Diagram(graphics));
     end Sensors;
 
     model Friction "Use of model Stop"
@@ -3400,13 +3411,72 @@ and provides the result as output signal <b>power</b>
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Text(
-              extent={{-60,-70},{20,-120}},
+              extent={{-75,-79},{67,-119}},
               lineColor={0,0,0},
               textString="power"),
             Line(points={{-70,0},{-90,0}}, color={0,0,0}),
             Line(points={{70,0},{90,0}}, color={0,0,0}),
             Line(points={{-80,-100},{-80,0}}, color={0,0,127})}));
     end PowerSensor;
+
+    model MultiSensor
+      "Ideal sensor to measure the absolute velocity, force and power between two flanges"
+      extends Translational.Interfaces.PartialRelativeSensor;
+      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a"
+         annotation (Placement(transformation(
+            origin={-60,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Blocks.Interfaces.RealOutput          f
+        "Force in flange_a and flange_b (f = flange_a.f = -flange_b.f)"
+         annotation (Placement(transformation(
+            extent={{10,-10},{-10,10}},
+            rotation=90,
+            origin={0,-110})));
+      Blocks.Interfaces.RealOutput          v
+        "Absolute velocity of flange as output signal"
+           annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=-90,
+            origin={60,-110})));
+    equation
+      flange_a.s = flange_b.s;
+      f = flange_a.f;
+      v = der(flange_a.s);
+      power = f*v;
+
+      annotation (
+        Documentation(info="<html>
+<p>
+Measures the <b>absolute velocity</b> of a flange_a, the <b>cut-force</b> and <b>power</b> between two flanges in an 
+ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>power</b>, respectively. </p>
+
+</html>
+
+"),     Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={1,1}), graphics={
+            Text(
+              extent={{-146,-70},{-56,-100}},
+              lineColor={0,0,0},
+              textString="power"),
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Line(points={{-60,-100},{-60,-60}},
+                                              color={0,0,127}),
+            Text(
+              extent={{-28,-71},{52,-101}},
+              lineColor={0,0,0},
+              textString="f"),
+            Line(points={{0,-100},{0,-60}},   color={0,0,127}),
+            Line(points={{60,-100},{60,-60}}, color={0,0,127}),
+            Text(
+              extent={{60,-70},{114,-101}},
+              lineColor={0,0,0},
+              textString="v")}),
+        Diagram(graphics));
+    end MultiSensor;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={

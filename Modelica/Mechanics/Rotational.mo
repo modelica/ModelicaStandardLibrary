@@ -1109,7 +1109,7 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
         phi_rel(fixed=true),
         w_rel(fixed=true))
         annotation (Placement(transformation(
-            origin={20,-30},
+            origin={20,-36},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Rotational.Sources.Torque torque(useSupport=true)
@@ -1124,30 +1124,40 @@ The version of LossyGear up to version 3.1 of package Modelica failed in this ca
                0)));
       Rotational.Components.Inertia housing(
                       J=5) annotation (Placement(transformation(
-            origin={20,10},
+            origin={20,22},
             extent={{-10,-10},{10,10}},
             rotation=90)));
+      Sensors.MultiSensor multiSensor annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={20,-6})));
     equation
       connect(torque.flange, shaft.flange_a)
         annotation (Line(points={{-30,50},{-20,50}}, color={0,0,0}));
       connect(spring.flange_b, load.flange_a)
         annotation (Line(points={{60,50},{70,50}}, color={0,0,0}));
       connect(springDamper.flange_a, fixed.flange)
-        annotation (Line(points={{20,-40},{20,-56},{20,-60}},
+        annotation (Line(points={{20,-46},{20,-46},{20,-60}},
                                                      color={0,0,0}));
       connect(shaft.flange_b, idealGear.flange_a)
         annotation (Line(points={{0,50},{10,50}}, color={0,0,0}));
       connect(idealGear.flange_b, spring.flange_a)
         annotation (Line(points={{30,50},{40,50}}, color={0,0,0}));
       connect(idealGear.support, housing.flange_b)
-        annotation (Line(points={{20,40},{20,20}}, color={0,0,0}));
-      connect(housing.flange_a, springDamper.flange_b)
-        annotation (Line(points={{20,0},{20,-20}}, color={0,0,0}));
+        annotation (Line(points={{20,40},{20,32}}, color={0,0,0}));
       connect(ramp.y, torque.tau) annotation (Line(points={{-69,50},{-69,50},{
               -52,50}},
             color={0,0,127}));
       connect(fixed.flange, torque.support)   annotation (Line(points={{20,-60},
               {-40,-60},{-40,40}}, color={0,0,0}));
+      connect(housing.flange_a, multiSensor.flange_b) annotation (Line(
+          points={{20,12},{20,4}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(multiSensor.flange_a, springDamper.flange_b) annotation (Line(
+          points={{20,-16},{20,-26}},
+          color={0,0,0},
+          smooth=Smooth.None));
       annotation (                           Documentation(info="<html>
 <p>
 This model demonstrates the usage of the bearing flange.
@@ -1158,7 +1168,8 @@ housing dynamics.</p>
 Simulate for about 10 seconds and plot the angular velocities of the inertias <code>housing.w</code>,
 <code>shaft.w</code> and <code>load.w</code>.</p>
 </html>"),
-        experiment(StopTime=10, Interval=0.01));
+        experiment(StopTime=10, Interval=0.01),
+        Diagram(graphics));
     end ElasticBearing;
 
     model Backlash "Example to demonstrate backlash"
@@ -4592,6 +4603,61 @@ and provides the result as output signal <b>power</b>
               textString="power"), Line(points={{-80,-100},{-80,0}}, color={0,0,
                   127})}));
     end PowerSensor;
+
+    model MultiSensor
+      "Ideal sensor to measure the torque and power between two flanges (= flange_a.tau*der(flange_a.phi)) and the absolute angular velocity"
+
+      extends .Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor;
+      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a"
+        annotation (Placement(transformation(
+            origin={-60,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+      Modelica.Blocks.Interfaces.RealOutput w
+        "Absolute angular velocity of flange_a"
+        annotation (Placement(transformation(extent={{-10,10},{10,-10}},
+                                     rotation=270,
+            origin={60,-110})));
+      Modelica.Blocks.Interfaces.RealOutput tau
+        "Torque in flange flange_a and flange_b (tau = flange_a.tau = -flange_b.tau)"
+        annotation (Placement(transformation(
+            origin={0,-110},
+            extent={{10,-10},{-10,10}},
+            rotation=90)));
+
+    equation
+      flange_a.phi = flange_b.phi;
+      w = der(flange_a.phi);
+      tau = flange_a.tau;
+      power = tau*w;
+      annotation (
+        Documentation(info="<html>
+<p>Measures the <b>absolute angular velocity</b> of a flange_a, the <b>cut-torque</b> and <b>power</b> between two flanges in an ideal way and provides the results as output signals <b>w</b>, <b>tau</b> and <b>power</b>, respectively. </p>
+</html>",     revisions="<html>
+</html>"),
+        Icon(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics={Text(
+              extent={{60,-68},{100,-96}},
+              lineColor={0,0,0},
+              textString="w"),     Text(
+              extent={{-140,-68},{-60,-96}},
+              lineColor={0,0,0},
+              textString="power"), Text(
+              extent={{-30,-68},{30,-96}},
+              lineColor={0,0,0},
+              textString="tau"),   Line(points={{-60,-100},{-60,-60},{-94,-2}},
+                                                                     color={0,0,
+                  0}),             Line(points={{0,-100},{0,-70}},   color={0,0,
+                  127}),           Line(points={{60,-100},{60,-60},{50,-50}},
+                                                                     color={0,0,
+                  127})}),
+        Diagram(coordinateSystem(
+            preserveAspectRatio=true,
+            extent={{-100,-100},{100,100}},
+            grid={2,2}), graphics));
+    end MultiSensor;
     annotation (                 Documentation(info="<html>
 <p>
 This package contains ideal sensor components that provide
