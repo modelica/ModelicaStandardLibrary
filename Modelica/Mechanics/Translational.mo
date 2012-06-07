@@ -3448,12 +3448,9 @@ and provides the result as output signal <b>power</b>
       annotation (
         Documentation(info="<html>
 <p>
-Measures the <b>absolute velocity</b> of a flange_a, the <b>cut-force</b> and <b>power</b> between two flanges in an 
+Measures the <b>absolute velocity</b> of a flange_a, the <b>cut-force</b> and <b>power</b> between two flanges in an
 ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>power</b>, respectively. </p>
-
-</html>
-
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3474,8 +3471,7 @@ ideal way and provides the results as output signals <b>v</b>, <b>f</b> and <b>p
             Text(
               extent={{60,-70},{114,-101}},
               lineColor={0,0,0},
-              textString="v")}),
-        Diagram(graphics));
+              textString="v")}));
     end MultiSensor;
     annotation (
       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,

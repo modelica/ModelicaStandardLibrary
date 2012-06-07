@@ -4633,8 +4633,7 @@ and provides the result as output signal <b>power</b>
       annotation (
         Documentation(info="<html>
 <p>Measures the <b>absolute angular velocity</b> of a flange_a, the <b>cut-torque</b> and <b>power</b> between two flanges in an ideal way and provides the results as output signals <b>w</b>, <b>tau</b> and <b>power</b>, respectively. </p>
-</html>",     revisions="<html>
-</html>"),
+</html>",
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4652,11 +4651,7 @@ and provides the result as output signal <b>power</b>
                   0}),             Line(points={{0,-100},{0,-70}},   color={0,0,
                   127}),           Line(points={{60,-100},{60,-60},{50,-50}},
                                                                      color={0,0,
-                  127})}),
-        Diagram(coordinateSystem(
-            preserveAspectRatio=true,
-            extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics));
+                  127})}));
     end MultiSensor;
     annotation (                 Documentation(info="<html>
 <p>
