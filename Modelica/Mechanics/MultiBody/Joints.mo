@@ -8520,12 +8520,11 @@ pair of joints\" from Woernle and Hiller is described in:
 </html>"));
     end RevoluteJoint;
 
-    annotation (Documentation(revisions="<html>
-</html>",   info="<html>
+    annotation (Documentation(info="<html>
 <p>
-This package contains <b>constraint components</b>, that is, idealized, massless elements that 
+This package contains <b>constraint components</b>, that is, idealized, massless elements that
 constrain the motion between frames by means of constraint forces and/or torques. The constraint
-elements are especially aimed to be used for multibody models which contain <b>kinematic loops</b>. 
+elements are especially aimed to be used for multibody models which contain <b>kinematic loops</b>.
 Usually, kinematic loops are automatically handled. However, the performance might be improved
 by either solving certain kinds of loops analytically with the help of the components of
 subpackage  <a href=\"Modelica://Modelica.Mechanics.MultiBody.Joints.Assemblies\">Assemblies</a>, or
