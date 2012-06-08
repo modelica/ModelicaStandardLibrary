@@ -39,7 +39,7 @@ package Lines
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
      parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=300.15
+  parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
   parameter Modelica.SIunits.Temperature T_ref=300.15;
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
@@ -177,7 +177,7 @@ model M_OLine "Multiple OLine"
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
   parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
   annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=300.15
+  parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
                                                       annotation(Dialog(enable=not useHeatPort));
   parameter Modelica.SIunits.Temperature T_ref=300.15;
@@ -207,7 +207,7 @@ model segment "Multiple line segment model"
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
   parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
   annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=300.15
+  parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
                                                       annotation(Dialog(enable=not useHeatPort));
   parameter Modelica.SIunits.Temperature T_ref;
@@ -290,7 +290,7 @@ model segment_last "Multiple line last segment model"
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
   parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
   annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=300.15
+  parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
                                                       annotation(Dialog(enable=not useHeatPort));
   parameter Modelica.SIunits.Temperature T_ref;
@@ -516,7 +516,7 @@ end M_OLine;
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
     annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=300.15
+  parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
   parameter Modelica.SIunits.Temperature T_ref=300.15;
   Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
