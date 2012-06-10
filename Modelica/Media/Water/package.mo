@@ -93,7 +93,7 @@ package StandardWaterOnePhase = WaterIF97_pT
 package WaterIF97OnePhase_ph
   "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome"
   extends WaterIF97_base(
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final ph_explicit=true,
     final dT_explicit=false,
     final pT_explicit=false,
@@ -107,7 +107,7 @@ end WaterIF97OnePhase_ph;
 
 package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
   extends WaterIF97_base(
-    ThermoStates = Choices.IndependentVariables.pT,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
     final ph_explicit=false,
     final dT_explicit=false,
     final pT_explicit=true,
@@ -118,7 +118,7 @@ end WaterIF97_pT;
 
 package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
   extends WaterIF97_base(
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final ph_explicit=true,
     final dT_explicit=false,
     final pT_explicit=false,
@@ -1333,7 +1333,7 @@ end WaterIF97_fixedregion;
 
 package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
   extends WaterIF97_fixedregion(
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final Region=1,
     final ph_explicit=true,
     final dT_explicit=false,
@@ -1348,7 +1348,7 @@ end WaterIF97_R1ph;
 
 package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
   extends WaterIF97_fixedregion(
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final Region=2,
     final ph_explicit=true,
     final dT_explicit=false,
@@ -1364,7 +1364,7 @@ end WaterIF97_R2ph;
 package WaterIF97_R3ph "region 3 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=3,
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final ph_explicit=true,
     final dT_explicit=false,
     final pT_explicit=false,
@@ -1379,7 +1379,7 @@ end WaterIF97_R3ph;
 package WaterIF97_R4ph "region 4 water according to IF97 standard"
   extends WaterIF97_fixedregion(
     final Region=4,
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final ph_explicit=true,
     final dT_explicit=false,
     final pT_explicit=false,
@@ -1393,7 +1393,7 @@ end WaterIF97_R4ph;
 
 package WaterIF97_R5ph "region 5 water according to IF97 standard"
   extends WaterIF97_fixedregion(
-    ThermoStates = Choices.IndependentVariables.ph,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
     final Region=5,
     final ph_explicit=true,
     final dT_explicit=false,
@@ -1408,7 +1408,7 @@ end WaterIF97_R5ph;
 
 package WaterIF97_R1pT "region 1 (liquid) water according to IF97 standard"
   extends WaterIF97_fixedregion(
-    ThermoStates = Choices.IndependentVariables.pT,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
     final Region=1,
     final ph_explicit=false,
     final dT_explicit=false,
@@ -1423,7 +1423,7 @@ end WaterIF97_R1pT;
 
 package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard"
   extends WaterIF97_fixedregion(
-    ThermoStates = Choices.IndependentVariables.pT,
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
     final Region=2,
     final ph_explicit=false,
     final dT_explicit=false,

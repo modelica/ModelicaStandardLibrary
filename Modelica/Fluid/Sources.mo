@@ -2,7 +2,7 @@ within Modelica.Fluid;
 package Sources "Define fixed or prescribed boundary conditions"
   extends Modelica.Icons.SourcesPackage;
   model FixedBoundary "Boundary source component"
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p=true "select p or d"
       annotation (Evaluate = true,
@@ -125,7 +125,7 @@ with exception of boundary pressure, do not have an effect.
 
   model Boundary_pT
     "Boundary with prescribed pressure, temperature, composition and trace substances"
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
 
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p_in = false
@@ -286,7 +286,7 @@ with exception of boundary pressure, do not have an effect.
 
   model Boundary_ph
     "Boundary with prescribed pressure, specific enthalpy, composition and trace substances"
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p_in = false
       "Get the pressure from the input connector"

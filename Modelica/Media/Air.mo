@@ -82,7 +82,7 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
        fluidConstants = {IdealGases.Common.FluidData.H2O,IdealGases.Common.FluidData.N2},
        Temperature(min = 200,
                    max = 423.15));
-
+  import Modelica.Media.IdealGases.Common.Functions;
     constant Integer Water=1
       "Index of water (in substanceNames, massFractions X, etc.)";
     constant Integer Air=2
@@ -100,7 +100,7 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
     import Modelica.Math;
     import Modelica.Constants;
     import Modelica.Media.IdealGases.Common.SingleGasNasa;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.ReferenceEnthalpy;
+    import Modelica.Media.Interfaces.Choices.ReferenceEnthalpy;
 
     redeclare record extends ThermodynamicState
       "ThermodynamicState record for moist air"
@@ -517,8 +517,8 @@ Specific enthalpy of liquid water is computed from temperature using a polynomia
       "Return specific enthalpy of gas (air and steam) as a function of temperature T and composition X"
 
    algorithm
-     h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5)*X[Water]
-          + SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)*(1.0-X[Water]);
+     h := Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5)*X[Water]
+          + Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)*(1.0-X[Water]);
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Specific enthalpy of moist air is computed from temperature, provided all water is in the gaseous state. The first entry in the composition vector X must be the mass fraction of steam. For a function that also covers the fog region please refer to <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\">h_pTX</a>.
@@ -529,7 +529,7 @@ Specific enthalpy of moist air is computed from temperature, provided all water 
       "Return specific enthalpy of steam as a function of temperature T"
 
    algorithm
-     h := SingleGasNasa.h_Tlow(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5);
+     h := Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5);
      annotation(Inline=false,smoothOrder=5,
         Documentation(info="<html>
 Specific enthalpy of steam is computed from temperature.
@@ -540,7 +540,7 @@ Specific enthalpy of steam is computed from temperature.
       "Return specific enthalpy of dry air as a function of temperature T"
 
    algorithm
-     h := SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684);
+     h := Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684);
      annotation(Inline=false,smoothOrder=1,
         Documentation(info="<html>
 Specific enthalpy of dry air is computed from temperature.
@@ -688,8 +688,8 @@ Specific enthalpy of moist air is computed from the thermodynamic state record. 
    /* h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5),
                SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)}*
     {X_steam, X_air} + enthalpyOfLiquid(T)*X_liquid;*/
-     h        := {SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5),
-                 SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)}*
+     h        := {Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5),
+                 Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)}*
       {X_steam, X_air} + enthalpyOfWater(T)*X_liquid;
     annotation(derivative=h_pTX_der, Inline=false,
         Documentation(info="<html>
@@ -735,10 +735,10 @@ Specific enthalpy of moist air is computed from pressure, temperature and compos
     dX_liq := Utilities.smoothMax_der(X[Water] - X_sat, 0.0, 1e-5, (1 + x_sat)*dX[Water] - (1 - X[Water])*dx_sat, 0, 0);
     dX_steam:=dX[Water]-dX_liq;
 
-    h_der:= X_steam*Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow_der(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5, dT=dT)+
-            dX_steam*Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5) +
-            X_air*Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow_der(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684, dT=dT) +
-            dX_air*Modelica.Media.IdealGases.Common.SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684) +
+    h_der:= X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow_der(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5, dT=dT)+
+            dX_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5) +
+            X_air*Modelica.Media.IdealGases.Common.Functions.h_Tlow_der(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684, dT=dT) +
+            dX_air*Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684) +
             X_liquid*enthalpyOfWater_der(T=T, dT=dT) +
             dX_liq*enthalpyOfWater(T);
 
@@ -767,8 +767,8 @@ Derivative function for <a href=\"modelica://Modelica.Media.Air.MoistAir.h_pTX\"
     MassFraction[nX] X "complete X-vector";
   algorithm
     X := if reducedX then cat(1,state.X,{1-sum(state.X)}) else state.X;
-    h := {SingleGasNasa.h_Tlow(data=steam,  T=state.T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5),
-        SingleGasNasa.h_Tlow(data=dryair, T=state.T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)}*X;
+    h := {Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam,  T=state.T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5),
+        Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=state.T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)}*X;
 
     h_is := h + gamma/(gamma - 1.0)*(state.T*gasConstant(state))*
       ((p2/state.p)^((gamma - 1)/gamma) - 1.0);
@@ -808,8 +808,8 @@ Specific internal energy is determined from the thermodynamic state record, assu
     X_steam  :=X[Water] - X_liquid;
     X_air    :=1 - X[Water];
     R_gas:= dryair.R*X_air/(1-X_liquid)+steam.R* X_steam/(1-X_liquid);
-    u       := X_steam*SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5)+
-               X_air*SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)
+    u       := X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5)+
+               X_air*Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684)
                + enthalpyOfWater(T)*X_liquid-R_gas*T;
 
       annotation (derivative=specificInternalEnergy_pTX_der, Documentation(info="<html>
@@ -860,10 +860,10 @@ Specific internal energy is determined from pressure p, temperature T and compos
     dX_steam:=dX[Water]-dX_liq;
     dR_gas:=(steam.R*(dX_steam*(1-X_liquid)+dX_liq*X_steam)+dryair.R*(dX_air*(1-X_liquid)+dX_liq*X_air))/(1-X_liquid)/(1-X_liquid);
 
-    u_der:=X_steam*SingleGasNasa.h_Tlow_der(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5, dT=dT)+
-           dX_steam*SingleGasNasa.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5) +
-           X_air*SingleGasNasa.h_Tlow_der(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684, dT=dT) +
-           dX_air*SingleGasNasa.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684) +
+    u_der:=X_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow_der(data=steam, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5, dT=dT)+
+           dX_steam*Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=steam,  T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=46479.819+2501014.5) +
+           X_air*Modelica.Media.IdealGases.Common.Functions.h_Tlow_der(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684, dT=dT) +
+           dX_air*Modelica.Media.IdealGases.Common.Functions.h_Tlow(data=dryair, T=T, refChoice=ReferenceEnthalpy.UserDefined, h_off=25104.684) +
            X_liquid*enthalpyOfWater_der(T=T, dT=dT) +
            dX_liq*enthalpyOfWater(T) - dR_gas*T-R_gas*dT;
       annotation (Documentation(info="<html>
@@ -924,8 +924,8 @@ The specific heat capacity at constant pressure <b>cp</b> is computed from tempe
       "Return specific heat capacity at constant volume as a function of the thermodynamic state record"
 
   algorithm
-    cv:= SingleGasNasa.cp_Tlow(dryair, state.T)*(1-state.X[Water]) +
-      SingleGasNasa.cp_Tlow(steam, state.T)*state.X[Water]
+    cv:= Modelica.Media.IdealGases.Common.Functions.cp_Tlow(dryair, state.T)*(1-state.X[Water]) +
+      Modelica.Media.IdealGases.Common.Functions.cp_Tlow(steam, state.T)*state.X[Water]
       - gasConstant(state);
      annotation(Inline=false,smoothOrder=2,
         Documentation(info="<html>
@@ -1168,7 +1168,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       a := sqrt(isentropicExponent(state)*gasConstant(state)*temperature(state));
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end velocityOfSound;
 
@@ -1177,7 +1177,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       beta := 1 / temperature(state);
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isobaricExpansionCoefficient;
 
@@ -1186,7 +1186,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       kappa := 1 / pressure(state);
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isothermalCompressibility;
 
@@ -1196,7 +1196,7 @@ It must be noted that the relationship of both axis variables is not right-angle
       ddph := 1 / (gasConstant(state) * temperature(state));
 
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derp_h;
 
@@ -1205,7 +1205,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       ddhp := - density(state) / (specificHeatCapacityCp(state) * temperature(state));
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derh_p;
 
@@ -1215,7 +1215,7 @@ It must be noted that the relationship of both axis variables is not right-angle
       ddpT := 1 / (gasConstant(state) * temperature(state));
 
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derp_T;
 
@@ -1224,7 +1224,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       ddTp := - density(state) / temperature(state);
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derT_p;
 
@@ -1235,7 +1235,7 @@ It must be noted that the relationship of both axis variables is not right-angle
       dddX[Air] := pressure(state) * (dryair.R - steam.R) / ((dryair.R - steam.R) * state.X[Air] * temperature(state) + steam.R * temperature(state))^2;
 
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end density_derX;
 
@@ -1243,7 +1243,7 @@ It must be noted that the relationship of both axis variables is not right-angle
     algorithm
       MM := Modelica.Media.Air.MoistAir.gasConstant(state)/Modelica.Constants.R;
       annotation ( Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end molarMass;
 
@@ -1277,7 +1277,7 @@ It must be noted that the relationship of both axis variables is not right-angle
       annotation (Documentation(info="<html>
 Temperature is computed from pressure, specific entropy and composition via numerical inversion of function <a href=\"modelica://Modelica.Media.Air.MoistAir.specificEntropy\">specificEntropy</a>.
 </html>", revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
   end T_psX;
 
@@ -1289,7 +1289,7 @@ Temperature is computed from pressure, specific entropy and composition via nume
                   Documentation(info="<html>
 The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermodynamic state record</a> is computed from pressure p, specific enthalpy h and composition X.
 </html>", revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end setState_psX;
 
@@ -1305,15 +1305,15 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
         "molar fraction";
 
   algorithm
-    s:=SingleGasNasa.s0_Tlow(dryair, T)*(1-X[Water])
-      + SingleGasNasa.s0_Tlow(steam, T)*X[Water]
+    s:=Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*(1-X[Water])
+      + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*X[Water]
       - Modelica.Constants.R*(Utilities.smoothMax(X[Water]/MMX[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p), 0.0, 1e-9)
         - Utilities.smoothMax((1-X[Water])/MMX[Air]*Modelica.Math.log(max(Y[Air], Modelica.Constants.eps)*p/reference_p), 0.0, 1e-9));
     annotation(derivative=s_pTX_der, Inline=false,
         Documentation(info="<html>
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
 </html>", revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={
           Text(
@@ -1338,8 +1338,8 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         "molar fraction";
 
   algorithm
-    ds:=SingleGasNasa.s0_Tlow_der(dryair, T, dT)*(1-X[Water]) + SingleGasNasa.s0_Tlow_der(steam, T, dT)*X[Water]
-      + SingleGasNasa.s0_Tlow(dryair, T)*dX[Air] + SingleGasNasa.s0_Tlow(steam, T)*dX[Water]
+    ds:=Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(dryair, T, dT)*(1-X[Water]) + Modelica.Media.IdealGases.Common.Functions.s0_Tlow_der(steam, T, dT)*X[Water]
+      + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(dryair, T)*dX[Air] + Modelica.Media.IdealGases.Common.Functions.s0_Tlow(steam, T)*dX[Water]
       - Modelica.Constants.R*(1/MMX[Water]*
       Utilities.smoothMax_der(X[Water]*Modelica.Math.log(max(Y[Water], Modelica.Constants.eps)*p/reference_p),
       0.0,
@@ -1358,7 +1358,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
         Documentation(info="<html>
 Specific entropy of moist air is computed from pressure, temperature and composition with X[1] as the total water mass fraction.
 </html>", revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"),
         Icon(graphics={
           Text(
@@ -1384,7 +1384,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
               lineColor={255,127,0},
               textString=
                    "f")}), Documentation(revisions="<html>
-<p>2012-01-12	Stefan Wischhusen: Initial Release.</p>
+<p>2012-01-12        Stefan Wischhusen: Initial Release.</p>
 </html>"));
     end isentropicEnthalpy;
     annotation (Documentation(info="<html>

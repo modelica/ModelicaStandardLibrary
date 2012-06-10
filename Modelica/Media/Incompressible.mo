@@ -120,7 +120,8 @@ density and heat capacity as functions of temperature.</li>
     import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
 
     extends Modelica.Media.Interfaces.PartialMedium(
-       ThermoStates = if enthalpyOfT then Choices.IndependentVariables.T else Choices.IndependentVariables.pT,
+       ThermoStates = if enthalpyOfT then Modelica.Media.Interfaces.Choices.IndependentVariables.T
+                                                                         else Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
        final reducedX=true,
        final fixedX = true,
        mediumName="tableMedium",

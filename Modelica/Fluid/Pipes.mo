@@ -418,7 +418,7 @@ or other flow models without storage, are directly connected.
   model PipeOnePhaseHT "Dynamic pipe model with storage of mass and energy"
     import Modelica.Fluid.Types;
     import Modelica.Fluid.Types.Dynamics;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
 
   extends Modelica.Fluid.Pipes.BaseClasses.BasePipeHT(
                      final nFM=nFMLumped,
@@ -667,7 +667,7 @@ or other flow models without storage, are directly connected.
   model PipeTwoPhaseHT "Dynamic pipe model with storage of mass and energy"
     import Modelica.Fluid.Types;
     import Modelica.Fluid.Types.Dynamics;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
 
   extends Modelica.Fluid.Pipes.BaseClasses.BasePipeHT(
                      final nFM= nFMDistributed);
@@ -1689,8 +1689,7 @@ This also allows for taking into account friction losses with respect to the act
       import Modelica.Fluid.Types;
       import Modelica.Fluid.Types.Dynamics;
       import Modelica.Fluid.Types.ModelStructureReduced;
-      import
-        Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+      import Modelica.Media.Interfaces.Choices.IndependentVariables;
 
     /*** Partial Straight Pipe ***/
       extends Modelica.Fluid.Interfaces.PartialTwoPort(

@@ -527,7 +527,7 @@ the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <
     "Lumped volume with mass and energy balance"
     import Modelica.Fluid.Types;
     import Modelica.Fluid.Types.Dynamics;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
 
       outer Modelica.Fluid.System system "System properties";
       replaceable package Medium =
@@ -801,7 +801,7 @@ partial model PartialDistributedVolume
     "Base class for distributed volume models"
     import Modelica.Fluid.Types;
     import Modelica.Fluid.Types.Dynamics;
-    import Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables;
+    import Modelica.Media.Interfaces.Choices.IndependentVariables;
   outer Modelica.Fluid.System system "System properties";
 
   replaceable package Medium =

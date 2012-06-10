@@ -3639,9 +3639,9 @@ output window.
      parameter SI.Temperature T_max = 500
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
      parameter SI.Pressure p = 1.0e5 "Fixed pressure in model";
-     final parameter SI.SpecificEnthalpy h_min = Medium.h_T(Medium.data,T_min)
+     final parameter SI.SpecificEnthalpy h_min = Medium.specificEnthalpy(Medium.setState_pT(p,T_min))
         "Specific enthalpy at T_min";
-     final parameter SI.SpecificEnthalpy h_max = Medium.h_T(Medium.data,T_max)
+     final parameter SI.SpecificEnthalpy h_max = Medium.specificEnthalpy(Medium.setState_pT(p,T_max))
         "Specific enthalpy at T_max";
      final parameter SI.SpecificEntropy s_min = Medium.specificEntropy(Medium.setState_pT(p,T_min))
         "Specific entropy at T_min";
@@ -4010,8 +4010,7 @@ Modelica source.
     extends Modelica.Icons.MaterialPropertiesPackage;
 
     // Constants to be set in Medium
-    constant
-      Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables
+    constant Modelica.Media.Interfaces.Choices.IndependentVariables
       ThermoStates "Enumeration type for independent variables";
     constant String mediumName = "unusablePartialMedium" "Name of the medium";
     constant String substanceNames[:]={mediumName}
@@ -4724,70 +4723,6 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     type DerDensityByTemperature = SI.DerDensityByTemperature
       "Type for partial derivative of density with resect to temperature with medium specific attributes";
 
-    package Choices "Types, constants to define menu choices"
-
-      type IndependentVariables = enumeration(
-          T "Temperature",
-          pT "Pressure, Temperature",
-          ph "Pressure, Specific Enthalpy",
-          phX "Pressure, Specific Enthalpy, Mass Fraction",
-          pTX "Pressure, Temperature, Mass Fractions",
-          dTX "Density, Temperature, Mass Fractions")
-        "Enumeration defining the independent variables of a medium";
-
-      type Init = enumeration(
-          NoInit "NoInit (no initialization)",
-          InitialStates "InitialStates (initialize medium states)",
-          SteadyState "SteadyState (initialize in steady state)",
-          SteadyMass
-            "SteadyMass (initialize density or pressure in steady state)")
-        "Enumeration defining initialization for fluid flow"
-                annotation (Evaluate=true);
-
-      type ReferenceEnthalpy = enumeration(
-          ZeroAt0K
-            "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded",
-
-          ZeroAt25C
-            "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded",
-
-          UserDefined
-            "The user-defined reference enthalpy is used at 293.15 K (25 degC)")
-        "Enumeration defining the reference enthalpy of a medium"
-          annotation (Evaluate=true);
-
-      type ReferenceEntropy = enumeration(
-          ZeroAt0K "The entropy is 0 at 0 K (default)",
-          ZeroAt0C "The entropy is 0 at 0 degC",
-          UserDefined
-            "The user-defined reference entropy is used at 293.15 K (25 degC)")
-        "Enumeration defining the reference entropy of a medium"
-          annotation (Evaluate=true);
-
-      type pd = enumeration(
-          default "Default (no boundary condition for p or d)",
-          p_known "p_known (pressure p is known)",
-          d_known "d_known (density d is known)")
-        "Enumeration defining whether p or d are known for the boundary condition"
-          annotation (Evaluate=true);
-
-      type Th = enumeration(
-          default "Default (no boundary condition for T or h)",
-          T_known "T_known (temperature T is known)",
-          h_known "h_known (specific enthalpy h is known)")
-        "Enumeration defining whether T or h are known as boundary condition"
-          annotation (Evaluate=true);
-
-      annotation (Documentation(info="<html>
-<p>
-Enumerations and data types for all types of fluids
-</p>
-
-<p>
-Note: Reference enthalpy might have to be extended with enthalpy of formation.
-</p>
-</html>"));
-    end Choices;
 
     annotation (Documentation(info="<html>
 <p>
@@ -4939,7 +4874,7 @@ partial package PartialLinearFluid
     "Generic pure liquid model with constant cp, compressibility and thermal expansion coefficients"
 
       extends Interfaces.PartialPureSubstance(
-        ThermoStates = Choices.IndependentVariables.pTX,
+        ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pTX,
         singleState = false);
       constant SpecificHeatCapacity cp_const
       "Specific heat capacity at constant pressure";
@@ -5384,7 +5319,7 @@ end PartialMixtureMedium;
   partial package PartialCondensingGases
     "Base class for mixtures of condensing and non-condensing gases"
     extends PartialMixtureMedium(
-         ThermoStates = Choices.IndependentVariables.pTX);
+         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pTX);
 
   replaceable partial function saturationPressure
       "Return saturation pressure of condensing fluid"
@@ -5988,7 +5923,7 @@ end PartialMixtureMedium;
     "Medium model with linear dependency of u, h from temperature. All other quantities, especially density, are constant."
 
     extends Interfaces.PartialPureSubstance(
-          final ThermoStates = Choices.IndependentVariables.pT,
+          final ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
           final singleState=true);
 
     constant SpecificHeatCapacity cp_const
@@ -6273,7 +6208,7 @@ This function computes the specific internal energy of the fluid, but neglects t
     "Medium model of Ideal gas with constant cp and cv. All other quantities, e.g., transport properties, are constant."
 
     extends Interfaces.PartialPureSubstance(
-         ThermoStates = Choices.IndependentVariables.pT,
+         ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.pT,
          final singleState=false);
 
     constant SpecificHeatCapacity cp_const
@@ -6569,6 +6504,70 @@ quantities are assumed to be constant.
     end molarMass;
   end PartialSimpleIdealGasMedium;
 
+  package Choices "Types, constants to define menu choices"
+
+    type IndependentVariables = enumeration(
+        T "Temperature",
+        pT "Pressure, Temperature",
+        ph "Pressure, Specific Enthalpy",
+        phX "Pressure, Specific Enthalpy, Mass Fraction",
+        pTX "Pressure, Temperature, Mass Fractions",
+        dTX "Density, Temperature, Mass Fractions")
+      "Enumeration defining the independent variables of a medium";
+
+    type Init = enumeration(
+        NoInit "NoInit (no initialization)",
+        InitialStates "InitialStates (initialize medium states)",
+        SteadyState "SteadyState (initialize in steady state)",
+        SteadyMass
+          "SteadyMass (initialize density or pressure in steady state)")
+      "Enumeration defining initialization for fluid flow"
+              annotation (Evaluate=true);
+
+    type ReferenceEnthalpy = enumeration(
+        ZeroAt0K
+          "The enthalpy is 0 at 0 K (default), if the enthalpy of formation is excluded",
+
+        ZeroAt25C
+          "The enthalpy is 0 at 25 degC, if the enthalpy of formation is excluded",
+
+        UserDefined
+          "The user-defined reference enthalpy is used at 293.15 K (25 degC)")
+      "Enumeration defining the reference enthalpy of a medium"
+        annotation (Evaluate=true);
+
+    type ReferenceEntropy = enumeration(
+        ZeroAt0K "The entropy is 0 at 0 K (default)",
+        ZeroAt0C "The entropy is 0 at 0 degC",
+        UserDefined
+          "The user-defined reference entropy is used at 293.15 K (25 degC)")
+      "Enumeration defining the reference entropy of a medium"
+        annotation (Evaluate=true);
+
+    type pd = enumeration(
+        default "Default (no boundary condition for p or d)",
+        p_known "p_known (pressure p is known)",
+        d_known "d_known (density d is known)")
+      "Enumeration defining whether p or d are known for the boundary condition"
+        annotation (Evaluate=true);
+
+    type Th = enumeration(
+        default "Default (no boundary condition for T or h)",
+        T_known "T_known (temperature T is known)",
+        h_known "h_known (specific enthalpy h is known)")
+      "Enumeration defining whether T or h are known as boundary condition"
+        annotation (Evaluate=true);
+
+    annotation (Documentation(info="<html>
+<p>
+Enumerations and data types for all types of fluids
+</p>
+
+<p>
+Note: Reference enthalpy might have to be extended with enthalpy of formation.
+</p>
+</html>"));
+  end Choices;
   annotation (Documentation(info="<HTML>
 <p>
 This package provides basic interfaces definitions of media models for different
@@ -6581,7 +6580,6 @@ end Interfaces;
 package Common "data structures and fundamental functions for fluid properties"
 
   extends Modelica.Icons.Package;
-protected
   type Rate = Real (final quantity="Rate", final unit="s-1");
   type MolarFlowRate = Real (final quantity="MolarFlowRate", final unit="mol/s");
   type MolarReactionRate = Real (final quantity="MolarReactionRate", final unit=
@@ -6632,8 +6630,8 @@ protected
   constant SI.AmountOfSubstance MOLMIN=-1.0*MINPOS "minimal Mole Number";
   constant SI.AmountOfSubstance MOLMAX=1.0e8 "maximal Mole Number";
   constant SI.AmountOfSubstance MOLNOM=1.0 "nominal Mole Number";
-  constant SI.Density DMIN=MINPOS "minimal init density";
-  constant SI.Density DMAX=1.0e5 "maximal init density";
+  constant SI.Density DMIN=1e-6 "minimal init density";
+  constant SI.Density DMAX=30.0e3 "maximal init density";
   constant SI.Density DNOM=1.0 "nominal init density";
   constant SI.ThermalConductivity LAMMIN=MINPOS "minimal thermal conductivity";
   constant SI.ThermalConductivity LAMNOM=1.0 "nominal thermal conductivity";
@@ -6695,8 +6693,8 @@ protected
     "maximal init specific heat capacity";
   constant SI.SpecificHeatCapacity CPNOM=1.0e3
     "nominal init specific heat capacity";
-  constant SI.Temperature TMIN=MINPOS "minimal init temperature";
-  constant SI.Temperature TMAX=1.0e5 "maximal init temperature";
+  constant SI.Temperature TMIN=1.0 "minimal init temperature";
+  constant SI.Temperature TMAX=6000.0 "maximal init temperature";
   constant SI.Temperature TNOM=320.0 "nominal init temperature";
   constant SI.ThermalConductivity LMIN=MINPOS
     "minimal init thermal conductivity";
