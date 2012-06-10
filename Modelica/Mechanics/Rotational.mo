@@ -4651,7 +4651,7 @@ and provides the result as output signal <b>power</b>
                   0}),             Line(points={{0,-100},{0,-70}},   color={0,0,
                   127}),           Line(points={{60,-100},{60,-60},{50,-50}},
                                                                      color={0,0,
-                  127})}));
+                  127})})));
     end MultiSensor;
     annotation (                 Documentation(info="<html>
 <p>
