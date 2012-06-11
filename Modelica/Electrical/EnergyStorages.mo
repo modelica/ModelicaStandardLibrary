@@ -3833,13 +3833,13 @@ management systems, loads and charging devices.
                 rotation=0,
               origin={110,60})));
 
-        EnergyStorages.BatteryManagement.Components.OnDelay AfterChargingDelay(delayTime
-            =delayAfterCharging)
+        EnergyStorages.BatteryManagement.Components.OnDelay AfterChargingDelay(delayTime=
+             delayAfterCharging)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
                 rotation=0,
               origin={70,40})));
-        EnergyStorages.BatteryManagement.Components.OnDelay BeforeChargingDelay(delayTime
-            =delayAfterDischarging)
+        EnergyStorages.BatteryManagement.Components.OnDelay BeforeChargingDelay(delayTime=
+             delayAfterDischarging)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
                 rotation=0,
               origin={70,0})));
@@ -8225,20 +8225,5 @@ constructed by the signals connected to this bus.
     end Components;
   end Sources;
 
-  package MoveTo_Modelica "Universal models for the MSL"
-   extends Modelica.Icons.Package;
-
-
-
-
-
-
-
-
-
-
-
-
-  end MoveTo_Modelica;
   annotation (versionDate="2012-06-10");
 end EnergyStorages;
