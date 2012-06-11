@@ -3515,6 +3515,63 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
 "));
   end Min;
 
+  block MinMax "Determines the min and the max from the inputs"
+    extends Modelica.Blocks.Icons.Block;
+    parameter Integer nin(min=1) "Number of inputs";
+    Modelica.Blocks.Interfaces.RealOutput yMax
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealOutput yMin
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.RealInput u[nin]
+      annotation (Placement(transformation(extent={{-140,-20},{-100,20}})));
+  equation
+    yMax =  max(u);
+    yMin =  min(u);
+    annotation (
+      Diagram(coordinateSystem(
+          preserveAspectRatio=true,
+          extent={{-100,-100},{100,100}},
+          initialScale=0.1), graphics),
+      Icon(coordinateSystem(
+          preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}},
+          initialScale=0.1), graphics={Text(
+            extent={{-12,80},{100,40}},
+            lineColor={0,0,130},
+            textString="yMax"),
+                         Text(
+            extent={{-10,-40},{100,-80}},
+            lineColor={0,0,130},
+            textString="yMin")}),
+      DymolaStoredErrors,
+      Documentation(info="<html>
+<p>
+Determnies the minimum and maximum of the <code>nin</code> inputs.
+</p>
+</html>"));
+  end MinMax;
+
+  block LinearDependency "Block modeling linear u1 and u2 dependency of y"
+    extends Modelica.Blocks.Interfaces.SI2SO;
+    parameter Real y0=0 "Initial value";
+    parameter Real k1=0 "u1 dependency";
+    parameter Real k2=0 "u2 dependency";
+  equation
+    y= y0*(1+k1*u1+k2*u2);
+    annotation (Diagram(graphics),
+                         Icon(graphics={Line(
+            points={{-100,60},{100,0},{-100,-60}},
+            color={0,0,255},
+            smooth=Smooth.None)}),
+      Documentation(info="<html>
+<p>
+The output is linear dependent on the inputs: <code>y = y0*(1 + k1*u1 + k2*u2)</code>
+</p>
+</html>"));
+  end LinearDependency;
+
   block Edge "Indicates rising edge of boolean signal"
     extends Interfaces.BooleanSISO;
   equation

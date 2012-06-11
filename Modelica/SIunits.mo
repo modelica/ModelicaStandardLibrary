@@ -1798,6 +1798,8 @@ argument):</p>
           final unit="1");
   type FluxiodQuantum = Real (final quantity="FluxiodQuantum", final unit="Wb");
 
+  type TimeAging = Real (final quantity="1/Modelica.SIunits.Time",final unit="1/s");
+  type ChargeAging = Real (final quantity="1/Modelica.SIunits.ElectricCharge",final unit="1/(A.s)");
   record ComplexCurrent =
     Complex(redeclare Modelica.SIunits.Current re,
              redeclare Modelica.SIunits.Current im)

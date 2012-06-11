@@ -1015,6 +1015,74 @@ input becomes false.
 "));
   end Timer;
 
+  block RSFlipFlop "A basic RS Flip Flop"
+    extends Modelica.Blocks.Icons.BooleanBlock;
+    parameter Boolean Qini=false "Start value of Q at initial time";
+    Modelica.Blocks.Interfaces.BooleanOutput Q
+      annotation (Placement(transformation(extent={{100,50},{120,70}},
+            rotation=0)));
+    Modelica.Blocks.Interfaces.BooleanOutput QI
+      annotation (Placement(transformation(extent={{100,-70},{120,-50}},
+            rotation=0)));
+    Modelica.Blocks.Logical.Nor nor annotation (Placement(transformation(
+            extent={{-20,20},{0,40}},   rotation=0)));
+    Modelica.Blocks.Logical.Nor nor1 annotation (Placement(transformation(
+            extent={{-20,-20},{0,0}}, rotation=0)));
+    Modelica.Blocks.Logical.Pre pre(pre_u_start=not (Qini))
+                                     annotation (Placement(transformation(
+            extent={{10,20},{30,40}},rotation=0)));
+    Modelica.Blocks.Interfaces.BooleanInput S
+      annotation (Placement(transformation(extent={{-140,40},{-100,80}})));
+    Modelica.Blocks.Interfaces.BooleanInput R
+      annotation (Placement(transformation(extent={{-140,-80},{-100,-40}})));
+  equation
+    connect(nor1.y, nor.u2) annotation (Line(points={{1,-10},{40,-10},{40,-40},
+            {-60,-40},{-60,22},{-22,22}},      color={255,0,255}));
+    connect(nor1.y, Q) annotation (Line(points={{1,-10},{60,-10},{60,60},{
+            110,60}}, color={255,0,255}));
+    connect(nor.y, pre.u)  annotation (Line(points={{1,30},{8,30}},   color=
+           {255,0,255}));
+    connect(pre.y, nor1.u1)  annotation (Line(points={{31,30},{40,30},{40,10},
+            {-40,10},{-40,-10},{-22,-10}},     color={255,0,255}));
+    connect(pre.y, QI)  annotation (Line(points={{31,30},{80,30},{80,-60},{
+            110,-60}}, color={255,0,255}));
+    connect(S, nor.u1) annotation (Line(
+        points={{-120,60},{-40,60},{-40,30},{-22,30}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    connect(R, nor1.u2) annotation (Line(
+        points={{-120,-60},{-40,-60},{-40,-18},{-22,-18}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    annotation (Diagram(graphics),
+                         Icon(graphics={
+          Text(
+            extent={{-70,-30},{-30,-90}},
+            lineColor={255,85,255},
+            textString=
+                 "R"),
+          Text(
+            extent={{-70,90},{-30,30}},
+            lineColor={255,85,255},
+            textString=
+                 "S"),
+          Text(
+            extent={{40,90},{80,30}},
+            lineColor={255,85,255},
+            textString=
+                 "Q"),
+          Text(
+            extent={{30,-30},{90,-90}},
+            lineColor={255,85,255},
+            textString=
+                 "Q!")}),
+      Documentation(info="<html>
+<p>
+The output <code>Q</code> is set by the input <code>S</code> and reset by the input <code>R</code>, and keeps its value in between. <code>QI</code> is the inverse of <code>Q</code>.
+</p>
+</html>"));
+  end RSFlipFlop;
+
   block TerminateSimulation "Terminate simulation if condition is fullfilled"
 
     Modelica.Blocks.Interfaces.BooleanOutput condition=false
