@@ -75,6 +75,7 @@ partial package SingleGasNasa
     "Choice of reference enthalpy";
   constant SpecificEnthalpy h_offset=0.0
     "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
+  constant Integer methodForThermalConductivity(min=1,max=2)=1;
 
   constant IdealGases.Common.DataRecord data
     "Data record of ideal gas substance";
@@ -313,7 +314,8 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare replaceable function extends thermalConductivity
     "thermal conductivity of gas"
   //  input IdealGases.Common.DataRecord data "Ideal gas data";
-    input Integer method=1 "1: Eucken Method, 2: Modified Eucken Method";
+    input Integer method=methodForThermalConductivity
+      "1: Eucken Method, 2: Modified Eucken Method";
   algorithm
     assert(fluidConstants[1].hasCriticalData,
     "Failed to compute thermalConductivity: For the species \"" + mediumName + "\" no critical data is available.");
@@ -386,15 +388,6 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end T_ps;
 
 // the functions below are not strictly necessary, there are just here for compatibility reasons
-
-
-
-
-
-
-
-
-
 
   function dynamicViscosityLowPressure
     "Dynamic viscosity of low pressure gases"
@@ -620,7 +613,7 @@ partial package MixtureGasNasa
 //   constant FluidConstants[nX] fluidConstants
 //     "additional data needed for transport properties";
   constant MolarMass[nX] MMX=data[:].MM "molar masses of components";
-
+  constant Integer methodForThermalConductivity(min=1,max=2)=1;
   redeclare replaceable model extends BaseProperties(
     T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
     p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
@@ -1209,7 +1202,7 @@ end lowPressureThermalConductivity;
 
     redeclare replaceable function extends thermalConductivity
     "Return thermal conductivity for low pressure gas mixtures"
-      input Integer method=1
+      input Integer method=methodForThermalConductivity
       "method to compute single component thermal conductivity";
   protected
       ThermalConductivity[nX] lambdaX "component thermal conductivities";
