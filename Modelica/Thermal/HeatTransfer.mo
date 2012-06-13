@@ -3016,12 +3016,16 @@ This partial model provides a conditional heat port for dissipating losses.
 </p>
 <ul>
 <li>If <b>useHeatPort</b> is set to <b>false</b> (default), no heat port is available, and the thermal loss power is dissipated internally.
-In this case, the parameter <b>T</b> specifies the fixed device temperature (the default for T = 20&deg;C) </li>
-<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available. </li>
+<li>If <b>useHeatPort</b> is set to <b>true</b>, the heat port is available and must be connected from the outside.</li>
 </ul>
 <p>
-If this model is used, the loss power has to be provided by an equation in the model which inherits from PartialElementaryConditionalHeatPort model
-(<b>lossPower = ...</b>). The device temperature <b>TheatPort</b> can be used to describe the influence of the device temperature on the model behaviour.
+If this model is used, the loss power has to be provided by an equation in the model which inherits from the PartialElementaryConditionalHeatPortWithoutT model
+(<b>lossPower = ...</b>). 
+</p>
+
+<p>
+Note, this partial model is used in cases, where heatPort.T (that is the device temperature) is not utilized in the model. If this is desired, inherit instead from partial model 
+<a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">PartialElementaryConditionalHeatPort</a>.
 </p>
 </html>"));
     end PartialElementaryConditionalHeatPortWithoutT;
