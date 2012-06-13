@@ -645,7 +645,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
+      state := if size(X,1) == 0 then ThermodynamicState(p=p,T=T,X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_pTX;
 
@@ -657,7 +657,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else
+      state := if size(X,1) == 0 then ThermodynamicState(p=p,T=T_hX(h,reference_X),X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else
              ThermodynamicState(p=p,T=T_hX(h,X), X=cat(1,X,{1-sum(X)}));
     end setState_phX;
 
@@ -669,7 +669,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
+      state := if size(X,1) == 0 then ThermodynamicState(p=p,T=T_psX(p,s,reference_X),X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
              ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));
     end setState_psX;
 
@@ -681,7 +681,7 @@ required from medium model \""   + mediumName + "\".");
       input MassFraction X[:]=reference_X "Mass fractions";
       output ThermodynamicState state;
     algorithm
-      state := if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else
+      state := if size(X,1) == 0 then ThermodynamicState(p=d*(data.R*reference_X)*T,T=T,X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else
              ThermodynamicState(p=d*(data.R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
     end setState_dTX;
 
