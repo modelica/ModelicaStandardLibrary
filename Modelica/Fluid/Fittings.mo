@@ -329,17 +329,19 @@ equation
       = 8*zeta/(pi*D^2)^2
   */
   if from_dp then
-    m_flow = Utilities.regRoot2(
-        dp_fg,
-        dp_small,
-        Medium.density(state_a)/BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal),
-        Medium.density(state_b)/BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal));
+    m_flow = homotopy(Utilities.regRoot2(
+                         dp_fg,
+                         dp_small,
+                         Medium.density(state_a)/BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal),
+                         Medium.density(state_b)/BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)),
+                       m_flow_nominal*dp_fg/dp_nominal);
   else
-    dp_fg = Utilities.regSquare2(
-        m_flow,
-        m_flow_small,
-        BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_a),
-        BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_b));
+    dp_fg = homotopy(Utilities.regSquare2(
+                         m_flow,
+                         m_flow_small,
+                         BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_a),
+                         BaseClasses.lossConstant_D_zeta(diameter, zeta_nominal)/Medium.density(state_b)),
+                     m_flow_nominal*dp_fg/dp_nominal);
   end if;
 
   // Isenthalpic state transformation (no storage and no loss of energy)
@@ -1563,6 +1565,10 @@ The used sufficient criteria for monotonicity follows from:
           final momentumDynamics = Types.Dynamics.SteadyState);
 
         parameter LossFactorData data "Loss factor data";
+        parameter Modelica.SIunits.MassFlowRate m_flow_nominal(start = 1)
+          "Nominal mass flow rate for simplified initial model";
+        parameter Modelica.SIunits.MassFlowRate dp_nominal(start = 1000)
+          "Nominal pressure loss for simplified initial model";
 
         // Advanced
         parameter Boolean from_dp = true
@@ -1598,21 +1604,23 @@ The used sufficient criteria for monotonicity follows from:
         F_p = A_mean*(Medium.pressure(state_b) - Medium.pressure(state_a));
         F_fg = A_mean*dp_fg;
         if from_dp then
-           m_flow = if use_Re then
-                       massFlowRate_dp_and_Re(
-                          dp_fg, Medium.density(state_a), Medium.density(state_b),
-                          Medium.dynamicViscosity(state_a),
-                          Medium.dynamicViscosity(state_b),
-                          data) else
-                       massFlowRate_dp(dp_fg, Medium.density(state_a), Medium.density(state_b), data, dp_small);
+           m_flow = homotopy(if use_Re then
+                               massFlowRate_dp_and_Re(
+                                 dp_fg, Medium.density(state_a), Medium.density(state_b),
+                                 Medium.dynamicViscosity(state_a),
+                                 Medium.dynamicViscosity(state_b),
+                                 data) else
+                               massFlowRate_dp(dp_fg, Medium.density(state_a), Medium.density(state_b), data, dp_small),
+                             m_flow_nominal*dp_fg/dp_nominal);
         else
-           dp_fg = if use_Re then
-                   pressureLoss_m_flow_and_Re(
-                       m_flow, Medium.density(state_a), Medium.density(state_b),
-                       Medium.dynamicViscosity(state_a),
-                       Medium.dynamicViscosity(state_b),
-                       data) else
-                   pressureLoss_m_flow(m_flow, Medium.density(state_a), Medium.density(state_b), data, m_flow_small);
+           dp_fg = homotopy(if use_Re then
+                              pressureLoss_m_flow_and_Re(
+                                m_flow, Medium.density(state_a), Medium.density(state_b),
+                                Medium.dynamicViscosity(state_a),
+                                Medium.dynamicViscosity(state_b),
+                              data) else
+                              pressureLoss_m_flow(m_flow, Medium.density(state_a), Medium.density(state_b), data, m_flow_small),
+                            m_flow_nominal*dp_fg/dp_nominal);
         end if;
 
         // Isenthalpic state transformation (no storage and no loss of energy)
