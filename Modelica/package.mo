@@ -1,5 +1,5 @@
 within ;
-package Modelica "Modelica Standard Library (Version 3.2.1 development)"
+package Modelica "Modelica Standard Library (Version 3.3 development)"
 extends Modelica.Icons.Package;
 
 
