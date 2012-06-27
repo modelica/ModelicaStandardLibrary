@@ -7042,7 +7042,7 @@ pair of joints\" from Woernle and Hiller is described in:
           r=bodyOfJoint.r,
           r_CM=bodyOfJoint.r_CM,
           m=bodyOfJoint.m,
-          r_0(start={.2,-.3,.2}),
+          r_0(start={0.2,-0.3,0.2}),
           angles_fixed=false,
           angles_start={0.17453292519943,0.95993108859688,1.1868238913561})
           annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
@@ -7070,7 +7070,7 @@ pair of joints\" from Woernle and Hiller is described in:
               transformation(extent={{-100,-100},{-80,-80}},
                                                          rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
-          r={.2,-.3,.2},
+          r={0.2,-0.3,0.2},
           rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
           angles={10,55,68})
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -7239,7 +7239,7 @@ pair of joints\" from Woernle and Hiller is described in:
               transformation(extent={{-100,-100},{-80,-80}},
                                                          rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
-          r={.2,-.3,.2},
+          r={0.2,-0.3,0.2},
           rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
           angles={10,55,68})
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -7402,7 +7402,7 @@ pair of joints\" from Woernle and Hiller is described in:
               transformation(extent={{-100,-100},{-80,-80}},
                                                          rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
-          r={.2,-.3,.2},
+          r={0.2,-0.3,0.2},
           rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
           angles={10,55,68})
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -7569,7 +7569,7 @@ pair of joints\" from Woernle and Hiller is described in:
               transformation(extent={{-100,-100},{-80,-80}},
                                                          rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
-          r={.2,-.3,.2},
+          r={0.2,-0.3,0.2},
           rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.PlanarRotationSequence,
           angles={10,55,68})
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
@@ -7581,7 +7581,7 @@ pair of joints\" from Woernle and Hiller is described in:
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
       rotation=90,
               origin={-70,-50})));
-        Parts.FixedTranslation fixedTranslationOfJoint(r={.1,.15,.2})
+        Parts.FixedTranslation fixedTranslationOfJoint(r={0.1,0.15,0.2})
           annotation (Placement(transformation(extent={{-10,-30},{-30,-10}})));
         Parts.FixedTranslation fixedTranslationOfConstraint(r=
               fixedTranslationOfJoint.r)
