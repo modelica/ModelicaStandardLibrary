@@ -9,14 +9,9 @@ extends EnergyStorages.Icons.BatteryPackage;
     model GeneralInformation "General Information"
       extends ModelicaReference.Icons.Information;
      annotation (Documentation(info="<html>
-<dl><dt>
 <p>This package contains electric energy storage models and components for modeling these storages.</p>
-A rough overview about the EnergyStorages library was presented at the Modelica conference 2011: 
-<p>web: <a href=\"http://modelica.org/events/modelica2011/Proceedings/pages/papers/17_4_ID_105_a_fv.pdf\">http://modelica.org/events/modelica2011/Proceedings/pages/papers/17_4_ID_105_a_fv.pdf</a></dd>
-
-
-<dd>&nbsp;&nbsp;</dd>
-
+<p>A rough overview about the EnergyStorages library was presented at the Modelica conference 2011:</p>
+<p>web: <a href=\"http://modelica.org/events/modelica2011/Proceedings/pages/papers/17_4_ID_105_a_fv.pdf\">http://modelica.org/events/modelica2011/Proceedings/pages/papers/17_4_ID_105_a_fv.pdf</a></p>
 </html>"));
 
     end GeneralInformation;
@@ -25,16 +20,14 @@ A rough overview about the EnergyStorages library was presented at the Modelica 
     extends Modelica.Icons.Contact;
 
    annotation (Documentation(info="<html>
-<dl><dt>The Electric Energy Storages Library was developed by Dr.Markus Einhorn, Dr.Fiorentino Valerio Conte and Dr.Christian Kral from the
-<dl><dt>&nbsp;</dt>
+<dl><dt>The Electric Energy Storages Library was developed by Dr. Markus Einhorn, Dr. Fiorentino Valerio Conte and Dr. Christian Kral from the</dt>
 <dd>AIT Austrian Institute of Technology</dd>
 <dd>Oesterreichisches Forschungs und Pruefzentrum Arsenal GmbH</dd>
 <dd>Giefinggasse 2</dd>
 <dd>1220 Vienna, Austria</dd>
 <dd>web: <a href=\"http://www.ait.ac.at\">http://www.ait.ac.at</a></dd>
 <dd>e-mail: <a href=\"mailto:markus.einhorn@ait.ac.at\">markus.einhorn@ait.ac.at</a></dd>
-<dd>&nbsp;&nbsp;</dd>
-
+</dl>
 </html>"));
 
   end Contact;
@@ -5080,10 +5073,10 @@ management systems, loads and charging devices.
 <p>
 This bus is used for <a href=\"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machines with squirrel cage rotor</a> (AIMCs) control. Various signals are predefined in the SEDBusAIMC.
 </p>
- 
+
 <!-- visible -->
- 
- 
+
+
 </html>",       revisions="<html>
 <table border=\"1\" rules=\"groups\">
 <thead>
@@ -5345,7 +5338,7 @@ This bus is used for <a href=\"Modelica.Electrical.Machines.BasicMachines.Asynch
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" ControlBus that
-is used as bus in the 
+is used as bus in the
 <a href=\"Modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 Note, this connector is \"empty\". When using it, the actual content is
 constructed by the signals connected to this bus.
