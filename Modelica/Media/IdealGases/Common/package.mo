@@ -973,7 +973,7 @@ end gasMixtureViscosity;
   constant Real[size(y,1)] M =  MolecularWeights*1000
       "Molecular weights (g/mol)";
   Integer n = size(y,1) "Number of mixed elements";
-  Real sigmam3 "Mixture sigma^3 in Ångström";
+  Real sigmam3 "Mixture sigma3 in Angstrom";
   Real sigma[size(y,1),size(y,1)];
   Real edivkm;
   Real edivk[size(y,1),size(y,1)];
