@@ -2024,7 +2024,7 @@ for the Modelica'2003 conference (for evaluation).
 <h4>Forward compatibility</h4>
 <p> In order to simplify transition to the upcoming version of
 Modelica.Media for Modelica 3.1, a new enumeration has been
-introduced:  <a href=\"modelica://Modelica.Media.Interfaces.PartialMedium.Choices.IndependentVariables\">IndependentVariables</a> with the
+introduced:  <a href=\"modelica://Modelica.Media.Interfaces.Choices.IndependentVariables\">IndependentVariables</a> with the
 entries ph, pT, pTX, phX and dTX. Users are advised to use this enumeration to determine the independent variables of a medium. If they are going to use the function based interface of the current Modelica.Media (and not use the BaseProperties from Modelica.Media), they should not have any trouble using the next version without any need for changes in their code.</p>
 
 </html>"));

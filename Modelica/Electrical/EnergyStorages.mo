@@ -5071,7 +5071,7 @@ management systems, loads and charging devices.
                 lineThickness=0.5)}),
                                defaultComponentName="sedBusAIMC",Documentation(info="<html>
 <p>
-This bus is used for <a href=\"Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machines with squirrel cage rotor</a> (AIMCs) control. Various signals are predefined in the SEDBusAIMC.
+This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage\">asynchronous induction machines with squirrel cage rotor</a> (AIMCs) control. Various signals are predefined in the SEDBusAIMC.
 </p>
 
 <!-- visible -->

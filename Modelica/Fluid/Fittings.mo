@@ -2741,11 +2741,7 @@ for the VolumeFlowRate fitting component.
 This sublibrary contains models and functions providing pressure
 loss correlations. All models in this library have the property
 that no mass and no energy is stored in the component. Therefore,
-none of the models has a state. The basic correlations are implemented
-with functions of sublibrary
-<a href=\"modelica://Modelica.Fluid.PressureLosses.Utilities\">PressureLosses.Utilities</a>
-These functions might also be directly called
-(e.g., in another component implementation).
+none of the models have a state.
 </p>
 
 <p>

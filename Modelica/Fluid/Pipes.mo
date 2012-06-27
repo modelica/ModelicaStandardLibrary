@@ -163,7 +163,7 @@ or other flow models without storage, are directly connected.
     annotation (defaultComponentName="pipe",
   Documentation(info="<html>
 <p><b>Obsolete Model! </b>The DynamicPipe model will be replaced with a set of more application specific pipe models in order to limit the number of possible parameter setting combinations and reducing model structure complexity.</p>
-<p><a href=\"modelica://Modelica.Fluid.Pipes.HydraulicPipe\">Pipes.HydraulicPipe</a> is intended for use in applications without heat transfer. It is identical to this DynamicPipe, but the heat transfer model and thermal port have been removed.</p>
+<p><a href=\"modelica://Modelica.Fluid.Pipes.PipeHydraulic\">PipeHydraulic</a> is intended for use in applications without heat transfer. It is identical to this DynamicPipe, but the heat transfer model and thermal port have been removed.</p>
 <p><a href=\"modelica://Modelica.Fluid.Pipes.PipeOnePhaseHT\">PipeOnePhaseHT</a> is intended for heat transfer applications without phase change. Either both dynamic or both static mass and energy balance equations  can be selected. A lumped, static momentum balance is always assumed.</p>
 <p><a href=\"modelica://Modelica.Fluid.Pipes.PipeTwoPhaseHT\">PipeTwoPhaseHT</a> is intended for heat transfer applications where phase change can occur. The model assumes a distributed momentum balance, mass and energy balances are always dynamic.  </p>
 <p>Model of a straight pipe with distributed mass, energy and momentum balances. It provides the complete balance equations for one-dimensional fluid flow as formulated in <a href=\"modelica://Modelica.Fluid.UsersGuide.ComponentDefinition.BalanceEquations\">UsersGuide.ComponentDefinition.BalanceEquations</a>. </p>
