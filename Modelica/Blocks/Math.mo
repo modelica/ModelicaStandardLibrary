@@ -1127,23 +1127,6 @@ Example:
           grid={2,2}), graphics={
           Rectangle(
             extent={{-100,-100},{100,100}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-98,-52},{7,-92}},
-            lineColor={0,0,0},
-            textString="%k2"),
-          Text(
-            extent={{-100,90},{5,50}},
-            lineColor={0,0,0},
-            textString="%k1"),
-          Line(points={{-100,60},{-40,60},{-30,40}}, color={0,0,255}),
-          Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,255}),
-          Line(points={{-100,-60},{-40,-60},{-30,-40}}, color={0,0,255}),
-          Line(points={{-15,-25.99},{15,25.99}}, color={0,0,0}),
-          Rectangle(
-            extent={{-100,-100},{100,100}},
             lineColor={0,0,127},
             fillColor={255,255,255},
             fillPattern=FillPattern.Solid),
@@ -1153,7 +1136,7 @@ Example:
           Ellipse(extent={{-50,50},{50,-50}}, lineColor={0,0,127}),
           Line(points={{50,0},{100,0}}, color={0,0,127}),
           Text(
-            extent={{-38,34},{38,-34}},
+            extent={{-36,38},{40,-30}},
             lineColor={0,0,0},
             textString="+"),
           Text(
@@ -1242,27 +1225,6 @@ Example:
           Text(
             extent={{-100,50},{5,90}},
             lineColor={0,0,0},
-            textString="%k1"),
-          Text(
-            extent={{-100,-20},{5,20}},
-            lineColor={0,0,0},
-            textString="%k2"),
-          Text(
-            extent={{-100,-50},{5,-90}},
-            lineColor={0,0,0},
-            textString="%k3"),
-          Text(
-            extent={{2,36},{100,-44}},
-            lineColor={0,0,0},
-            textString="+"),
-          Rectangle(
-            extent={{-100,-100},{100,100}},
-            lineColor={0,0,255},
-            fillColor={255,255,255},
-            fillPattern=FillPattern.Solid),
-          Text(
-            extent={{-100,50},{5,90}},
-            lineColor={0,0,0},
             textString="k1"),
           Text(
             extent={{-100,-20},{5,20}},
@@ -1273,7 +1235,7 @@ Example:
             lineColor={0,0,0},
             textString="k3"),
           Text(
-            extent={{2,36},{100,-44}},
+            extent={{2,46},{100,-34}},
             lineColor={0,0,0},
             textString="+")}));
       end Add3;
