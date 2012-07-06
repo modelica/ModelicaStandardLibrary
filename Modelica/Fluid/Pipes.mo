@@ -538,13 +538,38 @@ or other flow models without storage, are directly connected.
       else
         assert(true, "Unknown model structure");
       end if;
-      if modelStructure <> Types.ModelStructureReduced.a_v_b then
-        vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
-        vsFM[2] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
+      if modelStructure == Types.ModelStructureReduced.a_vb then
+        if n==1 then
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
+          vsFM[2:n+1] = vs;
+        else
+          vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
+          vsFM[2] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
+        end if;
+      elseif modelStructure == Types.ModelStructureReduced.av_b then
+        if n==1 then
+          vsFM[1:n] = vs;
+          vsFM[2] = m_flows[2]/Medium.density(state_b)/crossAreas[1]/nParallel;
+        else
+          vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
+          vsFM[2] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
+        end if;
+      elseif modelStructure == Types.ModelStructureReduced.a_v_b then
+        if n==1 then
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
+          vsFM[2] = vs[1];
+          vsFM[3] = m_flows[2]/Medium.density(state_b)/crossAreas[1]/nParallel;
+        elseif n==2 then
+          vsFM[1] = m_flows[1]/Medium.density(state_a)/crossAreas[1]/nParallel;
+          vsFM[2] = vs[1:2]*lengths[1:2]/sum(lengths[1:2]);
+          vsFM[3] = m_flows[2]/Medium.density(state_b)/crossAreas[1]/nParallel;
+        else
+          vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
+          vsFM[2] = vs[2:n-1]*lengths[2:n-1]/sum(lengths[2:n-1]);
+          vsFM[3] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
+        end if;
       else
-        vsFM[1] = vs[1:iLumped-1]*lengths[1:iLumped-1]/sum(lengths[1:iLumped-1]);
-        vsFM[2] = vs[2:n-1]*lengths[2:n-1]/sum(lengths[2:n-1]);
-        vsFM[3] = vs[iLumped:n]*lengths[iLumped:n]/sum(lengths[iLumped:n]);
+        assert(true, "Unknown model structure");
       end if;
 
      connect(heatPorts, heatTransfer.heatPorts)
@@ -563,7 +588,7 @@ or other flow models without storage, are directly connected.
          mediums.T = fill(T_start, n);
       end if;
       if initialize_p then
-        mediums.p = ps_start;
+        mediums[iLumped].p = ps_start[iLumped];
        end if;
         mediums.Xi = fill(X_start[1:Medium.nXi], n);
         Cs = fill(C_start[1:Medium.nC], n);
@@ -576,7 +601,8 @@ or other flow models without storage, are directly connected.
          der(mediums.T) = zeros(n);
       end if;
       if initialize_p then
-        der(mediums.p) = zeros(n);
+        //der(mediums.p) = zeros(n);
+        der(mediums[iLumped].p)=0;
        end if;
        for i in 1:n loop
         der(mediums[i].Xi) = zeros(Medium.nXi);
