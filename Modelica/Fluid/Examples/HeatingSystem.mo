@@ -18,7 +18,8 @@ model HeatingSystem "Simple model of a heating system"
         0.01)},
     redeclare model HeatTransfer =
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.IdealHeatTransfer (k=10),
-    ports(each p(start=1e5)))
+    ports(each p(start=1e5)),
+    T_start=Modelica.SIunits.Conversions.from_degC(20))
               annotation (Placement(transformation(extent={{-80,30},{-60,50}},
           rotation=0)));
   Machines.ControlledPump pump(
@@ -42,6 +43,7 @@ model HeatingSystem "Simple model of a heating system"
     m_flow_nominal=0.01,
     show_T=true,
     allowFlowReversal=false,
+    dp_start=18000,
     dp_nominal=10000)
     annotation (Placement(transformation(extent={{60,-80},{40,-60}},
                                                                    rotation=0)));
@@ -70,7 +72,7 @@ public
       m_flow_small=1e-4)
                         annotation (Placement(transformation(extent={{-90,70},{
             -70,90}},   rotation=0)));
-  Pipes.PipeTwoPhaseHT
+  Pipes.PipeOnePhaseHT
                     heater(
     redeclare package Medium = Medium,
     use_T_start=true,
@@ -83,10 +85,11 @@ public
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     use_HeatTransfer=true,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_vb)
+    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_vb,
+    p_a_start=130000)
     annotation (Placement(transformation(extent={{30,10},{50,30}}, rotation=0)));
 
-  Pipes.PipeTwoPhaseHT
+  Pipes.PipeOnePhaseHT
                     radiator(
     use_T_start=true,
     redeclare package Medium = Medium,
@@ -99,7 +102,8 @@ public
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
     use_HeatTransfer=true,
-    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.av_b)
+    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.av_b,
+    p_a_start=110000)
     annotation (Placement(transformation(extent={{20,-80},{0,-60}}, rotation=
             0)));
 
@@ -129,7 +133,7 @@ public
     height=0.9,
     offset=0.1)   annotation (Placement(transformation(extent={{26,-27},{40,-13}},
                   rotation=0)));
-  Pipes.PipeTwoPhaseHT
+  Pipes.PipeOnePhaseHT
                     pipe(
     redeclare package Medium = Medium,
     use_T_start=true,
@@ -139,7 +143,8 @@ public
     diameter=0.01,
     redeclare model FlowModel =
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.DetailedPipeFlow,
-    length=10)
+    length=10,
+    p_a_start=130000)
     annotation (Placement(transformation(extent={{-10,-10},{10,10}},
                                                                    rotation=-90,
         origin={80,-20})));
