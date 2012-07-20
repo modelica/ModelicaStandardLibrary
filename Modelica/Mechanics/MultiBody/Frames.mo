@@ -804,7 +804,7 @@ Vector \"n\" is either resolved in frame 1 or in frame 2
 frame 1 are identical to its coordinates with respect to frame 2).
 </p>
 <p>
-The term \"quaternions\" is prefered over the historically
+The term \"quaternions\" is preferred over the historically
 more reasonable \"Euler parameters\" in order to not get
 confused with Modelica \"parameters\".
 </p>

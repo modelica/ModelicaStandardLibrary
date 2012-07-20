@@ -974,7 +974,7 @@ This annotation has only an effect within a function declaration.
 </p>
 
 <p>
-smoothOrder defines the minimum number of differentations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
+smoothOrder defines the minimum number of differentiations of the function, in order that all of the differentiated outputs are continuous provided all input arguments and their derivatives up to order smoothOrder are continuous.
 </p>
 
 <p>
@@ -2039,7 +2039,7 @@ or arrays.
 
   <tr><td>.*, ./, .^</td>
       <td>a .* b</td>
-      <td>element-wise multiplication, division and exponentation of
+      <td>element-wise multiplication, division and exponentiation of
           scalars and arrays</td></tr>
 
   <tr><td>=</td>
@@ -2566,7 +2566,7 @@ The cosine function can also be accessed as Modelica.Math.cos.
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Hyberbolic cosine function
+Hyperbolic cosine function
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><b>cosh</b>(u)</pre></blockquote>
@@ -2692,7 +2692,7 @@ The comment allows a user to comment the function (in the info-layer and as one-
 </blockquote>
 
 <p>
-The specific enthalphy can be computed from a Gibbs-function as follows:
+The specific enthalpy can be computed from a Gibbs-function as follows:
 </p>
 
 <blockquote>
@@ -3918,7 +3918,7 @@ The sine function can also be accessed as Modelica.Math.sin.
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Hyberbolic sine function
+Hyperbolic sine function
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><b>sinh</b>(u)</pre></blockquote>
@@ -4090,7 +4090,7 @@ The arguments have the following meaning
        (e.g., \"12.3456\", \"0.0123456\", \"12345600\", \"1.23456E-10\")</td></tr>
 <tr>
   <td> String format </td>
-  <td> defines the string formating according to ANSI-C without \"%\" and \"*\" character<br>
+  <td> defines the string formatting according to ANSI-C without \"%\" and \"*\" character<br>
        (e.g., \".6g\", \"14.5e\", \"+6f\"). In particular:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;
 format = \"[&lt;flags&gt;] [&lt;width&gt;] [.&lt;precision&gt;] &lt;conversion&gt;\"<br>
@@ -4223,7 +4223,7 @@ The tangent function can also be accessed as Modelica.Math.tan.
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
 <p>
-Hyberbolic tangent function
+Hyperbolic tangent function
 </p>
 <h4>Syntax</h4>
 <blockquote><pre><b>tanh</b>(u)</pre></blockquote>

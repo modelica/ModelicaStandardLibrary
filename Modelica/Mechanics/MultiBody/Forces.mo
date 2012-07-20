@@ -177,7 +177,7 @@ This leads to the following animation
           rotation=270)));
     Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
                      "N.m")
-      "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+      "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
     parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -349,7 +349,7 @@ This leads to the following animation
             rotation=0)));
     Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
                      "N.m")
-      "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+      "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(extent={{-140,40},{-100,80}},
             rotation=0)));
 
@@ -765,7 +765,7 @@ clarity this is not shown in the animation):
 
     Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
                      "N.m")
-      "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+      "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={-60,120},
           extent={{-20,-20},{20,20}},
@@ -963,7 +963,7 @@ clarity this is not shown in the animation):
           rotation=270)));
     Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
                      "N.m")
-      "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+      "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
       annotation (Placement(transformation(
           origin={0,120},
           extent={{-20,-20},{20,20}},
@@ -1245,7 +1245,7 @@ clarity this is not shown in the animation):
     parameter Boolean animateMass=true
       "= true, if point mass shall be visualized as sphere provided m > 0";
     parameter SI.Mass m(min=0)=0
-      "Mass of point mass on the connetion line between the origin of frame_a and the origin of frame_b";
+      "Mass of point mass on the connection line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
       unit="1",
       min=0,
@@ -1373,8 +1373,8 @@ for this situation:
        (f1=force on frame_a side, f2=force on frame_b side, h=lengthFraction)
        0 = f1*va - m*ag_CM*(va+(vb-va)*h) + f2*vb
          = (f1 - m*ag_CM*(1-h))*va + (f2 - m*ag_CM*h)*vb
-       since va and vb are completely indepedent from other
-       the paranthesis must vanish:
+       since va and vb are completely independent from other
+       the parenthesis must vanish:
          f1 := m*ag_CM*(1-h)
          f2 := m*ag_CM*h
      - Force balance on frame_a and frame_b finally results in
@@ -1614,9 +1614,9 @@ in the other flange connector.
     parameter Boolean animateMasses=true
       "= true, if point masses shall be visualized provided animate=true and m_a, m_b > 0";
     parameter SI.Mass m_a(min=0)=0
-      "Mass of point mass a on the connetion line between the origin of frame_a and the origin of frame_b";
+      "Mass of point mass a on the connection line between the origin of frame_a and the origin of frame_b";
     parameter SI.Mass m_b(min=0)=0
-      "Mass of point mass b on the connetion line between the origin of frame_a and the origin of frame_b";
+      "Mass of point mass b on the connection line between the origin of frame_a and the origin of frame_b";
     parameter SI.Position L_a=0
       "Distance between point mass a and frame_a (positive, if in direction of frame_b)";
     parameter SI.Position L_b=L_a
@@ -1796,7 +1796,7 @@ for this situation:
            vb*(f2 - m_b*ag_CM2 +
                (m_b*ag_CM2*L_b/L - m_a*ag_CM1*L_a/L)*(I - e_rel*e_rel'))
        since va and vb are completely independent from other
-       the paranthesis must vanish:
+       the parenthesis must vanish:
          f1 := m_a*ag_CM1 - (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
          f2 := m_b*ag_CM2 + (m_a*ag_CM1*L_a/L - m_b*ag_CM2*L_b/L)*(I - e_rel*e_rel')
        or
@@ -2078,7 +2078,7 @@ in the other flange connector.
     parameter SI.TranslationalSpringConstant c(final min=0) "Spring constant";
     parameter SI.Length s_unstretched=0 "Unstretched spring length";
     parameter SI.Mass m(min=0)=0
-      "Spring mass located on the connetion line between the origin of frame_a and the origin of frame_b";
+      "Spring mass located on the connection line between the origin of frame_a and the origin of frame_b";
     parameter Real lengthFraction(
       min=0,
       max=1) = 0.5
@@ -2613,7 +2613,7 @@ force element) and der(s_damper) is the time derivative of s_damper.
 
       Modelica.SIunits.Position r_0[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-      Modelica.SIunits.Force f_b_0[3] "frame_b.f resoved in world frame";
+      Modelica.SIunits.Force f_b_0[3] "frame_b.f resolved in world frame";
 
     equation
       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");
@@ -2732,7 +2732,7 @@ values from the outside in order that the model remains balanced
 
       Modelica.Blocks.Interfaces.RealInput torque[3](each final quantity="Torque", each final unit=
                      "N.m")
-        "x-, y-, z-coordiantes of torque resolved in frame defined by resolveInFrame"
+        "x-, y-, z-coordinates of torque resolved in frame defined by resolveInFrame"
         annotation (Placement(transformation(
             origin={-60,120},
             extent={{-20,-20},{20,20}},
@@ -2744,7 +2744,7 @@ values from the outside in order that the model remains balanced
 
       SI.Position r_0[3]
         "Position vector from origin of frame_a to origin of frame_b resolved in world frame";
-      SI.Torque t_b_0[3] "frame_b.t resoved in world frame";
+      SI.Torque t_b_0[3] "frame_b.t resolved in world frame";
 
     equation
       assert(cardinality(frame_resolve) > 0, "Connector frame_resolve must be connected at least once and frame_resolve.r_0/.R must be set");

@@ -1,6 +1,6 @@
 within Modelica;
 package ComplexMath
-  "Library of complex mathematical functions (e.g., sin, cos) and of functions operating on copmlex vectors and matrices"
+  "Library of complex mathematical functions (e.g., sin, cos) and of functions operating on complex vectors and matrices"
   extends Modelica.Icons.Package;
   final constant Complex j = Complex(0,1) "Imaginary unit";
 
@@ -590,7 +590,7 @@ end Vectors;
 </html>"));
   end 'max';
 
-  function 'min' "Return minium element of complex vector"
+  function 'min' "Return minimum element of complex vector"
     extends Modelica.Icons.Function;
     input Complex v[:] "Vector";
     output Complex result "Element of v with smallest absolute value";

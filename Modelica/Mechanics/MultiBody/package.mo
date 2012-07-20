@@ -74,7 +74,7 @@ The main features of the library are:
     Components can be connected together in a nearly arbitrary fashion.
     It does not matter whether components are flipped. This does not
     influence the efficiency. If kinematic loop structures occur,
-    this is automatically handeled in an efficient way by a new
+    this is automatically handled in an efficient way by a new
     technique to transform a certain class of overdetermined sets of
     differential algebraic equations symbolically to a system where
     the number of equations and unknowns are the same (the user need
@@ -91,7 +91,7 @@ The main features of the library are:
     corresponding components or use a Modelica parameter modification
     to set the \"stateSelect\" attribute directly. </li>
 <li> <b>Analytic solution of kinematic loops</b>. The non-linear
-    equations occuring in kinematic loops are solved <b>analytically</b>
+    equations occurring in kinematic loops are solved <b>analytically</b>
     for a large class of mechanisms, such as a 4 bar mechanism,
     a slider-crank mechanism or a MacPherson suspension. This is performed
     by constructing such loops with assembly joints JointXXX,
@@ -109,7 +109,7 @@ The main features of the library are:
      account. If masses are set to zero, the additional code to handle
      these point masses is removed. If the masses are taken into
      account, the calculation overhead is small (the reason is that
-     the occuring kinematic loops are analytically solved).<br>
+     the occurring kinematic loops are analytically solved).<br>
      Note, in this Beta-release, not all provided line force
      components have already an optional mass. This will be fixed
      in the next release.</li>
@@ -283,7 +283,7 @@ mechanism, the generalized coordinates of joint j1 (i.e., the
 rotation angle of the revolute joint and its derivative) can always be used as
 states. This can be stated by setting parameter \"enforceStates = <b>true</b>\"
 in the \"Advanced\" menu of the desired joint. This flag sets the attribute
-stateSelect of the generalized coordinates of the coresponding joint to
+stateSelect of the generalized coordinates of the corresponding joint to
 \"StateSelect.always\". When setting this flag to <b>true</b> for joint j1 in
 the four bar mechanism, Dymola detects a non-linear algebraic loop of 40
 equations and reduces this to a system of 5 coupled non-linear algebraic
@@ -353,7 +353,7 @@ not easy for an inexperienced modeler, the special joint:
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Joints.RevolutePlanarLoopConstraint\">
 RevolutePlanarLoopConstraint</a> is provided that removes these constraints.
 Exactly one revolute joint in a every planar loop must be replaced by this
-joint type. In the engine example, this special joinst is used for
+joint type. In the engine example, this special joint is used for
 the revolute joint B2 in the cylinder model above. The icon of the joint is
 slightly different to other revolute joints to visualize this case.
 </p>
@@ -765,7 +765,7 @@ Therefore, kinematic loop structures pose in principal
 no problems. In this section several examples are given,
 the special treatment of planar loops is discussed and it is explained
 how a kinematic loop structure can be modeled such that the
-occuring non-linear algebraic equation systems are solved
+occurring non-linear algebraic equation systems are solved
 analytically. There are the following sub-chapters:
 </p>
 <ol>
@@ -1073,7 +1073,7 @@ dynamical effects is described in:
      unknowns) with symbolic transformation algorithms was developed together
      with Hilding Elmqvist and Sven Erik Mattsson from Dassault Syst&egrave;mes AB, Lund, Sweden.
      The MultiBody library is heavily relying on this feature which is a
-     prerequiste for a truely \"object-oriented\" multi-body systems library,
+     prerequisite for a truly \"object-oriented\" multi-body systems library,
      where components can be connected together in any meaningful way.</li>
 <li> The Examples.Loops.EngineV6 demo of a six cylinder V6 engine with
      6 planar loops and 1 degree of freedom is from Hilding Elmqvist and
@@ -1216,7 +1216,7 @@ model World
     "Default for the fixed length of a shape representing a force (e.g., damper)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultForceWidth=nominalLength/20
-    "Default for the fixed width of a shape represening a force (e.g., spring, bushing)"
+    "Default for the fixed width of a shape representing a force (e.g., spring, bushing)"
     annotation (Dialog(tab="Defaults"));
   parameter SI.Length defaultBodyDiameter=nominalLength/9
     "Default for diameter of sphere representing the center of mass of a body"
@@ -1423,7 +1423,7 @@ equation
 
   assert(Modelica.Math.Vectors.length(
                        n) > 1.e-10,
-    "Parameter n of World object is wrong (lenght(n) > 0 required)");
+    "Parameter n of World object is wrong (length(n) > 0 required)");
   frame_b.r_0 = zeros(3);
   frame_b.R = Frames.nullRotation();
   annotation (

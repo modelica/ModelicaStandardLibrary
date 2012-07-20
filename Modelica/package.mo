@@ -55,7 +55,7 @@ main sub-libraries:
  </td>
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Magnetic.FluxTubes\">FluxTubes</a><br>
-Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leackage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
+Based on magnetic flux tubes concepts. Especially to model electro-magnetic actuators. Nonlinear shape, force, leakage, and material models. Material data for steel, electric sheet, pure iron, Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
  </td>
 </tr>
 
@@ -144,7 +144,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
  <td valign=\"top\">
  <a href=\"modelica://Modelica.Blocks\">Blocks</a><br>
  Input/output blocks to model block diagrams and logical networks, e.g.,
- integerator, PI, PID, transfer function, linear state space system,
+ integrator, PI, PID, transfer function, linear state space system,
  sampler, unit delay, discrete transfer function, and/or blocks,
  timer, hysteresis, nonlinear and routing blocks, sources, tables.
  </td>
@@ -225,7 +225,7 @@ variables is explained in section \"Connector Equations\" below):
      <br>Plug, PositivePlug, NegativePlug</td>
    <td valign=\"top\"><img src=\"modelica://Modelica/Resources/Images/UsersGuide/ElectricalPlugs.png\"></td></tr>
 
-<tr><td valign=\"top\"><b>electrical <br>sphace phasor</b></td>
+<tr><td valign=\"top\"><b>electrical <br>space phasor</b></td>
    <td valign=\"top\">2 electrical potentials</td>
    <td valign=\"top\">2 electrical currents</td>
    <td valign=\"top\"></td>
@@ -553,7 +553,7 @@ Modelica code in the HTML documentation.
 <li> Write multi or single line code segments using <code>&lt;pre&gt;</code> and <code>&lt;/pre&gt;</code>.</li>
 <li> Multi line or single line code shall not be indented.</li>
 <li> Inline code segments may be typeset with <code>&lt;code&gt;</code> and <code>&lt;/code&gt;</code>.</li>
-<li> In code segements use bold to emphasize Modelica keywords.</li>
+<li> In code segments use bold to emphasize Modelica keywords.</li>
 </ol>
 
 <h5>Example 1</h5>
@@ -599,7 +599,7 @@ Modelica code in the HTML documentation.
 <p>
 In the context of <a href=\"http://www.w3c.org/\">HTML</a> documentation
 equations should have a graphical representation in PNG format. For that purpose tool
-specific math typing capabilites can be used. Alternatively the LaTeX to HTML translator
+specific math typing capabilities can be used. Alternatively the LaTeX to HTML translator
 <a href=\"http://www.latex2html.org\">LaTeX2HTML</a>, or the
 <a href=\"http://www.homeschoolmath.net/worksheets/equation_editor.php\">Online Equation Editor</a>
 or <a href=\"http://www.codecogs.com/components/eqneditor/editor.php\">codecogs</a> can be used.
@@ -3166,7 +3166,7 @@ have been <b style=\"color:blue\">improved</b> in a
                       ValveCompressible</td>
     <td valign=\"top\"> (a) Optional filtering of opening signal introduced to model
                       the delay time of the opening/closing drive. In this case, an optional
-                      leackageOpening can be defined to model leackage flow and/or to
+                      leackageOpening can be defined to model leakage flow and/or to
                       improve the numerics in certain situations.
                       (b) Improved regularization of the valve characteristics in some cases
                       so that it is twice differentiable (smooth=2),
@@ -3756,7 +3756,7 @@ The following <b style=\"color:blue\">new libraries</b> have been added:
     <td valign=\"top\">
      Components to model magnetic devices based on the magnetic flux tubes concepts.
      Especially to model
-     electro-magnetic actuators. Nonlinear shape, force, leackage, and
+     electro-magnetic actuators. Nonlinear shape, force, leakage, and
      Material models. Material data for steel, electric sheet, pure iron,
      Cobalt iron, Nickel iron, NdFeB, Sm2Co17, and more.
     </td>

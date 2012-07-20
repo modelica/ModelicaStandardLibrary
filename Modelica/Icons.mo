@@ -122,7 +122,7 @@ package Icons "Library of icons"
           Line(points={{10,-10},{70,-10}}, color={0,0,0}),
           Line(points={{10,-50},{70,-50}}, color={0,0,0})}),
                               Documentation(info="<html>
-<p>This icon indicates a documentation class containing references external documentation and litterature.</p>
+<p>This icon indicates a documentation class containing references external documentation and literature.</p>
 </html>"));
 
   end References;

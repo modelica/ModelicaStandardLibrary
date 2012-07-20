@@ -2054,7 +2054,7 @@ in the following way: If distance > s_small, it is computed as sqrt(r*r) where
 r is the position vector from the origin of frame_a to the origin of frame_b.
 If the distance becomes smaller as s_small, the \"sqrt()\" function is approximated
 by a second order polynomial, such that the function value and its first derivative
-are identical for sqrt() and the polynomial at s_small. Futhermore, the polynomial
+are identical for sqrt() and the polynomial at s_small. Furthermore, the polynomial
 passes through zero. The effect is, that the distance function is continuous and
 differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 </p>

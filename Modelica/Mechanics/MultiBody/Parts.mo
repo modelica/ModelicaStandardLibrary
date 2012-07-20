@@ -1359,7 +1359,7 @@ states and of the \"Advanced\" menu parameters, see model
     assert(innerWidth <= width,
       "parameter innerWidth is greater as parameter width");
     assert(innerHeight <= height,
-      "parameter innerHeight is greater as paraemter height");
+      "parameter innerHeight is greater as parameter height");
     connect(frameTranslation.frame_a, frame_a) annotation (Line(
         points={{-30,0},{-100,0}},
         color={95,95,95},

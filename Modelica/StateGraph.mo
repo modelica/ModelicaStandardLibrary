@@ -24,7 +24,7 @@ the \"action\" language. JGraphChart is a further development of
 Grafcet to include elements of StateCharts that are not present
 in Grafcet/Sequential Function Charts. Therefore, the StateGraph
 library has a similar modeling power as StateCharts but avoids
-some deficiences of StateCharts.
+some deficiencies of StateCharts.
 </p>
 <p>
 The basic elements of StateGraphs are <b>steps</b> and <b>transitions</b>:
@@ -102,7 +102,7 @@ a usual step where the active flag is available as Boolean
 output signal. To this output, component \"Timer\" from
 library \"Modelica.Blocks.Logical\" is connected. It measures the
 time from the time instant where the Boolean input (i.e., the
-active flag of the step) became true upto the current
+active flag of the step) became true up to the current
 time instant. The timer is connected to a comparison
 component. The output is true, once the timer reaches
 1 second. This signal is used as condition input of the
@@ -310,7 +310,7 @@ An example is given in the next figure (from Examples.ControlledTanks):
 The CompositeStep component contains a local StateGraph that is
 entered by one or more input transitions and that is left
 by one or more output transitions. Also, other needed signals
-may enter a CompositeStep. The CompositeStep has similiar properties
+may enter a CompositeStep. The CompositeStep has similar properties
 as a \"usual\" step: The CompositeStep is <b>active</b> once at least
 one step within the CompositeStep is active. Variable <b>active</b>
 defines the state of the CompositeStep.
@@ -510,7 +510,7 @@ library:
      Composite steps and parallel steps are described in a much better and more powerful
      way as in StateGraph1: Either by component \"Parallel\" or
      by inheriting from \"PartialParallel\". The first alternative has the advantage that it
-     is simple to use (not necessary to construct a new class and instanciating this class, and
+     is simple to use (not necessary to construct a new class and instantiating this class, and
      easy variable access since no new hierarchy is constructed), the second alternative
      has the advantage that it introduces a Modelica hierarchy (useful for large subgraphs).
      In both cases, various options are possible, such as
@@ -3074,7 +3074,7 @@ value, still requires to go in to the text layer.
       "Button that sets its output to true when pressed and is reset when an element of 'reset' becomes true"
 
     parameter Modelica.SIunits.Time buttonTimeTable[:]={0}
-        "Time instants where button is pressend and released";
+        "Time instants where button is pressed and released";
     input Boolean reset[:]={false}
         "Reset button to false, if an element of reset becomes true"
       annotation (Dialog(group="Time varying expressions"));
@@ -3187,7 +3187,7 @@ the \"action\" language. JGraphChart is a further development of
 Grafcet to include elements of StateCharts that are not present
 in Grafcet/Sequential Function Charts. Therefore, the StateGraph
 library has a similar modeling power as StateCharts but avoids
-some deficiences of StateCharts.
+some deficiencies of StateCharts.
 </p>
 <p>
 For an introduction, have especially a look at:

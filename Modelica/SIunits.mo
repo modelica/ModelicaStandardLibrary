@@ -64,7 +64,7 @@ should provide a list of units from which the user can select, e.g.,
 the model as a Modelica modifier, it has to be converted to the unit defined
 in the declaration. Additionally, the unit used in the graphical
 user interface has to be stored. In order to have a standardized way
-of doing this, Modelica provides the following three attributs
+of doing this, Modelica provides the following three attributes
 for a variable of type Real:
 </p>
 
@@ -174,7 +174,7 @@ in the declaration as in the example at the beginning.
     the convention of type names.</li>
 <li>All quantity and unit attributes are defined as final in order
     that they cannot be redefined to another value.</li>
-<li>Similiar quantities, such as \"Length, Breadth, Height, Thickness,
+<li>Similar quantities, such as \"Length, Breadth, Height, Thickness,
     Radius\" are defined as the same quantity (here: \"Length\").</li>
 <li>The ordering of the type declarations in this package follows ISO 31:
 <pre>
@@ -311,10 +311,10 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "First Order Temperatur Coefficient"                                         annotation(__Dymola_absoluteValue=true);
+            final unit="Ohm/degC") "First Order Temperature Coefficient"                                         annotation(__Dymola_absoluteValue=true);
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Second Order Temperatur Coefficient"                                        annotation(__Dymola_absoluteValue=true);
+            final unit="Ohm/degC2") "Second Order Temperature Coefficient"                                        annotation(__Dymola_absoluteValue=true);
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -868,7 +868,7 @@ still kept in Modelica.SIunits.</p>
               textString="1/s")}));
     end to_Hz;
 
-    function to_cm2 "Convert from square metre to square centrimetre"
+    function to_cm2 "Convert from square metre to square centimetre"
       extends Modelica.SIunits.Icons.Conversion;
       input Area m2 "square metre value";
       output NonSIunits.Area_cm cm2 "square centimetre value";
@@ -884,7 +884,7 @@ still kept in Modelica.SIunits.</p>
               textString="cm2")}));
     end to_cm2;
 
-    function from_cm2 "Convert from square centrimetre to square metre"
+    function from_cm2 "Convert from square centimetre to square metre"
       extends Modelica.SIunits.Icons.Conversion;
       input NonSIunits.Area_cm cm2 "square centimetre value";
       output Area m2 "square metre value";

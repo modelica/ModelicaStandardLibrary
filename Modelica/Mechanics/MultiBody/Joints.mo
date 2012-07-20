@@ -1412,7 +1412,7 @@ If parameter <b>enforceStates</b> is set to <b>true</b>
 in the \"Advanced\" menu, three states are introduced.
 Depending on parameter <b>useQuaternions</b> these are either
 quaternions and the relative angular velocity or 3 angles
-and the angle derivatves. In the latter case the orientation
+and the angle derivatives. In the latter case the orientation
 of frame_b is computed by rotating frame_a along the axes defined
 in parameter vector \"sequence_angleStates\" (default = {1,2,3}, i.e.,
 the Cardan angle sequence) around the angles used as states.
@@ -1420,7 +1420,7 @@ For example, the default is to rotate the x-axis of frame_a
 around angles[1], the new y-axis around angles[2] and the new z-axis
 around angles[3], arriving at frame_b. If angles are used
 as states there is the slight disadvantage that
-a singular configuration is present leading to a divison by zero.
+a singular configuration is present leading to a division by zero.
 </p>
 <p>
 If this joint is used in a <b>chain</b> structure, a Modelica translator
@@ -2136,7 +2136,7 @@ Such a joint is meaningful if the <b>relative</b> distance and orientation
 between frame_a and frame_b, and their derivatives, shall be used
 as <b>states</b> or shall be used for non-standard
 <b>initialization</b>. This joint allows to <b>initialize</b>
-every <b>scalar</b> element of the relative quantites, as well
+every <b>scalar</b> element of the relative quantities, as well
 as to define <b>StateSelect</b> attributes for every
 <b>scalar</b> element separately.
 </p>
@@ -2258,10 +2258,10 @@ its tip position, is shown in
     parameter SI.Mass m(min=0)=0
       "Mass of rod (= point mass located in middle of rod)";
     parameter SI.Diameter sphereDiameter=world.defaultJointLength
-      "Diameter of spheres respresenting the spherical joints"
+      "Diameter of spheres representing the spherical joints"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
-      "Color of spheres respresenting the spherical joints"
+      "Color of spheres representing the spherical joints"
       annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction
       "Diameter of rod connecting the two spherical joint"
@@ -2901,7 +2901,7 @@ singular configuration.
 <p>
 This component consists of a <b>universal joint</b> at frame_a and
 a <b>spherical joint</b> at frame_b that are connected together with
-a <b>rigid rod</b>, see default aimation figure (the arrows are not
+a <b>rigid rod</b>, see default animation figure (the arrows are not
 part of the default animation):
 </p>
 
@@ -2921,7 +2921,7 @@ that the distance between the origin of frame_a and the origin of frame_b is con
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occuring case. In a future release, axis 2 might
+to the most often occurring case. In a future release, axis 2 might
 be explicitly definable via a parameter. However, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
@@ -4082,7 +4082,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occuring case. In a future release, axis 2 might
+to the most often occurring case. In a future release, axis 2 might
 be explicitly definable via a parameter. However, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
@@ -4725,7 +4725,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occuring case. In a future release, axis 2 might
+to the most often occurring case. In a future release, axis 2 might
 be explicitly definable via a parameter. However, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
@@ -5228,7 +5228,7 @@ The universal joint is defined in the following way:
 </ul>
 <p>
 The definition of axis 2 of the universal joint is performed according
-to the most often occuring case. In a future release, axis 2 might
+to the most often occurring case. In a future release, axis 2 might
 be explicitly definable via a parameter. However, the treatment is much more
 complicated and the number of operations is considerably higher,
 if axis 2 is not orthogonal to axis 1 and to the connecting rod.
@@ -6970,7 +6970,7 @@ non-linear equations of kinematic loops developed by Woernle and
 Hiller. An automatic application of this more general method
 is difficult, and a manual application is only suited for
 specialists in this field. The method introduced here is a
-compromize: It can be quite easily applied by an end user, but
+compromise: It can be quite easily applied by an end user, but
 for a smaller class of kinematic loops. The method of the \"characteristic
 pair of joints\" from Woernle and Hiller is described in:
 </p>
@@ -6998,7 +6998,7 @@ pair of joints\" from Woernle and Hiller is described in:
       extends Modelica.Icons.ExamplesPackage;
 
       model ConstrainPrismaticJoint
-        "Body attached by one spring and two prismatic joints or coinstraint to environment"
+        "Body attached by one spring and two prismatic joints or constraint to environment"
         extends Modelica.Icons.Example;
         parameter Boolean animation=true "True, if animation shall be enabled";
 
@@ -7169,7 +7169,7 @@ pair of joints\" from Woernle and Hiller is described in:
       end ConstrainPrismaticJoint;
 
       model ConstrainRevoluteJoint
-        "Body attached by one spring and revolute joint or coinstraint to environment"
+        "Body attached by one spring and revolute joint or constraint to environment"
         extends Modelica.Icons.Example;
         parameter Boolean animation=true
           "= true, if animation shall be enabled";
@@ -7333,7 +7333,7 @@ pair of joints\" from Woernle and Hiller is described in:
       end ConstrainRevoluteJoint;
 
       model ConstrainSphericalJoint
-        "Body attached by one spring and spherical joint or coinstraint to environment"
+        "Body attached by one spring and spherical joint or constraint to environment"
         extends Modelica.Icons.Example;
         parameter Boolean animation=true
           "= true, if animation shall be enabled";
@@ -7496,7 +7496,7 @@ pair of joints\" from Woernle and Hiller is described in:
       end ConstrainSphericalJoint;
 
       model ConstrainUniversalJoint
-        "Body attached by one spring and universal joint or coinstraint to environment"
+        "Body attached by one spring and universal joint or constraint to environment"
         extends Modelica.Icons.Example;
         parameter Boolean animation=true
           "= true, if animation shall be enabled";
@@ -7796,7 +7796,7 @@ pair of joints\" from Woernle and Hiller is described in:
       R_rel = MBS.Frames.relativeRotation(frame_a.R, frame_b.R);
       r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
-      // Constraint equations concering translation
+      // Constraint equations concerning translation
       if x_locked and y_locked and z_locked then
         r_rel_a=zeros(3);
       elseif x_locked and y_locked and not z_locked then
@@ -7917,7 +7917,7 @@ pair of joints\" from Woernle and Hiller is described in:
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with to respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -7972,7 +7972,7 @@ pair of joints\" from Woernle and Hiller is described in:
       r_rel_a = MBS.Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
       //phi_rel=MBS.Frames.smallRotation(R_rel,false);
-      // Constraint equations concering translations
+      // Constraint equations concerning translations
       if x_locked and y_locked and z_locked then
         r_rel_a=zeros(3);
       elseif x_locked and y_locked and not z_locked then
@@ -8151,7 +8151,7 @@ pair of joints\" from Woernle and Hiller is described in:
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -8215,7 +8215,7 @@ pair of joints\" from Woernle and Hiller is described in:
       // Constraint equations concerning rotations
       ones(3)={R_rel.T[1,1], R_rel.T[2,2], R_rel.T[3,3]};
 
-      // Constraint equations concering translations
+      // Constraint equations concerning translations
       if x_locked and y_locked and z_locked then
         r_rel_a=zeros(3);
       elseif x_locked and y_locked and not z_locked then
@@ -8334,7 +8334,7 @@ pair of joints\" from Woernle and Hiller is described in:
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics),
         Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied.  Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -8402,7 +8402,7 @@ pair of joints\" from Woernle and Hiller is described in:
       R_rel = Frames.relativeRotation(frame_a.R, frame_b.R);
       r_rel_a = Frames.resolve2(frame_a.R, frame_b.r_0 - frame_a.r_0);
 
-      // Constraint equations concering translations
+      // Constraint equations concerning translations
       if x_locked and y_locked and z_locked then
         r_rel_a=zeros(3);
       elseif x_locked and y_locked and not z_locked then
@@ -8512,7 +8512,7 @@ pair of joints\" from Woernle and Hiller is described in:
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics),
           Documentation(info="<html>
-<p>This model does not use explicit variables e.g. state variabales in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
+<p>This model does not use explicit variables e.g. state variables in order describe the relative motion of frame_b with respect to frame_a, but defines kinematic constraints between the frame_a and frame_b. The forces and torques at both frames are then evaluated in such a way that the constraints are satisfied. Sometimes this type of formulation is also called an implicit joint in literature.</p>
 <p>As a consequence of the formulation the relative kinematics between frame_a and frame_b cannot be initialized.</p>
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
@@ -8675,7 +8675,7 @@ of this subpackage.
        the angle of the revolute joint. Since T_rel = T_rel(angle) is a function
        of the unknown angle of the revolute joint, this is a non-linear
        equation in this angle.
-          T_rel = [e]*tranpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
+          T_rel = [e]*transpose([e]) + (identity(3) - [e]*transpose([e]))*cos(angle)
                   - skew(e)*sin(angle);
        with
           r_b*T_rel*r_a
@@ -9416,7 +9416,7 @@ that is, idealized, massless elements that constrain
 the motion between frames. In subpackage <b>Assemblies</b>
 aggregation joint components are provided to handle
 kinematic loops analytically (this means that non-linear systems
-of equations occuring in these joint aggregations are analytically
+of equations occurring in these joint aggregations are analytically
 solved, i.e., robustly and efficiently).
 </p>
 <h4>Content</h4>
