@@ -2845,7 +2845,7 @@ The corresponding SPICE description
     end ModelcardMOS2;
 
     model Q_NPNBJT "Bipolar junction transistor"
-     extends Modelica.Electrical.Spice3.Internal.BJT(
+     extends Modelica.Electrical.Spice3.Internal.BJT2(
                             final TBJT=1);
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2868,7 +2868,7 @@ The corresponding SPICE description
     end Q_NPNBJT;
 
     model Q_PNPBJT "Bipolar junction transistor"
-     extends Modelica.Electrical.Spice3.Internal.BJT(
+     extends Modelica.Electrical.Spice3.Internal.BJT2(
                             final TBJT=-1);
 
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
@@ -2891,7 +2891,7 @@ The corresponding SPICE description
     end Q_PNPBJT;
 
     record ModelcardBJT "Record for the specification of modelcard parameters"
-      extends Modelica.Electrical.Spice3.Internal.ModelcardBJT;
+      extends Modelica.Electrical.Spice3.Internal.ModelcardBJT2;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
 <p>Technology parameters of the modified Gummel-Poon bipolar junction transistor model</p>
@@ -4891,7 +4891,7 @@ on the model behaviour.
 </html>"));
      end ModelcardMOS2;
 
-    model BJT "Bipolar junction transistor"
+    model BJT2 "Bipolar junction transistor"
 
       Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node"
         annotation (Placement(transformation(extent={{-108,-10},{-88,10}}),
@@ -4917,7 +4917,7 @@ on the model behaviour.
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
-      parameter Spice3.Internal.ModelcardBJT
+      parameter Modelica.Electrical.Spice3.Internal.ModelcardBJT2
                              modelcard "BJT modelcard"   annotation(Evaluate=true);
 
       final parameter Spice3.Internal.Bjt.BjtModelLineParams p=
@@ -5046,9 +5046,9 @@ on the model behaviour.
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
-    end BJT;
+    end BJT2;
 
-    record ModelcardBJT "Record with technological parameters (.model)"
+    record ModelcardBJT2 "Record with technological parameters (.model)"
 
       parameter SI.Temp_C TNOM = 27 "Parameter measurement temperature";
       parameter SI.Current IS = 1e-16 "Transport saturation current";
@@ -5101,9 +5101,9 @@ on the model behaviour.
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
-    end ModelcardBJT;
+    end ModelcardBJT2;
 
-    model BJT_obsolete "Bipolar junction transistor, obsolete, use model BJT"
+    model BJT "Bipolar junction transistor, obsolete, use model BJT"
      extends Modelica.Icons.ObsoleteModel;
       Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node"
         annotation (Placement(transformation(extent={{-108,-10},{-88,10}}),
@@ -5127,7 +5127,7 @@ on the model behaviour.
       parameter Boolean SENS_AREA = false
         "Flag to request sensitivity WRT area, not implemented yet";
 
-      parameter Spice3.Internal.ModelcardBJT_obsolete
+      parameter Modelica.Electrical.Spice3.Internal.ModelcardBJT
                              modelcard "BJT modelcard"                                              annotation(Evaluate=true);
 
       final parameter Spice3.Internal.Bjt3.BjtModelLineParams
@@ -5249,10 +5249,9 @@ on the model behaviour.
 <li><i>August 2009 </i>by Kristin Majetta <br/>initially implemented</li>
 </ul>
 </html>"));
-    end BJT_obsolete;
+    end BJT;
 
-    record ModelcardBJT_obsolete
-      "Record with technological parameters (.model)"
+    record ModelcardBJT "Record with technological parameters (.model)"
 
       parameter SI.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
@@ -5307,7 +5306,7 @@ on the model behaviour.
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
-    end ModelcardBJT_obsolete;
+    end ModelcardBJT;
 
   model JFET "Junction Field-Effect Transistor"
 
@@ -11234,7 +11233,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function bjtRenameParameters "Technology parameter renaming, obsolete"
 
-        input Spice3.Internal.ModelcardBJT ex
+        input Modelica.Electrical.Spice3.Internal.ModelcardBJT2
+                                           ex
           "Modelcard with technologie parameters";
         input Real TBJT;
 
@@ -12128,7 +12128,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming"
-        input Spice3.Internal.ModelcardBJT_obsolete           ex
+        input Modelica.Electrical.Spice3.Internal.ModelcardBJT ex
           "Modelcard with technologie parameters";
         input Spice3.Internal.SpiceConstants con "Spice constants";
         input Real TBJT "Type";
