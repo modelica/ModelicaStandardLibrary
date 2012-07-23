@@ -5103,7 +5103,7 @@ on the model behaviour.
 </html>"));
     end ModelcardBJT2;
 
-    model BJT "Bipolar junction transistor, obsolete, use model BJT"
+    model BJT "Bipolar junction transistor, obsolete, use model BJT2"
      extends Modelica.Icons.ObsoleteModel;
       Modelica.Electrical.Analog.Interfaces.PositivePin B "Base node"
         annotation (Placement(transformation(extent={{-108,-10},{-88,10}}),
@@ -5242,6 +5242,7 @@ on the model behaviour.
               extent={{-94,56},{206,16}},
               textString="%name",
               lineColor={0,0,255})}),        Documentation(info="<html>
+<p>This model is obsolete, please use BJT2</p>
 <p>Bibpolar junction transistor model</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
@@ -5251,8 +5252,9 @@ on the model behaviour.
 </html>"));
     end BJT;
 
-    record ModelcardBJT "Record with technological parameters (.model)"
-
+    record ModelcardBJT
+      "Record with technological parameters (.model), obsolete model, please use ModelcardBJT2"
+    extends Modelica.Icons.ObsoleteModel;
       parameter SI.Temp_C TNOM = -1e40
         "Parameter measurement temperature, default 27";
       parameter SI.Current IS = 1e-16 "Transport saturation current";
@@ -5303,6 +5305,7 @@ on the model behaviour.
       parameter Real FC = 0.5 "Forward bias junction fit parameter";
 
       annotation (Documentation(info="<html>
+<p>This model is obsolete, please use ModelcardBJT2</p>
 <p>Modelcard parameters for BJT model, both PNP and NPN</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>"));
