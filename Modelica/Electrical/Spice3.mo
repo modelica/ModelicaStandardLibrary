@@ -1442,6 +1442,7 @@ Zeunerstrasse 38<br />
     end CoupledInductors;
 
     model CascodeCircuit
+    extends Modelica.Icons.Example;
 
       Modelica.Electrical.Spice3.Semiconductors.J_NJFJFET
                                   J1
@@ -1509,23 +1510,14 @@ Zeunerstrasse 38<br />
 <ul>
 <li><i>Aug. 2011 </i>by Kristin Majetta initially implemented</li>
 </ul>
-</html>"),
-        Icon(graphics={                      Ellipse(extent={{-100,100},{100,
-                  -100}},
-                lineColor={95,95,95}), Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
-        experiment(
+</html>"),experiment(
           StopTime=0.2,
           __Dymola_NumberOfIntervals=1000,
           Tolerance=1e-007));
     end CascodeCircuit;
 
     model Spice3BenchmarkDifferentialPair "Simple differential pair"
-
+      extends Modelica.Icons.Example;
       Sources.V_pulse VCC( V1=0, V2=12, TD=0, TR=2e-009, TF=2e-009, PW=3);
       Sources.V_pulse VEE( V1=0, V2=-12, TD=0, TR=2e-009, TF=2e-009, PW=3);
       Sources.V_sin VIN( VO=0, VA=0.01, FREQ=5);
@@ -1582,19 +1574,9 @@ Zeunerstrasse 38<br />
       connect(VIE.p, n41);
       connect(VIE.n, n42);
 
-      annotation (                               experiment(Interval=0.001,
-            Tolerance=1e-005),
-        Icon(graphics={                      Ellipse(extent={{-100,100},{100,-100}},
-                lineColor={95,95,95},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-                                       Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
-        Documentation(info="<html>
+      annotation (experiment(Interval=0.001,
+          Tolerance=1e-005),
+          Documentation(info="<html>
 <p>This Differential pair model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3).</p>
 <p>The differential pair circuit we have here is operating in the differential mode. This means the input voltage VIN that is only applied at one transistor
 is amplified. To comprehend this behavior the user is recommended to simulate from t=0 to t=1s and observe \"VIN.p.v\" which is the input voltage and \"Outputvoltage\" which is the
@@ -1621,6 +1603,7 @@ RE 4 8 10K<br/>
     end Spice3BenchmarkDifferentialPair;
 
     model Spice3BenchmarkMosfetCharacterization "Mos output characteristics"
+      extends Modelica.Icons.Example;
 
       Sources.V_pulse VDS( V1=0, V2=10, TD=0, TR=1e-008, TF=1e-008, PW=1, PER=1);
       Sources.V_pulse VGS( V1=0, V2=5, TD=4e-008, TR=1e-009, TF=1e-009, PW=1e-008, PER=2e-008);
@@ -1655,17 +1638,7 @@ RE 4 8 10K<br/>
       connect(VIDS.p, n3);
       connect(VIDS.n, n1);
 
-      annotation (                               experiment(StopTime=1e-007, Interval=1e-009), Icon(
-            graphics={                       Ellipse(extent={{-100,100},{100,-100}},
-                lineColor={95,95,95},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-                                       Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
+      annotation ( experiment(StopTime=1e-007, Interval=1e-009),
         Documentation(info="<html>
 <p>This Mosfet Characterization model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>This circuit is a very simple one than consists of an nmos transistor level 1 that is connected to voltage sources at gate and drain node whereas the drain voltage source supplies the
@@ -1687,7 +1660,7 @@ M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
     end Spice3BenchmarkMosfetCharacterization;
 
     model Spice3BenchmarkRtlInverter "Simple RTL inverter"
-
+      extends Modelica.Icons.Example;
       Sources.V_constant VCC(V=5);
       Sources.V_pulse VIN( V1=0, V2=5, TD=2e-009, TR=2e-009, TF=2e-009, PW=3e-008);
       Basic.R_Resistor RB(R=10000);
@@ -1717,20 +1690,10 @@ M1 1 2 0 0 MOD1 L=4U W=6U AD=10P AS=10P<br/>
       connect(RC.p, n3);
       connect(RC.n, n4);
 
-      annotation (                               experiment(
+      annotation (experiment(
           StopTime=1e-007,
           Interval=1e-010,
-          Tolerance=1e-008),                                                                   Icon(
-            graphics={                       Ellipse(extent={{-100,100},{100,-100}},
-                lineColor={95,95,95},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-                                       Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
+          Tolerance=1e-008),
         Documentation(info="<html>
 <p>This RTL Inverter model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>This simple RTL inverter (resistor transistor logic) circuits inverts the inputvoltage which means the output voltage has high potential if the input voltage
@@ -1754,6 +1717,7 @@ RC 3 4 1K<br/>
 
     model Spice3BenchmarkFourBitBinaryAdder
       "ADDER - 4 BIT ALL-NAND-GATE BINARY ADDER"
+      extends Modelica.Icons.Example;
       import Modelica.Electrical.Spice3.*;
 
       output Real X1_p9_v =  X1.p9.v;
@@ -2160,16 +2124,7 @@ RC 3 4 1K<br/>
           derivatives=false,
           inputs=false,
           auxiliaries=false),
-        Icon(graphics={                      Ellipse(extent={{-100,100},{100,-100}},
-                lineColor={95,95,95},
-              fillColor={255,255,255},
-              fillPattern=FillPattern.Solid),
-                                       Polygon(
-              points={{-36,60},{64,0},{-36,-60},{-36,60}},
-              lineColor={0,0,255},
-              pattern=LinePattern.None,
-              fillColor={95,95,95},
-              fillPattern=FillPattern.Solid)}),
+        Icon(graphics),
         Documentation(info="<html>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>The model adds two 4-bit numbers. It has eight inputs where the first one is the lowest-order bit of the first number, the second is the lowest-order bit of the second number, the third one is the second-order bit of
