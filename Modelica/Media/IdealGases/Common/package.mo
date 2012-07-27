@@ -763,8 +763,7 @@ required from medium model \""   + mediumName + "\".");
     h :=(if fixedX then reference_X else X)*
          {Modelica.Media.IdealGases.Common.Functions.h_T(
                             data[i], T, exclEnthForm, refChoice, h_off) for i in 1:nX};
-    annotation(Inline=false,smoothOrder=2,
-               Inline=false,smoothOrder=2);
+    annotation(Inline=false,smoothOrder=2);
   end h_TX;
 
   function h_TX_der "Return specific enthalpy derivative"
@@ -790,8 +789,7 @@ required from medium model \""   + mediumName + "\".");
                                  data[i], T)*X[i]) for i in 1:nX)+
       sum((Modelica.Media.IdealGases.Common.Functions.h_T(
                              data[i], T)*dX[i]) for i in 1:nX);
-    annotation (InlineNoEvent=false, Inline = false,
-                __Dymola_InlineNoEvent=false, Inline = false);
+    annotation (__Dymola_InlineNoEvent=false, Inline = false);
   end h_TX_der;
 
   redeclare function extends gasConstant "Return gasConstant"
