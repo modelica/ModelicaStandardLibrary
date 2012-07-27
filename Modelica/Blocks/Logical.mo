@@ -130,7 +130,7 @@ the output is <b>false</b>.
 This block delays the Boolean input by an infinitesimal small time delay and
 therefore breaks algebraic loops. In a network of logical blocks, in every
 \"closed connection loop\" at least one logical block must have a delay,
-since algebraic systems of Boolean equations are not solveable.
+since algebraic systems of Boolean equations are not solvable.
 </p>
 
 <p>
@@ -1083,7 +1083,7 @@ The output <code>Q</code> is set by the input <code>S</code> and reset by the in
 </html>"));
   end RSFlipFlop;
 
-  block TerminateSimulation "Terminate simulation if condition is fullfilled"
+  block TerminateSimulation "Terminate simulation if condition is fulfilled"
 
     Modelica.Blocks.Interfaces.BooleanOutput condition=false
       "Terminate simulation when condition becomes true"

@@ -46,6 +46,6 @@ equation
           textString="%name",
           lineColor={0,0,255})}),
     Documentation(info="<html>
-<p>This is the only nonlinear component for Chua&#39;;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance caracteristic is continuous. For Chua&#39;;s circuit both slopes have to be chosen to be negative.</p>
+<p>This is the only nonlinear component for Chua&#39;;s circuit. It is a piecewise linear resistor with both an inner and an outer range, which includes the inner one. The slopes of both ranges are given by parameters. The resistance characteristic is continuous. For Chua&#39;;s circuit both slopes have to be chosen to be negative.</p>
 </html>"));
 end NonlinearResistor;

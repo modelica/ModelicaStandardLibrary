@@ -38,7 +38,7 @@ management systems, loads and charging devices.
   end UsersGuide;
 
   package Examples
-    "Examples that demonstrate the usage of the components of the Elecric Energy Stroage Library "
+    "Examples that demonstrate the usage of the components of the Electric Energy Storage Library "
     extends Modelica.Icons.ExamplesPackage;
 
     model Impedance
@@ -1225,7 +1225,7 @@ management systems, loads and charging devices.
        extends EnergyStorages.Icons.MeasurementPackage;
 
         model StaticResistance
-          "Battery cell model with a static internal impedancea and with basic cell measurement"
+          "Battery cell model with a static internal impedance and with basic cell measurement"
           extends EnergyStorages.Icons.CellStaticResistance;
           parameter CellRecords.StaticResistance.StaticResistanceParameters
                                                cellParameters
@@ -1336,7 +1336,7 @@ management systems, loads and charging devices.
         end StaticResistance;
 
         model LinearDynamicImpedance
-          "Battery cell model with a linear dependant, dynamic internal impedancea and with basic cell measurement"
+          "Battery cell model with a linear dependant, dynamic internal impedance and with basic cell measurement"
         extends EnergyStorages.Icons.CellLinearDynamicImpedance;
           parameter
             CellRecords.LinearDynamicImpedance.LinearDynamicImpedanceParameters
@@ -1745,9 +1745,9 @@ management systems, loads and charging devices.
        //top connection
          connect(cell[1, 1].pin_p, pin_pStack);
 
-       //bottom conection
+       //bottom connection
          connect(cell[ns, np].pin_n, pin_nStack);
-       //heatPort conection
+       //heatPort connection
 
          connect(internalHeatPort, heatPort) annotation (Line(
              points={{80,0},{100,0}},
@@ -2005,9 +2005,9 @@ management systems, loads and charging devices.
         //top connection
           connect(cell[1, 1].pin_p, pin_pStack);
 
-        //bottom conection
+        //bottom connection
           connect(cell[ns, np].pin_n, pin_nStack);
-        //heatPort conection
+        //heatPort connection
 
           connect(internalHeatPort, heatPort) annotation (Line(
               points={{80,0},{100,0}},
@@ -2029,7 +2029,7 @@ management systems, loads and charging devices.
               points={{10.8,0},{80,0}},
               color={191,0,0},
               smooth=Smooth.None));
-        //bus conection
+        //bus connection
 
           annotation (Diagram(graphics),
                                Icon(graphics));
@@ -2409,7 +2409,7 @@ management systems, loads and charging devices.
               smooth=Smooth.None));
         end for;
 
-        //serial conection
+        //serial connection
           connect(p, rclinear[1].p) annotation (Line(
               points={{-100,0},{-20,0}},
               color={0,0,255},
@@ -2422,7 +2422,7 @@ management systems, loads and charging devices.
               color={0,0,255},
               smooth=Smooth.None));
 
-        //temp conection
+        //temp connection
           for k in 1:num loop
              connect(heatPort, rclinear[k].heatPort) annotation (Line(points={{0,100},{0,20}},
                              color={191,0,0}));
@@ -2513,7 +2513,7 @@ management systems, loads and charging devices.
                        "%name")}));
         end RCseriesLinear;
 
-        model CellImpedance "Complete internal impedacen of a battery cell"
+        model CellImpedance "Complete internal impedance of a battery cell"
           parameter EnergyStorages.CellRecords.Components.Resistance Rs
             "Resistance parameters";
           parameter EnergyStorages.CellRecords.Components.RCelement RC[:]
@@ -2835,7 +2835,7 @@ management systems, loads and charging devices.
           parameter EnergyStorages.CellRecords.Components.ChargeCapacity capacity
             "Charge capacity";
           parameter EnergyStorages.CellRecords.Components.SOH SoH
-            "State of health relevant paramters";
+            "State of health relevant parameters";
         equation
           connect(SOC, SOC) annotation (Line(points={{110,60},{110,60}}, color=
                   {0,0,127}));
@@ -3064,7 +3064,7 @@ management systems, loads and charging devices.
                   textString="i")}));
         end Qabs;
 
-        block Cycles "Equivalent caycles calculator"
+        block Cycles "Equivalent cycles calculator"
             extends Icons.Block;
           Modelica.Blocks.Interfaces.RealOutput cycles
             "Output signal connector"
@@ -3219,7 +3219,7 @@ management systems, loads and charging devices.
           parameter Modelica.SIunits.Resistance Z0
             "Sum of all initial ohmic impedances Rs0+Rd0[1]+...+Rd0[ns]";
           parameter EnergyStorages.CellRecords.Components.SOH SoH
-            "State of health relevant paramters";
+            "State of health relevant parameters";
           Modelica.Blocks.Sources.Constant const(final k=1)
             annotation (Placement(transformation(extent={{40,-70},{60,-50}})));
           Modelica.Blocks.Math.Feedback feedback
@@ -3413,7 +3413,7 @@ management systems, loads and charging devices.
           "Operational Temperature"
           annotation (Dialog(enable = not useHeatPort));
       end OperationalParameters;
-    annotation (classOrder={"Impedances","Calculators","Utilites"}, Diagram(graphics));
+    annotation (classOrder={"Impedances","Calculators","Utilities"}, Diagram(graphics));
     end Components;
 
   end Batteries;
@@ -3427,13 +3427,13 @@ management systems, loads and charging devices.
         "Basic parameter record for StaticResistance models"
         extends Modelica.Icons.MaterialProperty;
         parameter EnergyStorages.CellRecords.Components.SOCOCV SOCOCV
-          "SOC vs OCV curve relevant paramters";
+          "SOC vs OCV curve relevant parameters";
         parameter EnergyStorages.CellRecords.Components.ChargeCapacity capacity
           "Charge capacity";
         parameter EnergyStorages.CellRecords.Components.Resistance Rs
           "Resistance parameters";
         parameter EnergyStorages.CellRecords.Components.SOH SoH
-          "State of health relevant paramters";
+          "State of health relevant parameters";
       annotation(defaultComponentPrefixes="parameter", Icon(graphics={Text(
                 extent={{-100,120},{100,100}},
                 lineColor={0,0,255},
@@ -3477,13 +3477,13 @@ management systems, loads and charging devices.
         "Basic parameter record for LinearDynamicImpedance models"
         extends Modelica.Icons.MaterialProperty;
         parameter EnergyStorages.CellRecords.Components.SOCOCV SOCOCV
-          "SOC vs OCV curve relevant paramters";
+          "SOC vs OCV curve relevant parameters";
         parameter EnergyStorages.CellRecords.Components.ChargeCapacity capacity
           "Charge capacity";
         parameter EnergyStorages.CellRecords.Components.Resistance Rs
           "Resistance parameters";
         parameter EnergyStorages.CellRecords.Components.SOH SoH
-          "State of health relevant paramters";
+          "State of health relevant parameters";
         parameter EnergyStorages.CellRecords.Components.Selfdischarge Isd
           "Self discharge parameters"
           annotation(Dialog(group="Advanced"));
@@ -3620,9 +3620,9 @@ management systems, loads and charging devices.
       record RCelement "Combines the properties of an RC element"
         extends Modelica.Icons.Record;
         parameter CellRecords.Components.Resistance Rd
-          "Paramters for the resistance";
+          "Parameters for the resistance";
         parameter CellRecords.Components.Capacitance Cd
-          "Paramters for the capacitance";
+          "Parameters for the capacitance";
       annotation(defaultComponentPrefixes="parameter");
       end RCelement;
 
@@ -3679,7 +3679,7 @@ management systems, loads and charging devices.
         annotation (Placement(transformation(extent={{-70,-10},{-50,10}})));
 
       Interfaces.SingleCellBus.Bus singleCellBus[ns,np]
-        "This bus contains the voltage, the current and the temperatur of the cell"
+        "This bus contains the voltage, the current and the temperature of the cell"
         annotation (Placement(transformation(
             extent={{-20,-20},{20,20}},
             rotation=90,
@@ -5100,7 +5100,7 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
                 rotation=0)));
 
         EnergyStorages.Interfaces.SingleCellBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5129,7 +5129,7 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.SingleCellBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={40,0},
               extent={{-20,20},{20,-20}},
@@ -5163,12 +5163,12 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
       extends Icons.AdaptorOut;
 
         Modelica.Blocks.Interfaces.RealOutput y
-          "Temperatur of the battery (Output)"
+          "Temperature of the battery (Output)"
           annotation (Placement(transformation(extent={{30,-10},{50,10}},
                 rotation=0)));
 
         EnergyStorages.Interfaces.SingleCellBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5197,7 +5197,7 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.SingleCellBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={40,0},
               extent={{-20,20},{20,-20}},
@@ -5236,7 +5236,7 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
                 rotation=0)));
 
         EnergyStorages.Interfaces.SingleCellBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5266,7 +5266,7 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.SingleCellBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={40,0},
               extent={{-20,20},{20,-20}},
@@ -5348,7 +5348,7 @@ constructed by the signals connected to this bus.
       end Bus;
 
       model VariableSwitch
-        "Bus connector switch according to the interger input"
+        "Bus connector switch according to the integer input"
       parameter Integer ns=12 "Number of buses";
         SOCOut sOCOut[ns]
           annotation (Placement(transformation(extent={{-66,46},{-46,66}})));
@@ -5571,7 +5571,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5600,7 +5600,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -5639,7 +5639,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5668,7 +5668,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -5707,7 +5707,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5736,7 +5736,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -5775,7 +5775,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5804,7 +5804,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -5843,7 +5843,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5872,7 +5872,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -5911,7 +5911,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -5940,7 +5940,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -5979,7 +5979,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -6008,7 +6008,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -6047,7 +6047,7 @@ constructed by the signals connected to this bus.
                 rotation=0)));
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={-40,0},
               extent={{-20,20},{20,-20}},
@@ -6076,7 +6076,7 @@ constructed by the signals connected to this bus.
       extends Icons.AdaptorIn;
 
         EnergyStorages.Interfaces.ControlBus.Bus controlBus
-          "This bus contains the voltage, the current and the temperatur of the cell"
+          "This bus contains the voltage, the current and the temperature of the cell"
           annotation (Placement(transformation(
               origin={42,0},
               extent={{-20,20},{20,-20}},
@@ -6141,7 +6141,7 @@ constructed by the signals connected to this bus.
     model ChargeCounter "Senses the transferred charge"
       extends Modelica.Icons.RotationalSensor;
       parameter Modelica.SIunits.ElectricCharge Charge_start=0
-        "Initial transferrend charge";
+        "Initial transferred charge";
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
@@ -6274,10 +6274,10 @@ constructed by the signals connected to this bus.
                    "%name")}));
     end EnergyCounter;
 
-    model AbsChargeCounter "Senses the absolut transferred charge"
+    model AbsChargeCounter "Senses the absolute transferred charge"
       extends Modelica.Icons.RotationalSensor;
       parameter Modelica.SIunits.ElectricCharge Charge_start=0
-        "Initial transferrend charge";
+        "Initial transferred charge";
       Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
@@ -6342,7 +6342,7 @@ constructed by the signals connected to this bus.
                    "%name")}));
     end AbsChargeCounter;
 
-    model AbsEnergyCounter "Senses the absolut transferred energy"
+    model AbsEnergyCounter "Senses the absolute transferred energy"
       extends Modelica.Icons.RotationalSensor;
       parameter Modelica.SIunits.Energy Energy_start=0
         "Initial transferred energy";
@@ -6433,7 +6433,7 @@ constructed by the signals connected to this bus.
       "Senses the transferred energy as well as the transferred charge"
       extends Modelica.Icons.RotationalSensor;
       parameter Modelica.SIunits.ElectricCharge Charge_start=0
-        "Initial transferrend charge";
+        "Initial transferred charge";
       parameter Modelica.SIunits.Energy Energy_start=0
         "Initial transferred energy";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_pc "positive pin"
@@ -6644,7 +6644,7 @@ constructed by the signals connected to this bus.
 
   package Sources "Contains loads and chargers"
     extends Modelica.Icons.SourcesPackage;
-    package Loads "Package with differnt loads"
+    package Loads "Package with different loads"
     extends Modelica.Icons.Package;
      extends EnergyStorages.Icons.Load;
 
@@ -6950,7 +6950,7 @@ constructed by the signals connected to this bus.
             1356,-1.541663615;1357,-0.975896978;1358,-4.584656071;1359,-3.875336982;1360,-3.679521202;
             1361,-3.479181935;1362,-5.131929056;1363,-8.692604712;1364,-6.342728867;1365,-3.840186021;
             1366,-1.778577377;1367,-2.41891E-10;1368,0;1369,0;1370,0]
-            "FTP72 power table (time = first column; power in kW= scond columns e.g. table=[0,2])";
+            "FTP72 power table (time = first column; power in kW= second columns e.g. table=[0,2])";
           Components.FTP72_Power fTP72_Power(gain=gain, table=table)
             annotation (Placement(transformation(extent={{-60,6},{-40,26}})));
           parameter Modelica.Blocks.Interfaces.RealOutput gain=1 "Gain";
@@ -7362,7 +7362,7 @@ constructed by the signals connected to this bus.
               1356,-1.541663615;1357,-0.975896978;1358,-4.584656071;1359,-3.875336982;1360,-3.679521202;
               1361,-3.479181935;1362,-5.131929056;1363,-8.692604712;1364,-6.342728867;1365,-3.840186021;
               1366,-1.778577377;1367,-2.41891E-10;1368,0;1369,0;1370,0]
-              "FTP72 power table (time = first column; power in kW= scond columns e.g. table=[0,2])";
+              "FTP72 power table (time = first column; power in kW= second columns e.g. table=[0,2])";
             Modelica.Blocks.Interfaces.RealOutput y
               "Connector of Real output signal"
               annotation (Placement(transformation(extent={{100,-10},{120,10}})));
@@ -8112,7 +8112,7 @@ constructed by the signals connected to this bus.
                 fillPattern=FillPattern.Solid)}));
       end LimitedIntegralController;
 
-      model ControlledCurrent "Controlls the current according to the inputs"
+      model ControlledCurrent "Controls the current according to the inputs"
       extends EnergyStorages.Icons.Source;
 
         parameter Modelica.SIunits.Voltage Vref "Reference voltage";

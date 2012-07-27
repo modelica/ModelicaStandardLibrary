@@ -1623,7 +1623,7 @@ If several distances are given (vector deltaq has more than 1 element),
 an acceleration output vector is constructed such that all signals
 are in the same periods in the acceleration, constant velocity
 and deceleration phase. This means that only one of the signals
-is at its limits whereas the others are sychnronized in such a way
+is at its limits whereas the others are synchronized in such a way
 that the end point is reached at the same time instant.
 </p>
 
@@ -1947,7 +1947,7 @@ If vectors q_begin/q_end have more than 1 element,
 the output vectors are constructed such that all signals
 are in the same periods in the acceleration, constant velocity
 and deceleration phase. This means that only one of the signals
-is at its limits whereas the others are sychnronized in such a way
+is at its limits whereas the others are synchronized in such a way
 that the end point is reached at the same time instant.
 </p>
 
@@ -2159,7 +2159,7 @@ This block generates an output signal by <b>linear interpolation</b> in
 a table. The time points and function values are stored in a matrix
 <strong><code>table[i,j]</code></strong>, where the first column table[:,1] contains the
 time points and the second column contains the data to be interpolated.
-The table interpolation has the following proporties:
+The table interpolation has the following properties:
 </p>
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
@@ -2169,7 +2169,7 @@ The table interpolation has the following proporties:
     <b>extrapolation</b> through the last or first two points of the
     table.</li>
 <li>If the table has only <b>one row</b>, no interpolation is performed and
-    the function value is just returned independantly of the
+    the function value is just returned independently of the
     actual time instant.</li>
 <li>Via parameters <strong><code>startTime</code></strong> and <strong><code>offset</code></strong> the curve defined
     by the table can be shifted both in time and in the ordinate value.
@@ -2227,7 +2227,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       end TimeTable;
 
   model CombiTimeTable
-    "Table look-up with respect to time and linear/perodic extrapolation methods (data from matrix/file)"
+    "Table look-up with respect to time and linear/periodic extrapolation methods (data from matrix/file)"
 
     parameter Boolean tableOnFile=false
       "= true, if table is defined on file or in function usertab"
@@ -2973,7 +2973,7 @@ changes its value to the negated value of the previous one.
 </html>"));
     end BooleanTable;
 
-  block RadioButtonSource "Boolean signal source that mimis a radio button"
+  block RadioButtonSource "Boolean signal source that mimics a radio button"
 
     parameter Modelica.SIunits.Time buttonTimeTable[:]
       "Time instants where button is pressed";
@@ -3021,7 +3021,7 @@ changes its value to the negated value of the previous one.
 Boolean signal source that mimics a radio button:
 Via a table, a radio button is pressed (i.e., the output 'on' is set to true) and is reset when an element of the Boolean vector
 'reset' becomes true. If both appear at the same time instant, setting
-the button according to the table has a higher priority as reseting
+the button according to the table has a higher priority as resetting
 the button. Example:
 </p>
 

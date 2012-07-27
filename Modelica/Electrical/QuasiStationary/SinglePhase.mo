@@ -85,7 +85,7 @@ package SinglePhase "Single phase AC components"
       annotation ( Documentation(info="<html>
 <p>
 The frequency of the voltage source is varied by a ramp.
-Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
+Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, versus time resp. frequency.
 </p>
 </html>"),
         experiment(StopTime=1.0, Interval=0.001));
@@ -183,7 +183,7 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
       annotation ( Documentation(info="<html>
 <p>
 The frequency of the current source is varied by a ramp.
-Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versis time resp. frequency.
+Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, versus time resp. frequency.
 </p>
 </html>"),
         experiment(StopTime=1.0, Interval=0.001));
@@ -361,7 +361,7 @@ It can be ssen that at the DC side the current is represented by its averaged va
 <h4>Note</h4>
 <p>
 The quasi stationary model needs a grounding at the QS side as well as the DC side,
-wheras the transient model may have only one ground since AC side and DC side are connected via the diodes.
+whereas the transient model may have only one ground since AC side and DC side are connected via the diodes.
 </p>
 </html>"),
         experiment(StopTime=1.0, Interval=0.0001));
@@ -970,7 +970,7 @@ This model is a simple short cut branch considering the complex voltage <i><u>v<
 <P>
 The commuting switch has a positive pin p and two negative pins n1 and n2.
 The switching behaviour is controlled
-by the inpug signal control. If control is true, the pin p is connected
+by the input signal control. If control is true, the pin p is connected
 with the negative pin n2. Otherwise, the pin p is connected to the negative pin n1.
 </P>
 <P>
@@ -1792,7 +1792,7 @@ derived from this base connector.
 
 <p>
 The positive pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a>.
 </p>
 
 <h4>See also</h4>
@@ -1830,7 +1830,7 @@ Additionally the reference angle is specified in the connector. The time derivat
 
 <p>
 The negative pin is based on <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.Pin\">Pin</a>.
-Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angluar velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
+Additionally the reference angle is specified in the connector. The time derivative of the reference angle is the actual angular velocity of the quasi stationary voltage and current. The symbol is also designed such way to look different than the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive pin</a>.
 </p>
 
 <h4>See also</h4>
@@ -1863,7 +1863,7 @@ Additionally the reference angle is specified in the connector. The time derivat
       annotation (         Documentation(info="<html>
 <p>
 This partial model uses a <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.PositivePin\">positive</a>
-and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitely defined as variable. This model is mainly intended to be used with graphical representation of user models.
+and <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Interfaces.NegativePin\">negative pin</a> and defines the complex voltage difference as well as the complex current (into the positive pin). Additionally, the angular velocity of the quasi stationary system is explicitly defined as variable. This model is mainly intended to be used with graphical representation of user models.
 </p>
 
 <h4>See also</h4>
@@ -2087,7 +2087,7 @@ The source partial model relies on the
         Documentation(info="<html>
 <p>
 This is an ideal AC DC converter, based on a power balance between QS circuit and DC side.
-The paramater <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage.
+The parameter <i>conversionFactor</i> defines the ratio between averaged DC voltage and QS rms voltage.
 Furthermore, reactive power at the QS side is set to 0.
 </p>
 <h4>Note:</h4>

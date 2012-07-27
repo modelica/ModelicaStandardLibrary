@@ -88,7 +88,7 @@ package Lines
    end if;
     annotation (
       Documentation(info="<html>
-<p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
+<p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"
@@ -99,7 +99,7 @@ package Lines
 <br> The resistances are calculated with : R=r*length/(N+1).
 <br> The inductances are calculated with : L=l*length/(N+1).
 <br> For all capacitors, conductors, resistors and inductors the values of each segment are the same except of the first and last resistor and inductor, that only have the half of the above calculated value of the rest.
-<br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value graeter then zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
+<br><p>The user has the possibility to enable a conditional heatport. If so, the OLine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the OLine becomes temperature sensitive</p><p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref))</code> and conductors calculated by <code> (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</code> </p>
 <p>Note, this is different to the lumped line model of SPICE.</p>
 
 <dl><dt><b>References:</b> </dt>
@@ -404,7 +404,7 @@ equation
             lineColor={0,0,255})}),
     Documentation(
         info="<html>
-<p>The M_OLine is a multi line model which consists of several segements and several single lines. Each segement consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
+<p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/segment.png\"
@@ -420,7 +420,7 @@ equation
      alt=\"segment_last.png\">
 </blockquote>
 
-<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segements</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m lenght, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
+<p>The number of the capacitors and conductors depends on the number of single lines that are used, because each line is connected to every other line by both a capacitor and a conductor. One line consists of <b>at least two segments</b>. Inside the model M_OLine the model <i>segment</i> is used. This model represents one segment which is build as described above. For modelling the inductances and their mutual couplings the model M_Transformer is used. To fill the resistance vector, resistance values as many as lines are needed, e.g., if there are four lines, four resistances are needed. For example for a microelectronic line of 0.1m length, a sensible resistance-vector would be R=[4.76e5, 1.72e5, 1.72e5, 1.72e5].</p>
 <p>Filling the matrixes of the inductances, capacitances and conductances is a bit more complicated, because those components occur also between two lines and not only (like the resistor) in one line. The entries of the matrices are given by the user in form of a vector. The vector length dim_vector_lgc is calculated by <b>dim_vector_lgc = lines*(lines+1)/2</b>. Inside the model a symmetric inductance matrix, a symmetric capacitance matrix and a symmetric conductance matrix are build out of the entries of the vectors given by the user. The way of building is the same for each matrix, so the approach for filling one of the matrices will be shown at an example:</p>
 <p>The number of lines is assumed to be four. To build the matrix, the model needs the values from the main diagonal and from the positions that are below the main diagonal. To get the following matrix</p>
 
@@ -430,25 +430,25 @@ equation
 
 <p>the vector with dim_vector_lgc=4*5/2=10 has to appear in the following way: vector = [<b>1</b>, 0.1, 0.2, 0.4, <b>2</b>, 0.3 0.5, <b>3</b>, 0.6, <b>4</b>] </p>
 
-<p>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible inductance-matrix would be </p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqL.png\" alt=\"L\"/>
 </blockquote>
 
-<p>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:</p>
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible capacitance-matrix would be:</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqC.png\" alt=\"C\"/>
 </blockquote>
 
-<p>For the example of a microelectronic line of 0.1m lenght, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:</p>
+<p>For the example of a microelectronic line of 0.1m length, which is used as default example for the M_OLine model, a sensible conductance-matrix would be:</p>
 
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/Lines/M_OLine-eqG.png\" alt=\"G\"/>
 </blockquote>
 
-<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value graeter then zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
+<p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
 </html>",revisions="<HTML>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
@@ -564,7 +564,7 @@ end M_OLine;
 <p>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
-<br>For all capacitors and resistors the values of each segment are the same exept of the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value graeter then zero, the ULine becomes temperature sensitive</p>
+<br>For all capacitors and resistors the values of each segment are the same except for the first and last resistor, that only has the half of the above calculated value.<p>The user has the possibility to enable a conditional heatport. If so, the ULine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the ULine becomes temperature sensitive</p>
 <p>due to their resistors which resistances are calculated by <code>R = R_ref*(1 + alpha*(heatPort.T - T_ref)).</code> </p>
 <p>Note, this is different compared with the lumped line model of SPICE.</p>
 <p><b>References</b></p>
@@ -628,7 +628,7 @@ The capacitances are calculated with: C=c*length/N.
      er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;) and TD = sqrt(L&#39;;*C&#39;;)*length_of_line. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;) and TD = sqrt(L&#39;;*C&#39;;)*length_of_line. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero.</p>
 <p><b>References:</b></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
@@ -710,7 +710,7 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
+<p>Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL The lossless transmission line TLine2 is a two Port. Both port branches consist of a resistor with the value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The normalized length NL is equal to the length of the line divided by the wavelength corresponding to the frequency F, i. e. the transmission delay TD is the quotient of NL and F.</p>
 <p><b>References:</b></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
@@ -783,7 +783,7 @@ The capacitances are calculated with: C=c*length/N.
     er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
-<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the caracteristic impedance is called natural impedance.</p>
+<p>Lossless transmission line with characteristic impedance Z0 and frequency F The lossless transmission line TLine3 is a two Port. Both port branches consist of a resistor with value of the characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay. For further details see Branin&#39;;s article below. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero. The characteristic impedance Z0 can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;). The length of the line is equal to a quarter of the wavelength corresponding to the frequency F, i. e. the transmission delay is the quotient of 4 and F. In this case, the characteristic impedance is called natural impedance.</p>
 <p><b>References:</b></p>
 <dl><dt>Branin Jr., F. H.</dt>
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
@@ -889,7 +889,7 @@ The capacitances are calculated with: C=c*length/N.
     connect(L[N + 1].n, p2);
     annotation (
       Documentation(info="<html>
-<p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductord and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
+<p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
 <p>To get a symmetric line model, the first resistor and inductor are cut into two parts (R1 and R_Nplus1, L1 and L_Nplus1). These two new resistors and inductors have the half of the resistance respectively inductance the original resistor respectively inductor.</p>
 
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Analog/OLine.png\"
@@ -994,7 +994,7 @@ The capacitances are calculated with: C=c*length/N.
 <p>
 The capacitances are calculated with: C=c*length/N.
 <br>The resistances are calculated with: R=r*length/(N+1).
-<br>For all capacitors and resistors the values of each segment are the same exept of the first and last resistor, that only has the half of the above calculated value.
+<br>For all capacitors and resistors the values of each segment are the same except of the first and last resistor, that only has the half of the above calculated value.
 <br><br>Note, this is different compared with the lumped line model of SPICE.</p>
 <p><b>References</b></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>

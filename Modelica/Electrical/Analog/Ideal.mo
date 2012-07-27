@@ -39,7 +39,7 @@ package Ideal
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
-with zero resistance and zero cinductance is not possible.
+with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
 thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
 resistance <i>Ron</i> which is default.
@@ -182,7 +182,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 <p>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
-with zero resistance and zero cinductance is not possible.
+with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
 thyristor has a small conductance <i>Goff</i> and the closed thyristor has a low
 resistance <i>Ron</i> which is default.
@@ -1060,7 +1060,7 @@ This is an ideal switch which is<br><br>
 <br/>
 This is the behaviour if all parameters are exactly zero.<br><br>
 Note, there are circuits, where this ideal description
-with zero resistance and zero cinductance is not possible.
+with zero resistance and zero conductance is not possible.
 In order to prevent singularities during switching, the opened
 diode has a small conductance <i>Gon</i> and the closed diode has a low
 resistance <i>Roff</i> which is default.
@@ -1371,7 +1371,7 @@ where the constant <i>G</i> is called the gyration conductance.
     i = 0;
     annotation (
       Documentation(info="<html>
-<p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completness this component is part of the MSL, as an opposite of the short cut.</p>
+<p>The model Idle is a simple idle running branch. That means between both pins no current is running. This ideal device is of no influence on the circuit. Therefore, it can be neglected in each case. For purposes of completeness this component is part of the MSL, as an opposite of the short cut.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1410,7 +1410,7 @@ where the constant <i>G</i> is called the gyration conductance.
     v = 0;
     annotation (
       Documentation(info="<html>
-<p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be nelected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
+<p>The model Short is a simple short cut branch. That means the voltage drop between both pins is zero. This device could be neglected if both pins are combined to one node. Besides connecting the nodes of both pins this device has no further function.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -1908,8 +1908,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
 </p>
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
+The basic model interrupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
@@ -2042,8 +2042,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
+The basic model interrupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
@@ -2154,8 +2154,8 @@ This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analo
 </p>
 
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
+The basic model interrupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
@@ -2289,8 +2289,8 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
 <p>
-The basic model interupts the current through the switch in an infinitesimal time span.
-If an inductive circuit is connected, the voltage across the swicth is limited only by numerics.
+The basic model interrupts the current through the switch in an infinitesimal time span.
+If an inductive circuit is connected, the voltage across the switch is limited only by numerics.
 In order to give a better idea for the voltage across the switch, a simple arc model is added:
 </p>
 <p>
@@ -2561,7 +2561,7 @@ It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type 
 Further effects (like input capacities) have to be modeled outside the converter, since this should be a general model. </P>
 
 <P>
-The input singnal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of lenght Vlsb:=(VRefHi-VRefLo)/(2^n-1).
+The input signal range (VRefLo,VRefHi) is divided into 2^n-1 equally spaced stages of length Vlsb:=(VRefHi-VRefLo)/(2^n-1).
 The output signal is the binary code of <code> k </code> as long as the input voltage takes values in the k-th stage, namely in the range from
 <code> Vlsb*(k-0.5) </code> to <code> m*(k+0.5) </code>. This is called mid-tread operation. Additionally the output can only change
 its value if the trigger signal <CODE> trig </CODE> of type Logic changes to '1' (forced or weak).
@@ -2573,7 +2573,7 @@ The output vector is a 'little-endian'. i.e., that the first bit y[1] is the lea
 
 <P>
 This is an abstract model of an ADC. Therefore, it can not cover the dynamic behaviour of the converter.
-Hence the output will change instantaniously when the trigger signal rises.
+Hence the output will change instantaneously when the trigger signal rises.
 </P>
 
 </HTML>
@@ -2648,7 +2648,7 @@ Hence the output will change instantaniously when the trigger signal rises.
       i=1
 </pre>
 <p>where x[i], i=1,...,N is 1 or 0. and Vref is the reference value. Therefore, the first bit in the input vector x[1] is the least significant one (LSB) and x[N] is the most significant bit (MSB).</p>
-<p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaniously when the trigger signal rises.</p>
+<p>This is an abstract model of a DAC. Hence, it can not cover the dynamic behaviour of the converter. Therefore the output will change instantaneously when the trigger signal rises.</p>
 </html>",
    revisions="<html>
 <ul>

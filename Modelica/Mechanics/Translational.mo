@@ -4,7 +4,7 @@ package Translational
   extends Modelica.Icons.Package;
   import SI = Modelica.SIunits;
 
-  package Examples "DeMonstration examples of the components of this package"
+  package Examples "Demonstration examples of the components of this package"
 
     extends Modelica.Icons.ExamplesPackage;
 
@@ -541,7 +541,7 @@ with:
 
 <p>
 To make sure that the system is initially at rest the initial
-conditions s(start=0) and v(start=0) for the SlindingMass
+conditions s(start=0) and v(start=0) for the SlidingMass
 are set.
 If damping is added the amplitudes are bounded.
 </p>
@@ -910,7 +910,7 @@ to see the difference.
 <p>
 When designing hydraulic valves it is often necessary to hold the spool in
 a certain position as long as an external force is below a threshold value.
-If this force exceeds the treshold value a linear relation between force
+If this force exceeds the threshold value a linear relation between force
 and position is desired.
 There are designs that need only one spring to accomplish this task. Using
 the ElastoGap elements this design can be modelled easily.
@@ -1665,7 +1665,7 @@ between two sliding masses.
     model SpringDamper "Linear 1D translational spring and damper in parallel"
       extends Translational.Interfaces.PartialCompliantWithRelativeStates;
       parameter SI.TranslationalSpringConstant c(final min=0, start = 1)
-        "Dpring constant";
+        "Spring constant";
       parameter SI.TranslationalDampingConstant d(final min=0, start = 1)
         "Damping constant";
       parameter SI.Position s_rel0=0 "Unstretched spring length";
@@ -1794,7 +1794,7 @@ if a positive force is acting on the element and no other force balances this fo
         "Linear damping force which is limited by spring force (|f_d| <= |f_c|)";
     equation
       // Modify contact force, so that it is only "pushing" and not
-      // "pulling/sticking" and that it is continous
+      // "pulling/sticking" and that it is continuous
       contact = s_rel < s_rel0;
       f_c  = smooth(1, noEvent( if contact then -c*abs(s_rel - s_rel0)^n else 0));
       f_d2 = if contact then d*v_rel else 0;
@@ -2592,7 +2592,7 @@ with the value of the input signal \"s_start\" at the start time.
 
 <p>
 Additionally, it is optionally possible to define the \"StateSelect\"
-attribute of the flange position and the flange speed via paramater
+attribute of the flange position and the flange speed via parameter
 \"stateSelection\".
 </p>
 
@@ -2732,7 +2732,7 @@ Additionally, a left and right stop are handled.
                                                       F_prop*v - F_Coulomb - F_Stribeck*exp(-fexp*abs(v)));
       lossPower = f*v_relfric;
 
-    // Define events for hard stops and reinitilize the state variables velocity v and position s
+    // Define events for hard stops and reinitialize the state variables velocity v and position s
     algorithm
       when (initial()) then
         assert(s > smin + L/2 or s >= smin + L/2 and v >= 0,
@@ -4067,7 +4067,7 @@ Positive force acts accelerating.
               textString="%v_fixed")}),
                                     Documentation(info="<HTML>
 <p>
-Model of <b>fixed</b> verlocity of flange, not dependent on force.
+Model of <b>fixed</b> velocity of flange, not dependent on force.
 </p>
 </HTML>"));
     end ConstantSpeed;
@@ -4227,7 +4227,7 @@ The following variables are transported through this connector:
 <p>This is a connector for 1-dim. rotational mechanical systems and models the support or housing of a shaft. The following variables are defined in this connector:</p>
 <table cellspacing=\"0\" cellpadding=\"2\" border=\"1\"><tr>
 <td valign=\"top\"><h4>s</h4></td>
-<td valign=\"top\"><p>Absolute psotion of the support/housing in [m]</p></td>
+<td valign=\"top\"><p>Absolute position of the support/housing in [m]</p></td>
 </tr>
 <tr>
 <td valign=\"top\"><h4>f</h4></td>
@@ -4562,7 +4562,7 @@ flange is the same. It is used to built up springs, dampers etc.
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
               rotation=0)));
       Translational.Interfaces.Flange_b flange_b
-        "Right flange of compliant 1-dim. transational component"
+        "Right flange of compliant 1-dim. translational component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
 
@@ -4897,7 +4897,7 @@ connector is not connected).
 <li>one rotational flange, </li>
 <li>one rotational support/housing, </li>
 <li>one translational flange, and </li>
-<li>one translatinal support/housing </li>
+<li>one translational support/housing </li>
 </ul>
 <p>This model is used to build up elementary components of a drive train transforming rotational into translational motion with equations in the text layer.</p>
 <p>If <i>useSupportR=true</i>, the rotational support connector is conditionally enabled and needs to be connected.</p>
@@ -5292,7 +5292,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Universit&aum
 <li><i>Version 1.1.0 2007-11-16</i>
        by Anton Haumer<br>
        Redesign for Modelica 3.0-compliance<br>
-       Added new components acording to Mechanics.Rotational library
+       Added new components according to Mechanics.Rotational library
        <br></li>
 
 <li><i>Version 1.01 (July 18, 2001)</i>

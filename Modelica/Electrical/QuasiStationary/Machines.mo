@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStationary;
-package Machines "Quasistaionary machine models"
+package Machines "Quasistationary machine models"
   extends Modelica.Icons.Package;
 
   package Examples "Test examples"
@@ -507,7 +507,7 @@ Transformer Yy10
 </html>"));
         end Yy10;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary Y connected / secondary y connected in all possbile vector groups.
+This package contains transformers primary Y connected / secondary y connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -765,7 +765,7 @@ Transformer Yd11
 </html>"));
         end Yd11;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary Y connected / secondary d connected in all possbile vector groups.
+This package contains transformers primary Y connected / secondary d connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -1112,7 +1112,7 @@ Transformer Yz11
 </html>"));
         end Yz11;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary Y connected / secondary zig-zag connected in all possbile vector groups.
+This package contains transformers primary Y connected / secondary zig-zag connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -1380,7 +1380,7 @@ Transformer Dy11
 </html>"));
         end Dy11;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary D connected / secondary y connected in all possbile vector groups.
+This package contains transformers primary D connected / secondary y connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -1608,7 +1608,7 @@ Transformer Dd10
 </html>"));
         end Dd10;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
+This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -1926,7 +1926,7 @@ Transformer Dz10
 </html>"));
         end Dz10;
         annotation (Documentation(info="<HTML>
-This package contains transformers primary D connected / secondary d connected in all possbile vector groups.
+This package contains transformers primary D connected / secondary d connected in all possible vector groups.
 </HTML>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -1967,7 +1967,7 @@ All transformers extend from the base model <i>PartialTransformer</i>, adding th
 <b>VectorGroup</b> defines the phase shift between primary and secondary voltages, expressed by a number phase shift/30 degree
 (i.e., the hour on a clock face). Therefore each transformer is identified by two characters and a two-digit number,
 e.g., Yd11 ... primary connection Y (star), secondary connection d (delta), vector group 11 (phase shift 330 degree)<br>
-With the \"supermodel\" <i>Tranformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
+With the \"supermodel\" <i>Transformer</i>&nbsp; the user may choose primary and secondary connection as well as the vector group.<br>
 It calculates winding ratio as well as primary and secondary winding resistances and stray inductances,
 distributing them equally to primary and secondary winding, from the following parameters:
 </p>
@@ -2182,7 +2182,7 @@ Copyright &copy; 1998-2010, Modelica Association and Anton Haumer.
               Line(points={{32,-40},{90,-40}}, color={0,0,255}),
               Line(points={{34,-90},{92,-90}}, color={0,0,255})}),
           Documentation(info="<html>
-Partial model of transformer core with 3 windings; saturation function flux versus magentizing current has to be defined.
+Partial model of transformer core with 3 windings; saturation function flux versus magnetizing current has to be defined.
 </html>"));
       end PartialCore;
 
@@ -2233,7 +2233,7 @@ This package contains components for modeling quasi stationary electrical induct
 <ul>
 <li>package AsynchronousInductionMachines: quasi stationary models of three phase asynchronous induction machines</li>
 <li>package SynchronousInductionMachines: quasi stationary models of three phase synchronous induction machines</li>
-<li>package Transformers: quasi stationary threephase transformers (see detailled documentation in subpackage)</li>
+<li>package Transformers: quasi stationary threephase transformers (see detailed documentation in subpackage)</li>
 <li>package Components: components for quasi stationary modeling machines and transformers</li>
 </ul>
 </html>"));
@@ -2511,10 +2511,10 @@ This package contains the quasi stationary space phasor connector and partial mo
 </p>
 <h4>Please note</h4>
 <p>
-Quasi stationary DC machines are still operated with Dc voltage and current, whereas the quasi staionary induction machines and transformers
+Quasi stationary DC machines are still operated with Dc voltage and current, whereas the quasi stationary induction machines and transformers
 are operated with sinusoidal voltages and currents represented by time phasors. Quasi stationary theory can be found in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.References\">references</a>.
-Quasi stationary DC machine models thereofore are part of the
+Quasi stationary DC machine models therefore are part of the
 <a href=\"modelica://Modelica.Electrical.Machines.BasicMachines.QuasiStationaryDCMachines\">machines library</a>.
 </p>
 

@@ -215,7 +215,7 @@ equation
 to the output connector.</p>
 <p>The extracting scheme is given by the integer vector 'extract'.
 This vector specifies, which input signals are taken and in which
-order they are transfered to the output vector. Note, that the
+order they are transferred to the output vector. Note, that the
 dimension of 'extract' has to match the number of outputs.
 Additionally, the dimensions of the input connector signals and
 the output connector signals have to be explicitly defined via the
@@ -670,7 +670,7 @@ explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
     annotation (
       Documentation(info="<HTML>
 <p>
-The input connector is <b>splitted</b> up into two output connectors.
+The input connector is <b>split</b> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>

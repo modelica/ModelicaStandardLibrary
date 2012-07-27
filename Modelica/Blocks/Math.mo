@@ -607,7 +607,7 @@ All other blocks convert exactly between two different units.
           Rectangle(extent={{-190,120},{190,-120}}, lineColor={135,135,135})}),
       Documentation(info="<html>
 <p>
-Exchange input and ouput signals of a block, i.e., the previous
+Exchange input and output signals of a block, i.e., the previous
 block inputs become block outputs and the previous block outputs become
 block inputs. This block is used to construct inverse models.
 Its usage is demonstrated in example:
@@ -1050,7 +1050,7 @@ Example:
       end Feedback;
 
       block Add
-    "Output the sum of the two inputs (this is an obsolet block. Use instead MultiSum)"
+    "Output the sum of the two inputs (this is an obsolete block. Use instead MultiSum)"
         extends Interfaces.SI2SO;
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
@@ -1150,7 +1150,7 @@ Example:
       end Add;
 
       block Add3
-    "Output the sum of the three inputs (this is an obsolet block. Use instead MultiSum)"
+    "Output the sum of the three inputs (this is an obsolete block. Use instead MultiSum)"
         extends Modelica.Blocks.Icons.Block;
 
         parameter Real k1=+1 "Gain of upper input";
@@ -1241,7 +1241,7 @@ Example:
       end Add3;
 
       block Product
-    "Output product of the two inputs (this is an obsolet block. Use instead MultiProduct)"
+    "Output product of the two inputs (this is an obsolete block. Use instead MultiProduct)"
         extends Interfaces.SI2SO;
 
       equation
@@ -3510,7 +3510,7 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
       DymolaStoredErrors,
       Documentation(info="<html>
 <p>
-Determnies the minimum and maximum of the <code>nin</code> inputs.
+Determines the minimum and maximum of the <code>nin</code> inputs.
 </p>
 </html>"));
   end MinMax;

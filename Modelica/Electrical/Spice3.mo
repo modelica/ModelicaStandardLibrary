@@ -15,19 +15,19 @@ extends Modelica.Icons.Package;
 <p><u>General information about the analog simulator SPICE3 </u></p>
 <p>SPICE (Simulation Program with Integrated Circuit Emphasis) is a simulator for analog electrical circuits. It was developed as one of the first analog simulators in the university of Berkeley. SPICE netlists, which contain the circuit that shall be simulated, are a de-facto-standard up to now. For nearly every electrical circuit a SPICE netlist exists. Today the current version of SPICE is SPICE3e/SPICE3f. SPICE contains basic elements (resistor, inductor, capacitor), sources and semiconductor devices (diode, bipolar transistors, junction field effect transistors, MOS-field effect transistors) as well as models of lines. Out of this offered pool of elements, the circuits that shall be simulated are build as SPICE netlists.</p>
 <p><u>The Spice3-library for Modelica</u></p>
-<p>The Spice3 library was extraced from orinial SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3. This way was chosen since SPICE3 is the only open source Spice simulator.</p>
+<p>The Spice3 library was extracted from original SPICE3 C++ code. To be sure the Modelica models are correct the simulation results were compared to SPICE3. This way was chosen since SPICE3 is the only open source Spice simulator.</p>
 <p>The Spice3-library was built in accordance to the model structure in SPICE. It contains the following packages:</p>
 <ul>
 <li>Examples</li>
 <li>Basic (R, C, L, controlled sources) </li>
 <li>Semiconductors (MOS (P, N), BJT(NPN PNP), Diode, semiconductor resistor)</li>
-<li>Sources (constant, sinusodial, exponential, pulse, piece wise linear, single-frequency FM, respectively for V and I)</li>
+<li>Sources (constant, sinusoidal, exponential, pulse, piece wise linear, single-frequency FM, respectively for V and I)</li>
 <li>Additionals (useful features from SPICE2)</li>
 <li>Interfaces</li>
 <li>Internal (functions and data needed to model the semiconductor devices)<br></li>
 </ul>
 <p>Since the semiconductor models, especially MOS and BJT, are very complex models, many functions, data and parameters were needed for their description. Therefore a special Package called Internal was created that contains all the functions and records with data and parameters that are needed for the semiconductor models. It is not necessary that a user of the library works inside this package, so it is not for user access. The package Additionals is also a special one. It is not part of the original SPICE3 models. Nevertheless it contains useful models or features like the polynomial sources of SPICE2 that are often asked for.</p>
-<p>There are many commercial SPICE simulators (PSPICE, NgSPICE, HSPICE, ...) which are derived from the Berkeley SPICE or are in some relation to it. Netlists of such SPICE derivatives can differ from Berkeley SPICE3 netlists. This has to be taken into account if netlists (their parameter names) are used whith this package.</p>
+<p>There are many commercial SPICE simulators (PSPICE, NgSPICE, HSPICE, ...) which are derived from the Berkeley SPICE or are in some relation to it. Netlists of such SPICE derivatives can differ from Berkeley SPICE3 netlists. This has to be taken into account if netlists (their parameter names) are used with this package.</p>
 </html>"));
   end Overview;
 
@@ -35,8 +35,8 @@ extends Modelica.Icons.Package;
     extends Modelica.Icons.Information;
 
     annotation (Documentation(info="<html>
-<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usualy done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
-<p>To parametrice more than one model two ways are possible:</p>
+<p>Within the semiconductor devices SPICE3 differentiates between technology parameters and device parameters. Device parameters can be chosen for every single model instance, e.g., the channel length of a transistor. Technology parameters which are specified in a model card (.model) are adjustable for more than one element simultaneously, e.g. the type of transistors. As usually done in Modelica the parameters of the modelcard can be set in a parameter list.</p>
+<p>To parametrize more than one model two ways are possible:</p>
 <ol>
 <li>Apart record:<br>For each transistor in the circuit a record with the technologieparameters is made available as an instance of the record modelcardMOS. In the example<br>&quot;inverterApartRecord&quot; this way is explained more in detail.</li>
 <li>Extended model:<br>For each set of technologyparameters a apart model has to be defined. In the example &quot;inverterExtendedModel&quot; this way is explained more in detail.</li>
@@ -50,7 +50,7 @@ extends Modelica.Icons.Package;
 
     annotation (Documentation(info="<html>
 <h4>Translation of SPICE3 netlists to Modelica </h4>
-<p>Since SPICE3 netlists are avaliable for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
+<p>Since SPICE3 netlists are available for nearly every electrical circuit a desirable feature would be to translate SPICE3 netlists to Modelica. With the help of the example of an inverter circuits a possible way of the translation will be explained.</p>
 
 <table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">
 <caption>Table 1: Translation of the SPICE3 netlist (left side) to Modelica (right side)</caption>
@@ -379,7 +379,7 @@ Zeunerstrasse 38<br />
       Basic.Ground ground        annotation (Placement(transformation(extent={{-38,-80},
                 {-18,-60}},        rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
-    /*apart record: For each transistor in the circuit a record with the technologieparameters is made avaliable
+    /*apart record: For each transistor in the circuit a record with the technologieparameters is made available
   as an instance of the record modelcardMOS */
       parameter Semiconductors.ModelcardMOS MPmos(GAMMA=0.37)
         "Specified modelcardMOS for MPmos"; //instance of record modelcardMOS
@@ -482,7 +482,7 @@ Zeunerstrasse 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
 <p>Output voltage of the second Inverter: mn2.ND.v</p>
-<p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each transistor in the circuit a record with the technology parameters is made avaliable as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made avaliable for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each transistor in the circuit a record with the technology parameters is made available as an instance of the record modelcardMOS. In this circuit we need two different records for technology parameters, one for PMOS (MPmos) and one for NMOS (MNmos). This instances of the record for the technology parameters were made available for every transistor as one of theirs parameters (Spice3.Repository.MOS mn1(mtype=0, modelcard=MNmos).</p>
 </html>", revisions="<html>
 <ul>
 <li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
@@ -606,7 +606,7 @@ Zeunerstrasse 38<br />
 <p>Input voltages: vin.p.v and v.p.v</p>
 <p>Output voltage of the first inverter: mn1.ND.v</p>
 <p>Output voltage of the second Inverter: mn2.ND.v</p>
-<p>This example shows one posibility to make the record of the technology parameters avaliable for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologieparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
+<p>This example shows one possibility to make the record of the technology parameters available for more than one transistor. For each set of technology parameters an apart model has to be defined (in this example: MPmos ans MNmos). Inside the model definition the technology parameters are appointed (Spice3.Semiconductors.modelcardMOS M(GAMMA=0.37, LAMBDA=0.02)). Every model extends a transistor. In this process the required technologieparameters are specified (extends Spice3.Repository.MOS(final mtype=1, modelcard=M). To make transistors available in the circuit instances of the defined models are applied (MPmos mp1; MNmos mn1; MPmos mp2; MNmos mn2;).</p>
 </html>", revisions="<html>
 <ul>
 <li><i>April 2009 </i>by Kristin Majetta initially implemented</li>
@@ -2128,7 +2128,7 @@ RC 3 4 1K<br/>
         Documentation(info="<html>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>The model adds two 4-bit numbers. It has eight inputs where the first one is the lowest-order bit of the first number, the second is the lowest-order bit of the second number, the third one is the second-order bit of
-first number and so on. The Four Bit Binary Adder has four outputs where the first one (node 9) is the lowest-order bit, the second and the third one (node 10 and node 11) are the next two bits and the last one (node 12) is the highest-order bit. The picture illustrates the pin-assignment refering to line 41 and 42 in the SPICE3 sourcecode.</p>
+first number and so on. The Four Bit Binary Adder has four outputs where the first one (node 9) is the lowest-order bit, the second and the third one (node 10 and node 11) are the next two bits and the last one (node 12) is the highest-order bit. The picture illustrates the pin-assignment referring to line 41 and 42 in the SPICE3 source code.</p>
 <blockquote>
 <img src=\"modelica://Modelica/Resources/Images/Electrical/Spice3/FourBitBinaryAdder.jpg\"
      alt=\"segment.png\">
@@ -2257,7 +2257,7 @@ at least one ground object.
 SPICE does not have an element for the ground node (mass). In SPICE
 netlists the ground is specified by the node number 0.
 This Modelica SPICE library demands to describe the ground node
-by this gound element.
+by this ground element.
 </P>
 </HTML>"),
         Icon(coordinateSystem(
@@ -3113,7 +3113,7 @@ The corresponding SPICE description
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
-<li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.- it should be set all the parameters definitly <br>- normally, there exist differences between Dymola and Spice, because TSTEP and TSTOP are not available. <br></li>
+<li>since TSTEP and TSTOP are not available for modeling in Modelica, differences to SPICE may occur if not all parameters are set.- it should be set all the parameters definitely <br>- normally, there exist differences between Dymola and Spice, because TSTEP and TSTOP are not available. <br></li>
 </ul>
 </html>"));
     end V_exp;
@@ -3292,12 +3292,12 @@ The corresponding SPICE description
                   -50},{-40,-50},{-40,-20},{60,-20},{60,10},{-40,10},{-40,40},{
                   60,40},{60,70},{10,70},{10,-51}},color={192,192,192})}),
         Documentation(info="<html>
-<p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following proporties:</p>
+<p>This model generates a voltage by <b>linear interpolation</b> in a given table. The time points and voltage values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the voltage to be interpolated. The table interpolation has the following properties:</p>
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
 <li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independantly of the actual time instant, i.e., this is a constant voltage source.</li>
+<li>If the table has only <b>one row</b>, no interpolation is performed and the voltage value is just returned independently of the actual time instant, i.e., this is a constant voltage source.</li>
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the voltage. </li>
 <li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
 </ul>
@@ -3322,7 +3322,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
       parameter SI.Voltage VA = 0 "Amplitude";
       parameter SI.Frequency FC( start=0) "Carrier frequency";
       parameter Real MDI=0 "Modulation index";
-      parameter SI.Frequency FS= FC "Singnal frequency";
+      parameter SI.Frequency FS= FC "Signal frequency";
     protected
         constant Real pi=Modelica.Constants.pi;
     equation
@@ -3356,7 +3356,7 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               textString="SFFM")}),
         Documentation(info="<html>
-<p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
+<p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
 <h4>Attention:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
@@ -3666,13 +3666,13 @@ If, e.g., time = 1.0, the voltage v =  0.0 (before event), 1.0 (after event)
               fillColor={0,0,255},
               fillPattern=FillPattern.Solid)}),
         Documentation(info="<html>
-<p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following proporties:</p>
+<p>This model generates a current  by <b>linear interpolation</b> in a given table. The time points and current values are stored in a matrix <b>table[i,j]</b>, where the first column table[:,1] contains the time points and the second column contains the current to be interpolated. The table interpolation has the following properties:</p>
 
 <ul>
 <li>The time points need to be <b>monotonically increasing</b>. </li>
 <li><b>Discontinuities</b> are allowed, by providing the same time point twice in the table. </li>
 <li>Values <b>outside</b> of the table range, are computed by <b>extrapolation</b> through the last or first two points of the table.</li>
-<li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independantly of the actual time instant, i.e., this is a constant current source.</li>
+<li>If the table has only <b>one row</b>, no interpolation is performed and the current value is just returned independently of the actual time instant, i.e., this is a constant current source.</li>
 <li>Via parameters <b>startTime</b> and <b>offset</b> the curve defined by the table can be shifted both in time and in the current. </li>
 <li>The table is implemented in a numerically sound way by generating <b>time events</b> at interval boundaries, in order to not integrate over a discontinuous or not differentiable points. </li>
 </ul>
@@ -3698,7 +3698,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
       parameter SI.Current IA = 0 "Amplitude";
       parameter SI.Frequency FC( start=0) "Carrier frequency";
       parameter Real MDI=0 "Modulation index";
-      parameter SI.Frequency FS= FC "Singnal frequency";
+      parameter SI.Frequency FS= FC "Signal frequency";
 
     protected
         constant Real pi=Modelica.Constants.pi;
@@ -3732,7 +3732,7 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
               lineColor={0,0,255},
               textString="SFFM")}),
         Documentation(info="<html>
-<p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the modelica text.</p>
+<p>The single-frequency frequency modulation source generates a carrier signal of the frequency FC. This signal is modulated by the signal frequency FS. See the formula in the Modelica text.</p>
 <h4>Note:</h4>
 <ul>
 <li>All parameters of sources should be set explicitly.</li>
@@ -4134,7 +4134,7 @@ A1, A2 -&gt; pins name.p2, name.p1
 N -&gt; parameter N</pre>
 <p>V1 (...VN) is declared in SPICE:</p>
 <pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
-<p>In Modelica the currents through V1...VN has to be led throught the CCV. Therefore V1...VN have to be disconnected and additional nodes</p>
+<p>In Modelica the currents through V1...VN has to be led through the CCV. Therefore V1...VN have to be disconnected and additional nodes</p>
 <pre>   V1_AD...VN_AD</pre>
 <p>have to be added. In the case, that the SPICE source is</p>
 <pre>   V1 n+ n- 0,</pre>
@@ -4235,7 +4235,7 @@ A1, A2 -&gt; pins name.p2, name.p1
 N -&gt; parameter N</pre>
 <p>V1 (...VN) is declared in SPICE:</p>
 <pre>   V1 V1+ V1- type of voltage source (constant, pulse, sin...)</pre>
-<p>In Modelica the currents through V1...VN has to be led throught the CCC. Therefore V1...VN have to be disconnected and additional nodes</p>
+<p>In Modelica the currents through V1...VN has to be led through the CCC. Therefore V1...VN have to be disconnected and additional nodes</p>
 <pre>   V1_AD...VN_AD</pre>
 <p>have to be added. In the case, that the SPICE source is</p>
 <pre>   V1 n+ n- 0,</pre>
@@ -4308,7 +4308,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
     end InductiveCouplePin;
 
     partial model ConditionalSubstrate
-      "Partial model to include a conditional subtrat node"
+      "Partial model to include a conditional substrate node"
 
       parameter Boolean useSubstrateNode = false
         "=true, if SubtrateNodet is enabled"
@@ -4612,7 +4612,7 @@ on the model behaviour.
     parameter Real NRD = 1 "Number of squares of the drain diffusions";
     parameter Real NRS = 1 "Number of squares of the source diffusions";
   //--------------------------------------------------------------------------------------
-  //need to be Boolean instead of integer, will be changed with the next modelica version
+  //need to be Boolean instead of integer, will be changed with the next Modelica version
   //via converting script
     parameter Integer OFF = 0
         "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
@@ -4830,7 +4830,7 @@ on the model behaviour.
 
        parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
         "Fast surface state density";
-       parameter SI.Length XJ=0.0 "Metallurgiecal junction depth";
+       parameter SI.Length XJ=0.0 "Metallurgical junction depth";
        parameter Types.ElectricFieldStrength_cm UCRIT=1.e4
         "Critical field for mobility degradation (MOS2 only)";
        parameter Real UEXP=0.0
@@ -4838,7 +4838,7 @@ on the model behaviour.
        parameter SI.Velocity VMAX=0.0 "Maximum drift velocity of carries";
        parameter Real NEFF=1.0
         "Total channel charge (fixed and mobile) coefficient (MOS2 only)";
-       parameter Real DELTA=0.0 "Width effect on theshold voltage";
+       parameter Real DELTA=0.0 "Width effect on threshold voltage";
 
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 2</p>
@@ -4980,7 +4980,7 @@ on the model behaviour.
               textString="%name",
               lineColor={0,0,255})}),
         Documentation(info="<html>
-<p>Bibpolar junction transistor model, both NPN and PNP</p>
+<p>Bipolar junction transistor model, both NPN and PNP</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
@@ -5016,7 +5016,7 @@ on the model behaviour.
       parameter SI.Resistance RBM=0.0 "Minimum base resistance, default = 0.0";
       parameter SI.Capacitance CJE=0.0 "Zero bias B-E depletion capacitance";
       parameter SI.Voltage VJE=0.75 "B-E built in potential";
-      parameter Real MJE = 0.33 "B-E junction exponential faktor";
+      parameter Real MJE = 0.33 "B-E junction exponential factor";
       parameter SI.Time TF=0.0 "Ideal forward transit time";
       parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
       parameter SI.Current ITF=0.0 "High current dependence of TF,";
@@ -5184,7 +5184,7 @@ on the model behaviour.
               textString="%name",
               lineColor={0,0,255})}),        Documentation(info="<html>
 <p>This model is obsolete, please use BJT2</p>
-<p>Bibpolar junction transistor model</p>
+<p>Bipolar junction transistor model</p>
 <p>The package Internal is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>
 </html>",     revisions="<html>
 <ul>
@@ -5225,7 +5225,7 @@ on the model behaviour.
         "Minimum base resistance, default = 0.0";
       parameter SI.Capacitance CJE = 0.0 "Zero bias B-E depletion capacitance";
       parameter SI.Voltage VJE = 0.75 "B-E built in potential";
-      parameter Real MJE = 0.33 "B-E junction exponential faktor";
+      parameter Real MJE = 0.33 "B-E junction exponential factor";
       parameter SI.Time TF = 0.0 "Ideal forward transit time";
       parameter Real XTF = 0.0 "Coefficient for bias dependence of TF ";
       parameter SI.Current ITF = 0.0 "High current dependence of TF,";
@@ -5610,17 +5610,17 @@ on the model behaviour.
       extends Modelica.Electrical.Analog.Interfaces.OnePort;
       parameter SI.Capacitance C = -1e40
         "Capacitance, if specified, geometrical information is overwritten";
-      parameter SI.Temp_C TEMP = 27 "Temperature of capcitor";
-      parameter SI.Length  L(start = 0) "Lenght of the capcitor";
+      parameter SI.Temp_C TEMP = 27 "Temperature of capacitor";
+      parameter SI.Length  L(start = 0) "Lenght of the capacitor";
       parameter SI.Length  W = -1e40
-        "Width of the capcitor, default DEFW (modelcard)";
+        "Width of the capacitor, default DEFW (modelcard)";
       parameter Boolean SENS_AREA = false
         "Parameter for sensitivity analyses, not implemented yet";
       parameter SI.Voltage IC = 0 "Initial value";
       parameter Boolean UIC = false
         "Use initial conditions: true, if initial condition is used";
       parameter Modelica.Electrical.Spice3.Internal.ModelcardC modelcard
-        "Capcitor modelcard";
+        "Capacitor modelcard";
       final parameter
         Modelica.Electrical.Spice3.Internal.Csemiconductor.CapacitorModelLineParams
                                                                                     lp=
@@ -5785,7 +5785,7 @@ on the model behaviour.
       function saturationCurDepTempSPICE3MOSFET
         "Temperature dependency of saturation current"
 
-        input Modelica.SIunits.Current satcur0 "Satuaration current";
+        input Modelica.SIunits.Current satcur0 "Saturation current";
         input Modelica.SIunits.Temp_K temp "Device Temperature";
         input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
 
@@ -6182,7 +6182,7 @@ on the model behaviour.
       input Modelica.SIunits.Current satcur "Saturation current";
       input Modelica.SIunits.Voltage v23;
 
-      output Modelica.SIunits.Current current "Output curret";
+      output Modelica.SIunits.Current current "Output current";
       output Modelica.SIunits.Conductance cond "Output conductance";
 
       protected
@@ -6581,7 +6581,7 @@ on the model behaviour.
       Modelica.SIunits.Temp_K m_dTemp( start = SpiceConstants.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
-<p>The record Model includes the device temperture which has a default value of 27&deg;C.</p>
+<p>The record Model includes the device temperature which has a default value of 27&deg;C.</p>
 </html>"));
     end Model;
 
@@ -6743,11 +6743,11 @@ on the model behaviour.
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function initially precalculats some values for transistor area which can be used for all transistor models.</p>
+<p>This function initially precalculates some values for transistor area which can be used for all transistor models.</p>
 </html>"));
       end mosfetInitEquations;
 
-      function mosfetModelLineInitEquations "Type transscription"
+      function mosfetModelLineInitEquations "Type transcription"
 
         input Mosfet in_m "Input parameter set";
 
@@ -6758,7 +6758,7 @@ on the model behaviour.
         // -1: PMOS ; 1: NMOS
 
         annotation (Documentation(info="<html>
-<p>In this function during the initialization phase the transistor type is transscibed to another parameter for further usage.</p>
+<p>In this function during the initialization phase the transistor type is transcribed to another parameter for further usage.</p>
 </html>"));
       end mosfetModelLineInitEquations;
 
@@ -6769,7 +6769,7 @@ on the model behaviour.
       algorithm
         ret := 4;
         annotation (Documentation(info="<html>
-<p>This function getNumberOfElectricalPins identifies the number of elecrtical pins. At the current library version it is fixed to 4.</p>
+<p>This function getNumberOfElectricalPins identifies the number of electrical pins. At the current library version it is fixed to 4.</p>
 </html>"));
       end getNumberOfElectricalPins;
 
@@ -10070,7 +10070,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
         Boolean m_bOff(start = false) "OFF, Initially off";
         Modelica.SIunits.Voltage m_dIC(start = 0.0)
           "IC, Initial device voltage";
-        Real m_pIcIsGiven "IC is giben value";
+        Real m_pIcIsGiven "IC is given value";
         Boolean m_bSensArea(start = false)
           "SENS_AREA, flag to request sensitivity WRT area";
 
@@ -10168,7 +10168,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
         input DiodeModelLineParams in_p
           "Input record diode model line parameters";
-        input DiodeParams in_dp "Input record diode paramters";
+        input DiodeParams in_dp "Input record diode parameters";
         input Model.Model in_m "Input record Model";
         input DiodeVariables in_v "Input record diode variables";
 
@@ -10286,7 +10286,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
                 m_dCurrent);
 
         annotation (Documentation(info="<html>
-<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
 </html>"));
       end diodeNoBypassCode;
 
@@ -10381,7 +10381,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         dev_temp.m_dTemp := TEMP + SpiceConstants.CONSTCtoK;
 
         annotation (Documentation(info="<html>
-<p>This function calculates device parameters wehich are temperature dependent.</p>
+<p>This function calculates device parameters which are temperature dependent.</p>
 </html>"));
       end diodeRenameParametersDevTemp;
       annotation (Documentation(info="<html>
@@ -11175,7 +11175,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         out_cc.iXX :=1;
 
         annotation (smoothOrder(__Dymola_normallyConstant=in_p3)=1,Documentation(info="<html>
-<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
 </html>"));
       end bjtNoBypassCode;
 
@@ -11989,7 +11989,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
                 in_c.m_f3c);
 
         annotation (Documentation(info="<html>
-<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
 </html>"));
       end bjt3NoBypassCode;
 
@@ -12089,7 +12089,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         end if;
 
         annotation (Documentation(info="<html>
-<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the toplevel model.</p>
+<p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
 </html>"));
       end bjtNoBypassCode;
 
@@ -12213,7 +12213,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
         m.m_dTemp := TEMP + Spice3.Internal.SpiceConstants.CONSTCtoK;
 
         annotation (Documentation(info="<html>
-<p>This function calculates device parameters wehich are temperature dependent.</p>
+<p>This function calculates device parameters which are temperature dependent.</p>
 </html>"));
       end bjtRenameParametersDevTemp;
 
@@ -12845,11 +12845,11 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
 annotation(preferredView="info",
   Documentation(info="<html>
-<p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). Up to now the following semiconductor models are transformed from the SPICE3 code to modelica</p>
+<p>This package contains models of the Berkeley SPICE3 simulator (R, C, L, controlled and independent sources, semiconductor device models). Up to now the following semiconductor models are transformed from the SPICE3 code to Modelica</p>
 <ul>
 <li>MOSFET Level 1 </li>
 <li>Bipolar junction transistor, </li>
-<li>Juction-field effect transistor,</li>
+<li>Junction-field effect transistor,</li>
 <li>Diode </li>
 <li>Semiconductor resistor</li>
 <li>Semiconductor capacitor</li>

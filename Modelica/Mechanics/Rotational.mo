@@ -26,7 +26,7 @@ the model according to the provided description.
 A unique feature of this library is the <b>component-oriented</b>
 modeling of <b>Coulomb friction</b> elements, such as friction in bearings,
 clutches, brakes, and gear efficiency. Even (dynamically) coupled
-friction elements, e.g., as in automatic gearboxes, can be handeled
+friction elements, e.g., as in automatic gearboxes, can be handled
 <b>without</b> introducing stiffness which leads to fast simulations.
 The underlying theory is new and is based on the solution of mixed
 continuous/discrete systems of equations, i.e., equations where the
@@ -173,7 +173,7 @@ vector direction displayed according to this rule:
 <p>
 The cut-torques <code>J2.flange_a.tau, J4.flange_a.tau, J6.flange_b.tau</code>
 of the right inertias are all identical and are directed into the
-direction of rotation if the values are positive. Similiarily,
+direction of rotation if the values are positive. Similarly,
 the angular velocities <code>J2.w, J4.w, J6.w</code> of the right inertias
 are all identical and are also directed into the
 direction of rotation if the values are positive. Some special
@@ -529,7 +529,7 @@ in the housing on one side via component Fixed.</p>
     end First;
 
     model FirstGrounded
-      "First example: simple drive train with grounded elments"
+      "First example: simple drive train with grounded elements"
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Torque amplitude=10
         "Amplitude of driving torque";
@@ -824,7 +824,7 @@ values (defined already in the model):</p>
                          color={0,0,0}));
       annotation (Documentation(info="<html>
 <p>This example demonstrates how variable structure
-drive trains are handeled. The drive train consists
+drive trains are handled. The drive train consists
 of 4 inertias and 3 clutches, where the clutches
 are controlled by input signals. The system has
 2^3=8 different configurations and 3^3 = 27
@@ -1274,7 +1274,7 @@ also that the damping torque does not lead to unphysical pulling torques
 <p>
 This model demonstrates the coupling between rotational and translational components:<br>
 A torque (step) accelerates both the inertia (of the wheel) and the mass (of the vehicle).<br>
-Du to a speed dependent force (like driving resistance), we find an eqilibrium at 5 m/s after approx. 5 s.
+Du to a speed dependent force (like driving resistance), we find an equilibrium at 5 m/s after approx. 5 s.
 </p>
 </html>"),
         experiment(StopTime=5.0, Interval=0.001));
@@ -3129,7 +3129,7 @@ are dynamically coupled. The method is described in:
       annotation (
         Documentation(info="<html>
 <p>
-This element characterices any type of gear box which is fixed in the
+This element characterizes any type of gear box which is fixed in the
 ground and which has one driving shaft and one driven shaft.
 The gear is <b>ideal</b>, i.e., it does not have inertia, elasticity, damping
 or backlash. If these effects have to be considered, the gear has to be
@@ -3190,7 +3190,7 @@ connected to other elements in an appropriate way.
       Real quadrant3;
       Real quadrant4;
 
-      // quadrant values for angular verlocities near zero
+      // quadrant values for angular velocities near zero
       Real quadrant1_p; // w=0+
       Real quadrant2_p; // w=0+
       Real quadrant3_m; // w=0-
@@ -3343,7 +3343,7 @@ connected to other elements in an appropriate way.
 This component models the gear ratio and the <b>losses</b> of
 a standard gear box in a <b>reliable</b> way including the stuck phases
 that may occur at zero speed. The gear boxes that can
-be handeled are fixed in the ground or on a moving support, have one input and one
+be handled are fixed in the ground or on a moving support, have one input and one
 output shaft, and are essentially described by the equations:
 </p>
 <blockquote><pre>
@@ -4190,7 +4190,7 @@ with the value of the input signal \"phi_start\" at the start time.
 
 <p>
 Additionally, it is optionally possible to define the \"StateSelect\"
-attribute of the flange angle and the flange speed via paramater
+attribute of the flange angle and the flange speed via parameter
 \"stateSelection\".
 </p>
 
@@ -5334,7 +5334,7 @@ Positive torque acts accelerating.
               textString="%w_fixed")}),
         Documentation(info="<HTML>
 <p>
-Model of <b>fixed</b> angular verlocity of flange, not dependent on torque.
+Model of <b>fixed</b> angular velocity of flange, not dependent on torque.
 </p>
 </HTML>"));
     end ConstantSpeed;
@@ -5897,7 +5897,7 @@ is set for the relative angle of this component.
 <p>
 In order to improve the numerics, a nominal value for the relative angle
 can be provided via parameter <b>phi_nominal</b> in the Advanced menu.
-The default ist 1e-4 rad since relative angles are usually
+The default is 1e-4 rad since relative angles are usually
 in this order and the step size control of an integrator would be
 practically switched off, if a default of 1 rad would be used.
 This nominal value might also be computed from other values, such
@@ -6238,7 +6238,7 @@ This is a 1-dim. rotational component with
 <li> one rotational flange, </li>
 <li> one rotational support/housing, </li>
 <li> one translational flange, and </li>
-<li> one translatinal support/housing </li>
+<li> one translational support/housing </li>
 </ul>
 
 <p>

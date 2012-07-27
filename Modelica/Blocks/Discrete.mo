@@ -204,7 +204,7 @@ the output y is identical to parameter yStart.
       y = vector([zeros(na - nb, 1); b])*xext;
     end when;
     /* This is a non-sampled equation and above there are two separate
-       when-clauses. This breaks feeback loops without direct terms,
+       when-clauses. This breaks feedback loops without direct terms,
        since in that case y will be independent of x1 (and only dependent
        on pre(x)).
     */

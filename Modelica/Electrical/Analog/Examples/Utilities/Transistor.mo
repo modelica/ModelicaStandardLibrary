@@ -63,7 +63,7 @@ equation
           lineColor={0,0,255},
           textString="%name")}),
     Documentation(info="<html>
-<p>Since the simple bipolar transistor model does not have base or collector resistances both are added in this component. Additionally, a capacity is added to the base pin. See the schematic for more detailes.  In such a way the transistor model can be enhanced to become more common.</p>
+<p>Since the simple bipolar transistor model does not have base or collector resistances both are added in this component. Additionally, a capacity is added to the base pin. See the schematic for more details.  In such a way the transistor model can be enhanced to become more common.</p>
 </html>"),
     Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
             100,100}}), graphics={Text(

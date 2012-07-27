@@ -8,7 +8,7 @@ package Nonlinear
         parameter Real uMax(start=1) "Upper limits of input signals";
         parameter Real uMin= -uMax "Lower limits of input signals";
         parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initializiation (i.e., y=u)";
+      "= false, if limits are ignored during initialization (i.e., y=u)";
         extends Interfaces.SISO;
 
       equation
@@ -97,7 +97,7 @@ as output.
   block VariableLimiter "Limit the range of a signal with variable limits"
     extends Interfaces.SISO;
     parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initializiation (i.e., y=u)";
+      "= false, if limits are ignored during initialization (i.e., y=u)";
     Interfaces.RealInput limit1
       "Connector of Real input signal used as maximum of input u"
                                 annotation (Placement(transformation(extent={{
@@ -253,7 +253,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
         parameter Real uMax(start=1) "Upper limits of dead zones";
         parameter Real uMin=-uMax "Lower limits of dead zones";
         parameter Boolean deadZoneAtInit = true
-      "= false, if dead zone is ignored during initializiation (i.e., y=u)";
+      "= false, if dead zone is ignored during initialization (i.e., y=u)";
         extends Interfaces.SISO;
 
       equation

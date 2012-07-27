@@ -1,5 +1,5 @@
 within Modelica.Electrical.QuasiStationary;
-package Types "Definiton of types for quasistationary AC models"
+package Types "Definition of types for quasistationary AC models"
   extends Modelica.Icons.Package;
 
   record Reference "Reference angle"
@@ -19,6 +19,6 @@ Reference angle, used in the AC connectors.
 </html>"));
   end Reference;
 annotation (Documentation(info="<html>
-Type defintions needed for quasistaionary AC models.
+Type definitions needed for quasistaionary AC models.
 </html>"));
 end Types;

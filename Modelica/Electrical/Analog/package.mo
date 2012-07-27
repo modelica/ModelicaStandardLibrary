@@ -16,7 +16,7 @@ This package contains packages for analog electrical components:</p>
 <li>Semiconductors: semiconductor devices (diode, bipolar and MOS transistors)</li>
 <li>Lines: transmission lines (lossy and lossless)</li>
 <li>Ideal: ideal elements (switches, diode, transformer, idle, short, ...)</li>
-<li>Sources: time-dependend and controlled voltage and current sources</li>
+<li>Sources: time-dependent and controlled voltage and current sources</li>
 <li>Sensors: sensors to measure potential, voltage, and current</li>
 </ul>
 <dl>

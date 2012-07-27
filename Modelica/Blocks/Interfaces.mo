@@ -1345,7 +1345,7 @@ as well as a 3D icon (e.g., used in Blocks.Logical library).
       Documentation(info="<html>
 <p>
 Block has two continuous Real input and one continuous Boolean output signal
-as a result of the comparision of the two input signals. The block
+as a result of the comparison of the two input signals. The block
 has a 3D icon (e.g., used in Blocks.Logical library).
 </p>
 </html>"));

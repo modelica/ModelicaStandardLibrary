@@ -23,7 +23,7 @@ package Semiconductors
 <p>The simple diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:</p>
 <pre>                v/vt
   i  =  ids ( e      - 1).</pre>
-<p>If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly continued to avoid overflow.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
+<p>If the exponent <i>v/vt</i> reaches the limit <i>maxex</i>, the diode characteristic is linearly continued to avoid overflow.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",
    revisions="<html>
 <ul>
@@ -105,7 +105,7 @@ package Semiconductors
 <p>The simple zener diode is a one port. It consists of the diode itself and an parallel ohmic resistance <i>R</i>. The diode formula is:
 <pre>                v/Vt                -(v+Bv)/(Nbv*Vt)
   i  =  Ids ( e      - 1) - Ibv ( e                  ).</pre>
-<p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characterisic is linearly continued to avoid overflow.</p>
+<p>If the exponent in one of the two branches reaches the limit <i>Maxexp</i>, the diode characteristic is linearly continued to avoid overflow.</p>
 <p><br>The zener diode model permits (in contrast to the simple diode model) current in reverse direction if the breakdown voltage Bv (also known zener knee voltage) is exceeded.</p>
 <p>The thermal power is calculated by <i>i*v</i>.</p><p><b>Please note:</b> In case of useHeatPort=true the temperature dependence of the electrical behavior is <b>not </b>modelled yet. The parameters are not temperature dependent.</p>
 </html>",  revisions="<html>
@@ -457,7 +457,7 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SIunits.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
   parameter SIunits.Time Tauf=0.12e-9 "Ideal forward transit time";
   parameter SIunits.Time Taur=5e-9 "Ideal reverse transit time";
-  parameter SIunits.Capacitance Ccs=1e-12 "Collector-substrat(ground) cap.";
+  parameter SIunits.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
   parameter SIunits.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
   parameter SIunits.Capacitance Cjc=0.5e-12
@@ -615,7 +615,7 @@ model PNP "Simple BJT according to Ebers-Moll"
   parameter SIunits.InversePotential Vak=0.02 "Early voltage (inverse), 1/Volt";
   parameter SIunits.Time Tauf=0.12e-9 "Ideal forward transit time";
   parameter SIunits.Time Taur=5e-9 "Ideal reverse transit time";
-  parameter SIunits.Capacitance Ccs=1e-12 "Collector-substrat(ground) cap.";
+  parameter SIunits.Capacitance Ccs=1e-12 "Collector-substrate(ground) cap.";
   parameter SIunits.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
   parameter SIunits.Capacitance Cjc=0.5e-12
@@ -819,7 +819,7 @@ where vt_t depends on the temperature of the heat port:
   vt_t = k*temp/q
 </PRE>
 <P>
-If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characterisic is linearly
+If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characteristic is linearly
 continued to avoid overflow.<br>
 The thermal power is calculated by <i>i*v</i>.
 </P>
@@ -1181,7 +1181,7 @@ end HeatingDiode;
           parameter Modelica.SIunits.Time Taur=5e-9
       "Ideal reverse transit time";
           parameter Modelica.SIunits.Capacitance Ccs=1e-12
-      "Collector-substrat(ground) cap.";
+      "Collector-substrate(ground) cap.";
           parameter Modelica.SIunits.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
           parameter Modelica.SIunits.Capacitance Cjc=0.5e-12
@@ -1355,7 +1355,7 @@ end HeatingDiode;
           parameter Modelica.SIunits.Time Taur=5e-9
       "Ideal reverse transit time";
           parameter Modelica.SIunits.Capacitance Ccs=1e-12
-      "Collector-substrat(ground) cap.";
+      "Collector-substrate(ground) cap.";
           parameter Modelica.SIunits.Capacitance Cje=0.4e-12
       "Base-emitter zero bias depletion cap.";
           parameter Modelica.SIunits.Capacitance Cjc=0.5e-12

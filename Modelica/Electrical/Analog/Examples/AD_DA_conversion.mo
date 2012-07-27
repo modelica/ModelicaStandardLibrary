@@ -68,7 +68,7 @@ equation
 <ul>
 <li>Simulate for 0.2 s.</li>
 </ul>
-<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changeing N the influence of the digital signal width can be studied. Otherwise the trigger frequency pulse.period can be changed to see its influence.</p>
+<p>Compare the input voltage (aD_Converter.p.v) with the output voltage (dA_Converter.p.v). By changing N the influence of the digital signal width can be studied. Otherwise the trigger frequency pulse.period can be changed to see its influence.</p>
 </html>", revisions="<html>
 <ul>
 <li><i>October 13, 2009  </i>by Matthias Franke </li>

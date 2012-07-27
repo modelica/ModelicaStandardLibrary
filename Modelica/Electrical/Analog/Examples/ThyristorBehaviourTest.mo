@@ -61,6 +61,6 @@ equation
       smooth=Smooth.None));
   annotation (    experiment(StopTime=0.0002),
     Documentation(info="<html>
-<p>This is a simple testcircuit, to test the behavior of the thysistor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be trom 0 seconds to 2e-4 seconds.</p>
+<p>This is a simple test circuit, to test the behavior of the thyristor model.</p><p>Interesting values to plot are Cathode.v, Gate.v and sineVoltage.p.v. and in another plot window pulseCurrent.p.i</p><p>The simulation time should be from 0 seconds to 2e-4 seconds.</p>
 </html>"));
 end ThyristorBehaviourTest;

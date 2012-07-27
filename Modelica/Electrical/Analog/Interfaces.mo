@@ -469,7 +469,7 @@ on the model behaviour.
        </li>
 </ul>
 </html>", info="<html>
-<p>The VoltageSource partial model prepares voltage sources by providing the pins, and the offset and startTime parameters, which are the same at all voltage sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replacable possibilities.</p>
+<p>The VoltageSource partial model prepares voltage sources by providing the pins, and the offset and startTime parameters, which are the same at all voltage sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replaceable possibilities.</p>
 </html>"));
   end VoltageSource;
 
@@ -511,12 +511,12 @@ on the model behaviour.
        </li>
 </ul>
 </html>", info="<html>
-<p>The CurrentSource partial model prepares current sources by providing the pins, and the offset and startTime parameters, which are the same at all current sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replacable possibilities.</p>
+<p>The CurrentSource partial model prepares current sources by providing the pins, and the offset and startTime parameters, which are the same at all current sources. The source behavior is taken from Modelica.Blocks signal sources by inheritance and usage of the replaceable possibilities.</p>
 </html>"));
   end CurrentSource;
 
   annotation (Documentation(info="<html>
-<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermode, the thermal heat port is in this package which can be included by inheritance.</p>
+<p>This package contains connectors and interfaces (partial models) for analog electrical components. The partial models contain typical combinations of pins, and internal variables which are often used. Furthermore, the thermal heat port is in this package which can be included by inheritance.</p>
 </html>",
    revisions="<html>
 <dl>

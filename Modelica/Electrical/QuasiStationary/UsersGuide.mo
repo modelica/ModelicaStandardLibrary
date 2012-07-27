@@ -196,7 +196,7 @@ Yet, there is instantaneous power exchanged with connecting network.
 
 The
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.SeriesResonance\">
-          series resonance circuit</a> which was also adressed in the
+          series resonance circuit</a> which was also addressed in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.UsersGuide.Overview.ACCircuit\">
           AC circuit</a>
 will be investigated.
@@ -271,7 +271,7 @@ Therefore, the instantaneous power is
   <caption align=\"bottom\">Fig. 2: Instantaneous voltage, current of power of an inductor</caption>
 </table>
 
-<p>Reqactive power of the inductor is:</p>
+<p>Reactive power of the inductor is:</p>
 <p>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_l.png\"
                    alt=\"q_l.png\">
@@ -309,7 +309,7 @@ Therefore, the instantaneous power is
   <caption align=\"bottom\">Fig. 3: Instantaneous voltage, current of power of a capacitor</caption>
 </table>
 
-<p>Reqactive power of the capacitor is:</p>
+<p>Reactive power of the capacitor is:</p>
 <p>
 <IMG BORDER=\"0\"  src=\"modelica://Modelica/Resources/Images/Electrical/QuasiStationary/UsersGuide/Overview/Power/q_c.png\"
                    alt=\"q_c.png\">
@@ -380,7 +380,7 @@ voltages and currents. The main characteristics of the library are:
 <ul>
   <li>Only pure sinusoidal voltages and currents are taken into account.
       Higher harmonic voltages and currents are not considered.</li>
-  <li>Any electrical transient effects are negelcted.</li>
+  <li>Any electrical transient effects are neglected.</li>
   <li>The electrical components of this library are strictly linear.</li>
   <li>The angular frequency <code>omega</code> of the voltages and currents of
       a circuit are determined from a reference angle <code>gamma</code> by means of
@@ -409,11 +409,11 @@ found in
 
 <h4>Note</h4>
 <p>
-A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusodial voltages and currents
+A general electrical circuit can be a DC circuit, an AC circuit with periodic sinusoidal or non-sinusoidal voltages and currents
 or a transient circuit without particular waveform of voltages and currents.
 Therefore a coupling model between a quasi stationary circuit and a general (transient) electrical circuit
 has to be designed carefully taking the specific application into account.
-As an exmaple, you may look at the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
+As an example, you may look at the <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Utilities.IdealACDCConverter\">
 ideal AC DC converter</a>, which is used in the
 <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePhase.Examples.Rectifier\">rectifier example</a>.
 </p>

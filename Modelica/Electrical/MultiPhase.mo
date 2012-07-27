@@ -1054,7 +1054,7 @@ Contains m variable resistors (Modelica.Electrical.Analog.Basic.VariableResistor
 </p>
 <P>
 <b>Attention!!!</b><br>
-  It is recomended that none of the R_Port signals should not cross the zero value.
+  It is recommended that none of the R_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
 </P>
 </HTML>"));
@@ -1115,7 +1115,7 @@ Contains m variable conductors (Modelica.Electrical.Analog.Basic.VariableConduct
 </p>
 <P>
 <b>Attention!!!</b><br>
-  It is recomended that none of the G_Port signals should not cross the zero value.
+  It is recommended that none of the G_Port signals should not cross the zero value.
   Otherwise depending on the surrounding circuit the probability of singularities is high.
 </P>
 </HTML>"));
@@ -1279,7 +1279,7 @@ This package contains basic analog electrical multiphase components.
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
         "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
-        "Treshold voltage";
+        "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m]
         annotation (Placement(transformation(
@@ -1338,7 +1338,7 @@ Contains m ideal thyristors (Modelica.Electrical.Analog.Ideal.IdealThyristor).
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
         "Opened thyristor conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
-        "Treshold voltage";
+        "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
       Modelica.Blocks.Interfaces.BooleanInput fire[m]
         annotation (Placement(transformation(
@@ -1553,7 +1553,7 @@ Contains m ideal intermediate switches (Modelica.Electrical.Analog.Ideal.IdealIn
       parameter Modelica.SIunits.Conductance Goff[m](final min=zeros(m), start = fill(1.E-5, m))
         "Opened diode conductance";
       parameter Modelica.SIunits.Voltage Vknee[m](final min=zeros(m), start = zeros(m))
-        "Treshold voltage";
+        "Threshold voltage";
       extends Modelica.Electrical.MultiPhase.Interfaces.ConditionalHeatPort(final mh=m, final T=fill(293.15,m));
       Modelica.Electrical.Analog.Ideal.IdealDiode idealDiode[m](
         final Ron=Ron,
@@ -2620,7 +2620,7 @@ with a default phase shift of -(j-1)/m * 2*pi for j in 1:m.
     end SineCurrent;
     annotation (Documentation(info="<HTML>
 <p>
-This package contains time-dependend and controlled multiphase voltage and current sources:
+This package contains time-dependent and controlled multiphase voltage and current sources:
 </p>
 <ul>
 <li>SignalVoltage: fed by Modelica.Blocks.Sources arbitrary waveforms of voltages are possible</li>
@@ -2879,7 +2879,7 @@ This package contains packages for electrical multiphase components, based on Mo
 <li>Basic: basic components (resistor, capacitor, inductor, ...)</li>
 <li>Ideal: ideal elements (switches, diode, transformer, ...)</li>
 <li>Sensors: sensors to measure potentials, voltages, and currents</li>
-<li>Sources: time-dependend and controlled voltage and current sources</li>
+<li>Sources: time-dependent and controlled voltage and current sources</li>
 </ul>
 <p>
 This package is intended to be used the same way as Modelica.Electrical.Analog

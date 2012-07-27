@@ -232,7 +232,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           experiment(StopTime=2.5, Interval=0.001),
           Documentation(info="<HTML>
 <b>Test example: Asynchronous induction machine with squirrel cage - Y-D starting</b><br>
-At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connetced; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
+At start time tStart three phase voltage is supplied to the asynchronous induction machine with squirrel cage, first star-connected, then delta-connected; the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Simulate for 2.5 seconds and plot (versus time):
 <ul>
 <li>currentQuasiRMSSensor.I: stator current RMS</li>
@@ -1045,7 +1045,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 <p>Test example: Asynchronous induction machine with squirrel cage - characteristics with losses</p>
 <ul>
 <li>Simulate for 5 seconds: The machine is started at nominal speed, flux is build up in the machine.</li>
-<li>Condinue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
+<li>Continue the simulation for additional 5 seconds: Subsequently a load ramp is applied.</li>
 <li>Compare by plotting versus Pmech:</li>
 </ul>
 <table>
@@ -2102,7 +2102,7 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
       end DCPM_Start;
 
       model DCEE_Start
-        "Test example: DC with electrical ecxitation starting with voltage ramp"
+        "Test example: DC with electrical excitation starting with voltage ramp"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
         parameter Modelica.SIunits.Time tStart=0.2
@@ -2471,7 +2471,7 @@ Default machine parameters are used.
   end DC_CompareCharacteristics;
 */
       model DCPM_Temperature
-        "Test example: Investigate temperature dependecy of a DCPM motor"
+        "Test example: Investigate temperature dependency of a DCPM motor"
         extends Modelica.Icons.Example;
         parameter Modelica.SIunits.Voltage Va=100 "Actual armature voltage";
         parameter Modelica.SIunits.Voltage Ve=100 "Actual excitation voltage";
@@ -2569,7 +2569,7 @@ Simulate for 3 seconds and plot (versus time):
 </ul>
 Default machine parameters are used, but:
 <ul>
-<li>The aramature winding material is set to Copper.</li>
+<li>The armature winding material is set to Copper.</li>
 <li>Armature reference temperature is set to 80 degC.</li>
 <li>Nominal armature temperature is set to 80 degC.</li>
 </ul>
@@ -2785,7 +2785,7 @@ Simulate for 25 seconds and plot (versus time):
 Therefore the armature temperature would reach nominal armature temperature at constant nominal load.<br>
 Default machine parameters are used, but:
 <ul>
-<li>The aramature winding material is set to Copper.</li>
+<li>The armature winding material is set to Copper.</li>
 <li>Armature reference temperature is set to 80 degC.</li>
 <li>Nominal armature temperature is set to 80 degC.</li>
 </ul>
@@ -3014,7 +3014,7 @@ Simulate for 2 seconds and plot (versus time):
           Documentation(info="<HTML>
 <b>Test example: Investigate influence of losses on DCPM motor performance</b><br>
 Both motors are started with a voltage ramp applied to the armature, causing the DC machines to start,
-and accelerating inertias. Both machines are loading with a quadratic speed depenedent load torque.<br>
+and accelerating inertias. Both machines are loading with a quadratic speed dependent load torque.<br>
 The first machine <code>dcpm1</code> uses default machine parameters of model <i>DC_PermanentMagnet</i>,
 the second machine <code>dcpm2</code> is parametrized with additional losses:<br>
 <table>
@@ -4533,7 +4533,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
           "Excitation resistance at TRef"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef(start=293.15)
-          "Reference temperture of excitation resistance"
+          "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e(
           start=0) "Temperature coefficient of excitation resistance"
@@ -5351,7 +5351,7 @@ Armature resistance and inductance are modeled directly after the armature pins,
 <td valign=\"top\">20</td><td valign=\"top\">&deg;C</td>
 </tr>
 </table>
-Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation windig, if present.
+Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and compensation winding, if present.
 </HTML>"));
       end DC_PermanentMagnet;
 
@@ -5624,7 +5624,7 @@ Shunt or separate excitation is defined by the user's external circuit.
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
-compensation windig, if present.<br>
+compensation winding, if present.<br>
 Armature current does not cover excitation current of a shunt excitation; in this case total current drawn from the grid = armature current + excitation current.
 </HTML>"));
       end DC_ElectricalExcited;
@@ -5888,9 +5888,9 @@ Series excitation has to be connected by the user's external circuit.
 </tr>
 </table>
 Armature resistance resp. inductance include resistance resp. inductance of commutating pole winding and
-compensation windig, if present.<br>
+compensation winding, if present.<br>
 Parameter nominal armature voltage includes voltage drop of series excitation;<br>
-but for output the voltage is splitted into:<br>
+but for output the voltage is split into:<br>
 va = armature voltage without voltage drop of series excitation<br>
 ve = voltage drop of series excitation
 </HTML>"));
@@ -14057,7 +14057,7 @@ Simple Voltage-Frequency-Controller.<br>
 Amplitude of voltage is linear dependent (VNominal/fNominal) on frequency (input signal \"u\"), but limited by VNominal (nominal RMS voltage per phase).<br>
 m sine-waves with amplitudes as described above are provided as output signal \"y\".<br>
 The sine-waves are intended to feed a m-phase SignalVoltage.<br>
-Phase shifts between sine-waves may be choosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
+Phase shifts between sine-waves may be chosen by the user; default values are <i>(k-1)/m*pi for k in 1:m</i>.
 </HTML>"));
     end VfController;
 
@@ -14560,7 +14560,7 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
         "Specification excitation temperature"
         annotation(Dialog(tab="Material"));
       parameter Modelica.SIunits.Temperature TeRef(start=293.15)
-        "Reference temperture of excitation resistance"
+        "Reference temperature of excitation resistance"
         annotation(Dialog(tab="Material"));
       parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e(start=0)
         "Temperature coefficient of excitation resistance"

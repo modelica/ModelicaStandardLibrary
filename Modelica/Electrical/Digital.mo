@@ -535,8 +535,8 @@ at t = 4
  <b>s    0 0 1 0 1</b>
  </pre>
 <p>
-To show the influence of delay a large delay time of 0.1s is choosen.
-Furthermore, all signals are initialized with U, the unitialized value.
+To show the influence of delay a large delay time of 0.1s is chosen.
+Furthermore, all signals are initialized with U, the uninitialized value.
 Please remember, that the nine logic values are coded by the numbers 1,...,9.
 The summands a and b can be found at the output signals of the taba and tabb sources.
 The result can be seen in the output signals of the Fulladders according to:</p>
@@ -647,7 +647,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               color={127,0,127},
               smooth=Smooth.None));
           annotation (        Documentation(info="<html>
-<p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the rersults plot bothe the input vector x and the output vector y.</p>
+<p>This example is a simple test of the vector valued sensitive delay component. The delay times are chosen different from each other. To examine the results plot both the input vector x and the output vector y.</p>
 </html>"),
         experiment(StopTime=1.01));
         end VectorDelay;
@@ -2631,12 +2631,12 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         'S_WLZ',
         'S_WZH',
         'S_W0H',
-        'S_WL1') "Output strengthes of registers"     annotation (Documentation(info="<html>
+        'S_WL1') "Output strengths of registers"     annotation (Documentation(info="<html>
 
 <p><b>Strength Table:</b></p>
 
 <table border=1 cellspacing=0 cellpadding=2>
-  <tr><td valign=\"top\"><b>Strenght</b></td>
+  <tr><td valign=\"top\"><b>Strength</b></td>
       <td valign=\"top\"><b>Output conversion to</b></td>
   </tr>
 
@@ -2656,7 +2656,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         connector DigitalSignal = Logic
       "Digital port (both input/output possible)"
           annotation (          Documentation(info="<html>
-<p>DigitalSignal is the basic digital connector defintion. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
+<p>DigitalSignal is the basic digital connector definition. A direction (input, output) is not yet defined. DigitalSignal is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
         connector DigitalInput = input DigitalSignal
@@ -2678,7 +2678,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             fillColor={127,0,127},
             fillPattern=FillPattern.Solid)}),
           Documentation(info="<html>
-<p>DigitalInput is the  digital input connector defintion. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
+<p>DigitalInput is the  digital input connector definition. DigitalInput is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic).</p>
 </html>"));
 
         connector DigitalOutput = output DigitalSignal
@@ -2702,7 +2702,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             textString="%name")}),
           Documentation(info=
                          "<html>
-<p>DigitalOutput is the  digital output connector defintion. DigitalOutput  is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
+<p>DigitalOutput is the  digital output connector definition. DigitalOutput  is of type Logic. It can have the logic values (U, X, 0, 1, ...) which are internally coded by integer values by using the enumeration (c.f. the definition of type Logic). The arrow shape symbolizes the signal flow direction.</p>
 </html>"));
 
         partial block SISO "Single input, single output"
@@ -2723,7 +2723,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               fillPattern=FillPattern.Solid), Line(points={{50,0},{92,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>SISO is a partial model for the connection pattern whith <b>s</b>ingle (scalar) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the SISO model.</p>
+<p>SISO is a partial model for the connection pattern with <b>s</b>ingle (scalar) digital <b>i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the SISO model.</p>
 </html>"));
         end SISO;
 
@@ -2747,7 +2747,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               fillPattern=FillPattern.Solid), Line(points={{50,0},{90,0}},
                 color={127,0,127})}),
             Documentation(info="<html>
-<p>MISO is a partial model for the connection pattern whith <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MISO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>s</b>ingle (scalar) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MISO;
 
@@ -2779,7 +2779,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               fillColor={255,255,255},
               fillPattern=FillPattern.Solid)}),
             Documentation(info="<html>
-<p>MIMO is a partial model for the connection pattern whith <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangel for the icon which can be filled in by the component which inherits the MISO model.</p>
+<p>MIMO is a partial model for the connection pattern with <b>m</b>ultiple (vector) digital<b> i</b>nput and <b>m</b>ultiple  (vector) digital <b>o</b>utput. Besides the connectors it provides a rectangle for the icon which can be filled in by the component which inherits the MISO model.</p>
 </html>"));
         end MIMO;
 
@@ -2955,7 +2955,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'Z',L.'H'}},
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'0',L.'H'}},
          {{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'W',L.'W',L.'W'},{L.'Z',L.'Z',L.'Z',L.'Z'},{L.'U',L.'W',L.'L',L.'1'}}}]
-      "Tristate Table by [strength, enable, input] reading, high-acitive enable";
+      "Tristate Table by [strength, enable, input] reading, high-active enable";
 
     constant D.Interfaces.Logic Buf3slTable[S, R, R]=[
         {{{L.'U',L.'U',L.'U',L.'U'},{L.'U',L.'X',L.'X',L.'X'},{L.'U',L.'X',L.'0',L.'1'},{L.'Z',L.'Z',L.'Z',L.'Z'}},
@@ -3592,7 +3592,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{-20,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The InvGate model has a single valued input, and a single valued output. It is composed by a Basic Not and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <dl>
@@ -3650,7 +3650,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The AndGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic And and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3741,7 +3741,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
        initially modelled.</li>
 </ul>
 </HTML>",     info="<html>
-<p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The NandGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nand and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>"));
         end NandGate;
 
@@ -3765,7 +3765,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The OrGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Or and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3820,7 +3820,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{100,0},{60,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The NorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Nor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3881,7 +3881,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{60,0},{100,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The XorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3936,7 +3936,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
             annotation (Line(points={{0,0},{28,0}}, color={127,0,127}));
           annotation (
             Documentation(info="<html>
-<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The XnorGate model has a multiple valued (n) input vector, and a single valued output. It is composed by a Basic Xnor and an InertialDelaySensitive. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <ul>
@@ -3986,7 +3986,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
                   127}));
           annotation (
             Documentation(info="<html>
-<p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall intertial delay time, and intitial value).</p>
+<p>The BufGate model has a single valued input, and a single valued output. It consists of an InertialDelaySensitive only. Its parameters are the delay parameters (rise and fall intertial delay time, and initial value).</p>
 </html>", revisions=
                  "<HTML>
 <dl>
@@ -4022,7 +4022,7 @@ The parameters <i>tLH</i> and <i>tHL</i> are valid for each of the n signals.
 </html>"));
       end Gates;
 
-      package Sources "Time-dependend digital signal sources"
+      package Sources "Time-dependent digital signal sources"
         extends Modelica.Icons.SourcesPackage;
 
         block Set "Digital Set Source"
@@ -8209,7 +8209,7 @@ IEEE Std 1164 Multivalue Logic System):
 <li>TransferGates: (not yet available)</li>
 <li>Multiplexers (not yet available)</li>
 <li>Memory: Ram, Rom, (not yet available)</li>
-<li>Sources: Time-dependend signal sources</li>
+<li>Sources: Time-dependent signal sources</li>
 <li>Converters</li>
 <li>Examples</li>
 </ul>

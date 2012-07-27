@@ -101,7 +101,7 @@ This is discussed in the description of package
       "Type of initialization (1: no init, 2: steady state, 3/4: initial output)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initializiation (i.e., der(y)=k*u)"
+      "= false, if limits are ignored during initialization (i.e., der(y)=k*u)"
       annotation(Evaluate=true, Dialog(group="Initialization"));
     parameter Real y_start=0
       "Initial or guess value of output (must be in the limits outMin .. outMax)"
@@ -874,7 +874,7 @@ to compute u by an algebraic equation.
                                        annotation(Evaluate=true,
         Dialog(group="Initialization"));
     parameter Boolean limitsAtInit = true
-      "= false, if limits are ignored during initializiation"
+      "= false, if limits are ignored during initialization"
       annotation(Evaluate=true, Dialog(group="Initialization",
                          enable=controllerType==SimpleController.PI or
                                 controllerType==SimpleController.PID));
@@ -1064,8 +1064,8 @@ part of this controller, the following features are present:
      to avoid excessive amplification of measurement noise.</li>
 <li> Setpoint weighting is present, which allows to weight
      the setpoint in the proportional and the derivative part
-     independantly from the measurement. The controller will respond
-     to load disturbances and measurement noise independantly of this setting
+     independently from the measurement. The controller will respond
+     to load disturbances and measurement noise independently of this setting
      (parameters wp, wd). However, setpoint changes will depend on this
      setting. For example, it is useful to set the setpoint weight wd
      for the derivative part to zero, if steps may occur in the
@@ -1086,7 +1086,7 @@ together) and using the following strategy:
 <li> Select a <b>PI</b>-controller and manually adjust parameters
      <b>k</b> and <b>Ti</b> (the time constant of the integrator).
      The first value of Ti can be selected, such that it is in the
-     order of the time constant of the oscillations occuring with
+     order of the time constant of the oscillations occurring with
      the P-controller. If, e.g., vibrations in the order of T=10 ms
      occur in the previous step, start with Ti=0.01 s.</li>
 <li> If you want to make the reaction of the control loop faster
@@ -1422,7 +1422,7 @@ results in the following equations:
           Line(points={{60,0},{100,0}}, color={0,0,255})}));
   end StateSpace;
 
-  block Der "Derivative of input (= analytic differentations)"
+  block Der "Derivative of input (= analytic differentiations)"
       extends Interfaces.SISO;
 
   equation
@@ -1524,7 +1524,7 @@ the model.
       // poles of prototype lowpass
       polereal[i] = cos(pi/2 + pi/n*(i - 0.5));
       poleimag[i] = sin(pi/2 + pi/n*(i - 0.5));
-      // scaling and calculation of secon order filter coefficients
+      // scaling and calculation of second order filter coefficients
       w0[i] = (polereal[i]^2 + poleimag[i]^2)*w;
       D[i] = -polereal[i]/w0[i]*w;
     end for;
@@ -1737,7 +1737,7 @@ much better for applications, since filters of different orders are
 cut-off frequency, when the order of the filter is changed.
 Figures of the filter step responses are shown below.
 Note, in versions before version 3.0 of the Modelica Standard library,
-the CriticalDamping filter was provided only in non-normalzed form.
+the CriticalDamping filter was provided only in non-normalized form.
 </p>
 
 <p>If transients at the simulation start shall be avoided, the filter
@@ -2000,7 +2000,7 @@ using various filter characteristics:
 
 <p>
 By default, a filter block is initialized in <b>steady-state</b>, in order to
-avoid unwanted osciallations at the beginning. In special cases, it might be
+avoid unwanted oscillations at the beginning. In special cases, it might be
 useful to select one of the other initialization options under tab
 \"Advanced\".
 </p>
@@ -2062,12 +2062,12 @@ at the cut-off frequency f_cut is -3 dB (= 10^(-3/20) = 0.70794..).
 Note, when comparing the filters of this function with other software systems,
 the setting of \"normalized\" has to be selected appropriately. For example, the signal processing
 toolbox of Matlab provides the filters in non-normalized form and
-therefore a comparision makes only sense, if normalized = <b>false</b>
+therefore a comparison makes only sense, if normalized = <b>false</b>
 is set. A normalized filter is usually better suited for applications,
 since filters of different orders are \"comparable\",
 whereas non-normalized filters usually require to adapt the
 cut-off frequency, when the order of the filter is changed.
-See a comparision of \"normalized\" and \"non-normalized\" filters at hand of
+See a comparison of \"normalized\" and \"non-normalized\" filters at hand of
 CriticalDamping filters of order 1,2,3:
 </p>
 
@@ -4181,8 +4181,8 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
               "[p] coefficients of denominator polynomials (c1[i]*p + 1)";
           input Real c2[:,2]
               "[p^2, p] coefficients of denominator polynomials (c2[i,1]*p^2 + c2[i,2]*p + 1)";
-          input Real u_min "Lower bound of search intervall";
-          input Real u_max "Upper bound of search intervall";
+          input Real u_min "Lower bound of search interval";
+          input Real u_max "Upper bound of search interval";
           input Real tolerance=100*Modelica.Constants.eps
               "Relative tolerance of solution u";
           output Real u "Value of independent variable so that f(u) = 0";
@@ -4368,8 +4368,8 @@ function. The solver function is a direct mapping of the Algol 60 procedure
           input Real aa;
           input Real bb;
           input Real ww;
-          input Real u_min "Lower bound of search intervall";
-          input Real u_max "Upper bound of search intervall";
+          input Real u_min "Lower bound of search interval";
+          input Real u_max "Upper bound of search interval";
           input Real tolerance=100*Modelica.Constants.eps
               "Relative tolerance of solution u";
           output Real u "Value of independent variable so that f(u) = 0";
@@ -4571,7 +4571,7 @@ Comparison of coefficients:
 
 <p>
 Therefore the last equation has to be solved for \"z\" (basically, this means to compute
-a real zero of a fourth order polynomal):
+a real zero of a fourth order polynomial):
 </p>
 
 <pre>
@@ -4666,7 +4666,7 @@ by another initial condition, then the initialization problem is <b>singular</b>
 (has none or infinitely many solutions). This situation occurs often
 for mechanical systems, where, e.g., u = desiredSpeed - measuredSpeed and
 since speed is both a state and a derivative, it is always defined by
-Init.InitialState or Init.SteadyState initializtion.
+Init.InitialState or Init.SteadyState initialization.
 </p>
 
 <p>

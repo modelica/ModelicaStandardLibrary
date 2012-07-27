@@ -390,7 +390,7 @@ reached with different precisions. This is summarized in the following table:
 <tr>
    <td>Filter order</td>
    <td>Factor fac</td>
-   <td>Per centage of step value reached after rise time</td>
+   <td>Percentage of step value reached after rise time</td>
 </tr>
 <tr>
    <td align=\"center\">1</td>
@@ -580,7 +580,7 @@ This simple example demonstrates the logical sources in
 <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
 their diagram animation (see \"small circle\" close to the output connector).
 The \"booleanExpression\" source shows how a logical expression can be defined
-in its parameter menu refering to variables available on this level of the
+in its parameter menu referring to variables available on this level of the
 model.
 </p>
 
@@ -1405,7 +1405,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 <ul>
 <li><i>June 23, 2004</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
-       Introduced new block connectors and adapated all blocks to the new connectors.
+       Introduced new block connectors and adapted all blocks to the new connectors.
        Included subpackages Continuous, Discrete, Logical, Nonlinear from
        package ModelicaAdditions.Blocks.
        Included subpackage ModelicaAdditions.Table in Modelica.Blocks.Sources
