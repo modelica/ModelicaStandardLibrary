@@ -27,7 +27,7 @@ package Visualizers "3-dimensional visual objects used for animation"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
       "Color of shape"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.ShapeExtra extra=0.0
       "Additional data for cylinder, cone, pipe, gearwheel and spring"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -219,7 +219,7 @@ definition of the colors used in the MultiBody library
       "Additional data for cylinder, cone, pipe, gearwheel and spring"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,128,255} "Color of shape"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -412,11 +412,11 @@ vector <b>r</b>.
       "Diameter of axes arrows" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color_x=Modelica.Mechanics.MultiBody.Types.Defaults.
         FrameColor "Color of x-arrow"
-      annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true,group="if animation = true", enable=animation));
     input Types.Color color_y=color_x "Color of y-arrow"
-      annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true,group="if animation = true", enable=animation));
     input Types.Color color_z=color_x "Color of z-arrow"
-      annotation (Dialog(__Dymola_colorSelector=true,group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true,group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -623,7 +623,7 @@ parameter menu.
     input SI.Diameter diameter=world.defaultArrowDiameter
       " Diameter of arrow line" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color={0,0,255} " Color of arrow"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -717,7 +717,7 @@ parameter menu.
       annotation (Dialog(group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color color={0,0,255}
       "Color of arrow"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -786,7 +786,7 @@ with respect to frame_a (vector from the origin of frame_a to the arrow tail).
       "Height of box (upper surface is at z=0, lower surface is at z=-height)"
                                                                         annotation (Dialog(enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color groundColor={0,255,0}
-      "Color of box"    annotation (Dialog(__Dymola_colorSelector=true, enable=animation));
+      "Color of box"    annotation (Dialog(colorSelector=true, enable=animation));
 
       Modelica.Mechanics.MultiBody.Visualizers.FixedShape ground(
         lengthDirection={1,0,0},
@@ -877,7 +877,7 @@ This shape visualizes the x-y plane by a box
       "= true: 3D model will be displayed without faces"
       annotation (Dialog(enable=animation, group="Material properties"),choices(checkBox=true));
     input Modelica.Mechanics.MultiBody.Types.RealColor color={0,128,255}
-      "Color of surface"  annotation(Dialog(enable=animation and not multiColoredSurface,__Dymola_colorSelector=true,group="Material properties"));
+      "Color of surface"  annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     input Real transparency=0
@@ -947,7 +947,7 @@ settings:
     parameter SI.Radius rCurvature=0.30 "Radius of the curvature of the tire";
 
     parameter Modelica.Mechanics.MultiBody.Types.RealColor color={64,64,64}
-      "Color of tire"  annotation(Dialog(enable=animation and not multiColoredSurface,__Dymola_colorSelector=true,group="Material properties"));
+      "Color of tire"  annotation(Dialog(enable=animation and not multiColoredSurface,colorSelector=true,group="Material properties"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.5
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(enable=animation,group="Material properties"));
     parameter Integer n_rTire=40 "Number of points along rTire" annotation(Dialog(enable=animation,tab="Discretization"));
@@ -1710,7 +1710,7 @@ This definition is also available as type
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-        "Color of arrow" annotation(Dialog(__Dymola_colorSelector=true));
+        "Color of arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
@@ -1821,7 +1821,7 @@ library (will be replaced by a color editor).
       input SI.Diameter diameter=world.defaultArrowDiameter
         "Diameter of arrow line" annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ArrowColor
-        "Color of double arrow" annotation(Dialog(__Dymola_colorSelector=true));
+        "Color of double arrow" annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Material property describing the reflecting of ambient light (= 0 means, that light is completely absorbed)"
                                                                                                             annotation(Dialog);
@@ -2469,7 +2469,7 @@ since they all have frame connectors).
         "Vector in direction of y-axis of 'lines' frame, resolved in frame_a."
         annotation (Dialog(group="if animation = true", enable=animation));
       input MultiBody.Types.Color color={0,128,255} " Color of cylinders"
-        annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+        annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="if animation = true", enable=animation));
@@ -2575,7 +2575,7 @@ The diameter and color of all line cylinders are identical.
       annotation(Dialog);
       input Modelica.Mechanics.MultiBody.Types.Color color={0,128,255}
         "Color of cylinders"
-      annotation(Dialog(__Dymola_colorSelector=true));
+      annotation(Dialog(colorSelector=true));
       input Types.SpecularCoefficient specularCoefficient = 0.7
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog);

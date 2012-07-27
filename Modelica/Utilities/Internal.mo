@@ -35,7 +35,7 @@ partial package PartialModelicaServices
     input SI.Length height=0 "Height of visual object"  annotation(Dialog);
     input Types.ShapeExtra extra=0.0
           "Additional size data for some of the shape types"                             annotation(Dialog);
-    input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog(__Dymola_colorSelector=true));
+    input Real color[3]={255,0,0} "Color of shape"               annotation(Dialog(colorSelector=true));
     input Types.SpecularCoefficient specularCoefficient = 0.7
           "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                         annotation(Dialog);
@@ -77,7 +77,7 @@ This model is documented at
       parameter Boolean multiColoredSurface=false
           "= true: Color is defined for each surface point"
           annotation(Dialog(group="Material properties"),choices(checkBox=true));
-      input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(__Dymola_colorSelector=true,group="Material properties", enable=not multiColoredSurface));
+      input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(colorSelector=true,group="Material properties", enable=not multiColoredSurface));
       input Types.SpecularCoefficient specularCoefficient = 0.7
           "Reflection of ambient light (= 0: light is completely absorbed)"
                                                                           annotation(Dialog(group="Material properties"));

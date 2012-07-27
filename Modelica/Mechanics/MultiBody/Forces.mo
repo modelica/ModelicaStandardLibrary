@@ -29,7 +29,7 @@ package Forces "Components that exert forces and/or torques between frames"
       "Diameter of force arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
       "Color of arrow"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -191,7 +191,7 @@ This leads to the following animation
       "Diameter of torque arrow" annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
       "Color of arrow"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -369,9 +369,9 @@ This leads to the following animation
     input SI.Diameter torqueDiameter=forceDiameter " Diameter of torque arrow"
                                   annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-      " Color of force arrow" annotation (__Dymola_colorSelector=true, Dialog(group="if animation = true", enable=animation));
+      " Color of force arrow" annotation (colorSelector=true, Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-      " Color of torque arrow" annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      " Color of torque arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -590,10 +590,10 @@ This leads to the following animation
       " Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-      " Color of force arrow" annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      " Color of force arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       " Color of line connecting frame_a and frame_b"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -784,10 +784,10 @@ clarity this is not shown in the animation):
       " Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-      " Color of torque arrow" annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      " Color of torque arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       " Color of line connecting frame_a and frame_b"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -995,12 +995,12 @@ clarity this is not shown in the animation):
       "Diameter of line connecting frame_a and frame_b"
       annotation (Dialog(group="if animation = true", enable=animation));
     input Types.Color forceColor=Modelica.Mechanics.MultiBody.Types.Defaults.ForceColor
-      "Color of force arrow" annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      "Color of force arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color torqueColor=Modelica.Mechanics.MultiBody.Types.Defaults.TorqueColor
-      "Color of torque arrow" annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      "Color of torque arrow" annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.Color connectionLineColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of line connecting frame_a and frame_b"
-      annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(group="if animation = true", enable=animation));
@@ -1265,13 +1265,13 @@ clarity this is not shown in the animation):
       annotation (Dialog(tab="Animation", group="if animateLine = true", enable=animateLine));
     input Types.Color lineShapeColor=Modelica.Mechanics.MultiBody.Types.Defaults.SensorColor
       "Color of line shape"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animateLine = true", enable=animateLine));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animateLine = true", enable=animateLine));
     input Real massDiameter=world.defaultBodyDiameter
       "Diameter of point mass sphere"
       annotation (Dialog(tab="Animation", group="if animateMass = true", enable=animateMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of point mass"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animateMass = true", enable=animateMass));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animateMass = true", enable=animateMass));
     parameter SI.Position s_small=1.E-10
       "Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
@@ -1627,7 +1627,7 @@ in the other flange connector.
     parameter SI.Length cylinderLength_a=2*L_a " Length of cylinder at frame_a"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
     input Types.Color color_a={155,155,155} " Color of cylinder at frame_a"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_a if animation = true", enable=animate));
@@ -1637,13 +1637,13 @@ in the other flange connector.
     parameter SI.Length cylinderLength_b=2*L_b " Length of cylinder at frame_b"
       annotation (Dialog(tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
     input Types.Color color_b={100,100,100} " Color of cylinder at frame_b"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="Cylinder at frame_b if animation = true", enable=animate));
     input Real massDiameterFaction=1.7
       " Diameter of point mass spheres with respect to cylinderDiameter_a"
       annotation (Dialog(tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       " Color of point masses"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true and animateMasses = true", enable=animate and animateMasses));
     parameter SI.Position s_small=1.E-10
       " Prevent zero-division if distance between frame_a and frame_b is zero"
       annotation (Dialog(tab="Advanced"));
@@ -2091,7 +2091,7 @@ in the other flange connector.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor
       " Color of spring"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2099,7 +2099,7 @@ in the other flange connector.
       " Diameter of mass point sphere" annotation (Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     input Types.Color massColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      " Color of mass point" annotation (__Dymola_colorSelector=true, Dialog(tab="Animation", group=
+      " Color of mass point" annotation (colorSelector=true, Dialog(tab="Animation", group=
             "if animation = true and showMass = true", enable=animation and showMass));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
@@ -2224,9 +2224,9 @@ ALT=\"model Examples.Elementary.SpringWithMass\">
       " Diameter of cylinder at frame_b side"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color_a={100,100,100} " Color at frame_a"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation, colorSelector));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation, colorSelector));
     input Types.Color color_b={155,155,155} " Color at frame_b"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation, colorSelector));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation, colorSelector));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2355,7 +2355,7 @@ where a mass is hanging on a damper.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.SpringColor
       " Color of spring"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));

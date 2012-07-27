@@ -37,7 +37,7 @@ package Parts
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       " Color of shape"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -155,7 +155,7 @@ animation = <b>false</b>.
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       " Color of shape"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -362,7 +362,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       " Color of shape"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -631,7 +631,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of sphere" annotation (Dialog(__Dymola_colorSelector=true,
+      "Color of sphere" annotation (Dialog(colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -642,7 +642,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
         group="if animation = true",
         enable=animation));
     input Types.Color cylinderColor=sphereColor "Color of cylinder"
-      annotation (Dialog(__Dymola_colorSelector=true,
+      annotation (Dialog(colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -1020,13 +1020,13 @@ to the setting of parameters \"useQuaternions\" and
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       " Color of shape"
-      annotation (Dialog(__Dymola_colorSelector=true,  tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true,  tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter sphereDiameter=2*width " Diameter of sphere"
       annotation (Dialog(tab="Animation", group=
             "if animation = true and animateSphere = true",
             enable=animation and animateSphere));
     input Types.Color sphereColor=color " Color of sphere of mass"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group=
+      annotation (Dialog(colorSelector=true, tab="Animation", group=
             "if animation = true and animateSphere = true", enable=animation and animateSphere));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
@@ -1246,7 +1246,7 @@ states and of the \"Advanced\" menu parameters, see model
       "Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)";
     input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
       "Color of box"
-      annotation (Dialog(__Dymola_colorSelector=true, enable=animation));
+      annotation (Dialog(colorSelector=true, enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(enable=animation));
@@ -1461,7 +1461,7 @@ states and of the \"Advanced\" menu parameters, see model
     parameter SI.Density density = 7700
       "Density of cylinder (e.g., steel: 7700 .. 7900, wood : 400 .. 800)";
     input Modelica.Mechanics.MultiBody.Types.Color color=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of cylinder" annotation (Dialog(__Dymola_colorSelector=true, enable=animation));
+      "Color of cylinder" annotation (Dialog(colorSelector=true, enable=animation));
     input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(enable=animation));
@@ -1653,7 +1653,7 @@ states and of the \"Advanced\" menu parameters, see model
         group="if animation = true",
         enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.BodyColor
-      "Color of sphere" annotation (Dialog(__Dymola_colorSelector=true,
+      "Color of sphere" annotation (Dialog(colorSelector=true,
         tab="Animation",
         group="if animation = true",
         enable=animation));
@@ -1881,7 +1881,7 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
       "Color of cylinder representing the rotor"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Modelica.Mechanics.MultiBody.Types.SpecularCoefficient
       specularCoefficient=world.defaultSpecularCoefficient
       "Reflection of ambient light (= 0: light is completely absorbed)"

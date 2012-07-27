@@ -747,7 +747,7 @@ end Shape;
       annotation (Dialog(enable=false, group="Material properties"));
     parameter Boolean multiColoredSurface=false "Not yet supported by Dymola"
         annotation(Dialog(group="Material properties", enable=false));
-    input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(__Dymola_colorSelector=true,group="Material properties"));
+    input Real color[3]={255,0,0} "Color of surface" annotation(Dialog(colorSelector=true,group="Material properties"));
     input Types.SpecularCoefficient specularCoefficient = 0.7
       "Reflection of ambient light (= 0: light is completely absorbed)" annotation(Dialog(group="Material properties"));
     input Real transparency=0
