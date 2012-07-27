@@ -1167,11 +1167,11 @@ model World
     annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_x=Modelica.Mechanics.MultiBody.Types.Defaults.FrameColor
     "Color of x-arrow"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_y=axisColor_x
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
   input Types.Color axisColor_z=axisColor_x "Color of z-arrow"
-    annotation (Dialog(tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
+    annotation (Dialog(colorSelector=true,tab="Animation", group="if animateWorld = true", enable=enableAnimation and animateWorld));
 
   parameter SI.Position gravityArrowTail[3]={0,0,0}
     "Position vector from origin of world frame to arrow tail, resolved in world frame"
@@ -1188,7 +1188,7 @@ model World
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
   input Types.Color gravityArrowColor={0,230,0} "Color of gravity arrow"
-    annotation (Dialog(tab="Animation", group=
+    annotation (Dialog(colorSelector=true, tab="Animation", group=
           "if animateGravity = true and gravityType = UniformGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.UniformGravity));
   parameter SI.Diameter gravitySphereDiameter=12742000
@@ -1197,7 +1197,7 @@ model World
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
   input Types.Color gravitySphereColor={0,230,0} "Color of gravity sphere"
-    annotation (Dialog(tab="Animation", group=
+    annotation (Dialog(colorSelector=true, tab="Animation", group=
           "if animateGravity = true and gravityType = PointGravity",
           enable=enableAnimation and animateGravity and gravityType == GravityTypes.PointGravity));
 
