@@ -10549,7 +10549,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
     package Bjt "Records and functions for bjt model"
       extends Modelica.Icons.Package;
 
-      record Bjt "Record for bjt3 device parameters"
+      record Bjt "Record for bjt device parameters"
         extends Spice3.Internal.Model.Model;
 
         Real m_area(  start = 1.0) "AREA";
@@ -10567,7 +10567,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         Modelica.SIunits.Capacitance m_CScap(start=0);
         annotation (Documentation(info="<html>
-<p>This record contains the device parameters that are used for the bipolar transistor bjt3 model in SPICE3.</p>
+<p>This record contains the device parameters that are used for the bipolar transistor bjt model in SPICE3.</p>
 </html>"));
       end Bjt;
 
@@ -10682,7 +10682,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end BjtModelLineParams;
 
-      record BjtCalc "Bjt3 variables"
+      record BjtCalc "Bjt variables"
 
         Modelica.SIunits.Current m_tSatCur(start=0);
         Real m_tBetaF( start = 1);
@@ -10709,7 +10709,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end BjtCalc;
 
-      record CurrentsCapacitances "Bjt3 variables"
+      record CurrentsCapacitances "Bjt variables"
 
         Modelica.SIunits.Current iBE(start=0.0);
                                    //current through diode dE1 (ideal part)
@@ -10786,7 +10786,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function bjtInitEquations "Initial calculation"
 
-        input Bjt in_p "Input record Bjt3";
+        input Bjt in_p "Input record Bjt";
         input BjtModelLineParams in_pml
           "Input record with Bjt model line parameters";
 
@@ -10808,11 +10808,11 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function bjtCalcTempDependencies "Temperature dependency calculation"
 
-        input Bjt in_p3 "Input record Bjt3";
+        input Bjt in_p3 "Input record Bjt";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
 
-        output BjtCalc out_c "Output record Bjt3Calc";
+        output BjtCalc out_c "Output record BjtCalc";
 
       protected
         Real fact1;
@@ -10908,10 +10908,10 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       function bjtNoBypassCode "Calculation of currents"
 
-        input Bjt in_p3 "Input record Bjt3";
+        input Bjt in_p3 "Input record Bjt";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
-        input BjtCalc in_c "Input record Bjt3Calc";
+        input BjtCalc in_c "Input record BjtCalc";
         input Modelica.SIunits.Voltage[6] in_m_pVoltageValues;
                                                    /* 1 Col; 2 Base; 3 Emit; 4 ColP; 5 BaseP; 6 EmitP */
 
@@ -11265,7 +11265,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
           "Flag for sensitivity analysis, not yet implemented";
         input Modelica.SIunits.Temp_C TEMP "Temperature";
 
-        output Bjt dev "Output record Bjt3";
+        output Bjt dev "Output record Bjt";
 
       algorithm
         dev.m_area := AREA;
@@ -11289,6 +11289,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
       record BjtModelLineVariables
         "Record for bjt model line variables, obsolete"
+      extends Modelica.Icons.Record;
+        extends Modelica.Icons.ObsoleteModel;
 
         Modelica.SIunits.Current m_leakBEcurrent=1;
         Modelica.SIunits.Current m_leakBCcurrent=1;
@@ -11310,6 +11312,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end BjtModelLineVariables;
 
       record BjtVariables "Variables for the bjt model, obsolete"
+        extends Modelica.Icons.Record;
+        extends Modelica.Icons.ObsoleteModel;
         extends Bjt3Variables;
 
         Real m_CScap= 1;
@@ -11320,7 +11324,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end BjtVariables;
 
       record Bjt3Variables "Variables for the bjt3 model, obsolete"
-
+        extends Modelica.Icons.Record;
+        extends Modelica.Icons.ObsoleteModel;
         Modelica.SIunits.Current m_transitTimeHighCurrentF=1;
         Real m_invRollOffF=1;
         Real m_invRollOffR=1;
