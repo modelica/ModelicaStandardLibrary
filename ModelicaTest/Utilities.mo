@@ -2,6 +2,7 @@ within ModelicaTest;
 package Utilities "Test functions for Modelica.Utilities"
 extends Modelica.Icons.Package;
   function Strings "Test functions of Modelica.Utilities.Strings"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Utilities.Strings;
     import Modelica.Utilities.Types;
@@ -158,6 +159,7 @@ extends Modelica.Icons.Package;
   end Strings;
 
   function Streams "Test functions of Modelica.Utilities.Streams"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Utilities.Files;
     input String logFile = "ModelicaTestLog.txt"
@@ -206,6 +208,7 @@ extends Modelica.Icons.Package;
   end Streams;
 
   function Internal "Test functions of Modelica.Utilities.Internal"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Internal.FileSystem; // We must extend to make internal functions available.
     import Modelica.Utilities.System;
     import Modelica.Utilities.Types;
@@ -265,6 +268,7 @@ extends Modelica.Icons.Package;
   end Internal;
 
   function Files "Test functions of Modelica.Utilities.Files"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Files;
     import Modelica.Utilities.Streams;
 
@@ -292,6 +296,7 @@ extends Modelica.Icons.Package;
   end Files;
 
   function testAll "Test functions of Modelica.Utilities"
+    extends Modelica.Icons.Function;
     input String logFile = "ModelicaTestLog.txt"
       "Filename where the log is stored";
     output Boolean ok;

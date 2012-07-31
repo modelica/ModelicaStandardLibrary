@@ -6,6 +6,7 @@ extends Modelica.Icons.ExamplesPackage;
   extends Modelica.Icons.ExamplesPackage;
 
   model SimpleDriveTrain
+    extends Modelica.Icons.Example;
 
     Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
               extent={{-80,0},{-60,20}}, rotation=0)));
@@ -30,7 +31,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,127},
           smooth=Smooth.None));
     connect(torque.support,fixed.flange)    annotation (Line(
-          points={{-34,0},{-34,-10}},
+          points={{-34,-5.55112e-16},{-34,-10}},
           color={0,0,0},
           smooth=Smooth.None));
     connect(torque.flange,   J1.flange_a) annotation (Line(
@@ -42,7 +43,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
     connect(fixed.flange,gear.support)    annotation (Line(
-          points={{-34,-10},{30,-10},{30,0}},
+          points={{-34,-10},{30,-10},{30,-5.55112e-16}},
           color={0,0,0},
           smooth=Smooth.None));
     connect(J1.flange_b, gear.flange_a) annotation (Line(
@@ -53,6 +54,7 @@ extends Modelica.Icons.ExamplesPackage;
   end SimpleDriveTrain;
 
     model ConnectionPossibilities
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.Inertia inertia1
         annotation (Placement(transformation(extent={{-60,40},{-40,60}},
@@ -85,7 +87,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       connect(spring1.flange_b, spring2.flange_a) annotation (Line(
-          points={{-10,-10},{0,-10}},
+          points={{-10,-10},{-5.55112e-16,-10}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(spring2.flange_b, inertia4.flange_a) annotation (Line(
@@ -96,6 +98,7 @@ extends Modelica.Icons.ExamplesPackage;
     end ConnectionPossibilities;
 
     model SupportTorque1
+      extends Modelica.Icons.Example;
 
       Modelica.Blocks.Sources.Sine sine2
                                         annotation (Placement(transformation(
@@ -130,7 +133,7 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,127},
           smooth=Smooth.None));
       connect(torque2.support,fixed1.flange)  annotation (Line(
-          points={{-34,0},{-34,-10}},
+          points={{-34,-5.55112e-16},{-34,-10}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(torque2.flange,   inertia3.flange_a)
@@ -140,7 +143,7 @@ extends Modelica.Icons.ExamplesPackage;
           smooth=Smooth.None));
       connect(fixed1.flange,idealGear2.support)
                                             annotation (Line(
-          points={{-34,-10},{26,-10},{26,0}},
+          points={{-34,-10},{26,-10},{26,-5.55112e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertia3.flange_b, idealGear2.flange_a)
@@ -157,13 +160,14 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       connect(fixed1.flange,bearingFriction1.support)    annotation (Line(
-          points={{-34,-10},{56,-10},{56,0}},
+          points={{-34,-10},{56,-10},{56,-5.55112e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (experiment(StopTime=1.1));
     end SupportTorque1;
 
     model Directions
+      extends Modelica.Icons.Example;
 
       Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
               extent={{-80,60},{-60,80}}, rotation=0)));
@@ -281,27 +285,27 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       connect(torque.support,fixed1.flange)    annotation (Line(
-          points={{-34,60},{-34,52},{0,52}},
+          points={{-34,60},{-34,52},{4.996e-16,52}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(fixed1.flange,gear.support)    annotation (Line(
-          points={{0,52},{30,52},{30,60}},
+          points={{4.996e-16,52},{30,52},{30,60}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(torque1.support,fixed2.flange)    annotation (Line(
-          points={{-34,10},{-34,4},{0,4}},
+          points={{-34,10},{-34,4},{4.996e-16,4}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(fixed2.flange,gear1.support)    annotation (Line(
-          points={{0,4},{30,4},{30,10}},
+          points={{4.996e-16,4},{30,4},{30,10}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(torque2.support,fixed3.flange)    annotation (Line(
-          points={{-34,-50},{-34,-56},{0,-56}},
+          points={{-34,-50},{-34,-56},{4.996e-16,-56}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(fixed3.flange,gear2.support)    annotation (Line(
-          points={{0,-56},{30,-56},{30,-50}},
+          points={{4.996e-16,-56},{30,-56},{30,-50}},
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{
@@ -321,6 +325,7 @@ extends Modelica.Icons.ExamplesPackage;
     end Directions;
 
     model Directions2
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.Inertia J2(
                                                J=5)
@@ -380,19 +385,23 @@ extends Modelica.Icons.ExamplesPackage;
               rotation=0)));
     equation
       connect(torque1.flange,   inertia1.flange_a) annotation (Line(
-          points={{-40,0},{-30,0}},
+          points={{-40,6.10623e-16},{-37.5,6.10623e-16},{-37.5,1.22125e-15},{
+              -35,1.22125e-15},{-35,6.10623e-16},{-30,6.10623e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine1.y, torque1.tau) annotation (Line(
-          points={{-69,0},{-62,0}},
+          points={{-69,6.10623e-16},{-67.25,6.10623e-16},{-67.25,1.27676e-15},{
+              -65.5,1.27676e-15},{-65.5,6.66134e-16},{-62,6.66134e-16}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(torque2.flange,   inertia2.flange_b) annotation (Line(
-          points={{40,0},{30,0}},
+          points={{40,6.10623e-16},{37.5,6.10623e-16},{37.5,1.22125e-15},{35,
+              1.22125e-15},{35,6.10623e-16},{30,6.10623e-16}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(sine2.y, torque2.tau) annotation (Line(
-          points={{69,0},{62,0}},
+          points={{69,6.10623e-16},{67.25,6.10623e-16},{67.25,1.27676e-15},{
+              65.5,1.27676e-15},{65.5,6.66134e-16},{62,6.66134e-16}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(idealPlanetary1.sun, inertia3.flange_b) annotation (Line(
@@ -527,6 +536,7 @@ extends Modelica.Icons.ExamplesPackage;
     end Directions2;
 
     model Directions3
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.Inertia J1(
                                                J=1)
@@ -873,6 +883,7 @@ extends Modelica.Icons.ExamplesPackage;
   end InitializationConversion;
 
   model TestSpeed
+    extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Rotational.Sources.Speed speed1(
                                                f_crit=5, useSupport=false)
@@ -913,25 +924,30 @@ extends Modelica.Icons.ExamplesPackage;
             extent={{-60,-60},{-40,-40}}, rotation=0)));
   equation
     connect(speed1.flange,   inertia1.flange_a)
-      annotation (Line(points={{0,70},{20,70}}, color={0,0,0}));
+      annotation (Line(points={{5.55112e-16,70},{20,70}},
+                                                color={0,0,0}));
     connect(speed2.flange,   inertia2.flange_a)
-      annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+      annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                color={0,0,0}));
     connect(sine2.y, speed2.w_ref) annotation (Line(points={{-39,30},{-22,30}},
           color={0,0,127}));
     connect(step.y, speed1.w_ref) annotation (Line(points={{-39,70},{-22,70}},
           color={0,0,127}));
     connect(speed3.flange,   mass1.flange_a)
-      annotation (Line(points={{0,-10},{20,-10}}, color={0,127,0}));
+      annotation (Line(points={{5.55112e-16,-10},{20,-10}},
+                                                  color={0,127,0}));
     connect(step1.y, speed3.v_ref) annotation (Line(points={{-39,-10},{-22,-10}},
           color={0,0,127}));
     connect(speed4.flange,   mass2.flange_a)
-      annotation (Line(points={{0,-50},{20,-50}}, color={0,127,0}));
+      annotation (Line(points={{5.55112e-16,-50},{20,-50}},
+                                                  color={0,127,0}));
     connect(sine4.y, speed4.v_ref) annotation (Line(points={{-39,-50},{-22,-50}},
           color={0,0,127}));
     annotation (      experiment(StopTime=1.1));
   end TestSpeed;
 
   model TestMove
+    extends Modelica.Icons.Example;
 
     Modelica.Mechanics.MultiBody.Parts.Body Body1(I_33=2)
       annotation (Placement(transformation(extent={{66,36},{86,56}}, rotation=0)));
@@ -981,11 +997,13 @@ extends Modelica.Icons.ExamplesPackage;
     connect(Multiplex3_1.y, move1.u) annotation (Line(points={{-35,50},{-28,50},
             {-28,-30},{-22,-30}}, color={0,0,127}));
     connect(move1.flange,   slidingMass.flange_a)
-      annotation (Line(points={{0,-30},{20,-30}}, color={0,127,0}));
+      annotation (Line(points={{5.55112e-16,-30},{20,-30}},
+                                                  color={0,127,0}));
     annotation (      experiment(StopTime=1.1));
   end TestMove;
 
   model AllComponents
+    extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Rotational.Components.Inertia inertia(
                                                   J=3)
@@ -1334,11 +1352,13 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(position.flange,   inertia9.flange_a) annotation (Line(
-        points={{68,0},{80,0}},
+        points={{68,6.10623e-16},{71,6.10623e-16},{71,1.22125e-15},{74,
+            1.22125e-15},{74,6.10623e-16},{80,6.10623e-16}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(sine2.y, position.phi_ref) annotation (Line(
-        points={{39,0},{46,0}},
+        points={{39,6.10623e-16},{40.75,6.10623e-16},{40.75,1.27676e-15},{42.5,
+            1.27676e-15},{42.5,6.66134e-16},{46,6.66134e-16}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(sine3.y, speed.w_ref) annotation (Line(
@@ -1436,8 +1456,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(torqueStep.support,constantSpeed.support)  annotation (Line(
-        points={{-110,-140},{-95,-140},{-95,-138},{-80,-138},{-80,-142},{-50,
-            -142}},
+        points={{-110,-140},{-95,-140},{-95,-138},{-80,-138},{-80,-140},{-50,-140}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(constantSpeed.flange, inertia15.flange_a) annotation (Line(
@@ -1465,7 +1484,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(inertia9.flange_b, relAngleSensor.flange_a) annotation (Line(
-        points={{100,0},{132,0},{132,-10},{152,-10}},
+        points={{100,6.10623e-16},{132,6.10623e-16},{132,-10},{152,-10}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(inertia13.flange_b, relAngleSensor.flange_b) annotation (Line(
@@ -1505,6 +1524,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   model TestBearingConversion
     "Test, whether conversion of bearing to support is correctly performed"
+    extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Rotational.Components.IdealGear idealGear(useSupport=
           false)
@@ -1745,7 +1765,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(idealGear1.flange_b, bearingFriction.flange_a) annotation (Line(
-        points={{-8,150},{0,150}},
+        points={{-8,150},{-5.55112e-16,150}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(inertia1.flange_b, bearingFriction1.flange_a) annotation (Line(
@@ -1769,7 +1789,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(inertia3.flange_b, brake1.flange_a) annotation (Line(
-        points={{0,40},{16,40}},
+        points={{5.55112e-16,40},{16,40}},
         color={0,0,0},
         smooth=Smooth.None));
     connect(sine.y, brake1.f_normalized) annotation (Line(
@@ -2001,6 +2021,7 @@ extends Modelica.Icons.ExamplesPackage;
   end TestBearingConversion;
 
   model TestFriction "Test friction elements"
+    extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Rotational.Components.Inertia inertia
       annotation (Placement(transformation(extent={{-8,80},{12,100}}, rotation=
@@ -2110,7 +2131,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,0},
         smooth=Smooth.None));
     connect(step1.y, clutch.f_normalized) annotation (Line(
-        points={{9,0},{34,0},{34,-19}},
+        points={{9,6.10623e-16},{34,6.10623e-16},{34,-19}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(torque3.flange,   inertia4.flange_a) annotation (Line(

@@ -11,6 +11,7 @@ extends Modelica.Icons.ExamplesPackage;
       package Channel "Verification package for channel correlations"
       extends Modelica.Icons.ExamplesPackage;
         model kc_evenGapLaminar "Verification of function kc_evenGapLaminar"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
@@ -197,6 +198,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model kc_evenGapLaminar_KC
           "Verification of function kc_evenGapLaminar_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
@@ -390,6 +392,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_evenGapLaminar_KC;
 
         model kc_evenGapOverall "Verification of function kc_evenGapOverall"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
@@ -591,6 +594,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model kc_evenGapOverall_KC
           "Verification of function kc_evenGapOverall_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
@@ -806,6 +810,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model kc_evenGapTurbulent
           "Verification of function kc_evenGapTurbulent"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
@@ -908,6 +913,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model kc_evenGapTurbulent_KC
           "Verification of function kc_evenGapTurbulent_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
           parameter Modelica.SIunits.Diameter d_hyd=2*s;
@@ -1013,6 +1019,8 @@ extends Modelica.Icons.ExamplesPackage;
       extends Modelica.Icons.ExamplesPackage;
         model kc_approxForcedConvection
           "Verification of function kc_approxForcedConvection"
+          extends Modelica.Icons.Example;
+
           parameter Integer n=size(cp, 1);
 
           //generic variables
@@ -1154,6 +1162,8 @@ extends Modelica.Icons.ExamplesPackage;
 
         model kc_approxForcedConvection_KC
           "Verification of function kc_approxForcedConvection_KC"
+          extends Modelica.Icons.Example;
+
            parameter Integer n=size(cp, 1);
 
            //generic variables
@@ -1294,6 +1304,7 @@ extends Modelica.Icons.ExamplesPackage;
       extends Modelica.Icons.ExamplesPackage;
 
         model kc_flatTube "Verification of function kc_flatTube"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=2 "Number of various fin geometries";
 
@@ -1426,6 +1437,8 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_flatTube;
 
         model kc_flatTube_KC "Verification of function kc_flatTube_KC"
+          extends Modelica.Icons.Example;
+
           parameter Integer n=2 "Number of various fin geometries";
 
           //heat exchanger variables
@@ -1562,6 +1575,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_flatTube_KC;
 
         model kc_roundTube "Verification of function kc_roundTube"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=4 "Number of various fin geometries";
 
@@ -1772,6 +1786,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_roundTube;
 
         model kc_roundTube_KC "Verification of function kc_roundTube_KC"
+          extends Modelica.Icons.Example;
           //The functions for heat exchanger geometry no.2 and no.3 are too complex for inverting.
           //Therefore they have been removed from this verification model.
 
@@ -1987,6 +2002,7 @@ extends Modelica.Icons.ExamplesPackage;
       package HelicalPipe "Verification package for helical pipe correlations"
       extends Modelica.Icons.ExamplesPackage;
         model kc_laminar "Verification of function kc_laminar"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -2138,6 +2154,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_laminar;
 
         model kc_laminar_KC "Verification of function kc_laminar_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -2281,6 +2298,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_laminar_KC;
 
         model kc_overall "Verification of function kc_overall"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -2431,6 +2449,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_overall;
 
         model kc_overall_KC "Verification of function kc_mean_overall_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -2572,6 +2591,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_overall_KC;
 
         model kc_turbulent "Verification of function kc_turbulent"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -2725,6 +2745,8 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_turbulent;
 
         model kc_turbulent_KC "Verification of function kc_turbulent_KC"
+          extends Modelica.Icons.Example;
+
           parameter Integer n=size(cp, 1);
 
           //helical pipe variables
@@ -2870,6 +2892,7 @@ extends Modelica.Icons.ExamplesPackage;
       package Plate "Verification models for plate heat transfer"
       extends Modelica.Icons.ExamplesPackage;
         model kc_laminar "Verification of function kc_laminar"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -2959,6 +2982,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_laminar;
 
         model kc_laminar_KC "Verification of function kc_laminar_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3035,6 +3059,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_laminar_KC;
 
         model kc_overall "Verification of function kc_overall"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3132,6 +3157,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_overall;
 
         model kc_overall_KC "Verification of function kc_overall_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3207,6 +3233,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_overall_KC;
 
         model kc_turbulent "Verification of function kc_turbulent"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3297,6 +3324,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_turbulent;
 
         model kc_turbulent_KC "Verification of function kc_turbulent_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3377,6 +3405,7 @@ extends Modelica.Icons.ExamplesPackage;
         "Verification package for straight pipe correlations"
       extends Modelica.Icons.ExamplesPackage;
         model kc_laminar "Verification of function kc_laminar"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3560,6 +3589,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_laminar;
 
         model kc_laminar_KC "Verification of function kc_mean_laminar_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3726,6 +3756,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_laminar_KC;
 
         model kc_overall "Verification of function kc_overall"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -3913,6 +3944,8 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_overall;
 
         model kc_overall_KC "Verification of function kc_mean_overall_KC"
+          extends Modelica.Icons.Example;
+
           parameter Integer n=size(cp, 1);
 
           //straight pipe variables
@@ -4081,6 +4114,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_overall_KC;
 
         model kc_turbulent "Verification of function kc_turbulent"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -4202,6 +4236,7 @@ extends Modelica.Icons.ExamplesPackage;
         end kc_turbulent;
 
         model kc_turbulent_KC "Verification of function kc_turbulent_KC"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(cp, 1);
 
@@ -4307,6 +4342,8 @@ extends Modelica.Icons.ExamplesPackage;
 
         model kc_twoPhaseOverall_KC
           "Verification of function kc_twoPhaseOverall_KC"
+          extends Modelica.Icons.Example;
+
           import Modelica.Math.log10;
           parameter Integer n=size(m_flow_1, 1);
           parameter Integer m=size(m_flow_3, 1);
@@ -4528,6 +4565,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_curvedOverall_DPMFLOW
           "Verification of function dp_curvedOverall_DP AND dp_curvedOverall_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(R_0, 1)
             "Number of different relative curvature radii of bend";
@@ -4720,6 +4758,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_edgedOverall_DPMFLOW
           "Verification of function dp_edgedOverall_DP AND dp_edged_Overall_MFLOW"
+          extends Modelica.Icons.Example;
 
           constant Real MIN=Modelica.Constants.eps;
 
@@ -4835,6 +4874,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_internalFlowOverall_DPMFLOW
           "Verification of function dp_internalFlowOverall_DP AND dp_internalFlowOverall_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(geometry, 1)
             "Number of different geometries";
@@ -5007,6 +5047,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_idealGas_DPMFLOW
           "Verification of function dp_idealGas_DP and dp_idealGas_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(dp_nom, 1);
 
@@ -5129,6 +5170,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_nominalDensityViscosity_DPMFLOW
           "Verification of function dp_nominalDensityViscosity_DP and dp_nominalDensityViscosity_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(rho, 1)
             "number of different fluid density values";
@@ -5255,6 +5297,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_nominalPressureLossLawDensity_DPMFLOW
           "Verification of function dp_nominalPressureLossLawDensity_DP and dp_nominalPressureLossLawDensity_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(rho, 1)
             "number of different fluid density values";
@@ -5393,6 +5436,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_pressureLossCoefficient_DPMFLOW
           "Verification of function dp_pressureLossCoefficient_DP and dp_pressureLossCoefficient_MFLOW"
+          extends Modelica.Icons.Example;
 
           //general variables
           parameter Integer n=3 "Number of grid points";
@@ -5490,6 +5534,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_volumeFlowRate_DPMFLOW
           "Verification of function dp_volumeFlowRate_DP and dp_volumeFlowRate_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(a, 1) "number of different coefficients a";
 
@@ -5597,6 +5642,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_suddenChange_DPMFLOW
           "Verification of function dp_suddenChange_DP AND dp_suddenChange_MFLOW"
+          extends Modelica.Icons.Example;
 
           constant Real MIN=Modelica.Constants.eps;
 
@@ -5723,6 +5769,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_thickEdgedOverall_DPMFLOW
           "Verification of function dp_thickEdgedOverall_DP AND dp_thickEdgedOverall_MFLOW"
+          extends Modelica.Icons.Example;
 
           constant Real MIN=Modelica.Constants.eps;
 
@@ -5859,6 +5906,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_laminar_DPMFLOW
           "Verification of function dp_laminar_DP AND dp_laminar_MFLOW"
+          extends Modelica.Icons.Example;
 
           Real MIN=Modelica.Constants.eps;
 
@@ -5976,6 +6024,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_overall_DPMFLOW
           "Verification of function dp_overall_DP AND dp_overall_MFLOW"
+          extends Modelica.Icons.Example;
 
           Real MIN=Modelica.Constants.eps;
 
@@ -6105,6 +6154,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_turbulent_DPMFLOW
           "Verification of function dp_turbulent_DP AND dp_turbulent_MFLOW"
+          extends Modelica.Icons.Example;
 
           Real MIN=Modelica.Constants.eps;
 
@@ -6234,6 +6284,7 @@ extends Modelica.Icons.ExamplesPackage;
 
         model dp_twoPhaseOverall_DP
           "Verification of function dp_twoPhaseOverall_DP"
+          extends Modelica.Icons.Example;
 
           import PI = Modelica.Constants.pi;
 
@@ -6390,6 +6441,7 @@ extends Modelica.Icons.ExamplesPackage;
       extends Modelica.Icons.ExamplesPackage;
         model dp_severalGeometryOverall_DPMFLOW
           "Verification of function dp_severalGeometryOverall_DP AND dp_severalGeometryOverall_MFLOW"
+          extends Modelica.Icons.Example;
 
           parameter Integer n=size(geometry, 1)
             "Number of different geometries";
@@ -6648,6 +6700,7 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.VariantsPackage;
 
       model Bend "Test cases of generic pressure loss functions"
+        extends Modelica.Icons.Example;
 
         inner Modelica.Fluid.System system(p_ambient(displayUnit="Pa") = 100000,
             m_flow_small=0.01) annotation (Placement(
@@ -6762,6 +6815,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
       end Bend;
 
       model Orifice "Test cases of pressure loss functions for orifice"
+        extends Modelica.Icons.Example;
 
         inner Modelica.Fluid.System system(p_ambient(displayUnit="Pa") = 100000,
             m_flow_small=0.01) annotation (Placement(
@@ -6882,6 +6936,7 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 
       model SeveralTestCases
         "Test cases of pressure loss functions for several devices"
+        extends Modelica.Icons.Example;
 
         Modelica.SIunits.Diameter d_hyd=0.1 "Hydraulic diameter";
         Modelica.SIunits.Area A_cross=Modelica.Constants.pi*d_hyd^2/4
@@ -7100,11 +7155,11 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
             color={0,0,127},
             smooth=Smooth.None));
         connect(IN_p2.ports[1], from_dp2.port_a) annotation (Line(
-            points={{60,8},{76,8}},
+            points={{60,8},{68,8},{68,8},{76,8}},
             color={0,127,255},
             smooth=Smooth.None));
         connect(from_dp2.port_b, OUT_dp2.ports[1]) annotation (Line(
-            points={{124,8},{180,8}},
+            points={{124,8},{138,8},{138,8},{152,8},{152,8},{180,8}},
             color={0,127,255},
             smooth=Smooth.None));
         connect(from_mflow2.port_b, OUT_mflow2.ports[1]) annotation (Line(

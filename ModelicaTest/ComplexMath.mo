@@ -2,6 +2,7 @@ within ModelicaTest;
 package ComplexMath
 extends Modelica.Icons.Package;
   function ComplexFunctions
+    extends Modelica.Icons.Function;
     import Complex;
     input String logFile = "ModelicaTestLog.txt"
       "Filename where the log is stored";
@@ -161,6 +162,7 @@ extends Modelica.Icons.Package;
   end ComplexFunctions;
 
   function ComplexOperations
+    extends Modelica.Icons.Function;
     output Boolean success;
   protected
      Real     a = 2;

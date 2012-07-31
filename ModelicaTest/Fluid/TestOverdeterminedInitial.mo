@@ -4,6 +4,7 @@ package TestOverdeterminedInitial
 extends Modelica.Icons.ExamplesPackage;
   model DynamicPipeLumpedPressureInitialization
     "Steady-state initialization of a dynamic pipe using lumped pressure states"
+    extends Modelica.Icons.Example;
 
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -11,8 +12,7 @@ extends Modelica.Icons.ExamplesPackage;
       p=10000000,
       h=2e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.DynamicPipe
-                                     pipe(
+    Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       h_start=2e6,
       diameter=0.05,
@@ -53,15 +53,18 @@ extends Modelica.Icons.ExamplesPackage;
       end when;
     end if;
     connect(source.ports[1], pipe.port_a)         annotation (Line(
-        points={{-60,0},{-40,0}},
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
-        points={{-20,0},{0,0}},
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
-        points={{20,0},{40,0}},
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ramp.y, valve.opening)               annotation (Line(
@@ -90,6 +93,7 @@ The initial equations are consistent however and a tool shall reduce them approp
 
   model DynamicPipeInitialValues
     "Initialization of a dynamic pipe with fixed initial values and without adaptation of modelStructure to boundaries"
+    extends Modelica.Icons.Example;
 
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -97,8 +101,7 @@ The initial equations are consistent however and a tool shall reduce them approp
       h=2e6,
       p=10000000)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.DynamicPipe
-                                     pipe(
+    Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       h_start=2e6,
       diameter=0.05,
@@ -138,15 +141,18 @@ The initial equations are consistent however and a tool shall reduce them approp
       end when;
     end if;
     connect(source.ports[1], pipe.port_a)         annotation (Line(
-        points={{-60,0},{-40,0}},
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
-        points={{-20,0},{0,0}},
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
-        points={{20,0},{40,0}},
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ramp.y, valve.opening)               annotation (Line(

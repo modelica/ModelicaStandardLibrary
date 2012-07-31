@@ -4,6 +4,7 @@ extends Modelica.Icons.Package;
 
 
 function testAllFunctions "Runs all test cases for functions"
+  extends Modelica.Icons.Function;
   import Modelica.Utilities.Streams.print;
   input String logFile = "ModelicaTestLog.txt"
     "Filename where the log of all functions is stored";
@@ -38,15 +39,6 @@ algorithm
 
   ok := true;
 end testAllFunctions;
-
-
-
-
-
-
-
-
-
 
 
   annotation (version="1.1",

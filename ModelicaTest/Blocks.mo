@@ -426,7 +426,7 @@ extends Modelica.Icons.ExamplesPackage;
     end AllOptions;
 
   model Basic
-    extends Modelica.Blocks.Interfaces.BlockIcon;
+    extends Modelica.Blocks.Icons.Block;
     parameter Integer order1 = 3;
     parameter Integer order2 = 6;
     parameter Modelica.SIunits.Frequency f_cut1 = 3;
@@ -572,7 +572,7 @@ extends Modelica.Icons.ExamplesPackage;
   end Basic;
 
     block DifferentFilterTypes
-      extends Modelica.Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       Basic lowPass(filterType=Modelica.Blocks.Types.FilterType.LowPass,
         normalized=normalized,
         init=init)
@@ -601,7 +601,7 @@ extends Modelica.Icons.ExamplesPackage;
     end DifferentFilterTypes;
 
     block DifferentInitialization
-      extends Modelica.Blocks.Interfaces.BlockIcon;
+      extends Modelica.Blocks.Icons.Block;
       DifferentFilterTypes steadyState(init=Modelica.Blocks.Types.Init.SteadyState,
           normalized=normalized)
         annotation (Placement(transformation(extent={{-60,40},{-40,60}})));

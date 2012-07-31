@@ -2,6 +2,7 @@ within ModelicaTest;
 package Math "Test models for Modelica.Math"
 extends Modelica.Icons.ExamplesPackage;
   function ScalarFunctions
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Math;
     input String logFile = "ModelicaTestLog.txt"
@@ -31,6 +32,7 @@ extends Modelica.Icons.ExamplesPackage;
   end ScalarFunctions;
 
   function BooleanFunctions
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Modelica.Math.BooleanVectors;
     input String logFile = "ModelicaTestLog.txt"
@@ -67,6 +69,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   function Polynomials
     "Test functions of Modelica.Media.Incompressible.TableBased.Polynomials_Temp"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     import Poly = Modelica.Media.Incompressible.TableBased.Polynomials_Temp;
     input String logFile = "ModelicaTestLog.txt"
@@ -116,6 +119,7 @@ extends Modelica.Icons.ExamplesPackage;
   end Polynomials;
 
   function Matrices "Test functions of Modelica.Math.Matrices"
+    extends Modelica.Icons.Function;
     import Modelica.Utilities.Streams;
     input String logFile = "ModelicaTestLog.txt"
       "Filename where the log is stored";
@@ -157,6 +161,7 @@ extends Modelica.Icons.ExamplesPackage;
   end Matrices;
 
   function Matrices2 "Test functions of Modelica.Math.Matrices"
+    extends Modelica.Icons.Function;
     import Modelica.Math.Matrices;
   //   input String logFile = "ModelicaTestLog.txt"
   //     "Filename where the log is stored";
@@ -415,6 +420,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   function Matrices3
     "Test functions of Modelica.Math.Matrices that cannot be used in a model since output array dimension depends on computation"
+    extends Modelica.Icons.Function;
     import Modelica.Math.Matrices;
   //   input String logFile = "ModelicaTestLog.txt"
   //     "Filename where the log is stored";
@@ -447,6 +453,7 @@ extends Modelica.Icons.ExamplesPackage;
   end Matrices3;
 
   function Vectors "Test functions of Modelica.Math.Matrices"
+    extends Modelica.Icons.Function;
     import Modelica.Math.Vectors;
     import Modelica.Math.Vectors.Utilities;
     import Modelica.Utilities.Streams;
@@ -500,6 +507,7 @@ extends Modelica.Icons.ExamplesPackage;
   end Vectors;
 
   function colorMapToSvg "Store all predefined color maps in svg"
+    extends Modelica.Icons.Function;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.colorMapToSvg;
     import Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.*;
     import

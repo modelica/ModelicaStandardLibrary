@@ -4,6 +4,7 @@ package TestUtilities
   extends Modelica.Icons.ExamplesPackage;
   model Test01RegFun3
     "Test case 1 from https://trac.modelica.org/Modelica/ticket/495"
+    extends Modelica.Icons.Example;
     Real x;
 
     // Results in error
@@ -29,6 +30,7 @@ package TestUtilities
 
   model Test02RegFun3
     "Test case 2 from https://trac.modelica.org/Modelica/ticket/495"
+    extends Modelica.Icons.Example;
     Real x;
 
     // Results in error

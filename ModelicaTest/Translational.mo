@@ -3,6 +3,7 @@ package Translational
 extends Modelica.Icons.ExamplesPackage;
 
   model AllComponents
+    extends Modelica.Icons.Example;
 
     Modelica.Mechanics.Translational.Components.Mass slidingMass
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
@@ -70,7 +71,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,127,0},
         smooth=Smooth.None));
     connect(rod.flange_b, spring.flange_a) annotation (Line(
-        points={{-8,70},{0,70}},
+        points={{-8,70},{-5.55112e-16,70}},
         color={0,127,0},
         smooth=Smooth.None));
     connect(spring.flange_b, damper.flange_a) annotation (Line(
@@ -86,7 +87,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,127,0},
         smooth=Smooth.None));
     connect(springDamper.flange_b, slidingMass2.flange_a) annotation (Line(
-        points={{-10,30},{0,30}},
+        points={{-10,30},{-5.55112e-16,30}},
         color={0,127,0},
         smooth=Smooth.None));
     connect(slidingMass2.flange_b, elastoGap.flange_a) annotation (Line(

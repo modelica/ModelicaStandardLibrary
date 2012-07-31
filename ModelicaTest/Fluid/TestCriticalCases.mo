@@ -3,6 +3,7 @@ package TestCriticalCases
   "Collection of test cases which might be critical for the solvers"
 extends Modelica.Icons.ExamplesPackage;
   model IdealMixing1 "Test properties of ideal mixing"
+    extends Modelica.Icons.Example;
     // package Medium =  Modelica.Fluid.Media.Water.ConstantPropertyLiquidWater;
     // Modelica.Media.IdealGases.MixtureGases.FlueGasSixComponents,package Medium = Modelica.Media.Air.DryAirNasa;
     package Medium =
@@ -78,7 +79,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipeFriction3.port_a, pipeFriction1.port_b) annotation (Line(
-        points={{-6.12323e-016,-10},{0,-10},{0,-30},{-12,-30}},
+        points={{-1.12703e-16,-10},{0,-10},{0,-30},{-12,-30}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(boundary1.ports[1], pipeFriction1.port_a)
@@ -93,7 +94,7 @@ extends Modelica.Icons.ExamplesPackage;
         smooth=Smooth.None));
     connect(boundary3.ports[1], pipeFriction3.port_b)
                                                   annotation (Line(
-        points={{-1.9984e-015,20},{-1.9984e-015,10},{6.12323e-016,10}},
+        points={{-1.11022e-15,20},{-1.11022e-15,10},{1.1119e-15,10}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(sine1.y, boundary1.p_in) annotation (Line(
@@ -105,26 +106,25 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,127},
         smooth=Smooth.None));
     connect(sine3.y, boundary3.p_in) annotation (Line(
-        points={{-6.73556e-016,59},{-6.73556e-016,50.5},{-8,50.5},{-8,42}},
+        points={{-1.28416e-15,59},{-1.28416e-15,50.5},{-8,50.5},{-8,42}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(temperature.port, pipeFriction3.port_a) annotation (Line(
-        points={{0,-60},{0,-10},{-6.12323e-016,-10}},
+        points={{6.10623e-16,-60},{6.10623e-16,-10},{-1.12703e-16,-10}},
         color={0,127,255},
         smooth=Smooth.None));
-    annotation (
- experiment(StopTime=10));
+    annotation (experiment(StopTime=10));
   end IdealMixing1;
 
   model DynamicPipeClosingValve "This test demonstrates the importance of smooth regularization of fluid properties for reversing flow.
  A DynamicPipe model with switching port densities and viscosities would generate lots of events as the valve closes at time 2."
+   extends Modelica.Icons.Example;
 
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,redeclare package
         Medium =
           Modelica.Media.Water.StandardWater, p=200000)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.DynamicPipe
-                                     pipe(
+    Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       length=1,
       diameter=0.32,
@@ -151,15 +151,18 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
   equation
     connect(source.ports[1], pipe.port_a)         annotation (Line(
-        points={{-60,0},{-40,0}},
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
-        points={{-20,0},{0,0}},
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
-        points={{20,0},{40,0}},
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ramp.y, valve.opening)               annotation (Line(
@@ -171,6 +174,7 @@ extends Modelica.Icons.ExamplesPackage;
 
   model DynamicPipeInitialization
     "Steady-state initialization of a dynamic pipe"
+    extends Modelica.Icons.Example;
 
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -178,8 +182,7 @@ extends Modelica.Icons.ExamplesPackage;
       p=10000000,
       h=2e6)
       annotation (Placement(transformation(extent={{-80,-10},{-60,10}})));
-    Modelica.Fluid.Pipes.DynamicPipe
-                                     pipe(
+    Modelica.Fluid.Pipes.DynamicPipe pipe(
       redeclare package Medium = Modelica.Media.Water.StandardWater,
       nNodes=5,
       h_start=2e6,
@@ -219,15 +222,18 @@ extends Modelica.Icons.ExamplesPackage;
       end when;
     end if;
     connect(source.ports[1], pipe.port_a)         annotation (Line(
-        points={{-60,0},{-40,0}},
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
-        points={{-20,0},{0,0}},
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
-        points={{20,0},{40,0}},
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ramp.y, valve.opening)               annotation (Line(
@@ -248,6 +254,7 @@ The steady-state initial values are observed by an assertion.
   end DynamicPipeInitialization;
 
   model BranchingPipes1
+    extends Modelica.Icons.Example;
     //replaceable package Medium = Modelica.Media.Water.StandardWater;
     replaceable package Medium =
         Modelica.Media.Water.StandardWater;
@@ -331,14 +338,15 @@ The steady-state initial values are observed by an assertion.
         massDynamics=Modelica.Fluid.Types.Dynamics.SteadyStateInitial)     annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-72,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -80,6},{-80,6},{-72,6}},
           color={0,127,255}));
     connect(valve2.port_b, sink.ports[2])               annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valve1.port_b, sink.ports[1])              annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points=
-            {{-20,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points={{-20,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valve1.port_a)              annotation (Line(points={
             {-20,46},{10,46}}, color={0,127,255}));
     connect(pipe2.port_a, pipe1.port_b) annotation (Line(points={{-40,46},{-46,
@@ -348,7 +356,8 @@ The steady-state initial values are observed by an assertion.
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valve2.opening)               annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     annotation (
               experiment(
         StopTime=5,
@@ -360,6 +369,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes1;
 
   model BranchingPipes2
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
@@ -430,14 +440,15 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-72,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -80,6},{-80,6},{-72,6}},
           color={0,127,255}));
     connect(valveIncompressible1.port_b, sink.ports[2]) annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valveIncompressible.port_b, sink.ports[1]) annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
-            {{-20,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points={{-20,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valveIncompressible.port_a) annotation (Line(points={
             {-20,46},{10,46}}, color={0,127,255}));
     connect(pipe2.port_a, pipe1.port_b) annotation (Line(points={{-40,46},{-46,
@@ -447,7 +458,8 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     annotation (
               experiment(StopTime=5),
       Documentation(info="<html>
@@ -456,6 +468,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes2;
 
   model BranchingPipes3
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
@@ -532,27 +545,30 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           extent={{-6,-7},{6,7}},
           rotation=90)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-80,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -84,6},{-84,6},{-80,6}},
           color={0,127,255}));
     connect(valveIncompressible1.port_b, sink.ports[2]) annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valveIncompressible.port_b, sink.ports[1]) annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
-            {{-20,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points={{-20,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valveIncompressible.port_a) annotation (Line(points={
             {-20,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     connect(pipe1.port_b, splitter.port_3) annotation (Line(points={{-60,6},{
             -55,6},{-55,6},{-50,6}},
                      color={0,127,255}));
     connect(pipe2.port_a, splitter.port_2) annotation (Line(points={{-40,46},{
             -43,46},{-43,12}}, color={0,127,255}));
-    connect(splitter.port_1, pipe3.port_a) annotation (Line(points={{-43,0},{
-            -43,-40.3},{-40,-40.3},{-40,-40}}, color={0,127,255}));
+    connect(splitter.port_1, pipe3.port_a) annotation (Line(points={{-43,
+            -1.16573e-15},{-43,-40.3},{-40,-40.3},{-40,-40}},
+                                               color={0,127,255}));
     annotation (
               experiment(StopTime=5),
       Documentation(info="<html>
@@ -561,6 +577,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes3;
 
   model BranchingPipes4
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
@@ -642,27 +659,30 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           rotation=90)));
 
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-80,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -84,6},{-84,6},{-80,6}},
           color={0,127,255}));
     connect(valveIncompressible1.port_b, sink.ports[2]) annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valveIncompressible.port_b, sink.ports[1]) annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
-            {{-20,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points={{-20,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valveIncompressible.port_a) annotation (Line(points={
             {-20,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     connect(pipe1.port_b, splitter.port_3) annotation (Line(points={{-60,6},{
             -55,6},{-55,6},{-50,6}},
                      color={0,127,255}));
     connect(pipe2.port_a, splitter.port_2) annotation (Line(points={{-40,46},{
             -43,46},{-43,12}}, color={0,127,255}));
-    connect(splitter.port_1, pipe3.port_a) annotation (Line(points={{-43,0},{
-            -43,-40.3},{-40,-40.3},{-40,-40}}, color={0,127,255}));
+    connect(splitter.port_1, pipe3.port_a) annotation (Line(points={{-43,
+            -1.16573e-15},{-43,-40.3},{-40,-40.3},{-40,-40}},
+                                               color={0,127,255}));
     annotation (
               experiment(StopTime=5),
       Documentation(info="<html>
@@ -671,6 +691,7 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
   end BranchingPipes4;
 
   model SeriesPipes1
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
@@ -731,20 +752,32 @@ Uses dynamic splitter. Simulation starts with both valves open. At t=1, valve 1 
             extent={{16,-10},{36,10}}, rotation=0)));
 
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,0},{-76,0}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,
+            -4.44089e-16},{-85,-4.44089e-16},{-85,1.66534e-16},{-82,1.66534e-16},
+            {-82,6.10623e-16},{-76,6.10623e-16}},
           color={0,127,255}));
     connect(valve.port_b, sink.ports[1])
-      annotation (Line(points={{72,0},{82,0}}, color={0,127,255}));
+      annotation (Line(points={{72,6.10623e-16},{74.5,6.10623e-16},{74.5,
+            1.66534e-16},{77,1.66534e-16},{77,-4.44089e-16},{82,-4.44089e-16}},
+                                               color={0,127,255}));
     connect(valveOpening1.y, valve.opening)               annotation (Line(
           points={{1,80},{62,80},{62,8}}, color={0,0,127}));
-    connect(pipe1.port_b, simpleGenericOrifice.port_a) annotation (Line(points=
-            {{-56,0},{-46,0}}, color={0,127,255}));
-    connect(pipe2.port_a, simpleGenericOrifice.port_b) annotation (Line(points=
-            {{-14,0},{-26,0}}, color={0,127,255}));
+    connect(pipe1.port_b, simpleGenericOrifice.port_a) annotation (Line(points={{-56,
+            6.10623e-16},{-53.5,6.10623e-16},{-53.5,1.22125e-15},{-51,
+            1.22125e-15},{-51,6.10623e-16},{-46,6.10623e-16}},
+                               color={0,127,255}));
+    connect(pipe2.port_a, simpleGenericOrifice.port_b) annotation (Line(points={{-14,
+            6.10623e-16},{-17,6.10623e-16},{-17,1.22125e-15},{-20,1.22125e-15},
+            {-20,6.10623e-16},{-26,6.10623e-16}},
+                               color={0,127,255}));
     connect(pipe2.port_b, pipe3.port_a)
-      annotation (Line(points={{6,0},{16,0}}, color={0,127,255}));
+      annotation (Line(points={{6,6.10623e-16},{8.5,6.10623e-16},{8.5,
+            1.22125e-15},{11,1.22125e-15},{11,6.10623e-16},{16,6.10623e-16}},
+                                              color={0,127,255}));
     connect(pipe3.port_b, valve.port_a)
-      annotation (Line(points={{36,0},{52,0}}, color={0,127,255}));
+      annotation (Line(points={{36,6.10623e-16},{40,6.10623e-16},{40,
+            1.22125e-15},{44,1.22125e-15},{44,6.10623e-16},{52,6.10623e-16}},
+                                               color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -777,6 +810,7 @@ fails for zero flow rate.
   end SeriesPipes13;
 
   model BranchingPipes12
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
     Modelica.Fluid.Sources.Boundary_pT source(nPorts=1,
@@ -858,14 +892,15 @@ fails for zero flow rate.
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
     connect(valveIncompressible1.port_b, sink.ports[2]) annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valveIncompressible.port_b, sink.ports[1]) annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
-            {{-20,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points={{-20,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valveIncompressible.port_a) annotation (Line(points={
             {-20,46},{10,46}}, color={0,127,255}));
     connect(pipe2.port_a, pipe1.port_b) annotation (Line(points={{-40,46},{-46,
@@ -875,7 +910,8 @@ fails for zero flow rate.
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -884,6 +920,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes12;
 
   model BranchingPipes13
+    extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
@@ -967,26 +1004,28 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           extent={{-10,-10},{10,10}},
           rotation=90)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
     connect(valveIncompressible1.port_b, sink.ports[2]) annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valveIncompressible.port_b, sink.ports[1]) annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valveIncompressible.port_a) annotation (Line(points={
             {-14,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valveIncompressible.opening) annotation (Line(
           points={{1,80},{20,80},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valveIncompressible1.opening) annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     connect(pipe1.port_b, junctionIdeal.port_3) annotation (Line(points={{-58,6},
             {-53,6},{-53,6},{-48,6}},     color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
             46},{-38,46},{-38,16}}, color={0,127,255}));
-    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,
-            -4},{-38,-40},{-30,-40}}, color={0,127,255}));
+    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,-4},
+            {-38,-40},{-30,-40}},     color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -995,6 +1034,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes13;
 
   model BranchingPipes14
+    extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
@@ -1080,26 +1120,28 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           rotation=90)));
 
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
     connect(valve2.port_b, sink.ports[2])               annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valve1.port_b, sink.ports[1])              annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valve1.port_a)              annotation (Line(points={
             {-14,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
           points={{1,82},{20,82},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valve2.opening)               annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     connect(pipe1.port_b, junctionIdeal.port_3) annotation (Line(points={{-58,6},
             {-48,6},{-48,6}},             color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
             46},{-38,46},{-38,16}}, color={0,127,255}));
-    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,
-            -4},{-38,-40},{-30,-40}}, color={0,127,255}));
+    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,-4},
+            {-38,-40},{-30,-40}},     color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -1108,6 +1150,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes14;
 
   model BranchingPipes15
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     // replaceable package Medium = Modelica.Media.Water.StandardWater;
@@ -1194,26 +1237,28 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           rotation=90)));
 
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
     connect(valve2.port_b, sink.ports[2])               annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valve1.port_b, sink.ports[1])              annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valve1.port_a)              annotation (Line(points={
             {-14,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
           points={{1,82},{20,82},{20,54}}, color={0,0,127}));
     connect(valveOpening2.y, valve2.opening)               annotation (Line(
-          points={{1,0},{18,0},{18,-32}}, color={0,0,127}));
+          points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
+                                          color={0,0,127}));
     connect(pipe1.port_b, junctionIdeal.port_3) annotation (Line(points={{-58,6},
             {-48,6},{-48,6}},             color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
             46},{-38,46},{-38,16}}, color={0,127,255}));
-    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,
-            -4},{-38,-40},{-30,-40}}, color={0,127,255}));
+    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,-4},
+            {-38,-40},{-30,-40}},     color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -1222,6 +1267,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes15;
 
   model BranchingPipes16
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     // replaceable package Medium = Modelica.Media.Water.StandardWater;
@@ -1306,14 +1352,15 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           rotation=90)));
 
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
     connect(valve2.port_b, sink.ports[2])               annotation (Line(points={{28,-40},
             {46,-40},{46,-15.2},{62,-15.2}},     color={0,127,255}));
     connect(valve1.port_b, sink.ports[1])              annotation (Line(points={{30,46},
             {46,46},{46,-12.8},{62,-12.8}}, color={0,127,255}));
-    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valve1.port_a)              annotation (Line(points={
             {-14,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
@@ -1324,8 +1371,8 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             {-48,6},{-48,6}},             color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
             46},{-38,46},{-38,16}}, color={0,127,255}));
-    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,
-            -4},{-38,-40},{-30,-40}}, color={0,127,255}));
+    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-38,-4},
+            {-38,-40},{-30,-40}},     color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -1334,6 +1381,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes16;
 
   model BranchingPipes17
+    extends Modelica.Icons.Example;
     replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     // replaceable package Medium = Modelica.Media.Water.StandardWater;
@@ -1425,10 +1473,11 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           extent={{-10,10},{10,-10}},
           rotation=90)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
-    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valve1.port_a)              annotation (Line(points={
             {-14,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
@@ -1439,14 +1488,14 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             {-50,6},{-50,6}},             color={0,127,255}));
     connect(pipe2.port_a, junctionIdeal.port_2) annotation (Line(points={{-34,
             46},{-40,46},{-40,16}}, color={0,127,255}));
-    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-40,
-            -4},{-40,-40},{-30,-40}}, color={0,127,255}));
+    connect(junctionIdeal.port_1, pipe3.port_a) annotation (Line(points={{-40,-4},
+            {-40,-40},{-30,-40}},     color={0,127,255}));
     connect(junctionVolume.port_3, sink.ports[1]) annotation (Line(points={{66,-12},
             {82,-12}}, color={0,127,255}));
     connect(valve2.port_b, junctionVolume.port_1) annotation (Line(points={{28,
             -40},{56,-40},{56,-22}}, color={0,127,255}));
-    connect(valve1.port_b, junctionVolume.port_2) annotation (Line(points={{30,
-            46},{56,46},{56,-2}}, color={0,127,255}));
+    connect(valve1.port_b, junctionVolume.port_2) annotation (Line(points={{30,46},
+            {56,46},{56,-2}},     color={0,127,255}));
     annotation (
       experiment(StopTime=5, Tolerance=1e-007),
       Documentation(info="<html>
@@ -1455,6 +1504,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes17;
 
   model BranchingPipes18
+    extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.DryAirNasa;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
@@ -1544,10 +1594,11 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
           extent={{-10,10},{10,-10}},
           rotation=90)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
-    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valve2.port_a)               annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe2.port_b, valve1.port_a)              annotation (Line(points={
             {-14,46},{10,46}}, color={0,127,255}));
     connect(valveOpening1.y, valve1.opening)              annotation (Line(
@@ -1564,8 +1615,8 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
             {82,-12}}, color={0,127,255}));
     connect(valve2.port_b, junctionVolume.port_1) annotation (Line(points={{28,
             -40},{56,-40},{56,-22}}, color={0,127,255}));
-    connect(valve1.port_b, junctionVolume.port_2) annotation (Line(points={{30,
-            46},{56,46},{56,-2}}, color={0,127,255}));
+    connect(valve1.port_b, junctionVolume.port_2) annotation (Line(points={{30,46},
+            {56,46},{56,-2}},     color={0,127,255}));
     annotation (
       experiment(StopTime=5),
       Documentation(info="<html>
@@ -1574,6 +1625,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes18;
 
   model BranchingPipes131
+    extends Modelica.Icons.Example;
     // replaceable package Medium = Modelica.Media.Air.SimpleAir;
     replaceable package Medium = Modelica.Media.Water.StandardWater;
 
@@ -1631,16 +1683,17 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
                           annotation (Placement(transformation(extent={{-100,60},
               {-80,80}}, rotation=0)));
   equation
-    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{-78,6}},
+    connect(source.ports[1], pipe1.port_a) annotation (Line(points={{-88,6},{
+            -83,6},{-83,6},{-78,6}},
           color={0,127,255}));
     connect(valveIncompressible1.port_b, sink.ports[1]) annotation (Line(points={{
             28,-40},{46,-40},{46,-14},{62,-14}}, color={0,127,255}));
-    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points=
-            {{-10,-40},{8,-40}}, color={0,127,255}));
+    connect(pipe3.port_b, valveIncompressible1.port_a) annotation (Line(points={{-10,-40},
+            {8,-40}},            color={0,127,255}));
     connect(pipe1.port_b, pipe3.port_a) annotation (Line(points={{-58,6},{-44,6},
             {-44,-40},{-30,-40}}, color={0,127,255}));
     connect(valveOpening1.y, valveIncompressible1.opening) annotation (Line(
-        points={{1,0},{18,0},{18,-32}},
+        points={{1,6.10623e-16},{18,6.10623e-16},{18,-32}},
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
@@ -1651,6 +1704,7 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
   end BranchingPipes131;
 
   model LumpedPipeInitialization "Steady-state initialization of a lumped pipe"
+    extends Modelica.Icons.Example;
 
     Modelica.Fluid.Sources.FixedBoundary source(nPorts=1,
       redeclare package Medium = Modelica.Media.Water.StandardWater,
@@ -1696,15 +1750,18 @@ Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 
       end when;
     end if;
     connect(source.ports[1], pipe.port_a)         annotation (Line(
-        points={{-60,0},{-40,0}},
+        points={{-60,6.66134e-16},{-55,6.66134e-16},{-55,1.27676e-15},{-50,
+            1.27676e-15},{-50,6.10623e-16},{-40,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_b, valve.port_a)               annotation (Line(
-        points={{-20,0},{0,0}},
+        points={{-20,6.10623e-16},{-15,6.10623e-16},{-15,1.22125e-15},{-10,
+            1.22125e-15},{-10,6.10623e-16},{-5.55112e-16,6.10623e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(valve.port_b, sink.ports[1])                          annotation (Line(
-        points={{20,0},{40,0}},
+        points={{20,6.10623e-16},{25,6.10623e-16},{25,1.27676e-15},{30,
+            1.27676e-15},{30,6.66134e-16},{40,6.66134e-16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(ramp.y, valve.opening)               annotation (Line(

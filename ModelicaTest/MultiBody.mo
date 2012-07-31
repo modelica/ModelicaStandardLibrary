@@ -2318,6 +2318,7 @@ a linear damper is connected here.
   package Joints "Test MultiBody.Joints"
   extends Modelica.Icons.ExamplesPackage;
     model Revolute
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2368,17 +2369,18 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, revolute.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, revolute.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
     end Revolute;
 
     model RevoluteInitialization
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   gravityType=Modelica.Mechanics.MultiBody.Types.
@@ -2426,7 +2428,7 @@ a linear damper is connected here.
               -36,26},{-48,26},{-48,50},{-40,50}}, color={0,0,0}));
       connect(rev.frame_b, body.frame_a)
         annotation (Line(
-          points={{-20,10},{0,10}},
+          points={{-20,10},{-5.55112e-16,10}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed.frame_b, spring.frame_a)
@@ -2443,6 +2445,7 @@ a linear damper is connected here.
     end RevoluteInitialization;
 
     model Prismatic
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2485,25 +2488,26 @@ a linear damper is connected here.
           thickness=0.5));
       connect(prismatic.frame_b, body.frame_a)
         annotation (Line(
-          points={{0,30},{20,30}},
+          points={{5.55112e-16,30},{20,30}},
           color={0,0,0},
           thickness=0.5));
       connect(prismatic.frame_b, axis.frame_a) annotation (Line(
-          points={{0,30},{4,30},{4,70},{10,70}},
+          points={{5.55112e-16,30},{4,30},{4,70},{10,70}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, prismatic.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-20,30}},
+          points={{-30,5.55112e-16},{-30,30},{-20,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, prismatic.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{0,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{5.55112e-16,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Prismatic;
 
     model Cylindrical
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2558,17 +2562,18 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, cylindrical.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, cylindrical.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
     end Cylindrical;
 
     model Universal
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2631,11 +2636,11 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, universal.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-24,30}},
+          points={{-30,5.55112e-16},{-30,30},{-24,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, universal.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{-4,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-4,30}},
           color={0,0,0},
           thickness=0.5));
       connect(universal.frame_a, axis1.frame_a) annotation (Line(
@@ -2646,6 +2651,7 @@ a linear damper is connected here.
     end Universal;
 
     model Planar
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2713,11 +2719,11 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, planar.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, planar.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       connect(planar.frame_a, axis1.frame_a) annotation (Line(
@@ -2728,6 +2734,7 @@ a linear damper is connected here.
     end Planar;
 
     model Spherical
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2769,17 +2776,18 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, spherical.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, spherical.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
     end Spherical;
 
     model FreeMotion
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2825,17 +2833,18 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotion.frame_a) annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotion.frame_b) annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
     end FreeMotion;
 
     model FreeMotionScalarInit
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2905,18 +2914,19 @@ a linear damper is connected here.
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a)
                                                    annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b)
                                                     annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
     end FreeMotionScalarInit;
 
     model FreeMotionScalarInit2
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -2987,18 +2997,19 @@ a linear damper is connected here.
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a)
                                                    annotation (Line(
-          points={{-30,0},{-30,30},{-22,30}},
+          points={{-30,5.55112e-16},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b)
                                                     annotation (Line(
-          points={{10,0},{12,0},{12,30},{-2,30}},
+          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
     end FreeMotionScalarInit2;
 
     model SphericalSpherical
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
@@ -3020,13 +3031,16 @@ a linear damper is connected here.
       connect(world.frame_b, sphericalSpherical.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(sphericalSpherical.frame_b, Prismatic1.frame_a)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
       connect(Prismatic1.frame_b, Fixed1.frame_b)
         annotation (Line(points={{40,30},{60,30}}, color={0,0,0}));
       annotation (experiment(StopTime=1.1));
     end SphericalSpherical;
 
     model JointUSP
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real rRod2_ib[3]={-0.5,0.2,0};
@@ -3083,21 +3097,25 @@ a linear damper is connected here.
       connect(world.frame_b, jointUSP.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointUSP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
       connect(jointUSP.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(n2_ia.frame_a, jointUSP.frame_ia) annotation (Line(points={{-20,
               70},{-24,70},{-24,46},{-18,46},{-18,40}}, color={0,0,0}));
       connect(jointUSP.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
               40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
-      connect(rRod2.frame_a, jointUSP.frame_ib) annotation (Line(points={{40,
-              -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+      connect(rRod2.frame_a, jointUSP.frame_ib) annotation (Line(points={{40,-10},
+              {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointUSP.frame_b)
-        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
+              5.55112e-16,30}},                                    color={0,0,0}));
       annotation (                  experiment(StopTime=1.1));
     end JointUSP;
 
     model JointUPS
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real rRod2_ib[3]={-0.5,0.2,0};
@@ -3138,7 +3156,8 @@ a linear damper is connected here.
       connect(world.frame_b, jointUPS.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointUPS.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
       connect(jointUPS.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(n2_ia.frame_a, jointUPS.frame_ia) annotation (Line(points={{-20,
@@ -3149,6 +3168,8 @@ a linear damper is connected here.
     end JointUPS;
 
     model JointSSR
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real L=Modelica.Math.Vectors.length(
@@ -3186,15 +3207,19 @@ a linear damper is connected here.
       connect(world.frame_b, jointSSR.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointSSR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
-      connect(rRod2.frame_a, jointSSR.frame_ib) annotation (Line(points={{40,
-              -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
+      connect(rRod2.frame_a, jointSSR.frame_ib) annotation (Line(points={{40,-10},
+              {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointSSR.frame_b)
-        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
+              5.55112e-16,30}},                                    color={0,0,0}));
       annotation (                  experiment(StopTime=1.1));
     end JointSSR;
 
     model JointUSR
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real rRod2_ib[3]={-0.5,0.2,0};
@@ -3250,21 +3275,25 @@ a linear damper is connected here.
       connect(world.frame_b, jointUSR.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointUSR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
       connect(jointUSR.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(n2_ia.frame_a, jointUSR.frame_ia) annotation (Line(points={{-20,
               70},{-24,70},{-24,46},{-18,46},{-18,40}}, color={0,0,0}));
       connect(jointUSR.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
               40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
-      connect(rRod2.frame_a, jointUSR.frame_ib) annotation (Line(points={{40,
-              -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+      connect(rRod2.frame_a, jointUSR.frame_ib) annotation (Line(points={{40,-10},
+              {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointUSR.frame_b)
-        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
+              5.55112e-16,30}},                                    color={0,0,0}));
       annotation (                  experiment(StopTime=1.1));
     end JointUSR;
 
     model JointRRR
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real rRod2_ib[3]={-0.5,0.2,0};
@@ -3320,15 +3349,17 @@ a linear damper is connected here.
       connect(world.frame_b, jointRRR.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointRRR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
       connect(jointRRR.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(jointRRR.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
               40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
-      connect(rRod2.frame_a, jointRRR.frame_ib) annotation (Line(points={{40,
-              -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+      connect(rRod2.frame_a, jointRRR.frame_ib) annotation (Line(points={{40,-10},
+              {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointRRR.frame_b)
-        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
+              5.55112e-16,30}},                                    color={0,0,0}));
       connect(n1_a1.frame_a, jointRRR.frame_im) annotation (Line(
           points={{-10,76},{-10,76},{-10,40}},
           color={0,0,0},
@@ -3337,6 +3368,8 @@ a linear damper is connected here.
     end JointRRR;
 
     model JointRRP
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real rRod2_ib[3]={-0.5,0.2,0};
@@ -3393,15 +3426,17 @@ a linear damper is connected here.
       connect(world.frame_b, jointRRP.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointRRP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
       connect(jointRRP.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(jointRRP.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
               40},{-26,40},{-26,-10},{-20,-10}}, color={0,0,0}));
-      connect(rRod2.frame_a, jointRRP.frame_ib) annotation (Line(points={{40,
-              -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+      connect(rRod2.frame_a, jointRRP.frame_ib) annotation (Line(points={{40,-10},
+              {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointRRP.frame_b)
-        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
+              5.55112e-16,30}},                                    color={0,0,0}));
       connect(jointRRP.frame_im, n2_ia.frame_a) annotation (Line(
           points={{-10,40},{-10,55.5},{-20,55.5},{-20,70}},
           color={0,0,0},
@@ -3410,6 +3445,8 @@ a linear damper is connected here.
     end JointRRP;
 
     model JointSSP
+      extends Modelica.Icons.Example;
+
       parameter Real d=0.015;
       parameter Real rRod1_ia[3]={1,0.3,0};
       parameter Real L=Modelica.Math.Vectors.length(
@@ -3448,11 +3485,13 @@ a linear damper is connected here.
       connect(world.frame_b, jointSSP.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointSSP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
-      connect(rRod2.frame_a, jointSSP.frame_ib) annotation (Line(points={{40,
-              -10},{56,-10},{56,58},{-2,58},{-2,40}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,30},{20,30}},
+                                                  color={0,0,0}));
+      connect(rRod2.frame_a, jointSSP.frame_ib) annotation (Line(points={{40,-10},
+              {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointSSP.frame_b)
-        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
+        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
+              5.55112e-16,30}},                                    color={0,0,0}));
       annotation (experiment(StopTime=1.1));
     end JointSSP;
 
@@ -3910,7 +3949,10 @@ often possible to use the FreeMotion joint such that the singularity
     end FreeBodies;
 
     package Rotor1D
+      extends Modelica.Icons.VariantsPackage;
       model Rotor1D_1
+        extends Modelica.Icons.Example;
+
         inner Modelica.Mechanics.MultiBody.World world(driveTrainMechanics3D=
               true)
           annotation (Placement(transformation(extent={{-100,20},{-80,40}},
@@ -4039,6 +4081,8 @@ often possible to use the FreeMotion joint such that the singularity
       end Rotor1D_1;
 
       model Rotor1D_2
+        extends Modelica.Icons.Example;
+
         Modelica.Mechanics.MultiBody.Parts.BodyShape bodyCylinder(
           r={0.5,0,0},
           m=0,
@@ -4137,6 +4181,8 @@ often possible to use the FreeMotion joint such that the singularity
       end Rotor1D_2;
 
       model Rotor1D_3
+        extends Modelica.Icons.Example;
+
         Modelica.Mechanics.MultiBody.Parts.BodyShape bodyCylinder(
           r={0.5,0,0},
           m=0,
@@ -4305,6 +4351,8 @@ often possible to use the FreeMotion joint such that the singularity
       end Rotor1D_3;
 
       model GearConstraint
+        extends Modelica.Icons.Example;
+
         Modelica.Mechanics.MultiBody.Joints.GearConstraint gearConstraint(ratio=
              10) annotation (Placement(transformation(extent={{34,40},{54,60}},
                 rotation=0)));
@@ -4382,7 +4430,7 @@ often possible to use the FreeMotion joint such that the singularity
             color={0,0,127},
             smooth=Smooth.None));
         connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
-            points={{0,-30},{12,-30}},
+            points={{5.55112e-16,-30},{12,-30}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(idealGear.flange_b, inertia2.flange_a) annotation (Line(
@@ -4398,11 +4446,11 @@ often possible to use the FreeMotion joint such that the singularity
             color={0,0,127},
             smooth=Smooth.None));
         connect(mounting1D.flange_b,idealGear.support)  annotation (Line(
-            points={{0,-60},{22,-60},{22,-40}},
+            points={{5.55112e-16,-60},{22,-60},{22,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(mounting1D.flange_b,torque2.support)  annotation (Line(
-            points={{0,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}},
+            points={{5.55112e-16,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(fixed.frame_b, mounting1D.frame_a) annotation (Line(
@@ -6222,14 +6270,14 @@ often possible to use the FreeMotion joint such that the singularity
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (
- experiment(StopTime=0.1));
+      annotation (experiment(StopTime=0.1));
     end ColorMaps;
   end Visualizers;
 
   package InitializationConversion "Test conversion of the initialization"
   extends Modelica.Icons.ExamplesPackage;
     model Rotor1D
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D1
         annotation (Placement(transformation(extent={{-70,40},{-50,60}},
@@ -6323,7 +6371,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(world.frame_b, rotor1D3.frame_a) annotation (Line(
-          points={{-80,30},{0,30},{0,40}},
+          points={{-80,30},{6.66134e-16,30},{6.66134e-16,40}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6333,12 +6381,12 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(world.frame_b, rotor1D5.frame_a) annotation (Line(
-          points={{-80,30},{-74,30},{-74,-8},{-50,-8},{-50,0}},
+          points={{-80,30},{-74,30},{-74,-8},{-50,-8},{-50,-5.55112e-16}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(rotor1D5.frame_a, rotor1D6.frame_a) annotation (Line(
-          points={{-50,0},{-50,-8},{2,-8},{2,0}},
+          points={{-50,-5.55112e-16},{-50,-8},{2,-8},{2,-5.55112e-16}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6386,11 +6434,11 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-14,-70},{-8,-70}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (
- experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1));
     end Rotor1D;
 
     model Joints
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
@@ -6518,7 +6566,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox.frame_b, actuatedRevolute.frame_a) annotation (Line(
-          points={{0,70},{8,70}},
+          points={{5.55112e-16,70},{8,70}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6538,7 +6586,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox2.frame_b, actuatedPrismatic.frame_a) annotation (Line(
-          points={{0,30},{8,30}},
+          points={{5.55112e-16,30},{8,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6558,7 +6606,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox4.frame_b, universal.frame_a) annotation (Line(
-          points={{0,-10},{8,-10}},
+          points={{5.55112e-16,-10},{8,-10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6578,7 +6626,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox6.frame_b, spherical.frame_a) annotation (Line(
-          points={{0,-40},{8,-40}},
+          points={{5.55112e-16,-40},{8,-40}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6602,6 +6650,7 @@ often possible to use the FreeMotion joint such that the singularity
     end Joints;
 
     model Bodies
+      extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-80,60},{-60,80}},
@@ -6674,6 +6723,7 @@ often possible to use the FreeMotion joint such that the singularity
 
     partial model Internal
       "Check whether Advanced/axisTorqueBalance,axisForceBalance parameter is correctely converted"
+      extends Modelica.Icons.Example;
 
       ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revoluteWithLengthConstraint1 annotation (Placement(transformation(
