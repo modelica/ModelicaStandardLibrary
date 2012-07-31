@@ -11340,8 +11340,8 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
     end Bjt;
 
     package Bjt3 "Records and functions for bjt model, obsolete"
-      extends Modelica.Icons.ObsoleteModel;
       extends Modelica.Icons.Package;
+      extends Modelica.Icons.ObsoleteModel;
 
       record BjtModelLineParams
         "Record for bjt model line parameters, obsolete"
@@ -12005,7 +12005,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end Bjt;
 
-      record BjtVariables "Variables for the bjt model"
+      record BjtVariables "Variables for the bjt model, obsolete"
         extends Bjt3Variables;
 
         Real m_CScap;
@@ -12236,6 +12236,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
       end bjtRenameParametersType;
 
       annotation (Documentation(info="<html>
+<p>The package Bjt3 is obsolete. Please use package Bjt instead.</p>
 <p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
 </html>"));
     end Bjt3;
