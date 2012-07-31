@@ -296,7 +296,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
       function kc_evenGapLaminar
         "Mean heat transfer coefficient of even gap | laminar flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
         //input records
@@ -370,7 +370,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 
       function kc_evenGapLaminar_KC
         "Mean heat transfer coefficient of even gap | laminar flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
         //input records
@@ -454,7 +454,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_evenGapOverall
         "Mean heat transfer coefficient of even gap | overall flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures | surface roughness"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
         import MIN = Modelica.Constants.eps;
@@ -535,7 +535,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
       function kc_evenGapOverall_KC
         "Mean heat transfer coefficient of even gap | overall flow regime | considering boundary layer development | heat transfer at ONE or BOTH sides | identical and constant wall temperatures | surface roughness"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 6-10
 
         import SMOOTH =
@@ -620,7 +620,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_evenGapTurbulent
         "Mean heat transfer coefficient of even gap | turbulent flow regime | developed fluid flow | heat transfer at BOTH sides | identical and constant wall temperatures"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
 
         import MIN = Modelica.Constants.eps;
@@ -697,7 +697,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 
       function kc_evenGapTurbulent_KC
         "Mean heat transfer coefficient of even gap | turbulent flow regime | developed fluid flow | heat transfer at BOTH sides | identical and constant wall temperatures"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Gb 7
 
         //input records
@@ -792,7 +792,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     extends Modelica.Icons.VariantsPackage;
       function kc_approxForcedConvection
         "Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow"
-
+        extends Modelica.Icons.Function;
         //SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley & Sons, 2nd edition, 2003. (p.424 ff)
         //Notation of equations according to SOURCE
 
@@ -884,7 +884,7 @@ Note that additionally a failure status is observed in this function to check if
 
       function kc_approxForcedConvection_KC
         "Mean convective heat transfer coefficient for forced convection | approximation | turbulent regime | hydrodynamically developed fluid flow"
-
+        extends Modelica.Icons.Function;
         //SOURCE: A Bejan and A.D. Kraus. Heat Transfer handbook.John Wiley & Sons, 2nd edition, 2003. (p.424 ff)
         //Notation of equations according to SOURCE
 
@@ -976,7 +976,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
     package HeatExchanger
     extends Modelica.Icons.VariantsPackage;
       function kc_flatTube
-
+        extends Modelica.Icons.Function;
         //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
 
         //icon
@@ -1049,11 +1049,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
       end kc_flatTube;
 
       function kc_flatTube_KC
+	    extends Modelica.Icons.Function;
         //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
-
-        //icon
-
-        // import SMOOTH = Modelica.Fluid.Dissipation.Utilities.Functions.Stepsmoother;
 
         //input records
         input
@@ -1191,9 +1188,8 @@ This record is used as <b> input record </b> for the heat transfer function <a h
       end kc_flatTube_IN_var;
 
       function kc_roundTube
+	    extends Modelica.Icons.Function;
         //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
-
-        //icon
 
         //input records
         input
@@ -1264,9 +1260,8 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
       end kc_roundTube;
 
       function kc_roundTube_KC
+	    extends Modelica.Icons.Function;
         //SOURCE: A.M. Jacobi, Y. Park, D. Tafti, X. Zhang. AN ASSESSMENT OF THE STATE OF THE ART, AND POTENTIAL DESIGN IMPROVEMENTS, FOR FLAT-TUBE HEAT EXCHANGERS IN AIR CONDITIONING AND REFRIGERATION APPLICATIONS - PHASE I
-
-        //icon
 
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -1484,7 +1479,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
     extends Modelica.Icons.VariantsPackage;
       function kc_laminar
         "Mean heat transfer coefficient of helical pipe | laminar flow regime"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
@@ -1557,7 +1552,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 
       function kc_laminar_KC
         "Mean heat transfer coefficient of helical pipe | hydrodynamically developed laminar flow regime"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
@@ -1633,7 +1628,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_overall
         "Mean heat transfer coefficient of helical pipe | overall flow regime"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
@@ -1688,7 +1683,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 
       function kc_overall_KC
         "Mean heat transfer coefficient of helical pipe | overall flow regime"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
@@ -1782,7 +1777,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_turbulent
         "Mean heat transfer coefficient of helical pipe | hydrodynamically developed turbulent flow regime"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
@@ -1851,7 +1846,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 
       function kc_turbulent_KC
         "Mean heat transfer coefficient of helical pipe | hydrodynamically developed turbulent flow regime"
-
+        extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, section Gc1 - Gc2
         //Notation of equations according to SOURCE
 
@@ -1949,6 +1944,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_laminar
         "Mean heat transfer coefficient of plate | laminar regime"
+		extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
@@ -2010,6 +2006,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 
       function kc_laminar_KC
         "Mean heat transfer coefficient of plate | laminar regime"
+		extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
@@ -2078,6 +2075,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_overall
         "Mean heat transfer coefficient of even plate | overall regime | constant wall temperature"
+		extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
@@ -2139,6 +2137,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 
       function kc_overall_KC
         "Mean heat transfer coefficient of even plate | overall regime | constant wall temperature"
+		extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
@@ -2201,6 +2200,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_turbulent
         "Mean heat transfer coefficient of even plate | turbulent regime | constant wall temperature"
+		extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
@@ -2263,6 +2263,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 
       function kc_turbulent_KC
         "Mean heat transfer coefficient of even plate | turbulent regime | constant wall temperature"
+		extends Modelica.Icons.Function;
         //SOURCE: VDI-Waermeatlas, Aufl. 9, Springer-Verlag, 2002, Section Gd 1
         //Notation of equations according to SOURCE
 
@@ -2345,6 +2346,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 
       function kc_laminar
         "Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime"
+		extends Modelica.Icons.Function;
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con
@@ -2410,6 +2412,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
       function kc_laminar_KC
         "Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped laminar flow regime"
+		extends Modelica.Icons.Function;
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_laminar_IN_con
@@ -2500,6 +2503,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_overall
         "Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped overall flow regime| pressure loss dependence"
+		extends Modelica.Icons.Function;
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_overall_IN_con
@@ -2578,6 +2582,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
       function kc_overall_KC
         "Mean heat transfer coefficient of straight pipe | uniform wall temperature or uniform heat flux | hydrodynamically developed or undeveloped overall flow regime| pressure loss dependence"
+		extends Modelica.Icons.Function;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
 
@@ -2661,6 +2666,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_turbulent
         "Mean heat transfer coefficient of straight pipe | hydrodynamically developed turbulent flow regime | pressure loss dependence"
+		extends Modelica.Icons.Function;
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con
@@ -2739,6 +2745,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 
       function kc_turbulent_KC
         "Mean heat transfer coefficient of straight pipe | hydrodynamically developed turbulent flow regime | pressure loss dependence"
+		extends Modelica.Icons.Function;
         //input records
         input
           Modelica.Fluid.Dissipation.HeatTransfer.StraightPipe.kc_turbulent_IN_con
@@ -2813,6 +2820,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 
       function kc_twoPhaseOverall_KC
         "Local two phase heat transfer coefficient of straight pipe | horizontal or vertical boiling | horizontal condensation"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
         //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
@@ -2886,6 +2894,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
 
       function dp_curvedOverall_DP
         "Pressure loss of curved bend | calculate pressure loss | overall flow regime | surface roughness"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
@@ -3024,6 +3033,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
 
       function dp_curvedOverall_MFLOW
         "Pressure loss of curved bend | calculate mass flow rate | overall flow regime | surface roughness"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
@@ -3222,7 +3232,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
 
       function dp_edgedOverall_DP
         "Pressure loss of edged bend | calculate pressure loss | overall flow regime | surface roughness"
-
+        extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
@@ -3353,6 +3363,7 @@ Generally this function is numerically best used for the <b>incompressible case<
 
       function dp_edgedOverall_MFLOW
         "Pressure loss of edged bend | calculate mass flow rate | overall flow regime | surface roughness"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002, Section Lac 6 (Verification)
@@ -3528,6 +3539,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
 
       function dp_internalFlowOverall_DP
         "Pressure loss of internal flow | calculate pressure loss | overall flow regime | surface roughness | several geometries"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 1978.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002
@@ -3660,6 +3672,7 @@ Generally this function is numerically best used for the <b> incompressible case
 
       function dp_internalFlowOverall_MFLOW
         "Pressure loss of internal flow | calculate mass flow rate | overall flow regime | surface roughness | several geometries"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Channel;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -3858,7 +3871,7 @@ Calculation of pressure loss for an internal flow through different geometries a
 
       function dp_idealGas_DP
         "Generic pressure loss | calculate pressure loss | ideal gas | mean density"
-
+        extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
         //input records
         input
@@ -3910,7 +3923,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_idealGas_MFLOW
         "Generic pressure loss | calculate mass flow rate | ideal gas | mean density"
-
+        extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
         //input records
         input
@@ -3992,6 +4005,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_nominalDensityViscosity_DP
         "Generic pressure loss | calculate mass flow rate | nominal operation point | pressure loss law (exponent) | density and dynamic viscosity dependence"
+        extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4045,6 +4059,7 @@ Generally this function is numerically best used for the <b> incompressible case
 
       function dp_nominalDensityViscosity_MFLOW
         "Generic pressure loss | calculate M_FLOW (compressible) | nominal operation point | pressure loss law (exponent) | density and dynamic viscosity dependence"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4122,6 +4137,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_nominalPressureLossLawDensity_DP
         "Generic pressure loss | calculate pressure loss | nominal operation point | pressure loss law (coefficient and exponent) | density dependence"
+        extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4187,6 +4203,7 @@ Generally this function is numerically best used for the <b> incompressible case
 
       function dp_nominalPressureLossLawDensity_MFLOW
         "Generic pressure loss | calculate mass flow rate | nominal operation point | pressure loss law (coefficient and exponent) | density dependence"
+        extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4277,6 +4294,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_pressureLossCoefficient_DP
         "Generic pressure loss | calculate pressure loss | pressure loss coefficient (zeta_TOT)"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4321,6 +4339,7 @@ Generally this function is numerically best used for the <b> incompressible case
 
       function dp_pressureLossCoefficient_MFLOW
         "Generic pressure loss | calculate mass flow rate | pressure loss coefficient (zeta_TOT)"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4405,6 +4424,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_volumeFlowRate_DP
         "Generic pressure loss | calculate pressure loss | quadratic function (dp=a*V_flow^2 + b*V_flow)"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4460,6 +4480,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_volumeFlowRate_MFLOW
         "Generic pressure loss | calculate mass flow rate | quadratic function (dp=a*V_flow^2 + b*V_flow)"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.General;
 
         //input records
@@ -4580,6 +4601,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
 
       function dp_suddenChange_DP
         "Pressure loss of orifice with sudden change in cross sectional area | calculate pressure loss | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
 
@@ -4676,6 +4698,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_suddenChange_MFLOW
         "Pressure loss of orifice with sudden change in cross sectional area | calculate mass flow rate | turbulent flow regime | smooth surface | arbitrary cross sectional area | without buffles | sharp edge"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
 
@@ -4784,6 +4807,7 @@ This record is used as <b> input record </b> for the pressure loss functions
 
       function dp_thickEdgedOverall_DP
         "Pressure loss of thick and sharp edged orifice | calculate pressure loss | overall flow regime | constant influence of friction  | arbitrary cross sectional area"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
 
@@ -4865,6 +4889,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_thickEdgedOverall_MFLOW
         "Pressure loss of thick and sharp edged orifice | calculate mass flow rate | overall flow regime | constant influence of friction  | arbitrary cross sectional area"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //Notation of equations according to SOURCES
 
@@ -4991,6 +5016,7 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
 
       function dp_laminar_DP
         "Pressure loss of straight pipe | calculate pressure loss| laminar flow regime (Hagen-Poiseuille)"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
 
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
@@ -5041,6 +5067,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_laminar_MFLOW
         "Pressure loss of straight pipe | calculate mass flow rate | laminar flow regime (Hagen-Poiseuille)"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
 
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
@@ -5113,6 +5140,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_overall_DP
         "Pressure loss of straight pipe | calculate pressure loss | overall flow regime | surface roughness"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -5190,6 +5218,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_overall_MFLOW
         "Pressure loss of straight pipe | calculate mass flow rate | overall flow regime | surface roughness"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -5320,7 +5349,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_turbulent_DP
         "Pressure loss of straight pipe | calculate pressure loss | turbulent flow regime | surface roughness"
-
+        extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
@@ -5415,6 +5444,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       function dp_turbulent_MFLOW
         "Pressure loss of straight pipe | calculate mass flow rate | turbulent flow regime | surface roughness"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Idelchik, I.E.: HANDBOOK OF HYDRAULIC RESISTANCE, 3rd edition, 2006.
         //SOURCE_2: Miller, D.S.: INTERNAL FLOW SYSTEMS, 2nd edition, 1984.
         //SOURCE_3: VDI-Waermeatlas, 9th edition, Springer-Verlag, 2002.
@@ -5544,6 +5574,7 @@ This record is used as <b> input record </b> for the pressure loss function
 
       function dp_twoPhaseOverall_DP
         "Pressure loss of straight pipe for two phase flow | calculate (frictional, momentum, geodetic) pressure loss"
+		extends Modelica.Icons.Function;
         //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
         //SOURCE_2: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
         //SOURCE_3: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
@@ -5741,6 +5772,7 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
 
       function dp_severalGeometryOverall_DP
         "Pressure loss of valve | calculate pressure loss | several geometries | overall flow regime"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Valve;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -5851,6 +5883,7 @@ Generally this function is numerically best used for the <b> incompressible case
 
       function dp_severalGeometryOverall_MFLOW
         "Pressure loss of valve | calculate mass flow rate | several geometries | overall flow regime"
+		extends Modelica.Icons.Function;
         import FD = Modelica.Fluid.Dissipation.PressureLoss.Valve;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
@@ -9622,7 +9655,7 @@ documentation available in this package.
 
           function dp_twoPhaseChisholm_DP
             "Frictional pressure loss of straight pipe for two phase flow according to Chisholm correlation | calculate pressure loss | overall flow regime"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
 
             //records
@@ -9667,7 +9700,7 @@ documentation available in this package.
 
           function dp_twoPhaseFriedel_DP
             "Frictional pressure loss of straight pipe for two phase flow according to Friedel correlation | calculate pressure loss| overall flow regime"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
             //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
@@ -9737,7 +9770,7 @@ documentation available in this package.
 
           function dp_twoPhaseGeodetic_DP
             "Geodetic pressure loss of straight pipe for two phase flow | calculate pressure loss"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
             import PI = Modelica.Constants.pi;
@@ -9788,7 +9821,7 @@ documentation available in this package.
 
           function dp_twoPhaseMomentum_DP
             "Momentum pressure loss of straight pipe for two phase flow | calculate pressure loss"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
             //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
             //SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
@@ -9932,7 +9965,7 @@ documentation available in this package.
 
           function TwoPhaseMultiplierFriedel
             "Calculation of two phase multiplier according to Friedel | constant mass flow rate quality | horizontal flow | vertical upflow and downflow"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: Friedel,L.:IMPROVED FRICTION PRESSURE DROP CORRELATIONS FOR HORIZONTAL AND VERTICAL TWO PHASE PIPE FLOW, 3R International, Vol. 18, Issue 7, pp. 485-491, 1979
             //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
@@ -10031,7 +10064,7 @@ documentation available in this package.
 
           function TwoPhaseMultiplierChisholm
             "Calculation of two phase multiplier according to Chisholm | constant mass flow rate quality"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: Chisholm,D.:PRESSURE GRADIENTS DUE TO FRICTION DURING THE FLOW OF EVAPORATING TWO-PHASE MIXTURES IN SMOOTH TUBES AND CHANNELS, Int. J. Heat Mass Transfer, Vol. 16, pp. 347-358, Pergamon Press 1973
             //SOURCE_2: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
 
@@ -10115,7 +10148,7 @@ documentation available in this package.
 
           function TwoPhaseDensity
             "Calculation of mean density for two phase flow"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
             input
               Modelica.Fluid.Dissipation.Utilities.Types.VoidFractionApproach
@@ -10202,7 +10235,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
           function VoidFraction
             "Calculation of (cross sectional) void fraction for two phase flow"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
             //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
 
@@ -10247,7 +10280,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
           end VoidFraction;
 
           function SlipRatio "Calculation of (analytical/empirical) slip ratio"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: VDI-Waermeatlas, 10th edition, Springer-Verlag, 2006.
             //SOURCE_2: Thome, J.R., Engineering Data Book 3, Swiss Federal Institute of Technology Lausanne (EPFL), 2009.
             //SOURCE 3: J.M. Jensen and H. Tummescheit. Moving boundary models for dynamic simulations of two-phase flows. In Proceedings of the 2nd International Modelica Conference, pp. 235-244, Oberpfaffenhofen, Germany, 2002. The Modelica Association.
@@ -10299,7 +10332,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
           function kc_twoPhase_condensationHorizontal_KC
             "Local two phase heat transfer coefficient of straight pipe | horizontal condensation"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: M.M. Shah. A general correlation for heat transfer during film condensation inside pipes.Int. J. Heat Mass Transfer, Vol.22, p.547-556, 1979.
 
             //records
@@ -10344,7 +10377,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
           function kc_twoPhase_boilingVertical_KC
             "Local two phase heat transfer coefficient of straight pipe | vertical boiling"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
             //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
@@ -10415,7 +10448,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
           function kc_twoPhase_boilingHorizontal_KC
             "Local two phase heat transfer coefficient of straight pipe | horizontal boiling"
-
+            extends Modelica.Icons.Function;
             //SOURCE_1: Bejan,A.: HEAT TRANSFER HANDBOOK, Wiley, 2003.
             //SOURCE_2: Gungor, K.E. and R.H.S. Winterton: A general correlation for flow boiling in tubes and annuli, Int.J. Heat Mass Transfer, Vol.29, p.351-358, 1986.
 
@@ -10516,6 +10549,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         extends Modelica.Icons.Package;
 
         function CubicInterpolation_DP
+		  extends Modelica.Icons.Function;
           import Modelica.Math;
           input Real Re_turbulent;
           input SI.ReynoldsNumber Re1;
@@ -10554,6 +10588,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
         end CubicInterpolation_DP;
 
         function CubicInterpolation_MFLOW
+		  extends Modelica.Icons.Function;
           import Modelica.Math;
           input SI.ReynoldsNumber Re;
           input SI.ReynoldsNumber Re1;
@@ -10591,6 +10626,7 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
         function LambertW
           "Closed approximation of lambert's w function for solving f(x) = x exp(x) for x"
+		  extends Modelica.Icons.Function;
           input Real y "f(x)";
           output Real x "W(y)";
         protected
@@ -10634,6 +10670,7 @@ For y > 10 and higher values the relative deviation is smaller 2%.
 
         function LambertWIter
           "Iterative form of lambert's w function for solving f(x) = x exp(x) for x"
+		  extends Modelica.Icons.Function;
           input Real y "f(x)";
           output Real x "W(y)";
           output Integer iter;
@@ -10691,7 +10728,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end LambertWIter;
 
         function PrandtlNumber "calculation of Prandtl number"
-
+          extends Modelica.Icons.Function;
           import MIN = Modelica.Constants.eps;
 
           //fluid properties
@@ -10708,7 +10745,7 @@ within &infin; > y > -1/e. Please note, that for negative inputs <b>two</b> solu
         end PrandtlNumber;
 
         function ReynoldsNumber "calculation of Reynolds number"
-
+          extends Modelica.Icons.Function;
           import MIN = Modelica.Constants.eps;
 
           //geometry
