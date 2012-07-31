@@ -12275,6 +12275,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
     end Bjt3;
 
     package Fet
+        extends Modelica.Icons.Package;
       record Fet "Record for Fet parameters"
         extends Modelica.Electrical.Spice3.Internal.Model.Model;
 
@@ -12442,6 +12443,7 @@ Fet_Model_Line::Fet_Model_Line(
     end Fet;
 
     package Jfet "Records and functions for Jfet"
+        extends Modelica.Icons.Package;
 
       record JfetModelLine "Record for Jfet model line parameters"
         extends Modelica.Electrical.Spice3.Internal.Fet.FetModelLine;
@@ -12790,6 +12792,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
     end Jfet;
 
     package Csemiconductor
+        extends Modelica.Icons.Package;
       record Capacitor
         extends Modelica.Electrical.Spice3.Internal.Model.Model;
 
