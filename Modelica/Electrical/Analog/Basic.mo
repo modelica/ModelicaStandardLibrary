@@ -1626,6 +1626,7 @@ end M_Transformer;
 
   // functions
     function FCNiout_limit "Internal limitation function"
+      extends Modelica.Icons.Function;
       input SI.Voltage v_source;
       input SI.Voltage v_out;
       input SI.Resistance Rout;
@@ -1648,6 +1649,7 @@ end M_Transformer;
     end FCNiout_limit;
 
     function FCNq_sum_limit "Internal limitation function"
+      extends Modelica.Icons.Function;
       input SI.Voltage q_sum;
       input SI.Voltage q_sum_ltf;
       input SI.Voltage v_pos;

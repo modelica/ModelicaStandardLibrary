@@ -7627,6 +7627,7 @@ Wires n input signals in one output signal, without delay.
               extent={{80,10},{100,30}})));
 
     function getMemory
+      extends Modelica.Icons.Function;
       input String filename;
       input Integer n_addr "addr width";
       input Integer n_data "data width";
@@ -7878,6 +7879,7 @@ Firstly Write is carried out, then Read.</b></p>
               extent={{84,12},{100,29}})));
 
     function getMemory
+      extends Modelica.Icons.Function;
       input String filename;
       input Integer n_addr "addr width";
       input Integer n_data "data width";
