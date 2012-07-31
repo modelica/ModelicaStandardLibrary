@@ -2740,6 +2740,7 @@ The corresponding SPICE description
     end M_NMOS;
 
     record ModelcardMOS "Record for the specification of modelcard parameters"
+      extends Modelica.Icons.Record;
       extends Modelica.Electrical.Spice3.Internal.ModelcardMOS;
       annotation (Documentation(info="<html>
 <p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
@@ -2792,6 +2793,7 @@ The corresponding SPICE description
     end M_PMOS2;
 
     record ModelcardMOS2 "Record for the specification of modelcard parameters"
+      extends Modelica.Icons.Record;
       extends Modelica.Electrical.Spice3.Internal.ModelcardMOS2;
       annotation (Documentation(info="<html>
 <p>Technology model parameters of MOSFET transistor with fixed level 1: Shichman-Hodges model</p>
@@ -2846,6 +2848,7 @@ The corresponding SPICE description
     end Q_PNPBJT;
 
     record ModelcardBJT "Record for the specification of modelcard parameters"
+      extends Modelica.Icons.Record;
       extends Modelica.Electrical.Spice3.Internal.ModelcardBJT2;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
@@ -2900,6 +2903,7 @@ The corresponding SPICE description
 
     record ModelcardJFET
       "Record for the specification of modelcard parameters for JFET"
+      extends Modelica.Icons.Record;
       extends Modelica.Electrical.Spice3.Internal.ModelcardJFET;
       annotation (Documentation(info="<html>
 <p>Technology parameters of the junction field-effect transistor model.</p>
@@ -2925,6 +2929,7 @@ The corresponding SPICE description
    end D_DIODE;
 
    record ModelcardDIODE "Record for the specification of modelcard parameters"
+     extends Modelica.Icons.Record;
      extends Modelica.Electrical.Spice3.Internal.ModelcardDIODE;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
@@ -2948,6 +2953,7 @@ The corresponding SPICE description
 
     record ModelcardRESISTOR
       "Record for the specification of modelcard parameters"
+      extends Modelica.Icons.Record;
       extends Modelica.Electrical.Spice3.Internal.ModelcardR;
       annotation (Documentation(info="<html>
 <p>In modelcards, that are typical for SPICE3, the so called technology parameters are stored. These parameters are usually set for more than one semiconductor device in a circuit, e.g., the temperature of a whole electrical circuit.</p>
@@ -2972,6 +2978,7 @@ The corresponding SPICE description
 
     record ModelcardCAPACITOR
       "Record for the specification of modelcard parameters for Semiconductor Capacitor"
+      extends Modelica.Icons.Record;
       extends Modelica.Electrical.Spice3.Internal.ModelcardC;
       annotation (Documentation(info="<html>
 <p>Technology parameters of the semiconductor capacitor model.</p>
@@ -3755,7 +3762,9 @@ If, e.g., time = 1.0, the current i =  0.0 (before event), 1.0 (after event)
 
   package Additionals
     "Some useful additional models, e.g., from SPICE2 the polynomial sources"
+    extends Modelica.Icons.Package;
     function poly "POLY function of SPICE2"
+      extends Modelica.Icons.Function;
       input Real s[:] "Variables";
       input Real a[:] "Coefficients";
       output Real v "Value of polynomial";
@@ -4530,6 +4539,7 @@ on the model behaviour.
   end MOS;
 
      record ModelcardMOS "Record with technological parameters (.model)"
+       extends Modelica.Icons.Record;
 
        parameter SI.Voltage VTO=-1e40 "Zero-bias threshold voltage, default 0";
        parameter SI.Transconductance KP=-1e40
@@ -4826,6 +4836,7 @@ on the model behaviour.
   end MOS2;
 
      record ModelcardMOS2 "Record with technological parameters (.model)"
+       extends Modelica.Icons.Record;
      extends Spice3.Internal.ModelcardMOS(MJSW=0.33);
 
        parameter SI.Conversions.NonSIunits.PerArea_cm NFS=0.0
@@ -4990,6 +5001,7 @@ on the model behaviour.
     end BJT2;
 
     record ModelcardBJT2 "Record with technological parameters (.model)"
+      extends Modelica.Icons.Record;
 
       parameter SI.Temp_C TNOM = 27 "Parameter measurement temperature";
       parameter SI.Current IS = 1e-16 "Transport saturation current";
@@ -5378,6 +5390,7 @@ on the model behaviour.
   end JFET;
 
     record ModelcardJFET "Record with technological parameters (.model)"
+      extends Modelica.Icons.Record;
 
       parameter SI.Capacitance CGS=-1e40
         "Zero-bias G-S junction capacitance, default 0";
@@ -5498,6 +5511,7 @@ on the model behaviour.
    end DIODE;
 
    record ModelcardDIODE "Record with technological parameters (.model)"
+     extends Modelica.Icons.Record;
     parameter SI.Current IS=1e-14 "Saturation Current";
     parameter SI.Resistance RS=0.0 "Ohmic resistance";
     parameter Real N=1.0 "Emission coefficient";
@@ -5590,6 +5604,7 @@ on the model behaviour.
     end R_SEMI;
 
     record ModelcardR "Record with technological parameters (.model)"
+      extends Modelica.Icons.Record;
      parameter SI.Conversions.NonSIunits.FirstOrderTemperaturCoefficient TC1 =        0.0
         "First order temperature coefficient";
      parameter SI.Conversions.NonSIunits.SecondOrderTemperaturCoefficient TC2 =               0.0
@@ -5688,6 +5703,7 @@ on the model behaviour.
     end C_SEMI;
 
     record ModelcardC "Record with technological parameters (.model)"
+      extends Modelica.Icons.Record;
 
       parameter SI.CapacitancePerArea CJ = 0.0
         "Junction bottom capacitance     F/meters2";
@@ -5702,6 +5718,7 @@ on the model behaviour.
     end ModelcardC;
 
      record SpiceConstants "General constants of SPICE simulator"
+       extends Modelica.Icons.Record;
        constant Real EPSSIL =     (11.7 * 8.854214871e-12);
        constant Real EPSOX =      3.453133e-11;
        constant SI.Charge CHARGE =     (1.6021918e-19);
@@ -5734,6 +5751,7 @@ on the model behaviour.
      end SpiceConstants;
 
     record MaterialParameters
+      extends Modelica.Icons.Record;
 
       // energy gap for silicium
       constant SI.GapEnergy EnergyGapSi = 1.16;
@@ -5756,7 +5774,7 @@ on the model behaviour.
 
       function junctionPotDepTemp
         "Temperature dependency of junction potential"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Voltage phi0;
         input Modelica.SIunits.Temp_K temp "Device Temperature";
         input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
@@ -5784,7 +5802,7 @@ on the model behaviour.
 
       function saturationCurDepTempSPICE3MOSFET
         "Temperature dependency of saturation current"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Current satcur0 "Saturation current";
         input Modelica.SIunits.Temp_K temp "Device Temperature";
         input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
@@ -5814,7 +5832,7 @@ on the model behaviour.
       end saturationCurDepTempSPICE3MOSFET;
 
       function junctionVCrit "Voltage limitation"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Temp_K temp "temperature";
         input Real ncoeff;
         input Modelica.SIunits.Current satcur "Saturation current";
@@ -5837,7 +5855,7 @@ on the model behaviour.
 
       function junctionParamDepTempSPICE3
         "Temperature dependency of junction parameters"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Voltage phi0;
         input Real cap0;
         input Real mcoeff;
@@ -5891,7 +5909,7 @@ on the model behaviour.
       end junctionParamDepTempSPICE3;
 
       function junctionCapCoeffs "Coefficient calculation"
-
+      extends Modelica.Icons.Function;
         input Real mj;
         input Real fc;
         input Modelica.SIunits.Voltage phij;
@@ -5916,7 +5934,7 @@ on the model behaviour.
 
     function junction2SPICE3MOSFETRevised
         "Junction current and conductance calculation"
-
+    extends Modelica.Icons.Function;
       input SI.Voltage voltage "Input voltage";
       input SI.Temp_K temp "Device Temperature";
       input Real ncoeff;
@@ -6022,7 +6040,7 @@ on the model behaviour.
     end junction2SPICE3MOSFET;
 
     function junctionCapRevised "Junction capacity"
-
+    extends Modelica.Icons.Function;
       input SI.Capacitance capin "Input capacitance";
       input SI.Voltage voltage "Input voltage";
       input SI.Voltage depcap;
@@ -6107,7 +6125,7 @@ on the model behaviour.
 
     function saturationCurDepTempSPICE3
         "Temperature dependency of saturation current"
-
+    extends Modelica.Icons.Function;
       input Modelica.SIunits.Current satcur0 "Saturation current";
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Modelica.SIunits.Temp_K tnom "Nominal Temperature";
@@ -6134,7 +6152,7 @@ on the model behaviour.
     end saturationCurDepTempSPICE3;
 
     function junctionVoltage23SPICE3 "Junction Voltage"
-
+    extends Modelica.Icons.Function;
       input Modelica.SIunits.Voltage vb;
       input Modelica.SIunits.Current ivb;
       input Modelica.SIunits.Current satcur "Saturation current";
@@ -6175,7 +6193,7 @@ on the model behaviour.
     end junctionVoltage23SPICE3;
 
     function junction3 "Junction current and conductance calculation"
-
+    extends Modelica.Icons.Function;
       input Modelica.SIunits.Voltage voltage "Input voltage";
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
@@ -6241,7 +6259,7 @@ on the model behaviour.
 
     function junctionCapTransTime
         "Junction capacitance transittime calculation"
-
+    extends Modelica.Icons.Function;
       input Modelica.SIunits.Capacitance capin "Input capacitance";
       input Modelica.SIunits.Voltage voltage "Input voltage";
       input Modelica.SIunits.Voltage depcap;
@@ -6276,7 +6294,7 @@ on the model behaviour.
     end junctionCapTransTime;
 
     function junction2 "Junction current and conductance calculation"
-
+    extends Modelica.Icons.Function;
       input Modelica.SIunits.Voltage voltage "Input Voltage";
       input Modelica.SIunits.Temp_K temp "Device Temperature";
       input Real ncoeff;
@@ -6327,7 +6345,7 @@ on the model behaviour.
     end junction2;
 
     function resDepTemp "Temperature dependent conductance"
-
+    extends Modelica.Icons.Function;
     input Modelica.SIunits.Resistance resist "Input resistance";
     input Modelica.SIunits.Temp_K temp "Device temperature";
     input Modelica.SIunits.Temp_K tnom "Nominal temperature";
@@ -6353,7 +6371,7 @@ on the model behaviour.
     end resDepTemp;
 
     function resDepGeom "Resistance dependent from width and narrow"
-
+    extends Modelica.Icons.Function;
     input Real rsh "Input sheet resistance";
     input Modelica.SIunits.Length width "Input transistor width";
     input Modelica.SIunits.Length length "Input transistor length";
@@ -6371,7 +6389,7 @@ on the model behaviour.
 
     function saturationCurDepTempSPICE3JFET
         "Temperature dependency of saturation current"
-
+    extends Modelica.Icons.Function;
       input SI.Current satcur0 "Saturation current";
       input SI.Temp_K temp "Device Temperature";
       input SI.Temp_K tnom "Nominal Temperature";
@@ -6388,7 +6406,7 @@ on the model behaviour.
     end saturationCurDepTempSPICE3JFET;
 
     function capDepGeom "Capacitance dependent from width and narrow"
-
+    extends Modelica.Icons.Function;
     input SI.CapacitancePerArea cap0 "Junction bottom capacitance";
     input SI.Permittivity capsw0 "Junction sidewall capacitance";
     input SI.Length  width "Input capacitor width";
@@ -6404,7 +6422,7 @@ on the model behaviour.
     end capDepGeom;
 
       function energyGapDepTemp "Temperature dependency of energy gap"
-
+      extends Modelica.Icons.Function;
         input SI.Temp_K temp "Temperature";
         output SI.Voltage ret "Output voltage";
 
@@ -6419,7 +6437,7 @@ on the model behaviour.
       end energyGapDepTemp;
 
     function junction2SPICE3BJT "Junction current and conductance calculation"
-
+    extends Modelica.Icons.Function;
       input SI.Voltage voltage "Input Voltage";
       input SI.Temp_K temp "Device Temperature";
       input Real ncoeff1;
@@ -6465,7 +6483,7 @@ on the model behaviour.
     end junction2SPICE3BJT;
 
     function energyGapDepTemp_old "Temperature dependency of energy gap"
-
+    extends Modelica.Icons.Function;
       input Modelica.SIunits.Temp_K temp "Temperature";
       output Modelica.SIunits.Voltage ret "Output voltage";
 
@@ -6490,7 +6508,7 @@ on the model behaviour.
       extends Modelica.Icons.Package;
 
       record SpiceRoot "Data for insertion to matrices"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Current[6] m_pCurrentValues(   start = zeros(6));
         Real[36] m_pResJacobi(      start = zeros(36));
         Real[36] m_pCapJacobi(      start = zeros(36));
@@ -6501,7 +6519,7 @@ on the model behaviour.
       end SpiceRoot;
 
       function useInitialConditions "Initial condition handling"
-
+      extends Modelica.Icons.Function;
         output Boolean ret;
 
       algorithm
@@ -6514,6 +6532,7 @@ on the model behaviour.
 
       function initJunctionVoltages
         "Choice of junction voltage handling, obsolete, use initJunctionVoltageRevised"
+        extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         output Boolean ret;
@@ -6528,6 +6547,7 @@ on the model behaviour.
 
       function limitJunctionVoltage
         "Limitation of junction voltage, obsolete, use limitJunctionVoltageRevised"
+        extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         input Modelica.SIunits.Voltage voltage "Input voltage";
@@ -6543,7 +6563,7 @@ on the model behaviour.
       end limitJunctionVoltage;
 
       function limitJunctionVoltageRevised "Limitation of junction voltage"
-
+      extends Modelica.Icons.Function;
         input SI.Voltage voltage "Input voltage";
 
         output SI.Voltage ret;
@@ -6558,7 +6578,7 @@ on the model behaviour.
 
       function initJunctionVoltagesRevised
         "Choice of junction voltage handling"
-
+      extends Modelica.Icons.Function;
         output Boolean ret;
       algorithm
 
@@ -6577,7 +6597,7 @@ on the model behaviour.
       extends Modelica.Icons.Package;
 
     record Model "Device Temperature"
-
+    extends Modelica.Icons.Record;
       Modelica.SIunits.Temp_K m_dTemp( start = SpiceConstants.CKTnomTemp)
           "TEMP, Device Temperature";
         annotation (Documentation(info="<html>
@@ -6640,6 +6660,7 @@ on the model behaviour.
       end Mosfet;
 
       record MosfetModelLineParams "Record for Mosfet model line parameters"
+        extends Modelica.Icons.Record;
 
          Real m_jctSatCurDensity(           start = 0.0)
           "JS, Bulk jct. sat. current density, input - use tSatCurDens";
@@ -6678,7 +6699,7 @@ on the model behaviour.
       end MosfetModelLineParams;
 
       record MosfetModelLine "Type of the transistor"
-
+      extends Modelica.Icons.Record;
         Integer m_type(   start = 1) "device type : 1 = n,  -1 = p";
 
         annotation (Documentation(info="<html>
@@ -6687,7 +6708,7 @@ on the model behaviour.
       end MosfetModelLine;
 
       record MosfetCalc "Mosfet Variables"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Voltage m_vds "Vds,  Drain-Source voltage";
         Modelica.SIunits.Voltage m_vgs "Vgs, Gate-Source voltage";
         Modelica.SIunits.Voltage m_vbs "Vbs, Bulk-Source voltage";
@@ -6727,7 +6748,7 @@ on the model behaviour.
       end MosfetCalc;
 
       function mosfetInitEquations "MOSFET initial precalculations"
-
+      extends Modelica.Icons.Function;
         input Mosfet in_m "Input parameter set";
 
         output Mosfet out_m "Changed parameter set";
@@ -6748,7 +6769,7 @@ on the model behaviour.
       end mosfetInitEquations;
 
       function mosfetModelLineInitEquations "Type transcription"
-
+      extends Modelica.Icons.Function;
         input Mosfet in_m "Input parameter set";
 
         output MosfetModelLine out_ml "Changed parameter set";
@@ -6763,7 +6784,7 @@ on the model behaviour.
       end mosfetModelLineInitEquations;
 
       function getNumberOfElectricalPins "Number of Pins"
-
+      extends Modelica.Icons.Function;
         output Integer ret "Number of pins";
 
       algorithm
@@ -6775,6 +6796,7 @@ on the model behaviour.
 
       function mosfetRenameParametersDev
         "Device parameter renaming to internal names"
+        extends Modelica.Icons.Function;
         input SI.Length  W "Channel Width";
         input SI.Length  L "Channel Length";
         input SI.Area AD "Area of the drain diffusion";
@@ -6903,7 +6925,7 @@ on the model behaviour.
 
       record MosModelLineVariables
         "Record for Mosfet model line variables (for level 1)"
-
+      extends Modelica.Icons.Record;
         Real m_oxideCapFactor;
         Modelica.SIunits.Voltage m_vt0;
         Modelica.SIunits.Voltage m_phi;
@@ -6957,7 +6979,7 @@ on the model behaviour.
       end MosCalc;
 
       record DEVqmeyer "Meyer capacities and charge"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Capacitance qm_capgb(  start = 0);
         Modelica.SIunits.Capacitance qm_capgs(  start = 0);
         Modelica.SIunits.Capacitance qm_capgd(  start = 0);
@@ -6974,7 +6996,7 @@ on the model behaviour.
       end DEVqmeyer;
 
       record CurrrentsCapacitances "Currents and Capacities"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Current idrain( start = 0);
         Modelica.SIunits.Current iBD( start = 0);
         Modelica.SIunits.Current iBS( start = 0);
@@ -6991,7 +7013,7 @@ on the model behaviour.
       end CurrrentsCapacitances;
 
       function mosCalcInitEquations "Mosfet initial precalculations (level 1)"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.Mos1.Mos1ModelLineParams in_p
           "Input record model line parameters for MOS1";
         input Spice3.Internal.SpiceConstants in_C
@@ -7031,7 +7053,7 @@ on the model behaviour.
 
       function mosCalcCalcTempDependencies
         "Precalculation relating to temperature"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.Mos1.Mos1ModelLineParams in_p
           "Input record model line parameters for MOS1";
         input Spice3.Internal.SpiceConstants in_C
@@ -7175,7 +7197,7 @@ on the model behaviour.
 
       function mosCalcNoBypassCode
         "Calculation of currents and capacities (level 1)"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record mosfet parameters";
         input Integer in_m_type "Type of MOS transistor";
@@ -7367,7 +7389,7 @@ on the model behaviour.
       end mosCalcNoBypassCode;
 
       function mosCalcDEVqmeyer "Calculation of meyer capacities"
-
+      extends Modelica.Icons.Function;
         input SI.Voltage vgs;
         input SI.Voltage vgd;
         input SI.Voltage vgb;
@@ -7419,7 +7441,7 @@ on the model behaviour.
 
       function mos2CalcInitEquationsRevised
         "Mosfet initial precalculations (level 2)"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.Mos2.Mos2ModelLineParams in_p
           "Input record Mos2 values";
         input Spice3.Internal.Mosfet.Mosfet in_m
@@ -7455,6 +7477,7 @@ on the model behaviour.
 
       function mos2CalcInitEquations
         "Mosfet initial precalculations (level 1) obsolete, use mos2CalcInitEquationsRevised"
+        extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         input Spice3.Internal.Mos2.Mos2ModelLineParams
@@ -7494,7 +7517,7 @@ on the model behaviour.
 
       function mos2CalcCalcTempDependenciesRevised
         "Precalculation relating to temperature"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.Mos2.Mos2ModelLineParams in_p
           "Output record Mos1 calculated values";
         input Spice3.Internal.Mosfet.Mosfet in_m
@@ -7625,6 +7648,7 @@ on the model behaviour.
 
       function mos2CalcCalcTempDependencies
         "Precalculation relating to temperature obsolete, use mos2CalcCalcTempDependenciesRevised"
+         extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         input Spice3.Internal.Mos2.Mos2ModelLineParams
@@ -7770,7 +7794,7 @@ on the model behaviour.
 
       function mos2CalcNoBypassCodeRevised
         "Calculation of currents and capacities (level 2)"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.Mosfet.Mosfet in_m
           "Input record mosfet parameters";
         input Integer in_m_type "Type of MOS transistor";
@@ -7959,6 +7983,7 @@ on the model behaviour.
 
       function mos2CalcNoBypassCode
         "Calculation of currents and capacities (level 2) obsolete, use mos2CalcNoBypassCodeRevised"
+         extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         input Spice3.Internal.Mosfet.Mosfet in_m
@@ -8211,7 +8236,7 @@ on the model behaviour.
       end Mos1Calc;
 
       function mos1ModelLineParamsInitEquations "Initial precalculation"
-
+      extends Modelica.Icons.Function;
         input Mos1ModelLineParams in_p
           "Input record model line parameters for MOS1";
         input SpiceConstants in_C "Spice constants";
@@ -8284,7 +8309,7 @@ on the model behaviour.
       end mos1ModelLineParamsInitEquations;
 
       function drainCur "Drain current calculation"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Voltage vb;
         input Modelica.SIunits.Voltage vg;
         input Modelica.SIunits.Voltage vds;
@@ -8352,7 +8377,7 @@ on the model behaviour.
       end drainCur;
 
       function mos1RenameParameters "Parameter renaming to internal names"
-
+      extends Modelica.Icons.Function;
         input ModelcardMOS ex "Modelcard with technologieparameters";
         input SpiceConstants con "Spice constants";
 
@@ -8448,6 +8473,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function mos1RenameParametersDev
         "Device parameter renaming to internal names"
+        extends Modelica.Icons.Function;
         input ModelcardMOS ex;
         input Integer mtype;
         input Modelica.SIunits.Length W "Channel Width";
@@ -8557,6 +8583,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function mos2ModelLineParamsInitEquations "Initial precalculation
  obsolete, use mos2ModelLineParamsInitEquationsRevised"
+       extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         input Mos2ModelLineParams in_p
@@ -8633,7 +8660,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end mos2ModelLineParamsInitEquations;
 
       function mos2ModelLineParamsInitEquationsRevised "Initial precalculation"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.Mos2.Mos2ModelLineParams in_p
           "Input record model line parameters for MOS2";
         input Integer in_m_type "Type of MOS transistor";
@@ -8707,7 +8734,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end mos2ModelLineParamsInitEquationsRevised;
 
       function drainCurRevised "Drain current calculation"
-
+      extends Modelica.Icons.Function;
          input SI.Voltage vbs;
          input SI.Voltage vgs;
          input SI.Voltage vds;
@@ -9255,6 +9282,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function drainCur
         "Drain current calculation obsolete, use drainCurRevised"
+        extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
          input Modelica.SIunits.Voltage vbs;
@@ -9802,7 +9830,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function mos2RenameParametersRevised
         "Parameter renaming to internal names"
-
+      extends Modelica.Icons.Function;
         input Spice3.Internal.ModelcardMOS2 ex
           "Modelcard with technologie parameters";
 
@@ -9870,6 +9898,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function mos2RenameParameters "Parameter renaming to internal names
    obsolete, use mos2RenameParametersRevised"
+         extends Modelica.Icons.Function;
          extends Modelica.Icons.ObsoleteModel;
 
         input Spice3.Internal.ModelcardMOS2
@@ -9960,6 +9989,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function mos2RenameParametersDev
         "Device parameter renaming to internal names"
+        extends Modelica.Icons.Function;
         input Spice3.Internal.ModelcardMOS2
                             ex;
         input Integer mtype;
@@ -10017,7 +10047,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       extends Modelica.Icons.Package;
 
       record DiodeModelLineParams "Record for Diode model line parameters"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Current m_satCur( start = 1.0e-14)
           "IS, Saturation current";
         Modelica.SIunits.Resistance m_resist( start = 0.0)
@@ -10053,7 +10083,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end DiodeModelLineParams;
 
       record DiodeModelLineVariables "Record for Diode model line variables"
-
+      extends Modelica.Icons.Record;
         Real m_gradingCoeff;
         Real m_activationEnergy;
         Real m_depletionCapCoeff;
@@ -10065,7 +10095,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end DiodeModelLineVariables;
 
       record DiodeParams "Record for Diode device parameters"
-
+      extends Modelica.Icons.Record;
         Real m_area(start = 1.0) "AREA, Area factor";
         Boolean m_bOff(start = false) "OFF, Initially off";
         Modelica.SIunits.Voltage m_dIC(start = 0.0)
@@ -10080,7 +10110,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end DiodeParams;
 
       record DiodeVariables "Variables for the diode model"
-
+      extends Modelica.Icons.Record;
         Real m_pBvIsGiven "Additional BV is given variable";
 
         annotation (Documentation(info="<html>
@@ -10089,7 +10119,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end DiodeVariables;
 
       record DiodeCalc "Diode variables"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Voltage m_tJctPot;
         Modelica.SIunits.Capacitance m_tJctCap;
         Real m_tF1;
@@ -10106,7 +10136,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end DiodeCalc;
 
       record CurrentsCapacitances "Diode variables"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Current m_dCurrent;
 
         annotation (Documentation(info="<html>
@@ -10116,7 +10146,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
 
       function diodeModelLineInitEquations
         "Initial precalculation of model line parameters"
-
+      extends Modelica.Icons.Function;
         input DiodeModelLineParams in_p
           "Input record with diode model line parameters";
 
@@ -10145,7 +10175,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end diodeModelLineInitEquations;
 
       function diodeInitEquations "Initial calculation"
-
+      extends Modelica.Icons.Function;
         input DiodeModelLineParams in_p
           "Input record with diode model line parameters";
 
@@ -10165,7 +10195,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end diodeInitEquations;
 
       function diodeCalcTempDependencies "Temperature dependency calculation"
-
+      extends Modelica.Icons.Function;
         input DiodeModelLineParams in_p
           "Input record diode model line parameters";
         input DiodeParams in_dp "Input record diode parameters";
@@ -10220,7 +10250,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end diodeCalcTempDependencies;
 
       function diodeNoBypassCode "Calculation of currents"
-
+      extends Modelica.Icons.Function;
         input DiodeModelLineParams in_p
           "Input record model line parameters for diode";
         input DiodeParams in_dp "Input record with parameters for diode";
@@ -10291,7 +10321,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end diodeNoBypassCode;
 
       function diodeCalcAdditionalValues "Calculation of additional values"
-
+      extends Modelica.Icons.Function;
         input DiodeVariables in_v "Input record with diode variables";
         input DiodeModelLineParams in_p
           "Input record with diode model line parameters";
@@ -10309,7 +10339,7 @@ to the internal parameters (e.g., m_drainResistance). It also does the analysis 
       end diodeCalcAdditionalValues;
 
       function diodeRenameParameters "Technology parameter renaming"
-
+      extends Modelica.Icons.Function;
         input ModelcardDIODE ex "Modelcard with technologie parameters";
         input SpiceConstants con "Spice constants";
 
@@ -10346,6 +10376,7 @@ to the internal parameters (e.g., m_satCur). It also does the analysis of the Is
       end diodeRenameParameters;
 
       function diodeRenameParametersDev "Temperature calculation"
+        extends Modelica.Icons.Function;
         input Modelica.SIunits.Temp_K TEMP "Temperature";
         input Real AREA "Area factor";
         input Real IC "Initial condition value (VD, not implemented yet";
@@ -10373,7 +10404,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end diodeRenameParametersDev;
 
       function diodeRenameParametersDevTemp "Temperature calculation"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Temp_C TEMP "Temperature";
         output Model.Model dev_temp "Input record Model";
 
@@ -10394,7 +10425,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         extends Modelica.Icons.Package;
 
       record ResistorParams "Resistor device parameters"
-
+      extends Modelica.Icons.Record;
           Modelica.SIunits.Resistance m_dResist( start=1000)
           "Device is a resistor model";
           Real m_dResIsGiven "Resistance is given value";
@@ -10413,7 +10444,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end ResistorParams;
 
       record ResistorModelLineParams "Record for Diode model line parameters"
-
+      extends Modelica.Icons.Record;
           Modelica.SIunits.Conversions.NonSIunits.FirstOrderTemperaturCoefficient
           m_dTC1 "First order temp, coefficient";
           Modelica.SIunits.Conversions.NonSIunits.SecondOrderTemperaturCoefficient
@@ -10430,6 +10461,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end ResistorModelLineParams;
 
       record ResistorVariables "Variables for the diode model"
+        extends Modelica.Icons.Record;
        Modelica.SIunits.Length m_dWidth;
        Modelica.SIunits.Length m_dLength;
        Modelica.SIunits.Resistance m_dResist;
@@ -10441,7 +10473,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end ResistorVariables;
 
       function resistorRenameParameters "Technology parameter renaming"
-
+      extends Modelica.Icons.Function;
       input ModelcardR ex "Modelcard with technologie parameters";
       input SpiceConstants con "Spice constants";
 
@@ -10467,7 +10499,7 @@ to the internal parameters (e.g., m_emissionCoeff). It also does the analysis of
       end resistorRenameParameters;
 
       function resistorRenameParametersDev "Device parameter renaming"
-
+      extends Modelica.Icons.Function;
         input Modelica.SIunits.Resistance R "Resistance";
         input Modelica.SIunits.Length W "Width";
         input Modelica.SIunits.Length L "Length";
@@ -10505,6 +10537,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end resistorRenameParametersDev;
 
       function resistorInitEquations "Initial calculation"
+        extends Modelica.Icons.Function;
        input ResistorParams in_p "Input record with resistor parameters";
        input ResistorModelLineParams in_p2
           "Input record with resistor model line parameters";
@@ -10572,7 +10605,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end Bjt;
 
       record BjtModelLineParams "Record for bjt model line parameters"
-
+      extends Modelica.Icons.Record;
         Real m_type( start = 1) "device type : 1 = n,  -1 = p";
 
         Modelica.SIunits.Temp_K m_tnom(start=Spice3.Internal.SpiceConstants.CKTnomTemp)
@@ -10683,7 +10716,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end BjtModelLineParams;
 
       record BjtCalc "Bjt variables"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Current m_tSatCur(start=0);
         Real m_tBetaF( start = 1);
         Real m_tBetaR( start = 1);
@@ -10710,7 +10743,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end BjtCalc;
 
       record CurrentsCapacitances "Bjt variables"
-
+      extends Modelica.Icons.Record;
         Modelica.SIunits.Current iBE(start=0.0);
                                    //current through diode dE1 (ideal part)
         Modelica.SIunits.Current iBEN(start=0.0);
@@ -10737,7 +10770,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end CurrentsCapacitances;
 
       function bjtModelLineInitEquations "Initial calculation"
-
+      extends Modelica.Icons.Function;
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
 
@@ -10785,7 +10818,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtModelLineInitEquations;
 
       function bjtInitEquations "Initial calculation"
-
+      extends Modelica.Icons.Function;
         input Bjt in_p "Input record Bjt";
         input BjtModelLineParams in_pml
           "Input record with Bjt model line parameters";
@@ -10807,7 +10840,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtInitEquations;
 
       function bjtCalcTempDependencies "Temperature dependency calculation"
-
+      extends Modelica.Icons.Function;
         input Bjt in_p3 "Input record Bjt";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
@@ -10907,7 +10940,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtCalcTempDependencies;
 
       function bjtNoBypassCode "Calculation of currents"
-
+      extends Modelica.Icons.Function;
         input Bjt in_p3 "Input record Bjt";
         input BjtModelLineParams in_p
           "Input record with Bjt model line parameters";
@@ -11180,7 +11213,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.ModelcardBJT2
                                            ex
           "Modelcard with technologie parameters";
@@ -11252,7 +11285,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtRenameParameters;
 
       function bjtRenameParametersDev "Temperature calculation"
-
+      extends Modelica.Icons.Function;
         input Real AREA "Area factor";
         input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
@@ -12319,7 +12352,7 @@ Fet::Fet( const String& modelname, const String& elementname)
       end Fet;
 
       record FetModelLine "Record for Fet model line parameters"
-
+      extends Modelica.Icons.Record;
         SI.Voltage m_threshold(start = -2.0) "VTO";
         Real m_beta(start = 1e-4) "BETA";
         SI.InversePotential m_lModulation(start = 0.0) "LAMBDA";
@@ -12366,7 +12399,7 @@ Fet_Model_Line::Fet_Model_Line(
       end FetModelLine;
 
       record CurrrentsCapacitances "Currents and Capacities"
-
+      extends Modelica.Icons.Record;
         SI.Current idrain(start=0);
         SI.Current iGD(start=0);
         SI.Current iGS(start=0);
@@ -12380,7 +12413,7 @@ Fet_Model_Line::Fet_Model_Line(
 
       function fetRenameParametersDev
         "Device parameter renaming to internal names"
-
+      extends Modelica.Icons.Function;
         input Real AREA "Number of parallel connected identical elements";
         input Boolean OFF
           "Optional initial condition: 0 - IC not used, 1 - IC used, not implemented yet";
@@ -12418,7 +12451,7 @@ Fet_Model_Line::Fet_Model_Line(
       end JfetModelLine;
 
       function jfetInitEquations "FET initial precalculations"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
         input JfetModelLine in_fm;
 
@@ -12435,7 +12468,7 @@ Fet_Model_Line::Fet_Model_Line(
       end jfetInitEquations;
 
       function jfetModelLineInitEquations "Initial precalculation"
-
+      extends Modelica.Icons.Function;
         input JfetModelLine in_fm;
 
         output JfetModelLine out_fm;
@@ -12460,7 +12493,7 @@ Fet_Model_Line::Fet_Model_Line(
       end jfetModelLineInitEquations;
 
       function drainCur "Drain current calculation"
-
+      extends Modelica.Icons.Function;
         input SI.Voltage vds;
         input SI.Voltage vgs;
         input SI.Voltage vgd;
@@ -12544,7 +12577,7 @@ Fet_Model_Line::Fet_Model_Line(
       end drainCur;
 
       function calculateGateCap "Gate capactance calculation"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
         input SI.Voltage vgs "Input voltage gate source";
         input SI.Voltage vgd "Input voltage gate drain";
@@ -12578,7 +12611,7 @@ Fet_Model_Line::Fet_Model_Line(
 
       function jfetCalcTempDependencies
         "Precalculations relating to temperature"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f;
         input JfetModelLine in_fm;
 
@@ -12624,7 +12657,7 @@ Fet_Model_Line::Fet_Model_Line(
       end jfetCalcTempDependencies;
 
       function jfetNoBypassCode "Calculations of currents and capacities"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.Fet.Fet in_f
           "Input record fet parameters";
         input JfetModelLine in_fm "Input record model line parameters";
@@ -12712,7 +12745,7 @@ Fet_Model_Line::Fet_Model_Line(
       end jfetNoBypassCode;
 
       function jfetRenameParameters "Parameter renaming to internal names"
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.ModelcardJFET ex
           "Modelcard with technologieparameters";
 
@@ -12771,7 +12804,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
 
       record CapacitorModelLineParams
         "Record for Capacitor model line parameters"
-
+      extends Modelica.Icons.Record;
           SI.CapacitancePerArea m_dCj "Junction bottom capacitance";
           SI.Permittivity m_dCjsw "Junction sidewall capacitance";
           SI.Length  m_dDefW "Default device width";
@@ -12780,7 +12813,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end CapacitorModelLineParams;
 
       function capacitorInitEquations
-
+      extends Modelica.Icons.Function;
         input Capacitor in_p "Input record with capacitor parameters";
         input CapacitorModelLineParams in_p2
           "Input record with capacitor model line parameters";
@@ -12804,7 +12837,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end capacitorInitEquations;
 
       function capacitorRenameParameters
-
+      extends Modelica.Icons.Function;
         input Modelica.Electrical.Spice3.Internal.ModelcardC ex
           "Modelcard with technologie parameters";
 
@@ -12820,7 +12853,7 @@ to the internal parameters (e.g. m_drainResistance). It also does the analysis o
       end capacitorRenameParameters;
 
       function capacitorRenameParametersDev
-
+      extends Modelica.Icons.Function;
         input SI.Capacitance C "Capacitance";
         input SI.Length  W "Width";
         input SI.Length  L "Length";
