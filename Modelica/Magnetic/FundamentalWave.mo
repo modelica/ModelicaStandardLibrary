@@ -3907,6 +3907,7 @@ This package contains components for
 
       function symmetricOrientation
         "Orientations of the resulting fundamental wave field phasors"
+        extends Modelica.Icons.Function;
 
         import Modelica.Constants.pi;
 
