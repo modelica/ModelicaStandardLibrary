@@ -12524,14 +12524,14 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
                     fileName=
-                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/icon_StraightPipe.png")}));
+                      "modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/straightPipe/icon_straightPipe.png")}));
         end StraightPipe_i;
 
         partial model Valve_i "Icon for valve"
 
           annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={Bitmap(extent={{-100,100},{100,-100}},
-                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/Valve/icon_Valve.png")}));
+                    fileName="modelica://Modelica/Resources/Images/Fluid/Dissipation/pressureLoss/valve/icon_valve.png")}));
         end Valve_i;
       end PressureLoss;
 
