@@ -5,9 +5,9 @@ package ModelicaServices "(Default implementation) Models and functions used in 
   "Target of this ModelicaServices implementation";
 
 package UsersGuide "User's Guide"
-extends Modelica.Icons.Info;
+extends Modelica.Icons.Information;
 class ModelicaLicense2 "Modelica License 2"
-  extends Modelica.Icons.Info;
+  extends Modelica.Icons.Information;
   annotation (Documentation(info="<html>
 <head>
 	<title>The Modelica License 2</title>
