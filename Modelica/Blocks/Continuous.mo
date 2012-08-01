@@ -2148,6 +2148,7 @@ The development of this block was partially funded by BMBF within the
           extends Modelica.Icons.Package;
       function CriticalDamping
           "Return base filter coefficients of CriticalDamping filter (= low pass filter with w_cut = 1 rad/s)"
+        extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
         input Boolean normalized=true
@@ -2183,6 +2184,7 @@ The development of this block was partially funded by BMBF within the
 
       function Bessel
           "Return base filter coefficients of Bessel filter (= low pass filter with w_cut = 1 rad/s)"
+        extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
         input Boolean normalized=true
@@ -2224,6 +2226,7 @@ The development of this block was partially funded by BMBF within the
 
       function Butterworth
           "Return base filter coefficients of Butterwort filter (= low pass filter with w_cut = 1 rad/s)"
+        extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
         input Boolean normalized=true
@@ -2279,6 +2282,7 @@ The development of this block was partially funded by BMBF within the
       function ChebyshevI
           "Return base filter coefficients of Chebyshev I filter (= low pass filter with w_cut = 1 rad/s)"
           import Modelica.Math.asinh;
+        extends Modelica.Icons.Function;
 
         input Integer order(min=1) "Order of filter";
         input Real A_ripple = 0.5 "Pass band ripple in [dB]";
@@ -2347,6 +2351,7 @@ The development of this block was partially funded by BMBF within the
           extends Modelica.Icons.Package;
       function lowPass
           "Return low pass filter coefficients at given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
         input Real c0_in[:]
@@ -2382,6 +2387,7 @@ The development of this block was partially funded by BMBF within the
 
       function highPass
           "Return high pass filter coefficients at given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
         input Real c0_in[:]
@@ -2431,6 +2437,7 @@ The development of this block was partially funded by BMBF within the
 
       function bandPass
           "Return band pass filter coefficients at given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
         input Real c0_in[:]
@@ -2520,6 +2527,7 @@ The development of this block was partially funded by BMBF within the
 
       function bandStop
           "Return band stop filter coefficients at given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles";
         input Real c0_in[:]
@@ -2633,6 +2641,7 @@ The development of this block was partially funded by BMBF within the
           extends Modelica.Icons.Package;
       function lowPass
           "Return low pass filter roots as needed for block for given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles of base filter";
         input Real c0_in[:]
@@ -2734,6 +2743,7 @@ This representation has the following transfer function:
 
       function highPass
           "Return high pass filter roots as needed for block for given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles of base filter";
         input Real c0_in[:]
@@ -2848,6 +2858,8 @@ This representation has the following transfer function:
 
       function bandPass
           "Return band pass filter roots as needed for block for given cut-off frequency"
+        extends Modelica.Icons.Function;
+
         input Real cr_in[:] "Coefficients of real poles of base filter";
         input Real c0_in[:]
             "Coefficients of s^0 term of base filter if conjugate complex pole";
@@ -2942,6 +2954,7 @@ This representation has the following transfer function:
 
       function bandStop
           "Return band stop filter roots as needed for block for given cut-off frequency"
+        extends Modelica.Icons.Function;
 
         input Real cr_in[:] "Coefficients of real poles of base filter";
         input Real c0_in[:]
@@ -3040,6 +3053,7 @@ This representation has the following transfer function:
           extends Modelica.Icons.Package;
         function BesselBaseCoefficients
           "Return coefficients of normalized low pass Bessel filter (= gain at cut-off frequency 1 rad/s is decreased 3dB"
+          extends Modelica.Icons.Function;
 
           import Modelica.Utilities.Streams;
           input Integer order "Order of filter in the range 1..41";
@@ -4081,6 +4095,7 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
 
         function toHighestPowerOne
           "Transform filter to form with highest power of s equal 1"
+          extends Modelica.Icons.Function;
 
           input Real den1[:] "[s] coefficients of polynomials (den1[i]*s + 1)";
           input Real den2[:,2]
@@ -4104,6 +4119,8 @@ b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
 
         function normalizationFactor
           "Compute correction factor of low pass filter such that amplitude at cut-off frequency is -3db (=10^(-3/20) = 0.70794...)"
+          extends Modelica.Icons.Function;
+
           import Modelica;
           import Modelica.Utilities.Streams;
 
@@ -4337,6 +4354,8 @@ function. The solver function is a direct mapping of the Algol 60 procedure
         end normalizationFactor;
 
         encapsulated function bandPassAlpha "Return alpha for band pass"
+          extends Modelica.Icons.Function;
+
           import Modelica;
            input Real a "Coefficient of s^1";
            input Real b "Coefficient of s^0";
