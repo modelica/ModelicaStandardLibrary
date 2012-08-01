@@ -1,7 +1,7 @@
 within Modelica.Media.IdealGases.Common;
 package FluidData "Critical data, dipole moments and related data"
 
-  extends Modelica.Icons.Library;
+  extends Modelica.Icons.Package;
 
   import Modelica.Media.Interfaces.PartialMixtureMedium;
   import Modelica.Media.IdealGases.Common.SingleGasesData;

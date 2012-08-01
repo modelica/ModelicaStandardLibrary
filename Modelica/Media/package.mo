@@ -3926,6 +3926,7 @@ package Interfaces "Interfaces for media models"
   */
     redeclare replaceable record ThermodynamicState
       "a selction of variables that uniquely defines the thermodynamic state"
+      extends Modelica.Icons.Record;
       AbsolutePressure p "Absolute pressure of medium";
       Temperature T "Temperature of medium";
       annotation (Documentation(info="<html>
@@ -4723,7 +4724,6 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     type DerDensityByTemperature = SI.DerDensityByTemperature
       "Type for partial derivative of density with resect to temperature with medium specific attributes";
 
-
     annotation (Documentation(info="<html>
 <p>
 <b>PartialMedium</b> is a package and contains all <b>declarations</b> for
@@ -4893,6 +4893,7 @@ partial package PartialLinearFluid
 
       redeclare record ThermodynamicState
       "a selection of variables that uniquely defines the thermodynamic state"
+        extends Modelica.Icons.Record;
         AbsolutePressure p "Absolute pressure of medium";
         Temperature T "Temperature of medium";
       end ThermodynamicState;
@@ -5132,6 +5133,7 @@ one, which would require a numeric solution.
       end molarMass;
 
       function T_ph "Return temperature from pressure and specific enthalpy"
+        extends Modelica.Icons.Function;
         input SpecificEnthalpy h "Specific enthalpy";
         input AbsolutePressure p "pressure";
         output Temperature T "Temperature";
@@ -5141,6 +5143,7 @@ one, which would require a numeric solution.
       end T_ph;
 
       function T_ps "Return temperature from pressure and specific entropy"
+        extends Modelica.Icons.Function;
         input AbsolutePressure p "Pressure";
         input SpecificEntropy s "Specific entropy";
         output Temperature T "Temperature";
@@ -5780,6 +5783,7 @@ end PartialMixtureMedium;
 
     replaceable function setState_px
       "Return thermodynamic state from pressure and vapour quality"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input MassFraction x "Vapour quality";
       output ThermodynamicState state "Thermodynamic state record";
@@ -5792,6 +5796,7 @@ end PartialMixtureMedium;
 
     replaceable function setState_Tx
       "Return thermodynamic state from temperature and vapour quality"
+      extends Modelica.Icons.Function;
       input Temperature T "Temperature";
       input MassFraction x "Vapour quality";
       output ThermodynamicState state "thermodynamic state record";
@@ -5803,6 +5808,7 @@ end PartialMixtureMedium;
     end setState_Tx;
 
     replaceable function vapourQuality "Return vapour quality"
+      extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction x "Vapour quality";
     protected
@@ -6505,6 +6511,7 @@ quantities are assumed to be constant.
   end PartialSimpleIdealGasMedium;
 
   package Choices "Types, constants to define menu choices"
+    extends Modelica.Icons.Package;
 
     type IndependentVariables = enumeration(
         T "Temperature",

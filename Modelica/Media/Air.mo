@@ -222,6 +222,7 @@ The <a href=\"modelica://Modelica.Media.Air.MoistAir.ThermodynamicState\">thermo
 
     function Xsaturation
       "Return absolute humitity per unit mass of moist air at saturation as a function of the thermodynamic state record"
+      extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction X_sat "Steam mass fraction of sat. boundary";
     algorithm
@@ -234,6 +235,7 @@ Absolute humidity per unit mass of moist air at saturation is computed from pres
 
     function xsaturation
       "Return absolute humitity per unit mass of dry air at saturation as a function of the thermodynamic state record"
+      extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state record";
       output MassFraction x_sat "Absolute humidity per unit mass of dry air";
     algorithm
@@ -246,6 +248,7 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
 
     function xsaturation_pT
       "Return absolute humitity per unit mass of dry air at saturation as a function of pressure p and temperature T"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input SI.Temperature T "Temperature";
       output MassFraction x_sat "Absolute humidity per unit mass of dry air";
@@ -259,6 +262,7 @@ Absolute humidity per unit mass of dry air at saturation is computed from pressu
 
     function massFraction_pTphi
       "Return steam mass fraction as a function of relative humidity phi and temperature T"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "Pressure";
       input Temperature T "Temperature";
       input Real phi "Relative humidity (0 ... 1.0)";
@@ -276,6 +280,7 @@ Absolute humidity per unit mass of moist air is computed from temperature, press
 
     function relativeHumidity_pTX
       "Return relative humidity as a function of pressure p, temperature T and composition X"
+      extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T "Temperature";
       input SI.MassFraction[:] X "Composition";
@@ -295,6 +300,7 @@ Relative humidity is computed from pressure, temperature and composition with 1.
 
     function relativeHumidity
       "Return relative humidity as a function of the thermodynamic state record"
+      extends Modelica.Icons.Function;
       input ThermodynamicState state "Thermodynamic state";
       output Real phi "Relative humidity";
     algorithm
@@ -331,6 +337,7 @@ The ideal gas constant for moist air is computed from <a href=\"modelica://Model
 
     function gasConstant_X
       "Return ideal gas constant as a function from composition X"
+      extends Modelica.Icons.Function;
       input SI.MassFraction X[:] "Gas phase composition";
       output SI.SpecificHeatCapacity R "Ideal gas constant";
     algorithm
@@ -418,6 +425,7 @@ Saturation pressure of water in the liquid and the solid region is computed usin
 
     function saturationPressure_der
       "Derivative function for 'saturationPressure'"
+      extends Modelica.Icons.Function;
       input Temperature Tsat "Saturation temperature";
       input Real dTsat(unit="K/s") "Time derivative of saturation temperature";
       output Real psat_der(unit="Pa/s") "Saturation pressure";
@@ -441,7 +449,7 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
 
     function saturationTemperature
       "Return saturation temperature of water as a function of (partial) pressure p"
-
+      extends Modelica.Icons.Function;
       input SI.Pressure p "Pressure";
       input SI.Temperature T_min=200 "Lower boundary of solution";
       input SI.Temperature T_max=400 "Upper boundary of solution";
@@ -549,6 +557,7 @@ Specific enthalpy of dry air is computed from temperature.
 
   function enthalpyOfWater
       "Computes specific enthalpy of water (solid/liquid) near atmospheric pressure from temperature T"
+    extends Modelica.Icons.Function;
     input SIunits.Temperature T "Temperature";
     output SIunits.SpecificEnthalpy h "Specific enthalpy of water";
   algorithm
@@ -570,6 +579,7 @@ Pressure is assumed to be around 1 bar. This function is usually used to determi
   end enthalpyOfWater;
 
   function enthalpyOfWater_der "Derivative function of enthalpyOfWater"
+    extends Modelica.Icons.Function;
     input SIunits.Temperature T "Temperature";
     input Real dT(unit="K/s") "Time derivative of temperature";
     output Real dh(unit="J/(kg.s)") "Time derivative of specific enthalpy";
@@ -611,6 +621,7 @@ Temperature is returned from the thermodynamic state record input as a simple as
 
   function T_phX
       "Return temperature as a function of pressure p, specific enthalpy h and composition X"
+    extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEnthalpy h "Specific enthalpy";
     input MassFraction[:] X "Mass fractions of composition";
@@ -789,6 +800,7 @@ Specific internal energy is determined from the thermodynamic state record, assu
 
   function specificInternalEnergy_pTX
       "Return specific internal energy of moist air as a function of pressure p, temperature T and composition X"
+    extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
@@ -819,6 +831,7 @@ Specific internal energy is determined from pressure p, temperature T and compos
 
   function specificInternalEnergy_pTX_der
       "Derivative function for specificInternalEnergy_pTX"
+    extends Modelica.Icons.Function;
     input SI.Pressure p "Pressure";
     input SI.Temperature T "Temperature";
     input SI.MassFraction X[:] "Mass fractions of moist air";
@@ -960,7 +973,9 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
   end thermalConductivity;
 
     package Utilities "utility functions"
+      extends Modelica.Icons.Package;
       function spliceFunction "Spline interpolation of two functions"
+        extends Modelica.Icons.Function;
           input Real pos "Returned value for x-deltax >= 0";
           input Real neg "Returned value for x+deltax <= 0";
           input Real x "Function argument";
@@ -985,6 +1000,7 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
       end spliceFunction;
 
       function spliceFunction_der "Derivative of spliceFunction"
+        extends Modelica.Icons.Function;
           input Real pos;
           input Real neg;
           input Real x;
@@ -1019,6 +1035,7 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
       end spliceFunction_der;
 
      function smoothMax
+       extends Modelica.Icons.Function;
         import Modelica.Math;
 
         input Real x1 "First argument of smooth max operator";
@@ -1034,6 +1051,8 @@ Thermal conductivity is computed from temperature using a simple polynomial for 
      end smoothMax;
 
       function smoothMax_der
+        extends Modelica.Icons.Function;
+
         import Modelica.Math.exp;
         import Modelica.Math.log;
 
@@ -1249,6 +1268,7 @@ It must be noted that the relationship of both axis variables is not right-angle
 
   function T_psX
       "Return temperature as a function of pressure p, specific entropy s and composition X"
+    extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     input MassFraction[:] X "Mass fractions of composition";
@@ -1370,7 +1390,7 @@ Specific entropy of moist air is computed from pressure, temperature and composi
 
     redeclare function extends isentropicEnthalpy
       "isentropic enthalpy (only valid for phi<1)"
-
+      extends Modelica.Icons.Function;
     algorithm
       h_is := Modelica.Media.Air.MoistAir.h_pTX(p_downstream,
                    Modelica.Media.Air.MoistAir.T_psX(p_downstream,

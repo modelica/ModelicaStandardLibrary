@@ -331,6 +331,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end molarMass;
 
   function T_h "Compute temperature from specific enthalpy"
+    extends Modelica.Icons.Function;
     input SpecificEnthalpy h "Specific enthalpy";
     output Temperature T "Temperature";
 
@@ -359,6 +360,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end T_h;
 
   function T_ps "Compute temperature from pressure and specific entropy"
+    extends Modelica.Icons.Function;
     input AbsolutePressure p "Pressure";
     input SpecificEntropy s "Specific entropy";
     output Temperature T "Temperature";
@@ -825,6 +827,7 @@ required from medium model \""   + mediumName + "\".");
 
   function s_TX
     "Return temperature dependent part of the entropy, expects full entropy vector"
+    extends Modelica.Icons.Function;
     input Temperature T "temperature";
     input MassFraction[nX] X "mass fraction";
     output SpecificEntropy s "specific entropy";
@@ -1272,6 +1275,7 @@ end lowPressureThermalConductivity;
   end molarMass;
 
   function T_hX "Return temperature from specific enthalpy and mass fraction"
+    extends Modelica.Icons.Function;
     input SpecificEnthalpy h "specific enthalpy";
     input MassFraction[:] X "mass fractions of composition";
      input Boolean exclEnthForm=excludeEnthalpyOfFormation
@@ -1309,6 +1313,7 @@ end lowPressureThermalConductivity;
 
   function T_psX
     "Return temperature from pressure, specific entropy and mass fraction"
+    extends Modelica.Icons.Function;
     input AbsolutePressure p "pressure";
     input SpecificEntropy s "specific entropy";
     input MassFraction[:] X "mass fractions of composition";

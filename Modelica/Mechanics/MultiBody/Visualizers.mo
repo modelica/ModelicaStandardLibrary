@@ -1425,6 +1425,7 @@ respective function:
 
     function colorMapToSvg
       "Save a color map on file in svg (scalable vector graphics) format"
+      extends Modelica.Icons.Function;
      encapsulated type HeaderType = enumeration(
           svgBeginAndEnd,
           svgBegin,
@@ -1628,6 +1629,8 @@ with
     end colorMapToSvg;
 
     function scalarToColor "Map a scalar to a color using a color map"
+      extends Modelica.Icons.Function;
+
       input Real T "Scalar value" annotation(Dialog);
       input Real T_min "T <= T_min is mapped to colorMap[1,:]" annotation(Dialog);
       input Real T_max "T >= T_max is mapped to colorMap[end,:]" annotation(Dialog);

@@ -1271,6 +1271,7 @@ is present in variable convection.fluid.
       extends Modelica.Icons.Package;
       function GenerateStribeckFrictionTable
         "Generate stribeck friction table for example Friction for the SupportFriction"
+         extends Modelica.Icons.Function;
          input Real F_prop(final unit="N.s/m", final min=0)
           "Velocity dependent friction coefficient";
          input Modelica.SIunits.Force F_Coulomb

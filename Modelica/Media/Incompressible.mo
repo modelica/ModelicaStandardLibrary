@@ -185,6 +185,7 @@ density and heat capacity as functions of temperature.</li>
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npolConductivity) else
                                            zeros(npolConductivity+1) annotation(__Dymola_keepConstant = true);
     function invertTemp "function to invert temperatures"
+      extends Modelica.Icons.Function;
       input Real[:] table "table temperature data";
       input Boolean Tink "flag for Celsius or Kelvin";
       output Real invTable[size(table,1)] "inverted temperatures";
@@ -269,6 +270,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end setState_dTX;
 
     function setState_pT "returns state record as function of p and T"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
       input Temperature T "temperature";
       output ThermodynamicState state "thermodynamic state";
@@ -284,6 +286,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end setState_phX;
 
     function setState_ph "returns state record as function of p and h"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
       input SpecificEnthalpy h "specific enthalpy";
       output ThermodynamicState state "thermodynamic state";
@@ -298,6 +301,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end setState_psX;
 
     function setState_ps "returns state record as function of p and s"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
       input SpecificEntropy s "specific entropy";
       output ThermodynamicState state "thermodynamic state";
@@ -353,6 +357,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end thermalConductivity;
 
     function s_T "compute specific entropy"
+      extends Modelica.Icons.Function;
       input Temperature T "temperature";
       output SpecificEntropy s "specific entropy";
     algorithm
@@ -416,6 +421,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end h_pT;
 
     function density_T "Return density as function of temperature"
+      extends Modelica.Icons.Function;
 
       input Temperature T "temperature";
       output Density d "density";
@@ -461,6 +467,7 @@ which is only exactly true for a fluid with constant density d=d0.
     end specificInternalEnergy;
 
     function T_ph "Compute temperature from pressure and specific enthalpy"
+      extends Modelica.Icons.Function;
       input AbsolutePressure p "pressure";
       input SpecificEnthalpy h "specific enthalpy";
       output Temperature T "temperature";
@@ -489,6 +496,8 @@ which is only exactly true for a fluid with constant density d=d0.
     end T_ph;
 
     function T_ps "Compute temperature from pressure and specific enthalpy"
+      extends Modelica.Icons.Function;
+
       input AbsolutePressure p "pressure";
       input SpecificEntropy s "specific entropy";
       output Temperature T "temperature";

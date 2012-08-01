@@ -784,6 +784,7 @@ It is used by inheritance from all visualizer objects.
   end ZeroPosition;
 
   partial function partialGravityAcceleration
+    extends Modelica.Icons.Function;
      input Modelica.SIunits.Position r[3]
       "Position vector from world frame to actual point, resolved in world frame";
      output Modelica.SIunits.Acceleration gravity[3]
@@ -800,6 +801,7 @@ gravity acceleration at this point, resolved in the world frame.
   end partialGravityAcceleration;
 
   partial function partialSurfaceCharacteristic
+    extends Modelica.Icons.Function;
      input Integer nu "Number of points in u-Dimension";
      input Integer nv "Number of points in v-Dimension";
      input Boolean multiColoredSurface=false
@@ -817,6 +819,7 @@ gravity acceleration at this point, resolved in the world frame.
 
   partial function partialColorMap
     "Interface for a function returning a color map"
+    extends Modelica.Icons.Function;
     input Integer n_colors=64 "Number of colors in the color map";
     output Real colorMap[n_colors,3] "Color map to map a scalar to a color";
     annotation (Documentation(info="<html>

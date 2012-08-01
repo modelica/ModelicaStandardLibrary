@@ -2134,6 +2134,7 @@ The used variables have the following declaration:
 
     function maxWithoutEvent
       "Maximum of the input arguments, without event and without warning message when differentiating"
+      extends Modelica.Icons.Function;
 
       input Real u1;
       input Real u2;
@@ -2163,6 +2164,8 @@ messages.
 
     function maxWithoutEvent_d
       "First derivative of function maxWithoutEvent(..)"
+      extends Modelica.Icons.Function;
+
       input Real u1;
       input Real u2;
       input Real u1_d;
@@ -2179,6 +2182,8 @@ messages.
 
     function maxWithoutEvent_dd
       "First derivative of function maxWithoutEvent_d(..)"
+      extends Modelica.Icons.Function;
+
       input Real u1;
       input Real u2;
       input Real u1_d;

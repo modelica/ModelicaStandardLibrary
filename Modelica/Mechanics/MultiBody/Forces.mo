@@ -3076,6 +3076,7 @@ values from the outside in order that the model remains balanced
 
     function standardGravityAcceleration
       "Standard gravity fields (no/parallel/point field)"
+      extends Modelica.Icons.Function;
       extends
         Modelica.Mechanics.MultiBody.Interfaces.partialGravityAcceleration;
       import Modelica.Mechanics.MultiBody.Types.GravityTypes;

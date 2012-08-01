@@ -1,6 +1,7 @@
 within Modelica.Media.IdealGases.Common;
 package Functions
   "Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity"
+  extends Modelica.Icons.Package;
   function cp_T
     "Compute specific heat capacity at constant pressure from temperature and gas data"
     extends Modelica.Icons.Function;
