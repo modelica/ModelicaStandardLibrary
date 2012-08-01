@@ -2708,6 +2708,8 @@ Heat transfer correlations for pipe models
     package CharacteristicNumbers "Functions to compute characteristic numbers"
       extends Modelica.Icons.Package;
       function ReynoldsNumber "Return Reynolds number from v, rho, mu, D"
+        extends Modelica.Icons.Function;
+
         input SI.Velocity v "Mean velocity of fluid flow";
         input SI.Density rho "Fluid density";
         input SI.DynamicViscosity mu "Dynamic (absolute) viscosity";
@@ -2747,6 +2749,8 @@ The following table gives examples for the characteristic dimension D and the ve
 
       function ReynoldsNumber_m_flow
         "Return Reynolds number from m_flow, mu, D, A"
+        extends Modelica.Icons.Function;
+
         input SI.MassFlowRate m_flow "Mass flow rate";
         input SI.DynamicViscosity mu "Dynamic viscosity";
         input SI.Length D
@@ -2769,6 +2773,8 @@ See also <a href=\"modelica://Modelica.Fluid.Pipes.BaseClasses.CharacteristicNum
       end ReynoldsNumber_m_flow;
 
       function NusseltNumber "Return Nusselt number"
+        extends Modelica.Icons.Function;
+
         input SI.CoefficientOfHeatTransfer alpha "Coefficient of heat transfer";
         input SI.Length D "Characteristic dimension";
         input SI.ThermalConductivity lambda "Thermal conductivity";
@@ -3666,8 +3672,10 @@ Laminar region:
 
         package Internal
           "Functions to calculate mass flow rate from friction pressure drop and vice versa"
+          extends Modelica.Icons.Package;
           function m_flow_of_dp_fric
             "Calculate mass flow rate as function of pressure drop due to friction"
+            extends Modelica.Icons.Function;
 
             input SI.Pressure dp_fric
               "Pressure loss due to friction (dp = port_a.p - port_b.p)";
@@ -3758,6 +3766,7 @@ Laminar region:
 
           function dp_fric_of_m_flow
             "Calculate pressure drop due to friction as function of mass flow rate"
+            extends Modelica.Icons.Function;
 
             input SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
             input SI.Density rho_a "Density at port_a";
@@ -4141,8 +4150,10 @@ identical to laminar wall friction.
 
       package Internal
           "Functions to calculate mass flow rate from friction pressure drop and vice versa"
+        extends Modelica.Icons.Package;
         function m_flow_of_dp_fric
             "Calculate mass flow rate as function of pressure drop due to friction"
+          extends Modelica.Icons.Function;
 
           input SI.Pressure dp_fric
               "Pressure loss due to friction (dp = port_a.p - port_b.p)";
@@ -4257,6 +4268,7 @@ identical to laminar wall friction.
 
         function dp_fric_of_m_flow
             "Calculate pressure drop due to friction as function of mass flow rate"
+          extends Modelica.Icons.Function;
 
           input SI.MassFlowRate m_flow "Mass flow rate from port_a to port_b";
           input SI.Density rho_a "Density at port_a";

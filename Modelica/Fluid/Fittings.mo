@@ -557,6 +557,7 @@ end AbruptAdaptor;
     "Multiply a port; useful if multiple connections shall be made to a port exposing a state"
 
     function positiveMax
+      extends Modelica.Icons.Function;
       input Real x;
       output Real y;
     algorithm
@@ -2125,6 +2126,7 @@ where
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
+        extends Modelica.Icons.Function;
         input SI.Pressure dp "Pressure loss";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2172,6 +2174,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
+        extends Modelica.Icons.Function;
 
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Geometry geometry "Geometry of bend";
@@ -2246,6 +2249,8 @@ for the CurvedBend fitting component.
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
+        extends Modelica.Icons.Function;
+
         input SI.Pressure dp "Pressure loss";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2296,6 +2301,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
+        extends Modelica.Icons.Function;
 
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Geometry geometry "Geometry of bend";
@@ -2376,6 +2382,8 @@ for the EdgedBend fitting component.
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a thick edged orifice"
+        extends Modelica.Icons.Function;
+
         input SI.Pressure dp "Pressure loss";
         input Geometry geometry "Geometry of bend";
         input SI.Density d_a
@@ -2428,6 +2436,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a thick edged orifice"
+        extends Modelica.Icons.Function;
 
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Geometry geometry "Geometry of bend";
@@ -2636,6 +2645,8 @@ for the ThickEdgedOrifice fitting component.
 
       function massFlowRate
           "Return mass flow rate m_flow as function of pressure loss dp for a curved bend"
+        extends Modelica.Icons.Function;
+
         input SI.Pressure dp "Pressure loss";
         input Real a(unit="(Pa.s2)/m6")
             "Coefficient for quadratic term (dp = a*V_flow^2 + b*V_flow)";
@@ -2684,6 +2695,7 @@ fluid flows from port_a to port_b (d_a, eta_a) and if fluid flows from port_b to
 
       function pressureLoss
           "Return pressure loss dp as function of mass flow rate m_flow for a curved bend"
+        extends Modelica.Icons.Function;
 
         input SI.MassFlowRate m_flow "Mass flow rate (= port_a.m_flow)";
         input Real a(unit="(Pa.s2)/m6")

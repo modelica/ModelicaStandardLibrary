@@ -562,6 +562,7 @@ for a smooth transition from y1 to y2.
   end evaluatePoly3_derivativeAtZero;
 
   function regFun3 "Co-monotonic and C1 smooth regularization function"
+    extends Modelica.Icons.Function;
 
     input Real x "Abscissa value";
     input Real x0 "Lower abscissa value";
@@ -769,6 +770,8 @@ The second graph shows the continous derivative of this regularization function:
   end regFun3;
 
   function cubicHermite "Evaluate a cubic Hermite spline"
+    extends Modelica.Icons.Function;
+
     input Real x "Abscissa value";
     input Real x1 "Lower abscissa value";
     input Real x2 "Upper abscissa value";
@@ -815,6 +818,8 @@ The second graph shows the continous derivative of this regularization function:
 
   function cubicHermite_withDerivative
     "Evaluate a cubic Hermite spline, return value and derivative"
+    extends Modelica.Icons.Function;
+
     input Real x "Abscissa value";
     input Real x1 "Lower abscissa value";
     input Real x2 "Upper abscissa value";
