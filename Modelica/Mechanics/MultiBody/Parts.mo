@@ -2496,7 +2496,7 @@ November 3-4, 2003, pp. 149-158</p>
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheels"    annotation (Dialog(colorSelector=true
+      "Color of wheels"    annotation (Dialog(colorSelector=true,
           tab="Animation",
           group="if animation = true",
           enable=animation));
