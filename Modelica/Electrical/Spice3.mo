@@ -12131,7 +12131,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end bjtNoBypassCode;
 
-      function bjtRenameParameters "Technology parameter renaming, osolete"
+      function bjtRenameParameters "Technology parameter renaming, obsolete"
         extends Modelica.Icons.Function;
         extends Modelica.Icons.ObsoleteModel;
         input Modelica.Electrical.Spice3.Internal.ModelcardBJT ex
