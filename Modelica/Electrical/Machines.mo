@@ -5902,8 +5902,7 @@ This package contains models of DC machines:
 <li>DC_ElectricalExcited: DC machine with electrical shunt or separate excitation</li>
 <li>DC_SeriesExcited: DC machine with series excitation</li>
 </ul>
-</HTML>
-",     revisions=
+</html>",     revisions=
              "<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
@@ -5992,8 +5991,7 @@ whereas quasistationary induction machine models are based on time phasor theory
 see <a href=\"modelica://Modelica.Electrical.QuasiStationary\">QuasiStationary Library</a>,
 where e.g., <code>L*der(i)</code> is replaced by <code>j*omega*L*(I_re+j*I_im)</code>.
 </p>
-</HTML>
-",     revisions="<HTML>
+</html>",     revisions="<HTML>
 <dl>
   <dt><b>Main Authors:</b></dt>
   <dd>

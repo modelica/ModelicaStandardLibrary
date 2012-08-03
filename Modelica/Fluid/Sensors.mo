@@ -34,8 +34,7 @@ package Sensors
 This component monitors the absolute pressure at its fluid port. The sensor is
 ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end Pressure;
 
   model Density "Ideal one port density sensor"
@@ -117,8 +116,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the density of the fluid flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end DensityTwoPort;
 
   model Temperature "Ideal one port temperature sensor"
@@ -138,8 +136,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the temperature of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
               100,100}}), graphics={
           Line(points={{0,-70},{0,-100}}, color={0,0,127}),
           Ellipse(
@@ -282,8 +279,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the temperature of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end TemperatureTwoPort;
 
   model SpecificEnthalpy "Ideal one port specific enthalpy sensor"
@@ -315,8 +311,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the specific enthalpy of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end SpecificEnthalpy;
 
   model SpecificEnthalpyTwoPort
@@ -356,8 +351,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the specific enthalpy of a passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end SpecificEnthalpyTwoPort;
 
   model SpecificEntropy "Ideal one port specific entropy sensor"
@@ -389,8 +383,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the specific entropy of the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end SpecificEntropy;
 
   model SpecificEntropyTwoPort "Ideal two port sensor for the specific entropy"
@@ -437,8 +430,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the specific entropy of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end SpecificEntropyTwoPort;
 
   model MassFractions "Ideal one port mass fraction sensor"
@@ -486,8 +478,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the mass fraction contained in the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-",   revisions="<html>
+</html>",   revisions="<html>
 <ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
 </ul>
@@ -546,8 +537,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 <ul>
 <li>2011-12-14: Stefan Wischhusen: Initial Release.</li>
 </ul>
-</html>
-"));
+</html>"));
   end MassFractionsTwoPort;
 
   model TraceSubstances "Ideal one port trace substances sensor"
@@ -596,8 +586,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the trace substances contained in the fluid passing its port.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end TraceSubstances;
 
   model TraceSubstancesTwoPort "Ideal two port sensor for trace substance"
@@ -648,8 +637,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the trace substance of the passing fluid.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end TraceSubstancesTwoPort;
 
   model MassFlowRate "Ideal sensor for mass flow rate"
@@ -680,8 +668,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the mass flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end MassFlowRate;
 
   model VolumeFlowRate "Ideal sensor for volume flow rate"
@@ -729,8 +716,7 @@ The sensor is ideal, i.e., it does not influence the fluid.
 This component monitors the volume flow rate flowing from port_a to port_b.
 The sensor is ideal, i.e., it does not influence the fluid.
 </p>
-</HTML>
-"));
+</html>"));
   end VolumeFlowRate;
 
   model RelativePressure "Ideal relative pressure sensor"
@@ -800,8 +786,7 @@ the two ports of this component and is provided as output signal. The
 sensor should be connected in parallel with other equipment, no flow
 through the sensor is allowed.
 </p>
-</HTML>
-"));
+</html>"));
   end RelativePressure;
 
   model RelativeTemperature "Ideal relative temperature sensor"
@@ -871,8 +856,7 @@ the two ports of this component and is provided as output signal. The
 sensor should be connected in parallel with other equipment, no flow
 through the sensor is allowed.
 </p>
-</HTML>
-"));
+</html>"));
   end RelativeTemperature;
 
 
@@ -967,8 +951,7 @@ Moreover the obtained result is restricted to the value flowing into port_a if a
 demonstrates the differences between one- and two-port sensor at hand of a
 simple example.
 </p>
-</html>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>22 Dec 2008</i>
     by R;uumldiger Franke<br>

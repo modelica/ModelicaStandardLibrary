@@ -333,8 +333,7 @@ a CompositeStep and all of its content can be left via its suspend ports
 is a vector of suspend connectors, i.e., a CompositeStep might
 be aborted due to different transitions).
 </p>
-</html>
-"));
+</html>"));
   end OverView;
 
   class FirstExample "A first example"
@@ -344,8 +343,7 @@ be aborted due to different transitions).
 <p>
 A first example will be given here (not yet done).
 </p>
-</html>
-"));
+</html>"));
   end FirstExample;
 
   class ApplicationExample "An application example"
@@ -451,8 +449,7 @@ For example, the output y of \"setValve2\" is computed as:
 i.e., valve2 is open, when step \"makeProduct.fillTank2 or when
 step \"emptyTanks\" is active. Otherwise, valve2 is closed.
 </p>
-</html>
-"));
+</html>"));
   end ApplicationExample;
 
   class ComparisonWithStateGraph2 "Comparison with StateGraph2"
@@ -610,8 +607,7 @@ based on the following references:
      </dd>
 </dl>
 
-</html>
-"));
+</html>"));
   end ComparisonWithStateGraph2;
 
   class ReleaseNotes "Release notes"
@@ -671,8 +667,7 @@ based on the following references:
 <p>
 Implemented a first version that is provided to other people.
 </p>
-</html>
-"));
+</html>"));
   end ReleaseNotes;
 
   class Literature "Literature"
@@ -703,8 +698,7 @@ The StateGraph library is based on the following references:
      Society for Computer Simulation International, pp. 314-319.
      </dd>
 </dl>
-</html>
-"));
+</html>"));
 
   end Literature;
 
@@ -745,8 +739,7 @@ The StateGraph library is based on the following references:
      which in turn uses ideas from (Mosterman, Otter and Elmqvist, 1998),
      see <a href=\"modelica://Modelica.StateGraph.UsersGuide.Literature\">literature</a></li>
 </ul>
-</html>
-"));
+</html>"));
 
   end Contact;
 
@@ -1029,8 +1022,7 @@ of the alternative sequence is executed. Note, that alternatives
 have priorities according to the port index (alternative.split[1]
 has a higher priority to fire as alternative.split[2]).
 </p>
-</HTML>
-"),      experiment(StopTime=15));
+</html>"),      experiment(StopTime=15));
   end ExecutionPaths;
 
   model ShowCompositeStep
@@ -1094,8 +1086,7 @@ has a higher priority to fire as alternative.split[2]).
 This is the same example as \"ExecutionPaths\". The only difference
 is that the alternative paths are included in a \"CompositeStep\".
 </p>
-</HTML>
-"), experiment(StopTime=15));
+</html>"), experiment(StopTime=15));
   end ShowCompositeStep;
 
   model ShowExceptions
@@ -1157,8 +1148,7 @@ via its \"resume\" port, all steps within \"compositeStep\" are activated
 according to their setting before leaving the \"compositeStep\" via its
 \"suspend\" port.
 </p>
-</HTML>
-"),experiment(StopTime=20));
+</html>"),experiment(StopTime=20));
   end ShowExceptions;
 
   model ControlledTanks
@@ -3230,8 +3220,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(extent={{-88,-20},{-50,-54}}, lineColor={0,0,0}),
         Line(points={{-50,-38},{-24,-38}}, color={0,0,0}),

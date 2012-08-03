@@ -165,8 +165,7 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -414,8 +413,7 @@ with type, name and actual dimensions. Finally, in successive
 rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},
@@ -665,8 +663,7 @@ column \"table2D_1[2:,1]\" contains the u[1] grid points,
 and the first row \"table2D_1[1,2:]\" contains the u[2] grid points.
 </p>
 
-</html>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-60,40},{-60,-40},{60,-40},{60,40},{30,40},{30,-40},{-30,
                 -40},{-30,40},{-60,40},{-60,20},{60,20},{60,0},{-60,0},{-60,-20},

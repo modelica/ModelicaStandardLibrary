@@ -274,8 +274,7 @@ generated signal.
         equation
           y = k*u;
           annotation (
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This block computes output <i>y</i> as
 <i>product</i> of gain <i>k</i> with the
@@ -285,8 +284,7 @@ input <i>u</i>:
     y = k * u;
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -323,8 +321,7 @@ input <i>u</i>:
         equation
           y = k*u;
           annotation (defaultComponentName="sum1",
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> as
 <i>sum</i> of the elements of the input signal vector
@@ -344,8 +341,7 @@ Example:
      y = u[1] + u[2] + u[3];
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Line(
@@ -383,8 +379,7 @@ Example:
         equation
           y = u1 - u2;
           annotation (
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> as <i>difference</i> of the
 commanded input <b>u1</b> and the feedback
@@ -404,8 +399,7 @@ Example:
      y = u1 - u2
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -453,8 +447,7 @@ Example:
         equation
           y = k1*u1 + k2*u2;
           annotation (
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> as <i>sum</i> of the
 two input signals <b>u1</b> and <b>u2</b>:
@@ -473,8 +466,7 @@ Example:
      y = 2 * u1 - 3 * u2
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -583,8 +575,7 @@ Example:
         equation
           y = k1*u1 + k2*u2 + k3*u3;
           annotation (
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This blocks computes output <b>y</b> as <i>sum</i> of the
 three input signals <b>u1</b>, <b>u2</b> and <b>u3</b>:
@@ -603,8 +594,7 @@ Example:
      y = 2 * u1 - 3 * u2 + u3;
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -678,8 +668,7 @@ Example:
         equation
           y = u1*u2;
           annotation (
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This blocks computes the output <b>y</b> (element-wise)
 as <i>product</i> of the corresponding elements of
@@ -689,8 +678,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
     y = u1 * u2;
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -725,8 +713,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
         equation
           y = u1/u2;
           annotation (
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This block computes the output <b>y</b> (element-wise)
 by <i>dividing</i> the corresponding elements of
@@ -736,8 +723,7 @@ the two inputs <b>u1</b> and <b>u2</b>:
     y = u1 / u2;
 </pre>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -854,8 +840,7 @@ All elements of the input vector shall be zero or positive.
 Otherwise an error occurs.
 </p>
 
-</HTML>
-"));
+</html>"));
         end Sqrt;
 
         block Sin "Output the sine of the input"
@@ -945,8 +930,7 @@ as <b>sine</b> of the input <b>u</b>:
      alt=\"sin.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Sin;
 
         block Cos "Output the cosine of the input"
@@ -1036,8 +1020,7 @@ as <b>cos</b> of the input <b>u</b>:
      alt=\"cos.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Cos;
 
         block Tan "Output the tangent of the input"
@@ -1125,8 +1108,7 @@ as <b>tan</b> of the input <b>u</b>:
      alt=\"tan.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Tan;
 
         block Asin "Output the arc sine of the input"
@@ -1221,8 +1203,7 @@ Otherwise an error occurs.
      alt=\"asin.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Asin;
 
         block Acos "Output the arc cosine of the input"
@@ -1313,8 +1294,7 @@ Otherwise an error occurs.
      alt=\"acos.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Acos;
 
         block Atan "Output the arc tangent of the input"
@@ -1406,8 +1386,7 @@ This blocks computes the output <b>y</b> as the
      alt=\"atan.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Atan;
 
         block Sinh "Output the hyperbolic sine of the input"
@@ -1499,8 +1478,7 @@ This blocks computes the output <b>y</b> as the
      alt=\"sinh.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Sinh;
 
         block Cosh "Output the hyperbolic cosine of the input"
@@ -1592,8 +1570,7 @@ This blocks computes the output <b>y</b> as the
      alt=\"cosh.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Cosh;
 
         block Tanh "Output the hyperbolic tangent of the input"
@@ -1685,8 +1662,7 @@ This blocks computes the output <b>y</b> as the
      alt=\"tanh.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Tanh;
 
         block Exp "Output the exponential (base e) of the input"
@@ -1776,8 +1752,7 @@ This blocks computes the output <b>y</b> as the
      alt=\"exp.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Exp;
 
         block Log
@@ -1874,8 +1849,7 @@ zero or negative.
      alt=\"log.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
         end Log;
 
     block RealToComplex "Converts cartesian representation to complex"
@@ -2030,8 +2004,7 @@ zero or negative.
 </html>"));
     end ComplexToPolar;
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 <p>
 This package contains basic <b>mathematical operations</b>,
 such as summation and multiplication, and basic <b>mathematical
@@ -2039,8 +2012,7 @@ functions</b>, such as <b>sqrt</b> and <b>sin</b>, as
 input/output blocks. All blocks of this library can be either
 connected with continuous blocks or with sampled-data blocks.
 </p>
-</HTML>
-",   revisions="<html>
+</html>",   revisions="<html>
 <ul>
 <li><i>January 28, 2010</i>
        by <a href=\"http://www.haumer.at/\">Anton Haumer</a>

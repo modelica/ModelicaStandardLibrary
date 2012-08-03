@@ -97,6 +97,5 @@ are proportional to the lengths of the force and torque vectors
 forceAndTorque component):
 </p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Examples/Elementary/ForceAndTorque.png\">
-</HTML>
-"), experiment(StopTime=1.01));
+</html>"), experiment(StopTime=1.01));
 end ForceAndTorque;

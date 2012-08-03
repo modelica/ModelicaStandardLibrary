@@ -869,8 +869,7 @@ during <i>falling</i> to a value of <i>offset</i>.
 </p>
 <p>Note, that the case of edges before expiration of rising or falling is
 handled properly.</p>
-</HTML>
-"));
+</html>"));
     end TriggeredTrapezoid;
 
     block setReal "Set output signal to a time varying Real expression"

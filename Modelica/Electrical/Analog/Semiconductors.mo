@@ -202,8 +202,7 @@ equation
   B.i = 0;
   LossPower = D.i * (D.v - S.v);
   annotation (
-    Documentation(info="
-<HTML>
+    Documentation(info="<html>
 <P>
 The PMOS model is a simple model of a p-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
@@ -237,8 +236,7 @@ Some typical parameter sets are:
   20.e-6  6.e-6  0.0074e-3  -1.    0.4    0.59    0        0
 </PRE>
 
-</HTML>
-",
+</html>",
  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -346,8 +344,7 @@ equation
   B.i = 0;
   LossPower = D.i * (D.v - S.v);
   annotation (
-    Documentation(info="
-<HTML>
+    Documentation(info="<html>
 <P>
 The NMos model is a simple model of a n-channel metal-oxide semiconductor
 FET. It differs slightly from the device used in the SPICE simulator.
@@ -389,8 +386,7 @@ behavior is <b> not </b> modelled yet. The parameters are not temperature depend
 <DD>Spiro, H.: Simulation integrierter Schaltungen. R. Oldenbourg Verlag
 Muenchen Wien 1990.</DD>
 </DL>
-</HTML>
-",
+</html>",
  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -529,8 +525,7 @@ equation
 
   LossPower = (C.v-E.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
   annotation (
-    Documentation(info="
-<HTML>
+    Documentation(info="<html>
 <P>
 This model is a simple model of a bipolar npn junction transistor according
 to Ebers-Moll.
@@ -553,8 +548,7 @@ A typical parameter set is:
 Van Nostrand Reinhold, New York 1983
 on page 317 ff.</DD>
 </DL>
-</HTML>
-",
+</html>",
  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -687,8 +681,7 @@ equation
 
   LossPower = (E.v-C.v)*(ibe-ibc)*qbk + vbc*ibc/Br + vbe*ibe/Bf;
                                                                     annotation (
-    Documentation(info="
-<HTML>
+    Documentation(info="<html>
 <P>
 This model is a simple model of a bipolar pnp junction transistor according
 to Ebers-Moll.
@@ -710,8 +703,7 @@ A typical parameter set is:
 Van Nostrand Reinhold, New York 1983
 on page 317 ff.</DD>
 </DL>
-</HTML>
-",
+</html>",
  revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
@@ -802,8 +794,7 @@ equation
 
   LossPower = i*v;
   annotation (
-    Documentation(info="
-<HTML>
+    Documentation(info="<html>
 <P>
 The simple diode is an electrical one port, where a heat port is added, which is
 defined in the Modelica.Thermal library. It consists of the diode itself and an parallel ohmic
@@ -823,8 +814,7 @@ If the exponent <i>v/vt_t</i> reaches the limit <i>maxex</i>, the diode characte
 continued to avoid overflow.<br>
 The thermal power is calculated by <i>i*v</i>.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>

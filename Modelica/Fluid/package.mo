@@ -87,8 +87,7 @@ This library has the following main features:
      connection of flow models generally results in systems of implicit nonlinear algebraic
      equations.<br>&nbsp;</li>
 </ul>
-</HTML>
-"));
+</html>"));
   end Overview;
 
   class GettingStarted "Getting started"
@@ -101,8 +100,7 @@ Please explore the
 <a href=\"modelica://Modelica.Fluid.Examples\">Examples</a>,
 which provide simple models for a broad variety of applications.
 </p>
-</html>
-"));
+</html>"));
   end GettingStarted;
 
   package ComponentDefinition "Component definition"
@@ -432,8 +430,7 @@ which might be substantial.
 All modelling assumptions and simplifications are stated in the component documentation; please note that some of the assumptions might be stated in the base classes the
 component inherits from.
 </p>
-</html>
-"));
+</html>"));
   end BalanceEquations;
 
   class UpstreamDiscretization "Upstream discretization"
@@ -537,8 +534,7 @@ alternative to use the medium states as iteration variables
 is not good, because T,h,d are discontinuous for reversing flow
 direction.
 </p>
-</html>
-"));
+</html>"));
   end UpstreamDiscretization;
 
   class RegularizingCharacteristics "Regularizing characteristics"
@@ -616,8 +612,7 @@ any order. With the default value of delta=0.01, the difference between
 the function above and regRoot(x) is 16% around x=0.01, 0.25% around x=0.1
 and 0.0025% around x=1.
 </p>
-</html>
-"));
+</html>"));
   end RegularizingCharacteristics;
 
   class WallFriction "Wall friction"
@@ -866,8 +861,7 @@ It is valid for incompressible and compressible flow up to a Mach number of 0.6.
            Inzh. Fiz. Zh., vol. 2, no. 11, pp. 81-85.</dd>
 </dl>
 
-</html>
-"));
+</html>"));
   end WallFriction;
 
   class ValveCharacteristics "Valve characteristics"
@@ -935,8 +929,7 @@ You might think this is crazy (it is, expecially when you try to explain it), bu
 The pragmatic approach used in Modelica.Fluid.ControlValves is to accept the fact that m3/h and USG/min are not the real units of Cv and Kv, so we can't use the general unit conversion mechanism, put them just as mnemonic labels in the comment, use non-dimensional coefficients in the interface, and then define properly dimensioned unit conversion within the model
 </p>
 
-</html>
-"));
+</html>"));
   end ValveCharacteristics;
 
     annotation (Documentation(info="<html>
@@ -961,8 +954,7 @@ This section is partly based on the following paper:
      </dd>
 </dl>
 Please note that the design of the connectors has been changed with respect to the design presented in that paper.
-</html>
-"));
+</html>"));
   end ComponentDefinition;
 
   package BuildingSystemModels "Building system models"
@@ -1600,8 +1592,7 @@ standard library.
 <li><i>Nov. 6, 2002</i><br>
        by Hilding Elmqvist: first version of the basic design.</li>
 </ul>
-</HTML>
-"));
+</html>"));
   end ReleaseNotes;
 
 class Contact "Contact"

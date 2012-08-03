@@ -63,8 +63,7 @@ package Digital
 <ul>
 <li> A first version has been implemented for case studies.</li>
 </ul>
-</html>
-"));
+</html>"));
       end ReleaseNotes;
 
       class Literature "Literature"
@@ -99,8 +98,7 @@ The Electrical.Digital library is based on the following references:
 <dd> <b>VHDL: Analysis and Modeling of Digital Systems.</b> New York: McGraw-Hill, 1993, 375 p. ISBN 0070464723.
      <br>&nbsp;</dd>
 </dl>
-</html>
- "));
+</html>"));
 
       end Literature;
 
@@ -131,8 +129,7 @@ The Electrical.Digital library is based on the following references:
     and carefully testing many models and examples.<br>
 </dd>
 </dl>
-</html>
-"));
+</html>"));
 
       end Contact;
 
@@ -406,8 +403,7 @@ The simulation stop time should be 5 seconds.
 <p>
 The simulation stop time should be 10 seconds.
 </p>
-</HTML>
-"),            experiment(StopTime=10));
+</html>"),            experiment(StopTime=10));
         end FullAdder;
 
         model Adder4 "4 Bit Adder Example"
@@ -546,8 +542,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
       sum   <b>Adder4</b>.c_out  <b>Adder4.s</b>  <b>Adder3.s</b>  <b>Adder2.s</b>  <b>Adder1.s</b>
 </pre>
 <p>The simulation stop time has to be 5s.</p>
-</HTML>
-"),            experiment(StopTime=5));
+</html>"),            experiment(StopTime=5));
         end Adder4;
 
         model Counter3 "3 Bit Counter Example"
@@ -3014,8 +3009,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 Provide the input as output exactly delayed by <i>Tdel</i>.
 If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
-</HTML>
-",       revisions=
+</html>",       revisions=
                  "<HTML>
 <dl>
 <dt><i>August 11, 2003</i></dt>
@@ -3075,8 +3069,7 @@ If time less than <i>Tdel</i> the initial value <i>initout</i> holds.
 Provides the input as output delayed by <i>Tdel</i> if the input holds its value for a longer time than <i>Tdel</i>.
 If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
 </P>
-</HTML>
-",       revisions=
+</html>",       revisions=
                  "<HTML>
 <dl>
 <dt><i>August 12, 2003</i></dt>
@@ -3151,8 +3144,7 @@ The delay <i>Tdel</i> depends on the values of the signal change. To calculate <
 Digital.Tables is used. If the corresponding value is 1, then <i>tLH</i> is used, if it is -1, then <i>tHL</i>
 is used, if it is zero, the input is not delayed.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 8, 2009  </i> pre(y) and x are used to select <i>tHL</i> or <i>tLH</i>
        by Ulrich Donath<br>
@@ -4064,8 +4056,7 @@ To specify <i>setval</i>, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
-</HTML>
-",       revisions=
+</html>",       revisions=
                  "<HTML>
 <dl>
 <dt><i>August 20, 2003</i></dt>
@@ -4144,8 +4135,7 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
-</HTML>
-",       revisions=
+</html>",       revisions=
                  "<HTML>
 <dl>
 <dt><i>August 20, 2003</i></dt>
@@ -4222,8 +4212,7 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <dl>
 <dt><i>August 20, 2003</i></dt>
 <dd>by Teresa Schlegel initially modelled.</dd>
@@ -4323,8 +4312,7 @@ To specify the logic value parameters, the integer code has to be used.
 If the logic values are imported by <br><b> import L = Digital.Interfaces.Logic; </b> <br>
 they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
 </P>
-</HTML>
-",         revisions=
+</html>",         revisions=
                  "<HTML>
 <dl>
 <dt><i>September 2, 2003</i></dt>
@@ -4379,8 +4367,7 @@ The number of periods is unlimited. The first pulse starts at startTime.
 </P>
 <P> The clock source is a special but often used variant of the pulse source.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <dl>
 <dt><i>September 18, 2004</i></dt>
 <dd>by Andre Schneider initially modelled.</dd>
@@ -4447,8 +4434,7 @@ any delay according to IEEE 1164 To_X01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
@@ -4457,8 +4443,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>
-"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -4522,8 +4507,7 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
@@ -4596,8 +4580,7 @@ any delay according to IEEE 1164 To_UX01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_ux01 into LogicToUX01<br>
@@ -4660,8 +4643,7 @@ Conversion of a Boolean input into a digital output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4724,8 +4706,7 @@ Conversion of a digital input into a Boolean output without any delay according 
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4790,8 +4771,7 @@ Conversion of a real input into a digital output without any delay according to:
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4871,8 +4851,7 @@ Conversion of a digital input into a Real output without any delay according to:
 The values val... are given by parameters.</P>
 <P>If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss colors changed<br>
@@ -4942,8 +4921,7 @@ any delay according to IEEE 1164 To_X01 function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01 into LogicToX01<br>
@@ -4952,8 +4930,7 @@ If the signal width is greater than 1 this conversion is done for each signal.
        by Christoph Clauss<br>
        initially modelled.</li>
 </ul>
-</HTML>
-"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(
               extent={{152,-100},{-148,-40}},
@@ -5022,8 +4999,7 @@ any delay according to IEEE 1164 To_X01Z function.
 <P>
 If the signal width is greater than 1 this conversion is done for each signal.
 </P>
-</HTML>
-",         revisions="<HTML>
+</html>",         revisions="<HTML>
 <ul>
 <li><i>September 15, 2004   </i>
        by Christoph Clauss name converted from cvt_to_x01z into LogicToX01Z<br>
@@ -7790,8 +7766,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
 
 <p><b>Simultaneous read/write operations are allowed.
 Firstly Write is carried out, then Read.</b></p>
-</HTML>
-",     revisions="<html>
+</html>",     revisions="<html>
 <dl>
 <dt><i>November 9, 2010 </i></dt>
 <dd>created by Ulrich Donath</dd>
@@ -7986,8 +7961,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
   Z  = L.'Z'
 </PRE>
 
-</html>
-",     revisions="<html>
+</html>",     revisions="<html>
 <dl>
 <dt><i>October 19, 2010</i></dt>
 <dd>created by Ulrich Donath</dd>
@@ -8253,8 +8227,7 @@ Copyright &copy; 1998-2010, Modelica Association and Fraunhofer-Gesellschaft.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>
-"),        Icon(coordinateSystem(
+</html>"),        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={

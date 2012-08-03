@@ -154,8 +154,7 @@ The reference temperature starts at 25 degree C
 and rises between t = 2 and 8 seconds linear to 50 degree C.
 An approppriate simulating time would be 10 seconds.
 </P>
-</HTML>
-"),        experiment(StopTime=10, Interval=0.001));
+</html>"),        experiment(StopTime=10, Interval=0.001));
     end ControlledTemperature;
 
     model Motor "Second order thermal model of a motor"
@@ -414,8 +413,7 @@ compute C:
       steel       420 ... 500 (V2A)
       wood       2500
 </pre>
-</HTML>
-"));
+</html>"));
     end HeatCapacitor;
 
     model ThermalConductor
@@ -513,8 +511,7 @@ e.g., with one of the following equations:
       steel        45 .. 15 (V2A)
       wood         0.1 ... 0.2
 </pre>
-</HTML>
-"));
+</html>"));
     end ThermalConductor;
 
     model ThermalResistor
@@ -573,8 +570,7 @@ but using the thermal resistance instead of the thermal conductance as a paramet
 This is advantageous for series connections of ThermalResistors,
 especially if it shall be allowed that a ThermalResistance is defined to be zero (i.e. no temperature difference).
 </p>
-</HTML>
-"));
+</html>"));
     end ThermalResistor;
 
     model Convection
@@ -697,8 +693,7 @@ McGraw-Hill, 1997, p.270):
    and the equation for h holds, provided
       Re < 5e5 and 0.6 < Pr < 50
 </pre>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
@@ -799,8 +794,7 @@ but using the convective resistance instead of the convective conductance as an 
 This is advantageous for series connections of ConvectiveResistors,
 especially if it shall be allowed that a convective resistance is defined to be zero (i.e. no temperature difference).
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}),      graphics={
             Rectangle(
               extent={{-90,80},{-60,-80}},
@@ -946,8 +940,7 @@ place from the inner to the outer cylinder):
        e1: Emission value of inner cylinder (0..1)
        e2: Emission value of outer cylinder (0..1)
 </pre>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-90,80},{-56,-80}},
@@ -1158,8 +1151,7 @@ whatever it is connected to.  Furthermore, no
 thermocouple-like lags are associated with this
 sensor model.
 </p>
-</HTML>
-"));
+</html>"));
     end TemperatureSensor;
 
     model RelTemperatureSensor "Relative Temperature sensor"
@@ -1207,8 +1199,7 @@ sensor model.
 The relative temperature \"port_a.T - port_b.T\" is determined between
 the two ports of this component and is provided as output signal in Kelvin.
 </p>
-</HTML>
-"));
+</html>"));
     end RelTemperatureSensor;
 
     model HeatFlowSensor "Heat flow rate sensor"
@@ -1256,8 +1247,7 @@ and it has no direct effect on the thermal response of a system it is included i
 The output signal is positive, if the heat flows from port_a
 to port_b.
 </p>
-</HTML>
-"));
+</html>"));
     end HeatFlowSensor;
 
     model ConditionalFixedHeatFlowSensor
@@ -1394,8 +1384,7 @@ To avoid a singular equation system, the temperature of the sensor is set to 293
 This model defines a fixed temperature T at its port in Kelvin,
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-101}},
@@ -1461,8 +1450,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1566,8 +1554,7 @@ if parameter Q_flow is positive.
 If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
-</HTML>
-"));
+</html>"));
     end FixedHeatFlow;
 
     model PrescribedHeatFlow "Prescribed heat flow boundary condition"
@@ -1634,8 +1621,7 @@ if the input signal is positive.
 If parameter alpha is > 0, the heat flow is mulitplied by (1 + alpha*(port.T - T_ref))
 in order to simulate temperature dependent losses (which are given an reference temperature T_ref).
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Line(
               points={{-60,-20},{68,-20}},
@@ -1731,8 +1717,7 @@ in order to simulate temperature dependent losses (which are given an reference 
 This component converts an input signal from Celsius to Kelvin
 and provide is as output signal.
 </p>
-</HTML>
-"));
+</html>"));
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degCelsius"
@@ -1793,8 +1778,7 @@ and provide is as output signal.
 This component converts an input signal from Kelvin to Celsius
 and provides is as output signal.
 </p>
-</HTML>
-"));
+</html>"));
     end FromKelvin;
 
     model FixedTemperature
@@ -1840,8 +1824,7 @@ and provides is as output signal.
 This model defines a fixed temperature T at its port in [degC],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -1911,8 +1894,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2028,8 +2010,7 @@ whatever it is connected to.  Furthermore, no
 thermocouple-like lags are associated with this
 sensor model.
 </p>
-</HTML>
-"));
+</html>"));
     end TemperatureSensor;
     annotation (Documentation(info="<HTML>
 <p>
@@ -2048,8 +2029,7 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degC(20));
 </pre>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{30,52},{-70,-48}},
             lineColor={0,0,255},
@@ -2121,8 +2101,7 @@ Example:
 This component converts a input signal from degree Fahrenheit to Kelvin
 and provides is as output signal.
 </p>
-</HTML>
-"));
+</html>"));
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degFahrenheit"
@@ -2187,8 +2166,7 @@ and provides is as output signal.
 This component converts all input signals from Kelvin to Fahrenheit
 and provides them as output signals.
 </p>
-</HTML>
-"));
+</html>"));
     end FromKelvin;
 
     model FixedTemperature
@@ -2238,8 +2216,7 @@ and provides them as output signals.
 This model defines a fixed temperature T at its port in [degF],
 i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2314,8 +2291,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</HTML>
-"),     Diagram(graphics={
+</html>"),     Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2433,8 +2409,7 @@ whatever it is connected to.  Furthermore, no
 thermocouple-like lags are associated with this
 sensor model.
 </p>
-</HTML>
-"));
+</html>"));
     end TemperatureSensor;
     annotation (Documentation(info="<HTML>
 <p>
@@ -2453,8 +2428,7 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degF(70));
 </pre>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{40,10},{-60,-90}},
             lineColor={0,0,0},
@@ -2522,8 +2496,7 @@ Example:
 This component converts all input signals from degree Rankine to Kelvin
 and provides them as output signals.
 </p>
-</HTML>
-"));
+</html>"));
     end ToKelvin;
 
     model FromKelvin "Conversion from Kelvin to degRankine"
@@ -2583,8 +2556,7 @@ and provides them as output signals.
 This component converts all input signals from Kelvin to Rankine
 and provides them as output signals.
 </p>
-</HTML>
-"));
+</html>"));
     end FromKelvin;
 
     model FixedTemperature "Fixed temperature boundary condition in degRankine"
@@ -2630,8 +2602,7 @@ and provides them as output signals.
 This model defines a fixed temperature T at its port in degree Rankine,
 [degRk], i.e., it defines a fixed temperature as a boundary condition.
 </p>
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2702,8 +2673,7 @@ to the model. The effect is that an instance of this model acts as
 an infinite reservoir able to absorb or generate as much energy
 as required to keep the temperature at the specified value.
 </p>
-</HTML>
-"),     Diagram(graphics={
+</html>"),     Diagram(graphics={
             Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={0,0,0},
@@ -2817,8 +2787,7 @@ whatever it is connected to.  Furthermore, no
 thermocouple-like lags are associated with this
 sensor model.
 </p>
-</HTML>
-"));
+</html>"));
     end TemperatureSensor;
     annotation (Documentation(info="<HTML>
 <p>
@@ -2837,8 +2806,7 @@ Example:
     <b>import</b> SIunits.Conversions.*;
     Modelica.Thermal.HeatTransfer.HeatCapacitor C(T0 = from_degRk(500));
 </pre>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={Text(
             extent={{64,34},{-86,-30}},
             lineColor={0,0,255},
@@ -2877,8 +2845,7 @@ convention has to be used whenever this connector is used in a model
 class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+<b>icon layout</b>.</p></html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
               lineColor={191,0,0},
@@ -2914,8 +2881,7 @@ convention has to be used whenever this connector is used in a model
 class.</p>
 <p>Note, that the two connector classes <b>HeatPort_a</b> and
 <b>HeatPort_b</b> are identical with the only exception of the different
-<b>icon layout</b>.</p></HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+<b>icon layout</b>.</p></html>"),     Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}), graphics={Rectangle(
               extent={{-50,50},{50,-50}},
               lineColor={191,0,0},
@@ -2959,8 +2925,7 @@ through the element from port_a to port_b, <b>Q_flow</b>.
 By extending this model, it is possible to write simple
 constitutive equations for many types of heat transfer components.
 </p>
-</HTML>
-"));
+</html>"));
     end Element1D;
 
     partial model PartialElementaryConditionalHeatPort
@@ -3020,11 +2985,11 @@ This partial model provides a conditional heat port for dissipating losses.
 </ul>
 <p>
 If this model is used, the loss power has to be provided by an equation in the model which inherits from the PartialElementaryConditionalHeatPortWithoutT model
-(<b>lossPower = ...</b>). 
+(<b>lossPower = ...</b>).
 </p>
 
 <p>
-Note, this partial model is used in cases, where heatPort.T (that is the device temperature) is not utilized in the model. If this is desired, inherit instead from partial model 
+Note, this partial model is used in cases, where heatPort.T (that is the device temperature) is not utilized in the model. If this is desired, inherit instead from partial model
 <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.PartialElementaryConditionalHeatPort\">PartialElementaryConditionalHeatPort</a>.
 </p>
 </html>"));
@@ -3208,8 +3173,7 @@ Hubertus Tummescheit, Lund Institute of Technology, Lund, Sweden.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>July 15, 2002</i>
        by Michael Tiller, <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>

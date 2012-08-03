@@ -218,8 +218,7 @@ If the optional argument \"caseSensitive\" is false, lower
 and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
 </p>
-</html>
-"));
+</html>"));
   end find;
 
   function findLast "Find last occurrence of a string within another string"
@@ -266,8 +265,7 @@ If the optional argument \"caseSensitive\" is false, lower
 and upper case are ignored for the search.
 If \"searchString\" is not found, a value of \"0\" is returned.
 </p>
-</html>
-"));
+</html>"));
   end findLast;
 
   function replace
@@ -985,8 +983,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
+</html>"));
     end scanReal;
 
     function scanInteger "Scans signed integer number"
@@ -1032,8 +1029,7 @@ shall not start with '+' or '-'. The default of \"unsigned\" is <b>false</b>.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
+</html>"));
     end scanInteger;
 
     function scanString "Scan string"
@@ -1067,8 +1063,7 @@ the second output argument is an empty string.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
+</html>"));
     end scanString;
 
     function scanIdentifier "Scans simple identifiers"
@@ -1104,8 +1099,7 @@ the second output argument is an empty string.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
+</html>"));
     end scanIdentifier;
 
     function skipWhiteSpace "Scans white space"
@@ -1127,8 +1121,7 @@ of the first non white space character.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
+</html>"));
     end skipWhiteSpace;
 
     function skipLineComments "Scans comments and white space"
@@ -1196,8 +1189,7 @@ If not successful, on return nextIndex = startIndex.
 </p>
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Utilities.Strings.Advanced\">Strings.Advanced</a>.
-</html>
-"));
+</html>"));
     end skipLineComments;
     annotation (Documentation(info="<html>
 <h4>Library content</h4>
@@ -1261,8 +1253,7 @@ The following additional rules apply for the scanning:
      A line comment starts with \"//\" and ends either with an
      end-of-line (\"\\n\") or the end of the \"string\". </li>
 </ul>
-</html>
-"));
+</html>"));
   end Advanced;
   annotation (
     Documentation(info="<HTML>

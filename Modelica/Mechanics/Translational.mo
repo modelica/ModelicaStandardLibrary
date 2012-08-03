@@ -96,8 +96,7 @@ In the third system the two arrows are opposed which means that the
 force acts in the opposite direction (in the same direction as in
 the two other examples).
 </p>
-</HTML>
-"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+</html>"), Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Text(
               extent={{-100,80},{-82,60}},
@@ -326,8 +325,7 @@ condition for an easy use of the library. There are cases
 where horizontally flipped models can be used without
 problems.
 </p>
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -1311,8 +1309,7 @@ Translational package. Open the models and
 simulate them according to the provided description in the models.
 </p>
 
-</HTML>
-"));
+</html>"));
   end Examples;
 
   package Components "Components for 1D translational mechanical drive trains"
@@ -1354,8 +1351,7 @@ at an position s0 in the <i>housing</i>. May be used:
      position.
 </ul>
 
-</HTML>
-"));
+</html>"));
     end Fixed;
 
     model Mass "Sliding mass with inertia"
@@ -1382,8 +1378,7 @@ Sign convention: A positive force at flange flange_a moves the sliding mass in t
 A negative force at flange flange_a moves the sliding mass to the negative direction.
 </p>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1466,8 +1461,7 @@ A negative force at flange flange_a moves the sliding mass to the negative direc
 Rod <i>without inertia</i> and two rigidly connected flanges.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1545,8 +1539,7 @@ a sliding mass and the housing (model Fixed), to describe
 a coupling of the sliding mass with the housing via a spring.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -1603,8 +1596,7 @@ between a sliding mass and the housing (model Fixed), or
 between two sliding masses.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -1689,8 +1681,7 @@ connected either between two sliding masses to describe the elasticity
 and damping, or between a sliding mass and the housing (model Fixed),
 to describe a coupling of the sliding mass with the housing via a spring/damper.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2131,8 +2122,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                         graphics={
             Rectangle(
               extent={{-90,10},{90,-10}},
@@ -2340,8 +2330,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 <dd><b>A new model for control of systems with friction.</b>
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                         graphics={
             Rectangle(
               extent={{-90,10},{90,-10}},
@@ -2709,8 +2698,7 @@ provided via a signal bus.
 Basic model for Coulomb friction that models the stuck phase in a reliable way.<br>
 Additionally, a left and right stop are handled.
 </p>
-</html>
-"));
+</html>"));
     end PartialFrictionWithStop;
     equation
       // Constant auxiliary variables
@@ -2765,8 +2753,7 @@ Additionally, a left and right stop are handled.
   end when;
 */
       annotation (
-        Documentation(info="
-<HTML>
+        Documentation(info="<html>
 <p>This element describes the <i>Stribeck friction characteristics</i> of a sliding mass,
 i. e. the frictional force acting between the sliding mass and the support. Included is a
 <i>hard stop</i> for the position. </p>
@@ -2847,8 +2834,7 @@ in the lossPower due to the discontinuously changing kinetic energy of the mass
 (lossPower is the derivative of the kinetic energy at the time instant of the impact).
 </p>
 
-</HTML>
-",   revisions="<html>
+</html>",   revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
 <li><i>First Version from December 7, 1999 by P. Beater (based on Rotational.BearingFriction)</i> </li>
@@ -3067,8 +3053,7 @@ simulator selects either the absolute position and absolute
 velocity of model mass1 or of model mass2 as state variables.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3170,8 +3155,7 @@ output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
@@ -3198,8 +3182,7 @@ output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
@@ -3229,8 +3212,7 @@ output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
@@ -3259,8 +3241,7 @@ output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3295,8 +3276,7 @@ output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
-</HTML>
-",     revisions=
+</html>",     revisions=
              "<html>
 <p><b>Release Notes:</b></p>
 <ul>
@@ -3341,8 +3321,7 @@ output signals (to be further processed with blocks of the
 Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3374,8 +3353,7 @@ and provides the result as output signal (to be further processed
 with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3406,8 +3384,7 @@ Measures the <b>power between two flanges</b> in an ideal way
 and provides the result as output signal <b>power</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3562,8 +3539,7 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3664,8 +3640,7 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3735,8 +3710,7 @@ The acceleration \"a(t)\" can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Source.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3838,8 +3812,7 @@ The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>
-"),        Icon(coordinateSystem(
+</html>"),        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3891,8 +3864,7 @@ Input signal f can be provided from one of the signal generator
 blocks of Modelica.Blocks.Source.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -3949,8 +3921,7 @@ Input signal s can be provided from one of the signal generator
 blocks of Modelica.Blocks.Source.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -4131,8 +4102,7 @@ The following variables are transported through this connector:
      means that the flange is translated along the flange axis.
   f: Cut-force in direction of the flange axis in [N].
 </pre>
-</HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={Rectangle(
               extent={{-100,-100},{100,100}},
               lineColor={0,127,0},
@@ -4172,8 +4142,7 @@ The following variables are transported through this connector:
      means that the flange is translated along the flange axis.
   f: Cut-force in direction of the flange axis in [N].
 </pre>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Rectangle(
@@ -4319,8 +4288,7 @@ This is a 1D translational component with two flanges.
 It is used e.g., to built up parts of a drive train consisting
 of several base components.
 </p>
-</HTML>
-"));
+</html>"));
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -4363,8 +4331,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -4440,8 +4407,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -4498,8 +4464,7 @@ The fixed distance between the left and the right flange is defined by parameter
 The forces at the right and left flange can be different.
 It is used e.g., to built up sliding masses.
 </p>
-</html>
-"));
+</html>"));
     end PartialRigid;
 
     partial model PartialCompliant
@@ -4531,8 +4496,7 @@ flanges are not included. The absolute value of the force at the left and the ri
 flange is the same. It is used to built up springs, dampers etc.
 </p>
 
-</HTML>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Polygon(
@@ -4603,8 +4567,7 @@ as \"s_nominal = f_nominal / c\" for a spring, if f_nominal
 and c have more meaningful values for the user.
 </p>
 
-</html>
-"));
+</html>"));
     end PartialCompliantWithRelativeStates;
 
     partial model PartialElementaryOneFlangeAndSupport
@@ -4655,8 +4618,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</HTML>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -4725,8 +4687,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</HTML>
-"),        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+</html>"),        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -4795,8 +4756,7 @@ support force is required to be zero (= the default value, if the
 connector is not connected).
 </p>
 
-</HTML>
-"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
+</html>"),     Diagram(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},
                 {100,100}}), graphics={Text(
               extent={{-38,-98},{-6,-96}},
               lineColor={95,95,95},
@@ -4863,8 +4823,7 @@ support force is required to be zero (= the default value, if the
 connector is not connected).
 </p>
 
-</HTML>
-"),        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
+</html>"),        Icon(coordinateSystem(preserveAspectRatio=true,  extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -4993,8 +4952,7 @@ output signal in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -5037,8 +4995,7 @@ between the two flanges or the cut-force in the flange and
 to provide the measured signal as output signal for further processing
 with the Modelica.Blocks blocks.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -5132,8 +5089,7 @@ with the Modelica.Blocks blocks.
 <p>
 Basic model for Coulomb friction that models the stuck phase in a reliable way.
 </p>
-</html>
-"));
+</html>"));
     end PartialFriction;
 
     annotation (Documentation(info="<html>
@@ -5143,8 +5099,7 @@ translational mechanical components. The components of this package can
 only be used as basic building elements for models.
 </p>
 
-</html>
-"));
+</html>"));
   end Interfaces;
 
   annotation (
@@ -5281,8 +5236,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Universit&aum
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>Version 1.2.0 2010-07-22</i>
        by Anton Haumer and Martin Otter<br>

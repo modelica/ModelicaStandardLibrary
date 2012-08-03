@@ -10,6 +10,5 @@ MultiBody package. Open the models and
 simulate them according to the provided description in the models.
 </p>
 
-</HTML>
-"));
+</html>"));
 end Examples;

@@ -6801,8 +6801,7 @@ Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid
 <p>
 This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
-</html>
-"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
+</html>"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}), graphics={Text(
                 extent={{-96,120},{86,58}},
@@ -6921,8 +6920,7 @@ Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid
 <p>
 This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
-</html>
-"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
+</html>"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}), graphics={Text(
                 extent={{-96,120},{86,58}},
@@ -7215,8 +7213,7 @@ Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid
 <p>
 This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
-</html>
-"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
+</html>"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-200},{200,
                   200}}), graphics={
               Text(

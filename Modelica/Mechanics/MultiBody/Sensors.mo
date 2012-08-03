@@ -3300,8 +3300,7 @@ transformed output vector as \"Real r_out[3]\";
         "Connector frame_b of cut-force/-torque sensor object is not connected");
 
       annotation (
-        Documentation(info="
-<HTML>
+        Documentation(info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
@@ -3309,8 +3308,7 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3379,8 +3377,7 @@ with the blocks of package Modelica.Blocks.
       frame_resolve.f = zeros(3);
       frame_resolve.t = zeros(3);
       annotation (
-        Documentation(info="
-<HTML>
+        Documentation(info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
@@ -3388,8 +3385,7 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={

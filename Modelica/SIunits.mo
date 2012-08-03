@@ -221,8 +221,7 @@ in the declaration as in the example at the beginning.
      Guide to Metrication</b>. Springer 1997.</dd>
 </dl>
 
-</html>
-"));
+</html>"));
   end Literature;
 
   class Contact "Contact"
@@ -246,8 +245,7 @@ in the declaration as in the example at the beginning.
 <li> Astrid Jaschinski, Hubertus Tummescheit and Christian Schweiger
      contributed to the implementation of this package.</li>
 </ul>
-</html>
-"));
+</html>"));
   end Contact;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
@@ -341,8 +339,7 @@ Modelica.SIunits and in Modelica.Conversions.NonSIunits. The reason is that thes
 definitions have been placed erroneously in Modelica.SIunits although they
 are not SIunits. For backward compatibility, these type definitions are
 still kept in Modelica.SIunits.</p>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={Text(
               extent={{-66,-13},{52,-67}},
               lineColor={0,0,0},
@@ -943,8 +940,7 @@ argument):</p>
                                                       // to radian per seconds
 </pre>
 
-</HTML>
-"));
+</html>"));
   end Conversions;
 
   // Space and Time (chapter 1 of ISO 31-1992)

@@ -1634,8 +1634,7 @@ Modelica.Mechanics.Rotational.<b>Accelerate</b> to drive
 a flange according to a given acceleration.
 </p>
 
-</HTML>
-",       revisions=
+</html>",       revisions=
              "<html>
 <p><b>Release Notes:</b></p>
 <ul>
@@ -1957,8 +1956,7 @@ which controls, e.g., a drive train, or to drive
 a flange according to a given acceleration.
 </p>
 
-</html>
-",   revisions="<html>
+</html>",   revisions="<html>
 <ul>
 <li><i>March 24, 2007</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>
@@ -2203,8 +2201,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
      alt=\"TimeTable.png\">
 </p>
 
-</HTML>
-",       revisions=
+</html>",       revisions=
              "<html>
 <h4>Release Notes</h4>
 <ul>
@@ -2469,8 +2466,7 @@ rows of the file, the elements of the matrix have to be given.
 Several matrices may be defined one after another.
 </p>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>March 31, 2001</i>
@@ -3425,8 +3421,7 @@ the corresponding source, such that at initial time the system
 is stationary. To determine the corresponding value of offset,
 usually requires a trimming calculation.
 </p>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>

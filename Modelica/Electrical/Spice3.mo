@@ -2335,8 +2335,7 @@ The linear capacitor connects the branch voltage <i>v</i> with the
 branch current <i>i</i> by <i>i = C * dv/dt</i>.
 The Capacitance <i>C</i> is allowed to be positive, zero, or negative.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -2489,8 +2488,7 @@ The corresponding SPICE description
     NC- -> n1.v
     VALUE -> gain
 </pre>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2546,8 +2544,7 @@ The corresponding SPICE description
     NC- -> n1.v
     VALUE -> transConductance
 </pre>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=false,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={

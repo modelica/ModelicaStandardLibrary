@@ -53,8 +53,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
-</HTML>
-",           revisions="<html>
+</html>",           revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -196,8 +195,7 @@ along  the <i>Goff</i>-characteristic until <i>v = Vknee</i>.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
-</HTML>
-",           revisions="<html>
+</html>",           revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -341,8 +339,7 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -560,8 +557,7 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -767,8 +763,7 @@ The ideal OpAmp is a two-port. The left port is fixed to <i>v1=0</i> and <i>i1=0
 (nullator). At the right port both any voltage <i>v2</i> and any current <i>i2</i>
 are possible (norator).
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -862,8 +857,7 @@ Both the input voltage and current are fixed to zero (nullator).
 At the output pin both any voltage <i>v2</i> and any current <i>i2</i>
 are possible.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> 2002   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -959,8 +953,7 @@ the input voltage vin = in_p.v - in_n.v is zero.
 If the input voltage vin less than 0, the output voltage is out.v = VMin.
 If the input voltage is vin larger than 0, the output voltage is out.v = VMax.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1074,8 +1067,7 @@ along  the <i>Gon</i>-characteristic until <i>v = Vknee</i>.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled.
 </p>
-</HTML>
-",         revisions="<html>
+</html>",         revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1297,8 +1289,7 @@ A gyrator is an ideal two-port element defined by the following equations:
 <br>
 where the constant <i>G</i> is called the gyration conductance.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1490,8 +1481,7 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1583,8 +1573,7 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-</HTML>
-",     revisions="<html>
+</html>",     revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1681,8 +1670,7 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -1758,8 +1746,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 
       LossPower = (p.v - n.v)*p.i;
       annotation (
-        Documentation(info="
-<HTML>
+        Documentation(info="<html>
 <P>
 The closing ideal switch has a positive pin p and a negative pin n.
 The switching behaviour is controlled by the control pin.
@@ -1779,8 +1766,7 @@ where a description with zero Ron or zero Goff is not possible.
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </P>
-</HTML>
-",     revisions="<html>
+</html>",     revisions="<html>
 <ul>
 <li><i> March 11, 2009   </i>
        by Christoph Clauss<br> conditional heat port added<br>
@@ -2146,8 +2132,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     end if;
    LossPower = v*i;
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealOpeningSwitch\">IdealOpeningSwitch</a>.
@@ -2191,8 +2176,7 @@ In a DC circuit, the arc will not quench if the arc voltage is not sufficient th
 In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 </p>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt><i>1998</i></dt>
 <dd>by Christoph Clauss initially implemented</dd>
@@ -2283,8 +2267,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
       end if;
      LossPower = v*i;
       annotation (
-        Documentation(info="
-<html>
+        Documentation(info="<html>
 <p>
 This model is an extension to the <a href=\"modelica://Modelica.Electrical.Analog.Ideal.IdealClosingSwitch\">IdealClosingSwitch</a>.
 </p>
@@ -2327,8 +2310,7 @@ In case of useHeatPort=true the temperature dependence of the electrical
 behavior is <b>not</b> modelled. The parameters are not temperature dependent.
 </p>
 
-</HTML>
-",     revisions=
+</html>",     revisions=
              "<html>
 <dl>
 <dt><i>1998</i></dt>
@@ -2552,8 +2534,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
         p.v - n.v = u;
         p.i*Rin = u;
         p.i + n.i = 0;
-    annotation (Documentation(info="
-<HTML>
+    annotation (Documentation(info="<html>
 <P>
 Simple analog to digital converter with a variable resolution of n bits.
 It converts the input voltage <code>ppin.v-npin.v</code> to an n-vector of type Logic
@@ -2576,8 +2557,7 @@ This is an abstract model of an ADC. Therefore, it can not cover the dynamic beh
 Hence the output will change instantaneously when the trigger signal rises.
 </P>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i> October 13, 2009   </i>
        by Matthias Franke

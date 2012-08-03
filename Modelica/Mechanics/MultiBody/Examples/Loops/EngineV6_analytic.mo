@@ -80,6 +80,5 @@ Simulate for 5 s, and plot the variables <b>engineSpeed_rpm</b>,
 <b>engineTorque</b>, and <b>filteredEngineTorque</b>. Note, the result file has
 a size of about 50 Mbyte (for 5000 output intervalls).
 </p>
-</HTML>
-"), experiment(StopTime=1.01));
+</html>"), experiment(StopTime=1.01));
 end EngineV6_analytic;

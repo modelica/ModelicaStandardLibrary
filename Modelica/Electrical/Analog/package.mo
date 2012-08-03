@@ -34,6 +34,5 @@ Christoph Clau&szlig;
     D-01069 Dresden, Germany
 </dd>
 </dl>
-</html>
-"));
+</html>"));
 end Analog;

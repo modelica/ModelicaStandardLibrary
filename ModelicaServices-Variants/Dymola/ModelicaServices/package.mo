@@ -598,8 +598,7 @@ class ReleaseNotes "Release notes"
 First version of the ModelicaServices library.
 </p>
 
-</html>
-"));
+</html>"));
 end ReleaseNotes;
 
 class Contact "Contact"
@@ -626,8 +625,7 @@ class Contact "Contact"
 The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
 </p>
 
-</html>
-"));
+</html>"));
 
 end Contact;
   annotation(__Dymola_DocumentationClass=true);

@@ -467,8 +467,7 @@ This partial model provides two frame connectors, a \"Connections.branch\"
 between frame_a and frame_b, access to the world
 object and an assert to check that both frame connectors are connected.
 </p>
-</HTML>
- "));
+</html>"));
   end PartialElementaryJoint;
 
   partial model PartialForce
@@ -670,16 +669,14 @@ has to be defined. Example:
     assert(cardinality(frame_a) > 0,
       "Connector frame_a of absolute sensor object is not connected");
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 <p>
 This is the base class of a 3-dim. mechanics component with one frame and one
 output port in order to measure an absolute quantity in the frame connector
 and to provide the measured signal as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -716,8 +713,7 @@ with the blocks of package Modelica.Blocks.
       "Connector frame_b of relative sensor object is not connected");
 
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure relative quantities
@@ -725,8 +721,7 @@ between the two frames or the cut-forces/torques in the frame and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={

@@ -723,8 +723,7 @@ Modelica.Media.UsersGuide.MediumUsage.OptionalProperties</a> and in
 Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.</p>
-</HTML>
-"));
+</html>"));
 end WaterIF97_base;
 
 
@@ -1326,8 +1325,7 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 <p>Many further properties can be computed. Using the well-known Bridgman's Tables, all first partial derivatives of the standard thermodynamic variables can be computed easily.
 </p>
-</HTML>
-"));
+</html>"));
 end WaterIF97_fixedregion;
 
 

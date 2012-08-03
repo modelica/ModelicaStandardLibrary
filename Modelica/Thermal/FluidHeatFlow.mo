@@ -1230,8 +1230,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
        <i>new test example: OneMass</i><br>
        <i>new test example: TwoMass</i></li>
   </ul>
-</HTML>
-"));
+</html>"));
   end Examples;
 
   package Components "Basic components (pipes, valves)"
@@ -1428,8 +1427,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.30 Beta 2005/06/02 Anton Haumer<br>
        friction losses are fed to medium</li>
   </ul>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Polygon(
             points={{-56,10},{-56,-90},{-6,-40},{44,10},{44,-90},{-56,10}},
@@ -1530,8 +1528,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.11 2005/02/18 Anton Haumer<br>
        corrected usage of cv and cp</li>
   </ul>
-</HTML>
-"));
+</html>"));
   end Media;
 
   package Sensors "Ideal sensors to measure port properties"
@@ -1688,8 +1685,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.00 2005/02/01 Anton Haumer<br>
        first stable official release</li>
   </ul>
-</HTML>
-"));
+</html>"));
   end Sensors;
 
   package Sources "Ideal fluid sources, e.g., ambient, volume flow"
@@ -1980,8 +1976,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.20 Beta 2005/02/18 Anton Haumer<br>
        <i>new model: IdealPump</i></li>
   </ul>
-</HTML>
-"));
+</html>"));
   end Sources;
 
   package Interfaces "Connectors and partial models"
@@ -2453,8 +2448,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.60 2007/01/23 Anton Haumer<br>
        new parameter tapT defining Temperature of heatPort</li>
   </ul>
-</HTML>
-"));
+</html>"));
     end Partials;
   annotation (Documentation(info="<HTML>
 This package contains connectors and partial models:
@@ -2503,8 +2497,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and Austrian Inst
   <li> v1.50 2005/09/07 Anton Haumer<br>
        semiLinear works fine</li>
   </ul>
-</HTML>
-"));
+</html>"));
   end Interfaces;
   annotation (
     Documentation(info="<HTML>
@@ -2614,8 +2607,7 @@ Copyright &copy; 1998-2010, Modelica Association, Anton Haumer and AIT.
   <li> v1.6.7 2010/06/25 Christian Kral<br>
        changed company name to AIT</li>
   </ul>
-</HTML>
-"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Polygon(
           points={{-80,10},{-60,-10},{-80,-30},{-20,-30},{0,-10},{-20,10},{-80,

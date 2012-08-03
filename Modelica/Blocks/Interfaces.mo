@@ -334,8 +334,7 @@ partial block SIMO "Single Input Multiple Output continuous control block"
 <p> Block has one continuous Real input signal and a
     vector of continuous Real output signals.</p>
 
-</HTML>
-"));
+</html>"));
 end SIMO;
 
     partial block MISO "Multiple Input Single Output continuous control block"
@@ -353,8 +352,7 @@ end SIMO;
 Block has a vector of continuous Real input signals and
 one continuous Real output signal.
 </p>
-</HTML>
-"));
+</html>"));
     end MISO;
 
   partial block PartialRealMISO
@@ -407,8 +405,7 @@ one continuous Real output signal.
 Block has a continuous Real input and a continuous Real output signal vector.
 The signal sizes of the input and output vector may be different.
 </p>
-</HTML>
-"));
+</html>"));
     end MIMO;
 
     partial block MIMOs
@@ -428,8 +425,7 @@ The signal sizes of the input and output vector may be different.
 Block has a continuous Real input and a continuous Real output signal vector
 where the signal sizes of the input and output vector are identical.
 </p>
-</HTML>
-"));
+</html>"));
     end MIMOs;
 
     partial block MI2MO
@@ -616,8 +612,7 @@ which are sampled due to the defined <b>samplePeriod</b> parameter.
 Block has a continuous input and a continuous output signal vector
 which are sampled due to the defined <b>samplePeriod</b> parameter.
 </p>
-</HTML>
-"));
+</html>"));
     end DiscreteMIMO;
 
     partial block DiscreteMIMOs
@@ -638,8 +633,7 @@ Block has a continuous input and a continuous output signal vector
 where the signal sizes of the input and output vector are identical.
 These signals are sampled due to the defined <b>samplePeriod</b> parameter.
 </p>
-</HTML>
-"));
+</html>"));
 
     end DiscreteMIMOs;
 
@@ -798,8 +792,7 @@ partial block BooleanMIMOs
 Block has a continuous Boolean input and a continuous Boolean output signal vector
 where the signal sizes of the input and output vector are identical.
 </p>
-</HTML>
-"));
+</html>"));
 end BooleanMIMOs;
 
 partial block MI2BooleanMOs
@@ -819,8 +812,7 @@ partial block MI2BooleanMOs
   annotation (Documentation(info="<html>
 <p>Block has two Boolean input vectors u1 and u2 and one Boolean output
 vector y. All vectors have the same number of elements.</p>
-</html>
-"));
+</html>"));
 end MI2BooleanMOs;
 
     partial block SI2BooleanSO "2 Single Input / Boolean Single Output block"
@@ -840,8 +832,7 @@ end MI2BooleanMOs;
 <p>
 Block has two Boolean input signals u1 and u2 and one Boolean output signal y.
 </p>
-</html>
-"));
+</html>"));
 
     end SI2BooleanSO;
 
@@ -933,8 +924,7 @@ partial block IntegerSIBooleanSO
 <p>
 Block has a continuous Integer input and a continuous Boolean output signal.
 </p>
-</HTML>
-"));
+</html>"));
 end IntegerSIBooleanSO;
 
 partial block IntegerMIBooleanMOs
@@ -953,8 +943,7 @@ partial block IntegerMIBooleanMOs
 Block has a continuous Integer input and a continuous Boolean output signal vector
 where the signal sizes of the input and output vector are identical.
 </p>
-</HTML>
-"));
+</html>"));
 end IntegerMIBooleanMOs;
 
   partial block PartialIntegerSISO
@@ -1457,8 +1446,7 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>
-"));
+</html>"));
   end SendReal;
 
   block SendBoolean "Obsolete block to send Boolean signal to bus"
@@ -1494,8 +1482,7 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>
-"));
+</html>"));
   end SendBoolean;
 
   block SendInteger "Obsolete block to send Integer signal to bus"
@@ -1642,8 +1629,7 @@ It is much more convenient and more powerful to use \"expandable connectors\"
 for signal buses, see example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
-</html>
-"));
+</html>"));
   end ReceiveInteger;
 
     annotation (Documentation(info="<html>
@@ -1810,8 +1796,7 @@ Integer and Boolean signals. Furthermore, it contains
 partial models for continuous and discrete blocks.
 </p>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>Oct. 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>
@@ -1831,6 +1816,5 @@ partial models for continuous and discrete blocks.
        Realized a first version, based on an existing Dymola library
        of Dieter Moormann and Hilding Elmqvist.</li>
 </ul>
-</html>
-"));
+</html>"));
 end Interfaces;

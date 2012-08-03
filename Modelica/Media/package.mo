@@ -813,8 +813,7 @@ elements</p>
 
 </table>
 
-</HTML>
-"));
+</html>"));
     end Constants;
 
     class TwoPhase "Two-phase media"
@@ -1011,8 +1010,7 @@ Here are some examples:
    bubble_2    = setBubbleState(sat, 2);
    drho_dp_h_2 = Medium.density_derp_h(bubble_2);
 </pre>
-</HTML>
-"));
+</html>"));
     end TwoPhase;
 
     class Initialization "Initialization"
@@ -1373,8 +1371,7 @@ mediumName is part of the quantity attribute of MassFlowRate, it is not
 possible to connect connectors with different media models together. In Dymola
 this is already checked when models are connected together in the diagram layer
 of the graphical user interface.</p>
-</HTML>
-"));
+</html>"));
     end BasicStructure;
 
     class BasicDefinition "Basic definition"
@@ -1451,8 +1448,7 @@ defined in the base class and adding their algorithms, e.g.:
       eta := 10 - state.T*0.3 + state.p*0.2;
     <b>end</b> dynamicViscosity;
 </pre>
-</HTML>
-"));
+</html>"));
     end BasicDefinition;
 
     class MultipleSubstances "Multiple Substances"
@@ -1513,8 +1509,7 @@ For further details, refer to the implementation of
 <a href=\"modelica://Modelica.Media.Air.MoistAir\">
       MoistAir model</a>.
 </p>
-</HTML>
-"));
+</html>"));
     end MultipleSubstances;
 
     class SpecificEnthalpyAsFunction "Specific enthalpy as function"
@@ -1999,8 +1994,7 @@ updated User's Guide.
 This is the first version made available for the public
 for the Modelica'2003 conference (for evaluation).
 </p>
-</HTML>
-"));
+</html>"));
   end ReleaseNotes;
 
   class Future "Future"
@@ -2490,8 +2484,7 @@ end MoistAir;
       annotation (experiment(StopTime=22, __Dymola_NumberOfIntervals=2500),
         Documentation(info="<html>
 <p> For details see the documentation of the example package TwoPhaseWater</p>
-</html>
-"));
+</html>"));
     end TestTwoPhaseStates;
     annotation (Documentation(info="<html>
 <h4>Example: TwoPhaseWater</h4>
@@ -2543,8 +2536,7 @@ e.g., \"cp_d = specificHeatCapacityCp(dew)\". <br>
 The same procedure can be used to compute properties at other state
 points, e.g., when an isentropic reference state is computed.
 </p>
-</html>
-"));
+</html>"));
   end TwoPhaseWater;
 
   package TestOnly "examples for testing purposes: move for final version "
@@ -3835,8 +3827,7 @@ how fluid components should be implemented that are using Modelica.Media
 models. This library is also used to test all media models in
 Modelica.Media.Examples.Tests.MediaTestModels.
 </p>
-</html>
-"));
+</html>"));
 end Examples;
 
 
@@ -4735,8 +4726,7 @@ equations for the medium. The details of this package
 are described in
 <a href=\"modelica://Modelica.Media.UsersGuide\">Modelica.Media.UsersGuide</a>.
 </p>
-</html>
-", revisions="<html>
+</html>", revisions="<html>
 
 </html>"));
   end PartialMedium;
@@ -6817,8 +6807,7 @@ package Common "data structures and fundamental functions for fluid properties"
                               of mass and energy. Thus it is a good choice as a restricting class
                               for any medium model or dynamic state model.
                            </p>
-                              </HTML>
-                              "));
+                              </html>"));
     end ThermoBaseVars;
 
     record ThermoProperties
@@ -6924,8 +6913,7 @@ package Common "data structures and fundamental functions for fluid properties"
         versions of dynamic states that are available in the ThermoFluid
         library. Currently used by all ideal gas models.
      </p>
-        </HTML>
-        "));
+        </html>"));
     end ThermoProperties;
 
     record ThermoProperties_ph
@@ -6981,8 +6969,7 @@ use pressure and enthalpy as dynamic states.
 This is the preferred model for fluids that can also be in the
 two phase and liquid regions.
 </p>
-</HTML>
-"));
+</html>"));
     end ThermoProperties_ph;
 
     record ThermoProperties_pT
@@ -7037,8 +7024,7 @@ A base class for medium property models which use pressure and temperature as dy
 This is a reasonable model for fluids that can also be in the gas and
 liquid regions, but never in the two-phase region.
 </p>
-</HTML>
-"));
+</html>"));
     end ThermoProperties_pT;
 
     record ThermoProperties_dT
@@ -7089,8 +7075,7 @@ and two-phase region. The model is numerically not well suited for
 liquids except if the pressure is always above approx. 80% of the
 critical pressure.
 </p>
-</HTML>
-"));
+</html>"));
     end ThermoProperties_dT;
 
     //   record GibbsDerivs
@@ -7754,8 +7739,7 @@ derOfsByTAtConstantv =  bt.dsv/bt.dTv;
 end BridgmansTablesForWater;
                 </pre>
 
-                </HTML>
-                "));
+                </html>"));
   end BridgmansTables;
 
   function gibbsToBridgmansTables
@@ -8336,8 +8320,7 @@ provide a package in the following way:
       Common data structures and computations shared by these property models are collected in this library.
    </p>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
       <ul>
       <li>First implemented: <i>July, 2000</i>
       by <a href=\"http://www.control.lth.se/~hubertus/\">Hubertus Tummescheit</a>

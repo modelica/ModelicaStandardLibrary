@@ -10,8 +10,7 @@ This library contains magnetic components to build especially
 electro-magnetic devices.
 </p>
 
-</html>
-"),
+</html>"),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
       Ellipse(extent={{-78,-24},{-86,-16}}, lineColor={0,0,0}),

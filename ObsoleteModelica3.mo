@@ -76,8 +76,7 @@ Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
 This block is only provided for backward compatibility.
 </p>
-</html>
-"));
+</html>"));
       end AdaptorReal;
 
       model AdaptorBoolean
@@ -128,8 +127,7 @@ Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
 This block is only provided for backward compatibility.
 </p>
-</html>
-"));
+</html>"));
       end AdaptorBoolean;
 
       model AdaptorInteger
@@ -180,8 +178,7 @@ Completely obsolete adaptor between the Real signal connector
 of version 1.6 and version &ge; 2.1 of the Modelica Standard Library.
 This block is only provided for backward compatibility.
 </p>
-</html>
-"));
+</html>"));
       end AdaptorInteger;
       end Adaptors;
     end Interfaces;
@@ -262,8 +259,7 @@ This block is used to enable asignment of values to variables preliminary
 defined as outputs (e.g., useful for inverse model generation).
 </p>
 
-</HTML>
-"),           Icon(coordinateSystem(
+</html>"),           Icon(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Text(
@@ -291,15 +287,13 @@ defined as outputs (e.g., useful for inverse model generation).
             y1 = y2;
             annotation(__Dymola_structurallyIncomplete,
               __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
-              Documentation(info="
-<HTML>
+              Documentation(info="<html>
 <p>
 This block is used to enable calculation of values preliminary defined as inputs.
 (e.g., useful for inverse model generation).
 </p>
 
-</HTML>
-"),           Icon(coordinateSystem(
+</html>"),           Icon(coordinateSystem(
               preserveAspectRatio=false,
               extent={{-100,-100},{100,100}},
               grid={2,2}), graphics={Text(
@@ -420,8 +414,7 @@ dependent behaviour is switched off by setting heatPort.T = T_ref.
 Additionally, the equation <code>heatPort.Q_flow = 0</code> is implicitly present
 due to a special rule in Modelica that flow variables of not connected
 connectors are set to zero.</p>
-</HTML>
-",         revisions=
+</html>",         revisions=
                  "<html>
 <ul>
 <li><i> 2002   </i>
@@ -645,8 +638,7 @@ This leads to the following animation
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
-</HTML>
-"));
+</html>"));
         end WorldForceAndTorque;
 
         model FrameForceAndTorque
@@ -820,8 +812,7 @@ This leads to the following animation
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/FrameForceAndTorque2.png\">
-</HTML>
-"));
+</html>"));
         end FrameForceAndTorque;
 
         model ForceAndTorque
@@ -1022,8 +1013,7 @@ clarity this is not shown in the animation):
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
-</HTML>
-"));
+</html>"));
         end ForceAndTorque;
       end Forces;
 
@@ -1076,8 +1066,7 @@ clarity this is not shown in the animation):
           end if;
           annotation (
             __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead a model from Modelica.Mechanics.MultiBody.Sensors",
-            Documentation(info="
-<HTML>
+            Documentation(info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
 and one output port in order to measure the cut-force and/or
@@ -1085,8 +1074,7 @@ cut-torque acting between the two frames and
 to provide the measured signals as output for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={1,1}), graphics={
@@ -1493,8 +1481,7 @@ length constraint is fulfilled.
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
-</HTML>
-"));
+</html>"));
           end RevoluteWithLengthConstraint;
 
           model PrismaticWithLengthConstraint
@@ -1841,8 +1828,7 @@ length constraint is fulfilled.
 library. It is only provided to built-up the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointXYZ
 joints.</b>
 </p>
-</HTML>
-"));
+</html>"));
           end PrismaticWithLengthConstraint;
         end Internal;
       end Joints;
@@ -2211,8 +2197,7 @@ Exact definition of the returned quantities:
       <td valign=\"top\"><b>world frame</b></td>
   </tr>
 </table><br>
-</HTML>
-"));
+</html>"));
         end AbsoluteSensor;
 
         model RelativeSensor
@@ -2867,8 +2852,7 @@ i.e., flange_a.phi = flange_b.phi. It is used e.g., to built up components
 with inertia.
 </p>
 
-</HTML>
-"));
+</html>"));
         end Rigid;
 
         partial model Bearing
@@ -2902,8 +2886,7 @@ with inertia.
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAndBearingH.</p>
 
-</HTML>
-"));
+</html>"));
 
         end Bearing;
 
@@ -2934,8 +2917,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
 This is a 1D rotational component with two flanges and an additional bearing flange.
 It is used e.g., to build up equation-based parts of a drive train.</p>
 
-</HTML>
-"));
+</html>"));
         end TwoFlangesAndBearing;
 
         partial model TwoFlangesAndBearingH
@@ -2988,8 +2970,7 @@ This is a 1D rotational component with two flanges and an additional bearing fla
 It is used e.g., to build up parts of a drive train consisting
 of several base components.</p>
 
-</HTML>
-"));
+</html>"));
         end TwoFlangesAndBearingH;
 
         partial model PartialSpeedDependentTorque
@@ -3074,8 +3055,7 @@ and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={1,1}), graphics={
@@ -3123,8 +3103,7 @@ to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 
-</HTML>
-"),         Icon(coordinateSystem(
+</html>"),         Icon(coordinateSystem(
                 preserveAspectRatio=true,
                 extent={{-100,-100},{100,100}},
                 grid={1,1}), graphics={
@@ -3360,8 +3339,7 @@ be careful to determine the gear <b>efficiency</b> of this element
 from tables of the gear manufacturers.
 </p>
 
-</HTML>
-"),       Diagram(coordinateSystem(
+</html>"),       Diagram(coordinateSystem(
               preserveAspectRatio=true,
               extent={{-100,-100},{100,100}},
               grid={1,1}), graphics={
@@ -3476,8 +3454,7 @@ has to be taken into account by connecting components of model Inertia
 to the left and/or the right flange.
 </p>
 
-</HTML>
-"),       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),       Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                   100,100}}), graphics={
               Rectangle(
                 extent={{-40,60},{40,-60}},

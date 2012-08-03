@@ -183,8 +183,7 @@ Based on magnetic flux tubes concepts. Especially to model electro-magnetic actu
 
 </table>
 
-</html>
-"));
+</html>"));
 end Overview;
 
 class Connectors "Connectors"
@@ -447,8 +446,7 @@ then this leads to the following equations:
   <b>inStream</b>(c3.s) = <b>if</b> c3.f > 0 <b>then</b> s_mix <b>else</b> &lt;undefined&gt;;
 </pre>
 
-</html>
-"));
+</html>"));
 end Connectors;
 
   package Conventions "Conventions"
@@ -1625,8 +1623,7 @@ This class summarizes contact information of the contributing persons.
 </ul></li>
 <li> These packages should appear in the listed order.</li>
 </ol>
-</html>
-"));
+</html>"));
   end Conventions;
 
 class ParameterDefaults "Parameter defaults"
@@ -1723,8 +1720,7 @@ that no messages are printed in such cases and/or that an error is triggered
 instead of a warning.
 </p>
 
-</html>
-"));
+</html>"));
 end ParameterDefaults;
 
 class ModelicaLicense2 "Modelica License 2"
@@ -6385,8 +6381,7 @@ The following <b>errors</b> have been fixed:
                    after reading the file content.</td> </tr>
 
 </table>
-</html>
-"));
+</html>"));
 end Version_2_2_1;
 
 class Version_2_2 "Version 2.2 (April 6, 2005)"
@@ -6453,8 +6448,7 @@ The following <b>changes</b> have been performed in the
          copying of a component outside of the Modelica library, the references
          still remain valid.</li>
 </ul>
-</html>
-"));
+</html>"));
 end Version_2_2;
 
 class Version_2_1 "Version 2.1 (Nov. 11, 2004)"
@@ -6647,8 +6641,7 @@ Other changes:
 <li> The Modelica.Blocks connectors for Real signals are changed from
          blue to dark blue in order to distinguish them from electrical signals.</li>
 </ul>
-</html>
-"));
+</html>"));
 end Version_2_1;
 
 class Version_1_6 "Version 1.6 (June 21, 2004)"
@@ -6727,8 +6720,7 @@ with not much computational effort.</p>
 <tr><td valign=\"top\">ThermodynamicTemperature</td>
           <td valign=\"top\">min=0 added</td></tr>
 </table>
-</html>
-"));
+</html>"));
 end Version_1_6;
 
 class Version_1_5 "Version 1.5 (Dec. 16, 2002)"
@@ -6933,8 +6925,7 @@ filled with white and not transparent any more.</p>
 <code>flow SIunits.HeatFlux q;</code> changed to <code>flow SIunits.HeatFlowRate q;</code></p>
 <p><i>MultiBody.Parts.InertialSystem</i></p>
 <p>Icon corrected.</p>
-</html>
-"));
+</html>"));
 end Version_1_5;
 
 class Version_1_4 "Version 1.4 (June 28, 2001)"
@@ -6999,8 +6990,7 @@ Sine sin1(outPort(redeclare type SignalType=Modelica.SIunits.Torque))
 <p>
 First official release of the library.
 </p>
-</html>
-"));
+</html>"));
 end Version_1_4;
  annotation (Documentation(info="<html>
 
@@ -7013,8 +7003,7 @@ This is especially important for maintenance (bug-fix) releases where the
 main version number is not changed.
 </p>
 
-</html>
-"));
+</html>"));
 end ReleaseNotes;
 
 class Contact "Contact"
@@ -7524,6 +7513,5 @@ TU Hamburg-Harburg, Politecnico di Milano, XRG Simulation.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>
-"));
+</html>"));
 end Modelica;

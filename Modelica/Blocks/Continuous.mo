@@ -48,8 +48,7 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -152,8 +151,7 @@ defined limits. For backward compatibility reasons
 <b>limitAtInit</b> = <b>true</b>. In most cases it is best
 to use <b>limitAtInit</b> = <b>false</b>.
 </p>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -236,8 +234,7 @@ to use <b>limitAtInit</b> = <b>false</b>.
     der(x) = if zeroGain then 0 else (u - x)/T;
     y = if zeroGain then 0 else (k/T)*(u - x);
     annotation (
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the
 input u and the output y
@@ -259,8 +256,7 @@ b = {k,0}, a = {T, 1}.
 <p>
 If k=0, the block reduces to y=0.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -354,8 +350,7 @@ Example:
           0.4 s + 1.0
 </pre>
 
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -458,8 +453,7 @@ Example:
           4.0 s^2 + 1.6 s + 1
 </pre>
 
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -566,8 +560,7 @@ Example:
     der(x) = u/T;
     y = k*(x + u);
     annotation (defaultComponentName="PI",
-      Documentation(info="
-<HTML>
+      Documentation(info="<html>
 <p>
 This blocks defines the transfer function between the input u and
 the output y (element-wise) as <i>PI</i> system:
@@ -605,8 +598,7 @@ This is discussed in the description of package
 <a href=\"modelica://Modelica.Blocks.Continuous#info\">Continuous</a>.
 </p>
 
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -830,8 +822,7 @@ The solution is to not initialize u or the variable that is used
 to compute u by an algebraic equation.
 </p>
 
-</HTML>
-"));
+</html>"));
   end PID;
 
   block LimPID
@@ -1186,8 +1177,7 @@ defined limits. For backward compatibility reasons
 <b>limitAtInit</b> = <b>true</b>. In most cases it is best
 to use <b>limitAtInit</b> = <b>false</b>.
 </p>
-</HTML>
-"));
+</html>"));
   end LimPID;
 
   block TransferFunction "Linear transfer function"
@@ -1382,8 +1372,7 @@ results in the following equations:
        y[1]   = [0.1  2.0] * [    ] + [0  0] * [    ]
                              [x[2]]            [u[2]]
 </pre>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -1620,8 +1609,7 @@ should be initialized in steady state (e.g., using option
 initType=Modelica.Blocks.Types.Init.SteadyState).
 </p>
 
-</html>
-"));
+</html>"));
   end LowpassButterworth;
 
   block CriticalDamping
@@ -1768,8 +1756,7 @@ The critical damping filter is defined as
      alt=\"CriticalDampingNonNormalized.png\">
 </p>
 
-</html>
-"));
+</html>"));
   end CriticalDamping;
 
   block Filter
@@ -2118,8 +2105,7 @@ The filters are implemented in the following, reliable way:
      Springer Verlag, 12. Auflage, pp. 815-852.</dd>
 </dl>
 
-</html>
-", revisions="<html>
+</html>", revisions="<html>
 <dl>
   <dt><b>Main Author:</b></dt>
   <dd><a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>,
@@ -2738,7 +2724,7 @@ This representation has the following transfer function:
                      = -(a/b)*u
 </pre>
 
-</html> "));
+</html>"));
       end lowPass;
 
       function highPass
@@ -2853,7 +2839,7 @@ This representation has the following transfer function:
     b: imaginary part of eigenvalue
 </pre>
 
-</html> "));
+</html>"));
       end highPass;
 
       function bandPass
@@ -2949,7 +2935,7 @@ This representation has the following transfer function:
     b: imaginary part of eigenvalue
 </pre>
 
-</html> "));
+</html>"));
       end bandPass;
 
       function bandStop
@@ -3045,7 +3031,7 @@ This representation has the following transfer function:
     b: imaginary part of eigenvalue
 </pre>
 
-</html> "));
+</html>"));
       end bandStop;
       end roots;
 
@@ -4089,8 +4075,7 @@ a = -1/alpha
 <blockquote><pre>
 b2_k = 1/(beta_k^2 + gamma_k^2) b1_k = -2*beta_k/(beta_k^2 + gamma_k^2)
 </pre></blockquote>
-</html>
-"));
+</html>"));
         end BesselBaseCoefficients;
 
         function toHighestPowerOne
@@ -4696,6 +4681,5 @@ for a 1-dim. rotational inertia controlled by a PI controller are that
 <b>angle</b>, <b>speed</b>, and <b>acceleration</b> of the inertia are zero.
 </p>
 
-</html>
-"));
+</html>"));
 end Continuous;

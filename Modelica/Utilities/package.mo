@@ -81,8 +81,7 @@ Below the major design decisions of this library are summarized.
      efficiently, if such types of optimizations are supported
      by the tool.</li>
 </ul>
-</html>
-"));
+</html>"));
   end ImplementationNotes;
 
   class ReleaseNotes "Release notes"
@@ -93,8 +92,7 @@ Below the major design decisions of this library are summarized.
 <p>
 First version implemented.
 </p>
-</HTML>
-"));
+</html>"));
   end ReleaseNotes;
 
   class Contact "Contact"
@@ -123,8 +121,7 @@ First version implemented.
      are appreciated, as well as discussions at the 34th, 36th, and 40th
      Modelica Design Meetings in Vienna, Link&ouml;ping, and Dresden. </li>
 </ul>
-</html>
-"));
+</html>"));
   end Contact;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
@@ -205,6 +202,5 @@ Copyright &copy; 1998-2010, Modelica Association, DLR, and Dassault Syst&egrave;
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
 
-</html>
-"));
+</html>"));
 end Utilities;

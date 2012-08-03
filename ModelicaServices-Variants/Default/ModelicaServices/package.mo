@@ -590,8 +590,7 @@ class ReleaseNotes "Release notes"
 First version of the ModelicaServices library.
 </p>
 
-</html>
-"));
+</html>"));
 end ReleaseNotes;
 
 class Contact "Contact"
@@ -619,8 +618,7 @@ class Contact "Contact"
 The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
 </p>
 
-</html>
-"));
+</html>"));
 
 end Contact;
   annotation(__Dymola_DocumentationClass=true);
@@ -647,8 +645,7 @@ The interface of this model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
-</html>
-"));
+</html>"));
 
 end Shape;
 
@@ -664,8 +661,7 @@ The interface of this model is defined at
 <a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface</a>.
 </p>
 
-</html>
-"));
+</html>"));
   end Surface;
 end Animation;
 

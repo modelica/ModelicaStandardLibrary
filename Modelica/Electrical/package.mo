@@ -11,8 +11,7 @@ as well as machines to model electrical motors and generators,
 especially three phase induction machines such as an asynchronous motor.
 </p>
 
-</HTML>
-"),
+</html>"),
   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
       graphics={
       Rectangle(extent={{-29,-13},{3,-27}}, lineColor={0,0,0}),

@@ -430,8 +430,7 @@ as possible.
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
 </ul>
 
-</html>
-"));
+</html>"));
   end Contact;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
@@ -923,8 +922,7 @@ gear.mode  :  1 = forward rolling
               0 = stuck (w=0)
              -1 = backward rolling
 </pre>
-</HTML>
-"),        experiment(StopTime=0.5, Interval=0.001));
+</html>"),        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo1;
 
     model LossyGearDemo2
@@ -1020,8 +1018,7 @@ gear.mode           :  1 = forward rolling
 <p>Note: This combination of LossyGear and BearingFriction is not recommended to use,
 as component LossyGear includes the functionality of component BearingFriction
 (only <i>peak</i> not supported).</p>
-</HTML>
-"),        experiment(StopTime=0.5, Interval=0.001));
+</html>"),        experiment(StopTime=0.5, Interval=0.001));
     end LossyGearDemo2;
 
     model LossyGearDemo3
@@ -1590,8 +1587,7 @@ Modelica.Mechanics.Rotational package. Open the models and
 simulate them according to the provided description in the models.
 </p>
 
-</HTML>
-"));
+</html>"));
   end Examples;
 
   package Components "Components for 1D rotational mechanical drive trains"
@@ -1633,8 +1629,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
      angle to the housing.
 </ul>
 
-</HTML>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -1675,8 +1670,7 @@ at an angle phi0 in the <b>housing</b>. May be used:
 Rotational component with <b>inertia</b> and two rigidly connected flanges.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1733,8 +1727,7 @@ The right flange is rotated by the fixed angle \"deltaPhi\" with respect to the 
 flange.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1785,8 +1778,7 @@ a inertia/gear and the housing (component Fixed), to describe
 a coupling of the element with the housing via a spring.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1843,8 +1835,7 @@ between an inertia or gear and the housing (component Fixed), or
 between two inertia/gear elements.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -1927,8 +1918,7 @@ and damping, or between an inertia/gear and the housing (component Fixed),
 to describe a coupling of the element with the housing via a spring/damper.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2191,8 +2181,7 @@ where the different effects are visualized:
 
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/elastoBacklash1.png\">
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2492,8 +2481,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -2770,8 +2758,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
 </dl>
 
-</HTML>
-"));
+</html>"));
     end Brake;
 
     model Clutch "Clutch based on Coulomb friction"
@@ -2925,8 +2912,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 </dl>
 <br>
 
-</HTML>
-"));
+</html>"));
     end Clutch;
 
     model OneWayClutch "Series connection of freewheel and clutch"
@@ -3106,8 +3092,7 @@ are dynamically coupled. The method is described in:
     Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
 </dl>
 
-</HTML>
-"));
+</html>"));
     end OneWayClutch;
 
     model IdealGear "Ideal gear without inertia"
@@ -3136,8 +3121,7 @@ or backlash. If these effects have to be considered, the gear has to be
 connected to other elements in an appropriate way.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3500,8 +3484,7 @@ Ticket <a href=\"http://trac.modelica.org/Modelica/ticket/108\">#108</a>,
 Sept. 11, 2009.</li>
 </ul>
 
-</HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}},
+</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Polygon(
               points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,80},{
@@ -3587,8 +3570,7 @@ vectors, especially the absolute angular velocities and cut-torques
 in the flanges, are along the axis vector displayed in the icon.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -3823,8 +3805,7 @@ model Inertia to the left and/or the right flange of component
 Gearbox.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
+</html>"),     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
                             graphics={
             Text(
               extent={{-150,150},{150,110}},
@@ -3863,8 +3844,7 @@ This component defines the kinematic constraint:
 <pre>
   (flangeR.phi - internalSupportR.phi) = ratio*(flangeT.s - internalSupportT.s);
 </pre>
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -4017,8 +3997,7 @@ no rolling resistance. This component defines the kinematic constraint:
    (flangeR.phi - internalSupportR.phi)*wheelRadius = (flangeT.s - internalSupportT.s);
 </pre>
 
-</html>
-"));
+</html>"));
     end IdealRollingWheel;
 
     model InitializeFlange
@@ -4247,8 +4226,7 @@ simulator selects either the absolute angle and absolute angular
 velocity of model inertia1 or of model inertia2 as state variables.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -4361,8 +4339,7 @@ way and provides the result as output signal <b>phi</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4390,8 +4367,7 @@ way and provides the result as output signal <b>w</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4421,8 +4397,7 @@ way and provides the result as output signal <b>a</b> (to be further processed w
 blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4453,8 +4428,7 @@ in an ideal way and provides the result as output signal <b>phi_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4490,8 +4464,7 @@ in an ideal way and provides the result as output signal <b>w_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4529,8 +4502,7 @@ in an ideal way and provides the result as output signal <b>a_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4562,8 +4534,7 @@ and provides the result as output signal <b>tau</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4593,8 +4564,7 @@ Measures the <b>power between two flanges</b> in an ideal way
 and provides the result as output signal <b>power</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -4735,8 +4705,7 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -4841,8 +4810,7 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -4915,8 +4883,7 @@ The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -5022,8 +4989,7 @@ The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
 
-</html>
-"),        Icon(coordinateSystem(
+</html>"),        Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -5075,8 +5041,7 @@ The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.
 </p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -5158,8 +5123,7 @@ i.e., the components connected to these flanges are driven by torque <b>tau</b>.
 <p>The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.</p>
 
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -5419,8 +5383,7 @@ differentiation of the flange angle phi:
      w = der(phi);    a = der(w)
 </pre>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Ellipse(
@@ -5480,8 +5443,7 @@ differentiation of the flange angle phi:
      w = der(phi);    a = der(w)
 </pre>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Ellipse(
@@ -5656,8 +5618,7 @@ It is used e.g., to build up parts of a drive train consisting
 of several components.
 </p>
 
-</html>
-"));
+</html>"));
     end PartialTwoFlanges;
 
     partial model PartialOneFlangeAndSupport
@@ -5700,8 +5661,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -5778,8 +5738,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -5841,8 +5800,7 @@ but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
 
-</html>
-"));
+</html>"));
     end PartialCompliant;
 
     partial model PartialCompliantWithRelativeStates
@@ -5905,8 +5863,7 @@ as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
 and c are more meaningful for the user.
 </p>
 
-</html>
-"));
+</html>"));
     end PartialCompliantWithRelativeStates;
 
     partial model PartialElementaryOneFlangeAndSupport
@@ -5950,8 +5907,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -6016,8 +5972,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -6084,8 +6039,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),     Diagram(coordinateSystem(
+</html>"),     Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
@@ -6153,8 +6107,7 @@ If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
 
-</html>
-"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+</html>"),        Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
                 100,100}}), graphics={
             Line(
               visible=not useSupport,
@@ -6258,8 +6211,7 @@ If <i>useSupportT=false</i>, the translational support connector is conditionall
 and instead the translational part is internally fixed to ground.
 </p>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -6387,8 +6339,7 @@ and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -6443,8 +6394,7 @@ to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
 
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
@@ -6564,8 +6514,7 @@ rotational mechanical components. The components of this package can
 only be used as basic building elements for models.
 </p>
 
-</html>
-"));
+</html>"));
   end Interfaces;
 
   package Icons "Icons for Rotational package"
@@ -6760,8 +6709,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>
-", revisions=""),
+</html>", revisions=""),
     Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
             100}}), graphics={
         Line(points={{-83,-66},{-63,-66}}, color={0,0,0}),

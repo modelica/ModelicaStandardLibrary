@@ -52,8 +52,7 @@ Similar equations can be derived for other geometries. In cases where a direct i
 Network elements for sources of a magnetic potential difference or magnetomotive force, i.e., coils or permanent magnets can be formulated as well. The resulting magnetic network models of actuators reflect the main dimensions of these devices as well as the normally nonlinear characteristics of their magnetically active materials.
 </p>
 
-</html>
-"));
+</html>"));
   end FluxTubeConcept;
 
   class ReluctanceForceCalculation "Reluctance forces"
@@ -87,8 +86,7 @@ Flux tube elements with <i>non-linear</i> material characteristics <i>&mu;<sub>r
 The sub-package <a href=\"modelica://Modelica.Magnetic.FluxTubes.Shapes.Leakage\">Shapes.Leakage</a> contains flux tube shapes typical for leakage flux around prismatic or cylindrical poles. Since the permeance of these flux tubes does not change with armature position, they do not contribute to a reluctance actuator's thrust.
 </p>
 
-</html>
-"));
+</html>"));
   end ReluctanceForceCalculation;
 
   class Literature "Literature"
@@ -138,8 +136,7 @@ Magna Physics Publishing and Oxford University Press 1994
 
 </ul>
 
-</html>
-"));
+</html>"));
   end Literature;
 
   class Contact "Contact"
@@ -167,8 +164,7 @@ Magna Physics Publishing and Oxford University Press 1994
 <li> Andr&eacute; Klick of then Dresden University of Technology, Dresden, Germany gave valuable support on the implementation of this library. His contribution is highly appreciated, too.
 </li>
 </ul>
-</html>
-"));
+</html>"));
   end Contact;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
@@ -2555,8 +2551,7 @@ For manufacturing of a winding, the obtained wire diameter d_wireCalculated must
 <p>
 The magnetic potential at the magnetic ground node is zero. Every magnetic network model must contain at least one magnetic ground object.
 </p>
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
           preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -4046,8 +4041,7 @@ Partial model of a flux tube component with two magnetic ports:
 the positive port connector port_p, and the negative port
 connector port_n.
 </p>
-</html>
-"));
+</html>"));
     end PartialTwoPortsElementary;
 
     partial model PartialTwoPorts
@@ -4575,8 +4569,7 @@ Copyright &copy; 2005-2010, Modelica Association and Thomas B&ouml;drich.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>
-", revisions="<html>
+</html>", revisions="<html>
 <table border=1>
 
 <thead>

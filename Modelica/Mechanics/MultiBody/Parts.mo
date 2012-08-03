@@ -101,8 +101,7 @@ component animation and that the animation may be switched off via parameter
 animation = <b>false</b>.
 </p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Fixed.png\" ALT=\"Parts.Fixed\">
-</HTML>
-"),   Diagram(coordinateSystem(
+</html>"),   Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1143,8 +1142,7 @@ A BodyShape component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1391,8 +1389,7 @@ the animation may be switched off via parameter animation = <b>false</b>):
 A BodyBox component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1608,8 +1605,7 @@ the animation may be switched off via parameter animation = <b>false</b>):
 <p>
 A BodyCylinder component has potential states. For details of these
 states and of the \"Advanced\" menu parameters, see model
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</HTML>
-"),   Icon(coordinateSystem(
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Parts.Body\">MultiBody.Parts.Body</a>.</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1857,8 +1853,7 @@ connecting to the <b>Mounting1D</b> component. In this case, a combination of se
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-</HTML>
-"));
+</html>"));
   end Mounting1D;
 
   model Rotor1D
@@ -2051,8 +2046,7 @@ but not vice versa.</p>
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-</HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                 100}}), graphics={
             Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
             Line(points={{60,-25},{80,-25}}, color={0,0,0}),
@@ -2177,8 +2171,7 @@ but not vice versa.</p>
 3D Mechanical Effects of 1-dim. Powertrains</a>. In: <i>Proceedings of the 3rd International
 Modelica Conference</i>. Link&ouml;ping : The Modelica Association and Link&ouml;ping University,
 November 3-4, 2003, pp. 149-158</p>
-</HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{-80,-25},{-60,-25}}, color={0,0,0}),
           Line(points={{60,-25},{80,-25}}, color={0,0,0}),
@@ -2829,6 +2822,5 @@ given in the ranges 0 .. 255, respectively. The predefined type
 definition of the colors used in the MultiBody library
 (this will be replaced by a color editor).
 </p>
-</HTML>
-"));
+</html>"));
 end Parts;

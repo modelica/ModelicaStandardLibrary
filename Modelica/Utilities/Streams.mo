@@ -234,6 +234,5 @@ Example:
      Streams.error(\"x (= \" + String(x) + \") has to be in the range 0 .. 1\");
   <b>end if</b>;
 </pre>
-</HTML>
-"));
+</html>"));
 end Streams;

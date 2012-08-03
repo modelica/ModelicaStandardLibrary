@@ -97,8 +97,7 @@ The machine models of the FundamentalWave library are currently based on the fol
 <p>
 The term <b>fundamental wave</b> refers to spatial waves of the electro magnetic quantities. This library has no limitations with respect to the waveforms of the time domain signals of any voltages, currents, etc.
 </p>
-</html>
-"));
+</html>"));
     end Concept;
 
     class Contact "Contact"
@@ -130,8 +129,7 @@ Based on an original idea of Michael Beuschel this library was developed
 The authors of the FundamentalWave library would like to thank Michael Beuschel
 for contributing his source code to this library.
 </p>
-</html>
-"));
+</html>"));
     end Contact;
 
     class ReleaseNotes "Release Notes"
@@ -345,8 +343,7 @@ model from R to G</li>
     </tr>
 
 </table>
-</html>
-"));
+</html>"));
 
     end References;
     annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
@@ -366,8 +363,7 @@ All the machine models provided in this library are equivalent two pole machines
 The magnetic potential difference of the connecter therefore also refers to an equivalent two pole machine
 </p>
 
-</html>
-"));
+</html>"));
   end UsersGuide;
 
   package Examples

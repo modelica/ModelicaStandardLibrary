@@ -47,8 +47,7 @@ package Discrete
 Samples the continues input signal with a sampling rate defined
 via parameter <b>samplePeriod</b>.
 </p>
-</HTML>
-"));
+</html>"));
   end Sampler;
 
   block ZeroOrderHold "Zero order hold of a sampled-data system"
@@ -77,8 +76,7 @@ The output is identical to the sampled input signal at sample
 time instants and holds the output at the value of the last
 sample instant during the sample points.
 </p>
-</HTML>
-"));
+</html>"));
   end ZeroOrderHold;
 
   block FirstOrderHold "First order hold of a sampled-data system"
@@ -111,8 +109,7 @@ sample instant during the sample points.
 The output signal is the extrapolation through the
 values of the last two sampled input signals.
 </p>
-</HTML>
-"));
+</html>"));
   end FirstOrderHold;
 
   block UnitDelay "Unit Delay Block"
@@ -142,8 +139,7 @@ previous sample instant. Before the second sample instant,
 the output y is identical to parameter yStart.
 </p>
 
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -239,8 +235,7 @@ states can be set as start values of <b>x</b>.</p>
          z + 3
 </pre>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>November 15, 2000</i>
@@ -342,8 +337,7 @@ results in the following equations:
        y[1]   = [0.1  2.0] * [         ] + [0  0] * [    ]
                              [pre(x[2])]            [u[2]]
 </pre>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -446,8 +440,7 @@ signal is rising (i.e., trigger changes from <b>false</b> to
 Before the first sampling, the output signal is equal to
 the initial value defined via parameter <b>y0</b>.
 </p>
-</HTML>
-"));
+</html>"));
   end TriggeredSampler;
 
   block TriggeredMax
@@ -515,8 +508,7 @@ signal is rising (i.e., trigger changes from <b>false</b> to
 <b>true</b>). The maximum, absolute value of the input signal
 at the sampling point is provided as output signal.
 </p>
-</HTML>
-"));
+</html>"));
   end TriggeredMax;
   annotation (Documentation(info="<html>
 <p>
@@ -538,8 +530,7 @@ as the components of packages <b>Modelica.Blocks.Math</b>,
 <b>Modelica.Blocks.Nonlinear</b> or <b>Modelica.Blocks.Sources</b>.
 </p>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>:<br>

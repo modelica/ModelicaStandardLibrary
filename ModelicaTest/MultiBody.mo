@@ -395,8 +395,7 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>
-"));
+</html>"));
     end SphericalSpherical;
 
     encapsulated model UniversalSpherical

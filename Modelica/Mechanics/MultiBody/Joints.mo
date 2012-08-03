@@ -207,8 +207,7 @@ vector \"n\" defining the translation axis
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Prismatic.png\">
 
-</HTML>
-"));
+</html>"));
   end Prismatic;
 
   model Revolute
@@ -496,8 +495,7 @@ vector \"n\" defining the translation axis
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Revolute.png\">
 
-</html>
-"));
+</html>"));
   end Revolute;
 
   model RevolutePlanarLoopConstraint
@@ -690,8 +688,7 @@ treated as known with value equal to zero; for standard revolute joints,
 this force is an unknown quantity).
 </p>
 
-</HTML>
-"));
+</html>"));
   end RevolutePlanarLoopConstraint;
 
   model Cylindrical
@@ -804,8 +801,7 @@ vector \"n\" defining the cylinder axis
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Cylindrical.png\">
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1177,8 +1173,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Planar.png\">
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1449,8 +1444,7 @@ frame_b of the joint.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/Spherical.png\">
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -1803,8 +1797,7 @@ frame_b of the joint.
 </p>
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Joints/FreeMotion.png\">
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -2157,8 +2150,7 @@ A example to use this joint for the initialization of a planar double pendulum b
 its tip position, is shown in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Elementary.DoublePendulumInitTip\">Examples.Elementary.DoublePendulumInitTip</a>.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -2987,8 +2979,7 @@ the origin of frame_a to the middle of the rod, this might be defined as:
   <b>equation</b>
     <b>connect</b>(jointUS.frame_ia, shape.frame_a);
 </pre>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -4125,7 +4116,7 @@ at least frame_a, frame_ia and frame_ib of the JointUSP joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -4808,7 +4799,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
   <b>equation</b>
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5319,7 +5310,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
   <b>equation</b>
     <b>connect</b>(jointUSP.frame_ia, shape.frame_a);
 </pre>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -5740,7 +5731,7 @@ at least frame_b and frame_ib of the JointSSR joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6100,7 +6091,7 @@ at least frame_b and frame_ib of the JointSSP joint
 should be parallel to each other when defining an instance of this
 component).
 </p>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6436,7 +6427,7 @@ spherical - revolute joint aggregation (= JointUSR). In a planar
 loop this will behave as if 3 revolute joints with parallel axes
 are connected by rigid rods.
 </p>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -6774,7 +6765,7 @@ spherical - prismatic joint aggregation (= JointUSP). In a planar
 loop this will behave as if 2 revolute joints with parallel axes
 and 1 prismatic joint are connected by rigid rods.
 </p>
-</html> "),
+</html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
@@ -8916,8 +8907,7 @@ equation or an equivalent one has to be provided via variable \"constraintResidu
 menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 </p>
 
-</html>
-"));
+</html>"));
     end RevoluteWithLengthConstraint;
 
     model PrismaticWithLengthConstraint
@@ -9291,8 +9281,7 @@ equation or an equivalent one has to be provided via variable \"constraintResidu
 menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 </p>
 
-</HTML>
-"));
+</html>"));
     end PrismaticWithLengthConstraint;
 
      model RollingConstraintVerticalWheel

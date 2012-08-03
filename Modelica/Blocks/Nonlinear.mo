@@ -25,16 +25,14 @@ package Nonlinear
            y = smooth(0,if u > uMax then uMax else if u < uMin then uMin else u);
         end if;
         annotation (
-          Documentation(info="
-<HTML>
+          Documentation(info="<html>
 <p>
 The Limiter block passes its input signal as output signal
 as long as the input is within the specified upper and lower
 limits. If this is not the case, the corresponding limits are passed
 as output.
 </p>
-</HTML>
-"),       Icon(coordinateSystem(
+</html>"),       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -133,8 +131,7 @@ limits specified by the two additional inputs limit1 and
 limit2. If this is not the case, the corresponding limit
 is passed as output.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
+</html>"),   Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
               100}}), graphics={
           Line(points={{0,-90},{0,68}}, color={192,192,192}),
           Line(points={{-90,0},{68,0}}, color={192,192,192}),
@@ -266,8 +263,7 @@ with derivative time constant <code>Td</code>. Smaller time constant <code>Td</c
            y = smooth(0,if u > uMax then u - uMax else if u < uMin then u - uMin else 0);
         end if;
         annotation (
-          Documentation(info="
-<HTML>
+          Documentation(info="<html>
 <p>
 The DeadZone block defines a region of zero output.
 </p>
@@ -276,8 +272,7 @@ If the input is within uMin ... uMax, the output
 is zero. Outside of this zone, the output is a linear
 function of the input with a slope of 1.
 </p>
-</HTML>
-"),       Icon(coordinateSystem(
+</html>"),       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -353,8 +348,7 @@ The Input signal is delayed by a given time instant, or more precisely:
    y = u(time - delayTime) for time &gt; time.start + delayTime
      = u(time.start)       for time &le; time.start + delayTime
 </pre>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -523,8 +517,7 @@ also the default setting of this block. The setting
 <p>Otto Foellinger: Regelungstechnik, 8. Auflage,
 chapter 11.9, page 412-414, Huethig Verlag Heidelberg, 1994
 </p>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -632,8 +625,7 @@ the following relationship:
 </p>
 <pre>  0 &le; delayTime &le; delayMax
 </pre>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -766,14 +758,12 @@ the following relationship:
   end VariableDelay;
 
       annotation (
-        Documentation(info="
-<HTML>
+        Documentation(info="<html>
 <p>
 This package contains <b>discontinuous</b> and
 <b>non-differentiable, algebraic</b> input/output blocks.
 </p>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Christian.Schweiger/\">Christian Schweiger</a>:<br>
@@ -784,6 +774,5 @@ This package contains <b>discontinuous</b> and
        of Dieter Moormann and Hilding Elmqvist.
 </li>
 </ul>
-</html>
-"));
+</html>"));
 end Nonlinear;

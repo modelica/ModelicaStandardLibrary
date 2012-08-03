@@ -44,6 +44,5 @@ Independently, whether the heatPort is enabled or not,
 the dissipated power is available from variable \"<b>lossPower</b>\" (which is
 positive if heat is flowing out of the heatPort).
 </p>
-</HTML>
-"));
+</html>"));
 end Mechanics;

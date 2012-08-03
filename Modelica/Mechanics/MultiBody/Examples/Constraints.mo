@@ -678,7 +678,7 @@ extends Modelica.Icons.ExamplesPackage;
 </html>"));
   end ConstrainUniversalJoint;
   annotation (Documentation(info="<html>
-<p>This package is a collection of simulatable models involving constraints in a multibody system. 
+<p>This package is a collection of simulatable models involving constraints in a multibody system.
   The examples mainly show comparison of constraints to the standard joints.</p>
 
 </html>"));

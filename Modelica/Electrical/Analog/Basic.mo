@@ -717,8 +717,7 @@ The user chooses a model with <b>three</b> inductors, that means the parameter <
 <br>the user has to allocate the parameter vector <i>L[6] </i>, since <i>Nv=(N*(N+1))/2=(3*(3+1))/2=6</i>. The parameter vector must be filled like this: <i>L=[1,0.1,0.2,2,0.3,3] </i>.</p>
 <p>Inside the model, two loops are used to fill the inductance matrix to guarantee that it is filled in a symmetric way.</p>
 </html>",
-revisions="
-<html>
+revisions="<html>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <th>Version</th>
@@ -749,8 +748,7 @@ revisions="
       <td valign=\"top\">Initially implemented</td>
     </tr>
 </table>
-</html>
-"));
+</html>"));
 end M_Transformer;
 
   model Gyrator "Gyrator"

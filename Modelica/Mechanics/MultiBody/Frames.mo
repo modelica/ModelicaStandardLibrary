@@ -82,8 +82,7 @@ with
    <b>skew</b>(w) = |  w[3]   0   -w[1] |
              | -w[2]  w[1]     0 |
 </pre>
-</html>
-"));
+</html>"));
   end Orientation;
 
   function orientationConstraint
@@ -808,8 +807,7 @@ The term \"quaternions\" is preferred over the historically
 more reasonable \"Euler parameters\" in order to not get
 confused with Modelica \"parameters\".
 </p>
-</html>
-"));
+</html>"));
     end Orientation;
 
     type der_Orientation = Real[4] (each unit="1/s")
@@ -1277,8 +1275,7 @@ never directly accessed but only with the access functions provided
 in package TransformationMatrices. As a consequence, other implementations of
 Rotation can be defined by adapting this package correspondingly.
 </p>
-</html>
-"));
+</html>"));
     end Orientation;
 
     type der_Orientation = Real[3, 3] (each unit="1/s")

@@ -736,9 +736,7 @@ with scalar c, |c| = ||<b>a</b>|| / ||<b>b</b>||. <b>Q</b>*<b>a</b> is the refle
 <a href=\"modelica://Modelica.Math.Vectors.Utilities.householderReflection\">Vectors.Utilities.householderReflection</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.householderReflection\">Matrices.Utilities.householderReflection</a><br>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.householderSimilarityTransformation\">Matrices.Utilities.householderSimilarityTransformation</a>
-</HTML>
-
-",   revisions="<html>
+</html>",   revisions="<html>
 <ul>
 <li><i>2010/04/30 </i>
        by Marcus Baur, DLR-RM</li>
@@ -1972,8 +1970,7 @@ i.e., matrix A has the 3 real eigenvalues -0.618, 8, 1.618.
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.eigenValueMatrix\">Matrices.eigenValueMatrix</a>,
 <a href=\"modelica://Modelica.Math.Matrices.singularValues\">Matrices.singularValues</a>
-</HTML>
-"));
+</html>"));
   end eigenValues;
 
   function eigenValueMatrix
@@ -2370,7 +2367,7 @@ The calculation in lapack.dgees is performed stepwise, i.e., using the internal 
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Matrices.Utilities.reorderRSF\">Math.Matrices.Utilities.reorderRSF</a>
 
-</html> ", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>2010/05/31 </i>
        by Marcus Baur, DLR-RM</li>
@@ -2472,7 +2469,7 @@ The computation is performed by <a href=\"modelica://Modelica.Math.Matrices.LAPA
        by Marcus Baur, DLR-RM</li>
 </ul>
 
-</html> "));
+</html>"));
   end cholesky;
 
   function balance
@@ -2582,8 +2579,7 @@ The Algorithm is taken from
 which based on the <code>balanc</code> function from EISPACK.
 </p>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <h4>Release Notes:</h4>
 <ul>
 <li><i>July 5, 2002</i>
@@ -3261,8 +3257,7 @@ direct implementation of the Taylor series expansion, but <i>not</i> for the
 implementation variant used in this function.
 </p>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 5, 2002</i>
@@ -3436,8 +3431,7 @@ The Algorithm to calculate psi is taken from
 <dd><b>RASP'91 Regulator Analysis and Synthesis Programs</b><br>
     DLR - Control Systems Group 1991
 </dl>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 5, 2002</i>
@@ -3515,8 +3509,7 @@ is, e.g., described in
     Third Edition, p. 256
 </dl>
 
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <p><b>Release Notes:</b></p>
 <ul>
 <li><i>July 31, 2002</i>
@@ -10425,8 +10418,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dhseqr\">Matrices.Lapack.
 <a href=\"modelica://Modelica.Math.Matrices.eigenValues\">Matrices.eigenValues</a>,
 <a href=\"modelica://Modelica.Math.Matrices.hessenberg\">Matrices.hessenberg</a>
 </p>
-</html>
-",     revisions=
+</html>",     revisions=
              "<html>
 <ul>
 <li><i>2010/04/30 </i>
@@ -10782,8 +10774,7 @@ Note: A' is a short hand notation of transpose(A):
 <h4>See also</h4>
 <a href=\"modelica://Modelica.Math.Vectors\">Vectors</a>
 
-</HTML>
-"));
+</html>"));
 end Matrices;
 
 
@@ -11389,8 +11380,7 @@ u1 = sin(y) and u2 = cos(y):
 <img src=\"modelica://Modelica/Resources/Images/Math/atan2.png\">
 </p>
 
-</HTML>
-"),        Library="ModelicaExternalC");
+</html>"),        Library="ModelicaExternalC");
 end atan2;
 
 
@@ -11494,8 +11484,7 @@ shall be returned:
 <img src=\"modelica://Modelica/Resources/Images/Math/atan3.png\">
 </p>
 
-</HTML>
-"));
+</html>"));
 end atan3;
 
 
@@ -12398,8 +12387,7 @@ Copyright &copy; 1998-2010, Modelica Association and DLR.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</HTML>
-", revisions="<html>
+</html>", revisions="<html>
 <ul>
 <li><i>October 21, 2002</i>
        by <a href=\"http://www.robotic.dlr.de/Martin.Otter/\">Martin Otter</a>

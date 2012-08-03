@@ -232,8 +232,7 @@ input vector (nin=7):</p>
    output no. 3 is set equal to input no. 3
    output no. 4 is set equal to input no. 2
 </pre>
-</HTML>
-"));
+</html>"));
 end ExtractSignal;
 
 block Extractor
@@ -364,8 +363,7 @@ The output connector is the <b>concatenation</b> of the two input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -417,8 +415,7 @@ explicitly defined via parameters n1 and n2.
 The output connector is the <b>concatenation</b> of the three input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -477,8 +474,7 @@ The output connector is the <b>concatenation</b> of the four input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -543,8 +539,7 @@ The output connector is the <b>concatenation</b> of the five input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -616,8 +611,7 @@ The output connector is the <b>concatenation</b> of the six input connectors.
 Note, that the dimensions of the input connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -674,8 +668,7 @@ The input connector is <b>split</b> up into two output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1 and n2.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -728,8 +721,7 @@ The input connector is <b>splitted</b> up into three output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2 and n3.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -788,8 +780,7 @@ explicitly defined via parameters n1, n2 and n3.
 The input connector is <b>splitted</b> up into four output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3 and n4.
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -854,8 +845,7 @@ explicitly defined via parameters n1, n2, n3 and n4.
 The input connector is <b>splitted</b> up into five output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4 and n5.
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -925,8 +915,7 @@ explicitly defined via parameters n1, n2, n3, n4 and n5.
 The input connector is <b>splitted</b> up into six output connectors.
 Note, that the dimensions of the output connector signals have to be
 explicitly defined via parameters n1, n2, n3, n4, n5 and n6.
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={

@@ -589,8 +589,7 @@ class ReleaseNotes "Release notes"
 First version of the ModelicaServices library.
 </p>
 
-</html>
-"));
+</html>"));
 end ReleaseNotes;
 
 class Contact "Contact"
@@ -621,8 +620,7 @@ class Contact "Contact"
 The design of the Animation.Shape component is from Hilding Elmqvist, Dassault Syst&egrave;mes AB.
 </p>
 
-</html>
-"));
+</html>"));
 
 end Contact;
   annotation(__Dymola_DocumentationClass=true);
@@ -647,8 +645,7 @@ The interface of this model is defined at
 This implementation requires the commercial DLR library \"Visualization\".
 </p>
 
-</html>
-"));
+</html>"));
 end Shape;
 
   model Surface
@@ -668,8 +665,7 @@ The interface of this model is defined at
 This implementation requires the commercial DLR library \"Visualization\".
 </p>
 
-</html>
-"));
+</html>"));
   end Surface;
 end Animation;
 

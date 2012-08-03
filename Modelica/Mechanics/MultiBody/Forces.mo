@@ -159,8 +159,7 @@ This leads to the following animation
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForce2.png\">
 
-</HTML>
-"));
+</html>"));
   end WorldForce;
 
   model WorldTorque
@@ -300,8 +299,7 @@ This leads to the following animation
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldTorque2.png\">
 
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -554,8 +552,7 @@ This leads to the following animation
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/WorldForceAndTorque2.png\">
 
-</HTML>
-"));
+</html>"));
   end WorldForceAndTorque;
 
   model Force
@@ -747,8 +744,7 @@ clarity this is not shown in the animation):
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Force2.png\">
 
-</html>
-"));
+</html>"));
   end Force;
 
   model Torque
@@ -944,8 +940,7 @@ clarity this is not shown in the animation):
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/Torque2.png\">
 
-</HTML>
-"));
+</html>"));
   end Torque;
 
   model ForceAndTorque
@@ -1218,8 +1213,7 @@ clarity this is not shown in the animation):
 
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/Forces/ForceAndTorque2.png\">
 
-</HTML>
-"));
+</html>"));
   end ForceAndTorque;
 
   model LineForceWithMass
@@ -2398,8 +2392,7 @@ where \"c\", \"s_unstretched\" and \"d\" are parameters, \"s\" is the
 distance between the origin of frame_a and the origin of frame_b
 and der(s) is the time derivative of s.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -2515,8 +2508,7 @@ distance between the origin of frame_a and the origin of frame_b.
 \"s_damper\" is the length of the damper (= an internal state of this
 force element) and der(s_damper) is the time derivative of s_damper.
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -2715,8 +2707,7 @@ values from the outside in order that the model remains balanced
 (these constant values are ignored).
 </p>
 
-</HTML>
-"));
+</html>"));
     end BasicForce;
 
     model BasicTorque
@@ -2848,8 +2839,7 @@ vector and the orientation object of frame_resolve must be set to constant
 values from the outside in order that the model remains balanced
 (these constant values are ignored).
 </p>
-</HTML>
-"));
+</html>"));
     end BasicTorque;
 
     model BasicWorldForce
@@ -2953,8 +2943,7 @@ values from the outside in order that the model remains balanced
 (these constant values are ignored).
 </p>
 
-</HTML>
-"));
+</html>"));
     end BasicWorldForce;
 
     model BasicWorldTorque
@@ -3070,8 +3059,7 @@ values from the outside in order that the model remains balanced
 (these constant values are ignored).
 </p>
 
-</HTML>
-"));
+</html>"));
     end BasicWorldTorque;
 
     function standardGravityAcceleration

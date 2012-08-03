@@ -140,8 +140,7 @@ The main features of the library are:
     inverse models can be generated, e.g., when elasticity is present
     it might be necessary to differentiate equations several times.</li>
 </ul>
-</HTML>
-"));
+</html>"));
     end OverView;
 
     class FirstExample "A first example"
@@ -230,8 +229,7 @@ the rotation axis of the revolute joint and the light blue
 shapes represent the body. The center of mass of the body is
 in the middle of the light blue sphere.
 </p>
-</HTML>
-"));
+</html>"));
     end FirstExample;
 
     package LoopStructures "Loop structures"
@@ -754,8 +752,7 @@ that leads to a DAE with 6 algebraic loops and 5 non-linear equations per
 loop. Additionally, a linear system of equations of order 43 is present.
 The simulation time is about 5 times faster with the analytic loop handling.
 </p>
-</HTML>
-"));
+</html>"));
       end AnalyticLoopHandling;
       annotation (Documentation(info="<HTML>
 <p>
@@ -996,8 +993,7 @@ calls in 0.99 should be changed:
    Frames.angularVelocity2(T,der(T)) -> Frames.angularVelocity2(T)
    Frames.from_T(T)                  -> Frames.from_T2(T,der(T))
 </pre>
-</HTML>
-"));
+</html>"));
   end Upgrade;
 
   class Literature "Literature"
@@ -1047,8 +1043,7 @@ dynamical effects is described in:
 </dl>
 </li>
 </ul>
-</html>
-"));
+</html>"));
   end Literature;
 
   class Contact "Contact"
@@ -1090,8 +1085,7 @@ dynamical effects is described in:
      contract number IST 1999-11979.
      </li>
 </ul>
-</html>
-"));
+</html>"));
   end Contact;
 
   annotation (__Dymola_DocumentationClass=true, Documentation(info="<HTML>
@@ -1551,8 +1545,7 @@ support in such a situation, in the icon of a World instance
 two axes of the world frame are shown and the labels
 of these axes can be set via parameters.
 </p>
-</HTML>
-"));
+</html>"));
 end World;
 
 

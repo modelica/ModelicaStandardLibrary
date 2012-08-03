@@ -931,8 +931,7 @@ principal reservation appears to lie in those cases where Mi&gt;&gt;Mj
 and etai&gt;&gt;etaj.<br>
 </p>
 
-</html>
-"));
+</html>"));
 end gasMixtureViscosity;
 
     redeclare replaceable function extends dynamicViscosity
@@ -1144,8 +1143,7 @@ Chem. Res., 27: 671 (1988).<br>
 [3] Chung, T.-H., L. L. Lee, and K. E. Starling; Ing. Eng. Chem.
 Fundam., 23: 3 ()1984).<br>
 </p>
-</html>
-"));
+</html>"));
   end mixtureViscosityChung;
 
 function lowPressureThermalConductivity
@@ -1197,8 +1195,7 @@ thermal conductivity can be estimated satisfactorily by a mole fraction
 average of the pure component conductivities.
 </p>
 
-</html>
-"));
+</html>"));
 end lowPressureThermalConductivity;
 
     redeclare replaceable function extends thermalConductivity

@@ -69,8 +69,7 @@ With this model one axis of the r3 robot is checked.
 The mechanical structure is replaced by a simple
 load inertia.
 </p>
-</HTML>
-"),      experiment(StopTime=1.6),
+</html>"),      experiment(StopTime=1.6),
       __Dymola_Commands(file="modelica://Modelica/Resources/Scripts/Dymola/Mechanics/MultiBody/Examples/Systems/oneAxisPlot.mos"
           "Plot result"));
   end oneAxis;
@@ -533,8 +532,7 @@ and angular acceleration and this information is stored as reference
 motion on the controlBus of the r3 robot.
 </p>
 
-</html>
-"));
+</html>"));
     end PathPlanning1;
 
     model PathPlanning6
@@ -931,8 +929,7 @@ Otherwise, the spring has an unrealistic deflection at initial time.
 Since relative quantities are used as state variables, this simplifies
 the definition of initial values considerably.
 </p>
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -1033,8 +1030,7 @@ The elasticity and damping in the gearboxes of the outermost
 three joints of the robot is neglected.
 Default values for all parameters are given for joint 4.
 </p>
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={
@@ -1281,8 +1277,7 @@ The input of the motor is the desired current
 (the actual current is proportional to the torque
 produced by the motor).
 </p>
-</html>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
@@ -1547,8 +1542,7 @@ leads to significant oscillations.
 <p>
 Default values of the parameters are given for the axis of joint 1.
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
@@ -1864,8 +1858,7 @@ Default values of the parameters are given for the axis of joint 1.
 This model contains the mechanical components of the r3 robot
 (multibody system).
 </p>
-</HTML>
-"),     Icon(coordinateSystem(
+</html>"),     Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-200,-200},{200,200}},
             grid={2,2}), graphics={
@@ -1982,7 +1975,6 @@ axes is used. The parameters have been manually adjusted by
 simulations. The original r3 controllers are more complicated.
 The reason to use simplified controllers is to have a simpler demo.
 </p>
-</HTML>
-"));
+</html>"));
 
 end RobotR3;

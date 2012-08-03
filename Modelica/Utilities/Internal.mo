@@ -47,8 +47,7 @@ This model is documented at
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
-</html>
-"));
+</html>"));
 
   end PartialShape;
 

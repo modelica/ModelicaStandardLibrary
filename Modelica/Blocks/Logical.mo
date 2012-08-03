@@ -460,8 +460,7 @@ between the two possible input signals
 u1 (upper connector) and u3 (lower connector).</p>
 <p>If u2 is true, connector y is set equal to
 u1, else it is set equal to u3.</p>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -521,8 +520,7 @@ between the two possible input signals
 u1 (upper connector) and u3 (lower connector).</p>
 <p>If u2 is <b>true</b>, the output signal y is set equal to
 u1, else it is set equal to u3.</p>
-</html>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics={
@@ -698,8 +696,7 @@ The start value of the output is defined via parameter
 <b>pre_y_start</b> (= value of pre(y) at initial time).
 The default value of this parameter is <b>false</b>.
 </p>
-</HTML>
-"));
+</html>"));
   end Hysteresis;
 
   block OnOffController "On-off controller"
@@ -746,8 +743,7 @@ The default value of this parameter is <b>false</b>.
 the input signal <b>u</b> falls below the <b>reference</b> signal minus half of
 the bandwidth and sets the output signal <b>y</b> to <b>false</b> when the input
 signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.</p>
-</html>
-"));
+</html>"));
   end OnOffController;
 
   block TriggeredTrapezoid "Triggered trapezoid generator"
@@ -933,8 +929,7 @@ during <i>falling</i> to a value of <i>offset</i>.
 </p>
 <p>Note, that the case of edges before expiration of rising or falling is
 handled properly.</p>
-</HTML>
-"));
+</html>"));
   end TriggeredTrapezoid;
 
   block Timer
@@ -1011,8 +1006,7 @@ and the output \"y\" is the time from the time instant where u became true.
 The timer is stopped and the output is reset to zero, once the
 input becomes false.
 </p>
-</HTML>
-"));
+</html>"));
   end Timer;
 
   block RSFlipFlop "A basic RS Flip Flop"

@@ -68,11 +68,9 @@ function exit "Terminate execution of Modelica environment"
   annotation(Library="ModelicaExternalC");
 end exit;
     annotation (
-Documentation(info="
-<HTML>
+Documentation(info="<html>
 <p>
 This package contains functions to interact with the environment.
 </p>
-</HTML>
-"));
+</html>"));
 end System;

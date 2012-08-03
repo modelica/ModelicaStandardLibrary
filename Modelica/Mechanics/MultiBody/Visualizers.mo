@@ -149,8 +149,7 @@ respectively. The predefined type
 definition of the colors used in the MultiBody library
 (this will be replaced by a color editor).
 </p>
-</HTML>
-"),   Icon(coordinateSystem(
+</html>"),   Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
@@ -394,8 +393,7 @@ with respect to frame_a is specified via parameter
 vector <b>r</b>.
 </p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/MultiBody/FixedTranslation.png\" ALT=\"Parts.FixedTranslation\">
-</HTML>
-"));
+</html>"));
   end FixedShape2;
 
   model FixedFrame
@@ -2078,8 +2076,7 @@ model where a <b>Shape</b> instance is used, e.g., in the form
 <pre>
     Visualizers.Advanced.Shape shape(length = sin(time));
 </pre>
-</HTML>
-"));
+</html>"));
     end Shape;
 
     model Surface
@@ -2660,8 +2657,7 @@ The diameter and color of all line cylinders are identical
 and are defined by parameters.
 </p>
 
-</HTML>
-"));
+</html>"));
 
     end Lines;
 

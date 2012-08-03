@@ -89,8 +89,7 @@ package IF97_Utilities
  <li>Initial version: July 2000</li>
  <li>Documentation added: December 2002</li>
 </ul>
-</HTML>
-"));
+</html>"));
     end data;
 
     function getTstar "get normalization temperature for region 1, 2 or 5"
@@ -156,8 +155,7 @@ package IF97_Utilities
  <li>Initial version: July 2000</li>
  <li>Documentation added: December 2002</li>
 </ul>
-</HTML>
-"));
+</html>"));
     end critical;
 
     record triple "triple point data"
@@ -188,8 +186,7 @@ package IF97_Utilities
  <li>Initial version: July 2000</li>
  <li>Documentation added: December 2002</li>
 </ul>
-</HTML>
-"));
+</html>"));
     end triple;
 
     package Regions
@@ -1590,8 +1587,7 @@ package IF97_Utilities
  <li>Initial version: July 2000</li>
  <li>Revised and extended for inclusion in Modelica.Thermal: December 2002</li>
 </ul>
-</HTML>
-"));
+</html>"));
     end Regions;
 
     //===================================================================
@@ -3097,8 +3093,7 @@ package IF97_Utilities
   Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
   Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end p1_hs;
 
       function h2ab_s "boundary between regions 2a and 2b"
@@ -3123,8 +3118,7 @@ package IF97_Utilities
   Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
   Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end h2ab_s;
 
       function p2a_hs
@@ -3161,8 +3155,7 @@ package IF97_Utilities
   Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
   Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end p2a_hs;
 
     function p2b_hs
@@ -3200,8 +3193,7 @@ Supplementary Release on&nbsp; Backward Equations for Pressure as a
 Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
 Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
 </p>
-      </html>
-"));
+      </html>"));
     end p2b_hs;
 
       function p2c_hs
@@ -3239,8 +3231,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
       Function of Enthalpy and Entropy p(h,s) to the IAPWS Industrial
       Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
    </p>
-      </html>
-      "));
+      </html>"));
       end p2c_hs;
 
       // Inverses from the 2003 additions to IF97
@@ -3697,8 +3688,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end pmIceI_T;
 
       function pmIceIII_T
@@ -3723,8 +3713,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end pmIceIII_T;
 
       function pmIceV_T
@@ -3750,8 +3739,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end pmIceV_T;
 
       function sublimationPressure_T
@@ -3777,8 +3765,7 @@ Formulation 1997 for the Thermodynamic Properties of Water and Steam<br>
   Release on the Pressure along the Melting and the Sublimation Curves of
   Ordinary Water Substance<br>
 </p>
-  </html>
-  "));
+  </html>"));
       end sublimationPressure_T;
 
       annotation (Documentation(info="<html>
@@ -3789,8 +3776,7 @@ September 1993<br>
 Release on the Pressure along the Melting and the Sublimation Curves of
 Ordinary Water Substance<br>
 </p>
-</html>
-"));
+</html>"));
   end IceBoundaries;
 
     package Transport "transport properties for water according to IAPWS/IF97"
@@ -4081,8 +4067,7 @@ Ordinary Water Substance<br>
           <ul>
           <li>Initial version: October 2002</li>
           </ul>
-          </HTML>
-          "));
+          </html>"));
     end Transport;
 
     package Isentropic
@@ -4682,8 +4667,7 @@ Ordinary Water Substance<br>
           <li>Initial version: July 2000</li>
           <li>Documentation added: December 2002</li>
           </ul>
-          </HTML>
-          "));
+          </html>"));
     end Isentropic;
     //work needed: (Pr,lam,eta) = f(d,T,p, region?)
     package Inverses "efficient inverses for selected pairs of variables"
@@ -5299,8 +5283,7 @@ Ordinary Water Substance<br>
           <li>Initial version: July 2000</li>
           <li>Documentation added: December 2002</li>
           </ul>
-          </HTML>
-          "));
+          </html>"));
     end Inverses;
 
     package ByRegion "simple explicit functions for one region only"
@@ -5394,8 +5377,7 @@ Ordinary Water Substance<br>
           <li>Initial version: July 2000</li>
           <li>Documented and re-organized: January 2003</li>
           </ul>
-          </HTML>
-          "));
+          </html>"));
     end ByRegion;
 
     package TwoPhase
@@ -5640,8 +5622,7 @@ Ordinary Water Substance<br>
           <li>Initial version: July 2000</li>
           <li>Documented and re-organized: January 2003</li>
           </ul>
-          </HTML>
-"));
+          </html>"));
     end TwoPhase;
 
     function extraDerivs_ph

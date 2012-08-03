@@ -253,8 +253,7 @@ Entropy is calculated as
 <p>
 which is only exactly true for a fluid with constant density d=d0.
 </p>
-</html>
-      "));
+</html>"));
     end BaseProperties;
 
     redeclare function extends setState_pTX
@@ -717,8 +716,7 @@ Modelica in file \"Modelica/package.mo\".
 </i>
 </p>
 
-</HTML>
-",     revisions="<html>
+</html>",     revisions="<html>
 <ul>
 <li><i>Oct. 22, 2004</i> by Martin Otter (DLR):<br>
        Renamed functions to not have abbrevations.<br>
