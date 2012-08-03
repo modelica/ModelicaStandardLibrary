@@ -63,8 +63,7 @@ model System
 Your model is using an outer \"system\" component but
 an inner \"system\" component is not defined.
 For simulation drag Modelica.Fluid.System into your model
-to specify system properties. The default System setting
-is used for the current simulation.
+to specify system properties.
 ",  Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
             100}}), graphics={
         Rectangle(
