@@ -6402,7 +6402,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
     phase := if ((s < sl_p(p) or s > sv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end phase_ps;
 
   function phase_ph "phase as a function of  pressure and specific enthalpy"
@@ -6412,7 +6412,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output Integer phase "true if in liquid or gas or supercritical region";
   algorithm
     phase := if ((h < hl_p(p) or h > hv_p(p)) or p > BaseIF97.data.PCRIT) then 1 else 2;
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end phase_ph;
 
   function phase_dT "phase as a function of  pressure and temperature"
@@ -6423,7 +6423,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
   algorithm
     phase := if not ((rho < rhol_T(T) and rho > rhov_T(T)) and T < BaseIF97.
       data.TCRIT) then 1 else 2;
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end phase_dT;
 
   function rho_props_ph "density as function of pressure and specific enthalpy"
@@ -6980,7 +6980,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificEntropy s "specific entropy";
   algorithm
     s := s_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end s_pT;
 
   function cv_props_pT
@@ -7008,7 +7008,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cv "specific heat capacity";
   algorithm
     cv := cv_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end cv_pT;
 
   function cp_props_pT
@@ -7038,7 +7038,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.SpecificHeatCapacity cp "specific heat capacity";
   algorithm
     cp := cp_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end cp_pT;
 
   function beta_props_pT
@@ -7067,7 +7067,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
     output SI.RelativePressureCoefficient beta "isobaric expansion coefficient";
   algorithm
     beta := beta_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end beta_pT;
 
   function kappa_props_pT
@@ -7097,7 +7097,7 @@ of Water and Steam. ASME Journal of Engineering for Gas Turbines and Power 122 (
       "isothermal compressibility factor";
   algorithm
     kappa := kappa_props_pT(p, T, waterBaseProp_pT(p, T, region));
-    annotation (__Dymola_InlineNoEvent=false);
+    annotation (GenerateEvents=true);
   end kappa_pT;
 
   function velocityOfSound_props_pT
