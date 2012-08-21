@@ -211,12 +211,14 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (experiment(StopTime=0.1));
     end SimpleAir;
 
+    model MoistAir
+      extends Modelica.Icons.Example;
+      extends PartialMediumFunctions(redeclare package Medium =
+            Modelica.Media.Air.MoistAir);
+    end MoistAir;
+
     package IncompleteMedia
       extends Modelica.Icons.ExamplesPackage;
-      model MoistAir
-        extends PartialMediumFunctions(redeclare package Medium =
-              Modelica.Media.Air.MoistAir);
-      end MoistAir;
 
       model Glycol47
         extends PartialMediumFunctions(redeclare package Medium =
