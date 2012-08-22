@@ -3817,7 +3817,7 @@ Ordinary Water Substance<br>
         constant Real n1=0.978197 "viscosity coefficient";
         constant Real n2=0.579829 "viscosity coefficient";
         constant Real n3=-0.202354 "viscosity coefficient";
-        constant Real[42] nn=array(.5132047, 0.3205656, 0.0, 0.0, -0.7782567,
+        constant Real[42] nn=array(0.5132047, 0.3205656, 0.0, 0.0, -0.7782567,
             0.1885447, 0.2151778, 0.7317883, 1.241044, 1.476783, 0.0, 0.0, -0.2818107,
              -1.070786, -1.263184, 0.0, 0.0, 0.0, 0.1778064, 0.460504,
             0.2340379, -0.4924179, 0.0, 0.0, -0.0417661, 0.0, 0.0, 0.1600435,
