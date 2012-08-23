@@ -1,15 +1,15 @@
 within ;
 package Modelica "Modelica Standard Library (Version 3.1)"
 extends Modelica.Icons.Library;
- 
+
 package UsersGuide "User's Guide"
 
 class Overview "Overview of Modelica Library"
 
  annotation (Documentation(info="<html>
 <p>
-The Modelica Standard Library consists of the following 
-main sub-libraries: 
+The Modelica Standard Library consists of the following
+main sub-libraries:
 </p>
 
 <table border=1 cellspacing=0 cellpadding=2>
@@ -5118,6 +5118,7 @@ preferredView="info",
 version="3.1",
 versionBuild=9,
 versionDate="2009-08-14",
+uses(ModelicaServices(version="1.0")),
 dateModified = "2012-03-06 21:00:00Z",
 revisionId="$Id::                                       $",
 conversion(
