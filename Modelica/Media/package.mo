@@ -5729,7 +5729,7 @@ end PartialMixtureMedium;
       annotation(Documentation(info="<html></html>"));
     end surfaceTension;
 
-      redeclare replaceable partial function extends molarMass
+      redeclare replaceable function extends molarMass
       "Return the molar mass of the medium"
       algorithm
         MM := fluidConstants[1].molarMass;
