@@ -4817,6 +4817,7 @@ Ordinary Water Substance<br>
         SI.Density dmax "upper density limit";
         SI.Temperature Tmax "maximum temperature";
       algorithm
+        found := false;
         assert(p >= data.PLIMIT4A,
           "BaseIF97.dofpt3: function called outside of region 3! p too low\n" +
           "p = " + String(p) + " Pa < " + String(data.PLIMIT4A) + " Pa");
@@ -4896,7 +4897,7 @@ Ordinary Water Substance<br>
           "dimensionless Helmholtz function and dervatives w.r.t. delta and tau";
         Modelica.Media.Common.NewtonDerivatives_ph nDerivs
           "derivatives needed in Newton iteration";
-        Boolean found "flag for iteration success";
+        Boolean found = false "flag for iteration success";
         Integer subregion "1 for subregion 3a, 2 for subregion 3b";
       algorithm
         if p < data.PCRIT then
