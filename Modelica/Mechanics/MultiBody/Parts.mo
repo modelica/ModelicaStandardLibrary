@@ -1933,7 +1933,7 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of cylinder representing the rotor"
-      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2372,7 +2372,7 @@ November 3-4, 2003, pp. 149-158</p>
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheel"    annotation (Dialog(colorSelector=true,
+      "Color of wheel"    annotation (Dialog(__Dymola_colorSelector=true,
           tab="Animation",
           group="if animation = true",
           enable=animation));
@@ -2489,7 +2489,7 @@ November 3-4, 2003, pp. 149-158</p>
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheels"    annotation (Dialog(colorSelector=true,
+      "Color of wheels"    annotation (Dialog(__Dymola_colorSelector=true,
           tab="Animation",
           group="if animation = true",
           enable=animation));

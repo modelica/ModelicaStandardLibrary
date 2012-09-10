@@ -168,7 +168,7 @@ density and heat capacity as functions of temperature.</li>
     constant Boolean hasVaporPressure = not (size(tableVaporPressure,1)==0)
       "true if table tableVaporPressure is present";
     final constant Real invTK[neta] = if size(tableViscosity,1) > 0 then
-      (if TinK then 1 ./ tableViscosity[:,1] else 1 ./ Cv.from_degC(tableViscosity[:,1])) else fill(0,neta);
+        (if TinK then 1 ./ tableViscosity[:,1] else 1 ./ Cv.from_degC(tableViscosity[:,1])) else fill(0,neta);
     final constant Real poly_rho[:] = if hasDensity then
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npolDensity) else
                                            zeros(npolDensity+1) annotation(__Dymola_keepConstant = true);

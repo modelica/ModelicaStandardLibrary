@@ -791,7 +791,7 @@ required from medium model \""   + mediumName + "\".");
                                  data[i], T)*X[i]) for i in 1:nX)+
       sum((Modelica.Media.IdealGases.Common.Functions.h_T(
                              data[i], T)*dX[i]) for i in 1:nX);
-    annotation (GenerateEvents=true, Inline = false);
+    annotation (__Dymola_InlineNoEvent=false, Inline = false);
   end h_TX_der;
 
   redeclare function extends gasConstant "Return gasConstant"
