@@ -136,13 +136,13 @@ package Sensors "Sensors to measure variables"
           origin={100,-46})));
 
   protected
-    Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector
+    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector
       transformVector_a(
         frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
         frame_r_out=resolveInFrame) if
          get_a
       annotation (Placement(transformation(extent={{-10,-70},{-30,-50}})));
-    Modelica.Mechanics.MultiBody.Sensors.TansformAbsoluteVector
+    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector
       transformVector_z(
         frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
         frame_r_out=resolveInFrame) if
@@ -614,15 +614,15 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       annotation (Placement(transformation(extent={{70,50},{50,70}})));
 
   protected
-    Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector
+    Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
       transformVector_v_rel(                       frame_r_in=resolveInFrame,
         frame_r_out=resolveInFrameAfterDifferentiation) if get_v_rel
       annotation (Placement(transformation(extent={{-70,-64},{-50,-44}})));
-    Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector
+    Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
       transformVector_a_rel(                       frame_r_in=resolveInFrame,
         frame_r_out=resolveInFrameAfterDifferentiation) if get_a_rel
       annotation (Placement(transformation(extent={{-30,-80},{-10,-60}})));
-    Modelica.Mechanics.MultiBody.Sensors.TansformRelativeVector
+    Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
       transformVector_z_rel(                       frame_r_in=resolveInFrame,
         frame_r_out=resolveInFrameAfterDifferentiation) if
          get_z_rel
@@ -1137,7 +1137,8 @@ computed as:
           extent={{-20,-20},{0,0}},
           rotation=0,
           origin={10,10})));
-    TansformAbsoluteVector tansformAbsoluteVector(
+    Modelica.Mechanics.MultiBody.Sensors.TransformAbsoluteVector
+                           tansformAbsoluteVector(
       frame_r_in=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
         frame_r_out=resolveInFrame) annotation (Placement(transformation(
           extent={{10,-10},{-10,10}},
@@ -1608,7 +1609,8 @@ computed as:
           extent={{-20,-20},{0,0}},
           rotation=-90,
           origin={10,-40})));
-    TansformRelativeVector tansformRelativeVector(
+    Modelica.Mechanics.MultiBody.Sensors.TransformRelativeVector
+                           tansformRelativeVector(
         frame_r_in= Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
         frame_r_out=resolveInFrame)
       annotation (Placement(transformation(extent={{-10,-80},{10,-60}})));
@@ -2527,7 +2529,7 @@ as output signal <b>power</b>.
 </HTML>"));
   end Power;
 
-  model TansformAbsoluteVector "Transform absolute vector in to another frame"
+  model TransformAbsoluteVector "Transform absolute vector in to another frame"
     extends Modelica.Icons.RotationalSensor;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_a frame_a
@@ -2639,9 +2641,9 @@ coordinate system defined with parameter \"frame_r_out\" and returns the
 transformed output vector as \"Real r_out[3]\";
 </p>
 </html>"));
-  end TansformAbsoluteVector;
+  end TransformAbsoluteVector;
 
-  model TansformRelativeVector "Transform relative vector in to another frame"
+  model TransformRelativeVector "Transform relative vector in to another frame"
     extends Internal.PartialRelativeSensor;
 
     Modelica.Mechanics.MultiBody.Interfaces.Frame_resolve frame_resolve if
@@ -2738,7 +2740,7 @@ coordinate system defined with parameter \"frame_r_out\" and returns the
 transformed output vector as \"Real r_out[3]\";
 </p>
 </html>"));
-  end TansformRelativeVector;
+  end TransformRelativeVector;
 
   package Internal "Internal package, should not be used by user"
     extends Modelica.Icons.Package;
@@ -3508,4 +3510,15 @@ coordinate system.
 </p>
 
 </html>"));
+  model TansformAbsoluteVector
+    "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
+    extends TransformAbsoluteVector;
+    extends Modelica.Icons.ObsoleteModel;
+  end TansformAbsoluteVector;
+
+  model TansformRelativeVector
+    "Obsolete model will be removed in future versions, use TransformRelativeVector instead!"
+    extends TransformRelativeVector;
+    extends Modelica.Icons.ObsoleteModel;
+  end TansformRelativeVector;
 end Sensors;
