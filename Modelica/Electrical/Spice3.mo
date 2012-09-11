@@ -11340,8 +11340,6 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
         extends Modelica.Icons.Record;
         extends Modelica.Icons.ObsoleteModel;
         extends Bjt3Variables;
-        extends Modelica.Icons.Record;
-        extends Modelica.Icons.ObsoleteModel;
 
         Real m_CScap= 1;
 
