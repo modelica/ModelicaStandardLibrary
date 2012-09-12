@@ -3494,6 +3494,66 @@ a linear damper is connected here.
       annotation (experiment(StopTime=1.1));
     end JointSSP;
 
+    model CheckConstaintTorqueUniversalJoint
+      extends Modelica.Icons.Example;
+
+      inner Modelica.Mechanics.MultiBody.World world
+        annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute_x(n={1,0,0})
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute_y(n={0,1,0})
+        annotation (Placement(transformation(extent={{-20,10},{0,30}})));
+      Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(r={1,0,0})
+        annotation (Placement(transformation(extent={{20,10},{40,30}})));
+      Modelica.Mechanics.MultiBody.Forces.WorldTorque torque
+        annotation (Placement(transformation(extent={{-20,-40},{0,-60}})));
+      Modelica.Blocks.Sources.Constant signalTorque_y(k=3)
+        annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
+      Modelica.Blocks.Sources.Constant signalTorque_x(k=2)
+        annotation (Placement(transformation(extent={{-60,-30},{-40,-10}})));
+      Modelica.Blocks.Sources.Constant signalTorque_z(k=4)
+        annotation (Placement(transformation(extent={{-60,-90},{-40,-70}})));
+    equation
+      connect(world.frame_b, revolute_x.frame_a)
+                                               annotation (Line(
+          points={{-80,20},{-60,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute_x.frame_b, revolute_y.frame_a)
+                                                   annotation (Line(
+          points={{-40,20},{-20,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute_y.frame_b, bodyCylinder.frame_a)
+                                                       annotation (Line(
+          points={{0,20},{20,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(torque.frame_b, bodyCylinder.frame_a) annotation (Line(
+          points={{0,-50},{10,-50},{10,20},{20,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(signalTorque_x.y, torque.torque[1])
+                                          annotation (Line(
+          points={{-39,-20},{-30,-20},{-30,-48.6667},{-22,-48.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(signalTorque_y.y, torque.torque[2])
+                                         annotation (Line(
+          points={{-39,-50},{-22,-50}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(signalTorque_z.y, torque.torque[3])
+                                          annotation (Line(
+          points={{-39,-80},{-30,-80},{-30,-51.3333},{-22,-51.3333}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (Diagram(graphics));
+    end CheckConstaintTorqueUniversalJoint;
   end Joints;
 
   package Parts "Test MultiBody.Parts"
