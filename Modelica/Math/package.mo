@@ -825,8 +825,8 @@ where <b>Q</b> is an orthogonal matrix, i.e.
     protected
         Integer np=size(p, 1);
         Integer n=size(p, 1) - 1;
-        Real A[max(n, 0),max(n, 0)] "Companion matrix";
-        Real ev[max(n, 0),2] "Eigenvalues";
+        Real A[max(size(p, 1) - 1, 0),max(size(p, 1) - 1, 0)] "Companion matrix";
+        Real ev[max(size(p, 1) - 1, 0),2] "Eigenvalues";
       algorithm
         if n > 0 then
           assert(abs(p[1]) > 0, "Computing the roots of a polynomial with function \"Modelica.Math.Vectors.Utilities.roots\"\n"
@@ -2112,7 +2112,7 @@ matrices <code>U</code> and <code>V</code>.
   protected
     Integer nrow=size(A, 1);
     Integer ncol=size(A, 2);
-    Real tau[ncol];
+    Real tau[size(A, 2)];
   algorithm
     assert(nrow >= ncol, "\nInput matrix A[" + String(nrow) + "," + String(ncol) + "] has more columns as rows.
 This is not allowed when calling Modelica.Matrices.QR(A).");
@@ -2727,7 +2727,7 @@ x = inv(A)*b, because this is much more efficient and much more reliable.
   protected
     Integer n=min(size(A, 1), size(A, 2));
     Integer i=n;
-    Real sigma[n];
+    Real sigma[min(size(A, 1), size(A, 2))];
     Real eps2;
   algorithm
     result := 0;
@@ -4240,19 +4240,19 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
   protected
     Integer n=size(A, 1);
     Integer m=size(B, 1);
-    Real H[n,n] "Hessenberg form  of A, i.e., H=U'AU";
-    Real U[n,n] "Transformation matrix U for H=U'AU";
-    Real S[m,m] "RSF form  of B, i.e., S=Z'BZ";
-    Real Z[m,m] "Transformation matrix Z for S=Z'BZ";
-    Real F[n,m] "Appropriate transformation of the right side C, F=U'*C*Z";
+    Real H[size(A, 1),size(A, 1)] "Hessenberg form  of A, i.e., H=U'AU";
+    Real U[size(A, 1),size(A, 1)] "Transformation matrix U for H=U'AU";
+    Real S[size(B, 1),size(B, 1)] "RSF form  of B, i.e., S=Z'BZ";
+    Real Z[size(B, 1),size(B, 1)] "Transformation matrix Z for S=Z'BZ";
+    Real F[size(A, 1),size(B, 1)] "Appropriate transformation of the right side C, F=U'*C*Z";
 
-    Real R22[n,n];
-    Real R11[n,n];
+    Real R22[size(A, 1),size(A, 1)];
+    Real R11[size(A, 1),size(A, 1)];
     Integer k;
 
-    Real w[n];
-    Real g[n];
-    Real y[2*n];
+    Real w[size(A, 1)];
+    Real g[size(A, 1)];
+    Real y[2*size(A, 1)];
     Boolean crit;
 
   public
@@ -4427,15 +4427,15 @@ The boolean inputs \"AisHess\" and \"BTisSchur\" indicate to omit one or both of
   protected
     Integer n=size(A, 1);
     Real G[size(A, 1),size(A, 1)]=B*Matrices.solve2(R, transpose(B));
-    Real AT[n,n]=transpose(A);
-    Real LU[n,n];
-    Integer p[n];
-    Real H[2*n,2*n];
-    Real H11[n,n];
-    Real H12[n,n];
-    Real H21[n,n];
-    Real H22[n,n];
-    Real H_RSF[2*n,2*n];
+    Real AT[size(A, 1),size(A, 1)]=transpose(A);
+    Real LU[size(A, 1),size(A, 1)];
+    Integer p[size(A, 1)];
+    Real H[2*size(A, 1),2*size(A, 1)];
+    Real H11[size(A, 1),size(A, 1)];
+    Real H12[size(A, 1),size(A, 1)];
+    Real H21[size(A, 1),size(A, 1)];
+    Real H22[size(A, 1),size(A, 1)];
+    Real H_RSF[2*size(A, 1),2*size(A, 1)];
     Real Z[size(H, 1),size(H, 2)];
     Real Z11[size(A, 1),size(A, 2)];
     Real Z21[size(A, 1),size(A, 2)];
@@ -4890,8 +4890,8 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
     protected
       Integer n=size(A, 1);
       Integer lwork=12*n;
-      Real Awork[n, n]=A;
-      Real work[lwork];
+      Real Awork[size(A, 1), size(A, 1)]=A;
+      Real work[12*size(A, 1)];
 
     external "Fortran 77" dgeev("N", "V", n, Awork, n, eigenReal, eigenImag,
         eigenVectors, n, eigenVectors, n, work, size(work, 1), info)
@@ -4990,7 +4990,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
     protected
       Integer lwork=8*size(A, 1);
       Real Awork[size(A, 1), size(A, 1)]=A;
-      Real work[lwork];
+      Real work[8*size(A, 1)];
       Real EigenvectorsL[size(A, 1), size(A, 1)]=zeros(size(A, 1), size(A, 1));
 
       /*
@@ -5095,9 +5095,9 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
     protected
       Integer n=size(A, 1);
       Integer lwork=12*n;
-      Real Awork[n, n]=A;
-      Real Bwork[n, n]=B;
-      Real work[lwork];
+      Real Awork[size(A, 1), size(A, 1)]=A;
+      Real Bwork[size(A, 1), size(A, 1)]=B;
+      Real work[12*size(A, 1)];
       Real dummy1[1,1];
       Real dummy2[1,1];
 
@@ -5258,7 +5258,7 @@ are computed, then only the diagonal blocks will be correct.
       input Real A[:, :];
       input Real B[size(A,1), :];
       input Real rcond=0.0 "Reciprocal condition number to estimate rank";
-      output Real X[max(nrow,ncol),nrhs]= cat(1,B,zeros(max(nrow,ncol)-nrow,nrhs))
+      output Real X[max(size(A,1),size(A,2)),size(B,2)]= cat(1,B,zeros(max(nrow,ncol)-nrow,nrhs))
         "Solution is in first size(A,2) rows";
       output Integer info;
       output Integer rank "Effective rank of A";
@@ -5268,9 +5268,9 @@ are computed, then only the diagonal blocks will be correct.
       Integer nx=max(nrow,ncol);
       Integer nrhs=size(B,2);
       Integer lwork=max( min(nrow,ncol)+3*ncol, 2*min(nrow,ncol)+nrhs);
-      Real work[lwork];
-      Real Awork[nrow,ncol]=A;
-      Integer jpvt[ncol]=zeros(ncol);
+      Real work[max(min(size(A,1),size(A,2))+3*size(A,2), 2*min(size(A,1),size(A,2))+size(B,2))];
+      Real Awork[size(A,1),size(A,2)]=A;
+      Integer jpvt[size(A,2)]=zeros(ncol);
       external "FORTRAN 77" dgelsx(nrow, ncol, nrhs, Awork, nrow, X, nx, jpvt,
                                   rcond, rank, work, lwork, info) annotation (Library="Lapack");
 
@@ -5375,7 +5375,7 @@ are computed, then only the diagonal blocks will be correct.
       input Real A[:, :];
       input Real b[size(A,1)];
       input Real rcond=0.0 "Reciprocal condition number to estimate rank";
-      output Real x[max(nrow,ncol)]= cat(1,b,zeros(max(nrow,ncol)-nrow))
+      output Real x[max(size(A,1),size(A,2))]= cat(1,b,zeros(max(nrow,ncol)-nrow))
         "solution is in first size(A,2) rows";
       output Integer info;
       output Integer rank "Effective rank of A";
@@ -5383,10 +5383,10 @@ are computed, then only the diagonal blocks will be correct.
       Integer nrow=size(A,1);
       Integer ncol=size(A,2);
       Integer nx=max(nrow,ncol);
-      Integer lwork=max( min(nrow,ncol)+3*ncol, 2*min(nrow,ncol)+1);
-      Real work[lwork];
-      Real Awork[nrow,ncol]=A;
-      Integer jpvt[ncol]=zeros(ncol);
+      Integer lwork=max(min(nrow,ncol)+3*ncol, 2*min(nrow,ncol)+1);
+      Real work[max(min(size(A,1),size(A,2))+3*size(A,2), 2*min(size(A,1),size(A,2))+1)];
+      Real Awork[size(A,1),size(A,2)]=A;
+      Integer jpvt[size(A,2)]=zeros(ncol);
       external "FORTRAN 77" dgelsx(nrow, ncol, 1, Awork, nrow, x, nx, jpvt,
                                   rcond, rank, work, lwork, info) annotation (Library="Lapack");
 
@@ -5490,7 +5490,7 @@ are computed, then only the diagonal blocks will be correct.
       extends Modelica.Icons.Function;
       input Real A[:, :];
       input Real b[size(A,1)];
-      output Real x[nx]= cat(1,b,zeros(nx-nrow))
+      output Real x[max(size(A,1),size(A,2))]= cat(1,b,zeros(nx-nrow))
         "solution is in first size(A,2) rows";
       output Integer info;
     protected
@@ -5498,8 +5498,8 @@ are computed, then only the diagonal blocks will be correct.
       Integer ncol=size(A,2);
       Integer nx=max(nrow,ncol);
       Integer lwork=min(nrow,ncol) + nx;
-      Real work[lwork];
-      Real Awork[nrow,ncol]=A;
+      Real work[size(A,1) + size(A,2)];
+      Real Awork[size(A,1),size(A,2)]=A;
       external "FORTRAN 77" dgels("N", nrow, ncol, 1, Awork, nrow, x,
                                   nx, work, lwork, info) annotation (Library="Lapack");
 
@@ -5693,12 +5693,12 @@ For details of the arguments, see documentation of dgesv.
       Integer nrow_A=size(A,1);
       Integer nrow_B=size(B,1);
       Integer ncol_A=size(A,2) "(min=nrow_B,max=nrow_A+nrow_B) required";
-      Real Awork[nrow_A,ncol_A]=A;
-      Real Bwork[nrow_B,ncol_A]=B;
-      Real cwork[nrow_A] = c;
-      Real dwork[nrow_B] = d;
+      Real Awork[size(A,1),size(A,2)]=A;
+      Real Bwork[size(B,1),size(A,2)]=B;
+      Real cwork[size(A,1)] = c;
+      Real dwork[size(B,1)] = d;
       Integer lwork=ncol_A + nrow_B + max(nrow_A, max(ncol_A, nrow_B))*5;
-      Real work[lwork];
+      Real work[size(A,2) + size(B,1) + max(size(A,1), max(size(A,2), size(B,1)))*5];
       external "FORTRAN 77" dgglse(nrow_A, ncol_A, nrow_B, Awork, nrow_A,
                                    Bwork, nrow_B, cwork, dwork, x,
                                    work, lwork, info)             annotation (Library="Lapack");
@@ -5992,7 +5992,7 @@ elements of U because of fill-in resulting from the row interchanges."));
     protected
       Real Awork[size(A, 1), size(A, 2)]=A;
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[lwork];
+      Real work[5*size(A, 1) + 5*size(A, 2)];
 
     external "Fortran 77" dgesvd("A", "A", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
@@ -6106,7 +6106,7 @@ elements of U because of fill-in resulting from the row interchanges."));
       Real U[size(A, 1), size(A, 1)];
       Real VT[size(A, 2), size(A, 2)];
       Integer lwork=5*size(A, 1) + 5*size(A, 2);
-      Real work[lwork];
+      Real work[5*size(A, 1) + 5*size(A, 2)];
 
     external "Fortran 77" dgesvd("N", "N", size(A, 1), size(A, 2), Awork, size(
         A, 1), sigma, U, size(A, 1), VT, size(A, 2), work, lwork, info)
@@ -6424,7 +6424,7 @@ INFO    (output) INTEGER
       Integer lda=max(1,size(LU, 1));
       Integer lwork=max(1,min(10, size(LU, 1))*size(LU, 1))
         "Length of work array";
-      Real work[lwork];
+      Real work[max(1,min(10, size(LU, 1))*size(LU, 1))];
 
     external "FORTRAN 77" dgetri(size(LU, 1), inv, lda, pivots, work, lwork, info) annotation (Library="Lapack");
       annotation (
@@ -6487,7 +6487,7 @@ INFO    (output) INTEGER
     protected
       Integer lda=max(1,size(A, 1));
       Integer ncol=size(A, 2) "Column dimension of A";
-      Real work[3*ncol] "work array";
+      Real work[3*size(A, 2)] "work array";
     external "FORTRAN 77" dgeqpf(size(A, 1), ncol, QR, lda, p, tau, work,
          info) annotation (Library={"Lapack"});
       annotation (
@@ -6562,7 +6562,7 @@ then the jth column of P is the ith canonical unit vector."));
       Integer lda=max(1,size(Q, 1));
       Integer lwork=max(1,min(10, size(QR, 2))*size(QR, 2))
         "Length of work array";
-      Real work[lwork];
+      Real work[max(1,min(10, size(QR, 2))*size(QR, 2))];
     external "FORTRAN 77" dorgqr(size(QR, 1), size(QR, 2), size(tau, 1), Q,
         lda,  tau, work, lwork, info) annotation (Library={"Lapack"});
       annotation (
@@ -6634,7 +6634,7 @@ INFO    (output) INTEGER
       Integer n=size(A, 1) "Row dimension of A";
       Integer lda=max(1,n);
       Integer sdim=0;
-      Boolean bwork[n];
+      Boolean bwork[size(A, 1)];
 
       external "FORTRAN 77" c_inter_dgees("V", "N", n, T, lda, sdim, eval_real, eval_imag, Z, lda, bwork, info)
       annotation (Include="
@@ -6804,9 +6804,9 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       Integer ldq=if compq == "V" then max(n,1) else 1;
       Integer lwork=if job == "N" then max(1, n) else if job == "E" then n*n else 2
           *n*n;
-      Real work[lwork];
+      Real work[if job == "N" then max(1, size(T, 2)) else if job == "E" then size(T, 2)*size(T, 2) else 2*size(T, 2)*size(T, 2)];
       Integer liwork=if job == "N" or job == "E" then 1 else n*n;
-      Integer iwork[liwork];
+      Integer iwork[if job == "N" or job == "E" then 1 else size(T, 2)*size(T, 2)];
 
     public
       output Real To[:,:]=T "Reordered Schur form";
@@ -7496,7 +7496,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       output Real Ho[:,:]=H
         "Schur decomposition (if eigenValuesOnly==false, unspecified else))";
       output Real Zo[:,:]=Z;
-      output Real work[max({lwork, size(H, 1),1})];
+      output Real work[3*max(1, size(H, 1)];
 
     protected
       Integer n=size(H, 1);
@@ -7615,8 +7615,8 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
     protected
       Integer m=size(A, 1);
       Integer n=size(A,2);
-      Integer lda=max(1,m);
-      Real work[2*m];
+      Integer lda=max(1,size(A, 1));
+      Real work[2*size(A, 1)];
 
     external "Fortran 77" dlange2(norm, m, n, A, lda, work, anorm)
       annotation (Include="
@@ -7794,7 +7794,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer n=size(A, 1);
       Integer lda=max(1, n);
       Integer lwork=max(1, 3*n);
-      Real work[lwork];
+      Real work[max(1, 3*size(A, 1))];
 
     external "Fortran 77" dgehrd(
         n,
@@ -8003,12 +8003,12 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer n=size(A, 1);
       Integer ilo;
       Integer ihi;
-      Real scale[n];
+      Real scale[size(A, 1)];
       Real abnrm;
-      Real rconde[n];
-      Real rcondv[n];
+      Real rconde[size(A, 1)];
+      Real rcondv[size(A, 1)];
       Integer lwork=n*(n + 6);
-      Real work[lwork];
+      Real work[size(A, 1)*(size(A, 1) + 6)];
 
     external "Fortran 77" dgeevx(
         "B",
@@ -8228,7 +8228,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer ldvt=max(1, size(A, 2));
       Integer lwork=max(1,3*(3*min(size(A, 1),size(A, 2))*min(size(A, 1),size(A, 2)) + max(max(size(A, 1),size(A, 2)),4*min(size(A, 1),size(A, 2))*min(size(A, 1),size(A, 2))+4*min(size(A, 1),size(A, 2)))));
       Integer iwork=max(1,8*min(size(A, 1),size(A, 2)));
-      Real work[lwork];
+      Real work[max(1,3*(3*min(size(A, 1),size(A, 2))*min(size(A, 1),size(A, 2)) + max(max(size(A, 1),size(A, 2)),4*min(size(A, 1),size(A, 2))*min(size(A, 1),size(A, 2))+4*min(size(A, 1),size(A, 2)))))];
 
     external "Fortran 77" dgesdd(
         "A",
@@ -8393,9 +8393,9 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
     protected
       Integer n=size(A, 1);
       Integer lwork=max(1,8*n);
-      Real Awork[n,n]=A;
-      Real Bwork[n,n]=B;
-      Real work[lwork];
+      Real Awork[size(A, 1),size(A, 1)]=A;
+      Real Bwork[size(A, 1),size(A, 1)]=B;
+      Real work[max(1,8*size(A, 1))];
       Integer lda=max(1,n);
 
     external "Fortran 77" dggev(
@@ -8562,16 +8562,16 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer lda=max(1,size(A, 1));
       Integer ilo;
       Integer ihi;
-      Real lscale[n];
-      Real rscale[n];
+      Real lscale[size(A, 1)];
+      Real rscale[size(A, 1)];
       Real abnrm;
       Real bbnrm;
-      Real rconde[n];
-      Real rcondv[n];
+      Real rconde[size(A, 1)];
+      Real rcondv[size(A, 1)];
       Integer lwork=2*n*n + 12*n + 16;
-      Real work[lwork];
-      Integer iwork[n + 6];
-      Integer bwork[n];
+      Real work[2*size(A, 1)*size(A, 1) + 12*size(A, 1) + 16];
+      Integer iwork[size(A, 1) + 6];
+      Integer bwork[size(A, 1)];
 
     external "Fortran 77" dggevx(
         "B",
@@ -8859,9 +8859,9 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer ilo=1;
       Integer ihi=n;
       Integer lwork=max(1,3*n);
-      Real work[lwork];
-      Real Awork[n,n]=A;
-      Real Bwork[n,n]=B;
+      Real work[max(1,3*size(A, 1))];
+      Real Awork[size(A, 1),size(A, 1)]=A;
+      Real Bwork[size(A, 1),size(A, 1)]=B;
       Integer lda=max(1, n);
       Real Q[1,1]=fill(0, 1, n);
 
@@ -9103,7 +9103,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer lda=max(1, size(A, 2));
       Integer ldc=max(1, m);
       Integer lwork=max(1,2*size(A, 2));
-      Real work[lwork];
+      Real work[max(1,2*size(A, 2))];
 
     external "Fortran 77" dormhr(
         side,
@@ -9231,7 +9231,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer lda=if side == "L" then max(1, m) else max(1, n);
       Integer ldc=max(1, m);
       Integer lwork=if side == "L" then max(1, n) else max(1, m);
-      Real work[lwork];
+      Real work[if side == "L" then max(1, size(C, 2)) else max(1, size(C, 1))];
 
     external "Fortran 77" dormqr(
         side,
@@ -9351,11 +9351,11 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
 
     protected
       Integer n=size(T, 1);
-      Boolean select[n];
+      Boolean select[size(T, 1)];
       Integer ldt=max(1, n);
       Integer ldvl=max(1, n);
       Integer ldvr=max(1, n);
-      Real work[3*n];
+      Real work[3*size(T, 1)];
 
     external "Fortran 77" dtrevc(
         side,
@@ -9690,7 +9690,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Integer n=size(A, 1);
       Integer lda=max(1, n);
       Integer lwork=max(1, 3*n);
-      Real work[lwork];
+      Real work[max(1, 3*size(A, 1))];
 
     external "Fortran 77" dorghr(
         n,
@@ -10196,7 +10196,7 @@ Householder reflection is widely used in numerical linear algebra, e.g., to perf
 
     protected
       Integer na=size(A, 1);
-      Real S[na,na] "Symmetric matrix";
+      Real S[size(A, 1),size(A, 1)] "Symmetric matrix";
       Integer i;
     algorithm
       if na > 0 then
@@ -10367,7 +10367,7 @@ See <a href=\"modelica://Modelica.Math.Matrices.LAPACK.dgehrd\">Matrices.Lapack.
         "Real part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
       Real alphaImag[size(H, 1)]
         "Imaginary part of alpha (eigenvalue=(alphaReal+i*alphaImag))";
-      Real Z[n,n]=fill(0, n, n);
+      Real Z[size(H, 1),size(H, 1)]=fill(0, n, n);
 
     algorithm
       if size(H, 1) > 0 then
