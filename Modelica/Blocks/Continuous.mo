@@ -2182,12 +2182,11 @@ The development of this block was partially funded by BMBF within the
         output Real c1[integer(order/2)]
             "Coefficients of s^1 term if conjugate complex pole";
         protected
-        Integer n_den2=size(c0, 1);
         Real alpha=1.0 "Frequency correction factor";
         Real alpha2 "= alpha*alpha";
         Real den1[size(cr,1)]
             "[p] coefficients of denominator first order polynomials (a*p + 1)";
-        Real den2[n_den2,2]
+        Real den2[size(c0, 1),2]
             "[p^2, p] coefficients of denominator second order polynomials (b*p^2 + a*p + 1)";
       algorithm
           (den1,den2,alpha) :=
@@ -2195,7 +2194,7 @@ The development of this block was partially funded by BMBF within the
             order);
         if not normalized then
            alpha2 := alpha*alpha;
-           for i in 1:n_den2 loop
+           for i in 1:size(c0, 1) loop
              den2[i, 1] := den2[i, 1]*alpha2;
              den2[i, 2] := den2[i, 2]*alpha;
            end for;
@@ -2224,16 +2223,15 @@ The development of this block was partially funded by BMBF within the
         output Real c1[integer(order/2)]
             "Coefficients of s^1 term if conjugate complex pole";
         protected
-        Integer n_den2=size(c0, 1);
         Real alpha=1.0 "Frequency correction factor";
         Real alpha2 "= alpha*alpha";
         Real den1[size(cr,1)]
             "[p] coefficients of denominator first order polynomials (a*p + 1)";
-        Real den2[n_den2,2]
+        Real den2[size(c0, 1),2]
             "[p^2, p] coefficients of denominator second order polynomials (b*p^2 + a*p + 1)";
         constant Real pi=Modelica.Constants.pi;
       algorithm
-        for i in 1:n_den2 loop
+        for i in 1:size(c0, 1) loop
           den2[i, 1] := 1.0;
           den2[i, 2] := -2*Modelica.Math.cos(pi*(0.5 + (i - 0.5)/order));
         end for;
@@ -2249,7 +2247,7 @@ The development of this block was partially funded by BMBF within the
     if normalized then
       alpha := Internal.normalizationFactor(den1, den2);
       alpha2 := alpha*alpha;
-      for i in 1:n_den2 loop
+      for i in 1:size(c0, 1) loop
         den2[i, 1] := den2[i, 1]*alpha2;
         den2[i, 2] := den2[i, 2]*alpha;
       end for;
@@ -2283,12 +2281,11 @@ The development of this block was partially funded by BMBF within the
         protected
         Real epsilon;
         Real fac;
-        Integer n_den2=size(c0, 1);
         Real alpha=1.0 "Frequency correction factor";
         Real alpha2 "= alpha*alpha";
         Real den1[size(cr,1)]
             "[p] coefficients of denominator first order polynomials (a*p + 1)";
-        Real den2[n_den2,2]
+        Real den2[size(c0, 1),2]
             "[p^2, p] coefficients of denominator second order polynomials (b*p^2 + a*p + 1)";
         constant Real pi=Modelica.Constants.pi;
       algorithm
@@ -2296,13 +2293,13 @@ The development of this block was partially funded by BMBF within the
           fac := asinh(1/epsilon)/order;
 
           if size(cr,1) == 0 then
-             for i in 1:n_den2 loop
+             for i in 1:size(c0, 1) loop
                 den2[i,1] :=1/(cosh(fac)^2 - cos((2*i - 1)*pi/(2*order))^2);
                 den2[i,2] :=2*den2[i, 1]*sinh(fac)*cos((2*i - 1)*pi/(2*order));
              end for;
           else
              den1[1] := 1/sinh(fac);
-             for i in 1:n_den2 loop
+             for i in 1:size(c0, 1) loop
                 den2[i,1] :=1/(cosh(fac)^2 - cos(i*pi/order)^2);
                 den2[i,2] :=2*den2[i, 1]*sinh(fac)*cos(i*pi/order);
              end for;
@@ -2317,7 +2314,7 @@ The development of this block was partially funded by BMBF within the
               Modelica.Blocks.Continuous.Internal.Filter.Utilities.normalizationFactor(
               den1, den2);
             alpha2 := alpha*alpha;
-            for i in 1:n_den2 loop
+            for i in 1:size(c0, 1) loop
               den2[i, 1] := den2[i, 1]*alpha2;
               den2[i, 2] := den2[i, 2]*alpha;
             end for;

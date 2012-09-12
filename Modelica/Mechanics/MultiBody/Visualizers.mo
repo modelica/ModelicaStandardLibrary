@@ -1151,7 +1151,7 @@ colorMapToSvg(Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMap.jet(),
          Real v2[:]=0+d:d:1;
          Real v3[:]=1-d:-d:0;
          Real v4[:]=1-d:-d:0.5;
-         Real cm[integer(a)*4,3];
+         Real cm[integer(ceil(n_colors/4))*4,3];
       algorithm
          cm:=255*[zeros(size(v1,1)),zeros(size(v1,1)),  v1;
                   zeros(size(v2,1)), v2,  fill(1., size(v2,1));
@@ -1193,7 +1193,7 @@ Image of the \"jet\" color map:
          Real a=ceil(n_colors/3);
          Real d=1/a;
          Real v1[:]=0+d:d:1;
-         Real cm[integer(a)*3,3];
+         Real cm[integer(ceil(n_colors/3))*3,3];
       algorithm
        cm := 255*[v1, zeros(size(v1, 1)),zeros(size(v1, 1));
                                 fill(1., size(v1, 1)), v1,zeros(size(v1, 1));
