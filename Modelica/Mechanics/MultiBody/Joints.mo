@@ -7580,9 +7580,7 @@ pair of joints\" from Woernle and Hiller is described in:
 <p>In particular in complex multibody systems with closed loops this may help to simplify the system of non-linear equations. Please compare the translation log using the classical joint formulation and the alternative formulation used here in order to check whether this fact applies to the particular system under consideration.</p>
 <p>In systems without closed loops the use of this implicit joint does not make sense or may even be disadvantageous.</p>
 <p>See the subpackage <a href=\"Modelica://Modelica.Mechanics.MultiBody.Examples.Constraints\">Examples.Constraints</a> for testing the joint. </p>
-</html>"),  DymolaStoredErrors,
-        experiment(StopTime=10, Tolerance=1e-012),
-        experimentSetupOutput);
+</html>"));
     end PrismaticJoints;
 
     model RevoluteJoint
