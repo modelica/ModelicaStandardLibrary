@@ -7,9 +7,13 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "True, if animation shall be enabled";
 
-    Joints.Prismatic jointPrismatic_x(stateSelect=StateSelect.never, n={1,0,0})
+    Joints.Prismatic jointPrismatic_x(stateSelect=StateSelect.never, n={1,0,0},
+      s(fixed=true),
+      v(fixed=true))
       annotation (Placement(transformation(extent={{80,-30},{60,-10}})));
-    Joints.Prismatic jointPrismatic_y(stateSelect=StateSelect.never, n={0,1,0})
+    Joints.Prismatic jointPrismatic_y(stateSelect=StateSelect.never, n={0,1,0},
+      s(fixed=true),
+      v(fixed=true))
       annotation (Placement(transformation(extent={{40,-30},{20,-10}})));
     Joints.Constraints.PrismaticJoints constraint(x_locked=false, y_locked=
           false)
@@ -46,7 +50,6 @@ extends Modelica.Icons.ExamplesPackage;
       r=bodyOfJoint.r,
       r_CM=bodyOfJoint.r_CM,
       m=bodyOfJoint.m,
-      r_0(start={0.2,-0.3,0.2}),
       angles_fixed=false,
       angles_start={0.17453292519943,0.95993108859688,1.1868238913561})
       annotation (Placement(transformation(extent={{-10,10},{10,-10}},rotation=180,
@@ -86,6 +89,20 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
   rotation=90,
           origin={-70,-50})));
+    Joints.FreeMotionScalarInit freeMotionScalarInit(
+      use_r=true,
+      use_v=true,
+      v_rel_a_2(fixed=true, start=0),
+      v_rel_a_3(fixed=true, start=0),
+      use_w=true,
+      w_rel_b_1(fixed=false),
+      w_rel_b_2(fixed=false),
+      w_rel_b_3(fixed=false),
+      angle_d_3(fixed=false),
+      r_rel_a_2(fixed=true, start=0),
+      r_rel_a_3(fixed=true, start=0),
+      angle_1(fixed=false))
+      annotation (Placement(transformation(extent={{40,60},{20,80}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -159,10 +176,22 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
+    connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
+        Line(
+        points={{40,70},{90,70},{90,-40}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(freeMotionScalarInit.frame_b, bodyOfConstraint.frame_a) annotation
+      (Line(
+        points={{20,70},{10,70},{10,20},{0,20}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
     annotation (
       experiment(StopTime=10),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics),
       Documentation(info="<html>
@@ -177,7 +206,9 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
     Modelica.Mechanics.MultiBody.Joints.Revolute joint(stateSelect=
-          StateSelect.never, n={0,1,0})
+          StateSelect.never, n={0,1,0},
+      phi(fixed=true),
+      w(fixed=true))
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
     Joints.Constraints.RevoluteJoint constraint(n=joint.n)
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
@@ -254,6 +285,26 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
   rotation=90,
           origin={-70,-50})));
+    Joints.FreeMotionScalarInit freeMotionScalarInit(
+      use_r=true,
+      use_v=true,
+      v_rel_a_2(fixed=true, start=0),
+      v_rel_a_3(fixed=true, start=0),
+      v_rel_a_1(fixed=true, start=0),
+      use_angle=true,
+      use_w=true,
+      w_rel_b_1(fixed=false),
+      w_rel_b_2(fixed=false),
+      w_rel_b_3(fixed=false),
+      angle_d_3(fixed=false),
+      use_angle_d=true,
+      r_rel_a_1(start=0, fixed=true),
+      r_rel_a_2(fixed=true, start=0),
+      r_rel_a_3(fixed=true, start=0),
+      angle_1(fixed=false),
+      angle_2(start=0, fixed=true),
+      angle_d_2(fixed=true, start=0))
+      annotation (Placement(transformation(extent={{40,60},{20,80}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -322,10 +373,22 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
+    connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
+        Line(
+        points={{40,70},{80,70},{80,-40}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation
+      (Line(
+        points={{0,20},{8,20},{8,70},{20,70}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
     annotation (
       experiment(StopTime=10),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics),
       Documentation(info="<html>
@@ -339,7 +402,10 @@ extends Modelica.Icons.ExamplesPackage;
     "Body attached by one spring and spherical joint or coinstraint to environment"
     extends Modelica.Icons.Example;
     parameter Boolean animation=true "= true, if animation shall be enabled";
-    Joints.Spherical joint
+    Joints.Spherical joint(
+      angles_fixed=true,
+      w_rel_a_fixed=true,
+      enforceStates=true)
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
     Joints.Constraints.SphericalJoint constraint
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
@@ -416,6 +482,28 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-10,-10},{10,10}},
   rotation=90,
           origin={-70,-50})));
+    Joints.FreeMotionScalarInit freeMotionScalarInit(
+      use_r=true,
+      use_v=true,
+      v_rel_a_2(fixed=true, start=0),
+      v_rel_a_3(fixed=true, start=0),
+      v_rel_a_1(fixed=true, start=0),
+      use_angle=true,
+      use_w=true,
+      w_rel_b_1(fixed=false),
+      w_rel_b_2(fixed=false),
+      w_rel_b_3(fixed=false),
+      use_angle_d=true,
+      r_rel_a_1(start=0, fixed=true),
+      r_rel_a_2(fixed=true, start=0),
+      r_rel_a_3(fixed=true, start=0),
+      angle_1(fixed=true),
+      angle_2(fixed=true),
+      angle_3(fixed=true),
+      angle_d_1(fixed=true),
+      angle_d_2(fixed=true),
+      angle_d_3(fixed=true))
+      annotation (Placement(transformation(extent={{38,60},{18,80}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -484,10 +572,22 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
+    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation
+      (Line(
+        points={{0,20},{8,20},{8,70},{18,70}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(freeMotionScalarInit.frame_a, fixedRotation.frame_b) annotation (
+        Line(
+        points={{38,70},{80,70},{80,-40}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
     annotation (
       experiment(StopTime=10),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics),
       Documentation(info="<html>
@@ -504,7 +604,11 @@ extends Modelica.Icons.ExamplesPackage;
     Joints.Universal joint(
       n_a={0,0,1},
       n_b={1,0,0},
-      stateSelect=StateSelect.always)
+      stateSelect=StateSelect.always,
+      phi_a(fixed=true),
+      phi_b(fixed=true),
+      w_a(fixed=true),
+      w_b(fixed=true))
       annotation (Placement(transformation(extent={{60,-30},{40,-10}})));
     Joints.Constraints.UniversalJoint constraint(n_a=joint.n_a, n_b=joint.n_b)
       annotation (Placement(transformation(extent={{60,10},{40,30}})));
@@ -585,6 +689,27 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{-10,-30},{-30,-10}})));
     Parts.FixedTranslation fixedTranslationOfConstraint(r=fixedTranslationOfJoint.r)
       annotation (Placement(transformation(extent={{-10,10},{-30,30}})));
+    Joints.FreeMotionScalarInit freeMotionScalarInit(
+      use_r=true,
+      use_v=true,
+      v_rel_a_2(fixed=true, start=0),
+      v_rel_a_3(fixed=true, start=0),
+      v_rel_a_1(fixed=true, start=0),
+      use_angle=true,
+      use_w=true,
+      w_rel_b_1(fixed=false),
+      w_rel_b_2(fixed=false),
+      w_rel_b_3(fixed=false),
+      use_angle_d=true,
+      r_rel_a_1(start=0, fixed=true),
+      r_rel_a_2(fixed=true, start=0),
+      r_rel_a_3(fixed=true, start=0),
+      angle_1(fixed=true),
+      angle_3(fixed=true),
+      angle_d_1(fixed=true),
+      angle_d_3(fixed=true),
+      sequence_start={3,2,1})
+      annotation (Placement(transformation(extent={{60,70},{40,90}})));
   equation
     connect(fixedTranslation.frame_a, world.frame_b)
       annotation (Line(
@@ -665,10 +790,22 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
+    connect(fixedRotation.frame_b, freeMotionScalarInit.frame_a) annotation (
+        Line(
+        points={{80,-40},{80,80},{60,80}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
+    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation
+      (Line(
+        points={{20,20},{30,20},{30,80},{40,80}},
+        color={95,95,95},
+        thickness=0.5,
+        smooth=Smooth.None));
     annotation (
       experiment(StopTime=10),
       Diagram(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={2,2}), graphics),
       Documentation(info="<html>
