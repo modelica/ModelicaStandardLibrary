@@ -311,7 +311,7 @@ is much faster.
     Joints.Revolute r1(useAxisFlange=true,  n={0,1,0})
       annotation (Placement(transformation(extent={{-32,10},{-12,30}}, rotation=
              0)));
-    Rotational.Sources.Position position1(useSupport=true)
+    Rotational.Sources.Position position1(useSupport=true, w(fixed=true))
       annotation (Placement(transformation(extent={{-46,60},{-26,80}}, rotation=
              0)));
     Blocks.Sources.Sine sine2(         amplitude=2, freqHz=1)
@@ -323,7 +323,7 @@ is much faster.
     Joints.Revolute r2(useAxisFlange=true, n={0,1,0})
       annotation (Placement(transformation(extent={{-38,-80},{-18,-60}},
             rotation=0)));
-    Rotational.Sources.Position position2(useSupport=true)
+    Rotational.Sources.Position position2(useSupport=true, w(fixed=true))
       annotation (Placement(transformation(extent={{-52,-30},{-32,-10}},
             rotation=0)));
     Parts.Mounting1D mounting1D2
@@ -435,7 +435,9 @@ is much faster.
 
   model GearConstraint
      extends Modelica.Icons.Example;
-    Joints.GearConstraint gearConstraint(                             ratio=10)
+    Joints.GearConstraint gearConstraint(                             ratio=10,
+      phi_b(fixed=true),
+      w_b(fixed=true))
       annotation (Placement(transformation(extent={{34,40},{54,60}}, rotation=0)));
     inner World world(                             driveTrainMechanics3D=true,
         g=0) annotation (Placement(transformation(extent={{-62,10},{-42,30}},

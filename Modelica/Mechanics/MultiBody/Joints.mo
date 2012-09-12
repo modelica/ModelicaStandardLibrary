@@ -3208,6 +3208,15 @@ the origin of frame_a to the middle of the rod, this might be defined as:
       "Vector from frame bearing to frame_a resolved in bearing";
     parameter Modelica.SIunits.Position r_b[3]={0,0,0}
       "Vector from frame bearing to frame_b resolved in bearing";
+    parameter StateSelect stateSelect=StateSelect.default
+      "Priority to use joint coordinates (phi_a, phi_b, w_a, w_b) as states" annotation(Dialog(tab="Advanced"));
+
+    SI.Angle phi_b(start=0, stateSelect=stateSelect)
+      "Relative rotation angle of revolute joint at frame_b";
+    SI.AngularVelocity w_b(start=0, stateSelect=stateSelect)
+      "First derivative of angle phi_b (relative angular velocity b)";
+    SI.AngularAcceleration a_b(start=0)
+      "Second derivative of angle phi_b (relative angular acceleration b)";
 
     Modelica.Mechanics.MultiBody.Joints.Revolute actuatedRevolute_a(useAxisFlange=true, n=n_a, animation=false)
       annotation (Placement(transformation(extent={{-40,-10},{-60,10}},
@@ -3230,6 +3239,10 @@ the origin of frame_a to the middle of the rod, this might be defined as:
   equation
     assert(cardinality(bearing) > 0,
       "Connector bearing of component is not connected");
+
+    phi_b = actuatedRevolute_b.phi;
+    w_b = der(phi_b);
+    a_b = der(w_b);
 
     connect(actuatedRevolute_a.axis, idealGear.flange_a)
       annotation (Line(points={{-50,10},{-50,40},{-10,40}}, color={0,0,0}));
@@ -6983,7 +6996,6 @@ pair of joints\" from Woernle and Hiller is described in:
 
   package Constraints "Components that define joints by constraints"
     extends Modelica.Icons.Package;
-
 
     model SphericalJoint
       "Spherical cut joint and translational directions may be constrained or released"
