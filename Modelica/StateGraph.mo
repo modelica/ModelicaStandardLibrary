@@ -1075,7 +1075,8 @@ has a higher priority to fire as alternative.split[2]).
                                                  annotation (Line(points={{20.5,20},
               {28.575,20}},     color={0,0,0}));
     connect(step1.inPort[1], Parallel1.split[2]) annotation (Line(points={{-5,-20},
-              {-22.575,-20}},      color={0,0,0}));
+              {-10,-20},{-10,-20},{-14,-20},{-14,-20},{-22.575,-20}},
+                                   color={0,0,0}));
     connect(step1.outPort[1], Parallel1.join[2]) annotation (Line(points={{16.5,
               -20},{28.575,-20}}, color={0,0,0}));
     connect(setCondition.y, transition7.condition) annotation (Line(points={{
@@ -1635,7 +1636,7 @@ buttons:
       Modelica.StateGraph.Examples.Utilities.outflow1 outflow1
                        annotation (Placement(transformation(extent={{55,-50},{
                   65,-40}}, rotation=0)));
-      Real level "Tank level in % of max height";
+      Real level(start=0,fixed=true) "Tank level in % of max height";
       parameter Real A=1 "Ground area of tank in m^2";
       parameter Real a=0.2 "Area of drain hole in m^2";
       parameter Real hmax=1 "Max height of tank in m";
@@ -1730,7 +1731,7 @@ buttons:
       Step exitStep annotation (Placement(transformation(extent={{120,-10},{140,
                   10}}, rotation=0)));
       Alternative Alternative1(nBranches=3) annotation (Placement(
-              transformation(extent={{-100,-90},{96,90}}, rotation=0)));
+              transformation(extent={{-98,-90},{98,90}},  rotation=0)));
     equation
       connect(transition3.outPort, step3.inPort[1])
         annotation (Line(points={{-52.5,60},{-11,60}}, color={0,0,0}));
@@ -1748,25 +1749,25 @@ buttons:
         annotation (Line(points={{-141,0},{-160,0}}, color={0,0,0}));
       connect(exitStep.outPort[1], outPort)
         annotation (Line(points={{140.5,0},{155,0}}, color={0,0,0}));
-      connect(initStep.outPort[1], Alternative1.inPort) annotation (Line(points=
-               {{-119.5,0},{-102.94,0}}, color={0,0,0}));
+      connect(initStep.outPort[1], Alternative1.inPort) annotation (Line(points={{-119.5,
+                0},{-100.94,0}},         color={0,0,0}));
       connect(Alternative1.outPort, exitStep.inPort[1])
-        annotation (Line(points={{97.96,0},{119,0}}, color={0,0,0}));
+        annotation (Line(points={{99.96,0},{119,0}}, color={0,0,0}));
       connect(transition3.inPort, Alternative1.split[1]) annotation (Line(
-              points={{-58,60},{-79.42,60}}, color={0,0,0}));
+              points={{-58,60},{-77.42,60}}, color={0,0,0}));
       connect(transition4.inPort, Alternative1.split[2]) annotation (Line(
-              points={{-58,0},{-67.975,0},{-67.975,-7.10543e-015},{-79.42,
+              points={{-58,0},{-67.975,0},{-67.975,-7.10543e-015},{-77.42,
                 -7.10543e-015}}, color={0,0,0}));
       connect(transition4a.inPort, Alternative1.split[3]) annotation (Line(
-              points={{-58,-60},{-67.975,-60},{-67.975,-60},{-79.42,-60}},
+              points={{-58,-60},{-67.975,-60},{-77.42,-60}},
               color={0,0,0}));
       connect(transition5.outPort, Alternative1.join[1]) annotation (Line(
-              points={{47.5,60},{75.42,60}}, color={0,0,0}));
+              points={{47.5,60},{77.42,60}}, color={0,0,0}));
       connect(transition6.outPort, Alternative1.join[2]) annotation (Line(
-              points={{47.5,0},{60.725,0},{60.725,-7.10543e-015},{75.42,
+              points={{47.5,0},{60.725,0},{60.725,-7.10543e-015},{77.42,
                 -7.10543e-015}}, color={0,0,0}));
       connect(transition6a.outPort, Alternative1.join[3]) annotation (Line(
-              points={{47.5,-60},{60.725,-60},{60.725,-60},{75.42,-60}}, color=
+              points={{47.5,-60},{60.725,-60},{77.42,-60}},              color=
                 {0,0,0}));
     end CompositeStep;
 
@@ -2483,7 +2484,6 @@ connector Step_in_forAlternative
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2491,7 +2491,6 @@ connector Step_in_forAlternative
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
                                           Diagram(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2509,7 +2508,6 @@ connector Step_out_forAlternative
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2517,7 +2515,6 @@ connector Step_out_forAlternative
               fillColor={175,175,175},
               fillPattern=FillPattern.Solid)}),
                             Diagram(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Rectangle(
               extent={{-100,100},{100,-100}},
@@ -2557,7 +2554,7 @@ equation
   outPort.set   = StateGraph.Temporary.anyTrue(join.set);
   annotation (
     Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(
@@ -2605,7 +2602,6 @@ connector Transition_in_forParallel
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
@@ -2626,7 +2622,6 @@ connector Transition_in_forParallel
               points={{100,100},{100,-100}},
               color={0,0,0},
               thickness=0.5)}),             Diagram(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
@@ -2655,7 +2650,6 @@ connector Transition_out_forParallel
     annotation (HideResult=true);
 
   annotation (Icon(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
@@ -2677,7 +2671,6 @@ connector Transition_out_forParallel
               color={0,0,0},
               thickness=0.5)}),
                             Diagram(coordinateSystem(
-            preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={
             Rectangle(
@@ -2721,7 +2714,7 @@ equation
   outPort.available = StateGraph.Temporary.allTrue(join.available);
   annotation (
     Icon(coordinateSystem(
-          preserveAspectRatio=true,
+          preserveAspectRatio=false,
           extent={{-100,-100},{100,100}},
           grid={1,1}), graphics={
           Line(points={{-100,0},{-80,0}}, color={0,0,0}),
@@ -2789,8 +2782,8 @@ partial model PartialCompositeStep
     annotation (HideResult=true);
   Integer activeSteps "Number of active steps within the CompositeStep";
 initial equation
-
-  pre(newActive) = pre(active);
+  pre(newActive) = false;
+  pre(active) = pre(newActive);
 equation
   // connect to outer CompositeStep
 
@@ -3074,20 +3067,21 @@ value, still requires to go in to the text layer.
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     protected
     Modelica.Blocks.Sources.BooleanTable table(table=buttonTimeTable);
+  initial equation
+    pre(reset) = fill(false, size(reset,1));
   algorithm
     on := table.y;
     when pre(reset) then
       on := false;
     end when;
     annotation (Icon(
-          coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
-                100}}),
-          graphics={Rectangle(
+          coordinateSystem(preserveAspectRatio=false,extent={{-100,-100},{100,100}}),
+          graphics={
+            Rectangle(
               extent={{-100,-100},{100,100}},
-              fillColor=DynamicSelect({192,192,192}, if on > 0.5 then {0,255,0} else
+              fillColor=DynamicSelect({192,192,192}, if on then {0,255,0} else
                         {192,192,192}),
-              fillPattern=DynamicSelect(FillPattern.Solid, if on > 0.5 then
-                  FillPattern.Solid else FillPattern.Solid),
+              fillPattern=FillPattern.Solid,
               lineColor={128,128,128},
               lineThickness=0.5), Text(
               extent={{-80,-40},{80,40}},
