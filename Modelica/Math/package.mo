@@ -7496,7 +7496,7 @@ int c_inter_dgees_(char *jobvs, char *sort, integer *n, doublereal *a, integer *
       output Real Ho[:,:]=H
         "Schur decomposition (if eigenValuesOnly==false, unspecified else))";
       output Real Zo[:,:]=Z;
-      output Real work[3*max(1, size(H, 1)];
+      output Real work[3*max(1, size(H, 1))];
 
     protected
       Integer n=size(H, 1);
