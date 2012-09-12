@@ -1231,7 +1231,9 @@ also that the damping torque does not lead to unphysical pulling torques
       extends Modelica.Icons.Example;
       Rotational.Components.IdealRollingWheel idealRollingWheel(radius=1)
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
-      Rotational.Components.Inertia inertia(J=1)
+      Rotational.Components.Inertia inertia(J=1,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
         annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
       Rotational.Sources.TorqueStep torqueStep(
         stepTorque=10,
@@ -1504,13 +1506,17 @@ is present in variable convection.fluid.
       Modelica.Mechanics.Rotational.Components.IdealPlanetary idealPlanetary(ratio=75/
             50)
         annotation (Placement(transformation(extent={{-10,0},{10,-20}})));
-      Modelica.Mechanics.Rotational.Components.Inertia load(J=10)
+      Modelica.Mechanics.Rotational.Components.Inertia load(J=10,
+        phi(fixed=true, start=0),
+        w(fixed=true, start=0))
         annotation (Placement(transformation(extent={{30,-20},{50,0}})));
       Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
         quadraticSpeedDependentTorque(
         w_nominal(displayUnit="rpm")=10.471975511966, tau_nominal=-20)
         annotation (Placement(transformation(extent={{80,-20},{60,0}})));
-      Modelica.Mechanics.Rotational.Components.Clutch clutch(cgeo=2, fn_max=100)
+      Modelica.Mechanics.Rotational.Components.Clutch clutch(cgeo=2, fn_max=100,
+        phi_rel(fixed=true),
+        w_rel(fixed=true))
         annotation (Placement(transformation(extent={{-10,10},{10,30}})));
       Modelica.Mechanics.Rotational.Components.Brake brake(cgeo=2, fn_max=100)
         annotation (Placement(transformation(extent={{20,10},{40,30}})));
