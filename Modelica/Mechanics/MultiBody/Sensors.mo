@@ -3494,22 +3494,9 @@ with the blocks of package Modelica.Blocks.
               extent={{-190,-70},{-74,-96}},
               lineColor={0,0,0},
               textString="torque"), Line(points={{-80,-100},{-80,0}}, color={0,
-                  0,127})}),
-        Documentation(info="<HTML>
-
-</HTML>"));
+                  0,127})}));
     end BasicCutTorque;
   end Internal;
-  annotation ( Documentation(info="<html>
-<p>
-Package <b>Sensors</b> contains <b>ideal measurement</b>
-components to determine absolute and relative kinematic
-quantities, as well as cut-forces, cut-torques and power. All
-measured quantities can be provided in every desired
-coordinate system.
-</p>
-
-</html>"));
   model TansformAbsoluteVector
     "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
     extends TransformAbsoluteVector;
@@ -3521,4 +3508,14 @@ coordinate system.
     extends TransformRelativeVector;
     extends Modelica.Icons.ObsoleteModel;
   end TansformRelativeVector;
+
+  annotation ( Documentation(info="<html>
+<p>
+Package <b>Sensors</b> contains <b>ideal measurement</b>
+components to determine absolute and relative kinematic
+quantities, as well as cut-forces, cut-torques and power. All
+measured quantities can be provided in every desired
+coordinate system.
+</p>
+</html>"));
 end Sensors;
