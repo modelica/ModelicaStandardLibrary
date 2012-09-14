@@ -4756,7 +4756,7 @@ blocks of the block library Modelica.Blocks.Sources.
       parameter Boolean exact=false
         "true/false exact treatment/filtering the input signal";
       parameter SI.Frequency f_crit=50
-        "if exact=false, critical frequency of filter to filter input signal";
+        "if exact=false, critical frequency of filter to filter input signal" annotation(Dialog(enable=not exact));
       SI.Angle phi(start=0, fixed=true, stateSelect=StateSelect.prefer)
         "Rotation angle of flange with respect to support";
       SI.AngularVelocity w(stateSelect=if exact then StateSelect.default else StateSelect.prefer)
