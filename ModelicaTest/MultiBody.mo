@@ -329,20 +329,22 @@ for rodLength:
         annotation (Placement(transformation(extent={{12,-80},{32,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(
-                                      r={0,0.5,0.1}, diameter=0.05)
+        r={0,0.5,0.1},
+        diameter=0.05)
         annotation (Placement(transformation(
             origin={-30,0},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(
-                                      r={0,0.2,0}, diameter=0.05)
+        r={0,0.2,0},
+        diameter=0.05)
         annotation (Placement(transformation(
             origin={50,-50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical sphericalSpherical(
-                                                             computeRodLength=true,
-           m=1) annotation (Placement(transformation(extent={{0,20},{-20,40}},
+        computeRodLength=true,
+        m=1) annotation (Placement(transformation(extent={{0,20},{-20,40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(
                                           r={1.2,0,0}, animation=false)
@@ -350,23 +352,37 @@ for rodLength:
               rotation=0)));
     equation
       connect(j2.frame_b, b2.frame_a)
-        annotation (Line(points={{32,-70},{50,-70},{50,-60}}));
+        annotation (Line(points={{32,-70},{50,-70},{50,-60}},
+          color={0,0,0},
+          thickness=0.5));
       connect(j1.frame_b, b1.frame_a)
-        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}}));
+        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}},
+          color={0,0,0},
+          thickness=0.5));
       connect(j1.frame_a, world.frame_b)
-        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}}));
+        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b1.frame_b, sphericalSpherical.frame_b)
-        annotation (Line(points={{-30,10},{-30,30},{-20,30}}));
+        annotation (Line(points={{-30,10},{-30,30},{-20,30}},
+          color={0,0,0},
+          thickness=0.5));
       connect(sphericalSpherical.frame_a, b2.frame_b)
-        annotation (Line(points={{0,30},{50,30},{50,-40}}));
+        annotation (Line(points={{0,30},{50,30},{50,-40}},
+          color={0,0,0},
+          thickness=0.5));
       j1_phi = j1.phi;
       j2_s = j2.s;
       j1_w = j1.w;
       j2_v = j2.v;
       connect(b3.frame_a, world.frame_b) annotation (Line(points={{-32,-70},{
-              -60,-70}}));
+              -60,-70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-12,-70},{12,
-              -70}}));
+              -70}},
+          color={0,0,0},
+          thickness=0.5));
       annotation (
         experiment(StopTime=5),
         Documentation(info="<html>
@@ -462,22 +478,36 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j1_w = j1.w;
       j2_v = j2.v;
       connect(j2.frame_b, b2.frame_a)
-        annotation (Line(points={{32,-70},{50,-70},{50,-60}}));
+        annotation (Line(points={{32,-70},{50,-70},{50,-60}},
+          color={0,0,0},
+          thickness=0.5));
       connect(j1.frame_b, b1.frame_a)
-        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}}));
+        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}},
+          color={0,0,0},
+          thickness=0.5));
       connect(j1.frame_a, world.frame_b)
-        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}}));
+        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b1.frame_b, universalSpherical.frame_b)
-        annotation (Line(points={{-30,10},{-30,30},{-20,30}}));
+        annotation (Line(points={{-30,10},{-30,30},{-20,30}},
+          color={0,0,0},
+          thickness=0.5));
       connect(universalSpherical.frame_a, b2.frame_b)
-        annotation (Line(points={{0,30},{50,30},{50,-40}}));
+        annotation (Line(points={{0,30},{50,30},{50,-40}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b3.frame_a, world.frame_b) annotation (Line(points={{-32,-70},{
-              -60,-70}}));
+              -60,-70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-12,-70},{12,
-              -70}}));
+              -70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(fixedFrame4.frame_a, universalSpherical.frame_ia)
-        annotation (Line(points={{-10,60},{-10,50},{-6,50},{-6,40}}, color={0,0,
-              0}));
+        annotation (Line(points={{-10,60},{-10,50},{-6,50},{-6,40}}, color={0,0,0},
+          thickness=0.5));
       annotation (
         experiment(StopTime=5),
         Documentation(info="<html>
@@ -579,22 +609,36 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j1_w = j1.w;
       j2_v = j2.v;
       connect(j2.frame_b, b2.frame_a)
-        annotation (Line(points={{32,-70},{50,-70},{50,-60}}));
+        annotation (Line(points={{32,-70},{50,-70},{50,-60}},
+          color={0,0,0},
+          thickness=0.5));
       connect(j1.frame_b, b1.frame_a)
-        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}}));
+        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}},
+          color={0,0,0},
+          thickness=0.5));
       connect(j1.frame_a, world.frame_b)
-        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}}));
+        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b1.frame_b, universalSpherical.frame_b)
-        annotation (Line(points={{-30,10},{-30,30},{-20,30}}));
+        annotation (Line(points={{-30,10},{-30,30},{-20,30}},
+          color={0,0,0},
+          thickness=0.5));
       connect(universalSpherical.frame_a, b2.frame_b)
-        annotation (Line(points={{0,30},{50,30},{50,-40}}));
+        annotation (Line(points={{0,30},{50,30},{50,-40}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b3.frame_a, world.frame_b) annotation (Line(points={{-32,-70},{
-              -60,-70}}));
+              -60,-70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-12,-70},{12,
-              -70}}));
+              -70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(fixedFrame4.frame_a, universalSpherical.frame_ia)
-        annotation (Line(points={{-10,60},{-10,50},{-6,50},{-6,40}}, color={0,0,
-              0}));
+        annotation (Line(points={{-10,60},{-10,50},{-6,50},{-6,40}}, color={0,0,0},
+          thickness=0.5));
       annotation (
         experiment(StopTime=5),
         Documentation(info="<html>
@@ -655,23 +699,23 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         s(fixed=true),
         v(fixed=true, start=-0.4),
         s_offset=-0.2)
-        annotation (Placement(transformation(extent={{12,-80},{32,-60}},
+        annotation (Placement(transformation(extent={{10,-80},{30,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(
                                       r={0,0.2,0}, diameter=0.05)
         annotation (Placement(transformation(
-            origin={50,-50},
+            origin={40,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(
                                           animation=false, r={1.2,0,0})
-        annotation (Placement(transformation(extent={{-32,-80},{-12,-60}},
+        annotation (Placement(transformation(extent={{-30,-80},{-10,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame
         annotation (Placement(transformation(
-            origin={-6,50},
+            origin={30,30},
             extent={{-10,-10},{10,10}},
-            rotation=90)));
+            rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSR jointUSR(
         n1_a={0,1,0},
         n_b={1,0,0},
@@ -684,25 +728,28 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         I_11=0.1,
         I_22=0.1,
         I_33=0.1,
-        r_CM={0.01,0,0}) annotation (Placement(transformation(extent={{-74,40},
-                {-54,60}}, rotation=0)));
+        r_CM={0.01,0,0}) annotation (Placement(transformation(extent={{-30,30},
+                {-50,50}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body Body2(
         m=1,
         I_11=0.1,
         I_22=0.1,
         I_33=0.1,
-        r_CM=jointUSR.eRod1_ia/2) annotation (Placement(transformation(extent={
-                {20,40},{40,60}}, rotation=0)));
+        r_CM=jointUSR.eRod1_ia/2) annotation (Placement(transformation(extent={{20,50},
+                {40,70}},         rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body Body3(
         m=1,
         I_11=0.1,
         I_22=0.1,
-        I_33=0.1) annotation (Placement(transformation(extent={{-38,68},{-18,88}},
-              rotation=0)));
+        I_33=0.1,
+        r_CM={0,0,0})
+                  annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=90,
+            origin={-10,70})));
       Modelica.Mechanics.Rotational.Components.Damper damper(
                                                   d=0.1)
         annotation (Placement(transformation(
-            origin={-64,12},
+            origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
@@ -711,29 +758,53 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j1_w = der(jointUSR.revolute.phi);
       j2_v = j2.v;
       connect(j2.frame_b, b2.frame_a)
-        annotation (Line(points={{32,-70},{50,-70},{50,-60}}));
-      connect(b3.frame_a, world.frame_b) annotation (Line(points={{-32,-70},{
-              -60,-70}}));
-      connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-12,-70},{12,
-              -70}}));
+        annotation (Line(points={{30,-70},{40,-70},{40,-40}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(b3.frame_a, world.frame_b) annotation (Line(points={{-30,-70},{
+              -60,-70}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-10,-70},{10,
+              -70}},
+          color={0,0,0},
+          thickness=0.5));
       connect(world.frame_b, jointUSR.frame_b)
-        annotation (Line(points={{-60,-70},{-50,-70},{-50,10},{-20,10}}));
+        annotation (Line(points={{-60,-70},{-40,-70},{-40,10},{-20,10}},
+          color={0,0,0},
+          thickness=0.5));
       connect(jointUSR.frame_a, b2.frame_b)
-        annotation (Line(points={{0,10},{50,10},{50,-40}}));
-      connect(jointUSR.frame_ia, fixedFrame.frame_a)
-        annotation (Line(points={{-2,20},{-4,32},{-6,32},{-6,40}}));
-      connect(jointUSR.frame_ia, Body2.frame_a)
-        annotation (Line(points={{-2,20},{-4,32},{10,32},{10,50},{20,50}}));
-      connect(jointUSR.frame_ib, Body1.frame_a)
-        annotation (Line(points={{-18,20},{-18,30},{-80,30},{-80,50},{-74,50}}));
-      connect(Body3.frame_a, jointUSR.frame_im) annotation (Line(points={{-38,
-              78},{-48,78},{-48,34},{-10,34},{-10,20}}, color={0,0,0}));
-      connect(damper.flange_b, jointUSR.axis)
-        annotation (Line(points={{-64,22},{-36,22},{-36,18},{-20,18}}, color={0,
-              0,0}));
-      connect(jointUSR.bearing, damper.flange_a)
-        annotation (Line(points={{-20,14},{-54,14},{-54,2},{-64,2}}, color={0,0,
-              0}));
+        annotation (Line(points={{0,10},{40,10},{40,-20}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(damper.flange_b, jointUSR.axis) annotation (Line(
+          points={{-60,20},{-50,20},{-50,18},{-20,18}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(damper.flange_a, jointUSR.bearing) annotation (Line(
+          points={{-60,0},{-50,0},{-50,14},{-20,14}},
+          color={0,0,0},
+          smooth=Smooth.None));
+      connect(Body1.frame_a, jointUSR.frame_ib) annotation (Line(
+          points={{-30,40},{-18,40},{-18,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Body2.frame_a, jointUSR.frame_ia) annotation (Line(
+          points={{20,60},{10,60},{10,30},{-2,30},{-2,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Body3.frame_a, jointUSR.frame_im) annotation (Line(
+          points={{-10,60},{-10,20},{-10,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedFrame.frame_a, jointUSR.frame_ia) annotation (Line(
+          points={{20,30},{-2,30},{-2,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       annotation (
         experiment(StopTime=2),
         Documentation(info="<html>
@@ -767,7 +838,8 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>"));
+</html>"),
+        Diagram(graphics));
     end JointUSR;
 
     encapsulated model JointSSR
@@ -795,39 +867,40 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         s(fixed=true),
         v(fixed=true, start=-0.2),
         s_offset=-0.2)
-        annotation (Placement(transformation(extent={{12,-80},{32,-60}},
+        annotation (Placement(transformation(extent={{10,-80},{30,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(
                                       r={0,0.2,0}, diameter=0.05)
         annotation (Placement(transformation(
-            origin={50,-50},
+            origin={40,-30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(
                                           animation=false, r={1.2,0,0})
-        annotation (Placement(transformation(extent={{-32,-80},{-12,-60}},
+        annotation (Placement(transformation(extent={{-30,-80},{-10,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Assemblies.JointSSR jointSSR(
         n_b={1,0,0},
         rRod2_ib={0,0.5,0.1},
         rod1Length=L,
         checkTotalPower=true,
-        rod1Mass=0.1) annotation (Placement(transformation(extent={{-2,0},{-22,
+        rod1Mass=0.1) annotation (Placement(transformation(extent={{0,0},{-20,
                 20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame FixedFrame1
-        annotation (Placement(transformation(extent={{-40,60},{-60,80}},
+        annotation (Placement(transformation(extent={{-30,60},{-50,80}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body Body1(
                                  r_CM=jointSSR.rRod2_ib/2, m=0.1)
         annotation (Placement(transformation(extent={{-30,30},{-50,50}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body Body2(
-                                 m=0.1) annotation (Placement(transformation(
-              extent={{20,30},{40,50}}, rotation=0)));
+                                 m=0.1, r_CM={0,0,0})
+                                        annotation (Placement(transformation(
+              extent={{0,30},{20,50}},  rotation=0)));
       Modelica.Mechanics.Rotational.Components.Damper damper(
                                                   d=0.5)
         annotation (Placement(transformation(
-            origin={-62,16},
+            origin={-60,10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
@@ -835,28 +908,52 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       j2_s = j2.s;
       j1_w = der(jointSSR.revolute.phi);
       j2_v = j2.v;
-      connect(j2.frame_b, b2.frame_a)
-        annotation (Line(points={{32,-70},{50,-70},{50,-60}}));
-      connect(b3.frame_a, world.frame_b) annotation (Line(points={{-32,-70},{
-              -60,-70}}));
-      connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-12,-70},{12,
-              -70}}));
-      connect(world.frame_b, jointSSR.frame_b)
-        annotation (Line(points={{-60,-70},{-50,-70},{-50,10},{-22,10}}));
-      connect(jointSSR.frame_a, b2.frame_b)
-        annotation (Line(points={{-2,10},{50,10},{50,-40}}));
-      connect(FixedFrame1.frame_a, jointSSR.frame_ib)
-        annotation (Line(points={{-40,70},{-20,70},{-20,20}}, color={0,0,0}));
-      connect(Body1.frame_a, jointSSR.frame_ib)
-        annotation (Line(points={{-30,40},{-20,40},{-20,20}}, color={0,0,0}));
-      connect(Body2.frame_a, jointSSR.frame_im)
-        annotation (Line(points={{20,40},{-12,40},{-12,20}}, color={0,0,0}));
       connect(jointSSR.axis, damper.flange_b)
-        annotation (Line(points={{-22,18},{-42,18},{-42,26},{-62,26}}, color={0,
+        annotation (Line(points={{-20,18},{-50,18},{-50,20},{-60,20}}, color={0,
               0,0}));
       connect(jointSSR.bearing, damper.flange_a)
-        annotation (Line(points={{-22,14},{-52,14},{-52,6},{-62,6}}, color={0,0,
+        annotation (Line(points={{-20,14},{-50,14},{-50,0},{-60,0}}, color={0,0,
               0}));
+      connect(world.frame_b, b3.frame_a) annotation (Line(
+          points={{-60,-70},{-30,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, jointSSR.frame_b) annotation (Line(
+          points={{-60,-70},{-40,-70},{-40,10},{-20,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(b3.frame_b, j2.frame_a) annotation (Line(
+          points={{-10,-70},{10,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(j2.frame_b, b2.frame_a) annotation (Line(
+          points={{30,-70},{40,-70},{40,-40}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(b2.frame_b, jointSSR.frame_a) annotation (Line(
+          points={{40,-20},{40,10},{0,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Body1.frame_a, jointSSR.frame_ib) annotation (Line(
+          points={{-30,40},{-18,40},{-18,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Body2.frame_a, jointSSR.frame_im) annotation (Line(
+          points={{0,40},{-10,40},{-10,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(FixedFrame1.frame_a, jointSSR.frame_ib) annotation (Line(
+          points={{-30,70},{-18,70},{-18,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       annotation (
         experiment(StopTime=1.1),
         Documentation(info="<html>
@@ -890,7 +987,8 @@ initial value of the distance of the prismatic joint j2 has been fixed
 <b>computeLength</b> = <b>true</b> is set in the joint parameter
 menu (this sets \"fixed=false\" on parameter \"length\").
 </p>
-</html>"));
+</html>"),
+        Diagram(graphics));
     end JointSSR;
 
     encapsulated model JointUSP
@@ -916,20 +1014,20 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         a(fixed=false),
         phi(fixed=true),
         w(fixed=true, start=5.235987755982989))
-        annotation (Placement(transformation(extent={{-54,-40},{-34,-20}},
+        annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder body1(
                                          r={0,0.5,0.1}, diameter=0.05)
         annotation (Placement(transformation(
-            origin={-30,0},
+            origin={-10,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder body3(
                                          r={0,0.2,0}, diameter=0.05)
         annotation (Placement(transformation(
-            origin={50,70},
+            origin={40,60},
             extent={{-10,-10},{10,10}},
-            rotation=90)));
+            rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation ground_rod(
                                                   animation=false, r={1.2,0,0})
         annotation (Placement(transformation(extent={{-32,-80},{-12,-60}},
@@ -944,12 +1042,13 @@ menu (this sets \"fixed=false\" on parameter \"length\").
                 20},{20,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder body2(
                                          r={1,-0.3,0.1}, diameter=0.05)
-        annotation (Placement(transformation(extent={{8,60},{28,80}}, rotation=
+        annotation (Placement(transformation(extent={{-10,50},{-30,70}},
+                                                                      rotation=
                 0)));
       Modelica.Mechanics.Translational.Components.Damper damper(
                                                      d=50)
         annotation (Placement(transformation(
-            origin={52,30},
+            origin={50,30},
             extent={{10,-10},{-10,10}},
             rotation=270)));
     equation
@@ -957,43 +1056,49 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       prismatic_s = jointUSP.prismatic.s;
       revolute_w = revolute.w;
       prismatic_v = der(jointUSP.prismatic.s);
-      connect(revolute.frame_b, body1.frame_a) annotation (Line(
-          points={{-34,-30},{-30,-30},{-30,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(revolute.frame_a, world.frame_b) annotation (Line(
-          points={{-54,-30},{-60,-30},{-60,-70}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(ground_rod.frame_a, world.frame_b)
-        annotation (Line(
-          points={{-32,-70},{-60,-70}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(body1.frame_b, jointUSP.frame_a) annotation (Line(
-          points={{-30,10},{-30,30},{0,30}},
-          color={0,0,0},
-          thickness=0.5));
+      connect(jointUSP.bearing, damper.flange_a) annotation (Line(points={{20,34},
+              {38,34},{38,18},{50,18},{50,20}},     color={0,191,0}));
+      connect(jointUSP.axis, damper.flange_b) annotation (Line(points={{20,38},
+              {38,38},{38,40},{50,40}},         color={0,191,0}));
       connect(ground_rod.frame_b, jointUSP.frame_b) annotation (Line(
           points={{-12,-70},{30,-70},{30,30},{20,30}},
-          color={0,0,0},
-          thickness=0.5));
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, ground_rod.frame_a) annotation (Line(
+          points={{-60,-70},{-32,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, revolute.frame_a) annotation (Line(
+          points={{-60,-70},{-50,-70},{-50,-30},{-40,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute.frame_b, body1.frame_a) annotation (Line(
+          points={{-20,-30},{-10,-30},{-10,-20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(body1.frame_b, jointUSP.frame_a) annotation (Line(
+          points={{-10,0},{-10,30},{0,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(jointUSP.frame_ia, body2.frame_a) annotation (Line(
+          points={{2,40},{2,60},{-10,60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       connect(jointUSP.frame_ib, body3.frame_a) annotation (Line(
-          points={{18,40},{18,48},{50,48},{50,60}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(jointUSP.frame_ia, body2.frame_a)
-        annotation (Line(
-          points={{2,40},{2,70},{8,70}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(jointUSP.bearing, damper.flange_a) annotation (Line(points={{20,
-              34},{38,34},{38,10},{52,10},{52,20}}, color={0,191,0}));
-      connect(jointUSP.axis, damper.flange_b) annotation (Line(points={{20,38},
-              {38,38},{38,44},{52,44},{52,40}}, color={0,191,0}));
+          points={{18,40},{18,60},{30,60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       annotation (
         experiment(StopTime=5),
-        Documentation(info=""));
+        Documentation(info=""),
+        Diagram(graphics));
     end JointUSP;
   end FourbarVariants;
 
@@ -1108,7 +1213,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         frameForceAndTorque
         annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
               rotation=0)));
-      Modelica.Blocks.Sources.Sine sine[6] annotation (Placement(transformation(
+      Modelica.Blocks.Sources.Sine sine[6](
+        each freqHz=1)                     annotation (Placement(transformation(
               extent={{-80,-40},{-60,-20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce
         annotation (Placement(transformation(extent={{0,-40},{20,-20}},
@@ -1153,7 +1259,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-80,60},{
                 -60,80}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      Joints.Revolute Revolute1(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,30},
             extent={{-10,-10},{10,10}},
@@ -1177,12 +1285,14 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Mechanics.MultiBody.Forces.Force force1(
                           N_to_m=600, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
                                       annotation (Placement(transformation(
-              extent={{62,40},{42,60}}, rotation=0)));
+              extent={{60,40},{40,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Force force2(
                           N_to_m=600, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
                                       annotation (Placement(transformation(
               extent={{60,-10},{40,-30}}, rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,-40},
             extent={{-10,-10},{10,10}},
@@ -1192,10 +1302,12 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             origin={70,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
-                -52,0},{-32,20}}, rotation=0)));
-      Joints.Revolute Revolute4 annotation (Placement(transformation(extent={{
-                -62,-70},{-42,-50}}, rotation=0)));
+      Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{-60,0},
+                {-40,20}},        rotation=0)));
+      Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{-60,-70},
+                {-40,-50}},          rotation=0)));
       Parts.Fixed fixed2(animation=false, r={1.5,0.25,0})
         annotation (Placement(transformation(extent={{100,40},{80,60}},
               rotation=0)));
@@ -1203,7 +1315,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         annotation (Placement(transformation(extent={{100,-30},{80,-10}},
               rotation=0)));
     equation
-      connect(force1.frame_b, body1.frame_b) annotation (Line(points={{42,50},{
+      connect(force1.frame_b, body1.frame_b) annotation (Line(points={{40,50},{
               20,50}}));
       connect(Revolute1.frame_b, body1.frame_a)
         annotation (Line(points={{-20,40},{-20,50},{0,50}}));
@@ -1212,25 +1324,23 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(force2.frame_b, body2.frame_b) annotation (Line(points={{40,-20},
               {20,-20}}));
       connect(Revolute3.frame_a, fixed1.frame_b)
-        annotation (Line(points={{-52,10},{-70,10}}));
+        annotation (Line(points={{-60,10},{-70,10}}));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,10},{-20,10},{-20,20}}));
+        annotation (Line(points={{-40,10},{-20,10},{-20,20}}));
       connect(fixedRotation.frame_b, force2.frame_resolve)
         annotation (Line(points={{12,-80},{46,-80},{46,-30}}));
       connect(fixed3.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-62,-60}}));
+        annotation (Line(points={{-68,-60},{-60,-60}}));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
       connect(fixed3.frame_b, fixedRotation.frame_a)
         annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
       connect(Constant1.y,force1.force)
-        annotation (Line(points={{50,79},{50,72},{58,72},{58,62}}, color={0,0,
-              255}));
+        annotation (Line(points={{50,79},{50,70},{56,70},{56,62}}, color={0,0,127}));
       connect(Constant2.y,force2.force)
-        annotation (Line(points={{70,-59},{70,-42},{56,-42},{56,-32}}, color={0,
-              0,255}));
+        annotation (Line(points={{70,-59},{70,-50},{56,-50},{56,-32}}, color={0,0,127}));
       connect(force1.frame_a, fixed2.frame_b) annotation (Line(
-          points={{62,50},{71.5,50},{71.5,50},{80,50}},
+          points={{60,50},{60,50},{80,50}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, force2.frame_a) annotation (Line(
@@ -1243,175 +1353,219 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model Force2
       extends Modelica.Icons.Example;
       import Modelica.Mechanics.MultiBody.*;
-      inner World world annotation (Placement(transformation(extent={{-80,60},{
-                -60,80}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      inner World world annotation (Placement(transformation(extent={{-190,60},{-170,
+                80}},     rotation=0)));
+      Joints.Revolute Revolute1(
+        n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,30},
+            origin={-130,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
 
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,40},{20,60}}, rotation=0)));
+              extent={{-110,40},{-90,60}},
+                                       rotation=0)));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0})
         annotation (Placement(transformation(
-            origin={50,90},
+            origin={-60,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-90,0},{-70,20}}, rotation=0)));
+              extent={{-200,0},{-180,20}},
+                                         rotation=0)));
       Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,-30},{20,-10}}, rotation=0)));
+              extent={{-110,-30},{-90,-10}},
+                                         rotation=0)));
       Parts.Fixed fixed3(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-70},{-68,-50}}, rotation=0)));
+              extent={{-198,-70},{-178,-50}},
+                                            rotation=0)));
       Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45)
-        annotation (Placement(transformation(extent={{-8,-90},{12,-70}},
+        annotation (Placement(transformation(extent={{-118,-90},{-98,-70}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Force force1(
                           N_to_m=600, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
                                       annotation (Placement(transformation(
-              extent={{62,40},{42,60}}, rotation=0)));
+              extent={{-50,40},{-70,60}},
+                                        rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Force force2(
                           N_to_m=600, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
                                       annotation (Placement(transformation(
-              extent={{60,-10},{40,-30}}, rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+              extent={{-50,-10},{-70,-30}},
+                                          rotation=0)));
+      Joints.Revolute Revolute2(
+        n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,-40},
+            origin={-130,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant Constant2[3](k={0,500,0})
         annotation (Placement(transformation(
-            origin={70,-70},
+            origin={-40,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
-                -52,0},{-32,20}}, rotation=0)));
-      Joints.Revolute Revolute4 annotation (Placement(transformation(extent={{
-                -62,-70},{-42,-50}}, rotation=0)));
+      Joints.Revolute Revolute3(
+        phi(fixed=true),
+        w(fixed=true))
+        annotation (Placement(transformation(extent={{-170,0},{-150,20}},
+                                  rotation=0)));
+      Joints.Revolute Revolute4(
+        phi(fixed=true),
+        w(fixed=true))
+       annotation (Placement(transformation(extent={{-170,-70},{-150,-50}},
+                                     rotation=0)));
       Parts.Fixed fixed2(animation=false, r={1.5,0.25,0})
-        annotation (Placement(transformation(extent={{100,40},{80,60}},
+        annotation (Placement(transformation(extent={{-10,40},{-30,60}},
               rotation=0)));
       Parts.Fixed fixed4(animation=false, r={1.5,-0.25,0})
-        annotation (Placement(transformation(extent={{100,-30},{80,-10}},
+        annotation (Placement(transformation(extent={{-10,-30},{-30,-10}},
               rotation=0)));
-      Joints.Revolute Revolute5(n={0,1,0})
+      Joints.Revolute Revolute5(
+        n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,-180},
+            origin={80,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
+
       Parts.BodyCylinder body3(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,-170},{20,-150}}, rotation=0)));
+              extent={{100,40},{120,60}},  rotation=0)));
       Modelica.Blocks.Sources.Constant Constant3[6](k={0,500,0,0,0,0})
         annotation (Placement(transformation(
-            origin={50,-120},
+            origin={150,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Parts.Fixed fixed5(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-90,-210},{-70,-190}}, rotation=0)));
+              extent={{10,0},{30,20}},        rotation=0)));
       Parts.BodyCylinder body4(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,-240},{20,-220}}, rotation=0)));
+              extent={{100,-30},{120,-10}},rotation=0)));
       Parts.Fixed fixed6(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-280},{-68,-260}}, rotation=0)));
+              extent={{12,-70},{32,-50}},     rotation=0)));
       Parts.FixedRotation fixedRotation1(n={0,0,1}, angle=45)
-        annotation (Placement(transformation(extent={{-8,-300},{12,-280}},
+        annotation (Placement(transformation(extent={{92,-90},{112,-70}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque force3(
-                                   N_to_m=600)
-        annotation (Placement(transformation(extent={{62,-170},{42,-150}},
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque          force3(
+        N_to_m=600)
+        annotation (Placement(transformation(extent={{162,40},{142,60}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque force4(
-                                   N_to_m=600)
-        annotation (Placement(transformation(extent={{60,-220},{40,-240}},
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque          force4(
+        N_to_m=600, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+        annotation (Placement(transformation(extent={{160,-10},{140,-30}},
               rotation=0)));
-      Joints.Revolute Revolute6(n={0,1,0})
+      Joints.Revolute Revolute6(
+        n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,-250},
+            origin={80,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
+
       Modelica.Blocks.Sources.Constant Constant4[6](k={0,500,0,0,0,0})
         annotation (Placement(transformation(
-            origin={70,-280},
+            origin={170,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute7 annotation (Placement(transformation(extent={{
-                -52,-210},{-32,-190}}, rotation=0)));
-      Joints.Revolute Revolute8 annotation (Placement(transformation(extent={{
-                -62,-280},{-42,-260}}, rotation=0)));
+      Joints.Revolute Revolute7(
+        phi(fixed=true),
+        w(fixed=true))
+        annotation (Placement(transformation(extent={{48,0},{68,20}},
+                                       rotation=0)));
+      Joints.Revolute Revolute8(
+        phi(fixed=true),
+        w(fixed=true)) annotation (Placement(transformation(extent={{38,-70},{58,-50}},
+                                       rotation=0)));
       Parts.Fixed fixed7(animation=false, r={1.5,0.25,0})
-        annotation (Placement(transformation(extent={{100,-170},{80,-150}},
+        annotation (Placement(transformation(extent={{200,40},{180,60}},
               rotation=0)));
       Parts.Fixed fixed8(animation=false, r={1.5,-0.25,0})
-        annotation (Placement(transformation(extent={{100,-240},{80,-220}},
+        annotation (Placement(transformation(extent={{200,-30},{180,-10}},
               rotation=0)));
     equation
-      connect(force1.frame_b, body1.frame_b) annotation (Line(points={{42,50},{
-              20,50}}));
+      connect(force1.frame_b, body1.frame_b) annotation (Line(points={{-70,50},{-90,
+              50}}));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,40},{-20,50},{0,50}}));
+        annotation (Line(points={{-130,40},{-130,50},{-110,50}}));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
-      connect(force2.frame_b, body2.frame_b) annotation (Line(points={{40,-20},
-              {20,-20}}));
+        annotation (Line(points={{-130,-30},{-130,-20},{-110,-20}}));
+      connect(force2.frame_b, body2.frame_b) annotation (Line(points={{-70,-20},{-90,
+              -20}}));
       connect(Revolute3.frame_a, fixed1.frame_b)
-        annotation (Line(points={{-52,10},{-70,10}}));
+        annotation (Line(points={{-170,10},{-174,10},{-180,10}}));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,10},{-20,10},{-20,20}}));
+        annotation (Line(points={{-150,10},{-130,10},{-130,20}}));
       connect(fixedRotation.frame_b, force2.frame_resolve)
-        annotation (Line(points={{12,-80},{46,-80},{46,-30}}));
+        annotation (Line(points={{-98,-80},{-64,-80},{-64,-30}}));
       connect(fixed3.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-62,-60}}));
+        annotation (Line(points={{-178,-60},{-170,-60}}));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-150,-60},{-130,-60},{-130,-50}}));
       connect(fixed3.frame_b, fixedRotation.frame_a)
-        annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
+        annotation (Line(points={{-178,-60},{-174,-60},{-174,-80},{-118,-80}}));
       connect(Constant1.y,force1.force)
-        annotation (Line(points={{50,79},{50,72},{58,72},{58,62}}, color={0,0,
-              255}));
+        annotation (Line(points={{-60,79},{-60,70},{-54,70},{-54,62}},
+                                                                   color={0,0,127}));
       connect(Constant2.y,force2.force)
-        annotation (Line(points={{70,-59},{70,-42},{56,-42},{56,-32}}, color={0,
-              0,255}));
+        annotation (Line(points={{-40,-59},{-40,-50},{-54,-50},{-54,-32}},
+                                                                       color={0,0,127}));
       connect(force1.frame_a, fixed2.frame_b) annotation (Line(
-          points={{62,50},{71.5,50},{71.5,50},{80,50}},
+          points={{-50,50},{-38.5,50},{-30,50}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, force2.frame_a) annotation (Line(
-          points={{80,-20},{70,-20},{70,-20},{60,-20}},
+          points={{-30,-20},{-40,-20},{-50,-20}},
           color={0,0,0},
           thickness=0.5));
       connect(force3.frame_b, body3.frame_b)
-        annotation (Line(points={{42,-160},{20,-160}}));
+        annotation (Line(points={{142,50},{120,50}}));
       connect(Revolute5.frame_b, body3.frame_a)
-        annotation (Line(points={{-20,-170},{-20,-160},{0,-160}}));
+        annotation (Line(points={{80,40},{80,50},{100,50}}));
       connect(Revolute6.frame_b, body4.frame_a)
-        annotation (Line(points={{-20,-240},{-20,-230},{0,-230}}));
+        annotation (Line(points={{80,-30},{80,-20},{100,-20}}));
       connect(force4.frame_b, body4.frame_b)
-        annotation (Line(points={{40,-230},{20,-230}}));
+        annotation (Line(points={{140,-20},{120,-20}}));
       connect(Revolute7.frame_a, fixed5.frame_b)
-        annotation (Line(points={{-52,-200},{-70,-200}}));
+        annotation (Line(points={{48,10},{30,10}}));
       connect(Revolute7.frame_b, Revolute5.frame_a)
-        annotation (Line(points={{-32,-200},{-20,-200},{-20,-190}}));
+        annotation (Line(points={{68,10},{80,10},{80,20}}));
       connect(fixedRotation1.frame_b, force4.frame_resolve)
-        annotation (Line(points={{12,-290},{46,-290},{46,-240}}));
+        annotation (Line(points={{112,-80},{142,-80},{142,-30}}));
       connect(fixed6.frame_b, Revolute8.frame_a)
-        annotation (Line(points={{-68,-270},{-62,-270}}));
+        annotation (Line(points={{32,-60},{38,-60}}));
       connect(Revolute8.frame_b, Revolute6.frame_a)
-        annotation (Line(points={{-42,-270},{-20,-270},{-20,-260}}));
+        annotation (Line(points={{58,-60},{80,-60},{80,-50}}));
       connect(fixed6.frame_b, fixedRotation1.frame_a)
-        annotation (Line(points={{-68,-270},{-64,-270},{-64,-290},{-8,-290}}));
-      connect(Constant3.y,force3.load)          annotation (Line(points={{50,
-              -131},{50,-138},{58,-138},{58,-148}}, color={0,0,255}));
-      connect(Constant4.y,force4.load)          annotation (Line(points={{70,
-              -269},{70,-252},{56,-252},{56,-242}}, color={0,0,255}));
+        annotation (Line(points={{32,-60},{36,-60},{36,-80},{92,-80}}));
       connect(force3.frame_a, fixed7.frame_b) annotation (Line(
-          points={{62,-160},{71.5,-160},{71.5,-160},{80,-160}},
+          points={{162,50},{171.5,50},{180,50}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed8.frame_b, force4.frame_a) annotation (Line(
-          points={{80,-230},{70,-230},{70,-230},{60,-230}},
+          points={{180,-20},{170,-20},{160,-20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(Constant3[1:3].y, force3.force[1:3]) annotation (Line(
+          points={{150,79},{150,70},{160,70},{160,60.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant3[4:6].y, force3.torque[1:3]) annotation (Line(
+          points={{150,79},{150,70},{152,70},{152,60.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant4[1:3].y, force4.force[1:3]) annotation (Line(
+          points={{170,-59},{170,-48},{158,-48},{158,-30.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant4[4:6].y, force4.torque[1:3]) annotation (Line(
+          points={{170,-59},{170,-48},{150,-48},{150,-30.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(coordinateSystem(
+              preserveAspectRatio=true, extent={{-200,-100},{200,100}}), graphics));
     end Force2;
 
     model ForcesAndTorques
@@ -1419,7 +1573,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-80,60},{
                 -60,80}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      Joints.Revolute Revolute1(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,30},
             extent={{-10,-10},{10,10}},
@@ -1440,15 +1596,18 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45)
         annotation (Placement(transformation(extent={{-8,-90},{12,-70}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque
         forceAndTorque1(                    Nm_to_m=120, N_to_m=600)
         annotation (Placement(transformation(extent={{62,40},{42,60}}, rotation=
                0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque
-        forceAndTorque2(                    Nm_to_m=120, N_to_m=600)
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque
+        forceAndTorque2(                    Nm_to_m=120, N_to_m=600,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}},
               rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,-40},
             extent={{-10,-10},{10,10}},
@@ -1458,9 +1617,11 @@ menu (this sets \"fixed=false\" on parameter \"length\").
             origin={70,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -52,0},{-32,20}}, rotation=0)));
-      Joints.Revolute Revolute4 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -62,-70},{-42,-50}}, rotation=0)));
       Parts.Fixed fixed2(animation=false, r={1.5,0.25,0})
         annotation (Placement(transformation(extent={{100,40},{80,60}},
@@ -1482,27 +1643,37 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(Revolute3.frame_b, Revolute1.frame_a)
         annotation (Line(points={{-32,10},{-20,10},{-20,20}}));
       connect(fixedRotation.frame_b, forceAndTorque2.frame_resolve)
-        annotation (Line(points={{12,-80},{46,-80},{46,-30}}));
+        annotation (Line(points={{12,-80},{42,-80},{42,-30}}));
       connect(fixed3.frame_b, Revolute4.frame_a)
         annotation (Line(points={{-68,-60},{-62,-60}}));
       connect(Revolute4.frame_b, Revolute2.frame_a)
         annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
       connect(fixed3.frame_b, fixedRotation.frame_a)
         annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
-      connect(Constant1.y,forceAndTorque1.load)
-        annotation (Line(points={{50,79},{50,72},{58,72},{58,62}}, color={0,0,
-              255}));
-      connect(Constant2.y,forceAndTorque2.load)
-        annotation (Line(points={{70,-59},{70,-42},{56,-42},{56,-32}}, color={0,
-              0,255}));
       connect(forceAndTorque1.frame_a, fixed2.frame_b) annotation (Line(
           points={{62,50},{71.5,50},{71.5,50},{80,50}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, forceAndTorque2.frame_a) annotation (Line(
-          points={{80,-20},{70,-20},{70,-20},{60,-20}},
+          points={{80,-20},{70,-20},{60,-20}},
           color={0,0,0},
           thickness=0.5));
+      connect(Constant1[1:3].y, forceAndTorque1.force[1:3]) annotation (Line(
+          points={{50,79},{50,70},{60,70},{60,60.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant1[4:6].y, forceAndTorque1.torque[1:3]) annotation (Line(
+          points={{50,79},{50,70},{52,70},{52,60.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant2[1:3].y, forceAndTorque2.force[1:3]) annotation (Line(
+          points={{70,-59},{70,-48},{58,-48},{58,-30.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant2[4:6].y, forceAndTorque2.torque[1:3]) annotation (Line(
+          points={{70,-59},{70,-48},{50,-48},{50,-30.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (                  experiment(StopTime=1.1));
     end ForcesAndTorques;
 
@@ -1511,8 +1682,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       inner Modelica.Mechanics.MultiBody.World world
                                   annotation (Placement(transformation(extent={
                 {-100,20},{-80,40}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute revolute
-                                         annotation (Placement(transformation(
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute(phi(fixed=true), w(
+            fixed=true))                 annotation (Placement(transformation(
               extent={{-40,20},{-20,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox BodyBox1(
                                        r={0.7,0,0})
@@ -1568,7 +1739,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}}, rotation=0)));
-      Joints.Revolute Revolute1 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -40,40},{-20,60}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder1(r={1,0,0})
         annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=
@@ -1582,7 +1754,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
                                     N_to_m=600, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
                                                 annotation (Placement(
             transformation(extent={{60,40},{40,60}}, rotation=0)));
-      Joints.Revolute Revolute2 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute2(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -40,0},{-20,20}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder2(r={1,0,0}) annotation (Placement(
             transformation(extent={{0,0},{20,20}}, rotation=0)));
@@ -1625,7 +1798,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      Joints.Revolute Revolute1(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,50},
             extent={{-10,-10},{10,10}},
@@ -1644,15 +1819,19 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Parts.FixedRotation FixedRotation1(n={0,0,1}, angle=45)
         annotation (Placement(transformation(extent={{-8,-90},{12,-70}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.FrameForceAndTorque
-        frameTorque1(                         Nm_to_m=120, N_to_m=600)
+      Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque
+        frameTorque1(                         Nm_to_m=120, N_to_m=600,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_b)
         annotation (Placement(transformation(extent={{60,60},{40,80}}, rotation=
                0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.FrameForceAndTorque
-        frameTorque2(                         Nm_to_m=120, N_to_m=600)
+      Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque
+        frameTorque2(                         Nm_to_m=120, N_to_m=600,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,-10},{40,-30}},
               rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,-40},
             extent={{-10,-10},{10,10}},
@@ -1660,23 +1839,21 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Blocks.Sources.Constant Constant2[6](k={0,500,0,-100,100,0})
         annotation (Placement(transformation(extent={{100,-30},{80,-10}},
               rotation=0)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -52,20},{-32,40}}, rotation=0)));
-      Joints.Revolute Revolute4 annotation (Placement(transformation(extent={{
-                -62,-70},{-42,-50}}, rotation=0)));
+      Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{-60,-70},
+                {-40,-50}},          rotation=0)));
     equation
       connect(frameTorque1.frame_b, body1.frame_b)
         annotation (Line(points={{40,70},{20,70}}));
-      connect(Constant1.y,frameTorque1.load)
-        annotation (Line(points={{79,70},{62,70}}, color={0,0,255}));
       connect(Revolute1.frame_b, body1.frame_a)
         annotation (Line(points={{-20,60},{-20,70},{0,70}}));
       connect(Revolute2.frame_b, body2.frame_a)
         annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
       connect(frameTorque2.frame_b, body2.frame_b)
         annotation (Line(points={{40,-20},{20,-20}}));
-      connect(Constant2.y,frameTorque2.load)
-        annotation (Line(points={{79,-20},{62,-20}}, color={0,0,255}));
       connect(Revolute3.frame_a, fixed1.frame_b)
         annotation (Line(points={{-52,30},{-60,30}}));
       connect(Revolute3.frame_b, Revolute1.frame_a)
@@ -1684,12 +1861,28 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(FixedRotation1.frame_b, frameTorque2.frame_resolve)
         annotation (Line(points={{12,-80},{50,-80},{50,-30}}));
       connect(fixed2.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-62,-60}}));
+        annotation (Line(points={{-68,-60},{-60,-60}}));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-40,-60},{-20,-60},{-20,-50}}));
       connect(fixed2.frame_b, FixedRotation1.frame_a)
         annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
-      annotation (                  experiment(StopTime=1.1));
+      connect(Constant1[1:3].y, frameTorque1.force[1:3]) annotation (Line(
+          points={{79,70},{72,70},{72,62.6667},{62,62.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant1[4:6].y, frameTorque1.torque[1:3]) annotation (Line(
+          points={{79,70},{72,70},{72,74.6667},{62,74.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant2[1:3].y, frameTorque2.force[1:3]) annotation (Line(
+          points={{79,-20},{72,-20},{72,-12.6667},{62,-12.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant2[4:6].y, frameTorque2.torque[1:3]) annotation (Line(
+          points={{79,-20},{72,-20},{72,-24.6667},{62,-24.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (                  experiment(StopTime=1.1), Diagram(graphics));
     end FrameForcesAndTorques;
 
     model FrameTorques
@@ -1697,7 +1890,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       extends Modelica.Icons.Example;
       inner World world annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      Joints.Revolute Revolute1(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-30,50},
             extent={{-10,-10},{10,10}},
@@ -1724,7 +1919,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
                                       Nm_to_m=120, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.frame_resolve)
         annotation (Placement(transformation(extent={{60,20},{40,0}}, rotation=
                 0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-30,-10},
             extent={{-10,-10},{10,10}},
@@ -1773,12 +1970,12 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       inner Modelica.Mechanics.MultiBody.World world
                                   annotation (Placement(transformation(extent={
                 {-80,60},{-60,80}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute revolute1
-                                          annotation (Placement(transformation(
-              extent={{-20,60},{0,80}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
+            fixed=true))                  annotation (Placement(transformation(
+              extent={{-20,80},{0,100}},rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(
                                        r={0.7,0,0})
-        annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=
+        annotation (Placement(transformation(extent={{20,80},{40,100}},rotation=
                0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
         r={0,-0.9,0},
@@ -1819,30 +2016,30 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Mechanics.Translational.Components.Damper damper1(
                                                       d=3)
         annotation (Placement(transformation(extent={{0,24},{20,4}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute revolute2
-                                          annotation (Placement(transformation(
-              extent={{-20,-40},{0,-20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
+            fixed=true))                  annotation (Placement(transformation(
+              extent={{-20,-30},{0,-10}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(
                                        r={0.7,0,0})
-        annotation (Placement(transformation(extent={{20,-40},{40,-20}},
+        annotation (Placement(transformation(extent={{20,-30},{40,-10}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(
         width=0.01,
         r={0,-0.9,0.3},
         animation=false) annotation (Placement(transformation(
-            origin={-40,-46},
+            origin={-40,-50},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(
         width=0.01,
         r={0,0.3,0.3},
         animation=false) annotation (Placement(transformation(
-            origin={-40,-16},
+            origin={-40,-20},
             extent={{10,-10},{-10,10}},
             rotation=270)));
       Modelica.Mechanics.Translational.Components.Damper damper2(
                                                       d=3)
-        annotation (Placement(transformation(extent={{0,-76},{20,-96}},
+        annotation (Placement(transformation(extent={{0,-80},{20,-100}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.LineForceWithTwoMasses
         lineForceWithTwoMasses(
@@ -1852,7 +2049,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         cylinderLength_b=1.2,
         massDiameterFaction=2.2,
         m_a=m,
-        m_b=m) annotation (Placement(transformation(extent={{0,-50},{20,-70}},
+        m_b=m) annotation (Placement(transformation(extent={{0,-54},{20,-74}},
               rotation=0)));
     equation
       connect(jointUPS.bearing, damper1.flange_a)
@@ -1874,16 +2071,16 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           color={0,0,0},
           thickness=0.5));
       connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
-          points={{-40,94},{-40,98},{-28,98},{-28,70},{-20,70}},
+          points={{-40,94},{-40,98},{-30,98},{-30,90},{-20,90}},
           color={0,0,0},
           thickness=0.5));
       connect(revolute1.frame_b, bodyBox1.frame_a)
         annotation (Line(
-          points={{0,70},{20,70}},
+          points={{0,90},{12,90},{20,90}},
           color={0,0,0},
           thickness=0.5));
       connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
-          points={{40,70},{46,70},{46,40},{20,40}},
+          points={{40,90},{50,90},{50,40},{20,40}},
           color={0,0,0},
           thickness=0.5));
       connect(body1.frame_a, jointUPS.frame_ia)
@@ -1896,35 +2093,35 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           color={0,0,0},
           thickness=0.5));
       connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
-          points={{-40,-6},{-40,-2},{-28,-2},{-28,-30},{-20,-30}},
+          points={{-40,-10},{-40,-6},{-30,-6},{-30,-20},{-20,-20}},
           color={0,0,0},
           thickness=0.5));
       connect(revolute2.frame_b, bodyBox2.frame_a)
         annotation (Line(
-          points={{0,-30},{20,-30}},
+          points={{0,-20},{20,-20}},
           color={0,0,0},
           thickness=0.5));
       connect(world.frame_b, rod4.frame_a) annotation (Line(
-          points={{-60,70},{-52,70},{-52,-32},{-40,-32},{-40,-26}},
+          points={{-60,70},{-52,70},{-52,-36},{-40,-36},{-40,-30}},
           color={0,0,0},
           thickness=0.5));
       connect(rod3.frame_a, rod4.frame_a)
         annotation (Line(
-          points={{-40,-36},{-40,-26}},
+          points={{-40,-40},{-40,-30}},
           color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.frame_a, rod3.frame_b) annotation (Line(
-          points={{0,-60},{-40,-60},{-40,-56}},
+          points={{0,-64},{-40,-64},{-40,-60}},
           color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.frame_b, bodyBox2.frame_b) annotation (Line(
-          points={{20,-60},{54,-60},{54,-30},{40,-30}},
+          points={{20,-64},{50,-64},{50,-20},{40,-20}},
           color={0,0,0},
           thickness=0.5));
       connect(lineForceWithTwoMasses.flange_b, damper2.flange_b)
-        annotation (Line(points={{16,-71},{20,-71},{20,-86}}, color={0,191,0}));
+        annotation (Line(points={{16,-75},{20,-75},{20,-90}}, color={0,191,0}));
       connect(lineForceWithTwoMasses.flange_a, damper2.flange_a)
-        annotation (Line(points={{4,-71},{0,-71},{0,-86}}, color={0,191,0}));
+        annotation (Line(points={{4,-75},{0,-75},{0,-90}}, color={0,191,0}));
       annotation (
         experiment(StopTime=3),
         Documentation(info="<html>
@@ -1957,7 +2154,9 @@ a linear damper is connected here.
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-80,60},{
                 -60,80}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      Joints.Revolute Revolute1(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,30},
             extent={{-10,-10},{10,10}},
@@ -1986,7 +2185,9 @@ a linear damper is connected here.
                             Nm_to_m=120, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
                                          annotation (Placement(transformation(
               extent={{60,-10},{40,-30}}, rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-20,-40},
             extent={{-10,-10},{10,10}},
@@ -1996,9 +2197,11 @@ a linear damper is connected here.
             origin={70,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -52,0},{-32,20}}, rotation=0)));
-      Joints.Revolute Revolute4 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -62,-70},{-42,-50}}, rotation=0)));
       Parts.Fixed fixed2(animation=false, r={1.5,0.25,0})
         annotation (Placement(transformation(extent={{100,40},{80,60}},
@@ -2049,178 +2252,212 @@ a linear damper is connected here.
     model Torque2
       extends Modelica.Icons.Example;
       import Modelica.Mechanics.MultiBody.*;
-      inner World world annotation (Placement(transformation(extent={{-80,60},{
-                -60,80}}, rotation=0)));
-      Joints.Revolute Revolute1(n={0,1,0})
+      inner World world annotation (Placement(transformation(extent={{-180,60},{-160,
+                80}},     rotation=0)));
+      Joints.Revolute Revolute1(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,30},
+            origin={-120,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,40},{20,60}}, rotation=0)));
+              extent={{-100,40},{-80,60}},
+                                       rotation=0)));
       Modelica.Blocks.Sources.Constant Constant1[3](k={-100,100,0})
         annotation (Placement(transformation(
-            origin={50,90},
+            origin={-50,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-90,0},{-70,20}}, rotation=0)));
+              extent={{-190,0},{-170,20}},
+                                         rotation=0)));
       Parts.BodyCylinder body2(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,-30},{20,-10}}, rotation=0)));
+              extent={{-100,-30},{-80,-10}},
+                                         rotation=0)));
       Parts.Fixed fixed3(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-70},{-68,-50}}, rotation=0)));
+              extent={{-188,-70},{-168,-50}},
+                                            rotation=0)));
       Parts.FixedRotation fixedRotation(n={0,0,1}, angle=45)
-        annotation (Placement(transformation(extent={{-8,-90},{12,-70}},
+        annotation (Placement(transformation(extent={{-108,-90},{-88,-70}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Torque torque1(
                             Nm_to_m=120, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
                                          annotation (Placement(transformation(
-              extent={{62,40},{42,60}}, rotation=0)));
+              extent={{-38,40},{-58,60}},
+                                        rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Torque torque2(
                             Nm_to_m=120, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
                                          annotation (Placement(transformation(
-              extent={{60,-10},{40,-30}}, rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+              extent={{-40,-10},{-60,-30}},
+                                          rotation=0)));
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,-40},
+            origin={-120,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant Constant2[3](k={-100,100,0})
         annotation (Placement(transformation(
-            origin={70,-70},
+            origin={-30,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
-                -52,0},{-32,20}}, rotation=0)));
-      Joints.Revolute Revolute4 annotation (Placement(transformation(extent={{
-                -62,-70},{-42,-50}}, rotation=0)));
+      Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{-160,0},
+                {-140,20}},       rotation=0)));
+      Joints.Revolute Revolute4(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{-160,-70},
+                {-140,-50}},         rotation=0)));
       Parts.Fixed fixed2(animation=false, r={1.5,0.25,0})
-        annotation (Placement(transformation(extent={{100,40},{80,60}},
+        annotation (Placement(transformation(extent={{0,40},{-20,60}},
               rotation=0)));
       Parts.Fixed fixed4(animation=false, r={1.5,-0.25,0})
-        annotation (Placement(transformation(extent={{100,-30},{80,-10}},
+        annotation (Placement(transformation(extent={{0,-30},{-20,-10}},
               rotation=0)));
-      Joints.Revolute Revolute5(n={0,1,0})
+      Joints.Revolute Revolute5(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,-160},
+            origin={80,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Parts.BodyCylinder body3(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,-150},{20,-130}}, rotation=0)));
+              extent={{100,40},{120,60}},  rotation=0)));
       Modelica.Blocks.Sources.Constant Constant3[6](k={0,0,0,-100,100,0})
         annotation (Placement(transformation(
-            origin={50,-100},
+            origin={150,90},
             extent={{-10,10},{10,-10}},
             rotation=270)));
       Parts.Fixed fixed5(r={0,0.5,0}) annotation (Placement(transformation(
-              extent={{-90,-190},{-70,-170}}, rotation=0)));
+              extent={{10,0},{30,20}},        rotation=0)));
       Parts.BodyCylinder body4(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,-220},{20,-200}}, rotation=0)));
+              extent={{100,-30},{120,-10}},rotation=0)));
       Parts.Fixed fixed6(r={0,-0.5,0}) annotation (Placement(transformation(
-              extent={{-88,-260},{-68,-240}}, rotation=0)));
+              extent={{12,-70},{32,-50}},     rotation=0)));
       Parts.FixedRotation fixedRotation1(n={0,0,1}, angle=45)
-        annotation (Placement(transformation(extent={{-8,-280},{12,-260}},
+        annotation (Placement(transformation(extent={{92,-90},{112,-70}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque torque3(
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque          torque3(
                                     Nm_to_m=120)
-        annotation (Placement(transformation(extent={{62,-150},{42,-130}},
+        annotation (Placement(transformation(extent={{160,40},{140,60}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.ForceAndTorque torque4(
-                                    Nm_to_m=120)
-        annotation (Placement(transformation(extent={{60,-200},{40,-220}},
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque          torque4(
+                                    Nm_to_m=120, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+        annotation (Placement(transformation(extent={{160,-10},{140,-30}},
               rotation=0)));
-      Joints.Revolute Revolute6(n={0,1,0})
+      Joints.Revolute Revolute6(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,-230},
+            origin={80,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Sources.Constant Constant4[6](k={0,0,0,-100,100,0})
         annotation (Placement(transformation(
-            origin={70,-260},
+            origin={170,-70},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Joints.Revolute Revolute7 annotation (Placement(transformation(extent={{
-                -52,-190},{-32,-170}}, rotation=0)));
-      Joints.Revolute Revolute8 annotation (Placement(transformation(extent={{
-                -62,-260},{-42,-240}}, rotation=0)));
+      Joints.Revolute Revolute7(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{40,0},{
+                60,20}},               rotation=0)));
+      Joints.Revolute Revolute8(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{40,-70},
+                {60,-50}},             rotation=0)));
       Parts.Fixed fixed7(animation=false, r={1.5,0.25,0})
-        annotation (Placement(transformation(extent={{100,-150},{80,-130}},
+        annotation (Placement(transformation(extent={{200,40},{180,60}},
               rotation=0)));
       Parts.Fixed fixed8(animation=false, r={1.5,-0.25,0})
-        annotation (Placement(transformation(extent={{100,-220},{80,-200}},
+        annotation (Placement(transformation(extent={{200,-30},{180,-10}},
               rotation=0)));
     equation
-      connect(torque1.frame_b, body1.frame_b) annotation (Line(points={{42,50},
-              {20,50}}));
+      connect(torque1.frame_b, body1.frame_b) annotation (Line(points={{-58,50},{-80,
+              50}}));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,40},{-20,50},{0,50}}));
+        annotation (Line(points={{-120,40},{-120,50},{-100,50}}));
       connect(Revolute2.frame_b, body2.frame_a)
-        annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
+        annotation (Line(points={{-120,-30},{-120,-20},{-100,-20}}));
       connect(torque2.frame_b, body2.frame_b)
-        annotation (Line(points={{40,-20},{20,-20}}));
+        annotation (Line(points={{-60,-20},{-80,-20}}));
       connect(Revolute3.frame_a, fixed1.frame_b)
-        annotation (Line(points={{-52,10},{-70,10}}));
+        annotation (Line(points={{-160,10},{-170,10}}));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-32,10},{-20,10},{-20,20}}));
+        annotation (Line(points={{-140,10},{-120,10},{-120,20}}));
       connect(fixedRotation.frame_b, torque2.frame_resolve)
-        annotation (Line(points={{12,-80},{46,-80},{46,-30}}));
+        annotation (Line(points={{-88,-80},{-54,-80},{-54,-30}}));
       connect(fixed3.frame_b, Revolute4.frame_a)
-        annotation (Line(points={{-68,-60},{-62,-60}}));
+        annotation (Line(points={{-168,-60},{-160,-60}}));
       connect(Revolute4.frame_b, Revolute2.frame_a)
-        annotation (Line(points={{-42,-60},{-20,-60},{-20,-50}}));
+        annotation (Line(points={{-140,-60},{-120,-60},{-120,-50}}));
       connect(fixed3.frame_b, fixedRotation.frame_a)
-        annotation (Line(points={{-68,-60},{-64,-60},{-64,-80},{-8,-80}}));
+        annotation (Line(points={{-168,-60},{-164,-60},{-164,-80},{-108,-80}}));
       connect(Constant1.y,torque1.torque)
-        annotation (Line(points={{50,79},{50,72},{58,72},{58,62}}, color={0,0,
+        annotation (Line(points={{-50,79},{-50,72},{-42,72},{-42,62}},
+                                                                   color={0,0,
               255}));
       connect(Constant2.y,torque2.torque)
-        annotation (Line(points={{70,-59},{70,-42},{56,-42},{56,-32}}, color={0,
+        annotation (Line(points={{-30,-59},{-30,-42},{-44,-42},{-44,-32}},
+                                                                       color={0,
               0,255}));
       connect(torque1.frame_a, fixed2.frame_b)
         annotation (Line(
-          points={{62,50},{80,50}},
+          points={{-38,50},{-20,50}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, torque2.frame_a)
         annotation (Line(
-          points={{80,-20},{60,-20}},
+          points={{-20,-20},{-40,-20}},
           color={0,0,0},
           thickness=0.5));
       connect(torque3.frame_b, body3.frame_b)
-        annotation (Line(points={{42,-140},{20,-140}}));
+        annotation (Line(points={{140,50},{120,50}}));
       connect(Revolute5.frame_b, body3.frame_a)
-        annotation (Line(points={{-20,-150},{-20,-140},{0,-140}}));
+        annotation (Line(points={{80,40},{80,50},{100,50}}));
       connect(Revolute6.frame_b, body4.frame_a)
-        annotation (Line(points={{-20,-220},{-20,-210},{0,-210}}));
+        annotation (Line(points={{80,-30},{80,-20},{100,-20}}));
       connect(torque4.frame_b, body4.frame_b)
-        annotation (Line(points={{40,-210},{20,-210}}));
+        annotation (Line(points={{140,-20},{120,-20}}));
       connect(Revolute7.frame_a, fixed5.frame_b)
-        annotation (Line(points={{-52,-180},{-70,-180}}));
+        annotation (Line(points={{40,10},{30,10}}));
       connect(Revolute7.frame_b, Revolute5.frame_a)
-        annotation (Line(points={{-32,-180},{-20,-180},{-20,-170}}));
+        annotation (Line(points={{60,10},{80,10},{80,20}}));
       connect(fixedRotation1.frame_b, torque4.frame_resolve)
-        annotation (Line(points={{12,-270},{46,-270},{46,-220}}));
+        annotation (Line(points={{112,-80},{142,-80},{142,-30}}));
       connect(fixed6.frame_b, Revolute8.frame_a)
-        annotation (Line(points={{-68,-250},{-62,-250}}));
+        annotation (Line(points={{32,-60},{40,-60}}));
       connect(Revolute8.frame_b, Revolute6.frame_a)
-        annotation (Line(points={{-42,-250},{-20,-250},{-20,-240}}));
+        annotation (Line(points={{60,-60},{80,-60},{80,-50}}));
       connect(fixed6.frame_b, fixedRotation1.frame_a)
-        annotation (Line(points={{-68,-250},{-64,-250},{-64,-270},{-8,-270}}));
-      connect(Constant3.y,torque3.load)          annotation (Line(points={{50,
-              -111},{50,-118},{58,-118},{58,-128}}, color={0,0,255}));
-      connect(Constant4.y,torque4.load)          annotation (Line(points={{70,
-              -249},{70,-232},{56,-232},{56,-222}}, color={0,0,255}));
+        annotation (Line(points={{32,-60},{36,-60},{36,-80},{92,-80}}));
       connect(torque3.frame_a, fixed7.frame_b)
         annotation (Line(
-          points={{62,-140},{80,-140}},
+          points={{160,50},{180,50}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed8.frame_b, torque4.frame_a)
         annotation (Line(
-          points={{80,-210},{60,-210}},
+          points={{180,-20},{160,-20}},
           color={0,0,0},
           thickness=0.5));
-      annotation (                  experiment(StopTime=1.1));
+      connect(Constant3[1:3].y, torque3.force[1:3]) annotation (Line(
+          points={{150,79},{150,70},{158,70},{158,60.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant3[4:6].y, torque3.torque[1:3]) annotation (Line(
+          points={{150,79},{150,60.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant4[1:3].y, torque4.force[1:3]) annotation (Line(
+          points={{170,-59},{170,-48},{158,-48},{158,-30.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant4[4:6].y, torque4.torque[1:3]) annotation (Line(
+          points={{170,-59},{170,-48},{150,-48},{150,-30.6667}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (                  experiment(StopTime=1.1), Diagram(
+            coordinateSystem(preserveAspectRatio=true, extent={{-200,-100},{200,100}}),
+            graphics));
     end Torque2;
 
     model WorldForces
@@ -2228,7 +2465,8 @@ a linear damper is connected here.
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-100,20},
                 {-80,40}}, rotation=0)));
-      Joints.Revolute Revolute1 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -40,60},{-20,80}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder1(r={1,0,0})
         annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=
@@ -2241,7 +2479,9 @@ a linear damper is connected here.
               rotation=0)));
       Parts.Fixed fixed2(r={0,-0.5,0}) annotation (Placement(transformation(
               extent={{-80,-20},{-60,0}}, rotation=0)));
-      Joints.Revolute Revolute2(n={0,1,0})
+      Joints.Revolute Revolute2(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-30,10},
             extent={{-10,-10},{10,10}},
@@ -2258,7 +2498,8 @@ a linear damper is connected here.
               rotation=0)));
       Parts.Fixed fixed1(r={0,0.5,0}) annotation (Placement(transformation(
               extent={{-80,60},{-60,80}}, rotation=0)));
-      Joints.Revolute Revolute3 annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute3(phi(fixed=true), w(fixed=true))
+                                annotation (Placement(transformation(extent={{
                 -50,-100},{-30,-80}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder3(r={1,0,0})
         annotation (Placement(transformation(extent={{0,-60},{20,-40}},
@@ -2268,7 +2509,9 @@ a linear damper is connected here.
               rotation=0)));
       Parts.Fixed fixed3(r={0,-1,0}) annotation (Placement(transformation(
               extent={{-80,-100},{-60,-80}}, rotation=0)));
-      Joints.Revolute Revolute4(n={0,1,0})
+      Joints.Revolute Revolute4(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(
             origin={-10,-70},
             extent={{-10,-10},{10,10}},
@@ -2337,7 +2580,9 @@ a linear damper is connected here.
         w(fixed=true))         annotation (Placement(transformation(extent={{
                 -22,20},{-2,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
-                                animation=false)
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
         annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
@@ -2368,11 +2613,11 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, revolute.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-30,0},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, revolute.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -2427,7 +2672,7 @@ a linear damper is connected here.
               -36,26},{-48,26},{-48,50},{-40,50}}, color={0,0,0}));
       connect(rev.frame_b, body.frame_a)
         annotation (Line(
-          points={{-20,10},{-5.55112e-16,10}},
+          points={{-20,10},{0,10}},
           color={0,0,0},
           thickness=0.5));
       connect(fixed.frame_b, spring.frame_a)
@@ -2464,7 +2709,9 @@ a linear damper is connected here.
                    annotation (Placement(transformation(extent={{-20,20},{0,40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
-                                animation=false)
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
         annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
@@ -2487,19 +2734,19 @@ a linear damper is connected here.
           thickness=0.5));
       connect(prismatic.frame_b, body.frame_a)
         annotation (Line(
-          points={{5.55112e-16,30},{20,30}},
+          points={{0,30},{20,30}},
           color={0,0,0},
           thickness=0.5));
       connect(prismatic.frame_b, axis.frame_a) annotation (Line(
-          points={{5.55112e-16,30},{4,30},{4,70},{10,70}},
+          points={{0,30},{4,30},{4,70},{10,70}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, prismatic.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-20,30}},
+          points={{-30,0},{-30,30},{-20,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, prismatic.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{5.55112e-16,30}},
+          points={{10,0},{12,0},{12,30},{0,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -2530,7 +2777,9 @@ a linear damper is connected here.
                      annotation (Placement(transformation(extent={{-22,20},{-2,
                 40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
-                                animation=false)
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
         annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
@@ -2561,11 +2810,11 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, cylindrical.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-30,0},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, cylindrical.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -2597,7 +2846,9 @@ a linear damper is connected here.
         w_b(fixed=true))    annotation (Placement(transformation(extent={{-24,
                 20},{-4,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
-                                animation=false)
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
         annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
@@ -2635,11 +2886,11 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, universal.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-24,30}},
+          points={{-30,0},{-30,30},{-24,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, universal.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-4,30}},
+          points={{10,0},{12,0},{12,30},{-4,30}},
           color={0,0,0},
           thickness=0.5));
       connect(universal.frame_a, axis1.frame_a) annotation (Line(
@@ -2654,13 +2905,13 @@ a linear damper is connected here.
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
-        annotation (Placement(transformation(extent={{-60,20},{-40,40}},
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis2(
         length=0.5,
         color={0,0,0},
         diameter=0.02,
-        n={0,1,0}) annotation (Placement(transformation(extent={{10,60},{30,80}},
+        n={0,1,0}) annotation (Placement(transformation(extent={{40,30},{60,50}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Planar planar(
         n={0,1,0},
@@ -2677,22 +2928,24 @@ a linear damper is connected here.
         v_y(fixed=true),
         w(fixed=true),
         wd(fixed=false))
-        annotation (Placement(transformation(extent={{-22,20},{-2,40}},
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
-                                animation=false)
-        annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},rotation=
                0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
                                                color_x={0,128,255})
         annotation (Placement(transformation(
-            origin={-30,-10},
+            origin={-20,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a1(
                                                 color_x={0,0,200})
         annotation (Placement(transformation(
-            origin={10,-10},
+            origin={20,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow axis1(
@@ -2700,33 +2953,33 @@ a linear damper is connected here.
         color={0,0,0},
         diameter=0.02,
         n={0,0,1},
-        r_tail={0,0,0.5}) annotation (Placement(transformation(extent={{-34,60},
-                {-14,80}}, rotation=0)));
+        r_tail={0,0,0.5}) annotation (Placement(transformation(extent={{-8,30},
+                {12,50}},  rotation=0)));
     equation
       connect(world.frame_b, planar.frame_a)
         annotation (Line(
-          points={{-40,30},{-22,30}},
+          points={{-40,0},{-20,0},{-10,0}},
           color={0,0,0},
           thickness=0.5));
       connect(planar.frame_b, body.frame_a)
         annotation (Line(
-          points={{-2,30},{20,30}},
+          points={{10,0},{40,0}},
           color={0,0,0},
           thickness=0.5));
       connect(planar.frame_b, axis2.frame_a) annotation (Line(
-          points={{-2,30},{4,30},{4,70},{10,70}},
+          points={{10,0},{20,0},{20,40},{40,40}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, planar.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-20,-30},{-20,0},{-10,0}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, planar.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{20,-30},{20,-30},{20,0},{10,0}},
           color={0,0,0},
           thickness=0.5));
       connect(planar.frame_a, axis1.frame_a) annotation (Line(
-          points={{-22,30},{-24,30},{-24,56},{-48,56},{-48,70},{-34,70}},
+          points={{-10,0},{-20,0},{-20,40},{-8,40}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -2737,49 +2990,51 @@ a linear damper is connected here.
 
       inner Modelica.Mechanics.MultiBody.World world(
                                   animateWorld=false, animateGravity=false)
-        annotation (Placement(transformation(extent={{-60,20},{-40,40}},
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical(
         angles_start={0.7853981633974483,0.7853981633974483,0.7853981633974483},
         angles_fixed=true,
         w_rel_a_fixed=true,
         z_rel_a_fixed=false)
-        annotation (Placement(transformation(extent={{-22,20},{-2,40}},
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
               rotation=0)));
 
       Modelica.Mechanics.MultiBody.Parts.Body body(
-                                animation=false)
-        annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},rotation=
                0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
                                                color_x={0,128,255})
         annotation (Placement(transformation(
-            origin={-30,-10},
+            origin={-20,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a1(
                                                 color_x={0,0,200})
         annotation (Placement(transformation(
-            origin={10,-10},
+            origin={20,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
     equation
       connect(world.frame_b, spherical.frame_a)
         annotation (Line(
-          points={{-40,30},{-22,30}},
+          points={{-40,0},{-20,0},{-10,0}},
           color={0,0,0},
           thickness=0.5));
       connect(spherical.frame_b, body.frame_a)
         annotation (Line(
-          points={{-2,30},{20,30}},
+          points={{10,0},{40,0}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, spherical.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-20,-30},{-20,0},{-10,0}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, spherical.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{20,-30},{20,-30},{20,0},{10,0}},
           color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -2832,11 +3087,11 @@ a linear damper is connected here.
           color={0,0,0},
           thickness=0.5));
       connect(frame_a.frame_a, freeMotion.frame_a) annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-30,0},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotion.frame_b) annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -2913,12 +3168,12 @@ a linear damper is connected here.
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a)
                                                    annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-30,0},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b)
                                                     annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -2996,12 +3251,12 @@ a linear damper is connected here.
           thickness=0.5));
       connect(frame_a.frame_a, freeMotionScalarInit.frame_a)
                                                    annotation (Line(
-          points={{-30,5.55112e-16},{-30,30},{-22,30}},
+          points={{-30,0},{-30,30},{-22,30}},
           color={0,0,0},
           thickness=0.5));
       connect(frame_a1.frame_a, freeMotionScalarInit.frame_b)
                                                     annotation (Line(
-          points={{10,5.55112e-16},{12,5.55112e-16},{12,30},{-2,30}},
+          points={{10,0},{12,0},{12,30},{-2,30}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -3011,29 +3266,33 @@ a linear damper is connected here.
       extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world(
-                                  animateWorld=false, animateGravity=false)
-        annotation (Placement(transformation(extent={{-60,20},{-40,40}},
+        animateWorld=false,
+        animateGravity=false)
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.SphericalSpherical sphericalSpherical(
-                                                             rodLength={1,0.2,0}
-            *{1,0.2,0}, m=1) annotation (Placement(transformation(extent={{-20,
-                20},{0,40}}, rotation=0)));
+        rodLength={1,0.2,0}*{1,0.2,0},
+        m=1,
+        rRod_0(start={1,0.2,0}))       annotation (Placement(transformation(extent={{-20,-10},
+                {0,10}},     rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Prismatic Prismatic1(
-                                            animation=false)
-        annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
+        animation=false,
+        s(fixed=true),
+        v(fixed=true))
+        annotation (Placement(transformation(extent={{20,-10},{40,10}},rotation=
                0)));
       Modelica.Mechanics.MultiBody.Parts.Fixed Fixed1(
-                                   r={1,0.2,0}, animation=false)
-        annotation (Placement(transformation(extent={{80,20},{60,40}}, rotation=
+        r={1,0.2,0},
+        animation=false)
+        annotation (Placement(transformation(extent={{80,-10},{60,10}},rotation=
                0)));
     equation
       connect(world.frame_b, sphericalSpherical.frame_a)
-        annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
+        annotation (Line(points={{-40,0},{-20,0}},   color={0,0,0}));
       connect(sphericalSpherical.frame_b, Prismatic1.frame_a)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,0},{20,0}},   color={0,0,0}));
       connect(Prismatic1.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{40,30},{60,30}}, color={0,0,0}));
+        annotation (Line(points={{40,0},{60,0}},   color={0,0,0}));
       annotation (experiment(StopTime=1.1));
     end SphericalSpherical;
 
@@ -3096,8 +3355,7 @@ a linear damper is connected here.
       connect(world.frame_b, jointUSP.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointUSP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(jointUSP.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(n2_ia.frame_a, jointUSP.frame_ia) annotation (Line(points={{-20,
@@ -3107,8 +3365,7 @@ a linear damper is connected here.
       connect(rRod2.frame_a, jointUSP.frame_ib) annotation (Line(points={{40,-10},
               {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointUSP.frame_b)
-        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
-              5.55112e-16,30}},                                    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
       annotation (                  experiment(StopTime=1.1));
     end JointUSP;
 
@@ -3155,8 +3412,7 @@ a linear damper is connected here.
       connect(world.frame_b, jointUPS.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointUPS.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(jointUPS.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(n2_ia.frame_a, jointUPS.frame_ia) annotation (Line(points={{-20,
@@ -3206,13 +3462,11 @@ a linear damper is connected here.
       connect(world.frame_b, jointSSR.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointSSR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(rRod2.frame_a, jointSSR.frame_ib) annotation (Line(points={{40,-10},
               {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointSSR.frame_b)
-        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
-              5.55112e-16,30}},                                    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
       annotation (                  experiment(StopTime=1.1));
     end JointSSR;
 
@@ -3274,8 +3528,7 @@ a linear damper is connected here.
       connect(world.frame_b, jointUSR.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointUSR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(jointUSR.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(n2_ia.frame_a, jointUSR.frame_ia) annotation (Line(points={{-20,
@@ -3285,8 +3538,7 @@ a linear damper is connected here.
       connect(rRod2.frame_a, jointUSR.frame_ib) annotation (Line(points={{40,-10},
               {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointUSR.frame_b)
-        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
-              5.55112e-16,30}},                                    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
       annotation (                  experiment(StopTime=1.1));
     end JointUSR;
 
@@ -3348,8 +3600,7 @@ a linear damper is connected here.
       connect(world.frame_b, jointRRR.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointRRR.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(jointRRR.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(jointRRR.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
@@ -3357,8 +3608,7 @@ a linear damper is connected here.
       connect(rRod2.frame_a, jointRRR.frame_ib) annotation (Line(points={{40,-10},
               {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointRRR.frame_b)
-        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
-              5.55112e-16,30}},                                    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
       connect(n1_a1.frame_a, jointRRR.frame_im) annotation (Line(
           points={{-10,76},{-10,76},{-10,40}},
           color={0,0,0},
@@ -3425,8 +3675,7 @@ a linear damper is connected here.
       connect(world.frame_b, jointRRP.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointRRP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(jointRRP.frame_a, n1_a.frame_a) annotation (Line(points={{-20,30},
               {-32,30},{-32,54},{-50,54},{-50,70},{-46,70}}, color={0,0,0}));
       connect(jointRRP.frame_ia, rRod1.frame_a) annotation (Line(points={{-18,
@@ -3434,8 +3683,7 @@ a linear damper is connected here.
       connect(rRod2.frame_a, jointRRP.frame_ib) annotation (Line(points={{40,-10},
               {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointRRP.frame_b)
-        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
-              5.55112e-16,30}},                                    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
       connect(jointRRP.frame_im, n2_ia.frame_a) annotation (Line(
           points={{-10,40},{-10,55.5},{-20,55.5},{-20,70}},
           color={0,0,0},
@@ -3484,13 +3732,11 @@ a linear damper is connected here.
       connect(world.frame_b, jointSSP.frame_a)
         annotation (Line(points={{-40,30},{-20,30}}, color={0,0,0}));
       connect(jointSSP.frame_b, Fixed1.frame_b)
-        annotation (Line(points={{5.55112e-16,30},{20,30}},
-                                                  color={0,0,0}));
+        annotation (Line(points={{0,30},{20,30}}, color={0,0,0}));
       connect(rRod2.frame_a, jointSSP.frame_ib) annotation (Line(points={{40,-10},
               {56,-10},{56,58},{-2,58},{-2,40}},      color={0,0,0}));
       connect(prism.frame_a, jointSSP.frame_b)
-        annotation (Line(points={{5.55112e-16,-50},{10,-50},{10,30},{
-              5.55112e-16,30}},                                    color={0,0,0}));
+        annotation (Line(points={{0,-50},{10,-50},{10,30},{0,30}}, color={0,0,0}));
       annotation (experiment(StopTime=1.1));
     end JointSSP;
 
@@ -3499,9 +3745,13 @@ a linear damper is connected here.
 
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-100,10},{-80,30}})));
-      Modelica.Mechanics.MultiBody.Joints.Revolute revolute_x(n={1,0,0})
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute_x(n={1,0,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(extent={{-60,10},{-40,30}})));
-      Modelica.Mechanics.MultiBody.Joints.Revolute revolute_y(n={0,1,0})
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute_y(n={0,1,0},
+        phi(fixed=true),
+        w(fixed=true))
         annotation (Placement(transformation(extent={{-20,10},{0,30}})));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder(r={1,0,0})
         annotation (Placement(transformation(extent={{20,10},{40,30}})));
@@ -3567,43 +3817,53 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Frames.Orientation R;
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(
                                                         r={1,0.5,0})
-        annotation (Placement(transformation(extent={{-40,40},{-20,60}},
+        annotation (Placement(transformation(extent={{10,0},{30,20}},
               rotation=0)));
       Visualizers.FixedFrame frameT1(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{-60,60},{-80,80}},
+        annotation (Placement(transformation(extent={{-10,20},{-30,40}},
               rotation=0)));
       Visualizers.FixedFrame frameT2(length=length, diameter=diameter)
-        annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=
+        annotation (Placement(transformation(extent={{50,0},{70,20}}, rotation=
                 0)));
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed1(
                                    animation=false)
-        annotation (Placement(transformation(extent={{-80,20},{-60,40}},
+        annotation (Placement(transformation(extent={{-30,-20},{-10,0}},
               rotation=0)));
       inner Modelica.Mechanics.MultiBody.World world(
-                                  animateWorld=false, gravityType=0)
-        annotation (Placement(transformation(extent={{20,0},{40,20}}, rotation=
+                                  animateWorld=false, gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity)
+        annotation (Placement(transformation(extent={{-80,-20},{-60,0}},
+                                                                      rotation=
                 0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedArrow arrow(
         n={1,0.5,0},
         color={0,0,255},
         r_tail={0.03,0.1,0},
         length=1.05,
-        diameter=0.02) annotation (Placement(transformation(extent={{-40,20},{
-                -20,40}}, rotation=0)));
+        diameter=0.02) annotation (Placement(transformation(extent={{10,-20},{
+                30,0}},   rotation=0)));
     equation
       R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
-      connect(frameT1.frame_a, fixedTranslation.frame_a)
-        annotation (Line(points={{-60,70},{-50,70},{-50,50},{-40,50}}));
-      connect(fixed1.frame_b, fixedTranslation.frame_a)
-        annotation (Line(points={{-60,30},{-50,30},{-50,50},{-40,50}}));
-      connect(fixedTranslation.frame_b, frameT2.frame_a)
-        annotation (Line(points={{-20,50},{0,50}}));
-      connect(arrow.frame_a, fixed1.frame_b)
-        annotation (Line(
-          points={{-40,30},{-60,30}},
-          color={0,0,0},
-          thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(fixed1.frame_b, arrow.frame_a) annotation (Line(
+          points={{-10,-10},{10,-10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixed1.frame_b, fixedTranslation.frame_a) annotation (Line(
+          points={{-10,-10},{0,-10},{0,10},{10,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(frameT1.frame_a, fixedTranslation.frame_a) annotation (Line(
+          points={{-10,30},{0,30},{0,10},{10,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedTranslation.frame_b, frameT2.frame_a) annotation (Line(
+          points={{30,10},{50,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end FixedTranslation;
 
     encapsulated model BodyShape "Simple spring/damper/mass system"
@@ -3614,11 +3874,11 @@ a linear damper is connected here.
       extends Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
       inner Modelica.Mechanics.MultiBody.World world
-                                  annotation (Placement(transformation(extent={
-                {-60,40},{-40,60}}, rotation=0)));
+                                  annotation (Placement(transformation(extent={{-80,20},
+                {-60,40}},          rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(
                                             r={0.8,0,0}, animation=false)
-        annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=
+        annotation (Placement(transformation(extent={{20,20},{40,40}},rotation=
                 0)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(
         width=0.1,
@@ -3626,7 +3886,7 @@ a linear damper is connected here.
         numberOfWindings=5,
         c=20,
         s_unstretched=0) annotation (Placement(transformation(
-            origin={-24,26},
+            origin={0,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape body(
@@ -3636,7 +3896,8 @@ a linear damper is connected here.
         I_33=1,
         r={0.4,0,0},
         r_CM={0.2,0,0},
-        width=0.05) annotation (Placement(transformation(extent={{0,-20},{20,0}},
+        width=0.05) annotation (Placement(transformation(extent={{20,-40},{40,
+                -20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring2(
         c=20,
@@ -3644,45 +3905,51 @@ a linear damper is connected here.
         width=0.1,
         coilWidth=0.005,
         numberOfWindings=5) annotation (Placement(transformation(
-            origin={42,26},
+            origin={60,0},
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
-          arrowDiameter=0.04, r_rel_a(start={0.2,-0.5,0.1}))
-                              annotation (Placement(transformation(extent={{-30,
-                -40},{-10,-20}}, rotation=0)));
+          arrowDiameter=0.04,
+        r_rel_a(start={0.2,-0.5,0.1}, fixed=true),
+        v_rel_a(fixed=true),
+        w_rel_a_fixed=true)   annotation (Placement(transformation(extent={{-40,-40},
+                {-20,-20}},      rotation=0)));
     equation
-      connect(bar2.frame_a, world.frame_b)
-        annotation (Line(
-          points={{0,50},{-40,50}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(spring1.frame_b, body.frame_a) annotation (Line(
-          points={{-24,16},{-24,-10},{0,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(spring2.frame_b, body.frame_b)
-        annotation (Line(
-          points={{42,16},{20,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(bar2.frame_b, spring2.frame_a)
-        annotation (Line(
-          points={{20,50},{42,50},{42,36}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(spring1.frame_a, world.frame_b) annotation (Line(
-          points={{-24,36},{-24,50},{-40,50}},
-          color={0,0,0},
-          thickness=0.5));
+      connect(world.frame_b, bar2.frame_a) annotation (Line(
+          points={{-60,30},{20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, spring1.frame_a) annotation (Line(
+          points={{-60,30},{1.83697e-015,30},{1.83697e-015,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       connect(world.frame_b, freeMotion.frame_a) annotation (Line(
-          points={{-40,50},{-34,50},{-34,-30},{-30,-30}},
-          color={0,0,0},
-          thickness=0.5));
+          points={{-60,30},{-50,30},{-50,-30},{-40,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(spring1.frame_b, body.frame_a) annotation (Line(
+          points={{-1.83697e-015,-10},{-1.83697e-015,-30},{20,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       connect(freeMotion.frame_b, body.frame_a) annotation (Line(
-          points={{-10,-30},{-6,-30},{-6,-10},{0,-10}},
-          color={0,0,0},
-          thickness=0.5));
+          points={{-20,-30},{20,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(body.frame_b, spring2.frame_b) annotation (Line(
+          points={{40,-30},{60,-30},{60,-10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(bar2.frame_b, spring2.frame_a) annotation (Line(
+          points={{40,30},{60,30},{60,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       annotation (
         experiment(StopTime=10),
         Documentation(info="<html>
@@ -3696,38 +3963,44 @@ that there is an orientation for which this description is singular
 (see description of FreeMotion joint). In technical systems it is
 often possible to use the FreeMotion joint such that the singularity
 </p>
-</html>"));
+</html>"),
+        Diagram(graphics),
+        Icon(graphics={Ellipse(
+              extent={{-100,100},{100,-100}},
+              lineColor={255,0,0},
+              lineThickness=0.5)}));
     end BodyShape;
 
     model PointMass "Test Modelica.Mechanics.MultiBody.Parts.PointMass"
       extends Modelica.Icons.Example;
 
       inner Modelica.Mechanics.MultiBody.World world
-        annotation (Placement(transformation(extent={{-60,20},{-40,40}},
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={1,0,0})
-        annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=
+        annotation (Placement(transformation(extent={{0,-10},{20,10}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(m=5)
-        annotation (Placement(transformation(extent={{60,20},{80,40}}, rotation=
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},rotation=
                0)));
       Modelica.Mechanics.MultiBody.Joints.Revolute rev(
         a(fixed=false),
         phi(fixed=true),
         w(fixed=true))
-        annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
+                                                                       rotation=
                0)));
     equation
       connect(fixedTranslation.frame_b,pointMass. frame_a) annotation (Line(
-          points={{40,30},{70,30}},
+          points={{20,0},{50,0}},
           color={95,95,95},
           thickness=0.5));
       connect(world.frame_b, rev.frame_a) annotation (Line(
-          points={{-40,30},{-20,30}},
+          points={{-60,0},{-40,0}},
           color={95,95,95},
           thickness=0.5));
       connect(rev.frame_b, fixedTranslation.frame_a) annotation (Line(
-          points={{0,30},{20,30}},
+          points={{-20,0},{0,0}},
           color={95,95,95},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -3741,8 +4014,8 @@ often possible to use the FreeMotion joint such that the singularity
         I_11=1,
         I_22=1,
         I_33=1,
-        r_0(start={0.8,0.2,0}))
-                               annotation (Placement(transformation(extent={{
+        r_0(start={0.8,0.2,0}),
+        r_CM={0,0,0})          annotation (Placement(transformation(extent={{
                 -20,20},{0,40}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape bodyShape(
         m=1,
@@ -3796,17 +4069,32 @@ often possible to use the FreeMotion joint such that the singularity
                 0)));
     equation
 
-      connect(Fixed3.frame_b, bodyShape.frame_a)
-        annotation (Line(points={{-60,-10},{-20,-10}}));
-      connect(Fixed4.frame_b, BodyBox1.frame_a)
-        annotation (Line(points={{-60,-50},{-20,-50}}));
-      connect(Fixed5.frame_b, bodyCylinder.frame_a)
-        annotation (Line(points={{-60,-90},{-20,-90}}));
-      connect(Fixed1.frame_b, body1.frame_a) annotation (Line(points={{-60,70},
-              {-20,70}}));
-      connect(Fixed2.frame_b, body2.frame_a) annotation (Line(points={{-60,30},
-              {-20,30}}));
-      annotation (experiment(StopTime=1.1));
+      connect(Fixed1.frame_b, body1.frame_a) annotation (Line(
+          points={{-60,70},{-20,70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Fixed2.frame_b, body2.frame_a) annotation (Line(
+          points={{-60,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Fixed3.frame_b, bodyShape.frame_a) annotation (Line(
+          points={{-60,-10},{-20,-10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Fixed4.frame_b, BodyBox1.frame_a) annotation (Line(
+          points={{-60,-50},{-20,-50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Fixed5.frame_b, bodyCylinder.frame_a) annotation (Line(
+          points={{-60,-90},{-20,-90}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end Bodies;
 
     model FreeBodies
@@ -4023,24 +4311,25 @@ often possible to use the FreeMotion joint such that the singularity
           annotation (Placement(transformation(extent={{-70,20},{-50,40}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder1(r={0.25,0,0},
-            diameter=0.05) annotation (Placement(transformation(extent={{-44,20},
-                  {-24,40}}, rotation=0)));
+            diameter=0.05) annotation (Placement(transformation(extent={{-40,20},
+                  {-20,40}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation1(angle=45,
-            n={0,1,0}) annotation (Placement(transformation(extent={{-16,20},{4,
-                  40}}, rotation=0)));
+            n={0,1,0}) annotation (Placement(transformation(extent={{-10,20},{
+                  10,40}},
+                        rotation=0)));
         Modelica.Mechanics.MultiBody.Joints.Revolute revolute(
           n={1,0,0},
           a(fixed=false),
           phi(fixed=true),
           w(fixed=true, start=8.726646259971648))
-                      annotation (Placement(transformation(extent={{14,20},{34,
+                      annotation (Placement(transformation(extent={{20,20},{40,
                   40}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={-0.1,
-              0,0}) annotation (Placement(transformation(extent={{42,20},{62,40}},
+              0,0}) annotation (Placement(transformation(extent={{50,20},{70,40}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder2(diameter=
-              0.1, r={0.2,0,0}) annotation (Placement(transformation(extent={{
-                  70,20},{90,40}}, rotation=0)));
+              0.1, r={0.2,0,0}) annotation (Placement(transformation(extent={{80,20},
+                  {100,40}},       rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Fixed fixed
           annotation (Placement(transformation(extent={{-100,-40},{-80,-20}},
                 rotation=0)));
@@ -4053,27 +4342,28 @@ often possible to use the FreeMotion joint such that the singularity
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder3(
           r={0.25,0,0},
           diameter=0.05,
-          color={0,128,0}) annotation (Placement(transformation(extent={{-44,
-                  -40},{-24,-20}}, rotation=0)));
+          color={0,128,0}) annotation (Placement(transformation(extent={{-40,-40},
+                  {-20,-20}},      rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation2(n={0,1,0},
-            angle=45) annotation (Placement(transformation(extent={{-16,-40},{4,
-                  -20}}, rotation=0)));
+            angle=45) annotation (Placement(transformation(extent={{-10,-40},{
+                  10,-20}},
+                         rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation1(r={
-              -0.1,0,0}) annotation (Placement(transformation(extent={{24,-40},
-                  {44,-20}}, rotation=0)));
+              -0.1,0,0}) annotation (Placement(transformation(extent={{50,-40},
+                  {70,-20}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder bodyCylinder4(
           diameter=0.1,
           r={0.2,0,0},
-          color={0,128,0}) annotation (Placement(transformation(extent={{56,-40},
-                  {76,-20}}, rotation=0)));
+          color={0,128,0}) annotation (Placement(transformation(extent={{80,-40},
+                  {100,-20}},rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D(
           J=bodyCylinder4.I[1, 1],
           n={1,0,0},
           a(fixed=false),
           phi(fixed=true),
           w(fixed=true, start=8.726646259971648))
-                      annotation (Placement(transformation(extent={{28,-70},{48,
-                  -50}}, rotation=0)));
+                      annotation (Placement(transformation(extent={{20,-50},{40,
+                  -70}}, rotation=0)));
       equation
         connect(world.frame_b, spherical1.frame_a) annotation (Line(
             points={{-80,30},{-70,30}},
@@ -4081,37 +4371,37 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         connect(spherical1.frame_b, bodyCylinder1.frame_a) annotation (Line(
-            points={{-50,30},{-44,30}},
+            points={{-50,30},{-40,30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(bodyCylinder1.frame_b, fixedRotation1.frame_a) annotation (Line(
-            points={{-24,30},{-16,30}},
+            points={{-20,30},{-10,30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixedRotation1.frame_b, revolute.frame_a) annotation (Line(
-            points={{4,30},{14,30}},
+            points={{10,30},{20,30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(revolute.frame_b, fixedTranslation.frame_a) annotation (Line(
-            points={{34,30},{42,30}},
+            points={{40,30},{50,30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixedTranslation.frame_b, bodyCylinder2.frame_a) annotation (Line(
-            points={{62,30},{70,30}},
+            points={{70,30},{80,30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(spherical2.frame_b, bodyCylinder3.frame_a) annotation (Line(
-            points={{-50,-30},{-44,-30}},
+            points={{-50,-30},{-40,-30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(bodyCylinder3.frame_b, fixedRotation2.frame_a) annotation (Line(
-            points={{-24,-30},{-16,-30}},
+            points={{-20,-30},{-10,-30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
@@ -4121,22 +4411,22 @@ often possible to use the FreeMotion joint such that the singularity
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixedTranslation1.frame_b, bodyCylinder4.frame_a) annotation (Line(
-            points={{44,-30},{56,-30}},
+            points={{70,-30},{80,-30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixedRotation2.frame_b, fixedTranslation1.frame_a) annotation (Line(
-            points={{4,-30},{24,-30}},
+            points={{10,-30},{50,-30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(rotor1D.frame_a, fixedRotation2.frame_b) annotation (Line(
-            points={{38,-70},{38,-76},{10,-76},{10,-30},{4,-30}},
+            points={{30,-50},{30,-30},{10,-30}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         annotation (
-          experiment(StopTime=5, Tolerance=1e-008));
+          experiment(StopTime=5, Tolerance=1e-008), Diagram(graphics));
       end Rotor1D_1;
 
       model Rotor1D_2
@@ -4151,88 +4441,91 @@ often possible to use the FreeMotion joint such that the singularity
           shapeType="cylinder",
           width=0.1,
           animateSphere=false,
-          r_shape={0.1,0,0})
-                     annotation (Placement(transformation(extent={{-12,20},{8,
-                  40}}, rotation=0)));
+          r_shape={0.1,0,0},
+          r_CM={0,0,0})
+                     annotation (Placement(transformation(extent={{30,0},{50,20}},
+                        rotation=0)));
         Modelica.Mechanics.MultiBody.Joints.Revolute revolute(n={1,0,0},
           a(fixed=false),
           phi(fixed=true),
           w(fixed=true))
-          annotation (Placement(transformation(extent={{-46,20},{-26,40}},
+          annotation (Placement(transformation(extent={{0,0},{20,20}},
                 rotation=0)));
         inner Modelica.Mechanics.MultiBody.World world(g=0,
             driveTrainMechanics3D=true)
-                    annotation (Placement(transformation(extent={{-80,20},{-60,
-                  40}}, rotation=0)));
+                    annotation (Placement(transformation(extent={{-40,0},{-20,
+                  20}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Forces.Torque torque(resolveInFrame=
               Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
-          annotation (Placement(transformation(extent={{-12,50},{8,70}},
+          annotation (Placement(transformation(extent={{30,30},{50,50}},
                 rotation=0)));
-        Modelica.Blocks.Sources.Sine sine[3](amplitude={1,0,0})
-          annotation (Placement(transformation(extent={{-100,80},{-80,100}},
+        Modelica.Blocks.Sources.Sine sine[3](amplitude={1,0,0}, freqHz={1,1,1})
+          annotation (Placement(transformation(extent={{-90,50},{-70,70}},
                 rotation=0)));
         inner Modelica.Mechanics.MultiBody.Parts.Fixed fixed
-                    annotation (Placement(transformation(extent={{-82,-70},{-62,
-                  -50}}, rotation=0)));
-        Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D(J=2)
-          annotation (Placement(transformation(extent={{-20,-20},{0,0}},
+                    annotation (Placement(transformation(extent={{-40,-90},{-20,
+                  -70}}, rotation=0)));
+        Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D(J=2,
+          phi(fixed=true),
+          w(fixed=true))
+          annotation (Placement(transformation(extent={{30,-40},{50,-20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
-          annotation (Placement(transformation(extent={{-52,-20},{-32,0}},
+          annotation (Placement(transformation(extent={{0,-40},{20,-20}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
-          annotation (Placement(transformation(extent={{-66,-40},{-46,-20}},
+          annotation (Placement(transformation(extent={{-20,-60},{0,-40}},
                 rotation=0)));
       equation
         connect(world.frame_b, revolute.frame_a) annotation (Line(
-            points={{-60,30},{-46,30}},
+            points={{-20,10},{0,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(revolute.frame_b, bodyCylinder.frame_a) annotation (Line(
-            points={{-26,30},{-12,30}},
+            points={{20,10},{30,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(torque.frame_b, bodyCylinder.frame_b) annotation (Line(
-            points={{8,60},{18,60},{18,30},{8,30}},
+            points={{50,40},{60,40},{60,10},{50,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(torque.frame_resolve, world.frame_b) annotation (Line(
-            points={{2,70},{2,84},{-50,84},{-50,30},{-60,30}},
+            points={{44,50},{44,64},{-10,64},{-10,10},{-20,10}},
             color={95,95,95},
             pattern=LinePattern.Dot,
             smooth=Smooth.None));
         connect(torque.frame_a, world.frame_b) annotation (Line(
-            points={{-12,60},{-50,60},{-50,30},{-60,30}},
+            points={{30,40},{-10,40},{-10,10},{-20,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(sine.y, torque.torque) annotation (Line(
-            points={{-79,90},{-8,90},{-8,72}},
+            points={{-69,60},{34,60},{34,52}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(fixed.frame_b, rotor1D.frame_a)  annotation (Line(
-            points={{-62,-60},{-10,-60},{-10,-20}},
+            points={{-20,-80},{40,-80},{40,-40}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(torque1.flange,   rotor1D.flange_a) annotation (Line(
-            points={{-32,-10},{-20,-10}},
+            points={{20,-30},{30,-30}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(mounting1D.flange_b,torque1.support)  annotation (Line(
-            points={{-46,-30},{-42,-30},{-42,-20}},
+            points={{0,-50},{10,-50},{10,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(mounting1D.frame_a, fixed.frame_b)  annotation (Line(
-            points={{-56,-40},{-56,-60},{-62,-60}},
+            points={{-10,-60},{-10,-80},{-20,-80}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(sine[1].y, torque1.tau) annotation (Line(
-            points={{-79,90},{-70,90},{-70,60},{-92,60},{-92,-10},{-54,-10}},
+            points={{-69,60},{-60,60},{-60,-30},{-2,-30}},
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
@@ -4251,66 +4544,71 @@ often possible to use the FreeMotion joint such that the singularity
           shapeType="cylinder",
           width=0.1,
           animateSphere=false,
-          r_shape={0.1,0,0})
+          r_shape={0.1,0,0},
+          r_CM={0,0,0})
                      annotation (Placement(transformation(extent={{50,0},{70,20}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Joints.Revolute revolute(n={1,0,0},
           a(fixed=false),
           phi(fixed=true),
           w(fixed=true))
-          annotation (Placement(transformation(extent={{16,0},{36,20}},
+          annotation (Placement(transformation(extent={{20,0},{40,20}},
                 rotation=0)));
         inner Modelica.Mechanics.MultiBody.World world(g=0,
             driveTrainMechanics3D=true)
-                    annotation (Placement(transformation(extent={{-84,0},{-64,
+                    annotation (Placement(transformation(extent={{-80,0},{-60,
                   20}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Forces.Torque torque(resolveInFrame=
               Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
           annotation (Placement(transformation(extent={{50,30},{70,50}},
                 rotation=0)));
-        Modelica.Blocks.Sources.Sine sine1[3](amplitude={1,0,0})
-          annotation (Placement(transformation(extent={{16,60},{36,80}},
+        Modelica.Blocks.Sources.Sine sine1[3](amplitude={1,0,0}, freqHz={1,1,1})
+          annotation (Placement(transformation(extent={{100,70},{80,90}},
                 rotation=0)));
-        Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D(J=2)
-          annotation (Placement(transformation(extent={{50,-46},{70,-26}},
+        Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D(J=2,
+          phi(fixed=true),
+          w(fixed=true))
+          annotation (Placement(transformation(extent={{50,-50},{70,-30}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Torque torque1(useSupport=true)
-          annotation (Placement(transformation(extent={{18,-46},{38,-26}},
+          annotation (Placement(transformation(extent={{20,-50},{40,-30}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
-          annotation (Placement(transformation(extent={{4,-66},{24,-46}},
+          annotation (Placement(transformation(extent={{0,-66},{20,-46}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Joints.Revolute r1(        n={0,1,0},
-            useAxisFlange=true)
-          annotation (Placement(transformation(extent={{-32,0},{-12,20}},
+            useAxisFlange=true,
+          w(fixed=true))
+          annotation (Placement(transformation(extent={{-30,0},{-10,20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Position position1(useSupport=
               true)
-          annotation (Placement(transformation(extent={{-46,50},{-26,70}},
+          annotation (Placement(transformation(extent={{-50,50},{-30,70}},
                 rotation=0)));
-        Modelica.Blocks.Sources.Sine sine2(amplitude=2)
+        Modelica.Blocks.Sources.Sine sine2(amplitude=2, freqHz=1)
           annotation (Placement(transformation(extent={{-100,50},{-80,70}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D1
           annotation (Placement(transformation(extent={{-60,24},{-40,44}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Joints.Revolute r2(        n={0,1,0},
-            useAxisFlange=true)
-          annotation (Placement(transformation(extent={{-38,-90},{-18,-70}},
+            useAxisFlange=true,
+          w(fixed=true))
+          annotation (Placement(transformation(extent={{-30,-90},{-10,-70}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Position position2(useSupport=
               true)
-          annotation (Placement(transformation(extent={{-52,-40},{-32,-20}},
+          annotation (Placement(transformation(extent={{-50,-40},{-30,-20}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D2
-          annotation (Placement(transformation(extent={{-66,-66},{-46,-46}},
+          annotation (Placement(transformation(extent={{-60,-66},{-40,-46}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Fixed fixed
-          annotation (Placement(transformation(extent={{-86,-90},{-66,-70}},
+          annotation (Placement(transformation(extent={{-80,-90},{-60,-70}},
                 rotation=0)));
       equation
         connect(revolute.frame_b, bodyCylinder.frame_a) annotation (Line(
-            points={{36,10},{50,10}},
+            points={{40,10},{50,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
@@ -4321,88 +4619,89 @@ often possible to use the FreeMotion joint such that the singularity
             smooth=Smooth.None));
         connect(sine1.y, torque.torque)
                                        annotation (Line(
-            points={{37,70},{54,70},{54,52}},
+            points={{79,80},{54,80},{54,52}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(torque1.flange,   rotor1D.flange_a) annotation (Line(
-            points={{38,-36},{50,-36}},
+            points={{40,-40},{50,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(mounting1D.flange_b,torque1.support)  annotation (Line(
-            points={{24,-56},{28,-56},{28,-46}},
+            points={{20,-56},{30,-56},{30,-50}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(r1.frame_a, world.frame_b) annotation (Line(
-            points={{-32,10},{-64,10}},
+            points={{-30,10},{-60,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(position1.flange,   r1.axis) annotation (Line(
-            points={{-26,60},{-22,60},{-22,20}},
+            points={{-30,60},{-20,60},{-20,20}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(position1.support, mounting1D1.flange_b) annotation (Line(
-            points={{-36,50},{-36,34},{-40,34}},
+            points={{-40,50},{-40,34}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(mounting1D1.frame_a, world.frame_b) annotation (Line(
-            points={{-50,24},{-50,10},{-64,10}},
+            points={{-50,24},{-50,10},{-60,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(sine2.y, position1.phi_ref) annotation (Line(
-            points={{-79,60},{-48,60}},
+            points={{-79,60},{-52,60}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(r1.frame_b, revolute.frame_a) annotation (Line(
-            points={{-12,10},{16,10}},
+            points={{-10,10},{20,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(torque.frame_resolve, revolute.frame_a) annotation (Line(
-            points={{64,50},{8,50},{8,10},{16,10}},
+            points={{64,50},{10,50},{10,10},{20,10}},
             color={95,95,95},
             pattern=LinePattern.Dot,
             smooth=Smooth.None));
         connect(torque.frame_a, revolute.frame_a) annotation (Line(
-            points={{50,40},{8,40},{8,10},{16,10}},
+            points={{50,40},{10,40},{10,10},{20,10}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(position2.flange,   r2.axis) annotation (Line(
-            points={{-32,-30},{-28,-30},{-28,-70}},
+            points={{-30,-30},{-20,-30},{-20,-70}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(position2.support, mounting1D2.flange_b) annotation (Line(
-            points={{-42,-40},{-42,-56},{-46,-56}},
+            points={{-40,-40},{-40,-56}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(fixed.frame_b, r2.frame_a) annotation (Line(
-            points={{-66,-80},{-38,-80}},
+            points={{-60,-80},{-30,-80}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(fixed.frame_b, mounting1D2.frame_a) annotation (Line(
-            points={{-66,-80},{-56,-80},{-56,-66}},
+            points={{-60,-80},{-50,-80},{-50,-66}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(sine2.y, position2.phi_ref) annotation (Line(
-            points={{-79,60},{-70,60},{-70,36},{-92,36},{-92,-30},{-54,-30}},
+            points={{-79,60},{-70,60},{-70,30},{-92,30},{-92,-30},{-52,-30}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(r2.frame_b, rotor1D.frame_a) annotation (Line(
-            points={{-18,-80},{60,-80},{60,-46}},
+            points={{-10,-80},{60,-80},{60,-50}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(r2.frame_b, mounting1D.frame_a) annotation (Line(
-            points={{-18,-80},{14,-80},{14,-66}},
+            points={{-10,-80},{10,-80},{10,-66}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(sine1[1].y, torque1.tau) annotation (Line(
-            points={{37,70},{92,70},{92,-20},{0,-20},{0,-36},{16,-36}},
+            points={{79,80},{54,80},{54,60},{92,60},{92,-20},{0,-20},{0,-40},{
+                18,-40}},
             color={0,0,127},
             smooth=Smooth.None));
         annotation (
@@ -4413,29 +4712,32 @@ often possible to use the FreeMotion joint such that the singularity
         extends Modelica.Icons.Example;
 
         Modelica.Mechanics.MultiBody.Joints.GearConstraint gearConstraint(ratio=
-             10) annotation (Placement(transformation(extent={{34,40},{54,60}},
+             10,
+          phi_b(fixed=true),
+          w_b(fixed=true))
+                 annotation (Placement(transformation(extent={{40,40},{60,60}},
                 rotation=0)));
         inner Modelica.Mechanics.MultiBody.World world(
                     g=0, driveTrainMechanics3D=true)
-                         annotation (Placement(transformation(extent={{-62,10},
-                  {-42,30}}, rotation=0)));
+                         annotation (Placement(transformation(extent={{-60,10},
+                  {-40,30}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl1(
           diameter=0.1,
           color={0,128,0},
-          r={0.4,0,0}) annotation (Placement(transformation(extent={{2,40},{22,
+          r={0.4,0,0}) annotation (Placement(transformation(extent={{10,40},{30,
                   60}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.BodyCylinder cyl2(r={0.4,0,0},
             diameter=0.2) annotation (Placement(transformation(extent={{70,40},
                   {90,60}}, rotation=0)));
         Modelica.Mechanics.MultiBody.Forces.Torque torque1(resolveInFrame=
               Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b)
-          annotation (Placement(transformation(extent={{-26,40},{-6,60}},
+          annotation (Placement(transformation(extent={{-20,40},{0,60}},
                 rotation=0)));
-        Modelica.Blocks.Sources.Sine sine[3](amplitude={2,0,0})
+        Modelica.Blocks.Sources.Sine sine[3](amplitude={2,0,0}, freqHz={1,1,1})
           annotation (Placement(transformation(extent={{-100,60},{-80,80}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Fixed fixed
-          annotation (Placement(transformation(extent={{-48,-90},{-28,-70}},
+          annotation (Placement(transformation(extent={{-60,-90},{-40,-70}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia inertia1(
             J=cyl1.I[1, 1],
@@ -4446,79 +4748,81 @@ often possible to use the FreeMotion joint such that the singularity
         Modelica.Mechanics.Rotational.Components.IdealGear idealGear(
                                                           ratio=10, useSupport=
               true)
-          annotation (Placement(transformation(extent={{12,-40},{32,-20}},
+          annotation (Placement(transformation(extent={{10,-40},{30,-20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia inertia2(
                                                        J=cyl2.I[1, 1])
-          annotation (Placement(transformation(extent={{44,-40},{64,-20}},
+          annotation (Placement(transformation(extent={{40,-40},{60,-20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Torque torque2(useSupport=true)
-          annotation (Placement(transformation(extent={{-48,-40},{-28,-20}},
+          annotation (Placement(transformation(extent={{-50,-40},{-30,-20}},
                 rotation=0)));
         Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
           annotation (Placement(transformation(extent={{-20,-70},{0,-50}},
                 rotation=0)));
       equation
         connect(world.frame_b, gearConstraint.bearing) annotation (Line(
-            points={{-42,20},{44,20},{44,40}},
+            points={{-40,20},{50,20},{50,40}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(cyl1.frame_b, gearConstraint.frame_a) annotation (Line(
-            points={{22,50},{34,50}},
+            points={{30,50},{40,50}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(gearConstraint.frame_b, cyl2.frame_a) annotation (Line(
-            points={{54,50},{70,50}},
+            points={{60,50},{70,50}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(torque1.frame_b, cyl1.frame_a) annotation (Line(
-            points={{-6,50},{2,50}},
+            points={{0,50},{10,50}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(torque1.frame_a, world.frame_b) annotation (Line(
-            points={{-26,50},{-36,50},{-36,20},{-42,20}},
+            points={{-20,50},{-30,50},{-30,20},{-40,20}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         connect(sine.y, torque1.torque) annotation (Line(
-            points={{-79,70},{-22,70},{-22,62}},
+            points={{-79,70},{-16,70},{-16,62}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(inertia1.flange_b, idealGear.flange_a) annotation (Line(
-            points={{5.55112e-16,-30},{12,-30}},
+            points={{0,-30},{10,-30}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(idealGear.flange_b, inertia2.flange_a) annotation (Line(
-            points={{32,-30},{44,-30}},
+            points={{30,-30},{40,-30}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(torque2.flange,   inertia1.flange_a) annotation (Line(
-            points={{-28,-30},{-20,-30}},
+            points={{-30,-30},{-20,-30}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(sine[1].y, torque2.tau) annotation (Line(
-            points={{-79,70},{-72,70},{-72,-30},{-50,-30}},
+            points={{-79,70},{-72,70},{-72,-30},{-52,-30}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(mounting1D.flange_b,idealGear.support)  annotation (Line(
-            points={{5.55112e-16,-60},{22,-60},{22,-40}},
+            points={{0,-60},{10,-60},{10,-50},{20,-50},{20,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(mounting1D.flange_b,torque2.support)  annotation (Line(
-            points={{5.55112e-16,-60},{4,-60},{4,-48},{-38,-48},{-38,-40}},
+            points={{0,-60},{10,-60},{10,-50},{-40,-50},{-40,-40}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(fixed.frame_b, mounting1D.frame_a) annotation (Line(
-            points={{-28,-80},{-10,-80},{-10,-70}},
+            points={{-40,-80},{-10,-80},{-10,-70}},
             color={95,95,95},
             thickness=0.5,
             smooth=Smooth.None));
         annotation (
-          experiment(StopTime=5));
+          experiment(StopTime=5),
+          Diagram(graphics),
+          Icon(graphics));
       end GearConstraint;
     end Rotor1D;
   end Parts;
@@ -4551,46 +4855,48 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.BodyBox box(
                                   r={1,0,0}, animation=false)
         annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
+      MultiBody.Sensors.AbsoluteSensor
         sensor_frame_a1(
-        resolveInFrame_a=true,
-        get_r_abs=true,
-        get_v_abs=true,
-        get_a_abs=true,
-        get_w_abs=true,
-        get_z_abs=true,
-        get_angles=true) annotation (Placement(transformation(extent={{40,22},{
-                60,42}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a,
+        get_r=true,
+        get_v=true,
+        get_a=true,
+        get_w=true,
+        get_z=true)      annotation (Placement(transformation(extent={{40,40},{60,20}},
+                         rotation=0)));
+      MultiBody.Sensors.AbsoluteSensor
         sensor_world1(
-        get_r_abs=true,
-        get_v_abs=true,
-        get_a_abs=true,
-        get_w_abs=true,
-        get_z_abs=true,
-        resolveInFrame_a=false,
-        get_angles=true) annotation (Placement(transformation(extent={{40,-20},
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+        get_r=true,
+        get_v=true,
+        get_a=true,
+        get_w=true,
+        get_z=true)      annotation (Placement(transformation(extent={{40,-20},
                 {60,0}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
+      MultiBody.Sensors.AbsoluteSensor
         sensor_frame_a2(
-        get_r_abs=true,
-        get_v_abs=true,
-        get_a_abs=true,
-        get_w_abs=true,
-        get_z_abs=true,
-        resolveInFrame_a=false,
-        get_angles=true) annotation (Placement(transformation(extent={{40,60},{
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
+        get_r=true,
+        get_v=true,
+        get_a=true,
+        get_w=true,
+        get_z=true)      annotation (Placement(transformation(extent={{40,60},{
                 60,80}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor
+
+      MultiBody.Sensors.AbsoluteSensor
         sensor_world2(
-        get_r_abs=true,
-        get_v_abs=true,
-        get_a_abs=true,
-        get_w_abs=true,
-        get_z_abs=true,
-        resolveInFrame_a=true,
-        get_angles=true) annotation (Placement(transformation(extent={{40,-40},
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
+        get_r=true,
+        get_v=true,
+        get_a=true,
+        get_w=true,
+        get_z=true)      annotation (Placement(transformation(extent={{40,-40},
                 {60,-60}}, rotation=0)));
+
       Modelica.Blocks.Math.Add err1[18](
                                     each k2=
                                        -1)
@@ -4607,17 +4913,17 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-60,10},{-40,10}},
           color={0,0,0},
           thickness=0.5));
-      connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-16,
-              50},{-16,26},{-30,26},{-30,20}}, color={0,0,0}));
-      connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{
-              -36,26},{-48,26},{-48,50},{-40,50}}, color={0,0,0}));
+      connect(damper.flange_b, rev.axis) annotation (Line(points={{-20,50},{-20,50},
+              {-20,30},{-30,30},{-30,20}},     color={0,0,0}));
+      connect(rev.support, damper.flange_a) annotation (Line(points={{-36,20},{-36,30},
+              {-40,30},{-40,50}},                  color={0,0,0}));
       connect(rev.frame_b, box.frame_a)
         annotation (Line(
           points={{-20,10},{0,10}},
           color={0,0,0},
           thickness=0.5));
       connect(box.frame_b, sensor_frame_a1.frame_a) annotation (Line(
-          points={{20,10},{30,10},{30,32},{40,32}},
+          points={{20,10},{30,10},{30,30},{40,30}},
           color={0,0,0},
           thickness=0.5));
       connect(box.frame_b, sensor_world1.frame_a) annotation (Line(
@@ -4632,71 +4938,159 @@ often possible to use the FreeMotion joint such that the singularity
           points={{20,10},{30,10},{30,-50},{40,-50}},
           color={0,0,0},
           thickness=0.5));
-      connect(sensor_frame_a2.y,err1.u1)
-        annotation (Line(points={{61,70},{68,70},{68,56},{78,56}}, color={0,0,
-              255}));
-      connect(sensor_frame_a1.y,err1.u2)
-        annotation (Line(points={{61,32},{68,32},{68,44},{78,44}}, color={0,0,
-              255}));
-      connect(sensor_world1.y,err2.u1)
-        annotation (Line(points={{61,-10},{68,-10},{68,-24},{78,-24}}, color={0,
-              0,255}));
-      connect(sensor_world2.y,err2.u2)
-        annotation (Line(points={{61,-50},{70,-50},{70,-36},{78,-36}}, color={0,
-              0,255}));
       connect(sensor_world2.frame_resolve, world.frame_b) annotation (Line(
-          points={{50,-60},{50,-76},{-48,-76},{-48,10},{-60,10}},
+          points={{60,-50},{60,-50},{70,-50},{70,-76},{-50,-76},{-50,10},{-60,10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
       connect(sensor_frame_a2.frame_resolve, rev.frame_b) annotation (Line(
-          points={{50,80},{50,80},{50,94},{-12,94},{-12,10},{-20,10}},
+          points={{60,70},{60,70},{70,70},{70,90},{-10,90},{-10,10},{-20,10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
+      connect(sensor_frame_a2.r[1:3], err1[1:3].u1) annotation (Line(
+          points={{40,58.3333},{40,56},{78,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a2.v[1:3], err1[4:6].u1) annotation (Line(
+          points={{44,58.3333},{44,56},{78,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a2.a[1:3], err1[7:9].u1) annotation (Line(
+          points={{48,58.3333},{48,56},{78,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a2.angles[1:3], err1[10:12].u1) annotation (Line(
+          points={{52,58.3333},{52,56},{78,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a2.w[1:3], err1[13:15].u1) annotation (Line(
+          points={{56,58.3333},{56,56},{78,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a2.z[1:3], err1[16:18].u1) annotation (Line(
+          points={{60,58.3333},{60,56},{78,56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a1.r[1:3], err1[1:3].u2) annotation (Line(
+          points={{40,41.6667},{40,44},{78,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a1.v[1:3], err1[4:6].u2) annotation (Line(
+          points={{44,41.6667},{44,44},{78,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a1.a[1:3], err1[7:9].u2) annotation (Line(
+          points={{48,41.6667},{48,44},{78,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a1.angles[1:3], err1[10:12].u2) annotation (Line(
+          points={{52,41.6667},{52,44},{78,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a1.w[1:3], err1[13:15].u2) annotation (Line(
+          points={{56,41.6667},{56,44},{78,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_frame_a1.z[1:3], err1[16:18].u2) annotation (Line(
+          points={{60,41.6667},{60,44},{78,44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world1.r[1:3], err2[1:3].u1) annotation (Line(
+          points={{40,-21.6667},{40,-24},{78,-24}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world1.v[1:3], err2[4:6].u1) annotation (Line(
+          points={{44,-21.6667},{44,-24},{78,-24}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world1.a[1:3], err2[7:9].u1) annotation (Line(
+          points={{48,-21.6667},{48,-24},{78,-24}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world1.angles[1:3], err2[10:12].u1) annotation (Line(
+          points={{52,-21.6667},{52,-24},{78,-24}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world1.w[1:3], err2[13:15].u1) annotation (Line(
+          points={{56,-21.6667},{56,-24},{78,-24}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world1.z[1:3], err2[16:18].u1) annotation (Line(
+          points={{60,-21.6667},{60,-24},{78,-24}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world2.r[1:3], err2[1:3].u2) annotation (Line(
+          points={{40,-38.3333},{40,-36},{78,-36}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world2.v[1:3], err2[4:6].u2) annotation (Line(
+          points={{44,-38.3333},{44,-36},{78,-36}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world2.a[1:3], err2[7:9].u2) annotation (Line(
+          points={{48,-38.3333},{48,-36},{78,-36}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world2.angles[1:3], err2[10:12].u2) annotation (Line(
+          points={{52,-38.3333},{52,-36},{78,-36}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world2.w[1:3], err2[13:15].u2) annotation (Line(
+          points={{56,-38.3333},{56,-36},{78,-36}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sensor_world2.z[1:3], err2[16:18].u2) annotation (Line(
+          points={{60,-38.3333},{60,-36},{78,-36}},
+          color={0,0,127},
+          smooth=Smooth.None));
       annotation (
         experiment(StopTime=5),
-        Documentation(info=""));
+        Documentation(info=""),
+        Diagram(graphics));
     end AbsoluteSensor;
 
     model AbsoluteSensor2
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(
-                                  animateWorld=true, animateGravity=true)
-        annotation (Placement(transformation(extent={{-80,-20},{-60,0}},
+        animateWorld=true, animateGravity=true)
+        annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.AbsoluteSensor freeMotion
-        annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
-                0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation fixedRotation(
         r={0.5,0.5,0.1},
         rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.
             PlanarRotationSequence,
         angles={45,45,45},
-        animation=false) annotation (Placement(transformation(extent={{-40,-20},
-                {-20,0}}, rotation=0)));
+        animation=false) annotation (Placement(transformation(extent={{-40,-10},
+                {-20,10}},rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_a(
                                                color_x={0,128,255})
         annotation (Placement(transformation(
-            origin={-10,-50},
+            origin={-10,-40},
             extent={{-10,-10},{10,10}},
             rotation=270)));
+      Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor freeMotion(
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
+          get_r=true)
+        annotation (Placement(transformation(extent={{0,-10},{20,10}})));
     equation
       connect(world.frame_b, fixedRotation.frame_a)
         annotation (Line(
-          points={{-60,-10},{-40,-10}},
+          points={{-60,0},{-40,0}},
           color={0,0,0},
           thickness=0.5));
-      connect(fixedRotation.frame_b, freeMotion.frame_a)
-        annotation (Line(
-          points={{-20,-10},{0,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(frame_a.frame_a, freeMotion.frame_a) annotation (Line(
-          points={{-10,-40},{-10,-10},{0,-10}},
-          color={0,0,0},
-          thickness=0.5));
+      connect(fixedRotation.frame_b, freeMotion.frame_a) annotation (Line(
+          points={{-20,0},{0,0}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedRotation.frame_b, frame_a.frame_a) annotation (Line(
+          points={{-20,0},{-10,0},{-10,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       annotation (
         experiment(StopTime=1.1),
-                  experiment(StopTime=1.1));
+                  experiment(StopTime=1.1),
+        Diagram(graphics));
     end AbsoluteSensor2;
 
     model RelativeSensor
@@ -4709,150 +5103,260 @@ often possible to use the FreeMotion joint such that the singularity
         a(fixed=false),
         phi(fixed=true),
         w(fixed=true))
-        annotation (Placement(transformation(extent={{-68,20},{-48,40}},
+        annotation (Placement(transformation(extent={{-70,20},{-50,40}},
               rotation=0)));
       Parts.BodyBox BodyBox1(r={0.7,0,0}) annotation (Placement(transformation(
               extent={{-40,20},{-20,40}}, rotation=0)));
       Parts.Fixed fixed(r={-0.9,0,0.3}) annotation (Placement(transformation(
-              extent={{-100,-40},{-80,-20}}, rotation=0)));
+              extent={{-100,-80},{-80,-60}}, rotation=0)));
       Joints.Revolute revolute1(
         a(fixed=false),
         phi(fixed=true, start=0.7853981633974483),
-        w(fixed=true))        annotation (Placement(transformation(extent={{-68,
-                -40},{-48,-20}}, rotation=0)));
+        w(fixed=true))        annotation (Placement(transformation(extent={{-70,-80},
+                {-50,-60}},      rotation=0)));
       Parts.BodyBox BodyBox2(r={0.7,0,0}) annotation (Placement(transformation(
-              extent={{-40,-40},{-20,-20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor relative_a1(
-        resolveInFrame_a=true,
+              extent={{-40,-80},{-20,-60}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor          relative_a1(
         get_r_rel=true,
         get_v_rel=true,
         get_a_rel=true,
         get_w_rel=true,
         get_z_rel=true,
-        get_angles=true) annotation (Placement(transformation(
-            origin={28,10},
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+                         annotation (Placement(transformation(
+            origin={30,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor relative_a2(
-        resolveInFrame_a=true,
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor          relative_a2(
         get_r_rel=true,
         get_v_rel=true,
         get_a_rel=true,
         get_w_rel=true,
         get_z_rel=true,
-        get_angles=true) annotation (Placement(transformation(
-            origin={50,-10},
+        get_angles=true,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve)
+                         annotation (Placement(transformation(
+            origin={50,-40},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Modelica.Blocks.Math.Add err1[18](
-                                    each k2=
-                                       -1)
-        annotation (Placement(transformation(extent={{80,0},{100,20}}, rotation=
+        each k2=-1)
+        annotation (Placement(transformation(extent={{80,-30},{100,-10}},
+                                                                       rotation=
                0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor relative_b2(
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relative_b2(
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_resolve,
         get_r_rel=true,
         get_v_rel=true,
         get_a_rel=true,
         get_w_rel=true,
         get_z_rel=true,
-        resolveInFrame_a=false,
         get_angles=true) annotation (Placement(transformation(
-            origin={-2,50},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor relative_b1(
-        get_r_rel=true,
-        get_v_rel=true,
-        get_a_rel=true,
-        get_w_rel=true,
-        get_z_rel=true,
-        resolveInFrame_a=false,
-        get_angles=true) annotation (Placement(transformation(
-            origin={16,70},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Blocks.Math.Add err2[18](
-                                    each k2=
-                                       -1)
-        annotation (Placement(transformation(extent={{52,50},{72,70}}, rotation=
-               0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.RelativeSensor relative_c(
-                                        get_angles=true, sequence={3,2,1})
-        annotation (Placement(transformation(
-            origin={-70,70},
+            origin={-10,-10},
             extent={{-10,10},{10,-10}},
             rotation=90)));
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relative_b1(
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_b,
+        get_r_rel=true,
+        get_v_rel=true,
+        get_a_rel=true,
+        get_w_rel=true,
+        get_z_rel=true,
+        get_angles=true) annotation (Placement(transformation(
+            origin={10,-40},
+            extent={{-10,10},{10,-10}},
+            rotation=90)));
+      Modelica.Blocks.Math.Add err2[18](
+        each k2=-1)
+        annotation (Placement(transformation(extent={{-40,-10},{-60,-30}},
+                                                                       rotation=
+               0)));
+      Modelica.Mechanics.MultiBody.Sensors.RelativeSensor relativeSensor(
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a,
+        get_r_rel=true,
+        get_angles=true,
+        sequence={3,2,1})
+        annotation (Placement(transformation(extent={{-70,50},{-50,70}})));
+
     equation
-      connect(BodyBox1.frame_a, revolute.frame_b)
-        annotation (Line(points={{-40,30},{-48,30}}));
-      connect(revolute.frame_a, world.frame_b)
-        annotation (Line(points={{-68,30},{-80,30}}));
-      connect(BodyBox2.frame_a, revolute1.frame_b)
-        annotation (Line(points={{-40,-30},{-48,-30}}));
-      connect(revolute1.frame_a, fixed.frame_b)
-        annotation (Line(points={{-68,-30},{-80,-30}}));
-      connect(BodyBox1.frame_b, relative_a2.frame_b) annotation (Line(
-          points={{-20,30},{50,30},{50,0}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(BodyBox2.frame_b, relative_a2.frame_a) annotation (Line(
-          points={{-20,-30},{50,-30},{50,-20}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(BodyBox1.frame_b, relative_a1.frame_b) annotation (Line(
-          points={{-20,30},{28,30},{28,20}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(BodyBox2.frame_b, relative_a1.frame_a) annotation (Line(
-          points={{-20,-30},{28,-30},{28,0}},
-          color={0,0,0},
-          thickness=0.5));
       connect(relative_a2.frame_resolve, revolute1.frame_b) annotation (Line(
-          points={{60,-16},{60,-52},{-44,-52},{-44,-30},{-48,-30}},
+          points={{42,-30},{42,-28},{34,-28},{34,-60},{-46,-60},{-46,-70},{-50,
+              -70}},
           color={0,0,0},
           pattern=LinePattern.Dot));
-      connect(relative_a1.y,err1.u1)
-        annotation (Line(points={{39,10},{54,10},{54,16},{78,16}}, color={0,0,
-              255}));
-      connect(relative_a2.y,err1.u2)
-        annotation (Line(points={{61,-10},{68,-10},{68,4},{78,4}}, color={0,0,
-              255}));
-      connect(relative_b2.frame_a, BodyBox2.frame_b) annotation (Line(
-          points={{-2,40},{-2,-30},{-20,-30}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(relative_b1.frame_a, BodyBox2.frame_b) annotation (Line(
-          points={{16,60},{16,-30},{-20,-30}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(relative_b1.y,err2.u1)
-        annotation (Line(points={{27,70},{38,70},{38,66},{50,66}}, color={0,0,
-              255}));
-      connect(relative_b2.y,err2.u2)
-        annotation (Line(points={{9,50},{28,50},{28,54},{50,54}}, color={0,0,
-              255}));
-      connect(relative_b2.frame_b, BodyBox1.frame_b) annotation (Line(
-          points={{-2,60},{-2,68},{-20,68},{-20,30}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(relative_b1.frame_b, BodyBox1.frame_b) annotation (Line(
-          points={{16,80},{16,92},{-20,92},{-20,30}},
-          color={0,0,0},
-          thickness=0.5));
       connect(relative_b2.frame_resolve, BodyBox1.frame_a) annotation (Line(
-          points={{8,44},{-32,44},{-32,56},{-44,56},{-44,30},{-40,30}},
+          points={{-2,0},{-2,0},{-2,10},{-2,10},{-46,10},{-46,30},{-40,30}},
           color={0,0,0},
           pattern=LinePattern.Dot));
-      connect(world.frame_b, relative_c.frame_a) annotation (Line(
-          points={{-80,30},{-70,30},{-70,60}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(revolute.frame_b, relative_c.frame_b) annotation (Line(
-          points={{-48,30},{-46,30},{-46,94},{-70,94},{-70,80}},
-          color={0,0,0},
-          thickness=0.5));
+      connect(fixed.frame_b, revolute1.frame_a) annotation (Line(
+          points={{-80,-70},{-70,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute1.frame_b, BodyBox2.frame_a) annotation (Line(
+          points={{-50,-70},{-40,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute.frame_b, BodyBox1.frame_a) annotation (Line(
+          points={{-50,30},{-40,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, revolute.frame_a) annotation (Line(
+          points={{-80,30},{-70,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, relativeSensor.frame_a) annotation (Line(
+          points={{-80,30},{-74,30},{-74,60},{-70,60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relativeSensor.frame_b, revolute.frame_b) annotation (Line(
+          points={{-50,60},{-46,60},{-46,30},{-50,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_a1.r_rel[1:3], err1[1:3].u1) annotation (Line(
+          points={{41.6667,-20},{46,-20},{46,-14},{78,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a1.v_rel[1:3], err1[4:6].u1) annotation (Line(
+          points={{41.6667,-16},{46,-16},{46,-14},{78,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a1.a_rel[1:3], err1[7:9].u1) annotation (Line(
+          points={{41.6667,-12},{46,-12},{46,-14},{78,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a1.angles[1:3], err1[10:12].u1) annotation (Line(
+          points={{41.6667,-8},{46,-8},{46,-14},{78,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a1.w_rel[1:3], err1[13:15].u1) annotation (Line(
+          points={{41.6667,-4},{46,-4},{46,-14},{78,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a1.z_rel[1:3], err1[16:18].u1) annotation (Line(
+          points={{41.6667,0},{46,0},{46,-14},{78,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a2.r_rel[1:3], err1[1:3].u2) annotation (Line(
+          points={{61.6667,-50},{70,-50},{70,-26},{78,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a2.v_rel[1:3], err1[4:6].u2) annotation (Line(
+          points={{61.6667,-46},{70,-46},{70,-26},{78,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a2.a_rel[1:3], err1[7:9].u2) annotation (Line(
+          points={{61.6667,-42},{70,-42},{70,-26},{78,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a2.angles[1:3], err1[10:12].u2) annotation (Line(
+          points={{61.6667,-38},{70,-38},{70,-26},{78,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a2.w_rel[1:3], err1[13:15].u2) annotation (Line(
+          points={{61.6667,-34},{70,-34},{70,-26},{78,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a2.z_rel[1:3], err1[16:18].u2) annotation (Line(
+          points={{61.6667,-30},{70,-30},{70,-26},{78,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b1.r_rel[1:3], err2[1:3].u1) annotation (Line(
+          points={{-1.66667,-50},{-6,-50},{-6,-26},{-38,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b1.v_rel[1:3], err2[4:6].u1) annotation (Line(
+          points={{-1.66667,-46},{-6,-46},{-6,-26},{-38,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b1.a_rel[1:3], err2[7:9].u1) annotation (Line(
+          points={{-1.66667,-42},{-6,-42},{-6,-26},{-38,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b1.angles[1:3], err2[10:12].u1) annotation (Line(
+          points={{-1.66667,-38},{-6,-38},{-6,-26},{-38,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b1.w_rel[1:3], err2[13:15].u1) annotation (Line(
+          points={{-1.66667,-34},{-6,-34},{-6,-26},{-38,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b1.z_rel[1:3], err2[16:18].u1) annotation (Line(
+          points={{-1.66667,-30},{-6,-30},{-6,-26},{-38,-26}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b2.r_rel[1:3], err2[1:3].u2) annotation (Line(
+          points={{-21.6667,-20},{-26,-20},{-26,-14},{-38,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b2.v_rel[1:3], err2[4:6].u2) annotation (Line(
+          points={{-21.6667,-16},{-26,-16},{-26,-14},{-38,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b2.a_rel[1:3], err2[7:9].u2) annotation (Line(
+          points={{-21.6667,-12},{-26,-12},{-26,-14},{-38,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b2.angles[1:3], err2[10:12].u2) annotation (Line(
+          points={{-21.6667,-8},{-26,-8},{-26,-14},{-38,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b2.w_rel[1:3], err2[13:15].u2) annotation (Line(
+          points={{-21.6667,-4},{-26,-4},{-26,-14},{-38,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_b2.z_rel[1:3], err2[16:18].u2) annotation (Line(
+          points={{-21.6667,0},{-26,0},{-26,-14},{-38,-14}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(relative_a1.frame_a, BodyBox2.frame_b) annotation (Line(
+          points={{30,-20},{30,-70},{-20,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_a2.frame_a, BodyBox2.frame_b) annotation (Line(
+          points={{50,-50},{50,-70},{-20,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_b1.frame_a, BodyBox2.frame_b) annotation (Line(
+          points={{10,-50},{10,-70},{-20,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_b2.frame_a, BodyBox2.frame_b) annotation (Line(
+          points={{-10,-20},{-10,-70},{-20,-70}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_a1.frame_b, BodyBox1.frame_b) annotation (Line(
+          points={{30,0},{30,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_a2.frame_b, BodyBox1.frame_b) annotation (Line(
+          points={{50,-30},{52,-30},{52,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_b1.frame_b, BodyBox1.frame_b) annotation (Line(
+          points={{10,-30},{12,-30},{12,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(relative_b2.frame_b, BodyBox1.frame_b) annotation (Line(
+          points={{-10,0},{-10,30},{-20,30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
       annotation (
-        experiment(StopTime=2));
+        experiment(StopTime=2), Diagram(graphics));
     end RelativeSensor;
 
     model Distance "Test Sensors.Distance"
@@ -4876,9 +5380,9 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed(
                                   r={0,-1,0})
         annotation (Placement(transformation(
-            origin={-50,-70},
+            origin={-50,-50},
             extent={{-10,-10},{10,10}},
-            rotation=90)));
+            rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.Distance Distance1
                                            annotation (Placement(transformation(
               extent={{-20,-60},{0,-40}}, rotation=0)));
@@ -4910,7 +5414,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(Distance1.frame_a, fixed.frame_b) annotation (Line(
-          points={{-20,-50},{-50,-50},{-50,-60}},
+          points={{-20,-50},{-40,-50}},
           color={0,0,0},
           thickness=0.5));
       connect(Der1.y,Der2.u)
@@ -4947,9 +5451,9 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{40,0},{60,20}}, rotation=
                 0)));
       Modelica.Blocks.Continuous.Der Der1 annotation (Placement(transformation(
-              extent={{60,-24},{80,-4}}, rotation=0)));
+              extent={{60,-30},{80,-10}},rotation=0)));
       Modelica.Blocks.Logical.LessEqualThreshold LessEqualThreshold1
-        annotation (Placement(transformation(extent={{60,-50},{80,-30}},
+        annotation (Placement(transformation(extent={{60,-60},{80,-40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.Distance distance2
         annotation (Placement(transformation(extent={{-40,30},{-20,50}},
@@ -4972,11 +5476,11 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(distance1.distance, Der1.u) annotation (Line(points={{50,-1},{50,
-              -14},{58,-14}}, color={0,0,127}));
+              -20},{58,-20}}, color={0,0,127}));
       connect(distance1.distance, LessEqualThreshold1.u) annotation (Line(
-            points={{50,-1},{50,-40},{58,-40}}, color={0,0,127}));
+            points={{50,-1},{50,-50},{58,-50}}, color={0,0,127}));
       connect(Revolute1.frame_a, distance2.frame_a) annotation (Line(
-          points={{-40,10},{-46,10},{-46,40},{-40,40}},
+          points={{-40,10},{-50,10},{-50,40},{-40,40}},
           color={0,0,0},
           thickness=0.5));
       connect(Revolute1.frame_b, distance2.frame_b) annotation (Line(
@@ -5005,7 +5509,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,10},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1a
+      Modelica.Mechanics.MultiBody.Parts.Body body1a(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,0},{80,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce2a(
@@ -5020,7 +5524,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,-30},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2a
+      Modelica.Mechanics.MultiBody.Parts.Body body2a(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,-40},{80,-20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1a(
@@ -5043,7 +5547,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,70},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1b
+      Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,60},{80,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
@@ -5068,7 +5572,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,-90},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2b
+      Modelica.Mechanics.MultiBody.Parts.Body body2b(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,-100},{80,-80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate2b(
@@ -5079,7 +5583,7 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Blocks.Math.Add err2[3](
                                     each k2=
                                        -1)
-        annotation (Placement(transformation(extent={{8,-72},{28,-52}},
+        annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
     equation
 
@@ -5108,13 +5612,9 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.frame_resolve, rotate1b.frame_b) annotation (Line(
-          points={{-2,60},{-20,60},{-20,46},{-40,46},{-40,70}},
+          points={{-2,60},{-2,60},{-2,50},{-40,50},{-40,70}},
           color={0,0,0},
           pattern=LinePattern.Dot));
-      connect(cutForce1b.force,err1.u1)
-        annotation (Line(points={{-18,59},{-18,46},{8,46}}, color={0,0,255}));
-      connect(cutForce1a.force,err1.u2)
-        annotation (Line(points={{-18,21},{-18,34},{8,34}}, color={0,0,255}));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
           color={0,0,0},
@@ -5128,12 +5628,8 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
           color={0,0,0},
           thickness=0.5));
-      connect(cutForce2a.force,err2.u1)
-        annotation (Line(points={{-18,-41},{-18,-56},{6,-56}}, color={0,0,255}));
-      connect(cutForce2b.force,err2.u2)
-        annotation (Line(points={{-18,-79},{-18,-68},{6,-68}}, color={0,0,255}));
       connect(cutForce2b.frame_resolve, world.frame_b) annotation (Line(
-          points={{-2,-80},{-2,-58},{-74,-58},{-74,10},{-80,10}},
+          points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutForce1b.frame_b, translate1b.frame_a)
@@ -5151,7 +5647,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
-          points={{40,10},{50,10},{50,10},{60,10}},
+          points={{40,10},{50,10},{60,10}},
           color={0,0,0},
           thickness=0.5));
       connect(cutForce2a.frame_b, translate2a.frame_a)
@@ -5174,7 +5670,23 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(cutForce1b.force, err1.u1) annotation (Line(
+          points={{-18,59},{-18,46},{8,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1a.force, err1.u2) annotation (Line(
+          points={{-18,21},{-18,34},{8,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2a.force, err2.u1) annotation (Line(
+          points={{-18,-41},{-18,-54},{8,-54}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2b.force, err2.u2) annotation (Line(
+          points={{-18,-79},{-18,-66},{8,-66}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end CutForce;
 
     model CutForce2
@@ -5195,7 +5707,7 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_b(
                                                color_x={0,0,200})
         annotation (Placement(transformation(
-            origin={50,30},
+            origin={30,30},
             extent={{10,-10},{-10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.WorldForce WorldForce1(
@@ -5211,8 +5723,6 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-60,-10},{-40,-10}},
           color={0,0,0},
           thickness=0.5));
-      connect(Constant1.y,WorldForce1.force)
-        annotation (Line(points={{79,-10},{62,-10}}, color={0,0,255}));
       connect(fixedRotation.frame_b, cutForce.frame_a)
         annotation (Line(
           points={{-20,-10},{0,-10}},
@@ -5224,10 +5734,14 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(frame_b.frame_a, cutForce.frame_b) annotation (Line(
-          points={{50,20},{50,14},{28,14},{28,-10},{20,-10}},
+          points={{30,20},{30,20},{30,-10},{20,-10}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(Constant1.y, WorldForce1.force) annotation (Line(
+          points={{79,-10},{62,-10}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end CutForce2;
 
     model CutTorque
@@ -5246,7 +5760,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,10},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1a
+      Modelica.Mechanics.MultiBody.Parts.Body body1a(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,0},{80,20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.CutTorque cutTorque2a(
@@ -5261,7 +5775,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,-30},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2a
+      Modelica.Mechanics.MultiBody.Parts.Body body2a(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,-40},{80,-20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1a(
@@ -5285,7 +5799,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,70},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1b
+      Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,60},{80,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
@@ -5310,7 +5824,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,-90},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2b
+      Modelica.Mechanics.MultiBody.Parts.Body body2b(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,-100},{80,-80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate2b(
@@ -5321,7 +5835,7 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Blocks.Math.Add err2[3](
                                     each k2=
                                        -1)
-        annotation (Placement(transformation(extent={{8,-72},{28,-52}},
+        annotation (Placement(transformation(extent={{10,-70},{30,-50}},
               rotation=0)));
     equation
 
@@ -5353,10 +5867,6 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-2,60},{-20,60},{-20,46},{-40,46},{-40,70}},
           color={0,0,0},
           pattern=LinePattern.Dot));
-      connect(cutTorque1b.torque,err1.u1)
-        annotation (Line(points={{-18,59},{-18,46},{8,46}}, color={0,0,255}));
-      connect(cutTorque1a.torque,err1.u2)
-        annotation (Line(points={{-18,21},{-18,34},{8,34}}, color={0,0,255}));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
           color={0,0,0},
@@ -5370,12 +5880,8 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
           color={0,0,0},
           thickness=0.5));
-      connect(cutTorque2a.torque,err2.u1)
-        annotation (Line(points={{-18,-41},{-18,-56},{6,-56}}, color={0,0,255}));
-      connect(cutTorque2b.torque,err2.u2)
-        annotation (Line(points={{-18,-79},{-18,-68},{6,-68}}, color={0,0,255}));
       connect(cutTorque2b.frame_resolve, world.frame_b) annotation (Line(
-          points={{-2,-80},{-2,-58},{-74,-58},{-74,10},{-80,10}},
+          points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutTorque1b.frame_b, translate1b.frame_a)
@@ -5393,7 +5899,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
-          points={{40,10},{50,10},{50,10},{60,10}},
+          points={{40,10},{50,10},{60,10}},
           color={0,0,0},
           thickness=0.5));
       connect(cutTorque2a.frame_b, translate2a.frame_a)
@@ -5416,7 +5922,23 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(cutTorque1b.torque, err1.u1) annotation (Line(
+          points={{-18,59},{-18,46},{8,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutTorque1a.torque, err1.u2) annotation (Line(
+          points={{-18,21},{-18,34},{8,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutTorque2a.torque, err2.u1) annotation (Line(
+          points={{-18,-41},{-18,-54},{8,-54}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutTorque2b.torque, err2.u2) annotation (Line(
+          points={{-18,-79},{-18,-66},{8,-66}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end CutTorque;
 
     model CutTorque2
@@ -5437,7 +5959,7 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_b(
                                                color_x={0,0,200})
         annotation (Placement(transformation(
-            origin={50,30},
+            origin={30,30},
             extent={{10,-10},{-10,10}},
             rotation=270)));
       Modelica.Mechanics.MultiBody.Forces.WorldTorque worldTorque(
@@ -5466,7 +5988,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(frame_b.frame_a, cutTorque.frame_b) annotation (Line(
-          points={{50,20},{50,14},{28,14},{28,-10},{20,-10}},
+          points={{30,20},{30,20},{30,-10},{20,-10}},
           color={0,0,0},
           thickness=0.5));
       annotation (experiment(StopTime=1.1));
@@ -5477,94 +5999,97 @@ often possible to use the FreeMotion joint such that the singularity
       inner Modelica.Mechanics.MultiBody.World world
                                   annotation (Placement(transformation(extent={
                 {-100,0},{-80,20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
-        cutForce1a(                                  N_to_m=10, Nm_to_m=10)
+      Modelica.Blocks.Math.Add err1[6](
+        each k2=-1)
+        annotation (Placement(transformation(extent={{10,30},{30,50}}, rotation=
+               0)));
+      Modelica.Blocks.Math.Add err2[6](
+        each k2=-1)
+        annotation (Placement(transformation(extent={{10,-70},{30,-50}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque cutForce1a(
+        N_to_m=10,
+        Nm_to_m=10)
         annotation (Placement(transformation(extent={{-20,20},{0,0}}, rotation=
                 0)));
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque cutForce1b(
+        N_to_m=10,
+        Nm_to_m=10,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
+               0)));
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
+        cutForce2a(
+        positiveSign=false,
+        N_to_m=10,
+        Nm_to_m=10,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+                    annotation (Placement(transformation(extent={{-20,-40},{0,
+                -20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
+        cutForce2b(
+        positiveSign=false,
+        N_to_m=10,
+        Nm_to_m=10,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+        annotation (Placement(transformation(extent={{-20,-80},{0,
+                -100}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1a(
                                                    r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,10},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1a
-                                  annotation (Placement(transformation(extent={
-                {60,0},{80,20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
-        cutForce2a(
-        positiveSign=false,
-        resolveInFrame_a=false,
-        N_to_m=10,
-        Nm_to_m=10) annotation (Placement(transformation(extent={{-20,-40},{0,
-                -20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1b(
+        r={0,-1,0})
+        annotation (Placement(transformation(
+            origin={30,70},
+            extent={{10,-10},{-10,10}},
+            rotation=180)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate2a(
                                                    r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,-30},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2a
-                                  annotation (Placement(transformation(extent={
-                {60,-40},{80,-20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate2b(
+        r={0,-1,0})
+        annotation (Placement(transformation(
+            origin={30,-90},
+            extent={{10,-10},{-10,10}},
+            rotation=180)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1a(
         n={0,0,1},
         angle=90,
         r={0,0,-0.2}) annotation (Placement(transformation(extent={{-60,0},{-40,
                 20}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate2a(
-        n={0,0,1},
-        angle=90,
-        r={0,0,0.2}) annotation (Placement(transformation(extent={{-60,-40},{
-                -40,-20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
-        cutForce1b(                                  N_to_m=10, Nm_to_m=10)
-        annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
-               0)));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1b(
-                                                   r={0,-1,0})
-        annotation (Placement(transformation(
-            origin={30,70},
-            extent={{10,-10},{-10,10}},
-            rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1b
-                                  annotation (Placement(transformation(extent={
-                {60,60},{80,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
         n={0,0,1},
         angle=90,
         r={0,0,-0.6}) annotation (Placement(transformation(extent={{-60,60},{
                 -40,80}}, rotation=0)));
-      Modelica.Blocks.Math.Add err1[6](
-                                    each k2=
-                                       -1)
-        annotation (Placement(transformation(extent={{10,30},{30,50}}, rotation=
-               0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
-        cutForce2b(
-        positiveSign=false,
-        resolveInFrame_a=false,
-        N_to_m=10,
-        Nm_to_m=10) annotation (Placement(transformation(extent={{-20,-80},{0,
-                -100}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate2b(
-                                                   r={0,-1,0})
-        annotation (Placement(transformation(
-            origin={30,-90},
-            extent={{10,-10},{-10,10}},
-            rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2b
-                                  annotation (Placement(transformation(extent={
-                {60,-100},{80,-80}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate2a(
+        n={0,0,1},
+        angle=90,
+        r={0,0,0.2}) annotation (Placement(transformation(extent={{-60,-40},{
+                -40,-20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate2b(
         n={0,0,1},
         angle=90,
         r={0,0,0.6}) annotation (Placement(transformation(extent={{-60,-100},{
                 -40,-80}}, rotation=0)));
-      Modelica.Blocks.Math.Add err2[6](
-                                    each k2=
-                                       -1)
-        annotation (Placement(transformation(extent={{8,-72},{28,-52}},
-              rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body1a(r_CM={0,0,0}, m=1)
+                                  annotation (Placement(transformation(extent={
+                {60,0},{80,20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
+                                  annotation (Placement(transformation(extent={
+                {60,60},{80,80}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body2a(r_CM={0,0,0}, m=1)
+                                  annotation (Placement(transformation(extent={
+                {60,-40},{80,-20}}, rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body2b(r_CM={0,0,0}, m=1)
+                                  annotation (Placement(transformation(extent={
+                {60,-100},{80,-80}}, rotation=0)));
     equation
 
       connect(world.frame_b, rotate1a.frame_a)
@@ -5592,13 +6117,9 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.frame_resolve, rotate1b.frame_b) annotation (Line(
-          points={{-2,60},{-20,60},{-20,46},{-40,46},{-40,70}},
+          points={{-2,60},{-2,60},{-2,54},{-40,54},{-40,70}},
           color={0,0,0},
           pattern=LinePattern.Dot));
-      connect(cutForce1b.load,err1.u1)
-        annotation (Line(points={{-18,59},{-18,46},{8,46}}, color={0,0,255}));
-      connect(cutForce1a.load,err1.u2)
-        annotation (Line(points={{-18,21},{-18,34},{8,34}}, color={0,0,255}));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
           color={0,0,0},
@@ -5612,12 +6133,8 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
           color={0,0,0},
           thickness=0.5));
-      connect(cutForce2a.load,err2.u1)
-        annotation (Line(points={{-18,-41},{-18,-56},{6,-56}}, color={0,0,255}));
-      connect(cutForce2b.load,err2.u2)
-        annotation (Line(points={{-18,-79},{-18,-68},{6,-68}}, color={0,0,255}));
       connect(cutForce2b.frame_resolve, world.frame_b) annotation (Line(
-          points={{-2,-80},{-2,-58},{-74,-58},{-74,10},{-80,10}},
+          points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutForce1b.frame_b, translate1b.frame_a)
@@ -5658,7 +6175,39 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(cutForce1b.force[1:3], err1[1:3].u1) annotation (Line(
+          points={{-18,58.3333},{-18,46},{8,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1b.torque[1:3], err1[4:6].u1) annotation (Line(
+          points={{-10,58.3333},{-10,46},{8,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1a.force[1:3], err1[1:3].u2) annotation (Line(
+          points={{-18,21.6667},{-18,34},{8,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1a.torque[1:3], err1[4:6].u2) annotation (Line(
+          points={{-10,21.6667},{-10,34},{8,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2a.force[1:3], err2[1:3].u1) annotation (Line(
+          points={{-18,-41.6667},{-18,-54},{8,-54}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2a.torque[1:3], err2[4:6].u1) annotation (Line(
+          points={{-10,-41.6667},{-10,-54},{8,-54}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2b.force[1:3], err2[1:3].u2) annotation (Line(
+          points={{-18,-78.3333},{-18,-66},{8,-66}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2b.torque[1:3], err2[4:6].u2) annotation (Line(
+          points={{-10,-78.3333},{-10,-66},{8,-66}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end CutForceAndTorque1;
 
     model CutForceAndTorque2
@@ -5667,7 +6216,7 @@ often possible to use the FreeMotion joint such that the singularity
                                   n={0,0,-1})
         annotation (Placement(transformation(extent={{-100,0},{-80,20}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
         cutForce1a(                                  N_to_m=10, Nm_to_m=10)
         annotation (Placement(transformation(extent={{-20,20},{0,0}}, rotation=
                 0)));
@@ -5677,23 +6226,24 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,10},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1a
+      Modelica.Mechanics.MultiBody.Parts.Body body1a(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,0},{80,20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
         cutForce2a(
         positiveSign=false,
-        resolveInFrame_a=false,
         N_to_m=10,
-        Nm_to_m=10) annotation (Placement(transformation(extent={{-20,-40},{0,
+        Nm_to_m=10,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world)
+                    annotation (Placement(transformation(extent={{-20,-40},{0,
                 -20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate2a(
-                                                   r={0,-1,0})
+        r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,-30},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2a
+      Modelica.Mechanics.MultiBody.Parts.Body body2a(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,-40},{80,-20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1a(
@@ -5706,8 +6256,9 @@ often possible to use the FreeMotion joint such that the singularity
         angle=90,
         r={0,0,0.2}) annotation (Placement(transformation(extent={{-60,-40},{
                 -40,-20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
-        cutForce1b(                                  N_to_m=10, Nm_to_m=10)
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
+        cutForce1b(                                  N_to_m=10, Nm_to_m=10,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
         annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate1b(
@@ -5716,7 +6267,7 @@ often possible to use the FreeMotion joint such that the singularity
             origin={30,70},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body1b
+      Modelica.Mechanics.MultiBody.Parts.Body body1b(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,60},{80,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate1b(
@@ -5725,24 +6276,24 @@ often possible to use the FreeMotion joint such that the singularity
         r={0,0,-0.6}) annotation (Placement(transformation(extent={{-60,60},{
                 -40,80}}, rotation=0)));
       Modelica.Blocks.Math.Add err1[6](
-                                    each k2=
-                                       -1)
+        each k2=-1)
         annotation (Placement(transformation(extent={{10,30},{30,50}}, rotation=
                0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
         cutForce2b(
         positiveSign=false,
-        resolveInFrame_a=false,
         N_to_m=10,
-        Nm_to_m=10) annotation (Placement(transformation(extent={{-20,-80},{0,
+        Nm_to_m=10,
+        resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve)
+                    annotation (Placement(transformation(extent={{-20,-80},{0,
                 -100}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation translate2b(
-                                                   r={0,-1,0})
+        r={0,-1,0})
         annotation (Placement(transformation(
             origin={30,-90},
             extent={{10,-10},{-10,10}},
             rotation=180)));
-      Modelica.Mechanics.MultiBody.Parts.Body body2b
+      Modelica.Mechanics.MultiBody.Parts.Body body2b(r_CM={0,0,0}, m=1)
                                   annotation (Placement(transformation(extent={
                 {60,-100},{80,-80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedRotation rotate2b(
@@ -5751,9 +6302,8 @@ often possible to use the FreeMotion joint such that the singularity
         r={0,0,0.6}) annotation (Placement(transformation(extent={{-60,-100},{
                 -40,-80}}, rotation=0)));
       Modelica.Blocks.Math.Add err2[6](
-                                    each k2=
-                                       -1)
-        annotation (Placement(transformation(extent={{8,-72},{28,-52}},
+         each k2=-1)
+       annotation (Placement(transformation(extent={{8,-72},{28,-52}},
               rotation=0)));
     equation
 
@@ -5782,13 +6332,9 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(cutForce1b.frame_resolve, rotate1b.frame_b) annotation (Line(
-          points={{-2,60},{-20,60},{-20,46},{-40,46},{-40,70}},
+          points={{-2,60},{-2,60},{-2,54},{-40,54},{-40,70}},
           color={0,0,0},
           pattern=LinePattern.Dot));
-      connect(cutForce1b.load,err1.u1)
-        annotation (Line(points={{-18,59},{-18,46},{8,46}}, color={0,0,255}));
-      connect(cutForce1a.load,err1.u2)
-        annotation (Line(points={{-18,21},{-18,34},{8,34}}, color={0,0,255}));
       connect(world.frame_b, rotate1b.frame_a) annotation (Line(
           points={{-80,10},{-70,10},{-70,70},{-60,70}},
           color={0,0,0},
@@ -5802,12 +6348,8 @@ often possible to use the FreeMotion joint such that the singularity
           points={{-60,-90},{-70,-90},{-70,10},{-80,10}},
           color={0,0,0},
           thickness=0.5));
-      connect(cutForce2a.load,err2.u1)
-        annotation (Line(points={{-18,-41},{-18,-56},{6,-56}}, color={0,0,255}));
-      connect(cutForce2b.load,err2.u2)
-        annotation (Line(points={{-18,-79},{-18,-68},{6,-68}}, color={0,0,255}));
       connect(cutForce2b.frame_resolve, world.frame_b) annotation (Line(
-          points={{-2,-80},{-2,-58},{-74,-58},{-74,10},{-80,10}},
+          points={{-2,-80},{-2,-60},{-74,-60},{-74,10},{-80,10}},
           color={0,0,0},
           pattern=LinePattern.Dot));
       connect(cutForce1b.frame_b, translate1b.frame_a)
@@ -5821,7 +6363,7 @@ often possible to use the FreeMotion joint such that the singularity
           color={0,0,0},
           thickness=0.5));
       connect(cutForce1a.frame_b, translate1a.frame_a) annotation (Line(
-          points={{0,10},{10,10},{10,10},{20,10}},
+          points={{0,10},{20,10},{20,10}},
           color={0,0,0},
           thickness=0.5));
       connect(translate1a.frame_b, body1a.frame_a) annotation (Line(
@@ -5848,16 +6390,49 @@ often possible to use the FreeMotion joint such that the singularity
           points={{40,-90},{60,-90}},
           color={0,0,0},
           thickness=0.5));
-      annotation (experiment(StopTime=1.1));
+      connect(cutForce1a.force[1:3], err1[1:3].u2) annotation (Line(
+          points={{-18,21.6667},{-18,34},{8,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1a.torque[1:3], err1[4:6].u2) annotation (Line(
+          points={{-10,21.6667},{-10,34},{8,34}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1b.force[1:3], err1[1:3].u1) annotation (Line(
+          points={{-18,58.3333},{-18,46},{8,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce1b.torque[1:3], err1[4:6].u1) annotation (Line(
+          points={{-10,58.3333},{-10,46},{8,46}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2a.force[1:3], err2[1:3].u1) annotation (Line(
+          points={{-18,-41.6667},{-18,-56},{6,-56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2a.torque[1:3], err2[4:6].u1) annotation (Line(
+          points={{-10,-41.6667},{-10,-56},{6,-56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2b.force[1:3], err2[1:3].u2) annotation (Line(
+          points={{-18,-78.3333},{-18,-68},{6,-68}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(cutForce2b.torque[1:3], err2[4:6].u2) annotation (Line(
+          points={{-10,-78.3333},{-10,-68},{6,-68}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end CutForceAndTorque2;
 
     model CutForceAndTorque3
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(
-                                  animateWorld=false, animateGravity=false)
+        animateWorld=false,
+        animateGravity=false)
         annotation (Placement(transformation(extent={{-80,-20},{-60,0}},
               rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Sensors.CutForceAndTorque
+      Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque
         cutForceAndTorque
         annotation (Placement(transformation(extent={{0,-20},{20,0}}, rotation=
                 0)));
@@ -5868,45 +6443,51 @@ often possible to use the FreeMotion joint such that the singularity
         animation=false) annotation (Placement(transformation(extent={{-40,-20},
                 {-20,0}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Visualizers.FixedFrame frame_b(
-                                               color_x={0,0,200})
+        color_x={0,0,200})
         annotation (Placement(transformation(
-            origin={50,30},
+            origin={30,30},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.WorldForceAndTorque
-        worldForceAndTorque(                                   animation=false)
-        annotation (Placement(transformation(extent={{60,-20},{40,0}}, rotation=
-               0)));
       Modelica.Blocks.Sources.Constant Constant1[6](k={500,0,0,450,-250,0})
         annotation (Placement(transformation(extent={{100,-20},{80,0}},
               rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque forceAndTorque(
+          animation=false, resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world)
+        annotation (Placement(transformation(extent={{60,-20},{40,0}})));
     equation
-      connect(world.frame_b, fixedRotation.frame_a)
-        annotation (Line(
-          points={{-60,-10},{-40,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(fixedRotation.frame_b, cutForceAndTorque.frame_a)
-        annotation (Line(
-          points={{-20,-10},{0,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(cutForceAndTorque.frame_b, worldForceAndTorque.frame_b)
-        annotation (Line(
-          points={{20,-10},{40,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(frame_b.frame_a, cutForceAndTorque.frame_b) annotation (Line(
-          points={{50,20},{50,14},{28,14},{28,-10},{20,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(Constant1.y, worldForceAndTorque.load) annotation (Line(
-          points={{79,-10},{62,-10}},
+      connect(Constant1[1:3].y, forceAndTorque.force[1:3]) annotation (Line(
+          points={{79,-10},{70,-10},{70,-17.3333},{62,-17.3333}},
           color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant1[4:6].y, forceAndTorque.torque[1:3]) annotation (Line(
+          points={{79,-10},{70,-10},{70,-5.33333},{62,-5.33333}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(forceAndTorque.frame_b, cutForceAndTorque.frame_b) annotation (Line(
+          points={{40,-10},{20,-10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(cutForceAndTorque.frame_b, frame_b.frame_a) annotation (Line(
+          points={{20,-10},{30,-10},{30,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, fixedRotation.frame_a) annotation (Line(
+          points={{-60,-10},{-40,-10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedRotation.frame_b, cutForceAndTorque.frame_a) annotation (
+          Line(
+          points={{-20,-10},{0,-10}},
+          color={95,95,95},
+          thickness=0.5,
           smooth=Smooth.None));
       annotation (
         experiment(StopTime=1.1),
-                  experiment(StopTime=1.1));
+                  experiment(StopTime=1.1),
+        Diagram(graphics));
     end CutForceAndTorque3;
   end Sensors;
 
@@ -6085,7 +6666,7 @@ often possible to use the FreeMotion joint such that the singularity
             extent={{-10,-10},{10,10}},
             rotation=90)));
       inner Modelica.Mechanics.MultiBody.World world(
-                                  animateWorld=false, gravityType=0)
+                                  animateWorld=false, gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.NoGravity)
         annotation (Placement(transformation(extent={{-100,-40},{-80,-20}},
               rotation=0)));
     equation
@@ -6338,20 +6919,25 @@ often possible to use the FreeMotion joint such that the singularity
     model Rotor1D
       extends Modelica.Icons.Example;
 
-      Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D1
-        annotation (Placement(transformation(extent={{-70,40},{-50,60}},
-              rotation=0)));
       inner Modelica.Mechanics.MultiBody.World world
         annotation (Placement(transformation(extent={{-100,20},{-80,40}},
               rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D1(
+        J=1,
+        phi(fixed=true),
+        w(fixed=true))
+        annotation (Placement(transformation(extent={{-70,40},{-50,60}},
+              rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D2(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
-        phi(fixed=true, start=1.570796326794897),
-        w(fixed=true, start=1.74532925199433))
+        w(fixed=true, start=1.74532925199433),
+        phi(fixed=true, start=1.5707963267949))
                             annotation (Placement(transformation(extent={{-40,
                 40},{-20,60}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D3(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=true),
@@ -6359,6 +6945,7 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D4(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=false),
@@ -6366,6 +6953,7 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D5(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=true),
         phi(fixed=false),
@@ -6373,6 +6961,7 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{-60,0},{-40,20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D6(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=false),
@@ -6380,10 +6969,11 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{-8,0},{12,20}}, rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.Spring spring(
-                                                  c=1e4)
+        c=1e4)
         annotation (Placement(transformation(extent={{-34,0},{-14,20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D7(
+        J=1,
         a(start=0.05235987755982989, fixed=true),
         stateSelect=StateSelect.prefer,
         phi(fixed=false, start=0.0174532925199433),
@@ -6391,6 +6981,7 @@ often possible to use the FreeMotion joint such that the singularity
                    annotation (Placement(transformation(extent={{-60,-40},{-40,
                 -20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D8(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=false),
@@ -6398,16 +6989,18 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{-8,-40},{12,-20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring1(
-                                                   c=1e4)
+        c=1e4)
         annotation (Placement(transformation(extent={{-34,-40},{-14,-20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D9(
+        J=1,
         a(start=0.05235987755982989, fixed=true),
         phi(fixed=true, start=0.0174532925199433),
         w(fixed=true, start=0.03490658503988659))
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D10(
+        J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=false),
@@ -6415,7 +7008,7 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{-8,-80},{12,-60}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring2(
-                                                   c=1e4)
+        c=1e4)
         annotation (Placement(transformation(extent={{-34,-80},{-14,-60}},
               rotation=0)));
     equation
@@ -6430,7 +7023,7 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(world.frame_b, rotor1D3.frame_a) annotation (Line(
-          points={{-80,30},{6.66134e-16,30},{6.66134e-16,40}},
+          points={{-80,30},{0,30},{0,40}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6440,12 +7033,12 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(world.frame_b, rotor1D5.frame_a) annotation (Line(
-          points={{-80,30},{-74,30},{-74,-8},{-50,-8},{-50,-5.55112e-16}},
+          points={{-80,30},{-74,30},{-74,-8},{-50,-8},{-50,0}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(rotor1D5.frame_a, rotor1D6.frame_a) annotation (Line(
-          points={{-50,-5.55112e-16},{-50,-8},{2,-8},{2,-5.55112e-16}},
+          points={{-50,0},{-50,-8},{2,-8},{2,0}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6507,8 +7100,8 @@ often possible to use the FreeMotion joint such that the singularity
         stateSelect=StateSelect.always,
         phi(fixed=true, start=0.7853981633974483),
         w(fixed=true, start=0.174532925199433))
-                            annotation (Placement(transformation(extent={{-48,
-                60},{-28,80}}, rotation=0)));
+                            annotation (Placement(transformation(extent={{-50,60},
+                {-30,80}},     rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(r={1,0,0})
         annotation (Placement(transformation(extent={{-20,60},{0,80}}, rotation=
                0)));
@@ -6517,18 +7110,18 @@ often possible to use the FreeMotion joint such that the singularity
         stateSelect=StateSelect.always,
         phi(fixed=true, start=0.5235987755982988),
         w(fixed=false, start=-0.174532925199433))
-                            annotation (Placement(transformation(extent={{8,60},
-                {28,80}}, rotation=0)));
+                            annotation (Placement(transformation(extent={{10,60},
+                {30,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={1,0,0})
-        annotation (Placement(transformation(extent={{36,60},{56,80}}, rotation=
+        annotation (Placement(transformation(extent={{40,60},{60,80}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
         stateSelect=StateSelect.always,
         a(fixed=false, start=1),
         s(fixed=true, start=1),
         v(fixed=true, start=1),
-        s_offset=0.1)       annotation (Placement(transformation(extent={{-48,
-                20},{-28,40}}, rotation=0)));
+        s_offset=0.1)       annotation (Placement(transformation(extent={{-50,20},
+                {-30,40}},     rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(r={1,0,0})
         annotation (Placement(transformation(extent={{-20,20},{0,40}}, rotation=
                0)));
@@ -6537,7 +7130,8 @@ often possible to use the FreeMotion joint such that the singularity
         a(fixed=false, start=0.6),
         s(fixed=false, start=0.2),
         v(fixed=true, start=0.4))
-                     annotation (Placement(transformation(extent={{8,20},{28,40}},
+                     annotation (Placement(transformation(extent={{10,20},{30,
+                40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Cylindrical cylindrical(
         stateSelect=StateSelect.always,
@@ -6563,10 +7157,10 @@ often possible to use the FreeMotion joint such that the singularity
         phi_b(fixed=true, start=0.174532925199433),
         w_a(fixed=false, start=0.3490658503988659),
         w_b(fixed=false, start=-0.3490658503988659))
-                            annotation (Placement(transformation(extent={{8,-20},
-                {28,0}}, rotation=0)));
+                            annotation (Placement(transformation(extent={{10,-20},
+                {30,0}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox5(r={1,0,0})
-        annotation (Placement(transformation(extent={{38,-20},{58,0}}, rotation=
+        annotation (Placement(transformation(extent={{40,-20},{60,0}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Joints.Planar planar(
         stateSelect=StateSelect.always,
@@ -6579,10 +7173,10 @@ often possible to use the FreeMotion joint such that the singularity
         v_y(fixed=true, start=2),
         w(fixed=true, start=0.0174532925199433),
         wd(fixed=false, start=0.03490658503988659))
-                            annotation (Placement(transformation(extent={{-52,
-                -50},{-32,-30}}, rotation=0)));
+                            annotation (Placement(transformation(extent={{-50,-60},
+                {-30,-40}},      rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox6(r={1,0,0})
-        annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
+        annotation (Placement(transformation(extent={{-20,-60},{0,-40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Spherical spherical(
         sequence_start={3,1,3},
@@ -6594,14 +7188,14 @@ often possible to use the FreeMotion joint such that the singularity
             0.05235987755982989},
         z_rel_a_start={0.03490658503988659,0.05235987755982989,
             0.06981317007977318})
-                               annotation (Placement(transformation(extent={{8,
-                -50},{28,-30}}, rotation=0)));
+                               annotation (Placement(transformation(extent={{10,-60},
+                {30,-40}},      rotation=0)));
 
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox7(r={1,0,0})
-        annotation (Placement(transformation(extent={{38,-50},{58,-30}},
+        annotation (Placement(transformation(extent={{40,-60},{60,-40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox8(r={1,0,0})
-        annotation (Placement(transformation(extent={{-20,-80},{0,-60}},
+        annotation (Placement(transformation(extent={{-20,-100},{0,-80}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
         angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
@@ -6610,52 +7204,52 @@ often possible to use the FreeMotion joint such that the singularity
         r_rel_a(fixed=true, start={1,1,1}),
         v_rel_a(fixed=true),
         w_rel_a_fixed=true,
-        z_rel_a_fixed=false)     annotation (Placement(transformation(extent={{
-                -56,-80},{-36,-60}}, rotation=0)));
+        z_rel_a_fixed=false)     annotation (Placement(transformation(extent={{-50,
+                -100},{-30,-80}},    rotation=0)));
 
     equation
       connect(world.frame_b, revolute.frame_a) annotation (Line(
-          points={{-60,70},{-48,70}},
+          points={{-60,70},{-50,70}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(revolute.frame_b, bodyBox.frame_a) annotation (Line(
-          points={{-28,70},{-20,70}},
+          points={{-30,70},{-20,70}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox.frame_b, actuatedRevolute.frame_a) annotation (Line(
-          points={{5.55112e-16,70},{8,70}},
+          points={{0,70},{10,70}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(actuatedRevolute.frame_b, bodyBox1.frame_a) annotation (Line(
-          points={{28,70},{36,70}},
+          points={{30,70},{40,70}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox1.frame_b, prismatic.frame_a) annotation (Line(
-          points={{56,70},{66,70},{66,46},{-54,46},{-54,30},{-48,30}},
+          points={{60,70},{70,70},{70,50},{-60,50},{-60,30},{-50,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(prismatic.frame_b, bodyBox2.frame_a) annotation (Line(
-          points={{-28,30},{-20,30}},
+          points={{-30,30},{-20,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox2.frame_b, actuatedPrismatic.frame_a) annotation (Line(
-          points={{5.55112e-16,30},{8,30}},
+          points={{0,30},{10,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(actuatedPrismatic.frame_b, bodyBox3.frame_a) annotation (Line(
-          points={{28,30},{40,30}},
+          points={{30,30},{40,30}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox3.frame_b, cylindrical.frame_a) annotation (Line(
-          points={{60,30},{74,30},{74,8},{-60,8},{-60,-10},{-50,-10}},
+          points={{60,30},{70,30},{70,10},{-60,10},{-60,-10},{-50,-10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -6665,47 +7259,47 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox4.frame_b, universal.frame_a) annotation (Line(
-          points={{5.55112e-16,-10},{8,-10}},
+          points={{0,-10},{10,-10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(universal.frame_b, bodyBox5.frame_a) annotation (Line(
-          points={{28,-10},{38,-10}},
+          points={{30,-10},{40,-10}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox5.frame_b, planar.frame_a) annotation (Line(
-          points={{58,-10},{72,-10},{72,-26},{-60,-26},{-60,-40},{-52,-40}},
+          points={{60,-10},{70,-10},{70,-30},{-60,-30},{-60,-50},{-50,-50}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(planar.frame_b, bodyBox6.frame_a) annotation (Line(
-          points={{-32,-40},{-20,-40}},
+          points={{-30,-50},{-20,-50}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(bodyBox6.frame_b, spherical.frame_a) annotation (Line(
-          points={{5.55112e-16,-40},{8,-40}},
+          points={{0,-50},{10,-50}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(spherical.frame_b, bodyBox7.frame_a) annotation (Line(
-          points={{28,-40},{38,-40}},
+          points={{30,-50},{40,-50}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(freeMotion.frame_a, bodyBox7.frame_b) annotation (Line(
-          points={{-56,-70},{-60,-70},{-60,-54},{70,-54},{70,-40},{58,-40}},
+          points={{-50,-90},{-60,-90},{-60,-70},{70,-70},{70,-50},{60,-50}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(freeMotion.frame_b, bodyBox8.frame_a) annotation (Line(
-          points={{-36,-70},{-20,-70}},
+          points={{-30,-90},{-20,-90}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       annotation (
-        experiment(StopTime=0.2));
+        experiment(StopTime=0.2), Diagram(graphics));
     end Joints;
 
     model Bodies
@@ -6716,7 +7310,6 @@ often possible to use the FreeMotion joint such that the singularity
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Body body(
         sequence_start={3,2,1},
-        angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
         a_0(fixed=false, start={2,2,2}),
         angles_fixed=true,
         r_0(fixed=true, start={1,2,3}),
@@ -6724,20 +7317,21 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989})
-                           annotation (Placement(transformation(extent={{-42,40},
-                {-22,60}}, rotation=0)));
-
+        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
+        r_CM={0,0,0},
+        m=1,
+        angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
+        annotation (Placement(transformation(extent={{-40,40},{-20,60}},
+                           rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.PointMass pointMass(
         m=2,
         a_0(fixed=false, start={5,4,3}),
         r_0(fixed=true, start={1,2,3}),
         v_0(fixed=true, start={2,3,4}))
-             annotation (Placement(transformation(extent={{-2,-2},{18,18}},
+        annotation (Placement(transformation(extent={{0,0},{20,20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyShape body1(
         sequence_start={3,2,1},
-        angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
         a_0(fixed=false, start={2,2,2}),
         angles_fixed=true,
         r_0(fixed=true, start={1,2,3}),
@@ -6745,13 +7339,14 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989})
-                           annotation (Placement(transformation(extent={{0,40},
+        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
+        r_CM={0,0,0},
+        m=1,
+        angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
+        annotation (Placement(transformation(extent={{0,40},
                 {20,60}}, rotation=0)));
-
       Modelica.Mechanics.MultiBody.Parts.BodyBox body2(
         sequence_start={3,2,1},
-        angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
         a_0(fixed=false, start={2,2,2}),
         angles_fixed=true,
         r_0(fixed=true, start={1,2,3}),
@@ -6759,10 +7354,10 @@ often possible to use the FreeMotion joint such that the singularity
         w_0_fixed=true,
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
-        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989})
-                           annotation (Placement(transformation(extent={{42,40},
-                {62,60}}, rotation=0)));
-
+        z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989},
+        angles_start={0.34906585039887,0.5235987755983,0.69813170079773})
+        annotation (Placement(transformation(extent={{40,40},{60,60}},
+                          rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyCylinder body3(
         sequence_start={3,2,1},
         angles_start={0.3490658503988659,0.5235987755982988,0.6981317007977318},
@@ -6774,8 +7369,8 @@ often possible to use the FreeMotion joint such that the singularity
         z_0_fixed=false,
         w_0_start={0.06981317007977318,0.05235987755982989,0.03490658503988659},
         z_0_start={0.05235987755982989,0.06981317007977318,0.05235987755982989})
-                           annotation (Placement(transformation(extent={{-44,0},
-                {-24,20}}, rotation=0)));
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}},
+                           rotation=0)));
 
       annotation (experiment(StopTime=0.2));
     end Bodies;
@@ -6786,26 +7381,31 @@ often possible to use the FreeMotion joint such that the singularity
 
       ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revoluteWithLengthConstraint1 annotation (Placement(transformation(
-              extent={{-60,38},{-40,58}}, rotation=0)));
+              extent={{-40,40},{-20,60}}, rotation=0)));
       ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismaticWithLengthConstraint1 annotation (Placement(transformation(
-              extent={{2,38},{22,58}}, rotation=0)));
+              extent={{20,40},{40,60}},rotation=0)));
       ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revoluteWithLengthConstraint2
-        annotation (Placement(transformation(extent={{-58,0},{-38,20}},
+        annotation (Placement(transformation(extent={{-40,0},{-20,20}},
               rotation=0)));
       ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismaticWithLengthConstraint2
-        annotation (Placement(transformation(extent={{4,0},{24,20}}, rotation=0)));
+        annotation (Placement(transformation(extent={{20,0},{40,20}},rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
         revoluteWithLengthConstraint3
-        annotation (Placement(transformation(extent={{-58,-40},{-38,-20}},
+        annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
         prismaticWithLengthConstraint3
-        annotation (Placement(transformation(extent={{4,-40},{24,-20}},
+        annotation (Placement(transformation(extent={{20,-40},{40,-20}},
               rotation=0)));
 
+      annotation (Icon(graphics={
+                       Ellipse(
+              extent={{-100,100},{100,-100}},
+              lineColor={255,0,0},
+              lineThickness=0.5)}));
     end Internal;
   end InitializationConversion;
 end MultiBody;

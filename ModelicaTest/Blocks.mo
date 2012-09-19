@@ -4,86 +4,103 @@ extends Modelica.Icons.ExamplesPackage;
   model Continuous
     extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator
+      annotation (Placement(transformation(extent={{-60,100},{-40,120}},
+                                                                       rotation=
+             0)));
+    Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=1)
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.LimIntegrator limIntegrator
+    Modelica.Blocks.Continuous.Derivative derivative(x_start=0)
       annotation (Placement(transformation(extent={{-60,20},{-40,40}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.Derivative derivative
-      annotation (Placement(transformation(extent={{-60,-20},{-40,0}}, rotation=
-             0)));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder
+    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=1)
+      annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
+            rotation=0)));
+    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=1, D=1)
       annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
             rotation=0)));
-    Modelica.Blocks.Continuous.SecondOrder secondOrder
-      annotation (Placement(transformation(extent={{-60,-100},{-40,-80}},
-            rotation=0)));
-    Modelica.Blocks.Continuous.PI pI annotation (Placement(transformation(
+    Modelica.Blocks.Continuous.PI pI(T=1)
+                                     annotation (Placement(transformation(
+            extent={{-60,-100},{-40,-80}},  rotation=0)));
+    Modelica.Blocks.Continuous.PID pID(Ti=0.5, Td=0.1)
+                                       annotation (Placement(transformation(
             extent={{-60,-140},{-40,-120}}, rotation=0)));
-    Modelica.Blocks.Continuous.PID pID annotation (Placement(transformation(
-            extent={{-60,-180},{-40,-160}}, rotation=0)));
-    Modelica.Blocks.Continuous.LimPID limPID annotation (Placement(
-          transformation(extent={{40,60},{60,80}}, rotation=0)));
+    Modelica.Blocks.Continuous.LimPID limPID(
+      Ti=0.5,
+      Td=0.1,
+      yMax=1)                                annotation (Placement(
+          transformation(extent={{40,100},{60,120}},
+                                                   rotation=0)));
     Modelica.Blocks.Continuous.TransferFunction transferFunction(a={1,1}, b={1})
-      annotation (Placement(transformation(extent={{40,-20},{60,0}}, rotation=0)));
+      annotation (Placement(transformation(extent={{40,20},{60,40}}, rotation=0)));
     Modelica.Blocks.Continuous.StateSpace stateSpace(
       A=[1,0; 0,1],
       B=[1; 1],
       C=[1,1])
-      annotation (Placement(transformation(extent={{40,-60},{60,-40}}, rotation=
+      annotation (Placement(transformation(extent={{40,-20},{60,0}},   rotation=
              0)));
-    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth
+    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth(f=1)
+      annotation (Placement(transformation(extent={{40,-60},{60,-40}},
+            rotation=0)));
+    Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false, f=1)
       annotation (Placement(transformation(extent={{40,-100},{60,-80}},
             rotation=0)));
-    Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false)
-      annotation (Placement(transformation(extent={{40,-140},{60,-120}},
+    Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5,
+      duration=2)
+      annotation (Placement(transformation(extent={{-100,100},{-80,120}},
             rotation=0)));
-    Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5)
-      annotation (Placement(transformation(extent={{-100,60},{-80,80}},
-            rotation=0)));
-    Modelica.Blocks.Sources.Ramp ramp1(offset=0.5, startTime=0.5)
-      annotation (Placement(transformation(extent={{0,60},{20,80}}, rotation=0)));
+    Modelica.Blocks.Sources.Ramp ramp1(offset=0.5, startTime=0.5,
+      duration=2)
+      annotation (Placement(transformation(extent={{0,100},{20,120}},
+                                                                    rotation=0)));
     Modelica.Blocks.Sources.Constant const(k=1.5)
       annotation (Placement(transformation(
-          origin={50,30},
+          origin={50,70},
           extent={{-10,-10},{10,10}},
           rotation=90)));
     Modelica.Blocks.Continuous.Der der1 annotation (Placement(transformation(
-            extent={{40,-180},{60,-160}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine annotation (Placement(transformation(
-            extent={{0,-180},{20,-160}}, rotation=0)));
+            extent={{40,-140},{60,-120}}, rotation=0)));
+    Modelica.Blocks.Sources.Sine sine(freqHz=1)
+                                      annotation (Placement(transformation(
+            extent={{0,-140},{20,-120}}, rotation=0)));
   equation
-    connect(ramp.y, integrator.u) annotation (Line(points={{-79,70},{-62,70}},
+    connect(ramp.y, integrator.u) annotation (Line(points={{-79,110},{-62,110}},
           color={0,0,127}));
-    connect(ramp.y, limIntegrator.u) annotation (Line(points={{-79,70},{-72,70},
-            {-72,30},{-62,30}}, color={0,0,127}));
-    connect(ramp.y, derivative.u) annotation (Line(points={{-79,70},{-72,70},{
-            -72,-10},{-62,-10}}, color={0,0,127}));
-    connect(ramp.y, firstOrder.u) annotation (Line(points={{-79,70},{-72,70},{
-            -72,-50},{-62,-50}}, color={0,0,127}));
-    connect(ramp.y, secondOrder.u) annotation (Line(points={{-79,70},{-72,70},{
-            -72,-90},{-62,-90}}, color={0,0,127}));
-    connect(ramp.y, pI.u) annotation (Line(points={{-79,70},{-72,70},{-72,-130},
-            {-62,-130}}, color={0,0,127}));
-    connect(ramp.y, pID.u) annotation (Line(points={{-79,70},{-72,70},{-72,-170},
-            {-62,-170}}, color={0,0,127}));
+    connect(ramp.y, limIntegrator.u) annotation (Line(points={{-79,110},{-72,
+            110},{-72,70},{-62,70}},
+                                color={0,0,127}));
+    connect(ramp.y, derivative.u) annotation (Line(points={{-79,110},{-72,110},
+            {-72,30},{-62,30}},  color={0,0,127}));
+    connect(ramp.y, firstOrder.u) annotation (Line(points={{-79,110},{-72,110},
+            {-72,-10},{-62,-10}},color={0,0,127}));
+    connect(ramp.y, secondOrder.u) annotation (Line(points={{-79,110},{-72,110},
+            {-72,-50},{-62,-50}},color={0,0,127}));
+    connect(ramp.y, pI.u) annotation (Line(points={{-79,110},{-72,110},{-72,-90},
+            {-62,-90}},  color={0,0,127}));
+    connect(ramp.y, pID.u) annotation (Line(points={{-79,110},{-72,110},{-72,
+            -130},{-62,-130}},
+                         color={0,0,127}));
     connect(ramp1.y, limPID.u_s)
-      annotation (Line(points={{21,70},{38,70}}, color={0,0,127}));
-    connect(ramp1.y, transferFunction.u) annotation (Line(points={{21,70},{28,
-            70},{28,-10},{38,-10}}, color={0,0,127}));
-    connect(ramp1.y, stateSpace.u[1]) annotation (Line(points={{21,70},{28,70},
-            {28,-50},{38,-50}}, color={0,0,127}));
-    connect(ramp1.y, lowpassButterworth.u) annotation (Line(points={{21,70},{28,
-            70},{28,-90},{38,-90}}, color={0,0,127}));
-    connect(ramp1.y, criticalDamping.u) annotation (Line(points={{21,70},{28,70},
-            {28,-130},{38,-130}}, color={0,0,127}));
+      annotation (Line(points={{21,110},{38,110}},
+                                                 color={0,0,127}));
+    connect(ramp1.y, transferFunction.u) annotation (Line(points={{21,110},{28,
+            110},{28,30},{38,30}},  color={0,0,127}));
+    connect(ramp1.y, stateSpace.u[1]) annotation (Line(points={{21,110},{28,110},
+            {28,-10},{38,-10}}, color={0,0,127}));
+    connect(ramp1.y, lowpassButterworth.u) annotation (Line(points={{21,110},{
+            28,110},{28,-50},{38,-50}},
+                                    color={0,0,127}));
+    connect(ramp1.y, criticalDamping.u) annotation (Line(points={{21,110},{28,
+            110},{28,-90},{38,-90}},
+                                  color={0,0,127}));
     connect(const.y, limPID.u_m)
-      annotation (Line(points={{50,41},{50,58}}, color={0,0,127}));
+      annotation (Line(points={{50,81},{50,98}}, color={0,0,127}));
     connect(sine.y, der1.u) annotation (Line(
-        points={{21,-170},{38,-170}},
+        points={{21,-130},{38,-130}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (      experiment(StopTime=1.1));
+    annotation (      experiment(StopTime=1.1), Diagram(coordinateSystem(
+            preserveAspectRatio=true, extent={{-100,-140},{100,140}})));
   end Continuous;
 
   model Continuous_SteadyState
@@ -158,12 +175,12 @@ extends Modelica.Icons.ExamplesPackage;
 
   model Limiters
     extends Modelica.Icons.Example;
-    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false)
+    Modelica.Blocks.Nonlinear.Limiter limiter(limitsAtInit=false, uMax=1)
       annotation (Placement(transformation(extent={{0,0},{20,20}},   rotation=0)));
     Modelica.Blocks.Nonlinear.VariableLimiter variableLimiter(limitsAtInit=
           false) annotation (Placement(transformation(extent={{0,-40},{20,-20}},
             rotation=0)));
-    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false)
+    Modelica.Blocks.Nonlinear.DeadZone deadZone(deadZoneAtInit=false, uMax=1)
       annotation (Placement(transformation(extent={{0,-80},{20,-60}},  rotation=
              0)));
     Modelica.Blocks.Sources.Sine sine(amplitude=2, freqHz=1)
@@ -254,7 +271,8 @@ extends Modelica.Icons.ExamplesPackage;
     extends Modelica.Icons.Example;
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{0,30},{20,50}})));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=1))
+    Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=1,
+          fixed=true))
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{-50,60},{-30,80}})));
