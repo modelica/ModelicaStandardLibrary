@@ -1330,17 +1330,17 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
          and sequence_start[3] == sequence_angleStates[3] then angles_start else
          Frames.axesRotationsAngles(R_rel_start, sequence_angleStates)
       "Potential angle states at initial time";
-    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates and not
+    SI.Angle phi[3](start=phi_start, each stateSelect=if enforceStates and not
           useQuaternions then StateSelect.always else StateSelect.never)
       "Dummy or 3 angles to rotate frame_a into frame_b";
-    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates and not
+    SI.AngularVelocity phi_d[3](each stateSelect=if enforceStates and not
           useQuaternions then StateSelect.always else StateSelect.never)
       "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
 
     // Other declarations
     SI.AngularVelocity w_rel[3](start=Frames.resolve2(R_rel_start, w_rel_a_start),
-          fixed = fill(w_rel_a_fixed,3), stateSelect=if
+          fixed = fill(w_rel_a_fixed,3), each stateSelect=if
           enforceStates and useQuaternions then StateSelect.always else
           StateSelect.never)
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
@@ -1564,11 +1564,11 @@ frame_b of the joint.
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show arrow from frame_a to frame_b)";
 
-    SI.Position r_rel_a[3](start={0,0,0}, stateSelect=if enforceStates then
+    SI.Position r_rel_a[3](start={0,0,0}, each stateSelect=if enforceStates then
                 StateSelect.always else StateSelect.prefer)
       "Position vector from origin of frame_a to origin of frame_b, resolved in frame_a"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
-    SI.Velocity v_rel_a[3](start={0,0,0}, stateSelect=if enforceStates then StateSelect.always else
+    SI.Velocity v_rel_a[3](start={0,0,0}, each stateSelect=if enforceStates then StateSelect.always else
                 StateSelect.prefer)
       "= der(r_rel_a), i.e., velocity of origin of frame_b with respect to origin of frame_a, resolved in frame_a"
       annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
@@ -1646,11 +1646,11 @@ frame_b of the joint.
          and sequence_start[3] == sequence_angleStates[3] then angles_start else
               Frames.axesRotationsAngles(R_rel_start,
         sequence_angleStates) "Potential angle states at initial time";
-    SI.Angle phi[3](start=phi_start, stateSelect=if enforceStates then (if
+    SI.Angle phi[3](start=phi_start, each stateSelect=if enforceStates then (if
           useQuaternions then StateSelect.never else StateSelect.always) else
           StateSelect.prefer)
       "Dummy or 3 angles to rotate frame_a into frame_b";
-    SI.AngularVelocity phi_d[3](stateSelect=if enforceStates then (if
+    SI.AngularVelocity phi_d[3](each stateSelect=if enforceStates then (if
           useQuaternions then StateSelect.never else StateSelect.always) else
           StateSelect.prefer) "= der(phi)";
     SI.AngularAcceleration phi_dd[3] "= der(phi_d)";
@@ -1658,7 +1658,7 @@ frame_b of the joint.
     // Other declarations
     SI.AngularVelocity w_rel_b[3](start=Frames.resolve2(R_rel_start, w_rel_a_start),
                                   fixed=fill(w_rel_a_fixed,3),
-                                  stateSelect=if enforceStates then
+                                  each stateSelect=if enforceStates then
                                   (if useQuaternions then StateSelect.always else
                                   StateSelect.avoid) else StateSelect.prefer)
       "Dummy or relative angular velocity of frame_b with respect to frame_a, resolved in frame_b";
@@ -3045,11 +3045,11 @@ November 3-4, 2003, pp. 149-158</p>
       "y-coordinate of wheel axis";
       SI.Position z;
 
-      SI.Angle angles[3](start={0,0,0}, stateSelect=stateSelect)
+      SI.Angle angles[3](start={0,0,0}, each stateSelect=stateSelect)
       "Angles to rotate world-frame in to frame_a around z-, y-, x-axis"
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
-      SI.AngularVelocity der_angles[3](start={0,0,0}, stateSelect=stateSelect)
+      SI.AngularVelocity der_angles[3](start={0,0,0}, each stateSelect=stateSelect)
       "Derivative of angles"
         annotation(Dialog(group="Initialization", __Dymola_initialDialog=true));
 
@@ -5955,7 +5955,7 @@ component).
       parameter Modelica.Mechanics.MultiBody.Types.Axis n_a={0,0,1}
         "Axes of revolute joints resolved in frame_a (all axes are parallel to each other)"
         annotation (Evaluate=true);
-      final parameter Real n_b[3](each final unit="1",fixed=false) = {0,0,1}
+      final parameter Real n_b[3](each final unit="1",each fixed=false) = {0,0,1}
         "Axis of revolute joint fixed and resolved in frame_b"
         annotation (Evaluate=true);
       parameter SI.Position rRod1_ia[3]={1,0,0}

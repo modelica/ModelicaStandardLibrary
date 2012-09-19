@@ -137,22 +137,22 @@ model M_OLine "multiple OLine"
   parameter Integer dim_vector_lgc=div(lines*(lines+1),2);
   public
   parameter Real r[lines](
-    final min=Modelica.Constants.small,
-    unit="Ohm/m") = {4.76e5,1.72e5,1.72e5,1.72e5} "Resistance per meter";
+    each final min=Modelica.Constants.small,
+    each unit="Ohm/m") = {4.76e5,1.72e5,1.72e5,1.72e5} "Resistance per meter";
 
   parameter Real l[dim_vector_lgc](
-    final min=Modelica.Constants.small,
-    unit="H/m") = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,4.23e-7,5.96e-7,4.71e-7,
+    each final min=Modelica.Constants.small,
+    each unit="H/m") = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,4.23e-7,5.96e-7,4.71e-7,
         6.06e-7} "Inductance per meter";
 
   parameter Real g[dim_vector_lgc](
-    final min=Modelica.Constants.small,
-    unit="S/m") = {8.05e-6,3.42e-5,2 - 91e-5,1.76e-6,9.16e-6,7.12e-6,2.43e-5,5.93e-6,
+    each final min=Modelica.Constants.small,
+    each unit="S/m") = {8.05e-6,3.42e-5,2 - 91e-5,1.76e-6,9.16e-6,7.12e-6,2.43e-5,5.93e-6,
         4.19e-5,6.64e-6} "Conductance per meter";
 
   parameter Real c[dim_vector_lgc](
-    final min=Modelica.Constants.small,
-    unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,7.16e-11,1.83e-11,
+    each final min=Modelica.Constants.small,
+    each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,7.16e-11,1.83e-11,
         1.23e-10,2.07e-11} "Capacitance per meter";
 
 model segment
