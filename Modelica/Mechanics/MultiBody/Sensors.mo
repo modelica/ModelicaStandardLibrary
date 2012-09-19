@@ -2065,7 +2065,7 @@ differentiable everywhere. The derivative at zero distance is 3/(2*s_small).
 
   model CutForce "Measure cut force vector"
 
-    Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
+    Modelica.Blocks.Interfaces.RealOutput force[3](each final quantity="Force", each final unit="N")
       "Cut force resolved in frame defined by resolveInFrame"
          annotation (Placement(transformation(
           origin={-80,-110},
@@ -3423,7 +3423,7 @@ with the blocks of package Modelica.Blocks.
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
+      Modelica.Blocks.Interfaces.RealOutput force[3](each final quantity="Force", each final unit="N")
         "Cut force resolved in frame defined by resolveInFrame"
            annotation (Placement(transformation(
             origin={-80,-110},
@@ -3465,7 +3465,7 @@ with the blocks of package Modelica.Blocks.
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialCutForceBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput torque[3](final quantity="Torque", final unit=
+      Modelica.Blocks.Interfaces.RealOutput torque[3](each final quantity="Torque", each final unit=
             "N.m") "Cut torque resolved in frame defined by resolveInFrame"
            annotation (Placement(transformation(
             origin={-80,-110},

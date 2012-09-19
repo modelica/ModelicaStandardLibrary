@@ -1286,9 +1286,9 @@ clarity this is not shown in the animation):
   protected
     SI.Force fa "Force from flange_a";
     SI.Force fb "Force from flange_b";
-    SI.Position r_CM_0[3](stateSelect=StateSelect.avoid)
+    SI.Position r_CM_0[3](each stateSelect=StateSelect.avoid)
       "Position vector from world frame to point mass, resolved in world frame";
-    SI.Velocity v_CM_0[3](stateSelect=StateSelect.avoid)
+    SI.Velocity v_CM_0[3](each stateSelect=StateSelect.avoid)
       "First derivative of r_CM_0";
     SI.Acceleration ag_CM_0[3] "der(v_CM_0) - gravityAcceleration";
 
@@ -1658,13 +1658,13 @@ in the other flange connector.
   protected
     SI.Force fa "Force from flange_a";
     SI.Force fb "Force from flange_b";
-    SI.Position r_CM1_0[3](stateSelect=StateSelect.avoid)
+    SI.Position r_CM1_0[3](each stateSelect=StateSelect.avoid)
       "Position vector from world frame to point mass 1, resolved in world frame";
-    SI.Position r_CM2_0[3](stateSelect=StateSelect.avoid)
+    SI.Position r_CM2_0[3](each stateSelect=StateSelect.avoid)
       "Position vector from world frame to point mass 2, resolved in world frame";
-    SI.Velocity v_CM1_0[3](stateSelect=StateSelect.avoid)
+    SI.Velocity v_CM1_0[3](each stateSelect=StateSelect.avoid)
       "der(r_CM_1_0) - velocity of point mass 1";
-    SI.Velocity v_CM2_0[3](stateSelect=StateSelect.avoid)
+    SI.Velocity v_CM2_0[3](each stateSelect=StateSelect.avoid)
       "der(r_CM_2_0) - velocity of point mass 2";
     SI.Acceleration ag_CM1_0[3] "der(v_CM1_0) - gravityAcceleration(r_CM1_0)";
     SI.Acceleration ag_CM2_0[3] "der(v_CM2_0) - gravityAcceleration(r_CM2_0)";

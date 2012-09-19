@@ -1035,7 +1035,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
     parameter Modelica.SIunits.Radius rOuter "Outer radius of pipe" annotation(Dialog(enable=animation));
     parameter Modelica.SIunits.Length length "Length of pipe" annotation(Dialog(enable=animation));
 
-    parameter Real xsi[:](min=0,max=1)= Modelica.Math.Vectors.relNodePositions(12)
+    parameter Real xsi[:](each min=0, each max=1)= Modelica.Math.Vectors.relNodePositions(12)
       "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
       annotation(Dialog(enable=animation));
     input Real T[size(xsi,1)]

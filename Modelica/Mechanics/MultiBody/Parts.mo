@@ -2355,11 +2355,11 @@ November 3-4, 2003, pp. 149-158</p>
       SI.Position y(start=0, fixed = true, stateSelect=stateSelect)
       "y-coordinate of wheel axis";
 
-      SI.Angle angles[3](start={0,0,0}, fixed = true, each stateSelect=stateSelect)
+      SI.Angle angles[3](start={0,0,0}, each fixed = true, each stateSelect=stateSelect)
       "Angles to rotate world-frame in to frame_a around z-, y-, x-axis"
         annotation(Dialog(group="Initialization", showStartAttribute=true));
 
-      SI.AngularVelocity der_angles[3](start={0,0,0}, fixed = true, each
+      SI.AngularVelocity der_angles[3](start={0,0,0}, each fixed = true, each
         stateSelect =                                                                stateSelect)
       "Derivative of angles"
         annotation(Dialog(group="Initialization", showStartAttribute=true));
