@@ -3000,7 +3000,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           D.Interfaces.Logic x_delayed;
 
         equation
-          x_delayed = integer(delay(x, delayTime));
+          Integer(x_delayed) = integer(delay(Integer(x), delayTime));
           y = if delayTime > 0 then
                   (if time >= delayTime then x_delayed else y0) else
                     pre(x);
