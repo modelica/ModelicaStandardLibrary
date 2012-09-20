@@ -109,7 +109,7 @@ Ideal gas medium model for dry air based on the package <a href=\"modelica://Mod
     redeclare replaceable model extends BaseProperties(
       T(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
       p(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
-      Xi(stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
+      Xi(each stateSelect=if preferredMediumStates then StateSelect.prefer else StateSelect.default),
       final standardOrderComponents=true) "Moist air base properties record"
 
       /* p, T, X = X[Water] are used as preferred states, since only then all

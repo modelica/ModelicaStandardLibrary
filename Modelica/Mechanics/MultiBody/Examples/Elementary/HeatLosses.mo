@@ -11,11 +11,11 @@ model HeatLosses "Demonstrate the modeling of heat losses"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    r_0(start={0.3,-0.2,0}, fixed=true),
-    v_0(fixed=true),
+    r_0(start={0.3,-0.2,0}, each fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    w_0_start(displayUnit="deg/s") = {0,0,0.034906585039887})
+    w_0_start(each displayUnit="deg/s") = {0,0,0.034906585039887})
               annotation (Placement(transformation(
         origin={-40,-30},
         extent={{-10,10},{10,-10}},
@@ -58,11 +58,11 @@ model HeatLosses "Demonstrate the modeling of heat losses"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    v_0(fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    w_0_start(displayUnit="deg/s") = {0,0,0.034906585039887},
-    r_0(start={0.6,-0.2,0}, fixed=true))
+    w_0_start(each displayUnit="deg/s") = {0,0,0.034906585039887},
+    r_0(start={0.6,-0.2,0}, each fixed=true))
               annotation (Placement(transformation(
         origin={26,-30},
         extent={{-10,10},{10,-10}},
@@ -86,11 +86,11 @@ model HeatLosses "Demonstrate the modeling of heat losses"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    v_0(fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    w_0_start(displayUnit="deg/s") = {0,0,0.034906585039887},
-    r_0(start={0.9,-0.2,0}, fixed=true))
+    w_0_start(each displayUnit="deg/s") = {0,0,0.034906585039887},
+    r_0(start={0.9,-0.2,0}, each fixed=true))
               annotation (Placement(transformation(
         origin={80,-30},
         extent={{-10,10},{10,-10}},

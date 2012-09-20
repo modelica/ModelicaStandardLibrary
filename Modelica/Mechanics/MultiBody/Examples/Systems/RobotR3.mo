@@ -539,9 +539,9 @@ motion on the controlBus of the r3 robot.
       "Generate reference angles for fastest kinematic movement"
 
       parameter Integer naxis=6 "number of driven axis";
-      parameter Real angleBegDeg[naxis](unit="deg") = zeros(naxis)
+      parameter Real angleBegDeg[naxis](each unit="deg") = zeros(naxis)
         "Start angles";
-      parameter Real angleEndDeg[naxis](unit="deg") = ones(naxis) "End angles";
+      parameter Real angleEndDeg[naxis](each unit="deg") = ones(naxis) "End angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis)
         "Maximum axis speed";
       parameter SI.AngularAcceleration accMax[naxis]=fill(2.5, naxis)

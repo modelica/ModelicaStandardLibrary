@@ -13,11 +13,11 @@ model SpringDamperSystem "Simple spring/damper/mass system"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    r_0(start={0.3,-0.2,0}, fixed=true),
-    v_0(fixed=true),
+    r_0(start={0.3,-0.2,0}, each fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
-    w_0_start(displayUnit="deg/s") = {0,0,0.03490658503988659})
+    w_0_start(each displayUnit="deg/s") = {0,0,0.03490658503988659})
               annotation (Placement(transformation(
         origin={-20,-50},
         extent={{-10,10},{10,-10}},

@@ -5,14 +5,14 @@ model PointGravityWithPointMasses2
   model PointMass = Modelica.Mechanics.MultiBody.Parts.PointMass (m=1, sphereColor={
           255,0,0}) "Point mass used at all places of this example";
 
-  PointMass pointMass1(r_0(start={3,0,0}, fixed=true), v_0(start={0,0,-1},
-        fixed=true))   annotation (Placement(transformation(extent={{60,-10},{
+  PointMass pointMass1(r_0(start={3,0,0}, each fixed=true), v_0(start={0,0,-1},
+        each fixed=true))   annotation (Placement(transformation(extent={{60,-10},{
             80,10}}, rotation=0)));
 
   PointMass pointMass2 annotation (Placement(transformation(extent={{-60,-10},{
             -40,10}}, rotation=0)));
-  PointMass pointMass3(r_0(start={2,1,0}, fixed=true), v_0(start={0,0,-1},
-        fixed=true))   annotation (Placement(transformation(extent={{60,20},{80,
+  PointMass pointMass3(r_0(start={2,1,0}, each fixed=true), v_0(start={0,0,-1},
+        each fixed=true))   annotation (Placement(transformation(extent={{60,20},{80,
             40}}, rotation=0)));
   PointMass pointMass4 annotation (Placement(transformation(extent={{-50,-40},{
             -30,-20}}, rotation=0)));
@@ -56,8 +56,8 @@ model SystemWithStandardBodies
       "Body used all places of the comparision model with zero inertia tensor";
 
   PointMass pointMass1(
-      r_0(start={3,0,0}, fixed=true),
-      v_0(start={0,0,-1}, fixed=true),
+      r_0(start={3,0,0}, each fixed=true),
+      v_0(start={0,0,-1}, each fixed=true),
       angles_fixed=true,
       w_0_fixed=true,
       r_CM={0,0,0})    annotation (Placement(transformation(extent={{40,-20},{

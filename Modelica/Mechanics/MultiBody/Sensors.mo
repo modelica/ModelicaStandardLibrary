@@ -1737,7 +1737,7 @@ computed as:
           transformation(extent={{84,-16},{116,16}}, rotation=0)));
 
     Modelica.Blocks.Interfaces.RealOutput angles[3](each final quantity="Angles", each final
-              unit =                                                                                "rad", displayUnit="deg")
+              unit =                                                                                "rad", each displayUnit="deg")
       "Angles to rotate frame_a into frame_b via 'sequence'"
       annotation (Placement(transformation(
           origin={0,-110},
@@ -2313,7 +2313,7 @@ with negative sign at frame_a.
 
     import Modelica.Mechanics.MultiBody.Types;
 
-    Modelica.Blocks.Interfaces.RealOutput force[3](final quantity="Force", final unit="N")
+    Modelica.Blocks.Interfaces.RealOutput force[3](each final quantity="Force", each final unit="N")
       "Cut force resolved in frame defined by resolveInFrame"
          annotation (Placement(transformation(
           origin={-80,-110},
@@ -2956,7 +2956,7 @@ transformed output vector as \"Real r_out[3]\";
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialAbsoluteBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput w[3](final quantity="AngularVelocity",final unit = "rad/s")
+      Modelica.Blocks.Interfaces.RealOutput w[3](each final quantity="AngularVelocity",each final unit = "rad/s")
         "Absolute angular velocity vector"
         annotation (Placement(transformation(
             origin={110,0},
@@ -3036,7 +3036,7 @@ transformed output vector as \"Real r_out[3]\";
 
       extends
         Modelica.Mechanics.MultiBody.Sensors.Internal.PartialRelativeBaseSensor;
-      Modelica.Blocks.Interfaces.RealOutput w_rel[3](final quantity="AngularVelocity",final unit = "rad/s")
+      Modelica.Blocks.Interfaces.RealOutput w_rel[3](each final quantity="AngularVelocity",each final unit = "rad/s")
         "Relative angular velocity vector"
         annotation (Placement(transformation(
             origin={0,-110},
