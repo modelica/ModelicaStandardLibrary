@@ -23,8 +23,8 @@ model FreeBody "Free flying body attached by two springs to environment"
     r={0.4,0,0},
     r_CM={0.2,0,0},
     width=0.05,
-    r_0(start={0.2,-0.5,0.1}, fixed=true),
-    v_0(fixed=true),
+    r_0(start={0.2,-0.5,0.1}, each fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
     angles_start={0.174532925199433,0.174532925199433,0.174532925199433})

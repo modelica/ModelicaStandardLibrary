@@ -1319,7 +1319,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
     parameter Frames.Quaternions.Orientation Q_start=
               Modelica.Mechanics.MultiBody.Frames.to_Q(R_rel_start)
       "Quaternion orientation object from frame_a to frame_b at initial time";
-    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if
+    Frames.Quaternions.Orientation Q(start=Q_start, each stateSelect=if
           enforceStates and useQuaternions then StateSelect.prefer else
           StateSelect.never)
       "Quaternion orientation object from frame_a to frame_b (dummy value, if quaternions are not used as states)";
@@ -1635,7 +1635,7 @@ frame_b of the joint.
     // Declarations for quaternions (dummies, if quaternions are not used)
     parameter Frames.Quaternions.Orientation Q_start=Frames.to_Q(R_rel_start)
       "Quaternion orientation object from frame_a to frame_b at initial time";
-    Frames.Quaternions.Orientation Q(start=Q_start, stateSelect=if
+    Frames.Quaternions.Orientation Q(start=Q_start, each stateSelect=if
           enforceStates then (if useQuaternions then StateSelect.prefer else
           StateSelect.never) else StateSelect.default)
       "Quaternion orientation object from frame_a to frame_b (dummy value, if quaternions are not used as states)";

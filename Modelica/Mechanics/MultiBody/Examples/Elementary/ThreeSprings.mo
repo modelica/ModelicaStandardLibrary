@@ -12,8 +12,8 @@ model ThreeSprings "3-dim. springs in series and parallel connection"
     I_22=0.1,
     I_33=0.1,
     sphereDiameter=0.2,
-    r_0(start={0.5,-0.3,0}, fixed=true),
-    v_0(fixed=true),
+    r_0(start={0.5,-0.3,0}, each fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true)     annotation (Placement(transformation(
         origin={30,-70},

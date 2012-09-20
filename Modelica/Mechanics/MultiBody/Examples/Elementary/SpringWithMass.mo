@@ -13,8 +13,8 @@ model SpringWithMass "Point mass hanging on a spring"
         extent={{-10,-10},{10,10}},
         rotation=270)));
   Modelica.Mechanics.MultiBody.Parts.Body body(
-    r_0(start={0,-0.3,0}, fixed=true),
-    v_0(fixed=true),
+    r_0(start={0,-0.3,0}, each fixed=true),
+    v_0(each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
     r_CM={0,0,0},

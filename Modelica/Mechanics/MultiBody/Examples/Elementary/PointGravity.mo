@@ -14,8 +14,8 @@ model PointGravity "Two point masses in a point gravity field"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    r_0(start={0,0.6,0}, fixed=true),
-    v_0(start={1,0,0}, fixed=true),
+    r_0(start={0,0.6,0}, each fixed=true),
+    v_0(start={1,0,0}, each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
     r_CM={0,0,0})
@@ -26,8 +26,8 @@ model PointGravity "Two point masses in a point gravity field"
     I_11=0.1,
     I_22=0.1,
     I_33=0.1,
-    r_0(start={0.6,0.6,0}, fixed=true),
-    v_0(start={0.6,0,0}, fixed=true),
+    r_0(start={0.6,0.6,0}, each fixed=true),
+    v_0(start={0.6,0,0}, each fixed=true),
     angles_fixed=true,
     w_0_fixed=true,
     r_CM={0,0,0})
