@@ -11360,7 +11360,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 </html>"));
       end Bjt3Variables;
       annotation (Documentation(info="<html>
-<p>This package Bjt3 contains functions and records with data of the Bjt3 bipolar transistor models.</p>
+<p>This package Bjt contains functions and records with data of the Bjt bipolar transistor models.</p>
 </html>"));
     end Bjt;
 
