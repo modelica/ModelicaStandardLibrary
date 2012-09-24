@@ -1752,7 +1752,7 @@ This also allows for taking into account friction losses with respect to the act
     //Partial Distritubed Volume
      replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-          annotation (choicesAllMatching = true);
+          annotation (__Dymola_choicesAllMatching = true);
 
       // Discretization
       final parameter Integer n=nNodes "Number of discrete volumes";
@@ -1897,7 +1897,7 @@ This also allows for taking into account friction losses with respect to the act
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.FlowModels.PartialStaggeredFlowModel
         "Wall friction, gravity, momentum flow"
-          annotation(Dialog(group="Pressure loss"), choicesAllMatching=true);
+          annotation(Dialog(group="Pressure loss"), __Dymola_choicesAllMatching=true);
       FlowModel flowModel(
               redeclare final package Medium = Medium,
               final n=nFM+1,
@@ -1950,7 +1950,7 @@ This also allows for taking into account friction losses with respect to the act
         constrainedby
         Modelica.Fluid.Pipes.BaseClasses.HeatTransfer.PartialFlowHeatTransfer
         "Wall heat transfer"
-          annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
+          annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),__Dymola_choicesAllMatching=true);
       Modelica.Fluid.Interfaces.HeatPorts_a[n] heatPorts if use_HeatTransfer
         annotation (Placement(transformation(extent={{-10,45},{10,65}}), iconTransformation(extent={{-30,36},
                 {32,52}})));
