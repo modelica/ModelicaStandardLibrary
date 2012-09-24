@@ -1,8 +1,8 @@
 within ;
 operator record Complex "Complex number with overloaded operators"
 //record Complex "Complex number with overloaded operators"
-  replaceable Real re constrainedby Real "Real part of complex number" annotation(Dialog);
-  replaceable Real im constrainedby Real "Imaginary part of complex number" annotation(Dialog);
+  replaceable Real re "Real part of complex number" annotation(Dialog);
+  replaceable Real im "Imaginary part of complex number" annotation(Dialog);
 
   encapsulated operator 'constructor' "Constructor"
     function fromReal "Construct Complex from Real"
