@@ -138,7 +138,7 @@ source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file need to have the
+If tables are read from an ASCII-file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -386,7 +386,7 @@ source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file need to have the
+If tables are read from an ASCII-file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
@@ -633,7 +633,7 @@ source code of method (2) are removed by the C-preprocessor, such that
 no dynamic memory allocation and no access to files takes place.
 </p>
 <p>
-If tables are read from an ASCII-file, the file need to have the
+If tables are read from an ASCII-file, the file needs to have the
 following structure (\"-----\" is not part of the file content):
 </p>
 <pre>
