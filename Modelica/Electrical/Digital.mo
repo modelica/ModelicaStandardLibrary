@@ -4097,9 +4097,6 @@ they can be used to specify the parameter, e.g., <b>L.'0'</b> for forcing 0.
         algorithm
           // assert(before >= L.min and before <= L.max, "Parameter is no logic value");
           // assert(after >= L.min and after <= L.max, "Parameter is no logic value");
-          when initial() then
-            y := before;
-          end when;
           if time >= stepTime then
             y := after;
           else
