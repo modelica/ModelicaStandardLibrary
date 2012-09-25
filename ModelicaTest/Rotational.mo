@@ -650,6 +650,7 @@ extends Modelica.Icons.ExamplesPackage;
   package InitializationConversion
   extends Modelica.Icons.ExamplesPackage;
     model Inertia
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.Inertia inertia1(
         J=1,
@@ -660,8 +661,8 @@ extends Modelica.Icons.ExamplesPackage;
         J=1,
         stateSelect=StateSelect.default,
         a(fixed=true),
-        phi(fixed=false, start=0.0174532925199433),
-        w(fixed=true, start=2))
+        w(fixed=true, start=2),
+        phi(fixed=false, start=0.017453292519943))
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
                                                                       rotation=
                 0)));
@@ -677,37 +678,37 @@ extends Modelica.Icons.ExamplesPackage;
         J=1,
         stateSelect=StateSelect.always,
         a(fixed=false),
-        phi(fixed=true, start=-0.0174532925199433),
-        w(fixed=false, start=-2))
+        w(fixed=true, start=-2),
+        phi(fixed=true, start=-0.017453292519943))
         annotation (Placement(transformation(extent={{80,40},{100,60}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia5(
         J=1,
         stateSelect=StateSelect.avoid,
         a(fixed=false),
-        phi(fixed=false, start=0.3839724354387525),
-        w(fixed=true, start=33))
+        w(fixed=true, start=33),
+        phi(fixed=true, start=0.38397243543875))
         annotation (Placement(transformation(extent={{-90,0},{-70,20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia6(
         J=1,
         a(fixed=true, start=44),
         phi(fixed=false),
-        w(fixed=false))
+        w(fixed=true))
         annotation (Placement(transformation(extent={{-10,0},{10,20}},
                       rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7(
         J=1,
         a(fixed=true, start=3),
-        phi(fixed=true, start=0.0174532925199433),
-        w(fixed=false, start=2))
+        phi(fixed=true, start=0.017453292519943),
+        w(fixed=true, start=2))
         annotation (Placement(transformation(extent={{20,0},{40,20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia7a(
         J=1,
         a(start=3),
-        phi(start=0.0174532925199433),
-        w(start=2))                   annotation (Placement(transformation(
+        phi(start=0.017453292519943),
+        w(start=2, fixed=true))       annotation (Placement(transformation(
               extent={{80,0},{100,20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia8(
         J=1,
@@ -725,15 +726,15 @@ extends Modelica.Icons.ExamplesPackage;
       Modelica.Mechanics.Rotational.Components.Inertia inertia9(
         J=1,
         a(fixed=true, start=33),
-        phi(fixed=true, start=0.1919862177193762),
-        w(fixed=true, start=22))
+        w(fixed=true, start=22),
+        phi(fixed=true, start=0.19198621771938))
         annotation (Placement(transformation(extent={{20,-40},{40,
                 -20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Inertia inertia9a(
         J=1,
         a(start=33),
-        phi(start=0.1919862177193762),
-        w(start=22))                  annotation (Placement(transformation(
+        phi(start=0.19198621771938),
+        w(start=22, fixed=true))      annotation (Placement(transformation(
               extent={{80,-40},{100,-20}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring(
         c=10000)
@@ -802,10 +803,22 @@ extends Modelica.Icons.ExamplesPackage;
           points={{70,-30},{80,-30}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (        experiment(StopTime=1.1));
+      annotation (        experiment(StopTime=1.1), Diagram(graphics={Rectangle(
+              extent={{-90,98},{90,64}},
+              lineColor={255,170,85},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-80,100},{80,60}},
+              lineColor={0,0,255},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid,
+              textString="Since the initialization was changed some elements here
+are redundant (e.g. inertia4, inertia5).
+But for compatibility reasons they were not deleted yet.")}));
     end Inertia;
 
     model SpringDamper
+      extends Modelica.Icons.Example;
 
       Modelica.Mechanics.Rotational.Components.Fixed fixed
         annotation (Placement(transformation(extent={{-100,60},{-80,80}},
@@ -843,8 +856,8 @@ extends Modelica.Icons.ExamplesPackage;
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper1(
         c=1e4,
         d=10,
-        phi_rel(start=1),
-        w_rel(start=2))
+        w_rel(start=2, fixed=true),
+        phi_rel(start=1, fixed=true))
                        annotation (Placement(transformation(extent={{-70,60},{
                 -50,80}}, rotation=0)));
       Modelica.Mechanics.Rotational.Components.SpringDamper springDamper2(
@@ -949,7 +962,20 @@ extends Modelica.Icons.ExamplesPackage;
           color={0,0,0},
           smooth=Smooth.None));
       annotation (
-        experiment(StopTime=1.1));
+        experiment(StopTime=1.1), Diagram(graphics={Polygon(
+              points={{-72,86},{-72,54},{-14,54},{-14,6},{-72,6},{-72,-32},{100,
+                  -32},{100,20},{10,20},{10,86},{-72,86}},
+              lineColor={255,170,85},
+              smooth=Smooth.None,
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{10,20},{90,-30}},
+              lineColor={0,0,255},
+              textString="This two parts are identical
+concerning structure, parameters
+and initialization.
+But for compatibility reasons
+they were not deleted yet.")}));
     end SpringDamper;
 
   end InitializationConversion;

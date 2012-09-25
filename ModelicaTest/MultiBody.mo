@@ -3877,7 +3877,8 @@ a linear damper is connected here.
                                   annotation (Placement(transformation(extent={{-80,20},
                 {-60,40}},          rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation bar2(
-                                            r={0.8,0,0}, animation=false)
+        r={0.8,0,0},
+        animation=false)
         annotation (Placement(transformation(extent={{20,20},{40,40}},rotation=
                 0)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring1(
@@ -3915,7 +3916,7 @@ a linear damper is connected here.
         w_rel_a_fixed=true,
         v_rel_a(fixed=true),
         angles_fixed=true,
-        r_rel_a(start={0.2,-0.5,0.1}))
+        r_rel_a(start={0.2,-0.5,0.1}, fixed=true))
                               annotation (Placement(transformation(extent={{-40,-40},
                 {-20,-20}},      rotation=0)));
     equation
@@ -3969,10 +3970,7 @@ often possible to use the FreeMotion joint such that the singularity
 </p>
 </html>"),
         Diagram(graphics),
-        Icon(graphics={Ellipse(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,0,0},
-              lineThickness=0.5)}));
+        Icon(graphics));
     end BodyShape;
 
     model PointMass "Test Modelica.Mechanics.MultiBody.Parts.PointMass"
@@ -6945,23 +6943,26 @@ often possible to use the FreeMotion joint such that the singularity
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=true),
-        w(fixed=false))
+        w(
+          fixed=true,
+          start=1.74532925199433,
+          displayUnit="rad/s"))
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D4(
         J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=false),
-        phi(fixed=false),
-        w(fixed=true))
+        w(fixed=true),
+        phi(fixed=true, start=0.75049157835756))
         annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=
                0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D5(
         J=1,
         stateSelect=StateSelect.prefer,
         a(fixed=true),
-        phi(fixed=false),
-        w(fixed=true))
+        w(fixed=true),
+        phi(fixed=true))
         annotation (Placement(transformation(extent={{-60,0},{-40,20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D6(
@@ -6970,18 +6971,18 @@ often possible to use the FreeMotion joint such that the singularity
         a(fixed=false),
         phi(fixed=false),
         w(fixed=true))
-        annotation (Placement(transformation(extent={{-8,0},{12,20}}, rotation=
+        annotation (Placement(transformation(extent={{0,0},{20,20}},  rotation=
                 0)));
       Modelica.Mechanics.Rotational.Components.Spring spring(
         c=1e4)
-        annotation (Placement(transformation(extent={{-34,0},{-14,20}},
+        annotation (Placement(transformation(extent={{-30,0},{-10,20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D7(
         J=1,
         a(start=0.05235987755982989, fixed=true),
         stateSelect=StateSelect.prefer,
-        phi(fixed=false, start=0.0174532925199433),
-        w(fixed=true, start=0.03490658503988659))
+        w(fixed=true, start=0.03490658503988659),
+        phi(fixed=true, start=0.017453292519943))
                    annotation (Placement(transformation(extent={{-60,-40},{-40,
                 -20}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D8(
@@ -6990,17 +6991,17 @@ often possible to use the FreeMotion joint such that the singularity
         a(fixed=false),
         phi(fixed=false),
         w(fixed=true))
-        annotation (Placement(transformation(extent={{-8,-40},{12,-20}},
+        annotation (Placement(transformation(extent={{0,-40},{20,-20}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring1(
         c=1e4)
-        annotation (Placement(transformation(extent={{-34,-40},{-14,-20}},
+        annotation (Placement(transformation(extent={{-30,-40},{-10,-20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D9(
         J=1,
         a(start=0.05235987755982989, fixed=true),
-        phi(fixed=true, start=0.0174532925199433),
-        w(fixed=true, start=0.03490658503988659))
+        w(fixed=true, start=0.03490658503988659),
+        phi(fixed=true, start=0.017453292519943))
         annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.Rotor1D rotor1D10(
@@ -7009,11 +7010,11 @@ often possible to use the FreeMotion joint such that the singularity
         a(fixed=false),
         phi(fixed=false),
         w(fixed=true))
-        annotation (Placement(transformation(extent={{-8,-80},{12,-60}},
+        annotation (Placement(transformation(extent={{0,-80},{20,-60}},
               rotation=0)));
       Modelica.Mechanics.Rotational.Components.Spring spring2(
         c=1e4)
-        annotation (Placement(transformation(extent={{-34,-80},{-14,-60}},
+        annotation (Placement(transformation(extent={{-30,-80},{-10,-60}},
               rotation=0)));
     equation
       connect(world.frame_b, rotor1D1.frame_a) annotation (Line(
@@ -7042,16 +7043,16 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(rotor1D5.frame_a, rotor1D6.frame_a) annotation (Line(
-          points={{-50,0},{-50,-8},{2,-8},{2,0}},
+          points={{-50,0},{-50,-8},{10,-8},{10,0}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(spring.flange_a, rotor1D5.flange_b) annotation (Line(
-          points={{-34,10},{-40,10}},
+          points={{-30,10},{-40,10}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(spring.flange_b, rotor1D6.flange_a) annotation (Line(
-          points={{-14,10},{-8,10}},
+          points={{-10,10},{0,10}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(world.frame_b, rotor1D7.frame_a) annotation (Line(
@@ -7060,16 +7061,16 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(rotor1D7.frame_a, rotor1D8.frame_a) annotation (Line(
-          points={{-50,-40},{-50,-48},{2,-48},{2,-40}},
+          points={{-50,-40},{-50,-48},{10,-48},{10,-40}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(spring1.flange_a, rotor1D7.flange_b) annotation (Line(
-          points={{-34,-30},{-40,-30}},
+          points={{-30,-30},{-40,-30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(spring1.flange_b, rotor1D8.flange_a) annotation (Line(
-          points={{-14,-30},{-8,-30}},
+          points={{-10,-30},{0,-30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(world.frame_b, rotor1D9.frame_a) annotation (Line(
@@ -7078,19 +7079,30 @@ often possible to use the FreeMotion joint such that the singularity
           thickness=0.5,
           smooth=Smooth.None));
       connect(rotor1D9.frame_a, rotor1D10.frame_a) annotation (Line(
-          points={{-50,-80},{-50,-88},{2,-88},{2,-80}},
+          points={{-50,-80},{-50,-88},{10,-88},{10,-80}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(spring2.flange_a, rotor1D9.flange_b) annotation (Line(
-          points={{-34,-70},{-40,-70}},
+          points={{-30,-70},{-40,-70}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(spring2.flange_b, rotor1D10.flange_a) annotation (Line(
-          points={{-14,-70},{-8,-70}},
+          points={{-10,-70},{0,-70}},
           color={0,0,0},
           smooth=Smooth.None));
-      annotation (experiment(StopTime=1.1));
+      annotation (experiment(StopTime=1.1), Diagram(graphics={Rectangle(
+              extent={{-66,-16},{100,-94}},
+              lineColor={255,170,85},
+              fillColor={255,213,170},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{20,-30},{100,-80}},
+              lineColor={0,0,255},
+              textString="This two parts are identical
+concerning structure, parameters
+and initialization.
+But for compatibility reasons
+they were not deleted yet.")}));
     end Rotor1D;
 
     model Joints
@@ -7405,11 +7417,7 @@ often possible to use the FreeMotion joint such that the singularity
         annotation (Placement(transformation(extent={{20,-40},{40,-20}},
               rotation=0)));
 
-      annotation (Icon(graphics={
-                       Ellipse(
-              extent={{-100,100},{100,-100}},
-              lineColor={255,0,0},
-              lineThickness=0.5)}));
+      annotation (Icon(graphics));
     end Internal;
   end InitializationConversion;
 end MultiBody;
