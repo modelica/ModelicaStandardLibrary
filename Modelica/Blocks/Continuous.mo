@@ -939,7 +939,7 @@ to compute u by an algebraic equation.
               0)));
   initial equation
     if initType==InitPID.InitialOutput then
-       y = y_start;
+       gainPID.y = y_start;
     end if;
   equation
     assert(yMax >= yMin, "LimPID: Limits must be consistent. However, yMax (=" + String(yMax) +
