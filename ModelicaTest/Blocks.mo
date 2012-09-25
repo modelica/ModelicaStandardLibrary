@@ -10,39 +10,48 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=1)
       annotation (Placement(transformation(extent={{-60,60},{-40,80}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.Derivative derivative(x_start=0)
+    Modelica.Blocks.Continuous.Derivative derivative(x_start=0, initType=
+          Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{-60,20},{-40,40}}, rotation=
              0)));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=1)
+    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=1, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{-60,-20},{-40,0}},
             rotation=0)));
-    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=1, D=1)
+    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=1, D=1,
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{-60,-60},{-40,-40}},
             rotation=0)));
-    Modelica.Blocks.Continuous.PI pI(T=1)
+    Modelica.Blocks.Continuous.PI pI(T=1, initType=Modelica.Blocks.Types.Init.InitialState)
                                      annotation (Placement(transformation(
             extent={{-60,-100},{-40,-80}},  rotation=0)));
-    Modelica.Blocks.Continuous.PID pID(Ti=0.5, Td=0.1)
+    Modelica.Blocks.Continuous.PID pID(Ti=0.5, Td=0.1,
+      initType=Modelica.Blocks.Types.InitPID.InitialState)
                                        annotation (Placement(transformation(
             extent={{-60,-140},{-40,-120}}, rotation=0)));
     Modelica.Blocks.Continuous.LimPID limPID(
       Ti=0.5,
       Td=0.1,
-      yMax=1)                                annotation (Placement(
+      yMax=1,
+      initType=Modelica.Blocks.Types.InitPID.InitialState)
+                                             annotation (Placement(
           transformation(extent={{40,100},{60,120}},
                                                    rotation=0)));
-    Modelica.Blocks.Continuous.TransferFunction transferFunction(a={1,1}, b={1})
+    Modelica.Blocks.Continuous.TransferFunction transferFunction(a={1,1}, b={1},
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{40,20},{60,40}}, rotation=0)));
     Modelica.Blocks.Continuous.StateSpace stateSpace(
       A=[1,0; 0,1],
       B=[1; 1],
-      C=[1,1])
+      C=[1,1],
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{40,-20},{60,0}},   rotation=
              0)));
-    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth(f=1)
+    Modelica.Blocks.Continuous.LowpassButterworth lowpassButterworth(f=1, initType=
+         Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{40,-60},{60,-40}},
             rotation=0)));
-    Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false, f=1)
+    Modelica.Blocks.Continuous.CriticalDamping criticalDamping(normalized=false, f=1,
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{40,-100},{60,-80}},
             rotation=0)));
     Modelica.Blocks.Sources.Ramp ramp(offset=0.5, startTime=0.5,
@@ -100,7 +109,7 @@ extends Modelica.Icons.ExamplesPackage;
         color={0,0,127},
         smooth=Smooth.None));
     annotation (      experiment(StopTime=1.1), Diagram(coordinateSystem(
-            preserveAspectRatio=true, extent={{-100,-140},{100,140}})));
+            preserveAspectRatio=true, extent={{-100,-140},{100,140}}), graphics));
   end Continuous;
 
   model Continuous_SteadyState
@@ -272,7 +281,8 @@ extends Modelica.Icons.ExamplesPackage;
     Modelica.Blocks.Continuous.Integrator integrator
       annotation (Placement(transformation(extent={{0,30},{20,50}})));
     Modelica.Mechanics.Rotational.Components.Inertia inertia(J=1, w(start=1,
-          fixed=true))
+          fixed=true),
+      phi(fixed=true, start=0))
       annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
     Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
       annotation (Placement(transformation(extent={{-50,60},{-30,80}})));
@@ -280,20 +290,24 @@ extends Modelica.Icons.ExamplesPackage;
       annotation (Placement(transformation(extent={{0,80},{20,100}})));
     Modelica.Blocks.Continuous.LimIntegrator limIntegrator(outMax=3)
       annotation (Placement(transformation(extent={{0,0},{20,20}})));
-    Modelica.Blocks.Continuous.Derivative derivative
+    Modelica.Blocks.Continuous.Derivative derivative(initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{0,-30},{20,-10}})));
-    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=2)
+    Modelica.Blocks.Continuous.FirstOrder firstOrder(T=2, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{0,-60},{20,-40}})));
-    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=2, D=3)
+    Modelica.Blocks.Continuous.SecondOrder secondOrder(w=2, D=3,
+      initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{0,-90},{20,-70}})));
-    Modelica.Blocks.Continuous.PI PI(T=2)
+    Modelica.Blocks.Continuous.PI PI(T=2, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{60,60},{80,80}})));
-    Modelica.Blocks.Continuous.PID PID(Ti=2, Td=3)
+    Modelica.Blocks.Continuous.PID PID(Ti=2, Td=3,
+      initType=Modelica.Blocks.Types.InitPID.InitialState)
       annotation (Placement(transformation(extent={{60,30},{80,50}})));
     Modelica.Blocks.Continuous.LimPID PID1(
       Ti=2,
       Td=3,
-      yMax=4) annotation (Placement(transformation(extent={{60,0},{80,20}})));
+      yMax=4,
+      initType=Modelica.Blocks.Types.InitPID.InitialState)
+              annotation (Placement(transformation(extent={{60,0},{80,20}})));
     Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(V=10, freqHz=2)
                                                                annotation (
         Placement(transformation(

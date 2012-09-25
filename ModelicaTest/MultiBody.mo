@@ -3896,7 +3896,9 @@ a linear damper is connected here.
         I_33=1,
         r={0.4,0,0},
         r_CM={0.2,0,0},
-        width=0.05) annotation (Placement(transformation(extent={{20,-40},{40,
+        width=0.05,
+        angles_fixed=false)
+                    annotation (Placement(transformation(extent={{20,-40},{40,
                 -20}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Forces.Spring spring2(
@@ -3910,9 +3912,11 @@ a linear damper is connected here.
             rotation=270)));
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
           arrowDiameter=0.04,
-        r_rel_a(start={0.2,-0.5,0.1}, each fixed=true),
-        v_rel_a(each fixed=true),
-        w_rel_a_fixed=true)   annotation (Placement(transformation(extent={{-40,-40},
+        w_rel_a_fixed=true,
+        v_rel_a(fixed=true),
+        angles_fixed=true,
+        r_rel_a(start={0.2,-0.5,0.1}))
+                              annotation (Placement(transformation(extent={{-40,-40},
                 {-20,-20}},      rotation=0)));
     equation
       connect(world.frame_b, bar2.frame_a) annotation (Line(
@@ -7109,7 +7113,7 @@ often possible to use the FreeMotion joint such that the singularity
         a(start=-0.174532925199433, fixed=false),
         stateSelect=StateSelect.always,
         phi(fixed=true, start=0.5235987755982988),
-        w(fixed=false, start=-0.174532925199433))
+        w(fixed=true, start=-0.174532925199433))
                             annotation (Placement(transformation(extent={{10,60},
                 {30,80}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(r={1,0,0})
@@ -7128,8 +7132,8 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Joints.Prismatic actuatedPrismatic(
         stateSelect=StateSelect.always,
         a(fixed=false, start=0.6),
-        s(fixed=false, start=0.2),
-        v(fixed=true, start=0.4))
+        v(fixed=true, start=0.4),
+        s(fixed=true, start=0.2))
                      annotation (Placement(transformation(extent={{10,20},{30,
                 40}},
               rotation=0)));
@@ -7155,8 +7159,8 @@ often possible to use the FreeMotion joint such that the singularity
         stateSelect=StateSelect.always,
         phi_a(fixed=true, start=-0.174532925199433),
         phi_b(fixed=true, start=0.174532925199433),
-        w_a(fixed=false, start=0.3490658503988659),
-        w_b(fixed=false, start=-0.3490658503988659))
+        w_a(fixed=true, start=0.3490658503988659),
+        w_b(fixed=true, start=-0.3490658503988659))
                             annotation (Placement(transformation(extent={{10,-20},
                 {30,0}}, rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox5(r={1,0,0})
