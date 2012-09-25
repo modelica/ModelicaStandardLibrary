@@ -11518,7 +11518,7 @@ Thermal parts for synchronous induction machines
       equation
         connect(temperaturePermanentMagnet.port, thermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-20,40},{-20,100},{5.55112e-16,100}},
+            points={{-20,40},{-20,100},{4.44089e-16,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(constTpm.y, temperaturePermanentMagnet.T) annotation (Line(
@@ -11526,8 +11526,7 @@ Thermal parts for synchronous induction machines
             color={0,0,127},
             smooth=Smooth.None));
         connect(TPermanentMagnet, temperaturePermanentMagnet.T) annotation (Line(
-            points={{1.11022e-15,-100},{1.11022e-15,-60},{-40,-60},{-40,8},{-20,
-                8},{-20,18}},
+            points={{0,-100},{0,-60},{-40,-60},{-40,8},{-20,8},{-20,18}},
             color={0,0,127},
             smooth=Smooth.None));
       annotation (Icon(graphics={

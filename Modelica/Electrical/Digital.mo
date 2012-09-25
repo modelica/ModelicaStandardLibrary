@@ -168,29 +168,29 @@ the library and has the following content:
           D.Sources.Table D0(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
-            t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,
-                    58},{-60,78}}, rotation=0)));
+            t={50,100,145,200}) annotation (Placement(transformation(extent={{-80,58},
+                {-60,78}},         rotation=0)));
           D.Sources.Table D1(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
-            t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
-                    32},{-60,52}}, rotation=0)));
-          D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent=
-                   {{-10,0},{70,80}}, rotation=0)));
+            t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,32},
+                {-60,52}},         rotation=0)));
+          D.Examples.Utilities.MUX4 MUX annotation (Placement(transformation(extent={{-10,0},
+                {70,80}},             rotation=0)));
           D.Sources.Table D2(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
             t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,6},
-                    {-60,26}}, rotation=0)));
+                {-60,26}},     rotation=0)));
           D.Sources.Table D3(
             y0=L.'0',
             x={L.'1',L.'0',L.'1',L.'0'},
-            t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,
-                    -20},{-60,0}}, rotation=0)));
-          D.Examples.Utilities.JKFF FF annotation (Placement(transformation(extent=
-                    {{-20,-62},{0,-42}}, rotation=0)));
-          D.Sources.Set Enable annotation (Placement(transformation(extent={{-80,
-                    -82},{-60,-62}}, rotation=0)));
+            t={22,140,150,180}) annotation (Placement(transformation(extent={{-80,-20},
+                {-60,0}},          rotation=0)));
+          D.Examples.Utilities.JKFF FF annotation (Placement(transformation(extent={{-20,-62},
+                {0,-42}},                rotation=0)));
+          D.Sources.Set Enable annotation (Placement(transformation(extent={{-80,-82},
+                {-60,-62}},          rotation=0)));
         equation
           connect(CLK.y, FF.clk) annotation (Line(
               points={{-60,-46},{-36,-46},{-36,-52},{-20,-52}},
@@ -217,8 +217,7 @@ the library and has the following content:
               points={{-60,-10},{-46,-10},{-46,36.8},{-10,36.8}},
               color={127,0,127}));
           connect(FF.q, MUX.a1) annotation (Line(
-              points={{5.55112e-16,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,
-              12}},
+              points={{0,-45},{2,-45},{2,-22},{-20,-22},{-20,12},{-10,12}},
               color={127,0,127}));
           annotation (
             Documentation(info="<html>
@@ -1763,11 +1762,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                 color={127,0,127}));
           connect(Not1.y, RSFF1.r)
                                  annotation (Line(
-                points={{-30,-28},{-10,-28}},
-                color={127,0,127}));
-          connect(clk, RSFF1.clk)  annotation (Line(
-                points={{-100,5.55112e-16},{-77.5,5.55112e-16},{-77.5,
-                2.9976e-15},{-55,2.9976e-15},{-55,2.44249e-15},{-10,2.44249e-15}},
+                points={{-30,-28},{-22,-28},{-10,-28}},
                 color={127,0,127}));
           connect(d, Not1.x)  annotation (Line(
                 points={{-100,70},{-80,70},{-80,-28},{-62,-28}},
@@ -1775,6 +1770,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           connect(d, RSFF1.s)  annotation (Line(
                 points={{-100,70},{-80,70},{-80,28},{-10,28}},
                 color={127,0,127}));
+        connect(clk, RSFF1.clk) annotation (Line(
+            points={{-100,0},{-10,0}},
+            color={127,0,127},
+            smooth=Smooth.None));
           annotation (
             Documentation(info="<html>
 <p>Basing on the RS component DFF is a D  flipflop composed according the schematic. Its parameter delayTime is the delay time of the RS component transport delay, q0 is the initial value of that delay.</p>
@@ -1823,7 +1822,9 @@ The result can be seen in the output signals of the Fulladders according to:</p>
               Text(
                 extent={{-100,100},{100,40}},
                 lineColor={0,0,0},
-                textString="D")}));
+                textString="D")}),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
         end DFF;
 
         model JKFF "JK FlipFlop"
