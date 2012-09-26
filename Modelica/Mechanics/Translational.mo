@@ -2194,7 +2194,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
               smooth=Smooth.None)}));
     end SupportFriction;
 
-    model Brake "Brake basend on Coulomb friction"
+    model Brake "Brake based on Coulomb friction"
 
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialElementaryTwoFlangesAndSupport2;
