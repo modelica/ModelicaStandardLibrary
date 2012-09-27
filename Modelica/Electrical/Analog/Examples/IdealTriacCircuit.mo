@@ -20,6 +20,7 @@ model IdealTriacCircuit "Ideal triac test circuit"
     annotation (Placement(transformation(extent={{-22,0},{-6,16}})));
  Modelica.Electrical.Analog.Ideal.IdealTriac idealTriac
     annotation (Placement(transformation(extent={{6,20},{32,46}})));
+
 equation
   connect(V.n, ground.p)            annotation (Line(
       points={{-32,-20},{-2,-20}},

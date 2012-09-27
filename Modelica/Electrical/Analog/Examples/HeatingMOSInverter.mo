@@ -9,7 +9,7 @@ model HeatingMOSInverter "Heating MOS Inverter"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=0.00001)
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=0.00001, UIC=true)
   annotation (Placement(transformation(
         origin={30,10},
         extent={{-10,-10},{10,10}},
@@ -40,6 +40,9 @@ model HeatingMOSInverter "Heating MOS Inverter"
         rotation=180)));
   Modelica.Thermal.HeatTransfer.Components.ThermalConductor TC3(G=0.01)
   annotation (Placement(transformation(extent={{50,-40},{70,-20}}, rotation=0)));
+
+initial equation
+  HeatCapacitor1.T= 293.15;
 equation
   connect(Sin.n, G.p)
   annotation (Line(points={{-70,-10},{-70,-20}}, color={0,0,255}));

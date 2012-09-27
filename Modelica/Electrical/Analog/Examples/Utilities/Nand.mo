@@ -41,11 +41,13 @@ model Nand "CMOS NAND Gate (see Tietze/Schenk, page 157)"
     dW=-2.5e-6,
     dL=-1.5e-6) annotation (Placement(transformation(extent={{10,-25},{30,-5}},
           rotation=0)));
-  Basic.Capacitor C4(C=0.4e-13) annotation (Placement(transformation(
+  Basic.Capacitor C4(C=0.4e-13, UIC=true)
+                                annotation (Placement(transformation(
         origin={60,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C7(C=0.4e-13) annotation (Placement(transformation(
+  Basic.Capacitor C7(C=0.4e-13, UIC=true)
+                                annotation (Placement(transformation(
         origin={55,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));

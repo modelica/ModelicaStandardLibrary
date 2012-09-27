@@ -1827,7 +1827,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Boolean off=control;
     Boolean on=not off;
     discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
-    Boolean quenched(start=true);
+    Boolean quenched(start=true, fixed=true);
   equation
     when edge(off) then
       tSwitch=time;
@@ -1962,7 +1962,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     Boolean on=control;
     Boolean off=not on;
     discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
-    Boolean quenched(start=true);
+    Boolean quenched(start=true, fixed=true);
   equation
     when edge(off) then
       tSwitch=time;
@@ -2372,7 +2372,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
           origin={-10,-32})));
     Modelica.Electrical.Analog.Basic.Resistor resistor(R=Rdis)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-    Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=Cdis)
+    Modelica.Electrical.Analog.Basic.Capacitor capacitor(C=Cdis, UIC=true)
       annotation (Placement(transformation(extent={{20,-10},{40,10}})));
     Modelica.Blocks.Interfaces.BooleanInput fire1 "Gate"
       annotation (Placement(transformation(extent={{-74,-106},{-46,-78}})));

@@ -65,17 +65,17 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
   annotation (Placement(transformation(extent={{-10,16},{10,36}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground Gnd4
   annotation (Placement(transformation(extent={{30,-52},{50,-32}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C1(C=CapVal, UIC=false)
   annotation (Placement(transformation(
         origin={-70,38},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C2(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C2(C=CapVal, UIC=false)
   annotation (Placement(transformation(
         origin={60,42},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C3(C=CapVal)
+  Modelica.Electrical.Analog.Basic.Capacitor C3(C=CapVal, UIC=false)
   annotation (Placement(transformation(
         origin={-16,-40},
         extent={{-10,-10},{10,10}},
@@ -128,6 +128,8 @@ model HeatingNPN_OrGate "Heating NPN Or Gate"
     useHeatPort=true)
            annotation (Placement(transformation(extent={{20,-22},{40,-2}},
           rotation=0)));
+initial equation
+  HeatCapacitor1.T= 293.15;
 equation
   connect(Gnd1.p, V1.n)
                       annotation (Line(points={{-90,-2},{-90,8}}, color={0,0,255}));

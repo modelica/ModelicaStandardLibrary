@@ -467,6 +467,9 @@ model NPN "Simple BJT according to Ebers-Moll"
   parameter SIunits.Voltage Vt=0.02585 "Voltage equivalent of temperature";
   parameter Real EMin=-100 "if x < EMin, the exp(x) function is linearized";
   parameter Real EMax=40 "if x > EMax, the exp(x) function is linearized";
+  parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
+  parameter Boolean UIC = false;
+
   extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(
      T=293.15);
   protected
@@ -495,6 +498,10 @@ model NPN "Simple BJT according to Ebers-Moll"
         transformation(extent={{-90,-10},{-110,10}}, rotation=0)));
   Modelica.Electrical.Analog.Interfaces.Pin E "Emitter" annotation (Placement(
         transformation(extent={{90,-40},{110,-60}}, rotation=0)));
+initial equation
+  if UIC then
+    C.v = IC;
+  end if;
 
 equation
   ExMin = exp(EMin);

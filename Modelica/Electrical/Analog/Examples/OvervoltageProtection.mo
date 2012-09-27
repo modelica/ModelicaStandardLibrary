@@ -18,7 +18,8 @@ model OvervoltageProtection "Example for Zener diodes"
        origin={26,4})));
  Modelica.Electrical.Analog.Basic.Ground ground
    annotation (Placement(transformation(extent={{-30,-82},{-10,-62}})));
- Modelica.Electrical.Analog.Basic.Capacitor CL(C=1e-7) annotation (Placement(
+ Modelica.Electrical.Analog.Basic.Capacitor CL(C=1e-7, UIC=true)
+                                                       annotation (Placement(
        transformation(
        extent={{-10,-10},{10,10}},
        rotation=270,

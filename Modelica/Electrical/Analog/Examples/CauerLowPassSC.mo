@@ -10,7 +10,7 @@ model Rn "Negative resistance"
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock)
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
 
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R)
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R, UIC=true)
     annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1
     annotation (Placement(transformation(
@@ -30,8 +30,8 @@ model Rn "Negative resistance"
   Modelica.Electrical.Analog.Interfaces.NegativePin n2
     annotation (Placement(transformation(extent={{90,-8},{110,12}}, rotation=0)));
 equation
-  connect(IdealCommutingSwitch1.p,Capacitor1. p) annotation (Line(points={{-40,
-            -1.22465e-015},{-42,-1.22465e-015},{-44,0},{-20,0}}, color={0,0,255}));
+  connect(IdealCommutingSwitch1.p,Capacitor1. p) annotation (Line(points={{-40,-1.22465e-015},
+            {-42,-1.22465e-015},{-44,0},{-20,0}},                color={0,0,255}));
   connect(Capacitor1.n,IdealCommutingSwitch2. p)
     annotation (Line(points={{20,0},{25,0},{25,1.83187e-015},{30,1.83187e-015},
             {30,0},{40,0}},                  color={0,0,255}));
@@ -89,7 +89,7 @@ model Rp "Positive resistance"
       "Resistance";
   Modelica.Blocks.Sources.BooleanPulse BooleanPulse1(period=clock)
     annotation (Placement(transformation(extent={{-10,50},{10,70}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R)
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=clock/R, UIC=true)
     annotation (Placement(transformation(extent={{-20,-20},{20,20}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealCommutingSwitch IdealCommutingSwitch1
     annotation (Placement(transformation(
@@ -170,15 +170,15 @@ end Rp;
   parameter Modelica.SIunits.Capacitance c4=1/(1.179945^2*l2)
     "filter coefficient c4";
   parameter Modelica.SIunits.Capacitance c5=0.7262 "filter coefficient c5";
-  Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2)
+  Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1 + c2, UIC=true)
     annotation (Placement(transformation(extent={{-193,30},{-173,50}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2)
+  Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2, UIC=true)
     annotation (Placement(transformation(extent={{-241,-70},{-221,-50}},
           rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C3(C=l1)
+  Modelica.Electrical.Analog.Basic.Capacitor C3(C=l1, UIC=true)
     annotation (Placement(transformation(extent={{-91,30},{-71,50}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4)
+  Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4, UIC=true)
     annotation (Placement(transformation(extent={{-31,50},{-11,70}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor C5(C=c2)
     annotation (Placement(transformation(extent={{-31,-100},{-11,-80}},
@@ -205,7 +205,7 @@ end Rp;
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op5
     annotation (Placement(transformation(extent={{199,-50},{239,-10}}, rotation=
            0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C7(C=l2)
+  Modelica.Electrical.Analog.Basic.Capacitor C7(C=l2, UIC=true)
     annotation (Placement(transformation(extent={{109,30},{129,50}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Capacitor C8(C=c4)
     annotation (Placement(transformation(extent={{159,-130},{179,-110}},

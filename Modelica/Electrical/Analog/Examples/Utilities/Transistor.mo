@@ -5,7 +5,8 @@ model Transistor "Transistor with resistance an capacitance"
             -10},{-60,10}}, rotation=0)));
   Basic.Resistor rtc(R=0.1) annotation (Placement(transformation(extent={{40,0},
             {60,20}}, rotation=0)));
-  Basic.Capacitor ct(C=1e-10) annotation (Placement(transformation(
+  Basic.Capacitor ct(C=1e-10, UIC=true)
+                              annotation (Placement(transformation(
         origin={-40,-30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
@@ -25,7 +26,8 @@ model Transistor "Transistor with resistance an capacitance"
     Mc=0.333,
     Gbc=1e-15,
     Gbe=1e-15,
-    Vt=0.02585) annotation (Placement(transformation(extent={{-20,-20},{20,20}},
+    Vt=0.02585,
+    UIC=true)   annotation (Placement(transformation(extent={{-20,-20},{20,20}},
           rotation=0)));
   Basic.Ground Ground1 annotation (Placement(transformation(extent={{-50,-80},{
             -30,-60}}, rotation=0)));

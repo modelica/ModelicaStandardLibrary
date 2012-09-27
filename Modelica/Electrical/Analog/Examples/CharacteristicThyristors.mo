@@ -22,7 +22,7 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
       startTime=1.25) annotation (Placement(transformation(extent={{-60,40},{
             -40,60}}, rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealGTOThyristor IdealGTOThyristor1(
-                       Vknee=0)
+                       Vknee=0, off(fixed=true, start=true))
                               annotation (Placement(transformation(extent={{-20,
             -30},{0,-10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3)

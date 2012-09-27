@@ -426,7 +426,7 @@ end Conductor;
     parameter Modelica.SIunits.Inductance Linf(start=Lnom/2)
       "Inductance at large currents";
     Modelica.SIunits.Inductance Lact(start=Lzer);
-    Modelica.SIunits.MagneticFlux Psi;
+    Modelica.SIunits.MagneticFlux Psi(start=0, fixed=true);
   protected
     parameter Modelica.SIunits.Current Ipar(start=Inom/10, fixed=false);
   initial equation

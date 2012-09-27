@@ -14,28 +14,29 @@ model CauerLowPassAnalog "Cauer low pass filter with analog components"
   Modelica.Electrical.Analog.Basic.Ground G
     annotation (Placement(transformation(extent={{-10,-90},{10,-70}}, rotation=
             0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1)
+  Modelica.Electrical.Analog.Basic.Capacitor C1(C=c1, UIC=true)
     annotation (Placement(transformation(
         origin={-60,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2)
+
+Modelica.Electrical.Analog.Basic.Capacitor C2(C=c2, UIC=false)
     annotation (Placement(transformation(extent={{-40,20},{-20,40}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C3(C=c3)
+  Modelica.Electrical.Analog.Basic.Capacitor C3(C=c3, UIC=true)
     annotation (Placement(transformation(
         origin={0,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4)
+  Modelica.Electrical.Analog.Basic.Capacitor C4(C=c4, UIC=false)
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Capacitor C5(C=c5)
+  Modelica.Electrical.Analog.Basic.Capacitor C5(C=c5, UIC=true)
     annotation (Placement(transformation(
         origin={60,-20},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Inductor L1(L=l1)
+  Modelica.Electrical.Analog.Basic.Inductor L1(L=l1, UIC=true)
     annotation (Placement(transformation(extent={{-40,60},{-20,80}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Inductor L2(L=l2)
+  Modelica.Electrical.Analog.Basic.Inductor L2(L=l2, UIC=true)
     annotation (Placement(transformation(extent={{20,60},{40,80}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R1
     annotation (Placement(transformation(extent={{-100,20},{-80,40}}, rotation=
@@ -64,20 +65,20 @@ equation
           -10}}, color={0,0,255}));
   connect(L1.n,C2. n)
     annotation (Line(points={{-20,70},{-20,30}}, color={0,0,255}));
-  connect(C2.n,C3. p) annotation (Line(points={{-20,30},{0,30},{0,-10}},
-                              color={0,0,255}));
+  connect(C2.n,C3. p) annotation (Line(points={{-20,30},{1.83697e-015,30},{
+          1.83697e-015,-10}}, color={0,0,255}));
   connect(C2.n,C4. p)
     annotation (Line(points={{-20,30},{20,30}}, color={0,0,255}));
-  connect(L1.n,C3. p) annotation (Line(points={{-20,70},{-20,30},{0,30},{0,-10}},
-                                   color={0,0,255}));
+  connect(L1.n,C3. p) annotation (Line(points={{-20,70},{-20,30},{1.83697e-015,
+          30},{1.83697e-015,-10}}, color={0,0,255}));
   connect(L1.n,C4. p) annotation (Line(points={{-20,70},{-20,30},{20,30}},
         color={0,0,255}));
   connect(L2.p,C4. p)
     annotation (Line(points={{20,70},{20,30}}, color={0,0,255}));
   connect(C2.n,L2. p) annotation (Line(points={{-20,30},{20,30},{20,70}}, color=
          {0,0,255}));
-  connect(C3.p,L2. p) annotation (Line(points={{0,-10},{0,-10},{0,30},{20,30},{
-          20,70}},          color={0,0,255}));
+  connect(C3.p,L2. p) annotation (Line(points={{1.83697e-015,-10},{0,-10},{0,30},
+          {20,30},{20,70}}, color={0,0,255}));
   connect(L2.n,C4. n)
     annotation (Line(points={{40,70},{40,30}}, color={0,0,255}));
   connect(L2.n,C5. p) annotation (Line(points={{40,70},{40,30},{60,30},{60,-10}},
@@ -90,18 +91,20 @@ equation
          {0,0,255}));
   connect(C4.n,R2. p) annotation (Line(points={{40,30},{100,30},{100,-10}},
         color={0,0,255}));
-  connect(C3.n,G. p) annotation (Line(points={{0,-30},{0,-30},{0,-70}},
-                 color={0,0,255}));
+  connect(C3.n,G. p) annotation (Line(points={{-1.83697e-015,-30},{0,-30},{0,
+          -70}}, color={0,0,255}));
   connect(C5.n,G. p) annotation (Line(points={{60,-30},{60,-50},{0,-50},{0,-70}},
         color={0,0,255}));
-  connect(C1.n,C3. n) annotation (Line(points={{-60,-30},{-60,-50},{0,-50},{0,
-          -30}},                     color={0,0,255}));
+  connect(C1.n,C3. n) annotation (Line(points={{-60,-30},{-60,-50},{
+          -1.83697e-015,-50},{-1.83697e-015,-30}},
+                                     color={0,0,255}));
   connect(C1.n,C5. n) annotation (Line(points={{-60,-30},{-60,-50},{60,-50},{60,
           -30}}, color={0,0,255}));
   connect(R2.n,C5. n) annotation (Line(points={{100,-30},{100,-50},{60,-50},{60,
           -30}}, color={0,0,255}));
-  connect(R2.n,C3. n) annotation (Line(points={{100,-30},{100,-50},{0,-50},{0,
-          -30}},                     color={0,0,255}));
+  connect(R2.n,C3. n) annotation (Line(points={{100,-30},{100,-50},{
+          -1.83697e-015,-50},{-1.83697e-015,-30}},
+                                     color={0,0,255}));
   connect(R2.n,C1. n) annotation (Line(points={{100,-30},{100,-50},{-60,-50},{
           -60,-30}}, color={0,0,255}));
   connect(C5.p,R2. p) annotation (Line(

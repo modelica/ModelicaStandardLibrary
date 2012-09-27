@@ -4,7 +4,7 @@ model SimpleTriacCircuit "Simple triac test circuit"
 
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
-  Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6)
+  Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6, UIC=true)
     annotation (Placement(transformation(extent={{10,60},{30,80}})));
   Modelica.Electrical.Analog.Basic.Resistor R(R=10)         annotation (
       Placement(transformation(
@@ -30,6 +30,10 @@ model SimpleTriacCircuit "Simple triac test circuit"
         extent={{-10,-10},{10,10}},
         rotation=90,
         origin={-66,28})));
+
+initial equation
+     simpleTriac.thyristor.vControl=0;
+    simpleTriac.thyristor1.vControl=0;
 equation
   connect(L.n, R.p)               annotation (Line(
       points={{30,70},{40,70},{40,58}},

@@ -13,7 +13,7 @@ model HeatingRectifier "Heating rectifier"
         extent={{-10,-10},{10,10}},
         rotation=270)));
 
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=1)
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=1, UIC=true)
   annotation (Placement(transformation(extent={{20,40},{40,60}}, rotation=0)));
   Modelica.Thermal.HeatTransfer.Components.HeatCapacitor HeatCapacitor1(C=1)
   annotation (Placement(transformation(
@@ -27,6 +27,8 @@ model HeatingRectifier "Heating rectifier"
         rotation=270)));
   Modelica.Electrical.Analog.Basic.Resistor R(R=1)
   annotation (Placement(transformation(extent={{20,70},{40,90}}, rotation=0)));
+initial equation
+  HeatCapacitor1.T = 293.15;
 equation
   connect(SineVoltage1.p, HeatingDiode1.p)
   annotation (Line(points={{-70,50},{-20,50}}, color={0,0,255}));

@@ -36,19 +36,24 @@ encapsulated model DifferenceAmplifier
         origin={40,30},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C1(C=1e-10) annotation (Placement(transformation(
+  Basic.Capacitor C1(C=1e-10, UIC=true)
+                              annotation (Placement(transformation(
         origin={-60,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C4(C=1e-10) annotation (Placement(transformation(extent={{10,
+  Basic.Capacitor C4(C=1e-10, UIC=true)
+                              annotation (Placement(transformation(extent={{10,
             -14},{30,6}}, rotation=0)));
-  Basic.Capacitor C5(C=1e-10) annotation (Placement(transformation(
+  Basic.Capacitor C5(C=1e-10, UIC=true)
+                              annotation (Placement(transformation(
         origin={10,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Capacitor C2(C=1e-10) annotation (Placement(transformation(extent={{-30,
+  Basic.Capacitor C2(C=1e-10, UIC=true)
+                              annotation (Placement(transformation(extent={{-30,
             -14},{-10,6}}, rotation=0)));
-  Basic.Capacitor C3(C=1e-10) annotation (Placement(transformation(
+  Basic.Capacitor C3(C=1e-10, UIC=true)
+                              annotation (Placement(transformation(
         origin={60,-50},
         extent={{-10,-10},{10,10}},
         rotation=270)));

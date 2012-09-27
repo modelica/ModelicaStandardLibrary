@@ -34,7 +34,8 @@ model ShowSaturatingInductor
         origin={-20,0},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Basic.Inductor Inductance1(L=Lnom) annotation (Placement(transformation(
+  Basic.Inductor Inductance1(L=Lnom, UIC=true)
+                                     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
         origin={20,0})));

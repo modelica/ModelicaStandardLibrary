@@ -31,9 +31,9 @@ model Rectifier "B6 diode bridge"
     V=VAC*sqrt(2/3))
                    annotation (Placement(transformation(extent={{-70,-30},{-90,
             -10}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Inductor Inductor1(L=LAC)
+  Modelica.Electrical.Analog.Basic.Inductor Inductor1(L=LAC, UIC=true)
   annotation (Placement(transformation(extent={{-60,10},{-40,30}}, rotation=0)));
-  Modelica.Electrical.Analog.Basic.Inductor Inductor2(L=LAC)
+  Modelica.Electrical.Analog.Basic.Inductor Inductor2(L=LAC, UIC=true)
   annotation (Placement(transformation(extent={{-60,-10},{-40,10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Inductor Inductor3(L=LAC)
   annotation (Placement(transformation(extent={{-60,-30},{-40,-10}}, rotation=0)));
@@ -85,12 +85,12 @@ model Rectifier "B6 diode bridge"
         origin={20,-40},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=2*CDC)
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor1(C=2*CDC, UIC=false)
   annotation (Placement(transformation(
         origin={40,40},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Modelica.Electrical.Analog.Basic.Capacitor Capacitor2(C=2*CDC)
+  Modelica.Electrical.Analog.Basic.Capacitor Capacitor2(C=2*CDC, UIC=false)
   annotation (Placement(transformation(
         origin={40,-40},
         extent={{-10,-10},{10,10}},
