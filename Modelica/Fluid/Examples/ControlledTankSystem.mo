@@ -120,8 +120,7 @@ package ControlledTankSystem
     connect(level1.y, tankController.level1) annotation (Line(points={{-53.25,
             -50},{-52,-50},{-52,-22}}, color={0,0,127}));
     connect(tankController.valve2, valve2.open) annotation (Line(points={{-19,0},
-            {-5,0},{-5,4.89859e-016},{26,4.89859e-016}},
-                                       color={255,0,255}));
+            {-5,0},{26,0}},            color={255,0,255}));
     connect(tankController.valve3, valve3.open) annotation (Line(points={{-19,-12},
             {-10,-12},{-10,-50},{35,-50},{35,-72}},
                                                 color={255,0,255}));

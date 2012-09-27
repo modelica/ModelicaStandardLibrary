@@ -1156,16 +1156,16 @@ computed as:
         color={0,0,127},
         smooth=Smooth.None));
     connect(position.frame_a, frame_a) annotation (Line(
-        points={{-60,0},{-100,0}},
+        points={{-60,0},{-80,0},{-80,4.44089e-16},{-100,4.44089e-16}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
     connect(der1.y, tansformAbsoluteVector.r_in) annotation (Line(
-        points={{11,0},{19.5,0},{19.5,7.34788e-016},{38,7.34788e-016}},
+        points={{11,0},{38,0}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(tansformAbsoluteVector.r_out, v) annotation (Line(
-        points={{61,-6.73556e-016},{71.5,-6.73556e-016},{71.5,0},{110,0}},
+        points={{61,0},{110,0}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(zeroPosition.frame_resolve, position.frame_resolve) annotation (Line(
@@ -1174,7 +1174,7 @@ computed as:
         pattern=LinePattern.Dot,
         smooth=Smooth.None));
     connect(tansformAbsoluteVector.frame_a, frame_a) annotation (Line(
-        points={{50,10},{50,20},{-70,20},{-70,0},{-100,0}},
+        points={{50,10},{50,20},{-70,20},{-70,4.44089e-16},{-100,4.44089e-16}},
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
@@ -1627,11 +1627,11 @@ computed as:
         smooth=Smooth.None));
     connect(relativePosition.r_rel, der_r_rel.u)
                                             annotation (Line(
-        points={{0,-11},{0,-18},{3.98072e-015,-18}},
+        points={{0,-11},{0,-18}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(der_r_rel.y, tansformRelativeVector.r_in) annotation (Line(
-        points={{-2.4431e-016,-41},{-2.4431e-016,-50},{0,-50},{0,-58}},
+        points={{0,-41},{0,-58}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(tansformRelativeVector.r_out, v_rel) annotation (Line(
@@ -3497,6 +3497,7 @@ with the blocks of package Modelica.Blocks.
                   0,127})}));
     end BasicCutTorque;
   end Internal;
+
   model TansformAbsoluteVector
     "Obsolete model will be removed in future versions, use TransformAbsoluteVector instead!"
     extends TransformAbsoluteVector;

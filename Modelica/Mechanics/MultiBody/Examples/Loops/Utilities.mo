@@ -545,14 +545,14 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
-      angle=cylinderInclination) annotation (Placement(transformation(extent={{
-              -44,30},{-24,50}}, rotation=0)));
+      angle=cylinderInclination) annotation (Placement(transformation(extent={{-44,30},
+              {-24,50}},         rotation=0)));
     Modelica.Mechanics.MultiBody.Parts.FixedRotation CrankAngle(
       animation=false,
       rotationType=Modelica.Mechanics.MultiBody.Types.RotationTypes.RotationAxis,
       n={1,0,0},
-      angle=crankAngleOffset) annotation (Placement(transformation(extent={{-84,
-              -80},{-64,-60}}, rotation=0)));
+      angle=crankAngleOffset) annotation (Placement(transformation(extent={{-84,-80},
+              {-64,-60}},      rotation=0)));
     Joints.Assemblies.JointRRP jointRRP(
       n_a={1,0,0},
       n_b={0,-1,0},
@@ -614,14 +614,14 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
     Modelica.Mechanics.MultiBody.Parts.FixedTranslation Crank(animation=false, r={crankLength,0,0})
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}},
             rotation=0)));
-    Interfaces.Frame_a cylinder_a annotation (Placement(transformation(extent={
-              {-116,84},{-84,116}}, rotation=0)));
-    Interfaces.Frame_a cylinder_b annotation (Placement(transformation(extent={
-              {84,84},{116,116}}, rotation=0)));
-    Interfaces.Frame_a crank_a annotation (Placement(transformation(extent={{
-              -116,-116},{-84,-84}}, rotation=0)));
-    Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,
-              -116},{116,-84}}, rotation=0)));
+    Interfaces.Frame_a cylinder_a annotation (Placement(transformation(extent={{-116,84},
+              {-84,116}},           rotation=0)));
+    Interfaces.Frame_a cylinder_b annotation (Placement(transformation(extent={{84,84},
+              {116,116}},         rotation=0)));
+    Interfaces.Frame_a crank_a annotation (Placement(transformation(extent={{-116,
+              -116},{-84,-84}},      rotation=0)));
+    Interfaces.Frame_a crank_b annotation (Placement(transformation(extent={{84,-116},
+              {116,-84}},       rotation=0)));
   equation
 
     connect(jointRRP.frame_ia, Rod.frame_a) annotation (Line(
@@ -629,7 +629,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=0.5));
     connect(Mid.frame_b, jointRRP.frame_a) annotation (Line(
-        points={{-24,-20},{-1.22465e-015,-20},{-1.22465e-015,-8}},
+        points={{-24,-20},{0,-20},{0,-8}},
         color={95,95,95},
         thickness=0.5));
     connect(gasForce.flange_a, jointRRP.axis)
@@ -641,7 +641,7 @@ of the cylinder. If this assumption is not fulfilled, an error occurs.
         color={95,95,95},
         thickness=0.5));
     connect(jointRRP.frame_b, CylinderInclination.frame_b) annotation (Line(
-        points={{1.22465e-015,32},{1,32},{1,40},{-24,40}},
+        points={{0,32},{1,32},{1,40},{-24,40}},
         color={95,95,95},
         thickness=0.5));
     connect(CrankAngle.frame_b, Mid.frame_a) annotation (Line(

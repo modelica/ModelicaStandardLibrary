@@ -2568,7 +2568,7 @@ Implemented trace substances and missing equation for outflow of multi substance
               70,0},{2,0},{2,9},{2.66667,9}},
                                      color={0,127,255}));
       connect(pipe2.port_b, tank2.ports[2]) annotation (Line(
-          points={{6.12323e-016,-12},{0,-12},{0,9},{2.22045e-016,9}},
+          points={{0,-12},{0,9}},
           color={0,127,255},
           smooth=Smooth.None));
     end TanksWithEmptyingPipe2;

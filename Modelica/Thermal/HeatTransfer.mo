@@ -214,11 +214,10 @@ An approppriate simulating time would be 10 seconds.
             extent={{-10,-10},{10,10}},
             rotation=180)));
     equation
-      connect(windingLosses.port, winding.port)  annotation (Line(points={{-80,
-              0},{-80,-20}}, color={191,0,0}));
-      connect(coreLosses.port, core.port)  annotation (Line(points={{
-              -1.83697e-015,0},{-1.83697e-015,-10},{0,-10},{0,-20}},
-                                                                   color={191,0,
+      connect(windingLosses.port, winding.port)  annotation (Line(points={{-80,0},
+              {-80,-20}},    color={191,0,0}));
+      connect(coreLosses.port, core.port)  annotation (Line(points={{0,0},{0,
+              -10},{0,-20}},                                       color={191,0,
               0}));
       connect(winding.port, winding2core.port_a)
                                        annotation (Line(points={{-80,-20},{-80,
@@ -234,13 +233,13 @@ An approppriate simulating time would be 10 seconds.
                                           annotation (Line(points={{-30,-10},{
               30,-10}}, color={191,0,0}));
       connect(convection.fluid, environment.port) annotation (Line(points={{50,-10},
-              {60,-10},{60,-10},{70,-10}},      color={191,0,0}));
+              {60,-10},{70,-10}},               color={191,0,0}));
       connect(convectionConstant.y, convection.Gc)
         annotation (Line(points={{40,19},{40,0}}, color={0,0,127}));
-      connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{
-              -40,59},{-40,40},{-80,40},{-80,20}}, color={0,0,127}));
+      connect(lossTable.y[1], windingLosses.Q_flow) annotation (Line(points={{-40,59},
+              {-40,40},{-80,40},{-80,20}},         color={0,0,127}));
       connect(lossTable.y[2], coreLosses.Q_flow) annotation (Line(points={{-40,59},
-              {-40,40},{1.83697e-015,40},{1.83697e-015,20}},       color={0,0,
+              {-40,40},{0,40},{0,20}},                             color={0,0,
               127}));
       annotation (Documentation(info="<HTML>
 <p>

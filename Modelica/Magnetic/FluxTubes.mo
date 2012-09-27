@@ -250,18 +250,19 @@ end UsersGuide;
               {26,20}},
                       color={255,127,0}));
       connect(r_mAirPar.port_n, r_mFe.port_p) annotation (Line(points={{46,20},
-            {54,20},{54,20},{60,20}}, color={255,127,0}));
+              {54,20},{60,20}},       color={255,127,0}));
       connect(r_mFe.port_n, r_mLeak.port_n) annotation (Line(points={{60,0},{
-            47.5,0},{47.5,5.55112e-016},{35,5.55112e-016},{35,0},{10,0}}, color=
+              47.5,0},{35,0},{10,0}},                                     color=
            {255,127,0}));
       connect(r_mFe.port_n, coil.port_n) annotation (Line(points={{60,0},{-10,0},
-            {-10,4}}, color={255,127,0}));
+              {-10,4}},
+                      color={255,127,0}));
     connect(ground.p, source.n) annotation (Line(
         points={{-80,-10},{-80,0}},
         color={0,0,255},
         smooth=Smooth.None));
     connect(ground_m.port, r_mFe.port_n) annotation (Line(
-        points={{60,-10},{60,0},{60,0}},
+        points={{60,-10},{60,0}},
         color={255,127,0},
         smooth=Smooth.None));
       annotation (
@@ -656,8 +657,8 @@ Whereas the steady state current is the same in both models, the steady state ac
               extent={{-10,-10},{10,10}},
               rotation=270)));
 
-          Basic.Ground ground annotation (Placement(transformation(extent={{30,
-                  -38},{50,-18}}, rotation=0)));
+          Basic.Ground ground annotation (Placement(transformation(extent={{30,-38},
+                    {50,-18}},    rotation=0)));
           Modelica.Magnetic.FluxTubes.Basic.ElectroMagneticConverter coil(
                                         final N=N)
             annotation (Placement(transformation(
@@ -730,31 +731,39 @@ Whereas the steady state current is the same in both models, the steady state ac
             annotation (Line(points={{-80,40},{-80,60},{-100,60}}, color={0,0,
                 255}));
           connect(armature.flange_a,g_mb. flange) annotation (Line(points={{60,0},{
-                40,0},{40,-1.83697e-015}},     color={0,127,0}));
-          connect(g_mb.flange,g_ma. flange) annotation (Line(points={{40,
-                -1.83697e-015},{40,40},{-10,40},{-10,-1.83697e-015}}, color={0,
+                  40,0}},                      color={0,127,0}));
+          connect(g_mb.flange,g_ma. flange) annotation (Line(points={{40,0},{40,
+                  40},{-10,40},{-10,0}},                              color={0,
                 127,0}));
           connect(g_mLeak1.port_n, g_ma.port_n) annotation (Line(points={{-60,0},
-                {-60,-10},{-20,-10}}, color={255,127,0}));
+                  {-60,-10},{-20,-10}},
+                                      color={255,127,0}));
           connect(g_mLeak2.port_n, g_ma.port_n) annotation (Line(points={{-40,0},
-                {-40,-10},{-20,-10}}, color={255,127,0}));
+                  {-40,-10},{-20,-10}},
+                                      color={255,127,0}));
           connect(g_ma.port_n, coil.port_p) annotation (Line(points={{-20,-10},
-                {-18,-10},{-18,-12},{-14,-12},{-14,-10},{-6,-10}}, color={255,
+                  {-18,-10},{-18,-12},{-14,-12},{-14,-10},{-6,-10}},
+                                                                   color={255,
                 127,0}));
           connect(coil.port_n, g_mb.port_n) annotation (Line(points={{6,-10},{
-                30,-10}}, color={255,127,0}));
+                  30,-10}},
+                          color={255,127,0}));
           connect(g_mb.port_n, mmf_PM.port_p) annotation (Line(points={{30,-10},
-                {50,-10},{50,30},{10,30}}, color={255,127,0}));
+                  {50,-10},{50,30},{10,30}},
+                                           color={255,127,0}));
           connect(mmf_PM.port_p, g_mLeak2.port_p) annotation (Line(points={{10,30},
-                {-40,30},{-40,20}},     color={255,127,0}));
+                  {-40,30},{-40,20}},   color={255,127,0}));
           connect(mmf_PM.port_p, g_mLeak1.port_p) annotation (Line(points={{10,30},
-                {-60,30},{-60,20}},     color={255,127,0}));
+                  {-60,30},{-60,20}},   color={255,127,0}));
           connect(g_ma.port_p, mmf_PM.port_n) annotation (Line(points={{-20,10},
-                {10,10}}, color={255,127,0}));
+                  {10,10}},
+                          color={255,127,0}));
           connect(mmf_PM.port_n, g_mb.port_p) annotation (Line(points={{10,10},
-                {30,10}}, color={255,127,0}));
+                  {30,10}},
+                          color={255,127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-80,20},{-80,-30},{-6,
-                -30}}, color={0,0,255}));
+                  -30}},
+                       color={0,0,255}));
           connect(coil.n, n) annotation (Line(points={{6,-30},{6,-60},{-100,-60}},
               color={0,0,255}));
         connect(ground.port, g_mb.port_n) annotation (Line(
@@ -888,15 +897,15 @@ Both force components are properly considered with a simple permeance model as s
           connect(l.p,r. n)
             annotation (Line(points={{-60,60},{-70,60}}, color={0,0,255}));
           connect(armature.flange_b, flange) annotation (Line(points={{80,0},{
-                85,0},{85,1.16573e-015},{90,1.16573e-015},{90,0},{100,0}},
+                  85,0},{90,0},{100,0}},
               color={0,127,0}));
-          connect(l.n, electroTranslationalConverter.p) annotation (Line(points=
-               {{-40,60},{-30,60},{-30,10}}, color={0,0,255}));
-          connect(n, electroTranslationalConverter.n) annotation (Line(points={
-                {-100,-60},{-30,-60},{-30,-10}}, color={0,0,255}));
+          connect(l.n, electroTranslationalConverter.p) annotation (Line(points={{-40,60},
+                  {-30,60},{-30,10}},        color={0,0,255}));
+          connect(n, electroTranslationalConverter.n) annotation (Line(points={{-100,
+                  -60},{-30,-60},{-30,-10}},     color={0,0,255}));
           connect(electroTranslationalConverter.flange, armature.flange_a)
-            annotation (Line(points={{-20,0},{0,0},{0,-6.10623e-016},{20,
-                -6.10623e-016},{20,0},{60,0}}, color={0,127,0}));
+            annotation (Line(points={{-20,0},{0,0},{20,0},{60,0}},
+                                               color={0,127,0}));
           annotation (                               Icon(coordinateSystem(preserveAspectRatio=false,
                 extent={{-100,-100},{100,100}}), graphics={
               Rectangle(
@@ -1715,27 +1724,29 @@ The characteristic current drop during pull-in is due to both armature motion an
         equation
           x = flange.s;
           connect(r.p, p)      annotation (Line(points={{-70,-20},{-90,-20},{
-                -90,60},{-100,60}}, color={0,0,255}));
-          connect(armature.flange_b, flange)     annotation (Line(points={{84,0},
-                {88,0},{88,1.16573e-015},{92,1.16573e-015},{92,0},{100,0}},
+                  -90,60},{-100,60}},
+                                    color={0,0,255}));
+          connect(armature.flange_b, flange)     annotation (Line(points={{84,0},{
+                  88,0},{92,0},{100,0}},
               color={0,127,0}));
-          connect(armature.flange_a,g_mAirWork. flange) annotation (Line(points=
-               {{64,0},{34,0},{34,52},{-30,52},{-30,40}}, color={0,127,0}));
+          connect(armature.flange_a,g_mAirWork. flange) annotation (Line(points={{64,0},{
+                  34,0},{34,52},{-30,52},{-30,40}},       color={0,127,0}));
           connect(g_mAirWork.flange,g_mLeakWork. flange)
-                                                     annotation (Line(points={{
-                -30,40},{-30,52},{34,52},{34,80},{-30,80}}, color={0,127,0}));
+                                                     annotation (Line(points={{-30,40},
+                  {-30,52},{34,52},{34,80},{-30,80}},       color={0,127,0}));
           connect(r.n, coil.p) annotation (Line(points={{-50,-20},{-6,-20},{-6,
-                10}}, color={0,0,255}));
+                  10}},
+                      color={0,0,255}));
           connect(coil.n, n) annotation (Line(points={{6,10},{6,-60},{-100,-60}},
               color={0,0,255}));
           connect(coil.port_p, g_mAirWork.port_p) annotation (Line(points={{-6,30},
-                {-20,30}},     color={255,127,0}));
+                  {-20,30}},   color={255,127,0}));
           connect(g_mAirWork.port_p, g_mLeakWork.port_p) annotation (Line(
               points={{-20,30},{-20,70}}, color={255,127,0}));
           connect(g_mAirWork.port_n, g_mLeakWork.port_n) annotation (Line(
               points={{-40,30},{-40,70}}, color={255,127,0}));
-          connect(g_mFePole.port_p, g_mAirWork.port_n) annotation (Line(points=
-                {{-72,30},{-40,30}}, color={255,127,0}));
+          connect(g_mFePole.port_p, g_mAirWork.port_n) annotation (Line(points={{-72,30},
+                  {-40,30}},         color={255,127,0}));
           connect(g_mFePoleBot.port_p, g_mFePole.port_n) annotation (Line(
               points={{-72,70},{-72,50}}, color={255,127,0}));
           connect(g_mFePoleBot.port_n, g_mFeYokeSide.port_p) annotation (Line(
@@ -1744,18 +1755,18 @@ The characteristic current drop during pull-in is due to both armature motion an
               points={{10,90},{80,90}}, color={255,127,0}));
           connect(g_mFeYokeBot.port_p, g_mAirPar.port_n) annotation (Line(
               points={{80,70},{80,60}}, color={255,127,0}));
-          connect(g_mFeArm.port_p, g_mLeak2.port_p) annotation (Line(points={{
-                26,40},{40,40}}, color={255,127,0}));
-          connect(g_mLeak2.port_p, g_mLeak1.port_p) annotation (Line(points={{
-                40,40},{60,40}}, color={255,127,0}));
-          connect(g_mLeak1.port_p, g_mAirPar.port_p) annotation (Line(points={{
-                60,40},{80,40}}, color={255,127,0}));
-          connect(g_mLeak2.port_n, g_mLeak1.port_n) annotation (Line(points={{
-                40,60},{60,60}}, color={255,127,0}));
-          connect(g_mLeak1.port_n, g_mAirPar.port_n) annotation (Line(points={{
-                60,60},{80,60}}, color={255,127,0}));
+          connect(g_mFeArm.port_p, g_mLeak2.port_p) annotation (Line(points={{26,40},
+                  {40,40}},      color={255,127,0}));
+          connect(g_mLeak2.port_p, g_mLeak1.port_p) annotation (Line(points={{40,40},
+                  {60,40}},      color={255,127,0}));
+          connect(g_mLeak1.port_p, g_mAirPar.port_p) annotation (Line(points={{60,40},
+                  {80,40}},      color={255,127,0}));
+          connect(g_mLeak2.port_n, g_mLeak1.port_n) annotation (Line(points={{40,60},
+                  {60,60}},      color={255,127,0}));
+          connect(g_mLeak1.port_n, g_mAirPar.port_n) annotation (Line(points={{60,60},
+                  {80,60}},      color={255,127,0}));
           connect(g_mFeArm.port_n, coil.port_n) annotation (Line(points={{6,40},{
-                6,35},{6,30},{6,30}},  color={255,127,0}));
+                  6,35},{6,30}},       color={255,127,0}));
         connect(ground.port, g_mLeak1.port_p) annotation (Line(
             points={{60,30},{60,40}},
             color={255,127,0},
@@ -2111,78 +2122,85 @@ During model-based actuator design, the radii and lengths of the flux tube eleme
           x = flange.s;
           Psi_tot = coil1.Psi + coil2.Psi;
           L_statTot = coil1.L_stat + coil2.L_stat;
-          connect(armature.flange_b, flange)     annotation (Line(points={{84,0},
-                {88,0},{88,1.16573e-015},{92,1.16573e-015},{92,0},{100,0}},
+          connect(armature.flange_b, flange)     annotation (Line(points={{84,0},{
+                  88,0},{92,0},{100,0}},
               color={0,127,0}));
           connect(r_par1.n,c_par1. p)
                                    annotation (Line(points={{-64,-40},{-60,-40}},
               color={0,0,255}));
           connect(r_par1.p, r_1.p)      annotation (Line(points={{-84,-40},{-84,
-                -20}}, color={0,0,255}));
+                  -20}},
+                       color={0,0,255}));
           connect(c_par2.p,r_par2. n)
                                    annotation (Line(points={{16,-40},{12,-40}},
               color={0,0,255}));
           connect(r_par2.p, r_2.p)      annotation (Line(points={{-8,-40},{-8,
-                -20}}, color={0,0,255}));
+                  -20}},
+                       color={0,0,255}));
           connect(r_1.p, p)     annotation (Line(points={{-84,-20},{-92,-20},{
-                -92,60},{-100,60}}, color={0,0,255}));
+                  -92,60},{-100,60}},
+                                    color={0,0,255}));
           connect(g_mLeakWork.flange,g_mAirWork. flange) annotation (Line(
               points={{-20,74},{-6,74},{-6,40},{-20,40}}, color={0,127,0}));
-          connect(g_mAirWork.flange, armature.flange_a) annotation (Line(points=
-               {{-20,40},{-6,40},{-6,0},{64,0}}, color={0,127,0}));
+          connect(g_mAirWork.flange, armature.flange_a) annotation (Line(points={{-20,40},
+                  {-6,40},{-6,0},{64,0}},        color={0,127,0}));
           connect(n,c_par2. n) annotation (Line(points={{-100,-60},{36,-60},{36,
-                -40}}, color={0,0,255}));
-          connect(coil2.port_p, g_mFeArm.port_p) annotation (Line(points={{24,
-                30},{20,30}}, color={255,127,0}));
-          connect(G_mLeakRad.port_p, g_mFeArm.port_n) annotation (Line(points={{
-                -6.12323e-016,46},{0,46},{0,30}},  color={255,127,0}));
-          connect(g_mAirWork.port_p, g_mFeArm.port_n) annotation (Line(points={
-                {-10,30},{0,30}}, color={255,127,0}));
-          connect(coil1.port_n, g_mAirWork.port_n) annotation (Line(points={{
-                -40,30},{-30,30}}, color={255,127,0}));
+                  -40}},
+                       color={0,0,255}));
+          connect(coil2.port_p, g_mFeArm.port_p) annotation (Line(points={{24,30},
+                  {20,30}},   color={255,127,0}));
+          connect(G_mLeakRad.port_p, g_mFeArm.port_n) annotation (Line(points={{0,46},{
+                  0,46},{0,30}},                   color={255,127,0}));
+          connect(g_mAirWork.port_p, g_mFeArm.port_n) annotation (Line(points={{-10,30},
+                  {0,30}},        color={255,127,0}));
+          connect(coil1.port_n, g_mAirWork.port_n) annotation (Line(points={{-40,30},
+                  {-30,30}},       color={255,127,0}));
           connect(g_mAirWork.port_n, g_mLeakWork.port_n) annotation (Line(
               points={{-30,30},{-30,64}}, color={255,127,0}));
           connect(g_mLeakWork.port_p, g_mAirWork.port_p) annotation (Line(
               points={{-10,64},{-10,30}}, color={255,127,0}));
-          connect(coil1.port_p, g_mFePole.port_p) annotation (Line(points={{-52,
-                30},{-58,30}}, color={255,127,0}));
+          connect(coil1.port_p, g_mFePole.port_p) annotation (Line(points={{-52,30},
+                  {-58,30}},   color={255,127,0}));
           connect(g_mFePole.port_n, g_mFePoleBot.port_p) annotation (Line(
               points={{-78,30},{-78,46}}, color={255,127,0}));
           connect(g_mFePoleBot.port_n, g_mFeYokeSide1.port_p) annotation (Line(
               points={{-78,66},{-78,80},{-50,80}}, color={255,127,0}));
           connect(g_mFeYokeSide1.port_n, G_mLeakRad.port_n) annotation (Line(
-              points={{-30,80},{6.12323e-016,80},{6.12323e-016,66}}, color={255,
+              points={{-30,80},{0,80},{0,66}},                       color={255,
                 127,0}));
           connect(g_mFeYokeSide1.port_n, g_mFeYokeSide2.port_p) annotation (Line(
               points={{-30,80},{20,80}}, color={255,127,0}));
           connect(g_mFeYokeSide2.port_n, g_mFeYokeBot.port_n) annotation (Line(
               points={{40,80},{74,80}}, color={255,127,0}));
-          connect(coil2.port_n, g_mLeak2.port_p) annotation (Line(points={{36,
-                30},{46,30}}, color={255,127,0}));
-          connect(g_mLeak2.port_p, g_mLeak1.port_p) annotation (Line(points={{
-                46,30},{60,30}}, color={255,127,0}));
-          connect(g_mLeak1.port_p, g_mAirPar.port_p) annotation (Line(points={{
-                60,30},{74,30}}, color={255,127,0}));
-          connect(g_mAirPar.port_p, g_mLeak3.port_p) annotation (Line(points={{
-                74,30},{88,30}}, color={255,127,0}));
-          connect(g_mLeak2.port_n, g_mLeak1.port_n) annotation (Line(points={{
-                46,50},{60,50}}, color={255,127,0}));
-          connect(g_mLeak1.port_n, g_mAirPar.port_n) annotation (Line(points={{
-                60,50},{74,50}}, color={255,127,0}));
-          connect(g_mAirPar.port_n, g_mLeak3.port_n) annotation (Line(points={{
-                74,50},{88,50}}, color={255,127,0}));
+          connect(coil2.port_n, g_mLeak2.port_p) annotation (Line(points={{36,30},
+                  {46,30}},   color={255,127,0}));
+          connect(g_mLeak2.port_p, g_mLeak1.port_p) annotation (Line(points={{46,30},
+                  {60,30}},      color={255,127,0}));
+          connect(g_mLeak1.port_p, g_mAirPar.port_p) annotation (Line(points={{60,30},
+                  {74,30}},      color={255,127,0}));
+          connect(g_mAirPar.port_p, g_mLeak3.port_p) annotation (Line(points={{74,30},
+                  {88,30}},      color={255,127,0}));
+          connect(g_mLeak2.port_n, g_mLeak1.port_n) annotation (Line(points={{46,50},
+                  {60,50}},      color={255,127,0}));
+          connect(g_mLeak1.port_n, g_mAirPar.port_n) annotation (Line(points={{60,50},
+                  {74,50}},      color={255,127,0}));
+          connect(g_mAirPar.port_n, g_mLeak3.port_n) annotation (Line(points={{74,50},
+                  {88,50}},      color={255,127,0}));
           connect(g_mFeYokeBot.port_p, g_mAirPar.port_n) annotation (Line(
               points={{74,60},{74,50}}, color={255,127,0}));
           connect(coil2.p, r_2.n) annotation (Line(points={{24,10},{24,-20},{12,
-                -20}}, color={0,0,255}));
+                  -20}},
+                       color={0,0,255}));
           connect(coil2.n, c_par2.n) annotation (Line(points={{36,10},{36,-40}},
               color={0,0,255}));
           connect(coil1.n, c_par1.n) annotation (Line(points={{-40,10},{-40,-40}},
               color={0,0,255}));
           connect(coil1.n, r_2.p) annotation (Line(points={{-40,10},{-40,-20},{
-                -8,-20}}, color={0,0,255}));
+                  -8,-20}},
+                          color={0,0,255}));
           connect(r_1.n, coil1.p) annotation (Line(points={{-64,-20},{-52,-20},
-                {-52,10}}, color={0,0,255}));
+                  {-52,10}},
+                           color={0,0,255}));
         connect(ground.port, g_mLeak2.port_p) annotation (Line(
             points={{52,22},{52,30},{46,30}},
             color={255,127,0},
@@ -2352,9 +2370,9 @@ The differences between these two models in static behaviour can be analysed and
         connect(stopper_xMax.flange_a, mass.flange_b)
           annotation (Line(points={{50,-20},{40,-20},{40,0},{10,0}}, color={0,
               127,0}));
-        connect(mass.flange_a, flange_a)         annotation (Line(points={{-10,
-              0},{-32.5,0},{-32.5,1.16573e-015},{-55,1.16573e-015},{-55,0},{
-              -100,0}}, color={0,127,0}));
+        connect(mass.flange_a, flange_a)         annotation (Line(points={{-10,0},
+                {-32.5,0},{-55,0},{-100,0}},
+                        color={0,127,0}));
         connect(limit_xMin.flange,   stopper_xMin.flange_a) annotation (Line(
             points={{-70,-40},{-70,-20}}, color={0,127,0}));
         connect(flange_b, mass.flange_b) annotation (Line(points={{100,0},{10,0}},

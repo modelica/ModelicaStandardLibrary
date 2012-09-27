@@ -1035,8 +1035,8 @@ phi_b.start = 45<sup>o</sup>).
     Prismatic prismatic_x(
       stateSelect=StateSelect.never,
       n=(cross(cross(n, n_x), n)),
-      animation=false) annotation (Placement(transformation(extent={{-69,-20},
-              {-29,20}}, rotation=0)));
+      animation=false) annotation (Placement(transformation(extent={{-69,-20},{
+              -29,20}},  rotation=0)));
     Prismatic prismatic_y(
       stateSelect=StateSelect.never,
       n=(cross(n, n_x)),
@@ -1094,8 +1094,8 @@ phi_b.start = 45<sup>o</sup>).
       each lengthDirection=prismatic_y.e,
       each widthDirection={1,0,0},
       each r=prismatic_y.frame_a.r_0,
-      each R=prismatic_y.frame_a.R) annotation (Placement(transformation(extent=
-             {{-46,69},{-26,89}}, rotation=0)));
+      each R=prismatic_y.frame_a.R) annotation (Placement(transformation(extent={{-46,69},
+              {-26,89}},          rotation=0)));
     Visualizers.Advanced.Shape cylinder[ndim](
       each shapeType="cylinder",
       each color=cylinderColor,
@@ -1106,8 +1106,8 @@ phi_b.start = 45<sup>o</sup>).
       each widthDirection={0,1,0},
       each r_shape=-e*(cylinderLength/2),
       each r=revolute.frame_b.r_0,
-      each R=revolute.frame_b.R) annotation (Placement(transformation(extent={{
-              50,30},{70,50}}, rotation=0)));
+      each R=revolute.frame_b.R) annotation (Placement(transformation(extent={{50,30},
+              {70,50}},        rotation=0)));
   equation
     s_x = prismatic_x.s;
     s_y = prismatic_y.s;
@@ -1121,20 +1121,20 @@ phi_b.start = 45<sup>o</sup>).
 
     connect(frame_a, prismatic_x.frame_a)
       annotation (Line(
-        points={{-100,0},{-69,0}},
+        points={{-100,4.44089e-16},{-84,4.44089e-16},{-84,0},{-69,0}},
         color={95,95,95},
         thickness=0.5));
     connect(prismatic_x.frame_b, prismatic_y.frame_a) annotation (Line(
-        points={{-29,0},{-1.22465e-015,0},{-1.22465e-015,30}},
+        points={{-29,0},{0,0},{0,30}},
         color={95,95,95},
         thickness=0.5));
     connect(prismatic_y.frame_b, revolute.frame_a) annotation (Line(
-        points={{1.22465e-015,70},{0,80},{30,80},{30,0},{41,0}},
+        points={{0,70},{0,80},{30,80},{30,0},{41,0}},
         color={95,95,95},
         thickness=0.5));
     connect(revolute.frame_b, frame_b)
       annotation (Line(
-        points={{81,0},{100,0}},
+        points={{81,0},{92,0},{92,4.44089e-16},{100,4.44089e-16}},
         color={95,95,95},
         thickness=0.5));
     annotation (
@@ -3249,11 +3249,11 @@ the origin of frame_a to the middle of the rod, this might be defined as:
     connect(idealGear.flange_b, actuatedRevolute_b.axis)
       annotation (Line(points={{10,40},{50,40},{50,10}}, color={0,0,0}));
     connect(actuatedRevolute_a.frame_a,fixedTranslation2. frame_b) annotation (Line(
-        points={{-40,0},{-35,0},{-35,1.22465e-015},{-30,1.22465e-015}},
+        points={{-40,0},{-35,0},{-30,0}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedTranslation2.frame_a, bearing) annotation (Line(
-        points={{-10,-1.22465e-015},{-4,-1.22465e-015},{-4,0},{0,0},{0,-100}},
+        points={{-10,0},{-4,0},{0,0},{0,-100}},
         color={95,95,95},
         thickness=0.5));
     connect(fixedTranslation1.frame_a, bearing)
@@ -3268,12 +3268,12 @@ the origin of frame_a to the middle of the rod, this might be defined as:
         thickness=0.5));
     connect(frame_a, actuatedRevolute_a.frame_b)
       annotation (Line(
-        points={{-100,0},{-60,0}},
+        points={{-100,4.44089e-16},{-80,4.44089e-16},{-80,0},{-60,0}},
         color={95,95,95},
         thickness=0.5));
     connect(actuatedRevolute_b.frame_b, frame_b)
       annotation (Line(
-        points={{60,0},{100,0}},
+        points={{60,0},{80,0},{80,4.44089e-16},{100,4.44089e-16}},
         color={95,95,95},
         thickness=0.5));
     annotation (
@@ -3574,8 +3574,8 @@ November 3-4, 2003, pp. 149-158</p>
       Modelica.Mechanics.MultiBody.Parts.Mounting1D mounting1D
         annotation (Placement(transformation(extent={{-10,38},{10,58}})));
       Modelica.Mechanics.Rotational.Interfaces.Flange_b support
-      "Support of 1D axes"   annotation (Placement(transformation(extent={{-10,
-                70},{10,90}}), iconTransformation(extent={{-10,70},{10,90}})));
+      "Support of 1D axes"   annotation (Placement(transformation(extent={{-10,70},
+              {10,90}}),       iconTransformation(extent={{-10,70},{10,90}})));
     equation
       prismatic1.s  = x;
       prismatic2.s  = y;
@@ -3586,7 +3586,7 @@ November 3-4, 2003, pp. 149-158</p>
       der_theta2 = der(theta2);
 
       connect(revolute.frame_b, frameMiddle) annotation (Line(
-          points={{6.12323e-016,-12},{0,-12},{0,0}},
+          points={{0,-12},{0,0}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
@@ -3621,18 +3621,17 @@ November 3-4, 2003, pp. 149-158</p>
           thickness=0.5,
           smooth=Smooth.None));
       connect(prismatic1.frame_a, fixed.frame_b) annotation (Line(
-          points={{-6.12323e-016,-76},{6.12323e-016,-76},{6.12323e-016,-80}},
+          points={{0,-76},{0,-80}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(prismatic1.frame_b, prismatic2.frame_a) annotation (Line(
-          points={{6.12323e-016,-56},{6.12323e-016,-50},{-14,-50}},
+          points={{0,-56},{0,-50},{-14,-50}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
       connect(prismatic2.frame_b, revolute.frame_a) annotation (Line(
-          points={{-34,-50},{-40,-50},{-40,-36},{-6.12323e-016,-36},{
-            -6.12323e-016,-32}},
+          points={{-34,-50},{-40,-50},{-40,-36},{0,-36},{0,-32}},
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));

@@ -49,7 +49,7 @@ model CauerLowPassOPV "Cauer low pass filter with operational amplifiers"
     annotation (Placement(transformation(extent={{-100,-70},{-60,-30}},
           rotation=0)));
   Modelica.Electrical.Analog.Ideal.IdealOpAmp3Pin Op3
-    annotation (Placement(transformation(extent={{6,-70},{46,-30}}, rotation=0)));
+    annotation (Placement(transformation(extent={{4,-72},{46,-30}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Ground G1
     annotation (Placement(transformation(extent={{-87,-96},{-73,-80}}, rotation=
            0)));
@@ -181,8 +181,8 @@ equation
   connect(C2.n, n1) annotation (Line(points={{-220,-80},{-212,-80},{-212,-40}},
         color={0,0,255}));
   connect(R2.n, n2)
-    annotation (Line(points={{-220,0},{-218,0},{-218,6.52256e-016},{-216,6.52256e-016},
-          {-216,0},{-212,0}},                    color={0,0,255}));
+    annotation (Line(points={{-220,0},{-218,0},{-216,0},{-212,0}},
+                                                 color={0,0,255}));
   connect(n1, n2)
     annotation (Line(points={{-212,-40},{-212,0}}, color={0,0,255}));
   connect(n2, n3)
@@ -217,20 +217,20 @@ equation
     annotation (Line(points={{-70,20},{-60,20}}, color={0,0,255}));
   connect(n6, Op2.out)
     annotation (Line(points={{-60,20},{-60,-50}}, color={0,0,255}));
-  connect(R2.p, n6) annotation (Line(points={{-240,0},{-240,80},{-60,80},{-60,20}},
-                color={0,0,255}));
+  connect(R2.p, n6) annotation (Line(points={{-240,0},{-240,80},{-60,80},{-60,
+          20}}, color={0,0,255}));
   connect(Op2.out, R7.p)
     annotation (Line(points={{-60,-50},{-31,-50}}, color={0,0,255}));
   connect(R7.n, n7)
     annotation (Line(points={{-11,-50},{-4,-50}}, color={0,0,255}));
-  connect(n7, Op3.in_n) annotation (Line(points={{-4,-50},{-4,-40},{6,-40}},
+  connect(n7, Op3.in_n) annotation (Line(points={{-4,-50},{-4,-40.5},{4,-40.5}},
         color={0,0,255}));
   connect(C5.n, n7) annotation (Line(points={{-10,-110},{-4,-110},{-4,-50}},
         color={0,0,255}));
   connect(R6.n, n8)
-    annotation (Line(points={{-11,0},{-9.25,0},{-9.25,6.52256e-016},{-7.5,6.52256e-016},
-          {-7.5,0},{-4,0}},                   color={0,0,255}));
-  connect(n7, n8) annotation (Line(points={{-4,-50},{-4,0},{-4,0}}, color={0,0,
+    annotation (Line(points={{-11,0},{-9.25,0},{-7.5,0},{-4,0}},
+                                              color={0,0,255}));
+  connect(n7, n8) annotation (Line(points={{-4,-50},{-4,0}},        color={0,0,
           255}));
   connect(C6.p, p2)
     annotation (Line(points={{9,20},{-4,20}}, color={0,0,255}));
@@ -238,12 +238,13 @@ equation
     annotation (Line(points={{-4,0},{-4,20}}, color={0,0,255}));
   connect(C4.n, p2) annotation (Line(points={{-10,40},{-4,40},{-4,20}}, color={
           0,0,255}));
-  connect(C6.n, Op3.out) annotation (Line(points={{29,20},{46,20},{46,-50}},
+  connect(C6.n, Op3.out) annotation (Line(points={{29,20},{46,20},{46,-51}},
         color={0,0,255}));
   connect(R9.p, Op3.out)
-    annotation (Line(points={{60,-50},{46,-50}}, color={0,0,255}));
+    annotation (Line(points={{60,-50},{54,-50},{54,-51},{46,-51}},
+                                                 color={0,0,255}));
   connect(Op3.out, out1)
-    annotation (Line(points={{46,-50},{46,-140}}, color={0,0,255}));
+    annotation (Line(points={{46,-51},{46,-140}}, color={0,0,255}));
   connect(p1, out1) annotation (Line(points={{-151,-140},{46,-140}}, color={0,0,
           255}));
   connect(out1, C8.p) annotation (Line(points={{46,-140},{160,-140}}, color={0,
@@ -253,8 +254,8 @@ equation
   connect(p3, R8.p)
     annotation (Line(points={{60,60},{60,0}}, color={0,0,255}));
   connect(R8.n, n9)
-    annotation (Line(points={{80,0},{82,0},{82,6.52256e-016},{84,6.52256e-016},{
-          84,0},{88,0}},                     color={0,0,255}));
+    annotation (Line(points={{80,0},{82,0},{84,0},{88,0}},
+                                             color={0,0,255}));
   connect(n9, n10)
     annotation (Line(points={{88,0},{88,-50}}, color={0,0,255}));
   connect(R9.n, n10)
@@ -271,22 +272,22 @@ equation
     annotation (Line(points={{140,20},{140,-50}}, color={0,0,255}));
   connect(Op4.out, R10.p)
     annotation (Line(points={{140,-50},{160,-50}}, color={0,0,255}));
-  connect(G2.p, Op3.in_p) annotation (Line(points={{19,-80},{6,-80},{6,-60}},
+  connect(G2.p, Op3.in_p) annotation (Line(points={{19,-80},{4,-80},{4,-61.5}},
         color={0,0,255}));
   connect(R11.n, n12)
     annotation (Line(points={{229,40},{240,40}}, color={0,0,255}));
   connect(p3, n12) annotation (Line(points={{60,60},{240,60},{240,40}}, color={
           0,0,255}));
   connect(C9.n, n13)
-    annotation (Line(points={{228,0},{231,0},{231,6.52256e-016},{234,6.52256e-016},
-          {234,0},{240,0}},                    color={0,0,255}));
+    annotation (Line(points={{228,0},{231,0},{234,0},{240,0}},
+                                               color={0,0,255}));
   connect(n12, n13)
     annotation (Line(points={{240,40},{240,0}}, color={0,0,255}));
   connect(n13, Op5.out)
     annotation (Line(points={{240,0},{240,-50}}, color={0,0,255}));
   connect(C9.p, p4)
-    annotation (Line(points={{208,0},{203.75,0},{203.75,6.52256e-016},{199.5,6.52256e-016},
-          {199.5,0},{191,0}},                  color={0,0,255}));
+    annotation (Line(points={{208,0},{203.75,0},{199.5,0},{191,0}},
+                                               color={0,0,255}));
   connect(R11.p, p4) annotation (Line(points={{209,40},{191,40},{191,0}}, color=
          {0,0,255}));
   connect(R10.n, n14)

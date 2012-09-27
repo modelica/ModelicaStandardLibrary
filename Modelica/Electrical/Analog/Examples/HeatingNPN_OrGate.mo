@@ -156,12 +156,12 @@ equation
   connect(C1.p, R1.n)
                     annotation (Line(points={{-70,48},{-70,58}}, color={0,0,255}));
   connect(Gnd5.p, C3.n)
-  annotation (Line(points={{-16,-56},{-16,-50},{-16,-50}}, color={0,0,255}));
+  annotation (Line(points={{-16,-56},{-16,-50}},           color={0,0,255}));
   connect(T1.B, R1.n)
   annotation (Line(points={{-20,58},{-70,58}}, color={0,0,255}));
   connect(T1.E, Gnd3.p)
-  annotation (Line(points={{0,53},{0,48.75},{1.05471e-015,48.75},{1.05471e-015,44.5},
-          {0,44.5},{0,36}},                color={0,0,255}));
+  annotation (Line(points={{0,53},{0,48.75},{0,44.5},{0,36}},
+                                           color={0,0,255}));
   connect(RI.p, T1.C)
                     annotation (Line(points={{60,68},{30,68},{30,63},{0,63}},
         color={0,0,255}));

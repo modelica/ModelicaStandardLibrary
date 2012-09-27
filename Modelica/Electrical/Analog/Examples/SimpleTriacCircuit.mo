@@ -3,24 +3,24 @@ model SimpleTriacCircuit "Simple triac test circuit"
   extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Basic.Ground ground
-    annotation (Placement(transformation(extent={{-30,-40},{-10,-20}})));
+    annotation (Placement(transformation(extent={{-10,-60},{10,-40}})));
   Modelica.Electrical.Analog.Basic.Inductor L(L=2e-6, UIC=true)
-    annotation (Placement(transformation(extent={{10,60},{30,80}})));
+    annotation (Placement(transformation(extent={{20,50},{40,70}})));
   Modelica.Electrical.Analog.Basic.Resistor R(R=10)         annotation (
       Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={40,48})));
+        origin={60,30})));
   Modelica.Electrical.Analog.Sources.SineVoltage V(V=30, freqHz=10000)
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={40,2})));
+        origin={60,-10})));
   Modelica.Electrical.Analog.Semiconductors.SimpleTriac simpleTriac(VDRM=400, VRRM=400)
                           annotation (Placement(transformation(
         extent={{-13,-13},{11,11}},
         rotation=270,
-        origin={-19,43})));
+        origin={1,23})));
   Modelica.Electrical.Analog.Sources.PulseCurrent pulseCurrent(
     I=0.005,
     width=10,
@@ -29,38 +29,38 @@ model SimpleTriacCircuit "Simple triac test circuit"
                 annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=90,
-        origin={-66,28})));
+        origin={-40,-10})));
 
 initial equation
      simpleTriac.thyristor.vControl=0;
     simpleTriac.thyristor1.vControl=0;
 equation
   connect(L.n, R.p)               annotation (Line(
-      points={{30,70},{40,70},{40,58}},
+      points={{40,60},{60,60},{60,40}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(R.n, V.p)                  annotation (Line(
-      points={{40,38},{40,12}},
+      points={{60,20},{60,0}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(V.n, ground.p)           annotation (Line(
-      points={{40,-8},{40,-20},{-20,-20}},
+      points={{60,-20},{60,-40},{0,-40}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(simpleTriac.p, ground.p) annotation (Line(
-      points={{-20,31.52},{-20,5.76},{-20,5.76},{-20,-20}},
+      points={{0,11.52},{0,-40}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(simpleTriac.n, L.p)        annotation (Line(
-      points={{-20,56},{-20,70},{10,70}},
+      points={{0,36},{0,60},{20,60}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(pulseCurrent.n, simpleTriac.g) annotation (Line(
-      points={{-66,38},{-58,38},{-58,51.44},{-31.52,51.44}},
+      points={{-40,0},{-40,40},{-11.52,40},{-11.52,31.44}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(pulseCurrent.p, ground.p) annotation (Line(
-      points={{-66,18},{-66,-20},{-20,-20}},
+      points={{-40,-20},{-40,-40},{0,-40}},
       color={0,0,255},
       smooth=Smooth.None));
   annotation (    experiment(

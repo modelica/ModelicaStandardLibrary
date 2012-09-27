@@ -541,7 +541,8 @@ motion on the controlBus of the r3 robot.
       parameter Integer naxis=6 "number of driven axis";
       parameter Real angleBegDeg[naxis](each unit="deg") = zeros(naxis)
         "Start angles";
-      parameter Real angleEndDeg[naxis](each unit="deg") = ones(naxis) "End angles";
+      parameter Real angleEndDeg[naxis](each unit="deg") = ones(naxis)
+        "End angles";
       parameter SI.AngularVelocity speedMax[naxis]=fill(3, naxis)
         "Maximum axis speed";
       parameter SI.AngularAcceleration accMax[naxis]=fill(2.5, naxis)
@@ -1190,11 +1191,11 @@ Default values for all parameters are given for joint 4.
         annotation (Placement(transformation(extent={{60,-120},{100,-80}},
               rotation=0)));
       Blocks.Math.Gain convert1(k=1)
-                                annotation (Placement(transformation(extent={{
-                -30,-56},{-42,-44}}, rotation=0)));
+                                annotation (Placement(transformation(extent={{-30,-56},
+                {-42,-44}},          rotation=0)));
       Blocks.Math.Gain convert2(k=1)
-                                annotation (Placement(transformation(extent={{
-                -30,-101},{-42,-89}}, rotation=0)));
+                                annotation (Placement(transformation(extent={{-30,
+                -101},{-42,-89}},     rotation=0)));
     initial equation
       // initialize motor in steady state
       der(C.v) = 0;
@@ -1229,11 +1230,10 @@ Default values for all parameters are given for joint 4.
       connect(Rd4.n, g3.p) annotation (Line(points={{-40,-7},{-24,-7}}));
       connect(g3.p, OpI.p1) annotation (Line(points={{-24,-7},{-24,15},{-14,15}}));
       connect(g5.p, Rp2.n)
-        annotation (Line(points={{11,83},{11,81.5},{11,81.5},{11,80}}));
+        annotation (Line(points={{11,83},{11,81.5},{11,80}}));
       connect(emf.n, hall1.p)
         annotation (Line(points={{56,-10},{56,-24},{16,-24},{16,-40}}));
-      connect(hall1.n, g4.p) annotation (Line(points={{16,-60},{16,-62},{16,-62},
-              {16,-64}}));
+      connect(hall1.n, g4.p) annotation (Line(points={{16,-60},{16,-62},{16,-64}}));
       connect(emf.flange, phi.flange)
         annotation (Line(points={{66,0},{66,-30},{76,-30}}, pattern=LinePattern.Dot));
       connect(emf.flange, speed.flange)
@@ -1258,13 +1258,13 @@ Default values for all parameters are given for joint 4.
               {-10,-95},{80,-95},{80,-100}}, color={0,0,127}));
       connect(hall1.i, convert1.u) annotation (Line(points={{6,-50},{-28.8,-50}},
             color={0,0,127}));
-      connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-63,-50}},
-                     color={0,0,127}));
+      connect(convert1.y, hall2.v) annotation (Line(points={{-42.6,-50},{-63,
+              -50}}, color={0,0,127}));
       connect(convert2.u, axisControlBus.current_ref)
                                            annotation (Line(points={{-28.8,-95},
               {80,-95},{80,-100}}, color={0,0,127}));
       connect(convert2.y, Vs.v) annotation (Line(points={{-42.6,-95},{-108,-95},
-              {-108,1.28588e-015},{-97,1.28588e-015}}, color={0,0,127}));
+              {-108,0},{-97,0}},                       color={0,0,127}));
       connect(emf.flange, Jmotor.flange_a) annotation (Line(
           points={{66,0},{70,0}},
           color={0,0,0},

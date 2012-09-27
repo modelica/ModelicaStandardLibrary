@@ -1756,16 +1756,16 @@ buttons:
       connect(transition3.inPort, Alternative1.split[1]) annotation (Line(
               points={{-58,60},{-77.42,60}}, color={0,0,0}));
       connect(transition4.inPort, Alternative1.split[2]) annotation (Line(
-              points={{-58,0},{-67.975,0},{-67.975,-7.10543e-015},{-77.42,
-                -7.10543e-015}}, color={0,0,0}));
+              points={{-58,0},{-67.975,0},{-77.42,0}},
+                                 color={0,0,0}));
       connect(transition4a.inPort, Alternative1.split[3]) annotation (Line(
               points={{-58,-60},{-67.975,-60},{-77.42,-60}},
               color={0,0,0}));
       connect(transition5.outPort, Alternative1.join[1]) annotation (Line(
               points={{47.5,60},{77.42,60}}, color={0,0,0}));
       connect(transition6.outPort, Alternative1.join[2]) annotation (Line(
-              points={{47.5,0},{60.725,0},{60.725,-7.10543e-015},{77.42,
-                -7.10543e-015}}, color={0,0,0}));
+              points={{47.5,0},{60.725,0},{77.42,0}},
+                                 color={0,0,0}));
       connect(transition6a.outPort, Alternative1.join[3]) annotation (Line(
               points={{47.5,-60},{60.725,-60},{77.42,-60}},              color=
                 {0,0,0}));

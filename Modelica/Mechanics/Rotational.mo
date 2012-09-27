@@ -1487,7 +1487,8 @@ elements of the drive train and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.0001));
+        experiment(StopTime=1.0, Interval=0.0001),
+        Diagram(coordinateSystem(extent={{-120,-100},{180,140}})));
     end HeatLosses;
 
     model SimpleGearShift "Simple Gearshift"
@@ -3771,8 +3772,8 @@ in the flanges, are along the axis vector displayed in the icon.
         annotation (Line(points={{-100,0},{-90,0},{-90,1.77636e-015},{-80,
               1.77636e-015},{-80,0},{-60,0}},       color={0,0,0}));
       connect(lossyGear.flange_b, elastoBacklash.flange_a)
-        annotation (Line(points={{-20,0},{-10,0},{-10,2.4425e-015},{0,
-              2.4425e-015},{0,0},{20,0}},         color={0,0,0}));
+        annotation (Line(points={{-20,0},{-10,0},{0,0},{20,0}},
+                                                  color={0,0,0}));
       connect(elastoBacklash.flange_b, flange_b)
         annotation (Line(points={{60,0},{70,0},{70,1.77636e-015},{80,
               1.77636e-015},{80,0},{100,0}},      color={0,0,0}));
@@ -4123,13 +4124,11 @@ no rolling resistance. This component defines the kinematic constraint:
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.flange, flange) annotation (Line(
-          points={{0,0},{25,0},{25,1.16573e-015},{50,1.16573e-015},{50,0},{100,
-              0}},
+          points={{0,0},{100,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(set_w_start.w_start, w_start) annotation (Line(
-          points={{-22,0},{-46.5,0},{-46.5,1.77636e-015},{-71,1.77636e-015},{
-              -71,0},{-120,0}},
+          points={{-22,0},{-120,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(set_a_start.a_start, a_start) annotation (Line(
@@ -5721,8 +5720,7 @@ and instead the component is internally fixed to ground.
         annotation (Placement(transformation(extent={{10,-97},{30,-77}})));
     equation
       connect(support, internalSupport) annotation (Line(
-          points={{0,-100},{0,-95},{4.4409e-016,-95},{4.4409e-016,-90},{0,-90},
-              {0,-80}},
+          points={{0,-100},{0,-80}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(internalSupport, fixed.flange) annotation (Line(

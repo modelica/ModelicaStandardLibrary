@@ -1262,7 +1262,8 @@ elements and transported to the environment
 is present in variable convection.fluid.
 </p>
 </html>"),
-        experiment(StopTime=2.0, Interval=0.001));
+        experiment(StopTime=2.0, Interval=0.001),
+        Diagram(coordinateSystem(extent={{-120,-100},{200,100}})));
     end HeatLosses;
 
     package Utilities "Utility classes used by the Example models"

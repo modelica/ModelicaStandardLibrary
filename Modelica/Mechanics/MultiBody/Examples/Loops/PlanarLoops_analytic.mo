@@ -117,7 +117,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(jointRRR1.frame_ia, body1.frame_a) annotation (Line(
-      points={{3.55271e-015,16},{6,16},{6,50}},
+      points={{0,16},{6,16},{6,50}},
       color={95,95,95},
       thickness=0.5));
   connect(rod3.frame_a, rod2.frame_b)
@@ -134,7 +134,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(jointRRR1.frame_im, jointRRR2.frame_a) annotation (Line(
-      points={{0,-3.67394e-015},{12,-3.67394e-015},{12,25},{30,25},{30,20}},
+      points={{0,0},{12,0},{12,25},{30,25},{30,20}},
       color={95,95,95},
       thickness=0.5));
   connect(rod3.frame_b, rod4.frame_a)
@@ -147,7 +147,7 @@ equation
       color={95,95,95},
       thickness=0.5));
   connect(jointRRR2.frame_im, jointRRR3.frame_a) annotation (Line(
-      points={{50,-3.67394e-015},{60,-3.67394e-015},{60,26},{80,26},{80,20}},
+      points={{50,0},{60,0},{60,26},{80,26},{80,20}},
       color={95,95,95},
       thickness=0.5));
   connect(jointRRR3.frame_ia, body3.frame_a) annotation (Line(

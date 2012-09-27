@@ -124,7 +124,7 @@ package Machines "Quasistationary machine models"
           color={85,170,255},
           smooth=Smooth.None));
       connect(source.plug_p, electricalPowerSensorS.currentP) annotation (Line(
-          points={{-90,-1.77636e-015},{-90,10}},
+          points={{-90,0},{-90,10}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(electricalPowerSensorS.currentP, electricalPowerSensorS.voltageP)
@@ -156,7 +156,7 @@ package Machines "Quasistationary machine models"
           color={85,170,255},
           smooth=Smooth.None));
       connect(electricalPowerSensorL.currentN, load.plug_p) annotation (Line(
-          points={{90,10},{90,-1.77636e-015},{90,-1.77636e-015}},
+          points={{90,10},{90,0}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(electricalPowerSensorL.voltageN, starL.plug_p) annotation (Line(
@@ -168,7 +168,7 @@ package Machines "Quasistationary machine models"
           color={85,170,255},
           smooth=Smooth.None));
       connect(earth.pin_n, groundT.pin) annotation (Line(
-          points={{-1.83697e-015,-50},{-1.83697e-015,-55},{0,-55},{0,-60}},
+          points={{0,-50},{0,-60}},
           color={85,170,255},
           smooth=Smooth.None));
       connect(deltaS.plug_p, voltageSensorS.plug_n) annotation (Line(

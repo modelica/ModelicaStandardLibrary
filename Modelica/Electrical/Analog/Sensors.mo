@@ -190,10 +190,10 @@ model PowerSensor "Sensor to measure the power"
           rotation=270)));
 
 equation
-  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20},{
-            6.12323e-016,-20}}, color={0,0,255}));
-  connect(voltageSensor.n, nv) annotation (Line(points={{-6.12323e-016,-40},{
-            -6.12323e-016,-63},{0,-63},{0,-100}}, color={0,0,255}));
+  connect(pv, voltageSensor.p) annotation (Line(points={{0,100},{0,-20}},
+                                color={0,0,255}));
+  connect(voltageSensor.n, nv) annotation (Line(points={{0,-40},{0,-63},{0,-100}},
+                                                  color={0,0,255}));
   connect(pc, currentSensor.p)
     annotation (Line(points={{-100,0},{-50,0}}, color={0,0,255}));
   connect(currentSensor.n, nc)

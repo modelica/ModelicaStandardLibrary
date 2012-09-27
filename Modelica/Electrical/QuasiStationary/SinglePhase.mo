@@ -52,28 +52,29 @@ package SinglePhase "Single phase AC components"
             extent={{-10,-10},{10,10}},
             rotation=90)));
     equation
-      connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},{-40,
-              -24}}, color={0,0,127}));
+      connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},
+              {-40,-24}},
+                     color={0,0,127}));
       connect(polarToComplex.y, voltageSource.V) annotation (Line(points={{-60,-1},
               {-60,-16},{-40,-16}},color={85,170,255}));
       connect(ground.pin, voltageSource.pin_n) annotation (Line(points={{-30,-40},
-              {-30,-35},{-30,-30},{-30,-30}},
-                                         color={85,170,255}));
+              {-30,-35},{-30,-30}},      color={85,170,255}));
       connect(voltageSource.pin_p, currentSensor.pin_p) annotation (Line(points={{-30,-10},
               {-30,0},{-20,0}},      color={85,170,255}));
       connect(currentSensor.pin_n, resistor.pin_p)
-        annotation (Line(points={{0,0},{2.5,0},{2.5,-3.36456e-022},{5,-3.36456e-022},
-              {5,0},{10,0}}, color={85,170,255}));
+        annotation (Line(points={{0,0},{2.5,0},{5,0},{10,0}},
+                             color={85,170,255}));
       connect(resistor.pin_n, inductor.pin_p)
-        annotation (Line(points={{30,0},{32.5,0},{32.5,1.22125e-015},{35,1.22125e-015},
-              {35,0},{40,0}}, color={85,170,255}));
+        annotation (Line(points={{30,0},{32.5,0},{35,0},{40,0}},
+                              color={85,170,255}));
       connect(inductor.pin_n, capacitor.pin_p)
-        annotation (Line(points={{60,0},{62.5,0},{62.5,1.22125e-015},{65,1.22125e-015},
-              {65,0},{70,0}}, color={85,170,255}));
-      connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,-40},
-              {-30,-40}}, color={85,170,255}));
-      connect(phi.y, polarToComplex.phi) annotation (Line(points={{-80,39},{-80,30},
-              {-66,30},{-66,22}},     color={0,0,127}));
+        annotation (Line(points={{60,0},{62.5,0},{65,0},{70,0}},
+                              color={85,170,255}));
+      connect(capacitor.pin_n, ground.pin) annotation (Line(points={{90,0},{90,
+              -40},{-30,-40}},
+                          color={85,170,255}));
+      connect(phi.y, polarToComplex.phi) annotation (Line(points={{-80,39},{-80,
+              30},{-66,30},{-66,22}}, color={0,0,127}));
       connect(V.y, polarToComplex.len) annotation (Line(
           points={{-40,39},{-40,30},{-54,30},{-54,22}},
           color={0,0,127},

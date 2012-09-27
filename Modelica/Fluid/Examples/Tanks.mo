@@ -45,8 +45,8 @@ package Tanks "Library demonstrating the usage of the tank model"
       level_start=3,
       nPorts=1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
-          0.1)})     annotation (Placement(transformation(extent={{40,10},{80,50}},
-                    rotation=0)));
+          0.1)})     annotation (Placement(transformation(extent={{40,10},{80,
+              50}}, rotation=0)));
     Modelica.Fluid.Pipes.StaticPipe pipe1(                    redeclare package
         Medium =                                                                       Medium,
       allowFlowReversal=true,
@@ -78,10 +78,9 @@ package Tanks "Library demonstrating the usage of the tank model"
           rotation=90)));
   equation
     connect(pipe1.port_a, pipe2.port_a) annotation (Line(points={{-60,-20},{-60,
-            -40},{0,-40},{0,-30},{0,-20},{-6.12323e-016,-20}},
-                                                           color={0,127,255}));
-    connect(pipe2.port_a, pipe3.port_a) annotation (Line(points={{-6.12323e-016,
-            -20},{0,-20},{0,-40},{60,-40},{60,-30}}, color={0,127,255}));
+            -40},{0,-40},{0,-30},{0,-20}},                 color={0,127,255}));
+    connect(pipe2.port_a, pipe3.port_a) annotation (Line(points={{0,-20},{0,-20},
+            {0,-40},{60,-40},{60,-30}},              color={0,127,255}));
     connect(pipe3.port_b, tank3.ports[1])
       annotation (Line(points={{60,-10},{60,-10},{60,10}},
                                                 color={0,127,255}));
@@ -89,7 +88,7 @@ package Tanks "Library demonstrating the usage of the tank model"
             10},{-60,20}},
                   color={0,127,255}));
     connect(pipe2.port_b, tank2.ports[1]) annotation (Line(
-        points={{6.12323e-016,0},{0,0},{0,20}},
+        points={{0,0},{0,20}},
         color={0,127,255},
         smooth=Smooth.None));
 
@@ -199,15 +198,15 @@ package Tanks "Library demonstrating the usage of the tank model"
         color={0,0,127},
         smooth=Smooth.None));
     connect(upperTank.ports[2], pipe.port_a) annotation (Line(
-        points={{-20,20},{-20,10},{0,10},{0,-20},{6.12323e-016,-20}},
+        points={{-20,20},{-20,10},{0,10},{0,-20}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_a, pressure.port) annotation (Line(
-        points={{6.12323e-016,-20},{0,-20},{0,10},{50,10},{50,16}},
+        points={{0,-20},{0,10},{50,10},{50,16}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(pipe.port_b, lowerTank.ports[1]) annotation (Line(
-        points={{-6.12323e-016,-40},{0,-40},{0,-70},{56,-70},{56,-60}},
+        points={{0,-40},{0,-70},{56,-70},{56,-60}},
         color={0,127,255},
         smooth=Smooth.None));
     connect(upperTank.ports[3], overflow.port_a) annotation (Line(
@@ -239,7 +238,8 @@ simulation accuracy could be increased in order to avoid errors.
 
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/TanksWithOverflow.png\" border=\"1\"
      alt=\"TanksWithOverflow.png\">
-</html>"));
+</html>"),
+      Diagram(coordinateSystem(extent={{-160,-120},{100,100}})));
   end TanksWithOverflow;
 
   model EmptyTanks "Show the treatment of empty tanks"

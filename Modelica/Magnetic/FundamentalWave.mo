@@ -1103,7 +1103,7 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
       equation
         connect(signalVoltage.plug_n, star.plug_p)
-          annotation (Line(points={{1.83697e-015,70},{1.83697e-015,90},{-50,90}},
+          annotation (Line(points={{0,70},{0,90},{-50,90}},
               color={0,0,255}));
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -1114,17 +1114,15 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}, color={0,0,0}));
         connect(signalVoltage.plug_p,currentRMSsensorM. plug_p)  annotation (Line(
-              points={{-1.83697e-015,50},{0,50},{0,40},{1.83697e-015,40}},
-                                                                        color={0,0,
+              points={{0,50},{0,50},{0,40}},                            color={0,0,
                 255}));
         connect(rotorAngleM.plug_n, smpmM.plug_sn)  annotation (Line(points={{36,-10},
                 {36,0},{-6,0},{-6,-10}},                       color={0,0,255}));
         connect(rotorAngleM.plug_p, smpmM.plug_sp)  annotation (Line(points={{24,-10},
-                {6,-10},{6,-10}},
+                {6,-10}},
               color={0,0,255}));
         connect(rotorAngleM.flange,smpmM.flange)
-          annotation (Line(points={{20,-20},{15,-20},{15,-20},{10,-20}},
-                                                                color={0,0,0}));
+          annotation (Line(points={{20,-20},{15,-20},{10,-20}}, color={0,0,0}));
         connect(smpmM.flange, loadInertiaM.flange_a)
           annotation (Line(points={{10,-20},{50,-20}},          color={0,0,0}));
         connect(terminalBoxM.plug_sn, smpmM.plug_sn)  annotation (Line(
@@ -1132,7 +1130,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(terminalBoxM.plug_sp, smpmM.plug_sp)  annotation (Line(
               points={{6,-10},{6,-10}},                           color={0,0,255}));
         connect(terminalBoxM.plugSupply,currentRMSsensorM. plug_n) annotation (Line(
-              points={{0,-8},{0,20},{-1.83697e-015,20}},   color={0,0,255}));
+              points={{0,-8},{0,20}},                      color={0,0,255}));
         connect(loadInertiaE.flange_b, torqueStepE.flange)
           annotation (Line(points={{70,-80},{80,-80}}, color={0,0,0}));
         connect(rotorAngleE.plug_n, smpmE.plug_sn)  annotation (Line(points={{36,-70},
@@ -1151,7 +1149,7 @@ Simulate for 1.5 seconds and plot (versus time):
         connect(currentRMSsensorE.plug_n,terminalBoxE.plugSupply)   annotation (Line(
               points={{-60,20},{-60,-50},{0,-50},{0,-68}},     color={0,0,255}));
         connect(currentRMSsensorE.plug_p, signalVoltage.plug_p) annotation (Line(
-            points={{-60,40},{0,40},{0,50},{-1.83697e-015,50}},
+            points={{-60,40},{0,40},{0,50}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -2579,7 +2577,7 @@ Resistances and stray inductances of the machine always refer to either stator o
       equation
 
         connect(permanentMagnet.port_p, airGap.port_rn) annotation (Line(
-            points={{-10,-30},{-10,-25},{-10,-25},{-10,-20},{-10,-10},{-10,-10}},
+            points={{-10,-30},{-10,-10}},
             color={255,128,0},
             smooth=Smooth.None));
 
@@ -2592,7 +2590,7 @@ Resistances and stray inductances of the machine always refer to either stator o
             color={255,128,0},
             smooth=Smooth.None));
         connect(short.port_p, airGap.port_rp) annotation (Line(
-            points={{10,-30},{10,-20},{10,-10},{10,-10}},
+            points={{10,-30},{10,-10}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(rotorCage.port_p, airGap.port_rp) annotation (Line(
@@ -2618,11 +2616,11 @@ Resistances and stray inductances of the machine always refer to either stator o
             color={0,0,255},
             smooth=Smooth.None));
         connect(permanentMagnetLosses.flange, inertiaRotor.flange_b) annotation (Line(
-            points={{-50,80},{90,80},{90,-1.22465e-015}},
+            points={{-50,80},{90,80},{90,-1.77636e-15}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(permanentMagnetLosses.support, airGap.support) annotation (Line(
-            points={{-50,60},{-50,1.83697e-015},{-10,1.83697e-015}},
+            points={{-50,60},{-50,2.22045e-15},{-10,2.22045e-15}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(permanentMagnetLosses.heatPort, internalThermalPort.heatPortPermanentMagnet)
@@ -4675,8 +4673,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-        annotation (Line(points={{90,-1.22465e-015},{102,-1.22465e-015},{102,0},
-              {100,0}},
+        annotation (Line(points={{90,0},{102,0},{100,0}},
           color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
@@ -4690,17 +4687,15 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
           color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
-              1.22465e-015}},
+          points={{10,0},{70,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,1.83697e-015},{-50,1.83697e-015},{-50,-70},{60,-70},{60,
-              -100}},
+          points={{-10,0},{-50,0},{-50,-70},{60,-70},{60,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(groundR.port_p,airGap. port_rn) annotation (Line(points={{-30,-10},
-              {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
+              {-20,-10},{-10,-10}},              color={255,128,0}));
       connect(stator.plug_p, strayLoad.plug_n) annotation (Line(
           points={{10,50},{10,70},{40,70}},
           color={0,0,255},
@@ -4723,11 +4718,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.22465e-015}},
+          points={{50,80},{90,80},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.22465e-015}},
+          points={{90,-20},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
@@ -4736,15 +4731,15 @@ This model is mainly used to extend from in order build more complex - equation 
           color={191,0,0},
           smooth=Smooth.None));
       connect(groundS.port_p, airGap.port_sp) annotation (Line(
-          points={{-30,10},{-20,10},{-20,10},{-10,10}},
+          points={{-30,10},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_n, airGap.port_sp)        annotation (Line(
-          points={{-10,30},{-10,25},{-10,25},{-10,20},{-10,10},{-10,10}},
+          points={{-10,30},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_p, airGap.port_sn) annotation (Line(
-          points={{10,30},{10,25},{10,25},{10,20},{10,10},{10,10}},
+          points={{10,30},{10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding) annotation (
@@ -4997,8 +4992,7 @@ This model is mainly used to extend from in order build more complex - equation 
           color={199,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, flange)
-        annotation (Line(points={{90,-1.22465e-015},{102,-1.22465e-015},{102,0},
-              {100,0}},
+        annotation (Line(points={{90,0},{102,0},{100,0}},
           color={0,0,0}));
       connect(internalSupport, inertiaStator.flange_a) annotation (Line(
           points={{60,-100},{70,-100}},
@@ -5012,17 +5006,15 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation (Line(points={{90,-100},{90,-100},{100,-100}},
           color={0,0,0}));
       connect(airGap.flange_a, inertiaRotor.flange_a) annotation (Line(
-          points={{10,-1.83697e-015},{40,-1.83697e-015},{40,1.22465e-015},{70,
-              1.22465e-015}},
+          points={{10,0},{70,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(airGap.support, internalSupport) annotation (Line(
-          points={{-10,1.83697e-015},{-50,1.83697e-015},{-50,-70},{60,-70},{60,
-              -100}},
+          points={{-10,0},{-50,0},{-50,-70},{60,-70},{60,-100}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(groundR.port_p,airGap. port_rn) annotation (Line(points={{-30,-10},
-              {-20,-10},{-20,-10},{-10,-10}},    color={255,128,0}));
+              {-20,-10},{-10,-10}},              color={255,128,0}));
       connect(stator.plug_p, strayLoad.plug_n) annotation (Line(
           points={{10,50},{10,70},{40,70}},
           color={0,0,255},
@@ -5045,11 +5037,11 @@ This model is mainly used to extend from in order build more complex - equation 
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{50,80},{90,80},{90,-1.22465e-015}},
+          points={{50,80},{90,80},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{90,-20},{90,-1.22465e-015}},
+          points={{90,-20},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.heatPort, internalThermalPort.heatPortFriction) annotation (
@@ -5058,15 +5050,15 @@ This model is mainly used to extend from in order build more complex - equation 
           color={191,0,0},
           smooth=Smooth.None));
       connect(groundS.port_p, airGap.port_sp) annotation (Line(
-          points={{-30,10},{-20,10},{-20,10},{-10,10}},
+          points={{-30,10},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_n, airGap.port_sp)        annotation (Line(
-          points={{-10,30},{-10,25},{-10,25},{-10,20},{-10,10},{-10,10}},
+          points={{-10,30},{-10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.port_p, airGap.port_sn) annotation (Line(
-          points={{10,30},{10,25},{10,25},{10,20},{10,10},{10,10}},
+          points={{10,30},{10,10}},
           color={255,128,0},
           smooth=Smooth.None));
       connect(stator.heatPortWinding, internalThermalPort.heatPortStatorWinding) annotation (

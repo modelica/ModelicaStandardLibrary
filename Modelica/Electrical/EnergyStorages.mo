@@ -166,7 +166,7 @@ management systems, loads and charging devices.
           color={0,0,255},
           smooth=Smooth.None));
       connect(voltageSensor.v, greaterThreshold.u) annotation (Line(
-          points={{40,-1.83697e-015},{48,-1.83697e-015},{48,0}},
+          points={{40,0},{48,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(greaterThreshold.y, fTP72_1.on) annotation (Line(
@@ -346,7 +346,7 @@ management systems, loads and charging devices.
           smooth=Smooth.None));
       connect(cycler.Discharging, idealCommutingSwitch.control) annotation (
           Line(
-          points={{9,16},{0,16},{0,40},{-9.79717e-016,40},{-9.79717e-016,52}},
+          points={{9,16},{0,16},{0,52}},
           color={255,0,255},
           smooth=Smooth.None));
       annotation (experiment(StopTime=20000, Interval=1), Diagram(graphics));
@@ -727,7 +727,7 @@ management systems, loads and charging devices.
           smooth=Smooth.None));
 
       connect(cycler.Discharging, idealCommutingSwitch.control) annotation (Line(
-          points={{9,16},{0,16},{0,52},{-9.79717e-016,52}},
+          points={{9,16},{0,16},{0,52}},
           color={255,0,255},
           smooth=Smooth.None));
       connect(voltageSensor.p, batteryStack.pin_pStack)     annotation (Line(
@@ -845,7 +845,7 @@ management systems, loads and charging devices.
           color={255,0,255},
           smooth=Smooth.None));
       connect(cycler.Discharging,idealCommutingSwitch. control) annotation (Line(
-          points={{9,16},{0,16},{0,52},{-9.79717e-016,52}},
+          points={{9,16},{0,16},{0,52}},
           color={255,0,255},
           smooth=Smooth.None));
       connect(voltageSensor.p,batteryStack. pin_pStack)     annotation (Line(
@@ -880,7 +880,8 @@ management systems, loads and charging devices.
           extends EnergyStorages.Icons.CellStaticResistance;
           parameter CellRecords.StaticResistance.StaticResistanceParameters
                                                cellParameters
-            annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},{-80,100}})));
+            annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},
+                    {-80,100}})));
           extends EnergyStorages.Batteries.Components.OperationalParameters;
           parameter Real SOCini(start=0.5) "Initial state of charge"
             annotation (Dialog(group="Initialization"));
@@ -969,11 +970,11 @@ management systems, loads and charging devices.
 
         equation
           connect(OCV.n, pin_n)
-                            annotation (Line(points={{-1.83697e-015,-80},{
-                  -1.83697e-015,-100},{0,-100}},color={0,0,255}));
+                            annotation (Line(points={{0,-80},{0,-100}},
+                                                color={0,0,255}));
           connect(Rs.p, OCV.p)
-            annotation (Line(points={{-6.12323e-016,-10},{0,-10},{0,-60},{
-                  1.83697e-015,-60}},        color={0,0,255}));
+            annotation (Line(points={{0,-10},{0,-10},{0,-60}},
+                                             color={0,0,255}));
           connect(sococvTable.y[1], OCV.v)
             annotation (Line(points={{-49,-70},{-49,-70},{-7,-70}},
                                                           color={0,0,127}));
@@ -984,7 +985,7 @@ management systems, loads and charging devices.
               color={191,0,0},
               smooth=Smooth.None));
           connect(Rs.heatPort, internalHeatPort)  annotation (Line(
-              points={{10,-6.12323e-016},{80,-6.12323e-016},{80,0}},
+              points={{10,0},{80,0}},
               color={191,0,0},
               smooth=Smooth.None));
           connect(heatPort, internalHeatPort) annotation (Line(
@@ -992,11 +993,11 @@ management systems, loads and charging devices.
               color={191,0,0},
               smooth=Smooth.None));
           connect(IBatt.p, Rs.n) annotation (Line(
-              points={{-6.12323e-016,50},{6.12323e-016,50},{6.12323e-016,10}},
+              points={{0,50},{0,10}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(IBatt.n, pin_p) annotation (Line(
-              points={{6.12323e-016,70},{0,70},{0,100}},
+              points={{0,70},{0,100}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(IBatt.i, calculator.i)
@@ -1038,7 +1039,8 @@ management systems, loads and charging devices.
          parameter
             CellRecords.LinearDynamicImpedance.LinearDynamicImpedanceParameters
             cellParameters
-            annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},{-80,100}})));
+            annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},
+                    {-80,100}})));
           extends EnergyStorages.Batteries.Components.OperationalParameters;
           parameter Real SOCini(start=0.5) "Initial state of charge"
             annotation (Dialog(group="Initialization"));
@@ -1119,8 +1121,8 @@ management systems, loads and charging devices.
 
         equation
           connect(Vo.n, pin_n)
-                            annotation (Line(points={{-1.83697e-015,-80},{
-                  -1.83697e-015,-100},{0,-100}},color={0,0,255}));
+                            annotation (Line(points={{0,-80},{0,-100}},
+                                                color={0,0,255}));
           connect(pin_p, pin_p)
             annotation (Line(points={{0,100},{0,100}}, color={0,0,255}));
           connect(heatPort, internalHeatPort) annotation (Line(
@@ -1132,7 +1134,7 @@ management systems, loads and charging devices.
               color={191,0,0},
               smooth=Smooth.None));
           connect(IBatt_int.n, pin_p) annotation (Line(
-              points={{6.12323e-016,70},{0,70},{0,100}},
+              points={{0,70},{0,100}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(calculator.i, IBatt_int.i)
@@ -1141,7 +1143,7 @@ management systems, loads and charging devices.
               color={0,0,127},
               smooth=Smooth.None));
           connect(cellImpedance.heatPort, internalHeatPort) annotation (Line(
-              points={{10,-6.12323e-016},{39,-6.12323e-016},{39,0},{80,0}},
+              points={{10,0},{80,0}},
               color={191,0,0},
               smooth=Smooth.None));
 
@@ -1150,7 +1152,7 @@ management systems, loads and charging devices.
               color={0,0,127},
               smooth=Smooth.None));
           connect(cellImpedance.SOC, calculator.SOC) annotation (Line(
-              points={{-9,5.51091e-016},{-90,5.51091e-016},{-90,64},{-81,64}},
+              points={{-9,0},{-90,0},{-90,64},{-81,64}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(clock.y, cellImpedance.t) annotation (Line(
@@ -1182,20 +1184,20 @@ management systems, loads and charging devices.
               color={0,0,127},
               smooth=Smooth.None));
           connect(cellImpedance.pin_p, Vo.p) annotation (Line(
-              points={{-1.22465e-015,-20},{1.83697e-015,-20},{1.83697e-015,-60}},
+              points={{0,-20},{0,-60}},
               color={0,0,255},
               smooth=Smooth.None));
 
           connect(selfDischarge.pin_p, IBatt_int.n) annotation (Line(
-              points={{40,40},{40,70},{6.12323e-016,70}},
+              points={{40,40},{40,70},{0,70}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(IBatt_int.p, cellImpedance.pin_n) annotation (Line(
-              points={{-6.12323e-016,50},{1.22465e-015,50},{1.22465e-015,20}},
+              points={{0,50},{0,20}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(selfDischarge.pin_n, Vo.p) annotation (Line(
-              points={{40,20},{40,-60},{1.83697e-015,-60}},
+              points={{40,20},{40,-60},{0,-60}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(sococvTable.y[1], Vo.v) annotation (Line(
@@ -1229,7 +1231,8 @@ management systems, loads and charging devices.
           extends EnergyStorages.Icons.CellStaticResistance;
           parameter CellRecords.StaticResistance.StaticResistanceParameters
                                                cellParameters
-            annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},{-80,100}})));
+            annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},
+                    {-80,100}})));
           extends EnergyStorages.Batteries.Components.OperationalParameters;
           parameter Real SOCini(start=0.5) "Initial state of charge"
             annotation (Dialog(group="Initialization"));
@@ -1271,15 +1274,13 @@ management systems, loads and charging devices.
             final useHeatPort=true,
             final TOperational=TOperational,
             final SOCini=SOCini)
-            annotation (Placement(transformation(extent={{40,-20},{
-                    80,20}})));
+            annotation (Placement(transformation(extent={{40,-20},{80,20}})));
         equation
-          connect(cellMeasurement.pin_p, pin_p) annotation (Line(points={{
-                  2.44929e-015,20},{2.44929e-015,50},{0,50},{0,100}},   color={
+          connect(cellMeasurement.pin_p, pin_p) annotation (Line(points={{0,20},{
+                  0,50},{0,100}},                                       color={
                   0,0,255}));
-          connect(cellMeasurement.pin_n, pin_n) annotation (Line(points={{
-                  -2.44929e-015,-20},{-2.44929e-015,-50},{0,-50},{0,-100}},
-                                                                          color=
+          connect(cellMeasurement.pin_n, pin_n) annotation (Line(points={{0,-20},
+                  {0,-50},{0,-100}},                                      color=
                  {0,0,255}));
           connect(cellMeasurement.T, singleCellBus.T)
                                                 annotation (
@@ -1287,8 +1288,8 @@ management systems, loads and charging devices.
               string="%second",
               index=1,
               extent=[6,3; 6,3],
-              style(color=0, rgbcolor={0,0,0})), Line(points={{-22,2.69422e-015},
-                  {-40,2.69422e-015},{-40,0},{-60,0}},                  color={
+              style(color=0, rgbcolor={0,0,0})), Line(points={{-22,0},{-40,0},{
+                  -60,0}},                                              color={
                   0,0,127}));
           connect(internalHeatPort, fixedTemperature.port) annotation (Line(
               points={{80,0},{80,-40}},
@@ -1317,8 +1318,7 @@ management systems, loads and charging devices.
               color={191,0,0},
               smooth=Smooth.None));
           connect(cellMeasurement.heatPort, internalHeatPort) annotation (Line(
-              points={{20,-2.44929e-015},{30,-2.44929e-015},{30,-32},{80,-32},{
-                  80,0}},
+              points={{20,0},{30,0},{30,-32},{80,-32},{80,0}},
               color={191,0,0},
               smooth=Smooth.None));
           connect(cellMeasurement.pinCell_p, staticResistance.pin_p) annotation (Line(
@@ -1493,7 +1493,8 @@ management systems, loads and charging devices.
          parameter Integer np(min=1) "number of parallel connected cells";
          parameter CellRecords.StaticResistance.StaticResistanceParameters
                                               cellParameters
-           annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},{-80,100}})));
+           annotation (__Dymola_choicesAllMatching=true, Placement(transformation(extent={{-100,80},
+                    {-80,100}})));
          extends EnergyStorages.Batteries.Components.OperationalParameters;
          parameter Real SOCini(start=0.5) "Initial state of charge"
            annotation (Dialog(group="Initialization"));
@@ -1578,8 +1579,8 @@ management systems, loads and charging devices.
             final table=cellParameters.SOCOCV.OCVtable,
             final tableName=cellParameters.SOCOCV.OCVtableName,
             final fileName=cellParameters.SOCOCV.OCVfileName)
-                               annotation (Placement(transformation(extent={{-70,-80},{
-                   -50,-60}},           rotation=0)));
+                               annotation (Placement(transformation(extent={{-70,-80},
+                    {-50,-60}},         rotation=0)));
          final parameter Modelica.SIunits.Time tini(fixed=false)=0
             "Initial time";
        initial equation
@@ -1587,18 +1588,17 @@ management systems, loads and charging devices.
 
        equation
          connect(Uo.n, pin_n)
-                           annotation (Line(points={{-1.83697e-015,-80},{
-                  -1.83697e-015,-100},{0,-100}},
+                           annotation (Line(points={{0,-80},{0,-100}},
                                                color={0,0,255}));
          connect(Rs.p, Uo.p)
-           annotation (Line(points={{-6.12323e-016,-10},{-6.12323e-016,-35},{0,
-                  -60},{1.83697e-015,-60}}, color={0,0,255}));
+           annotation (Line(points={{0,-10},{0,-35},{0,-60}},
+                                            color={0,0,255}));
          connect(gain.y, Uo.v) annotation (Line(points={{-19,-70},{-7,-70}},
                color={0,0,127}));
          connect(gain1.u, IBatt.i)
            annotation (Line(points={{-18,60},{-10,60}}, color={0,0,127}));
          connect(Rs.heatPort, internalHeatPort) annotation (Line(
-             points={{10,-6.12323e-016},{8,-6.12323e-016},{6,0},{80,0}},
+             points={{10,0},{80,0}},
              color={191,0,0},
              smooth=Smooth.None));
          connect(internalHeatPort, fixedTemperature.port) annotation (Line(
@@ -1630,11 +1630,11 @@ management systems, loads and charging devices.
              color={0,0,127},
              smooth=Smooth.None));
          connect(IBatt.p, Rs.n) annotation (Line(
-             points={{-1.83697e-015,50},{0,50},{0,10},{6.12323e-016,10}},
+             points={{0,50},{0,10}},
              color={0,0,255},
              smooth=Smooth.None));
          connect(IBatt.n, pin_p) annotation (Line(
-             points={{1.83697e-015,70},{0,70},{0,100}},
+             points={{0,70},{0,100}},
              color={0,0,255},
              smooth=Smooth.None));
           connect(sococvTable.y[1], gain.u) annotation (Line(
@@ -2116,15 +2116,15 @@ management systems, loads and charging devices.
             annotation (Placement(transformation(extent={{-10,90},{10,110}})));
         equation
           connect(n, n) annotation (Line(
-              points={{100,0},{100,0},{100,0}},
+              points={{100,4.44089e-16},{100,4.44089e-16}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(Resistor.p, p) annotation (Line(
-              points={{-10,0},{-100,0}},
+              points={{-10,0},{-54,0},{-54,4.44089e-16},{-100,4.44089e-16}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(Resistor.n, n) annotation (Line(
-              points={{10,0},{100,0}},
+              points={{10,0},{56,0},{56,4.44089e-16},{100,4.44089e-16}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(t, impedanceValue.t) annotation (Line(
@@ -2132,11 +2132,11 @@ management systems, loads and charging devices.
               color={0,0,127},
               smooth=Smooth.None));
           connect(SOC, impedanceValue.SOC) annotation (Line(
-              points={{0,-90},{0,-39},{-5.51091e-016,-39}},
+              points={{4.44089e-16,-90},{4.44089e-16,-39},{0,-39}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(impedanceValue.y, Resistor.R) annotation (Line(
-              points={{6.73556e-016,-19},{0,-16},{0,-11}},
+              points={{0,-19},{0,-11}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(Resistor.heatPort, heatPort) annotation (Line(
@@ -2144,7 +2144,7 @@ management systems, loads and charging devices.
               color={191,0,0},
               smooth=Smooth.None));
           connect(impedanceValue.y, Z) annotation (Line(
-              points={{6.73556e-016,-19},{6.73556e-016,-16},{60,-16},{60,100}},
+              points={{0,-19},{0,-16},{60,-16},{60,100}},
               color={0,0,127},
               smooth=Smooth.None));
 
@@ -2201,7 +2201,7 @@ management systems, loads and charging devices.
                 origin={0,0})));
         equation
           connect(SOC, impedanceValue.SOC) annotation (Line(
-              points={{0,-90},{0,-39},{-5.51091e-016,-39}},
+              points={{4.44089e-16,-90},{4.44089e-16,-39},{0,-39}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(t, impedanceValue.t) annotation (Line(
@@ -2209,16 +2209,15 @@ management systems, loads and charging devices.
               color={0,0,127},
               smooth=Smooth.None));
           connect(variableCapacitor.p, p) annotation (Line(
-              points={{-10,1.22465e-015},{-56,1.22465e-015},{-56,0},{-100,0}},
+              points={{-10,0},{-56,0},{-56,4.44089e-16},{-100,4.44089e-16}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(variableCapacitor.n, n) annotation (Line(
-              points={{10,-1.22465e-015},{54,-1.22465e-015},{54,0},{100,0}},
+              points={{10,0},{54,0},{54,4.44089e-16},{100,4.44089e-16}},
               color={0,0,255},
               smooth=Smooth.None));
           connect(impedanceValue.y, variableCapacitor.C) annotation (Line(
-              points={{6.73556e-016,-19},{6.73556e-016,-16.5},{-1.34711e-015,
-                  -16.5},{-1.34711e-015,-11}},
+              points={{0,-19},{0,-11}},
               color={0,0,127},
               smooth=Smooth.None));
           connect(impedanceValue.i, i) annotation (Line(
@@ -2489,7 +2488,7 @@ management systems, loads and charging devices.
                   extent={{22,-12},{82,14}},
                   lineColor={0,0,255},
                   pattern=LinePattern.Dot,
-                  textString=                     "num"),
+                  textString =                    "num"),
                 Text(extent={{-80,-10},{-20,16}}, textString=
                                                     "1"),
                 Line(points={{-20,0},{0,0},{0,0},{0,0}}, color={0,0,255}),
@@ -2661,7 +2660,7 @@ management systems, loads and charging devices.
                   extent={{112,-12},{172,14}},
                   lineColor={0,0,255},
                   pattern=LinePattern.Dot,
-                  textString=                     "num"),
+                  textString =                    "num"),
                 Line(
                   points={{140,40},{140,68},{40,68},{40,68}},
                   color={188,0,0},
@@ -3384,7 +3383,7 @@ management systems, loads and charging devices.
             color={0,0,127},
             smooth=Smooth.None));
         connect(linearDependency.y, signalCurrent.i) annotation (Line(
-            points={{21,0},{21,1.28588e-015},{33,1.28588e-015}},
+            points={{21,0},{33,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(i, qabs.i) annotation (Line(
@@ -5112,15 +5111,15 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.i) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-28,1.46958e-015},{-28,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-28,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end IOut;
 
@@ -5145,11 +5144,11 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.i) annotation (Line(
-            points={{11,-1.34711e-015},{23.5,-1.34711e-015},{23.5,0},{40,0}},
+            points={{11,0},{40,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5180,15 +5179,15 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.T) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-26,1.46958e-015},{-26,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-26,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end TempOut;
 
@@ -5213,11 +5212,11 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-10,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-10,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.T) annotation (Line(
-            points={{13,-1.34711e-015},{26.5,-1.34711e-015},{26.5,0},{40,0}},
+            points={{13,0},{40,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5248,15 +5247,15 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.v) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-24,1.46958e-015},{-24,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-24,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics),
                              Icon(graphics));
       end VOut;
@@ -5282,11 +5281,11 @@ This bus is used for <a href=\"modelica://Modelica.Electrical.Machines.BasicMach
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.v) annotation (Line(
-            points={{11,-1.34711e-015},{24.5,-1.34711e-015},{24.5,0},{40,0}},
+            points={{11,0},{40,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5583,15 +5582,15 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.SOC) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-26,1.46958e-015},{-26,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-26,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end SOCOut;
 
@@ -5616,11 +5615,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.SOC) annotation (Line(
-            points={{11,-1.34711e-015},{27.5,-1.34711e-015},{27.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5651,10 +5650,10 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.SOH) annotation (Line(
-            points={{-12,1.46958e-015},{-27,1.46958e-015},{-27,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5684,11 +5683,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.SOH) annotation (Line(
-            points={{11,-1.34711e-015},{24.5,-1.34711e-015},{24.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5719,15 +5718,15 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.C) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-24,1.46958e-015},{-24,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-24,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end COut;
 
@@ -5752,11 +5751,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.C) annotation (Line(
-            points={{11,-1.34711e-015},{26.5,-1.34711e-015},{26.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5787,10 +5786,10 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.cycles) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5820,11 +5819,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.cycles) annotation (Line(
-            points={{11,-1.34711e-015},{25.5,-1.34711e-015},{25.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5855,15 +5854,15 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.OCV) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-26,1.46958e-015},{-26,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-26,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end OCVOut;
 
@@ -5888,11 +5887,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.OCV) annotation (Line(
-            points={{11,-1.34711e-015},{25.5,-1.34711e-015},{25.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5923,15 +5922,15 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.v) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-25,1.46958e-015},{-25,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-25,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end VOut;
 
@@ -5956,11 +5955,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.v) annotation (Line(
-            points={{11,-1.34711e-015},{26.5,-1.34711e-015},{26.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -5991,15 +5990,15 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.i) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-27,1.46958e-015},{-27,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-27,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end IOut;
 
@@ -6024,11 +6023,11 @@ constructed by the signals connected to this bus.
           annotation (Placement(transformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(gain.y, controlBus.i) annotation (Line(
-            points={{11,-1.34711e-015},{27.5,-1.34711e-015},{27.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
@@ -6059,15 +6058,15 @@ constructed by the signals connected to this bus.
               extent={{10,10},{-10,-10}},
               rotation=180)));
       equation
-        connect(gain.y, y)  annotation (Line(points={{11,-1.34711e-015},{17,
-                -1.34711e-015},{17,0},{40,0}}, color={0,0,127}));
+        connect(gain.y, y)  annotation (Line(points={{11,0},{17,0},{40,0}},
+                                               color={0,0,127}));
         connect(gain.u, controlBus.T) annotation (
           Text(
             string="%second",
             index=1,
             extent=[6,3; 6,3],
-            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,1.46958e-015},
-                {-23,1.46958e-015},{-23,0},{-40,0}},color={0,0,127}));
+            style(color=0, rgbcolor={0,0,0})), Line(points={{-12,0},{-23,0},{
+                -40,0}},                            color={0,0,127}));
         annotation (Diagram(graphics));
       end TOut;
 
@@ -6093,14 +6092,14 @@ constructed by the signals connected to this bus.
               iconTransformation(extent={{-50,-10},{-30,10}})));
       equation
         connect(gain.y, controlBus.T) annotation (Line(
-            points={{11,-1.34711e-015},{26.5,-1.34711e-015},{26.5,0},{42,0}},
+            points={{11,0},{42,0}},
             color={0,0,127},
             smooth=Smooth.None), Text(
             string="%second",
             index=1,
             extent={{6,3},{6,3}}));
         connect(gain.u, u) annotation (Line(
-            points={{-12,1.46958e-015},{-26,1.46958e-015},{-26,0},{-40,0}},
+            points={{-12,0},{-40,0}},
             color={0,0,127},
             smooth=Smooth.None));
         annotation (Diagram(graphics), Icon(graphics));
@@ -6168,15 +6167,14 @@ constructed by the signals connected to this bus.
             color={0,0,255}));
       connect(currentSensor.n, pin_n)
         annotation (Line(points={{10,0},{100,0}}, color={0,0,255}));
-      connect(integrator.u, currentSensor.i) annotation (Line(points={{
-              7.34788e-016,-38},{7.34788e-016,-24},{0,-24},{0,-10}},   color={0,
+      connect(integrator.u, currentSensor.i) annotation (Line(points={{0,-38},{
+              0,-24},{0,-10}},                                         color={0,
               0,127}));
       connect(charge, charge)
                           annotation (Line(points={{0,-110},{0,-110}},
             color={0,0,127}));
       connect(integrator.y, charge)
-                                  annotation (Line(points={{-6.73556e-016,-61},
-              {-6.73556e-016,-110},{0,-110}},
+                                  annotation (Line(points={{0,-61},{0,-110}},
                                           color={0,0,127}));
       annotation (Diagram(graphics),
                            Icon(graphics={
@@ -6313,15 +6311,14 @@ constructed by the signals connected to this bus.
                           annotation (Line(points={{0,-90},{0,-90}},
             color={0,0,127}));
       connect(currentSensor.i, abs1.u) annotation (Line(points={{0,-10},{0,-14},
-              {0,-18},{2.20436e-015,-18}}, color={0,0,127}));
+              {0,-18}},                    color={0,0,127}));
       connect(abs1.y, integrator.u) annotation (Line(
-          points={{-2.02067e-015,-41},{-2.02067e-015,-43.5},{7.34788e-016,-43.5},
-              {7.34788e-016,-48}},
+          points={{0,-41},{0,-48}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(integrator.y, absCharge)
                                annotation (Line(
-          points={{-6.73556e-016,-71},{-6.73556e-016,-76.5},{0,-76.5},{0,-90}},
+          points={{0,-71},{0,-90}},
           color={0,0,127},
           smooth=Smooth.None));
       annotation (Diagram(graphics),
@@ -6578,25 +6575,25 @@ constructed by the signals connected to this bus.
               rotation=0)));
     equation
       connect(pinCell_p, currentSensor.p)
-        annotation (Line(points={{-100,60},{-1.83697e-015,60}}, color={0,0,
+        annotation (Line(points={{-100,60},{0,60}},             color={0,0,
               255}));
       connect(voltageSensor.n, pinCell_n)
-                                      annotation (Line(points={{-60,-50},{
-              -60,-60},{-100,-60}}, color={0,0,255}));
-      connect(pin_p, currentSensor.n)  annotation (Line(points={{0,100},{0,80},
-              {1.83697e-015,80}},     color={0,0,255}));
+                                      annotation (Line(points={{-60,-50},{-60,
+              -60},{-100,-60}},     color={0,0,255}));
+      connect(pin_p, currentSensor.n)  annotation (Line(points={{0,100},{0,80}},
+                                      color={0,0,255}));
       connect(voltageSensor.p, currentSensor.p) annotation (Line(points={{-60,-30},
-              {-60,60},{-1.83697e-015,60}},          color={0,0,255}));
-      connect(pinCell_n, pin_n) annotation (Line(points={{-100,-60},{-100,
-              -80},{0,-80},{0,-100}}, color={0,0,255}));
-      connect(TemperatureSensor.port, heatPort) annotation (Line(points={{
-              -10,0},{-100,0}}, color={191,0,0}));
+              {-60,60},{0,60}},                      color={0,0,255}));
+      connect(pinCell_n, pin_n) annotation (Line(points={{-100,-60},{-100,-80},
+              {0,-80},{0,-100}},      color={0,0,255}));
+      connect(TemperatureSensor.port, heatPort) annotation (Line(points={{-10,0},
+              {-100,0}},        color={191,0,0}));
       connect(currentSensor.i,i)  annotation (Line(points={{10,70},{56,70},{56,
               60},{110,60}},     color={0,0,127}));
-      connect(TemperatureSensor.T, T) annotation (Line(points={{10,0},{110,
-              0}}, color={0,0,127}));
-      connect(voltageSensor.v,v)  annotation (Line(points={{-50,-40},{26,
-              -40},{26,-60},{110,-60}}, color={0,0,127}));
+      connect(TemperatureSensor.T, T) annotation (Line(points={{10,0},{110,0}},
+                   color={0,0,127}));
+      connect(voltageSensor.v,v)  annotation (Line(points={{-50,-40},{26,-40},{
+              26,-60},{110,-60}},       color={0,0,127}));
       connect(i,i)  annotation (Line(points={{110,60},{110,60}}, color={0,0,
               127}));
       annotation (Diagram(graphics),
@@ -7612,8 +7609,8 @@ constructed by the signals connected to this bus.
               iconTransformation(extent={{-10,90},{10,110}})));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_n "Negative pin"
                                      annotation (Placement(transformation(extent={{-10,
-                  -110},{10,-90}},   rotation=0), iconTransformation(extent={{-10,-110},
-                  {10,-90}})));
+                  -110},{10,-90}},   rotation=0), iconTransformation(extent={{-10,
+                  -110},{10,-90}})));
         Modelica.Blocks.Interfaces.BooleanInput on annotation (Placement(
               transformation(extent={{-100,-10},{-80,10}}), iconTransformation(
                 extent={{-100,-10},{-80,10}})));
@@ -7635,7 +7632,7 @@ constructed by the signals connected to this bus.
 
         connect(voltageSensor.v, internalNode)
                                      annotation (Line(
-            points={{-30,-6.12323e-016},{-20,0},{6,0}},
+            points={{-30,0},{6,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(internalNode, controlledCurrent.vControl)
@@ -7712,14 +7709,14 @@ constructed by the signals connected to this bus.
                 rotation=0)));
       equation
         connect(signalCurrent.p, pin_p)
-                                     annotation (Line(points={{40,-1.77636e-015},
-                {40,100},{0,100}},
+                                     annotation (Line(points={{40,0},{40,100},{
+                0,100}},
                        color={0,0,255}));
         connect(signalCurrent.n, pin_n)
                                      annotation (Line(points={{40,-20},{40,-100},
                 {0,-100}}, color={0,0,255}));
-        connect(product.y, signalCurrent.i) annotation (Line(points={{21,-10},{27,
-                -10},{27,-10},{33,-10}}, color={0,0,127}));
+        connect(product.y, signalCurrent.i) annotation (Line(points={{21,-10},{
+                27,-10},{33,-10}},       color={0,0,127}));
         connect(realExpression.y, product.u2) annotation (Line(points={{-39,-40},
                 {-20,-40},{-20,-16},{-2,-16}}, color={0,0,127}));
         connect(booleanToReal.u, on)  annotation (Line(points={{-62,0},{-90,0}},
@@ -7780,30 +7777,30 @@ constructed by the signals connected to this bus.
                 rotation=0)));
       equation
         connect(signalCurrent.p, pin_p)
-                                     annotation (Line(points={{40,10},{40,100},{0,
-                100}}, color={0,0,255}));
+                                     annotation (Line(points={{40,10},{40,100},
+                {0,100}},
+                       color={0,0,255}));
         connect(signalCurrent.n, pin_n)
                                      annotation (Line(points={{40,-10},{40,-100},
                 {0,-100}}, color={0,0,255}));
         connect(product.u1, voltageSensor.v) annotation (Line(points={{22,-46},
-                {92,-46},{92,0},{90,0},{90,-1.83697e-015}},
-                                                          color={0,0,127}));
+                {92,-46},{92,0},{90,0}},                  color={0,0,127}));
         connect(voltageSensor.n, signalCurrent.n) annotation (Line(points={{80,-10},
                 {80,-20},{40,-20},{40,-10}},      color={0,0,255}));
         connect(voltageSensor.p, signalCurrent.p) annotation (Line(points={{80,10},
                 {80,20},{40,20},{40,10}}, color={0,0,255}));
         connect(product.u2, signalCurrent.i) annotation (Line(points={{22,-34},
-                {28,-34},{28,1.28588e-015},{33,1.28588e-015}},color={0,0,127}));
+                {28,-34},{28,0},{33,0}},                      color={0,0,127}));
         connect(limitedController.fb, product.y) annotation (Line(
             points={{-4,-9},{-4,-40},{-1,-40}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(limitedController.y, signalCurrent.i) annotation (Line(
-            points={{11,0},{11,1.28588e-015},{33,1.28588e-015}},
+            points={{11,0},{33,0}},
             color={0,0,127},
             smooth=Smooth.None));
-        connect(booleanToReal.u,on)   annotation (Line(points={{-74,6},{-76,6},{-76,0},
-                {-90,0}},
+        connect(booleanToReal.u,on)   annotation (Line(points={{-74,6},{-76,6},
+                {-76,0},{-90,0}},
               color={255,0,255}));
         connect(product1.y, limitedController.u) annotation (Line(
             points={{-19,0},{-9,0}},
@@ -7866,16 +7863,15 @@ constructed by the signals connected to this bus.
                                      annotation (Line(points={{20,-10},{20,-100},
                 {0,-100}}, color={0,0,255}));
         connect(product.u1, voltageSensor.v) annotation (Line(points={{-18,-56},
-                {80,-56},{80,0},{70,0},{70,-1.83697e-015}},
-                                                          color={0,0,127}));
+                {80,-56},{80,0},{70,0}},                  color={0,0,127}));
         connect(voltageSensor.n, signalCurrent.n) annotation (Line(points={{60,-10},
                 {60,-20},{20,-20},{20,-10}},      color={0,0,255}));
         connect(voltageSensor.p, signalCurrent.p) annotation (Line(points={{60,10},
                 {60,20},{20,20},{20,10}}, color={0,0,255}));
         connect(product.u2, signalCurrent.i) annotation (Line(points={{-18,-44},
-                {0,-44},{0,1.28588e-015},{13,1.28588e-015}},  color={0,0,127}));
+                {0,-44},{0,0},{13,0}},                        color={0,0,127}));
         connect(limitedController.y, signalCurrent.i) annotation (Line(
-            points={{-39,0},{-13,0},{-13,1.28588e-015},{13,1.28588e-015}},
+            points={{-39,0},{13,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(power, limitedController.u)
@@ -7923,8 +7919,8 @@ constructed by the signals connected to this bus.
               iconTransformation(extent={{-10,90},{10,110}})));
         Modelica.Electrical.Analog.Interfaces.NegativePin pin_n "Negative pin"
                                      annotation (Placement(transformation(extent={{-10,
-                  -110},{10,-90}},   rotation=0), iconTransformation(extent={{-10,-110},
-                  {10,-90}})));
+                  -110},{10,-90}},   rotation=0), iconTransformation(extent={{-10,
+                  -110},{10,-90}})));
         Modelica.Blocks.Interfaces.BooleanInput on annotation (Placement(
               transformation(extent={{-100,-10},{-80,10}}), iconTransformation(
                 extent={{-100,-10},{-80,10}})));
@@ -7946,7 +7942,7 @@ constructed by the signals connected to this bus.
 
         connect(voltageSensor.v, internalNode)
                                      annotation (Line(
-            points={{-30,-6.12323e-016},{-20,0},{6,0}},
+            points={{-30,0},{6,0}},
             color={0,0,127},
             smooth=Smooth.None));
         connect(internalNode, controlledCurrent.vControl)
@@ -8160,9 +8156,8 @@ constructed by the signals connected to this bus.
         connect(booleanToReal.u, on) annotation (Line(points={{-50,30},{-50,28},
                 {-58,28},{-80,28},{-80,60},{-100,60}},
               color={255,0,255}));
-        connect(product.y, CurrentSource.i) annotation (Line(points={{27,
-                -1.34711e-015},{27,4.28626e-016},{33,4.28626e-016}},
-                                color={0,0,127}));
+        connect(product.y, CurrentSource.i) annotation (Line(points={{27,0},{27,
+                0},{33,0}},     color={0,0,127}));
         connect(refVoltage.y, limitedController.u) annotation (Line(
             points={{-59,-10},{-45,-10}},
             color={0,0,127},

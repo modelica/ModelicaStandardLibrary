@@ -642,8 +642,8 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
 
       Discrete.Sampler sampler_s(
         final samplePeriod=samplePeriod,
-        final startTime=startTime) annotation (Placement(transformation(extent=
-              {{-100,-10},{-80,10}}, rotation=0)));
+        final startTime=startTime) annotation (Placement(transformation(extent={{-100,
+              -10},{-80,10}},        rotation=0)));
       Discrete.Sampler sampler_m(
         final samplePeriod=samplePeriod,
         final startTime=startTime) annotation (Placement(transformation(
@@ -666,7 +666,7 @@ These signals are sampled due to the defined <b>samplePeriod</b> parameter.
       connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
             -102,0}}));
       connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -111},{0,-102},{-7.34788e-016,-102}}));
+            -111},{0,-102}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
@@ -700,8 +700,8 @@ to be used as base class for a corresponding controller.
       Discrete.Sampler sampler_s[nu_s](
         each final samplePeriod=samplePeriod,
         each final startTime=startTime)
-                                   annotation (Placement(transformation(extent=
-              {{-90,-10},{-70,10}}, rotation=0)));
+                                   annotation (Placement(transformation(extent={{-90,-10},
+              {-70,10}},            rotation=0)));
       Discrete.Sampler sampler_m[nu_m](
         each final samplePeriod=samplePeriod,
         each final startTime=startTime)
@@ -725,7 +725,7 @@ to be used as base class for a corresponding controller.
       connect(u_s, sampler_s.u)           annotation (Line(points={{-120,0},{
             -92,0}}));
       connect(u_m, sampler_m.u)           annotation (Line(points={{0,-120},{0,
-            -106},{0,-92},{-7.34788e-016,-92}}));
+            -106},{0,-92}}));
       annotation (Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
               -100},{100,100}}), graphics={
           Text(
