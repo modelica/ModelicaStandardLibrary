@@ -2444,8 +2444,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-100,50},{100,75}},
                   lineColor={0,0,255},
                   textString="Heat transfer of helical pipe for OVERALL flow regime")}),
-            experiment(StopTime=1.01, Tolerance=1e-007),
-            __Dymola_experimentSetupOutput(events=false));
+            experiment(StopTime=1.01, Tolerance=1e-007));
         end kc_overall;
 
         model kc_overall_KC "Verification of function kc_mean_overall_KC"
@@ -3147,13 +3146,7 @@ extends Modelica.Icons.ExamplesPackage;
                   extent={{-100,11},{100,6}},
                   lineColor={0,0,255},
                   textString="Target: kc == f(m_flow)")}),
-            experiment(Tolerance=1e-005),
-            __Dymola_experimentSetupOutput(
-              states=false,
-              derivatives=false,
-              inputs=false,
-              equdistant=false,
-              events=false));
+            experiment(Tolerance=1e-005));
         end kc_overall;
 
         model kc_overall_KC "Verification of function kc_overall_KC"

@@ -733,7 +733,6 @@ In this example the eddy current losses are implemented in two different ways. C
             StopTime=1.5,
             Interval=0.0002,
             Tolerance=1e-05),
-          __Dymola_experimentSetupOutput(doublePrecision=true),
           Documentation(info="<HTML>
 <h4>Direct on line (DOL) starting of an asynchronous induction machine with squirrel cage</h4>
 <p>
@@ -945,7 +944,6 @@ Simulate for 1.5 seconds and plot (versus time):
             StopTime=1.5,
             Interval=0.001,
             Tolerance=1e-05),
-          __Dymola_experimentSetupOutput(doublePrecision=true),
           Documentation(info="<HTML>
 <h4>Starting of an asynchronous induction machine with slipring rotor resistance starting</h4>
 <p>
@@ -1157,7 +1155,6 @@ Simulate for 1.5 seconds and plot (versus time):
             StopTime=1.5,
             Interval=0.0005,
             Tolerance=1e-005),
-          __Dymola_experimentSetupOutput(doublePrecision=true),
           Documentation(info="<HTML>
 <h4>Permanent magnet synchronous induction machine fed by an ideal inverter</h4>
 <p>
@@ -1413,7 +1410,6 @@ and accelerate the inertias.</p>
             StopTime=30,
             Interval=0.005,
             Tolerance=1e-06),
-          __Dymola_experimentSetupOutput(doublePrecision=true),
           Documentation(info="<HTML>
 <h4>Electrical excited synchronous induction machine as generator</h4>
 <p>
@@ -1620,7 +1616,6 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
             StopTime=1.5,
             Interval=0.001,
             Tolerance=1e-06),
-          __Dymola_experimentSetupOutput(doublePrecision=true),
           Documentation(info="<HTML>
 <h4>Synchronous induction machine with reluctance rotor fed by an ideal inverter</h4>
 <p>

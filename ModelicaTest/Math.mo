@@ -530,6 +530,6 @@ extends Modelica.Icons.ExamplesPackage;
          ModelicaTest.Math.Matrices();
          ModelicaTest.Math.Matrices2();
      end when;
-    annotation (experiment(StopTime=0), __Dymola_experimentSetupOutput);
+    annotation (experiment(StopTime=0));
   end MatricesInModel;
 end Math;

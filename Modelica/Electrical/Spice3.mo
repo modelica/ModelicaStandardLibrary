@@ -2118,13 +2118,7 @@ RC 3 4 1K<br/>
       connect(RCOUT.p, n13);
       connect(RCOUT.n, n0);
 
-      annotation (                               experiment(StopTime=1e-006,
-            Interval=1e-009), __Dymola_experimentSetupOutput(
-          states=false,
-          derivatives=false,
-          inputs=false,
-          auxiliaries=false),
-        Icon(graphics),
+      annotation (experiment(StopTime=1e-006,Interval=1e-009),
         Documentation(info="<html>
 <p>This Four Bit Binary Adder model is one of the five benchmark circuits described in the SPICE3 Version e3 User&apos;s Manual (see information of package Spice3). </p>
 <p>The model adds two 4-bit numbers. It has eight inputs where the first one is the lowest-order bit of the first number, the second is the lowest-order bit of the second number, the third one is the second-order bit of
