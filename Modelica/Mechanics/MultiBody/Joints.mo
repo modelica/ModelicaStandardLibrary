@@ -1892,13 +1892,13 @@ frame_b of the joint.
         annotation(HideResult=true,Dialog(tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a"));
     SI.Position r_rel_a_1(start=0, final stateSelect=r_rel_a_1_stateSelect) = model_r.r_rel_a_1 if use_r
       "Relative distance r_rel_a[1]"
-      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
     SI.Position r_rel_a_2(start=0, final stateSelect=r_rel_a_2_stateSelect) = model_r.r_rel_a_2 if use_r
       "Relative distance r_rel_a[2]"
-      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
     SI.Position r_rel_a_3(start=0, final stateSelect=r_rel_a_3_stateSelect) = model_r.r_rel_a_3 if use_r
       "Relative distance r_rel_a[3]"
-      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r, tab="Translational Initialization", group="Position vector r_rel_a from origin of frame_a to origin of frame_b, resolved in frame_a",showStartAttribute=true));
 
     parameter StateSelect r_rel_a_1_stateSelect=StateSelect.never
       "StateSelect of r_rel_a[1]" annotation(HideResult=true,
@@ -1914,13 +1914,13 @@ frame_b of the joint.
         annotation(HideResult=true,Dialog(enable=use_r, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)"));
     SI.Velocity v_rel_a_1(start=0, final stateSelect=v_rel_a_1_stateSelect) = der(r_rel_a_1) if use_r and use_v
       "Relative velocity v_rel_a[1]"
-      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
     SI.Velocity v_rel_a_2(start=0, final stateSelect=v_rel_a_2_stateSelect) = der(r_rel_a_2) if use_r and use_v
       "Relative velocity v_rel_a[2]"
-      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
     SI.Velocity v_rel_a_3(start=0, final stateSelect=v_rel_a_3_stateSelect) = der(r_rel_a_3) if use_r and use_v
       "Relative velocity v_rel_a[3]"
-      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Velocity vector v_rel_a = der(r_rel_a)",showStartAttribute=true));
 
     parameter StateSelect v_rel_a_1_stateSelect=StateSelect.never
       "StateSelect of v_rel_a[1]" annotation(HideResult=true,
@@ -1936,13 +1936,13 @@ frame_b of the joint.
         annotation(HideResult=true,Dialog(enable=use_r and use_v, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)"));
     SI.Acceleration a_rel_a_1(start=0) = der(v_rel_a_1) if use_r and use_v and use_a
       "Relative acceleration a_rel_a[1]"
-      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
     SI.Acceleration a_rel_a_2(start=0) = der(v_rel_a_2) if use_r and use_v and use_a
       "Relative acceleration a_rel_a[2]"
-      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
     SI.Acceleration a_rel_a_3(start=0) = der(v_rel_a_3) if use_r and use_v and use_a
       "Relative acceleration a_rel_a[3]"
-      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_r and use_v and use_a, tab="Translational Initialization", group="Acceleration vector a_rel_a = der(v_rel_a)",showStartAttribute=true));
 
     parameter Boolean use_angle = false "= true, if angle shall be used"
       annotation(HideResult=true,Dialog(tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start"));
@@ -1953,13 +1953,13 @@ frame_b of the joint.
 
     SI.Angle angle_1(start=0, stateSelect=angle_1_stateSelect)
       "First rotation angle or dummy"
-      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
     SI.Angle angle_2(start=0, stateSelect=angle_2_stateSelect)
       "Second rotation angle or dummy"
-      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
     SI.Angle angle_3(start=0, stateSelect=angle_3_stateSelect)
       "Third rotation angle or dummy"
-      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle, tab="Angle Initialization", group="Angles to rotate frame_a to frame_b along sequence_start",showStartAttribute=true));
 
     parameter StateSelect angle_1_stateSelect=StateSelect.never
       "StateSelect of angle_1"
@@ -1976,13 +1976,13 @@ frame_b of the joint.
 
     SI.AngularVelocity angle_d_1(start=0, final stateSelect=angle_d_1_stateSelect) = der(angle_1) if use_angle and use_angle_d
       "= der(angle_1)"
-      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true));
     SI.AngularVelocity angle_d_2(start=0, final stateSelect=angle_d_2_stateSelect) = der(angle_2) if use_angle and use_angle_d
       "= der(angle_2)"
-      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true));
     SI.AngularVelocity angle_d_3(start=0, final stateSelect=angle_d_3_stateSelect) = der(angle_3) if use_angle and use_angle_d
       "= der(angle_3)"
-      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_d = der(angle)",showStartAttribute=true));
 
     parameter StateSelect angle_d_1_stateSelect=StateSelect.never
       "StateSelect of angle_d_1" annotation(HideResult=true,
@@ -1998,26 +1998,26 @@ frame_b of the joint.
         annotation(HideResult=true,Dialog(enable=use_angle and use_angle_d, tab="Angle Initialization", group="angle_dd = der(angle_d)"));
     SI.AngularAcceleration angle_dd_1(start=0) = der(angle_d_1) if use_angle and use_angle_d and use_angle_dd
       "= der(angle_d_1)"
-      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
     SI.AngularAcceleration angle_dd_2(start=0) = der(angle_d_2) if use_angle and use_angle_d and use_angle_dd
       "= der(angle_d_2)"
-      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
     SI.AngularAcceleration angle_dd_3(start=0) = der(angle_d_3) if use_angle and use_angle_d and use_angle_dd
       "= der(angle_d_3)"
-      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_angle and use_angle_d and use_angle_dd, tab="Angle Initialization", group="angle_dd = der(angle_d)",showStartAttribute=true));
 
     parameter Boolean use_w = false "= true, if w_rel_b shall be used"
       annotation(HideResult=true,Dialog(tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b"));
 
     SI.AngularVelocity w_rel_b_1(start=0, stateSelect=w_rel_b_1_stateSelect) = model_w.w_rel_b_1 if use_w
       "Relative angular velocity w_rel_b[1]"
-      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
     SI.AngularVelocity w_rel_b_2(start=0, stateSelect=w_rel_b_2_stateSelect) = model_w.w_rel_b_2 if use_w
       "Relative angular velocity w_rel_b[2]"
-      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
     SI.AngularVelocity w_rel_b_3(start=0, stateSelect=w_rel_b_3_stateSelect) = model_w.w_rel_b_3 if use_w
       "Relative angular velocity w_rel_b[3]"
-      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular velocity w_rel_b of frame_b with respect to frame_a, resolved in frame_b",showStartAttribute=true));
 
     parameter StateSelect w_rel_b_1_stateSelect=StateSelect.never
       "StateSelect of w_rel_b[1]" annotation(HideResult=true,
@@ -2033,13 +2033,13 @@ frame_b of the joint.
       annotation(HideResult=true,Dialog(enable=use_w, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)"));
     SI.AngularAcceleration z_rel_b_1(start=0) = der(w_rel_b_1) if use_w and use_z
       "Relative angular acceleration z_rel_b[1]"
-      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
     SI.AngularAcceleration z_rel_b_2(start=0) = der(w_rel_b_2) if use_w and use_z
       "Relative angular acceleration z_rel_b[2]"
-      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
     SI.AngularAcceleration z_rel_b_3(start=0) = der(w_rel_b_3) if use_w and use_z
       "Relative angular acceleration z_rel_b[3]"
-      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true,__Dymola_initialDialog=true));
+      annotation(Dialog(enable=use_w and use_z, tab="Angular Velocity Initialization", group="Angular acceleration z_rel_b = der(w_rel_b)",showStartAttribute=true));
 
     parameter SI.Length arrowDiameter=world.defaultArrowDiameter
       "Diameter of arrow from frame_a to frame_b"
