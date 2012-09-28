@@ -13133,9 +13133,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
       type MolarMass_gpmol = Real (final quantity="Molar mass", final unit="g/mol");
     end Types;
   end Utilities;
-annotation (
-  __Dymola_classOrder={"UsersGuide","Examples","HeatTransfer","PressureLoss","Utilities"},
-  Documentation(info="<html>
+annotation (Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Dissipation/FD2.png\" alt=\"FD2\"/>
 
 <h4>  Library description </h4>

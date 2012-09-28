@@ -6,9 +6,7 @@ import SI = Modelica.SIunits;
 extends Modelica.Icons.Package;
 
 
-annotation (
-    __Dymola_classOrder={"Examples", "*"},
-  Documentation(info="<html>
+annotation (Documentation(info="<html>
 <p>
 This package contains packages for analog electrical components:</p>
 <ul>

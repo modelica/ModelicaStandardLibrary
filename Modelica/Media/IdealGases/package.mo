@@ -3,9 +3,7 @@ package IdealGases "Data and models of ideal gases (single, fixed and dynamic mi
   extends Modelica.Icons.MaterialPropertiesPackage;
 
 
-annotation (
-  __Dymola_classOrder={"Common", "SingleGases", "MixtureGases"},
-Documentation(info="<HTML>
+annotation (Documentation(info="<HTML>
 <p>This package contains data for the 1241 ideal gases from</p>
 <blockquote>
   <p>McBride B.J., Zehe M.J., and Gordon S. (2002): <b>NASA Glenn Coefficients

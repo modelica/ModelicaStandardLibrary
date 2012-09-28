@@ -1,11 +1,6 @@
 within Modelica.Fluid;
 package Examples "Demonstration of the usage of the library"
+  extends Modelica.Icons.ExamplesPackage;
 
-
-extends Modelica.Icons.ExamplesPackage;
-
-
-annotation(preferredView="info",
-          __Dymola_classOrder={"PumpingSystem", "HeatingSystem", "DrumBoiler", "Tanks", "ControlledTankSystem", "AST_BatchPlant",
-    "IncompressibleFluidNetwork", "BranchingDynamicPipes", "HeatExchanger", "TraceSubstances", "InverseParameterization", "Explanatory", "*"});
+  annotation(preferredView="info");
 end Examples;

@@ -7236,6 +7236,4 @@ This model executes pressure loss calculations out of the <b> Fluid.Dissipation 
 
     end PressureLoss;
   end TestCases;
-
-annotation (__Dymola_classOrder={"Verifications","Applications","TestCases"});
 end FluidDissipation;

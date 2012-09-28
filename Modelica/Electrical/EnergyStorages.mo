@@ -2488,7 +2488,7 @@ management systems, loads and charging devices.
                   extent={{22,-12},{82,14}},
                   lineColor={0,0,255},
                   pattern=LinePattern.Dot,
-                  textString =                    "num"),
+                  textString=                     "num"),
                 Text(extent={{-80,-10},{-20,16}}, textString=
                                                     "1"),
                 Line(points={{-20,0},{0,0},{0,0},{0,0}}, color={0,0,255}),
@@ -2660,7 +2660,7 @@ management systems, loads and charging devices.
                   extent={{112,-12},{172,14}},
                   lineColor={0,0,255},
                   pattern=LinePattern.Dot,
-                  textString =                    "num"),
+                  textString=                     "num"),
                 Line(
                   points={{140,40},{140,68},{40,68},{40,68}},
                   color={188,0,0},
@@ -3412,7 +3412,6 @@ management systems, loads and charging devices.
           "Operational Temperature"
           annotation (Dialog(enable = not useHeatPort));
       end OperationalParameters;
-    annotation (classOrder={"Impedances","Calculators","Utilities"}, Diagram(graphics));
     end Components;
 
   end Batteries;
@@ -3528,7 +3527,7 @@ management systems, loads and charging devices.
 
     package Components
       "Contains the records for more comfortable parameterization"
-     extends Modelica.Icons.Package;
+     extends EnergyStorages.Icons.ComponentPackage;
 
       record SOCOCV "Combines SOC vs OCV curve table parameters"
         extends Modelica.Icons.Record;
@@ -4049,7 +4048,6 @@ management systems, loads and charging devices.
                      "Td")}));
       end OnDelay;
     end Components;
-  annotation (classOrder={"Components"});
   end BatteryManagement;
 
   package Icons "Package which contains all icons of the used models"
@@ -4301,7 +4299,7 @@ management systems, loads and charging devices.
 
     partial package BatteriesPackage "Icon for the Batteries package "
 
-    annotation (classOrder={"Cells","Packages","Components"}, Icon(graphics={
+    annotation (Icon(graphics={
             Ellipse(
               extent={{-56,-34},{26,-76}},
               lineColor={0,0,0},
@@ -8010,7 +8008,6 @@ constructed by the signals connected to this bus.
                 origin={-139,-112},
                 rotation=180)}));
       end CCCV;
-    annotation (classOrder={"Components"});
     end Chargers;
 
     package Components "Components for the loads and the charging devices"

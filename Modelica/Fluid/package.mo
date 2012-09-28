@@ -1690,10 +1690,7 @@ substance medium with one or more phases might be used.
 end UsersGuide;
 
 
-annotation (
-  preferredView="info",
-  __Dymola_classOrder={"UsersGuide","Examples","System","Vessels","Pipes","Machines","Valves",
-      "Fittings", "Sources", "Sensors", "Interfaces", "Types", "Utilities", "Icons", "*"},
+annotation (preferredView="info",
   Documentation(info="<html>
 <p>
 Library <b>Modelica.Fluid</b> is a <b>free</b> Modelica package providing components for

@@ -7460,8 +7460,6 @@ conversion(
  from(version="2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.1", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos"),
  from(version="2.2.2", script="modelica://Modelica/Resources/Scripts/Dymola/ConvertModelica_from_2.2.2_to_3.0.mos")),
-__Dymola_classOrder={"UsersGuide","Blocks","StateGraph","Electrical","Magnetic","Mechanics","Fluid","Media","Thermal",
-      "Math","Utilities","Constants", "Icons", "SIunits"},
 Documentation(info="<HTML>
 <p>
 Package <b>Modelica&reg;</b> is a <b>standardized</b> and <b>free</b> package
