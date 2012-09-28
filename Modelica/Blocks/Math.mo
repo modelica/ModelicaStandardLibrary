@@ -3469,7 +3469,6 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
             extent={{-10,-40},{100,-80}},
             lineColor={0,0,130},
             textString="yMin")}),
-      DymolaStoredErrors,
       Documentation(info="<html>
 <p>
 Determines the minimum and maximum of the <code>nin</code> inputs.

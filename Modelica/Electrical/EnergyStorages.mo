@@ -31,7 +31,7 @@ extends EnergyStorages.Icons.BatteryPackage;
 </html>"));
 
   end Contact;
-   annotation (DocumentationClass=true, Documentation(info="<html>
+   annotation (__Dymola_DocumentationClass=true, Documentation(info="<html>
  The Electric Energy Storages Library contains models with different complexity for simulating of electric energy storages like batteries (single cells as well as stacks) interacting with loads, battery
 management systems, loads and charging devices.
 </html>"));
@@ -1451,34 +1451,21 @@ management systems, loads and charging devices.
       end WithMeasurement;
 
     annotation (Icon(
-          Polygon(points=[-80,-80; -80,40; -60,40; -60,60; -20,60; -20,40; 20,40;
-                20,60; 60,60; 60,40; 80,40; 80,-80; -80,-80], style(
-              color=0,
-              rgbcolor={0,0,0},
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1)),
-          Text(
-            extent=[-62,12; 14,-50],
-            style(
-              color=0,
-              rgbcolor={0,0,0},
-              thickness=2,
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1),
-            string="+"),
-          Text(
-            extent=[12,26; 104,-60],
-            style(
-              color=0,
-              rgbcolor={0,0,0},
-              thickness=2,
-              fillColor=7,
-              rgbfillColor={255,255,255},
-              fillPattern=1),
-            string="-")),
-                  Diagram(graphics));
+          coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,100}}),
+          graphics={
+            Line(
+              points={{-80,-80},{-80,40},{-60,40},{-60,60},{-20,60},{-20,40},{20,40},
+                  {20,60},{60,60},{60,40},{80,40},{80,-80},{-80,-80}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Text(
+              extent={{-40,0},{20,-60}},
+              lineColor={0,0,0},
+              textString="+"),
+            Text(
+              extent={{20,-8},{80,-68}},
+              lineColor={0,0,0},
+              textString="-")}));
     end Cells;
 
     package Stacks "Package for battery stacks"
@@ -7663,18 +7650,18 @@ constructed by the signals connected to this bus.
             points={{-40,-10},{-40,-40},{60,-40},{60,-8}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(graphics), Icon(graphics={
+        annotation (Icon(graphics={
               Text(
                 extent={{17,14},{-17,-14}},
                 lineColor={255,85,255},
                 textString="on",
                 origin={-63,2},
-                rotation=180)}),
-                  Icon(graphics={Text(
+                rotation=180),
+              Text(
                 extent={{27,20},{-27,-20}},
                 lineColor={0,0,127},
                 textString="v",
-                origin={-139,-112},
+                origin={-65,-56},
                 rotation=180)}));
       end CCCV;
 
@@ -7973,39 +7960,18 @@ constructed by the signals connected to this bus.
             points={{-40,10},{-40,40},{60,40},{60,10}},
             color={0,0,255},
             smooth=Smooth.None));
-        annotation (Diagram(graphics), Icon(graphics={
-              Ellipse(extent={{-40,40},{40,-40}}, lineColor={0,0,0},
-                origin={0,2},
-                rotation=90),
-              Line(points={{0,40},{0,-40}}, color={0,0,0},
-                origin={0,2},
-                rotation=90),
+        annotation (Icon(graphics={
               Text(
                 extent={{17,14},{-17,-14}},
                 lineColor={255,85,255},
                 textString="on",
                 origin={-63,2},
                 rotation=180),
-              Polygon(
-                points={{0,-10},{-8,8},{8,8},{0,-10}},
-                lineColor={0,0,0},
-                fillColor={0,0,0},
-                fillPattern=FillPattern.Solid,
-                origin={0,60},
-                rotation=180),
-              Line(
-                points={{0,90},{0,44}},
-                color={0,0,0},
-                smooth=Smooth.None),
-              Line(
-                points={{0,-40},{0,-90}},
-                color={0,0,0},
-                smooth=Smooth.None)}),
-                  Icon(graphics={Text(
+              Text(
                 extent={{27,20},{-27,-20}},
                 lineColor={0,0,127},
                 textString="v",
-                origin={-139,-112},
+                origin={-65,-56},
                 rotation=180)}));
       end CCCV;
     end Chargers;
