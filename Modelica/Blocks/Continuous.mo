@@ -1298,11 +1298,11 @@ results in the following transfer function:
 
   block StateSpace "Linear state space system"
     import Modelica.Blocks.Types.Init;
-    parameter Real A[:, size(A, 1)]
+    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
       "Matrix A of state space model (e.g., A=[1, 0; 0, 1])";
-    parameter Real B[size(A, 1), :]
+    parameter Real B[size(A, 1), :]=[1; 1]
       "Matrix B of state space model (e.g., B=[1; 1])";
-    parameter Real C[:, size(A, 1)]
+    parameter Real C[:, size(A, 1)]=[1, 1]
       "Matrix C of state space model (e.g., C=[1, 1])";
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))
       "Matrix D of state space model";

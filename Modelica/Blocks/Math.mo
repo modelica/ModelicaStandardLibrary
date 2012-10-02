@@ -3441,7 +3441,7 @@ the two Real inputs <b>u1</b> and <b>u2</b>:
 
   block MinMax "Determines the min and the max from the inputs"
     extends Modelica.Blocks.Icons.Block;
-    parameter Integer nin(min=1) "Number of inputs";
+    parameter Integer nin(min=1,start=1) "Number of inputs";
     Modelica.Blocks.Interfaces.RealOutput yMax
       annotation (Placement(transformation(extent={{100,50},{120,70}},
             rotation=0)));

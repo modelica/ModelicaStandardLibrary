@@ -1486,10 +1486,10 @@ The Real output y is a trapezoid signal:
       block KinematicPTP
     "Move as fast as possible along a distance within given kinematic constraints"
 
-        parameter Real deltaq[:] "Distance to move";
-        parameter Real qd_max[:](each final min=Modelica.Constants.small)
+        parameter Real deltaq[:] = {1} "Distance to move";
+        parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
-        parameter Real qdd_max[:](each final min=Modelica.Constants.small)
+        parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
         parameter SIunits.Time startTime=0
       "Time instant at which movement starts";
@@ -1655,10 +1655,10 @@ a flange according to a given acceleration.
     "Move as fast as possible from start to end position within given kinematic constraints with output signals q, qd=der(q), qdd=der(qd)"
 
     parameter Real q_begin[:] = {0} "Start position";
-    parameter Real q_end[:] "End position";
-    parameter Real qd_max[:](each final min=Modelica.Constants.small)
+    parameter Real q_end[:] = {1} "End position";
+    parameter Real qd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum velocities der(q)";
-    parameter Real qdd_max[:](each final min=Modelica.Constants.small)
+    parameter Real qdd_max[:](each final min=Modelica.Constants.small) = {1}
       "Maximum accelerations der(qd)";
     parameter Modelica.SIunits.Time startTime=0
       "Time instant at which movement starts";
@@ -1979,7 +1979,7 @@ a flange according to a given acceleration.
       block TimeTable
     "Generate a (possibly discontinuous) signal by linear interpolation in a table"
 
-        parameter Real table[:, 2]
+        parameter Real table[:, 2] = [0, 0; 1, 1; 2, 4]
       "Table matrix (time = first column; e.g., table=[0, 0; 1, 1; 2, 4])";
         parameter Real offset=0 "Offset of output signal";
         parameter SIunits.Time startTime=0
@@ -2853,7 +2853,7 @@ at sample times (defined by parameter <b>period</b>) and is otherwise
 
       parameter Boolean startValue = false
       "Start value of y. At time = table[1], y changes to 'not startValue'";
-      parameter Modelica.SIunits.Time table[:]
+      parameter Modelica.SIunits.Time table[:] = {0,1}
       "Vector of time points. At every time point, the output y gets its opposite value (e.g., table={0,1})";
       extends Interfaces.partialBooleanSource;
 
@@ -2971,7 +2971,7 @@ changes its value to the negated value of the previous one.
 
   block RadioButtonSource "Boolean signal source that mimics a radio button"
 
-    parameter Modelica.SIunits.Time buttonTimeTable[:]
+    parameter Modelica.SIunits.Time buttonTimeTable[:] = {0,1}
       "Time instants where button is pressed";
     input Boolean reset[:]={false}
       "Reset button to false, if an element of reset becomes true"
