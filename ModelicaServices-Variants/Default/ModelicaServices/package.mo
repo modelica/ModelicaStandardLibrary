@@ -1,8 +1,9 @@
 within ;
-package ModelicaServices "(Default implementation) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+package ModelicaServices "(version = 3.2.1, Default implementation) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
   extends Modelica.Icons.Package;
   constant String target="Default"
   "Target of this ModelicaServices implementation";
+
 
 package UsersGuide "User's Guide"
 extends Modelica.Icons.Information;
@@ -561,6 +562,23 @@ end ModelicaLicense2;
 class ReleaseNotes "Release notes"
   extends Modelica.Icons.ReleaseNotes;
   annotation (Documentation(info="<html>
+<h4>Version 3.2.1, 2012-10-04</h4>
+
+<ul>
+<li> Version numbering adapted to the corresponding version number of
+     package Modelica (= Modelica Standard Library).</li>
+<li> New function
+     <a href=\"modelica://ModelicaServices.ExternalReferences.loadResource\">loadResource</a>
+     to determine the absolute, local file name from an URI path name.
+     </li>
+<li> New String type with tool dependent choices
+     <a href=\"modelica://ModelicaServices.Types.SolverMethod\">SolverMethod</a>
+     to define the integration method to solve differential equations in a
+     clocked discretized continuous-time partition.
+     </li>
+</ul>
+
+
 <h4>Version 1.1, 2010-07-30</h4>
 
 <ul>
@@ -624,6 +642,7 @@ end Contact;
   annotation(__Dymola_DocumentationClass=true);
 end UsersGuide;
 
+
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
 model Shape
@@ -665,14 +684,63 @@ The interface of this model is defined at
   end Surface;
 end Animation;
 
+
+package ExternalReferences "Library of functions to access external resources"
+  extends Modelica.Icons.Package;
+  function loadResource
+    "Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)"
+    extends
+      Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
+  algorithm
+      fileReference:=Modelica.Utilities.Files.fullPathName(uri);
+
+    annotation (Documentation(info="<html>
+<p>
+The interface of this model is documented at
+<a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
+</p>
+
+<p>
+This implementation is targeted for Dymola.
+</p>
+</html>"));
+  end loadResource;
+end ExternalReferences;
+
+
+package Types "Library of types with vendor specific choices"
+  extends Modelica.Icons.Package;
+  type SolverMethod = String
+    "String defining the integration method to solve differential equations in a clocked discretized continuous-time partition"
+  annotation(choices(
+      choice="External" "Solver specified externally",
+      choice="ExplicitEuler" "Explicit Euler method (order 1)",
+      choice="ExplicitMidPoint2" "Explicit mid point rule (order 2)",
+      choice="ExplicitRungeKutta4" "Explicit Runge-Kutta method (order 4)",
+      choice="ImplicitEuler" "Implicit Euler method (order 1)",
+     choice="ImplicitTrapezoid" "Implicit trapezoid rule (order 2)"),
+  Documentation(info="<html>
+<p>
+Type <b>SolverMethod</b> is a String type with menu choices to select the
+integration method to solve differential equations in a clocked discretized
+continuous-time partition. The choices are tool dependent.
+For details, see chapter 16.8.2 \"Solver Method\" in the Modelica Language
+Specification (version &ge; 3.3).
+</p>
+</html>"));
+end Types;
+
+
 annotation (__Dymola_Protection(hideFromBrowser=true),
 preferredView="info",
-version="1.1",
-versionDate="2010-07-30",
+version="3.2.1",
+versionDate="2012-10-04",
 versionBuild=0,
 revisionId="$Id::                                       $",
-uses(Modelica(version="3.2")),
-conversion(noneFromVersion="1.0"),
+uses(Modelica(version="3.2.1")),
+conversion(noneFromVersion="1.0",
+           noneFromVersion="1.1",
+           noneFromVersion="1.2"),
 Documentation(info="<html>
 <p>
 This package contains a set of functions and models to be used in the

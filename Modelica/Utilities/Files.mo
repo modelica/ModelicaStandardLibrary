@@ -664,6 +664,42 @@ write to this file (useful for temporary output of files).
 </p>
 </html>"));
 end temporaryFileName;
+
+  function loadResource
+    "Return the absolute path name of a URI or local file name"
+     extends
+      Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
+     extends ModelicaServices.ExternalReferences.loadResource;
+    annotation (Documentation(info="<html>
+<h4>Syntax</h4>
+<blockquote><pre>
+fileReference = FileSystem.<b>loadResource</b>(uri);
+</pre></blockquote>
+<h4>Description</h4>
+<p>
+The function call \"<code>FileSystem.<b>loadResource</b>(uri)</code>\" returns the
+<b>absolute path name</b> of the file that is either defined by an URI or by a local 
+(e.g. relative) path name. With the returned file name it is possible to 
+access the file with function calls of the C standard library.
+If the data or file is stored in a data-base,
+this might require copying the resource to a temporary folder and referencing that.
+</p>
+
+<p>
+The implementation of this function is tool specific. However, at least Modelica URIs
+(see \"chapter 13.2.3 External Resources\" of the Modelica Specification),
+as well as absolute and relative local file path names are supported.
+</p>
+
+<h4>Example</h4>
+<blockquote><pre>
+  file1 = loadResource(\"modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt\")
+          // file1 is the absolute path name of the file
+  file2 = loadResource(\"C:\\data\\readParameters.txt\")
+          file2 = \"C:/data/readParameters.txt\"
+</pre></blockquote>
+</html>"));
+  end loadResource;
     annotation (
 Documentation(info="<HTML>
 <p>

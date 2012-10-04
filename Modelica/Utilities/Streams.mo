@@ -44,18 +44,20 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
   end print;
 
   function readFile
-    "Read content of a file and return it in a vector of strings"
+    "Read content of a file and return it in a vector of strings (fileName can be an URI)"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
                  annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
-    output String stringVector[countLines(fileName)] "Content of file";
-
+  protected
+    String absoluteFileName = Modelica.Utilities.Files.loadResource(fileName);
+  public
+    output String stringVector[countLines(absoluteFileName)] "Content of file";
   algorithm
     for i in  1:size(stringVector, 1) loop
-      stringVector[i] := readLine(fileName, i);
+      stringVector[i] := readLine(absoluteFileName, i);
     end for;
-    Streams.close(fileName);
+    Streams.close(absoluteFileName);
     annotation ( Documentation(info="<html>
 <h4>Syntax</h4>
 <blockquote><pre>

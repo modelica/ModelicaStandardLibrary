@@ -66,7 +66,8 @@ package Tables
     end for;
     when initial() then
       tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then fileName else "NoName", table, smoothness);
+                        if tableOnFile then Modelica.Utilities.Files.loadResource(fileName)
+                                       else "NoName", table, smoothness);
     end when;
     annotation (
       Documentation(info="<html>
@@ -314,7 +315,7 @@ Several matrices may be defined one after another.
     end for;
     when initial() then
       tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then fileName else "NoName", table, smoothness);
+                        if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName", table, smoothness);
     end when;
     annotation (
       Documentation(info="<html>
@@ -556,7 +557,7 @@ Several matrices may be defined one after another.
     y = tableIpo(tableID, u1, u2);
     when initial() then
       tableID=tableInit(if tableOnFile then tableName else "NoName",
-                        if tableOnFile then fileName else "NoName", table, smoothness);
+                        if tableOnFile then Modelica.Utilities.Files.loadResource(fileName) else "NoName", table, smoothness);
     end when;
     annotation (
       Documentation(info="<html>

@@ -93,18 +93,33 @@ This model is documented at
     end PartialSurface;
   end Animation;
 
+  package ExternalReferences "Functions to access external resources"
+    extends Modelica.Icons.Package;
+    partial function PartialLoadResource
+        "Interface for tool specific function to return the absolute path name of a URI or local file name"
+      input String uri "URI or local file name";
+      output String fileReference "Absolute path name of file";
+      annotation (Documentation(info="<html>
+<p>
+This partial function defines the function interface of a tool-specific implementation
+in package ModelicaServices. The interface is documented at
+<a href=\"modelica://Modelica.Utilities.Internal.FileSystem.loadResource\">Modelica.Utilities.Internal.FileSystem.loadResource</a>.
+</p>
+
+</html>"));
+    end PartialLoadResource;
+  end ExternalReferences;
     annotation (Documentation(info="<html>
 
 <p>
 This package contains interfaces of a set of functions and models used in the
-Modelica Standard Library that requires a <u>tool specific implementation</u>.
-There is an associated package called <u>ModelicaServices</u>. A tool vendor
+Modelica Standard Library that requires a <b>tool specific implementation</b>.
+There is an associated package called <b>ModelicaServices</b>. A tool vendor
 should provide a proper implementation of this library for the corresponding
 tool. The default implementation is \"do nothing\".
 In the Modelica Standard Library, the models and functions of ModelicaServices
 are used.
 </p>
-
 </html>"));
 end PartialModelicaServices;
 
