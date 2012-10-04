@@ -769,12 +769,7 @@ signal <b>u</b> exceeds the <b>reference</b> signal plus half of the bandwidth.<
     discrete Modelica.SIunits.Time T
       "Predicted time of output reaching endValue";
   initial equation
-    /* A start value of y is set, because pre(y) is present
-     to avoid a warning message from the compiler. However,
-     this setting does not have an effect, because y is initialized
-     correctly, before pre(y) is used
-  */
-    pre(y) = 0;
+    pre(y) = 0.0;
   equation
       y = if time < T then endValue - (T - time)*rate else  endValue;
 
