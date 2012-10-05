@@ -2170,15 +2170,14 @@ The table interpolation has the following properties:
     the function value is just returned independently of the
     actual time instant.</li>
 <li>Via parameters <strong><code>startTime</code></strong> and <strong><code>offset</code></strong> the curve defined
-    by the table can be shifted both in time and in the ordinate value.
+    by the table can be shifted both in time and in the ordinate value.</li>
 <li>The first point in time <strong>always</strong> has to be set to <strong><code>0</code></strong>, e.g.,
     <strong><code>table=[1,1;2,2]</code></strong> is <strong>illegal</strong>. If you want to
     shift the time table in time use the  <strong><code>startTime</code></strong> parameter instead.</li>
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries,
     in order to not integrate over a discontinuous or not differentiable
-    points.
-</li>
+    points.</li>
 </ul>
 <p>
 Example:
@@ -2350,7 +2349,7 @@ by interpolation of column 4 of the table matrix.
 The table interpolation has the following properties:
 </p>
 <ul>
-<li>The time points need to be <b>monotonically increasing</b>. </li>
+<li>The time points need to be <b>monotonically increasing</b>.</li>
 <li><b>Discontinuities</b> are allowed, by providing the same
     time point twice in the table. </li>
 <li>Values <b>outside</b> of the table range, are computed by
@@ -2377,16 +2376,15 @@ The table interpolation has the following properties:
     The time instants stored in the table are therefore <b>relative</b>
     to <b>startTime</b>.
     If time &lt; startTime, no interpolation is performed and the offset
-    is used as ordinate value for all outputs.
+    is used as ordinate value for all outputs.</li>
 <li>The table is implemented in a numerically sound way by
     generating <b>time events</b> at interval boundaries,
     in order to not integrate over a discontinuous or not differentiable
-    points.
+    points.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
     reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be access from
-    the outside of the table object.
-</li>
+    the outside of the table object.</li>
 </ul>
 <p>
 Example:
