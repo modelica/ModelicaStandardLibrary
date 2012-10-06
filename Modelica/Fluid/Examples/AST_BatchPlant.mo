@@ -663,13 +663,18 @@ package AST_BatchPlant
       Documentation(info="<html>
 <img src=\"modelica://Modelica/Resources/Images/Fluid/Examples/BatchPlant_StandardWater.png\" border=\"1\"
      alt=\"BatchPlant_StandardWater.png\">
-</html>"));
+</html>"),
+      Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{
+              200,280}})),
+      Icon(coordinateSystem(preserveAspectRatio=true, extent={{-200,-280},{200,
+              280}})));
   end BatchPlant_StandardWater;
 
   package BaseClasses
     extends Modelica.Icons.BasesPackage;
     block TriggeredTrapezoid "Triggered trapezoid generator"
       extends Modelica.Blocks.Icons.PartialBooleanBlock;
+      extends Modelica.Icons.ObsoleteModel;
 
       parameter Real amplitude=1 "Amplitude of trapezoid";
       parameter Modelica.SIunits.Time rising(final min=0)=0
@@ -696,11 +701,6 @@ package AST_BatchPlant
         annotation (Placement(transformation(extent={{100,-90},{120,-70}},
               rotation=0)));
     initial equation
-      /* A start value of y is set, because pre(y) is present
-     to avoid a warning message from the compiler. However,
-     this setting does not have an effect, because y is initialized
-     correctly, before pre(y) is used
-  */
       pre(y) = 0;
     equation
         y_high = time < T;
@@ -854,6 +854,13 @@ package AST_BatchPlant
               lineColor={0,0,0},
               textString="y_high")}),
         Documentation(info="<HTML>
+<p>
+<b>
+Obsolete model that is not used in package Modelica and 
+will be removed in a future version of package Modelica.
+Use instead model Modelica.Blocks.Logical.TriggeredTrapezoid.</b>
+</p>
+
 <p>The block TriggeredTrapezoid has a boolean input and a real
 output signal and requires the parameters <i>amplitude</i>,
 <i>rising</i>, <i>falling</i> and <i>offset</i>. The
