@@ -2523,7 +2523,7 @@ behavior is <b>not</b> modelled. The parameters are not temperature dependent.
    end for;
 
   algorithm
-    when (trig==4 or trig==8) then
+    when (trig==L.'1' or trig==L.'H') then
       z:=if u>VRefLow then integer((u-VRefLow)/(VRefHigh-VRefLow)*(2^N - 1) + 0.5) else 0;
       for i in 1:N loop
         y[i] :=if mod(z, 2) > 0 then L.'1' else L.'0';
@@ -2608,10 +2608,10 @@ Hence the output will change instantaneously when the trigger signal rises.
     parameter Modelica.SIunits.Voltage Vref(start = 10) "Reference voltage";
 
   algorithm
-     when trig==4 or trig==8 then
+     when trig==L.'1' or trig==L.'H' then
        y:=0;
        for i in 1:N loop
-         y := if ( x[i] == 4 or x[i] == 8) then  y + 2^(i-1) else y;
+         y := if ( x[i] == L.'1' or x[i] == L.'H') then  y + 2^(i-1) else y;
        end for;
        vout := y*Vref/(2^N - 1);
      end when;

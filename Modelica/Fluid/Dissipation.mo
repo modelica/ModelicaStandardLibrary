@@ -5190,6 +5190,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
         output SI.MassFlowRate M_FLOW "Output of function dp_overall_MFLOW";
 
       protected
+        import Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
         Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";
@@ -5219,7 +5220,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
           "Reynolds number assuming laminar regime";
 
         //SOURCE_3: p.Lab 2, eq. 10: determine Re assuming turbulent regime (Colebrook-White)
-        SI.ReynoldsNumber Re_turb=if IN_con.roughness == 1 then (max(MIN,
+        SI.ReynoldsNumber Re_turb=if IN_con.roughness == Roughness.Neglected then (max(MIN,
             lambda_FRI_calc)/0.3164)^(1/1.75) else -2*sqrt(max(lambda_FRI_calc, MIN))
             *Modelica.Math.log10(2.51/sqrt(max(lambda_FRI_calc, MIN)) + k/3.7)
           "Reynolds number assuming turbulent regime";
