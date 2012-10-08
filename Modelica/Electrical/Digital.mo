@@ -451,7 +451,7 @@ The simulation stop time should be 10 seconds.
             x={L.'0'},
             t={1}) annotation (Placement(transformation(extent={{70,40},{110,80}},
                   rotation=0)));
-          Modelica.Electrical.Digital.Sources.Set Set(x=3)
+          Modelica.Electrical.Digital.Sources.Set Set(x=L.'0')
             annotation (Placement(transformation(
                 origin={-150,-74},
                 extent={{20,20},{-20,-20}},
