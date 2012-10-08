@@ -7450,7 +7450,7 @@ versionBuild=0,
 versionDate="2012-06-18",
 dateModified = "2012-06-18 09:40:00Z",
 revisionId="$Id::                                       $",
-uses(Complex(version="1.1"), ModelicaServices(version="1.1")),
+uses(Complex(version="1.1"), ModelicaServices(version="3.2.1")),
 conversion(
  noneFromVersion="3.2",
  noneFromVersion="3.1",
