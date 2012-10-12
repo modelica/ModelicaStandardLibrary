@@ -2161,7 +2161,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
         "Transparency of shape: 0 (= opaque) ... 1 (= fully transparent)"
                                    annotation(Dialog(group="Surface properties"));
 
-      parameter Real xsi[:](min=0,max=1)= Modelica.Math.Vectors.relNodePositions(12)
+      parameter Real xsi[:](each min=0,each max=1)= Modelica.Math.Vectors.relNodePositions(12)
         "[:] Relative position along the pipe with x[1] = 0, x[end] = 1"
         annotation(Dialog(group="Color coding"));
       input Real T[size(xsi,1)]

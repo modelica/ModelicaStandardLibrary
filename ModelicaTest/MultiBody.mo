@@ -3914,9 +3914,9 @@ a linear damper is connected here.
       Modelica.Mechanics.MultiBody.Joints.FreeMotion freeMotion(
           arrowDiameter=0.04,
         w_rel_a_fixed=true,
-        v_rel_a(fixed=true),
+        v_rel_a(each fixed=true),
         angles_fixed=true,
-        r_rel_a(start={0.2,-0.5,0.1}, fixed=true))
+        r_rel_a(start={0.2,-0.5,0.1}, each fixed=true))
                               annotation (Placement(transformation(extent={{-40,-40},
                 {-20,-20}},      rotation=0)));
     equation
