@@ -144,21 +144,27 @@ function copy "Generate a copy of a file or of a directory"
      input String newName
         "New diretory name without trailing '/'; directory was already created";
      input Boolean replace "= true, if an existing newName may be replaced";
-    protected
-     Integer nNames = Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
-                                                oldName);
-     String oldNames[nNames];
+  algorithm
+     copyDirectoryContents(Modelica.Utilities.Internal.FileSystem.readDirectory(
+                                       oldName, Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
+                                                oldName)), oldName, newName, replace);
+  end copyDirectory;
+
+  function copyDirectoryContents
+    input String oldNames[:];
+    input String oldName;
+    input String newName;
+    input Boolean replace;
+  protected
      String oldName_i;
      String newName_i;
   algorithm
-     oldNames :=Modelica.Utilities.Internal.FileSystem.readDirectory(
-                                       oldName, nNames);
-     for i in 1:nNames loop
+     for i in 1:size(oldNames,1) loop
         oldName_i := oldName + "/" + oldNames[i];
         newName_i := newName + "/" + oldNames[i];
         Files.copy(oldName_i, newName_i, replace);
      end for;
-  end copyDirectory;
+  end copyDirectoryContents;
 //..............................................................
 
   Integer lenOldName = Strings.length(oldName);
@@ -299,22 +305,26 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   function removeDirectory "Remove a directory, even if it is not empty"
      input String name;
     protected
-     Integer nNames = Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
-                                                name);
      Integer lenName = Strings.length(name);
-     String fileNames[nNames];
      // remove an optional trailing "/"
      String name2 = if Strings.substring(name,lenName,lenName) == "/" then
                        Strings.substring(name,lenName-1,lenName-1) else name;
   algorithm
-     fileNames :=Modelica.Utilities.Internal.FileSystem.readDirectory(
-                                        name2, nNames);
-     for i in 1:nNames loop
-        Files.remove(name2 + "/" + fileNames[i]);
-     end for;
+     removeDirectoryContents(Modelica.Utilities.Internal.FileSystem.readDirectory(
+                                        name2, Modelica.Utilities.Internal.FileSystem.getNumberOfFiles(
+                                                name2)), name2);
      Modelica.Utilities.Internal.FileSystem.rmdir(
                     name2);
   end removeDirectory;
+
+  function removeDirectoryContents
+      input String fileNames[:];
+      input String name2;
+  algorithm 
+      for i in 1:size(fileNames,1) loop
+         Files.remove(name2 + "/" + fileNames[i]);
+      end for;
+  end removeDirectoryContents;
 //..............................................................
   String fullName = Files.fullPathName(name);
   Types.FileType fileType=Modelica.Utilities.Internal.FileSystem.stat(
