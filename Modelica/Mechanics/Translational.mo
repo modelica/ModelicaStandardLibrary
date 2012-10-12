@@ -1763,11 +1763,11 @@ to describe a coupling of the sliding mass with the housing via a spring/damper.
     model ElastoGap "1D translational spring damper combination with gap"
       extends
         Modelica.Mechanics.Translational.Interfaces.PartialCompliantWithRelativeStates;
-      parameter Real c(final unit="N/m", final min=0, start=1)
+      parameter SI.TranslationalSpringConstant c(final min=0, start=1)
         "Spring constant";
-      parameter Real d(final unit="N/ (m/s)", final min=0, start=1)
+      parameter SI.TranslationalDampingConstant d(final min=0, start=1)
         "Damping constant";
-      parameter Modelica.SIunits.Position s_rel0=0 "Unstretched spring length";
+      parameter SI.Position s_rel0=0 "Unstretched spring length";
       parameter Real n(final min=1) = 1
         "Exponent of spring force ( f_c = -c*|s_rel-s_rel0|^n )";
       extends
