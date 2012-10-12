@@ -283,7 +283,8 @@ states can be set as start values of <b>x</b>.</p>
   end TransferFunction;
 
   block StateSpace "Discrete State Space block"
-    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1] "Matrix A of state space model";
+    parameter Real A[:, size(A, 1)]=[1, 0; 0, 1]
+      "Matrix A of state space model";
     parameter Real B[size(A, 1), :]=[1; 1] "Matrix B of state space model";
     parameter Real C[:, size(A, 1)]=[1, 1] "Matrix C of state space model";
     parameter Real D[size(C, 1), size(B, 2)]=zeros(size(C, 1), size(B, 2))

@@ -859,7 +859,6 @@ through the sensor is allowed.
 </html>"));
   end RelativeTemperature;
 
-
   package BaseClasses
     "Base classes used in the Sensors package (only of interest to build new component models)"
     extends Modelica.Icons.BasesPackage;

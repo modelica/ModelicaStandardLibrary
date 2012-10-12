@@ -825,7 +825,8 @@ where <b>Q</b> is an orthogonal matrix, i.e.
     protected
         Integer np=size(p, 1);
         Integer n=size(p, 1) - 1;
-        Real A[max(size(p, 1) - 1, 0),max(size(p, 1) - 1, 0)] "Companion matrix";
+        Real A[max(size(p, 1) - 1, 0),max(size(p, 1) - 1, 0)]
+        "Companion matrix";
         Real ev[max(size(p, 1) - 1, 0),2] "Eigenvalues";
       algorithm
         if n > 0 then
@@ -4244,7 +4245,8 @@ The boolean input \"ATisSchur\" indicates to omit the transformation to Schur in
     Real U[size(A, 1),size(A, 1)] "Transformation matrix U for H=U'AU";
     Real S[size(B, 1),size(B, 1)] "RSF form  of B, i.e., S=Z'BZ";
     Real Z[size(B, 1),size(B, 1)] "Transformation matrix Z for S=Z'BZ";
-    Real F[size(A, 1),size(B, 1)] "Appropriate transformation of the right side C, F=U'*C*Z";
+    Real F[size(A, 1),size(B, 1)]
+      "Appropriate transformation of the right side C, F=U'*C*Z";
 
     Real R22[size(A, 1),size(A, 1)];
     Real R11[size(A, 1),size(A, 1)];

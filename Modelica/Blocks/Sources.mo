@@ -1989,7 +1989,8 @@ a flange according to a given acceleration.
         Real a "Interpolation coefficients a of actual interval (y=a*x+b)";
         Real b "Interpolation coefficients b of actual interval (y=a*x+b)";
         Integer last(start=1) "Last used lower grid index";
-        discrete SIunits.Time nextEvent(start=0, fixed=true) "Next event instant";
+        discrete SIunits.Time nextEvent(start=0, fixed=true)
+      "Next event instant";
 
         function getInterpolationCoefficients
       "Determine interpolation coefficients and next time event"

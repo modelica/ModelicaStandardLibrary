@@ -155,7 +155,7 @@ function copy "Generate a copy of a file or of a directory"
     input String oldName;
     input String newName;
     input Boolean replace;
-  protected
+    protected
      String oldName_i;
      String newName_i;
   algorithm
@@ -320,7 +320,7 @@ function remove "Remove file or directory (ignore call, if it does not exist)"
   function removeDirectoryContents
       input String fileNames[:];
       input String name2;
-  algorithm 
+  algorithm
       for i in 1:size(fileNames,1) loop
          Files.remove(name2 + "/" + fileNames[i]);
       end for;

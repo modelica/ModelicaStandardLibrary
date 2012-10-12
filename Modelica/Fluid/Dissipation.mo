@@ -5174,6 +5174,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
         import FD = Modelica.Fluid.Dissipation.PressureLoss.StraightPipe;
         import SMOOTH =
           Modelica.Fluid.Dissipation.Utilities.Functions.General.Stepsmoother;
+        import Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
 
         //input records
         input
@@ -5190,7 +5191,6 @@ Generally this  function is numerically best used for the <b> incompressible cas
         output SI.MassFlowRate M_FLOW "Output of function dp_overall_MFLOW";
 
       protected
-        import Modelica.Fluid.Dissipation.Utilities.Types.Roughness;
         Real MIN=Modelica.Constants.eps;
 
         SI.Diameter d_hyd=max(MIN, IN_con.d_hyd) "Hydraulic diameter";

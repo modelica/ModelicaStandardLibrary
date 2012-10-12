@@ -182,8 +182,8 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(freeMotionScalarInit.frame_b, bodyOfConstraint.frame_a) annotation
-      (Line(
+    connect(freeMotionScalarInit.frame_b, bodyOfConstraint.frame_a) annotation (
+       Line(
         points={{20,70},{10,70},{10,20},{0,20}},
         color={95,95,95},
         thickness=0.5,
@@ -379,8 +379,8 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation
-      (Line(
+    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
+       Line(
         points={{0,20},{8,20},{8,70},{20,70}},
         color={95,95,95},
         thickness=0.5,
@@ -572,8 +572,8 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation
-      (Line(
+    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
+       Line(
         points={{0,20},{8,20},{8,70},{18,70}},
         color={95,95,95},
         thickness=0.5,
@@ -796,8 +796,8 @@ extends Modelica.Icons.ExamplesPackage;
         color={95,95,95},
         thickness=0.5,
         smooth=Smooth.None));
-    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation
-      (Line(
+    connect(bodyOfConstraint.frame_a, freeMotionScalarInit.frame_b) annotation (
+       Line(
         points={{20,20},{30,20},{30,80},{40,80}},
         color={95,95,95},
         thickness=0.5,
