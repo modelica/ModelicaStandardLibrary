@@ -378,7 +378,7 @@ equations hold
   </tr>
   <tr><td> Energy balance 1</td>
       <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/energyBalance1.png\"
-	        alt=\"energyBalance1.png\"></td>
+                alt=\"energyBalance1.png\"></td>
   </tr>
   <tr><td> Pipe friction</td>
       <td> <img src=\"modelica://Modelica/Resources/Images/Fluid/UsersGuide/pipeFriction.png\"
