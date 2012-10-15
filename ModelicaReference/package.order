@@ -2,10 +2,7 @@ ModelicaGrammar
 Annotations
 Classes
 Operators
-'array()'
 BalancedModel
-'cat()'
-'connect()'
 'encapsulated'
 'extends'
 'flow'

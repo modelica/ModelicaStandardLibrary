@@ -2309,6 +2309,41 @@ Since the output of <code><strong>actualStream()</strong></code> will be discont
 </html>"));
   end 'actualStream()';
 
+class 'array()' "array()"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+The constructor function <code>array(A,B,C,...)</code> constructs an array from its arguments.
+</p>
+
+<h4>Examples</h4>
+
+<pre>
+{1,2,3} <em>is a 3-vector of type Integer</em>
+{{11,12,13}, {21,22,23}} <em>is a 2x3 matrix of type Integer</em>
+{{{1.0, 2.0, 3.0}}} <em>is a 1x1x3 array of type Real</em>
+
+Real[3] v = array(1, 2, 3.0);
+<strong>type</strong> Angle = Real(unit=\"rad\");
+<strong>parameter</strong> Angle alpha = 2.0; // type of alpha is Real.
+// array(alpha, 2, 3.0) or {alpha, 2, 3.0} is a 3-vector of type Real.
+Angle[3] a = {1.0, alpha, 4}; // type of a is Real[3].
+</pre>
+
+<h4>Description</h4>
+
+The constructor function <code>array(A,B,C,...)</code> constructs an array from its arguments according to the following
+rules:
+<ul>
+<li>Size matching: All arguments must have the same sizes, i.e., <code>size(A)=size(B)=size(C)=...</code></li>
+<li>All arguments must be type compatible expressions giving the type of the elements. The data type of the result array is the maximally expanded type of the arguments. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
+<li>Each application of this constructor function adds a one-sized dimension to the left in the result compared to the dimensions of the argument arrays, i.e., <code>ndims(array(A,B,C)) = ndims(A) + 1 = ndims(B) + 1, ...</code></li>
+<li><code>{A, B, C, ...}</code> is a shorthand notation for <code>array(A, B, C, ...)</code>.</li>
+<li>There must be at least one argument [i.e., <code>array()</code> or <code>{}</code> are not defined].
+</ul>
+</html>"));
+end 'array()';
+
   class 'asin()' "asin()"
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -2493,6 +2528,43 @@ parameters.
 </html>"));
   end 'cardinality()';
 
+class 'cat()' "cat()"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code>.
+</p>
+
+<h4>Examples</h4>
+
+<pre>
+Real[2,3] r1 = cat(1, {{1.0, 2.0, 3}}, {{4, 5, 6}});
+Real[2,6] r2 = cat(2, r1, 2*r1);
+</pre>
+
+<h4>Description</h4>
+
+The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code> according to the following rules:
+<ul>
+<li>Arrays <code>A, B, C, ...</code> must have the same number of dimensions, i.e., <code>ndims(A) = ndims(B) = ...</code></li>
+<li>Arrays <code>A, B, C, ...</code> must be type compatible expressions giving the type of the elements of theresult. The maximally expanded types should be equivalent. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
+<li><code>k</code> has to characterize an existing dimension, i.e., <code>1 &lt;= k &lt;= ndims(A) = ndims(B) = ndims(C)</code>; <code>k</code> shall be an integer number.</li>
+<li>Size matching: Arrays <code>A, B, C, ...</code> must have identical array sizes with the exception of the size of dimension <code>k</code>, i.e., <code>size(A,j) = size(B,j), for 1 &lt;= j &lt;= ndims(A) and j &lt;&gt; k</code>.</li>
+</ul>
+
+<p>Concatenation is formally defined according to:</p>
+<pre>
+Let R = cat(k,A,B,C,...), and let n = ndims(A) = ndims(B) = ndims(C) = ...., then
+size(R,k) = size(A,k) + size(B,k) + size(C,k) + ...
+size(R,j) = size(A,j) = size(B,j) = size(C,j) = ...., for 1 &lt;= j &lt;= n and j &lt;&gt; k.
+R[i_1, ..., i_k, ..., i_n] = A[i_1, ..., i_k, ..., i_n], for i_k &lt;= size(A,k),
+R[i_1, ..., i_k, ..., i_n] = B[i_1, ..., i_k - size(A,i), ..., i_n], for i_k &lt;= size(A,k) + size(B,k),
+....
+where 1 &lt;= i_j &lt;= size(R,j) for 1 &lt;= j &lt;= n.
+</pre>
+</html>"));
+end 'cat()';
+
   class 'ceil()' "ceil()"
   extends ModelicaReference.Icons.Information;
     annotation (Documentation(info="<html>
@@ -2537,6 +2609,106 @@ The same restrictions as for the pre() operator apply.</P>
 <img src=\"modelica://ModelicaReference/Resources/Images/change.png\" width=\"400\" height=\"280\" alt=\"Simulation result\">
 </html>"));
   end 'change()';
+
+class 'connect()' "connect()"
+  extends ModelicaReference.Icons.Information;
+  annotation (Documentation(info="<html>
+<p>
+Connect objects
+</p>
+<h4>Examples</h4>
+
+<pre><b>model</b> Integrate
+  Modelica.Blocks.Sources.Step step;
+  Modelica.Blocks.Continuous.Integrator integrator;
+<b>equation</b>
+  connect(step.outPort, integrator.inPort);
+<b>end</b> Integrate;</pre>
+
+<p>Example of array use:</p>
+
+<pre><B>connector</B> InPort = <B>input</B> Real;
+
+<B>connector</B> OutPort = <B>output</B> Real;
+
+<B>block</B> MatrixGain
+  <B>input</B> InPort u[size(A,1)];
+  <B>output</B> OutPort y[size(A,2)]
+  <B>parameter</B> Real A[:,:]=[1];
+<B>equation</B>
+  y=A*u;
+<B>end</B> MatrixGain;
+
+  sin sinSource[5];
+  MatrixGain gain(A=5*identity(5));
+  MatrixGain gain2(A=ones(5,2));
+  OutPort x[2];
+<B>equation</B>
+  <B>connect</B>(sinSource.y, gain.u); // Legal
+  <B>connect</B>(gain.y, gain2.u);     // Legal
+  <B>connect</B>(gain2.y, x);          // Legal</pre>
+
+<h4>Syntax</h4>
+
+<PRE>equation_clause :
+  [ <B>initial</B> ] <B>equation</B> { equation \";\" | annotation  \";\" }
+
+equation :
+  ( simple_expression \"=\" expression
+    | conditional_equation_e
+    | for_clause_e
+    | connect_clause
+    | when_clause_e
+    | IDENT function_call )
+  comment
+
+connect_clause :
+  <B>connect</B> \"(\" component_reference \",\" component_reference \")\"</PRE>
+
+<h4>Description</h4>
+
+<P>Connections between objects are introduced by the <B>connect</B>
+statement in the equation part of a class. The <B>connect</B>
+construct takes two references to connectors, each of which is
+either of the following forms:</P>
+
+<UL>
+  <LI>c1.c2. ... .cn, where c1 is a connector of the class, n&ge;1
+      and ci+1 is a connector element of ci for i=1:(n-1).</LI>
+  <LI>m.c, where m is a non-connector element in the class and c is
+      a connector element of m.</LI>
+</UL>
+
+<P>There may optionally be array subscripts on any of the components;
+the array subscripts shall be parameter expressions. If the connect
+construct references array of connectors, the array dimensions must
+match, and each corresponding pair of elements from the arrays is
+connected as a pair of scalar connectors.</P>
+
+<P>The two main tasks are to:</P>
+
+<UL>
+  <LI>Build connection sets from <B>connect </B>statements.</LI>
+  <LI>Generate equations for the complete model.</LI>
+</UL>
+
+<P>Definitions:</P>
+
+<ul>
+  <li>Connection sets<br>
+      A connection set is a set of variables connected by means of
+      connect clauses. A connection set shall contain either only flow
+      variables or only non-flow variables.</li>
+  <li>Inside and outside connectors<br>
+      In an element instance M, each connector element of M is called
+      an outside connector with respect to M. All other connector elements
+      that are hierarchically inside M, but not in one of the outside
+      connectors of M, is called an inside connector with respect to M.<br>
+      <i>[Example: in connect(a,b.c) 'a' is an outside connector and 'b.c'
+      is an inside connector, unless 'b' is a connector.]</i></li>
+</ul>
+</html>"));
+end 'connect()';
 
   class 'cos()' "cos()"
   extends ModelicaReference.Icons.Information;
@@ -4362,40 +4534,6 @@ log, log10 that are provided for convenience as built-in functions).
 </html>"));
 end Operators;
 
-class 'array()' "array()"
-  extends ModelicaReference.Icons.Information;
-  annotation (Documentation(info="<html>
-<p>
-The constructor function <code>array(A,B,C,...)</code> constructs an array from its arguments.
-</p>
-
-<h4>Examples</h4>
-
-<pre>
-{1,2,3} <em>is a 3-vector of type Integer</em>
-{{11,12,13}, {21,22,23}} <em>is a 2x3 matrix of type Integer</em>
-{{{1.0, 2.0, 3.0}}} <em>is a 1x1x3 array of type Real</em>
-
-Real[3] v = array(1, 2, 3.0);
-<strong>type</strong> Angle = Real(unit=\"rad\");
-<strong>parameter</strong> Angle alpha = 2.0; // type of alpha is Real.
-// array(alpha, 2, 3.0) or {alpha, 2, 3.0} is a 3-vector of type Real.
-Angle[3] a = {1.0, alpha, 4}; // type of a is Real[3].
-</pre>
-
-<h4>Description</h4>
-
-The constructor function <code>array(A,B,C,...)</code> constructs an array from its arguments according to the following
-rules:
-<ul>
-<li>Size matching: All arguments must have the same sizes, i.e., <code>size(A)=size(B)=size(C)=...</code></li>
-<li>All arguments must be type compatible expressions giving the type of the elements. The data type of the result array is the maximally expanded type of the arguments. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
-<li>Each application of this constructor function adds a one-sized dimension to the left in the result compared to the dimensions of the argument arrays, i.e., <code>ndims(array(A,B,C)) = ndims(A) + 1 = ndims(B) + 1, ...</code></li>
-<li><code>{A, B, C, ...}</code> is a shorthand notation for <code>array(A, B, C, ...)</code>.</li>
-<li>There must be at least one argument [i.e., <code>array()</code> or <code>{}</code> are not defined].
-</ul>
-</html>"));
-end 'array()';
 
 
 class BalancedModel "Balanced model"
@@ -4794,143 +4932,7 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 </html>"));
 end BalancedModel;
 
-class 'cat()' "cat()"
-  extends ModelicaReference.Icons.Information;
-  annotation (Documentation(info="<html>
-<p>
-The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code>.
-</p>
 
-<h4>Examples</h4>
-
-<pre>
-Real[2,3] r1 = cat(1, {{1.0, 2.0, 3}}, {{4, 5, 6}});
-Real[2,6] r2 = cat(2, r1, 2*r1);
-</pre>
-
-<h4>Description</h4>
-
-The function <code>cat(k,A,B,C,...)</code>concatenates arrays <code>A,B,C,...</code> along dimension <code>k</code> according to the following rules:
-<ul>
-<li>Arrays <code>A, B, C, ...</code> must have the same number of dimensions, i.e., <code>ndims(A) = ndims(B) = ...</code></li>
-<li>Arrays <code>A, B, C, ...</code> must be type compatible expressions giving the type of the elements of theresult. The maximally expanded types should be equivalent. Real and Integer subtypes can be mixed resulting in a Real result array where the Integer numbers have been transformed to Real numbers.</li>
-<li><code>k</code> has to characterize an existing dimension, i.e., <code>1 &lt;= k &lt;= ndims(A) = ndims(B) = ndims(C)</code>; <code>k</code> shall be an integer number.</li>
-<li>Size matching: Arrays <code>A, B, C, ...</code> must have identical array sizes with the exception of the size of dimension <code>k</code>, i.e., <code>size(A,j) = size(B,j), for 1 &lt;= j &lt;= ndims(A) and j &lt;&gt; k</code>.</li>
-</ul>
-
-<p>Concatenation is formally defined according to:</p>
-<pre>
-Let R = cat(k,A,B,C,...), and let n = ndims(A) = ndims(B) = ndims(C) = ...., then
-size(R,k) = size(A,k) + size(B,k) + size(C,k) + ...
-size(R,j) = size(A,j) = size(B,j) = size(C,j) = ...., for 1 &lt;= j &lt;= n and j &lt;&gt; k.
-R[i_1, ..., i_k, ..., i_n] = A[i_1, ..., i_k, ..., i_n], for i_k &lt;= size(A,k),
-R[i_1, ..., i_k, ..., i_n] = B[i_1, ..., i_k - size(A,i), ..., i_n], for i_k &lt;= size(A,k) + size(B,k),
-....
-where 1 &lt;= i_j &lt;= size(R,j) for 1 &lt;= j &lt;= n.
-</pre>
-</html>"));
-end 'cat()';
-
-
-class 'connect()' "connect()"
-  extends ModelicaReference.Icons.Information;
-  annotation (Documentation(info="<html>
-<p>
-Connect objects
-</p>
-<h4>Examples</h4>
-
-<pre><b>model</b> Integrate
-  Modelica.Blocks.Sources.Step step;
-  Modelica.Blocks.Continuous.Integrator integrator;
-<b>equation</b>
-  connect(step.outPort, integrator.inPort);
-<b>end</b> Integrate;</pre>
-
-<p>Example of array use:</p>
-
-<pre><B>connector</B> InPort = <B>input</B> Real;
-
-<B>connector</B> OutPort = <B>output</B> Real;
-
-<B>block</B> MatrixGain
-  <B>input</B> InPort u[size(A,1)];
-  <B>output</B> OutPort y[size(A,2)]
-  <B>parameter</B> Real A[:,:]=[1];
-<B>equation</B>
-  y=A*u;
-<B>end</B> MatrixGain;
-
-  sin sinSource[5];
-  MatrixGain gain(A=5*identity(5));
-  MatrixGain gain2(A=ones(5,2));
-  OutPort x[2];
-<B>equation</B>
-  <B>connect</B>(sinSource.y, gain.u); // Legal
-  <B>connect</B>(gain.y, gain2.u);     // Legal
-  <B>connect</B>(gain2.y, x);          // Legal</pre>
-
-<h4>Syntax</h4>
-
-<PRE>equation_clause :
-  [ <B>initial</B> ] <B>equation</B> { equation \";\" | annotation  \";\" }
-
-equation :
-  ( simple_expression \"=\" expression
-    | conditional_equation_e
-    | for_clause_e
-    | connect_clause
-    | when_clause_e
-    | IDENT function_call )
-  comment
-
-connect_clause :
-  <B>connect</B> \"(\" component_reference \",\" component_reference \")\"</PRE>
-
-<h4>Description</h4>
-
-<P>Connections between objects are introduced by the <B>connect</B>
-statement in the equation part of a class. The <B>connect</B>
-construct takes two references to connectors, each of which is
-either of the following forms:</P>
-
-<UL>
-  <LI>c1.c2. ... .cn, where c1 is a connector of the class, n&ge;1
-      and ci+1 is a connector element of ci for i=1:(n-1).</LI>
-  <LI>m.c, where m is a non-connector element in the class and c is
-      a connector element of m.</LI>
-</UL>
-
-<P>There may optionally be array subscripts on any of the components;
-the array subscripts shall be parameter expressions. If the connect
-construct references array of connectors, the array dimensions must
-match, and each corresponding pair of elements from the arrays is
-connected as a pair of scalar connectors.</P>
-
-<P>The two main tasks are to:</P>
-
-<UL>
-  <LI>Build connection sets from <B>connect </B>statements.</LI>
-  <LI>Generate equations for the complete model.</LI>
-</UL>
-
-<P>Definitions:</P>
-
-<ul>
-  <li>Connection sets<br>
-      A connection set is a set of variables connected by means of
-      connect clauses. A connection set shall contain either only flow
-      variables or only non-flow variables.</li>
-  <li>Inside and outside connectors<br>
-      In an element instance M, each connector element of M is called
-      an outside connector with respect to M. All other connector elements
-      that are hierarchically inside M, but not in one of the outside
-      connectors of M, is called an inside connector with respect to M.<br>
-      <i>[Example: in connect(a,b.c) 'a' is an outside connector and 'b.c'
-      is an inside connector, unless 'b' is a connector.]</i></li>
-</ul>
-</html>"));
-end 'connect()';
 
 
 class 'encapsulated' "encapsulated"
@@ -6560,5 +6562,6 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"));
+</html>"),
+  uses(Modelica(version="3.2")));
 end ModelicaReference;
