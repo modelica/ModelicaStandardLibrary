@@ -8970,7 +8970,8 @@ The induction machine models use package SpacePhasors.
 
     model VoltageQuasiRMSSensor "Length of space phasor -> RMS voltage"
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput V(unit="V")
+      Modelica.Blocks.Interfaces.RealOutput V(final quantity="ElectricPotential", final unit=
+           "V")
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{-10,-10},{10,10}},
@@ -9051,7 +9052,8 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
 
     model CurrentQuasiRMSSensor "Length of space phasor -> RMS current"
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput I(unit="A")
+      Modelica.Blocks.Interfaces.RealOutput I(final quantity="ElectricCurrent", final unit=
+           "A")
         annotation (Placement(transformation(
             origin={0,-110},
             extent={{-10,-10},{10,10}},
@@ -9132,12 +9134,12 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
 
     model ElectricalPowerSensor "Instantaneous power from space phasors"
       constant Integer m(final min=1) = 3 "Number of phases";
-      Modelica.Blocks.Interfaces.RealOutput P(unit="W")
+      Modelica.Blocks.Interfaces.RealOutput P(final quantity="Power", final unit="W")
         annotation (Placement(transformation(
             origin={-50,110},
             extent={{10,-10},{-10,10}},
             rotation=270)));
-      Modelica.Blocks.Interfaces.RealOutput Q(unit="var")
+      Modelica.Blocks.Interfaces.RealOutput Q(final quantity="Power", final unit="var")
         annotation (Placement(transformation(
             origin={50,110},
             extent={{10,-10},{-10,10}},
@@ -9207,7 +9209,7 @@ Q = giving in stationary state reactive power.<br>
       extends Modelica.Mechanics.Rotational.Interfaces.PartialTwoFlanges;
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation(Evaluate=true);
-      Modelica.Blocks.Interfaces.RealOutput P(unit="W")
+      Modelica.Blocks.Interfaces.RealOutput P(final quantity="Power", final unit="W")
         annotation (Placement(transformation(
             origin={0,110},
             extent={{10,-10},{-10,10}},
@@ -9332,7 +9334,8 @@ Calculates (mechanical) power from torque times angular speed.
       parameter Integer p(min=1) "Number of pole pairs";
       parameter Boolean useSupport=false "Use support or fixed housing"
         annotation(Evaluate=true);
-      Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(unit="rad")
+      Modelica.Blocks.Interfaces.RealOutput rotorDisplacementAngle(final quantity="Angle",
+        final unit="rad")
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Interfaces.PositivePlug plug_p(final m=m)
