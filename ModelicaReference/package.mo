@@ -984,6 +984,40 @@ This means that the function is at least C<sup>smoothOrder</sup>. smoothOrder = 
 </html>"));
   end smoothOrder;
 
+  class unassignedMessage "unassignedMessage"
+  extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+Error message, if variable is not assigned
+</p>
+
+<h4>Examples</h4>
+
+<pre><b>connector</b> Frame \"Frame of a mechanical system\"
+    ...
+  <b>flow</b> Modelica.SIunits.Force f[3] <b>annotation</b>(unassignedMessage =
+\"All Forces cannot be uniquely calculated. The reason could be that the
+mechanism contains a planar loop or that joints constrain the same motion.
+For planar loops, use in one revolute joint per loop the option
+PlanarCutJoint=true in the Advanced menu.
+\");
+<b>end</b> Frame;
+</pre>
+
+<h4>Syntax</h4>
+
+<pre>   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
+</pre>
+
+<h4>Description</h4>
+
+<p>
+When the variable to which this annotation is attached in the declaration cannot be computed due to the structure of the equations, the string message can be used as a diagnostic message. When using BLT partitioning, this means if a variable \"a\" or one of its aliases \"b = a\", \"b = -a\", cannot be assigned, the message is displayed. This annotation is used to provide library specific error messages.
+</p>
+</html>"));
+  end unassignedMessage;
+
   class version "version"
   extends ModelicaReference.Icons.Information;
 
@@ -1150,39 +1184,6 @@ This allows a tool to access multiple versions of the same package.
 </html>"));
   end versionDate;
 
-  class unassignedMessage "unassignedMessage"
-  extends ModelicaReference.Icons.Information;
-
-    annotation (Documentation(info="<html>
-<p>
-Error message, if variable is not assigned
-</p>
-
-<h4>Examples</h4>
-
-<pre><b>connector</b> Frame \"Frame of a mechanical system\"
-    ...
-  <b>flow</b> Modelica.SIunits.Force f[3] <b>annotation</b>(unassignedMessage =
-\"All Forces cannot be uniquely calculated. The reason could be that the
-mechanism contains a planar loop or that joints constrain the same motion.
-For planar loops, use in one revolute joint per loop the option
-PlanarCutJoint=true in the Advanced menu.
-\");
-<b>end</b> Frame;
-</pre>
-
-<h4>Syntax</h4>
-
-<pre>   <b>annotation</b>\"(\" unassignedMessage \"=\" STRING \")\"
-</pre>
-
-<h4>Description</h4>
-
-<p>
-When the variable to which this annotation is attached in the declaration cannot be computed due to the structure of the equations, the string message can be used as a diagnostic message. When using BLT partitioning, this means if a variable \"a\" or one of its aliases \"b = a\", \"b = -a\", cannot be assigned, the message is displayed. This annotation is used to provide library specific error messages.
-</p>
-</html>"));
-  end unassignedMessage;
   annotation (Documentation(info="<html>
 <p>
 In this package annotations are described.
@@ -1386,6 +1387,136 @@ then this leads to the following equations:
 </pre>
 </html>"));
   end 'connector';
+
+  class ExternalObject "ExternalObject"
+  extends ModelicaReference.Icons.Information;
+
+    annotation (Documentation(info="<html>
+<p>
+Define external functions with internal memory.
+</p>
+
+<h4>Description</h4>
+
+<p>
+External functions may have internal memory reported between function calls. Within Modelica this memory is defined as instance of the predefined class <b>ExternalObject</b> according to the following rules:
+</p>
+
+<ul>
+<li> There is a predefined partial class <b>ExternalObject</b>
+     [<i>since the class is partial, it is not possible to define an
+     instance of this class</i>].</li>
+
+<li> An external object class shall be directly extended from
+     ExternalObject, shall have exactly two function definitions,
+     called \"<b>constructor</b>\" and \"<b>destructor</b>\", and
+     shall not contain other elements. </li>
+
+<li> The constructor function is called exactly once before the first use of
+     the object. For each completely constructed object, the destructor
+     is called exactly once, after the last use of the object, even
+     if an error occurs. The constructor shall have exactly one output
+     argument in which the constructed ExternalObject is returned.
+     The destructor shall have no output arguments and the only input
+     argument of the destructor shall be the ExternalObject.
+     It is not legal to call explicitly the constructor and destructor
+     functions.</li>
+
+<li> Classes derived from ExternalObject can neither be used in an
+     extends-clause nor in a short class definition.</li>
+
+<li> External functions may be defined which operate on the internal memory
+     of an ExternalObject. An ExternalObject used as input argument or
+     return value of an external C-function is mapped to the C-type \"void*\".</li>
+</ul>
+
+<h4>Examples</h4>
+
+<p>
+A user-defined table may be defined in the following way as an ExternalObject
+(the table is read in a user-defined format from file and has memory for the last used table interval):
+</p>
+
+<pre>
+<b>class</b> MyTable
+  <b>extends</b> ExternalObject;
+  <b>function</b> constructor
+    <b>input</b>  String  fileName := \"\";
+    <b>input</b>  String  tableName := \"\";
+    <b>output</b> MyTable table;
+    <b>external</b> \"C\" table = initMyTable(fileName, tableName);
+  <b>end</b> constructor;
+
+  <b>function</b> destructor \"Release storage of table\"
+    <b>inpu</b>t  MyTable table;
+    <b>external</b> \"C\" closeMyTable(table);
+  <b>end</b> destructor;
+<b>end</b> MyTable;
+</pre>
+
+<p>
+and used in the following way:
+</p>
+
+<pre>
+<b>model</b> test \"Define a new table and interpolate in it\"
+  MyTable table=MyTable(fileName =\"testTables.txt\",
+                        tableName=\"table1\");  // call initMyTable
+  Real y;
+<b>equation</b>
+  y = interpolateMyTable(table, time);
+<b>end</b> test;
+</pre>
+
+<p>
+This requires to provide the following Modelica function:
+</p>
+
+<pre>
+<b>function</b> interpolateMyTable \"Interpolate in table\"
+  <b>input</b>  MyTable table;
+  <b>input</b>  Real  u;
+  <b>output</b> Real  y;
+  <b>external</b> \"C\" y = interpolateMyTable(table, u);
+<b>end</b> interpolateTable;
+</pre>
+
+<p>
+The external C-functions may be defined in the following way:
+</p>
+
+<pre>
+<b>typedef struct</b> {  /* User-defined datastructure of the table */
+  <b>double</b>* array;      /* nrow*ncolumn vector       */
+  <b>int</b>     nrow;       /* number of rows            */
+  <b>int</b>     ncol;       /* number of columns         */
+  <b>int</b>     type;       /* interpolation type        */
+  <b>int</b>     lastIndex;  /* last row index for search */
+} MyTable;
+
+<b>void</b>* initMyTable(char* fileName, char* tableName) {
+  MyTable* table = malloc(sizeof(MyTable));
+  <b>if</b> ( table == NULL ) ModelicaError(\"Not enough memory\");
+        // read table from file and store all data in *table
+  <b>return</b> (void*) table;
+};
+
+<b>void </b>closeMyTable(void* object) { /* Release table storage */
+  MyTable* table = (MyTable*) object;
+  <b>if</b> ( object == NULL ) return;
+  free(table->array);
+  free(table);
+}
+
+<b>double</b> interpolateMyTable(void* object, double u) {
+  MyTable* table = (MyTable*) object;
+  <b>double</b> y;
+  // Interpolate using \"table\" data (compute y)
+  <b>return</b> y;
+};
+</pre>
+</html>"));
+  end ExternalObject;
 
   class 'function' "function"
   extends ModelicaReference.Icons.Information;
@@ -1856,135 +1987,6 @@ Enhanced to extend from predefined types [No other specialized class has this pr
 </html>"));
   end 'type';
 
-  class ExternalObject "ExternalObject"
-  extends ModelicaReference.Icons.Information;
-
-    annotation (Documentation(info="<html>
-<p>
-Define external functions with internal memory.
-</p>
-
-<h4>Description</h4>
-
-<p>
-External functions may have internal memory reported between function calls. Within Modelica this memory is defined as instance of the predefined class <b>ExternalObject</b> according to the following rules:
-</p>
-
-<ul>
-<li> There is a predefined partial class <b>ExternalObject</b>
-     [<i>since the class is partial, it is not possible to define an
-     instance of this class</i>].</li>
-
-<li> An external object class shall be directly extended from
-     ExternalObject, shall have exactly two function definitions,
-     called \"<b>constructor</b>\" and \"<b>destructor</b>\", and
-     shall not contain other elements. </li>
-
-<li> The constructor function is called exactly once before the first use of
-     the object. For each completely constructed object, the destructor
-     is called exactly once, after the last use of the object, even
-     if an error occurs. The constructor shall have exactly one output
-     argument in which the constructed ExternalObject is returned.
-     The destructor shall have no output arguments and the only input
-     argument of the destructor shall be the ExternalObject.
-     It is not legal to call explicitly the constructor and destructor
-     functions.</li>
-
-<li> Classes derived from ExternalObject can neither be used in an
-     extends-clause nor in a short class definition.</li>
-
-<li> External functions may be defined which operate on the internal memory
-     of an ExternalObject. An ExternalObject used as input argument or
-     return value of an external C-function is mapped to the C-type \"void*\".</li>
-</ul>
-
-<h4>Examples</h4>
-
-<p>
-A user-defined table may be defined in the following way as an ExternalObject
-(the table is read in a user-defined format from file and has memory for the last used table interval):
-</p>
-
-<pre>
-<b>class</b> MyTable
-  <b>extends</b> ExternalObject;
-  <b>function</b> constructor
-    <b>input</b>  String  fileName := \"\";
-    <b>input</b>  String  tableName := \"\";
-    <b>output</b> MyTable table;
-    <b>external</b> \"C\" table = initMyTable(fileName, tableName);
-  <b>end</b> constructor;
-
-  <b>function</b> destructor \"Release storage of table\"
-    <b>inpu</b>t  MyTable table;
-    <b>external</b> \"C\" closeMyTable(table);
-  <b>end</b> destructor;
-<b>end</b> MyTable;
-</pre>
-
-<p>
-and used in the following way:
-</p>
-
-<pre>
-<b>model</b> test \"Define a new table and interpolate in it\"
-  MyTable table=MyTable(fileName =\"testTables.txt\",
-                        tableName=\"table1\");  // call initMyTable
-  Real y;
-<b>equation</b>
-  y = interpolateMyTable(table, time);
-<b>end</b> test;
-</pre>
-
-<p>
-This requires to provide the following Modelica function:
-</p>
-
-<pre>
-<b>function</b> interpolateMyTable \"Interpolate in table\"
-  <b>input</b>  MyTable table;
-  <b>input</b>  Real  u;
-  <b>output</b> Real  y;
-  <b>external</b> \"C\" y = interpolateMyTable(table, u);
-<b>end</b> interpolateTable;
-</pre>
-
-<p>
-The external C-functions may be defined in the following way:
-</p>
-
-<pre>
-<b>typedef struct</b> {  /* User-defined datastructure of the table */
-  <b>double</b>* array;      /* nrow*ncolumn vector       */
-  <b>int</b>     nrow;       /* number of rows            */
-  <b>int</b>     ncol;       /* number of columns         */
-  <b>int</b>     type;       /* interpolation type        */
-  <b>int</b>     lastIndex;  /* last row index for search */
-} MyTable;
-
-<b>void</b>* initMyTable(char* fileName, char* tableName) {
-  MyTable* table = malloc(sizeof(MyTable));
-  <b>if</b> ( table == NULL ) ModelicaError(\"Not enough memory\");
-        // read table from file and store all data in *table
-  <b>return</b> (void*) table;
-};
-
-<b>void </b>closeMyTable(void* object) { /* Release table storage */
-  MyTable* table = (MyTable*) object;
-  <b>if</b> ( object == NULL ) return;
-  free(table->array);
-  free(table);
-}
-
-<b>double</b> interpolateMyTable(void* object, double u) {
-  MyTable* table = (MyTable*) object;
-  <b>double</b> y;
-  // Interpolate using \"table\" data (compute y)
-  <b>return</b> y;
-};
-</pre>
-</html>"));
-  end ExternalObject;
   annotation (Documentation(info="<html>
 <p>
 In this package specialized kinds of classes (earlier known as restricted classes) are
@@ -4535,7 +4537,6 @@ log, log10 that are provided for convenience as built-in functions).
 end Operators;
 
 
-
 class BalancedModel "Balanced model"
   extends ModelicaReference.Icons.Information;
   annotation (Documentation(info="<html>
@@ -4931,8 +4932,6 @@ Therefore, FixedBoundary_pTX is a locally balanced model. The predefined boundar
 
 </html>"));
 end BalancedModel;
-
-
 
 
 class 'encapsulated' "encapsulated"
@@ -5880,7 +5879,7 @@ the connection point. The stream properties for the other flow direction
 can be inquired with the built-in operator
 <a href=\"modelica://ModelicaReference.Operators.'inStream()'\">'inStream()'</a>. The value of the
 stream variable corresponding to the actual flow direction can be
-inquired through the built-in operator actualStream().
+inquired through the built-in operator <a href=\"modelica://ModelicaReference.Operators.'actualStream()'\">'actualStream()'</a>.
 </p>
 
 <blockquote>
@@ -6562,6 +6561,5 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"),
-  uses(Modelica(version="3.2")));
+</html>"));
 end ModelicaReference;
