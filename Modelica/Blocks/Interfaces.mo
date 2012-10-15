@@ -1410,10 +1410,11 @@ has a 3D icon (e.g., used in Blocks.Logical library).
 
 package Adaptors
     "Obsolete package with components to send signals to a bus or receive signals from a bus (only for backward compatibility)"
-
   extends Modelica.Icons.Package;
+  extends Modelica.Icons.ObsoleteModel;
 
   block SendReal "Obsolete block to send Real signal to bus"
+    extends Modelica.Icons.ObsoleteModel;
     RealOutput toBus "Output signal to be connected to bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     RealInput u "Input signal to be send to bus" annotation (Placement(
@@ -1450,6 +1451,7 @@ for signal buses, see example
   end SendReal;
 
   block SendBoolean "Obsolete block to send Boolean signal to bus"
+    extends Modelica.Icons.ObsoleteModel;
     BooleanOutput toBus "Output signal to be connected to bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     BooleanInput u "Input signal to be send to bus" annotation (Placement(
@@ -1486,6 +1488,7 @@ for signal buses, see example
   end SendBoolean;
 
   block SendInteger "Obsolete block to send Integer signal to bus"
+    extends Modelica.Icons.ObsoleteModel;
     IntegerOutput toBus "Output signal to be connected to bus" annotation (Placement(
             transformation(extent={{100,-10},{120,10}}, rotation=0)));
     IntegerInput u "Input signal to be send to bus" annotation (Placement(
@@ -1522,6 +1525,7 @@ for signal buses, see example
   end SendInteger;
 
   block ReceiveReal "Obsolete block to receive Real signal from bus"
+    extends Modelica.Icons.ObsoleteModel;
     RealInput fromBus "To be connected with signal on bus" annotation (Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     RealOutput y "Output signal to be received from bus" annotation (Placement(
@@ -1559,6 +1563,7 @@ for signal buses, see example
   end ReceiveReal;
 
   block ReceiveBoolean "Obsolete block to receive Boolean signal from bus"
+    extends Modelica.Icons.ObsoleteModel;
     BooleanInput fromBus "To be connected with signal on bus" annotation (Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     BooleanOutput y "Output signal to be received from bus" annotation (Placement(
@@ -1596,6 +1601,7 @@ for signal buses, see example
   end ReceiveBoolean;
 
   block ReceiveInteger "Obsolete block to receive Integer signal from bus"
+    extends Modelica.Icons.ObsoleteModel;
     IntegerInput fromBus "To be connected with signal on bus" annotation (Placement(
             transformation(extent={{-120,-10},{-100,10}}, rotation=0)));
     IntegerOutput y "Output signal to be received from bus" annotation (Placement(

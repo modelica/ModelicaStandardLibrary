@@ -11199,7 +11199,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtNoBypassCode;
 
       function bjtRenameParameters "Technology parameter renaming, obsolete"
-      extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
+        extends Modelica.Icons.ObsoleteModel;
+
         input Modelica.Electrical.Spice3.Internal.ModelcardBJT2
                                            ex
           "Modelcard with technologie parameters";
@@ -11271,7 +11273,9 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
       end bjtRenameParameters;
 
       function bjtRenameParametersDev "Temperature calculation, obsolete"
-      extends Modelica.Icons.Function;
+        extends Modelica.Icons.Function;
+        extends Modelica.Icons.ObsoleteModel;
+
         input Real AREA "Area factor";
         input Boolean OFF
           "Optional initial condition: false - IC not used, true - IC used, not implemented yet";
