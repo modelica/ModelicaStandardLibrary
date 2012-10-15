@@ -6529,5 +6529,6 @@ It is based on the
       <td valign=\"top\">Implemented.</td>
     </tr>
 </table>
-</html>"));
+</html>"),
+  uses(Modelica(version="3.2")));
 end ModelicaReference;
