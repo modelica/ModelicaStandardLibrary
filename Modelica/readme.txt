@@ -8,7 +8,7 @@ Copyright © 1998-2010, ABB, AIT, DLR, Dassault Systemes, Fraunhofer, Modelon,
 These files are free software and the use is completely at your own risk;
 they can be redistributed and/or modified under the terms of the
 Modelica license 2, see the license conditions (including the disclaimer of warranty)
-in file Modelica/ModelicaLicense2.html
+in file Modelica/Resources/Documentation/ModelicaLicense2.html
 or at http://www.modelica.org/modelica-legal-documents/ModelicaLicense2.html.
 
 Licensor:
