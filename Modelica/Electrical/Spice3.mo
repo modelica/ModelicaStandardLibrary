@@ -4408,7 +4408,7 @@ on the model behaviour.
     parameter SI.Temp_C TEMP = 27 "Operating temperature of the device";
 
     parameter ModelcardMOS modelcard "MOSFET modelcard"            annotation(Evaluate=true);
-    SpiceConstants C "General constants of SPICE simulator";
+    constant SpiceConstants C "General constants of SPICE simulator";
     final parameter Mos1.Mos1ModelLineParams p = Mos1.mos1RenameParameters(modelcard, C)
         "Model line parameters"                                                                                  annotation(Evaluate=true);
     final parameter Mosfet.Mosfet m = Mos1.mos1RenameParametersDev(
