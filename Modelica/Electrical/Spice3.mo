@@ -5419,7 +5419,7 @@ on the model behaviour.
         "Flag to request sensitivity WRT area, not implemented yet";
 
      parameter ModelcardDIODE modelcarddiode "DIODE modelcard"                    annotation(Evaluate=true);
-     SpiceConstants C "General constants of SPICE simulator";
+     constant SpiceConstants C "General constants of SPICE simulator";
      final parameter Diode.DiodeModelLineParams param=
           Diode.diodeRenameParameters(modelcarddiode, C)
         "Model line parameters";
@@ -5533,7 +5533,7 @@ on the model behaviour.
       parameter Boolean SENS_AREA= false
         "Parameter for sensitivity analyses, not implemented yet";
       parameter ModelcardR modelcard "Resistor modelcard";
-      SpiceConstants C "General constants of SPICE simulator";
+      constant SpiceConstants C "General constants of SPICE simulator";
       final parameter Rsemiconductor.ResistorModelLineParams lp=
           Rsemiconductor.resistorRenameParameters(modelcard, C)
         "Model Line Parameters";
