@@ -3115,7 +3115,7 @@ If time is less than <i>Tdel</i> the initial value <i>initout</i> holds.
           parameter Modelica.SIunits.Time tHL(start=0) "fall inertial delay";
           parameter D.Interfaces.Logic y0=L.'U' "initial value of output";
     protected
-          Integer delayTable[:,:]=Modelica.Electrical.Digital.Tables.DelayTable
+          constant Integer delayTable[:,:]=Modelica.Electrical.Digital.Tables.DelayTable
         "specification of delay according to signal change";
           Modelica.SIunits.Time delayTime;
           D.Interfaces.Logic y_auxiliary(start=y0, fixed=true);
