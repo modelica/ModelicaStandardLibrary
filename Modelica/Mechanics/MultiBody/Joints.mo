@@ -7439,7 +7439,6 @@ pair of joints\" from Woernle and Hiller is described in:
           annotation (Dialog(group="if animation = true", enable=animation));
 
     protected
-      outer World world;
       Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
       Modelica.SIunits.Position r_rel_a[3]
@@ -7625,7 +7624,6 @@ pair of joints\" from Woernle and Hiller is described in:
         annotation (Dialog(group="if animation = true", enable=animation));
 
     protected
-      outer World world;
       Frames.Orientation R_rel
         "Dummy or relative orientation object from frame_a to frame_b";
       Modelica.SIunits.Position r_rel_a[3]
