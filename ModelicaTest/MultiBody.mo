@@ -2,12 +2,9 @@ within ModelicaTest;
 package MultiBody "Test models for Modelica.Mechanics.MultiBody"
 extends Modelica.Icons.ExamplesPackage;
 
-  encapsulated model SphericalDoublePendulum
+  model SphericalDoublePendulum
     "Double pendulum with two spherical joints and two bodies"
-    import ObsoleteModelica3;
-
     import Modelica;
-    import Modelica.Mechanics.MultiBody;
     extends Modelica.Icons.Example;
     inner Modelica.Mechanics.MultiBody.World world
                                 annotation (Placement(transformation(extent={{
@@ -295,12 +292,9 @@ for rodLength:
 </html>"));
     end SphericalAndUniversal;
 
-    encapsulated model SphericalSpherical
+    model SphericalSpherical
       "One kinematic loop with four bars (with SphericalSpherical joint)"
-      import ObsoleteModelica3;
-
       import Modelica;
-      import Modelica.Mechanics.MultiBody;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -414,12 +408,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 </html>"));
     end SphericalSpherical;
 
-    encapsulated model UniversalSpherical
+    model UniversalSpherical
       "One kinematic loop with four bars (with UniversalSpherical joint)"
-      import ObsoleteModelica3;
-
       import Modelica;
-      import Modelica.Mechanics.MultiBody;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -544,143 +535,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
 </html>"));
     end UniversalSpherical;
 
-    encapsulated model UniversalSpherical_2
-      "One kinematic loop with four bars (with UniversalSpherical joint)"
-      import ObsoleteModelica3;
-
+    model JointUSR "One kinematic loop with four bars (using JointUSR joint)"
       import Modelica;
-      import Modelica.Mechanics.MultiBody;
-      import SI = Modelica.SIunits;
-      extends Modelica.Icons.Example;
-
-      output SI.Angle j1_phi "angle of revolute joint j1";
-      output SI.Position j2_s "distance of prismatic joint j2";
-      output SI.AngularVelocity j1_w "axis speed of revolute joint j1";
-      output SI.Velocity j2_v "axis velocity of prismatic joint j2";
-
-      inner Modelica.Mechanics.MultiBody.World world
-                                  annotation (Placement(transformation(extent={
-                {-80,-80},{-60,-60}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Revolute j1(
-        n={1,0,0},
-        stateSelect=StateSelect.always,
-        a(fixed=false),
-        phi(fixed=true),
-        w(fixed=true, start=5.235987755982989))
-        annotation (Placement(transformation(extent={{-54,-40},{-34,-20}},
-              rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Prismatic j2(
-        n={1,0,0},
-        boxWidth=0.01,
-        a(fixed=false),
-        s(fixed=false),
-        v(fixed=false),
-        s_offset=-0.2)                      annotation (Placement(
-            transformation(extent={{12,-80},{32,-60}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.BodyCylinder b1(
-                                      r={0,0.5,0.1}, diameter=0.05)
-        annotation (Placement(transformation(
-            origin={-30,0},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Mechanics.MultiBody.Parts.BodyCylinder b2(
-                                      r={0,0.2,0}, diameter=0.05)
-        annotation (Placement(transformation(
-            origin={50,-50},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-      Modelica.Mechanics.MultiBody.Joints.UniversalSpherical universalSpherical(
-        n1_a={0,1,0.1},
-        rRod_ia={{-1,0.3,0.1}*{-1,0.3,0.1},0,0},
-        rRod_a(start={-1,0.3,0.1})) annotation (Placement(transformation(extent=
-               {{0,20},{-20,40}}, rotation=0)));
-      Modelica.Mechanics.MultiBody.Parts.FixedTranslation b3(
-                                          animation=false, r={1,0,0})
-        annotation (Placement(transformation(extent={{-32,-80},{-12,-60}},
-              rotation=0)));
-      Modelica.Mechanics.MultiBody.Visualizers.FixedFrame fixedFrame4
-        annotation (Placement(transformation(
-            origin={-10,70},
-            extent={{-10,-10},{10,10}},
-            rotation=90)));
-    equation
-      j1_phi = j1.phi;
-      j2_s = j2.s;
-      j1_w = j1.w;
-      j2_v = j2.v;
-      connect(j2.frame_b, b2.frame_a)
-        annotation (Line(points={{32,-70},{50,-70},{50,-60}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(j1.frame_b, b1.frame_a)
-        annotation (Line(points={{-34,-30},{-30,-30},{-30,-10}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(j1.frame_a, world.frame_b)
-        annotation (Line(points={{-54,-30},{-60,-30},{-60,-70}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(b1.frame_b, universalSpherical.frame_b)
-        annotation (Line(points={{-30,10},{-30,30},{-20,30}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(universalSpherical.frame_a, b2.frame_b)
-        annotation (Line(points={{0,30},{50,30},{50,-40}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(b3.frame_a, world.frame_b) annotation (Line(points={{-32,-70},{
-              -60,-70}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(b3.frame_b, j2.frame_a) annotation (Line(points={{-12,-70},{12,
-              -70}},
-          color={0,0,0},
-          thickness=0.5));
-      connect(fixedFrame4.frame_a, universalSpherical.frame_ia)
-        annotation (Line(points={{-10,60},{-10,50},{-6,50},{-6,40}}, color={0,0,0},
-          thickness=0.5));
-      annotation (
-        experiment(StopTime=5),
-        Documentation(info="<html>
-<p>
-This is a fourth version of the \"four-bar\" mechanism. In this case
-the three revolute joints on the left top-side and the two revolute
-joints on the right top side have been replaced by the joint <b>UniversalSpherical</b>
-that is a rod with a spherical and a universal joint on two sides. This joint is defined
-by <b>1 constraint</b> stating that the distance between the two spherical joints is
-constant. Using this joint in a kinematic loop reduces the sizes of
-non-linear algebraic equations. For this loop, only one non-linear
-algebraic system of equations of order 1 remains.
-</p>
-<p>
-The essential difference to joint SphericalSpherical is that the
-orientation of the rod can be computed by removing one degree of freedom
-of one of the spherical joints (i.e., replacing it by a universal joint).
-Usually, the eigenrotation of the connecting rod is of no technical
-interest and by this approximation it is constrained to move in a
-somewhat arbitrary way. This allows to have an additional connector,
-<b>frame_ia</b>, to be fixed on the rod, where other objects can be attached.
-In this example, the coordinate system of frame_ia is visualized.
-</p>
-<p>
-Another nice feature is that the <b>length</b> of the connecting rod can be
-automatically calculated during <b>initialization</b>. In order to do this,
-another initialization condition has to be given. In this example, the
-initial value of the distance of the prismatic joint j2 has been fixed
-(via the \"Initialization\" menu) and the length parameter of joint
-\"UniversalSpherical\" is computed during initialization since parameter
-<b>computeLength</b> = <b>true</b> is set in the joint parameter
-menu (this sets \"fixed=false\" on parameter \"length\").
-</p>
-</html>"));
-    end UniversalSpherical_2;
-
-    encapsulated model JointUSR
-      "One kinematic loop with four bars (using JointUSR joint)"
-      import ObsoleteModelica3;
-
-      import Modelica;
-      import Modelica.Mechanics.MultiBody;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -842,12 +698,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         Diagram(graphics));
     end JointUSR;
 
-    encapsulated model JointSSR
-      "One kinematic loop with four bars (using JointSSR joint)"
-      import ObsoleteModelica3;
-
+    model JointSSR "One kinematic loop with four bars (using JointSSR joint)"
       import Modelica;
-      import Modelica.Mechanics.MultiBody;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
       parameter Modelica.SIunits.Distance L=Modelica.Math.Vectors.length(
@@ -991,12 +843,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         Diagram(graphics));
     end JointSSR;
 
-    encapsulated model JointUSP
-      "One kinematic loop with four bars (using JointUSP joint)"
-      import ObsoleteModelica3;
-
+    model JointUSP "One kinematic loop with four bars (using JointUSP joint)"
       import Modelica;
-      import Modelica.Mechanics.MultiBody;
       import SI = Modelica.SIunits;
       extends Modelica.Icons.Example;
 
@@ -1200,22 +1048,25 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     model DifferentiationOfForces
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(gravityType=Modelica.Mechanics.MultiBody.Types.GravityTypes.
-            UniformGravity) annotation (Placement(transformation(extent={{-80,0},
-                {-60,20}}, rotation=0)));
+            UniformGravity) annotation (Placement(transformation(extent={{-10,-10},{
+                10,10}},   rotation=270,
+            origin={-86,74})));
       Modelica.Mechanics.MultiBody.Joints.Revolute rev(        n={0,0,1},
         a(fixed=false),
         phi(fixed=true),
-        w(fixed=true))             annotation (Placement(transformation(extent=
-                {{-40,0},{-20,20}}, rotation=0)));
+        w(fixed=true))             annotation (Placement(transformation(extent={{-10,-10},
+                {10,10}},           rotation=270,
+            origin={-86,20})));
       Modelica.Mechanics.MultiBody.Parts.BodyBox body(r={1,0,0})
         annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.FrameForceAndTorque
-        frameForceAndTorque
-        annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
-              rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.ForceAndTorque
+        frameForceAndTorque(resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameAB.frame_a)
+        annotation (Placement(transformation(extent={{-10,-10},{10,10}},
+              rotation=0,
+            origin={-30,-30})));
       Modelica.Blocks.Sources.Sine sine[6](
         each freqHz=1)                     annotation (Placement(transformation(
-              extent={{-80,-40},{-60,-20}}, rotation=0)));
+              extent={{-72,-20},{-52,0}},   rotation=0)));
       Modelica.Mechanics.MultiBody.Sensors.CutForce cutForce
         annotation (Placement(transformation(extent={{0,-40},{20,-20}},
               rotation=0)));
@@ -1226,17 +1077,11 @@ menu (this sets \"fixed=false\" on parameter \"length\").
     equation
       connect(world.frame_b,rev. frame_a)
         annotation (Line(
-          points={{-60,10},{-40,10}},
+          points={{-86,64},{-86,64},{-86,30}},
           color={95,95,95},
           thickness=0.5));
       connect(body.frame_a,rev. frame_b) annotation (Line(
-          points={{0,10},{-20,10}},
-          color={95,95,95},
-          thickness=0.5));
-      connect(sine.y, frameForceAndTorque.load) annotation (Line(points={{-59,
-              -30},{-42,-30}}, color={0,0,127}));
-      connect(frameForceAndTorque.frame_b, cutForce.frame_a) annotation (Line(
-          points={{-20,-30},{0,-30}},
+          points={{0,10},{-26,10},{-86,10}},
           color={95,95,95},
           thickness=0.5));
       connect(cutForce.frame_b, body.frame_b) annotation (Line(
@@ -1245,29 +1090,44 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           thickness=0.5));
       connect(cutForce.force, der1.u) annotation (Line(points={{2,-41},{2,-60},
               {18,-60}}, color={0,0,127}));
-      connect(frameForceAndTorque.frame_resolve, body.frame_a) annotation (Line(
-          points={{-30,-20},{-30,-14},{-12,-14},{-12,10},{0,10}},
-          color={95,95,95},
-          pattern=LinePattern.Dot));
       connect(der1.y, der2.u) annotation (Line(points={{41,-60},{52,-60}},
             color={0,0,127}));
-      annotation (experiment(StopTime=1.1));
+      connect(sine[1:3].y, frameForceAndTorque.force) annotation (Line(
+          points={{-51,-10},{-38,-10},{-38,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(sine[4:6].y, frameForceAndTorque.torque) annotation (Line(
+          points={{-51,-10},{-30,-10},{-30,-18}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(frameForceAndTorque.frame_a, rev.frame_b) annotation (Line(
+          points={{-40,-30},{-86,-30},{-86,10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(frameForceAndTorque.frame_b, cutForce.frame_a) annotation (Line(
+          points={{-20,-30},{0,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=1.1), Diagram(graphics));
     end DifferentiationOfForces;
 
     model Force
       extends Modelica.Icons.Example;
       import Modelica.Mechanics.MultiBody.*;
-      inner World world annotation (Placement(transformation(extent={{-80,60},{
-                -60,80}}, rotation=0)));
+      inner World world annotation (Placement(transformation(extent={{-100,80},
+                {-80,100}},
+                          rotation=0)));
       Joints.Revolute Revolute1(n={0,1,0},
         phi(fixed=true),
         w(fixed=true))
         annotation (Placement(transformation(
-            origin={-20,30},
+            origin={-20,32},
             extent={{-10,-10},{10,10}},
             rotation=90)));
       Parts.BodyCylinder body1(r={1,0,0}) annotation (Placement(transformation(
-              extent={{0,40},{20,60}}, rotation=0)));
+              extent={{4,38},{24,58}}, rotation=0)));
       Modelica.Blocks.Sources.Constant Constant1[3](k={0,500,0})
         annotation (Placement(transformation(
             origin={50,90},
@@ -1316,9 +1176,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
               rotation=0)));
     equation
       connect(force1.frame_b, body1.frame_b) annotation (Line(points={{40,50},{
-              20,50}}));
+              32,50},{32,48},{24,48}}));
       connect(Revolute1.frame_b, body1.frame_a)
-        annotation (Line(points={{-20,40},{-20,50},{0,50}}));
+        annotation (Line(points={{-20,42},{-20,48},{4,48}}));
       connect(Revolute2.frame_b, body2.frame_a)
         annotation (Line(points={{-20,-30},{-20,-20},{0,-20}}));
       connect(force2.frame_b, body2.frame_b) annotation (Line(points={{40,-20},
@@ -1326,7 +1186,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       connect(Revolute3.frame_a, fixed1.frame_b)
         annotation (Line(points={{-60,10},{-70,10}}));
       connect(Revolute3.frame_b, Revolute1.frame_a)
-        annotation (Line(points={{-40,10},{-20,10},{-20,20}}));
+        annotation (Line(points={{-40,10},{-20,10},{-20,22}}));
       connect(fixedRotation.frame_b, force2.frame_resolve)
         annotation (Line(points={{12,-80},{46,-80},{46,-30}}));
       connect(fixed3.frame_b, Revolute4.frame_a)
@@ -1344,7 +1204,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
           color={0,0,0},
           thickness=0.5));
       connect(fixed4.frame_b, force2.frame_a) annotation (Line(
-          points={{80,-20},{70,-20},{70,-20},{60,-20}},
+          points={{80,-20},{70,-20},{60,-20}},
           color={0,0,0},
           thickness=0.5));
       annotation (                  experiment(StopTime=1.1));
@@ -1692,7 +1552,7 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation1(
         r={0,-0.9,0},
         width=0.01,
-        animation=false) annotation (Placement(transformation(
+        animation=true)  annotation (Placement(transformation(
             origin={-60,-10},
             extent={{-10,-10},{10,10}},
             rotation=270)));
@@ -1700,7 +1560,9 @@ menu (this sets \"fixed=false\" on parameter \"length\").
         L_a=0.3,
         L_b=0.3,
         m_a=1,
-        m_b=1) annotation (Placement(transformation(extent={{-20,-20},{0,-40}},
+        m_b=1,
+        animateMasses=false)
+               annotation (Placement(transformation(extent={{-20,-20},{0,-40}},
               rotation=0)));
       Modelica.Mechanics.MultiBody.Parts.FixedTranslation FixedTranslation2(
         width=0.01,
@@ -1739,8 +1601,8 @@ menu (this sets \"fixed=false\" on parameter \"length\").
       import Modelica.Mechanics.MultiBody.*;
       inner World world annotation (Placement(transformation(extent={{-100,80},
                 {-80,100}}, rotation=0)));
-      Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true))
-                                annotation (Placement(transformation(extent={{
+      Joints.Revolute Revolute1(phi(fixed=true), w(fixed=true),
+        useAxisFlange=false)    annotation (Placement(transformation(extent={{
                 -40,40},{-20,60}}, rotation=0)));
       Parts.BodyCylinder BodyCylinder1(r={1,0,0})
         annotation (Placement(transformation(extent={{0,40},{20,60}}, rotation=
@@ -2516,10 +2378,12 @@ a linear damper is connected here.
             origin={-10,-70},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      ObsoleteModelica3.Mechanics.MultiBody.Forces.WorldForceAndTorque
-        ForceTorque(                         N_to_m=600, Nm_to_m=200)
-        annotation (Placement(transformation(extent={{60,-60},{40,-40}},
-              rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque forceAndTorque(
+          resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameB.world)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=180,
+            origin={50,-50})));
     equation
       connect(BodyCylinder1.frame_a, Revolute1.frame_b)
         annotation (Line(points={{0,70},{-20,70}}));
@@ -2537,14 +2401,8 @@ a linear damper is connected here.
         annotation (Line(points={{-60,-90},{-50,-90}}));
       connect(Revolute3.frame_b, Revolute4.frame_a)
         annotation (Line(points={{-30,-90},{-10,-90},{-10,-80}}));
-      connect(ForceTorque.frame_b, BodyCylinder3.frame_b)
-        annotation (Line(points={{40,-50},{20,-50}}));
       connect(Revolute4.frame_b, BodyCylinder3.frame_a)
         annotation (Line(points={{-10,-60},{-10,-50},{0,-50}}));
-      connect(Constant4.y, ForceTorque.load) annotation (Line(
-          points={{79,-50},{62,-50}},
-          color={0,0,127},
-          smooth=Smooth.None));
       connect(Constant1.y, worldForce.force) annotation (Line(
           points={{79,70},{62,70}},
           color={0,0,127},
@@ -2553,7 +2411,20 @@ a linear damper is connected here.
           points={{79,30},{62,30}},
           color={0,0,127},
           smooth=Smooth.None));
-      annotation (                  experiment(StopTime=1.1));
+      connect(forceAndTorque.frame_b, BodyCylinder3.frame_b) annotation (Line(
+          points={{40,-50},{20,-50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(Constant4[1:3].y, forceAndTorque.force) annotation (Line(
+          points={{79,-50},{70,-50},{70,-44},{62,-44}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      connect(Constant4[4:6].y, forceAndTorque.torque) annotation (Line(
+          points={{79,-50},{72,-50},{72,-56},{62,-56}},
+          color={0,0,127},
+          smooth=Smooth.None));
+      annotation (                  experiment(StopTime=1.1), Diagram(graphics));
     end WorldForces;
   end Forces;
 
@@ -3866,10 +3737,8 @@ a linear damper is connected here.
       annotation (experiment(StopTime=1.1), Diagram(graphics));
     end FixedTranslation;
 
-    encapsulated model BodyShape "Simple spring/damper/mass system"
+    model BodyShape "Simple spring/damper/mass system"
       import Modelica.Icons;
-      import Modelica.Mechanics.MultiBody;
-      import Modelica.Mechanics.Rotational;
       import Modelica;
       extends Icons.Example;
       parameter Boolean animation=true "= true, if animation shall be enabled";
@@ -4832,11 +4701,8 @@ often possible to use the FreeMotion joint such that the singularity
   package Sensors "Test MultiBody.Sensors"
   extends Modelica.Icons.ExamplesPackage;
 
-    encapsulated model AbsoluteSensor
-      "Simple pendulum with one revolute joint and one body"
+    model AbsoluteSensor "Simple pendulum with one revolute joint and one body"
       import Modelica;
-      import Modelica.Mechanics.MultiBody;
-      import ObsoleteModelica3;
       extends Modelica.Icons.Example;
       inner Modelica.Mechanics.MultiBody.World world(
                                   gravityType=Modelica.Mechanics.MultiBody.Types.
@@ -4857,7 +4723,7 @@ often possible to use the FreeMotion joint such that the singularity
       Modelica.Mechanics.MultiBody.Parts.BodyBox box(
                                   r={1,0,0}, animation=false)
         annotation (Placement(transformation(extent={{0,0},{20,20}}, rotation=0)));
-      MultiBody.Sensors.AbsoluteSensor
+      Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor
         sensor_frame_a1(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_a,
@@ -4867,7 +4733,7 @@ often possible to use the FreeMotion joint such that the singularity
         get_w=true,
         get_z=true)      annotation (Placement(transformation(extent={{40,40},{60,20}},
                          rotation=0)));
-      MultiBody.Sensors.AbsoluteSensor
+     Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor
         sensor_world1(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.world,
@@ -4877,7 +4743,7 @@ often possible to use the FreeMotion joint such that the singularity
         get_w=true,
         get_z=true)      annotation (Placement(transformation(extent={{40,-20},
                 {60,0}}, rotation=0)));
-      MultiBody.Sensors.AbsoluteSensor
+      Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor
         sensor_frame_a2(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
@@ -4888,7 +4754,7 @@ often possible to use the FreeMotion joint such that the singularity
         get_z=true)      annotation (Placement(transformation(extent={{40,60},{
                 60,80}}, rotation=0)));
 
-      MultiBody.Sensors.AbsoluteSensor
+      Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor
         sensor_world2(
         get_angles=true,
         resolveInFrame=Modelica.Mechanics.MultiBody.Types.ResolveInFrameA.frame_resolve,
@@ -6496,10 +6362,8 @@ often possible to use the FreeMotion joint such that the singularity
   package Visualizers "Test MultiBody.Visualizers"
   extends Modelica.Icons.ExamplesPackage;
 
-    encapsulated model Shapes "Test and show models Visualizers.FixedShape"
+    model Shapes "Test and show models Visualizers.FixedShape"
       import Modelica.Icons;
-      import Modelica.Mechanics.MultiBody;
-      import Modelica.Mechanics.MultiBody.Visualizers;
       import Modelica;
       extends Icons.Example;
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed(
@@ -6639,10 +6503,8 @@ often possible to use the FreeMotion joint such that the singularity
       annotation (experiment(StopTime=1));
     end Shapes;
 
-    encapsulated model Arrow "Test and show models Visualizers.FixedShape"
+    model Arrow "Test and show models Visualizers.FixedShape"
       import Modelica.Icons;
-      import Modelica.Mechanics.MultiBody;
-      import Modelica.Mechanics.MultiBody.Visualizers;
       import Modelica;
       extends Icons.Example;
       Modelica.Mechanics.MultiBody.Parts.Fixed fixed3(
@@ -6651,18 +6513,18 @@ often possible to use the FreeMotion joint such that the singularity
             origin={-30,-10},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Visualizers.SignalArrow arrow(diameter=0.02)
+      Modelica.Mechanics.MultiBody.Visualizers.SignalArrow arrow(diameter=0.02)
         annotation (Placement(transformation(
             origin={-30,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Modelica.Blocks.Sources.Sine sine[3](
+     Modelica.Blocks.Sources.Sine sine[3](
         amplitude={0.1,0.05,0.8},
         freqHz={2,1,2},
         each offset=0.2)
                         annotation (Placement(transformation(extent={{12,20},{
                 -8,40}}, rotation=0)));
-      Visualizers.FixedArrow fixedArrow(length=0.3, color={0,0,255})
+      Modelica.Mechanics.MultiBody.Visualizers.FixedArrow fixedArrow(length=0.3, color={0,0,255})
                   annotation (Placement(transformation(
             origin={-70,30},
             extent={{-10,-10},{10,10}},
@@ -6943,8 +6805,7 @@ often possible to use the FreeMotion joint such that the singularity
         stateSelect=StateSelect.prefer,
         a(fixed=false),
         phi(fixed=true),
-        w(
-          fixed=true,
+        w(fixed=true,
           start=1.74532925199433,
           displayUnit="rad/s"))
         annotation (Placement(transformation(extent={{-10,40},{10,60}},
@@ -7391,33 +7252,5 @@ they were not deleted yet.")}));
       annotation (experiment(StopTime=0.2));
     end Bodies;
 
-    partial model Internal
-      "Check whether Advanced/axisTorqueBalance,axisForceBalance parameter is correctely converted"
-      extends Modelica.Icons.Example;
-
-      ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
-        revoluteWithLengthConstraint1 annotation (Placement(transformation(
-              extent={{-40,40},{-20,60}}, rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
-        prismaticWithLengthConstraint1 annotation (Placement(transformation(
-              extent={{20,40},{40,60}},rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
-        revoluteWithLengthConstraint2
-        annotation (Placement(transformation(extent={{-40,0},{-20,20}},
-              rotation=0)));
-      ObsoleteModelica3.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
-        prismaticWithLengthConstraint2
-        annotation (Placement(transformation(extent={{20,0},{40,20}},rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint
-        revoluteWithLengthConstraint3
-        annotation (Placement(transformation(extent={{-40,-40},{-20,-20}},
-              rotation=0)));
-      Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint
-        prismaticWithLengthConstraint3
-        annotation (Placement(transformation(extent={{20,-40},{40,-20}},
-              rotation=0)));
-
-      annotation (Icon(graphics));
-    end Internal;
   end InitializationConversion;
 end MultiBody;
