@@ -4,7 +4,7 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
   extends Modelica.Icons.Example;
 
   Modelica.Electrical.Analog.Ideal.IdealThyristor IdealThyristor1(
-                    Vknee=5)
+                    Vknee=5, off(start=true, fixed= true))
                            annotation (Placement(transformation(extent={{-20,0},
             {0,20}}, rotation=0)));
   Modelica.Electrical.Analog.Sources.SineVoltage SineVoltage1(V=10,
@@ -27,6 +27,9 @@ model CharacteristicThyristors "Characteristic of ideal thyristors"
             -30},{0,-10}}, rotation=0)));
   Modelica.Electrical.Analog.Basic.Resistor R1(R=1.e-3)
   annotation (Placement(transformation(extent={{40,-30},{60,-10}}, rotation=0)));
+
+initial equation
+ // IdealThyristor1.off = true;
 
 equation
   connect(IdealThyristor1.n, R3.p)

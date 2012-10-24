@@ -47,6 +47,9 @@ model ControlledSwitchWithArc
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-80,-60},{-60,-40}})));
 
+initial equation
+  inductor1.i = 0;
+  inductor2.i = 0;
 equation
   connect(inductor1.n,resistor1. p) annotation (Line(points={{60,40},{80,40},
           {80,30}}, color={0,0,255}));

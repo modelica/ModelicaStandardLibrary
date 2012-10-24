@@ -476,7 +476,7 @@ equation
           extent={{-100,180},{94,140}},
           textString="CauerLowPassSC",
           lineColor={0,0,255})}),
-    experiment(StopTime=60, __Dymola_NumberOfIntervals=1500),
+    experiment(StopTime=60, NumberOfIntervals=1500),
     Documentation(revisions="<html>
 <ul>
 <li><i>January 13, 2006</i>
@@ -492,5 +492,6 @@ equation
 <p>This model is identical to the CauerLowPassOPV example. But the resistors are realized by switched capacitors. There are two such resistors Rp (of value +1), and Rn (of value -1). In this models the switching clock source is included. In a typical switched capacitor circuit there would be a central clock source.</p>
 <p>The simulation end time should be 60. Please plot both V.v (which is the inverted input voltage) and OP5.p.v (output voltage). Compare this result with the CauerLowPassAnalog result.</p>
 <p>Due to the recharging of the capacitances after switching the performance of simulation is not as good as in the CauerLowPassOPV example.</p>
-</html>"));
+</html>"),
+    __Dymola_experimentSetupOutput);
 end CauerLowPassSC;

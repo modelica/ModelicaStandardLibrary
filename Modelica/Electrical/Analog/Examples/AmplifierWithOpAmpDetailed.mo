@@ -18,24 +18,31 @@ model AmplifierWithOpAmpDetailed
     annotation (Placement(transformation(
         extent={{-10,-10},{10,10}},
         rotation=270,
-        origin={-80,-28})));
+        origin={-80,-30})));
   Modelica.Electrical.Analog.Basic.Ground ground
     annotation (Placement(transformation(extent={{-20,-70},{0,-50}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage(V=15)
     annotation (Placement(transformation(extent={{48,10},{68,30}})));
   Modelica.Electrical.Analog.Sources.ConstantVoltage constantVoltage1(V=-15)
     annotation (Placement(transformation(extent={{48,-10},{68,10}})));
+initial equation
+  resistor2.i = 0;
+  opAmp.q_fp1 = 0;
+  opAmp.q_fr1 = 0;
+  opAmp.q_fr2 = 0;
+  opAmp.q_fr3 = 0;
+
 equation
   connect(resistor.n, opAmp.m)       annotation (Line(
       points={{-56,17},{-34,17},{-34,17.07},{-26.07,17.07}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(resistor1.n, resistor2.p) annotation (Line(
-      points={{-4,55},{10,55},{10,54},{22,54},{22,-14},{21,-14}},
+      points={{-4,55},{21,55},{21,-14}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(resistor.p, sineVoltage.p) annotation (Line(
-      points={{-74,17},{-80,17},{-80,-18}},
+      points={{-74,17},{-80,17},{-80,-20}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(resistor1.p, opAmp.m)       annotation (Line(
@@ -43,7 +50,7 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
   connect(sineVoltage.n, ground.p) annotation (Line(
-      points={{-80,-38},{-10,-38},{-10,-50}},
+      points={{-80,-40},{-10,-40},{-10,-50}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.p, ground.p)       annotation (Line(
@@ -51,7 +58,7 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
   connect(resistor2.n, ground.p) annotation (Line(
-      points={{21,-32},{20,-32},{20,-40},{-10,-40},{-10,-50}},
+      points={{21,-32},{21,-40},{-10,-40},{-10,-50}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.p_supply, constantVoltage.p)       annotation (Line(
@@ -67,7 +74,7 @@ equation
       color={0,0,255},
       smooth=Smooth.None));
   connect(constantVoltage1.n, ground.p) annotation (Line(
-      points={{68,0},{80,0},{80,-46},{-10,-46},{-10,-50}},
+      points={{68,0},{80,0},{80,-40},{-10,-40},{-10,-50}},
       color={0,0,255},
       smooth=Smooth.None));
   connect(opAmp.outp, resistor2.p)       annotation (Line(
@@ -78,7 +85,7 @@ equation
   annotation (
     experiment(
       StopTime=0.003,
-      __Dymola_NumberOfIntervals=2500,
+      NumberOfIntervals=2500,
       Tolerance=2e-007),
     Documentation(revisions="<html>
 <dl>
@@ -87,5 +94,6 @@ equation
 </dl>
 </html>", info="<html>
 <p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.</p>
-</html>"));
+</html>"),
+    __Dymola_experimentSetupOutput);
 end AmplifierWithOpAmpDetailed;

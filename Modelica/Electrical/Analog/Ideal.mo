@@ -1950,7 +1950,7 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
     parameter Modelica.SIunits.VoltageSlope dVdt(start=10E3)
       "Arc voltage slope";
     parameter Modelica.SIunits.Voltage Vmax(start=60) "Max. arc voltage";
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    final T=293.15);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(final T=293.15);
     Modelica.Blocks.Interfaces.BooleanInput control
       "true => p--n connected, false => switch open"
       annotation (Placement(transformation(
@@ -1960,10 +1960,11 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
 
   protected
     Boolean on=control;
-    Boolean off=not on;
+    Boolean off(start=false, fixed=true);
     discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
     Boolean quenched(start=true, fixed=true);
   equation
+    off = not on;
     when edge(off) then
       tSwitch=time;
     end when;
@@ -2242,11 +2243,12 @@ behavior is <b> not </b> modelled. The parameters are not temperature dependent.
   protected
       constant Modelica.SIunits.Voltage unitVoltage= 1  annotation(HideResult=true);
       constant Modelica.SIunits.Current unitCurrent= 1  annotation(HideResult=true);
-      Boolean off=(control.v < level);
+      Boolean off(start=false, fixed = true);
       Boolean on=not off;
       discrete Modelica.SIunits.Time tSwitch(start=-Modelica.Constants.inf);
-      Boolean quenched(start=true);
+      Boolean quenched(start=true, fixed=true);
     equation
+      off =(control.v < level);
       control.i = 0;
       0 = p.i + n.i;
       i = p.i;

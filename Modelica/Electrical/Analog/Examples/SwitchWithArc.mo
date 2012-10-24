@@ -41,6 +41,7 @@ model SwitchWithArc "Comparison of switch models both with and without arc"
   Modelica.Electrical.Analog.Ideal.CloserWithArc switch2
                    annotation (Placement(transformation(extent={{0,-50},{20,
             -30}}, rotation=0)));
+
 equation
   connect(inductor1.n,resistor1. p) annotation (Line(points={{60,40},{80,40},
           {80,30}}, color={0,0,255}));
