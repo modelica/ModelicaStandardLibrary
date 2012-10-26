@@ -85,7 +85,7 @@ equation
   annotation (
     experiment(
       StopTime=0.003,
-      NumberOfIntervals=2500,
+      __Dymola_NumberOfIntervals=2500,
       Tolerance=2e-007),
     Documentation(revisions="<html>
 <dl>
@@ -94,6 +94,5 @@ equation
 </dl>
 </html>", info="<html>
 <p>With the test circuit AmplifierWithOpAmpDetailed a time domain analysis of the example arrangement with a sinusoidal input voltage (12 V amplitude, frequency 1 kHz) using the operational amplifier model OpAmpDetailed is carried out. The working voltages are 15 V and -15 V.</p>
-</html>"),
-    __Dymola_experimentSetupOutput);
+</html>"));
 end AmplifierWithOpAmpDetailed;
