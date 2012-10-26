@@ -263,8 +263,8 @@ the library and has the following content:
 
         model HalfAdder
       "Adding circuit for binary numbers without input carry bit"
-      import Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table a(
@@ -277,7 +277,9 @@ the library and has the following content:
             t={2,4},
             y0=L.'0')   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
                   rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3)
+          Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3, AND(G2(
+                                                                                        y(       start=0, fixed=true))),
+        XOR(G2(                                                                                                    y(       start=0, fixed=true))))
                                 annotation (Placement(transformation(extent={{-40,
                     -40},{40,40}}, rotation=0)));
           Modelica.Electrical.Digital.Converters.LogicToReal s
