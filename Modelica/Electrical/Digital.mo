@@ -408,8 +408,8 @@ The simulation stop time should be 10 seconds.
         end FullAdder;
 
         model Adder4 "4 Bit Adder Example"
-      import Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
 
           extends Modelica.Icons.Example;
 
@@ -458,16 +458,24 @@ The simulation stop time should be 10 seconds.
                 origin={-150,-74},
                 extent={{20,20},{-20,-20}},
                 rotation=180)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder1
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder1(Adder1(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
                                        annotation (Placement(transformation(extent=
                     {{-100,-80},{-60,-40}}, rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder2
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder2(Adder1(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
                                       annotation (Placement(transformation(extent={
                     {-20,-80},{20,-40}}, rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder3
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder3(Adder1(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
                                       annotation (Placement(transformation(extent={
                     {60,-80},{100,-40}}, rotation=0)));
-          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder4
+          Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder4(Adder1(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
                                       annotation (Placement(transformation(extent={
                     {140,-80},{180,-40}}, rotation=0)));
         equation
