@@ -623,13 +623,13 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end Counter;
 
         model VectorDelay "Vector delay"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
             final tHL=1,
             final tLH=2,
-            final n=3)
+            final n=3, inertialDelaySensitive(each y(start=0, fixed=true)))
             annotation (Placement(transformation(extent={{-36,-28},{40,48}})));
           Modelica.Electrical.Digital.Sources.Table table(x={L.'0',L.'1',L.'0', L.'1', L.'0'}, t={0,1,5,7,8})
             annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
@@ -638,6 +638,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Sources.Table table2(x={L.'0', L.'1', L.'0'}, t={0,1,6})
             annotation (Placement(transformation(extent={{-96,-50},{-76,-30}})));
         equation
+
           connect(table.y, delay.x[1]) annotation (Line(
               points={{-76,50},{-30.68,50},{-30.68,6.13667}},
               color={127,0,127},
@@ -700,7 +701,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DFFREG;
 
         model DFFREGL "Pulse triggered D-Register-Bank, low active reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,7,8,10,11,15,16})
@@ -714,9 +715,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Registers.DFFREGL dFFREGL(
             n=2,
             tHL=5,
-            tLH=6)
+            tLH=6,delay(inertialDelaySensitive(each y(start=0, fixed=true))),
+        dFFR(                                                                 clock(     start=0, fixed=true), reset(     start=0, fixed=true)))
             annotation (Placement(transformation(extent={{-41,-39},{62,65}})));
         equation
+
           connect(reset.y, dFFREGL.reset) annotation (Line(
               points={{-66,-60},{-36.88,-60},{-36.88,-18.2}},
               color={127,0,127},
