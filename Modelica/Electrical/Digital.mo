@@ -657,7 +657,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end VectorDelay;
 
         model DFFREG "Pulse triggered D-Register-Bank, high active reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0',L.'1',L.'0',L.'1',L.'0'}, t={0,7,8,10,11,15,16})
@@ -671,8 +671,11 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Registers.DFFREG dFFREG(
             n=2,
             tHL=5,
-            tLH=6)
+            tLH=6,
+            delay( inertialDelaySensitive(each y(start=0, fixed=true))),
+        dFFR(                                                            clock(     start=0, fixed=true), reset(     start=0,fixed=true)))
             annotation (Placement(transformation(extent={{-24,-26},{70,68}})));
+
         equation
           connect(clock.y, dFFREG.clock) annotation (Line(
               points={{-66,-22},{-46,-22},{-46,11.6},{-20.24,11.6}},
