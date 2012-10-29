@@ -748,7 +748,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DFFREGSRH
       "Pulse triggered D-Register-Bank, high active set and reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table clock(x={L.'0',L.'1',L.'0'}, t={0,10,11})
@@ -767,6 +767,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             n=2)
             annotation (Placement(transformation(extent={{-34,-37},{73,71}})));
         equation
+
           connect(clock.y, dFFREGSRH.clock) annotation (Line(
               points={{-66,-22},{-50,-22},{-50,6.2},{-29.72,6.2}},
               color={127,0,127},
@@ -5705,10 +5706,10 @@ Clock transition definitions:
 
         model DFFREGSRH
       "Edge triggered register bank with high active set and reset"
-      import D = Modelica.Electrical.Digital;
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
-      import S = Modelica.Electrical.Digital.Interfaces.Strength;
-      import T = Modelica.Electrical.Digital.Tables;
+          import D = Modelica.Electrical.Digital;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import S = Modelica.Electrical.Digital.Interfaces.Strength;
+          import T = Modelica.Electrical.Digital.Tables;
           parameter Modelica.SIunits.Time tHL=0 "High->Low delay";
           parameter Modelica.SIunits.Time tLH=0 "Low->High delay";
           parameter D.Interfaces.Strength strength = S.'S_X01'
@@ -5732,12 +5733,13 @@ Clock transition definitions:
           D.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n)
+            n=n,inertialDelaySensitive(each y( start=0, fixed= true)))
           annotation (Placement(transformation(extent={{23,12},{79,68}})));
+
           D.Registers.DFFSR dFFSR(
             strength=strength,
             n=n,
-            ResetSetMap=ResetSetMap)
+            ResetSetMap=ResetSetMap, clock( start=0, fixed=true), reset( start=0, fixed=true), set( start=0, fixed=true))
             annotation (Placement(transformation(extent={{-80,-25},{20,75}})));
     public
           D.Interfaces.DigitalInput set
