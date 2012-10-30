@@ -841,7 +841,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DFFREGSRL;
 
         model DLATREG "Level sensitive D-Register-Bank, high active reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
@@ -855,9 +855,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Registers.DLATREG dLATREG(
             n=2,
             tHL=2,
-            tLH=3)
+            tLH=3, delay(inertialDelaySensitive(each y( start=0, fixed=true))))
             annotation (Placement(transformation(extent={{-45,-50},{84,79}})));
         equation
+
           connect(reset.y, dLATREG.reset) annotation (Line(
               points={{-66,-60},{-39.84,-60},{-39.84,-24.2}},
               color={127,0,127},
@@ -882,7 +883,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DLATREG;
 
         model DLATREGL "Level sensitive D-Register-Bank, low active reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
@@ -896,8 +897,9 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Registers.DLATREGL dLATREGL(
             tHL=2,
             tLH=3,
-            n=2) annotation (Placement(transformation(extent={{-45,-50},{84,79}})));
+            n=2, delay(inertialDelaySensitive(each y(start=0, fixed=true)))) annotation (Placement(transformation(extent={{-45,-50},{84,79}})));
         equation
+
           connect(reset.y, dLATREGL.reset) annotation (Line(
               points={{-66,-60},{-39.84,-60},{-39.84,-24.2}},
               color={127,0,127},
@@ -923,7 +925,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DLATREGSRH
       "Level sensitive D-Register-Bank, high active set and reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(x={L.'0',L.'1',L.'0'}, t={0,10,18})
@@ -939,8 +941,9 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Registers.DLATREGSRH dLATREGSRH(
             tHL=2,
             tLH=3,
-            n=2) annotation (Placement(transformation(extent={{-45,-42},{69,71}})));
+            n=2, delay(inertialDelaySensitive(each y(start=0, fixed=true)))) annotation (Placement(transformation(extent={{-45,-42},{69,71}})));
         equation
+
           connect(reset.y, dLATREGSRH.reset) annotation (Line(
               points={{-66,-60},{-40.44,-60},{-40.44,-19.4}},
               color={127,0,127},
@@ -975,7 +978,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
 
         model DLATREGSRL
       "Level sensitive D-Register-Bank, low active set and reset"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           extends Modelica.Icons.Example;
 
           Modelica.Electrical.Digital.Sources.Table enable(t={0,10,18}, x={L.'0',L.'1',L.'0'})
@@ -991,8 +994,9 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Registers.DLATREGSRL dLATREGSRL(
             tHL=2,
             tLH=3,
-            n=2) annotation (Placement(transformation(extent={{-45,-43},{69,71}})));
+            n=2, delay(inertialDelaySensitive(each y(start=0,fixed=true)))) annotation (Placement(transformation(extent={{-45,-43},{69,71}})));
         equation
+
           connect(reset.y, dLATREGSRL.reset) annotation (Line(
               points={{-66,-60},{-40.44,-60},{-40.44,-20.2}},
               color={127,0,127},
@@ -1025,7 +1029,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end DLATREGSRL;
 
         model NXFER "Functionality test of NXFERGATE"
-      import L = Modelica.Electrical.Digital.Interfaces.Logic;
+          import L = Modelica.Electrical.Digital.Interfaces.Logic;
           Modelica.Electrical.Digital.Sources.Table e_table(
         y0=Modelica.Electrical.Digital.Interfaces.Logic.'U',
         x={L.'0',L.'1',L.'Z'},
@@ -1040,6 +1044,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                                             tHL=1, tLH=1)
             annotation (Placement(transformation(extent={{-40,-52},{52,41}})));
         equation
+
           connect(x_table.y, nXFERGATE.x) annotation (Line(
               points={{-55,-10},{-45.2,-10},{-45.2,-10.15},{-35.4,-10.15}},
               color={127,0,127},
@@ -1985,10 +1990,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                     Modelica.Electrical.Digital.Interfaces.DigitalOutput c
                                          annotation (Placement(transformation(
                     extent={{90,-80},{110,-60}}, rotation=0)));
-                    Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime)
+                    Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime, G2(y(start=0,fixed=true)))
                       annotation (Placement(transformation(extent={{-20,-82},{20,
                       -42}}, rotation=0)));
-                    Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime)
+                    Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime, G2(y(start=0, fixed=true)))
                       annotation (Placement(transformation(extent={{-20,42},{20,82}},
                     rotation=0)));
 
@@ -6858,7 +6863,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL,y(start=0, fixed=true));
     algorithm
       nextstate := T.NXferTable[enable, x];
       yy := nextstate;
@@ -6946,7 +6951,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=0, fixed=true));
     algorithm
       nextstate := T.NRXferTable[enable, x];
       yy := nextstate;
@@ -7210,7 +7215,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=0, fixed=true));
     algorithm
       nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.UX01Table[x]];
       yy := nextstate;
@@ -7380,7 +7385,7 @@ Clock transition definitions:
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=0,fixed=true));
     algorithm
       nextstate := T.Buf3sTable[strength, T.UX01Table[enable], T.NotTable[x]];
       yy := nextstate;
@@ -8054,7 +8059,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL);
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=0,fixed=true));
 
     algorithm
       nextstate := T.MUX2x1Table[T.UX01Table[in1], T.UX01Table[sel], T.UX01Table[in0]];
