@@ -278,8 +278,8 @@ the library and has the following content:
             y0=L.'0')   annotation (Placement(transformation(extent={{-80,-38},{-60,-18}},
                   rotation=0)));
           Modelica.Electrical.Digital.Examples.Utilities.HalfAdder Adder(delayTime=0.3, AND(G2(
-                                                                                        y(       start=0, fixed=true))),
-        XOR(G2(                                                                                                    y(       start=0, fixed=true))))
+                                                                                        y(       start=L.'U', fixed=true))),
+        XOR(G2(                                                                                                    y(       start=L.'U', fixed=true))))
                                 annotation (Placement(transformation(extent={{-40,
                     -40},{40,40}}, rotation=0)));
           Modelica.Electrical.Digital.Converters.LogicToReal s
@@ -459,23 +459,23 @@ The simulation stop time should be 10 seconds.
                 extent={{20,20},{-20,-20}},
                 rotation=180)));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder1(Adder1(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                        annotation (Placement(transformation(extent=
                     {{-100,-80},{-60,-40}}, rotation=0)));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder2(Adder1(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                       annotation (Placement(transformation(extent={
                     {-20,-80},{20,-40}}, rotation=0)));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder3(Adder1(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                       annotation (Placement(transformation(extent={
                     {60,-80},{100,-40}}, rotation=0)));
           Modelica.Electrical.Digital.Examples.Utilities.FullAdder Adder4(Adder1(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))),Adder2(AND(G2(
-                                                                          y(      start=0, fixed=true))),XOR(G2(y(start=0, fixed=true)))))
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))),Adder2(AND(G2(
+                                                                          y(      start=L.'U', fixed=true))),XOR(G2(y(start=L.'U', fixed=true)))))
                                       annotation (Placement(transformation(extent={
                     {140,-80},{180,-40}}, rotation=0)));
         equation
@@ -629,7 +629,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
           Modelica.Electrical.Digital.Delay.InertialDelaySensitiveVector delay(
             final tHL=1,
             final tLH=2,
-            final n=3, inertialDelaySensitive(each y(start=0, fixed=true)))
+            final n=3, inertialDelaySensitive(each y(start=L.'U', fixed=true)))
             annotation (Placement(transformation(extent={{-36,-28},{40,48}})));
           Modelica.Electrical.Digital.Sources.Table table(x={L.'0',L.'1',L.'0', L.'1', L.'0'}, t={0,1,5,7,8})
             annotation (Placement(transformation(extent={{-96,40},{-76,60}})));
@@ -673,7 +673,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
             n=2,
             tHL=5,
             tLH=6,
-            delay( inertialDelaySensitive(each y(start=0, fixed=true))),
+            delay( inertialDelaySensitive(each y(start=L.'U', fixed=true))),
         dFFR(                                                            clock(     start=0, fixed=true), reset(     start=0,fixed=true)))
             annotation (Placement(transformation(extent={{-24,-26},{70,68}})));
 
@@ -1977,6 +1977,7 @@ The result can be seen in the output signals of the Fulladders according to:</p>
         end JKFF;
 
                   model HalfAdder "Half adder"
+                    import L = Modelica.Electrical.Digital.Interfaces.Logic;
                     parameter Real delayTime=0 "Delay time";
                     Modelica.Electrical.Digital.Interfaces.DigitalInput b
                       annotation (Placement(transformation(extent={{-110,-80},{-90,
@@ -1990,10 +1991,10 @@ The result can be seen in the output signals of the Fulladders according to:</p>
                     Modelica.Electrical.Digital.Interfaces.DigitalOutput c
                                          annotation (Placement(transformation(
                     extent={{90,-80},{110,-60}}, rotation=0)));
-                    Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime, G2(y(start=0,fixed=true)))
+                    Modelica.Electrical.Digital.Gates.AndGate AND(tLH=delayTime, tHL=delayTime, G2(y(start=L.'U',fixed=true)))
                       annotation (Placement(transformation(extent={{-20,-82},{20,
                       -42}}, rotation=0)));
-                    Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime, G2(y(start=0, fixed=true)))
+                    Modelica.Electrical.Digital.Gates.XorGate XOR(tLH=delayTime, tHL=delayTime, G2(y(start=L.'U', fixed=true)))
                       annotation (Placement(transformation(extent={{-20,42},{20,82}},
                     rotation=0)));
 
