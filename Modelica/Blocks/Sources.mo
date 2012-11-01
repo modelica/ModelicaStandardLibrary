@@ -2384,8 +2384,8 @@ The table interpolation has the following properties:
     points.</li>
 <li>For special applications it is sometimes needed to know the minimum
     and maximum time instant defined in the table as a parameter. For this
-    reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be access from
-    the outside of the table object.</li>
+    reason parameters <b>t_min</b> and <b>t_max</b> are provided and can be
+    accessed from the outside of the table object.</li>
 </ul>
 <p>
 Example:
