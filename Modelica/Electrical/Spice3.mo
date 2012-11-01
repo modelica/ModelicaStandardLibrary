@@ -400,12 +400,16 @@ Zeunerstrasse 38<br />
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Basic.C_Capacitor c1(C=1e-5)
+      Basic.C_Capacitor c1(C=1e-5,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={-8,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Basic.C_Capacitor c2(C=1e-5)
+      Basic.C_Capacitor c2(C=1e-5,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={34,-30},
             extent={{-10,-10},{10,10}},
@@ -526,12 +530,16 @@ Zeunerstrasse 38<br />
               rotation=0)));
     //--------------------------------------------------------------------------------------------------------------
 
-      Basic.C_Capacitor c1(C=1e-5)
+      Basic.C_Capacitor c1(C=1e-5,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={-10,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Basic.C_Capacitor c2(C=1e-5)
+      Basic.C_Capacitor c2(C=1e-5,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={32,-30},
             extent={{-10,-10},{10,10}},
@@ -648,22 +656,30 @@ Zeunerstrasse 38<br />
       Semiconductors.M_NMOS mn4(modelcard=modn)
                 annotation (Placement(transformation(extent={{46,-30},{66,-10}},
               rotation=0)));
-      Basic.C_Capacitor c1(C=10e-6)
+      Basic.C_Capacitor c1(C=10e-6,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={-44,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Basic.C_Capacitor c2(C=10e-6)
+      Basic.C_Capacitor c2(C=10e-6,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={-2,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Basic.C_Capacitor c3(C=10e-6)
+      Basic.C_Capacitor c3(C=10e-6,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={36,-30},
             extent={{-10,-10},{10,10}},
             rotation=270)));
-      Basic.C_Capacitor c4(C=10e-6)
+      Basic.C_Capacitor c4(C=10e-6,
+        IC=0,
+        UIC=true)
         annotation (Placement(transformation(
             origin={76,-30},
             extent={{-10,-10},{10,10}},
@@ -918,7 +934,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5))                     annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                     annotation (Placement(transformation(
               extent={{-16,24},{4,44}},   rotation=0)));
       Semiconductors.M_PMOS mp2(modelcard(
           RD=1e-4,
@@ -927,7 +943,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5))                      annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                      annotation (Placement(transformation(
               extent={{-16,-6},{4,14}},   rotation=0)));
       Semiconductors.M_NMOS mn1(modelcard(
           RD=1e-4,
@@ -936,7 +952,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5))                     annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                     annotation (Placement(transformation(
               extent={{-16,-44},{4,-24}}, rotation=0)));
       Semiconductors.M_NMOS mn2(modelcard(
           RD=1e-4,
@@ -945,7 +961,7 @@ Zeunerstrasse 38<br />
           CBS=1e-5,
           CGSO=1e-5,
           CGDO=1e-5,
-          CGBO=1e-5))                      annotation (Placement(transformation(
+          CGBO=1e-5), Dinternal(start=0,fixed=true), Sinternal(start=0,fixed=true))                      annotation (Placement(transformation(
               extent={{32,-44},{52,-24}},
                                        rotation=0)));
       Basic.Ground ground        annotation (Placement(transformation(extent={{28,-100},
@@ -1065,12 +1081,12 @@ Zeunerstrasse 38<br />
     model Graetz "Graetz rectifier circuit"
       extends Modelica.Icons.Example;
 
-      Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D1(modelcarddiode(CJO=1e-7),pin(start=0, fixed=true))
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=0,
             origin={0,14})));
-      Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7))
+      Semiconductors.D_DIODE D3(modelcarddiode(CJO=1e-7), n(v(start=0, fixed=true)))
         annotation (Placement(transformation(extent={{-10,-10},{10,10}},
             rotation=270,
             origin={20,-8})));
@@ -3134,8 +3150,8 @@ The corresponding SPICE description
       parameter SI.Time Tfalling=Twidth + TF
         "End time of falling phase within one period";
       SI.Time T0(final start=TD) "Start time of current period";
-      Integer counter(start=-1) "Period counter";
-      Integer counter2(start=-1);
+      Integer counter(start=-1, fixed=true) "Period counter";
+      Integer counter2(start=-1, fixed=true);
 
     equation
       when pre(counter2) <> 0 and sample(TD, PER) then
