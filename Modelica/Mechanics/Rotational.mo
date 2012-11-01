@@ -1370,11 +1370,11 @@ Du to a speed dependent force (like driving resistance), we find an equilibrium 
           color={0,0,0},
           smooth=Smooth.None));
       connect(damper.flange_a, fixed.flange) annotation (Line(
-          points={{-20,1.77636e-015},{-20,-5},{-20,-5},{-20,-10}},
+          points={{-20,0},{-20,-5},{-20,-5},{-20,-10}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-30,3.55271e-015},{-30,-30},{20,-30}},
+          points={{-30,0},{-30,-30},{20,-30}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(TAmbient.port, convection.fluid) annotation (Line(
@@ -3769,14 +3769,14 @@ in the flanges, are along the axis vector displayed in the icon.
               rotation=0)));
     equation
       connect(flange_a, lossyGear.flange_a)
-        annotation (Line(points={{-100,0},{-90,0},{-90,1.77636e-015},{-80,
-              1.77636e-015},{-80,0},{-60,0}},       color={0,0,0}));
+        annotation (Line(points={{-100,0},{-90,0},{-90,0},{-80,
+              0},{-80,0},{-60,0}},       color={0,0,0}));
       connect(lossyGear.flange_b, elastoBacklash.flange_a)
         annotation (Line(points={{-20,0},{-10,0},{0,0},{20,0}},
                                                   color={0,0,0}));
       connect(elastoBacklash.flange_b, flange_b)
-        annotation (Line(points={{60,0},{70,0},{70,1.77636e-015},{80,
-              1.77636e-015},{80,0},{100,0}},      color={0,0,0}));
+        annotation (Line(points={{60,0},{70,0},{70,0},{80,
+              0},{80,0},{100,0}},      color={0,0,0}));
       connect(elastoBacklash.heatPort, internalHeatPort) annotation (Line(
           points={{20,-20},{20,-60},{-100,-60},{-100,-80}},
           color={191,0,0},

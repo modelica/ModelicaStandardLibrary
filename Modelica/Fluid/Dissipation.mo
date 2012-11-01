@@ -11723,7 +11723,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={60,60},
                   rotation=90),
                 Line(
-                  points={{6.12325e-016,4},{0,-14}},
+                  points={{0,4},{0,-14}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -11743,7 +11743,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid,
                   textString="a_ell"),
                 Line(
-                  points={{-2.71927e-032,4.4409e-016},{22,0}},
+                  points={{0,0},{22,0}},
                   color={0,0,0},
                   smooth=Smooth.None,
                   thickness=0.5,
@@ -11763,7 +11763,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   thickness=0.5,
                   pattern=LinePattern.Dot),
                 Line(
-                  points={{6.12325e-016,4},{0,-8}},
+                  points={{0,4},{0,-8}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -11811,7 +11811,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={-24,-2},
                   rotation=270),
                 Line(
-                  points={{0,14},{2.4493e-016,-18}},
+                  points={{0,14},{0,-18}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -11847,7 +11847,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={-31,-2},
                   rotation=360),
                 Line(
-                  points={{2.44929e-016,12},{-1.07621e-016,-10}},
+                  points={{0,12},{0,-10}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -11881,7 +11881,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillColor={255,255,255},
                   fillPattern=FillPattern.Solid),
                 Line(
-                  points={{-16,0},{-4,-1.40092e-015}},
+                  points={{-16,0},{-4,0}},
                   color={0,0,0},
                   smooth=Smooth.None,
                   thickness=0.5,
@@ -11889,7 +11889,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={26,-22},
                   rotation=270),
                 Line(
-                  points={{0,20},{-7.3479e-016,-8}},
+                  points={{0,20},{0,-8}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -11897,7 +11897,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={46,-16},
                   rotation=90),
                 Line(
-                  points={{-16,0},{-4,-1.40092e-015}},
+                  points={{-16,0},{-4,0}},
                   color={0,0,0},
                   smooth=Smooth.None,
                   thickness=0.5,
@@ -11921,7 +11921,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={56,-6},
                   rotation=360),
                 Line(
-                  points={{0,20},{-7.3479e-016,-8}},
+                  points={{0,20},{0,-8}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -11958,7 +11958,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   thickness=0.5,
                   smooth=Smooth.None),
                 Line(
-                  points={{-12,-2},{-7.3479e-016,-8}},
+                  points={{-12,-2},{0,-8}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -12025,7 +12025,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={-48,0},
                   rotation=90),
                 Line(
-                  points={{-62,-7.7932e-015},{20,0}},
+                  points={{-62,0},{20,0}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -12115,7 +12115,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   origin={-48,0},
                   rotation=90),
                 Line(
-                  points={{-62,-7.7932e-015},{20,0}},
+                  points={{-62,0},{20,0}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -12153,7 +12153,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid,
                   lineColor={0,0,0}),
                 Line(
-                  points={{-62,-7.7932e-015},{20,0}},
+                  points={{-62,0},{20,0}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,
@@ -12174,7 +12174,7 @@ In the picture below the input x is increased from 0 to 1. The range of interpol
                   fillPattern=FillPattern.Solid,
                   textString="A_1"),
                 Line(
-                  points={{-42,-2.05161e-015},{-2,4.88624e-016}},
+                  points={{-42,0},{-2,0}},
                   color={0,0,0},
                   thickness=0.5,
                   smooth=Smooth.None,

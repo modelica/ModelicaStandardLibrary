@@ -158,7 +158,7 @@ tankLevel = tank.level;
           20},{30,20}},
                     color={0,127,255}));
   connect(T_ambient.port, wall.port_a)                       annotation (Line(
-        points={{1.77636e-015,-20},{10,-20},{10,-40}},
+        points={{0,-20},{10,-20},{10,-40}},
                                             color={191,0,0}));
   connect(sensor_T_forward.T, T_forward)     annotation (Line(points={{67,40},{
           80,40}},                              color={0,0,127}));

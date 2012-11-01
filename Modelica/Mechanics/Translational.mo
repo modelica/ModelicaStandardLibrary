@@ -1176,7 +1176,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           color={0,127,0},
           smooth=Smooth.None));
       connect(mass1.flange_a, damper.flange_a) annotation (Line(
-          points={{-40,30},{-40,-1.77636e-015}},
+          points={{-40,30},{-40,0}},
           color={0,127,0},
           smooth=Smooth.None));
       connect(damper.flange_b, fixed1.flange) annotation (Line(
@@ -1233,7 +1233,7 @@ one where the brake is implicitly grounded and one where it is explicitly ground
           color={191,0,0},
           smooth=Smooth.None));
       connect(damper.heatPort, convection.solid) annotation (Line(
-          points={{-30,-3.55271e-015},{-20,0},{-10,0},{-10,-50},{40,-50}},
+          points={{-30,0},{-20,0},{-10,0},{-10,-50},{40,-50}},
           color={191,0,0},
           smooth=Smooth.None));
       connect(springDamper.heatPort, convection.solid) annotation (Line(

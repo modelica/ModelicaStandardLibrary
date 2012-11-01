@@ -3627,7 +3627,7 @@ This package contains test examples of electric machines.
         connect(airGapS.spacePhasor_r, squirrelCageR.spacePhasor_r)
           annotation (Line(points={{10,-10},{10,-30}}, color={0,0,255}));
         connect(airGapS.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,0},{36,0},{36,8.88178e-16},{70,8.88178e-16}},
+            points={{10,0},{36,0},{36,0},{70,0}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(lssigma.spacePhasor_b, airGapS.spacePhasor_s) annotation (Line(
@@ -5245,7 +5245,7 @@ These models use package SpacePhasors.
             smooth=Smooth.None));
 
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,0},{36,0},{36,6.66134e-16},{70,6.66134e-16}},
+            points={{10,0},{36,0},{36,0},{70,0}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.pin_an, brush.p) annotation (Line(
@@ -5438,7 +5438,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,0},{35,0},{35,8.88178e-16},{70,8.88178e-16}},
+            points={{10,0},{35,0},{35,0},{70,0}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(re.p, pin_ep) annotation (Line(
@@ -5709,7 +5709,7 @@ Armature current does not cover excitation current of a shunt excitation; in thi
             color={0,0,0},
             smooth=Smooth.None));
         connect(airGapDC.flange, inertiaRotor.flange_a) annotation (Line(
-            points={{10,0},{70,0},{70,6.66134e-16}},
+            points={{10,0},{70,0},{70,0}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(pin_ep, re.p) annotation (Line(
@@ -9006,14 +9006,14 @@ The induction machine models use package SpacePhasors.
       connect(VoltageSensor1.plug_n, plug_n)
         annotation (Line(points={{10,50},{100,50},{100,0}}, color={0,0,255}));
       connect(VoltageSensor1.v, ToSpacePhasor1.u) annotation (Line(points={{0,39},{
-              0,22},{2.20436e-015,22}},       color={0,0,255}));
+              0,22},{0,22}},       color={0,0,255}));
       connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(points={{
-              -2.02067e-015,-1},{-2.02067e-015,-8.5},{2.20436e-015,-8.5},{
-              2.20436e-015,-18}},  color={0,0,255}));
+              0,-1},{0,-8.5},{0,-8.5},{
+              0,-18}},  color={0,0,255}));
       connect(ToPolar1.y[1], Gain1.u) annotation (Line(points={{-0.5,-41},{-0.5,
-              -49.5},{2.20436e-015,-49.5},{2.20436e-015,-58}},   color={0,0,255}));
-      connect(Gain1.y, V) annotation (Line(points={{-2.02067e-015,-81},{
-              -2.02067e-015,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
+              -49.5},{0,-49.5},{0,-58}},   color={0,0,255}));
+      connect(Gain1.y, V) annotation (Line(points={{0,-81},{
+              0,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
       annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
@@ -9088,14 +9088,14 @@ output is length of the space phasor divided by sqrt(2), thus giving in sinusoid
       connect(CurrentSensor1.plug_n, plug_n)
         annotation (Line(points={{10,50},{100,50},{100,0}}, color={0,0,255}));
       connect(CurrentSensor1.i, ToSpacePhasor1.u) annotation (Line(points={{0,39},{
-              0,22},{2.20436e-015,22}},       color={0,0,255}));
+              0,22},{0,22}},       color={0,0,255}));
       connect(ToSpacePhasor1.y, ToPolar1.u) annotation (Line(points={{
-              -2.02067e-015,-1},{-2.02067e-015,-8.5},{2.20436e-015,-8.5},{
-              2.20436e-015,-18}},  color={0,0,255}));
+              0,-1},{0,-8.5},{0,-8.5},{
+              0,-18}},  color={0,0,255}));
       connect(ToPolar1.y[1], Gain1.u) annotation (Line(points={{-0.5,-41},{-0.5,
-              -49.5},{2.20436e-015,-49.5},{2.20436e-015,-58}},   color={0,0,255}));
-      connect(Gain1.y,I)  annotation (Line(points={{-2.02067e-015,-81},{
-              -2.02067e-015,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
+              -49.5},{0,-49.5},{0,-58}},   color={0,0,255}));
+      connect(Gain1.y,I)  annotation (Line(points={{0,-81},{
+              0,-91.5},{0,-91.5},{0,-110}},color={0,0,255}));
       annotation (                           Icon(coordinateSystem(preserveAspectRatio=true,
               extent={{-100,-100},{100,100}}), graphics={
             Ellipse(
@@ -9242,8 +9242,8 @@ Q = giving in stationary state reactive power.<br>
                                                    color={0,0,0}));
       connect(torqueSensor.flange_b, flange_b)
         annotation (Line(points={{40,0},{100,0}}, color={0,0,0}));
-      connect(product.y, P)  annotation (Line(points={{6.73556e-016,41},{
-              6.73556e-016,52},{0,52},{0,110}},        color={0,0,255}));
+      connect(product.y, P)  annotation (Line(points={{0,41},{
+              0,52},{0,52},{0,110}},        color={0,0,255}));
       connect(torqueSensor.tau, product.u2) annotation (Line(
           points={{22,-11},{22,-20},{6,-20},{6,18}},
           color={0,0,127},
@@ -11177,7 +11177,7 @@ Additionally, all losses = heat flows are recorded.
             smooth=Smooth.None));
         connect(temperatureBrush.port, thermalPort.heatPortBrush)  annotation (
            Line(
-            points={{6.12323e-016,60},{0,60},{0,100}},
+            points={{0,60},{0,60},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(TRotorWinding, temperatureRotorWinding.T) annotation (Line(
@@ -11390,7 +11390,7 @@ Additionally, all losses = heat flows are recorded.
             smooth=Smooth.None));
         connect(temperatureBrush.port, thermalPort.heatPortBrush)  annotation (
            Line(
-            points={{0,60},{0,100},{4.44089e-16,100}},
+            points={{0,60},{0,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
       annotation (Icon(graphics={
@@ -11503,7 +11503,7 @@ Thermal parts for synchronous induction machines
       equation
         connect(temperaturePermanentMagnet.port, thermalPort.heatPortPermanentMagnet)
           annotation (Line(
-            points={{-20,40},{-20,100},{4.44089e-16,100}},
+            points={{-20,40},{-20,100},{0,100}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(constTpm.y, temperaturePermanentMagnet.T) annotation (Line(
@@ -11840,7 +11840,7 @@ Thermal parts for DC machines
               fillColor={159,159,223},
               fillPattern=FillPattern.Backward),
             Line(
-              points={{-14,-8.26327e-016},{54,0}},
+              points={{-14,0},{54,0}},
               color={191,0,0},
               thickness=0.5,
               origin={0,-6},
@@ -12110,7 +12110,7 @@ Connector for Space Phasors:
     equation
       connect(inertiaRotor.flange_b, flange)
                                             annotation (Line(points={{90,
-              -1.22465e-015},{92,-1.22465e-015},{92,0},{100,0}},
+              0},{92,0},{92,0},{100,0}},
                                                                color={0,0,0}));
       connect(inertiaStator.flange_b, support)
         annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
@@ -12123,7 +12123,7 @@ Connector for Space Phasors:
           color={0,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, friction.flange) annotation (Line(
-          points={{90,-1.22465e-015},{90,-30}},
+          points={{90,0},{90,-30}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(friction.support, internalSupport) annotation (Line(
@@ -12363,7 +12363,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
           color={191,0,0},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,90},{100,90},{100,40},{90,40},{90,-1.77636e-15}},
+          points={{80,90},{100,90},{100,40},{90,40},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
         annotation(Documentation(info="<HTML>
@@ -12508,7 +12508,7 @@ Partial model for induction machine models
           color={0,0,255},
           smooth=Smooth.None));
       connect(strayLoad.flange, inertiaRotor.flange_b) annotation (Line(
-          points={{80,90},{100,90},{100,60},{90,60},{90,-1.22465e-015}},
+          points={{80,90},{100,90},{100,60},{90,60},{90,0}},
           color={0,0,0},
           smooth=Smooth.None));
       connect(strayLoad.support, internalSupport) annotation (Line(
@@ -12520,7 +12520,7 @@ Partial model for induction machine models
           color={0,0,255},
           smooth=Smooth.None));
       connect(spacePhasorS.zero,lszero. p) annotation (Line(
-          points={{-6.12323e-016,60},{0,60},{0,50}},
+          points={{0,60},{0,60},{0,50}},
           color={0,0,255},
           smooth=Smooth.None));
       connect(lszero.n, spacePhasorS.ground) annotation (Line(
@@ -12724,7 +12724,7 @@ Partial thermal port for induction machines
                 fillColor={159,159,223},
                 fillPattern=FillPattern.Backward),
               Line(
-                points={{-14,-8.26327e-016},{54,0}},
+                points={{-14,0},{54,0}},
                 color={191,0,0},
                 thickness=0.5,
                 origin={0,-6},
@@ -13088,7 +13088,7 @@ Interfaces and partial models for induction machines
           color={191,0,0},
           smooth=Smooth.None));
       connect(inertiaRotor.flange_b, strayLoad.flange) annotation (Line(
-          points={{90,-1.77636e-15},{92,-1.77636e-15},{92,30},{100,30},{100,70},
+          points={{90,0},{92,0},{92,30},{100,30},{100,70},
               {80,70}},
           color={0,0,0},
           smooth=Smooth.None));
@@ -13246,7 +13246,7 @@ Partial thermal port for DC machines
                 fillColor={159,159,223},
                 fillPattern=FillPattern.Backward),
               Line(
-                points={{-14,-8.26327e-016},{54,0}},
+                points={{-14,0},{54,0}},
                 color={191,0,0},
                 thickness=0.5,
                 origin={0,-6},
@@ -14077,10 +14077,10 @@ Phase shifts between sine-waves may be chosen by the user; default values are <i
                           annotation (Line(points={{-100,-60},{-62,-60}}, color={0,0,
               127}));
       connect(phi, toGamma.u) annotation (Line(points={{0,-100},{0,-62},{
-              -2.20436e-015,-62}},
+              0,-62}},
                     color={0,0,127}));
       connect(rotator.angle, toGamma.y) annotation (Line(points={{0,-12},{0,-39},
-              {2.02067e-015,-39}},
+              {0,-39}},
                     color={0,0,127}));
       connect(rotator.y, fromSpacePhasor.u) annotation (Line(points={{11,0},{24,0},{
               38,0}},
@@ -14379,7 +14379,7 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
           color={0,0,255},
           smooth=Smooth.None));
       connect(rheostat.R, ramp.y) annotation (Line(
-          points={{50,1.83697e-015},{26,1.83697e-015},{26,0},{1,0}},
+          points={{50,0},{26,0},{26,0},{1,0}},
           color={0,0,127},
           smooth=Smooth.None));
       connect(rheostat.plug_n, star.plug_p) annotation (Line(
