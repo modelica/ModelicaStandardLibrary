@@ -7,8 +7,8 @@ extends EnergyStorages.Icons.BatteryPackage;
   extends Modelica.Icons.Information;
 
     model GeneralInformation "General Information"
-      extends ModelicaReference.Icons.Information;
-     annotation (Documentation(info="<html>
+      extends Modelica.Icons.Information;
+      annotation (Documentation(info="<html>
 <p>This package contains electric energy storage models and components for modeling these storages.</p>
 <p>A rough overview about the EnergyStorages library was presented at the Modelica conference 2011:</p>
 <p>web: <a href=\"http://modelica.org/events/modelica2011/Proceedings/pages/papers/17_4_ID_105_a_fv.pdf\">http://modelica.org/events/modelica2011/Proceedings/pages/papers/17_4_ID_105_a_fv.pdf</a></p>
@@ -19,7 +19,7 @@ extends EnergyStorages.Icons.BatteryPackage;
   class Contact "Contact"
     extends Modelica.Icons.Contact;
 
-   annotation (Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <dl><dt>The Electric Energy Storages Library was developed by Dr. Markus Einhorn, Dr. Fiorentino Valerio Conte and Dr. Christian Kral from the</dt>
 <dd>AIT Austrian Institute of Technology</dd>
 <dd>Oesterreichisches Forschungs und Pruefzentrum Arsenal GmbH</dd>
