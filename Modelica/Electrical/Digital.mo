@@ -5739,7 +5739,7 @@ Clock transition definitions:
           D.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n,inertialDelaySensitive(each y(L.'U', fixed= true)))
+            n=n,inertialDelaySensitive(each y(start=L.'U', fixed= true)))
           annotation (Placement(transformation(extent={{23,12},{79,68}})));
 
           D.Registers.DFFSR dFFSR(
