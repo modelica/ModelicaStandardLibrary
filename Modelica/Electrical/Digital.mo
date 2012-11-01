@@ -5739,7 +5739,7 @@ Clock transition definitions:
           D.Delay.InertialDelaySensitiveVector delay(
             tHL=tHL,
             tLH=tLH,
-            n=n,inertialDelaySensitive(each y( start=0, fixed= true)))
+            n=n,inertialDelaySensitive(each y(L.'U', fixed= true)))
           annotation (Placement(transformation(extent={{23,12},{79,68}})));
 
           D.Registers.DFFSR dFFSR(
@@ -8060,7 +8060,7 @@ Description in VHDL is given by <a href=\"http://www.cs.sfu.ca/~ggbaker/referenc
     protected
               D.Interfaces.Logic nextstate(start=L.'U');
               D.Interfaces.DigitalOutput yy(start=L.'U');
-              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=0,fixed=true));
+              D.Delay.InertialDelaySensitive inertialDelaySensitive(each tLH=tLH, each tHL=tHL, y(start=L.'U',fixed=true));
 
     algorithm
       nextstate := T.MUX2x1Table[T.UX01Table[in1], T.UX01Table[sel], T.UX01Table[in0]];
