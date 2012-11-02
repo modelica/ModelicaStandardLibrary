@@ -870,7 +870,7 @@ still kept in Modelica.SIunits.</p>
       input Area m2 "square metre value";
       output NonSIunits.Area_cm cm2 "square centimetre value";
     algorithm
-      cm2 := 0.0001*m2;
+      cm2 := 10000*m2;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{-20,100},{-100,58}},
@@ -886,7 +886,7 @@ still kept in Modelica.SIunits.</p>
       input NonSIunits.Area_cm cm2 "square centimetre value";
       output Area m2 "square metre value";
     algorithm
-      m2 :=10000*cm2;
+      m2 := 0.0001*cm2;
       annotation (Inline=true,Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Text(
               extent={{2,100},{-100,58}},
