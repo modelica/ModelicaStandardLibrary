@@ -2705,8 +2705,6 @@ The corresponding SPICE description
     model M_PMOS "PMOS MOSFET device"
       extends Modelica.Electrical.Spice3.Internal.MOS(
                               final mtype=1);
-    equation
-
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{60,0},{40,5},{40,-5},{60,0}},
@@ -2727,8 +2725,6 @@ The corresponding SPICE description
     model M_NMOS "NMOS MOSFET device"
       extends Modelica.Electrical.Spice3.Internal.MOS(
                               final mtype=0);
-    equation
-
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{40,0},{60,5},{60,-5},{40,0}},
@@ -2758,8 +2754,6 @@ The corresponding SPICE description
     model M_NMOS2 "NMOS MOSFET device"
       extends Modelica.Electrical.Spice3.Internal.MOS2(
                               final mtype=0);
-    equation
-
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{40,0},{60,5},{60,-5},{40,0}},
@@ -2780,8 +2774,6 @@ The corresponding SPICE description
     model M_PMOS2 "PMOS MOSFET device"
       extends Modelica.Electrical.Spice3.Internal.MOS2(
                               final mtype=1);
-    equation
-
       annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Polygon(
               points={{60,0},{40,5},{40,-5},{60,0}},
@@ -4594,8 +4586,6 @@ on the model behaviour.
        parameter SI.Temp_C TNOM=27
         "Parameter measurement temperature, default 27";
        constant Integer LEVEL=1 "Model level: Shichman-Hodges";
-     equation
-
       annotation (Documentation(info="<html>
 <p>Modelcard parameters for MOSFET model, both N and P channel, LEVEL 1: Shichman-Hodges</p>
 <p>The package Repository is not for user access. There all function, records and data are stored, that are needed for the semiconductor models of the package Semiconductors.</p>

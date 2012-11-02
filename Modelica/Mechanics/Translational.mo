@@ -2400,8 +2400,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     model IdealGearR2T
       "Gearbox transforming rotational into translational motion"
       extends Modelica.Mechanics.Rotational.Components.IdealGearR2T;
-    equation
-
       annotation (Documentation(info="<html>
 <p>Couples rotational and translational motion, like a toothed wheel with a toothed rack, specifying the ratio of rotational / translational motion.</p>
 </html>"));
@@ -2410,8 +2408,6 @@ following references, especially (Armstrong and Canudas de Witt 1996):
     model IdealRollingWheel
       "Simple 1-dim. model of an ideal rolling wheel without inertia"
       extends Modelica.Mechanics.Rotational.Components.IdealRollingWheel;
-    equation
-
       annotation (Documentation(info="<html>
 <p>Couples rotational and translational motion, like an ideal rolling wheel, specifying the wheel radius.</p>
 </html>"));

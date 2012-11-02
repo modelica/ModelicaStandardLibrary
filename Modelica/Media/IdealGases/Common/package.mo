@@ -905,8 +905,6 @@ algorithm
   end for;
   etam := sum(yi[i]*eta[i]/sum(yi[j]*fi[i,j] for j in 1:size(eta,1)) for i in 1:size(eta,1));
 
-equation
-
   annotation (smoothOrder=2,
              Documentation(info="<html>
 
@@ -1026,7 +1024,6 @@ end gasMixtureViscosity;
   omegav := 1.16145*(Tmstar)^(-0.14874) + 0.52487*Math.exp(-0.77320*Tmstar) + 2.16178*Math.exp(-2.43787*Tmstar);
   etam := 26.69*Fcm*(Mm*T)^(1/2)/(sigmam3^(2/3)*omegav);
   etaMixture := etam*1e7;
-  equation
 
     annotation (smoothOrder=2,
               Documentation(info="<html>
@@ -1175,7 +1172,6 @@ algorithm
     end for;
   end for;
   lambdam := sum(y[i]*lambda[i]/(sum(y[j]*A[i,j] for j in 1:size(y,1))) for i in 1:size(y,1));
-equation
 
   annotation (smoothOrder=2,
               Documentation(info="<html>

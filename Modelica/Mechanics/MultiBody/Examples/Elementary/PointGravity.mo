@@ -31,8 +31,6 @@ model PointGravity "Two point masses in a point gravity field"
     w_0_fixed=true,
     r_CM={0,0,0})
     annotation (Placement(transformation(extent={{20,20},{40,40}}, rotation=0)));
-equation
-
   annotation (
     experiment(StopTime=5),
     Documentation(info="<HTML>

@@ -2085,8 +2085,6 @@ model where a <b>Shape</b> instance is used, e.g., in the form
       extends
         Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface;
       extends ModelicaServices.Animation.Surface;
-    equation
-
       annotation (Icon(graphics={Polygon(
               points={{-102,40},{-98,92},{28,-8},{96,146},{104,-118},{-18,-34},{-52,
                   -130},{-102,40}},
