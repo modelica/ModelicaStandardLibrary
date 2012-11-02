@@ -193,11 +193,14 @@ operator record Complex "Complex number with overloaded operators"
 
 //Protection(access=Access.hide),
 annotation (__Dymola_Protection(hideFromBrowser=true),
-version="1.1",
+version="3.2.1",
 versionBuild=1,
-versionDate="2012-03-02",
-dateModified = "2012-03-02 14:15:02Z",
+versionDate="2012-11-02",
+dateModified = "2012-11-02 10:00:00Z",
 revisionId="$Id::                                       $",
+conversion(
+ noneFromVersion="1.0",
+ noneFromVersion="1.1"),
 Documentation(info="<html>
 <p>Complex number defined as a record containing real and imaginary part, utilizing operator overloading.</p>
 </html>"));
