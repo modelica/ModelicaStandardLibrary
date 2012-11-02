@@ -41,10 +41,10 @@ algorithm
 end testAllFunctions;
 
 
-  annotation (version="1.1",
-       versionDate="2007-10-19",
-       versionBuild=2,
-       dateModified = "2010-04-22 00:00:00Z",
+  annotation (version="3.2.1",
+       versionDate="2012-XX-XX",
+       versionBuild=0,
+       dateModified = "2012-11-02 10:00:00Z",
        uses(Modelica(version="3.2.1 dev")),
     Documentation(info="<html>
 <p>
@@ -66,7 +66,8 @@ way:
 <li> Models that are added to this library should have the annotation
      (with an appropriate StopTime):
      <pre>
-         <b>annotation</b>(experiment(StopTime=1.1)); </pre>
+         <b>annotation</b>(experiment(StopTime=1.1));
+     </pre>
      This gives the tool vendors the possibility to automatically identify
      the models that shall be simulated and, e.g., that shall be used in an automatic
      regression test.</li>
@@ -78,6 +79,5 @@ Copyright &copy; 1998-2012, Modelica Association.
 <p>
 <i>This Modelica package is <u>free</u> software and the use is completely at <u>your own risk</u>; it can be redistributed and/or modified under the terms of the Modelica License 2. For license conditions (including the disclaimer of warranty) see <a href=\"modelica://Modelica.UsersGuide.ModelicaLicense2\">Modelica.UsersGuide.ModelicaLicense2</a> or visit <a href=\"http://www.modelica.org/licenses/ModelicaLicense2\"> http://www.modelica.org/licenses/ModelicaLicense2</a>.</i>
 </p>
-</html>"),
-  conversion(from(version="1.0", script="ConvertFromModelicaTest_1.0.mos")));
+</html>"));
 end ModelicaTest;
