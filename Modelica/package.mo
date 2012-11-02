@@ -4895,7 +4895,7 @@ have been <b style=\"color:blue\">improved</b> in a
 <tr><td colspan=\"2\"><b>Thermal.FluidHeatFlow.Interfaces.Partials.</b></td></tr>
 <tr><td valign=\"top\">TwoPort</td>
           <td valign=\"top\"> Introduced <code>parameter Real tapT(final min=0, final max=1)=1</code> <br> that defines the temperature of the heatPort
-                                                betwen inlet and outlet.</td> </tr>
+                                                between inlet and outlet.</td> </tr>
 
 <tr><td colspan=\"2\"><b>StateGraph.</b></td></tr>
 <tr><td valign=\"top\"> InitialStep<br>
