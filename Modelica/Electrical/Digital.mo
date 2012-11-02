@@ -5745,7 +5745,7 @@ Clock transition definitions:
           D.Registers.DFFSR dFFSR(
             strength=strength,
             n=n,
-            ResetSetMap=ResetSetMap, clock( start=0, fixed=true), reset( start=0, fixed=true), set( start=0, fixed=true))
+            ResetSetMap=ResetSetMap, clock( start=L.'U', fixed=true), reset( start=L.'U', fixed=true), set( start=L.'U', fixed=true))
             annotation (Placement(transformation(extent={{-80,-25},{20,75}})));
     public
           D.Interfaces.DigitalInput set
