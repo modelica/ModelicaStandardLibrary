@@ -9711,8 +9711,7 @@ documentation available in this package.
 
           algorithm
             //SOURCE_1: p.Lbb 1, eq. 4: Considering geodetic pressure loss assuming constant void fraction for flow length
-            DP_geo := (eps*rho_g + (1 - eps)*rho_l)*9.81*length*sin(min(PI/2, max(0, abs(
-              phi))));
+            DP_geo := (eps*rho_g + (1 - eps)*rho_l)*9.81*length*sin(phi);
 
           end dp_twoPhaseGeodetic_DP;
 
