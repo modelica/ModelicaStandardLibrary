@@ -4951,7 +4951,7 @@ blocks of the block library Modelica.Blocks.Sources.
          output Real qd;
       algorithm
         qd :=q_qd_qdd[2];
-        annotation (derivative(noDerivative=q_qd_qdd) = position_der2,
+        annotation (derivative(noDerivative=q_qd_qdd, order=2) = position_der2,
             __Dymola_InlineAfterIndexReduction=true);
       end position_der;
 

@@ -45,7 +45,7 @@ end testAllFunctions;
        versionDate="2012-XX-XX",
        versionBuild=0,
        dateModified = "2012-11-02 10:00:00Z",
-       uses(Modelica(version="3.2.1 dev")),
+       uses(Modelica(version="3.2.1")),
     Documentation(info="<html>
 <p>
 This library provides models and functions to test components of
