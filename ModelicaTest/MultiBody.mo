@@ -2246,7 +2246,6 @@ a linear damper is connected here.
 </html>"),        Diagram);
     end LineForceWithTwoMasses;
 
-
     model Torque2
       extends Modelica.Icons.Example;
       import Modelica.Mechanics.MultiBody.*;
@@ -3570,7 +3569,8 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (Diagram(coordinateSystem(extent={{-120,-160},{100,160}},
               preserveAspectRatio=true), graphics), Icon(coordinateSystem(extent={{-120,
-                -160},{100,160}})));
+                -160},{100,160}})),
+        experiment(Tolerance=1e-007));
     end SpringDamperParallel;
 
     model Damper2
