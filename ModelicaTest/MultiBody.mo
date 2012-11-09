@@ -6028,6 +6028,63 @@ a linear damper is connected here.
         __Dymola_experimentSetupOutput,
         Icon(coordinateSystem(extent={{-120,-100},{200,100}})));
     end UniversalSpherical;
+
+    model PrismaticInit
+      extends Modelica.Icons.Example;
+      parameter Real expectedC=87.4862;
+      parameter Real tol=1e-4;
+
+      inner Modelica.Mechanics.MultiBody.World world(
+                                  animateWorld=false, animateGravity=false)
+        annotation (Placement(transformation(extent={{-66,0},{-46,20}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.Prismatic prismatic(
+        s(fixed=true, start=0.3),
+        n={1,-1,0},
+        v(fixed=true, start=0),
+        a(start=0, fixed=true))
+                   annotation (Placement(transformation(extent={{-12,0},{8,20}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body(
+                                animation=false,
+        r_CM={0,0,0},
+        m=1)
+        annotation (Placement(transformation(extent={{50,0},{70,20}},  rotation=
+               0)));
+      Modelica.Mechanics.MultiBody.Forces.Spring spring(c(fixed=false) = 20,
+          s_unstretched=0.1)
+        annotation (Placement(transformation(extent={{24,36},{44,56}})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={sqrt(0.045),
+            0,0}) annotation (Placement(transformation(extent={{-16,36},{4,56}})));
+    equation
+      assert(spring.c-expectedC<tol,"Expected spring stiffness constant is not equal to the actual constant");
+      connect(world.frame_b, prismatic.frame_a)
+        annotation (Line(
+          points={{-46,10},{-12,10}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(prismatic.frame_b, body.frame_a)
+        annotation (Line(
+          points={{8,10},{8,10},{50,10}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(body.frame_a, spring.frame_b) annotation (Line(
+          points={{50,10},{48,10},{48,46},{44,46}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
+          points={{-46,10},{-32,10},{-32,46},{-16,46}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedTranslation.frame_b, spring.frame_a) annotation (Line(
+          points={{4,46},{24,46}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (experiment(StopTime=5),   Diagram(graphics));
+    end PrismaticInit;
   end Joints;
 
   package Parts "Test MultiBody.Parts"
