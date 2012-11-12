@@ -6257,6 +6257,171 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (experiment(StopTime=5),   Diagram(graphics));
     end PrismaticInit;
+
+    model JointUSP2
+      extends Modelica.Icons.Example;
+      inner Modelica.Mechanics.MultiBody.World world(animateWorld=true,
+          animateGravity=true)
+        annotation (Placement(transformation(extent={{-80,14},{-60,34}},
+              rotation=0)));
+    Real k;
+      parameter Real tau=10;
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUSP jointUSP(n1_a={0,1,0} "y axis",
+
+        rRod1_ia={1,1,0},
+        n_b={0,0,1},
+        rRod2_ib={-1,1,0})                                             annotation (Placement(transformation(extent={{-18,40},
+                {2,60}},
+                      rotation=0)));
+
+      Modelica.Mechanics.MultiBody.Parts.Body body(m=10, r_CM={0,0,0}) annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={0,82})));
+      Modelica.Mechanics.Translational.Components.Spring spring(c=10, s_rel0=
+            0.5) annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=270,
+            origin={32,66})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={2,
+            0,0})
+        annotation (Placement(transformation(extent={{-38,-16},{-18,4}})));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute(phi(fixed=true), w(
+            fixed=true))
+        annotation (Placement(transformation(extent={{12,-16},{32,4}})));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(r={-1.4141,0,0})
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={44,14})));
+    equation
+      if
+        (time<1) then
+      k=tau;
+      else
+        k=0;
+      end if;
+      connect(jointUSP.frame_im, body.frame_a) annotation (Line(
+          points={{-8,60},{-4,60},{-4,72},{-6.12323e-016,72}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world.frame_b, jointUSP.frame_a) annotation (Line(
+          points={{-60,24},{-40,24},{-40,50},{-18,50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(spring.flange_a, jointUSP.axis) annotation (Line(
+          points={{32,76},{18,76},{18,58},{2,58}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(jointUSP.bearing, spring.flange_b) annotation (Line(
+          points={{2,54},{16,54},{16,56},{32,56}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(world.frame_b, fixedTranslation.frame_a) annotation (Line(
+          points={{-60,24},{-50,24},{-50,-6},{-38,-6}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedTranslation.frame_b, revolute.frame_a) annotation (Line(
+          points={{-18,-6},{12,-6}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(revolute.frame_b, bodyBox.frame_a) annotation (Line(
+          points={{32,-6},{38,-6},{38,4},{44,4}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(bodyBox.frame_b, jointUSP.frame_b) annotation (Line(
+          points={{44,24},{24,24},{24,50},{2,50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (                  experiment(StopTime=4),
+        Diagram(graphics),
+        __Dymola_experimentSetupOutput);
+    end JointUSP2;
+
+    model JointUPS2
+      extends Modelica.Icons.Example;
+
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS
+        annotation (Placement(transformation(extent={{-4,-28},{32,8}}, rotation=
+               0)));
+      inner Modelica.Mechanics.MultiBody.World world1(
+                                                     animateWorld=true,
+          animateGravity=true)
+        annotation (Placement(transformation(extent={{-60,-40},{-40,-20}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.Body body(m=10, r_CM={0,0,0}) annotation (
+          Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={50,34})));
+      Modelica.Mechanics.Translational.Components.Spring spring(c=10, s_rel0=0.5)
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=0,
+            origin={12,26})));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation fixedTranslation(r={2,0,0})
+        annotation (Placement(transformation(extent={{-18,-70},{2,-50}})));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox(r={-1.4141,0,0})
+        annotation (Placement(transformation(
+            extent={{-10,-10},{10,10}},
+            rotation=90,
+            origin={64,-40})));
+      Modelica.Mechanics.MultiBody.Joints.Universal universal(
+        phi_a(fixed=true),
+        phi_b(fixed=true),
+        w_a(fixed=true, start=2),
+        w_b(fixed=true, start=2),
+        n_a={0,0,1})
+        annotation (Placement(transformation(extent={{22,-74},{42,-54}})));
+    equation
+      connect(world1.frame_b, fixedTranslation.frame_a) annotation (Line(
+          points={{-40,-30},{-30,-30},{-30,-60},{-18,-60}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(world1.frame_b, jointUPS.frame_a) annotation (Line(
+          points={{-40,-30},{-20,-30},{-20,-10},{-4,-10}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(jointUPS.axis, spring.flange_b) annotation (Line(
+          points={{21.2,8},{20,8},{20,26},{22,26}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(jointUPS.bearing, spring.flange_a) annotation (Line(
+          points={{6.8,8},{6,8},{6,26},{2,26}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(jointUPS.frame_ib, body.frame_a) annotation (Line(
+          points={{28.4,8},{39.2,8},{39.2,24},{50,24}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(jointUPS.frame_b, bodyBox.frame_b) annotation (Line(
+          points={{32,-10},{48,-10},{48,-30},{64,-30}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(fixedTranslation.frame_b, universal.frame_a) annotation (Line(
+          points={{2,-60},{12,-60},{12,-64},{22,-64}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(universal.frame_b, bodyBox.frame_a) annotation (Line(
+          points={{42,-64},{54,-64},{54,-50},{64,-50}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (                  experiment(StopTime=4),
+        Diagram(graphics));
+    end JointUPS2;
   end Joints;
 
   package Parts "Test MultiBody.Parts"
