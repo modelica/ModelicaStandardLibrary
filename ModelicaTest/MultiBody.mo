@@ -3978,6 +3978,178 @@ a linear damper is connected here.
       annotation (                  experiment(StopTime=2,Tolerance=1e-6), Diagram(
             graphics));
     end FrameForcesAndTorques2;
+
+    model LineForceWithMass
+      "Example to demonstrate how to construct force elements with masses"
+      import SI = Modelica.SIunits;
+
+      extends Modelica.Icons.Example;
+      parameter Real tol=1e-4;
+      SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
+        "Difference of cut-forces in rod1 and rod3";
+      SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
+        "Difference of cut-forces in bodyBox1 and bodyBox2";
+      inner Modelica.Mechanics.MultiBody.World world
+                                  annotation (Placement(transformation(extent={{-160,
+                100},{-140,120}},   rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
+            fixed=true))                  annotation (Placement(transformation(
+              extent={{-100,120},{-80,140}},
+                                        rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(
+                                       r={0.7,0,0})
+        annotation (Placement(transformation(extent={{-60,120},{-40,140}},
+                                                                       rotation=
+               0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
+        r={0,-0.9,0},
+        width=0.01,
+        animation=false) annotation (Placement(transformation(
+            origin={-120,94},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(
+                                                    nAxis_ia={0.7,1.2,0}, animation=
+           true) annotation (Placement(transformation(extent={{-80,90},{-60,70}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
+        r={0,0.3,0},
+        width=0.01,
+        animation=false) annotation (Placement(transformation(
+            origin={-120,124},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Mechanics.Translational.Components.Damper damper1(
+                                                      d=3)
+        annotation (Placement(transformation(extent={{-78,62},{-58,42}},
+                                                                     rotation=0)));
+      Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
+            fixed=true))                  annotation (Placement(transformation(
+              extent={{-100,10},{-80,30}},rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(
+                                       r={0.7,0,0})
+        annotation (Placement(transformation(extent={{-60,10},{-40,30}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(
+        width=0.01,
+        animation=false,
+        r={0,-0.9,0.3})  annotation (Placement(transformation(
+            origin={-120,-10},
+            extent={{-10,-10},{10,10}},
+            rotation=270)));
+      Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(
+        width=0.01,
+        r={0,0.3,0.3},
+        animation=false) annotation (Placement(transformation(
+            origin={-120,20},
+            extent={{10,-10},{-10,10}},
+            rotation=270)));
+      Modelica.Mechanics.Translational.Components.Damper damper2(
+                                                      d=3)
+        annotation (Placement(transformation(extent={{-76,-40},{-56,-60}},
+              rotation=0)));
+      Modelica.Mechanics.MultiBody.Forces.LineForceWithMass lineForceWithMass(m=0)
+        annotation (Placement(transformation(extent={{-76,-10},{-56,-30}})));
+    equation
+      assert(rod_f_diff[1]<tol and rod_f_diff[2]<tol and rod_f_diff[3]<tol,"Difference in rod positions must be less then tolerance");
+      assert(body_f_diff[1]<tol and body_f_diff[2]<tol and body_f_diff[3]<tol,"Difference in rod positions must be less then tolerance");
+
+      connect(jointUPS.bearing, damper1.flange_a)
+        annotation (Line(points={{-74,70},{-74,60},{-78,60},{-78,52}},
+                                                               color={0,191,0}));
+      connect(jointUPS.axis, damper1.flange_b)
+        annotation (Line(points={{-66,70},{-66,60},{-58,60},{-58,52}},
+                                                                   color={0,191,
+              0}));
+      connect(world.frame_b, rod2.frame_a) annotation (Line(
+          points={{-140,110},{-120,110},{-120,114}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(world.frame_b, rod1.frame_a) annotation (Line(
+          points={{-140,110},{-120,110},{-120,104}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
+          points={{-120,134},{-120,138},{-110,138},{-110,130},{-100,130}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(revolute1.frame_b, bodyBox1.frame_a)
+        annotation (Line(
+          points={{-80,130},{-68,130},{-60,130}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
+          points={{-40,130},{-30,130},{-30,80},{-60,80}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
+          points={{-120,84},{-120,80},{-80,80}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
+          points={{-120,30},{-120,34},{-110,34},{-110,20},{-100,20}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(revolute2.frame_b, bodyBox2.frame_a)
+        annotation (Line(
+          points={{-80,20},{-60,20}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(world.frame_b, rod4.frame_a) annotation (Line(
+          points={{-140,110},{-132,110},{-132,4},{-120,4},{-120,10}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(rod3.frame_a, rod4.frame_a)
+        annotation (Line(
+          points={{-120,0},{-120,10}},
+          color={0,0,0},
+          thickness=0.5));
+      connect(damper2.flange_a, lineForceWithMass.flange_a) annotation (Line(
+          points={{-76,-50},{-76,-30},{-72,-30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(damper2.flange_b, lineForceWithMass.flange_b) annotation (Line(
+          points={{-56,-50},{-56,-30},{-60,-30}},
+          color={0,127,0},
+          smooth=Smooth.None));
+      connect(rod3.frame_b, lineForceWithMass.frame_a) annotation (Line(
+          points={{-120,-20},{-76,-20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      connect(lineForceWithMass.frame_b, bodyBox2.frame_b) annotation (Line(
+          points={{-56,-20},{-30,-20},{-30,20},{-40,20}},
+          color={95,95,95},
+          thickness=0.5,
+          smooth=Smooth.None));
+      annotation (
+        experiment(StopTime=3),
+        Documentation(info="<html>
+<p>
+With this example it is demonstrated how to use the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS
+joint to build up a force element with masses and inertias (note, Modelica.Mechanics.MultiBody.Forces.LineForceWithMass
+is a default line force element with a point mass to approximate the mass properties of the
+component):
+</p>
+
+<IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/ForceWithMasses.png\"
+ALT=\"model Examples.Elementary.ForceWithMasses\">
+
+<p>
+A JointUPS consists of
+a universal, prismatic and spherical joint aggregation that approximates
+a real force component, such as a hydraulic cylinder. At frame frame_ia at the
+universal joint and at frame frame_ib at the spherical joint, bodies can be
+attached describing the mass properties of the component. Between the 1-dimensional
+mechanical translational flanges \"axis\" and \"bearing\" a one-dimensional
+force law can be attached, e.g., from the Modelica.Mechanics.Translational or
+the HyLib package (= library of hydraulic components). In this example, just
+a linear damper is connected here.
+</p>
+</html>"),        Diagram(coordinateSystem(extent={{-160,-100},{120,140}},
+              preserveAspectRatio=true), graphics),
+        Icon(coordinateSystem(extent={{-160,-100},{120,140}})));
+    end LineForceWithMass;
   end Forces;
 
   package Joints "Test MultiBody.Joints"
@@ -10361,175 +10533,4 @@ they were not deleted yet.")}));
 
   end InitializationConversion;
 
-  model LineForceWithMass
-    "Example to demonstrate how to construct force elements with masses"
-    import SI = Modelica.SIunits;
-
-    extends Modelica.Icons.Example;
-    parameter Real tol=1e-4;
-    SI.Force rod_f_diff[3]=rod1.frame_b.f - rod3.frame_b.f
-      "Difference of cut-forces in rod1 and rod3";
-    SI.Force body_f_diff[3]=bodyBox1.frame_b.f - bodyBox2.frame_b.f
-      "Difference of cut-forces in bodyBox1 and bodyBox2";
-    inner Modelica.Mechanics.MultiBody.World world
-                                annotation (Placement(transformation(extent={{-160,
-              100},{-140,120}},   rotation=0)));
-    Modelica.Mechanics.MultiBody.Joints.Revolute revolute1(phi(fixed=true), w(
-          fixed=true))                  annotation (Placement(transformation(
-            extent={{-100,120},{-80,140}},
-                                      rotation=0)));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox1(
-                                     r={0.7,0,0})
-      annotation (Placement(transformation(extent={{-60,120},{-40,140}},
-                                                                     rotation=
-             0)));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod1(
-      r={0,-0.9,0},
-      width=0.01,
-      animation=false) annotation (Placement(transformation(
-          origin={-120,94},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
-    Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS jointUPS(
-                                                  nAxis_ia={0.7,1.2,0}, animation=
-         true) annotation (Placement(transformation(extent={{-80,90},{-60,70}},
-            rotation=0)));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod2(
-      r={0,0.3,0},
-      width=0.01,
-      animation=false) annotation (Placement(transformation(
-          origin={-120,124},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
-    Modelica.Mechanics.Translational.Components.Damper damper1(
-                                                    d=3)
-      annotation (Placement(transformation(extent={{-78,62},{-58,42}},
-                                                                   rotation=0)));
-    Modelica.Mechanics.MultiBody.Joints.Revolute revolute2(phi(fixed=true), w(
-          fixed=true))                  annotation (Placement(transformation(
-            extent={{-100,10},{-80,30}},rotation=0)));
-    Modelica.Mechanics.MultiBody.Parts.BodyBox bodyBox2(
-                                     r={0.7,0,0})
-      annotation (Placement(transformation(extent={{-60,10},{-40,30}},
-            rotation=0)));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod3(
-      width=0.01,
-      animation=false,
-      r={0,-0.9,0.3})  annotation (Placement(transformation(
-          origin={-120,-10},
-          extent={{-10,-10},{10,10}},
-          rotation=270)));
-    Modelica.Mechanics.MultiBody.Parts.FixedTranslation rod4(
-      width=0.01,
-      r={0,0.3,0.3},
-      animation=false) annotation (Placement(transformation(
-          origin={-120,20},
-          extent={{10,-10},{-10,10}},
-          rotation=270)));
-    Modelica.Mechanics.Translational.Components.Damper damper2(
-                                                    d=3)
-      annotation (Placement(transformation(extent={{-76,-40},{-56,-60}},
-            rotation=0)));
-    Modelica.Mechanics.MultiBody.Forces.LineForceWithMass lineForceWithMass(m=0)
-      annotation (Placement(transformation(extent={{-76,-10},{-56,-30}})));
-  equation
-    assert(rod_f_diff[1]<tol and rod_f_diff[2]<tol and rod_f_diff[3]<tol,"Difference in rod positions must be less then tolerance");
-    assert(body_f_diff[1]<tol and body_f_diff[2]<tol and body_f_diff[3]<tol,"Difference in rod positions must be less then tolerance");
-
-    connect(jointUPS.bearing, damper1.flange_a)
-      annotation (Line(points={{-74,70},{-74,60},{-78,60},{-78,52}},
-                                                             color={0,191,0}));
-    connect(jointUPS.axis, damper1.flange_b)
-      annotation (Line(points={{-66,70},{-66,60},{-58,60},{-58,52}},
-                                                                 color={0,191,
-            0}));
-    connect(world.frame_b, rod2.frame_a) annotation (Line(
-        points={{-140,110},{-120,110},{-120,114}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(world.frame_b, rod1.frame_a) annotation (Line(
-        points={{-140,110},{-120,110},{-120,104}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(rod2.frame_b, revolute1.frame_a) annotation (Line(
-        points={{-120,134},{-120,138},{-110,138},{-110,130},{-100,130}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(revolute1.frame_b, bodyBox1.frame_a)
-      annotation (Line(
-        points={{-80,130},{-68,130},{-60,130}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(bodyBox1.frame_b, jointUPS.frame_b) annotation (Line(
-        points={{-40,130},{-30,130},{-30,80},{-60,80}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(rod1.frame_b, jointUPS.frame_a) annotation (Line(
-        points={{-120,84},{-120,80},{-80,80}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(rod4.frame_b, revolute2.frame_a) annotation (Line(
-        points={{-120,30},{-120,34},{-110,34},{-110,20},{-100,20}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(revolute2.frame_b, bodyBox2.frame_a)
-      annotation (Line(
-        points={{-80,20},{-60,20}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(world.frame_b, rod4.frame_a) annotation (Line(
-        points={{-140,110},{-132,110},{-132,4},{-120,4},{-120,10}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(rod3.frame_a, rod4.frame_a)
-      annotation (Line(
-        points={{-120,0},{-120,10}},
-        color={0,0,0},
-        thickness=0.5));
-    connect(damper2.flange_a, lineForceWithMass.flange_a) annotation (Line(
-        points={{-76,-50},{-76,-30},{-72,-30}},
-        color={0,127,0},
-        smooth=Smooth.None));
-    connect(damper2.flange_b, lineForceWithMass.flange_b) annotation (Line(
-        points={{-56,-50},{-56,-30},{-60,-30}},
-        color={0,127,0},
-        smooth=Smooth.None));
-    connect(rod3.frame_b, lineForceWithMass.frame_a) annotation (Line(
-        points={{-120,-20},{-76,-20}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    connect(lineForceWithMass.frame_b, bodyBox2.frame_b) annotation (Line(
-        points={{-56,-20},{-30,-20},{-30,20},{-40,20}},
-        color={95,95,95},
-        thickness=0.5,
-        smooth=Smooth.None));
-    annotation (
-      experiment(StopTime=3),
-      Documentation(info="<html>
-<p>
-With this example it is demonstrated how to use the Modelica.Mechanics.MultiBody.Joints.Assemblies.JointUPS
-joint to build up a force element with masses and inertias (note, Modelica.Mechanics.MultiBody.Forces.LineForceWithMass
-is a default line force element with a point mass to approximate the mass properties of the
-component):
-</p>
-
-<IMG src=\"modelica://ModelicaTest/Images/Examples/Elementary/ForceWithMasses.png\"
-ALT=\"model Examples.Elementary.ForceWithMasses\">
-
-<p>
-A JointUPS consists of
-a universal, prismatic and spherical joint aggregation that approximates
-a real force component, such as a hydraulic cylinder. At frame frame_ia at the
-universal joint and at frame frame_ib at the spherical joint, bodies can be
-attached describing the mass properties of the component. Between the 1-dimensional
-mechanical translational flanges \"axis\" and \"bearing\" a one-dimensional
-force law can be attached, e.g., from the Modelica.Mechanics.Translational or
-the HyLib package (= library of hydraulic components). In this example, just
-a linear damper is connected here.
-</p>
-</html>"),      Diagram(coordinateSystem(extent={{-160,-100},{120,140}},
-            preserveAspectRatio=true), graphics),
-      Icon(coordinateSystem(extent={{-160,-100},{120,140}})));
-  end LineForceWithMass;
 end MultiBody;
