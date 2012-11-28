@@ -9740,7 +9740,7 @@ documentation available in this package.
               annotation (Dialog(group="Choices"));
 
             //geometry
-            input Real A_cross(min=Modelica.Constants.eps) = PI*0.1^2/4
+            input SI.Area A_cross(min=Modelica.Constants.eps) = PI*0.1^2/4
               "Cross sectional area" annotation (Dialog(group="Geometry"));
             input SI.Length perimeter(min=Modelica.Constants.eps) = PI*0.1
               "Perimeter"
@@ -9844,7 +9844,7 @@ documentation available in this package.
                 delta_xflow,
                 0.05,
                 0)*abs(mdot_A*meanVelEnd + mdotCorEnd*deltaVelEnd/Across) - abs(mdot_A*
-                meanVelEnd + mdotCorEnd*deltaVelEnd/Across)
+                meanVelSta + mdotCorEnd*deltaVelSta/Across)
               "Momentum pressure loss using mass flow rate correction";
 
           algorithm
@@ -9857,6 +9857,9 @@ documentation available in this package.
               0.05,
               0)*abs(1/max(MIN, rho_end) - 1/max(MIN, rho_sta));
 
+            annotation (Documentation(revisions="<html>
+2012-11-28	Corrected an error in momentum pressure loss calculation. Stefan Wischhusen.
+</html>"));
           end dp_twoPhaseMomentum_DP;
 
           function TwoPhaseMultiplierFriedel
@@ -10199,13 +10202,13 @@ The heterogeneous approaches are analytically derived by minimising the momentum
 
             //SOURCE_1: p.Lba 3, sec. 3.2
             Real SR_hom=1 "Slip ratio w.r.t. homogeneous approach";
-            //SOURCE_1: p.17-6, eq. 17.3.4
+            //SOURCE_2: p.17-6, eq. 17.3.4
             Real SR_mom=abs(rho_l/max(MIN, rho_g))^0.5
               "Slip ratio w.r.t. momentum flux approach (heterogeneous)";
-            //SOURCE_1: p.17-6, eq. 17.3.13
+            //SOURCE_2: p.17-7, eq. 17.3.13
             Real SR_kin=abs(rho_l/max(MIN, rho_g))^(1/3)
               "Slip ratio w.r.t. kinetic energy flow approach from Zivi (heterogeneous)";
-            //SOURCE_1: p.17-6, eq. 17.3.13
+            //SOURCE_2: p.17-10, eq. 17.4.3
             Real SR_chi=(1 - x_flow*(1 - abs(rho_l)/max(MIN, abs(rho_g))))^0.5
               "Empirical slip ratio w.r.t. momentum flux approach from Chisholm (heterogeneous)";
 
