@@ -1,4 +1,4 @@
-All files in this directory (Modelica) and in all subdirectories,
+﻿All files in this directory (Modelica) and in all subdirectories,
 especially in Modelica/Resources/* are licensed
 by the Modelica Association under the Modelica License 2
 (with exception of files "Modelica/Resources/C-Sources/win32_dirent.*").
@@ -19,3 +19,4 @@ S-58183 Linköping
 Sweden
 email: Board@Modelica.org
 web  : http://www.Modelica.org
+ 
