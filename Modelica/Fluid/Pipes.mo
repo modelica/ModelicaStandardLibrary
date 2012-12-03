@@ -2238,7 +2238,7 @@ specified nominal values for given geometry parameters <code>crossAreas</code>, 
                 constrainedby
           Modelica.Fluid.Pipes.BaseClasses.WallFriction.PartialWallFriction
           "Wall friction model"
-                annotation(Dialog(group="Wall friction"), __Dymola_choicesAllMatching=true,__Dymola_editButton=false);
+                annotation(Dialog(group="Wall friction"), __Dymola_choicesAllMatching=true);
 
             input SI.Length[n-1] pathLengths_internal
           "pathLengths used internally; to be defined by extending class";
