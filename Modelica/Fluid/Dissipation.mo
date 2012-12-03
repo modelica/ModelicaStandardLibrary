@@ -9858,7 +9858,7 @@ documentation available in this package.
               0)*abs(1/max(MIN, rho_end) - 1/max(MIN, rho_sta));
 
             annotation (Documentation(revisions="<html>
-2012-11-28	Corrected an error in momentum pressure loss calculation. Stefan Wischhusen.
+2012-11-28 Corrected an error in momentum pressure loss calculation. Stefan Wischhusen.
 </html>"));
           end dp_twoPhaseMomentum_DP;
 
