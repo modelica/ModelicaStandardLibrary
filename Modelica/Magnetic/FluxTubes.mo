@@ -4496,7 +4496,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
     extends Modelica.Icons.RotationalSensor;
     extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
 
-    Modelica.Blocks.Interfaces.RealOutput V_m
+    Modelica.Blocks.Interfaces.RealOutput V_m(final quantity="MagneticPotential", final unit="A")
         "Magnetic potential difference between ports p and n as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
@@ -4539,7 +4539,7 @@ This package contains sources of a magnetic potential difference or a magnetic f
     extends Modelica.Magnetic.FluxTubes.Interfaces.PartialTwoPortsElementary;
     extends Modelica.Icons.RotationalSensor;
 
-    Modelica.Blocks.Interfaces.RealOutput Phi
+    Modelica.Blocks.Interfaces.RealOutput Phi(final quantity="MagneticFlux", final unit="Wb")
         "Magnetic flux from port p to port n as output signal"
         annotation (Placement(transformation(
           origin={0,-100},

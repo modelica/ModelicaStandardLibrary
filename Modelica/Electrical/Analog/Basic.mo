@@ -68,7 +68,7 @@ model Resistor "Ideal linear electrical resistor"
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
 
   extends Modelica.Electrical.Analog.Interfaces.OnePort;
-  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref);
+  extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
   Modelica.SIunits.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
 
@@ -135,7 +135,7 @@ end Resistor;
     parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R = R_ref*(1 + alpha*(heatPort.T - T_ref))";
     extends Modelica.Electrical.Analog.Interfaces.OnePort;
-    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref, useHeatPort=true);
+    extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref, useHeatPort=true);
     Modelica.SIunits.Resistance R
       "Resistance = R_ref*(1 + alpha*(T_heatPort - T_ref))";
   equation
@@ -1809,10 +1809,10 @@ end M_Transformer;
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Resistance R_actual
       "Actual resistance = R*(1 + alpha*(T_heatPort - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput R
+        Modelica.Blocks.Interfaces.RealInput R(final quantity="Resistance", final unit="Ohm")
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -1880,10 +1880,10 @@ end M_Transformer;
         parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of conductance (G_actual = G/(1 + alpha*(T_heatPort - T_ref))";
         extends Modelica.Electrical.Analog.Interfaces.OnePort;
-        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(                    T = T_ref);
+        extends Modelica.Electrical.Analog.Interfaces.ConditionalHeatPort(T = T_ref);
         Modelica.SIunits.Conductance G_actual
       "Actual conductance = G/(1 + alpha*(T_heatPort - T_ref))";
-        Modelica.Blocks.Interfaces.RealInput G
+        Modelica.Blocks.Interfaces.RealInput G(final quantity="Conductance", final unit="S")
           annotation (Placement(transformation(
         origin={0,110},
         extent={{-20,-20},{20,20}},
@@ -1945,7 +1945,7 @@ end M_Transformer;
         model VariableCapacitor
     "Ideal linear electrical capacitor with variable capacitance"
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput C
+          Modelica.Blocks.Interfaces.RealInput C(final quantity="Capacitance", final unit="F", min=0)
             annotation (Placement(transformation(
           origin={0,110},
           extent={{-20,-20},{20,20}},
@@ -1955,7 +1955,6 @@ end M_Transformer;
           Modelica.SIunits.ElectricCharge Q;
            parameter Modelica.SIunits.Voltage IC=0 "Initial Value";
           parameter Boolean UIC = false;
-
         initial equation
           if UIC then
             v = IC;
@@ -2020,9 +2019,8 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
 
         model VariableInductor
     "Ideal linear electrical inductor with variable inductance"
-
           extends Modelica.Electrical.Analog.Interfaces.OnePort;
-          Modelica.Blocks.Interfaces.RealInput L
+          Modelica.Blocks.Interfaces.RealInput L(final quantity="Inductance", final unit="H", min=0)
             annotation (Placement(transformation(
           origin={0,108},
           extent={{-20,-20},{20,20}},
@@ -2032,7 +2030,6 @@ C = Cmin, if 0 &le; C &lt; Cmin, where Cmin is a parameter with default value Mo
       "lower bound for variable inductance";
           parameter Modelica.SIunits.Current IC=0 "Initial Value";
           parameter Boolean UIC=false;
-
         initial equation
           if UIC then
             i = IC;

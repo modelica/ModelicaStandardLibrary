@@ -1059,7 +1059,7 @@ This is a model to collect the heat flows from <i>m</i> heatports to one single 
 
     model TemperatureSensor "Absolute temperature sensor in Kelvin"
 
-      Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="K") "Absolute temperature as output signal" annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));
@@ -1159,7 +1159,7 @@ sensor model.
                 -110,-10},{-90,10}}, rotation=0)));
       Interfaces.HeatPort_b port_b annotation (Placement(transformation(extent={{
                 90,-10},{110,10}}, rotation=0)));
-      Modelica.Blocks.Interfaces.RealOutput T_rel
+      Modelica.Blocks.Interfaces.RealOutput T_rel(final quantity="ThermodynamicTemperature", final unit="K", displayUnit="K") "Relative temperature as output signal"
                             annotation (Placement(transformation(
             origin={0,-90},
             extent={{10,-10},{-10,10}},
@@ -1203,8 +1203,8 @@ the two ports of this component and is provided as output signal in Kelvin.
 
     model HeatFlowSensor "Heat flow rate sensor"
       extends Modelica.Icons.RotationalSensor;
-      Modelica.Blocks.Interfaces.RealOutput Q_flow
-        "Heat flow from port_a to port_b"                                            annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput Q_flow(final quantity="Power", final unit="W")
+        "Heat flow from port_a to port_b as output signal" annotation (Placement(
             transformation(
             origin={0,-100},
             extent={{-10,-10},{10,10}},
@@ -1243,8 +1243,7 @@ this component. The sensed value of heat flow rate is the amount that
 passes through this sensor while keeping the temperature drop across the
 sensor zero.  This is an ideal model so it does not absorb any energy
 and it has no direct effect on the thermal response of a system it is included in.
-The output signal is positive, if the heat flows from port_a
-to port_b.
+The output signal is positive, if the heat flows from port_a to port_b.
 </p>
 </html>"));
     end HeatFlowSensor;
@@ -1261,12 +1260,13 @@ to port_b.
       Modelica.Thermal.HeatTransfer.Sensors.HeatFlowSensor heatFlowSensor
         annotation (Placement(transformation(extent={{-10,-10},{10,10}})));
       Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(final T(
-            displayUnit="K") = 293.15) if                                                       useFixedTemperature
+            displayUnit="K") = 293.15) if useFixedTemperature
         annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-50,-30})));
-      Blocks.Interfaces.RealOutput Q_flow annotation (Placement(transformation(
+      Blocks.Interfaces.RealOutput Q_flow(final quantity="Power", final unit="W")
+        "Heat flow from port_a to port_b as output signal" annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={0,-70})));
@@ -1918,7 +1918,7 @@ as required to keep the temperature at the specified value.
 
     model TemperatureSensor "Absolute temperature sensor in degCelsius"
 
-      Modelica.Blocks.Interfaces.RealOutput T annotation (Placement(
+      Modelica.Blocks.Interfaces.RealOutput T(final quantity="ThermodynamicTemperature", final unit="degC") "Absolute temperature in degree Celsius as output signal" annotation (Placement(
             transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Interfaces.HeatPort_a port annotation (Placement(transformation(extent={{
                 -110,-10},{-90,10}}, rotation=0)));

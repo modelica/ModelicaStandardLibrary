@@ -8,7 +8,7 @@ package Sensors "Potential, voltage, current, and power sensors"
 
     Interfaces.PositivePin p "pin to be measured" annotation (Placement(
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput phi
+    Modelica.Blocks.Interfaces.RealOutput phi(final quantity="ElectricPotential", final unit="V")
       "Absolute voltage potential as output signal"
         annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
@@ -53,7 +53,7 @@ package Sensors "Potential, voltage, current, and power sensors"
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput v
+    Modelica.Blocks.Interfaces.RealOutput v(final quantity="PotentialDifference", final unit="V")
       "Voltage between pin p and n (= p.v - n.v) as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
@@ -94,7 +94,7 @@ package Sensors "Potential, voltage, current, and power sensors"
        </li>
 </ul>
 </html>", info="<html>
-<p>The voltage  sensor converts the voltage between the two connectors into a real valued signal. It does not influence the current sum at the nodes in between the voltage is measured, therefore, the electrical behavior is not influenced by the sensor.</p>
+<p>The voltage sensor converts the voltage between the two connectors into a real valued signal. It does not influence the current sum at the nodes in between the voltage is measured, therefore, the electrical behavior is not influenced by the sensor.</p>
 </html>"));
   end VoltageSensor;
 
@@ -105,8 +105,8 @@ package Sensors "Potential, voltage, current, and power sensors"
           transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
     Interfaces.NegativePin n "negative pin" annotation (Placement(
           transformation(extent={{90,-10},{110,10}}, rotation=0)));
-    Modelica.Blocks.Interfaces.RealOutput i
-      "current in the branch from p to n as output signal"
+    Modelica.Blocks.Interfaces.RealOutput i(final quantity="ElectricCurrent", final unit="A")
+      "Current in the branch from p to n as output signal"
        annotation (Placement(transformation(
           origin={0,-100},
           extent={{10,-10},{-10,10}},
@@ -150,7 +150,7 @@ package Sensors "Potential, voltage, current, and power sensors"
        </li>
 </ul>
 </html>", info="<html>
-<p>The current  sensor converts the current flowing between the two connectors into a real valued signal. The two connectors are in the sensor connected like a short cut. The sensor has to be placed within an electrical connection in series.  It does not influence the current sum at the connected nodes. Therefore, the electrical behavior is not influenced by the sensor.</p>
+<p>The current sensor converts the current flowing between the two connectors into a real valued signal. The two connectors are in the sensor connected like a short cut. The sensor has to be placed within an electrical connection in series.  It does not influence the current sum at the connected nodes. Therefore, the electrical behavior is not influenced by the sensor.</p>
 </html>"));
   end CurrentSensor;
 
@@ -170,7 +170,7 @@ model PowerSensor "Sensor to measure the power"
       "Negative pin, voltage path"
     annotation (Placement(transformation(extent={{10,-110},{-10,-90}}, rotation=
              0)));
-  Modelica.Blocks.Interfaces.RealOutput power
+  Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W") "Instantaneous power as output signal"
     annotation (Placement(transformation(
           origin={-80,-110},
           extent={{-10,10},{10,-10}},

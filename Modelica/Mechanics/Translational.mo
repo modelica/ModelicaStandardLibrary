@@ -3137,7 +3137,7 @@ This package contains basic components 1D mechanical translational drive trains.
 
     model PositionSensor "Ideal sensor to measure the absolute position"
       extends Translational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput s "Absolute position of flange"
+      Modelica.Blocks.Interfaces.RealOutput s(final quantity="Position", final unit="m") "Absolute position of flange as output signal"
                                     annotation (Placement(transformation(extent={{100,-11},
                 {120,9}},            rotation=0), iconTransformation(extent={{100,
                 -10},{120,10}})));
@@ -3164,7 +3164,7 @@ Modelica.Blocks library).
 
     model SpeedSensor "Ideal sensor to measure the absolute velocity"
       extends Translational.Interfaces.PartialAbsoluteSensor;
-      Modelica.Blocks.Interfaces.RealOutput v
+      Modelica.Blocks.Interfaces.RealOutput v(final quantity="Velocity", final unit="m/s")
         "Absolute velocity of flange as output signal"
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
@@ -3192,7 +3192,7 @@ Modelica.Blocks library).
     model AccSensor "Ideal sensor to measure the absolute acceleration"
       extends Translational.Interfaces.PartialAbsoluteSensor;
       SI.Velocity v "Absolute velocity of flange";
-      Modelica.Blocks.Interfaces.RealOutput a
+      Modelica.Blocks.Interfaces.RealOutput a(final quantity="Acceleration", final unit="m/s2")
         "Absolute acceleration of flange as output signal"
            annotation (Placement(transformation(extent={{100,-10},{120,10}},
               rotation=0)));
@@ -3221,8 +3221,8 @@ Modelica.Blocks library).
 
     model RelPositionSensor "Ideal sensor to measure the relative position"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput s_rel
-        "Distance between two flanges (= flange_b.s - flange_a.s)"
+      Modelica.Blocks.Interfaces.RealOutput s_rel(final quantity="Position", final unit="m")
+        "Distance between two flanges (= flange_b.s - flange_a.s) as output signal"
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
             origin={0,-110})));
@@ -3255,8 +3255,8 @@ Modelica.Blocks library).
       extends Translational.Interfaces.PartialRelativeSensor;
       SI.Position s_rel
         "Distance between the two flanges (flange_b.s - flange_a.s)";
-      Modelica.Blocks.Interfaces.RealOutput v_rel
-        "Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s))"
+      Modelica.Blocks.Interfaces.RealOutput v_rel(final quantity="Velocity", final unit="m/s")
+        "Relative velocity between two flanges (= der(flange_b.s) - der(flange_a.s)) as output signal"
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
             origin={0,-110})));
@@ -3299,8 +3299,8 @@ Modelica.Blocks library).
         "Distance between the two flanges (flange_b.s - flange_a.s)";
       SI.Velocity v_rel
         "Relative velocity between the two flanges (der(flange_b.s) - der(flange_a.s))";
-      Modelica.Blocks.Interfaces.RealOutput a_rel
-        "Relative acceleration between two flanges (= der(v_rel))"
+      Modelica.Blocks.Interfaces.RealOutput a_rel(final quantity="Acceleration", final unit="m/s2")
+        "Relative acceleration between two flanges (= der(v_rel)) as output signal"
                                     annotation (Placement(transformation(extent={{-10,-10},
                 {10,10}},            rotation=270,
             origin={0,-110})));
@@ -3333,8 +3333,8 @@ Modelica.Blocks library).
 
     model ForceSensor "Ideal sensor to measure the force between two flanges"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput f
-        "Force in flange_a and flange_b (f = flange_a.f = -flange_b.f)"
+      Modelica.Blocks.Interfaces.RealOutput f(final quantity="Force", final unit="N")
+        "Force in flange_a and flange_b (f = flange_a.f = -flange_b.f) as output signal"
          annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -3366,7 +3366,7 @@ with blocks of the Modelica.Blocks library).
     model PowerSensor
       "Ideal sensor to measure the power between two flanges (= flange_a.f*der(flange_a.s))"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a"
+      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W") "Power in flange flange_a as output signal"
          annotation (Placement(transformation(
             origin={-80,-110},
             extent={{10,-10},{-10,10}},
@@ -3397,19 +3397,19 @@ and provides the result as output signal <b>power</b>
     model MultiSensor
       "Ideal sensor to measure the absolute velocity, force and power between two flanges"
       extends Translational.Interfaces.PartialRelativeSensor;
-      Modelica.Blocks.Interfaces.RealOutput power "Power in flange flange_a"
+      Modelica.Blocks.Interfaces.RealOutput power(final quantity="Power", final unit="W") "Power in flange flange_a as output signal"
          annotation (Placement(transformation(
             origin={-60,-110},
             extent={{10,-10},{-10,10}},
             rotation=90)));
-      Blocks.Interfaces.RealOutput          f
-        "Force in flange_a and flange_b (f = flange_a.f = -flange_b.f)"
+      Blocks.Interfaces.RealOutput          f(final quantity="Force", final unit="N")
+        "Force in flange_a and flange_b (f = flange_a.f = -flange_b.f) as output signal"
          annotation (Placement(transformation(
             extent={{10,-10},{-10,10}},
             rotation=90,
             origin={0,-110})));
-      Blocks.Interfaces.RealOutput          v
-        "Absolute velocity of flange as output signal"
+      Blocks.Interfaces.RealOutput          v(final quantity="Velocity", final unit="m/s")
+        "Absolute velocity of flange as output signal as output signal"
            annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=-90,
