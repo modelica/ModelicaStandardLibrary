@@ -290,7 +290,7 @@ model SimpleGenericOrifice
       "= false to obtain zeta from dp_nominal and m_flow_nominal";
 
   // Operational conditions
-  parameter SI.AbsolutePressure dp_nominal = 1e3 "Nominal pressure drop";
+  parameter SI.Pressure dp_nominal = 1e3 "Nominal pressure drop";
   parameter SI.MassFlowRate m_flow_nominal = 1 "Mass flow rate for dp_nominal";
 
   parameter Boolean from_dp = true
