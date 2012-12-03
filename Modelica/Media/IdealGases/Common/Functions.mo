@@ -115,7 +115,7 @@ package Functions
        == Choices.ReferenceEnthalpy.ZeroAt0K) then data.H0 else 0.0) + (if
       refChoice == Choices.ReferenceEnthalpy.UserDefined then h_off else
             0.0);
-    annotation(Inline=false,__Dymola_InlineNoEvent=false,smoothOrder=2);
+    annotation(Inline=false,smoothOrder=2);
   end h_Tlow;
 
   function h_Tlow_der "Compute specific enthalpy, low T region; reference is decided by the
