@@ -277,7 +277,9 @@ such approximations.
 model SimpleGenericOrifice
     "Simple generic orifice defined by pressure loss coefficient and diameter (only for flow from port_a to port_b)"
 
-  extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+  extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+     m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
+                          else StateSelect.prefer));
 
   extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
     final pathLength = 0,
@@ -1560,7 +1562,9 @@ The used sufficient criteria for monotonicity follows from:
       partial model BaseModel
         "Generic pressure drop component with constant turbulent loss factor data and without an icon"
 
-        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+          m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
+                               else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
           final pathLength = 0,
           final momentumDynamics = Types.Dynamics.SteadyState);
@@ -1776,7 +1780,9 @@ The used sufficient criteria for monotonicity follows from:
       partial model BaseModelNonconstantCrossSectionArea
         "Generic pressure drop component with constant turbulent loss factor data and without an icon, for non-constant cross section area"
 
-        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport;
+        extends Modelica.Fluid.Interfaces.PartialTwoPortTransport(
+          m_flow(stateSelect = if momentumDynamics == Types.Dynamics.SteadyState then StateSelect.default
+                               else StateSelect.prefer));
         extends Modelica.Fluid.Interfaces.PartialLumpedFlow(
           final pathLength = 0,
           final momentumDynamics = Types.Dynamics.SteadyState);
