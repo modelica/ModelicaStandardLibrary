@@ -14,7 +14,7 @@ package Functions
       *(data.alow[6] + data.alow[7]*T))))))) else data.R*(1/(T*T)*(data.ahigh[1]
        + T*(data.ahigh[2] + T*(1.*data.ahigh[3] + T*(data.ahigh[4] + T*(data.
       ahigh[5] + T*(data.ahigh[6] + data.ahigh[7]*T))))))));
-    annotation (__Dymola_InlineNoEvent=false,smoothOrder=2);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=2,__Dymola_InlineNoEvent=false);
   end cp_T;
 
   function cp_Tlow
@@ -57,11 +57,7 @@ package Functions
     input SI.SpecificEnthalpy h_off=SingleGasNasa.h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-      //     annotation (__Dymola_InlineNoEvent=false, Inline=false,
-      //                 derivative(zeroDerivative=data,
-      //                            zeroDerivative=exclEnthForm,
-      //                            zeroDerivative=refChoice,
-      //                            zeroDerivative=h_off) = h_T_der);
+
   algorithm
     h := smooth(0,(if T < data.Tlimit then data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -109,10 +105,7 @@ package Functions
     input SI.SpecificEnthalpy h_off=SingleGasNasa.h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
-      //     annotation (Inline=false,__Dymola_InlineNoEvent=false, derivative(zeroDerivative=data,
-      //                                zeroDerivative=exclEnthForm,
-      //                                zeroDerivative=refChoice,
-      //                                zeroDerivative=h_off) = h_Tlow_der);
+
   algorithm
     h := data.R*((-data.alow[1] + T*(data.
       blow[1] + data.alow[2]*Math.log(T) + T*(1.*data.alow[3] + T*(0.5*data.
@@ -158,7 +151,7 @@ package Functions
       7]*T)))) else data.R*(data.bhigh[2] - 0.5*data.ahigh[1]/(T*T) - data.
       ahigh[2]/T + data.ahigh[3]*Math.log(T) + T*(data.ahigh[4]
        + T*(0.5*data.ahigh[5] + T*(1/3*data.ahigh[6] + 0.25*data.ahigh[7]*T)))));
-    annotation (__Dymola_InlineNoEvent=false,smoothOrder=1);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=1,__Dymola_InlineNoEvent=false);
   end s0_T;
 
   function s0_Tlow "Compute specific entropy, low T region"
@@ -171,7 +164,7 @@ package Functions
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
-    annotation (__Dymola_InlineNoEvent=false,smoothOrder=1);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=1,__Dymola_InlineNoEvent=false);
   end s0_Tlow;
 
   function s0_Tlow_der "Compute derivative of specific entropy, low T region"
@@ -185,7 +178,7 @@ package Functions
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
-    annotation (__Dymola_InlineNoEvent=false,smoothOrder=1);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=1,__Dymola_InlineNoEvent=false);
   end s0_Tlow_der;
 
   function dynamicViscosityLowPressure
