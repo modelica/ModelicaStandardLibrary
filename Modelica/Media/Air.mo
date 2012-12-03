@@ -474,7 +474,7 @@ Derivative function of <a href=\"modelica://Modelica.Media.Air.MoistAir.saturati
      end solve;
     end Internal;
     algorithm
-      T:=Internal.solve(p, T_min, T_max);
+      T:=Internal.solve(p, T_min, T_max, f_nonlinear_data = Internal.f_nonlinear_Data());
       annotation (Documentation(info="<html>
  Computes saturation temperature from (partial) pressure via numerical inversion of the function <a href=\"modelica://Modelica.Media.Air.MoistAir.saturationPressure\">saturationPressure</a>. Therefore additional inputs are required (or the defaults are used) for upper and lower temperature bounds.
 </html>"));
