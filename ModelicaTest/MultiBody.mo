@@ -6041,8 +6041,7 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (experiment(StopTime=2, Tolerance=1e-006),
         Diagram(coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=true), graphics),
-        __Dymola_experimentSetupOutput,
+              preserveAspectRatio=true)),
         Icon(coordinateSystem(extent={{-120,-100},{200,100}})));
     end SphericalSpherical2;
 
@@ -6196,8 +6195,7 @@ a linear damper is connected here.
           Tolerance=1e-006,
           Algorithm="Radau"),
         Diagram(coordinateSystem(extent={{-120,-100},{200,100}},
-              preserveAspectRatio=true), graphics),
-        __Dymola_experimentSetupOutput,
+              preserveAspectRatio=true)),
         Icon(coordinateSystem(extent={{-120,-100},{200,100}})));
     end UniversalSpherical;
 
@@ -6340,9 +6338,7 @@ a linear damper is connected here.
           color={95,95,95},
           thickness=0.5,
           smooth=Smooth.None));
-      annotation (                  experiment(StopTime=4),
-        Diagram(graphics),
-        __Dymola_experimentSetupOutput);
+      annotation (experiment(StopTime=4));
     end JointUSP2;
 
     model JointUPS2
