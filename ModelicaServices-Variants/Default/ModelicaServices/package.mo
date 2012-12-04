@@ -699,10 +699,6 @@ package ExternalReferences "Library of functions to access external resources"
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
 </p>
-
-<p>
-This implementation is targeted for Dymola.
-</p>
 </html>"));
   end loadResource;
 end ExternalReferences;
