@@ -707,6 +707,16 @@ This implementation is targeted for Dymola.
   end loadResource;
 end ExternalReferences;
 
+package Machine
+  // Machine dependent constants
+  final constant Real eps=1.e-15 "Biggest number such that 1.0 + eps = 1.0";
+  final constant Real small=1.e-60
+    "Smallest number such that small and -small are representable on the machine";
+  final constant Real inf=1.e+60
+    "Biggest Real number such that inf and -inf are representable on the machine";
+  final constant Integer Integer_inf=2147483647
+    "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
+end Machine;
 
 package Types "Library of types with vendor specific choices"
   extends Modelica.Icons.Package;
@@ -729,7 +739,6 @@ Specification (version &ge; 3.3).
 </p>
 </html>"));
 end Types;
-
 
 annotation (__Dymola_Protection(hideFromBrowser=true),
 preferredView="info",

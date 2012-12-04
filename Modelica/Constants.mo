@@ -16,14 +16,12 @@ package Constants
     "see http://en.wikipedia.org/wiki/Euler_constant";
 
   // Machine dependent constants
-  // (the definition is a temporary fix since not adapted to the
-  // machine where the Modelica translator is running)
-  final constant Real eps=1.e-15 "Biggest number such that 1.0 + eps = 1.0";
-  final constant Real small=1.e-60
+  final constant Real eps=ModelicaServices.Machine.eps "Biggest number such that 1.0 + eps = 1.0";
+  final constant Real small=ModelicaServices.Machine.small
     "Smallest number such that small and -small are representable on the machine";
-  final constant Real inf=1.e+60
+  final constant Real inf=ModelicaServices.Machine.inf
     "Biggest Real number such that inf and -inf are representable on the machine";
-  final constant Integer Integer_inf=2147483647
+  final constant Integer Integer_inf=ModelicaServices.Machine.Integer_inf
     "Biggest Integer number such that Integer_inf and -Integer_inf are representable on the machine";
 
   // Constants of nature
