@@ -688,8 +688,8 @@ fileReference = FileSystem.<b>loadResource</b>(uri);
 <h4>Description</h4>
 <p>
 The function call \"<code>FileSystem.<b>loadResource</b>(uri)</code>\" returns the
-<b>absolute path name</b> of the file that is either defined by an URI or by a local 
-(e.g. relative) path name. With the returned file name it is possible to 
+<b>absolute path name</b> of the file that is either defined by an URI or by a local
+(e.g. relative) path name. With the returned file name it is possible to
 access the file with function calls of the C standard library.
 If the data or file is stored in a data-base,
 this might require copying the resource to a temporary folder and referencing that.

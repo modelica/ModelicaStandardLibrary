@@ -856,7 +856,7 @@ package AST_BatchPlant
         Documentation(info="<HTML>
 <p>
 <b>
-Obsolete model that is not used in package Modelica and 
+Obsolete model that is not used in package Modelica and
 will be removed in a future version of package Modelica.
 Use instead model Modelica.Blocks.Logical.TriggeredTrapezoid.</b>
 </p>
