@@ -191,12 +191,11 @@ operator record Complex "Complex number with overloaded operators"
 </html>"));
   end 'String';
 
-//Protection(access=Access.hide),
-annotation (__Dymola_Protection(hideFromBrowser=true),
+annotation (Protection(access=Access.hide),
 version="3.2.1",
 versionBuild=1,
 versionDate="2012-11-02",
-dateModified = "2012-11-02 10:00:00Z",
+dateModified = "2012-12-04 17:00:00Z",
 revisionId="$Id::                                       $",
 conversion(
  noneFromVersion="1.0",
