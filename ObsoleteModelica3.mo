@@ -7,7 +7,7 @@ package ObsoleteModelica3
     package Interfaces
       "Library of connectors and partial models for input/output blocks"
     connector RealSignal = Real "Real port (both input/output possible)"
-        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+        annotation (obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
 Connector with one signal of type Real (no icon, no input/output prefix).
@@ -15,7 +15,7 @@ Connector with one signal of type Real (no icon, no input/output prefix).
 </html>"));
     connector BooleanSignal = Boolean
         "Boolean port (both input/output possible)"
-        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+        annotation (obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
 Connector with one signal of type Boolean (no icon, no input/output prefix).
@@ -23,7 +23,7 @@ Connector with one signal of type Boolean (no icon, no input/output prefix).
 </html>"));
     connector IntegerSignal = Integer
         "Integer port (both input/output possible)"
-        annotation (__Dymola_obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
+        annotation (obsolete="Connector is not valid according to Modelica 3, since input/output prefixes are missing. When using this connector, it is not possible to check for balanced models.",
     Documentation(info="<html>
 <p>
 Connector with one signal of type .
@@ -50,7 +50,7 @@ Connector with one signal of type .
       equation
         newReal = oldReal.signal[1];
         annotation(__Dymola_structurallyIncomplete,
-          __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
+          obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -101,7 +101,7 @@ This block is only provided for backward compatibility.
         newBoolean = oldBoolean.signal[1];
 
         annotation(__Dymola_structurallyIncomplete,
-          __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
+          obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
           Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -152,7 +152,7 @@ This block is only provided for backward compatibility.
         newInteger = oldInteger.signal[1];
 
         annotation(__Dymola_structurallyIncomplete,
-          __Dymola_obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
+          obsolete="Model is not balanced, so equation check will not work. This model is no longer needed",
            Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Rectangle(
@@ -203,7 +203,7 @@ Internal replaceable block that is used to construct the
           extends ObsoleteModelica3.Icons.ObsoleteBlock;
 
           annotation (
-            __Dymola_obsolete="Model is not according to Modelica Language 3.0 since replaceable base class present. " +
+            obsolete="Model is not according to Modelica Language 3.0 since replaceable base class present. " +
                               "Use instead one of Modelica.Blocks.Math.UnitConversions.XXX",
             defaultComponentName="convert",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
@@ -252,7 +252,7 @@ The desired conversion can be selected in the parameter menu
       equation
             u1 = u2;
             annotation(__Dymola_structurallyIncomplete,
-              __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
+              obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Documentation(info="<HTML>
 <p>
 This block is used to enable asignment of values to variables preliminary
@@ -286,7 +286,7 @@ defined as outputs (e.g., useful for inverse model generation).
           equation
             y1 = y2;
             annotation(__Dymola_structurallyIncomplete,
-              __Dymola_obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
+              obsolete="Model is not balanced, i.e., not according to Modelica Language 3.0. Use instead Modelica.Blocks.Math.InverseBlockConstraints",
               Documentation(info="<html>
 <p>
 This block is used to enable calculation of values preliminary defined as inputs.
@@ -344,7 +344,7 @@ This block is used to enable calculation of values preliminary defined as inputs
             heatPort.T = T_ref;
           end if;
           annotation (
-            __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead Modelica.Electrical.Analog.Basic.HeatingResistor",
+            obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead Modelica.Electrical.Analog.Basic.HeatingResistor",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
                 Line(points={{-110,20},{-85,20}}, color={160,160,164}),
@@ -431,7 +431,7 @@ connectors are set to zero.</p>
     partial block ObsoleteBlock
       "Icon for an obsolete block (use only for this case)"
 
-      annotation (__Dymola_obsolete="Only used to mark an obsolete block. Do not use otherwise.",
+      annotation (obsolete="Only used to mark an obsolete block. Do not use otherwise.",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-102,102},{102,-102}},
@@ -449,7 +449,7 @@ corresponding library in a future release.
     partial model ObsoleteModel
       "Icon for an obsolete model (use only for this case)"
 
-      annotation (__Dymola_obsolete="Only used to mark an obsolete model. Do not use otherwise.",
+      annotation (obsolete="Only used to mark an obsolete model. Do not use otherwise.",
               Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
               extent={{-102,102},{102,-102}},
@@ -467,7 +467,7 @@ corresponding library in a future release.
     partial class Enumeration
       "Obsolete class (icon for an enumeration emulated by a package). Use a real enumeration instead"
 
-      annotation (__Dymola_obsolete="Icon for an emulated enumeration. Emulated enumerations are no longer used (only real enumerations)",
+      annotation (obsolete="Icon for an emulated enumeration. Emulated enumerations are no longer used (only real enumerations)",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                 {100,100}}), graphics={
             Text(extent={{-138,164},{138,104}}, textString="%name"),
@@ -555,7 +555,7 @@ This icon is designed for an <b>enumeration</b>
           frame_b.t = -Modelica.Mechanics.MultiBody.Frames.resolve2(frame_b.R, load[4
             :6]);
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.WorldForceAndTorque",
             preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
@@ -719,7 +719,7 @@ This leads to the following animation
             frame_resolve.t = zeros(3);
           end if;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
             preferredView="info",
             Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                     -100},{100,100}}), graphics={
@@ -924,7 +924,7 @@ This leads to the following animation
           zeros(3) = frame_a.t + Modelica.Mechanics.MultiBody.Frames.resolve2(frame_a.R,
             t_b_0 + cross(r_0, f_b_0));
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Forces.ForceAndTorque",
             preferredView="info",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
@@ -1065,7 +1065,7 @@ clarity this is not shown in the animation):
             frame_resolve.R = Modelica.Mechanics.MultiBody.Frames.nullRotation();
           end if;
           annotation (
-            __Dymola_obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead a model from Modelica.Mechanics.MultiBody.Sensors",
+            obsolete="Model equations depend on cardinality(..) which will become obsolete in the Modelica language. Use instead a model from Modelica.Mechanics.MultiBody.Sensors",
             Documentation(info="<html>
 <p>
 This is a base class for 3-dim. mechanical components with two frames
@@ -1377,7 +1377,7 @@ position a degree of freedom is lost.
             annotation (
               __Dymola_structurallyIncomplete,
               preferredView="info",
-              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
+              obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.RevoluteWithLengthConstraint",
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}},
@@ -1684,7 +1684,7 @@ degree of freedom is lost.
             annotation (
               __Dymola_structurallyIncomplete,
               preferredView="info",
-              __Dymola_obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
+              obsolete="Obsolete model that is not balanced. Use instead Modelica.Mechanics.MultiBody.Joints.Internal.PrismaticWithLengthConstraint",
               Icon(coordinateSystem(
                   preserveAspectRatio=false,
                   extent={{-100,-100},{100,100}},
@@ -2050,7 +2050,7 @@ joints.</b>
             y[i6:i6 + 2] = z_abs;
           end if;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.AbsoluteSensor",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={
                 Text(
@@ -2438,7 +2438,7 @@ Exact definition of the returned quantities:
             y[i6:i6 + 2] = z_rel;
           end if;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.RelativeSensor",
             Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
                     {100,100}}), graphics={Line(
                   points={{-60,-94},{-60,-76},{0,-76},{0,-76}},
@@ -2699,7 +2699,7 @@ and resolved in the following frame
           load[1:3] = force;
           load[4:6] = torque;
           annotation (
-            __Dymola_obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
+            obsolete="Based on a packed result signal which is not a good design. Use instead Modelica.Mechanics.MultiBody.Sensors.CutForceAndTorque",
             preferredView="info",
             Documentation(info="<HTML>
 <p>
@@ -2742,12 +2742,12 @@ with negative sign at frame_a.
         type AngularVelocity_degs = Modelica.Icons.TypeReal(final quantity="AngularVelocity", final unit=
                    "deg/s")
           "Obsolete type. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit"
-              annotation (__Dymola_obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit");
+              annotation (obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularVelocity instead with an appropriate displayUnit");
         type AngularAcceleration_degs2 = Modelica.Icons.TypeReal (final
               quantity =                                                         "AngularAcceleration",
               final unit="deg/s2")
           "Obsolete type. Use Modelica.SIunits.AngularAcceleration instead with an appropriate displayUnit"
-              annotation (__Dymola_obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularAcceleration instead with an appropriate displayUnit");
+              annotation (obsolete="Non SI-units should no longer be used. Use Modelica.SIunits.AngularAcceleration instead with an appropriate displayUnit");
         package Init
           "Obsolete type. This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu"
 
@@ -2766,7 +2766,7 @@ with negative sign at frame_a.
 
             extends Modelica.Icons.TypeInteger;
             annotation (
-                __Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+                obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
                 choices(
                 choice=Modelica.Mechanics.MultiBody.Types.Init.Free
                   "free (no initialization)",
@@ -2812,7 +2812,7 @@ with negative sign at frame_a.
 </html>"));
 
           end Temp;
-          annotation (__Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+          annotation (obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
         Documentation(info="<html>
 
 </html>"));
@@ -2867,7 +2867,7 @@ with inertia.
                            annotation (Placement(transformation(extent={{-10,-110},
                     {10,-90}}, rotation=0)));
           annotation (
-            __Dymola_obsolete=
+            obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
             Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                     -100},{100,100}}), graphics={Rectangle(
@@ -2910,7 +2910,7 @@ It is a superclass for the two components TwoFlangesAndBearing and TwoFlangesAnd
           phi_a = flange_a.phi - bearing.phi;
           phi_b = flange_b.phi - bearing.phi;
           annotation (
-            __Dymola_obsolete=
+            obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
           Documentation(info="<html>
 <p>
@@ -2962,7 +2962,7 @@ It is used e.g., to build up equation-based parts of a drive train.</p>
           tau_support = -adapter.flange_b.tau;
           connect(adapter.flange_a, bearing) annotation (Line(points={{
                   -6.12323e-016,-70},{0,-70},{0,-100}}, color={0,0,0}));
-          annotation (__Dymola_obsolete=
+          annotation (obsolete=
                 "The Rotational library has now a new improved design with optional support connectors. Use Modelica.Mechanics.Rotational.Interfaces.PartialXXX instead.",
         Documentation(info="<html>
 <p>
@@ -3045,7 +3045,7 @@ Partial model of torque dependent on speed that accelerates the flange.
             annotation (Placement(transformation(extent={{100,-10},{120,10}},
                   rotation=0)));
           annotation (
-            __Dymola_obsolete=
+            obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialAbsoluteSensor instead and define a meaningful name for the output signal.",
             Documentation(info="<html>
 <p>
@@ -3092,7 +3092,7 @@ with the blocks of package Modelica.Blocks.
                 extent={{10,-10},{-10,10}},
                 rotation=90)));
           annotation (
-            __Dymola_obsolete=
+            obsolete=
                 "Use Modelica.Mechanics.Rotational.Interfaces.PartialRelativeSensor instead and define a meaningful name for the output signal.",
             Documentation(info="<html>
 <p>
@@ -3152,7 +3152,7 @@ with the blocks of package Modelica.Blocks.
             extends Modelica.Icons.TypeInteger(min=1,max=9);
 
             annotation (
-                  __Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+                  obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
                 Evaluate=true, choices(
                 choice=Modelica.Mechanics.Rotational.Types.Init.NoInit
                   "no initialization (phi_start, w_start are guess values)",
@@ -3200,7 +3200,7 @@ quantities.
             extends Modelica.Icons.TypeInteger(min=1,max=5);
 
             annotation (
-                 __Dymola_obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
+                 obsolete="This is an emulated enumeration for initialization. Initialization is now defined with start/fixed values and appropriate support in the parameter menu",
                 Evaluate=true, choices(
                 choice=Modelica.Mechanics.Rotational.Types.Init.NoInit
                   "no initialization (phi_rel_start, w_rel_start are guess values)",
@@ -3253,7 +3253,7 @@ user interface when the type is used as parameter in a declaration.
         driving_a = power_a >= 0;
         flange_b.tau = -(if driving_a then eta*flange_a.tau else flange_a.tau/eta);
         annotation (
-          __Dymola_obsolete=
+          obsolete=
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.LossyGear instead.",
           Icon(coordinateSystem(
               preserveAspectRatio=true,
@@ -3442,7 +3442,7 @@ from tables of the gear manufacturers.
             smooth=Smooth.None));
 
         annotation (
-          __Dymola_obsolete=
+          obsolete=
               "This model can get stuck due when the torque direction varies, use Modelica.Mechanics.Rotational.Components.Gearbox instead.",
           Documentation(info="<html>
 <p>
