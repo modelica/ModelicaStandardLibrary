@@ -1,8 +1,9 @@
 within ;
-package ModelicaServices "(version = 3.2.1, target = \"DymolaAndDLRVisualization\") Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
+package ModelicaServices "(version = 3.2.1, Default implementation) Models and functions used in the Modelica Standard Library requiring a tool specific implementation"
   extends Modelica.Icons.Package;
-  constant String target="DymolaAndDLRVisualization"
+  constant String target="Default"
   "Target of this ModelicaServices implementation";
+
 
 package UsersGuide "User's Guide"
 extends Modelica.Icons.Information;
@@ -23,7 +24,8 @@ th      { solid #000; vertical-align:top; font-weight: bold; }
 table   { solid #000; border-collapse: collapse;}
 </style>
 </head>
-<p>All files in this directory (ModelicaServices) and in all
+
+<p>All files in this directory (Modelica) and in all
 subdirectories are licensed by the <b><u>Modelica Association</u></b> under the
 <b><u>Modelica License 2</u></b>.</p>
 
@@ -576,6 +578,7 @@ class ReleaseNotes "Release notes"
      </li>
 </ul>
 
+
 <h4>Version 1.1, 2010-07-30</h4>
 
 <ul>
@@ -611,10 +614,7 @@ end ReleaseNotes;
 class Contact "Contact"
   extends Modelica.Icons.Contact;
   annotation (Documentation(info="<html>
-<dl>
-<dt><b>Main Author:</b>
-<dd>
-</dl>
+<h5>Main Author:</h5>
 
 <table border=0 cellspacing=0 cellpadding=2>
 <tr>
@@ -642,31 +642,34 @@ end Contact;
   annotation(__Dymola_DocumentationClass=true);
 end UsersGuide;
 
+
 package Animation "Models and functions for 3-dim. animation"
   extends Modelica.Icons.Package;
 model Shape
     "Different visual shapes with variable size; all data have to be set as modifiers (see info layer)"
-  extends Visualization.Internal.Shape_MSL32_Dymola;
+  extends
+      Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape;
 
   annotation (
+    Icon(coordinateSystem(
+        preserveAspectRatio=true,
+        extent={{-100,-100},{100,100}},
+        grid={2,2}), graphics={Text(
+            extent={{-150,-110},{150,-140}},
+            lineColor={0,0,0},
+            textString="default")}),
     Documentation(info="<html>
 <p>
 The interface of this model is documented at
-<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.<br>
-The interface of this model is defined at
-<a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialShape</a>.
-</p>
-
-<p>
-This implementation requires the commercial DLR library \"Visualization\".
+<a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>.
 </p>
 
 </html>"));
+
 end Shape;
 
   model Surface
     "Animation of a moveable, parameterized surface; the surface characteristic is provided by a function"
-    extends Visualization.Internal.SurfaceDymolaAndSimVis;
 
     annotation (
       Documentation(info="<html>
@@ -677,35 +680,24 @@ The interface of this model is defined at
 <a href=\"modelica://Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface\">Modelica.Utilities.Internal.PartialModelicaServices.Animation.PartialSurface</a>.
 </p>
 
-<p>
-This implementation requires the commercial DLR library \"Visualization\".
-</p>
-
 </html>"));
   end Surface;
 end Animation;
 
+
 package ExternalReferences "Library of functions to access external resources"
   extends Modelica.Icons.Package;
   function loadResource
-    "Return the absolute path name of a URI or local file name"
+    "Return the absolute path name of a URI or local file name (in this default implementation URIs are not supported, but only local file names)"
     extends
       Modelica.Utilities.Internal.PartialModelicaServices.ExternalReferences.PartialLoadResource;
   algorithm
-    if Modelica.Utilities.Strings.find(uri,"modelica://", caseSensitive=false) == 1 then
-      fileReference:=Dymola_ResolveURI(uri);
-    else
       fileReference:=Modelica.Utilities.Files.fullPathName(uri);
-    end if;
 
     annotation (Documentation(info="<html>
 <p>
 The interface of this model is documented at
 <a href=\"modelica://Modelica.Utilities.Files.loadResource\">Modelica.Utilities.Files.loadResource</a>.
-</p>
-
-<p>
-This implementation is targeted for Dymola.
 </p>
 </html>"));
   end loadResource;
@@ -727,8 +719,12 @@ package Types "Library of types with vendor specific choices"
   type SolverMethod = String
     "String defining the integration method to solve differential equations in a clocked discretized continuous-time partition"
   annotation(choices(
-     choice="ExplicitEuler" "Explicit Euler method (order 1)",
-     choice="ImplicitEuler" "Implicit Euler method (order 1)"),
+      choice="External" "Solver specified externally",
+      choice="ExplicitEuler" "Explicit Euler method (order 1)",
+      choice="ExplicitMidPoint2" "Explicit mid point rule (order 2)",
+      choice="ExplicitRungeKutta4" "Explicit Runge-Kutta method (order 4)",
+      choice="ImplicitEuler" "Implicit Euler method (order 1)",
+     choice="ImplicitTrapezoid" "Implicit trapezoid rule (order 2)"),
   Documentation(info="<html>
 <p>
 Type <b>SolverMethod</b> is a String type with menu choices to select the
@@ -740,12 +736,11 @@ Specification (version &ge; 3.3).
 </html>"));
 end Types;
 
-annotation (
-__Dymola_Protection(hideFromBrowser=true),
+annotation (Protection(access=Access.hide),
 preferredView="info",
 version="3.2.1",
-versionDate="2012-10-04",
-versionBuild=2,
+versionDate="2012-12-04",
+versionBuild=0,
 revisionId="$Id::                                       $",
 uses(Modelica(version="3.2.1")),
 conversion(noneFromVersion="1.0",
@@ -759,13 +754,13 @@ These are:
 </p>
 
 <ul>
-<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>.
+<li> <a href=\"modelica://ModelicaServices.Animation.Shape\">ModelicaServices.Animation.Shape</a>
      provides a 3-dim. visualization of elementary
      mechanical objects. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Shape</a>
      via inheritance.</li>
 
-<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">ModelicaServices.Animation.Surface</a>.
+<li> <a href=\"modelica://ModelicaServices.Animation.Surface\">ModelicaServices.Animation.Surface</a>
      provides a 3-dim. visualization of
      moveable parameterized surface. It is used in
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface\">Modelica.Mechanics.MultiBody.Visualizers.Advanced.Surface</a>
@@ -773,7 +768,8 @@ These are:
 </ul>
 
 <p>
-This implementation requires the commercial DLR library \"Visualization\".
+This is the default implementation, if no tool-specific implementation is available.
+This ModelicaServices package provides only \"dummy\" models that do nothing.
 </p>
 
 <p>
