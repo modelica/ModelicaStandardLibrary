@@ -6192,8 +6192,7 @@ a linear damper is connected here.
           smooth=Smooth.None));
       annotation (experiment(
           StopTime=2,
-          Tolerance=1e-006,
-          Algorithm="Radau"),
+          Tolerance=1e-006),
         Diagram(coordinateSystem(extent={{-120,-100},{200,100}},
               preserveAspectRatio=true)),
         Icon(coordinateSystem(extent={{-120,-100},{200,100}})));
