@@ -15,7 +15,7 @@ package Joints "Components that constrain the motion between two frames"
              0)));
 
     parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean animation=true "= true, if animation shall be enabled";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={1,0,0}
       "Axis of translation resolved in frame_a (= same as in frame_b)"
@@ -232,7 +232,7 @@ vector \"n\" defining the translation axis
             rotation=0)));
 
     parameter Boolean useAxisFlange=false "= true, if axis flange is enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean animation=true
       "= true, if animation shall be enabled (show axis as cylinder)";
     parameter Modelica.Mechanics.MultiBody.Types.Axis n={0,0,1}
@@ -1027,7 +1027,7 @@ phi_b.start = 45<sup>o</sup>).
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of prismatic joint boxes"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter StateSelect stateSelect=StateSelect.prefer
       "Priority to use joint coordinates (s_x, s_y, phi, v_x, v_y, w) as states"
                                                                                  annotation(Dialog(tab="Advanced"));
@@ -1231,7 +1231,7 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
@@ -1241,14 +1241,14 @@ s_y.start = 0.5, phi.start = 45<sup>o</sup>).
 
     parameter Boolean w_rel_a_fixed = false
       "= true, if w_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0}
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_rel_a_fixed = false
       "= true, if z_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0}
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)"
       annotation (Dialog(tab="Initialization"));
@@ -1539,7 +1539,7 @@ frame_b of the joint.
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(group="Initialization"));
@@ -1549,14 +1549,14 @@ frame_b of the joint.
 
     parameter Boolean w_rel_a_fixed = false
       "= true, if w_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
     parameter SI.AngularVelocity w_rel_a_start[3]={0,0,0}
       "Initial values of angular velocity of frame_b with respect to frame_a, resolved in frame_a"
       annotation (Dialog(group="Initialization"));
 
     parameter Boolean z_rel_a_fixed = false
       "= true, if z_rel_a_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(group="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(group="Initialization"));
     parameter SI.AngularAcceleration z_rel_a_start[3]={0,0,0}
       "Initial values of angular acceleration z_rel_a = der(w_rel_a)"
       annotation (Dialog(group="Initialization"));
@@ -2254,7 +2254,7 @@ its tip position, is shown in
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
       "Color of spheres representing the spherical joints"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     parameter SI.Diameter rodDiameter=sphereDiameter/Types.Defaults.JointRodDiameterFraction
       "Diameter of rod connecting the two spherical joint"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -4492,7 +4492,7 @@ component).
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
            JointColor
         "Color of the spheres representing the universal and the spherical joint"
-        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction
         "Diameter of rod 1 connecting the universal and the spherical joint"
@@ -5530,7 +5530,7 @@ the origin of frame_a to the middle of rod 1, this might be defined as:
       input Types.Color sphereColor=Modelica.Mechanics.MultiBody.Types.Defaults.
            JointColor
         "Color of the spheres representing the two spherical joints"
-        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       parameter SI.Diameter rod1Diameter=sphereDiameter/Types.Defaults.
           JointRodDiameterFraction
         "Diameter of rod 1 connecting the two spherical joints"
@@ -7019,7 +7019,7 @@ pair of joints\" from Woernle and Hiller is described in:
         annotation (Dialog(group="Animation", enable=animation));
       input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
         "Color of sphere representing the spherical joint"
-        annotation (Dialog(__Dymola_colorSelector=true, group="Animation", enable=animation));
+        annotation (Dialog(colorSelector=true, group="Animation", enable=animation));
       input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="Animation", enable=animation));
@@ -7205,7 +7205,7 @@ pair of joints\" from Woernle and Hiller is described in:
         annotation (Dialog(group="Animation", enable=animation));
       input MBS.Types.Color sphereColor=MBS.Types.Defaults.JointColor
         "Color of sphere representing the spherical joint"
-        annotation (Dialog(__Dymola_colorSelector=true, group="Animation", enable=animation));
+        annotation (Dialog(colorSelector=true, group="Animation", enable=animation));
       input MBS.Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="Animation", enable=animation));
@@ -7433,7 +7433,7 @@ pair of joints\" from Woernle and Hiller is described in:
           annotation (Dialog(group="if animation = true", enable=animation));
       input Types.Color sphereColor=Types.Defaults.JointColor
         "Color of sphere representing the spherical joint"
-          annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+          annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient=world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
           annotation (Dialog(group="if animation = true", enable=animation));
@@ -7618,7 +7618,7 @@ pair of joints\" from Woernle and Hiller is described in:
         annotation (Dialog(group="if animation = true", enable=animation));
       input Types.Color sphereColor=Types.Defaults.JointColor
         "Color of sphere representing the spherical joint"
-        annotation (Dialog(__Dymola_colorSelector=true, group="if animation = true", enable=animation));
+        annotation (Dialog(colorSelector=true, group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient=world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(group="if animation = true", enable=animation));
@@ -7829,7 +7829,7 @@ of this subpackage.
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of cylinder representing the joint axis"
-        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -8208,7 +8208,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
       input Types.Color boxColor=Modelica.Mechanics.MultiBody.Types.Defaults.JointColor
         "Color of prismatic joint box"
-        annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+        annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
       input Types.SpecularCoefficient specularCoefficient = world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
         annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -8554,7 +8554,7 @@ menu of \"Joints.SphericalSpherical\" or \"Joints.UniversalSpherical\".
 
         parameter Boolean lateralSlidingConstraint = true
         "= true, if lateral sliding constraint taken into account, = false if lateral force = 0 (needed to avoid overconstraining if two ideal rolling wheels are connect on one axis)"
-                                                                                                            annotation(choices(__Dymola_checkBox=true),HideResult=true,Evaluate=true);
+                                                                                                            annotation(choices(checkBox=true),HideResult=true,Evaluate=true);
 
         // Contact force
         SI.Force f_wheel_0[3]

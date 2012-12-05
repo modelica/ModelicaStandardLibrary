@@ -1048,7 +1048,7 @@ connector frame_a (visualized by the red coordinate system in the figure below).
         Modelica.Mechanics.MultiBody.Visualizers.Colors.ColorMaps.jet
           constrainedby Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
       "Function defining the color map"
-            annotation(__Dymola_choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
+            annotation(choicesAllMatching=true, Dialog(enable=animation,group="Color coding"));
 
     parameter Integer n_colors=64 "Number of colors in the colorMap" annotation(Dialog(enable=animation,group="Color coding"));
     parameter Types.SpecularCoefficient specularCoefficient = 0.7
@@ -2175,7 +2175,7 @@ The direct usage of the Surface model, as well as of the Torus and the Voluminou
             constrainedby
         Modelica.Mechanics.MultiBody.Interfaces.partialColorMap
         "Function defining the color map"
-              annotation(__Dymola_choicesAllMatching=true, Dialog(group="Color coding"));
+              annotation(choicesAllMatching=true, Dialog(group="Color coding"));
     protected
       parameter Real colorMapData[n_colors,3] = colorMap(n_colors) annotation(HideResult=true);
       Surface surface(

@@ -1,6 +1,6 @@
 model Demo
   replaceable model Medium = Modelica.Media.Interfaces.PartialMedium
-    "Medium model" annotation (__Dymola_choicesAllMatching=true);
+    "Medium model" annotation (choicesAllMatching=true);
 equation
 
 end Demo;

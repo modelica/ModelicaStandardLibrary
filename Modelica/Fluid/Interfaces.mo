@@ -8,7 +8,7 @@ package Interfaces
     "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"
 
     replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-      "Medium model" annotation (__Dymola_choicesAllMatching=true);
+      "Medium model" annotation (choicesAllMatching=true);
 
     flow Medium.MassFlowRate m_flow
       "Mass flow rate from the connection point into the component";
@@ -224,7 +224,7 @@ package Interfaces
 
     replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-        annotation (__Dymola_choicesAllMatching = true);
+        annotation (choicesAllMatching = true);
 
     parameter Boolean allowFlowReversal = system.allowFlowReversal
       "= true to allow flow reversal, false restricts to design direction (port_a -> port_b)"
@@ -532,7 +532,7 @@ the boundary temperatures <code>heatPorts[n].T</code>, and the heat flow rates <
       outer Modelica.Fluid.System system "System properties";
       replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-          annotation (__Dymola_choicesAllMatching = true);
+          annotation (choicesAllMatching = true);
 
       // Inputs provided to the volume model
       input SI.Volume fluidVolume "Volume";
@@ -806,7 +806,7 @@ partial model PartialDistributedVolume
 
   replaceable package Medium =
     Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-      annotation (__Dymola_choicesAllMatching = true);
+      annotation (choicesAllMatching = true);
 
   // Discretization
   parameter Integer n=2 "Number of discrete volumes";

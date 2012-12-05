@@ -359,9 +359,9 @@ Zeunerstrasse 38<br />
           color={0,0,0},
           smooth=Smooth.None));
       annotation (        experiment(
-          StopTime=1e-011,
-          __Dymola_NumberOfIntervals=2000,
-          Tolerance=1e-007),
+          StopTime=1e-11,
+          Intervals=5e-15,
+          Tolerance=1e-7),
         Documentation(info="<html>
 <p>An inverter is an electrical circuit that consists of a PMOS and a NMOS transistor. Its task is to turn the input voltage from high potential to low potential or the other way round.</p>
 <p>Simulate until 1.e-11 s. Display the input voltage Vin.p.v as well as the output voltage mp.S.v. It shows that the input voltage is inverted.</p>
@@ -1528,7 +1528,7 @@ Zeunerstrasse 38<br />
 </ul>
 </html>"),experiment(
           StopTime=0.2,
-          __Dymola_NumberOfIntervals=1000,
+          Interval=2e-4,
           Tolerance=1e-007));
     end CascodeCircuit;
 
@@ -4320,7 +4320,7 @@ P0, P1 -&gt; polynomial coefficients name.coeff(coeff={P0,P1,...})
 
       parameter Boolean useSubstrateNode = false
         "=true, if SubtrateNodet is enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.Electrical.Analog.Interfaces.PositivePin S(v = substrateVoltage, i = -substrateCurrent) if useSubstrateNode annotation (Placement(
             transformation(extent={{90,0},{110,20}}),    iconTransformation(extent={{90,-10},
                 {110,10}})));
@@ -11199,7 +11199,7 @@ to the internal parameters (e.g., m_area). It also does the analysis of the IsGi
 
         out_cc.iXX :=1;
 
-        annotation (smoothOrder(__Dymola_normallyConstant=in_p3)=1,Documentation(info="<html>
+        annotation (smoothOrder(normallyConstant=in_p3)=1,Documentation(info="<html>
 <p>This function NoBypassCode calculates the currents (and the capacitances) that are necessary for the currents to be used in the top-level model.</p>
 </html>"));
       end bjtNoBypassCode;

@@ -1271,10 +1271,10 @@ clarity this is not shown in the animation):
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
     parameter Boolean fixedRotationAtFrame_b=false
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
     SI.Distance length
       "Distance between the origin of frame_a and the origin of frame_b";
@@ -1643,10 +1643,10 @@ in the other flange connector.
       annotation (Dialog(tab="Advanced"));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
     parameter Boolean fixedRotationAtFrame_b=false
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
     SI.Distance length
       "Distance between the origin of frame_a and the origin of frame_b";
@@ -2097,10 +2097,10 @@ in the other flange connector.
             "if animation = true and showMass = true", enable=animation and showMass));
     parameter Boolean fixedRotationAtFrame_a=false
       "=true, if rotation frame_a.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
     parameter Boolean fixedRotationAtFrame_b=false
       "=true, if rotation frame_b.R is fixed (to directly connect line forces)"
-       annotation (Evaluate=true, choices(__Dymola_checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
+       annotation (Evaluate=true, choices(checkBox=true),Dialog(tab="Advanced", group="If enabled, can give wrong results, see MultiBody.UsersGuide.Tutorial.ConnectionOfLineForces"));
 
     Forces.LineForceWithMass lineForce(
       animateLine=animation,

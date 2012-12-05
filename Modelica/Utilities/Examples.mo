@@ -252,7 +252,7 @@ function can be used as part of another scan operation.
   function readRealParameter "Read the value of a Real parameter from file"
     extends Modelica.Icons.Function;
     input String fileName "Name of file"       annotation(Dialog(
-                           __Dymola_loadSelector(filter="Text files (*.txt)",
+                           loadSelector(filter="Text files (*.txt)",
                            caption="Open file in which Real parameters are present")));
     input String name "Name of parameter";
     output Real result "Actual value of parameter on file";
@@ -352,7 +352,7 @@ readRealParameter(\"test.txt\", \"w_rel0\")
     parameter String file = Modelica.Utilities.Files.loadResource(
     "modelica://Modelica/Resources/Data/Utilities/Examples_readRealParameters.txt")
       "File on which data is present"
-          annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
+          annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file to read parameters of the form \"name = value\"")));
     parameter SI.Inertia J =              readRealParameter(file, "J")
       "Inertia";

@@ -418,7 +418,7 @@ it is open.
 
       parameter Boolean filteredOpening=false
         "= true, if opening is filtered with a 2nd order CriticalDamping filter"
-        annotation(Dialog(group="Filtered opening"),choices(__Dymola_checkBox=true));
+        annotation(Dialog(group="Filtered opening"),choices(checkBox=true));
       parameter Modelica.SIunits.Time riseTime=1
         "Rise time of the filter (time to reach 99.6 % of an opening step)"
         annotation(Dialog(group="Filtered opening",enable=filteredOpening));
@@ -433,7 +433,7 @@ it is open.
         constrainedby
         Modelica.Fluid.Valves.BaseClasses.ValveCharacteristics.baseFun
         "Inherent flow characteristic"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
 
       parameter SI.Pressure dp_small=system.dp_small
         "Regularisation of zero flow"                 annotation(Dialog(tab="Advanced"));

@@ -112,7 +112,7 @@ equation
   annotation (
     __Dymola_Commands(file(ensureSimulated=true)="modelica://Modelica/Resources/Scripts/Dymola/Fluid/InverseParameterization/plotResults.mos"
         "plotResults"),
-    experiment(StopTime=10, __Dymola_NumberOfIntervals=10000),
+    experiment(StopTime=10, Interval=0.001),
     Documentation(info="<html>
 <p>
 A pump, an orifice and two pipes are parameterized with simple nominal values.

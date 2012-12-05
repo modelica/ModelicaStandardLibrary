@@ -11,7 +11,7 @@ package Tanks "Library demonstrating the usage of the tank model"
      replaceable package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater                           constrainedby
       Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-        annotation (__Dymola_choicesAllMatching = true);
+        annotation (choicesAllMatching = true);
 
     Modelica.Fluid.Vessels.OpenTank tank1(
       crossArea=1,
@@ -218,7 +218,7 @@ package Tanks "Library demonstrating the usage of the tank model"
         color={0,127,255},
         smooth=Smooth.None));
 
-    annotation (      experiment(StopTime=25000, __Dymola_NumberOfIntervals=5000),
+    annotation (experiment(StopTime=25000, Interval=5.0),
       __Dymola_Commands(file=
             "modelica://Modelica/Resources/Scripts/Dymola/Fluid/TanksWithOverflow/plot level and port.m_flow.mos"
           "plot level and port.m_flow"),

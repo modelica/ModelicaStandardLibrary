@@ -13,7 +13,7 @@ package FluidHeatFlow
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
@@ -126,7 +126,7 @@ A prescribed heat source dissipates its heat through a thermal conductor to a co
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
@@ -325,10 +325,10 @@ Two prescribed heat sources dissipate their heat through thermal conductors to c
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium outerMedium=FluidHeatFlow.Media.Medium()
         "Outer medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter FluidHeatFlow.Media.Medium innerMedium=FluidHeatFlow.Media.Medium()
         "Inner medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
@@ -528,7 +528,7 @@ Inner coolant's temperature rise near the source is the same as temperature drop
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
@@ -651,7 +651,7 @@ You may try to:
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource=
@@ -740,7 +740,7 @@ then started again (using a ramp of 0.2 s).
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       output Modelica.SIunits.TemperatureDifference dTSource1=
@@ -890,7 +890,7 @@ then started again (using a ramp of 0.2 s).
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       parameter Modelica.SIunits.Temperature TMass(displayUnit="degC")=313.15
@@ -966,7 +966,7 @@ the time behaviour depending on coolant flow.
       extends Modelica.Icons.Example;
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "Cooling medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Temperature TAmb(displayUnit="degC")=293.15
         "Ambient temperature";
       parameter Modelica.SIunits.Temperature TMass1(displayUnit="degC")=313.15
@@ -1741,7 +1741,7 @@ Thermodynamic equations are defined by Partials.Ambient.
 
       parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
         "medium"
-        annotation(__Dymola_choicesAllMatching=true);
+        annotation(choicesAllMatching=true);
       parameter Modelica.SIunits.Pressure p(start=0) "Pressure ground";
       Interfaces.FlowPort_a flowPort(final medium=medium)
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
@@ -2155,7 +2155,7 @@ See also sketch at diagram layer.
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Medium in the component"
-          annotation(__Dymola_choicesAllMatching=true);
+          annotation(choicesAllMatching=true);
         parameter Modelica.SIunits.Mass m(start=1) "Mass of medium";
         parameter Modelica.SIunits.Temperature T0(start=293.15, displayUnit="degC")
           "Initial temperature of medium"
@@ -2216,7 +2216,7 @@ Parameter 0 &lt; tapT &lt; 1 defines temperature of heatPort between medium's in
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Ambient medium"
-          annotation(__Dymola_choicesAllMatching=true);
+          annotation(choicesAllMatching=true);
         output Modelica.SIunits.Temperature T "Outlet temperature of medium";
         output Modelica.SIunits.Temperature T_port "Temperature at flowPort_a";
       protected
@@ -2250,7 +2250,7 @@ Partial model of (Infinite) ambient, defines pressure and temperature.
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Sensor's medium"
-          annotation(__Dymola_choicesAllMatching=true);
+          annotation(choicesAllMatching=true);
         Interfaces.FlowPort_a flowPort(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0)));
@@ -2300,7 +2300,7 @@ Pressure, mass flow, temperature and enthalpy flow of medium are not affected.
 
         parameter FluidHeatFlow.Media.Medium medium=FluidHeatFlow.Media.Medium()
           "Sensor's medium"
-          annotation(__Dymola_choicesAllMatching=true);
+          annotation(choicesAllMatching=true);
         Interfaces.FlowPort_a flowPort_a(final medium=medium)
           annotation (Placement(transformation(extent={{-110,-10},{-90,10}},
                 rotation=0)));

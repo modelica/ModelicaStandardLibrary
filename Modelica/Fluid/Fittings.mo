@@ -568,7 +568,7 @@ end AbruptAdaptor;
 
     import Modelica.Constants;
 
-    replaceable package Medium=Modelica.Media.Interfaces.PartialMedium annotation(__Dymola_choicesAllMatching);
+    replaceable package Medium=Modelica.Media.Interfaces.PartialMedium annotation(choicesAllMatching);
 
     // Ports
     parameter Integer nPorts_b=0
@@ -2066,7 +2066,7 @@ where
 
       replaceable package Medium=Modelica.Media.Interfaces.PartialMedium
         "Medium in the component"
-        annotation (__Dymola_choicesAllMatching=true);
+        annotation (choicesAllMatching=true);
 
       Modelica.Fluid.Interfaces.FluidPort_a port_1(redeclare package Medium =
             Medium, m_flow(min=if (portFlowDirection_1 == PortFlowDirection.Entering) then

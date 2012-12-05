@@ -3755,7 +3755,7 @@ blocks of the block library Modelica.Blocks.Source.
       algorithm
         q :=q_qd_qdd[1];
         annotation (derivative(noDerivative=q_qd_qdd) = position_der,
-            __Dymola_InlineAfterIndexReduction=true);
+            InlineAfterIndexReduction=true);
       end position;
 
       function position_der
@@ -3768,7 +3768,7 @@ blocks of the block library Modelica.Blocks.Source.
       algorithm
         qd :=q_qd_qdd[2];
         annotation (derivative(noDerivative=q_qd_qdd, order=2) = position_der2,
-            __Dymola_InlineAfterIndexReduction=true);
+            InlineAfterIndexReduction=true);
       end position_der;
 
       function position_der2
@@ -4292,7 +4292,7 @@ of several base components.
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Flange_b flange "Flange of component"
         annotation (Placement(transformation(extent={{90,-10},{110,10}}, rotation=0)));
       Support support if useSupport "Support/housing of component"
@@ -4366,7 +4366,7 @@ and instead the component is internally fixed to ground.
       "Partial model for a component with two translational 1-dim. shaft flanges and a support used for graphical modeling, i.e., the model is build up by drag-and-drop from elementary components"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Flange_a flange_a "Flange of left end"
         annotation (Placement(transformation(extent={{-110,-10}, {-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right end"
@@ -4573,7 +4573,7 @@ and c have more meaningful values for the user.
 
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.SIunits.Length s
         "Distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component"
@@ -4653,7 +4653,7 @@ and instead the component is internally fixed to ground.
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Modelica.SIunits.Length s
         "Distance between flange and support (= flange.s - support.s)";
       Flange_b flange "Flange of component"
@@ -4713,7 +4713,7 @@ and instead the component is internally fixed to ground.
       extends Modelica.Icons.ObsoleteModel;
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Flange_a flange_a "Flange of left shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft"
@@ -4789,7 +4789,7 @@ connector is not connected).
       "Partial model for a component with one translational 1-dim. shaft flange and a support used for textual modeling, i.e., for elementary models"
       parameter Boolean useSupport=false
         "= true, if support flange enabled, otherwise implicitly grounded"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       Flange_a flange_a "Flange of left shaft"
         annotation (Placement(transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
       Flange_b flange_b "Flange of right shaft"

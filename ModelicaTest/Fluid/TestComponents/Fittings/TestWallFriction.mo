@@ -7,7 +7,7 @@ model TestWallFriction
       Modelica.Media.Water.ConstantPropertyLiquidWater
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
-    __Dymola_choicesAllMatching =                                                                            true);
+    choicesAllMatching =                                                                            true);
   parameter Modelica.SIunits.Length roughness = 0.025e-3;
 
   Modelica.Fluid.Sources.Boundary_pT ambient_a(redeclare package Medium =
@@ -106,7 +106,7 @@ equation
   connect(ambient_a.ports[4], pipe4.port_a)
                                       annotation (Line(points={{-18,47},{-12,47},
           {-12,-40},{0,-40}}, color={0,127,255}));
-  annotation (    experiment(StopTime=10, __Dymola_NumberOfIntervals=10000),
+  annotation (    experiment(StopTime=10, Interval=1e-3),
     Documentation(info="<html>
 <p>
 5 different wall friction models are compared.

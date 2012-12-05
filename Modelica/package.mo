@@ -4762,7 +4762,7 @@ should be automatic):
                                                 SIunits.Conversions.NonSIunits.Temperature_degC </td> </tr>
 <tr><td valign=\"top\"> ThermodynamicTemperature <br>
                                                 TemperatureDifference</td>
-          <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true/false\"
+          <td valign=\"top\"> Added annotation \"absoluteValue=true/false\"
                                                 in order that unit checking is possible<br>
                                                 (the unit checker needs to know for a unit that has an offset,
                                                 whether it is used as absolute or as a relative number)</td> </tr>
@@ -4771,7 +4771,7 @@ should be automatic):
 <tr><td valign=\"top\"> Temperature_degC<br>
                                                 Temperature_degF<br>
                                                 Temperature_degRk </td>
-          <td valign=\"top\"> Added annotation \"__Dymola_absoluteValue=true\"
+          <td valign=\"top\"> Added annotation \"absoluteValue=true\"
                                                 in order that unit checking is possible<br>
                                                 (the unit checker needs to know for a unit that has an offset,
                                                 whether it is used as absolute or as a relative number)</td> </tr>

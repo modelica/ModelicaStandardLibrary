@@ -5423,7 +5423,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_nominalPressureLossLawDensity_DPMFLOW;
 
@@ -5521,7 +5521,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_pressureLossCoefficient_DPMFLOW;
 
@@ -5625,7 +5625,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_volumeFlowRate_DPMFLOW;
       end General;
@@ -5757,7 +5757,7 @@ extends Modelica.Icons.ExamplesPackage;
                   lineColor={0,0,255},
                   textString=
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
-            experiment(__Dymola_NumberOfIntervals=5000));
+            experiment(StopTime=1.0,Interval=2e-4));
         end dp_suddenChange_DPMFLOW;
 
         model dp_thickEdgedOverall_DPMFLOW
@@ -5889,7 +5889,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_thickEdgedOverall_DPMFLOW;
       end Orifice;
@@ -6011,7 +6011,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_laminar_DPMFLOW;
 
@@ -6141,7 +6141,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "Pressure loss of STRAIGHT PIPE for OVERALL flow regime (inverse)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_overall_DPMFLOW;
 
@@ -6271,7 +6271,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "here: unintended input variables for creation of nonlinear equations (proof analytical Jacobians)")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_turbulent_DPMFLOW;
 
@@ -6425,7 +6425,7 @@ extends Modelica.Icons.ExamplesPackage;
                     "Two phase pressure loss of STRAIGHT PIPE for OVERALL flow regime")}),
             experiment(
               StopTime=1.01,
-              __Dymola_NumberOfIntervals=5000,
+              Interval=2e-4,
               Tolerance=1e-005));
         end dp_twoPhaseOverall_DP;
       end StraightPipe;
@@ -6794,7 +6794,7 @@ Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid
 <p>
 This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
-</html>"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
+</html>"),       experiment(StopTime=1.01, Interval=2e-4),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}), graphics={Text(
                 extent={{-96,120},{86,58}},
@@ -6913,7 +6913,7 @@ Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid
 <p>
 This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
-</html>"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
+</html>"),       experiment(StopTime=1.01, Interval=2e-4),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,
                   100}}), graphics={Text(
                 extent={{-96,120},{86,58}},
@@ -7206,7 +7206,7 @@ Switch to the diagram or equation layer to see the model of a <b> Modelica.Fluid
 <p>
 This model executes pressure loss calculations out of the <b> Fluid.Dissipation </b> library for a bend of an incompressible and single-phase fluid flow considering surface roughness. Both the <b> compressible </b> case, where the mass flow rate (M_FLOW) is calculated in dependence of a known pressure loss (dp) and the <b> incompressible </b> case, where the pressure loss (DP) is calculated in dependence of a known mass flow rate (m_flow) are modelled.
 </p>
-</html>"),       experiment(StopTime=1.01, __Dymola_NumberOfIntervals=5000),
+</html>"),       experiment(StopTime=1.01, Interval=2e-4),
           Diagram(coordinateSystem(preserveAspectRatio=true, extent={{-200,-200},{200,
                   200}}), graphics={
               Text(

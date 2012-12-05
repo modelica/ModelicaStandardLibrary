@@ -365,7 +365,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
       annotation(Documentation(info="<html>
 <p>Calculation of the mean convective heat transfer coefficient <b>kc </b>for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a> </p>
-</html>"), smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"), smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar;
 
       function kc_evenGapLaminar_KC
@@ -422,7 +422,7 @@ reference 01IS07022B). The project is started in October 2007 and ended in June 
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow through an even gap at different fluid flow and heat transfer situations.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapLaminar\">See more information.</a>
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapLaminar_KC;
 
       record kc_evenGapLaminar_IN_con
@@ -523,7 +523,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           end if;
         end for;
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
             Documentation(info="<html>
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
@@ -583,7 +583,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for an overall fluid flow through an even gap at different fluid flow and heat transfer situations. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapOverall\">See more information.</a>
 </p>
-</html>"),       smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),       smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapOverall_KC;
 
       record kc_evenGapOverall_IN_con
@@ -688,7 +688,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapTurbulent;
 
       function kc_evenGapTurbulent_KC
@@ -739,7 +739,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a d
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a developed turbulent fluid flow through an even gap at heat transfer from both sides. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Channel.kc_evenGapTurbulent\">See more information.</a>
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_evenGapTurbulent_KC;
 
       record kc_evenGapTurbulent_IN_con
@@ -874,7 +874,7 @@ A detailled documentation for this convective heat transfer calculation can be f
 <a href=\"modelica://Modelica.Fluid.Dissipation.HeatTransfer.General.kc_approxForcedConvection_KC\">kc_approxForcedConvection_KC</a> .
 Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
-</html>"),          smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),          smoothOrder(normallyConstant=IN_con) = 2);
       end kc_approxForcedConvection;
 
       function kc_approxForcedConvection_KC
@@ -925,7 +925,7 @@ Note that additionally a failure status is observed in this function to check if
 Approximate calculation of the mean convective heat transfer coefficient <b> kc </b> for forced convection with a fully developed fluid flow in a turbulent regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.General.kc_approxForcedConvection\">See more information</a> .
 </p>
-</html>"),       smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),       smoothOrder(normallyConstant=IN_con) = 2);
       end kc_approxForcedConvection_KC;
 
       record kc_approxForcedConvection_IN_con
@@ -1039,7 +1039,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
 
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube;
 
       function kc_flatTube_KC
@@ -1109,7 +1109,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with flat tubes and several fin geometries.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_flatTube\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_flatTube_KC;
 
       record kc_flatTube_IN_con
@@ -1248,7 +1248,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_roundTube;
 
       function kc_roundTube_KC
@@ -1384,7 +1384,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for the air-side heat transfer of heat exchangers with round tubes and several fin geometries.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HeatExchanger.kc_roundTube\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_roundTube_KC;
 
       record kc_roundTube_IN_con
@@ -1536,7 +1536,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for the
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
       function kc_laminar_KC
@@ -1587,7 +1587,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a helical pipe in the laminar flow regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_laminar\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
       record kc_laminar_IN_con
@@ -1662,7 +1662,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
       function kc_overall_KC
@@ -1724,7 +1724,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe in a hydrodynamically developed laminar and turbulent flow regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_overall\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
       record kc_overall_IN_con
@@ -1819,7 +1819,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
       function kc_turbulent_KC
@@ -1872,7 +1872,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> of a he
 Calculation of the mean convective heat transfer coefficient <b> kc </b> of a helical pipe for turbulent flow regime.
 <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.HelicalPipe.kc_turbulent\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
       record kc_turbulent_IN_con
@@ -1975,7 +1975,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
       function kc_laminar_KC
@@ -2019,7 +2019,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_laminar\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
       record kc_laminar_IN_con
@@ -2104,7 +2104,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a laminar or turbulent fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
       function kc_overall_KC
@@ -2140,7 +2140,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a l
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_overall\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
       record kc_overall_IN_con
@@ -2228,7 +2228,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of the mean convective heat transfer coefficient <b> kc </b> for a hydrodynamically developed turbulent fluid flow over an even surface. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
       function kc_turbulent_KC
@@ -2273,7 +2273,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for a h
 Generally this function is numerically best used for the calculation of the mean convective heat transfer coefficient <b> kc </b> at known fluid velocity.
  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.Plate.kc_turbulent\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
       record kc_turbulent_IN_con
@@ -2375,7 +2375,7 @@ Calculation of the mean convective heat transfer coefficient <b> kc </b> for an 
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar;
 
       function kc_laminar_KC
@@ -2435,7 +2435,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b>and</b> for a hydrodynamically developed <b>or</b> undeveloped laminar fluid flow. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_laminar\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_laminar_KC;
 
       record kc_laminar_IN_con
@@ -2543,7 +2543,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall;
 
       function kc_overall_KC
@@ -2595,7 +2595,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe at an uniform wall temperature <b> or </b> uniform heat flux <b> and </b> for a hydrodynamically developed <b>or</b> undeveloped overall fluid flow with neglect <b> or </b> consideration of pressure loss influence.<a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_overall\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_overall_KC;
 
       record kc_overall_IN_con
@@ -2704,7 +2704,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. Note that additionally a failure status is observed in this function to check if the intended boundary conditions are fulfilled.  <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent;
 
       function kc_turbulent_KC
@@ -2750,7 +2750,7 @@ Calculation of mean convective heat transfer coefficient <b> kc </b> of a straig
 <p>
 Calculation of mean convective heat transfer coefficient <b> kc </b> of a straight pipe for a hydrodynamically developed turbulent fluid flow at uniform wall temperature <b> or </b> uniform heat flux with neglecting <b> or </b> considering of pressure loss influence. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_turbulent\">See more information</a> .
 </p>
-</html>"),                 smoothOrder(__Dymola_normallyConstant=IN_con) = 2);
+</html>"),                 smoothOrder(normallyConstant=IN_con) = 2);
       end kc_turbulent_KC;
 
       record kc_turbulent_IN_con
@@ -2811,7 +2811,7 @@ This record is used as <b> input record </b> for the heat transfer function <a h
           IN_con, IN_var) else if IN_con.target == Modelica.Fluid.Dissipation.Utilities.Types.TwoPhaseHeatTransferTarget.CondHor then
           Modelica.Fluid.Dissipation.Utilities.Functions.HeatTransfer.TwoPhase.kc_twoPhase_condensationHorizontal_KC(
           IN_con, IN_var) else MIN;
-      annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation(smoothOrder(normallyConstant=IN_con) = 2,
             Documentation(info=
                       "<html>
 <p>Calculation of local <b>two phase</b> heat transfer coefficient <b>kc_2ph </b>for (horizontal/vertical) <b>boiling</b> or (horizontal) <b>condensation</b> for an overall flow regime. <a href=\"modelica://Modelica.Fluid.Dissipation.Utilities.SharedDocumentation.HeatTransfer.StraightPipe.kc_twoPhaseOverall\">See more information</a> .</p>
@@ -2982,7 +2982,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
           m_flow,
           m_flow_smooth,
           2)/max(MIN, (IN_var.rho*A_cross)^2);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
           inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_MFLOW(
                 IN_con,
                 IN_var,
@@ -3149,7 +3149,7 @@ This record is used as <b>input record</b> for the heat transfer function <a hre
       algorithm
         M_FLOW := sign(dp)*IN_var.rho*A_cross*abs(velocity);
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
           inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedOverall_DP(
                 IN_con,
                 IN_var,
@@ -3304,7 +3304,7 @@ and <a href=\"modelica://Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_curvedO
                 velocity,
                 v_min,
                 2);
-       annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+       annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_MFLOW(
                 IN_con,
                 IN_var,
@@ -3437,7 +3437,7 @@ Generally this function is numerically best used for the <b>incompressible case<
       algorithm
         M_FLOW := sign(dp)*IN_var.rho*A_cross*velocity;
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Bend.dp_edgedOverall_DP(
                 IN_con,
                 IN_var,
@@ -3615,7 +3615,7 @@ Calculation of pressure loss in edged bends with sharp corners at overall flow r
                 IN_2_con,
                 IN_2_var,
                 m_flow_turb);
-      annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation(smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_MFLOW(
                 IN_con,
                 IN_var,
@@ -3768,7 +3768,7 @@ Generally this function is numerically best used for the <b> incompressible case
                 IN_2_con,
                 IN_2_var,
                 dp);
-      annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation(smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Channel.dp_internalFlowOverall_DP(
                 IN_con,
                 IN_var,
@@ -3866,7 +3866,7 @@ Calculation of pressure loss for an internal flow through different geometries a
                 V_flow,
                 V_flow_min,
                 IN_con.exp);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_MFLOW(
                 IN_con,
                 IN_var,
@@ -3913,7 +3913,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 dp,
                 IN_con.dp_smooth,
                 1/IN_con.exp);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_idealGas_DP(
                 IN_con,
                 IN_var,
@@ -4000,7 +4000,7 @@ This record is used as <b> input record </b> for the pressure loss function
           /IN_var.rho*IN_con.dp_nom*(1/IN_con.m_flow_nom)^(IN_con.exp) else
           m_flow/IN_con.m_flow_nom*(IN_var.eta/IN_con.eta_nom)^IN_con.exp_eta*
           IN_con.rho_nom/IN_var.rho*IN_con.dp_nom;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_MFLOW(
                 IN_con,
                 IN_var,
@@ -4049,7 +4049,7 @@ Generally this function is numerically best used for the <b> incompressible case
           IN_con.exp)*(1/IN_con.dp_nom*IN_var.rho/IN_con.rho_nom)^(1/IN_con.exp)
           *IN_con.m_flow_nom else dp/IN_con.dp_nom*(IN_con.eta_nom/IN_var.eta)^
           (IN_con.exp_eta)*IN_var.rho/IN_con.rho_nom*IN_con.m_flow_nom;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalDensityViscosity_DP(
                 IN_con,
                 IN_var,
@@ -4143,7 +4143,7 @@ This record is used as <b> input record </b> for the pressure loss function
           exp_density)*(IN_con.A_cross_nom/IN_con.A_cross)^(1)*(m_flow/IN_con.m_flow_nom)
           ^(1);
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_MFLOW(
                 IN_con,
                 IN_var,
@@ -4202,7 +4202,7 @@ Generally this function is numerically best used for the <b> incompressible case
           *(IN_con.A_cross/IN_con.A_cross_nom)*(IN_con.rho_nom/IN_var.rho)^(
           exp_density/1)*((dp/IN_con.dp_nom)*(IN_con.zeta_TOT_nom/IN_var.zeta_TOT))
           ^(1/1);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_nominalPressureLossLawDensity_DP(
                 IN_con,
                 IN_var,
@@ -4280,7 +4280,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 (IN_con.dp_smooth/(0.5*IN_var.zeta_TOT*IN_var.rho))^0.5*IN_var.rho
             *IN_con.A_cross,
                 2)/(IN_var.rho*(IN_con.A_cross)^2);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_MFLOW(
                 IN_con,
                 IN_var,
@@ -4324,7 +4324,7 @@ Generally this function is numerically best used for the <b> incompressible case
                 dp,
                 IN_con.dp_smooth,
                 0.5)/(0.5*IN_var.zeta_TOT*IN_var.rho)^0.5;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_pressureLossCoefficient_DP(
                 IN_con,
                 IN_var,
@@ -4419,7 +4419,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 V_flow,
                 V_flow_smooth,
                 2) + b*V_flow;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_MFLOW(
                 IN_con,
                 IN_var,
@@ -4471,7 +4471,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 (b/(2*a))^2 + (1/a)*dp,
                 (b/(2*a))^2 + (1/a)*dp_min,
                 0.5));
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.General.dp_volumeFlowRate_DP(
                 IN_con,
                 IN_var,
@@ -4637,7 +4637,7 @@ Calculation of a generic pressure loss with linear or quadratic dependence on vo
                 Re_min,
                 2);
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_MFLOW(
                 IN_con,
                 IN_var,
@@ -4718,7 +4718,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 dp,
                 dp_min,
                 0.5)*(max(MIN, 2/(IN_var.rho*zeta_LOC)))^0.5;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_suddenChange_DP(
                 IN_con,
                 IN_var,
@@ -4827,7 +4827,7 @@ This record is used as <b> input record </b> for the pressure loss functions
                 Re,
                 Re_min,
                 2)*(d_hyd_1/d_hyd_0*A_0/A_1)^2;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_MFLOW(
                 IN_con,
                 IN_var,
@@ -4901,7 +4901,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 dp,
                 IN_con.dp_smooth,
                 0.5)/(0.5*IN_var.rho*zeta_TOT_1)^0.5;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Orifice.dp_thickEdgedOverall_DP(
                 IN_con,
                 IN_var,
@@ -5003,7 +5003,7 @@ Calculation of pressure loss in thick edged orifices with sharp corners at overa
 
       algorithm
         DP := 32*IN_var.eta*velocity*IN_con.L/d_hyd^2;
-      annotation(smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation(smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_MFLOW(
                 IN_con,
                 IN_var,
@@ -5049,7 +5049,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       algorithm
         M_FLOW := IN_var.rho*A_cross*(dp*d_hyd^2/(32*IN_var.eta*IN_con.L));
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_laminar_DP(
                 IN_con,
                 IN_var,
@@ -5153,7 +5153,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 IN_con,
                 IN_var,
                 m_flow);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_MFLOW(
                 IN_con,
                 IN_var,
@@ -5255,7 +5255,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
                 IN_con,
                 IN_var,
                 dp);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_overall_DP(
                 IN_con,
                 IN_var,
@@ -5379,7 +5379,7 @@ This record is used as <b> input record </b> for the pressure loss function
                 velocity,
                 v_min,
                 2);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_MFLOW(
                 IN_con,
                 IN_var,
@@ -5476,7 +5476,7 @@ Generally this  function is numerically best used for the <b> incompressible cas
 
       algorithm
         M_FLOW := IN_var.rho*A_cross*velocity;
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.StraightPipe.dp_turbulent_DP(
                 IN_con,
                 IN_var,
@@ -5615,7 +5615,7 @@ This record is used as <b> input record </b> for the pressure loss function
       algorithm
         DP := DP_fric + DP_mom + DP_geo;
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     Documentation(info="<html>
 <p>
 Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b> vertical straight pipe for an overall flow regime considering frictional, momentum and geodetic pressure loss.
@@ -5815,7 +5815,7 @@ Calculation of pressure loss for <b>two phase flow</b> in a horizontal <b>or</b>
                 m_flow_small,
                 2);
 
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(m_flow=Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_MFLOW(
                 IN_con,
                 IN_var,
@@ -5920,7 +5920,7 @@ Generally this function is numerically best used for the <b> incompressible case
                 dp,
                 IN_con.dp_small,
                 0.5);
-      annotation (smoothOrder(__Dymola_normallyConstant=IN_con) = 2,
+      annotation (smoothOrder(normallyConstant=IN_con) = 2,
                     inverse(dp=Modelica.Fluid.Dissipation.PressureLoss.Valve.dp_severalGeometryOverall_DP(
                 IN_con,
                 IN_var,

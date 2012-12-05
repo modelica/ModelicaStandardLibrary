@@ -130,16 +130,16 @@ with exception of boundary pressure, do not have an effect.
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p_in = false
       "Get the pressure from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_T_in= false
       "Get the temperature from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_X_in = false
       "Get the composition from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_C_in = false
       "Get the trace substances from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.AbsolutePressure p = Medium.p_default
       "Fixed value of pressure"
       annotation (Evaluate = true,
@@ -290,16 +290,16 @@ with exception of boundary pressure, do not have an effect.
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_p_in = false
       "Get the pressure from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_h_in= false
       "Get the specific enthalpy from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_X_in = false
       "Get the composition from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_C_in = false
       "Get the trace substances from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.AbsolutePressure p = Medium.p_default
       "Fixed value of pressure"
       annotation (Evaluate = true,
@@ -449,16 +449,16 @@ with exception of boundary pressure, do not have an effect.
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_m_flow_in = false
       "Get the mass flow rate from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_T_in= false
       "Get the temperature from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_X_in = false
       "Get the composition from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_C_in = false
       "Get the trace substances from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.MassFlowRate m_flow = 0
       "Fixed mass flow rate going out of the fluid port"
       annotation (Evaluate = true,
@@ -606,16 +606,16 @@ with exception of boundary flow rate, do not have an effect.
     extends Sources.BaseClasses.PartialSource;
     parameter Boolean use_m_flow_in = false
       "Get the mass flow rate from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_h_in= false
       "Get the specific enthalpy from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_X_in = false
       "Get the composition from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_C_in = false
       "Get the trace substances from the input connector"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Medium.MassFlowRate m_flow = 0
       "Fixed mass flow rate going out of the fluid port"
       annotation (Evaluate = true,
@@ -770,7 +770,7 @@ with exception of boundary flow rate, do not have an effect.
     replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium
         "Medium model within the source"
-       annotation (__Dymola_choicesAllMatching=true);
+       annotation (choicesAllMatching=true);
 
     Medium.BaseProperties medium "Medium in the source";
 

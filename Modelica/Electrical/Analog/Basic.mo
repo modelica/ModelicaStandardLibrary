@@ -858,7 +858,7 @@ end M_Transformer;
   model EMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
       "= true, if support flange enabled, otherwise implicitly grounded"
-        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter SI.ElectricalTorqueConstant k(start=1)
       "Transformation coefficient";
     SI.Voltage v "Voltage drop between the two pins";
@@ -995,7 +995,7 @@ end M_Transformer;
   model TranslationalEMF "Electromotoric force (electric/mechanic transformer)"
     parameter Boolean useSupport=false
       "= true, if support flange enabled, otherwise implicitly grounded"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Modelica.SIunits.ElectricalForceConstant k(start=1)
       "Transformation coefficient";
 

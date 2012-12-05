@@ -914,7 +914,7 @@ handled properly.</p>
       replaceable package Medium = Modelica.Media.Water.WaterIF97_ph
         constrainedby Modelica.Media.Interfaces.PartialTwoPhaseMedium
         "Medium in the component"
-        annotation (__Dymola_choicesAllMatching=true);
+        annotation (choicesAllMatching=true);
     // parameter for Tank
       parameter Modelica.SIunits.Area crossArea "Tank area";
       parameter SI.Area top_pipeArea[n_TopPorts] "Area of outlet pipe";
@@ -1042,7 +1042,7 @@ handled properly.</p>
         constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer"
-          annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),__Dymola_choicesAllMatching=true);
+          annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
       HeatTransfer heatTransfer(
         redeclare final package Medium = Medium,
         final n=1,
@@ -1260,7 +1260,7 @@ Full steady state initialization is not supported, because the corresponding int
     model InnerTank
         replaceable package Medium =
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-        annotation (__Dymola_choicesAllMatching=true);
+        annotation (choicesAllMatching=true);
 
         Modelica.Fluid.Interfaces.FluidPort_a port(redeclare package Medium =
             Medium)
@@ -1827,7 +1827,7 @@ Integer type that can have the following values
       constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer"
-        annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),__Dymola_choicesAllMatching=true);
+        annotation (Dialog(tab="Assumptions", group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
       redeclare final package Medium = Medium,
       final n=1,
@@ -2462,7 +2462,7 @@ Implemented trace substances and missing equation for outflow of multi substance
       replaceable package Medium =
          Modelica.Media.Water.ConstantPropertyLiquidWater                    constrainedby
         Modelica.Media.Interfaces.PartialMedium "Medium in the component"
-          annotation (__Dymola_choicesAllMatching = true);
+          annotation (choicesAllMatching = true);
 
       inner Modelica.Fluid.System system
                             annotation (Placement(transformation(extent={{-100,60},

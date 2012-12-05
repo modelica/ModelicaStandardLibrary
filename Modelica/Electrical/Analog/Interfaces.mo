@@ -308,7 +308,7 @@ The reason could be that
     "Partial model to include a conditional HeatPort in order to describe the power loss via a thermal network"
 
     parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+    annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
     Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort(T(start=T)=T_heatPort, Q_flow=-LossPower) if useHeatPort

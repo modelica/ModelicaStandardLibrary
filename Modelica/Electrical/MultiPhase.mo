@@ -2736,7 +2736,7 @@ Connector Plug is a composite connector containing m Pins (Modelica.Electrical.A
       parameter Integer mh(min=1)=3 "Number of heatPorts=number of phases";
       parameter Boolean useHeatPort = false
         "=true, if all HeatPorts are enabled"
-      annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       parameter Modelica.SIunits.Temperature T[mh]=fill(293.15, mh)
         "Fixed device temperatures if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
       Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort[mh] if useHeatPort

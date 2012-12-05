@@ -1733,7 +1733,7 @@ a flange according to a given acceleration.
     algorithm
       q :=q_qd_qdd[1];
       annotation (derivative(noDerivative=q_qd_qdd) = position_der,
-          __Dymola_InlineAfterIndexReduction=true);
+          InlineAfterIndexReduction=true);
     end position;
 
     function position_der
@@ -1746,7 +1746,7 @@ a flange according to a given acceleration.
     algorithm
       qd :=q_qd_qdd[2];
       annotation (derivative(noDerivative=q_qd_qdd, order=2) = position_der2,
-          __Dymola_InlineAfterIndexReduction=true);
+          InlineAfterIndexReduction=true);
     end position_der;
 
     function position_der2
@@ -2237,7 +2237,7 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "File where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
       "Columns of table to be interpolated"

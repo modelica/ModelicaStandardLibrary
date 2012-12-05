@@ -16,7 +16,7 @@ package Tables
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
       "columns of table to be interpolated"
@@ -264,7 +264,7 @@ Several matrices may be defined one after another.
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Integer columns[:]=2:size(table, 2)
       "columns of table to be interpolated"
@@ -513,7 +513,7 @@ Several matrices may be defined one after another.
          annotation(Dialog(group="table data definition", enable = tableOnFile));
     parameter String fileName="NoName" "file where matrix is stored"
          annotation(Dialog(group="table data definition", enable = tableOnFile,
-                           __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                           loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                            caption="Open file in which table is present")));
     parameter Modelica.Blocks.Types.Smoothness smoothness=Types.Smoothness.LinearSegments
       "smoothness of table interpolation"

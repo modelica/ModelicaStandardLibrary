@@ -129,7 +129,7 @@ with
   algorithm
     v1 := transpose(R.T)*v2;
     annotation (derivative(noDerivative=R) = Internal.resolve1_der,
-        __Dymola_InlineAfterIndexReduction=true);
+        InlineAfterIndexReduction=true);
   end resolve1;
 
   function resolve2 "Transform vector from frame 1 to frame 2"
@@ -140,7 +140,7 @@ with
   algorithm
     v2 := R.T*v1;
     annotation (derivative(noDerivative=R) = Internal.resolve2_der,
-        __Dymola_InlineAfterIndexReduction=true);
+        InlineAfterIndexReduction=true);
   end resolve2;
 
   function resolveRelative
@@ -154,7 +154,7 @@ with
   algorithm
     v2 := resolve2(R2, resolve1(R1, v1));
     annotation (derivative(noDerivative=R1, noDerivative=R2) = Internal.resolveRelative_der,
-        __Dymola_InlineAfterIndexReduction=true);
+        InlineAfterIndexReduction=true);
   end resolveRelative;
 
   function resolveDyade1

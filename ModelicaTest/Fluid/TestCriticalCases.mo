@@ -361,7 +361,7 @@ The steady-state initial values are observed by an assertion.
     annotation (
               experiment(
         StopTime=5,
-        __Dymola_NumberOfIntervals=5000,
+        Interval=1e-3,
         Tolerance=1e-006),
       Documentation(info="<html>
 Simulation starts with both valves open. At t=1, valve 1 closes; at t=2 valve 2 closes, and the simulation fails.

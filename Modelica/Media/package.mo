@@ -80,7 +80,7 @@ In a component, the most basic usage of a medium model is as follows
 <pre>
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
-                         \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
+                         \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
     Medium.BaseProperties medium_a \"Medium properties at location a (e.g., port_a)\";
     // Use medium variables (medium_a.p, medium_a.T, medium_a.h, ...)
      ...
@@ -116,7 +116,7 @@ The simple example that explained the basic usage of BaseProperties would then b
 <pre>
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
-                         \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
+                         \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
     Medium.ThermodynamicState state_a \"Thermodynamic state record at location a (e.g., port_a)\";
     // Compute medium variables from thermodynamic state record (pressure(state_a), temperature(state_a),
     // specificEnthalpy(state_a), ...)
@@ -127,7 +127,7 @@ The simple example that explained the basic usage of BaseProperties would then b
 All media models are directly or indirectly a subpackage of package
 Modelica.Media.Interfaces.PartialMedium. Therefore,
 a medium model in a component should inherit from this
-partial package. Via the annotation \"__Dymola_choicesAllMatching = true\" it
+partial package. Via the annotation \"choicesAllMatching = true\" it
 is defined that the tool should display a selection box with
 all loaded packages that inherit from PartialMedium. An example
 is given in the next figure:
@@ -148,7 +148,7 @@ in the medium model:
 <pre>
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
-                         \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
+                         \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
     Medium.BaseProperties medium_a \"Medium properties of port_a\";
     // definition of the fluid port port_a
      ...
@@ -163,7 +163,7 @@ in the case of using BaseProperties or
 <pre>
   <b>model</b> Pump
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
-                         \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
+                         \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
     Medium.ThermodynamicState state_a \"Thermodynamic state record of medium at port_a\";
     // definition of the fluid port port_a
      ...
@@ -255,7 +255,7 @@ Modelica.Media.Examples.Tests.Components.PortVolume</a>):
 
     <b>parameter</b> SI.Volume V = 1e-6 \"Fixed size of junction volume\";
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
-                           \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
+                           \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
 
     FluidPort_a port(<b>redeclare package</b> Medium = Medium);
     Medium.BaseProperties medium(preferredMediumStates = <b>true</b>);
@@ -371,7 +371,7 @@ Modelica.Media.Examples.Tests.Components.ShortPipe</a>):
     // parameters defining the pressure drop equation
 
     <b>replaceable package</b> Medium = Modelica.Media.Interfaces.PartialMedium
-                           \"Medium model\" <b>annotation</b> (__Dymola_choicesAllMatching = <b>true</b>);
+                           \"Medium model\" <b>annotation</b> (choicesAllMatching = <b>true</b>);
 
     Component.FluidPort_a port_a (<b>redeclare package</b> Medium = Medium);
     Component.FluidPort_b port_b (<b>redeclare package</b> Medium = Medium);
@@ -2481,7 +2481,7 @@ end MoistAir;
     equation
       der(medium.p) = dp;
       der(medium.h) = dh;
-      annotation (experiment(StopTime=22, __Dymola_NumberOfIntervals=2500),
+      annotation (experiment(StopTime=22, Interval=0.01),
         Documentation(info="<html>
 <p> For details see the documentation of the example package TwoPhaseWater</p>
 </html>"));
@@ -2758,7 +2758,7 @@ is given to compare the approximation.
         "Interface for quasi one-dimensional fluid flow in a piping network (incompressible or compressible, one or more phases, one or more substances)"
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (__Dymola_choicesAllMatching=true);
+          "Medium model" annotation (choicesAllMatching=true);
 
         Medium.AbsolutePressure p "Pressure in the connection point";
         flow Medium.MassFlowRate m_flow
@@ -2866,7 +2866,7 @@ is given to compare the approximation.
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model"
-           annotation (__Dymola_choicesAllMatching=true);
+           annotation (choicesAllMatching=true);
 
         parameter SI.Volume V=1e-6 "Fixed size of junction volume";
 
@@ -2984,7 +2984,7 @@ transport.
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model"
-           annotation (__Dymola_choicesAllMatching=true);
+           annotation (choicesAllMatching=true);
 
         Medium.BaseProperties medium "Medium in the source";
         FluidPort_b port(redeclare package Medium = Medium)
@@ -3053,7 +3053,7 @@ transport.
         "Ambient pressure, temperature and mass fraction source"
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model"
-           annotation (__Dymola_choicesAllMatching=true);
+           annotation (choicesAllMatching=true);
 
         parameter Boolean use_p_ambient=true "select p_ambient or d_ambient"
           annotation (Evaluate=true, Dialog(group=
@@ -3137,7 +3137,7 @@ with exception of ambient pressure, do not have an effect.
       model ShortPipe "Simple pressure loss in pipe"
          replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
           "Medium model"
-           annotation (__Dymola_choicesAllMatching=true);
+           annotation (choicesAllMatching=true);
 
         parameter Medium.AbsolutePressure dp_nominal(min=1.e-10)
           "Nominal pressure drop";
@@ -3206,7 +3206,7 @@ no mass or energy is stored in the pipe.
       partial model PartialTestModel "Basic test model to test a medium"
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (__Dymola_choicesAllMatching=true);
+          "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start = Medium.p_default
           "Initial value of pressure";
         parameter SI.Temperature T_start = Medium.T_default
@@ -3266,7 +3266,7 @@ no mass or energy is stored in the pipe.
         "slightly larger test model to test a medium"
 
         replaceable package Medium = Modelica.Media.Interfaces.PartialMedium
-          "Medium model" annotation (__Dymola_choicesAllMatching=true);
+          "Medium model" annotation (choicesAllMatching=true);
         parameter SI.AbsolutePressure p_start = 1.0e5
           "Initial value of pressure";
         parameter SI.Temperature T_start = 300 "Initial value of temperature";
@@ -3624,7 +3624,7 @@ output window.
 
       replaceable package Medium = Modelica.Media.Air.DryAirNasa
             constrainedby Modelica.Media.IdealGases.Common.SingleGasNasa
-        "Medium model"     annotation (__Dymola_choicesAllMatching=true);
+        "Medium model"     annotation (choicesAllMatching=true);
 
      parameter SI.Temperature T_min = 300
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
@@ -3676,7 +3676,7 @@ output window.
 
      replaceable package Medium =
           Modelica.Media.Incompressible.Examples.Glycol47 "Medium model"
-                        annotation (__Dymola_choicesAllMatching=true);
+                        annotation (choicesAllMatching=true);
 
      parameter SI.Temperature T_min = Medium.T_min
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";
@@ -3731,7 +3731,7 @@ output window.
       replaceable package Medium =
           Modelica.Media.IdealGases.MixtureGases.FlueGasLambdaOnePlus
             constrainedby Modelica.Media.IdealGases.Common.MixtureGasNasa
-        "Medium model"     annotation (__Dymola_choicesAllMatching=true);
+        "Medium model"     annotation (choicesAllMatching=true);
 
      parameter SI.Temperature T_min = 300
         "Vary temperature linearly from T_min (time=0) upto T_max (time=1)";

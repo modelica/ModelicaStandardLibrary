@@ -171,19 +171,19 @@ density and heat capacity as functions of temperature.</li>
         (if TinK then 1 ./ tableViscosity[:,1] else 1 ./ Cv.from_degC(tableViscosity[:,1])) else fill(0,neta);
     final constant Real poly_rho[:] = if hasDensity then
                                          Poly.fitting(tableDensity[:,1],tableDensity[:,2],npolDensity) else
-                                           zeros(npolDensity+1) annotation(__Dymola_keepConstant = true);
+                                           zeros(npolDensity+1) annotation(keepConstant = true);
     final constant Real poly_Cp[:] = if hasHeatCapacity then
                                          Poly.fitting(tableHeatCapacity[:,1],tableHeatCapacity[:,2],npolHeatCapacity) else
-                                           zeros(npolHeatCapacity+1) annotation(__Dymola_keepConstant = true);
+                                           zeros(npolHeatCapacity+1) annotation(keepConstant = true);
     final constant Real poly_eta[:] = if hasViscosity then
                                          Poly.fitting(invTK, Math.log(tableViscosity[:,2]),npolViscosity) else
-                                           zeros(npolViscosity+1) annotation(__Dymola_keepConstant = true);
+                                           zeros(npolViscosity+1) annotation(keepConstant = true);
     final constant Real poly_pVap[:] = if hasVaporPressure then
                                          Poly.fitting(tableVaporPressure[:,1],tableVaporPressure[:,2],npolVaporPressure) else
-                                            zeros(npolVaporPressure+1) annotation(__Dymola_keepConstant= true);
+                                            zeros(npolVaporPressure+1) annotation(keepConstant= true);
     final constant Real poly_lam[:] = if size(tableConductivity,1)>0 then
                                          Poly.fitting(tableConductivity[:,1],tableConductivity[:,2],npolConductivity) else
-                                           zeros(npolConductivity+1) annotation(__Dymola_keepConstant = true);
+                                           zeros(npolConductivity+1) annotation(keepConstant = true);
     function invertTemp "function to invert temperatures"
       extends Modelica.Icons.Function;
       input Real[:] table "table temperature data";
@@ -730,7 +730,7 @@ Modelica in file \"Modelica/package.mo\".
 </html>"));
     end Polynomials_Temp;
 
-  annotation(__Dymola_keepConstant = true, Documentation(info="<HTML>
+  annotation(keepConstant = true, Documentation(info="<HTML>
 <p>
 This is the base package for medium models of incompressible fluids based on
 tables. The minimal data to provide for a useful medium description is tables

@@ -7,7 +7,7 @@ package Streams "Read from files and write to files"
     input String string="" "String to be printed";
     input String fileName=""
       "File where to print (empty string is the terminal)"
-                 annotation(Dialog(__Dymola_saveSelector(filter="Text files (*.txt)",
+                 annotation(Dialog(saveSelector(filter="Text files (*.txt)",
                         caption="Text file to store the output of print(..)")));
   external "C" ModelicaInternal_print(string, fileName);
     annotation (Library="ModelicaExternalC",
@@ -47,7 +47,7 @@ After every call of \"print(..)\" a \"new line\" is printed automatically.
     "Read content of a file and return it in a vector of strings (fileName can be an URI)"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
-                 annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
+                 annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
   protected
     String absoluteFileName = Modelica.Utilities.Files.loadResource(fileName);
@@ -75,7 +75,7 @@ content, closes the file and returns the content as a vector of strings. Lines a
     "Reads a line of text from a file and returns it in a string"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
-                        annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
+                        annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for reading")));
     input Integer lineNumber(min=1) "Number of line to read";
     output String string "Line of text";
@@ -105,7 +105,7 @@ and endOfFile=true. Otherwise endOfFile=false.
   function countLines "Returns the number of lines in a file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be read"
-                       annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
+                       annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Open text file for coutning lines")));
 
     output Integer numberOfLines "Number of lines in file";
@@ -156,7 +156,7 @@ by \"\\n\" in the string.
   function close "Close file"
     extends Modelica.Icons.Function;
     input String fileName "Name of the file that shall be closed"
-                 annotation(Dialog(__Dymola_loadSelector(filter="Text files (*.txt)",
+                 annotation(Dialog(loadSelector(filter="Text files (*.txt)",
                         caption="Close text file")));
     external "C" ModelicaStreams_closeFile(fileName);
     annotation (Library="ModelicaExternalC",Documentation(info="<html>

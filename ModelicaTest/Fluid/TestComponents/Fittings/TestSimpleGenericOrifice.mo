@@ -10,7 +10,7 @@ model TestSimpleGenericOrifice
       Modelica.Media.Water.ConstantPropertyLiquidWater
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
-    __Dymola_choicesAllMatching =                                                                            true);
+    choicesAllMatching =                                                                            true);
 
   Modelica.Fluid.Sources.Boundary_pT ambient_a( redeclare package Medium =
         Medium,
@@ -65,7 +65,7 @@ equation
   connect(expansion2.port_a, ambient_a.ports[2])
                                            annotation (Line(points={{0,20},{-10,
           20},{-10,48},{-20,48}}, color={0,127,255}));
-  annotation (    experiment(StopTime=10, __Dymola_NumberOfIntervals=10000),
+  annotation (    experiment(StopTime=10, Interval=1e-3),
     Documentation(info="<html>
 </html>"));
 end TestSimpleGenericOrifice;

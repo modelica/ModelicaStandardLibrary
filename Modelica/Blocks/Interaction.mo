@@ -9,7 +9,7 @@ package Interaction
     block RealValue
       "Show Real value from numberPort or from number input field in diagram layer dynamically"
       parameter Boolean use_numberPort = true "= true, if numberPort enabled"
-        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       input Real number = 0.0
         "Number to visualize if use_numberPort=false (time varying)"
         annotation(Dialog(enable=not use_numberPort), HideResult=true);
@@ -73,7 +73,7 @@ The usage is demonstrated, e.g., in example
     block IntegerValue
       "Show Integer value from numberPort or from number input field in diagram layer dynamically"
       parameter Boolean use_numberPort = true "= true, if numberPort enabled"
-        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       input Integer number=0
         "Number to visualize if use_numberPort=false (time varying)"
         annotation(Dialog(enable=not use_numberPort), HideResult=true);
@@ -133,7 +133,7 @@ The usage is demonstrated, e.g., in example
     block BooleanValue
       "Show Boolean value from numberPort or from number input field in diagram layer dynamically"
       parameter Boolean use_activePort = true "= true, if activePort enabled"
-        annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+        annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
       input Boolean active=false
         "Boolean variable to visualize if use_activePort=false (time varying)"
         annotation(Dialog(enable=not use_activePort),HideResult=true);

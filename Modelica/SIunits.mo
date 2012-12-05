@@ -270,15 +270,15 @@ end UsersGuide;
       type Temperature_degC = Real (final quantity="ThermodynamicTemperature",
             final unit="degC")
         "Absolute temperature in degree Celsius (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(__Dymola_absoluteValue=true);
+                                                                                                            annotation(absoluteValue=true);
       type Temperature_degF = Real (final quantity="ThermodynamicTemperature",
             final unit="degF")
         "Absolute temperature in degree Fahrenheit (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(__Dymola_absoluteValue=true);
+                                                                                                            annotation(absoluteValue=true);
       type Temperature_degRk = Real (final quantity="ThermodynamicTemperature",
             final unit="degRk")
         "Absolute temperature in degree Rankine (for relative temperature use SIunits.TemperatureDifference)"
-                                                                                                            annotation(__Dymola_absoluteValue=true);
+                                                                                                            annotation(absoluteValue=true);
       type Angle_deg = Real (final quantity="Angle", final unit="deg")
         "Angle in degree";
       type AngularVelocity_rpm = Real (final quantity="AngularVelocity", final unit=
@@ -309,10 +309,10 @@ end UsersGuide;
 
       type FirstOrderTemperaturCoefficient =
                               Real (final quantity="FirstOrderTemperatureCoefficient",
-            final unit="Ohm/degC") "First Order Temperature Coefficient"                                         annotation(__Dymola_absoluteValue=true);
+            final unit="Ohm/degC") "First Order Temperature Coefficient"                                         annotation(absoluteValue=true);
       type SecondOrderTemperaturCoefficient =
                               Real (final quantity="SecondOrderTemperatureCoefficient",
-            final unit="Ohm/degC2") "Second Order Temperature Coefficient"                                        annotation(__Dymola_absoluteValue=true);
+            final unit="Ohm/degC2") "Second Order Temperature Coefficient"                                        annotation(absoluteValue=true);
       type Area_cm =   Real (final quantity="Area", final unit="cm2")
         "Area in cm";
       type PerArea_cm =Real (final quantity="PerArea", final unit="1/cm2")
@@ -1114,7 +1114,7 @@ argument):</p>
       nominal = 300,
       displayUnit="degC")
     "Absolute temperature (use type TemperatureDifference for relative temperatures)"
-                                                                                                        annotation(__Dymola_absoluteValue=true);
+                                                                                                        annotation(absoluteValue=true);
   type Temp_K = ThermodynamicTemperature;
   type Temperature = ThermodynamicTemperature;
   type TemperatureDifference = Real (
@@ -1124,7 +1124,7 @@ argument):</p>
       max = 2000,
       nominal = 1,
       start = 1,
-      displayUnit="K") annotation(__Dymola_absoluteValue=false);
+      displayUnit="K") annotation(absoluteValue=false);
   type Temp_C = SIunits.Conversions.NonSIunits.Temperature_degC;
   type TemperatureSlope = Real (final quantity="TemperatureSlope",
       final unit="K/s");

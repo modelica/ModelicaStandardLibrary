@@ -63,22 +63,22 @@ package Sensors "Sensors to measure variables"
       "Frame in which vectors are resolved (1: world, 2: frame_a, 3: frame_resolve)";
     parameter Boolean get_r=false
       "= true, to measure the absolute position vector of the origin of frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_v=false
       "= true, to measure the absolute velocity of the origin of frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_a=false
       "= true, to measure the absolute acceleration of the origin of frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_w=false
       "= true, to measure the absolute angular velocity of frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_z=false
       "= true, to measure the absolute angular acceleration of frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_angles=false
       "= true, to measure the 3 rotation angles"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true), Dialog(group="3 angles to rotate the world frame into frame_a along the axes defined in \"sequence\""));
+      annotation(HideResult=true, choices(checkBox=true), Dialog(group="3 angles to rotate the world frame into frame_a along the axes defined in \"sequence\""));
     parameter Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3}
@@ -494,22 +494,22 @@ and sequence[2] &ne; sequence[3]. Often used values are:
       "Frame in which vectors are resolved before differentiation (1: world, 2: frame_a, 3: frame_b, 4: frame_resolve)";
     parameter Boolean get_r_rel=false
       "= true, to measure the relative position vector from the origin of frame_a to frame_b"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_v_rel=false
       "= true, to measure the relative velocity of the origin of frame_b with respect to frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_a_rel=false
       "= true, to measure the relative acceleration of the origin of frame_b with respect to frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_w_rel=false
       "= true, to measure the relative angular velocity of frame_b with respect to frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_z_rel=false
       "= true, to measure the relative angular acceleration of frame_b with respect to frame_a"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true));
+      annotation(HideResult=true, choices(checkBox=true));
     parameter Boolean get_angles=false
       "= true, to measure the 3 rotation angles"
-      annotation(HideResult=true, choices(__Dymola_checkBox=true), Dialog(group="3 angles to rotate frame_a into frame_b along the axes defined in \"sequence\""));
+      annotation(HideResult=true, choices(checkBox=true), Dialog(group="3 angles to rotate frame_a into frame_b along the axes defined in \"sequence\""));
     parameter Types.RotationSequence sequence(
       min={1,1,1},
       max={3,3,3}) = {1,2,3}

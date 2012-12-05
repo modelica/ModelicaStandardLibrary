@@ -7602,7 +7602,7 @@ Wires n input signals in one output signal, without delay.
       parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                             __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                             loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                              caption="Open file in which table is present")));
 
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(
@@ -7860,7 +7860,7 @@ Firstly Write is carried out, then Read.</b></p>
       parameter String fileName="modelica://Modelica/Resources/Data/Electrical/Digital/Digital_InputMatrixMemories.txt"
         "File where matrix for memory is stored"
         annotation(Dialog(group="table data definition", enable = tableOnFile,
-                             __Dymola_loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
+                             loadSelector(filter="Text files (*.txt);;Matlab files (*.mat)",
                              caption="Open file in which table is present")));
 
       D.Interfaces.DigitalInput RE "read enable"   annotation (Placement(transformation(

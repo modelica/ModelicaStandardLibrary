@@ -13,7 +13,7 @@ block MultiSwitch
 
   parameter Boolean use_pre_as_default=true
       "= true, y holds its last value if all u[i]=false, otherwise y=y_default"
-        annotation(HideResult=true, choices(__Dymola_checkBox=true));
+        annotation(HideResult=true, choices(checkBox=true));
   parameter Integer nu(min=0) = 0 "Number of input connections"
           annotation(Dialog(connectorSizing=true), HideResult=true);
 
@@ -197,10 +197,10 @@ the output is set to zero: y=0.
     extends Modelica.Blocks.Interfaces.PartialIntegerSISO;
 
     parameter Boolean use_reset = false "=true, if reset port enabled"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Boolean use_set = false
       "=true, if set port enabled and used as default value when reset"
-          annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
+          annotation(Evaluate=true, HideResult=true, choices(checkBox=true));
     parameter Integer y_start = 0
       "Initial and reset value of y if set port is not used";
 

@@ -602,7 +602,7 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
@@ -612,14 +612,14 @@ the animation may be switched off via parameter animation = <b>false</b>.
 
     parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
@@ -971,7 +971,7 @@ to the setting of parameters \"useQuaternions\" and
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
@@ -981,14 +981,14 @@ to the setting of parameters \"useQuaternions\" and
 
     parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
@@ -1263,7 +1263,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
@@ -1273,14 +1273,14 @@ states and of the \"Advanced\" menu parameters, see model
 
     parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
@@ -1477,7 +1477,7 @@ states and of the \"Advanced\" menu parameters, see model
 
     parameter Boolean angles_fixed = false
       "= true, if angles_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.Angle angles_start[3]={0,0,0}
       "Initial values of angles to rotate frame_a around 'sequence_start' axes into frame_b"
       annotation (Dialog(tab="Initialization"));
@@ -1487,14 +1487,14 @@ states and of the \"Advanced\" menu parameters, see model
 
     parameter Boolean w_0_fixed = false
       "= true, if w_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularVelocity w_0_start[3]={0,0,0}
       "Initial or guess values of angular velocity of frame_a resolved in world frame"
       annotation (Dialog(tab="Initialization"));
 
     parameter Boolean z_0_fixed = false
       "= true, if z_0_start are used as initial values, else as guess values"
-      annotation(Evaluate=true, choices(__Dymola_checkBox=true), Dialog(tab="Initialization"));
+      annotation(Evaluate=true, choices(checkBox=true), Dialog(tab="Initialization"));
     parameter SI.AngularAcceleration z_0_start[3]={0,0,0}
       "Initial values of angular acceleration z_0 = der(w_0)"
       annotation (Dialog(tab="Initialization"));
@@ -1933,7 +1933,7 @@ November 3-4, 2003, pp. 149-158</p>
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
     input Types.Color cylinderColor=Modelica.Mechanics.MultiBody.Types.Defaults.RodColor
         "Color of cylinder representing the rotor"
-      annotation (Dialog(__Dymola_colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
+      annotation (Dialog(colorSelector=true, tab="Animation", group="if animation = true", enable=animation));
     input Types.SpecularCoefficient specularCoefficient =                              world.defaultSpecularCoefficient
         "Reflection of ambient light (= 0: light is completely absorbed)"
       annotation (Dialog(tab="Animation", group="if animation = true", enable=animation));
@@ -2372,7 +2372,7 @@ November 3-4, 2003, pp. 149-158</p>
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheel"    annotation (Dialog(__Dymola_colorSelector=true,
+      "Color of wheel"    annotation (Dialog(colorSelector=true,
           tab="Animation",
           group="if animation = true",
           enable=animation));
@@ -2489,7 +2489,7 @@ November 3-4, 2003, pp. 149-158</p>
           tab="Animation",
           group="if animation = true", enable=animation));
       parameter Modelica.Mechanics.MultiBody.Types.Color wheelColor={30,30,30}
-      "Color of wheels"    annotation (Dialog(__Dymola_colorSelector=true,
+      "Color of wheels"    annotation (Dialog(colorSelector=true,
           tab="Animation",
           group="if animation = true",
           enable=animation));

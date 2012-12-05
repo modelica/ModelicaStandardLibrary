@@ -328,7 +328,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
     replaceable function flowCharacteristic =
         PumpCharacteristics.baseFlow
         "Head vs. V_flow characteristic at nominal speed and density"
-      annotation(Dialog(group="Characteristics"), __Dymola_choicesAllMatching=true);
+      annotation(Dialog(group="Characteristics"), choicesAllMatching=true);
     parameter NonSI.AngularVelocity_rpm N_nominal
         "Nominal rotational speed for flow characteristic"
       annotation(Dialog(group="Characteristics"));
@@ -343,13 +343,13 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
          V_flow_nominal={0,0,0},W_nominal={0,0,0})
         "Power consumption vs. V_flow at nominal speed and density"
       annotation(Dialog(group="Characteristics", enable = use_powerCharacteristic),
-                 __Dymola_choicesAllMatching=true);
+                 choicesAllMatching=true);
     replaceable function efficiencyCharacteristic =
       PumpCharacteristics.constantEfficiency(eta_nominal = 0.8) constrainedby
         PumpCharacteristics.baseEfficiency
         "Efficiency vs. V_flow at nominal speed and density"
       annotation(Dialog(group="Characteristics",enable = not use_powerCharacteristic),
-                 __Dymola_choicesAllMatching=true);
+                 choicesAllMatching=true);
 
     // Assumptions
     parameter Boolean checkValve=false "= true to prevent reverse flow"
@@ -374,7 +374,7 @@ Then the model can be replaced with a Pump with rotational shaft or with a Presc
       constrainedby
         Modelica.Fluid.Vessels.BaseClasses.HeatTransfer.PartialVesselHeatTransfer
         "Wall heat transfer"
-        annotation (Dialog(tab="Assumptions",group="Heat transfer",enable=use_HeatTransfer),__Dymola_choicesAllMatching=true);
+        annotation (Dialog(tab="Assumptions",group="Heat transfer",enable=use_HeatTransfer),choicesAllMatching=true);
     HeatTransfer heatTransfer(
       redeclare final package Medium = Medium,
       final n=1,

@@ -7,7 +7,7 @@ model TestSharpEdgedOrifice
   replaceable package Medium = Modelica.Media.IdealGases.SingleGases.O2
     constrainedby Modelica.Media.Interfaces.PartialMedium
     "Medium in all components"                        annotation (
-    __Dymola_choicesAllMatching =                                                                            true);
+    choicesAllMatching =                                                                            true);
 
   Modelica.Fluid.Sources.Boundary_pT ambient_p(redeclare package Medium =
         Medium,
@@ -66,7 +66,7 @@ equation
   connect(orifice2.port_b, ambient_p2.ports[1])
                                             annotation (Line(points={{20,20},{
           40,20}}, color={0,127,255}));
-  annotation (    experiment(StopTime=10, __Dymola_NumberOfIntervals=10000),
+  annotation (    experiment(StopTime=10, Interval=1e-3),
     Documentation(info="<html>
 </html>"));
 end TestSharpEdgedOrifice;

@@ -68,7 +68,7 @@ This model is documented at
       replaceable function surfaceCharacteristic =
          Modelica.Mechanics.MultiBody.Interfaces.partialSurfaceCharacteristic
           "Function defining the surface characteristic"
-              annotation(__Dymola_choicesAllMatching=true,Dialog(group="Surface properties"));
+              annotation(choicesAllMatching=true,Dialog(group="Surface properties"));
 
       parameter Boolean wireframe=false
           "= true: 3D model will be displayed without faces"

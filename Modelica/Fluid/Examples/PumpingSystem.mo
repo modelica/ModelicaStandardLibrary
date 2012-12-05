@@ -168,6 +168,6 @@ If using Dymola, turn off \"Equidistant time grid\" to avoid numerical errors.
 </html>"),
     experiment(
       StopTime=2000,
-      __Dymola_NumberOfIntervals=5000,
+      Interval=0.4,
       Tolerance=1e-006));
 end PumpingSystem;

@@ -593,7 +593,7 @@ All other blocks convert exactly between two different units.
   equation
     u1 = u2;
     y1 = y2;
-    annotation(__Dymola_structurallyIncomplete=true,
+    annotation(__Dymola_structurallyIncomplete=true,defaultConnectionStructurallyInconsistent=true,
       Icon(coordinateSystem(preserveAspectRatio=false, extent={{-200,-120},{200,
               120}}), graphics={
           Line(

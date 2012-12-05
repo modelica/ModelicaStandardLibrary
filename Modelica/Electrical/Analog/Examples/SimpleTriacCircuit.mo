@@ -65,8 +65,8 @@ equation
       smooth=Smooth.None));
   annotation (    experiment(
       StopTime=0.001,
-      __Dymola_NumberOfIntervals=2000,
-      Tolerance=1e-012),
+      Interval=5e-7,
+      Tolerance=1e-12),
     Documentation(revisions="<html>
 <ul>
 <li><i>November 25, 2009   </i> <br>

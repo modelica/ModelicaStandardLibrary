@@ -4,7 +4,7 @@ model System
 
   package Medium = Modelica.Media.Interfaces.PartialMedium
     "Medium model for default start values"
-      annotation (__Dymola_choicesAllMatching = true);
+      annotation (choicesAllMatching = true);
   parameter Modelica.SIunits.AbsolutePressure p_ambient=101325
     "Default ambient pressure"
     annotation(Dialog(group="Environment"));
