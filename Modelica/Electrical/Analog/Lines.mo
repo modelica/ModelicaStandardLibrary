@@ -480,11 +480,7 @@ equation
       <td valign=\"top\">Initially implemented</td>
     </tr>
 </table>
-</HTML>"),
-    experiment(
-      StopTime=1e-009,
-      __Dymola_NumberOfIntervals=2000,
-      Tolerance=1e-009));
+</HTML>"));
 end M_OLine;
 
   model ULine "Lossy RC Line"
