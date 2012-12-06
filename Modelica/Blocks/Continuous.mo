@@ -2292,13 +2292,13 @@ The development of this block was partially funded by BMBF within the
           epsilon := sqrt(10^(A_ripple/10) - 1);
           fac := asinh(1/epsilon)/order;
 
+          den1 := fill(1/sinh(fac),size(den1,1));
           if size(cr,1) == 0 then
              for i in 1:size(c0, 1) loop
                 den2[i,1] :=1/(cosh(fac)^2 - cos((2*i - 1)*pi/(2*order))^2);
                 den2[i,2] :=2*den2[i, 1]*sinh(fac)*cos((2*i - 1)*pi/(2*order));
              end for;
           else
-             den1[1] := 1/sinh(fac);
              for i in 1:size(c0, 1) loop
                 den2[i,1] :=1/(cosh(fac)^2 - cos(i*pi/order)^2);
                 den2[i,2] :=2*den2[i, 1]*sinh(fac)*cos(i*pi/order);
@@ -2318,9 +2318,7 @@ The development of this block was partially funded by BMBF within the
               den2[i, 1] := den2[i, 1]*alpha2;
               den2[i, 2] := den2[i, 2]*alpha;
             end for;
-            if size(cr,1) == 1 then
-              den1[1] := den1[1]*alpha;
-            end if;
+            den1 := den1*alpha;
           end if;
 
         // Determine polynomials with highest power of s equal to one
