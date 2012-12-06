@@ -395,7 +395,7 @@ it is open.
       parameter SI.Area Av(
         fixed=if CvData == Modelica.Fluid.Types.CvTypes.Av then true else false,
         start=m_flow_nominal/(sqrt(rho_nominal*dp_nominal))*valveCharacteristic(
-            opening_nominal)) = 0 "Av (metric) flow coefficient"
+            opening_nominal)) "Av (metric) flow coefficient"
        annotation(Dialog(group = "Flow Coefficient",
                          enable = (CvData==Modelica.Fluid.Types.CvTypes.Av)));
       parameter Real Kv = 0 "Kv (metric) flow coefficient [m3/h]"
