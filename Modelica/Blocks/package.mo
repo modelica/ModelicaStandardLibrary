@@ -24,64 +24,60 @@ package Examples
       initType=Modelica.Blocks.Types.InitPID.SteadyState,
       limitsAtInit=false,
       controllerType=Modelica.Blocks.Types.SimpleController.PI,
-      Td=0.1)
-      annotation (Placement(transformation(extent={{-56,-20},{-36,0}}, rotation=
-             0)));
+      Td=0.1) annotation (Placement(transformation(extent={{-56,-20},{-36,0}},
+            rotation=0)));
     Modelica.Mechanics.Rotational.Components.Inertia inertia1(
-                                                   a(fixed=true), phi(fixed=
-            true, start=0),
-      J=1)                                    annotation (Placement(
-          transformation(extent={{2,-20},{22,0}}, rotation=0)));
+      phi(fixed=true, start=0),
+      J=1,
+      a(fixed=true, start=0)) annotation (Placement(transformation(extent={{2,-20},
+              {22,0}}, rotation=0)));
 
-    Modelica.Mechanics.Rotational.Sources.Torque torque
-      annotation (Placement(transformation(extent={{-25,-20},{-5,0}}, rotation=
-              0)));
+    Modelica.Mechanics.Rotational.Sources.Torque torque annotation (Placement(
+          transformation(extent={{-25,-20},{-5,0}}, rotation=0)));
     Modelica.Mechanics.Rotational.Components.SpringDamper spring(
-                                                      c=1e4, d=100,
+      c=1e4,
+      d=100,
       stateSelect=StateSelect.prefer,
-      w_rel(fixed=true))
-      annotation (Placement(transformation(extent={{32,-20},{52,0}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Components.Inertia inertia2(
-                                                   J=2)
-      annotation (Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
-    Modelica.Blocks.Sources.KinematicPTP kinematicPTP(startTime=0.5, deltaq={
-          driveAngle},
+      w_rel(fixed=true)) annotation (Placement(transformation(extent={{32,-20},
+              {52,0}}, rotation=0)));
+    Modelica.Mechanics.Rotational.Components.Inertia inertia2(J=2) annotation (
+        Placement(transformation(extent={{60,-20},{80,0}}, rotation=0)));
+    Modelica.Blocks.Sources.KinematicPTP kinematicPTP(
+      startTime=0.5,
+      deltaq={driveAngle},
       qd_max={1},
-      qdd_max={1})     annotation (Placement(transformation(extent={{-92,20},{
-              -72,40}}, rotation=0)));
-    Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.
-          Types.Init.InitialState) annotation (Placement(transformation(extent=
-              {{-63,20},{-43,40}}, rotation=0)));
-    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor
-      annotation (Placement(transformation(extent={{22,-50},{2,-30}}, rotation=
-              0)));
+      qdd_max={1}) annotation (Placement(transformation(extent={{-92,20},{-72,
+              40}}, rotation=0)));
+    Modelica.Blocks.Continuous.Integrator integrator(initType=Modelica.Blocks.Types.Init.InitialState)
+      annotation (Placement(transformation(extent={{-63,20},{-43,40}}, rotation
+            =0)));
+    Modelica.Mechanics.Rotational.Sensors.SpeedSensor speedSensor annotation (
+        Placement(transformation(extent={{22,-50},{2,-30}}, rotation=0)));
     Modelica.Mechanics.Rotational.Sources.ConstantTorque loadTorque(
-                                                            tau_constant=10,
-        useSupport=false)
-      annotation (Placement(transformation(extent={{98,-15},{88,-5}}, rotation=
-              0)));
-  initial equation
+        tau_constant=10, useSupport=false) annotation (Placement(transformation(
+            extent={{98,-15},{88,-5}}, rotation=0)));
+    initial equation
     der(spring.w_rel) = 0;
 
-  equation
-    connect(spring.flange_b,inertia2. flange_a)
+    equation
+    connect(spring.flange_b, inertia2.flange_a)
       annotation (Line(points={{52,-10},{60,-10}}, color={0,0,0}));
     connect(inertia1.flange_b, spring.flange_a)
       annotation (Line(points={{22,-10},{32,-10}}, color={0,0,0}));
     connect(torque.flange, inertia1.flange_a)
       annotation (Line(points={{-5,-10},{2,-10}}, color={0,0,0}));
-    connect(kinematicPTP.y[1], integrator.u) annotation (Line(points={{-71,30},
-            {-65,30}}, color={0,0,127}));
+    connect(kinematicPTP.y[1], integrator.u)
+      annotation (Line(points={{-71,30},{-65,30}}, color={0,0,127}));
     connect(speedSensor.flange, inertia1.flange_b)
       annotation (Line(points={{22,-40},{22,-10}}, color={0,0,0}));
     connect(loadTorque.flange, inertia2.flange_b)
       annotation (Line(points={{88,-10},{80,-10}}, color={0,0,0}));
-    connect(PI.y, torque.tau)  annotation (Line(points={{-35,-10},{-27,-10}},
-          color={0,0,127}));
-    connect(speedSensor.w, PI.u_m)  annotation (Line(points={{1,-40},{-46,-40},
-            {-46,-22}}, color={0,0,127}));
-    connect(integrator.y, PI.u_s)  annotation (Line(points={{-42,30},{-37,30},{
-            -37,11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
+    connect(PI.y, torque.tau)
+      annotation (Line(points={{-35,-10},{-27,-10}}, color={0,0,127}));
+    connect(speedSensor.w, PI.u_m)
+      annotation (Line(points={{1,-40},{-46,-40},{-46,-22}}, color={0,0,127}));
+    connect(integrator.y, PI.u_s) annotation (Line(points={{-42,30},{-37,30},{-37,
+            11},{-67,11},{-67,-10},{-58,-10}}, color={0,0,127}));
     annotation (
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
@@ -171,46 +167,46 @@ is forced back to its limit after a transient phase.
 </p>
 
 </html>"));
-  end PID_Controller;
+    end PID_Controller;
 
-model Filter "Demonstrates the Continuous.Filter block with various options"
-  extends Modelica.Icons.Example;
-  parameter Integer order = 3;
-  parameter Modelica.SIunits.Frequency f_cut = 2;
-  parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
+  model Filter "Demonstrates the Continuous.Filter block with various options"
+    extends Modelica.Icons.Example;
+    parameter Integer order=3;
+    parameter Modelica.SIunits.Frequency f_cut=2;
+    parameter Modelica.Blocks.Types.FilterType filterType=Modelica.Blocks.Types.FilterType.LowPass
       "Type of filter (LowPass/HighPass)";
-  parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
+    parameter Modelica.Blocks.Types.Init init=Modelica.Blocks.Types.Init.SteadyState
       "Type of initialization (no init/steady state/initial state/initial output)";
-  parameter Boolean normalized = true;
+    parameter Boolean normalized=true;
 
-  Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
-    annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
+    Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
+      annotation (Placement(transformation(extent={{-60,40},{-40,60}})));
     Modelica.Blocks.Continuous.Filter CriticalDamping(
-    analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
-    normalized=normalized,
-    init=init,
-    filterType=filterType,
-    order=order,
-    f_cut=f_cut,
-    f_min=0.8*f_cut)
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.CriticalDamping,
+      normalized=normalized,
+      init=init,
+      filterType=filterType,
+      order=order,
+      f_cut=f_cut,
+      f_min=0.8*f_cut)
       annotation (Placement(transformation(extent={{-20,40},{0,60}})));
     Modelica.Blocks.Continuous.Filter Bessel(
-    normalized=normalized,
-    analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
-    init=init,
-    filterType=filterType,
-    order=order,
-    f_cut=f_cut,
-    f_min=0.8*f_cut)
+      normalized=normalized,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Bessel,
+      init=init,
+      filterType=filterType,
+      order=order,
+      f_cut=f_cut,
+      f_min=0.8*f_cut)
       annotation (Placement(transformation(extent={{-20,0},{0,20}})));
     Modelica.Blocks.Continuous.Filter Butterworth(
-    normalized=normalized,
-    analogFilter=Modelica.Blocks.Types.AnalogFilter.Butterworth,
-    init=init,
-    filterType=filterType,
-    order=order,
-    f_cut=f_cut,
-    f_min=0.8*f_cut)
+      normalized=normalized,
+      analogFilter=Modelica.Blocks.Types.AnalogFilter.Butterworth,
+      init=init,
+      filterType=filterType,
+      order=order,
+      f_cut=f_cut,
+      f_min=0.8*f_cut)
       annotation (Placement(transformation(extent={{-20,-40},{0,-20}})));
     Modelica.Blocks.Continuous.Filter ChebyshevI(
       normalized=normalized,
@@ -222,29 +218,26 @@ model Filter "Demonstrates the Continuous.Filter block with various options"
       f_min=0.8*f_cut)
       annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
 
-equation
-  connect(step.y, CriticalDamping.u)
-                               annotation (Line(
+    equation
+    connect(step.y, CriticalDamping.u) annotation (Line(
         points={{-39,50},{-22,50}},
         color={0,0,127},
         smooth=Smooth.None));
-  connect(step.y, Bessel.u)   annotation (Line(
-      points={{-39,50},{-32,50},{-32,10},{-22,10}},
-      color={0,0,127},
-      smooth=Smooth.None));
-  connect(Butterworth.u, step.y)
-                              annotation (Line(
-      points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
-      color={0,0,127},
-      smooth=Smooth.None));
-    connect(ChebyshevI.u, step.y)
-                               annotation (Line(
-      points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
-      color={0,0,127},
-      smooth=Smooth.None));
-  annotation (
+    connect(step.y, Bessel.u) annotation (Line(
+        points={{-39,50},{-32,50},{-32,10},{-22,10}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(Butterworth.u, step.y) annotation (Line(
+        points={{-22,-30},{-32,-30},{-32,50},{-39,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(ChebyshevI.u, step.y) annotation (Line(
+        points={{-22,-70},{-32,-70},{-32,50},{-39,50}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    annotation (
       experiment(StopTime=0.9),
-    Icon(graphics={Text(
+      Icon(graphics={Text(
             extent={{-82,54},{86,22}},
             lineColor={0,0,0},
             textString="basic"), Text(
@@ -268,15 +261,15 @@ The default setting uses low pass filters of order 3 with a cut-off frequency of
 <img src=\"modelica://Modelica/Resources/Images/Blocks/Filter1.png\"
      alt=\"Filter1.png\">
 </html>"));
-end Filter;
+    end Filter;
 
-model FilterWithDifferentiation
+  model FilterWithDifferentiation
     "Demonstrates the use of low pass filters to determine derivatives of filters"
-  extends Modelica.Icons.Example;
-  parameter Modelica.SIunits.Frequency f_cut = 2;
+    extends Modelica.Icons.Example;
+    parameter Modelica.SIunits.Frequency f_cut=2;
 
-  Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
-    annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
+    Modelica.Blocks.Sources.Step step(startTime=0.1, offset=0.1)
+      annotation (Placement(transformation(extent={{-80,40},{-60,60}})));
     Modelica.Blocks.Continuous.Filter Bessel(
       f_cut=f_cut,
       filterType=Modelica.Blocks.Types.FilterType.LowPass,
@@ -290,8 +283,8 @@ model FilterWithDifferentiation
       annotation (Placement(transformation(extent={{30,40},{50,60}})));
     Continuous.Der der3
       annotation (Placement(transformation(extent={{62,40},{82,60}})));
-equation
-    connect(step.y, Bessel.u)  annotation (Line(
+    equation
+    connect(step.y, Bessel.u) annotation (Line(
         points={{-59,50},{-42,50}},
         color={0,0,127},
         smooth=Smooth.None));
@@ -307,16 +300,16 @@ equation
         points={{51,50},{60,50}},
         color={0,0,127},
         smooth=Smooth.None));
-  annotation (
+    annotation (
       experiment(StopTime=0.9),
-    Icon(graphics={Text(
+      Icon(graphics={Text(
             extent={{-82,54},{86,22}},
             lineColor={0,0,0},
             textString="basic"), Text(
             extent={{-84,2},{84,-30}},
             lineColor={0,0,0},
             textString="filters")}),
-    Documentation(info="<html>
+      Documentation(info="<html>
 
 <p>
 This example demonstrates that the output of the
@@ -327,7 +320,7 @@ discontinuous control signal.
 </p>
 
 </html>"));
-end FilterWithDifferentiation;
+    end FilterWithDifferentiation;
 
   model FilterWithRiseTime
     "Demonstrates to use the rise time instead of the cut-off frequency to define a filter"
@@ -343,9 +336,8 @@ end FilterWithDifferentiation;
       annotation (Placement(transformation(extent={{-20,20},{0,40}})));
     Continuous.Filter filter_fac3(f_cut=3/(2*pi*riseTime), order=order)
       annotation (Placement(transformation(extent={{-20,62},{0,82}})));
-  equation
-    connect(step.y, filter_fac5.u)
-                              annotation (Line(
+    equation
+    connect(step.y, filter_fac5.u) annotation (Line(
         points={{-39,30},{-30,30},{-30,-10},{-22,-10}},
         color={0,0,127},
         smooth=Smooth.None));
@@ -357,9 +349,7 @@ end FilterWithDifferentiation;
         points={{-39,30},{-30,30},{-30,72},{-22,72}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (
-      experiment(StopTime=4),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=4), Documentation(info="<html>
 <p>
 Filters are usually parameterized with the cut-off frequency.
 Sometimes, it is more meaningful to parameterize a filter with its
@@ -426,7 +416,7 @@ reached with different precisions. This is summarized in the following table:
 </table></blockquote>
 
 </html>"));
-  end FilterWithRiseTime;
+    end FilterWithRiseTime;
 
   model InverseModel "Demonstrates the construction of an inverse model"
     extends Modelica.Icons.Example;
@@ -452,7 +442,7 @@ reached with different precisions. This is summarized in the following table:
       annotation (Placement(transformation(extent={{-40,0},{-60,-20}})));
     Continuous.CriticalDamping criticalDamping(n=1, f=50*sine.freqHz)
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-  equation
+    equation
     connect(firstOrder1.y, inverseBlockConstraints.u2) annotation (Line(
         points={{-1,30},{-6,30}},
         color={0,0,127},
@@ -481,7 +471,7 @@ reached with different precisions. This is summarized in the following table:
         points={{31,30},{40,30},{40,-10},{22,-10}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (        Documentation(info="<html>
+    annotation (Documentation(info="<html>
 <p>
 This example demonstrates how to construct an inverse model in Modelica
 (for more details see <a href=\"http://www.modelica.org/events/Conference2005/online_proceedings/Session3/Session3c3.pdf\">Looye, Th&uuml;mmel, Kurze, Otter, Bals: Nonlinear Inverse Models for Control</a>).
@@ -550,31 +540,26 @@ agreement. A typical simulation result is shown in the next figure:
 
 <img src=\"modelica://Modelica/Resources/Images/Blocks/InverseModel.png\"
      alt=\"InverseModel.png\">
-</html>"),
-      experiment(StopTime=1.0));
-  end InverseModel;
+</html>"), experiment(StopTime=1.0));
+    end InverseModel;
 
-     model ShowLogicalSources
+  model ShowLogicalSources
     "Demonstrates the usage of logical sources together with their diagram animation"
-       extends Modelica.Icons.Example;
-       Sources.BooleanTable table(table={2,4,6,8})
-                                       annotation (Placement(transformation(
-            extent={{-60,-100},{-40,-80}}, rotation=0)));
-       Sources.BooleanConstant const    annotation (Placement(transformation(
-            extent={{-60,60},{-40,80}}, rotation=0)));
-       Sources.BooleanStep step(startTime=4) annotation (Placement(
-          transformation(extent={{-60,20},{-40,40}}, rotation=0)));
-       Sources.BooleanPulse pulse(period=1.5) annotation (Placement(
-          transformation(extent={{-60,-20},{-40,0}}, rotation=0)));
+    extends Modelica.Icons.Example;
+    Sources.BooleanTable table(table={2,4,6,8}) annotation (Placement(
+          transformation(extent={{-60,-100},{-40,-80}}, rotation=0)));
+    Sources.BooleanConstant const annotation (Placement(transformation(extent={
+              {-60,60},{-40,80}}, rotation=0)));
+    Sources.BooleanStep step(startTime=4) annotation (Placement(transformation(
+            extent={{-60,20},{-40,40}}, rotation=0)));
+    Sources.BooleanPulse pulse(period=1.5) annotation (Placement(transformation(
+            extent={{-60,-20},{-40,0}}, rotation=0)));
 
-      Sources.SampleTrigger sample(
-                          period=0.5) annotation (Placement(transformation(
-            extent={{-60,-60},{-40,-40}}, rotation=0)));
-      Sources.BooleanExpression booleanExpression(
-                                                y=pulse.y and step.y)
-      annotation (Placement(transformation(extent={{20,20},{80,40}}, rotation=0)));
-       annotation (     experiment(StopTime=10),
-      Documentation(info="<html>
+    Sources.SampleTrigger sample(period=0.5) annotation (Placement(
+          transformation(extent={{-60,-60},{-40,-40}}, rotation=0)));
+    Sources.BooleanExpression booleanExpression(y=pulse.y and step.y)
+      annotation (Placement(transformation(extent={{20,20},{80,40}},rotation=0)));
+    annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This simple example demonstrates the logical sources in
 <a href=\"modelica://Modelica.Blocks.Sources\">Modelica.Blocks.Sources</a> and demonstrate
@@ -585,41 +570,40 @@ model.
 </p>
 
 </html>"));
-     end ShowLogicalSources;
+    end ShowLogicalSources;
 
-    model LogicalNetwork1 "Demonstrates the usage of logical blocks"
+  model LogicalNetwork1 "Demonstrates the usage of logical blocks"
 
     extends Modelica.Icons.Example;
     Sources.BooleanTable table2(table={1,3,5,7}) annotation (Placement(
           transformation(extent={{-80,-20},{-60,0}}, rotation=0)));
     Sources.BooleanTable table1(table={2,4,6,8}) annotation (Placement(
           transformation(extent={{-80,20},{-60,40}}, rotation=0)));
-    Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{
-              -20,0}}, rotation=0)));
+    Logical.Not Not1 annotation (Placement(transformation(extent={{-40,-20},{-20,
+              0}}, rotation=0)));
 
     Logical.And And1 annotation (Placement(transformation(extent={{0,-20},{20,0}},
             rotation=0)));
     Logical.Or Or1 annotation (Placement(transformation(extent={{40,20},{60,40}},
             rotation=0)));
-    Logical.Pre Pre1 annotation (Placement(transformation(extent={{-40,-60},{
-              -20,-40}}, rotation=0)));
+    Logical.Pre Pre1 annotation (Placement(transformation(extent={{-40,-60},{-20,
+              -40}}, rotation=0)));
     equation
 
-    connect(table2.y, Not1.u) annotation (Line(points={{-59,-10},{-42,-10}},
-          color={255,0,255}));
+    connect(table2.y, Not1.u)
+      annotation (Line(points={{-59,-10},{-42,-10}}, color={255,0,255}));
     connect(And1.y, Or1.u2) annotation (Line(points={{21,-10},{28,-10},{28,22},
             {38,22}}, color={255,0,255}));
-    connect(table1.y, Or1.u1) annotation (Line(points={{-59,30},{38,30}}, color=
-           {255,0,255}));
-    connect(Not1.y, And1.u1) annotation (Line(points={{-19,-10},{-2,-10}},
-          color={255,0,255}));
+    connect(table1.y, Or1.u1)
+      annotation (Line(points={{-59,30},{38,30}}, color={255,0,255}));
+    connect(Not1.y, And1.u1)
+      annotation (Line(points={{-19,-10},{-2,-10}}, color={255,0,255}));
     connect(Pre1.y, And1.u2) annotation (Line(points={{-19,-50},{-10,-50},{-10,
             -18},{-2,-18}}, color={255,0,255}));
-    connect(Or1.y, Pre1.u) annotation (Line(points={{61,30},{68,30},{68,-70},{
-            -60,-70},{-60,-50},{-42,-50}}, color={255,0,255}));
+    connect(Or1.y, Pre1.u) annotation (Line(points={{61,30},{68,30},{68,-70},{-60,
+            -70},{-60,-50},{-42,-50}}, color={255,0,255}));
 
-    annotation (       experiment(StopTime=10),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of logical blocks. Note, that
 the Boolean values of the input and output signals are visualized
@@ -630,27 +614,24 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
 </html>"));
     end LogicalNetwork1;
 
-    model RealNetwork1
+  model RealNetwork1
     "Demonstrates the usage of blocks from Modelica.Blocks.Math"
 
     extends Modelica.Icons.Example;
 
-    Modelica.Blocks.Math.MultiSum
-                  add(nu=2)
+    Modelica.Blocks.Math.MultiSum add(nu=2)
       annotation (Placement(transformation(extent={{-14,64},{-2,76}})));
     Sources.Sine sine(amplitude=3, freqHz=0.1)
       annotation (Placement(transformation(extent={{-96,60},{-76,80}})));
-    Sources.Step        integerStep(height=3, startTime=2)
+    Sources.Step integerStep(height=3, startTime=2)
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
-    Sources.Constant        integerConstant(k=1)
+    Sources.Constant integerConstant(k=1)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-    Modelica.Blocks.Interaction.Show.RealValue
-                          showValue
+    Modelica.Blocks.Interaction.Show.RealValue showValue
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
-    Math.MultiProduct   product(nu=3)
+    Math.MultiProduct product(nu=3)
       annotation (Placement(transformation(extent={{16,24},{28,36}})));
-    Modelica.Blocks.Interaction.Show.RealValue
-                          showValue1(significantDigits=2)
+    Modelica.Blocks.Interaction.Show.RealValue showValue1(significantDigits=2)
       annotation (Placement(transformation(extent={{46,20},{66,40}})));
     Sources.BooleanPulse booleanPulse1(period=1)
       annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
@@ -661,16 +642,17 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
       annotation (Placement(transformation(extent={{28,-60},{68,-40}})));
     Sources.BooleanPulse booleanPulse2(period=2, width=80)
       annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
-    Modelica.Blocks.Interaction.Show.RealValue
-                          showValue3(use_numberPort=false, number=multiSwitch.y,
-     significantDigits=1)
+    Modelica.Blocks.Interaction.Show.RealValue showValue3(
+      use_numberPort=false,
+      number=multiSwitch.y,
+      significantDigits=1)
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
     equation
-    connect(booleanPulse1.y, multiSwitch.u[1])  annotation (Line(
+    connect(booleanPulse1.y, multiSwitch.u[1]) annotation (Line(
         points={{9,-20},{18,-20},{18,-48},{28,-48},{28,-48.5}},
         color={255,0,255},
         smooth=Smooth.None));
-    connect(booleanPulse2.y, multiSwitch.u[2])  annotation (Line(
+    connect(booleanPulse2.y, multiSwitch.u[2]) annotation (Line(
         points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
         color={255,0,255},
         smooth=Smooth.None));
@@ -702,8 +684,7 @@ If a \"circle\" is \"white\", the signal is <b>false</b>. It a
         points={{29.02,30},{44.5,30}},
         color={0,0,127},
         smooth=Smooth.None));
-    annotation (       experiment(StopTime=10),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of mathematical Real blocks.
 from package <a href=\"modelica://Modelica.Blocks.Math\">Modelica.Blocks.Math</a>.
@@ -724,7 +705,7 @@ Note, that
 </html>"));
     end RealNetwork1;
 
-    model IntegerNetwork1
+  model IntegerNetwork1
     "Demonstrates the usage of blocks from Modelica.Blocks.MathInteger"
 
     extends Modelica.Icons.Example;
@@ -739,20 +720,17 @@ Note, that
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
     Sources.IntegerConstant integerConstant(k=1)
       annotation (Placement(transformation(extent={{-60,-10},{-40,10}})));
-    Modelica.Blocks.Interaction.Show.IntegerValue
-                          showValue
+    Modelica.Blocks.Interaction.Show.IntegerValue showValue
       annotation (Placement(transformation(extent={{40,60},{60,80}})));
     MathInteger.Product product(nu=2)
       annotation (Placement(transformation(extent={{16,24},{28,36}})));
-    Modelica.Blocks.Interaction.Show.IntegerValue
-                          showValue1
+    Modelica.Blocks.Interaction.Show.IntegerValue showValue1
       annotation (Placement(transformation(extent={{40,20},{60,40}})));
     MathInteger.TriggeredAdd triggeredAdd(use_reset=false, use_set=false)
       annotation (Placement(transformation(extent={{16,-6},{28,6}})));
     Sources.BooleanPulse booleanPulse1(period=1)
       annotation (Placement(transformation(extent={{-12,-30},{8,-10}})));
-    Modelica.Blocks.Interaction.Show.IntegerValue
-                          showValue2
+    Modelica.Blocks.Interaction.Show.IntegerValue showValue2
       annotation (Placement(transformation(extent={{40,-10},{60,10}})));
     MathInteger.MultiSwitch multiSwitch1(
       nu=2,
@@ -762,8 +740,8 @@ Note, that
       annotation (Placement(transformation(extent={{28,-60},{68,-40}})));
     Sources.BooleanPulse booleanPulse2(period=2, width=80)
       annotation (Placement(transformation(extent={{-12,-70},{8,-50}})));
-    Modelica.Blocks.Interaction.Show.IntegerValue
-                          showValue3(use_numberPort=false, number=multiSwitch1.y)
+    Modelica.Blocks.Interaction.Show.IntegerValue showValue3(use_numberPort=
+          false, number=multiSwitch1.y)
       annotation (Placement(transformation(extent={{40,-84},{60,-64}})));
     equation
     connect(sine.y, realToInteger.u) annotation (Line(
@@ -818,8 +796,7 @@ Note, that
         points={{9,-60},{18,-60},{18,-52},{28,-52},{28,-51.5}},
         color={255,0,255},
         smooth=Smooth.None));
-    annotation (       experiment(StopTime=10),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Integer blocks.
 from package <a href=\"modelica://Modelica.Blocks.MathInteger\">Modelica.Blocks.MathInteger</a>.
@@ -841,13 +818,12 @@ Note, that
 </html>"));
     end IntegerNetwork1;
 
-    model BooleanNetwork1
+  model BooleanNetwork1
     "Demonstrates the usage of blocks from Modelica.Blocks.MathBoolean"
 
     extends Modelica.Icons.Example;
 
-    Modelica.Blocks.Interaction.Show.BooleanValue
-                          showValue
+    Modelica.Blocks.Interaction.Show.BooleanValue showValue
       annotation (Placement(transformation(extent={{-36,74},{-16,94}})));
     MathBoolean.And and1(nu=3)
       annotation (Placement(transformation(extent={{-58,64},{-46,76}})));
@@ -861,18 +837,15 @@ Note, that
       annotation (Placement(transformation(extent={{-28,62},{-16,74}})));
     MathBoolean.Xor xor1(nu=2)
       annotation (Placement(transformation(extent={{-2,60},{10,72}})));
-    Modelica.Blocks.Interaction.Show.BooleanValue
-                          showValue2
+    Modelica.Blocks.Interaction.Show.BooleanValue showValue2
       annotation (Placement(transformation(extent={{-2,74},{18,94}})));
-    Modelica.Blocks.Interaction.Show.BooleanValue
-                          showValue3
+    Modelica.Blocks.Interaction.Show.BooleanValue showValue3
       annotation (Placement(transformation(extent={{24,56},{44,76}})));
     MathBoolean.Nand nand1(nu=2)
       annotation (Placement(transformation(extent={{22,40},{34,52}})));
     MathBoolean.Nor or2(nu=2)
       annotation (Placement(transformation(extent={{46,38},{58,50}})));
-    Modelica.Blocks.Interaction.Show.BooleanValue
-                          showValue4
+    Modelica.Blocks.Interaction.Show.BooleanValue showValue4
       annotation (Placement(transformation(extent={{90,34},{110,54}})));
     MathBoolean.Not nor1
       annotation (Placement(transformation(extent={{68,40},{76,48}})));
@@ -892,14 +865,11 @@ Note, that
       annotation (Placement(transformation(extent={{14,-56},{26,-44}})));
     Sources.IntegerConstant integerConstant(k=2)
       annotation (Placement(transformation(extent={{-20,-60},{0,-40}})));
-    Modelica.Blocks.Interaction.Show.IntegerValue
-                          showValue1
+    Modelica.Blocks.Interaction.Show.IntegerValue showValue1
       annotation (Placement(transformation(extent={{40,-60},{60,-40}})));
-    Modelica.Blocks.Interaction.Show.BooleanValue
-                          showValue5
+    Modelica.Blocks.Interaction.Show.BooleanValue showValue5
       annotation (Placement(transformation(extent={{24,-23},{44,-3}})));
-    Modelica.Blocks.Interaction.Show.BooleanValue
-                          showValue6
+    Modelica.Blocks.Interaction.Show.BooleanValue showValue6
       annotation (Placement(transformation(extent={{-32,-100},{-12,-80}})));
     equation
     connect(booleanPulse1.y, and1.u[1]) annotation (Line(
@@ -966,7 +936,7 @@ Note, that
         points={{76.8,44},{88.5,44}},
         color={255,0,255},
         smooth=Smooth.None));
-    connect(booleanPulse2.y, rising.u)  annotation (Line(
+    connect(booleanPulse2.y, rising.u) annotation (Line(
         points={{-79,6},{-62,6},{-62,-11},{-57.6,-11}},
         color={255,0,255},
         smooth=Smooth.None));
@@ -1010,8 +980,7 @@ Note, that
         points={{-47.2,-90},{-33.5,-90}},
         color={255,0,255},
         smooth=Smooth.None));
-    annotation (       experiment(StopTime=10),
-      Documentation(info="<html>
+    annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of Boolean blocks
 from package <a href=\"modelica://Modelica.Blocks.MathBoolean\">Modelica.Blocks.MathBoolean</a>.
@@ -1033,42 +1002,42 @@ Note, that
 </html>"));
     end BooleanNetwork1;
 
-    model Interaction1
+  model Interaction1
     "Demonstrates the usage of blocks from Modelica.Blocks.Interaction.Show"
 
     extends Modelica.Icons.Example;
 
     Interaction.Show.IntegerValue integerValue
       annotation (Placement(transformation(extent={{-40,20},{-20,40}})));
-      Sources.IntegerTable integerTable(table=[0,0; 1,2; 2,4; 3,6; 4,4; 6,2])
-        annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
-      Sources.TimeTable timeTable(table=[0,0; 1,2.1; 2,4.2; 3,6.3; 4,4.2; 6,2.1; 6,2.1])
-        annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
-      Interaction.Show.RealValue realValue
-        annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-      Sources.BooleanTable booleanTable(table={1,2,3,4,5,6,7,8,9})
-        annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
-      Interaction.Show.BooleanValue booleanValue
-        annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
-      Sources.RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on})
-        annotation (Placement(transformation(extent={{24,64},{36,76}})));
-      Sources.RadioButtonSource stop(buttonTimeTable={2,4}, reset={start.on})
-        annotation (Placement(transformation(extent={{48,64},{60,76}})));
+    Sources.IntegerTable integerTable(table=[0, 0; 1, 2; 2, 4; 3, 6; 4, 4; 6, 2])
+      annotation (Placement(transformation(extent={{-80,20},{-60,40}})));
+    Sources.TimeTable timeTable(table=[0, 0; 1, 2.1; 2, 4.2; 3, 6.3; 4, 4.2; 6,
+          2.1; 6, 2.1])
+      annotation (Placement(transformation(extent={{-80,60},{-60,80}})));
+    Interaction.Show.RealValue realValue
+      annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
+    Sources.BooleanTable booleanTable(table={1,2,3,4,5,6,7,8,9})
+      annotation (Placement(transformation(extent={{-80,-20},{-60,0}})));
+    Interaction.Show.BooleanValue booleanValue
+      annotation (Placement(transformation(extent={{-40,-20},{-20,0}})));
+    Sources.RadioButtonSource start(buttonTimeTable={1,3}, reset={stop.on})
+      annotation (Placement(transformation(extent={{24,64},{36,76}})));
+    Sources.RadioButtonSource stop(buttonTimeTable={2,4}, reset={start.on})
+      annotation (Placement(transformation(extent={{48,64},{60,76}})));
     equation
-      connect(integerTable.y, integerValue.numberPort) annotation (Line(
-          points={{-59,30},{-41.5,30}},
-          color={255,127,0},
-          smooth=Smooth.None));
-      connect(timeTable.y, realValue.numberPort) annotation (Line(
-          points={{-59,70},{-41.5,70}},
-          color={0,0,127},
-          smooth=Smooth.None));
-      connect(booleanTable.y, booleanValue.activePort) annotation (Line(
-          points={{-59,-10},{-41.5,-10}},
-          color={255,0,255},
-          smooth=Smooth.None));
-    annotation (       experiment(StopTime=10),
-      Documentation(info="<html>
+    connect(integerTable.y, integerValue.numberPort) annotation (Line(
+        points={{-59,30},{-41.5,30}},
+        color={255,127,0},
+        smooth=Smooth.None));
+    connect(timeTable.y, realValue.numberPort) annotation (Line(
+        points={{-59,70},{-41.5,70}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(booleanTable.y, booleanValue.activePort) annotation (Line(
+        points={{-59,-10},{-41.5,-10}},
+        color={255,0,255},
+        smooth=Smooth.None));
+    annotation (experiment(StopTime=10), Documentation(info="<html>
 <p>
 This example demonstrates a network of blocks
 from package <a href=\"modelica://Modelica.Blocks.Interaction\">Modelica.Blocks.Interaction</a>
@@ -1085,28 +1054,24 @@ to show how diagram animations can be constructed.
     Modelica.Blocks.Sources.IntegerStep integerStep(
       height=1,
       offset=2,
-      startTime=0.5)   annotation (Placement(transformation(extent={{-60,-40},{
-              -40,-20}}, rotation=0)));
-    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5)
-                                                               annotation (Placement(
-          transformation(extent={{-58,0},{-38,20}}, rotation=0)));
-    Modelica.Blocks.Sources.Sine sine(freqHz=1)
-                                     annotation (Placement(transformation(
-            extent={{-60,40},{-40,60}}, rotation=0)));
+      startTime=0.5) annotation (Placement(transformation(extent={{-60,-40},{-40,
+              -20}}, rotation=0)));
+    Modelica.Blocks.Sources.BooleanStep booleanStep(startTime=0.5) annotation (
+        Placement(transformation(extent={{-58,0},{-38,20}}, rotation=0)));
+    Modelica.Blocks.Sources.Sine sine(freqHz=1) annotation (Placement(
+          transformation(extent={{-60,40},{-40,60}}, rotation=0)));
 
-    Modelica.Blocks.Examples.BusUsage_Utilities.Part part
-              annotation (Placement(transformation(extent={{-60,-80},{-40,-60}},
-            rotation=0)));
-    Modelica.Blocks.Math.Gain gain(k=1)
-      annotation (Placement(transformation(extent={{-40,70},{-60,90}}, rotation=
-             0)));
+    Modelica.Blocks.Examples.BusUsage_Utilities.Part part annotation (Placement(
+          transformation(extent={{-60,-80},{-40,-60}}, rotation=0)));
+    Modelica.Blocks.Math.Gain gain(k=1) annotation (Placement(transformation(
+            extent={{-40,70},{-60,90}}, rotation=0)));
   protected
-    BusUsage_Utilities.Interfaces.ControlBus controlBus
-      annotation (Placement(transformation(
+    BusUsage_Utilities.Interfaces.ControlBus controlBus annotation (Placement(
+          transformation(
           origin={30,10},
           extent={{-20,20},{20,-20}},
           rotation=90)));
-  equation
+    equation
 
     connect(sine.y, controlBus.realSignal1) annotation (Line(
         points={{-39,50},{12,50},{12,14},{30,14},{30,10}},
@@ -1238,31 +1203,32 @@ Note, even if the signals from \"Internal.StandardControlBus\" are listed, these
 just potential signals. The user might still add different signal names.
 </p>
 
-</html>"),      experiment(StopTime=2));
-  end BusUsage;
+</html>"), experiment(StopTime=2));
+    end BusUsage;
 
   package BusUsage_Utilities
     "Utility models and connectors for example Modelica.Blocks.Examples.BusUsage"
     extends Modelica.Icons.Package;
-  package Interfaces "Interfaces specialised for this example"
-    extends Modelica.Icons.InterfacesPackage;
+    package Interfaces "Interfaces specialised for this example"
+      extends Modelica.Icons.InterfacesPackage;
 
       expandable connector ControlBus
         "Control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalBus;
         import SI = Modelica.SIunits;
-        SI.AngularVelocity realSignal1 "First Real signal (angular velocity)"  annotation(HideResult=false);
-        SI.Velocity realSignal2 "Second Real signal"  annotation(HideResult=false);
-        Integer integerSignal "Integer signal"  annotation(HideResult=false);
-        Boolean booleanSignal "Boolean signal"  annotation(HideResult=false);
-        SubControlBus subControlBus "Combined signal"  annotation(HideResult=false);
-        annotation (
-          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                  100,100}}), graphics={Rectangle(
-                extent={{-20,2},{22,-2}},
-                lineColor={255,204,51},
-                lineThickness=0.5)}),
-          Documentation(info="<html>
+        SI.AngularVelocity realSignal1 "First Real signal (angular velocity)"
+          annotation (HideResult=false);
+        SI.Velocity realSignal2 "Second Real signal"
+          annotation (HideResult=false);
+        Integer integerSignal "Integer signal" annotation (HideResult=false);
+        Boolean booleanSignal "Boolean signal" annotation (HideResult=false);
+        SubControlBus subControlBus "Combined signal"
+          annotation (HideResult=false);
+        annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
+                  -100},{100,100}}), graphics={Rectangle(
+                        extent={{-20,2},{22,-2}},
+                        lineColor={255,204,51},
+                        lineThickness=0.5)}), Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" ControlBus that
 is used as bus in the
@@ -1273,19 +1239,20 @@ are determined from the connections to this bus).
 </p>
 </html>"));
 
-      end ControlBus;
+        end ControlBus;
 
       expandable connector SubControlBus
         "Sub-control bus that is adapted to the signals connected to it"
         extends Modelica.Icons.SignalSubBus;
-        Real myRealSignal  annotation(HideResult=false);
-        Boolean myBooleanSignal  annotation(HideResult=false);
-        annotation (defaultComponentPrefixes="protected",
-                    Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                  -100},{100,100}}), graphics={Rectangle(
-                extent={{-20,2},{22,-2}},
-                lineColor={255,204,51},
-                lineThickness=0.5)}),
+        Real myRealSignal annotation (HideResult=false);
+        Boolean myBooleanSignal annotation (HideResult=false);
+        annotation (
+          defaultComponentPrefixes="protected",
+          Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
+                  100,100}}), graphics={Rectangle(
+                        extent={{-20,2},{22,-2}},
+                        lineColor={255,204,51},
+                        lineThickness=0.5)}),
           Documentation(info="<html>
 <p>
 This connector defines the \"expandable connector\" SubControlBus that
@@ -1297,7 +1264,7 @@ determined from the connections to this bus).
 </p>
 </html>"));
 
-      end SubControlBus;
+        end SubControlBus;
 
       annotation (Documentation(info="<html>
 <p>
@@ -1305,21 +1272,20 @@ This package contains the bus definitions needed for the
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"));
-  end Interfaces;
+      end Interfaces;
 
-   model Part "Component with sub-control bus"
+    model Part "Component with sub-control bus"
 
-     Interfaces.SubControlBus subControlBus
-       annotation (Placement(transformation(
+      Interfaces.SubControlBus subControlBus annotation (Placement(
+            transformation(
             origin={100,0},
             extent={{-20,-20},{20,20}},
             rotation=270)));
-     Sources.RealExpression realExpression(y=time)
-       annotation (Placement(transformation(extent={{-6,0},{20,20}}, rotation=0)));
-     Sources.BooleanExpression booleanExpression(y=time > 0.5)
-       annotation (Placement(transformation(extent={{-6,-30},{20,-10}},
-              rotation=0)));
-   equation
+      Sources.RealExpression realExpression(y=time) annotation (Placement(
+            transformation(extent={{-6,0},{20,20}}, rotation=0)));
+      Sources.BooleanExpression booleanExpression(y=time > 0.5) annotation (
+          Placement(transformation(extent={{-6,-30},{20,-10}}, rotation=0)));
+      equation
       connect(realExpression.y, subControlBus.myRealSignal) annotation (Line(
           points={{21.3,10},{88,10},{88,6},{98,6},{98,0},{100,0}},
           color={0,0,127},
@@ -1331,20 +1297,19 @@ This package contains the bus definitions needed for the
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(
-              extent={{-100,60},{100,-60}},
-              fillColor={159,159,223},
-              fillPattern=FillPattern.Solid,
-              lineColor={0,0,255}), Text(
-              extent={{-106,124},{114,68}},
-              textString="%name",
-              lineColor={0,0,255})}),
-        Documentation(info="<html>
+                    extent={{-100,60},{100,-60}},
+                    fillColor={159,159,223},
+                    fillPattern=FillPattern.Solid,
+                    lineColor={0,0,255}),Text(
+                    extent={{-106,124},{114,68}},
+                    textString="%name",
+                    lineColor={0,0,255})}), Documentation(info="<html>
 <p>
 This model is used to demonstrate the bus usage in example
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a>.
 </p>
 </html>"));
-   end Part;
+      end Part;
 
     annotation (Documentation(info="<html>
 <p>
@@ -1352,19 +1317,18 @@ This package contains utility models and bus definitions needed for the
 <a href=\"modelica://Modelica.Blocks.Examples.BusUsage\">BusUsage</a> example.
 </p>
 </html>"));
-  end BusUsage_Utilities;
+    end BusUsage_Utilities;
   annotation (Documentation(info="<html>
 <p>
 This package contains example models to demonstrate the
 usage of package blocks.
 </p>
 </html>"));
-end Examples;
+  end Examples;
 
 
-annotation (
-  Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{100,100}}),
-      graphics={
+annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
+          {100,100}}), graphics={
       Rectangle(extent={{-32,-6},{16,-35}}, lineColor={0,0,0}),
       Rectangle(extent={{-32,-56},{16,-85}}, lineColor={0,0,0}),
       Line(points={{16,-20},{49,-20},{49,-71},{16,-71}}, color={0,0,0}),
@@ -1378,8 +1342,7 @@ annotation (
         points={{-32,-21},{-46,-17},{-46,-25},{-32,-21}},
         lineColor={0,0,0},
         fillColor={0,0,0},
-        fillPattern=FillPattern.Solid)}),
-                          Documentation(info="<html>
+        fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This library contains input/output blocks to build up block diagrams.
 </p>
