@@ -5,44 +5,49 @@ package Lines
 
   model OLine "Lossy Transmission Line"
     //extends Interfaces.ThreePol;
-    Modelica.Electrical.Analog.Interfaces.Pin p1
-                      annotation (Placement(transformation(extent={{-110,-10},{
-              -90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin p2
-                      annotation (Placement(transformation(extent={{90,-10},{
-              110,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin p3
-                      annotation (Placement(transformation(extent={{-10,-110},{
-              10,-90}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin p1 annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin p2 annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin p3 annotation (Placement(
+          transformation(extent={{-10,-110},{10,-90}}, rotation=0)));
     Modelica.SIunits.Voltage v13;
     Modelica.SIunits.Voltage v23;
     Modelica.SIunits.Current i1;
     Modelica.SIunits.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m", start=1) "Resistance per meter";
+      unit="Ohm/m",
+      start=1) "Resistance per meter";
     parameter Real l(
       final min=Modelica.Constants.small,
-      unit="H/m", start=1) "Inductance per meter";
+      unit="H/m",
+      start=1) "Inductance per meter";
     parameter Real g(
       final min=Modelica.Constants.small,
-      unit="S/m", start=1) "Conductance per meter";
+      unit="S/m",
+      start=1) "Conductance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m", start=1) "Capacitance per meter";
-    parameter Modelica.SIunits.Length length(final min=
-          Modelica.Constants.small, start=1) "Length of line";
+      unit="F/m",
+      start=1) "Capacitance per meter";
+    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small,
+        start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
     parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
-     parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
-      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Temperature T_ref=300.15;
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+      annotation (
+      Evaluate=true,
+      HideResult=true,
+      choices(checkBox=true));
+    parameter Modelica.SIunits.Temperature T=293.15
+      "Fixed device temperature if useHeatPort = false"
+      annotation (Dialog(enable=not useHeatPort));
+    parameter Modelica.SIunits.Temperature T_ref=300.15;
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
   protected
@@ -52,10 +57,9 @@ package Lines
       alpha=fill(alpha_R, N + 1),
       useHeatPort=fill(useHeatPort, N + 1),
       T=fill(T, N + 1));
-    Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=fill(l*
-          length/(N + 1), N + 1));
-    Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(
-          N), N));
+    Modelica.Electrical.Analog.Basic.Inductor L[N + 1](L=fill(l*length/(N + 1),
+          N + 1));
+    Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
     Modelica.Electrical.Analog.Basic.Conductor G[N](
       G=fill(g*length/(N), N),
       T_ref=fill(T_ref, N),
@@ -78,14 +82,14 @@ package Lines
     end for;
     connect(R[N + 1].n, L[N + 1].p);
     connect(L[N + 1].n, p2);
-   if useHeatPort then
-     for i in 1:N+1 loop
-       connect(heatPort, R[i].heatPort);
-     end for;
-     for i in 1:N loop
-       connect(heatPort, G[i].heatPort);
-     end for;
-   end if;
+    if useHeatPort then
+      for i in 1:N + 1 loop
+        connect(heatPort, R[i].heatPort);
+      end for;
+      for i in 1:N loop
+        connect(heatPort, G[i].heatPort);
+      end for;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>Like in the picture below, the lossy transmission line OLine is a single-conductor lossy transmission line which consists of segments of lumped resistors and inductors in series and conductor and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.</p>
@@ -104,8 +108,7 @@ package Lines
 
 <dl><dt><b>References:</b> </dt>
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -134,252 +137,282 @@ package Lines
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-          Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255})}));
+          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
+            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
+            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
+            points={{30,40},{30,20}}, color={0,0,255})}));
   end OLine;
 
-model M_OLine "Multiple OLine"
+  model M_OLine "Multiple OLine"
 
-  parameter Modelica.SIunits.Length length(final min=
-          Modelica.Constants.small)=0.1 "Length of line";
-  parameter Integer N(final min=2) = 5 "Number of lumped segments";
-  parameter Integer lines(final min=2) = 4 "Number of lines";
+    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small)
+       = 0.1 "Length of line";
+    parameter Integer N(final min=2) = 5 "Number of lumped segments";
+    parameter Integer lines(final min=2) = 4 "Number of lines";
   protected
-  parameter Integer dim_vector_lgc=div(lines*(lines+1),2);
+    parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2);
   public
-  parameter Real r[lines](
-    each final min=Modelica.Constants.small,
-    each unit="Ohm/m") = {4.76e5,1.72e5,1.72e5,1.72e5} "Resistance per meter";
+    parameter Real r[lines](
+      each final min=Modelica.Constants.small,
+      each unit="Ohm/m") = {4.76e5,1.72e5,1.72e5,1.72e5} "Resistance per meter";
 
-  parameter Real l[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="H/m") = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,4.23e-7,5.96e-7,4.71e-7,
-        6.06e-7} "Inductance per meter";
+    parameter Real l[dim_vector_lgc](
+      each final min=Modelica.Constants.small,
+      each unit="H/m") = {5.98e-7,4.44e-7,4.39e-7,3.99e-7,5.81e-7,4.09e-7,
+      4.23e-7,5.96e-7,4.71e-7,6.06e-7} "Inductance per meter";
 
-  parameter Real g[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="S/m") = {8.05e-6,3.42e-5,2 - 91e-5,1.76e-6,9.16e-6,7.12e-6,2.43e-5,5.93e-6,
-        4.19e-5,6.64e-6} "Conductance per meter";
+    parameter Real g[dim_vector_lgc](
+      each final min=Modelica.Constants.small,
+      each unit="S/m") = {8.05e-6,3.42e-5,2 - 91e-5,1.76e-6,9.16e-6,7.12e-6,
+      2.43e-5,5.93e-6,4.19e-5,6.64e-6} "Conductance per meter";
 
-  parameter Real c[dim_vector_lgc](
-    each final min=Modelica.Constants.small,
-    each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,7.16e-11,1.83e-11,
-        1.23e-10,2.07e-11} "Capacitance per meter";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R=0
+    parameter Real c[dim_vector_lgc](
+      each final min=Modelica.Constants.small,
+      each unit="F/m") = {2.38e-11,1.01e-10,8.56e-11,5.09e-12,2.71e-11,2.09e-11,
+      7.16e-11,1.83e-11,1.23e-10,2.07e-11} "Capacitance per meter";
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G=0
+    parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G=0
       "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
-  parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-  annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+      annotation (
+      Evaluate=true,
+      HideResult=true,
+      choices(checkBox=true));
+    parameter Modelica.SIunits.Temperature T=293.15
       "Fixed device temperature if useHeatPort = false"
-                                                      annotation(Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Temperature T_ref=300.15;
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-  annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-        iconTransformation(extent={{-80,-80},{-60,-60}})));
-model segment "Multiple line segment model"
+      annotation (Dialog(enable=not useHeatPort));
+    parameter Modelica.SIunits.Temperature T_ref=300.15;
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+      annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
+          iconTransformation(extent={{-80,-80},{-60,-60}})));
+    model segment "Multiple line segment model"
 
-  parameter Integer lines(final min=1)=3 "Number of lines";
-  parameter Integer dim_vector_lgc=div(lines*(lines+1),2)
+      parameter Integer lines(final min=1) = 3 "Number of lines";
+      parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-              annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
-            rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-              annotation (Placement(transformation(extent={{40,-10},{60,10}},
-            rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+        annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+        annotation (Placement(transformation(extent={{40,-10},{60,10}},
+              rotation=0)));
 
-  parameter Real Cl[dim_vector_lgc]=fill(1,dim_vector_lgc) "Capacitance matrix";
-  parameter Real Rl[lines]=fill(7,lines) "Resistance matrix";
-  parameter Real Ll[dim_vector_lgc]=fill(2,dim_vector_lgc) "Inductance matrix";
-  parameter Real Gl[dim_vector_lgc]= fill(1,dim_vector_lgc)
+      parameter Real Cl[dim_vector_lgc]=fill(1, dim_vector_lgc)
+        "Capacitance matrix";
+      parameter Real Rl[lines]=fill(7, lines) "Resistance matrix";
+      parameter Real Ll[dim_vector_lgc]=fill(2, dim_vector_lgc)
+        "Inductance matrix";
+      parameter Real Gl[dim_vector_lgc]=fill(1, dim_vector_lgc)
         "Conductance matrix";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_G
         "Temperature coefficient of conductance (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref))";
-  parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-  annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+      parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
-                                                      annotation(Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Temperature T_ref;
+        annotation (Dialog(enable=not useHeatPort));
+      parameter Modelica.SIunits.Temperature T_ref;
 
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-  annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-        iconTransformation(extent={{-80,-80},{-60,-60}})));
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
+        useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
+                -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
 
-  Modelica.Electrical.Analog.Basic.Capacitor C[
-        dim_vector_lgc](C=Cl);
-  Modelica.Electrical.Analog.Basic.Resistor R[lines](R=Rl, T_ref= fill(T_ref, lines), alpha=fill(alpha_R, lines), useHeatPort=fill(useHeatPort,lines), T=fill(T,lines));
-  Modelica.Electrical.Analog.Basic.Conductor G[
-        dim_vector_lgc](G=Gl, T_ref= fill(T_ref, dim_vector_lgc), alpha = fill(alpha_G, dim_vector_lgc), useHeatPort=fill(useHeatPort, dim_vector_lgc), T=fill(T, dim_vector_lgc));
-  Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines,
-          L=Ll);
-  Modelica.Electrical.Analog.Basic.Ground M;
+      Modelica.Electrical.Analog.Basic.Capacitor C[dim_vector_lgc](C=Cl);
+      Modelica.Electrical.Analog.Basic.Resistor R[lines](
+        R=Rl,
+        T_ref=fill(T_ref, lines),
+        alpha=fill(alpha_R, lines),
+        useHeatPort=fill(useHeatPort, lines),
+        T=fill(T, lines));
+      Modelica.Electrical.Analog.Basic.Conductor G[dim_vector_lgc](
+        G=Gl,
+        T_ref=fill(T_ref, dim_vector_lgc),
+        alpha=fill(alpha_G, dim_vector_lgc),
+        useHeatPort=fill(useHeatPort, dim_vector_lgc),
+        T=fill(T, dim_vector_lgc));
+      Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
+      Modelica.Electrical.Analog.Basic.Ground M;
 
-equation
-  for j in 1:lines-1 loop
+    equation
+      for j in 1:lines - 1 loop
 
-    connect(R[j].p,p[j]);
-    connect(R[j].n,inductance.p[j]);
-    connect(inductance.n[j],n[j]);
-    connect(inductance.n[j],C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].p);
-    connect(C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].n,M.p);
-    connect(inductance.n[j],G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].p);
-    connect(G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].n,M.p);
+        connect(R[j].p, p[j]);
+        connect(R[j].n, inductance.p[j]);
+        connect(inductance.n[j], n[j]);
+        connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
+          2))].p);
+        connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
+        connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
+          2))].p);
+        connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].n, M.p);
 
-       for i in j+1:lines loop
-      connect(inductance.n[j],C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].p);
-      connect(C[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].n,  inductance.n[i]);
-      connect(inductance.n[j],G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].p);
-      connect(G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].n,inductance.n[i]);
+        for i in j + 1:lines loop
+          connect(inductance.n[j], C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
+            2)) + 1 + i - (j + 1)].p);
+          connect(C[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2)) + 1 + i
+             - (j + 1)].n, inductance.n[i]);
+          connect(inductance.n[j], G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)),
+            2)) + 1 + i - (j + 1)].p);
+          connect(G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2)) + 1 + i
+             - (j + 1)].n, inductance.n[i]);
 
-    end for;
-  end for;
-    connect(R[lines].p,p[lines]);
-    connect(R[lines].n,inductance.p[lines]);
-    connect(inductance.n[lines],n[lines]);
-    connect(inductance.n[lines],C[dim_vector_lgc].p);
-    connect(C[dim_vector_lgc].n,M.p);
-    connect(inductance.n[lines],G[dim_vector_lgc].p);
-    connect(G[dim_vector_lgc].n,M.p);
+        end for;
+      end for;
+      connect(R[lines].p, p[lines]);
+      connect(R[lines].n, inductance.p[lines]);
+      connect(inductance.n[lines], n[lines]);
+      connect(inductance.n[lines], C[dim_vector_lgc].p);
+      connect(C[dim_vector_lgc].n, M.p);
+      connect(inductance.n[lines], G[dim_vector_lgc].p);
+      connect(G[dim_vector_lgc].n, M.p);
 
- if useHeatPort then
+      if useHeatPort then
 
-   for j in 1:lines-1 loop
-     connect(heatPort, R[j].heatPort);
-     connect(heatPort, G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2))].heatPort);
-     for i in j+1:lines loop
-       connect(heatPort,G[((1+(j-1)*lines) - div(((j-2)*(j-1)),2)) + 1 + i - (j+1)].heatPort);
-     end for;
-   end for;
-   connect(heatPort, R[lines].heatPort);
-   connect(heatPort, G[dim_vector_lgc].heatPort);
- end if;
+        for j in 1:lines - 1 loop
+          connect(heatPort, R[j].heatPort);
+          connect(heatPort, G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))].heatPort);
+          for i in j + 1:lines loop
+            connect(heatPort, G[((1 + (j - 1)*lines) - div(((j - 2)*(j - 1)), 2))
+               + 1 + i - (j + 1)].heatPort);
+          end for;
+        end for;
+        connect(heatPort, R[lines].heatPort);
+        connect(heatPort, G[dim_vector_lgc].heatPort);
+      end if;
 
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{40,-40},{-40,40}},
-                lineColor={0,0,255})}),
-    Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>The segment model is part of the multiple line model. It describes one line segment as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
-end segment;
+    end segment;
 
-model segment_last "Multiple line last segment model"
+    model segment_last "Multiple line last segment model"
 
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-              annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
-            rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-              annotation (Placement(transformation(extent={{20,-10},{40,10}},
-            rotation=0)));
-  parameter Integer lines(final min=1)=3 "Number of lines";
-  parameter Integer dim_vector_lgc= div(lines*(lines+1),2)
+      Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+        annotation (Placement(transformation(extent={{-40,-10},{-20,10}},
+              rotation=0)));
+      Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+        annotation (Placement(transformation(extent={{20,-10},{40,10}},
+              rotation=0)));
+      parameter Integer lines(final min=1) = 3 "Number of lines";
+      parameter Integer dim_vector_lgc=div(lines*(lines + 1), 2)
         "Length of the vectors for l, g, c";
-  parameter Real Rl[lines]=fill(1,lines) "Resistance matrix";
-  parameter Real Ll[dim_vector_lgc]=fill(1,dim_vector_lgc) "Inductance matrix";
-  parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R
+      parameter Real Rl[lines]=fill(1, lines) "Resistance matrix";
+      parameter Real Ll[dim_vector_lgc]=fill(1, dim_vector_lgc)
+        "Inductance matrix";
+      parameter Modelica.SIunits.LinearTemperatureCoefficient alpha_R
         "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-  parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-  annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
+      parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+        annotation (
+        Evaluate=true,
+        HideResult=true,
+        choices(checkBox=true));
+      parameter Modelica.SIunits.Temperature T=293.15
         "Fixed device temperature if useHeatPort = false"
-                                                      annotation(Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Temperature T_ref;
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
-    annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
-        iconTransformation(extent={{-80,-80},{-60,-60}})));
-  Modelica.Electrical.Analog.Basic.Resistor R[lines](R=Rl,T_ref = fill(T_ref, lines), useHeatPort=fill(useHeatPort,lines), T=fill(T,lines));
-  Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines,
-          L=Ll);
-  Modelica.Electrical.Analog.Basic.Ground M;
+        annotation (Dialog(enable=not useHeatPort));
+      parameter Modelica.SIunits.Temperature T_ref;
+      Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if
+        useHeatPort annotation (Placement(transformation(extent={{-10,-110},{10,
+                -90}}), iconTransformation(extent={{-80,-80},{-60,-60}})));
+      Modelica.Electrical.Analog.Basic.Resistor R[lines](
+        R=Rl,
+        T_ref=fill(T_ref, lines),
+        useHeatPort=fill(useHeatPort, lines),
+        T=fill(T, lines));
+      Modelica.Electrical.Analog.Basic.M_Transformer inductance(N=lines, L=Ll);
+      Modelica.Electrical.Analog.Basic.Ground M;
 
-equation
-  for j in 1:lines-1 loop
+    equation
+      for j in 1:lines - 1 loop
 
-    connect(p[j],inductance.p[j]);
-    connect(inductance.n[j],R[j].p);
-    connect(R[j].n,n[j]);
+        connect(p[j], inductance.p[j]);
+        connect(inductance.n[j], R[j].p);
+        connect(R[j].n, n[j]);
 
-  end for;
-    connect(p[lines],inductance.p[lines]);
-    connect(inductance.n[lines],R[lines].p);
-    connect(R[lines].n,n[lines]);
+      end for;
+      connect(p[lines], inductance.p[lines]);
+      connect(inductance.n[lines], R[lines].p);
+      connect(R[lines].n, n[lines]);
 
-if useHeatPort then
-     for j in 1:lines-1 loop
-    connect(heatPort, R[j].heatPort);
-     end for;
-     connect(heatPort,R[lines].heatPort);
-end if;
-  annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+      if useHeatPort then
+        for j in 1:lines - 1 loop
+          connect(heatPort, R[j].heatPort);
+        end for;
+        connect(heatPort, R[lines].heatPort);
+      end if;
+      annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                 -100},{100,100}}), graphics={Rectangle(extent={{20,-40},{-20,40}},
-                lineColor={0,0,255})}),
-                                    Documentation(info="<html>
+              lineColor={0,0,255})}), Documentation(info="<html>
 <p>The segment_last model is part of the multiple line model. It describes the special  line segment which is used to get the line symmetrical as outlined in the M_OLine description. Using the loop possibilities of Modelica it is formulated by connecting components the number of which depends on the number of lines.</p>
 </html>"));
-end segment_last;
+    end segment_last;
 
-  segment s[N - 1](
-    lines=fill(lines, N - 1),
-    dim_vector_lgc=fill(dim_vector_lgc, N - 1),
-    Rl=fill(r*length/N, N - 1),
-    Ll=fill(l*length/N, N - 1),
-    Cl=fill(c*length/N, N - 1),
-    Gl=fill(g*length/N, N - 1),
-    alpha_R = fill(alpha_R, N-1),
-    alpha_G = fill(alpha_G, N-1),
-    T_ref = fill(T_ref, N-1), useHeatPort = fill(useHeatPort, N-1), T = fill(T, N-1));
-  segment s_first(
-    lines=lines,
-    dim_vector_lgc=dim_vector_lgc,
-    Rl=r*length/(2*N),
-    Cl=c*length/(N),
-    Ll=l*length/(2*N),
-    Gl=g*length/(N),
-    alpha_R = alpha_R,
-    alpha_G = alpha_G,
-    T_ref = T_ref, useHeatPort = useHeatPort, T = T);
-  segment_last s_last(
-    lines=lines,
-    Rl=r*length/(2*N),
-    Ll=l*length/(2*N),
-    alpha_R = alpha_R,
-    T_ref = T_ref, useHeatPort = useHeatPort, T = T);
-  Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
-              annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
-          rotation=0)));
-  Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
-              annotation (Placement(transformation(extent={{80,-80},{100,80}},
-          rotation=0)));
+    segment s[N - 1](
+      lines=fill(lines, N - 1),
+      dim_vector_lgc=fill(dim_vector_lgc, N - 1),
+      Rl=fill(r*length/N, N - 1),
+      Ll=fill(l*length/N, N - 1),
+      Cl=fill(c*length/N, N - 1),
+      Gl=fill(g*length/N, N - 1),
+      alpha_R=fill(alpha_R, N - 1),
+      alpha_G=fill(alpha_G, N - 1),
+      T_ref=fill(T_ref, N - 1),
+      useHeatPort=fill(useHeatPort, N - 1),
+      T=fill(T, N - 1));
+    segment s_first(
+      lines=lines,
+      dim_vector_lgc=dim_vector_lgc,
+      Rl=r*length/(2*N),
+      Cl=c*length/(N),
+      Ll=l*length/(2*N),
+      Gl=g*length/(N),
+      alpha_R=alpha_R,
+      alpha_G=alpha_G,
+      T_ref=T_ref,
+      useHeatPort=useHeatPort,
+      T=T);
+    segment_last s_last(
+      lines=lines,
+      Rl=r*length/(2*N),
+      Ll=l*length/(2*N),
+      alpha_R=alpha_R,
+      T_ref=T_ref,
+      useHeatPort=useHeatPort,
+      T=T);
+    Modelica.Electrical.Analog.Interfaces.PositivePin p[lines] "Positive pin"
+      annotation (Placement(transformation(extent={{-100,-80},{-80,80}},
+            rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.NegativePin n[lines] "Negative pin"
+      annotation (Placement(transformation(extent={{80,-80},{100,80}}, rotation
+            =0)));
 
-equation
-    connect(p,s_first.p);
-    connect(s_first.n,s[1].p);
-  for i in 1:N-2 loop
-    connect(s[i].n,s[i+1].p);
-  end for;
-    connect(s[N-1].n,s_last.p);
-    connect(s_last.n,n);
-  if useHeatPort then
-    connect(heatPort, s_first.heatPort);
-    for i in 1:N-1 loop
-      connect(heatPort, s[i].heatPort);
+  equation
+    connect(p, s_first.p);
+    connect(s_first.n, s[1].p);
+    for i in 1:N - 2 loop
+      connect(s[i].n, s[i + 1].p);
     end for;
-    connect(heatPort, s_last.heatPort);
-  end if;
+    connect(s[N - 1].n, s_last.p);
+    connect(s_last.n, n);
+    if useHeatPort then
+      connect(heatPort, s_first.heatPort);
+      for i in 1:N - 1 loop
+        connect(heatPort, s[i].heatPort);
+      end for;
+      connect(heatPort, s_last.heatPort);
+    end if;
 
-  annotation (
-    Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
-              100}}), graphics={
+    annotation (Icon(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+              -100},{100,100}}), graphics={
           Rectangle(
             extent={{60,80},{-60,-80}},
             lineColor={0,0,255},
@@ -401,9 +434,7 @@ equation
           Text(
             extent={{-146,135},{154,95}},
             textString="%name",
-            lineColor={0,0,255})}),
-    Documentation(
-        info="<html>
+            lineColor={0,0,255})}), Documentation(info="<html>
 <p>The M_OLine is a multi line model which consists of several segments and several single lines. Each segment consists of resistors and inductors that are connected in series in each single line, and of capacitors and conductors both between the lines and to the ground. The inductors are coupled to each other like in the M_Inductor model. The following picture shows the schematic of a segment with four single lines (lines=4):</p>
 
 <blockquote>
@@ -449,7 +480,7 @@ equation
 </blockquote>
 
 <p>The user has the possibility to enable a conditional heatport. If so, the M_OLine can be connected to a thermal network. When the parameter alpha is set to an value greater then zero, the M_OLine becomes temperature sensitive due to their resistors which resistances are calculated by R = R_ref*(1 + alpha*(heatPort.T - T_ref)) and conductors calculated by (G_actual = G_ref/(1 + alpha*(T_heatPort - T_ref)).</p>
-</html>",revisions="<HTML>
+</html>", revisions="<HTML>
 <table border=\"1\" cellspacing=\"0\" cellpadding=\"2\">
     <tr>
       <th>Version</th>
@@ -481,41 +512,44 @@ equation
     </tr>
 </table>
 </HTML>"));
-end M_OLine;
+  end M_OLine;
 
   model ULine "Lossy RC Line"
     //extends Interfaces.ThreePol;
-    Modelica.Electrical.Analog.Interfaces.Pin p1
-                      annotation (Placement(transformation(extent={{-110,-10},{
-              -90,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin p2
-                      annotation (Placement(transformation(extent={{90,-10},{
-              110,10}}, rotation=0)));
-    Modelica.Electrical.Analog.Interfaces.Pin p3
-                      annotation (Placement(transformation(extent={{-10,-110},{
-              10,-90}}, rotation=0), iconTransformation(extent={{-10,-110},
-              {10,-90}})));
+    Modelica.Electrical.Analog.Interfaces.Pin p1 annotation (Placement(
+          transformation(extent={{-110,-10},{-90,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin p2 annotation (Placement(
+          transformation(extent={{90,-10},{110,10}}, rotation=0)));
+    Modelica.Electrical.Analog.Interfaces.Pin p3 annotation (Placement(
+          transformation(extent={{-10,-110},{10,-90}}, rotation=0),
+          iconTransformation(extent={{-10,-110},{10,-90}})));
     Modelica.SIunits.Voltage v13;
     Modelica.SIunits.Voltage v23;
     Modelica.SIunits.Current i1;
     Modelica.SIunits.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m", start=1) "Resistance per meter";
+      unit="Ohm/m",
+      start=1) "Resistance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m", start=1) "Capacitance per meter";
-    parameter Modelica.SIunits.Length length(final min=
-          Modelica.Constants.small, start=1) "Length of line";
+      unit="F/m",
+      start=1) "Capacitance per meter";
+    parameter Modelica.SIunits.Length length(final min=Modelica.Constants.small,
+        start=1) "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
     parameter Modelica.SIunits.LinearTemperatureCoefficient alpha=0
       "Temperature coefficient of resistance (R_actual = R*(1 + alpha*(T_heatPort - T_ref))";
-    parameter Boolean useHeatPort = false "=true, if HeatPort is enabled"
-    annotation(Evaluate=true, HideResult=true, choices(__Dymola_checkBox=true));
-  parameter Modelica.SIunits.Temperature T=293.15
-      "Fixed device temperature if useHeatPort = false" annotation(Dialog(enable=not useHeatPort));
-  parameter Modelica.SIunits.Temperature T_ref=300.15;
-  Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
+    parameter Boolean useHeatPort=false "=true, if HeatPort is enabled"
+      annotation (
+      Evaluate=true,
+      HideResult=true,
+      choices(checkBox=true));
+    parameter Modelica.SIunits.Temperature T=293.15
+      "Fixed device temperature if useHeatPort = false"
+      annotation (Dialog(enable=not useHeatPort));
+    parameter Modelica.SIunits.Temperature T_ref=300.15;
+    Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a heatPort if useHeatPort
       annotation (Placement(transformation(extent={{-10,-110},{10,-90}}),
           iconTransformation(extent={{-80,-80},{-60,-60}})));
   protected
@@ -525,8 +559,7 @@ end M_OLine;
       alpha=fill(alpha, N + 1),
       useHeatPort=fill(useHeatPort, N + 1),
       T=fill(T, N + 1));
-    Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(
-          N), N));
+    Modelica.Electrical.Analog.Basic.Capacitor C[N](C=fill(c*length/(N), N));
   equation
     v13 = p1.v - p3.v;
     v23 = p2.v - p3.v;
@@ -543,11 +576,11 @@ end M_OLine;
       connect(C[i].n, p3);
     end for;
     connect(R[N + 1].n, p2);
-   if useHeatPort then
-     for i in 1:N+1 loop
-     connect(heatPort, R[i].heatPort);
-     end for;
-   end if;
+    if useHeatPort then
+      for i in 1:N + 1 loop
+        connect(heatPort, R[i].heatPort);
+      end for;
+    end if;
     annotation (
       Documentation(info="<html>
 <p>As can be seen in the picture below, the lossy RC line ULine is a single conductor lossy transmission line which consists of segments of lumped series resistors and capacitors that are connected with the reference pin p3. The precision of the model depends on the number N of lumped segments.
@@ -566,8 +599,7 @@ The capacitances are calculated with: C=c*length/N.
 <p><b>References</b></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
 <dd>SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <dl>
 <dt><i>1998</i></dt>
 <dd>by Christoph Clauss initially implemented</dd>
@@ -595,33 +627,31 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-          Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255})}));
+          grid={2,2}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
+            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
+            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
+            points={{30,40},{30,20}}, color={0,0,255})}));
   end ULine;
 
-   model TLine1
+  model TLine1
     "Lossless transmission line with characteristic impedance Z0 and transmission delay TD"
 
-     extends Modelica.Electrical.Analog.Interfaces.TwoPort;
-     parameter Modelica.SIunits.Resistance Z0(start=1)
+    extends Modelica.Electrical.Analog.Interfaces.TwoPort;
+    parameter Modelica.SIunits.Resistance Z0(start=1)
       "Characteristic impedance";
-     parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
+    parameter Modelica.SIunits.Time TD(start=1) "Transmission delay";
   protected
-     Modelica.SIunits.Voltage er;
-     Modelica.SIunits.Voltage es;
-   equation
-     assert(Z0 > 0, "Z0 has to be positive");
-     assert(TD > 0, "TD has to be positive");
-     i1 = (v1 - es)/Z0;
-     i2 = (v2 - er)/Z0;
-     es = 2*delay(v2, TD) - delay(er, TD);
-     er = 2*delay(v1, TD) - delay(es, TD);
+    Modelica.SIunits.Voltage er;
+    Modelica.SIunits.Voltage es;
+  equation
+    assert(Z0 > 0, "Z0 has to be positive");
+    assert(TD > 0, "TD has to be positive");
+    i1 = (v1 - es)/Z0;
+    i2 = (v2 - er)/Z0;
+    es = 2*delay(v2, TD) - delay(er, TD);
+    er = 2*delay(v1, TD) - delay(es, TD);
     annotation (
       Documentation(info="<html>
 <p>Lossless transmission line with characteristic impedance Z0 and transmission delay TD The lossless transmission line TLine1 is a two Port. Both port branches consist of a resistor with characteristic impedance Z0 and a controlled voltage source that takes into consideration the transmission delay TD. For further details see Branin&#39;;s article below. The model parameters can be derived from inductance and capacitance per length (L&#39;; resp. C&#39;;), i. e. Z0 = sqrt(L&#39;;/C&#39;;) and TD = sqrt(L&#39;;*C&#39;;)*length_of_line. Resistance R&#39;; and conductance C&#39;; per meter are assumed to be zero.</p>
@@ -630,8 +660,7 @@ The capacitances are calculated with: C=c*length/N.
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Joachim Haase<br> initially implemented<br>
@@ -641,19 +670,19 @@ The capacitances are calculated with: C=c*length/N.
       Icon(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
+          grid={1,1}),graphics={
           Rectangle(
             extent={{-60,60},{60,-60}},
             lineColor={0,0,255},
             fillPattern=FillPattern.Solid,
             fillColor={255,255,255}),
-          Line(points={{60,-50},{90,-50}}, color={0,0,255}),
-          Line(points={{60,50},{90,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-90,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-90,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
+          Line(points={{60,-50},{90,-50}},color={0,0,255}),
+          Line(points={{60,50},{90,50}},color={0,0,255}),
+          Line(points={{-60,50},{-90,50}},color={0,0,255}),
+          Line(points={{-60,-50},{-90,-50}},color={0,0,255}),
+          Line(points={{30,30},{-30,30}},color={0,0,255}),
+          Line(points={{-30,40},{-30,20}},color={0,0,255}),
+          Line(points={{30,40},{30,20}},color={0,0,255}),
           Text(
             extent={{-50,0},{50,-20}},
             textString="TLine1",
@@ -665,24 +694,20 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{60,-50},{96,-50}}, color={0,0,255}),
-          Line(points={{60,50},{96,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-96,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
-          Text(
-            extent={{-100,100},{100,70}},
-            textString="TLine1",
-            lineColor={0,0,255}),
-          Text(
-            extent={{-30,0},{31,-31}},
-            textString="TLine1",
-            lineColor={0,0,255})}));
-   end TLine1;
+          grid={1,1}),graphics={Rectangle(extent={{-60,60},{60,-60}}, lineColor
+            ={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,255}),Line(
+            points={{60,50},{96,50}}, color={0,0,255}),Line(points={{-60,50},{-96,
+            50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}}, color={0,
+            0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),Line(
+            points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,40},{
+            30,20}}, color={0,0,255}),Text(
+              extent={{-100,100},{100,70}},
+              textString="TLine1",
+              lineColor={0,0,255}),Text(
+              extent={{-30,0},{31,-31}},
+              textString="TLine1",
+              lineColor={0,0,255})}));
+  end TLine1;
 
   model TLine2
     "Lossless transmission line with characteristic impedance Z0, frequency F and normalized length NL"
@@ -695,7 +720,7 @@ The capacitances are calculated with: C=c*length/N.
   protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
-    parameter Modelica.SIunits.Time TD = NL/F;
+    parameter Modelica.SIunits.Time TD=NL/F;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(NL > 0, "NL has to be positive");
@@ -712,8 +737,7 @@ The capacitances are calculated with: C=c*length/N.
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <dl>
 <dt><i>1998</i></dt>
 <dd>by Joachim Haase initially implemented</dd>
@@ -746,19 +770,16 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{60,-50},{96,-50}}, color={0,0,255}),
-          Line(points={{60,50},{96,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-96,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
-          Text(
-            extent={{-100,100},{100,70}},
-            textString="TLine2",
-            lineColor={0,0,255})}));
+          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+            lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
+            255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
+            {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
+            color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),
+            Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,
+            40},{30,20}}, color={0,0,255}),Text(
+              extent={{-100,100},{100,70}},
+              textString="TLine2",
+              lineColor={0,0,255})}));
   end TLine2;
 
   model TLine3
@@ -769,7 +790,7 @@ The capacitances are calculated with: C=c*length/N.
   protected
     Modelica.SIunits.Voltage er;
     Modelica.SIunits.Voltage es;
-    parameter Modelica.SIunits.Time TD = 1/F/4;
+    parameter Modelica.SIunits.Time TD=1/F/4;
   equation
     assert(Z0 > 0, "Z0 has to be positive");
     assert(F > 0, "F  has to be positive");
@@ -785,8 +806,7 @@ The capacitances are calculated with: C=c*length/N.
 <dd>Transient Analysis of Lossless Transmission Lines. Proceedings of the IEEE 55(1967), 2012 - 2013</dd>
 <dt>Hoefer, E. E. E.; Nielinger, H.</dt>
 <dd>SPICE : Analyseprogramm fuer elektronische Schaltungen. Springer-Verlag, Berlin, Heidelberg, New York, Tokyo, 1985. </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Joachim Haase<br> initially implemented<br>
@@ -820,19 +840,16 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{60,-50},{96,-50}}, color={0,0,255}),
-          Line(points={{60,50},{96,50}}, color={0,0,255}),
-          Line(points={{-60,50},{-96,50}}, color={0,0,255}),
-          Line(points={{-60,-50},{-96,-50}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255}),
-          Text(
-            extent={{-100,100},{100,70}},
-            textString="TLine3",
-            lineColor={0,0,255})}));
+          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+            lineColor={0,0,255}),Line(points={{60,-50},{96,-50}}, color={0,0,
+            255}),Line(points={{60,50},{96,50}}, color={0,0,255}),Line(points={
+            {-60,50},{-96,50}}, color={0,0,255}),Line(points={{-60,-50},{-96,-50}},
+            color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,0,255}),
+            Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(points={{30,
+            40},{30,20}}, color={0,0,255}),Text(
+              extent={{-100,100},{100,70}},
+              textString="TLine3",
+              lineColor={0,0,255})}));
   end TLine3;
 
   model OLine_weg "Lossy Transmission Line"
@@ -849,16 +866,20 @@ The capacitances are calculated with: C=c*length/N.
     SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m", start=1) "Resistance per meter";
+      unit="Ohm/m",
+      start=1) "Resistance per meter";
     parameter Real l(
       final min=Modelica.Constants.small,
-      unit="H/m", start=1) "Inductance per meter";
+      unit="H/m",
+      start=1) "Inductance per meter";
     parameter Real g(
       final min=Modelica.Constants.small,
-      unit="S/m", start=1) "Conductance per meter";
+      unit="S/m",
+      start=1) "Conductance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m", start=1) "Capacitance per meter";
+      unit="F/m",
+      start=1) "Capacitance per meter";
     parameter SI.Length length(final min=Modelica.Constants.small, start=1)
       "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
@@ -900,8 +921,7 @@ The capacitances are calculated with: C=c*length/N.
 <br>Note, this is different to the lumped line model of SPICE.</p>
 <dl><dt><b>References:</b> </dt>
 <dd>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.: SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 12, p. 106 - 107 </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -930,14 +950,12 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={1,1}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-          Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255})}));
+          grid={1,1}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
+            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
+            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
+            points={{30,40},{30,20}}, color={0,0,255})}));
   end OLine_weg;
 
   model ULine_weg "Lossy RC Line"
@@ -954,10 +972,12 @@ The capacitances are calculated with: C=c*length/N.
     SI.Current i2;
     parameter Real r(
       final min=Modelica.Constants.small,
-      unit="Ohm/m", start=1) "Resistance per meter";
+      unit="Ohm/m",
+      start=1) "Resistance per meter";
     parameter Real c(
       final min=Modelica.Constants.small,
-      unit="F/m", start=1) "Capacitance per meter";
+      unit="F/m",
+      start=1) "Capacitance per meter";
     parameter SI.Length length(final min=Modelica.Constants.small, start=1)
       "Length of line";
     parameter Integer N(final min=1, start=1) "Number of lumped segments";
@@ -995,8 +1015,7 @@ The capacitances are calculated with: C=c*length/N.
 <p><b>References</b></p>
 <dl><dt>Johnson, B.; Quarles, T.; Newton, A. R.; Pederson, D. O.; Sangiovanni-Vincentelli, A.</dt>
 <dd>SPICE3 Version 3e User&#39;;s Manual (April 1, 1991). Department of Electrical Engineering and Computer Sciences, University of California, Berkley p. 22, p. 124 </dd>
-</dl></html>",
-   revisions="<html>
+</dl></html>", revisions="<html>
 <ul>
 <li><i> 1998   </i>
        by Christoph Clauss<br> initially implemented<br>
@@ -1025,20 +1044,16 @@ The capacitances are calculated with: C=c*length/N.
       Diagram(coordinateSystem(
           preserveAspectRatio=true,
           extent={{-100,-100},{100,100}},
-          grid={2,2}), graphics={
-          Rectangle(extent={{-60,60},{60,-60}}, lineColor={0,0,255}),
-          Line(points={{0,-60},{0,-96}}, color={0,0,255}),
-          Line(points={{60,0},{96,0}}, color={0,0,255}),
-          Line(points={{-60,0},{-96,0}}, color={0,0,255}),
-          Line(points={{30,30},{-30,30}}, color={0,0,255}),
-          Line(points={{-30,40},{-30,20}}, color={0,0,255}),
-          Line(points={{30,40},{30,20}}, color={0,0,255})}));
+          grid={2,2}), graphics={Rectangle(extent={{-60,60},{60,-60}},
+            lineColor={0,0,255}),Line(points={{0,-60},{0,-96}}, color={0,0,255}),
+            Line(points={{60,0},{96,0}}, color={0,0,255}),Line(points={{-60,0},
+            {-96,0}}, color={0,0,255}),Line(points={{30,30},{-30,30}}, color={0,
+            0,255}),Line(points={{-30,40},{-30,20}}, color={0,0,255}),Line(
+            points={{30,40},{30,20}}, color={0,0,255})}));
   end ULine_weg;
-  annotation (
-    Documentation(info="<html>
+  annotation (Documentation(info="<html>
 <p>This package contains lossy and lossless segmented transmission lines, and LC distributed line models. The line models do not yet possess a conditional heating port.</p>
-</html>",
-   revisions="<html>
+</html>", revisions="<html>
 <dl>
 <dt>
 <b>Main Authors:</b>
