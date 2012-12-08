@@ -968,14 +968,14 @@ Example:
 
       block Feedback "Output difference between commanded and feedback input"
 
-        input Interfaces.RealInput u1 annotation (Placement(transformation(
+        Interfaces.RealInput u1 annotation (Placement(transformation(
             extent={{-100,-20},{-60,20}}, rotation=0)));
-        input Interfaces.RealInput u2
+        Interfaces.RealInput u2
           annotation (Placement(transformation(
           origin={0,-80},
           extent={{-20,-20},{20,20}},
           rotation=90)));
-        output Interfaces.RealOutput y annotation (Placement(transformation(
+        Interfaces.RealOutput y annotation (Placement(transformation(
             extent={{80,-10},{100,10}}, rotation=0)));
 
       equation
@@ -1149,16 +1149,16 @@ Example:
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
         parameter Real k3=+1 "Gain of lower input";
-        input Interfaces.RealInput u1 "Connector 1 of Real input signals"
+        Interfaces.RealInput u1 "Connector 1 of Real input signals"
           annotation (Placement(transformation(extent={{-140,60},{-100,100}},
             rotation=0)));
-        input Interfaces.RealInput u2 "Connector 2 of Real input signals"
+        Interfaces.RealInput u2 "Connector 2 of Real input signals"
           annotation (Placement(transformation(extent={{-140,-20},{-100,20}},
             rotation=0)));
-        input Interfaces.RealInput u3 "Connector 3 of Real input signals"
+        Interfaces.RealInput u3 "Connector 3 of Real input signals"
           annotation (Placement(transformation(extent={{-140,-100},{-100,-60}},
             rotation=0)));
-        output Interfaces.RealOutput y "Connector of Real output signals"
+        Interfaces.RealOutput y "Connector of Real output signals"
           annotation (Placement(transformation(extent={{100,-10},{120,10}},
             rotation=0)));
 
