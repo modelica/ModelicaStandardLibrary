@@ -3,49 +3,31 @@ package Water "Medium models for water"
 
 
   extends Modelica.Icons.MaterialPropertiesPackage;
-  constant Interfaces.PartialTwoPhaseMedium.FluidConstants[1] waterConstants(
-     each chemicalFormula = "H2O",
-     each structureFormula="H2O",
-     each casRegistryNumber="7732-18-5",
-     each iupacName="oxidane",
-     each molarMass=0.018015268,
-     each criticalTemperature=647.096,
-     each criticalPressure=22064.0e3,
-     each criticalMolarVolume=1/322.0*0.018015268,
-     each normalBoilingPoint=373.124,
-     each meltingPoint=273.15,
-     each triplePointTemperature=273.16,
-     each triplePointPressure=611.657,
-     each acentricFactor = 0.344,
-     each dipoleMoment = 1.8,
-     each hasCriticalData=true);
 
-  constant Interfaces.PartialMedium.FluidConstants[1] simpleWaterConstants(
-     each chemicalFormula = "H2O",
-     each structureFormula="H2O",
-     each casRegistryNumber="7732-18-5",
-     each iupacName="oxidane",
-     each molarMass=0.018015268);
-  constant Modelica.Media.Interfaces.PartialMixtureMedium.FluidConstants[1] idealWaterConstants(
-     each chemicalFormula = "H2O",
-     each structureFormula="H2O",
-     each casRegistryNumber="7732-18-5",
-     each iupacName="oxidane",
-     each molarMass=0.018015268,
-     each criticalTemperature=647.096,
-     each criticalPressure=22064.0e3,
-     each criticalMolarVolume=1/322.0*0.018015268,
-     each normalBoilingPoint=373.124,
-     each meltingPoint=273.15,
-     each acentricFactor = 0.344,
-     each dipoleMoment = 1.8,
-     each hasCriticalData=true);
+
+package IdealSteam "Water: Steam as ideal gas from NASA source"
+
+  extends IdealGases.SingleGases.H2O;
+  annotation (Documentation(info="<html>
+
+</html>"));
+end IdealSteam;
 
 
 package ConstantPropertyLiquidWater
   "Water: Simple liquid water medium (incompressible, constant data)"
 
-  extends Interfaces.PartialSimpleMedium(
+  redeclare record extends FluidConstants
+  end FluidConstants;
+
+  constant FluidConstants[1] simpleWaterConstants(
+     each chemicalFormula = "H2O",
+     each structureFormula="H2O",
+     each casRegistryNumber="7732-18-5",
+     each iupacName="oxidane",
+     each molarMass=0.018015268);
+
+extends Interfaces.PartialSimpleMedium(
      mediumName="SimpleLiquidWater",
      cp_const=4184,
      cv_const=4184,
@@ -73,36 +55,12 @@ package ConstantPropertyLiquidWater
 end ConstantPropertyLiquidWater;
 
 
-package IdealSteam "Water: Steam as ideal gas from NASA source"
-  extends IdealGases.SingleGases.H2O(
-  fluidConstants = idealWaterConstants);
-  annotation (Documentation(info="<html>
-
-</html>"));
-end IdealSteam;
-
-
 package StandardWater = WaterIF97_ph
   "Water using the IF97 standard, explicit in p and h. Recommended for most applications";
 
 
 package StandardWaterOnePhase = WaterIF97_pT
   "Water using the IF97 standard, explicit in p and T. Recommended for one-phase applications";
-
-
-package WaterIF97OnePhase_ph
-  "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome"
-  extends WaterIF97_base(
-    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
-    final ph_explicit=true,
-    final dT_explicit=false,
-    final pT_explicit=false,
-    final smoothModel=true,
-    final onePhase=true);
-  annotation (Documentation(info="<html>
-
-</html>"));
-end WaterIF97OnePhase_ph;
 
 
 package WaterIF97_pT "Water using the IF97 standard, explicit in p and T"
@@ -130,8 +88,43 @@ package WaterIF97_ph "Water using the IF97 standard, explicit in p and h"
 end WaterIF97_ph;
 
 
+package WaterIF97OnePhase_ph
+  "Water using the IF97 standard, explicit in p and h, and only valid outside the two-phase dome"
+  extends WaterIF97_base(
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
+    final ph_explicit=true,
+    final dT_explicit=false,
+    final pT_explicit=false,
+    final smoothModel=true,
+    final onePhase=true);
+  annotation (Documentation(info="<html>
+
+</html>"));
+end WaterIF97OnePhase_ph;
+
+
 partial package WaterIF97_base
   "Water: Steam properties as defined by IAPWS/IF97 standard"
+
+  redeclare record extends FluidConstants
+  end FluidConstants;
+
+  constant FluidConstants[1] waterConstants(
+     each chemicalFormula = "H2O",
+     each structureFormula="H2O",
+     each casRegistryNumber="7732-18-5",
+     each iupacName="oxidane",
+     each molarMass=0.018015268,
+     each criticalTemperature=647.096,
+     each criticalPressure=22064.0e3,
+     each criticalMolarVolume=1/322.0*0.018015268,
+     each normalBoilingPoint=373.124,
+     each meltingPoint=273.15,
+     each triplePointTemperature=273.16,
+     each triplePointPressure=611.657,
+     each acentricFactor = 0.344,
+     each dipoleMoment = 1.8,
+     each hasCriticalData=true);
 
   extends Interfaces.PartialTwoPhaseMedium(
      mediumName="WaterIF97",
@@ -656,7 +649,7 @@ partial package WaterIF97_base
 
       redeclare function extends setSmoothState
     "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
-    import Modelica.Media.Common.smoothStep;
+      import Modelica.Media.Common.smoothStep;
       algorithm
         state :=ThermodynamicState(
           p=smoothStep(x, state_a.p, state_b.p, x_small),
@@ -1257,7 +1250,7 @@ partial package WaterIF97_fixedregion
 
       redeclare function extends setSmoothState
     "Return thermodynamic state so that it smoothly approximates: if x > 0 then state_a else state_b"
-    import Modelica.Media.Common.smoothStep;
+      import Modelica.Media.Common.smoothStep;
       algorithm
         state :=ThermodynamicState(
           p=smoothStep(x, state_a.p, state_b.p, x_small),
@@ -1327,21 +1320,6 @@ Modelica.Media.UsersGuide.MediumUsage.TwoPhase</a>.
 </p>
 </html>"));
 end WaterIF97_fixedregion;
-
-
-package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
-  extends WaterIF97_fixedregion(
-    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
-    final Region=1,
-    final ph_explicit=true,
-    final dT_explicit=false,
-    final pT_explicit=false,
-    smoothModel=true,
-    onePhase=true);
-  annotation (Documentation(info="<html>
-
-</html>"));
-end WaterIF97_R1ph;
 
 
 package WaterIF97_R2ph "region 2 (steam) water according to IF97 standard"
@@ -1432,6 +1410,21 @@ package WaterIF97_R2pT "region 2 (steam) water according to IF97 standard"
 
 </html>"));
 end WaterIF97_R2pT;
+
+
+package WaterIF97_R1ph "region 1 (liquid) water according to IF97 standard"
+  extends WaterIF97_fixedregion(
+    ThermoStates=Modelica.Media.Interfaces.Choices.IndependentVariables.ph,
+    final Region=1,
+    final ph_explicit=true,
+    final dT_explicit=false,
+    final pT_explicit=false,
+    smoothModel=true,
+    onePhase=true);
+  annotation (Documentation(info="<html>
+
+</html>"));
+end WaterIF97_R1ph;
 
 
 annotation (Documentation(info="<html>

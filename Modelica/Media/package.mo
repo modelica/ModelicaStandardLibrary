@@ -2673,32 +2673,33 @@ is given to compare the approximation.
         experiment(StopTime=1));
     end IdealGasN2;
 
-    package TestMedia "Test interfaces of media"
-      extends Modelica.Icons.Package;
-      model TemplateMedium "Test Interfaces.TemplateMedium"
-        extends Modelica.Icons.Example;
-        package Medium = Interfaces.TemplateMedium "Medium model";
-        Medium.ThermodynamicState state;
-
-        Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
-        Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
-        Medium.SpecificEntropy s=Medium.specificEntropy(state);
-        Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
-        Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
-        Medium.IsentropicExponent gamma=Medium.isentropicExponent(state);
-        Medium.VelocityOfSound a=Medium.velocityOfSound(state);
-      equation
-        state.p = 1.0e5;
-        state.T = 300 + time/1000;
-        annotation (Documentation(info="<html>
-
-</html>"), experiment(StopTime=1.01));
-      end TemplateMedium;
-
-      annotation (Documentation(info="<html>
-
-</html>"));
-    end TestMedia;
+  //   package TestMedia "Test interfaces of media"
+  //     extends Modelica.Icons.Package;
+  //     model TemplateMedium "Test Interfaces.TemplateMedium"
+  //       extends Modelica.Icons.Example;
+  //       package Medium = Interfaces.TemplateMedium "Medium model";
+  //       Medium.ThermodynamicState state;
+  //
+  //       Medium.DynamicViscosity eta=Medium.dynamicViscosity(state);
+  //       Medium.ThermalConductivity lambda=Medium.thermalConductivity(state);
+  //       Medium.SpecificEntropy s=Medium.specificEntropy(state);
+  //       Medium.SpecificHeatCapacity cp=Medium.specificHeatCapacityCp(state);
+  //       Medium.SpecificHeatCapacity cv=Medium.specificHeatCapacityCv(state);
+  //       Medium.IsentropicExponent gamma=Medium.isentropicExponent(state);
+  //       Medium.VelocityOfSound a=Medium.velocityOfSound(state);
+  //     equation
+  //       state.p = 1.0e5;
+  //       state.T = 300 + time/1000;
+  //       annotation (Documentation(info="<html>
+  //
+  // </html>"),
+  //          experiment(StopTime=1.01));
+  //     end TemplateMedium;
+  //
+  //     annotation (Documentation(info="<html>
+  //
+  // </html>"));
+  //   end TestMedia;
 
     model IdealGasN2Mix "Test IdealGas.SingleMedia.N2 medium model"
       extends Modelica.Icons.Example;
@@ -4000,6 +4001,7 @@ Modelica source.
   partial package PartialMedium
     "Partial medium properties (base package of all media packages)"
     extends Modelica.Icons.MaterialPropertiesPackage;
+    extends Modelica.Media.Interfaces.Types;
 
     // Constants to be set in Medium
     constant Modelica.Media.Interfaces.Choices.IndependentVariables
@@ -4589,132 +4591,6 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     algorithm
       h := specificEnthalpy(setState_psX(p,s,X));
     end specificEnthalpy_psX;
-
-    type AbsolutePressure = SI.AbsolutePressure (
-        min=0,
-        max=1.e8,
-        nominal=1.e5,
-        start=1.e5)
-      "Type for absolute pressure with medium specific attributes";
-
-    type Density = SI.Density (
-        min=0,
-        max=1.e5,
-        nominal=1,
-        start=1) "Type for density with medium specific attributes";
-    type DynamicViscosity = SI.DynamicViscosity (
-        min=0,
-        max=1.e8,
-        nominal=1.e-3,
-        start=1.e-3)
-      "Type for dynamic viscosity with medium specific attributes";
-    type EnthalpyFlowRate = SI.EnthalpyFlowRate (
-        nominal=1000.0,
-        min=-1.0e8,
-        max=1.e8) "Type for enthalpy flow rate with medium specific attributes";
-    type MassFlowRate = SI.MassFlowRate (
-        quantity="MassFlowRate." + mediumName,
-        min=-1.0e5,
-        max=1.e5) "Type for mass flow rate with medium specific attributes";
-    type MassFraction = Real (
-        quantity="MassFraction",
-        final unit="kg/kg",
-        min=0,
-        max=1,
-        nominal=0.1) "Type for mass fraction with medium specific attributes";
-    type MoleFraction = Real (
-        quantity="MoleFraction",
-        final unit="mol/mol",
-        min=0,
-        max=1,
-        nominal=0.1) "Type for mole fraction with medium specific attributes";
-    type MolarMass = SI.MolarMass (
-        min=0.001,
-        max=0.25,
-        nominal=0.032) "Type for molar mass with medium specific attributes";
-    type MolarVolume = SI.MolarVolume (
-        min=1e-6,
-        max=1.0e6,
-        nominal=1.0) "Type for molar volume with medium specific attributes";
-    type IsentropicExponent = SI.RatioOfSpecificHeatCapacities (
-        min=1,
-        max=500000,
-        nominal=1.2,
-        start=1.2)
-      "Type for isentropic exponent with medium specific attributes";
-    type SpecificEnergy = SI.SpecificEnergy (
-        min=-1.0e8,
-        max=1.e8,
-        nominal=1.e6)
-      "Type for specific energy with medium specific attributes";
-    type SpecificInternalEnergy = SpecificEnergy
-      "Type for specific internal energy with medium specific attributes";
-    type SpecificEnthalpy = SI.SpecificEnthalpy (
-        min=-1.0e10,
-        max=1.e10,
-        nominal=1.e6)
-      "Type for specific enthalpy with medium specific attributes";
-    type SpecificEntropy = SI.SpecificEntropy (
-        min=-1.e7,
-        max=1.e7,
-        nominal=1.e3)
-      "Type for specific entropy with medium specific attributes";
-    type SpecificHeatCapacity = SI.SpecificHeatCapacity (
-        min=0,
-        max=1.e7,
-        nominal=1.e3,
-        start=1.e3)
-      "Type for specific heat capacity with medium specific attributes";
-    type SurfaceTension = SI.SurfaceTension
-      "Type for surface tension with medium specific attributes";
-    type Temperature = SI.Temperature (
-        min=1,
-        max=1.e4,
-        nominal=300,
-        start=300) "Type for temperature with medium specific attributes";
-    type ThermalConductivity = SI.ThermalConductivity (
-        min=0,
-        max=500,
-        nominal=1,
-        start=1)
-      "Type for thermal conductivity with medium specific attributes";
-    type PrandtlNumber = SI.PrandtlNumber (
-        min=1e-3,
-        max=1e5,
-        nominal=1.0) "Type for Prandtl number with medium specific attributes";
-    type VelocityOfSound = SI.Velocity (
-        min=0,
-        max=1.e5,
-        nominal=1000,
-        start=1000)
-      "Type for velocity of sound with medium specific attributes";
-    type ExtraProperty = Real (min=0.0, start=1.0)
-      "Type for unspecified, mass-specific property transported by flow";
-    type CumulativeExtraProperty = Real (min=0.0, start=1.0)
-      "Type for conserved integral of unspecified, mass specific property";
-    type ExtraPropertyFlowRate = Real(unit="kg/s")
-      "Type for flow rate of unspecified, mass-specific property";
-    type IsobaricExpansionCoefficient = Real (
-        min=0,
-        max=1.0e8,
-        unit="1/K")
-      "Type for isobaric expansion coefficient with medium specific attributes";
-    type DipoleMoment = Real (
-        min=0.0,
-        max=2.0,
-        unit="debye",
-        quantity="ElectricDipoleMoment")
-      "Type for dipole moment with medium specific attributes";
-
-    type DerDensityByPressure = SI.DerDensityByPressure
-      "Type for partial derivative of density with resect to pressure with medium specific attributes";
-    type DerDensityByEnthalpy = SI.DerDensityByEnthalpy
-      "Type for partial derivative of density with resect to enthalpy with medium specific attributes";
-    type DerEnthalpyByPressure = SI.DerEnthalpyByPressure
-      "Type for partial derivative of enthalpy with resect to pressure with medium specific attributes";
-    type DerDensityByTemperature = SI.DerDensityByTemperature
-      "Type for partial derivative of density with resect to temperature with medium specific attributes";
-
     annotation (Documentation(info="<html>
 <p>
 <b>PartialMedium</b> is a package and contains all <b>declarations</b> for
@@ -4729,6 +4605,11 @@ are described in
 </html>", revisions="<html>
 
 </html>"));
+    type MassFlowRate = SI.MassFlowRate (
+        quantity="MassFlowRate." + mediumName,
+        min=-1.0e5,
+        max=1.e5) "Type for mass flow rate with medium specific attributes";
+
   end PartialMedium;
 
   partial package PartialPureSubstance
@@ -6571,6 +6452,130 @@ This package provides basic interfaces definitions of media models for different
 kind of media.
 </p>
 </HTML>"));
+  package Types "Types to be ued in fluid models"
+
+    type AbsolutePressure = SI.AbsolutePressure (
+        min=0,
+        max=1.e8,
+        nominal=1.e5,
+        start=1.e5)
+      "Type for absolute pressure with medium specific attributes";
+
+    type Density = SI.Density (
+        min=0,
+        max=1.e5,
+        nominal=1,
+        start=1) "Type for density with medium specific attributes";
+    type DynamicViscosity = SI.DynamicViscosity (
+        min=0,
+        max=1.e8,
+        nominal=1.e-3,
+        start=1.e-3)
+      "Type for dynamic viscosity with medium specific attributes";
+    type EnthalpyFlowRate = SI.EnthalpyFlowRate (
+        nominal=1000.0,
+        min=-1.0e8,
+        max=1.e8) "Type for enthalpy flow rate with medium specific attributes";
+    type MassFraction = Real (
+        quantity="MassFraction",
+        final unit="kg/kg",
+        min=0,
+        max=1,
+        nominal=0.1) "Type for mass fraction with medium specific attributes";
+    type MoleFraction = Real (
+        quantity="MoleFraction",
+        final unit="mol/mol",
+        min=0,
+        max=1,
+        nominal=0.1) "Type for mole fraction with medium specific attributes";
+    type MolarMass = SI.MolarMass (
+        min=0.001,
+        max=0.25,
+        nominal=0.032) "Type for molar mass with medium specific attributes";
+    type MolarVolume = SI.MolarVolume (
+        min=1e-6,
+        max=1.0e6,
+        nominal=1.0) "Type for molar volume with medium specific attributes";
+    type IsentropicExponent = SI.RatioOfSpecificHeatCapacities (
+        min=1,
+        max=500000,
+        nominal=1.2,
+        start=1.2)
+      "Type for isentropic exponent with medium specific attributes";
+    type SpecificEnergy = SI.SpecificEnergy (
+        min=-1.0e8,
+        max=1.e8,
+        nominal=1.e6)
+      "Type for specific energy with medium specific attributes";
+    type SpecificInternalEnergy = SpecificEnergy
+      "Type for specific internal energy with medium specific attributes";
+    type SpecificEnthalpy = SI.SpecificEnthalpy (
+        min=-1.0e10,
+        max=1.e10,
+        nominal=1.e6)
+      "Type for specific enthalpy with medium specific attributes";
+    type SpecificEntropy = SI.SpecificEntropy (
+        min=-1.e7,
+        max=1.e7,
+        nominal=1.e3)
+      "Type for specific entropy with medium specific attributes";
+    type SpecificHeatCapacity = SI.SpecificHeatCapacity (
+        min=0,
+        max=1.e7,
+        nominal=1.e3,
+        start=1.e3)
+      "Type for specific heat capacity with medium specific attributes";
+    type SurfaceTension = SI.SurfaceTension
+      "Type for surface tension with medium specific attributes";
+    type Temperature = SI.Temperature (
+        min=1,
+        max=1.e4,
+        nominal=300,
+        start=300) "Type for temperature with medium specific attributes";
+    type ThermalConductivity = SI.ThermalConductivity (
+        min=0,
+        max=500,
+        nominal=1,
+        start=1)
+      "Type for thermal conductivity with medium specific attributes";
+    type PrandtlNumber = SI.PrandtlNumber (
+        min=1e-3,
+        max=1e5,
+        nominal=1.0) "Type for Prandtl number with medium specific attributes";
+    type VelocityOfSound = SI.Velocity (
+        min=0,
+        max=1.e5,
+        nominal=1000,
+        start=1000)
+      "Type for velocity of sound with medium specific attributes";
+    type ExtraProperty = Real (min=0.0, start=1.0)
+      "Type for unspecified, mass-specific property transported by flow";
+    type CumulativeExtraProperty = Real (min=0.0, start=1.0)
+      "Type for conserved integral of unspecified, mass specific property";
+    type ExtraPropertyFlowRate = Real(unit="kg/s")
+      "Type for flow rate of unspecified, mass-specific property";
+    type IsobaricExpansionCoefficient = Real (
+        min=0,
+        max=1.0e8,
+        unit="1/K")
+      "Type for isobaric expansion coefficient with medium specific attributes";
+    type DipoleMoment = Real (
+        min=0.0,
+        max=2.0,
+        unit="debye",
+        quantity="ElectricDipoleMoment")
+      "Type for dipole moment with medium specific attributes";
+
+    type DerDensityByPressure = SI.DerDensityByPressure
+      "Type for partial derivative of density with resect to pressure with medium specific attributes";
+    type DerDensityByEnthalpy = SI.DerDensityByEnthalpy
+      "Type for partial derivative of density with resect to enthalpy with medium specific attributes";
+    type DerEnthalpyByPressure = SI.DerEnthalpyByPressure
+      "Type for partial derivative of enthalpy with resect to pressure with medium specific attributes";
+    type DerDensityByTemperature = SI.DerDensityByTemperature
+      "Type for partial derivative of density with resect to temperature with medium specific attributes";
+
+  end Types;
 end Interfaces;
 
 

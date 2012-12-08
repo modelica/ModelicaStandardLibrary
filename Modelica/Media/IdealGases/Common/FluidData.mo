@@ -134,12 +134,12 @@ package FluidData "Critical data, dipole moments and related data"
 
   constant PartialMixtureMedium.FluidConstants H2O(
                        chemicalFormula =        "H2O",
-                       iupacName =              "unknown",
-                       structureFormula =       "unknown",
+                       iupacName =              "oxidane",
+                       structureFormula =       "H2O",
                        casRegistryNumber =      "7732-18-5",
                        meltingPoint =           273.15,
-                       normalBoilingPoint =     373.15,
-                       criticalTemperature =    647.14,
+                       normalBoilingPoint =     373.124,
+                       criticalTemperature =    647.096,
                        criticalPressure =       220.64e5,
                        criticalMolarVolume =     55.95e-6,
                        acentricFactor =           0.344,
