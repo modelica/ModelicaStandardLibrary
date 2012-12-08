@@ -2,7 +2,7 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1b
   "Model of one cylinder engine with gas force and preparation for assembly joint JointRRP"
   extends Modelica.Icons.Example;
-  extends Utilities.Engine1bBase;
+  extends Utilities.Engine1bBase(Inertia(w(start=0)));
   Joints.RevolutePlanarLoopConstraint B2(
     n={1,0,0},
     cylinderLength=0.02,
@@ -11,22 +11,22 @@ model Engine1b
   Modelica.Mechanics.MultiBody.Joints.Revolute B1(
     n={1,0,0},
     cylinderLength=0.02,
-    cylinderDiameter=0.05)
-                         annotation (Placement(transformation(extent={{40,-20},
+    cylinderDiameter=0.05) annotation (Placement(transformation(extent={{40,-20},
             {60,0}}, rotation=0)));
-  Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(useAxisFlange=true,
-    boxWidth=0.02, n={0,-1,0})
-                   annotation (Placement(transformation(
+  Modelica.Mechanics.MultiBody.Joints.Prismatic Cylinder(
+    useAxisFlange=true,
+    boxWidth=0.02,
+    n={0,-1,0}) annotation (Placement(transformation(
         origin={50,97},
         extent={{-10,-10},{10,10}},
         rotation=270)));
-  Parts.FixedTranslation Rod1(r={0,0.2,0}, animation=false)
-    annotation (Placement(transformation(
+  Parts.FixedTranslation Rod1(r={0,0.2,0}, animation=false) annotation (
+      Placement(transformation(
         origin={70,10},
         extent={{-10,-10},{10,10}},
         rotation=90)));
-  Parts.FixedTranslation Rod3(r={0,-0.1,0}, animation=false)
-    annotation (Placement(transformation(
+  Parts.FixedTranslation Rod3(r={0,-0.1,0}, animation=false) annotation (
+      Placement(transformation(
         origin={50,58},
         extent={{10,-10},{-10,10}},
         rotation=90)));
@@ -72,17 +72,14 @@ equation
     Diagram(coordinateSystem(
         preserveAspectRatio=true,
         extent={{-100,-120},{150,120}},
-        grid={1,1}), graphics={
-        Rectangle(
+        grid={1,1}), graphics={Rectangle(
           extent={{3,117},{88,-23}},
           lineColor={255,0,0},
-          lineThickness=0.5),
-        Text(
+          lineThickness=0.5),Text(
           extent={{65,-30},{145,-39}},
           lineColor={255,0,0},
           lineThickness=0.5,
-          textString="jointRRP in model"),
-        Text(
+          textString="jointRRP in model"),Text(
           extent={{66,-34},{141,-52}},
           lineColor={255,0,0},
           lineThickness=0.5,

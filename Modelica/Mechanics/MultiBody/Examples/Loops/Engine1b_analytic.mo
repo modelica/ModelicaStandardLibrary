@@ -2,14 +2,13 @@ within Modelica.Mechanics.MultiBody.Examples.Loops;
 model Engine1b_analytic
   "Model of one cylinder engine with gas force and analytic loop handling"
   extends Modelica.Icons.Example;
-  extends Utilities.Engine1bBase;
+  extends Utilities.Engine1bBase(Inertia(w(start=0)));
   Joints.Assemblies.JointRRP jointRRP(
     n_a={1,0,0},
     n_b={0,-1,0},
     animation=false,
     rRod1_ia={0,0.2,0},
-    rRod2_ib={0,-0.1,0})
-    annotation (Placement(transformation(
+    rRod2_ib={0,-0.1,0}) annotation (Placement(transformation(
         origin={30,54},
         extent={{-20,20},{20,-20}},
         rotation=90)));
@@ -34,9 +33,7 @@ equation
       points={{50,38},{80,38},{80,-10},{120,-10},{120,0}},
       color={95,95,95},
       thickness=0.5));
-  annotation (
-    experiment(StopTime=0.5),
-    Documentation(info="<html>
+  annotation (experiment(StopTime=0.5), Documentation(info="<html>
 <p>
 This is the same model as
 <a href=\"modelica://Modelica.Mechanics.MultiBody.Examples.Loops.Engine1b#diagram\">Loops.Engine1b</a>.
