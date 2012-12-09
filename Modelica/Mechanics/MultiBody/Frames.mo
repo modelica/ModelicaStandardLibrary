@@ -2137,7 +2137,7 @@ The used variables have the following declaration:
       output Real y;
     algorithm
       y := if u1 > u2 then u1 else u2;
-      annotation (Inline=false, LateInline=true,
+      annotation (Inline=false,
     derivative=maxWithoutEvent_d, Documentation(info="<html>
 <p>
 Function <b>maxWithoutEvent</b> returns the maximum of its two
@@ -2164,7 +2164,7 @@ library, this is irrelavant and therefore the usage of the function is correct.
       output Real y_d;
     algorithm
       y_d := if u1 > u2 then u1_d else u2_d;
-      annotation (Inline=false, LateInline=true, derivative(order=2) = maxWithoutEvent_dd);
+      annotation (Inline=false, derivative(order=2) = maxWithoutEvent_dd);
     end maxWithoutEvent_d;
 
     function maxWithoutEvent_dd
@@ -2180,6 +2180,7 @@ library, this is irrelavant and therefore the usage of the function is correct.
       output Real y_dd;
     algorithm
       y_dd := if u1 > u2 then u1_dd else u2_dd;
+      annotation(Inline=true, GenerateEvents=false, __Dymola_InlineNoEvent=true);
     end maxWithoutEvent_dd;
 
     function resolve1_der "Derivative of function Frames.resolve1(..)"
