@@ -109,10 +109,7 @@ The main features of the library are:
      account. If masses are set to zero, the additional code to handle
      these point masses is removed. If the masses are taken into
      account, the calculation overhead is small (the reason is that
-     the occurring kinematic loops are analytically solved).<br>
-     Note, in this Beta-release, not all provided line force
-     components have already an optional mass. This will be fixed
-     in the next release.</li>
+     the occurring kinematic loops are analytically solved).</li>
 <li> <b>Force components may be connected directly together</b>, e.g.,
      3-dimensional springs in series connection. Usually,
      multi-body programs have the restriction that force components
