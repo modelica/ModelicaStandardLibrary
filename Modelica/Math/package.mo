@@ -4974,7 +4974,7 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
       output Real eigenVectors[size(A, 1), size(A, 1)] "Right eigen vectors";
       output Integer info;
     protected
-      Real leftEigenVectors[size(A, 1), size(A, 1)];
+      Real dummy[1,1];
       Integer n=size(A, 1);
       Integer lwork=12*n;
       Real Awork[size(A, 1), size(A, 1)]=A;
@@ -4988,14 +4988,14 @@ Function <b>flipUpDown</b> computes from matrix <b>A</b> a matrix <b>A_fud</b> w
               n,
               eigenReal,
               eigenImag,
-              leftEigenVectors,
-              n,
+              dummy,
+              1,
               eigenVectors,
               n,
               work,
               size(work, 1),
               info) annotation (Library="Lapack");
-      annotation (Documentation(info="This function is not a full interface to the LAPACK function DGEEV, 
+      annotation (Documentation(info="This function is not a full interface to the LAPACK function DGEEV,
 but calls it in such a way that only eigenvalues and right eigenvectors
 are computed.
 
