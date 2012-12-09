@@ -114,6 +114,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=p,T=T);
+      annotation(Inline=true,smoothOrder=2);
     end setState_pTX;
 
     redeclare function setState_phX
@@ -125,6 +126,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=p,T=T_h(h));
+      annotation(Inline=true,smoothOrder=2);
     end setState_phX;
 
     redeclare function setState_psX
@@ -136,6 +138,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=p,T=T_ps(p,s));
+      annotation(Inline=true,smoothOrder=2);
     end setState_psX;
 
     redeclare function setState_dTX
@@ -147,6 +150,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       output ThermodynamicState state;
     algorithm
       state := ThermodynamicState(p=d*data.R*T,T=T);
+      annotation(Inline=true,smoothOrder=2);
     end setState_dTX;
 
       redeclare function extends setSmoothState
@@ -154,21 +158,25 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       algorithm
         state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+        annotation(Inline=true,smoothOrder=2);
       end setSmoothState;
 
   redeclare function extends pressure "return pressure of ideal gas"
   algorithm
     p := state.p;
+    annotation(Inline=true,smoothOrder=2);
   end pressure;
 
   redeclare function extends temperature "return temperature of ideal gas"
   algorithm
     T := state.T;
+    annotation(Inline=true,smoothOrder=2);
   end temperature;
 
   redeclare function extends density "return density of ideal gas"
   algorithm
     d := state.p/(data.R*state.T);
+    annotation(Inline=true,smoothOrder=2);
   end density;
 
   redeclare function extends specificEnthalpy "Return specific enthalpy"
@@ -176,6 +184,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     h := Modelica.Media.IdealGases.Common.Functions.h_T(
              data,state.T);
+    annotation(Inline=true,smoothOrder=2);
   end specificEnthalpy;
 
   redeclare function extends specificInternalEnergy
@@ -184,6 +193,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     u := Modelica.Media.IdealGases.Common.Functions.h_T(
              data,state.T) - data.R*state.T;
+    annotation(Inline=true,smoothOrder=2);
   end specificInternalEnergy;
 
   redeclare function extends specificEntropy "Return specific entropy"
@@ -191,6 +201,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     s := Modelica.Media.IdealGases.Common.Functions.s0_T(
               data, state.T) - data.R*Modelica.Math.log(state.p/reference_p);
+    annotation(Inline=true,smoothOrder=2);
   end specificEntropy;
 
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy"
@@ -198,6 +209,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     g := Modelica.Media.IdealGases.Common.Functions.h_T(
              data,state.T) - state.T*specificEntropy(state);
+    annotation(Inline=true,smoothOrder=2);
   end specificGibbsEnergy;
 
   redeclare function extends specificHelmholtzEnergy
@@ -206,6 +218,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     f := Modelica.Media.IdealGases.Common.Functions.h_T(
              data,state.T) - data.R*state.T - state.T*specificEntropy(state);
+    annotation(Inline=true,smoothOrder=2);
   end specificHelmholtzEnergy;
 
   redeclare function extends specificHeatCapacityCp
@@ -213,6 +226,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     cp := Modelica.Media.IdealGases.Common.Functions.cp_T(
                data, state.T);
+    annotation(Inline=true,smoothOrder=2);
   end specificHeatCapacityCp;
 
   redeclare function extends specificHeatCapacityCv
@@ -220,11 +234,13 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     cv := Modelica.Media.IdealGases.Common.Functions.cp_T(
                data, state.T) - data.R;
+    annotation(Inline=true,smoothOrder=2);
   end specificHeatCapacityCv;
 
   redeclare function extends isentropicExponent "Return isentropic exponent"
   algorithm
     gamma := specificHeatCapacityCp(state)/specificHeatCapacityCv(state);
+    annotation(Inline=true,smoothOrder=2);
   end isentropicExponent;
 
   redeclare function extends velocityOfSound "Return velocity of sound"
@@ -232,6 +248,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   algorithm
     a := sqrt(max(0,data.R*state.T*Modelica.Media.IdealGases.Common.Functions.cp_T(
                                         data, state.T)/specificHeatCapacityCv(state)));
+    annotation(Inline=true,smoothOrder=2);
   end velocityOfSound;
 
   function isentropicEnthalpyApproximation
@@ -252,6 +269,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     h_is := Modelica.Media.IdealGases.Common.Functions.h_T(
                 data,state.T,exclEnthForm,refChoice,h_off) +
       gamma/(gamma - 1.0)*state.p/density(state)*((p2/state.p)^((gamma - 1)/gamma) - 1.0);
+    annotation(Inline=true,smoothOrder=2);
   end isentropicEnthalpyApproximation;
 
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
@@ -263,36 +281,42 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
   algorithm
     h_is := isentropicEnthalpyApproximation(p_downstream,refState,exclEnthForm,refChoice,h_off);
+    annotation(Inline=true,smoothOrder=2);
   end isentropicEnthalpy;
 
   redeclare function extends isobaricExpansionCoefficient
     "Returns overall the isobaric expansion coefficient beta"
   algorithm
     beta := 1/state.T;
+    annotation(Inline=true,smoothOrder=2);
   end isobaricExpansionCoefficient;
 
   redeclare function extends isothermalCompressibility
     "Returns overall the isothermal compressibility factor"
   algorithm
     kappa := 1.0/state.p;
+    annotation(Inline=true,smoothOrder=2);
   end isothermalCompressibility;
 
   redeclare function extends density_derp_T
     "Returns the partial derivative of density with respect to pressure at constant temperature"
   algorithm
     ddpT := 1/(state.T*data.R);
+    annotation(Inline=true,smoothOrder=2);
   end density_derp_T;
 
   redeclare function extends density_derT_p
     "Returns the partial derivative of density with respect to temperature at constant pressure"
   algorithm
     ddTp := -state.p/(state.T*state.T*data.R);
+    annotation(Inline=true,smoothOrder=2);
   end density_derT_p;
 
   redeclare function extends density_derX
     "Returns the partial derivative of density with respect to mass fractions at constant pressure and temperature"
   algorithm
     dddX := fill(0,nX);
+    annotation(Inline=true,smoothOrder=2);
   end density_derX;
 
   redeclare replaceable function extends dynamicViscosity "dynamic viscosity"
@@ -328,6 +352,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare function extends molarMass "return the molar mass of the medium"
   algorithm
     MM := data.MM;
+    annotation(Inline=true,smoothOrder=2);
   end molarMass;
 
   function T_h "Compute temperature from specific enthalpy"
@@ -649,6 +674,7 @@ required from medium model \""   + mediumName + "\".");
     algorithm
       state := if size(X,1) == 0 then ThermodynamicState(p=p,T=T,X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=p,T=T, X=X) else
              ThermodynamicState(p=p,T=T, X=cat(1,X,{1-sum(X)}));
+    annotation(Inline=true,smoothOrder=2);
     end setState_pTX;
 
     redeclare function setState_phX
@@ -661,6 +687,7 @@ required from medium model \""   + mediumName + "\".");
     algorithm
       state := if size(X,1) == 0 then ThermodynamicState(p=p,T=T_hX(h,reference_X),X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=p,T=T_hX(h,X),X=X) else
              ThermodynamicState(p=p,T=T_hX(h,X), X=cat(1,X,{1-sum(X)}));
+      annotation(Inline=true,smoothOrder=2);
     end setState_phX;
 
     redeclare function setState_psX
@@ -673,6 +700,7 @@ required from medium model \""   + mediumName + "\".");
     algorithm
       state := if size(X,1) == 0 then ThermodynamicState(p=p,T=T_psX(p,s,reference_X),X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=p,T=T_psX(p,s,X),X=X) else
              ThermodynamicState(p=p,T=T_psX(p,s,X), X=cat(1,X,{1-sum(X)}));
+      annotation(Inline=true,smoothOrder=2);
     end setState_psX;
 
     redeclare function setState_dTX
@@ -685,6 +713,7 @@ required from medium model \""   + mediumName + "\".");
     algorithm
       state := if size(X,1) == 0 then ThermodynamicState(p=d*(data.R*reference_X)*T,T=T,X=reference_X) else if size(X,1) == nX then ThermodynamicState(p=d*(data.R*X)*T,T=T,X=X) else
              ThermodynamicState(p=d*(data.R*cat(1,X,{1-sum(X)}))*T,T=T, X=cat(1,X,{1-sum(X)}));
+      annotation(Inline=true,smoothOrder=2);
     end setState_dTX;
 
       redeclare function extends setSmoothState
@@ -693,28 +722,32 @@ required from medium model \""   + mediumName + "\".");
         state := ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                     T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small),
                                     X=Media.Common.smoothStep(x, state_a.X, state_b.X, x_small));
+        annotation(Inline=true,smoothOrder=2);
       end setSmoothState;
 
     redeclare function extends pressure "Return pressure of ideal gas"
     algorithm
       p := state.p;
+      annotation(Inline=true,smoothOrder=2);
     end pressure;
 
     redeclare function extends temperature "Return temperature of ideal gas"
     algorithm
       T := state.T;
+      annotation(Inline=true,smoothOrder=2);
     end temperature;
 
     redeclare function extends density "Return density of ideal gas"
     algorithm
       d := state.p/((state.X*data.R)*state.T);
-      annotation(smoothOrder = 3);
+      annotation(Inline = true, smoothOrder = 3);
     end density;
 
   redeclare function extends specificEnthalpy "Return specific enthalpy"
     extends Modelica.Icons.Function;
   algorithm
     h := h_TX(state.T,state.X);
+    annotation(Inline=true,smoothOrder=2);
   end specificEnthalpy;
 
   redeclare function extends specificInternalEnergy
@@ -722,6 +755,7 @@ required from medium model \""   + mediumName + "\".");
     extends Modelica.Icons.Function;
   algorithm
     u := h_TX(state.T,state.X) - gasConstant(state)*state.T;
+    annotation(Inline=true,smoothOrder=2);
   end specificInternalEnergy;
 
   redeclare function extends specificEntropy "Return specific entropy"
@@ -732,12 +766,14 @@ required from medium model \""   + mediumName + "\".");
   s :=  s_TX(state.T, state.X) - sum(state.X[i]*Modelica.Constants.R/MMX[i]*
       (if state.X[i]<Modelica.Constants.eps then Y[i] else
       Modelica.Math.log(Y[i]*state.p/reference_p)) for i in 1:nX);
+    annotation(Inline=true,smoothOrder=2);
   end specificEntropy;
 
   redeclare function extends specificGibbsEnergy "Return specific Gibbs energy"
     extends Modelica.Icons.Function;
   algorithm
     g := h_TX(state.T,state.X) - state.T*specificEntropy(state);
+    annotation(Inline=true,smoothOrder=2);
   end specificGibbsEnergy;
 
   redeclare function extends specificHelmholtzEnergy
@@ -745,6 +781,7 @@ required from medium model \""   + mediumName + "\".");
     extends Modelica.Icons.Function;
   algorithm
     f := h_TX(state.T,state.X) - gasConstant(state)*state.T - state.T*specificEntropy(state);
+    annotation(Inline=true,smoothOrder=2);
   end specificHelmholtzEnergy;
 
   function h_TX "Return specific enthalpy"
@@ -791,13 +828,13 @@ required from medium model \""   + mediumName + "\".");
                                  data[i], T)*X[i]) for i in 1:nX)+
       sum((Modelica.Media.IdealGases.Common.Functions.h_T(
                              data[i], T)*dX[i]) for i in 1:nX);
-    annotation (Inline = false);
+    annotation (Inline = false, smoothOrder=1);
   end h_TX_der;
 
   redeclare function extends gasConstant "Return gasConstant"
   algorithm
     R := data.R*state.X;
-    annotation(smoothOrder = 3);
+    annotation(Inline = true, smoothOrder = 3);
   end gasConstant;
 
   redeclare function extends specificHeatCapacityCp
@@ -805,6 +842,7 @@ required from medium model \""   + mediumName + "\".");
   algorithm
     cp := {Modelica.Media.IdealGases.Common.Functions.cp_T(
                               data[i], state.T) for i in 1:nX}*state.X;
+    annotation(Inline=true,smoothOrder=1);
   end specificHeatCapacityCp;
 
   redeclare function extends specificHeatCapacityCv
@@ -812,8 +850,7 @@ required from medium model \""   + mediumName + "\".");
   algorithm
     cv := {Modelica.Media.IdealGases.Common.Functions.cp_T(
                               data[i], state.T) for i in 1:nX}*state.X -data.R*state.X;
-    annotation(smoothOrder = 1,
-               smoothOrder = 1);
+    annotation(Inline=true, smoothOrder = 1);
   end specificHeatCapacityCv;
 
   function MixEntropy "Return mixing entropy of ideal gases / R"
@@ -823,6 +860,7 @@ required from medium model \""   + mediumName + "\".");
   algorithm
     smix := sum(if x[i] > Modelica.Constants.eps then -x[i]*Modelica.Math.log(x[i]) else
                      x[i] for i in 1:size(x,1));
+    annotation(Inline=true,smoothOrder=2);
   end MixEntropy;
 
   function s_TX
@@ -834,11 +872,13 @@ required from medium model \""   + mediumName + "\".");
   algorithm
     s := sum(Modelica.Media.IdealGases.Common.Functions.s0_T(
                                 data[i], T)*X[i] for i in 1:size(X,1));
+    annotation(Inline=true,smoothOrder=2);
   end s_TX;
 
   redeclare function extends isentropicExponent "Return isentropic exponent"
   algorithm
     gamma := specificHeatCapacityCp(state)/specificHeatCapacityCv(state);
+    annotation(Inline=true,smoothOrder=2);
   end isentropicExponent;
 
   redeclare function extends velocityOfSound "Return velocity of sound"
@@ -846,6 +886,7 @@ required from medium model \""   + mediumName + "\".");
     input ThermodynamicState state "properties at upstream location";
   algorithm
     a := sqrt(max(0,gasConstant(state)*state.T*specificHeatCapacityCp(state)/specificHeatCapacityCv(state)));
+    annotation(Inline=true,smoothOrder=2);
   end velocityOfSound;
 
   function isentropicEnthalpyApproximation
@@ -868,6 +909,7 @@ required from medium model \""   + mediumName + "\".");
     h :=h_component*X;
     h_is := h + gamma/(gamma - 1.0)*(state.T*gasConstant(state))*
       ((p2/state.p)^((gamma - 1)/gamma) - 1.0);
+    annotation(smoothOrder=2);
   end isentropicEnthalpyApproximation;
 
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
@@ -876,6 +918,7 @@ required from medium model \""   + mediumName + "\".");
   algorithm
     h_is := if exact then specificEnthalpy_psX(p_downstream,specificEntropy(refState),refState.X) else
            isentropicEnthalpyApproximation(p_downstream,refState);
+    annotation(Inline=true,smoothOrder=2);
   end isentropicEnthalpy;
 
 function gasMixtureViscosity
@@ -1233,24 +1276,28 @@ end lowPressureThermalConductivity;
     "Return isobaric expansion coefficient beta"
   algorithm
     beta := 1/state.T;
+    annotation(Inline=true,smoothOrder=2);
   end isobaricExpansionCoefficient;
 
   redeclare function extends isothermalCompressibility
     "Return isothermal compressibility factor"
   algorithm
     kappa := 1.0/state.p;
+    annotation(Inline=true,smoothOrder=2);
   end isothermalCompressibility;
 
   redeclare function extends density_derp_T
     "Return density derivative by pressure at constant temperature"
   algorithm
     ddpT := 1/(state.T*gasConstant(state));
+    annotation(Inline=true,smoothOrder=2);
   end density_derp_T;
 
   redeclare function extends density_derT_p
     "Return density derivative by temperature at constant pressure"
   algorithm
     ddTp := -state.p/(state.T*state.T*gasConstant(state));
+    annotation(Inline=true,smoothOrder=2);
   end density_derT_p;
 
   redeclare function density_derX "Return density derivative by mass fraction"
@@ -1260,11 +1307,13 @@ end lowPressureThermalConductivity;
   algorithm
     dddX := {-state.p/(state.T*gasConstant(state))*molarMass(state)/data[
       i].MM for i in 1:nX};
+    annotation(Inline=true,smoothOrder=2);
   end density_derX;
 
   redeclare function extends molarMass "Return molar mass of mixture"
   algorithm
     MM := 1/sum(state.X[j]/data[j].MM for j in 1:size(state.X, 1));
+    annotation(Inline=true,smoothOrder=2);
   end molarMass;
 
   function T_hX "Return temperature from specific enthalpy and mass fraction"

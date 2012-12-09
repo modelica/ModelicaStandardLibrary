@@ -14,7 +14,7 @@ package Functions
       *(data.alow[6] + data.alow[7]*T))))))) else data.R*(1/(T*T)*(data.ahigh[1]
        + T*(data.ahigh[2] + T*(1.*data.ahigh[3] + T*(data.ahigh[4] + T*(data.
       ahigh[5] + T*(data.ahigh[6] + data.ahigh[7]*T))))))));
-    annotation (Inline=true,GenerateEvents=true,smoothOrder=2,__Dymola_InlineNoEvent=false);
+    annotation (Inline=true,smoothOrder=2,GenerateEvents=false);
   end cp_T;
 
   function cp_Tlow
@@ -41,6 +41,7 @@ package Functions
     cp_der := dT*data.R/(T*T*T)*(-2*data.alow[1] + T*(
       -data.alow[2] + T*T*(data.alow[4] + T*(2.*data.alow[5] + T
       *(3.*data.alow[6] + 4.*data.alow[7]*T)))));
+    annotation(smoothOrder=2);
   end cp_Tlow_der;
 
   function h_T "Compute specific enthalpy from temperature and gas data; reference is decided by the
@@ -89,6 +90,7 @@ package Functions
   algorithm
     h_der := dT*Modelica.Media.IdealGases.Common.Functions.cp_T(
                      data,T);
+    annotation(Inline=true,smoothOrder=1);
   end h_T_der;
 
   function h_Tlow "Compute specific enthalpy, low T region; reference is decided by the
@@ -137,6 +139,7 @@ package Functions
   algorithm
     h_der := dT*Modelica.Media.IdealGases.Common.Functions.cp_Tlow(
                         data,T);
+    annotation(Inline=true,smoothOrder=2);
   end h_Tlow_der;
 
   function s0_T "Compute specific entropy from temperature and gas data"
@@ -151,7 +154,7 @@ package Functions
       7]*T)))) else data.R*(data.bhigh[2] - 0.5*data.ahigh[1]/(T*T) - data.
       ahigh[2]/T + data.ahigh[3]*Math.log(T) + T*(data.ahigh[4]
        + T*(0.5*data.ahigh[5] + T*(1/3*data.ahigh[6] + 0.25*data.ahigh[7]*T)))));
-    annotation (Inline=true,GenerateEvents=true,smoothOrder=1,__Dymola_InlineNoEvent=false);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=1);
   end s0_T;
 
   function s0_Tlow "Compute specific entropy, low T region"
@@ -164,7 +167,7 @@ package Functions
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
-    annotation (Inline=true,GenerateEvents=true,smoothOrder=1,__Dymola_InlineNoEvent=false);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=1);
   end s0_Tlow;
 
   function s0_Tlow_der "Compute derivative of specific entropy, low T region"
@@ -178,7 +181,7 @@ package Functions
       1]/(T*T) - data.alow[2]/T + data.alow[3]*Math.log(T) + T*(
       data.alow[4] + T*(0.5*data.alow[5] + T*(1/3*data.alow[6] + 0.25*data.alow[
       7]*T))));
-    annotation (Inline=true,GenerateEvents=true,smoothOrder=1,__Dymola_InlineNoEvent=false);
+    annotation (Inline=true,GenerateEvents=true,smoothOrder=1);
   end s0_Tlow_der;
 
   function dynamicViscosityLowPressure
