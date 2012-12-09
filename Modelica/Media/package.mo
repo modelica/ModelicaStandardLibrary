@@ -4591,6 +4591,12 @@ kappa is defined as - 1/v * der(v,p), with v = 1/d at constant temperature T.
     algorithm
       h := specificEnthalpy(setState_psX(p,s,X));
     end specificEnthalpy_psX;
+
+    type MassFlowRate = SI.MassFlowRate (
+        quantity="MassFlowRate." + mediumName,
+        min=-1.0e5,
+        max=1.e5) "Type for mass flow rate with medium specific attributes";
+
     annotation (Documentation(info="<html>
 <p>
 <b>PartialMedium</b> is a package and contains all <b>declarations</b> for
@@ -4605,11 +4611,6 @@ are described in
 </html>", revisions="<html>
 
 </html>"));
-    type MassFlowRate = SI.MassFlowRate (
-        quantity="MassFlowRate." + mediumName,
-        min=-1.0e5,
-        max=1.e5) "Type for mass flow rate with medium specific attributes";
-
   end PartialMedium;
 
   partial package PartialPureSubstance
@@ -5316,16 +5317,6 @@ end PartialMixtureMedium;
         "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use";
   end ThermodynamicState;
 
-    replaceable record SaturationProperties
-      "Saturation properties of two phase medium"
-      extends Modelica.Icons.Record;
-      AbsolutePressure psat "saturation pressure";
-      Temperature Tsat "saturation temperature";
-    end SaturationProperties;
-
-    type FixedPhase = Integer(min=0,max=2)
-      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use";
-
     redeclare replaceable partial model extends BaseProperties
       "Base properties (p, d, T, h, u, R, MM, sat) of two phase medium"
       SaturationProperties sat "Saturation properties at the medium pressure";
@@ -5469,14 +5460,16 @@ end PartialMixtureMedium;
       "Return derivative of saturation temperature w.r.t. pressure"
         extends Modelica.Icons.Function;
         input AbsolutePressure p "pressure";
-        output Real dTp "derivative of saturation temperature w.r.t. pressure";
+        output DerTemperatureByPressure dTp
+        "derivative of saturation temperature w.r.t. pressure";
       end saturationTemperature_derp;
 
       replaceable function saturationTemperature_derp_sat
       "Return derivative of saturation temperature w.r.t. pressure"
         extends Modelica.Icons.Function;
         input SaturationProperties sat "saturation property record";
-        output Real dTp "derivative of saturation temperature w.r.t. pressure";
+        output DerTemperatureByPressure dTp
+        "derivative of saturation temperature w.r.t. pressure";
       algorithm
         dTp := saturationTemperature_derp(sat.psat);
       end saturationTemperature_derp_sat;
@@ -6441,12 +6434,7 @@ Note: Reference enthalpy might have to be extended with enthalpy of formation.
 </p>
 </html>"));
   end Choices;
-  annotation (Documentation(info="<HTML>
-<p>
-This package provides basic interfaces definitions of media models for different
-kind of media.
-</p>
-</HTML>"));
+
   package Types "Types to be used in fluid models"
 
     type AbsolutePressure = SI.AbsolutePressure (
@@ -6562,15 +6550,32 @@ kind of media.
       "Type for dipole moment with medium specific attributes";
 
     type DerDensityByPressure = SI.DerDensityByPressure
-      "Type for partial derivative of density with resect to pressure with medium specific attributes";
+      "Type for partial derivative of density with respect to pressure with medium specific attributes";
     type DerDensityByEnthalpy = SI.DerDensityByEnthalpy
-      "Type for partial derivative of density with resect to enthalpy with medium specific attributes";
+      "Type for partial derivative of density with respect to enthalpy with medium specific attributes";
     type DerEnthalpyByPressure = SI.DerEnthalpyByPressure
-      "Type for partial derivative of enthalpy with resect to pressure with medium specific attributes";
+      "Type for partial derivative of enthalpy with respect to pressure with medium specific attributes";
     type DerDensityByTemperature = SI.DerDensityByTemperature
-      "Type for partial derivative of density with resect to temperature with medium specific attributes";
+      "Type for partial derivative of density with respect to temperature with medium specific attributes";
+    type DerTemperatureByPressure = Real(final unit="K/Pa")
+      "Type for partial derivative of temperature with respect to pressure with medium specific attributes";
 
+    replaceable record SaturationProperties
+      "Saturation properties of two phase medium"
+      extends Modelica.Icons.Record;
+      AbsolutePressure psat "saturation pressure";
+      Temperature Tsat "saturation temperature";
+    end SaturationProperties;
+
+    type FixedPhase = Integer(min=0,max=2)
+      "phase of the fluid: 1 for 1-phase, 2 for two-phase, 0 for not known, e.g., interactive use";
   end Types;
+  annotation (Documentation(info="<HTML>
+<p>
+This package provides basic interfaces definitions of media models for different
+kind of media.
+</p>
+</HTML>"));
 end Interfaces;
 
 
