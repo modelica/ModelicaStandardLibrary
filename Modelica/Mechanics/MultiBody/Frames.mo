@@ -2130,31 +2130,25 @@ The used variables have the following declaration:
     type QuaternionBase = Real[4];
 
     function maxWithoutEvent
-      "Maximum of the input arguments, without event and without warning message when differentiating"
+      "Maximum of the input arguments, without event and function can be differentiated"
       extends Modelica.Icons.Function;
-
       input Real u1;
       input Real u2;
       output Real y;
-      //  annotation (Header="#include \"MultiBody.h\"");
-    protected
-      Integer dummy;
     algorithm
       y := if u1 > u2 then u1 else u2;
-      dummy := 0;
-      annotation (Inline=false,
+      annotation (Inline=false, LateInline=true,
     derivative=maxWithoutEvent_d, Documentation(info="<html>
 <p>
 Function <b>maxWithoutEvent</b> returns the maximum of its two
 input arguments. This functions is used instead of the Modelica
 built-in function \"max\" or an if-statement with \"noEvent(..)\",
-because Dymola prints a warning message when differentiating
-in these cases. For the special cases as used in the MultiBody
-library, these warning messages are irrelevant but will potentially
-irritate the user. The C-function \"maxWithoutEvent\" and its
-derivatives provided as additional functions \"maxWithoutEvent_d\"
-and \"maxWithoutEvent_dd\" will not lead to such warning
-messages.
+in order that the function can be differentiated by providing
+the first and second derivatives with additional functions.
+Note, from a strict mathematical point of view the derivatives
+will be wrong, since a Dirac impulses would occur in the
+derivatives. For the special cases as used in the MultiBody
+library, this is irrelavant and therefore the usage of the function is correct.
 </p>
 </html>"));
     end maxWithoutEvent;
@@ -2168,13 +2162,9 @@ messages.
       input Real u1_d;
       input Real u2_d;
       output Real y_d;
-      //annotation (Header="#include \"MultiBody.h\"");
-    protected
-      Integer dummy;
     algorithm
       y_d := if u1 > u2 then u1_d else u2_d;
-      dummy := 0;
-      annotation (Inline=false, derivative(order=2) = maxWithoutEvent_dd);
+      annotation (Inline=false, LateInline=true, derivative(order=2) = maxWithoutEvent_dd);
     end maxWithoutEvent_d;
 
     function maxWithoutEvent_dd
