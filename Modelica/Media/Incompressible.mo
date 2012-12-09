@@ -193,6 +193,7 @@ density and heat capacity as functions of temperature.</li>
       for i in 1:size(table,1) loop
         invTable[i] := if TinK then 1/table[i] else 1/Cv.from_degC(table[i]);
       end for;
+      annotation(smoothOrder=3);
     end invertTemp;
 
     redeclare model extends BaseProperties(
@@ -260,6 +261,7 @@ which is only exactly true for a fluid with constant density d=d0.
       "Returns state record, given pressure and temperature"
     algorithm
       state := ThermodynamicState(p=p,T=T);
+      annotation(smoothOrder=3);
     end setState_pTX;
 
     redeclare function extends setState_dTX
@@ -276,12 +278,14 @@ which is only exactly true for a fluid with constant density d=d0.
     algorithm
       state.T := T;
       state.p := p;
+      annotation(smoothOrder=3);
     end setState_pT;
 
     redeclare function extends setState_phX
       "Returns state record, given pressure and specific enthalpy"
     algorithm
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
+      annotation(Inline=true,smoothOrder=3);
     end setState_phX;
 
     function setState_ph "returns state record as function of p and h"
@@ -291,12 +295,14 @@ which is only exactly true for a fluid with constant density d=d0.
       output ThermodynamicState state "thermodynamic state";
     algorithm
       state :=ThermodynamicState(p=p,T=T_ph(p,h));
+      annotation(Inline=true,smoothOrder=3);
     end setState_ph;
 
     redeclare function extends setState_psX
       "Returns state record, given pressure and specific entropy"
     algorithm
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
+      annotation(Inline=true,smoothOrder=3);
     end setState_psX;
 
     function setState_ps "returns state record as function of p and s"
@@ -306,6 +312,7 @@ which is only exactly true for a fluid with constant density d=d0.
       output ThermodynamicState state "thermodynamic state";
     algorithm
       state :=ThermodynamicState(p=p,T=T_ps(p,s));
+      annotation(Inline=true,smoothOrder=3);
     end setState_ps;
 
         redeclare function extends setSmoothState
@@ -313,6 +320,7 @@ which is only exactly true for a fluid with constant density d=d0.
         algorithm
           state :=ThermodynamicState(p=Media.Common.smoothStep(x, state_a.p, state_b.p, x_small),
                                      T=Media.Common.smoothStep(x, state_a.T, state_b.T, x_small));
+          annotation(Inline=true,smoothOrder=3);
         end setSmoothState;
 
     redeclare function extends specificHeatCapacityCv
@@ -365,7 +373,7 @@ which is only exactly true for a fluid with constant density d=d0.
         Poly.integralValue(poly_Cp[1:npol],Cv.to_degC(T),Cv.to_degC(T0)))
         + Modelica.Math.log(T/T0)*
         Poly.evaluate(poly_Cp,if TinK then 0 else Modelica.Constants.T_zero);
-     annotation(smoothOrder=2);
+     annotation(Inline=true,smoothOrder=2);
     end s_T;
 
     redeclare function extends specificEntropy "Return specific entropy
@@ -426,35 +434,35 @@ which is only exactly true for a fluid with constant density d=d0.
       output Density d "density";
     algorithm
       d := Poly.evaluate(poly_rho,if TinK then T else Cv.to_degC(T));
-      annotation(smoothOrder=2);
+      annotation(Inline=true,smoothOrder=2);
     end density_T;
 
     redeclare function extends temperature
       "Return temperature as a function of the thermodynamic state record"
     algorithm
      T := state.T;
-     annotation(smoothOrder=2);
+     annotation(Inline=true,smoothOrder=2);
     end temperature;
 
     redeclare function extends pressure
       "Return pressure as a function of the thermodynamic state record"
     algorithm
      p := state.p;
-     annotation(smoothOrder=2);
+     annotation(Inline=true,smoothOrder=2);
     end pressure;
 
     redeclare function extends density
       "Return density as a function of the thermodynamic state record"
     algorithm
       d := Poly.evaluate(poly_rho,if TinK then state.T else Cv.to_degC(state.T));
-     annotation(smoothOrder=2);
+     annotation(Inline=true,smoothOrder=2);
     end density;
 
     redeclare function extends specificEnthalpy
       "Return specific enthalpy as a function of the thermodynamic state record"
     algorithm
       h := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T);
-     annotation(smoothOrder=2);
+     annotation(Inline=true,smoothOrder=2);
     end specificEnthalpy;
 
     redeclare function extends specificInternalEnergy
@@ -462,7 +470,7 @@ which is only exactly true for a fluid with constant density d=d0.
     algorithm
       u := if enthalpyOfT then h_T(state.T) else h_pT(state.p,state.T)
         - (if singleState then  reference_p/density(state) else state.p/density(state));
-     annotation(smoothOrder=2);
+     annotation(Inline=true,smoothOrder=2);
     end specificInternalEnergy;
 
     function T_ph "Compute temperature from pressure and specific enthalpy"
