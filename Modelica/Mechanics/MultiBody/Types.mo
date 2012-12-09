@@ -5,7 +5,6 @@ package Types "Constants and types with choices, especially to build menus"
   type Axis = Modelica.Icons.TypeReal[3](each final unit="1")
     "Axis vector with choices for menus"                                      annotation (
     preferredView="text",
-    Evaluate=true,
     choices(
       choice={1,0,0} "{1,0,0} \"x axis\"",
       choice={0,1,0} "{0,1,0} \"y axis\"",
@@ -26,7 +25,6 @@ package Types "Constants and types with choices, especially to build menus"
   type RotationSequence = Modelica.Icons.TypeInteger[3] (min={1,1,1}, max={3,3,3})
     "Sequence of planar frame rotations with choices for menus" annotation (
     preferredView="text",
-    Evaluate=true,
     choices(
       choice={1,2,3} "{1,2,3} \"Cardan/Tait-Bryan angles\"",
       choice={3,1,3} "{3,1,3} \"Euler angles\"",
@@ -287,7 +285,7 @@ width = height = 2*radiusOfGearWheel.</td>
       TwoAxesVectors "Resolve two vectors of frame_b in frame_a",
       PlanarRotationSequence "Planar rotation sequence")
     "Enumeration defining in which way the fixed orientation of frame_b with respect to frame_a is specified"
-      annotation (Evaluate=true,
+      annotation (
         Documentation(info="<html>
 <table border=1 cellspacing=0 cellpadding=2>
 <tr><th><b>Types.RotationTypes.</b></th><th><b>Meaning</b></th></tr>

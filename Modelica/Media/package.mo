@@ -6399,8 +6399,7 @@ quantities are assumed to be constant.
         SteadyState "SteadyState (initialize in steady state)",
         SteadyMass
           "SteadyMass (initialize density or pressure in steady state)")
-      "Enumeration defining initialization for fluid flow"
-              annotation (Evaluate=true);
+      "Enumeration defining initialization for fluid flow";
 
     type ReferenceEnthalpy = enumeration(
         ZeroAt0K
@@ -6411,30 +6410,26 @@ quantities are assumed to be constant.
 
         UserDefined
           "The user-defined reference enthalpy is used at 293.15 K (25 degC)")
-      "Enumeration defining the reference enthalpy of a medium"
-        annotation (Evaluate=true);
+      "Enumeration defining the reference enthalpy of a medium";
 
     type ReferenceEntropy = enumeration(
         ZeroAt0K "The entropy is 0 at 0 K (default)",
         ZeroAt0C "The entropy is 0 at 0 degC",
         UserDefined
           "The user-defined reference entropy is used at 293.15 K (25 degC)")
-      "Enumeration defining the reference entropy of a medium"
-        annotation (Evaluate=true);
+      "Enumeration defining the reference entropy of a medium";
 
     type pd = enumeration(
         default "Default (no boundary condition for p or d)",
         p_known "p_known (pressure p is known)",
         d_known "d_known (density d is known)")
-      "Enumeration defining whether p or d are known for the boundary condition"
-        annotation (Evaluate=true);
+      "Enumeration defining whether p or d are known for the boundary condition";
 
     type Th = enumeration(
         default "Default (no boundary condition for T or h)",
         T_known "T_known (temperature T is known)",
         h_known "h_known (specific enthalpy h is known)")
-      "Enumeration defining whether T or h are known as boundary condition"
-        annotation (Evaluate=true);
+      "Enumeration defining whether T or h are known as boundary condition";
 
     annotation (Documentation(info="<html>
 <p>
@@ -6452,7 +6447,7 @@ This package provides basic interfaces definitions of media models for different
 kind of media.
 </p>
 </HTML>"));
-  package Types "Types to be ued in fluid models"
+  package Types "Types to be used in fluid models"
 
     type AbsolutePressure = SI.AbsolutePressure (
         min=0,

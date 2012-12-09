@@ -25,8 +25,7 @@ package Types
       InitialState "Initialization with initial states",
       InitialOutput
         "Initialization with initial outputs (and steady state of the states if possible)")
-    "Enumeration defining initialization of a block"
-      annotation (Evaluate=true);
+    "Enumeration defining initialization of a block";
 
   type InitPID = enumeration(
       NoInit
@@ -53,30 +52,29 @@ The option \"DoNotUse_InitialIntegratorState\" leads to this
 initialization definition.
 </p>
 
-</html>"),   Evaluate=true);
+</html>"));
 
   type SimpleController = enumeration(
       P "P controller",
       PI "PI controller",
       PD "PD controller",
       PID "PID controller")
-    "Enumeration defining P, PI, PD, or PID simple controller type"
-      annotation (Evaluate=true);
+    "Enumeration defining P, PI, PD, or PID simple controller type";
 
 type AnalogFilter = enumeration(
       CriticalDamping "Filter with critical damping",
       Bessel "Bessel filter",
       Butterworth "Butterworth filter",
       ChebyshevI "Chebyshev I filter")
-    "Enumeration defining the method of filtering"
-      annotation (Evaluate=true);
+    "Enumeration defining the method of filtering";
+
 type FilterType = enumeration(
       LowPass "Low pass filter",
       HighPass "High pass filter",
       BandPass "Band pass filter",
       BandStop "Band stop / notch filter")
-    "Enumeration of analog filter types (low, high, band pass or band stop filter"
-    annotation (Evaluate=true);
+    "Enumeration of analog filter types (low, high, band pass or band stop filter";
+
   annotation ( Documentation(info="<HTML>
 <p>
 In this package <b>types</b> and <b>constants</b> are defined that are used
