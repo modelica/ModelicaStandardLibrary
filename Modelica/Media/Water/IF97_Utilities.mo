@@ -2380,7 +2380,7 @@ package IF97_Utilities
         Real tau2 "dimensionless temperature";
         Real[22] o "vector of auxiliary variables";
       algorithm
-        assert(p > triple.ptriple,
+        assert(p > 0.0,
           "IF97 medium function g2pitau called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
         assert(p <= 100.0e6,
@@ -2470,7 +2470,7 @@ package IF97_Utilities
       protected
         Real[3] o "vector of auxiliary variables";
       algorithm
-        assert(p > triple.ptriple,
+        assert(p > 0.0,
           "IF97 medium function g5pitau called with too low pressure\n" +
           "p = " + String(p) + " Pa <= " + String(triple.ptriple) + " Pa (triple point pressure)");
         assert(p <= data.PLIMIT5,
