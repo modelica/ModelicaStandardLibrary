@@ -1,4 +1,4 @@
-within Modelica.Mechanics;
+﻿within Modelica.Mechanics;
 package Rotational
   "Library to model 1-dimensional, rotational mechanical systems"
   extends Modelica.Icons.Package;
@@ -119,15 +119,20 @@ the ground via spring-damper-systems (cf. example
 <a href=\"modelica://Modelica.Mechanics.Rotational.Examples.ElasticBearing\">ElasticBearing</a>).
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing.png\" ALT=\"bearing\">
+</p>
 
 <p>
 Depending on the setting of <b>useSupport</b>, the icon of the corresponding
 component is changing, to either show the support flange or a ground mounting.
 For example, the two implementations in the following figure give
-identical results.</p>
+identical results.
+</p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/bearing2.png\" ALT=\"bearing2\">
+</p>
 
 </HTML>"));
 
@@ -374,9 +379,9 @@ simulation. Currently, this type of problem can occur with the
 Coulomb friction elements <b>BearingFriction, Clutch, Brake, LossyGear</b> when
 the elements become stuck:
 </p>
-
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/driveConnections3.png\" ALT=\"driveConnections3\">
-
+</p>
 <p>
 In the figure above two typical situations are shown: In the upper part of
 the figure, the series connection of rigidly attached BearingFriction and
@@ -396,10 +401,95 @@ by picking one solution of the infinitely many, e.g., the one where
 the difference to the value of the previous time instant is as small
 as possible.
 </p>
-
 </HTML>"));
 
     end RequirementsForSimulationTool;
+
+    class StateSelection "State Selection"
+      extends Modelica.Icons.Information;
+
+      annotation (Documentation(info="<html>
+<p>
+Only a few components of the Rotational library use the der(..) operator
+and are therefore candidates to have states. Most important, component <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Inertia\">Inertia</a>
+defines the absolute rotation angle and the absolute angular velocity of this
+component as candidate for states. In the \"Advanced\" menu the built-in StateSelect
+enumeration can be set to define the priority to use these variables as states.
+Without further action, in most cases a tool will select these variables as states.
+</p>
+
+<p>
+For positioning drive trains where the goal is to position a load (e.g. the drive
+train of a robot, or of an elevator), the absolute angles of the components are bounded,
+and the issue discussed below is not present.
+</p>
+
+<p>
+For drive trains where the goal is to control the velocity of a load (e.g. the drive
+train of a vehicle or the crank angle of an engine),
+the absolute angles of the components are quickly increasing
+during operation. This is critical, because then the step size control of time 
+integrators might then no longer work appropriately: 
+</p>
+
+<p>
+Integrators with step size control adjust their time step size automatically
+to meet user defined error bounds (“tolerances”).
+Typically the local error estimate EST_i is compared with a mixed bound for absolute and relative errors.
+</p>
+
+<pre>
+   EST_i &le; abstol_i + reltol_i*|x_i|
+</pre>
+
+<p>
+Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively. This mixed error bound is used since it is more robust than a pure relative error based error bound if the nominal value x_i  is (very) close to 0. 
+In a Modelica simulation model, typically the same relative tolerance reltol is used for all
+states and the absolute tolerances are computed using the relative tolerance and the
+nominal values of the states:
+</p>
+
+<pre>
+   reltol_i = reltol
+   abstol_i = reltol*x_i(nominal)*0.01  
+</pre>
+
+<p>
+This error control fails if the state variable x_i grows without bounds (such as for a
+drive train or the crank angle of a vehicle), since then the allowed error
+also grows without bounds. The effect is that the error control on this variable is practically
+switched off. The correct way to handle this would be to set reltol_i = 0 on such a state
+variable and only use an absolute tolerance for the step size control.
+</p>
+
+<p>
+Currently, in Modelica there is no possibility to provide this information.
+In order to reduce this effect, it is adviceable to not use absolute angles, but
+relative angles as states. A user can define relative variables as states 
+explicitely with component 
+<a href=\"Modelica.Mechanics.Rotational.Components.RelativeStates\">RelativeStates</a>.
+Furthermore, all compliant components, such as
+<a href=\"Modelica.Mechanics.Rotational.Components.SpringDamper\">SpringDamper</a> are
+defining the relative angle and the relative angular velocity as preferred states.
+Therefore, a tool will select in most cases relative angles as states.
+</p>
+
+<p>
+The relative angles of compliant components are usually small. For example, the
+deformation of a typical elastic component is in the order of 1e-4 rad.
+Without further action, the error control would not work properly on variables
+that are so small (so often switching the error control off). The remedy is to define
+explicitly a nominal value on the relative angle. This definition is provided in the
+\"Advanced\" menu of the compliant components with parameter \"phi_nominal\".
+The default value is 1e-4 rad, to be in the order of a compliant deformation of a
+drive. For some components, like 
+a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Clutch\">Clutch</a>
+this might be too small and a value of phi_nominal=1 might be more appropriate 
+(a value of phi_nominal = 1e-4 does not hurt, but just makes the error control
+unnecessarily stringent).
+</p>
+</html>"));
+    end StateSelection;
 
     class Contact "Contact"
       extends Modelica.Icons.Contact;
@@ -429,7 +519,6 @@ as possible.
      A-3423 St.Andrae-Woerdern, Austria<br>
      email: <a href=\"mailto:a.haumer@haumer.at\">a.haumer@haumer.at</a></li>
 </ul>
-
 </html>"));
     end Contact;
 
@@ -1604,11 +1693,13 @@ at an angle phi0 in the <b>housing</b>. May be used:
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Line(points={{-80,-40},{80,-40}}, color={0,0,
-              0}),Line(points={{80,-40},{40,-80}}, color={0,0,0}),Line(points={
-              {40,-40},{0,-80}}, color={0,0,0}),Line(points={{0,-40},{-40,-80}},
-              color={0,0,0}),Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
-              Line(points={{0,-40},{0,-4}}, color={0,0,0})}));
+            grid={2,2}), graphics={
+            Line(points={{-80,-40},{80,-40}}, color={0,0,0}),
+            Line(points={{80,-40},{40,-80}}, color={0,0,0}),
+            Line(points={{40,-40},{0,-80}}, color={0,0,0}),
+            Line(points={{0,-40},{-40,-80}}, color={0,0,0}),
+            Line(points={{-40,-40},{-80,-80}}, color={0,0,0}),
+            Line(points={{0,-40},{0,-4}}, color={0,0,0})}));
     end Fixed;
 
     model Inertia "1D-rotational component with inertia"
@@ -1702,29 +1793,35 @@ flange.
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
-                  extent={{-100,10},{99,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-10,50},{10,-50}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Text(
-                  extent={{-150,100},{150,60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Rectangle(
-                  extent={{-30,50},{-10,10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{10,-10},{30,-50}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Text(
-                  extent={{-160,-62},{160,-87}},
-                  lineColor={0,0,0},
-                  textString="deltaPhi = %deltaPhi")}));
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,10},{99,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-10,50},{10,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Rectangle(
+              extent={{-30,50},{-10,10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{10,-10},{30,-50}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Text(
+              extent={{-160,-62},{160,-87}},
+              lineColor={0,0,0},
+              textString="deltaPhi = %deltaPhi")}));
     end Disc;
 
     model Spring "Linear 1D rotational spring"
@@ -1767,17 +1864,21 @@ a coupling of the element with the housing via a spring.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-68,0},{-68,65}}, color={128,
-              128,128}),Line(points={{72,0},{72,65}}, color={128,128,128}),Line(
-              points={{-68,60},{72,60}}, color={128,128,128}),Polygon(
-                  points={{62,63},{72,60},{62,57},{62,63}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-22,62},{18,87}},
-                  lineColor={0,0,255},
-                  textString="phi_rel"),Line(points={{-96,0},{-60,0},{-42,-32},
-              {-12,30},{18,-30},{48,28},{62,0},{96,0}}, color={0,0,255})}));
+            grid={1,1}), graphics={
+            Line(points={{-68,0},{-68,65}}, color={128,128,128}),
+            Line(points={{72,0},{72,65}}, color={128,128,128}),
+            Line(points={{-68,60},{72,60}}, color={128,128,128}),
+            Polygon(
+              points={{62,63},{72,60},{62,57},{62,63}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-22,62},{18,87}},
+              lineColor={0,0,255},
+              textString="phi_rel"),
+            Line(points={{-96,0},{-60,0},{-42,-32},{-12,30},{18,-30},{48,28},{
+                  62,0},{96,0}}, color={0,0,255})}));
     end Spring;
 
     model Damper "Linear 1D rotational damper"
@@ -1798,52 +1899,66 @@ between an inertia or gear and the housing (component Fixed), or
 between two inertia/gear elements.
 </p>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-90,0},{-60,0}}, color={0,0,0}),
-              Line(points={{-60,-30},{-60,30}}, color={0,0,0}),Line(points={{-60,
-              -30},{60,-30}}, color={0,0,0}),Line(points={{-60,30},{60,30}},
-              color={0,0,0}),Rectangle(
-                  extent={{-60,30},{30,-30}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{30,0},{90,0}},
-              color={0,0,0}),Text(
-                  extent={{-150,80},{150,40}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-150,-50},{150,-90}},
-                  lineColor={0,0,0},
-                  textString="d=%d"),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-40},{-20,-40},{-20,0}},
-                  color={191,0,0},
-                  smooth=Smooth.None,
-                  pattern=LinePattern.Dot)}),
+            grid={1,1}), graphics={
+            Line(points={{-90,0},{-60,0}}, color={0,0,0}),
+            Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
+            Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
+            Line(points={{-60,30},{60,30}}, color={0,0,0}),
+            Rectangle(
+              extent={{-60,30},{30,-30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{30,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{-150,80},{150,40}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-50},{150,-90}},
+              lineColor={0,0,0},
+              textString="d=%d"),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-40},{-20,-40},{-20,0}},
+              color={191,0,0},
+              smooth=Smooth.None,
+              pattern=LinePattern.Dot)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-96,0},{-60,0}}, color={0,0,0}),
-              Line(points={{-60,-30},{-60,30}}, color={0,0,0}),Line(points={{-60,
-              -30},{60,-30}}, color={0,0,0}),Line(points={{-60,30},{60,30}},
-              color={0,0,0}),Rectangle(
-                  extent={{-60,30},{30,-30}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{30,0},{96,0}},
-              color={0,0,0}),Line(points={{-68,0},{-68,65}}, color={128,128,128}),
-              Text(
-                  extent={{-40,66},{33,85}},
-                  lineColor={0,0,255},
-                  textString="phi_rel"),Line(points={{-68,60},{72,60}}, color={
-              128,128,128}),Line(points={{72,0},{72,65}}, color={128,128,128}),
-              Polygon(
-                  points={{62,63},{72,60},{62,57},{62,63}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={
+            Line(points={{-96,0},{-60,0}}, color={0,0,0}),
+            Line(points={{-60,-30},{-60,30}}, color={0,0,0}),
+            Line(points={{-60,-30},{60,-30}}, color={0,0,0}),
+            Line(points={{-60,30},{60,30}}, color={0,0,0}),
+            Rectangle(
+              extent={{-60,30},{30,-30}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{30,0},{96,0}}, color={0,0,0}),
+            Line(points={{-68,0},{-68,65}}, color={128,128,128}),
+            Text(
+              extent={{-40,66},{33,85}},
+              lineColor={0,0,255},
+              textString="phi_rel"),
+            Line(points={{-68,60},{72,60}}, color={128,128,128}),
+            Line(points={{72,0},{72,65}}, color={128,128,128}),
+            Polygon(
+              points={{62,63},{72,60},{62,57},{62,63}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid)}));
     end Damper;
 
     model SpringDamper "Linear 1D rotational spring and damper in parallel"
@@ -1874,63 +1989,83 @@ and damping, or between an inertia/gear and the housing (component Fixed),
 to describe a coupling of the element with the housing via a spring/damper.
 </p>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-80,40},{-60,40},{-45,10},{-15,
-              70},{15,10},{45,70},{60,40},{80,40}}, color={0,0,0}),Line(points=
-              {{-80,40},{-80,-40}}, color={0,0,0}),Line(points={{-80,-40},{-50,
-              -40}}, color={0,0,0}),Rectangle(
-                  extent={{-50,-10},{40,-70}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-50,-10},{70,-10}},
-              color={0,0,0}),Line(points={{-50,-70},{70,-70}}, color={0,0,0}),
-              Line(points={{40,-40},{80,-40}}, color={0,0,0}),Line(points={{80,
-              40},{80,-40}}, color={0,0,0}),Line(points={{-90,0},{-80,0}},
-              color={0,0,0}),Line(points={{80,0},{90,0}}, color={0,0,0}),Text(
-                  extent={{-150,-144},{150,-104}},
-                  lineColor={0,0,0},
-                  textString="d=%d"),Text(
-                  extent={{-190,110},{190,70}},
-                  lineColor={0,0,255},
-                  textString="%name"),Text(
-                  extent={{-150,-108},{150,-68}},
-                  lineColor={0,0,0},
-                  textString="c=%c"),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-55},{-5,-55}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}),
+            grid={1,1}), graphics={
+            Line(points={{-80,40},{-60,40},{-45,10},{-15,70},{15,10},{45,70},{
+                  60,40},{80,40}}, color={0,0,0}),
+            Line(points={{-80,40},{-80,-40}}, color={0,0,0}),
+            Line(points={{-80,-40},{-50,-40}}, color={0,0,0}),
+            Rectangle(
+              extent={{-50,-10},{40,-70}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-50,-10},{70,-10}}, color={0,0,0}),
+            Line(points={{-50,-70},{70,-70}}, color={0,0,0}),
+            Line(points={{40,-40},{80,-40}}, color={0,0,0}),
+            Line(points={{80,40},{80,-40}}, color={0,0,0}),
+            Line(points={{-90,0},{-80,0}}, color={0,0,0}),
+            Line(points={{80,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{-150,-144},{150,-104}},
+              lineColor={0,0,0},
+              textString="d=%d"),
+            Text(
+              extent={{-190,110},{190,70}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-150,-108},{150,-68}},
+              lineColor={0,0,0},
+              textString="c=%c"),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-55},{-5,-55}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(
-                  points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,
-                32},{80,32}},
-                  color={0,0,0},
-                  thickness=0.5),Line(points={{-68,32},{-68,97}}, color={128,
-              128,128}),Line(points={{72,32},{72,97}}, color={128,128,128}),
-              Line(points={{-68,92},{72,92}}, color={128,128,128}),Polygon(
-                  points={{62,95},{72,92},{62,89},{62,95}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-44,79},{29,91}},
-                  lineColor={0,0,255},
-                  textString="phi_rel"),Rectangle(
-                  extent={{-50,-20},{40,-80}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(points={{-50,-80},{68,-80}},
-              color={0,0,0}),Line(points={{-50,-20},{68,-20}}, color={0,0,0}),
-              Line(points={{40,-50},{80,-50}}, color={0,0,0}),Line(points={{-80,
-              -50},{-50,-50}}, color={0,0,0}),Line(points={{-80,32},{-80,-50}},
-              color={0,0,0}),Line(points={{80,32},{80,-50}}, color={0,0,0}),
-              Line(points={{-96,0},{-80,0}}, color={0,0,0}),Line(points={{96,0},
-              {80,0}}, color={0,0,0})}));
+            grid={1,1}), graphics={
+            Line(
+              points={{-80,32},{-58,32},{-43,2},{-13,62},{17,2},{47,62},{62,32},
+                  {80,32}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(points={{-68,32},{-68,97}}, color={128,128,128}),
+            Line(points={{72,32},{72,97}}, color={128,128,128}),
+            Line(points={{-68,92},{72,92}}, color={128,128,128}),
+            Polygon(
+              points={{62,95},{72,92},{62,89},{62,95}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-44,79},{29,91}},
+              lineColor={0,0,255},
+              textString="phi_rel"),
+            Rectangle(
+              extent={{-50,-20},{40,-80}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-50,-80},{68,-80}}, color={0,0,0}),
+            Line(points={{-50,-20},{68,-20}}, color={0,0,0}),
+            Line(points={{40,-50},{80,-50}}, color={0,0,0}),
+            Line(points={{-80,-50},{-50,-50}}, color={0,0,0}),
+            Line(points={{-80,32},{-80,-50}}, color={0,0,0}),
+            Line(points={{80,32},{80,-50}}, color={0,0,0}),
+            Line(points={{-96,0},{-80,0}}, color={0,0,0}),
+            Line(points={{96,0},{80,0}}, color={0,0,0})}));
     end SpringDamper;
 
     model ElastoBacklash
@@ -2120,147 +2255,187 @@ where the different effects are visualized:
      pulling/sticking occurs.</li>
 </ol>
 
+<p>
 <img src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/elastoBacklash1.png\">
+</p>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(
-                  points={{-80,32},{-58,32},{-48,0},{-34,61},{-20,0},{-8,60},{0,
-                30},{20,30}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Rectangle(
-                  extent={{-60,-10},{-10,-50}},
-                  lineColor={0,0,0},
-                  pattern=LinePattern.Solid,
-                  lineThickness=0.25,
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-60,-50},{0,-50}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-60,-10},{0,-10}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-10,-30},{20,-30}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-80,-30},{-60,-30}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-80,32},{-80,-30}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{20,30},{20,-30}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{-90,0},{-80,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{90,0},{80,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{20,0},{60,0},{60,-30}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Line(
-                  points={{40,-12},{40,-40},{80,-40},{80,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Solid,
-                  thickness=0.25,
-                  arrow={Arrow.None,Arrow.None}),Text(
-                  extent={{-150,-130},{150,-90}},
-                  lineColor={0,0,0},
-                  textString="b=%b"),Text(
-                  extent={{-150,100},{150,60}},
-                  lineColor={0,0,255},
-                  textString="%name"),Text(
-                  extent={{-152,-92},{148,-52}},
-                  lineColor={0,0,0},
-                  textString="c=%c"),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-43},{-34,-43}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}),
+            grid={1,1}), graphics={
+            Line(
+              points={{-80,32},{-58,32},{-48,0},{-34,61},{-20,0},{-8,60},{0,30},
+                  {20,30}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Rectangle(
+              extent={{-60,-10},{-10,-50}},
+              lineColor={0,0,0},
+              pattern=LinePattern.Solid,
+              lineThickness=0.25,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-60,-50},{0,-50}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{-60,-10},{0,-10}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{-10,-30},{20,-30}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{-80,-30},{-60,-30}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{-80,32},{-80,-30}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{20,30},{20,-30}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{-90,0},{-80,0}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{90,0},{80,0}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{20,0},{60,0},{60,-30}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Line(
+              points={{40,-12},{40,-40},{80,-40},{80,0}},
+              color={0,0,0},
+              pattern=LinePattern.Solid,
+              thickness=0.25,
+              arrow={Arrow.None,Arrow.None}),
+            Text(
+              extent={{-150,-130},{150,-90}},
+              lineColor={0,0,0},
+              textString="b=%b"),
+            Text(
+              extent={{-150,100},{150,60}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-152,-92},{148,-52}},
+              lineColor={0,0,0},
+              textString="c=%c"),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-43},{-34,-43}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(
-                  points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,
-                30},{20,30}},
-                  color={0,0,0},
-                  thickness=0.5),Line(points={{-68,32},{-68,97}}, color={128,
-              128,128}),Line(points={{80,0},{80,96}}, color={128,128,128}),Line(
-              points={{-68,92},{72,92}}, color={128,128,128}),Polygon(
-                  points={{70,95},{80,92},{70,89},{70,95}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-34,77},{40,90}},
-                  lineColor={128,128,128},
-                  textString="phi_rel"),Rectangle(
-                  extent={{-60,-20},{-10,-80}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-52,-80},{0,-80}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{-52,-20},{0,-20}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{-10,-50},{20,-50}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{-80,-50},{-60,-50}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{-80,32},{-80,-50}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{20,30},{20,-50}},
-                  color={0,0,0},
-                  thickness=0.5),Line(points={{-96,0},{-80,0}}, color={0,0,0}),
-              Line(
-                  points={{96,0},{80,0}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{20,0},{60,0},{60,-30}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{40,-12},{40,-40},{80,-40},{80,0}},
-                  color={0,0,0},
-                  thickness=0.5),Line(points={{30,0},{30,64}}, color={128,128,
-              128}),Line(points={{30,60},{80,60}}, color={128,128,128}),Polygon(
-                  points={{70,63},{80,60},{70,57},{70,63}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{39,60},{68,46}},
-                  lineColor={160,160,164},
-                  textString="b")}));
+            grid={1,1}), graphics={
+            Line(
+              points={{-80,32},{-58,32},{-48,0},{-34,60},{-20,0},{-8,60},{0,30},
+                  {20,30}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(points={{-68,32},{-68,97}}, color={128,128,128}),
+            Line(points={{80,0},{80,96}}, color={128,128,128}),
+            Line(points={{-68,92},{72,92}}, color={128,128,128}),
+            Polygon(
+              points={{70,95},{80,92},{70,89},{70,95}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-34,77},{40,90}},
+              lineColor={128,128,128},
+              textString="phi_rel"),
+            Rectangle(
+              extent={{-60,-20},{-10,-80}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-52,-80},{0,-80}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{-52,-20},{0,-20}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{-10,-50},{20,-50}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{-80,-50},{-60,-50}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{-80,32},{-80,-50}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{20,30},{20,-50}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(points={{-96,0},{-80,0}}, color={0,0,0}),
+            Line(
+              points={{96,0},{80,0}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{20,0},{60,0},{60,-30}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{40,-12},{40,-40},{80,-40},{80,0}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(points={{30,0},{30,64}}, color={128,128,128}),
+            Line(points={{30,60},{80,60}}, color={128,128,128}),
+            Polygon(
+              points={{70,63},{80,60},{70,57},{70,63}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{39,60},{68,46}},
+              lineColor={160,160,164},
+              textString="b")}));
     end ElastoBacklash;
 
     model BearingFriction "Coulomb friction in bearings "
@@ -2390,76 +2565,88 @@ requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
-<dt>Armstrong B. (1991):
+<dt>Armstrong B. (1991):</dt>
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
-    Press, Boston MA.<br><br>
-<dt>Armstrong B., and Canudas de Wit C. (1996):
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
-    pp. 1369-1382.<br><br>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
 <dd><b>A new model for control of systems with friction.</b>
-    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
 </dl>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
-                  extent={{-100,10},{100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(extent={{-60,-10},{60,-60}},
-              lineColor={0,0,0}),Rectangle(
-                  extent={{-60,-10},{60,-25}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-60,-45},{60,-61}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-50,-18},{50,-50}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{60,-60},{60,-70},{75,-70},{75,-80},{-75,-80},{-75,-70},
-                {-60,-70},{-60,-60},{60,-60}},
-                  lineColor={0,0,0},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Line(points={{-75,-10},{-75,-70}},
-              color={0,0,0}),Line(points={{75,-10},{75,-70}}, color={0,0,0}),
-              Rectangle(extent={{-60,60},{60,10}}, lineColor={0,0,0}),Rectangle(
-                  extent={{-60,60},{60,45}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-60,25},{60,10}},
-                  lineColor={0,0,0},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-50,51},{50,19}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{-75,70},{-75,10}},
-              color={0,0,0}),Polygon(
-                  points={{60,60},{60,70},{75,70},{75,80},{-75,80},{-75,70},{-60,
-                70},{-60,60},{60,60}},
-                  lineColor={0,0,0},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Line(points={{75,70},{75,10}},
-              color={0,0,0}),Text(
-                  extent={{-150,130},{150,90}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(
-                  points={{0,-80},{0,-100}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-35},{2,-35}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}));
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(extent={{-60,-10},{60,-60}}, lineColor={0,0,0}),
+            Rectangle(
+              extent={{-60,-10},{60,-25}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-60,-45},{60,-61}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-50,-18},{50,-50}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{60,-60},{60,-70},{75,-70},{75,-80},{-75,-80},{-75,-70},{
+                  -60,-70},{-60,-60},{60,-60}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-75,-10},{-75,-70}}, color={0,0,0}),
+            Line(points={{75,-10},{75,-70}}, color={0,0,0}),
+            Rectangle(extent={{-60,60},{60,10}}, lineColor={0,0,0}),
+            Rectangle(
+              extent={{-60,60},{60,45}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-60,25},{60,10}},
+              lineColor={0,0,0},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-50,51},{50,19}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-75,70},{-75,10}}, color={0,0,0}),
+            Polygon(
+              points={{60,60},{60,70},{75,70},{75,80},{-75,80},{-75,70},{-60,70},
+                  {-60,60},{60,60}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{75,70},{75,10}}, color={0,0,0}),
+            Text(
+              extent={{-150,130},{150,90}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              points={{0,-80},{0,-100}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-35},{2,-35}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}));
     end BearingFriction;
 
     model Brake "Brake based on Coulomb friction "
@@ -2537,50 +2724,61 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Polygon(
-                  points={{-37,-55},{-37,-90},{37,-90},{37,-55},{33,-55},{33,-86},
-                {-33,-86},{-33,-55},{-37,-55}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-100,10},{-20,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-20,60},{20,-60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{20,10},{100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Polygon(
-                  points={{40,-40},{70,-30},{70,-50},{40,-40}},
-                  lineColor={0,0,127},
-                  fillColor={0,0,127},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{30,-25},{40,-55}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{-40,-40},{-70,-30},{-70,-50},{-40,-40}},
-                  lineColor={0,0,127},
-                  fillColor={0,0,127},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-40,-25},{-30,-55}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{0,90},{80,70},{
-              80,-40},{70,-40}}, color={0,0,127}),Line(points={{0,90},{-80,70},
-              {-80,-40},{-70,-40}}, color={0,0,127}),Text(
-                  extent={{-150,-180},{150,-140}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(
-                  visible=useHeatPort,
-                  points={{-100,-98},{-100,-70},{0,-70},{0,-40}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}), Documentation(info="<html>
+            grid={2,2}), graphics={
+            Polygon(
+              points={{-37,-55},{-37,-90},{37,-90},{37,-55},{33,-55},{33,-86},{
+                  -33,-86},{-33,-55},{-37,-55}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-100,10},{-20,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-20,60},{20,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{20,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Polygon(
+              points={{40,-40},{70,-30},{70,-50},{40,-40}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{30,-25},{40,-55}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-40,-40},{-70,-30},{-70,-50},{-40,-40}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-40,-25},{-30,-55}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,90},{80,70},{80,-40},{70,-40}}, color={0,0,127}),
+            Line(points={{0,90},{-80,70},{-80,-40},{-70,-40}}, color={0,0,127}),
+
+            Text(
+              extent={{-150,-180},{150,-140}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-98},{-100,-70},{0,-70},{0,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}), Documentation(info="<html>
 <p>
 This component models a <b>brake</b>, i.e., a component where a frictional
 torque is acting between the housing and a flange and a controlled normal
@@ -2655,18 +2853,23 @@ requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
-<dt>Armstrong B. (1991):
+<dt>Armstrong B. (1991):</dt>
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
-    Press, Boston MA.<br><br>
-<dt>Armstrong B., and Canudas de Wit C. (1996):
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
-    pp. 1369-1382.<br><br>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
 <dd><b>A new model for control of systems with friction.</b>
-    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
 </dl>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"));
     end Brake;
 
@@ -2735,14 +2938,14 @@ following references, especially (Armstrong and Canudas de Witt 1996):
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{-150,-110},{150,-70}},
-                  textString="%name",
-                  lineColor={0,0,255}),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-40},{0,-40}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}), Documentation(info="<html>
+              extent={{-150,-110},{150,-70}},
+              textString="%name",
+              lineColor={0,0,255}), Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-40},{0,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}), Documentation(info="<html>
 <p>
 This component models a <b>clutch</b>, i.e., a component with
 two flanges where friction is present between the two flanges
@@ -2817,19 +3020,23 @@ requires more sophisticated identification. For more details, see the
 following references, especially (Armstrong and Canudas de Witt 1996):
 </p>
 <dl>
-<dt>Armstrong B. (1991):
+<dt>Armstrong B. (1991):</dt>
 <dd><b>Control of Machines with Friction</b>. Kluwer Academic
-    Press, Boston MA.<br><br>
-<dt>Armstrong B., and Canudas de Wit C. (1996):
+    Press, Boston MA.<br></dd>
+<dt>Armstrong B., and Canudas de Wit C. (1996):</dt>
 <dd><b>Friction Modeling and Compensation.</b>
     The Control Handbook, edited by W.S.Levine, CRC Press,
-    pp. 1369-1382.<br><br>
-<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):
+    pp. 1369-1382.<br></dd>
+<dt>Canudas de Wit C., Olsson H., Astroem K.J., and Lischinsky P. (1995):</dt>
 <dd><b>A new model for control of systems with friction.</b>
-    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.<br><br>
+    IEEE Transactions on Automatic Control, Vol. 40, No. 3, pp. 419-425.</dd>
 </dl>
-<br>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"));
     end Clutch;
 
@@ -2919,19 +3126,22 @@ following references, especially (Armstrong and Canudas de Witt 1996):
       annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
-                  extent={{-150,-110},{150,-70}},
-                  textString="%name",
-                  lineColor={0,0,255}),Polygon(
-                  points={{-10,30},{50,0},{-10,-30},{-10,30}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(
-                  visible=useHeatPort,
-                  points={{-100,-99},{-100,-40},{0,-40}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}), Documentation(info="<html>
+            grid={1,1}), graphics={
+            Text(
+              extent={{-150,-110},{150,-70}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{-10,30},{50,0},{-10,-30},{-10,30}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-99},{-100,-40},{0,-40}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}), Documentation(info="<html>
 <p>
 This component models a <b>one-way clutch</b>, i.e., a component with
 two flanges where friction is present between the two flanges
@@ -3009,11 +3219,16 @@ leads to continuous/discrete systems of equations if friction elements
 are dynamically coupled. The method is described in:
 </p>
 <dl>
-<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):
+<dt>Otter M., Elmqvist H., and Mattsson S.E. (1999):</dt>
 <dd><b>Hybrid Modeling in Modelica based on the Synchronous
-    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.
+    Data Flow Principle</b>. CACSD'99, Aug. 22.-26, Hawaii.</dd>
 </dl>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"));
     end OneWayClutch;
 
@@ -3434,24 +3649,28 @@ Sept. 11, 2009.</li>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Polygon(
-                  points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,
-                80},{-60,80},{-60,20},{-109,20},{-109,40}},
-                  lineColor={0,0,0},
-                  fillColor={255,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,20},{-60,20}},
-              color={0,0,0}),Text(
-                  extent={{-148,145},{152,105}},
-                  lineColor={0,0,255},
-                  textString="%name"),Text(
-                  extent={{-145,-49},{155,-79}},
-                  lineColor={0,0,0},
-                  textString="ratio=%ratio"),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-30},{0,-30},{0,0}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}));
+            grid={1,1}), graphics={
+            Polygon(
+              points={{-109,40},{-80,40},{-80,80},{-90,80},{-70,100},{-50,80},{
+                  -60,80},{-60,20},{-109,20},{-109,40}},
+              lineColor={0,0,0},
+              fillColor={255,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,20},{-60,20}}, color={0,0,0}),
+            Text(
+              extent={{-148,145},{152,105}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-145,-49},{155,-79}},
+              lineColor={0,0,0},
+              textString="ratio=%ratio"),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-30},{0,-30},{0,0}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}));
     end LossyGear;
 
     model IdealPlanetary "Ideal planetary gear box"
@@ -3517,120 +3736,149 @@ in the flanges, are along the axis vector displayed in the icon.
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
-                  extent={{50,100},{10,-100}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-10,45},{-50,85}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-10,30},{-50,-30}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-50,10},{-100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{100,10},{50,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{50,100},{-50,105}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{50,-100},{-50,-105}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-80,70},{-50,60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-90,40},{-70,40}},
-              color={0,0,0}),Line(points={{-80,50},{-60,50}}, color={0,0,0}),
-              Line(points={{-70,50},{-70,40}}, color={0,0,0}),Line(points={{-80,
-              80},{-59,80}}, color={0,0,0}),Line(points={{-70,100},{-70,80}},
-              color={0,0,0}),Text(
-                  extent={{-150,150},{150,110}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{-150,-110},{150,-150}},
-                  lineColor={0,0,0},
-                  textString="ratio=%ratio")}),
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{50,100},{10,-100}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-10,45},{-50,85}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-10,30},{-50,-30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-50,10},{-100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{100,10},{50,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{50,100},{-50,105}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{50,-100},{-50,-105}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-80,70},{-50,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-90,40},{-70,40}}, color={0,0,0}),
+            Line(points={{-80,50},{-60,50}}, color={0,0,0}),
+            Line(points={{-70,50},{-70,40}}, color={0,0,0}),
+            Line(points={{-80,80},{-59,80}}, color={0,0,0}),
+            Line(points={{-70,100},{-70,80}}, color={0,0,0}),
+            Text(
+              extent={{-150,150},{150,110}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-150,-110},{150,-150}},
+              lineColor={0,0,0},
+              textString="ratio=%ratio")}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
-                  extent={{50,100},{10,-100}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-10,45},{-50,85}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-10,30},{-50,-30}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-50,10},{-100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{100,10},{50,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{50,100},{-50,105}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{50,-100},{-50,-105}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-80,70},{-50,60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-90,40},{-70,40}},
-              color={0,0,0}),Line(points={{-80,50},{-60,50}}, color={0,0,0}),
-              Line(points={{-70,50},{-70,40}}, color={0,0,0}),Line(points={{-80,
-              80},{-59,80}}, color={0,0,0}),Line(points={{-70,90},{-70,80}},
-              color={0,0,0}),Line(
-                  points={{-26,-42},{-32,-2}},
-                  pattern=LinePattern.Dot,
-                  color={0,0,255}),Line(
-                  points={{36,-26},{64,-60}},
-                  pattern=LinePattern.Dot,
-                  color={0,0,255}),Text(
-                  extent={{58,-66},{98,-78}},
-                  textString="ring gear",
-                  lineColor={0,0,255}),Text(
-                  extent={{-112,111},{-56,87}},
-                  textString="planet carrier ",
-                  lineColor={0,0,255}),Text(
-                  extent={{-47,-42},{-3,-56}},
-                  textString="sun gear",
-                  lineColor={0,0,255}),Polygon(
-                  points={{58,130},{28,140},{28,120},{58,130}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-52,130},{28,130}},
-              color={0,0,0}),Line(
-                  points={{-92,93},{-70,80}},
-                  pattern=LinePattern.Dot,
-                  color={0,0,255}),Polygon(
-                  points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-97,-86},{-26,-86}},
-              color={128,128,128}),Text(
-                  extent={{-96,-71},{-28,-84}},
-                  lineColor={128,128,128},
-                  textString="rotation axis")}));
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{50,100},{10,-100}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-10,45},{-50,85}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-10,30},{-50,-30}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-50,10},{-100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{100,10},{50,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{50,100},{-50,105}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{50,-100},{-50,-105}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-80,70},{-50,60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-90,40},{-70,40}}, color={0,0,0}),
+            Line(points={{-80,50},{-60,50}}, color={0,0,0}),
+            Line(points={{-70,50},{-70,40}}, color={0,0,0}),
+            Line(points={{-80,80},{-59,80}}, color={0,0,0}),
+            Line(points={{-70,90},{-70,80}}, color={0,0,0}),
+            Line(
+              points={{-26,-42},{-32,-2}},
+              pattern=LinePattern.Dot,
+              color={0,0,255}),
+            Line(
+              points={{36,-26},{64,-60}},
+              pattern=LinePattern.Dot,
+              color={0,0,255}),
+            Text(
+              extent={{58,-66},{98,-78}},
+              textString="ring gear",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-112,111},{-56,87}},
+              textString="planet carrier ",
+              lineColor={0,0,255}),
+            Text(
+              extent={{-47,-42},{-3,-56}},
+              textString="sun gear",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{58,130},{28,140},{28,120},{58,130}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-52,130},{28,130}}, color={0,0,0}),
+            Line(
+              points={{-92,93},{-70,80}},
+              pattern=LinePattern.Dot,
+              color={0,0,255}),
+            Polygon(
+              points={{-7,-86},{-27,-81},{-27,-91},{-7,-86}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-97,-86},{-26,-86}}, color={128,128,128}),
+            Text(
+              extent={{-96,-71},{-28,-84}},
+              lineColor={128,128,128},
+              textString="rotation axis")}));
     end IdealPlanetary;
 
     model Gearbox "Realistic model of a gearbox (based on LossyGear)"
@@ -3720,18 +3968,21 @@ Gearbox.
 </p>
 
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-                {100,100}}),graphics={Text(
-                  extent={{-150,150},{150,110}},
-                  lineColor={0,0,255},
-                  textString="%name"),Text(
-                  extent={{-150,70},{150,100}},
-                  lineColor={0,0,0},
-                  textString="ratio=%ratio, c=%c"),Line(
-                  visible=useHeatPort,
-                  points={{-100,-100},{-100,-30},{0,-30}},
-                  color={191,0,0},
-                  pattern=LinePattern.Dot,
-                  smooth=Smooth.None)}));
+                {100,100}}),graphics={
+            Text(
+              extent={{-150,150},{150,110}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Text(
+              extent={{-150,70},{150,100}},
+              lineColor={0,0,0},
+              textString="ratio=%ratio, c=%c"),
+            Line(
+              visible=useHeatPort,
+              points={{-100,-100},{-100,-30},{0,-30}},
+              color={191,0,0},
+              pattern=LinePattern.Dot,
+              smooth=Smooth.None)}));
     end Gearbox;
 
     model IdealGearR2T
@@ -3759,50 +4010,62 @@ This component defines the kinematic constraint:
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Ellipse(
-                  extent={{-70,40},{10,-40}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Ellipse(
-                  extent={{-40,10},{-20,-10}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-100,10},{-70,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Text(
-                  extent={{-150,125},{150,85}},
-                  lineColor={0,0,255},
-                  textString="%name"),Polygon(
-                  points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},
-                {46,-60},{66,-40},{86,-60},{-74,-60}},
-                  lineColor={0,0,0},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{95,-10},{106,-60}},
-                  lineColor={0,0,0},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Rectangle(
-                  extent={{-74,-60},{106,-80}},
-                  lineColor={0,0,0},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-150,80},{150,50}},
-                  lineColor={0,0,0},
-                  textString="ratio=%ratio"),Line(
-                  points={{-100,15},{-80,15}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  points={{-100,-16},{-80,-16}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  points={{-100,-16},{-100,-100}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  points={{100,-80},{100,-100}},
-                  color={0,0,0},
-                  smooth=Smooth.None)}));
+            grid={1,1}), graphics={
+            Ellipse(
+              extent={{-70,40},{10,-40}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-40,10},{-20,-10}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-100,10},{-70,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Text(
+              extent={{-150,125},{150,85}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{-74,-60},{-54,-40},{-34,-60},{-14,-40},{6,-60},{26,-40},
+                  {46,-60},{66,-40},{86,-60},{-74,-60}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{95,-10},{106,-60}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Rectangle(
+              extent={{-74,-60},{106,-80}},
+              lineColor={0,0,0},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-150,80},{150,50}},
+              lineColor={0,0,0},
+              textString="ratio=%ratio"),
+            Line(
+              points={{-100,15},{-80,15}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{-100,-16},{-80,-16}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{-100,-16},{-100,-100}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{100,-80},{100,-100}},
+              color={0,0,0},
+              smooth=Smooth.None)}));
     end IdealGearR2T;
 
     model IdealRollingWheel
@@ -3818,62 +4081,77 @@ This component defines the kinematic constraint:
       annotation (Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Rectangle(
-                  extent={{-100,10},{-46,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Ellipse(
-                  extent={{-50,80},{10,-80}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={160,160,164}),Rectangle(
-                  extent={{-20,80},{12,-80}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={160,160,164}),Ellipse(
-                  extent={{-16,80},{44,-80}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={160,160,164}),Ellipse(
-                  extent={{-2,52},{34,-52}},
-                  lineColor={192,192,192},
-                  fillColor={192,192,192},
-                  fillPattern=FillPattern.Solid),Ellipse(
-                  extent={{12,10},{20,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{16,10},{60,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Ellipse(
-                  extent={{56,10},{64,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.Sphere,
-                  fillColor={192,192,192}),Text(
-                  extent={{-150,130},{150,90}},
-                  textString="%name",
-                  lineColor={0,0,255}),Polygon(
-                  points={{80,10},{80,26},{60,26},{60,20},{70,20},{70,-20},{60,
-                -20},{60,-26},{80,-26},{80,-10},{90,-10},{90,10},{80,10}},
-                  lineColor={0,127,0},
-                  fillColor={0,127,0},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-100,-20},{-60,-20}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  points={{-100,-20},{-100,-100}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  points={{-100,20},{-60,20}},
-                  color={0,0,0},
-                  smooth=Smooth.None),Line(
-                  points={{100,-90},{-40,-90}},
-                  color={0,127,0},
-                  smooth=Smooth.None),Line(
-                  points={{70,-26},{70,-50},{100,-50},{100,-100}},
-                  color={0,127,0},
-                  smooth=Smooth.None)}), Documentation(info="<html>
+            grid={1,1}), graphics={
+            Rectangle(
+              extent={{-100,10},{-46,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Ellipse(
+              extent={{-50,80},{10,-80}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={160,160,164}),
+            Rectangle(
+              extent={{-20,80},{12,-80}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={160,160,164}),
+            Ellipse(
+              extent={{-16,80},{44,-80}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={160,160,164}),
+            Ellipse(
+              extent={{-2,52},{34,-52}},
+              lineColor={192,192,192},
+              fillColor={192,192,192},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{12,10},{20,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{16,10},{60,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Ellipse(
+              extent={{56,10},{64,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.Sphere,
+              fillColor={192,192,192}),
+            Text(
+              extent={{-150,130},{150,90}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{80,10},{80,26},{60,26},{60,20},{70,20},{70,-20},{60,-20},
+                  {60,-26},{80,-26},{80,-10},{90,-10},{90,10},{80,10}},
+              lineColor={0,127,0},
+              fillColor={0,127,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-100,-20},{-60,-20}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{-100,-20},{-100,-100}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{-100,20},{-60,20}},
+              color={0,0,0},
+              smooth=Smooth.None),
+            Line(
+              points={{100,-90},{-40,-90}},
+              color={0,127,0},
+              smooth=Smooth.None),
+            Line(
+              points={{70,-26},{70,-50},{100,-50},{100,-100}},
+              color={0,127,0},
+              smooth=Smooth.None)}), Documentation(info="<html>
 <p>
 A simple kinematic model of a rolling wheel which has no inertia and
 no rolling resistance. This component defines the kinematic constraint:
@@ -3882,7 +4160,6 @@ no rolling resistance. This component defines the kinematic constraint:
 <pre>
    (flangeR.phi - internalSupportR.phi)*wheelRadius = (flangeT.s - internalSupportT.s);
 </pre>
-
 </html>"));
     end IdealRollingWheel;
 
@@ -4017,16 +4294,19 @@ no rolling resistance. This component defines the kinematic constraint:
           color={0,0,0},
           smooth=Smooth.None));
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Text(
-                  extent={{-94,94},{68,66}},
-                  lineColor={0,0,0},
-                  textString="phi_start"),Text(
-                  extent={{-94,16},{70,-14}},
-                  lineColor={0,0,0},
-                  textString="w_start"),Text(
-                  extent={{-92,-68},{68,-96}},
-                  lineColor={0,0,0},
-                  textString="a_start")}), Documentation(info="<html>
+                -100},{100,100}}), graphics={
+            Text(
+              extent={{-94,94},{68,66}},
+              lineColor={0,0,0},
+              textString="phi_start"),
+            Text(
+              extent={{-94,16},{70,-14}},
+              lineColor={0,0,0},
+              textString="w_start"),
+            Text(
+              extent={{-92,-68},{68,-96}},
+              lineColor={0,0,0},
+              textString="a_start")}), Documentation(info="<html>
 <p>
 This component is used to optionally initialize the angle, speed,
 and/or angular acceleration of the flange to which this component
@@ -4052,7 +4332,6 @@ This component is especially useful when the initial values of a flange
 shall be set according to reference signals of a controller that are
 provided via a signal bus.
 </p>
-
 </html>"));
     end InitializeFlange;
 
@@ -4060,8 +4339,15 @@ provided via a signal bus.
       extends Rotational.Interfaces.PartialTwoFlanges;
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use the relative angle and relative speed as states";
-      SI.Angle phi_rel(start=0, stateSelect=stateSelect)
-        "Relative rotation angle used as state variable";
+      parameter SI.Angle phi_nominal(
+        displayUnit="rad",
+        min=0.0) = 1.0 "Nominal value of the relative angle (used for scaling)";
+
+      SI.Angle phi_rel(
+        start=0,
+        stateSelect=stateSelect,
+        nominal=if phi_nominal >= Modelica.Constants.eps then phi_nominal else
+            1) "Relative rotation angle used as state variable";
       SI.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
         "Relative angular velocity used as state variable";
       SI.AngularAcceleration a_rel(start=0) "Relative angular acceleration";
@@ -4091,7 +4377,9 @@ in the following way:
 An example is given in the next figure
 </p>
 
+<p>
 <IMG src=\"modelica://Modelica/Resources/Images/Mechanics/Rotational/relativeStates.png\" ALT=\"relativeStates\">
+</p>
 
 <p>
 Here, the relative angle and the relative angular velocity between
@@ -4100,78 +4388,99 @@ simulator selects either the absolute angle and absolute angular
 velocity of model inertia1 or of model inertia2 as state variables.
 </p>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,255,255},
-                  fillColor={0,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-40,40},{40,-40}},
-                  textString="S",
-                  lineColor={0,0,255}),Line(
-                  points={{-92,0},{-42,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Dot),Line(
-                  points={{40,0},{90,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Dot),Text(
-                  extent={{-150,-40},{150,-80}},
-                  textString="%name",
-                  lineColor={0,0,255})}),
+            grid={2,2}), graphics={
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
+            Line(
+              points={{-92,0},{-42,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
+            Line(
+              points={{40,0},{90,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dot),
+            Text(
+              extent={{-150,-40},{150,-80}},
+              textString="%name",
+              lineColor={0,0,255})}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Ellipse(
-                  extent={{-40,40},{40,-40}},
-                  lineColor={0,255,255},
-                  fillColor={0,255,255},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-40,40},{40,-40}},
-                  textString="S",
-                  lineColor={0,0,255}),Line(
-                  points={{40,0},{96,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Dash),Line(points={{-100,-10},{-100,-80}},
-              color={160,160,164}),Line(points={{100,-10},{100,-80}}, color={
-              160,160,164}),Polygon(
-                  points={{80,-65},{80,-55},{100,-60},{80,-65}},
-                  lineColor={160,160,164},
-                  fillColor={160,160,164},
-                  fillPattern=FillPattern.Solid),Line(points={{-100,-60},{80,-60}},
-              color={160,160,164}),Text(
-                  extent={{-30,-70},{30,-90}},
-                  textString="w_rel",
-                  lineColor={0,0,255}),Line(points={{-76,80},{-5,80}}, color={
-              128,128,128}),Polygon(
-                  points={{14,80},{-6,85},{-6,75},{14,80}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{18,87},{86,74}},
-                  lineColor={128,128,128},
-                  textString="rotation axis"),Line(
-                  points={{-96,0},{-40,0}},
-                  color={0,0,0},
-                  pattern=LinePattern.Dash)}));
+            grid={2,2}), graphics={
+            Ellipse(
+              extent={{-40,40},{40,-40}},
+              lineColor={0,255,255},
+              fillColor={0,255,255},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{-40,40},{40,-40}},
+              textString="S",
+              lineColor={0,0,255}),
+            Line(
+              points={{40,0},{96,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dash),
+            Line(points={{-100,-10},{-100,-80}}, color={160,160,164}),
+            Line(points={{100,-10},{100,-80}}, color={160,160,164}),
+            Polygon(
+              points={{80,-65},{80,-55},{100,-60},{80,-65}},
+              lineColor={160,160,164},
+              fillColor={160,160,164},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-100,-60},{80,-60}}, color={160,160,164}),
+            Text(
+              extent={{-30,-70},{30,-90}},
+              textString="w_rel",
+              lineColor={0,0,255}),
+            Line(points={{-76,80},{-5,80}}, color={128,128,128}),
+            Polygon(
+              points={{14,80},{-6,85},{-6,75},{14,80}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Text(
+              extent={{18,87},{86,74}},
+              lineColor={128,128,128},
+              textString="rotation axis"),
+            Line(
+              points={{-96,0},{-40,0}},
+              color={0,0,0},
+              pattern=LinePattern.Dash)}));
     end RelativeStates;
 
     annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
-              {100,100}}), graphics={Rectangle(
-              extent={{-58,8},{42,-92}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),Rectangle(
-              extent={{-100,-32},{-58,-52}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192}),Rectangle(
-              extent={{42,-32},{80,-52}},
-              lineColor={0,0,0},
-              fillPattern=FillPattern.HorizontalCylinder,
-              fillColor={192,192,192})}), Documentation(info="<html>
+              {100,100}}), graphics={
+          Rectangle(
+            extent={{-58,8},{42,-92}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(
+            extent={{-100,-32},{-58,-52}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192}),
+          Rectangle(
+            extent={{42,-32},{80,-52}},
+            lineColor={0,0,0},
+            fillPattern=FillPattern.HorizontalCylinder,
+            fillColor={192,192,192})}), Documentation(info="<html>
 <p>
 This package contains basic components 1D mechanical rotational drive trains.
 </p>
@@ -4199,14 +4508,13 @@ Measures the <b>absolute angle phi</b> of a flange in an ideal
 way and provides the result as output signal <b>phi</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  lineColor={0,0,0},
-                  textString="phi")}));
+              extent={{70,-30},{120,-70}},
+              lineColor={0,0,0},
+              textString="phi")}));
     end AngleSensor;
 
     model SpeedSensor
@@ -4226,14 +4534,13 @@ Measures the <b>absolute angular velocity w</b> of a flange in an ideal
 way and provides the result as output signal <b>w</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  lineColor={0,0,0},
-                  textString="w")}));
+              extent={{70,-30},{120,-70}},
+              lineColor={0,0,0},
+              textString="w")}));
     end SpeedSensor;
 
     model AccSensor
@@ -4255,14 +4562,13 @@ Measures the <b>absolute angular acceleration a</b> of a flange in an ideal
 way and provides the result as output signal <b>a</b> (to be further processed with
 blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{70,-30},{120,-70}},
-                  lineColor={0,0,0},
-                  textString="a")}));
+              extent={{70,-30},{120,-70}},
+              lineColor={0,0,0},
+              textString="a")}));
     end AccSensor;
 
     model RelAngleSensor
@@ -4288,15 +4594,14 @@ Measures the <b>relative angle phi_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>phi_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{20,-84},{160,-114}},
-                  lineColor={0,0,0},
-                  textString="phi_rel"),Line(points={{0,-100},{0,-70}}, color={
-              0,0,127})}));
+              extent={{20,-84},{160,-114}},
+              lineColor={0,0,0},
+              textString="phi_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
+                  127})}));
     end RelAngleSensor;
 
     model RelSpeedSensor
@@ -4324,15 +4629,14 @@ Measures the <b>relative angular velocity w_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>w_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{20,-88},{160,-118}},
-                  lineColor={0,0,0},
-                  textString="w_rel"),Line(points={{0,-100},{0,-70}}, color={0,
-              0,127})}));
+              extent={{20,-88},{160,-118}},
+              lineColor={0,0,0},
+              textString="w_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
+                  127})}));
     end RelSpeedSensor;
 
     model RelAccSensor
@@ -4362,15 +4666,14 @@ Measures the <b>relative angular acceleration a_rel</b> between two flanges
 in an ideal way and provides the result as output signal <b>a_rel</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{20,-86},{160,-116}},
-                  lineColor={0,0,0},
-                  textString="a_rel"),Line(points={{0,-100},{0,-70}}, color={0,
-              0,127})}));
+              extent={{20,-86},{160,-116}},
+              lineColor={0,0,0},
+              textString="a_rel"), Line(points={{0,-100},{0,-70}}, color={0,0,
+                  127})}));
     end RelAccSensor;
 
     model TorqueSensor
@@ -4394,15 +4697,14 @@ Measures the <b>cut-torque between two flanges</b> in an ideal way
 and provides the result as output signal <b>tau</b>
 (to be further processed with blocks of the Modelica.Blocks library).
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{-50,-80},{50,-120}},
-                  lineColor={0,0,0},
-                  textString="tau"),Line(points={{-80,-100},{-80,0}}, color={0,
-              0,127})}));
+              extent={{-50,-80},{50,-120}},
+              lineColor={0,0,0},
+              textString="tau"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                  127})}));
     end TorqueSensor;
 
     model PowerSensor
@@ -4429,10 +4731,10 @@ and provides the result as output signal <b>power</b>
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={1,1}), graphics={Text(
-                  extent={{-50,-80},{100,-120}},
-                  lineColor={0,0,0},
-                  textString="power"),Line(points={{-80,-100},{-80,0}}, color={
-              0,0,127})}));
+              extent={{-50,-80},{100,-120}},
+              lineColor={0,0,0},
+              textString="power"), Line(points={{-80,-100},{-80,0}}, color={0,0,
+                  127})}));
     end PowerSensor;
 
     model MultiSensor
@@ -4466,22 +4768,27 @@ and provides the result as output signal <b>power</b>
       tau = flange_a.tau;
       power = tau*w;
       annotation (Documentation(info="<html>
-<p>Measures the <b>absolute angular velocity</b> of a flange_a, the <b>cut-torque</b> and <b>power</b> between two flanges in an ideal way and provides the results as output signals <b>w</b>, <b>tau</b> and <b>power</b>, respectively. </p>
+<p>Measures the <b>absolute angular velocity</b> of a flange_a, the <b>cut-torque</b> and <b>power</b> between two flanges in an ideal way and provides the results as output signals <b>w</b>, <b>tau</b> and <b>power</b>, respectively.
+</p>
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
-                  extent={{60,-68},{100,-96}},
-                  lineColor={0,0,0},
-                  textString="w"),Text(
-                  extent={{-140,-68},{-60,-96}},
-                  lineColor={0,0,0},
-                  textString="power"),Text(
-                  extent={{-30,-68},{30,-96}},
-                  lineColor={0,0,0},
-                  textString="tau"),Line(points={{-60,-100},{-60,-60},{-94,-2}},
-              color={0,0,0}),Line(points={{0,-100},{0,-70}}, color={0,0,127}),
-              Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127})}));
+            grid={2,2}), graphics={
+            Text(
+              extent={{60,-68},{100,-96}},
+              lineColor={0,0,0},
+              textString="w"),
+            Text(
+              extent={{-140,-68},{-60,-96}},
+              lineColor={0,0,0},
+              textString="power"),
+            Text(
+              extent={{-30,-68},{30,-96}},
+              lineColor={0,0,0},
+              textString="tau"),
+            Line(points={{-60,-100},{-60,-60},{-94,-2}}, color={0,0,0}),
+            Line(points={{0,-100},{0,-70}}, color={0,0,127}),
+            Line(points={{60,-100},{60,-60},{50,-50}}, color={0,0,127})}));
     end MultiSensor;
     annotation (Documentation(info="<html>
 <p>
@@ -4569,35 +4876,42 @@ to move according to this reference motion relative to flange support. According
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}},
-              color={0,0,0}),Line(points={{0,52},{0,32}}, color={0,0,0}),Line(
-              points={{-29,32},{30,32}}, color={0,0,0}),Line(points={{0,-32},{0,
-              -100}}, color={0,0,0}),Line(points={{30,-42},{20,-52}}, color={0,
-              0,0}),Line(points={{30,-32},{10,-52}}, color={0,0,0}),Line(points
-              ={{20,-32},{0,-52}}, color={0,0,0}),Line(points={{10,-32},{-10,-52}},
-              color={0,0,0}),Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-              Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),Line(points={{-20,
-              -32},{-30,-42}}, color={0,0,0}),Text(
-                  extent={{-56,-56},{-172,-90}},
-                  lineColor={0,0,0},
-                  textString="phi_ref"),Text(
-                  extent={{150,60},{-150,100}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{146,-28},{30,-62}},
-                  lineColor={0,0,0},
-                  textString="exact="),Text(
-                  extent={{146,-64},{30,-98}},
-                  lineColor={0,0,0},
-                  textString="%exact")}));
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+            Text(
+              extent={{-56,-56},{-172,-90}},
+              lineColor={0,0,0},
+              textString="phi_ref"),
+            Text(
+              extent={{150,60},{-150,100}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{146,-28},{30,-62}},
+              lineColor={0,0,0},
+              textString="exact="),
+            Text(
+              extent={{146,-64},{30,-98}},
+              lineColor={0,0,0},
+              textString="%exact")}));
     end Position;
 
     model Speed
@@ -4670,35 +4984,42 @@ to move relative to flange support according to this reference motion. According
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}},
-              color={0,0,0}),Line(points={{0,52},{0,32}}, color={0,0,0}),Line(
-              points={{-29,32},{30,32}}, color={0,0,0}),Line(points={{0,-32},{0,
-              -100}}, color={0,0,0}),Line(points={{-10,-32},{-30,-52}}, color={
-              0,0,0}),Line(points={{0,-32},{-20,-52}}, color={0,0,0}),Line(
-              points={{10,-32},{-10,-52}}, color={0,0,0}),Line(points={{20,-32},
-              {0,-52}}, color={0,0,0}),Line(points={{-20,-32},{-30,-42}}, color
-              ={0,0,0}),Line(points={{30,-32},{10,-52}}, color={0,0,0}),Line(
-              points={{30,-42},{20,-52}}, color={0,0,0}),Text(
-                  extent={{-54,-44},{-158,-78}},
-                  lineColor={0,0,0},
-                  textString="w_ref"),Text(
-                  extent={{0,120},{0,60}},
-                  textString="%name",
-                  lineColor={0,0,255}),Text(
-                  extent={{146,-26},{30,-60}},
-                  lineColor={0,0,0},
-                  textString="exact="),Text(
-                  extent={{146,-62},{30,-96}},
-                  lineColor={0,0,0},
-                  textString="%exact")}));
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Text(
+              extent={{-54,-44},{-158,-78}},
+              lineColor={0,0,0},
+              textString="w_ref"),
+            Text(
+              extent={{0,120},{0,60}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Text(
+              extent={{146,-26},{30,-60}},
+              lineColor={0,0,0},
+              textString="exact="),
+            Text(
+              extent={{146,-62},{30,-96}},
+              lineColor={0,0,0},
+              textString="%exact")}));
     end Speed;
 
     model Accelerate
@@ -4740,29 +5061,34 @@ the acceleration.
 The input signal can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}},
-              color={0,0,0}),Line(points={{0,52},{0,32}}, color={0,0,0}),Line(
-              points={{-29,32},{30,32}}, color={0,0,0}),Line(points={{0,-32},{0,
-              -100}}, color={0,0,0}),Line(points={{30,-42},{20,-52}}, color={0,
-              0,0}),Line(points={{30,-32},{10,-52}}, color={0,0,0}),Line(points
-              ={{20,-32},{0,-52}}, color={0,0,0}),Line(points={{10,-32},{-10,-52}},
-              color={0,0,0}),Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-              Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),Line(points={{-20,
-              -32},{-30,-42}}, color={0,0,0}),Text(
-                  extent={{-46,-50},{-144,-86}},
-                  lineColor={0,0,0},
-                  textString="a_ref"),Text(
-                  extent={{-150,100},{150,60}},
-                  textString="%name",
-                  lineColor={0,0,255})}));
+            grid={2,2}), graphics={
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+            Text(
+              extent={{-46,-50},{-144,-86}},
+              lineColor={0,0,0},
+              textString="a_ref"),
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255})}));
     end Accelerate;
 
     model Move
@@ -4840,29 +5166,34 @@ and the angular acceleration to zero.
 The input signals can be provided from one of the signal generator
 blocks of the block library Modelica.Blocks.Sources.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={2,2}), graphics={Text(
-                  extent={{-80,-60},{-80,-100}},
-                  lineColor={0,0,0},
-                  textString="phi,w,a"),Rectangle(
-                  extent={{-100,20},{100,-20}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Line(points={{-30,-32},{30,-32}},
-              color={0,0,0}),Line(points={{0,52},{0,32}}, color={0,0,0}),Line(
-              points={{-29,32},{30,32}}, color={0,0,0}),Line(points={{0,-32},{0,
-              -100}}, color={0,0,0}),Line(points={{30,-42},{20,-52}}, color={0,
-              0,0}),Line(points={{30,-32},{10,-52}}, color={0,0,0}),Line(points
-              ={{20,-32},{0,-52}}, color={0,0,0}),Line(points={{10,-32},{-10,-52}},
-              color={0,0,0}),Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
-              Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),Line(points={{-20,
-              -32},{-30,-42}}, color={0,0,0}),Text(
-                  extent={{-150,100},{150,60}},
-                  textString="%name",
-                  lineColor={0,0,255})}));
+            grid={2,2}), graphics={
+            Text(
+              extent={{-80,-60},{-80,-100}},
+              lineColor={0,0,0},
+              textString="phi,w,a"),
+            Rectangle(
+              extent={{-100,20},{100,-20}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Line(points={{-30,-32},{30,-32}}, color={0,0,0}),
+            Line(points={{0,52},{0,32}}, color={0,0,0}),
+            Line(points={{-29,32},{30,32}}, color={0,0,0}),
+            Line(points={{0,-32},{0,-100}}, color={0,0,0}),
+            Line(points={{30,-42},{20,-52}}, color={0,0,0}),
+            Line(points={{30,-32},{10,-52}}, color={0,0,0}),
+            Line(points={{20,-32},{0,-52}}, color={0,0,0}),
+            Line(points={{10,-32},{-10,-52}}, color={0,0,0}),
+            Line(points={{0,-32},{-20,-52}}, color={0,0,0}),
+            Line(points={{-10,-32},{-30,-52}}, color={0,0,0}),
+            Line(points={{-20,-32},{-30,-42}}, color={0,0,0}),
+            Text(
+              extent={{-150,100},{150,60}},
+              textString="%name",
+              lineColor={0,0,255})}));
     end Move;
 
     model Torque "Input signal acting as external torque on a flange"
@@ -4885,7 +5216,6 @@ flange is driven by torque <b>tau</b>.</p>
 The input signal can be provided from one of the signal generator
 blocks of Modelica.Blocks.Sources.
 </p>
-
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -4924,23 +5254,27 @@ blocks of Modelica.Blocks.Sources.
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
-                  extent={{14,86},{82,73}},
-                  lineColor={128,128,128},
-                  textString="rotation axis"),Polygon(
-                  points={{10,80},{-10,85},{-10,75},{10,80}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-80,80},{-9,80}},
-              color={128,128,128}),Line(
-                  points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,
-                28},{76,14},{80,10}},
-                  color={0,0,0},
-                  thickness=0.5),Polygon(
-                  points={{86,0},{66,58},{38,28},{86,0}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={
+            Text(
+              extent={{14,86},{82,73}},
+              lineColor={128,128,128},
+              textString="rotation axis"),
+            Polygon(
+              points={{10,80},{-10,85},{-10,75},{10,80}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-80,80},{-9,80}}, color={128,128,128}),
+            Line(
+              points={{-88,0},{-64,30},{-36,52},{-2,62},{28,56},{48,44},{64,28},
+                  {76,14},{80,10}},
+              color={0,0,0},
+              thickness=0.5),
+            Polygon(
+              points={{86,0},{66,58},{38,28},{86,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}));
     end Torque;
 
     model Torque2 "Input signal acting as torque on two flanges"
@@ -4963,64 +5297,75 @@ The input signal <b>tau</b> defines an external
 torque in [Nm] which acts at both flange connectors,
 i.e., the components connected to these flanges are driven by torque <b>tau</b>.</p>
 <p>The input signal can be provided from one of the signal generator
-blocks of Modelica.Blocks.Sources.</p>
-
+blocks of Modelica.Blocks.Sources.
+</p>
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
-                  extent={{-150,-40},{150,-80}},
-                  textString="%name",
-                  lineColor={0,0,255}),Polygon(
-                  points={{-78,24},{-69,17},{-89,0},{-78,24}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{-74,20},{-70,23},{-65,26},{-60,28},{-56,29},{-50,30},
-                {-41,30},{-35,29},{-31,28},{-26,26},{-21,23},{-17,20},{-13,15},
-                {-10,9}},
-                  color={0,0,0},
-                  thickness=0.5),Line(
-                  points={{74,20},{70,23},{65,26},{60,28},{56,29},{50,30},{41,
-                30},{35,29},{31,28},{26,26},{21,23},{17,20},{13,15},{10,9}},
-                  color={0,0,0},
-                  thickness=0.5),Polygon(
-                  points={{89,0},{78,24},{69,17},{89,0}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}),
+            grid={1,1}), graphics={
+            Text(
+              extent={{-150,-40},{150,-80}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Polygon(
+              points={{-78,24},{-69,17},{-89,0},{-78,24}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{-74,20},{-70,23},{-65,26},{-60,28},{-56,29},{-50,30},{-41,
+                  30},{-35,29},{-31,28},{-26,26},{-21,23},{-17,20},{-13,15},{-10,
+                  9}},
+              color={0,0,0},
+              thickness=0.5),
+            Line(
+              points={{74,20},{70,23},{65,26},{60,28},{56,29},{50,30},{41,30},{
+                  35,29},{31,28},{26,26},{21,23},{17,20},{13,15},{10,9}},
+              color={0,0,0},
+              thickness=0.5),
+            Polygon(
+              points={{89,0},{78,24},{69,17},{89,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Text(
-                  extent={{15,-71},{83,-84}},
-                  lineColor={128,128,128},
-                  textString="rotation axis"),Polygon(
-                  points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Line(points={{-79,-77},{-8,-77}},
-              color={128,128,128}),Line(
-                  points={{-75,20},{-71,23},{-66,26},{-61,28},{-57,29},{-51,30},
-                {-42,30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},
-                {-11,9}},
-                  color={0,0,0},
-                  thickness=0.5),Polygon(
-                  points={{-79,24},{-70,17},{-90,0},{-79,24}},
-                  lineColor={0,0,0},
-                  lineThickness=0.5,
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(
-                  points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,
-                30},{34,29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
-                  color={0,0,0},
-                  thickness=0.5),Polygon(
-                  points={{88,0},{77,24},{68,17},{88,0}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={
+            Text(
+              extent={{15,-71},{83,-84}},
+              lineColor={128,128,128},
+              textString="rotation axis"),
+            Polygon(
+              points={{11,-77},{-9,-72},{-9,-82},{11,-77}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-79,-77},{-8,-77}}, color={128,128,128}),
+            Line(
+              points={{-75,20},{-71,23},{-66,26},{-61,28},{-57,29},{-51,30},{-42,
+                  30},{-36,29},{-32,28},{-27,26},{-22,23},{-18,20},{-14,15},{-11,
+                  9}},
+              color={0,0,0},
+              thickness=0.5),
+            Polygon(
+              points={{-79,24},{-70,17},{-90,0},{-79,24}},
+              lineColor={0,0,0},
+              lineThickness=0.5,
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              points={{73,20},{69,23},{64,26},{59,28},{55,29},{49,30},{40,30},{
+                  34,29},{30,28},{25,26},{20,23},{16,20},{12,15},{9,9}},
+              color={0,0,0},
+              thickness=0.5),
+            Polygon(
+              points={{88,0},{77,24},{68,17},{88,0}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}));
     end Torque2;
 
     model LinearSpeedDependentTorque "Linear dependency of torque versus speed"
@@ -5045,7 +5390,7 @@ blocks of Modelica.Blocks.Sources.</p>
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{100,100}},
-              color={0,0,255})}), Documentation(info="<HTML>
+                color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of torque, linearly dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
@@ -5077,8 +5422,8 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       end if;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-100,-100},{-80,-98},
-              {-60,-92},{-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},{
-              80,62},{100,100}}, color={0,0,255})}), Documentation(info="<HTML>
+                  {-60,-92},{-40,-82},{-20,-68},{0,-50},{20,-28},{40,-2},{60,28},
+                  {80,62},{100,100}}, color={0,0,255})}), Documentation(info="<HTML>
 <p>
 Model of torque, quadratic dependent on angular velocity of flange.<br>
 Parameter TorqueDirection chooses whether direction of torque is the same in both directions of rotation or not.
@@ -5097,10 +5442,10 @@ Parameter TorqueDirection chooses whether direction of torque is the same in bot
       tau = tau_constant;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-98,0},{100,0}},
-              color={0,0,255}),Text(
-                  extent={{-124,-16},{120,-40}},
-                  lineColor={0,0,0},
-                  textString="%tau_constant")}), Documentation(info="<HTML>
+                color={0,0,255}), Text(
+              extent={{-124,-16},{120,-40}},
+              lineColor={0,0,0},
+              textString="%tau_constant")}), Documentation(info="<HTML>
 <p>
 Model of constant torque, not dependent on angular velocity of flange.<br>
 Positive torque acts accelerating.
@@ -5118,10 +5463,10 @@ Positive torque acts accelerating.
       w = w_fixed;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{0,-100},{0,100}},
-              color={0,0,255}),Text(
-                  extent={{-116,-16},{128,-40}},
-                  lineColor={0,0,0},
-                  textString="%w_fixed")}), Documentation(info="<HTML>
+                color={0,0,255}), Text(
+              extent={{-116,-16},{128,-40}},
+              lineColor={0,0,0},
+              textString="%w_fixed")}), Documentation(info="<HTML>
 <p>
 Model of <b>fixed</b> angular velocity of flange, not dependent on torque.
 </p>
@@ -5144,10 +5489,10 @@ Model of <b>fixed</b> angular velocity of flange, not dependent on torque.
       tau = offsetTorque + (if time < startTime then 0 else stepTorque);
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Line(points={{-80,-60},{0,-60},{0,
-              60},{80,60}}, color={0,0,255}),Text(
-                  extent={{0,-40},{100,-60}},
-                  lineColor={0,0,255},
-                  textString="time")}), Documentation(info="<HTML>
+                  60},{80,60}}, color={0,0,255}), Text(
+              extent={{0,-40},{100,-60}},
+              lineColor={0,0,255},
+              textString="time")}), Documentation(info="<HTML>
 <p>
 Model of a torque step at time .<br>
 Positive torque acts accelerating.
@@ -5206,7 +5551,6 @@ differentiation of the flange angle phi:
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5268,7 +5612,6 @@ differentiation of the flange angle phi:
 <pre>
      w = der(phi);    a = der(w)
 </pre>
-
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5328,7 +5671,6 @@ It is most convenient to utilize it
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryTwoFlangesAndSupport\">PartialElementaryTwoFlangesAndSupport</a>,<br>
      <a href=\"modelica://Modelica.Mechanics.Rotational.Interfaces.PartialElementaryRotationalToTranslational\">PartialElementaryRotationalToTranslational</a>.</li>
 </ul>
-
 </html>"),
         Icon(coordinateSystem(
             preserveAspectRatio=true,
@@ -5384,13 +5726,13 @@ It is most convenient to utilize it
       flange.phi = phi;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
                 -100},{100,100}}), graphics={Ellipse(
-                  extent={{-20,20},{20,-20}},
-                  lineColor={135,135,135},
-                  fillColor={175,175,175},
-                  fillPattern=FillPattern.Solid),Text(
-                  extent={{-200,80},{200,40}},
-                  lineColor={0,0,255},
-                  textString="%name")}), Documentation(info="<html>
+              extent={{-20,20},{20,-20}},
+              lineColor={135,135,135},
+              fillColor={175,175,175},
+              fillPattern=FillPattern.Solid), Text(
+              extent={{-200,80},{200,40}},
+              lineColor={0,0,255},
+              textString="%name")}), Documentation(info="<html>
 <p>
 This is an adapter model to utilize a conditional support connector
 in an elementary component, i.e., where the component equations are
@@ -5424,7 +5766,6 @@ PartialElementaryRotationalToTranslational</a>.
 Note, the support angle can always be accessed as internalSupport.phi, and
 the support torque can always be accessed as internalSupport.tau.
 </p>
-
 </html>"));
     end InternalSupport;
 
@@ -5441,7 +5782,6 @@ This is a 1-dim. rotational component with two flanges.
 It is used e.g., to build up parts of a drive train consisting
 of several components.
 </p>
-
 </html>"));
     end PartialTwoFlanges;
 
@@ -5487,35 +5827,39 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-                  extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
-                  textString="(if useSupport)"),Text(
-                  extent={{21,-95},{61,-96}},
-                  lineColor={95,95,95},
-                  textString="(if not useSupport)")}),
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)"), Text(
+              extent={{21,-95},{61,-96}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(
-                  visible=not useSupport,
-                  points={{-50,-120},{-30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-120},{-10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-10,-120},{10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{10,-120},{30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-100},{30,-100}},
-                  color={0,0,0})}));
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
     end PartialOneFlangeAndSupport;
 
     partial model PartialTwoFlangesAndSupport
@@ -5562,35 +5906,39 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-                  extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
-                  textString="(if useSupport)"),Text(
-                  extent={{24,-97},{64,-98}},
-                  lineColor={95,95,95},
-                  textString="(if not useSupport)")}),
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)"), Text(
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(
-                  visible=not useSupport,
-                  points={{-50,-120},{-30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-120},{-10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-10,-120},{10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{10,-120},{30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-100},{30,-100}},
-                  color={0,0,0})}));
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
     end PartialTwoFlangesAndSupport;
 
     partial model PartialCompliant
@@ -5619,7 +5967,6 @@ of the two flanges sum-up to zero, i.e., they have the same absolute value
 but opposite sign: flange_a.tau + flange_b.tau = 0. This base class
 is used to built up force elements such as springs, dampers, friction.
 </p>
-
 </html>"));
     end PartialCompliant;
 
@@ -5629,8 +5976,8 @@ is used to built up force elements such as springs, dampers, friction.
       Modelica.SIunits.Angle phi_rel(
         start=0,
         stateSelect=stateSelect,
-        nominal=phi_nominal)
-        "Relative rotation angle (= flange_b.phi - flange_a.phi)";
+        nominal=if phi_nominal >= Modelica.Constants.eps then phi_nominal else
+            1) "Relative rotation angle (= flange_b.phi - flange_a.phi)";
       Modelica.SIunits.AngularVelocity w_rel(start=0, stateSelect=stateSelect)
         "Relative angular velocity (= der(phi_rel))";
       Modelica.SIunits.AngularAcceleration a_rel(start=0)
@@ -5643,8 +5990,9 @@ is used to built up force elements such as springs, dampers, friction.
         annotation (Placement(transformation(extent={{90,-10},{110,10}},
               rotation=0)));
 
-      parameter SI.Angle phi_nominal(displayUnit="rad") = 1e-4
-        "Nominal value of phi_rel (used for scaling)"
+      parameter SI.Angle phi_nominal(
+        displayUnit="rad",
+        min=0.0) = 1e-4 "Nominal value of phi_rel (used for scaling)"
         annotation (Dialog(tab="Advanced"));
       parameter StateSelect stateSelect=StateSelect.prefer
         "Priority to use phi_rel and w_rel as states"
@@ -5686,6 +6034,11 @@ as \"phi_nominal = tau_nominal / c\" for a rotational spring, if tau_nominal
 and c are more meaningful for the user.
 </p>
 
+<p>
+See also the discussion 
+<a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
+in the User's Guide of the Rotational library.
+</p>
 </html>"));
     end PartialCompliantWithRelativeStates;
 
@@ -5732,35 +6085,39 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-                  extent={{25,-97},{65,-98}},
-                  lineColor={95,95,95},
-                  textString="(if not useSupport)"),Text(
-                  extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
-                  textString="(if useSupport)")}),
+              extent={{25,-97},{65,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)"), Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(
-                  visible=not useSupport,
-                  points={{-50,-120},{-30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-120},{-10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-10,-120},{10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{10,-120},{30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-100},{30,-100}},
-                  color={0,0,0})}));
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
     end PartialElementaryOneFlangeAndSupport;
 
     partial model PartialElementaryOneFlangeAndSupport2
@@ -5795,7 +6152,6 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={
             Line(
@@ -5866,35 +6222,39 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"),
         Diagram(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
             grid={2,2}), graphics={Text(
-                  extent={{24,-97},{64,-98}},
-                  lineColor={95,95,95},
-                  textString="(if not useSupport)"),Text(
-                  extent={{-38,-98},{-6,-96}},
-                  lineColor={95,95,95},
-                  textString="(if useSupport)")}),
+              extent={{24,-97},{64,-98}},
+              lineColor={95,95,95},
+              textString="(if not useSupport)"), Text(
+              extent={{-38,-98},{-6,-96}},
+              lineColor={95,95,95},
+              textString="(if useSupport)")}),
         Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},{
-                100,100}}), graphics={Line(
-                  visible=not useSupport,
-                  points={{-50,-120},{-30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-120},{-10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-10,-120},{10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{10,-120},{30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-100},{30,-100}},
-                  color={0,0,0})}));
+                100,100}}), graphics={
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}));
     end PartialElementaryTwoFlangesAndSupport;
 
     partial model PartialElementaryTwoFlangesAndSupport2
@@ -5932,7 +6292,6 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"), Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,-100},
                 {100,100}}),graphics={
             Line(
@@ -6041,35 +6400,42 @@ and needs to be connected.<br>
 If <i>useSupportT=false</i>, the translational support connector is conditionally disabled
 and instead the translational part is internally fixed to ground.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(
-                  visible=not useSupportT,
-                  points={{85,-110},{95,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportT,
-                  points={{95,-110},{105,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportT,
-                  points={{105,-110},{115,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportT,
-                  points={{85,-100},{115,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportR,
-                  points={{-115,-110},{-105,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportR,
-                  points={{-105,-110},{-95,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportR,
-                  points={{-95,-110},{-85,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupportR,
-                  points={{-115,-100},{-85,-100}},
-                  color={0,0,0})}));
+            grid={1,1}), graphics={
+            Line(
+              visible=not useSupportT,
+              points={{85,-110},{95,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{95,-110},{105,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{105,-110},{115,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportT,
+              points={{85,-100},{115,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-115,-110},{-105,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-105,-110},{-95,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-95,-110},{-85,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupportR,
+              points={{-115,-100},{-85,-100}},
+              color={0,0,0})}));
     end PartialElementaryRotationalToTranslational;
 
     partial model PartialTorque
@@ -6082,41 +6448,51 @@ and instead the translational part is internally fixed to ground.
     equation
       phi = flange.phi - phi_support;
       annotation (Icon(coordinateSystem(preserveAspectRatio=true, extent={{-100,
-                -100},{100,100}}), graphics={Rectangle(
-                  extent={{-96,96},{96,-96}},
-                  lineColor={255,255,255},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{0,-62},{0,-100}},
-              color={0,0,0}),Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,
-              88},{10,92},{26,90},{46,80},{64,62}}, color={0,0,0}),Text(
-                  extent={{-150,140},{150,100}},
-                  lineColor={0,0,255},
-                  textString="%name"),Polygon(
-                  points={{94,16},{80,74},{50,52},{94,16}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(points={{-58,-82},{-42,-68},
-              {-20,-56},{0,-54},{18,-56},{34,-62},{44,-72},{54,-82},{60,-94}},
-              color={0,0,0}),Polygon(
-                  points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Line(
-                  visible=not useSupport,
-                  points={{-50,-120},{-30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-120},{-10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-10,-120},{10,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{10,-120},{30,-100}},
-                  color={0,0,0}),Line(
-                  visible=not useSupport,
-                  points={{-30,-100},{30,-100}},
-                  color={0,0,0})}), Documentation(info="<HTML>
+                -100},{100,100}}), graphics={
+            Rectangle(
+              extent={{-96,96},{96,-96}},
+              lineColor={255,255,255},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,-62},{0,-100}}, color={0,0,0}),
+            Line(points={{-92,0},{-76,36},{-54,62},{-30,80},{-14,88},{10,92},{
+                  26,90},{46,80},{64,62}}, color={0,0,0}),
+            Text(
+              extent={{-150,140},{150,100}},
+              lineColor={0,0,255},
+              textString="%name"),
+            Polygon(
+              points={{94,16},{80,74},{50,52},{94,16}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(points={{-58,-82},{-42,-68},{-20,-56},{0,-54},{18,-56},{34,-62},
+                  {44,-72},{54,-82},{60,-94}}, color={0,0,0}),
+            Polygon(
+              points={{-65,-98},{-46,-80},{-58,-72},{-65,-98}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Line(
+              visible=not useSupport,
+              points={{-50,-120},{-30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-120},{-10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-10,-120},{10,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{10,-120},{30,-100}},
+              color={0,0,0}),
+            Line(
+              visible=not useSupport,
+              points={{-30,-100},{30,-100}},
+              color={0,0,0})}), Documentation(info="<HTML>
 <p>
 Partial model of torque that accelerates the flange.
 </p>
@@ -6127,7 +6503,6 @@ and needs to be connected.<br>
 If <i>useSupport=false</i>, the support connector is conditionally disabled
 and instead the component is internally fixed to ground.
 </p>
-
 </html>"));
     end PartialTorque;
 
@@ -6148,32 +6523,37 @@ in order to measure an absolute kinematic quantity in the flange
 and to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-              Line(points={{70,0},{100,0}}, color={0,0,127}),Text(
-                  extent={{150,80},{-150,120}},
-                  textString="%name",
-                  lineColor={0,0,255}),Ellipse(
-                  extent={{-70,70},{70,-70}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{0,70},{0,40}},
-              color={0,0,0}),Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,
-              0}),Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),Line(
-              points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),Line(points={{-37.6,
-              13.7},{-65.8,23.9}}, color={0,0,0}),Line(points={{0,0},{9.02,28.6}},
-              color={0,0,0}),Polygon(
-                  points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Ellipse(
-                  extent={{-5,5},{5,-5}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{100,0}}, color={0,0,127}),
+            Text(
+              extent={{150,80},{-150,120}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}));
     end PartialAbsoluteSensor;
 
     partial model PartialRelativeSensor
@@ -6194,32 +6574,37 @@ between the two flanges or the cut-torque in the flange and
 to provide the measured signal as output signal for further processing
 with the blocks of package Modelica.Blocks.
 </p>
-
 </html>"), Icon(coordinateSystem(
             preserveAspectRatio=true,
             extent={{-100,-100},{100,100}},
-            grid={1,1}), graphics={Line(points={{-70,0},{-90,0}}, color={0,0,0}),
-              Line(points={{70,0},{90,0}}, color={0,0,0}),Text(
-                  extent={{-150,73},{150,113}},
-                  textString="%name",
-                  lineColor={0,0,255}),Ellipse(
-                  extent={{-70,70},{70,-70}},
-                  lineColor={0,0,0},
-                  fillColor={255,255,255},
-                  fillPattern=FillPattern.Solid),Line(points={{0,70},{0,40}},
-              color={0,0,0}),Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,
-              0}),Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),Line(
-              points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),Line(points={{-37.6,
-              13.7},{-65.8,23.9}}, color={0,0,0}),Line(points={{0,0},{9.02,28.6}},
-              color={0,0,0}),Polygon(
-                  points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid),Ellipse(
-                  extent={{-5,5},{5,-5}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}));
+            grid={1,1}), graphics={
+            Line(points={{-70,0},{-90,0}}, color={0,0,0}),
+            Line(points={{70,0},{90,0}}, color={0,0,0}),
+            Text(
+              extent={{-150,73},{150,113}},
+              textString="%name",
+              lineColor={0,0,255}),
+            Ellipse(
+              extent={{-70,70},{70,-70}},
+              lineColor={0,0,0},
+              fillColor={255,255,255},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,70},{0,40}}, color={0,0,0}),
+            Line(points={{22.9,32.8},{40.2,57.3}}, color={0,0,0}),
+            Line(points={{-22.9,32.8},{-40.2,57.3}}, color={0,0,0}),
+            Line(points={{37.6,13.7},{65.8,23.9}}, color={0,0,0}),
+            Line(points={{-37.6,13.7},{-65.8,23.9}}, color={0,0,0}),
+            Line(points={{0,0},{9.02,28.6}}, color={0,0,0}),
+            Polygon(
+              points={{-0.48,31.6},{18,26},{18,57.2},{-0.48,31.6}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid),
+            Ellipse(
+              extent={{-5,5},{5,-5}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}));
     end PartialRelativeSensor;
 
     partial model PartialFriction "Partial model of Coulomb friction elements"
@@ -6306,7 +6691,6 @@ This package contains connectors and partial models for 1-dim.
 rotational mechanical components. The components of this package can
 only be used as basic building elements for models.
 </p>
-
 </html>"));
   end Interfaces;
 
@@ -6372,35 +6756,41 @@ This is the icon of a gear from the rotational package.
 
     model Gearbox "Icon of gear box"
 
-      annotation (Icon(graphics={Rectangle(
-                  extent={{-100,10},{-60,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{60,10},{100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-40,60},{40,-60}},
-                  lineColor={0,0,0},
-                  pattern=LinePattern.Solid,
-                  lineThickness=0.25,
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Polygon(
-                  points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,
-                10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={128,128,128}),Polygon(
-                  points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
-                  lineColor={128,128,128},
-                  fillColor={128,128,128},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
-                {60,-90},{-60,-90},{-60,-80}},
-                  lineColor={0,0,0},
-                  fillColor={0,0,0},
-                  fillPattern=FillPattern.Solid)}), Documentation(info="<html>
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,10},{-60,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{60,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-40,60},{40,-60}},
+              lineColor={0,0,0},
+              pattern=LinePattern.Solid,
+              lineThickness=0.25,
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Polygon(
+              points={{-60,10},{-60,20},{-40,40},{-40,-40},{-60,-20},{-60,10}},
+
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={128,128,128}),
+            Polygon(
+              points={{60,20},{40,40},{40,-40},{60,-20},{60,20}},
+              lineColor={128,128,128},
+              fillColor={128,128,128},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{-60,-80},{-46,-80},{-20,-20},{20,-20},{46,-80},{60,-80},
+                  {60,-90},{-60,-90},{-60,-80}},
+              lineColor={0,0,0},
+              fillColor={0,0,0},
+              fillPattern=FillPattern.Solid)}), Documentation(info="<html>
 <p>
 This is the icon of a gear box from the rotational package.
 </p>
@@ -6409,38 +6799,52 @@ This is the icon of a gear box from the rotational package.
 
     model Clutch "Icon of a clutch"
 
-      annotation (Icon(graphics={Rectangle(
-                  extent={{-100,10},{-30,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{-30,60},{-10,-60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{10,60},{30,-60}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Rectangle(
-                  extent={{30,10},{100,-10}},
-                  lineColor={0,0,0},
-                  fillPattern=FillPattern.HorizontalCylinder,
-                  fillColor={192,192,192}),Polygon(
-                  points={{-30,40},{-60,50},{-60,30},{-30,40}},
-                  lineColor={0,0,127},
-                  fillColor={0,0,127},
-                  fillPattern=FillPattern.Solid),Polygon(
-                  points={{30,40},{60,50},{60,30},{30,40}},
-                  lineColor={0,0,127},
-                  fillColor={0,0,127},
-                  fillPattern=FillPattern.Solid),Line(points={{0,90},{90,70},{
-              90,40},{30,40}}, color={0,0,127}),Line(points={{0,90},{-90,70},{-90,
-              40},{-30,40}}, color={0,0,127})}), Documentation(info="<html>
+      annotation (Icon(graphics={
+            Rectangle(
+              extent={{-100,10},{-30,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{-30,60},{-10,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{10,60},{30,-60}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Rectangle(
+              extent={{30,10},{100,-10}},
+              lineColor={0,0,0},
+              fillPattern=FillPattern.HorizontalCylinder,
+              fillColor={192,192,192}),
+            Polygon(
+              points={{-30,40},{-60,50},{-60,30},{-30,40}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Polygon(
+              points={{30,40},{60,50},{60,30},{30,40}},
+              lineColor={0,0,127},
+              fillColor={0,0,127},
+              fillPattern=FillPattern.Solid),
+            Line(points={{0,90},{90,70},{90,40},{30,40}}, color={0,0,127}),
+            Line(points={{0,90},{-90,70},{-90,40},{-30,40}}, color={0,0,127})}),
+          Documentation(info="<html>
 <p>
 This is the icon of a clutch from the rotational package.
 </p>
 </html>"));
     end Clutch;
+    annotation (Documentation(info="<html>
+<p>
+This package contains icons for the Rotational library
+(that is, all the components have only graphical annotations
+without any equations).
+</p>
+</html>"));
   end Icons;
   annotation (Documentation(info="<html>
 
