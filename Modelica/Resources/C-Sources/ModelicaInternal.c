@@ -91,7 +91,7 @@ static void ModelicaNotExistError(const char* name) {
               ModelicaNotExistError("ModelicaInternal_chdir"); }
   static const char* ModelicaInternal_getcwd(int dummy) {
               ModelicaNotExistError("ModelicaInternal_getcwd"); return 0; }
-  static const char* ModelicaInternal_getenv(const char* name, int convertToSlash, int* exist) {
+  static void ModelicaInternal_getenv(const char* name, int convertToSlash, char** content, int* exist) {
               ModelicaNotExistError("ModelicaInternal_getenv"); return 0; }
   static void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash) {
               ModelicaNotExistError("ModelicaInternal_setenv"); }
@@ -718,7 +718,7 @@ static const char* ModelicaInternal_getcwd(int dummy)
 }
 
 
-static const char* ModelicaInternal_getenv(const char* name, int convertToSlash, int* exist)
+static void ModelicaInternal_getenv(const char* name, int convertToSlash, char** content, int* exist)
 {
     /* Get content of environment variable */
     char* value = getenv(name);
@@ -734,7 +734,7 @@ static const char* ModelicaInternal_getenv(const char* name, int convertToSlash,
         if ( convertToSlash == 1 ) ModelicaConvertToUnixDirectorySeparator(result);
         *exist = 1;
     }
-    return result;
+    *content = result;
 }
 
 
