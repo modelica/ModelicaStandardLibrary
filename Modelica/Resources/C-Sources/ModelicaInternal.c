@@ -12,7 +12,7 @@
     _POSIX_       : System calls of POSIX
     _MSC_VER      : Microsoft Visual C++
     __GNUC__      : GNU C compiler
-    NO_FILE_SYSTEM: A file system is not present (e.g. on dSpace or xPC).
+    NO_FILE_SYSTEM: A file system is not present (e.g. on dSPACE or xPC).
 
 
     Release Notes:
@@ -43,10 +43,6 @@
 
 */
 
-#if defined(linux)
-#define _POSIX_ 1
-#endif
-
 #include <string.h>
 #include "ModelicaUtilities.h"
 
@@ -55,10 +51,10 @@ static void ModelicaNotExistError(const char* name) {
    ModelicaFormatError("C-Function \"%s\" is called\n"
                        "but is not implemented for the actual environment\n"
                        "(e.g., because there is no file system available on the machine\n"
-                       "as for dSpace or xPC systems)", name);
+                       "as for dSPACE or xPC systems)", name);
 }
 
-#if NO_FILE_SYSTEM
+#ifdef NO_FILE_SYSTEM
   static void ModelicaInternal_mkdir(const char* directoryName) {
               ModelicaNotExistError("ModelicaInternal_mkdir"); }
   static void ModelicaInternal_rmdir(const char* directoryName) {
@@ -77,7 +73,7 @@ static void ModelicaNotExistError(const char* name) {
               ModelicaNotExistError("ModelicaInternal_getNumberOfFiles"); return 0; }
   static const char* ModelicaInternal_fullPathName(const char* name) {
               ModelicaNotExistError("ModelicaInternal_fullPathName"); return 0; }
-  static const char* ModelicaInternal_temporaryFileName() {
+  static const char* ModelicaInternal_temporaryFileName(void) {
               ModelicaNotExistError("ModelicaInternal_temporaryFileName"); return 0; }
   static void ModelicaInternal_print(const char* string, const char* fileName) {
               ModelicaNotExistError("ModelicaInternal_print"); }
@@ -97,6 +93,10 @@ static void ModelicaNotExistError(const char* name) {
               ModelicaNotExistError("ModelicaInternal_setenv"); }
 #else
 
+#if defined(linux) && !defined _POSIX_
+#define _POSIX_ 1
+#endif
+
 #  include <stdio.h>
 #  include <stdlib.h>
 #  include <errno.h>
@@ -105,6 +105,11 @@ static void ModelicaNotExistError(const char* name) {
 #     include <direct.h>
 #     include <sys/types.h>
 #     include <sys/stat.h>
+#  elif defined(__BORLANDC__)
+#     include <direct.h>
+#     include <sys/types.h>
+#     include <sys/stat.h>
+#     include <dirent.h>
 #  elif defined(_WIN32)
 #     include <direct.h>
 #     include <sys/types.h>
@@ -112,12 +117,11 @@ static void ModelicaNotExistError(const char* name) {
 
       /* include the opendir/readdir/closedir implementation for _WIN32 */
 #     include "win32_dirent.c"
-#  elif defined(_POSIX_)
+#  elif defined(_POSIX_) || defined(__GNUC__)
 #     include <dirent.h>
 #     include <unistd.h>
 #     include <sys/types.h>
 #     include <sys/stat.h>
-#     include <dirent.h>
 #  endif
 
 #define BUFFER_LENGTH 1000
@@ -141,7 +145,7 @@ typedef enum {
          if ( *c == '\\' )  {*c = '/';}
          c++;
       }
-   };
+   }
 
    static void ModelicaConvertFromUnixDirectorySeparator(char* string) {
       /* convert from Unix directory separators */
@@ -150,7 +154,7 @@ typedef enum {
          if ( *c == '/' )  {*c = '\\';}
          c++;
       }
-   };
+   }
 #else
 #  define ModelicaConvertToUnixDirectorySeparator(string) ;
 #  define ModelicaConvertFromUnixDirectorySeparator(string) ;
@@ -163,9 +167,13 @@ static void ModelicaInternal_mkdir(const char* directoryName)
 {
     /* Create directory */
 
-#if defined(_WIN32)
+#if defined(__WATCOMC__)
+    int result = mkdir(directoryName);
+#elif defined(__BORLANDC__)
     int result = _mkdir(directoryName);
-#elif defined(_POSIX_)
+#elif defined(_WIN32)
+    int result = _mkdir(directoryName);
+#elif defined(_POSIX_) || defined(__GNUC__)
     int result = mkdir(directoryName, S_IRUSR | S_IWUSR | S_IXUSR);
 #else
     int result = -1;
@@ -181,11 +189,13 @@ static void ModelicaInternal_mkdir(const char* directoryName)
 
 static void ModelicaInternal_rmdir(const char* directoryName)
 {
-#if defined(__WATCOMC__)
+#if defined(__WATCOMC__) && !defined(SimStruct)
     int result = rmdir(directoryName);
+#elif defined(__BORLANDC__) && !defined(SimStruct)
+    int result = _rmdir(directoryName);
 #elif defined(_WIN32) && !defined(SimStruct)
     int result = _rmdir(directoryName);
-#elif defined(_POSIX_)
+#elif defined(_POSIX_) || defined(__GNUC__)
     int result = rmdir(directoryName);
 #else
     int result = -1;
@@ -204,7 +214,18 @@ static int ModelicaInternal_stat(const char* name)
     /* Inquire type of file */
     ModelicaFileType type = FileType_NoFile;
 
-#if defined(_WIN32) && defined(_MSC_VER)
+#if defined(__WATCOMC__) || defined(__BORLANDC__)
+     struct _stat fileInfo;
+     if ( _stat(name, &fileInfo) != 0 ) {
+         type = FileType_NoFile;
+     } else if ( fileInfo.st_mode & S_IFREG ) {
+         type = FileType_RegularFile;
+     } else if ( fileInfo.st_mode & S_IFDIR ) {
+         type = FileType_Directory;
+     } else {
+         type = FileType_SpecialFile;
+     }
+#elif defined(_WIN32) && defined(_MSC_VER)
     struct _stat fileInfo;
     if ( _stat(name, &fileInfo) != 0 ) {
         type = FileType_NoFile;
@@ -312,7 +333,7 @@ static void ModelicaInternal_readDirectory(const char* directory, int nFiles,
   /* Get all file and directory names in a directory in any order
      (must be very careful, to call closedir if an error occurs)
   */
-  #if defined(_WIN32) || defined(_POSIX_)
+  #if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
      int errnoTemp;
      int iFiles  = 0;
      char *pName;
@@ -384,14 +405,14 @@ static void ModelicaInternal_readDirectory(const char* directory, int nFiles,
   #else
      ModelicaNotExistError("ModelicaInternal_readDirectory");
   #endif
-};
+}
 
 
 
 static int ModelicaInternal_getNumberOfFiles(const char* directory) {
     /* Get number of files and directories in a directory */
 
-#if defined(_WIN32) || defined(_POSIX_)
+#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
     int nFiles = 0;
     int errnoTemp;
     struct dirent *pinfo;
@@ -419,7 +440,7 @@ ERROR: ModelicaFormatError("Not possible to get number of files in \"%s\":\n%s",
        ModelicaNotExistError("ModelicaInternal_getNumberOfFiles");
        return 0;
 #endif
-};
+}
 
 
 /* --------------------- Modelica_Utilities.Files ------------------------------------- */
@@ -456,7 +477,7 @@ static const char* ModelicaInternal_fullPathName(const char* name)
     return fullName;
 }
 
-static const char* ModelicaInternal_temporaryFileName()
+static const char* ModelicaInternal_temporaryFileName(void)
 {
     /* Get full path name of a temporary */
 
@@ -673,11 +694,13 @@ static const char* ModelicaInternal_readLine(const char* fileName, int lineNumbe
 static void ModelicaInternal_chdir(const char* directoryName)
 {
 /* Change current working directory. */
-#if defined(__WATCOMC__)
+#if defined(__WATCOMC__) && !defined(SimStruct)
+    int result = chdir(directoryName);
+#elif defined(__BORLANDC__) && !defined(SimStruct)
     int result = chdir(directoryName);
 #elif defined(_WIN32) && !defined(SimStruct)
     int result = _chdir(directoryName);
-#elif defined(_POSIX_)
+#elif defined(_POSIX_) || defined(__GNUC__)
     int result = chdir(directoryName);
 #else
     int result = -1;
@@ -696,10 +719,10 @@ static const char* ModelicaInternal_getcwd(int dummy)
     const char* cwd;
     char* directory;
 
-#if defined(_WIN32)
-    cwd = _getcwd(buffer, sizeof(buffer));
-#elif defined(_POSIX_)
+#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_POSIX_) || defined(__GNUC__)
     cwd = getcwd(buffer, sizeof(buffer));
+#elif defined(_WIN32)
+    cwd = _getcwd(buffer, sizeof(buffer));
 #else
     ModelicaNotExistError("ModelicaInternal_getcwd");
     cwd = "";
@@ -740,7 +763,8 @@ static void ModelicaInternal_getenv(const char* name, int convertToSlash, char**
 
 static void ModelicaInternal_setenv(const char* name, const char* value, int convertFromSlash)
 {
-#if defined(_WIN32) || defined(_POSIX_)
+#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_WIN32) || defined(_POSIX_) || defined(__GNUC__)
+
     int valueStart;
     if (strlen(name) + strlen(value) + 1 > sizeof(buffer)) {
         ModelicaFormatError("Environment variable\n"
@@ -759,7 +783,14 @@ static void ModelicaInternal_setenv(const char* name, const char* value, int con
 #endif
 
     /* Set environment variable */
-#if defined(_WIN32)
+#if defined(__WATCOMC__) || defined(__BORLANDC__) || defined(_POSIX_) || defined(__GNUC__)
+    if (putenv(buffer) != 0) {
+        ModelicaFormatError("Environment variable\n"
+            "\"%s\"=\"%s\"\n"
+            "cannot be set: %s", name, value, strerror(errno));
+    }
+
+#elif defined(_WIN32)
     if (_putenv(buffer) != 0) {
         ModelicaFormatError("Environment variable\n"
             "\"%s\"=\"%s\"\n"
