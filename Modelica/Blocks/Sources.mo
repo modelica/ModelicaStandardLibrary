@@ -2254,9 +2254,9 @@ If, e.g., time = 1.0, the output y =  0.0 (before event), 1.0 (after event)
       "Output = offset for time < startTime"
     annotation(Dialog(group="table data interpretation"));
     extends Modelica.Blocks.Interfaces.MO(final nout=max([size(columns, 1); size(offset, 1)]));
-    final parameter Real t_min(fixed=false)
+    final parameter Modelica.SIunits.Time t_min(fixed=false)
       "Minimum abscissa value defined in table";
-    final parameter Real t_max(fixed=false)
+    final parameter Modelica.SIunits.Time t_max(fixed=false)
       "Maximum abscissa value defined in table";
 
   protected
