@@ -76,6 +76,8 @@ package MultiPhase "Multiphase AC components"
             origin={-30,-60},
             extent={{-10,-10},{10,10}},
             rotation=180)));
+    initial equation
+      voltageSource.voltageSource.pin_p.reference.gamma=zeros(m);
     equation
       connect(ground.pin, star.pin_n) annotation (Line(points={{-80,-70},{-80,-60}},
             color={85,170,255}));
@@ -204,6 +206,9 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
             origin={-20,-20},
             extent={{-10,-10},{10,10}},
             rotation=270)));
+    initial equation
+      voltageSource.voltageSource.pin_p.reference.gamma=zeros(m);
+
     equation
       connect(ground.pin, star.pin_n) annotation (Line(points={{-70,-70},{-70,-60}},
             color={85,170,255}));
@@ -242,7 +247,7 @@ P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase c
       connect(currentSensor31.pin_p, plugToPin_p3.pin_p) annotation (Line(points={{
               70,-20},{70,-60},{22,-60}}, color={85,170,255}));
       connect(currentSensor.y, complexToPolar.u) annotation (Line(
-          points={{-20,-1},{-20,-4.5},{-20,-8},{-20,-8}},
+          points={{-20,-1},{-20,-8}},
           color={85,170,255},
           smooth=Smooth.None));
       annotation ( Documentation(info="<html>
@@ -254,7 +259,9 @@ are chosen such way that the magnitudes of the three phase currents (see current
 P.Vaske, Berechnung von Drehstromschaltungen (German, Calculation of polyphase circuits), Teubner 1973, page 43, example 23
 </p>
 </html>"),
-        experiment(StopTime=1.0, Interval=0.001));
+        experiment(StopTime=1.0, Interval=0.001),
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                100}}), graphics));
     end BalancingDelta;
 
     annotation (Documentation(info="<html>
@@ -300,7 +307,7 @@ Examples to demonstrate the usage of quasistationary electric components.
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -346,7 +353,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-150,60},{150,120}},
               lineColor={0,0,255},
-              textString=                         "%name"),
+              textString =                        "%name"),
             Line(
               points={{-40,68},{-40,-70},{79,0},{-40,68},{-40,67}},
               color={0,0,255},
@@ -354,7 +361,7 @@ Star (wye) connection of a multi phase circuit. The potentials at the star point
             Text(
               extent={{-100,-110},{100,-70}},
               lineColor={0,0,0},
-              textString=                            "m=%m"),
+              textString =                           "m=%m"),
             Line(points={{-90,0},{-40,0}}, color={0,0,255}),
             Line(points={{80,0},{90,0}}, color={0,0,255})}),
       Documentation(info="<html>
@@ -404,7 +411,7 @@ Delta (polygon) connection of a multi phase circuit.
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) plug to a single phase (positive) pin.
@@ -454,7 +461,7 @@ Connects the single phase (positive) pin <i>k</i> of the multi phase (positive) 
             Text(
               extent={{-100,-60},{100,-100}},
               lineColor={0,0,0},
-              textString=                         "k = %k")}),
+              textString =                        "k = %k")}),
       Documentation(info="<html>
 <p>
 Connects the single phase (negative) pin <i>k</i> of the multi phase (negative) plug to a single phase (negative) pin.
@@ -772,8 +779,7 @@ using <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.SinglePh
     equation
 
       connect(plugToPins_p.pin_p, inductor.pin_p) annotation (Line(points={{-68,0},
-              {-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}},
-                                                                    color={85,170,
+              {-53.5,0},{-53.5,0},{-39,0},{-39,0},{-10,0}},         color={85,170,
               255}));
       connect(inductor.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{
               39,0},{39,0},{68,0}},
@@ -1147,8 +1153,7 @@ Quasi stationary theory can be found in the
     connect(plugToPins_p.pin_p, idle.pin_p) annotation (Line(points={{-68,0},{-10,0}},
             color={85,170,255}));
     connect(idle.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{39,
-              0},{39,0},{68,0}},
-                                                    color={0,127,0}));
+              0},{39,0},{68,0}},                    color={0,127,0}));
     annotation (
       Icon(graphics={
             Rectangle(
@@ -1186,8 +1191,7 @@ it uses <i>m</i> <a href=\"modelica://Modelica.Electrical.QuasiStationary.Single
     connect(plugToPins_p.pin_p, short.pin_p) annotation (Line(points={{-68,0},{-10,
               0}}, color={85,170,255}));
     connect(short.pin_n, plugToPins_n.pin_n) annotation (Line(points={{10,0},{
-              39,0},{39,0},{68,0}},
-                                                    color={0,127,0}));
+              39,0},{39,0},{68,0}},                 color={0,127,0}));
     annotation (
       Icon(graphics={
             Rectangle(
@@ -1625,9 +1629,7 @@ Quasi stationary theory can be found in the
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="f"),
-            Text(extent={{100,70},{-100,110}}, textString="%name",
-              lineColor={0,0,255})}),
+              textString="f")}),
       Documentation(info="<html>
 
 <p>
@@ -1659,8 +1661,7 @@ This sensor can be used to measure the frequency of the reference system, using 
     equation
 
       connect(potentialSensor.y, y) annotation (Line(points={{11,0},{35.75,0},{35.75,
-              0},{60.5,0},{60.5,0},{110,0}},
-                                                 color={85,170,255}));
+              0},{60.5,0},{60.5,0},{110,0}},     color={85,170,255}));
       connect(plug_p, plugToPins_p.plug_p) annotation (Line(
           points={{-100,0},{-72,0}},
           color={85,170,255},
@@ -1672,9 +1673,7 @@ This sensor can be used to measure the frequency of the reference system, using 
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="V"),
-            Text(extent={{100,70},{-100,110}}, textString="%name",
-              lineColor={0,0,255})}),
+              textString="V")}),
       Documentation(info="<html>
 
 <p>
@@ -1715,10 +1714,7 @@ This sensor can be used to measure <i>m</i> complex potentials, using <i>m</i>
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V"),
-            Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
+                   "V")}),
       Documentation(info="<html>
 
 <p>
@@ -1759,10 +1755,7 @@ This sensor can be used to measure <i>m</i> complex voltages, using <i>m</i>
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "I"),
-            Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
+                   "I")}),
       Documentation(info="<html>
 
 <p>

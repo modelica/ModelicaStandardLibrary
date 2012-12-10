@@ -3175,9 +3175,10 @@ This block calculates the components <code>y_re</code> and <code>y_im</code> of 
   block Mean "Calculate mean over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
+    parameter Real x0=0 "Start value of integrator state";
   protected
     parameter Modelica.SIunits.Time t0(fixed=false) "Start time of simulation";
-    Real x(start=0) "Integrator state";
+    Real x(start=x0, fixed=true) "Integrator state";
   initial equation
     t0 = time;
   equation
@@ -3249,7 +3250,7 @@ Note: The output is updated after each period defined by 1/f.
   block RootMeanSquare "Calculate root mean square over period 1/f"
     extends Modelica.Blocks.Interfaces.SISO;
     parameter Modelica.SIunits.Frequency f(start=50) "Base frequency";
-    Blocks.Math.Product product
+    MultiProduct        product(nu=2)
       annotation (Placement(transformation(extent={{-40,-10},{-20,10}})));
     Mean mean(final f=f)
       annotation (Placement(transformation(extent={{0,-10},{20,10}})));
@@ -3257,16 +3258,8 @@ Note: The output is updated after each period defined by 1/f.
       annotation (Placement(transformation(extent={{40,-10},{60,10}})));
   equation
 
-    connect(u, product.u1) annotation (Line(
-        points={{-120,0},{-60,0},{-60,6},{-42,6}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(u, product.u2) annotation (Line(
-        points={{-120,0},{-60,0},{-60,-6},{-42,-6}},
-        color={0,0,127},
-        smooth=Smooth.None));
     connect(product.y, mean.u) annotation (Line(
-        points={{-19,0},{-2,0}},
+        points={{-18.3,0},{-2,0}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(mean.y, sqrt1.u) annotation (Line(
@@ -3275,6 +3268,14 @@ Note: The output is updated after each period defined by 1/f.
         smooth=Smooth.None));
     connect(sqrt1.y, y) annotation (Line(
         points={{61,0},{110,0}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product.u[1]) annotation (Line(
+        points={{-120,0},{-60,0},{-60,3.5},{-40,3.5}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product.u[2]) annotation (Line(
+        points={{-120,0},{-60,0},{-60,-3.5},{-40,-3.5}},
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
@@ -3293,7 +3294,9 @@ Note: The output is updated after each period defined by 1/f.
             textString="RMS"),  Text(
             extent={{-80,-20},{80,-60}},
             lineColor={0,0,0},
-            textString="f=%f")}));
+            textString="f=%f")}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
   end RootMeanSquare;
 
   block Harmonic "Calculate harmonic over period 1/f"
@@ -3314,9 +3317,9 @@ Note: The output is updated after each period defined by 1/f.
           extent={{-10,-10},{10,10}},
           rotation=90,
           origin={-80,-70})));
-    Blocks.Math.Product product1
+    MultiProduct        product1(nu=2)
       annotation (Placement(transformation(extent={{-60,30},{-40,50}})));
-    Blocks.Math.Product product2
+    MultiProduct        product2(nu=2)
       annotation (Placement(transformation(extent={{-60,-50},{-40,-30}})));
     Mean mean1(final f=f)
       annotation (Placement(transformation(extent={{-20,30},{0,50}})));
@@ -3335,28 +3338,12 @@ Note: The output is updated after each period defined by 1/f.
       annotation (Placement(transformation(extent={{40,-12},{60,8}})));
   equation
 
-    connect(sin2.y, product2.u2) annotation (Line(
-        points={{-80,-59},{-80,-46},{-62,-46}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(sin1.y, product1.u1) annotation (Line(
-        points={{-80,59},{-80,46},{-62,46}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(u, product1.u2) annotation (Line(
-        points={{-120,0},{-80,0},{-80,34},{-62,34}},
-        color={0,0,127},
-        smooth=Smooth.None));
-    connect(u, product2.u1) annotation (Line(
-        points={{-120,0},{-80,0},{-80,-34},{-62,-34}},
-        color={0,0,127},
-        smooth=Smooth.None));
     connect(product2.y, mean2.u) annotation (Line(
-        points={{-39,-40},{-22,-40}},
+        points={{-38.3,-40},{-22,-40}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(product1.y, mean1.u) annotation (Line(
-        points={{-39,40},{-22,40}},
+        points={{-38.3,40},{-22,40}},
         color={0,0,127},
         smooth=Smooth.None));
     connect(mean1.y, rectangularToPolar.u_re) annotation (Line(
@@ -3373,6 +3360,22 @@ Note: The output is updated after each period defined by 1/f.
         smooth=Smooth.None));
     connect(rectangularToPolar.y_arg, y_arg) annotation (Line(
         points={{61,-8},{80,-8},{80,-60},{110,-60}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sin1.y, product1.u[1]) annotation (Line(
+        points={{-80,59},{-80,59},{-80,43.5},{-60,43.5}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product1.u[2]) annotation (Line(
+        points={{-120,0},{-80,0},{-80,36.5},{-60,36.5}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(u, product2.u[1]) annotation (Line(
+        points={{-120,0},{-80,0},{-80,-36.5},{-60,-36.5}},
+        color={0,0,127},
+        smooth=Smooth.None));
+    connect(sin2.y, product2.u[2]) annotation (Line(
+        points={{-80,-59},{-80,-43.5},{-60,-43.5}},
         color={0,0,127},
         smooth=Smooth.None));
     annotation (
@@ -3402,7 +3405,9 @@ Note: The harmonic is defined by <code>&radic;2 rms cos(k 2 &pi; f t - arg)</cod
                             Text(
             extent={{20,-60},{100,-100}},
             lineColor={0,0,0},
-            textString="arg")}));
+            textString="arg")}),
+      Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{
+              100,100}}), graphics));
   end Harmonic;
 
   block Max "Pass through the largest signal"

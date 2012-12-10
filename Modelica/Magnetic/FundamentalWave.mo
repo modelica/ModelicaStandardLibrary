@@ -375,6 +375,7 @@ The magnetic potential difference of the connecter therefore also refers to an e
       model EddyCurrentLosses
         "Comparison of equivalent circuits of eddy current loss models"
         extends Modelica.Icons.Example;
+        parameter Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Resistance RLeader = 0.1
           "Resistance of leader cables";
         parameter Modelica.SIunits.Conductance Gc=1 "Loss conductance";
@@ -388,47 +389,58 @@ The magnetic potential difference of the connecter therefore also refers to an e
           annotation (Placement(transformation(extent={{-90,0},{-70,20}})));
         Modelica.Electrical.Analog.Basic.Ground ground_m
           annotation (Placement(transformation(extent={{-90,-90},{-70,-70}})));
-        Modelica.Electrical.MultiPhase.Basic.Star star_e annotation (Placement(
+        Modelica.Electrical.MultiPhase.Basic.Star star_e(m=m)
+                                                         annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,30})));
-        Modelica.Electrical.MultiPhase.Basic.Star star_m annotation (Placement(
+        Modelica.Electrical.MultiPhase.Basic.Star star_m(m=m)
+                                                         annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-60})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_e annotation (
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_e(
+          m=m,
+          V=fill(1, m),
+          freqHz=fill(1, m))                                             annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,60})));
-        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_m annotation (
+        Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage_m(
+          m=m,
+          V=fill(1, m),
+          freqHz=fill(1, m))                                             annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-80,-30})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor leader_e(R=fill(RLeader, 3))
+        Modelica.Electrical.MultiPhase.Basic.Resistor leader_e(m=m, R=fill(RLeader, m))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={-60,70})));
-        Modelica.Electrical.MultiPhase.Basic.Resistor leader_m(R=fill(RLeader, 3))
+        Modelica.Electrical.MultiPhase.Basic.Resistor leader_m(m=m, R=fill(RLeader, m))
           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={-60,-20})));
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
-          converter_e(orientation=
-          Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation(3),
-          m=3,
-          effectiveTurns=fill(N, 3))
-                   annotation (Placement(transformation(extent={{20,50},{40,70}})));
+          converter_e(
+          m=m,
+          effectiveTurns=fill(N, m),
+          orientation=
+              Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation(
+               m)) annotation (Placement(transformation(extent={{20,50},{40,70}})));
         Modelica.Magnetic.FundamentalWave.Components.MultiPhaseElectroMagneticConverter
-          converter_m(orientation=
-            Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation(3),
-          effectiveTurns=fill(N, 3),
-          m=3)     annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
+          converter_m(
+          m=m,
+          effectiveTurns=fill(N, m),
+          orientation=
+              Modelica.Magnetic.FundamentalWave.BasicMachines.Functions.symmetricOrientation(
+               m)) annotation (Placement(transformation(extent={{20,-40},{40,-20}})));
         Modelica.Magnetic.FundamentalWave.Components.Reluctance reluctance_e(R_m(d=
                 R_m, q=R_m))           annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
@@ -444,7 +456,7 @@ The magnetic potential difference of the connecter therefore also refers to an e
           annotation (Placement(transformation(extent={{30,0},{50,20}})));
         Modelica.Magnetic.FundamentalWave.Components.Ground mground_m
           annotation (Placement(transformation(extent={{30,-90},{50,-70}})));
-        Electrical.MultiPhase.Basic.Conductor loss_e(G=fill(Gc, 3))
+        Electrical.MultiPhase.Basic.Conductor loss_e(m=m, G=fill(Gc, m))
           annotation (Placement(
               transformation(
               extent={{-10,-10},{10,10}},
@@ -455,10 +467,13 @@ The magnetic potential difference of the connecter therefore also refers to an e
               extent={{-10,-10},{10,10}},
               rotation=0,
               origin={60,-20})));
-        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerb_e
+        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerb_e(m=m)
           annotation (Placement(transformation(extent={{-40,60},{-20,80}})));
-        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerb_m
+        Modelica.Electrical.MultiPhase.Sensors.PowerSensor powerb_m(m=m)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+      initial equation
+        reluctance_e.Phi=Complex(0,0);
+        reluctance_m.Phi=Complex(0,0);
       equation
 
         connect(sineVoltage_e.plug_n, converter_e.plug_n) annotation (Line(
@@ -502,7 +517,7 @@ The magnetic potential difference of the connecter therefore also refers to an e
             color={255,128,0},
             smooth=Smooth.None));
         connect(converter_m.port_p, loss_m.port_p)   annotation (Line(
-            points={{40,-20},{50,-20}},
+            points={{40,-20},{45,-20},{45,-20},{50,-20}},
             color={255,128,0},
             smooth=Smooth.None));
         connect(loss_m.port_n, reluctance_m.port_p)   annotation (Line(
@@ -613,7 +628,9 @@ In this example the eddy current losses are implemented in two different ways. C
               origin={-30,90},
               extent={{10,-10},{-10,10}},
               rotation=0)));
-        Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m)
+        Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m))
           annotation (Placement(transformation(
               origin={0,60},
               extent={{-10,10},{10,-10}},
@@ -797,7 +814,9 @@ Simulate for 1.5 seconds and plot (versus time):
               extent={{10,-10},{-10,10}},
               rotation=0)));
         Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
-          final m=m)
+          final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m))
           annotation (Placement(transformation(
               origin={0,60},
               extent={{-10,10},{10,-10}},
@@ -847,12 +866,14 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
           RStart=RStart,
-          tStart=tRheostat)
+          tStart=tRheostat,
+          m=m)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}},
                                    rotation=0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatE(
           RStart=RStart,
-          tStart=tRheostat)
+          tStart=tRheostat,
+          m=m)
          annotation (Placement(transformation(extent={{-40,-90},{-20,-70}}, rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
           J=J_Load)
@@ -2106,7 +2127,9 @@ The voltages <img src=\"modelica://Modelica/Resources/Images/Magnetic/Fundamenta
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.Components.SinglePhaseElectroMagneticConverter\">SinglePhaseElectroMagneticConverter</a>
 </p>
 </html>"),
-        defaultComponentName="converter");
+        defaultComponentName="converter",
+        Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},
+                {100,100}}), graphics));
     end MultiPhaseElectroMagneticConverter;
 
     model Idle "Salient reluctance"
@@ -5175,7 +5198,8 @@ This package contains interface definitions of the magnetic ports as well as par
 
     record Salient "Base record of saliency with d and q component"
       replaceable Real d "Component of d (direct) axis, aligned to real part";
-      replaceable Real q "Component of q (quadrature) axis, aligned to imaginary part";
+      replaceable Real q
+        "Component of q (quadrature) axis, aligned to imaginary part";
     annotation (Documentation(info="<html>
 <p>
 Definition of saliency with respect to the orthogonal d- and q-axis. Saliency, however, refers to different properties in d- and q-axis and thus considers the anisotropic behavior.

@@ -51,6 +51,8 @@ package SinglePhase "Single phase AC components"
             origin={-10,30},
             extent={{-10,-10},{10,10}},
             rotation=90)));
+    initial equation
+      voltageSource.pin_p.reference.gamma=0;
     equation
       connect(f.y, voltageSource.f) annotation (Line(points={{-60,-39},{-60,-24},
               {-40,-24}},
@@ -94,7 +96,7 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
 
     model ParallelResonance "Parallel resonance circuit"
       extends Modelica.Icons.Example;
-      Modelica.Blocks.Sources.Constant I
+      Modelica.Blocks.Sources.Constant I(k=1)
         annotation (Placement(transformation(
             origin={-80,-50},
             extent={{-10,-10},{10,10}},
@@ -145,6 +147,8 @@ Plot length and angle of the current phasor, i.e., complexToPolar.len and .phi, 
             rotation=90)));
       Modelica.ComplexBlocks.ComplexMath.ComplexToPolar complexToPolar annotation (Placement(transformation(
               extent={{70,10},{90,30}}, rotation=0)));
+    initial equation
+      currentSource.pin_p.reference.gamma=0;
     equation
       connect(currentSource.pin_n, resistor.pin_p) annotation (Line(points={{-30,30},
               {-30,40},{-10,40},{-10,30}}, color={85,170,255}));
@@ -196,7 +200,9 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
       parameter Modelica.SIunits.Voltage VAC = 100 "AC rms voltage";
       parameter Real conversionFactor = 1
         "Ratio of DC voltage / AC rms voltage";
-      Sources.VoltageSource voltageQS(f=50, V=VAC) annotation (Placement(
+      Sources.VoltageSource voltageQS(f=50, V=VAC,
+        phi=0,
+        i(re(start=0), im(start=0)))               annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
@@ -247,6 +253,8 @@ Plot length and angle of the voltage phasor, i.e., complexToPolar.len and .phi, 
         duration=0.8,
         startTime=0.1)
         annotation (Placement(transformation(extent={{100,-10},{80,10}})));
+    initial equation
+      voltageQS.pin_p.reference.gamma=0;
     equation
       connect(voltageQS.pin_p, resistorQS.pin_p) annotation (Line(
           points={{-80,60},{-72,60}},
@@ -1372,9 +1380,7 @@ Quasi stationary theory for single phase circuits can be found in the
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="f"),
-            Text(extent={{100,70},{-100,110}}, textString="%name",
-              lineColor={0,0,255})}),
+              textString="f")}),
       Documentation(info="<html>
 
 <p>
@@ -1402,9 +1408,7 @@ This sensor can be used to measure the frequency of the reference system.
       annotation (Icon(graphics={Text(
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
-              textString="V"),
-            Text(extent={{100,70},{-100,110}}, textString="%name",
-              lineColor={0,0,255})}),
+              textString="V")}),
       Documentation(info="<html>
 
 <p>
@@ -1431,10 +1435,7 @@ This sensor can be used to measure the complex potential.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "V"),
-            Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
+                   "V")}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex voltage.
@@ -1460,10 +1461,7 @@ This sensor can be used to measure the complex voltage.
               extent={{-29,-11},{30,-70}},
               lineColor={0,0,0},
               textString=
-                   "I"),
-            Text(extent={{100,70},{-100,110}},   textString=
-                                                   "%name",
-              lineColor={0,0,255})}),
+                   "I")}),
       Documentation(info="<html>
 <p>
 This sensor can be used to measure the complex current.
@@ -2119,19 +2117,23 @@ At the DC side, only the mean of voltage and current are taken into account.
       Analog.Interfaces.NegativePin pin_nDC
         annotation (Placement(transformation(extent={{90,-110},{110,-90}}),
             iconTransformation(extent={{90,-110},{110,-90}})));
-      Analog.Ideal.IdealDiode idealDiode1 annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode1(Vknee=0)
+                                          annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-40,30})));
-      Analog.Ideal.IdealDiode idealDiode2 annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode2(Vknee=0)
+                                          annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={40,30})));
-      Analog.Ideal.IdealDiode idealDiode3 annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode3(Vknee=0)
+                                          annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-40,-30})));
-      Analog.Ideal.IdealDiode idealDiode4 annotation (Placement(transformation(
+      Analog.Ideal.IdealDiode idealDiode4(Vknee=0)
+                                          annotation (Placement(transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={40,-30})));

@@ -12,10 +12,12 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
       parameter Modelica.SIunits.Frequency f=5 "Frequency";
+      parameter Modelica.SIunits.Inductance Lm=1 "Transformer main inductance";
       parameter Modelica.SIunits.Inductance LT=0.003
         "Transformer stray inductance";
       parameter Modelica.SIunits.Resistance RT=0.05 "Transformer resistance";
       parameter Modelica.SIunits.Resistance RL=1 "Load Resistance";
+      parameter Real nT=1 "Transformer ratio";
       Sources.SineVoltage sineVoltage(
         V=fill(V, m),
         freqHz=fill(f, m),
@@ -31,7 +33,9 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
       Modelica.Electrical.Analog.Basic.Ground groundS
         annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
               rotation=0)));
-      Ideal.IdealTransformer idealTransformer(m=m)
+      Ideal.IdealTransformer idealTransformer(m=m,
+        Lm1=fill(Lm, m),
+        n=fill(nT, m))
         annotation (Placement(transformation(extent={{-40,0},{-20,20}},
               rotation=0)));
       Basic.Star starT1(m=m)
@@ -64,6 +68,8 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
       Modelica.Electrical.Analog.Basic.Ground groundT1
         annotation (Placement(transformation(extent={{-50,-100},{-30,-80}},
               rotation=0)));
+    initial equation
+      transformerL.i[1:m-1]=zeros(m-1) "Y-connection";
     equation
       connect(starS.pin_n, groundS.p)
         annotation (Line(points={{-90,-72},{-90,-80}}, color={0,0,255}));
@@ -79,7 +85,7 @@ package MultiPhase "Library for electrical components with 2, 3 or more phases"
       connect(idealTransformer.plug_n1, starT1.plug_p)
         annotation (Line(points={{-40,0},{-40,-52}}, color={0,0,255}));
       connect(starT2.plug_p, idealTransformer.plug_n2)
-        annotation (Line(points={{-20,-52},{-20,-26},{-20,-26},{-20,0}},
+        annotation (Line(points={{-20,-52},{-20,-26},{-20,0}},
                                                      color={0,0,255}));
       connect(idealTransformer.plug_p2, transformerR.plug_p)
         annotation (Line(points={{-20,20},{0,20}}, color={0,0,255}));
@@ -104,12 +110,13 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       parameter Integer m=3 "Number of phases";
       parameter Modelica.SIunits.Voltage V=1 "Amplitude of Star-Voltage";
       parameter Modelica.SIunits.Frequency f=5 "Frequency";
+      parameter Modelica.SIunits.Inductance Lm=1 "Transformer main inductance";
       parameter Modelica.SIunits.Inductance LT=0.003
         "Transformer stray inductance";
       parameter Modelica.SIunits.Resistance RT=0.05 "Transformer resistance";
       parameter Modelica.SIunits.Resistance RL=1 "Load Resistance";
-      parameter Real nT=1/sqrt((1 - Modelica.Math.cos(2*Modelica.Constants.pi/m))
-          ^2 + (Modelica.Math.sin(2*Modelica.Constants.pi/m))^2)
+      parameter Real nT=1/
+        sqrt((1 - Modelica.Math.cos(2*Modelica.Constants.pi/m))^2 + (Modelica.Math.sin(2*Modelica.Constants.pi/m))^2)
         "Transformer ratio";
       Sources.SineVoltage sineVoltage(
         V=fill(V, m),
@@ -126,7 +133,8 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Modelica.Electrical.Analog.Basic.Ground groundS
         annotation (Placement(transformation(extent={{-100,-100},{-80,-80}},
               rotation=0)));
-      Ideal.IdealTransformer idealTransformer(m=m, n=fill(nT, m))
+      Ideal.IdealTransformer idealTransformer(m=m, n=fill(nT, m),
+        Lm1=fill(Lm, m))
         annotation (Placement(transformation(extent={{-40,0},{-20,20}},
               rotation=0)));
       Basic.Star starT(m=m)
@@ -159,6 +167,8 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Modelica.Electrical.Analog.Basic.Ground groundL
         annotation (Placement(transformation(extent={{80,-100},{100,-80}},
               rotation=0)));
+    initial equation
+      transformerL.i[1:m]=zeros(m) "D-connection";
     equation
       connect(groundS.p, starS.pin_n)
         annotation (Line(points={{-90,-80},{-90,-72}}, color={0,0,255}));
@@ -203,6 +213,11 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       parameter Modelica.SIunits.Resistance RL=2 "Load Resistance";
       parameter Modelica.SIunits.Capacitance C=0.05 "Total DC-Capacitance";
       parameter Modelica.SIunits.Resistance RE=1E6 "Earthing Resistance";
+      parameter Modelica.SIunits.Resistance Ron=1.E-5 "Closed diode resistance";
+      parameter Modelica.SIunits.Conductance Goff=1.E-5
+        "Opened diode conductance";
+      parameter Modelica.SIunits.Voltage Vknee=0 "Threshold diode voltage";
+
       Sources.SineVoltage sineVoltage(
         m=m,
         V=fill(V, m),
@@ -216,7 +231,10 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Basic.Inductor supplyL(m=m, L=fill(L, m))
         annotation (Placement(transformation(extent={{-52,-10},{-32,10}},
               rotation=0)));
-      Ideal.IdealDiode idealDiode1(m=m)
+      Ideal.IdealDiode idealDiode1(m=m,
+        Ron=fill(Ron, m),
+        Goff=fill(Goff, m),
+        Vknee=fill(Vknee, m))
         annotation (Placement(transformation(
             origin={10,20},
             extent={{-10,-10},{10,10}},
@@ -225,7 +243,10 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
             origin={10,50},
             extent={{-10,-10},{10,10}},
             rotation=90)));
-      Ideal.IdealDiode idealDiode2(m=m)
+      Ideal.IdealDiode idealDiode2(m=m,
+        Ron=fill(Ron, m),
+        Goff=fill(Goff, m),
+        Vknee=fill(Vknee, m))
         annotation (Placement(transformation(
             origin={10,-20},
             extent={{-10,-10},{10,10}},
@@ -252,6 +273,10 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       Modelica.Electrical.Analog.Basic.Ground groundDC
         annotation (Placement(transformation(extent={{80,-80},{100,-60}},
               rotation=0)));
+    initial equation
+      cDC1.v=0;
+      cDC2.v=0;
+      supplyL.i[1:m-1]=zeros(m-1) "Y-connection";
     equation
       connect(cDC1.n, cDC2.p)
         annotation (Line(points={{70,20},{70,-20}}, color={0,0,255}));
@@ -269,7 +294,7 @@ Simulate for 1 second (2 periods) and compare voltages and currents of source, t
       connect(idealDiode1.plug_n, star1.plug_p)
         annotation (Line(points={{10,30},{10,40}}, color={0,0,255}));
       connect(idealDiode2.plug_p, star2.plug_p)
-        annotation (Line(points={{10,-30},{10,-35},{10,-40},{10,-40}},
+        annotation (Line(points={{10,-30},{10,-35},{10,-40}},
                                                      color={0,0,255}));
       connect(star2.pin_n, loadR.n)
         annotation (Line(points={{10,-60},{50,-60},{50,-10}}, color={0,0,255}));
@@ -2212,7 +2237,7 @@ thus measuring the m currents <i>i[m]</i> flowing from the m pins of plug_p to t
     connect(currentSensor.i, product.u2) annotation (Line(points={{-40,-11},{
               -40,-20},{-36,-20},{-36,-28}}, color={0,0,127}));
     connect(product.u1, voltageSensor.v) annotation (Line(points={{-24,-28},{
-              -24,-20},{-11,-20}}, color={0,0,127}));
+              -24,-20},{11,-20}},  color={0,0,127}));
     connect(product.y, sum.u) annotation (Line(points={{-30,-51},{-30,-58}},
             color={0,0,127}));
     connect(sum.y, power) annotation (Line(points={{-30,-81},{-30,-90},{-80,-90},

@@ -7,14 +7,16 @@ package Machines "Quasistationary machine models"
 
     model TransformerTestbench "Transformer Testbench"
       extends Modelica.Icons.Example;
-      parameter Modelica.SIunits.Resistance RL[3]=fill(1/3,3) "Load resistance";
+      parameter Integer m=3 "Number of phases";
+      parameter Modelica.SIunits.Resistance RL[m]=fill(1/3,m) "Load resistance";
       QuasiStationary.MultiPhase.Sources.VoltageSource source(f=50, V=fill(100/
-            sqrt(3), 3))
+            sqrt(3), 3),
+        m=m)
         annotation (Placement(transformation(
             origin={-90,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.MultiPhase.Basic.Star starS
+      QuasiStationary.MultiPhase.Basic.Star starS(m=m)
         annotation (Placement(transformation(
             origin={-90,-40},
             extent={{-10,-10},{10,10}},
@@ -22,28 +24,28 @@ package Machines "Quasistationary machine models"
       QuasiStationary.SinglePhase.Basic.Ground groundS
         annotation (Placement(transformation(extent={{-100,-80},{-80,-60}},
               rotation=0)));
-      QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorS
+      QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorS(m=m)
         annotation (Placement(transformation(extent={{-90,0},{-70,20}},
               rotation=0)));
-      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorS
+      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorS(m=m)
         annotation (Placement(transformation(extent={{-60,20},{-40,0}},
               rotation=0)));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarIS[3] annotation (Placement(
+      ComplexBlocks.ComplexMath.ComplexToPolar polarIS[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={-50,40})));
-      QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorS
+      QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorS(m=m)
         annotation (Placement(transformation(
             origin={-50,-30},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarVS[3] annotation (Placement(
+      ComplexBlocks.ComplexMath.ComplexToPolar polarVS[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={-50,-60})));
-      QuasiStationary.MultiPhase.Basic.Delta deltaS
+      QuasiStationary.MultiPhase.Basic.Delta deltaS(m=m)
         annotation (Placement(transformation(
             origin={-50,-10},
             extent={{-10,-10},{10,10}},
@@ -55,38 +57,38 @@ package Machines "Quasistationary machine models"
             rotation=270)));
       QuasiStationary.SinglePhase.Basic.Ground groundT
         annotation (Placement(transformation(extent={{-10,-80},{10,-60}}, rotation=0)));
-      QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorL
+      QuasiStationary.MultiPhase.Sensors.VoltageSensor voltageSensorL(m=m)
         annotation (Placement(transformation(
             origin={50,-30},
             extent={{-10,-10},{10,10}},
             rotation=0)));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarVL[3] annotation (Placement(
+      ComplexBlocks.ComplexMath.ComplexToPolar polarVL[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=270,
             origin={50,-60})));
-      QuasiStationary.MultiPhase.Basic.Delta deltaL
+      QuasiStationary.MultiPhase.Basic.Delta deltaL(m=m)
         annotation (Placement(transformation(
             origin={50,-10},
             extent={{-10,10},{10,-10}},
             rotation=180)));
-      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorL
+      QuasiStationary.MultiPhase.Sensors.CurrentSensor currentSensorL(m=m)
         annotation (Placement(transformation(extent={{40,20},{60,0}}, rotation=
                 0)));
-      ComplexBlocks.ComplexMath.ComplexToPolar polarIL[3] annotation (Placement(
+      ComplexBlocks.ComplexMath.ComplexToPolar polarIL[m] annotation (Placement(
             transformation(
             extent={{-10,-10},{10,10}},
             rotation=90,
             origin={50,40})));
-      QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL
+      QuasiStationary.MultiPhase.Sensors.PowerSensor electricalPowerSensorL(m=m)
         annotation (Placement(transformation(extent={{70,0},{90,20}}, rotation=
                 0)));
-      QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL)
+      QuasiStationary.MultiPhase.Basic.Resistor load(R_ref=RL, m=m)
         annotation (Placement(transformation(
             origin={90,-10},
             extent={{-10,10},{10,-10}},
             rotation=270)));
-      QuasiStationary.MultiPhase.Basic.Star starL
+      QuasiStationary.MultiPhase.Basic.Star starL(m=m)
         annotation (Placement(transformation(
             origin={90,-40},
             extent={{-10,10},{10,-10}},
@@ -96,7 +98,13 @@ package Machines "Quasistationary machine models"
               rotation=0)));
       Modelica.Electrical.Machines.Utilities.TransformerData transformerData(
         C1=Modelica.Utilities.Strings.substring(transformer.VectorGroup, 1, 1),
-        C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup, 2, 2))
+        C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup, 2, 2),
+        f=50,
+        V1=100,
+        V2=100,
+        SNominal=30E3,
+        v_sc=0.05,
+        P_sc=300)
         annotation (Placement(
             transformation(extent={{-10,40},{10,60}}, rotation=0)));
       QuasiStationary.Machines.BasicMachines.Transformers.Yd.Yd01 transformer(
@@ -104,8 +112,17 @@ package Machines "Quasistationary machine models"
         R1=transformerData.R1,
         L1sigma=transformerData.L1sigma,
         R2=transformerData.R2,
-        L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
+        L2sigma=transformerData.L2sigma,
+        T1Ref=293.15,
+        alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+        T2Ref=293.15,
+        alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+        T1Operational=293.15,
+        T2Operational=293.15)            annotation (Placement(transformation(
               extent={{-20,-10},{20,30}}, rotation=0)));
+    initial equation
+      source.voltageSource.pin_p.reference.gamma=zeros(m);
+
     equation
       connect(starS.pin_n, groundS.pin) annotation (Line(
           points={{-90,-50},{-90,-60}},

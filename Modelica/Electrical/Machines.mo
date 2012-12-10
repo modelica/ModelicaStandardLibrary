@@ -51,7 +51,9 @@ package Machines "Library for electric machines"
         Modelica.Blocks.Sources.BooleanStep booleanStep[m](each startTime=tStart1)
           annotation (Placement(transformation(extent={{-80,30},{-60,50}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m)
+        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m))
           annotation (Placement(transformation(
               origin={0,30},
               extent={{-10,10},{10,-10}},
@@ -167,12 +169,15 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{-80,30},{-60,50}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
-            final m=m)
+            final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m))
           annotation (Placement(transformation(
               origin={0,30},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Machines.Utilities.SwitchYD switchYD  annotation (Placement(
+        Machines.Utilities.SwitchYD switchYD(m=m)
+                                              annotation (Placement(
               transformation(extent={{-20,-30},{0,-10}}, rotation=0)));
         Modelica.Blocks.Sources.BooleanStep booleanStepYD[m](each startTime=
               tStart2)
@@ -238,7 +243,9 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end AIMC_YD;
 
       model AIMC_Transformer
@@ -284,7 +291,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         Modelica.Blocks.Sources.BooleanStep booleanStep1[m](each startTime=tStart1)
           annotation (Placement(transformation(extent={{-60,40},{-40,60}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m)
+        Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m))
           annotation (Placement(transformation(
               origin={0,50},
               extent={{-10,10},{10,-10}},
@@ -294,7 +303,15 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           R1=transformerData.R1,
           L1sigma=transformerData.L1sigma,
           R2=transformerData.R2,
-          L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
+          L2sigma=transformerData.L2sigma,
+          T1Ref=293.15,
+          alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
+          T2Ref=293.15,
+          alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
+          T1Operational=293.15,
+          T2Operational=293.15)            annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-20,30})));
@@ -319,7 +336,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{-60,-10},{-40,10}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
-          idealCommutingSwitch(final m=m, Goff=fill(5E-4, m))
+          idealCommutingSwitch(final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(50E-5, m))
           annotation (Placement(transformation(
               origin={0,0},
               extent={{10,10},{-10,-10}},
@@ -416,7 +435,9 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end AIMC_Transformer;
 
       model AIMS_Start "Test example: AsynchronousInductionMachineSlipRing"
@@ -463,7 +484,9 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{-80,30},{-60,50}},
                 rotation=0)));
         Modelica.Electrical.MultiPhase.Ideal.IdealClosingSwitch idealCloser(
-            final m=m)
+            final m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m))
           annotation (Placement(transformation(
               origin={0,30},
               extent={{-10,10},{10,-10}},
@@ -483,7 +506,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
                 rotation=0)));
-        Machines.Utilities.SwitchedRheostat switchedRheostat(RStart=Rstart, tStart=tStart2)
+        Machines.Utilities.SwitchedRheostat switchedRheostat(RStart=Rstart, tStart=tStart2,
+          m=m)
           annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
       equation
         connect(star.pin_n, ground.p)
@@ -596,7 +620,8 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                                 startTime=tStep,
             stepTorque=-TLoad,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
@@ -954,7 +979,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           annotation (Placement(transformation(extent={{70,0},{50,20}})));
         Modelica.Blocks.Math.Gain gain(k=-1)
           annotation (Placement(transformation(extent={{50,-60},{70,-40}})));
-        Modelica.Blocks.Continuous.PI PI(k=0.01, T=0.01)
+        Modelica.Blocks.Continuous.PI PI(k=0.01, T=0.01,
+          initType=Modelica.Blocks.Types.Init.InitialState)
           annotation (Placement(transformation(extent={{20,-60},{40,-40}})));
         Modelica.Blocks.Math.Feedback feedback
           annotation (Placement(transformation(extent={{-10,-40},{10,-60}})));
@@ -1643,7 +1669,6 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           fsNominal=smeeData.fsNominal,
           Rs=smeeData.Rs,
           TsRef=smeeData.TsRef,
-          alpha20s=smeeData.alpha20s,
           Lssigma=smeeData.Lssigma,
           Lmd=smeeData.Lmd,
           Lmq=smeeData.Lmq,
@@ -1652,13 +1677,23 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           Rrd=smeeData.Rrd,
           Rrq=smeeData.Rrq,
           TrRef=smeeData.TrRef,
-          alpha20r=smeeData.alpha20r,
           VsNominal=smeeData.VsNominal,
           IeOpenCircuit=smeeData.IeOpenCircuit,
           Re=smeeData.Re,
           TeRef=smeeData.TeRef,
+          sigmae=smeeData.sigmae,
+          p=2,
+          Jr=0.29,
+          Js=0.29,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
+          TsOperational=293.15,
+          alpha20s=smeeData.alpha20s,
+          TrOperational=293.15,
+          alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          sigmae=smeeData.sigmae)
+          TeOperational=293.15,
+          brushParameters(ILinear=0.01))
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p,
@@ -1715,7 +1750,32 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
                 extent={{-20,-30},{0,-10}}, rotation=0)));
         Modelica.Mechanics.Rotational.Components.Fixed fixed
           annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
-        parameter Machines.Utilities.SynchronousMachineData smeeData
+        parameter Machines.Utilities.SynchronousMachineData smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xq=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
+          TrSpecification=293.15,
+          TrRef=293.15,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+
+          TeSpecification=293.15,
+          TeRef=293.15,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
           annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
       equation
         connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
@@ -1838,14 +1898,47 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           Re=smeeData.Re,
           TeRef=smeeData.TeRef,
           sigmae=smeeData.sigmae,
-          alpha20s=smeeData.alpha20s,
           useDamperCage=true,
+          p=2,
+          Jr=0.29,
+          Js=0.29,
+          statorCoreParameters(VRef=100),
+          strayLoadParameters(IRef=100),
+          TsOperational=293.15,
+          alpha20s=smeeData.alpha20s,
+          TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
-          alpha20e=smeeData.alpha20e)
+          alpha20e=smeeData.alpha20e,
+          TeOperational=293.15,
+          brushParameters(ILinear=0.01))
           annotation (Placement(transformation(extent={{0,-40},{20,-20}},
                 rotation=0)));
-        parameter Machines.Utilities.SynchronousMachineData smeeData
+        parameter Machines.Utilities.SynchronousMachineData smeeData(
+          SNominal=30e3,
+          VsNominal=100,
+          fsNominal=50,
+          IeOpenCircuit=10,
+          x0=0.1,
+          xd=1.6,
+          xq=1.6,
+          xdTransient=0.1375,
+          xdSubtransient=0.121428571,
+          xqSubtransient=0.148387097,
+          Ta=0.014171268,
+          Td0Transient=0.261177343,
+          Td0Subtransient=0.006963029,
+          Tq0Subtransient=0.123345081,
+          TsSpecification=293.15,
+          TsRef=293.15,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          TrSpecification=293.15,
+          TrRef=293.15,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          TeSpecification=293.15,
+          TeRef=293.15,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
           annotation (Placement(transformation(extent={{0,-70},{20,-50}})));
+
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
           annotation (Placement(transformation(extent={{0,-20},{20,0}},    rotation=0)));
         Modelica.Electrical.Analog.Basic.Ground ground
@@ -1875,7 +1968,9 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
           k=k,
           Ti=Ti,
           yMax=2.5*Ve0,
-          yMin=0)
+          yMin=0,
+          initType=Modelica.Blocks.Types.InitPID.InitialState,
+          Td=0.001)
           annotation (Placement(transformation(extent={{-70,-20},{-50,-40}})));
         Modelica.Electrical.Analog.Sources.SignalVoltage excitationVoltage annotation (Placement(
               transformation(
@@ -1894,7 +1989,12 @@ Default machine parameters of model <i>SM_ElectricalExcited</i> are used.
               rotation=270)));
         Modelica.Blocks.Sources.BooleanPulse loadControl(period=4, startTime=2)
           annotation (Placement(transformation(extent={{-40,70},{-20,90}})));
-        Modelica.Electrical.MultiPhase.Ideal.CloserWithArc switch(     m=m)
+        Modelica.Electrical.MultiPhase.Ideal.CloserWithArc switch(     m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m),
+          V0=fill(30, m),
+          dVdt=fill(10e3, m),
+          Vmax=fill(60, m))
           annotation (Placement(transformation(extent={{0,40},{-20,60}})));
         Modelica.Electrical.MultiPhase.Basic.Resistor loadResistor(m=m, R=fill(RLoad, m))
           annotation (Placement(transformation(extent={{-30,40},{-50,60}})));
@@ -2062,7 +2162,8 @@ This package contains test examples of synchronous induction machines.
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                                 startTime=tStep,
             stepTorque=-TLoad,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
       equation
@@ -2143,7 +2244,8 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                                 startTime=tStep,
             stepTorque=-TLoad,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
       equation
@@ -2648,16 +2750,22 @@ So the machine is at the beginning in cold condition, ending in warm condition
               G_core_cooling)
           annotation (Placement(transformation(extent={{0,-40},{20,-20}})));
         Modelica.Thermal.FluidHeatFlow.Sources.Ambient inlet(
-            constantAmbientTemperature=TAmbient)
+            constantAmbientTemperature=TAmbient, constantAmbientPressure=0)
           annotation (Placement(transformation(extent={{-10,-80},{-30,-60}})));
         Modelica.Thermal.FluidHeatFlow.Sources.VolumeFlow volumeFlow(
-                                 T0=TAmbient, constantVolumeFlow=CoolantFlow)
-               annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
+                                 T0=TAmbient, constantVolumeFlow=CoolantFlow,
+          m=0) annotation (Placement(transformation(extent={{0,-80},{20,-60}})));
         Modelica.Thermal.FluidHeatFlow.Components.HeatedPipe cooling(tapT=0.5, T0=
-              TAmbient)
+              TAmbient,
+          m=0,
+          h_g=0,
+          V_flowLaminar=0.1,
+          dpLaminar(displayUnit="Pa") = 0.1,
+          V_flowNominal=1,
+          dpNominal(displayUnit="Pa") = 1)
           annotation (Placement(transformation(extent={{30,-60},{50,-80}})));
         Modelica.Thermal.FluidHeatFlow.Sources.Ambient outlet(
-            constantAmbientTemperature=TAmbient)
+            constantAmbientTemperature=TAmbient, constantAmbientPressure=0)
           annotation (Placement(transformation(extent={{60,-80},{80,-60}})));
         Modelica.Thermal.HeatTransfer.Sources.FixedTemperature fixedTemperature(T=
               TAmbient)
@@ -2727,7 +2835,7 @@ So the machine is at the beginning in cold condition, ending in warm condition
             color={191,0,0},
             smooth=Smooth.None));
         connect(core.port, thermalPort.heatPortCore) annotation (Line(
-            points={{-10,-30},{-10,-15},{-10,-15},{-10,0}},
+            points={{-10,-30},{-10,0}},
             color={191,0,0},
             smooth=Smooth.None));
         connect(fixedTemperature.port, thermalPort.heatPortStrayLoad)
@@ -2949,11 +3057,12 @@ Simulate for 2 seconds and plot (versus time):
           coreParameters(PRef=200),
           strayLoadParameters(PRef=50),
           brushParameters(V=0.5),
+          Ra=0.03864,
           TaOperational=368.15,
           wNominal=148.44025288212,
           TaNominal=368.15,
-          Ra=0.03864,
-          TaRef=293.15)
+          TaRef=293.15,
+          core(v(start=0)))
           annotation (Placement(transformation(extent={{0,-80},{20,-60}},
                 rotation=0)));
 
@@ -12110,8 +12219,7 @@ Connector for Space Phasors:
     equation
       connect(inertiaRotor.flange_b, flange)
                                             annotation (Line(points={{90,
-              0},{92,0},{92,0},{100,0}},
-                                                               color={0,0,0}));
+              0},{92,0},{92,0},{100,0}},                       color={0,0,0}));
       connect(inertiaStator.flange_b, support)
         annotation (Line(points={{90,-100},{100,-100}}, color={0,0,0}));
       connect(internalSupport, fixed.flange) annotation (Line(
@@ -14145,7 +14253,9 @@ They can be used to feed a current source which in turn feeds an induction machi
         annotation (Placement(transformation(extent={{40,-80},{20,-60}},
               rotation=0)));
       Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch(                                                        final m=m)
+        idealCommutingSwitch(                                                        final m=m,
+        Ron=fill(1e-5, m),
+        Goff=fill(1e-5, m))
         annotation (Placement(transformation(extent={{-10,-70},{10,-50}},
               rotation=0)));
       Modelica.Blocks.Interfaces.BooleanInput control[m]
@@ -14266,7 +14376,9 @@ choosing Y-connection (StarDelta=Y) or D-connection (StarDelta=D).
             extent={{-10,-10},{10,10}},
             rotation=270)));
       Modelica.Electrical.MultiPhase.Ideal.IdealCommutingSwitch
-        idealCommutingSwitch(final m=m)
+        idealCommutingSwitch(final m=m,
+        Ron=fill(1e-5, m),
+        Goff=fill(1e-5, m))
         annotation (Placement(transformation(
             origin={40,20},
             extent={{-10,10},{10,-10}},
