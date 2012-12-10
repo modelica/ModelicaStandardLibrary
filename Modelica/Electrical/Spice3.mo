@@ -505,7 +505,7 @@ Zeunerstrasse 38<br />
   this model. In this process the required technology parameters are specified. */
 
       model MPmos "PMOS transistor with specified modelcard"
-        Semiconductors.ModelcardMOS M(GAMMA=0.37);
+        parameter Semiconductors.ModelcardMOS M(GAMMA=0.37);
         extends Semiconductors.M_PMOS(modelcard=M);
         annotation (Documentation(info="<html>
 <p>This model MPmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
@@ -513,7 +513,7 @@ Zeunerstrasse 38<br />
       end MPmos;
 
       model MNmos "NMOS transistor with specified modelcard"
-        Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02);
+        parameter Semiconductors.ModelcardMOS M(GAMMA=0.37, LAMBDA=0.02);
         extends Semiconductors.M_NMOS(modelcard=M);
         annotation (Documentation(info="<html>
 <p>This model MNmos is inherited by the model <i>InverterExtendedModel</i> to build an inverter circuit. For detailed information</p><p>please see <i>InverterExtendedModel</i>.</p>
