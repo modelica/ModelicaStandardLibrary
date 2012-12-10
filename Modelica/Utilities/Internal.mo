@@ -123,7 +123,6 @@ are used.
 </html>"));
 end PartialModelicaServices;
 
-protected
 package FileSystem
     "Internal package with external functions as interface to the file system"
  extends Modelica.Icons.Package;
