@@ -25,7 +25,8 @@ package Types
       InitialState "Initialization with initial states",
       InitialOutput
         "Initialization with initial outputs (and steady state of the states if possible)")
-    "Enumeration defining initialization of a block";
+    "Enumeration defining initialization of a block"
+    annotation(Evaluate=true);
 
   type InitPID = enumeration(
       NoInit
@@ -40,7 +41,7 @@ package Types
       DoNotUse_InitialIntegratorState
         "Don not use, only for backward compatibility (initialize only integrator state)")
     "Enumeration defining initialization of PID and LimPID blocks"
-    annotation (Documentation(info="<html>
+    annotation (Evaluate=true, Documentation(info="<html>
 <p>
 This initialization type is identical to Types.Init and has just one
 additional option <b>DoNotUse_InitialIntegratorState</b>. This option
@@ -59,21 +60,24 @@ initialization definition.
       PI "PI controller",
       PD "PD controller",
       PID "PID controller")
-    "Enumeration defining P, PI, PD, or PID simple controller type";
+    "Enumeration defining P, PI, PD, or PID simple controller type"
+    annotation(Evaluate=true);
 
 type AnalogFilter = enumeration(
       CriticalDamping "Filter with critical damping",
       Bessel "Bessel filter",
       Butterworth "Butterworth filter",
       ChebyshevI "Chebyshev I filter")
-    "Enumeration defining the method of filtering";
+    "Enumeration defining the method of filtering"
+    annotation(Evaluate=true);
 
 type FilterType = enumeration(
       LowPass "Low pass filter",
       HighPass "High pass filter",
       BandPass "Band pass filter",
       BandStop "Band stop / notch filter")
-    "Enumeration of analog filter types (low, high, band pass or band stop filter";
+    "Enumeration of analog filter types (low, high, band pass or band stop filter"
+    annotation(Evaluate=true);
 
   annotation ( Documentation(info="<HTML>
 <p>
