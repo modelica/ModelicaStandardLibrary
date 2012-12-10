@@ -2259,11 +2259,11 @@ package Examples
     extends Modelica.Icons.Example;
     package Medium = Water.StandardWater "Medium model";
     Medium.BaseProperties medium(
-      p(start=1.e5, stateSelect=StateSelect.prefer),
-      h(start=1.0e5, stateSelect=StateSelect.prefer),
+      p(start=1.e5, fixed=true, stateSelect=StateSelect.prefer),
+      h(start=1.0e5, fixed=true, stateSelect=StateSelect.prefer),
       T(start = 275.0),
       d(start = 999.0));
-    Modelica.SIunits.Volume V(start = 0.1);
+    Modelica.SIunits.Volume V(start = 0.1, fixed=true);
     parameter Modelica.SIunits.VolumeFlowRate dV = 0.0
       "Fixed time derivative of volume";
     parameter Medium.MassFlowRate m_flow_ext=0
@@ -2313,8 +2313,8 @@ package Examples
 
     package Medium1 = Modelica.Media.IdealGases.MixtureGases.CombustionAir
       "Medium model";
-    Medium1.BaseProperties medium1(p(start=1.e5, stateSelect=StateSelect.prefer),
-       T(start=300, stateSelect=StateSelect.prefer),
+    Medium1.BaseProperties medium1(p(start=1.e5, fixed=true, stateSelect=StateSelect.prefer),
+       T(start=300, fixed=true, stateSelect=StateSelect.prefer),
        X(start={0.8,0.2}));
     Real m1(quantity=Medium1.mediumName, start = 1.0);
     SI.InternalEnergy U1;
@@ -2324,8 +2324,8 @@ package Examples
 
     package Medium2 = Modelica.Media.IdealGases.MixtureGases.SimpleNaturalGas
       "Medium model";
-    Medium2.BaseProperties medium2(p(start=1.e5, stateSelect=StateSelect.prefer),
-       T(start=300, stateSelect=StateSelect.prefer),
+    Medium2.BaseProperties medium2(p(start=1.e5, fixed=true, stateSelect=StateSelect.prefer),
+       T(start=300, fixed=true, stateSelect=StateSelect.prefer),
        X(start={0.1,0.1,0.1,0.2,0.2,0.3}));
     Real m2(quantity=Medium2.mediumName, start = 1.0);
     SI.InternalEnergy U2;
@@ -2367,9 +2367,9 @@ model MoistAir "Ideal gas flue gas  model"
     extends Modelica.Icons.Example;
     package Medium = Air.MoistAir "Medium model";
     Medium.BaseProperties medium(
-       T(start = 274.0),
+       T(start = 274.0, fixed=true),
        X(start = {0.95,0.05}),
-       p(start = 1.0e5));
+       p(start = 1.0e5, fixed=true));
   //  Medium.SpecificEntropy s=Medium.specificEntropy(medium);
   //  Medium.SpecificEnthalpy h_is = Medium.isentropicEnthalpyApproximation(medium, 2.0e5);
     parameter Medium.MolarMass[2] MMx = {Medium.dryair.MM,Medium.steam.MM}
@@ -2646,8 +2646,8 @@ is given to compare the approximation.
       // initType=Medium.Choices.Init.SteadyState,
 
       Medium.BaseProperties medium(preferredMediumStates=true,
-        p(start=1.e5),
-        T(start=300));
+        p(start=1.e5, fixed=true),
+        T(start=300, fixed=true));
 
       Real m(quantity=Medium.mediumName, start = 1.0);
       SI.InternalEnergy U;
@@ -2714,8 +2714,8 @@ is given to compare the approximation.
       // initType=Medium.Choices.Init.SteadyState,
 
       Medium.BaseProperties medium(preferredMediumStates=true,
-        p(start=1.e5),
-        T(start=300));
+        p(start=1.e5, fixed=true),
+        T(start=300, fixed=true));
 
       Real m(quantity=Medium.mediumName, start = 1.0);
       SI.InternalEnergy U;
