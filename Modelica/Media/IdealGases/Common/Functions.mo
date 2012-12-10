@@ -2,6 +2,15 @@ within Modelica.Media.IdealGases.Common;
 package Functions
   "Basic Functions for ideal gases: cp, h, s, thermal conductivity, viscosity"
   extends Modelica.Icons.Package;
+
+  constant Boolean excludeEnthalpyOfFormation=true
+    "If true, enthalpy of formation Hf is not included in specific enthalpy h";
+  constant Modelica.Media.Interfaces.Choices.ReferenceEnthalpy referenceChoice=Modelica.Media.Interfaces.Choices.ReferenceEnthalpy.ZeroAt0K
+    "Choice of reference enthalpy";
+  constant Modelica.Media.Interfaces.Types.SpecificEnthalpy h_offset=0.0
+    "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
+  constant Integer methodForThermalConductivity(min=1,max=2)=1;
+
   function cp_T
     "Compute specific heat capacity at constant pressure from temperature and gas data"
     extends Modelica.Icons.Function;
@@ -50,12 +59,12 @@ package Functions
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Boolean exclEnthForm=SingleGasNasa.excludeEnthalpyOfFormation
+    input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
     input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
-                                    refChoice=SingleGasNasa.referenceChoice
+                                    refChoice=referenceChoice
       "Choice of reference enthalpy";
-    input SI.SpecificEnthalpy h_off=SingleGasNasa.h_offset
+    input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
 
@@ -78,12 +87,12 @@ package Functions
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Boolean exclEnthForm=SingleGasNasa.excludeEnthalpyOfFormation
+    input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
     input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
-                                    refChoice=SingleGasNasa.referenceChoice
+                                    refChoice=referenceChoice
       "Choice of reference enthalpy";
-    input SI.SpecificEnthalpy h_off=SingleGasNasa.h_offset
+    input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     input Real dT "Temperature derivative";
     output Real h_der "Specific enthalpy at temperature T";
@@ -99,12 +108,12 @@ package Functions
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Boolean exclEnthForm=SingleGasNasa.excludeEnthalpyOfFormation
+    input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
     input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
-                                    refChoice=SingleGasNasa.referenceChoice
+                                    refChoice=referenceChoice
       "Choice of reference enthalpy";
-    input SI.SpecificEnthalpy h_off=SingleGasNasa.h_offset
+    input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h "Specific enthalpy at temperature T";
 
@@ -126,12 +135,12 @@ package Functions
     extends Modelica.Icons.Function;
     input IdealGases.Common.DataRecord data "Ideal gas data";
     input SI.Temperature T "Temperature";
-    input Boolean exclEnthForm=SingleGasNasa.excludeEnthalpyOfFormation
+    input Boolean exclEnthForm=excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
     input Modelica.Media.Interfaces.Choices.ReferenceEnthalpy
-                                    refChoice=SingleGasNasa.referenceChoice
+                                    refChoice=referenceChoice
       "Choice of reference enthalpy";
-    input SI.SpecificEnthalpy h_off=SingleGasNasa.h_offset
+    input SI.SpecificEnthalpy h_off=h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     input Real dT(unit="K/s") "Temperature derivative";
     output Real h_der(unit="J/(kg.s)")

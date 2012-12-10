@@ -55,8 +55,8 @@ partial package SingleGasNasa
      substanceNames={data.name},
      singleState=false,
      Temperature(min=200, max=6000, start=500, nominal=500),
-     SpecificEnthalpy(start=if referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else
-        if referenceChoice==ReferenceEnthalpy.UserDefined then h_offset else 0, nominal=1.0e5),
+     SpecificEnthalpy(start=if Functions.referenceChoice==ReferenceEnthalpy.ZeroAt0K then data.H0 else
+        if Functions.referenceChoice==ReferenceEnthalpy.UserDefined then Functions.h_offset else 0, nominal=1.0e5),
      Density(start=10, nominal=10),
      AbsolutePressure(start=10e5, nominal=10e5));
 
@@ -68,14 +68,6 @@ partial package SingleGasNasa
 
   import Modelica.Math;
   import Modelica.Media.Interfaces.Choices.ReferenceEnthalpy;
-
-  constant Boolean excludeEnthalpyOfFormation=true
-    "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-  constant ReferenceEnthalpy referenceChoice=Modelica.Media.Interfaces.Choices.ReferenceEnthalpy.ZeroAt0K
-    "Choice of reference enthalpy";
-  constant SpecificEnthalpy h_offset=0.0
-    "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
-  constant Integer methodForThermalConductivity(min=1,max=2)=1;
 
   constant IdealGases.Common.DataRecord data
     "Data record of ideal gas substance";
@@ -94,7 +86,10 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     MM = data.MM;
     R = data.R;
     h = Modelica.Media.IdealGases.Common.Functions.h_T(
-            data, T, excludeEnthalpyOfFormation, referenceChoice, h_offset);
+            data, T,
+            Modelica.Media.IdealGases.Common.Functions.excludeEnthalpyOfFormation,
+            Modelica.Media.IdealGases.Common.Functions.referenceChoice,
+            Modelica.Media.IdealGases.Common.Functions.h_offset);
     u = h - R*T;
 
     // Has to be written in the form d=f(p,T) in order that static
@@ -256,11 +251,11 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
     extends Modelica.Icons.Function;
     input SI.Pressure p2 "downstream pressure";
     input ThermodynamicState state "properties at upstream location";
-    input Boolean exclEnthForm=excludeEnthalpyOfFormation
+    input Boolean exclEnthForm=Functions.excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-    input ReferenceEnthalpy refChoice=referenceChoice
+    input ReferenceEnthalpy refChoice=Functions.referenceChoice
       "Choice of reference enthalpy";
-    input SpecificEnthalpy h_off=h_offset
+    input SpecificEnthalpy h_off=Functions.h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
     output SI.SpecificEnthalpy h_is "isentropic enthalpy";
   protected
@@ -273,11 +268,11 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   end isentropicEnthalpyApproximation;
 
   redeclare function extends isentropicEnthalpy "Return isentropic enthalpy"
-  input Boolean exclEnthForm=excludeEnthalpyOfFormation
+  input Boolean exclEnthForm=Functions.excludeEnthalpyOfFormation
       "If true, enthalpy of formation Hf is not included in specific enthalpy h";
-  input ReferenceEnthalpy refChoice=referenceChoice
+  input ReferenceEnthalpy refChoice=Functions.referenceChoice
       "Choice of reference enthalpy";
-  input SpecificEnthalpy h_off=h_offset
+  input SpecificEnthalpy h_off=Functions.h_offset
       "User defined offset for reference enthalpy, if referenceChoice = UserDefined";
   algorithm
     h_is := isentropicEnthalpyApproximation(p_downstream,refState,exclEnthForm,refChoice,h_off);
@@ -338,7 +333,7 @@ Temperature T (= " + String(T) + " K) is not in the allowed range
   redeclare replaceable function extends thermalConductivity
     "thermal conductivity of gas"
   //  input IdealGases.Common.DataRecord data "Ideal gas data";
-    input Integer method=methodForThermalConductivity
+    input Integer method=Functions.methodForThermalConductivity
       "1: Eucken Method, 2: Modified Eucken Method";
   algorithm
     assert(fluidConstants[1].hasCriticalData,
