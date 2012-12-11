@@ -243,8 +243,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end AIMC_YD;
 
@@ -306,21 +305,21 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           L2sigma=transformerData.L2sigma,
           T1Ref=293.15,
           alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T2Ref=293.15,
           alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           T1Operational=293.15,
           T2Operational=293.15)            annotation (Placement(transformation(
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={-20,30})));
+
         Modelica.Electrical.Analog.Basic.Ground ground2
           annotation (Placement(transformation(
               origin={-50,20},
               extent={{-10,-10},{10,10}},
               rotation=270)));
-        Machines.Utilities.TransformerData transformerData(
+        parameter Machines.Utilities.TransformerData
+                                           transformerData(
           f=fNominal,
           V1=VNominal,
           C1=Modelica.Utilities.Strings.substring(
@@ -435,8 +434,7 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end AIMC_Transformer;
 
@@ -1765,18 +1763,17 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           Td0Transient=0.261177343,
           Td0Subtransient=0.006963029,
           Tq0Subtransient=0.123345081,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
           TsSpecification=293.15,
           TsRef=293.15,
-          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TrSpecification=293.15,
           TrRef=293.15,
-          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
-
           TeSpecification=293.15,
-          TeRef=293.15,
-          alpha20e(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero)
+          TeRef=293.15)
           annotation (Placement(transformation(extent={{-20,-100},{0,-80}})));
+
       equation
         connect(rotorDisplacementAngle.plug_n, smee.plug_sn)    annotation (Line(
               points={{26,-30},{26,-20},{-16,-20},{-16,-30}}, color={0,0,255}));
@@ -2138,7 +2135,26 @@ This package contains test examples of synchronous induction machines.
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
 
-        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm
+        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
+          VaNominal=dcpmData.VaNominal,
+          IaNominal=dcpmData.IaNominal,
+          wNominal=dcpmData.wNominal,
+          TaNominal=dcpmData.TaNominal,
+          Ra=dcpmData.Ra,
+          TaRef=dcpmData.TaRef,
+          La=dcpmData.La,
+          Jr=dcpmData.Jr,
+          useSupport=false,
+          Js=dcpmData.Js,
+          frictionParameters=dcpmData.frictionParameters,
+          coreParameters=dcpmData.coreParameters,
+          strayLoadParameters=dcpmData.strayLoadParameters,
+          brushParameters=dcpmData.brushParameters,
+          TaOperational=293.15,
+          alpha20a=dcpmData.alpha20a,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          ia(fixed=true))
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Modelica.Blocks.Sources.Ramp ramp(
@@ -2166,6 +2182,8 @@ This package contains test examples of synchronous induction machines.
           offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
+        parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
         connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,70},{-10,
                 70},{-10,47}}, color={0,0,255}));
@@ -2210,7 +2228,34 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
 
-        Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee
+        Machines.BasicMachines.DCMachines.DC_ElectricalExcited dcee(
+          VaNominal=dceeData.VaNominal,
+          IaNominal=dceeData.IaNominal,
+          wNominal=dceeData.wNominal,
+          TaNominal=dceeData.TaNominal,
+          Ra=dceeData.Ra,
+          TaRef=dceeData.TaRef,
+          La=dceeData.La,
+          Jr=dceeData.Jr,
+          useSupport=false,
+          Js=dceeData.Js,
+          frictionParameters=dceeData.frictionParameters,
+          coreParameters=dceeData.coreParameters,
+          strayLoadParameters=dceeData.strayLoadParameters,
+          brushParameters=dceeData.brushParameters,
+          IeNominal=dceeData.IeNominal,
+          Re=dceeData.Re,
+          TeRef=dceeData.TeRef,
+          Le=dceeData.Le,
+          sigmae=dceeData.sigmae,
+          TaOperational=293.15,
+          alpha20a=dceeData.alpha20a,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          ia(fixed=true),
+          alpha20e=dceeData.alpha20e,
+          TeOperational=293.15,
+          ie(fixed=true))
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Modelica.Blocks.Sources.Ramp ramp(
@@ -2248,6 +2293,8 @@ Default machine parameters of model <i>DC_PermanentMagnet</i> are used.
           offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
+        parameter Utilities.ParameterRecords.DcElectricalExcitedData dceeData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
         connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,70},{-10,
                 70},{-10,47}}, color={0,0,255}));
@@ -2299,7 +2346,33 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
 
-        Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse
+        Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse(
+          VaNominal=dcseData.VaNominal,
+          IaNominal=dcseData.IaNominal,
+          wNominal=dcseData.wNominal,
+          TaNominal=dcseData.TaNominal,
+          TeNominal=dcseData.TeNominal,
+          Ra=dcseData.Ra,
+          TaRef=dcseData.TaRef,
+          La=dcseData.La,
+          Jr=dcseData.Jr,
+          useSupport=false,
+          Js=dcseData.Js,
+          frictionParameters=dcseData.frictionParameters,
+          coreParameters=dcseData.coreParameters,
+          strayLoadParameters=dcseData.strayLoadParameters,
+          brushParameters=dcseData.brushParameters,
+          Re=dcseData.Re,
+          TeRef=dcseData.TeRef,
+          Le=dcseData.Le,
+          sigmae=dcseData.sigmae,
+          TaOperational=293.15,
+          alpha20a=dcseData.alpha20a,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          ia(fixed=true),
+          alpha20e=dcseData.alpha20e,
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Modelica.Blocks.Sources.Ramp ramp(
@@ -2334,6 +2407,8 @@ Default machine parameters of model <i>DC_ElectricalExcited</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,10})));
+        parameter Utilities.ParameterRecords.DcSeriesExcitedData dcseData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
         connect(constantVoltage.n, ground.p) annotation (Line(points={{-20,40},
                 {-60,40}},color={0,0,255}));
@@ -2388,7 +2463,33 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
 
-        Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse
+        Machines.BasicMachines.DCMachines.DC_SeriesExcited dcse(
+          VaNominal=dcseData.VaNominal,
+          IaNominal=dcseData.IaNominal,
+          wNominal=dcseData.wNominal,
+          TaNominal=dcseData.TaNominal,
+          TeNominal=dcseData.TeNominal,
+          Ra=dcseData.Ra,
+          TaRef=dcseData.TaRef,
+          La=dcseData.La,
+          Jr=dcseData.Jr,
+          useSupport=false,
+          Js=dcseData.Js,
+          frictionParameters=dcseData.frictionParameters,
+          coreParameters=dcseData.coreParameters,
+          strayLoadParameters=dcseData.strayLoadParameters,
+          brushParameters=dcseData.brushParameters,
+          Re=dcseData.Re,
+          TeRef=dcseData.TeRef,
+          Le=dcseData.Le,
+          sigmae=dcseData.sigmae,
+          TaOperational=293.15,
+          alpha20a=dcseData.alpha20a,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          ia(fixed=true),
+          alpha20e=dcseData.alpha20e,
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Modelica.Blocks.Sources.Ramp ramp(
@@ -2423,6 +2524,8 @@ Default machine parameters of model <i>DC_SeriesExcited</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=270,
               origin={0,10})));
+        parameter Utilities.ParameterRecords.DcSeriesExcitedData dcseData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
         connect(constantVoltage.n, ground.p) annotation (Line(points={{-20,40},
                 {-60,40}},color={0,0,255}));
@@ -2578,12 +2681,27 @@ Default machine parameters are used.
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
 
-        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(           wMechanical(start=
-               w0, fixed=true),
-          alpha20a(displayUnit="1/K") = Machines.Thermal.Constants.alpha20Copper,
-          useThermalPort=true,
-          TaNominal=353.15,
-          TaRef=353.15)
+        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
+          wMechanical(start=w0, fixed=true),
+          VaNominal=dcpmData.VaNominal,
+          IaNominal=dcpmData.IaNominal,
+          wNominal=dcpmData.wNominal,
+          TaNominal=dcpmData.TaNominal,
+          Ra=dcpmData.Ra,
+          TaRef=dcpmData.TaRef,
+          La=dcpmData.La,
+          Jr=dcpmData.Jr,
+          useSupport=false,
+          Js=dcpmData.Js,
+          frictionParameters=dcpmData.frictionParameters,
+          coreParameters=dcpmData.coreParameters,
+          strayLoadParameters=dcpmData.strayLoadParameters,
+          brushParameters=dcpmData.brushParameters,
+          phiMechanical(fixed=true),
+          ia(fixed=true),
+          TaOperational=293.15,
+          alpha20a=dcpmData.alpha20a,
+          useThermalPort=true)
           annotation (Placement(transformation(extent={{-20,-10},{0,10}},
                 rotation=0)));
 
@@ -2617,6 +2735,12 @@ Default machine parameters are used.
           annotation (Placement(transformation(extent={{-60,-60},{-40,-40}})));
         Blocks.Sources.Constant const(k=293.15)
           annotation (Placement(transformation(extent={{40,-60},{20,-40}})));
+        parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
+          alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+          TaNominal=353.15,
+          TaRef=353.15)
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{30,0},{30,0},{40,0}},
@@ -2704,10 +2828,25 @@ So the machine is at the beginning in cold condition, ending in warm condition
         parameter Modelica.SIunits.VolumeFlowRate CoolantFlow=50 "Coolant flow";
         Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm(
           wMechanical(start=w0, fixed=true),
-          alpha20a(displayUnit="1/K") = Machines.Thermal.Constants.alpha20Copper,
-          useThermalPort=true,
-          TaNominal=353.15,
-          TaRef=353.15)
+          VaNominal=dcpmData.VaNominal,
+          IaNominal=dcpmData.IaNominal,
+          wNominal=dcpmData.wNominal,
+          TaNominal=dcpmData.TaNominal,
+          Ra=dcpmData.Ra,
+          TaRef=dcpmData.TaRef,
+          La=dcpmData.La,
+          Jr=dcpmData.Jr,
+          useSupport=false,
+          Js=dcpmData.Js,
+          frictionParameters=dcpmData.frictionParameters,
+          coreParameters=dcpmData.coreParameters,
+          strayLoadParameters=dcpmData.strayLoadParameters,
+          brushParameters=dcpmData.brushParameters,
+          phiMechanical(fixed=true),
+          ia(fixed=true),
+          TaOperational=293.15,
+          alpha20a=dcpmData.alpha20a,
+          useThermalPort=true)
           annotation (Placement(transformation(extent={{-20,20},{0,40}},
                 rotation=0)));
 
@@ -2762,7 +2901,8 @@ So the machine is at the beginning in cold condition, ending in warm condition
           V_flowLaminar=0.1,
           dpLaminar(displayUnit="Pa") = 0.1,
           V_flowNominal=1,
-          dpNominal(displayUnit="Pa") = 1)
+          dpNominal(displayUnit="Pa") = 1,
+          T0fixed=false)
           annotation (Placement(transformation(extent={{30,-60},{50,-80}})));
         Modelica.Thermal.FluidHeatFlow.Sources.Ambient outlet(
             constantAmbientTemperature=TAmbient, constantAmbientPressure=0)
@@ -2773,6 +2913,12 @@ So the machine is at the beginning in cold condition, ending in warm condition
       protected
         Machines.Interfaces.DCMachines.ThermalPortDCPM thermalPort
           annotation (Placement(transformation(extent={{-14,-4},{-6,4}})));
+      public
+        parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData(
+          alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+          TaNominal=353.15,
+          TaRef=353.15)
+          annotation (Placement(transformation(extent={{-60,20},{-40,40}})));
       equation
         connect(loadInertia.flange_b, loadTorque.flange)
           annotation (Line(points={{30,30},{30,30},{40,30}},
@@ -2905,8 +3051,25 @@ Default machine parameters are used, but:
         parameter Modelica.SIunits.Torque TLoad=63.66 "Nominal load torque";
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
-        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm1(
-                wMechanical(start=w0, fixed=true), alpha20a(displayUnit="1/K"))
+        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm1(    VaNominal=dcpmData.VaNominal,
+          IaNominal=dcpmData.IaNominal,
+          wNominal=dcpmData.wNominal,
+          TaNominal=dcpmData.TaNominal,
+          Ra=dcpmData.Ra,
+          TaRef=dcpmData.TaRef,
+          La=dcpmData.La,
+          Jr=dcpmData.Jr,
+          useSupport=false,
+          Js=dcpmData.Js,
+          frictionParameters=dcpmData.frictionParameters,
+          coreParameters=dcpmData.coreParameters,
+          strayLoadParameters=dcpmData.strayLoadParameters,
+          brushParameters=dcpmData.brushParameters,
+          phiMechanical(fixed=true),
+          ia(fixed=true),
+          TaOperational=293.15,
+          alpha20a=dcpmData.alpha20a,
+          wMechanical(fixed=true, start=w0))
           annotation (Placement(transformation(extent={{-20,20},{0,40}},
                 rotation=0)));
 
@@ -2929,8 +3092,25 @@ Default machine parameters are used, but:
           offset=0,
           period=1)
           annotation (Placement(transformation(extent={{100,-10},{80,10}})));
-        Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet
-          dcpm2(wMechanical(start=w0, fixed=true), alpha20a(displayUnit="1/K"))
+        Machines.BasicMachines.QuasiStationaryDCMachines.DC_PermanentMagnet dcpm2(
+          VaNominal=dcpmData.VaNominal,
+          IaNominal=dcpmData.IaNominal,
+          wNominal=dcpmData.wNominal,
+          TaNominal=dcpmData.TaNominal,
+          Ra=dcpmData.Ra,
+          TaRef=dcpmData.TaRef,
+          La=dcpmData.La,
+          Jr=dcpmData.Jr,
+          useSupport=false,
+          Js=dcpmData.Js,
+          frictionParameters=dcpmData.frictionParameters,
+          coreParameters=dcpmData.coreParameters,
+          strayLoadParameters=dcpmData.strayLoadParameters,
+          brushParameters=dcpmData.brushParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true, start=w0),
+          TaOperational=293.15,
+          alpha20a=dcpmData.alpha20a)
           annotation (Placement(transformation(extent={{-20,-40},{0,-20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia2(J=JLoad)
@@ -2938,6 +3118,8 @@ Default machine parameters are used, but:
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Torque loadTorque2(useSupport=false)
           annotation (Placement(transformation(extent={{60,-40},{40,-20}},rotation=0)));
+        parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
         connect(loadInertia1.flange_b, loadTorque1.flange)
           annotation (Line(points={{30,30},{30,30},{40,30}},
@@ -3021,8 +3203,27 @@ Simulate for 2 seconds and plot (versus time):
         parameter Modelica.SIunits.Inertia JLoad=0.15
           "Load's moment of inertia";
 
-        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm1
-          annotation (Placement(transformation(extent={{0,-20},{20,0}},
+        Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm1(
+          VaNominal=dcpmData1.VaNominal,
+          IaNominal=dcpmData1.IaNominal,
+          wNominal=dcpmData1.wNominal,
+          TaNominal=dcpmData1.TaNominal,
+          Ra=dcpmData1.Ra,
+          TaRef=dcpmData1.TaRef,
+          La=dcpmData1.La,
+          Jr=dcpmData1.Jr,
+          useSupport=false,
+          Js=dcpmData1.Js,
+          frictionParameters=dcpmData1.frictionParameters,
+          coreParameters=dcpmData1.coreParameters,
+          strayLoadParameters=dcpmData1.strayLoadParameters,
+          brushParameters=dcpmData1.brushParameters,
+          TaOperational=293.15,
+          alpha20a=dcpmData1.alpha20a,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          ia(fixed=true))
+          annotation (Placement(transformation(extent={{0,0},{20,20}},
                 rotation=0)));
         Modelica.Blocks.Sources.Ramp ramp(
           duration=tRamp,
@@ -3030,18 +3231,18 @@ Simulate for 2 seconds and plot (versus time):
           startTime=tStart)
           annotation (Placement(transformation(extent={{-10,-10},{10,10}},
                 rotation=0,
-              origin={-70,50})));
+              origin={-70,70})));
         Modelica.Electrical.Analog.Sources.SignalVoltage signalVoltage
           annotation (Placement(transformation(extent={{10,-10},{-10,10}},
                                                                          rotation=90,
-              origin={-40,50})));
+              origin={-40,70})));
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
-              origin={-60,10},
+              origin={-60,30},
               extent={{-10,-10},{10,10}},
               rotation=0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia1(J=JLoad)
-          annotation (Placement(transformation(extent={{30,-20},{50,0}},
+          annotation (Placement(transformation(extent={{30,0},{50,20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           loadTorque1(
@@ -3049,25 +3250,34 @@ Simulate for 2 seconds and plot (versus time):
           tau_nominal=-TLoad1,
           TorqueDirection=false,
           w_nominal=wLoad1)
-                      annotation (Placement(transformation(extent={{80,-20},{60,
-                  0}},   rotation=0)));
+                      annotation (Placement(transformation(extent={{80,0},{60,20}},
+                         rotation=0)));
         Machines.BasicMachines.DCMachines.DC_PermanentMagnet dcpm2(
-          frictionParameters(PRef=100),
-          alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-          coreParameters(PRef=200),
-          strayLoadParameters(PRef=50),
-          brushParameters(V=0.5),
-          Ra=0.03864,
+          VaNominal=dcpmData2.VaNominal,
+          IaNominal=dcpmData2.IaNominal,
+          wNominal=dcpmData2.wNominal,
+          TaNominal=dcpmData2.TaNominal,
+          Ra=dcpmData2.Ra,
+          TaRef=dcpmData2.TaRef,
+          La=dcpmData2.La,
+          Jr=dcpmData2.Jr,
+          useSupport=false,
+          Js=dcpmData2.Js,
+          frictionParameters=dcpmData2.frictionParameters,
+          coreParameters=dcpmData2.coreParameters,
+          strayLoadParameters=dcpmData2.strayLoadParameters,
+          brushParameters=dcpmData2.brushParameters,
+          alpha20a=dcpmData2.alpha20a,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          ia(fixed=true),
           TaOperational=368.15,
-          wNominal=148.44025288212,
-          TaNominal=368.15,
-          TaRef=293.15,
           core(v(start=0)))
-          annotation (Placement(transformation(extent={{0,-80},{20,-60}},
+          annotation (Placement(transformation(extent={{0,-60},{20,-40}},
                 rotation=0)));
 
         Modelica.Mechanics.Rotational.Components.Inertia loadInertia2(J=JLoad)
-          annotation (Placement(transformation(extent={{30,-80},{50,-60}},
+          annotation (Placement(transformation(extent={{30,-60},{50,-40}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.QuadraticSpeedDependentTorque
           loadTorque2(
@@ -3075,42 +3285,55 @@ Simulate for 2 seconds and plot (versus time):
           tau_nominal=-TLoad2,
           TorqueDirection=false,
           w_nominal=wLoad2)
-                      annotation (Placement(transformation(extent={{80,-80},{60,
-                  -60}}, rotation=0)));
+                      annotation (Placement(transformation(extent={{80,-60},{60,-40}},
+                         rotation=0)));
+        parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData1
+          annotation (Placement(transformation(extent={{0,60},{20,80}})));
+        parameter Utilities.ParameterRecords.DcPermanentMagnetData dcpmData2(
+          Ra=0.03864,
+          alpha20a(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+          wNominal=148.44025288212,
+          TaNominal=368.15,
+          frictionParameters(PRef=100),
+          coreParameters(PRef=200),
+          strayLoadParameters(PRef=50),
+          brushParameters(V=0.5))
+          annotation (Placement(transformation(extent={{0,-100},{20,-80}})));
+
       equation
-        connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,50},{-47,50}},
+        connect(ramp.y, signalVoltage.v)   annotation (Line(points={{-59,70},{-47,70}},
                                color={0,0,255}));
-        connect(signalVoltage.n, ground.p)   annotation (Line(points={{-40,40},{-40,40},
-                {-40,20},{-60,20}},
+        connect(signalVoltage.n, ground.p)   annotation (Line(points={{-40,60},{-40,60},
+                {-40,40},{-60,40}},
                           color={0,0,255}));
         connect(loadInertia1.flange_b, loadTorque1.flange)
-          annotation (Line(points={{50,-10},{60,-10}}, color={0,0,0}));
+          annotation (Line(points={{50,10},{60,10}},   color={0,0,0}));
         connect(dcpm1.flange, loadInertia1.flange_a)
                                                    annotation (Line(
-            points={{20,-10},{30,-10}},
+            points={{20,10},{30,10}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(loadInertia2.flange_b, loadTorque2.flange)
-          annotation (Line(points={{50,-70},{60,-70}}, color={0,0,0}));
+          annotation (Line(points={{50,-50},{60,-50}}, color={0,0,0}));
         connect(dcpm2.flange, loadInertia2.flange_a)
                                                    annotation (Line(
-            points={{20,-70},{30,-70}},
+            points={{20,-50},{30,-50}},
             color={0,0,0},
             smooth=Smooth.None));
         connect(signalVoltage.p, dcpm1.pin_ap) annotation (Line(
-            points={{-40,60},{-20,60},{-20,20},{16,20},{16,0}},
+            points={{-40,80},{-20,80},{-20,40},{16,40},{16,20}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(signalVoltage.p, dcpm2.pin_ap) annotation (Line(
-            points={{-40,60},{-20,60},{-20,-40},{16,-40},{16,-60}},
+            points={{-40,80},{-20,80},{-20,-20},{16,-20},{16,-40}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(signalVoltage.n, dcpm1.pin_an) annotation (Line(
-            points={{-40,40},{-40,0},{4,0}},
+            points={{-40,60},{-40,20},{4,20}},
             color={0,0,255},
             smooth=Smooth.None));
         connect(signalVoltage.n, dcpm2.pin_an) annotation (Line(
-            points={{-40,40},{-40,-60},{4,-60}},
+            points={{-40,60},{-40,-40},{4,-40}},
             color={0,0,255},
             smooth=Smooth.None));
         annotation (
@@ -3229,18 +3452,33 @@ This package contains test examples of DC machines.
         Modelica.Electrical.Analog.Basic.Ground groundL
           annotation (Placement(transformation(extent={{80,-80},{100,-60}},
                 rotation=0)));
-        Machines.Utilities.TransformerData transformerData(
+        parameter Machines.Utilities.TransformerData
+                                           transformerData(
           C1=Modelica.Utilities.Strings.substring(transformer.VectorGroup,1,1),
-          C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2))
-                                                annotation (Placement(
+          C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2),
+          f=50,
+          V1=100,
+          V2=100,
+          SNominal=30E3,
+          v_sc=0.05,
+          P_sc=300)                             annotation (Placement(
               transformation(extent={{-10,40},{10,60}}, rotation=0)));
         BasicMachines.Transformers.Dy.Dy01          transformer(
           n=transformerData.n,
           R1=transformerData.R1,
           L1sigma=transformerData.L1sigma,
           R2=transformerData.R2,
-          L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
+          L2sigma=transformerData.L2sigma,
+          T1Ref=293.15,
+          alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T2Ref=293.15,
+          alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T1Operational=293.15,
+          T2Operational=293.15)            annotation (Placement(transformation(
                 extent={{-20,-10},{20,30}}, rotation=0)));
+
+      initial equation
+        transformer.i2[1:2]=zeros(2);
       equation
         connect(starS.pin_n, groundS.p)
           annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
@@ -3345,18 +3583,31 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         Modelica.Electrical.Analog.Basic.Ground groundL
           annotation (Placement(transformation(extent={{0,-80},{20,-60}},
                 rotation=0)));
-        Machines.Utilities.TransformerData transformerData(
+        parameter Machines.Utilities.TransformerData
+                                           transformerData(
           C1=Modelica.Utilities.Strings.substring(transformer.VectorGroup,1,1),
-          C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2))
-                                                annotation (Placement(
+          C2=Modelica.Utilities.Strings.substring(transformer.VectorGroup,2,2),
+          f=50,
+          V1=100,
+          V2=100,
+          SNominal=30E3,
+          v_sc=0.05,
+          P_sc=300)                             annotation (Placement(
               transformation(extent={{-10,40},{10,60}}, rotation=0)));
         BasicMachines.Transformers.Dy.Dy01          transformer(
           n=transformerData.n,
           R1=transformerData.R1,
           L1sigma=transformerData.L1sigma,
           R2=transformerData.R2,
-          L2sigma=transformerData.L2sigma) annotation (Placement(transformation(
+          L2sigma=transformerData.L2sigma,
+          T1Ref=293.15,
+          alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T2Ref=293.15,
+          alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T1Operational=293.15,
+          T2Operational=293.15)            annotation (Placement(transformation(
                 extent={{-20,-10},{20,30}}, rotation=0)));
+
         MultiPhase.Basic.PlugToPin_n plugToPin_n(     k=1)
           annotation (Placement(transformation(extent={{20,0},{40,20}})));
         Analog.Basic.Resistor load(R=RL) annotation (Placement(transformation(
@@ -3371,6 +3622,9 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         Analog.Basic.Ground                     groundT
           annotation (Placement(transformation(extent={{-20,-80},{0,-60}},
                 rotation=0)));
+      initial equation
+        transformer.i2[1]=0;
+
       equation
         connect(starS.pin_n, groundS.p)
           annotation (Line(points={{-90,-50},{-90,-60}}, color={0,0,255}));
@@ -3453,7 +3707,10 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         Modelica.Electrical.MultiPhase.Sensors.CurrentSensor currentSensor(m=m)
           annotation (Placement(transformation(extent={{-80,-10},{-60,10}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode1(m=m)
+        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode1(m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m),
+          Vknee=fill(0, m))
           annotation (Placement(transformation(
               origin={-20,60},
               extent={{-10,10},{10,-10}},
@@ -3463,7 +3720,10 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
               origin={0,70},
               extent={{10,10},{-10,-10}},
               rotation=180)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode2(m=m)
+        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode2(m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m),
+          Vknee=fill(0, m))
           annotation (Placement(transformation(
               origin={-20,20},
               extent={{-10,10},{10,-10}},
@@ -3489,18 +3749,36 @@ In some cases it may be necessary to ground the transformer's starpoint even tho
         Modelica.Electrical.Analog.Basic.Ground groundDC
           annotation (Placement(transformation(extent={{80,-20},{100,0}},
                 rotation=0)));
-        Machines.Utilities.TransformerData transformerData1(
+        parameter Machines.Utilities.TransformerData
+                                           transformerData1(
           C1=Modelica.Utilities.Strings.substring(transformer1.VectorGroup,1,1),
-          C2=Modelica.Utilities.Strings.substring(transformer1.VectorGroup,2,2))
-                                                 annotation (Placement(
+          C2=Modelica.Utilities.Strings.substring(transformer1.VectorGroup,2,2),
+          f=50,
+          V1=100,
+          V2=100,
+          SNominal=30E3,
+          v_sc=0.05,
+          P_sc=300)                              annotation (Placement(
               transformation(extent={{-60,60},{-40,80}}, rotation=0)));
         Machines.BasicMachines.Transformers.Dy.Dy01 transformer1(
           n=transformerData1.n,
           R1=transformerData1.R1,
           L1sigma=transformerData1.L1sigma,
           R2=transformerData1.R2,
-          L2sigma=transformerData1.L2sigma) annotation (Placement(transformation(
+          L2sigma=transformerData1.L2sigma,
+          T1Ref=293.15,
+          alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T2Ref=293.15,
+          alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T1Operational=293.15,
+          T2Operational=293.15)             annotation (Placement(transformation(
                 extent={{-50,30},{-30,50}}, rotation=0)));
+
+      initial equation
+        cDC1.v=VC0/2;
+        cDC2.v=VC0/2;
+        transformer1.i2[1:2]=zeros(2);
+
       equation
         connect(cDC1.n, cDC2.p)
           annotation (Line(points={{70,10},{70,-10}}, color={0,0,255}));
@@ -3546,7 +3824,10 @@ neglecting initial transient.
 
       model Rectifier12pulse "12-pulse rectifier with 2 transformers"
         extends Machines.Examples.Transformers.Rectifier6pulse(RL=0.2);
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m)
+        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode3(m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m),
+          Vknee=fill(0, m))
           annotation (Placement(transformation(
               origin={-20,-20},
               extent={{-10,10},{10,-10}},
@@ -3554,7 +3835,10 @@ neglecting initial transient.
         Modelica.Electrical.MultiPhase.Basic.Star star3(m=m)
           annotation (Placement(transformation(extent={{-10,0},{10,-20}},
                 rotation=0)));
-        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode4(m=m)
+        Modelica.Electrical.MultiPhase.Ideal.IdealDiode diode4(m=m,
+          Ron=fill(1e-5, m),
+          Goff=fill(1e-5, m),
+          Vknee=fill(0, m))
           annotation (Placement(transformation(
               origin={-20,-60},
               extent={{-10,10},{10,-10}},
@@ -3567,13 +3851,29 @@ neglecting initial transient.
           R1=transformerData2.R1,
           L1sigma=transformerData2.L1sigma,
           R2=transformerData2.R2,
-          L2sigma=transformerData2.L2sigma) annotation (Placement(transformation(
+          L2sigma=transformerData2.L2sigma,
+          T1Ref=293.15,
+          alpha20_1(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T2Ref=293.15,
+          alpha20_2(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Zero,
+          T1Operational=293.15,
+          T2Operational=293.15)             annotation (Placement(transformation(
                 extent={{-50,-50},{-30,-30}}, rotation=0)));
-        Machines.Utilities.TransformerData transformerData2(
+
+        parameter Machines.Utilities.TransformerData
+                                           transformerData2(
           C1=Modelica.Utilities.Strings.substring(transformer2.VectorGroup,1,1),
-          C2=Modelica.Utilities.Strings.substring(transformer2.VectorGroup,2,2))
-                                                 annotation (Placement(
+          C2=Modelica.Utilities.Strings.substring(transformer2.VectorGroup,2,2),
+          f=50,
+          V1=100,
+          V2=100,
+          SNominal=30E3,
+          v_sc=0.05,
+          P_sc=300)                              annotation (Placement(
               transformation(extent={{-60,-80},{-40,-60}}, rotation=0)));
+      initial equation
+        transformer2.core.plug_p1.pin[1:3].i=zeros(3);
+
       equation
         connect(diode3.plug_n, star3.plug_p)
           annotation (Line(points={{-20,-10},{-10,-10}}, color={0,0,255}));
@@ -3620,7 +3920,8 @@ Simulate for 2.5 seconds and plot (versus time):
 <li>aimc.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end AIMC_Transformer;
       annotation (Documentation(info="<HTML>
 This package contains test examples of DC machines.
@@ -5490,7 +5791,7 @@ Armature resistance resp. inductance include resistance resp. inductance of comm
            annotation(Dialog(group="Operational temperatures", enable=not useThermalPort));
         output Modelica.SIunits.Voltage ve = pin_ep.v-pin_en.v
           "Field excitation voltage";
-        output Modelica.SIunits.Current ie = pin_ep.i
+        output Modelica.SIunits.Current ie(start=0) = pin_ep.i
           "Field excitation current";
         Machines.BasicMachines.Components.AirGapDC airGapDC(
           final turnsRatio=turnsRatio,
@@ -7453,7 +7754,8 @@ This package contains transformers primary D connected / secondary y connected i
 Transformer Dd0
 <br>Typical parameters see:
 <a href=\"modelica://Modelica.Electrical.Machines.Interfaces.PartialBasicTransformer\">PartialBasicTransformer</a>
-</html>"));
+</html>"),  Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                    -100},{100,100}}), graphics));
         end Dd00;
 
         model Dd02 "Transformer Dd2"
@@ -12178,9 +12480,9 @@ Connector for Space Phasors:
       parameter Machines.Losses.FrictionParameters frictionParameters
         "Friction losses"
         annotation(Dialog(tab="Losses"));
-      output Modelica.SIunits.Angle phiMechanical = flange.phi-internalSupport.phi
+      output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi-internalSupport.phi
         "Mechanical angle of rotor against stator";
-      output Modelica.SIunits.AngularVelocity wMechanical(displayUnit="1/min") = der(phiMechanical)
+      output Modelica.SIunits.AngularVelocity wMechanical(displayUnit="1/min", start=0) = der(phiMechanical)
         "Mechanical angular velocity of rotor against stator";
       output Modelica.SIunits.Torque tauElectrical = inertiaRotor.flange_a.tau
         "Electromagnetic torque";
@@ -13083,7 +13385,7 @@ Interfaces and partial models for induction machines
         final lossPowerFriction = -friction.heatPort.Q_flow,
         final lossPowerBrush = -brush.heatPort.Q_flow) "Power balance";
       output Modelica.SIunits.Voltage va = pin_ap.v-pin_an.v "Armature voltage";
-      output Modelica.SIunits.Current ia = pin_ap.i "Armature current";
+      output Modelica.SIunits.Current ia(start=0) = pin_ap.i "Armature current";
       Modelica.Electrical.Analog.Interfaces.PositivePin pin_ap
         "Positive armature pin"
         annotation (Placement(transformation(extent={{50,110},{70,90}},
@@ -13518,8 +13820,7 @@ Thermal ports for DC machines
       parameter Modelica.SIunits.Temperature T1Ref(start=293.15)
         "Reference temperature of primary resistance"
          annotation(Dialog(tab="Nominal resistances and inductances"));
-      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1(
-                  start=0)
+      parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20_1(start=0)
         "Temperature coefficient of primary resistance at 20 degC"
          annotation(Dialog(tab="Nominal resistances and inductances"));
       parameter Modelica.SIunits.Inductance L1sigma(start=78E-6/(if C1=="D" then 1 else 3))
@@ -14104,6 +14405,107 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.Package;
 
+    package ParameterRecords "Parameter records"
+      extends Modelica.Icons.MaterialPropertiesPackage;
+
+
+
+      record DcPermanentMagnetData "Common parameters for DC machines"
+        extends Modelica.Icons.Record;
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Inertia Jr=0.15 "Rotor's moment of inertia";
+        parameter Modelica.SIunits.Inertia Js=Jr "Stator's moment of inertia";
+        parameter Modelica.SIunits.Voltage VaNominal=100
+          "Nominal armature voltage"
+           annotation(Dialog(tab="Nominal parameters"));
+        parameter Modelica.SIunits.Current IaNominal=100
+          "Nominal armature current (>0..Motor, <0..Generator)"
+           annotation(Dialog(tab="Nominal parameters"));
+        parameter Modelica.SIunits.AngularVelocity wNominal(displayUnit="1/min")=1425*2*pi/60
+          "Nominal speed"
+           annotation(Dialog(tab="Nominal parameters"));
+        parameter Modelica.SIunits.Temperature TaNominal=293.15
+          "Nominal armature temperature"
+           annotation(Dialog(tab="Nominal parameters"));
+        parameter Modelica.SIunits.Resistance Ra=0.05
+          "Armature resistance at TRef"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TaRef=293.15
+          "Reference temperature of armature resistance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a=0
+          "Temperature coefficient of armature resistance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance La=0.0015 "Armature inductance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Machines.Losses.FrictionParameters frictionParameters(
+          PRef=0, wRef=wNominal) "Friction losses"
+          annotation(Dialog(tab="Losses"));
+        parameter Machines.Losses.CoreParameters coreParameters(final m=1,
+          PRef=0, VRef=VaNominal, wRef=wNominal) "Armature core losses"
+          annotation(Dialog(tab="Losses"));
+        parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
+          PRef=0, IRef=IaNominal, wRef=wNominal) "Stray load losses"
+          annotation(Dialog(tab="Losses"));
+        parameter Machines.Losses.BrushParameters brushParameters(
+          V=0, ILinear=0.01*IaNominal) "Brush losses"
+          annotation(Dialog(tab="Losses"));
+        annotation(defaultComponentName="dcpmData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of DC machines are predefined with default values.</p>
+</HTML>"));
+      end DcPermanentMagnetData;
+
+      record DcElectricalExcitedData "Common parameters for DC machines"
+        extends DcPermanentMagnetData;
+        parameter Modelica.SIunits.Current IeNominal=1
+          "Nominal excitation current"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Resistance Re=100
+          "Field excitation resistance at TRef"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeRef=293.15
+          "Reference temperature of excitation resistance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
+          "Temperature coefficient of excitation resistance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Inductance Le=1
+          "Total field excitation inductance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Real sigmae(min=0, max=0.99)=0
+          "Stray fraction of total excitation inductance"
+           annotation(Dialog(tab="Excitation"));
+        annotation(defaultComponentName="dceeData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of DC machines are predefined with default values.</p>
+</HTML>"));
+      end DcElectricalExcitedData;
+
+      record DcSeriesExcitedData "Common parameters for DC machines"
+        extends DcPermanentMagnetData;
+        parameter Modelica.SIunits.Resistance Re=0.01
+          "Series excitation resistance at TRef"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeRef=293.15
+          "Reference temperature of excitation resistance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
+          "Temperature coefficient of excitation resistance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Inductance Le=0.0005
+          "Total field excitation inductance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Real sigmae(min=0, max=0.99)=0
+          "Stray fraction of total excitation inductance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeNominal=293.15
+          "Nominal series excitation temperature"
+           annotation(Dialog(tab="Nominal parameters"));
+        annotation(defaultComponentName="dcseData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of DC machines are predefined with default values.</p>
+</HTML>"));
+      end DcSeriesExcitedData;
+    end ParameterRecords;
+
     block VfController "Voltage-Frequency-Controller"
       extends Modelica.Blocks.Interfaces.SIMO(final nout=m);
       constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
@@ -14538,59 +14940,6 @@ starting at time <code>tStart</code> with a linear ramp <code>tRamp</code>.</p>
 </HTML>"));
     end RampedRheostat;
 
-  record TransformerData "Calculates Impedances from nominal values"
-    extends Modelica.Icons.Record;
-    parameter Modelica.SIunits.Frequency f(start=50) "Nominal frequency";
-    parameter Modelica.SIunits.Voltage V1(start=100)
-        "Primary nominal line-to-line voltage (RMS)";
-    parameter String C1(start="Y") "Choose primary connection"
-      annotation(choices(choice="Y" "Star connection",
-                         choice="D" "Delta connection"));
-    parameter Modelica.SIunits.Voltage V2(start=100)
-        "Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
-    parameter String C2(start="y") "Choose secondary connection"
-      annotation(choices(choice="y" "Star connection",
-                         choice="d" "Delta connection",
-                         choice="z" "Zig-zag connection"));
-    parameter Modelica.SIunits.ApparentPower SNominal(start=30E3)
-        "Nominal apparent power";
-    parameter Real v_sc(final min=0, final max=1, start=0.05)
-        "Impedance voltage drop pu";
-    parameter Modelica.SIunits.Power P_sc(start=300)
-        "Short-circuit (copper) losses";
-
-    parameter Real n = V1/V2
-        "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)"
-      annotation(Dialog(tab="Result", enable = false));
-    final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3))
-        "Primary phase voltage (RMS)";
-    final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph)
-        "Primary phase current (RMS)";
-    final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3))
-        "Secondary phase voltage (RMS)";
-    final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph)
-        "Secondary phase current (RMS)";
-    final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph
-        "Primary impedance per phase";
-    parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2)
-        "Warm primary resistance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f)
-        "Primary stray inductance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph
-        "Secondary impedance per phase";
-    parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2)
-        "Warm secondary resistance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    parameter Modelica.SIunits.Inductance L2sigma= sqrt(Z2ph^2-R2^2)/(2*Modelica.Constants.pi*f)
-        "Secondary stray inductance per phase"
-      annotation(Dialog(tab="Result", enable = false));
-    annotation(Documentation(info="<HTML>
-<p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
-</HTML>"));
-  end TransformerData;
-
     record SynchronousMachineData
       "Computes machine parameter from usual datasheet"
       extends Modelica.Icons.Record;
@@ -14718,6 +15067,60 @@ synchronous machine model with electrical excitation (and damper)</a> are calcul
 normally given in a technical description, according to the standard EN&nbsp;60034-4:2008&nbsp;Appendix&nbsp;C.</p>
 </html>"));
     end SynchronousMachineData;
+
+  record TransformerData "Calculates Impedances from nominal values"
+    extends Modelica.Icons.Record;
+    parameter Modelica.SIunits.Frequency f(start=50) "Nominal frequency";
+    parameter Modelica.SIunits.Voltage V1(start=100)
+        "Primary nominal line-to-line voltage (RMS)";
+    parameter String C1(start="Y") "Choose primary connection"
+      annotation(choices(choice="Y" "Star connection",
+                         choice="D" "Delta connection"));
+    parameter Modelica.SIunits.Voltage V2(start=100)
+        "Secondary open circuit line-to-line voltage (RMS) @ primary nominal voltage";
+    parameter String C2(start="y") "Choose secondary connection"
+      annotation(choices(choice="y" "Star connection",
+                         choice="d" "Delta connection",
+                         choice="z" "Zig-zag connection"));
+    parameter Modelica.SIunits.ApparentPower SNominal(start=30E3)
+        "Nominal apparent power";
+    parameter Real v_sc(final min=0, final max=1, start=0.05)
+        "Impedance voltage drop pu";
+    parameter Modelica.SIunits.Power P_sc(start=300)
+        "Short-circuit (copper) losses";
+
+    parameter Real n = V1/V2
+        "Ratio primary voltage (line-to-line) / secondary voltage (line-to-line)"
+      annotation(Dialog(tab="Result", enable = false));
+    final parameter Modelica.SIunits.Voltage V1ph = V1/(if C1=="D" then 1 else sqrt(3))
+        "Primary phase voltage (RMS)";
+    final parameter Modelica.SIunits.Current I1ph = SNominal/(3*V1ph)
+        "Primary phase current (RMS)";
+    final parameter Modelica.SIunits.Voltage V2ph = V2/(if C2=="d" then 1 else sqrt(3))
+        "Secondary phase voltage (RMS)";
+    final parameter Modelica.SIunits.Current I2ph = SNominal/(3*V2ph)
+        "Secondary phase current (RMS)";
+    final parameter Modelica.SIunits.Impedance Z1ph = 0.5*v_sc*V1ph/I1ph
+        "Primary impedance per phase";
+    parameter Modelica.SIunits.Resistance R1= 0.5*P_sc/(3*I1ph^2)
+        "Warm primary resistance per phase"
+      annotation(Dialog(tab="Result", enable = false));
+    parameter Modelica.SIunits.Inductance L1sigma= sqrt(Z1ph^2-R1^2)/(2*Modelica.Constants.pi*f)
+        "Primary stray inductance per phase"
+      annotation(Dialog(tab="Result", enable = false));
+    final parameter Modelica.SIunits.Impedance Z2ph = 0.5*v_sc*V2ph/I2ph
+        "Secondary impedance per phase";
+    parameter Modelica.SIunits.Resistance R2= 0.5*P_sc/(3*I2ph^2)
+        "Warm secondary resistance per phase"
+      annotation(Dialog(tab="Result", enable = false));
+    parameter Modelica.SIunits.Inductance L2sigma= sqrt(Z2ph^2-R2^2)/(2*Modelica.Constants.pi*f)
+        "Secondary stray inductance per phase"
+      annotation(Dialog(tab="Result", enable = false));
+    annotation(defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
+</HTML>"));
+  end TransformerData;
+
 
     annotation (Documentation(info="<HTML>
 This package contains utility components for testing examples.
