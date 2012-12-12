@@ -851,7 +851,6 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Lrsigma=aimcData.Lrsigma,
           Rr=aimcData.Rr,
           TrRef=aimcData.TrRef,
-          useSupport=true,
           TsOperational=293.15,
           alpha20r=aimcData.alpha20r,
           TrOperational=293.15)
@@ -882,7 +881,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           quadraticLoadTorque(
           w_nominal=wLoad,
           TorqueDirection=false,
-          tau_nominal=-TLoad)
+          tau_nominal=-TLoad,
+          useSupport=false)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}},
                 rotation=0)));
         Machines.Utilities.TerminalBox TerminalBox1(
@@ -925,22 +925,14 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               origin={50,20},
               extent={{-10,-10},{10,10}},
               rotation=90)));
-        Modelica.Mechanics.Rotational.Components.Fixed fixed
-          annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
-        Modelica.Mechanics.Rotational.Sensors.RelSpeedSensor relSpeedSensor
+        Mechanics.Rotational.Sensors.SpeedSensor             relSpeedSensor
                                                                    annotation (
             Placement(transformation(
               extent={{-10,-10},{10,10}},
-              rotation=90,
-              origin={20,-50})));
+              rotation=0,
+              origin={30,-30})));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
           annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
-      initial equation
-        cStart.v=0;
-        cRun.v = 0;
-
-        aimc.idq_rr=zeros(2);
-
       equation
         connect(ground.p, sineVoltage.n)
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
@@ -988,29 +980,17 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
             points={{-10,-28},{-10,-20},{10,-20},{10,-12}},
             color={0,0,255},
             smooth=Smooth.None));
-        connect(quadraticLoadTorque.support, fixed.flange) annotation (Line(
-            points={{80,-50},{80,-60}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(relSpeedSensor.flange_a, fixed.flange) annotation (Line(
-            points={{20,-60},{80,-60}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(relSpeedSensor.w_rel, greaterThreshold.u) annotation (Line(
-            points={{31,-50},{30,-50},{30,-20},{50,-20},{50,8}},
-            color={0,0,127},
-            smooth=Smooth.None));
-        connect(aimc.support, fixed.flange) annotation (Line(
-            points={{0,-50},{0,-60},{80,-60}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(aimc.flange, relSpeedSensor.flange_b) annotation (Line(
-            points={{0,-40},{20,-40}},
-            color={0,0,0},
-            smooth=Smooth.None));
         connect(aimc.flange, loadInertia.flange_a) annotation (Line(
             points={{0,-40},{40,-40}},
             color={0,0,0},
+            smooth=Smooth.None));
+        connect(relSpeedSensor.flange, aimc.flange) annotation (Line(
+            points={{20,-30},{20,-40},{0,-40}},
+            color={0,0,0},
+            smooth=Smooth.None));
+        connect(relSpeedSensor.w, greaterThreshold.u) annotation (Line(
+            points={{41,-30},{50,-30},{50,8}},
+            color={0,0,127},
             smooth=Smooth.None));
         annotation (
           experiment(StopTime=1.5, Interval=0.001),
@@ -1019,13 +999,15 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
 At start time tStart single phase voltage is supplied to the asynchronous induction machine with squirrel cage;
 the machine starts from standstill, accelerating inertias against load torque quadratic dependent on speed, finally reaching nominal speed.<br>
 Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}}), graphics));
       end AIMC_Steinmetz;
 
       model AIMC_withLosses
         "Test example: AsynchronousInductionMachineSquirrelCage with losses"
         extends Modelica.Icons.Example;
         constant Integer m=3 "Number of phases";
+        import Modelica.Constants.pi;
         import Modelica.SIunits.Conversions.from_rpm;
         import Modelica.SIunits.Conversions.to_rpm;
         import Modelica.SIunits.Conversions.from_degC;
@@ -1080,16 +1062,16 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           Js=aimcData.Js,
           frictionParameters=aimcData.frictionParameters,
           phiMechanical(fixed=true),
-          wMechanical(fixed=true),
           statorCoreParameters=aimcData.statorCoreParameters,
           strayLoadParameters=aimcData.strayLoadParameters,
           Lm=aimcData.Lm,
           Lrsigma=aimcData.Lrsigma,
           Rr=aimcData.Rr,
           TrRef=aimcData.TrRef,
-          TsOperational=293.15,
-          alpha20r=aimcData.alpha20r,
-          TrOperational=293.15)
+          TsOperational=TempNominal,
+          TrOperational=TempNominal,
+          wMechanical(fixed=true, start=wNominal),
+          alpha20r=aimcData.alpha20r)
           annotation (Placement(transformation(extent={{-40,0},{-20,20}},
                 rotation=0)));
 
@@ -1148,11 +1130,21 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
         parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
-            statorCoreParameters(PRef=410, VRef=387.9))
+            statorCoreParameters(PRef=410, VRef=387.9),
+          Jr=0.12,
+          Rs=0.56,
+          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
+          Lssigma=1.52/(2*pi*fNominal),
+          frictionParameters(PRef=180, wRef=wNominal),
+          strayLoadParameters(
+            PRef=0.005*sqrt(3)*VNominal*INominal*pfNominal,
+            IRef=INominal/sqrt(3),
+            wRef=wNominal),
+          Lm=66.4/(2*pi*fNominal),
+          Lrsigma=2.31/(2*pi*fNominal),
+          Rr=0.42,
+          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium)
           annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
-      initial equation
-        aimc.is=zeros(3);
-        aimc.idq_rr=zeros(2);
 
       equation
         connect(star.pin_n, ground.p)
@@ -1271,7 +1263,17 @@ Anton Haumer, Christian Kral, Hansj&ouml;rg Kapeller, Thomas B&auml;uml, Johanne
 <a href=\"http://www.modelica.org/events/modelica2009/Proceedings/memorystick/pages/papers/0103/0103.pdf\">
 The AdvancedMachines Library: Loss Models for Electric Machines</a><br>
 Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}),
+                          graphics={Text(
+                extent={{-72,100},{68,80}},
+                lineColor={0,0,255},
+                textString="Simulate for 5 seconds for starting the machine."),
+                Text(
+                extent={{-100,-80},{100,-100}},
+                lineColor={0,0,255},
+                textString=
+                    "Continue the simulation for additional 5 seconds: a load ramp is applied.")}));
       end AIMC_withLosses;
 
       model AIMC_Initialize
@@ -1940,8 +1942,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         parameter Modelica.SIunits.Angle gamma0(displayUnit="deg")=0
           "Initial rotor displacement angle";
         Machines.BasicMachines.SynchronousInductionMachines.SM_ElectricalExcited
-          smee(
-          useSupport=true, phiMechanical(start=-(Modelica.Constants.pi +gamma0)/smee.p, fixed=true),
+          smee(            phiMechanical(start=-(Modelica.Constants.pi +gamma0)/smee.p, fixed=true),
           fsNominal=smeeData.fsNominal,
           Rs=smeeData.Rs,
           TsRef=smeeData.TsRef,
@@ -1963,17 +1964,16 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           Js=0.29,
           statorCoreParameters(VRef=100),
           strayLoadParameters(IRef=100),
+          brushParameters(ILinear=0.01),
           TsOperational=293.15,
           alpha20s=smeeData.alpha20s,
           TrOperational=293.15,
           alpha20r=smeeData.alpha20r,
           alpha20e=smeeData.alpha20e,
-          TeOperational=293.15,
-          brushParameters(ILinear=0.01))
+          TeOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
-        Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p,
-            useSupport=true)
+        Machines.Sensors.RotorDisplacementAngle rotorDisplacementAngle(p=smee.p)
           annotation (Placement(transformation(
               origin={20,-40},
               extent={{-10,10},{10,-10}},
@@ -1987,7 +1987,7 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           final w_fixed=wActual)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}},
                 rotation=0)));
-        Machines.Sensors.MechanicalPowerSensor mechanicalPowerSensor(useSupport=true)
+        Machines.Sensors.MechanicalPowerSensor mechanicalPowerSensor
           annotation (Placement(transformation(extent={{40,-50},{60,-30}},
                 rotation=0)));
         Machines.Sensors.ElectricalPowerSensor electricalPowerSensor
@@ -2024,8 +2024,6 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                            annotation (Placement(transformation(
                 extent={{-20,-30},{0,-10}}, rotation=0)));
-        Modelica.Mechanics.Rotational.Components.Fixed fixed
-          annotation (Placement(transformation(extent={{70,-70},{90,-50}})));
         parameter Machines.Utilities.SynchronousMachineData smeeData(
           SNominal=30e3,
           VsNominal=100,
@@ -2090,22 +2088,6 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         connect(terminalBox.plug_sp, smee.plug_sp)   annotation (Line(
             points={{-4,-30},{-4,-30}},
             color={0,0,255},
-            smooth=Smooth.None));
-        connect(constantSpeed.support, fixed.flange) annotation (Line(
-            points={{80,-50},{80,-60}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(mechanicalPowerSensor.support, fixed.flange) annotation (Line(
-            points={{50,-50},{50,-60},{80,-60}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(smee.support, fixed.flange) annotation (Line(
-            points={{0,-50},{0,-60},{80,-60}},
-            color={0,0,0},
-            smooth=Smooth.None));
-        connect(rotorDisplacementAngle.support, smee.support) annotation (Line(
-            points={{10,-50},{0,-50}},
-            color={0,0,0},
             smooth=Smooth.None));
         connect(smee.flange, rotorDisplacementAngle.flange) annotation (Line(
             points={{0,-40},{10,-40}},
@@ -14683,6 +14665,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
   package Utilities "Library with auxiliary models for testing"
     extends Modelica.Icons.Package;
 
+
     package ParameterRecords "Parameter records"
       extends Modelica.Icons.MaterialPropertiesPackage;
 
@@ -14700,8 +14683,9 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TsRef=293.15
           "Reference temperature of stator resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20s=0
-          "Temperature coefficient of stator resistance at 20 degC"
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20s=0 "Temperature coefficient of stator resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance Lszero=Lssigma
           "Stator zero sequence inductance"
@@ -14710,15 +14694,20 @@ The icons can be utilized by inheriting them in the desired class using \"extend
           "Stator stray inductance per phase"
            annotation(Dialog(tab="Nominal resistances and inductances"));
 
-        parameter Machines.Losses.FrictionParameters frictionParameters(
-          PRef=0, wRef=2*pi*fsNominal/p) "Friction losses"
+        parameter Modelica.Electrical.Machines.Losses.FrictionParameters frictionParameters(
+          PRef=0,
+          wRef=2*pi*fsNominal/p) "Friction losses"
           annotation(Dialog(tab="Losses"));
-        parameter Machines.Losses.CoreParameters statorCoreParameters(
-          final m=m, PRef=0, VRef=100, wRef=2*pi*fsNominal)
-          "Stator core losses"
+        parameter Modelica.Electrical.Machines.Losses.CoreParameters statorCoreParameters(
+          final m=m,
+          PRef=0,
+          VRef=100,
+          wRef=2*pi*fsNominal) "Stator core losses"
           annotation(Dialog(tab="Losses"));
-        parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
-          PRef=0, IRef=100, wRef=2*pi*fsNominal/p) "Stray load losses"
+        parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters strayLoadParameters(
+          PRef=0,
+          IRef=100,
+          wRef=2*pi*fsNominal/p) "Stray load losses"
           annotation(Dialog(tab="Losses"));
 
         annotation(defaultComponentName="inductionMachineData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
@@ -14742,7 +14731,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
           "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         annotation(defaultComponentName="aimcData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
@@ -14769,7 +14759,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of rotor resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
           "Temperature coefficient of rotor resistance at 20 degC"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Boolean useTurnsRatio=true
@@ -14783,7 +14774,7 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Voltage VrLockedRotor=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2)
           "Locked-rotor voltage per phase"
           annotation(Dialog(enable=not useTurnsRatio));
-        parameter Machines.Losses.CoreParameters rotorCoreParameters(
+        parameter Modelica.Electrical.Machines.Losses.CoreParameters rotorCoreParameters(
           final m=3,
           PRef=0,
           VRef=1,
@@ -14799,12 +14790,15 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         extends SM_ReluctanceRotorData(
           Lmd=0.3/(2*pi*fsNominal),
           Lmq=0.3/(2*pi*fsNominal));
-      import Modelica.Constants.pi;
+        import Modelica.Constants.pi;
         parameter Modelica.SIunits.Voltage VsOpenCircuit=112.3
           "Open circuit RMS voltage per phase @ fsNominal";
-        parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters(
-          PRef=0, IRef=100, wRef=2*pi*fsNominal/p)
-          "Permanent magnet loss losses"
+        parameter
+          Modelica.Electrical.Machines.Losses.PermanentMagnetLossParameters
+          permanentMagnetLossParameters(
+          PRef=0,
+          IRef=100,
+          wRef=2*pi*fsNominal/p) "Permanent magnet loss losses"
           annotation(Dialog(tab="Losses"));
           annotation(defaultComponentName="smpmData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
 <p>Basic parameters of synchronous induction machines with permanent magnet are predefined with default values.</p>
@@ -14829,14 +14823,16 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
-          "Temperature coefficient of excitation resistance"
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20e=0 "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Real sigmae(min=0, max=0.99)=0.025
           "Stray fraction of total excitation inductance"
            annotation(Dialog(tab="Excitation"));
-        parameter Machines.Losses.BrushParameters brushParameters(
-          V=0, ILinear=0.01) "Brush losses"
+        parameter Modelica.Electrical.Machines.Losses.BrushParameters brushParameters(
+          V=0,
+          ILinear=0.01) "Brush losses"
           annotation(Dialog(tab="Losses"));
         annotation(defaultComponentName="smeeData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
 <p>Basic parameters of synchronous induction machines with electrical excitation are predefined with default values.</p>
@@ -14870,7 +14866,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TrRef=293.15
           "Reference temperature of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
           "Temperature coefficient of damper resistances in d- and q-axis"
           annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
           annotation(defaultComponentName="smrData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
@@ -14902,22 +14899,30 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TaRef=293.15
           "Reference temperature of armature resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20a=0
-          "Temperature coefficient of armature resistance"
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20a=0 "Temperature coefficient of armature resistance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
         parameter Modelica.SIunits.Inductance La=0.0015 "Armature inductance"
            annotation(Dialog(tab="Nominal resistances and inductances"));
-        parameter Machines.Losses.FrictionParameters frictionParameters(
-          PRef=0, wRef=wNominal) "Friction losses"
+        parameter Modelica.Electrical.Machines.Losses.FrictionParameters frictionParameters(
+          PRef=0,
+          wRef=wNominal) "Friction losses"
           annotation(Dialog(tab="Losses"));
-        parameter Machines.Losses.CoreParameters coreParameters(final m=1,
-          PRef=0, VRef=VaNominal, wRef=wNominal) "Armature core losses"
+        parameter Modelica.Electrical.Machines.Losses.CoreParameters coreParameters(
+          final m=1,
+          PRef=0,
+          VRef=VaNominal,
+          wRef=wNominal) "Armature core losses"
           annotation(Dialog(tab="Losses"));
-        parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
-          PRef=0, IRef=IaNominal, wRef=wNominal) "Stray load losses"
+        parameter Modelica.Electrical.Machines.Losses.StrayLoadParameters strayLoadParameters(
+          PRef=0,
+          IRef=IaNominal,
+          wRef=wNominal) "Stray load losses"
           annotation(Dialog(tab="Losses"));
-        parameter Machines.Losses.BrushParameters brushParameters(
-          V=0, ILinear=0.01*IaNominal) "Brush losses"
+        parameter Modelica.Electrical.Machines.Losses.BrushParameters brushParameters(
+          V=0,
+          ILinear=0.01*IaNominal) "Brush losses"
           annotation(Dialog(tab="Losses"));
         annotation(defaultComponentName="dcpmData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
 <p>Basic parameters of DC machines are predefined with default values.</p>
@@ -14935,7 +14940,8 @@ The icons can be utilized by inheriting them in the desired class using \"extend
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
           "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le=1
@@ -14950,15 +14956,17 @@ The icons can be utilized by inheriting them in the desired class using \"extend
       end DcElectricalExcitedData;
 
       record DcSeriesExcitedData "Common parameters for DC machines"
-        extends DcPermanentMagnetData;
+        extends DcPermanentMagnetData(wNominal=1410*2*pi/60);
+        import Modelica.Constants.pi;
         parameter Modelica.SIunits.Resistance Re=0.01
           "Series excitation resistance at TRef"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Temperature TeRef=293.15
           "Reference temperature of excitation resistance"
            annotation(Dialog(tab="Excitation"));
-        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
-          "Temperature coefficient of excitation resistance"
+        parameter
+          Modelica.Electrical.Machines.Thermal.LinearTemperatureCoefficient20
+          alpha20e=0 "Temperature coefficient of excitation resistance"
            annotation(Dialog(tab="Excitation"));
         parameter Modelica.SIunits.Inductance Le=0.0005
           "Total field excitation inductance"
