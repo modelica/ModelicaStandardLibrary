@@ -1425,7 +1425,32 @@ This package contains test examples of asynchronous induction machines.
           "Load's moment of inertia";
 
         Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
-          smr
+          smr(
+          p=smrData.p,
+          fsNominal=smrData.fsNominal,
+          TsOperational=293.15,
+          Rs=smrData.Rs,
+          TsRef=smrData.TsRef,
+          alpha20s=smrData.alpha20s,
+          Lszero=smrData.Lszero,
+          Lssigma=smrData.Lssigma,
+          Jr=smrData.Jr,
+          Js=smrData.Js,
+          frictionParameters=smrData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=smrData.statorCoreParameters,
+          strayLoadParameters=smrData.strayLoadParameters,
+          TrOperational=293.15,
+          Lmd=smrData.Lmd,
+          Lmq=smrData.Lmq,
+          useDamperCage=smrData.useDamperCage,
+          Lrsigmad=smrData.Lrsigmad,
+          Lrsigmaq=smrData.Lrsigmaq,
+          Rrd=smrData.Rrd,
+          Rrq=smrData.Rrq,
+          TrRef=smrData.TrRef,
+          alpha20r=smrData.alpha20r)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -1467,12 +1492,19 @@ This package contains test examples of asynchronous induction machines.
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                                 startTime=tStep,
             stepTorque=-TLoad,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                            annotation (Placement(transformation(
                 extent={{-20,-30},{0,-10}}, rotation=0)));
+        parameter Utilities.ParameterRecords.SM_ReluctanceRotorData smrData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        smr.idq_sr=zeros(2);
+        smr.idq_rr=zeros(2);
+
       equation
         connect(signalVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}},
@@ -1546,7 +1578,34 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
           "Load's moment of inertia";
 
         Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
-          smpm
+          smpm(
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          TsOperational=293.15,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          alpha20s=smpmData.alpha20s,
+          Lszero=smpmData.Lszero,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          Js=smpmData.Js,
+          frictionParameters=smpmData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          TrOperational=293.15,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          alpha20r=smpmData.alpha20r,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -1590,12 +1649,19 @@ Default machine parameters of model <i>SM_ReluctanceRotor</i> are used.
         Modelica.Mechanics.Rotational.Sources.TorqueStep loadTorqueStep(
                                                                 startTime=tStep,
             stepTorque=-TLoad,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
                       annotation (Placement(transformation(extent={{90,-50},{70,
                   -30}}, rotation=0)));
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                            annotation (Placement(transformation(
                 extent={{-20,-30},{0,-10}}, rotation=0)));
+        parameter Utilities.ParameterRecords.SM_PermanentMagnetData smpmData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        smpm.idq_sr=zeros(2);
+        smpm.idq_rr=zeros(2);
+
       equation
         connect(signalVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}},
@@ -1672,8 +1738,34 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
 
-        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet smpm(
-            useDamperCage=false)
+        Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet     smpm(
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          TsOperational=293.15,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          alpha20s=smpmData.alpha20s,
+          Lszero=smpmData.Lszero,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          Js=smpmData.Js,
+          frictionParameters=smpmData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          TrOperational=293.15,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          alpha20r=smpmData.alpha20r,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}}, rotation=0)));
         MultiPhase.Sources.SignalCurrent signalCurrent(final m=m)
           annotation (Placement(transformation(
@@ -1737,6 +1829,9 @@ Default machine parameters of model <i>SM_PermanentMagnet</i> are used.
           quadraticSpeedDependentTorque(tau_nominal=-181.4, w_nominal(displayUnit="rpm")=
                157.07963267949)
           annotation (Placement(transformation(extent={{100,-50},{80,-30}})));
+        parameter Utilities.ParameterRecords.SM_PermanentMagnetData smpmData(
+            useDamperCage=false)
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -5510,7 +5605,7 @@ Resistance and stray inductance of stator is modeled directly in stator phases, 
         parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r(
           start=0)
           "Temperature coefficient of damper resistances in d- and q-axis"
-          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+         annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
         Machines.BasicMachines.Components.DamperCage damperCage(
           final Lrsigmad=Lrsigmad,
           final Lrsigmaq=Lrsigmaq,
@@ -14698,6 +14793,91 @@ The icons can be utilized by inheriting them in the desired class using \"extend
 <p>Basic parameters of asynchronous induction machines with slip ring are predefined with default values.</p>
 </HTML>"));
       end AIM_SlipRingData;
+
+      record SM_PermanentMagnetData
+        "Common parameters for synchronous induction machines with permanent magnet"
+        extends SM_ReluctanceRotorData(
+          Lmd=0.3/(2*pi*fsNominal),
+          Lmq=0.3/(2*pi*fsNominal));
+      import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Voltage VsOpenCircuit=112.3
+          "Open circuit RMS voltage per phase @ fsNominal";
+        parameter Machines.Losses.PermanentMagnetLossParameters permanentMagnetLossParameters(
+          PRef=0, IRef=100, wRef=2*pi*fsNominal/p)
+          "Permanent magnet loss losses"
+          annotation(Dialog(tab="Losses"));
+          annotation(defaultComponentName="smpmData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of synchronous induction machines with permanent magnet are predefined with default values.</p>
+</HTML>"));
+      end SM_PermanentMagnetData;
+
+      record SM_ElectricalExcitedData
+        "Common parameters for synchronous induction machines with electrical excitation"
+        extends SM_ReluctanceRotorData(
+          Lmd=1.5/(2*pi*fsNominal),
+          Lmq=1.5/(2*pi*fsNominal));
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Voltage VsNominal=100
+          "Nominal stator RMS voltage per phase"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Current IeOpenCircuit=10
+          "Open circuit excitation current @ nominal voltage and frequency"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Resistance Re=2.5
+          "Excitation resistance at TRef"
+           annotation(Dialog(tab="Excitation"));
+        parameter Modelica.SIunits.Temperature TeRef=293.15
+          "Reference temperature of excitation resistance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20e=0
+          "Temperature coefficient of excitation resistance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Real sigmae(min=0, max=0.99)=0.025
+          "Stray fraction of total excitation inductance"
+           annotation(Dialog(tab="Excitation"));
+        parameter Machines.Losses.BrushParameters brushParameters(
+          V=0, ILinear=0.01) "Brush losses"
+          annotation(Dialog(tab="Losses"));
+        annotation(defaultComponentName="smeeData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of synchronous induction machines with electrical excitation are predefined with default values.</p>
+</HTML>"));
+      end SM_ElectricalExcitedData;
+
+      record SM_ReluctanceRotorData
+        "Common parameters for synchronous induction machines with reluctance rotor"
+        extends InductionMachineData(Lssigma=0.1/(2*pi*fsNominal));
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Inductance Lmd=2.9/(2*pi*fsNominal)
+          "Main field inductance in d-axis"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lmq=0.9/(2*pi*fsNominal)
+          "Main field inductance in q-axis"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Boolean useDamperCage = true "Enable / disable damper cage"
+          annotation(Evaluate=true, Dialog(tab="Nominal resistances and inductances", group = "DamperCage"));
+        parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*pi*fsNominal)
+          "Damper stray inductance in d-axis"
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
+          "Damper stray inductance in q-axis"
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Resistance Rrd=0.04
+          "Damper resistance in d-axis at TRef"
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Resistance Rrq=Rrd
+          "Damper resistance in q-axis at TRef"
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Modelica.SIunits.Temperature TrRef=293.15
+          "Reference temperature of damper resistances in d- and q-axis"
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+          "Temperature coefficient of damper resistances in d- and q-axis"
+          annotation(Dialog(tab="Nominal resistances and inductances", group = "DamperCage", enable = useDamperCage));
+          annotation(defaultComponentName="smrData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of synchronous induction machines with reluctance rotor are predefined with default values.</p>
+</HTML>"));
+
+      end SM_ReluctanceRotorData;
 
       record DcPermanentMagnetData "Common parameters for DC machines"
         extends Modelica.Icons.Record;

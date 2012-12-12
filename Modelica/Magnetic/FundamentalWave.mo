@@ -1061,25 +1061,6 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.Torque T_Load=181.4 "Nominal load torque";
         parameter Modelica.SIunits.Time tStep=1.2 "Time of load torque step";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
-
-        parameter Integer p = 2 "Number of pole pairs";
-        parameter Modelica.SIunits.Resistance Rs=0.03
-          "Warm stator resistance per phase";
-        parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*Modelica.Constants.pi*fsNominal)
-          "Stator stray inductance per phase";
-        parameter Modelica.SIunits.Inductance Lmd=0.3/(2*Modelica.Constants.pi*fsNominal)
-          "Main field inductance in d-axis";
-        parameter Modelica.SIunits.Inductance Lmq=0.3/(2*Modelica.Constants.pi*fsNominal)
-          "Main field inductance in q-axis";
-        parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi*fsNominal)
-          "Damper stray inductance (equivalent three phase winding) d-axis";
-        parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "Damper stray inductance (equivalent three phase winding) dq-axis";
-        parameter Modelica.SIunits.Resistance Rrd=0.04
-          "Warm damper resistance (equivalent three phase winding) d-axis";
-        parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "Warm damper resistance (equivalent three phase winding) q-axis";
-
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
               origin={-90,90},
@@ -1126,40 +1107,70 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpmM(
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lmd=Lmd,
-          Lmq=Lmq,
-          Lrsigmad=Lrsigmad,
-          Lrsigmaq=Lrsigmaq,
-          Rrd=Rrd,
-          Rrq=Rrq,
-          p=p,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          Jr=smpmData.Jr,
+          Js=smpmData.Js,
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          alpha20s(displayUnit="1/K") = smpmData.alpha20s,
+          Lssigma=smpmData.Lssigma,
+          Lszero=smpmData.Lszero,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          alpha20r(displayUnit="1/K") = smpmData.alpha20r,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          TsOperational=293.15,
+          frictionParameters=smpmData.frictionParameters,
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          TrOperational=293.15,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}}, rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_PermanentMagnet
           smpmE(
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lmd=Lmd,
-          Lmq=Lmq,
-          Lrsigmad=Lrsigmad,
-          Lrsigmaq=Lrsigmaq,
-          Rrd=Rrd,
-          Rrq=Rrq,
-          p=p,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          p=smpmData.p,
+          fsNominal=smpmData.fsNominal,
+          TsOperational=293.15,
+          Rs=smpmData.Rs,
+          TsRef=smpmData.TsRef,
+          alpha20s(displayUnit="1/K") = smpmData.alpha20s,
+          Lszero=smpmData.Lszero,
+          Lssigma=smpmData.Lssigma,
+          Jr=smpmData.Jr,
+          Js=smpmData.Js,
+          frictionParameters=smpmData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=smpmData.statorCoreParameters,
+          strayLoadParameters=smpmData.strayLoadParameters,
+          TrOperational=293.15,
+          VsOpenCircuit=smpmData.VsOpenCircuit,
+          Lmd=smpmData.Lmd,
+          Lmq=smpmData.Lmq,
+          useDamperCage=smpmData.useDamperCage,
+          Lrsigmad=smpmData.Lrsigmad,
+          Lrsigmaq=smpmData.Lrsigmaq,
+          Rrd=smpmData.Rrd,
+          Rrq=smpmData.Rrq,
+          TrRef=smpmData.TrRef,
+          alpha20r(displayUnit="1/K") = smpmData.alpha20r,
+          permanentMagnetLossParameters=smpmData.permanentMagnetLossParameters)
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
-          p=p)
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(p=smpmM.p)
           annotation (Placement(transformation(
               origin={30,-20},
               extent={{-10,10},{10,-10}},
               rotation=270)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleE(
-          p=p)
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleE(p=smpmE.p)
           annotation (Placement(transformation(
               origin={30,-80},
               extent={{-10,10},{10,-10}},
@@ -1174,14 +1185,25 @@ Simulate for 1.5 seconds and plot (versus time):
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM(
           startTime=tStep,
           stepTorque=-T_Load,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
           annotation (Placement(transformation(extent={{100,-30},{80,-10}},
               rotation=0)));
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepE(
           startTime=tStep,
           stepTorque=-T_Load,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
+        parameter
+          Electrical.Machines.Utilities.ParameterRecords.SM_PermanentMagnetData
+          smpmData
+          annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
+      initial equation
+        smpmE.idq_sr=zeros(2);
+        smpmE.idq_rr=zeros(2);
+        smpmM.stator.port_p.Phi=Complex(0,0);
+
       equation
         connect(signalVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}},
@@ -1527,25 +1549,6 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         parameter Modelica.SIunits.Torque T_Load=46 "Nominal load torque";
         parameter Modelica.SIunits.Time tStep=1.2 "Nime of load torque step";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
-
-        parameter Integer p = 2 "Number of pole pairs";
-        parameter Modelica.SIunits.Resistance Rs=0.03
-          "Warm stator resistance per phase";
-        parameter Modelica.SIunits.Inductance Lssigma=0.1/(2*Modelica.Constants.pi*fsNominal)
-          "Stator stray inductance per phase";
-        parameter Modelica.SIunits.Inductance Lmd=2.9/(2*Modelica.Constants.pi*fsNominal)
-          "Main field inductance in d-axis";
-        parameter Modelica.SIunits.Inductance Lmq=0.9/(2*Modelica.Constants.pi*fsNominal)
-          "Main field inductance in q-axis";
-        parameter Modelica.SIunits.Inductance Lrsigmad=0.05/(2*Modelica.Constants.pi*fsNominal)
-          "Damper stray inductance (equivalent three phase winding) d-axis";
-        parameter Modelica.SIunits.Inductance Lrsigmaq=Lrsigmad
-          "Damper stray inductance (equivalent three phase winding) q-axis)";
-        parameter Modelica.SIunits.Resistance Rrd=0.04
-          "Warm damper resistance (equivalent three phase winding) d-axis";
-        parameter Modelica.SIunits.Resistance Rrq=Rrd
-          "Warm damper resistance (equivalent three phase winding) q-axis)";
-
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
               origin={-90,90},
@@ -1588,41 +1591,67 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}},  rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrM(
-          p=p,
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lmd=Lmd,
-          Lmq=Lmq,
-          Lrsigmad=Lrsigmad,
-          Lrsigmaq=Lrsigmaq,
-          Rrd=Rrd,
-          Rrq=Rrq,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          Jr=smrData.Jr,
+          Js=smrData.Js,
+          p=smrData.p,
+          fsNominal=smrData.fsNominal,
+          TsOperational=293.15,
+          Rs=smrData.Rs,
+          TsRef=smrData.TsRef,
+          alpha20s(displayUnit="1/K") = smrData.alpha20s,
+          Lssigma=smrData.Lssigma,
+          Lszero=smrData.Lszero,
+          frictionParameters=smrData.frictionParameters,
+          statorCoreParameters=smrData.statorCoreParameters,
+          strayLoadParameters=smrData.strayLoadParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          TrOperational=293.15,
+          Lmd=smrData.Lmd,
+          Lmq=smrData.Lmq,
+          useDamperCage=smrData.useDamperCage,
+          Lrsigmad=smrData.Lrsigmad,
+          Lrsigmaq=smrData.Lrsigmaq,
+          Rrd=smrData.Rrd,
+          Rrq=smrData.Rrq,
+          TrRef=smrData.TrRef,
+          alpha20r(displayUnit="1/K") = smrData.alpha20r)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.SynchronousInductionMachines.SM_ReluctanceRotor
           smrE(
-          p=p,
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lmd=Lmd,
-          Lmq=Lmq,
-          Lrsigmad=Lrsigmad,
-          Lrsigmaq=Lrsigmaq,
-          Rrd=Rrd,
-          Rrq=Rrq,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          p=smrData.p,
+          fsNominal=smrData.fsNominal,
+          TsOperational=293.15,
+          Rs=smrData.Rs,
+          TsRef=smrData.TsRef,
+          alpha20s(displayUnit="1/K") = smrData.alpha20s,
+          Lszero=smrData.Lszero,
+          Lssigma=smrData.Lssigma,
+          Jr=smrData.Jr,
+          Js=smrData.Js,
+          frictionParameters=smrData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=smrData.statorCoreParameters,
+          strayLoadParameters=smrData.strayLoadParameters,
+          TrOperational=293.15,
+          Lmd=smrData.Lmd,
+          Lmq=smrData.Lmq,
+          useDamperCage=smrData.useDamperCage,
+          Lrsigmad=smrData.Lrsigmad,
+          Lrsigmaq=smrData.Lrsigmaq,
+          Rrd=smrData.Rrd,
+          Rrq=smrData.Rrq,
+          TrRef=smrData.TrRef,
+          alpha20r(displayUnit="1/K") = smrData.alpha20r)
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},  rotation=
                  0)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(
-          p=p)
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleM(p=smrM.p)
           annotation (Placement(transformation(
               origin={30,-20},
               extent={{10,-10},{-10,10}},
               rotation=90)));
-        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleE(
-          p=p)
+        Modelica.Electrical.Machines.Sensors.RotorDisplacementAngle rotorAngleE(p=smrE.p)
           annotation (Placement(transformation(
               origin={30,-80},
               extent={{10,-10},{-10,10}},
@@ -1637,14 +1666,24 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepM(
           startTime=tStep,
           stepTorque=-T_Load,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
           annotation (Placement(transformation(extent={{100,-30},{80,-10}},
             rotation=0)));
         Modelica.Mechanics.Rotational.Sources.TorqueStep torqueStepE(
           startTime=tStep,
           stepTorque=-T_Load,
-          useSupport=false)
+          useSupport=false,
+          offsetTorque=0)
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
+        parameter
+          Electrical.Machines.Utilities.ParameterRecords.SM_ReluctanceRotorData
+          smrData
+          annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
+      initial equation
+        smrE.idq_sr=zeros(2);
+        smrE.idq_rr=zeros(2);
+        smrM.stator.port_p.Phi=Complex(0,0);
       equation
         connect(signalVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}},
@@ -1672,17 +1711,17 @@ Simulate for 30 seconds and plot (versus <code>rotorAngleM.rotorDisplacementAngl
         connect(terminalBoxE.plugSupply,currentRMSsensorE. plug_n) annotation (Line(
               points={{0,-68},{0,-50},{-60,-50},{-60,10}},     color={0,0,255}));
         connect(smrM.flange,   loadInertiaM.flange_a) annotation (Line(points={{10,-20},
-                {30,-20},{50,-20}},
+                {10,-20},{50,-20}},
                                 color={0,0,0}));
         connect(loadInertiaM.flange_b, torqueStepM.flange)
           annotation (Line(points={{70,-20},{80,-20}}, color={0,0,0}));
-        connect(smrM.plug_sn, rotorAngleM.plug_n)  annotation (Line(points={{-6,-10},
-                {-6,0},{36,0},{36,-10}},                       color={0,0,255}));
-        connect(smrM.plug_sp, rotorAngleM.plug_p)  annotation (Line(points={{6,-10},
-                {15,-10},{24,-10}},                                            color=
+        connect(smrM.plug_sn, rotorAngleM.plug_n)  annotation (Line(points={{-6,-10},{
+                -6,0},{36,0},{36,-10}},                        color={0,0,255}));
+        connect(smrM.plug_sp, rotorAngleM.plug_p)  annotation (Line(points={{6,-10},{6,
+                -10},{24,-10}},                                                color=
                 {0,0,255}));
         connect(smrM.flange,   rotorAngleM.flange)
-          annotation (Line(points={{10,-20},{16,-20},{20,-20}},   color={0,0,0}));
+          annotation (Line(points={{10,-20},{10,-20},{20,-20}},   color={0,0,0}));
         connect(terminalBoxM.plug_sp,             smrM.plug_sp)  annotation (Line(
               points={{6,-10},{6,-10}},                      color={0,0,255}));
         connect(terminalBoxM.plug_sn,             smrM.plug_sn)  annotation (Line(
@@ -3436,8 +3475,7 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"),
-          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+</html>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
                   -100},{100,100}}), graphics));
       end SymmetricMultiPhaseWinding;
 
