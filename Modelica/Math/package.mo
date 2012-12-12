@@ -8375,6 +8375,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
       Real rcondv[size(A, 1)];
       Integer lwork=n*(n + 6);
       Real work[size(A, 1)*(size(A, 1) + 6)];
+      Integer iwork[1];
 
     external"Fortran 77" dgeevx(
               "B",
@@ -8398,6 +8399,7 @@ fprintf(fileptr,\"anorm=%f \\n\",*anorm);
               rcondv,
               work,
               lwork,
+              iwork,
               info) annotation (Library={"lapack"});
 
       annotation (Documentation(info="Lapack documentation
