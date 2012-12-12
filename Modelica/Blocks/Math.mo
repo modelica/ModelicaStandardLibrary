@@ -1042,9 +1042,8 @@ Example:
       end Feedback;
 
       block Add
-    "Output the sum of the two inputs (this is an obsolete block. Use instead MultiSum)"
+    "Output the sum of the two inputs"
         extends Interfaces.SI2SO;
-        extends Modelica.Icons.ObsoleteModel;
 
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of lower input";
@@ -1142,9 +1141,8 @@ Example:
       end Add;
 
       block Add3
-    "Output the sum of the three inputs (this is an obsolete block. Use instead MultiSum)"
+    "Output the sum of the three inputs"
         extends Modelica.Blocks.Icons.Block;
-        extends Modelica.Icons.ObsoleteModel;
 
         parameter Real k1=+1 "Gain of upper input";
         parameter Real k2=+1 "Gain of middle input";
@@ -1232,9 +1230,8 @@ Example:
       end Add3;
 
       block Product
-    "Output product of the two inputs (this is an obsolete block. Use instead MultiProduct)"
+    "Output product of the two inputs"
         extends Interfaces.SI2SO;
-        extends Modelica.Icons.ObsoleteModel;
 
       equation
         y = u1*u2;
