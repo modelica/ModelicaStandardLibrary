@@ -594,7 +594,7 @@ In this example the eddy current losses are implemented in two different ways. C
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Torque T_Load=161.4 "Nominal load torque";
         parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=1440.45*2*Modelica.Constants.pi/60
@@ -602,16 +602,6 @@ In this example the eddy current losses are implemented in two different ways. C
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
 
         parameter Integer p = 2 "Number of pole pairs";
-        parameter Modelica.SIunits.Resistance Rs=0.03
-          "Stator resistance per phase";
-        parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-          "Stator stray inductance per phase";
-        parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*Modelica.Constants.pi*fsNominal)
-          "Main field inductance";
-        parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-          "Rotor stray inductance (equivalent three phase winding)";
-        parameter Modelica.SIunits.Resistance Rr=0.04
-          "Rotor resistance (equivalent three phase winding)";
 
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
@@ -622,8 +612,8 @@ In this example the eddy current losses are implemented in two different ways. C
           annotation (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fsNominal, m),
-          V=fill(sqrt(2.0/3.0)*VsNominal, m))
+          V=fill(sqrt(2.0/3.0)*VsNominal, m),
+          freqHz=fill(fNominal, m))
           annotation (Placement(transformation(
               origin={-30,90},
               extent={{10,-10},{-10,10}},
@@ -658,26 +648,52 @@ In this example the eddy current losses are implemented in two different ways. C
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}}, rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimcM(
-          p=p,
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lm=Lm,
-          Lrsigma=Lrsigma,
-          Rr=Rr,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lssigma=aimcData.Lssigma,
+          Lszero=aimcData.Lszero,
+          frictionParameters=aimcData.frictionParameters,
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          alpha20r(displayUnit="1/K") = aimcData.alpha20r,
+          TsOperational=293.15,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},
             rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
           aimcE(
-          p=p,
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lm=Lm,
-          Lrsigma=Lrsigma,
-          Rr=Rr,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          alpha20r(displayUnit="1/K") = aimcData.alpha20r,
+          TsOperational=293.15,
+          TrRef=aimcData.TrRef,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}}, rotation=
                   0)));
         Modelica.Mechanics.Rotational.Components.Inertia loadInertiaM(
@@ -699,6 +715,16 @@ In this example the eddy current losses are implemented in two different ways. C
           TorqueDirection=false,
           useSupport=false)
           annotation (Placement(transformation(extent={{100,-90},{80,-70}},rotation=0)));
+        parameter
+          Electrical.Machines.Utilities.ParameterRecords.AIM_SquirrelCageData
+          aimcData
+          annotation (Placement(transformation(extent={{-40,-100},{-20,-80}})));
+      initial equation
+        aimcM.is=zeros(3);
+        aimcM.stator.port_p.Phi=Complex(0,0);
+        aimcE.is=zeros(3);
+        aimcE.idq_rr=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -777,7 +803,7 @@ Simulate for 1.5 seconds and plot (versus time):
         constant Integer m=3 "Number of phases";
         parameter Modelica.SIunits.Voltage VsNominal=100
           "Nominal RMS voltage per phase";
-        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
         parameter Modelica.SIunits.Time tOn=0.1 "Start time of machine";
         parameter Modelica.SIunits.Resistance RStart=0.16 "Starting resistance";
         parameter Modelica.SIunits.Time tRheostat=1.0
@@ -786,18 +812,6 @@ Simulate for 1.5 seconds and plot (versus time):
         parameter Modelica.SIunits.AngularVelocity w_Load(displayUnit="1/min")=
           Modelica.SIunits.Conversions.from_rpm(1440.45) "Nominal load speed";
         parameter Modelica.SIunits.Inertia J_Load=0.29 "Load inertia";
-
-        parameter Integer p = 2 "Number of pole pairs";
-        parameter Modelica.SIunits.Resistance Rs = 0.03
-          "Stator resistance per phase";
-        parameter Modelica.SIunits.Inductance Lssigma = 3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-          "Stator stray inductance per phase";
-        parameter Modelica.SIunits.Inductance Lm = 3*sqrt(1 - 0.0667)/(2*Modelica.Constants.pi*fsNominal)
-          "Main field inductance";
-        parameter Modelica.SIunits.Inductance Lrsigma = 3*(1 - sqrt(1 - 0.0667))/(2*Modelica.Constants.pi*fsNominal)
-          "Rotor stray inductance (equivalent three phase winding)";
-        parameter Modelica.SIunits.Resistance Rr = 0.04
-          "Rotor resistance (equivalent three phase winding)";
         Modelica.Electrical.Analog.Basic.Ground ground
           annotation (Placement(transformation(
               origin={-90,90},
@@ -807,8 +821,8 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{-50,80},{-70,100}}, rotation=0)));
         Modelica.Electrical.MultiPhase.Sources.SineVoltage sineVoltage(
           final m=m,
-          freqHz=fill(fsNominal, m),
-          V=fill(sqrt(2.0/3.0)*VsNominal, m))
+          V=fill(sqrt(2.0/3.0)*VsNominal, m),
+          freqHz=fill(fNominal, m))
           annotation (Placement(transformation(
               origin={-30,90},
               extent={{10,-10},{-10,10}},
@@ -844,25 +858,63 @@ Simulate for 1.5 seconds and plot (versus time):
           annotation (Placement(transformation(extent={{-10,-70},{10,-50}},rotation=0)));
         Modelica.Magnetic.FundamentalWave.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsM(
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lm=Lm,
-          Lrsigma=Lrsigma,
-          Rr=Rr,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"),
-          p=p)
+          Jr=aimsData.Jr,
+          Js=aimsData.Js,
+          p=aimsData.p,
+          fsNominal=aimsData.fsNominal,
+          Rs=aimsData.Rs,
+          TsRef=aimsData.TsRef,
+          alpha20s(displayUnit="1/K") = aimsData.alpha20s,
+          Lssigma=aimsData.Lssigma,
+          Lszero=aimsData.Lszero,
+          frictionParameters=aimsData.frictionParameters,
+          statorCoreParameters=aimsData.statorCoreParameters,
+          strayLoadParameters=aimsData.strayLoadParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          Lm=aimsData.Lm,
+          Lrsigma=aimsData.Lrsigma,
+          Lrzero=aimsData.Lrzero,
+          Rr=aimsData.Rr,
+          TrRef=aimsData.TrRef,
+          alpha20r(displayUnit="1/K") = aimsData.alpha20r,
+          useTurnsRatio=aimsData.useTurnsRatio,
+          VsNominal=aimsData.VsNominal,
+          VrLockedRotor=aimsData.VrLockedRotor,
+          rotorCoreParameters=aimsData.rotorCoreParameters,
+          TsOperational=293.15,
+          TrOperational=293.15,
+          TurnsRatio=aimsData.turnsRatio)
           annotation (Placement(transformation(extent={{-10,-30},{10,-10}},  rotation=0)));
         Modelica.Electrical.Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing
           aimsE(
-          p=p,
-          Rs=Rs,
-          Lssigma=Lssigma,
-          Lm=Lm,
-          Lrsigma=Lrsigma,
-          Rr=Rr,
-          alpha20s(displayUnit="1/K"),
-          alpha20r(displayUnit="1/K"))
+          p=aimsData.p,
+          fsNominal=aimsData.fsNominal,
+          Rs=aimsData.Rs,
+          TsRef=aimsData.TsRef,
+          alpha20s(displayUnit="1/K") = aimsData.alpha20s,
+          Lszero=aimsData.Lszero,
+          Lssigma=aimsData.Lssigma,
+          Jr=aimsData.Jr,
+          Js=aimsData.Js,
+          frictionParameters=aimsData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimsData.statorCoreParameters,
+          strayLoadParameters=aimsData.strayLoadParameters,
+          Lm=aimsData.Lm,
+          Lrsigma=aimsData.Lrsigma,
+          Lrzero=aimsData.Lrzero,
+          Rr=aimsData.Rr,
+          TrRef=aimsData.TrRef,
+          alpha20r(displayUnit="1/K") = aimsData.alpha20r,
+          useTurnsRatio=aimsData.useTurnsRatio,
+          VsNominal=aimsData.VsNominal,
+          VrLockedRotor=aimsData.VrLockedRotor,
+          rotorCoreParameters=aimsData.rotorCoreParameters,
+          TsOperational=566.3,
+          turnsRatio=aimsData.turnsRatio,
+          TrOperational=566.3)
           annotation (Placement(transformation(extent={{-10,-90},{10,-70}},rotation=0)));
         Electrical.Machines.Utilities.SwitchedRheostat rheostatM(
           RStart=RStart,
@@ -895,6 +947,16 @@ Simulate for 1.5 seconds and plot (versus time):
           useSupport=false,
           w_nominal=w_Load)
           annotation (Placement(transformation(extent={{100,-90},{80,-70}}, rotation=0)));
+        parameter
+          Electrical.Machines.Utilities.ParameterRecords.AIM_SlipRingData
+          aimsData
+          annotation (Placement(transformation(extent={{-60,-100},{-40,-80}})));
+      initial equation
+        aimsM.is=zeros(3);
+        aimsM.ir=zeros(3);
+        aimsE.is=zeros(3);
+        aimsE.ir=zeros(3);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -3374,7 +3436,9 @@ heat <a href=\"modelica://Modelica.Thermal.HeatTransfer.Interfaces.HeatPort_a\">
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.SaliencyCageWinding\">SaliencyCageWinding</a>
 <a href=\"modelica://Modelica.Magnetic.FundamentalWave.BasicMachines.Components.RotorSaliencyAirGap\">RotorSaliencyAirGap</a>
 </p>
-</html>"));
+</html>"),
+          Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+                  -100},{100,100}}), graphics));
       end SymmetricMultiPhaseWinding;
 
       model RotorSaliencyAirGap "Air gap model with rotor saliency"
@@ -4553,9 +4617,9 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation(Dialog(tab="Losses"));
 
       // Mechanical quantities
-      output Modelica.SIunits.Angle phiMechanical = flange.phi-internalSupport.phi
+      output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi-internalSupport.phi
         "Mechanical angle of rotor against stator";
-      output Modelica.SIunits.AngularVelocity wMechanical(displayUnit="1/min") = der(phiMechanical)
+      output Modelica.SIunits.AngularVelocity wMechanical(start=0, displayUnit="1/min") = der(phiMechanical)
         "Mechanical angular velocity of rotor against stator";
       output Modelica.SIunits.Torque tauElectrical = inertiaRotor.flange_a.tau
         "Electromagnetic torque";
@@ -4876,9 +4940,9 @@ This model is mainly used to extend from in order build more complex - equation 
         annotation(Dialog(tab="Losses"));
 
       // Mechanical quantities
-      output Modelica.SIunits.Angle phiMechanical = flange.phi-internalSupport.phi
+      output Modelica.SIunits.Angle phiMechanical(start=0) = flange.phi-internalSupport.phi
         "Mechanical angle of rotor against stator";
-      output Modelica.SIunits.AngularVelocity wMechanical(displayUnit="1/min") = der(phiMechanical)
+      output Modelica.SIunits.AngularVelocity wMechanical(start=0, displayUnit="1/min") = der(phiMechanical)
         "Mechanical angular velocity of rotor against stator";
       output Modelica.SIunits.Torque tauElectrical = inertiaRotor.flange_a.tau
         "Electromagnetic torque";

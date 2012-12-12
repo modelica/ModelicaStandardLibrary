@@ -23,8 +23,28 @@ package Machines "Library for electric machines"
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -73,6 +93,11 @@ package Machines "Library for electric machines"
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
                 rotation=0)));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        aimc.is=zeros(3);
+        aimc.idq_rr=zeros(2);
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -140,8 +165,28 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -195,6 +240,11 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           useSupport=false)
           annotation (Placement(transformation(extent={{90,-50},{70,-30}},
                 rotation=0)));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        aimc.is=zeros(3);
+        aimc.idq_rr=zeros(2);
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -262,8 +312,28 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -356,6 +426,13 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
                 rotation=0)));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+          annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
+      initial equation
+        aimc.is=zeros(3);
+        aimc.idq_rr=zeros(2);
+        transformer.i2[1:2]=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -454,7 +531,34 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
 
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SlipRing aims(
+          p=aimsData.p,
+          Jr=aimsData.Jr,
+          Js=aimsData.Js,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          useTurnsRatio=aimsData.useTurnsRatio,
+          turnsRatio=aimsData.turnsRatio,
+          VsNominal=aimsData.VsNominal,
+          VrLockedRotor=aimsData.VrLockedRotor,
+          Rs=aimsData.Rs,
+          TsRef=aimsData.TsRef,
+          Lszero=aimsData.Lszero,
+          Lssigma=aimsData.Lssigma,
+          Lm=aimsData.Lm,
+          Lrsigma=aimsData.Lrsigma,
+          Lrzero=aimsData.Lrzero,
+          Rr=aimsData.Rr,
+          TrRef=aimsData.TrRef,
+          frictionParameters=aimsData.frictionParameters,
+          statorCoreParameters=aimsData.statorCoreParameters,
+          strayLoadParameters=aimsData.strayLoadParameters,
+          rotorCoreParameters=aimsData.rotorCoreParameters,
+          fsNominal=aimsData.fsNominal,
+          TsOperational=293.15,
+          alpha20s=aimsData.alpha20s,
+          alpha20r=aimsData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -507,6 +611,12 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         Machines.Utilities.SwitchedRheostat switchedRheostat(RStart=Rstart, tStart=tStart2,
           m=m)
           annotation (Placement(transformation(extent={{-50,-50},{-30,-30}})));
+        parameter Utilities.ParameterRecords.AIM_SlipRingData aimsData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        aims.is=zeros(3);
+        aims.ir=zeros(3);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,90},{-80,90}}, color={0,0,255}));
@@ -563,7 +673,8 @@ Simulate for 1.5 seconds and plot (versus time):
 <li>aims.tauElectrical: motor's torque</li>
 </ul>
 Default machine parameters of model <i>AIM_SlipRing</i> are used.
-</HTML>"));
+</HTML>"),Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,-100},{100,
+                  100}}), graphics));
       end AIMS_Start;
 
       model AIMC_Inverter
@@ -580,8 +691,28 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
 
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -625,6 +756,12 @@ Default machine parameters of model <i>AIM_SlipRing</i> are used.
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="Y")
                                            annotation (Placement(transformation(
                 extent={{-20,-30},{0,-10}}, rotation=0)));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
+      initial equation
+        aimc.idq_sr=zeros(2);
+        aimc.idq_rr=zeros(2);
+
       equation
         connect(signalVoltage.plug_n, star.plug_p)
           annotation (Line(points={{0,70},{0,90},{-50,90}},
@@ -695,8 +832,29 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
 
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc(useSupport=true)
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          useSupport=true,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Modelica.Electrical.Analog.Sources.SineVoltage sineVoltage(freqHz=
@@ -775,6 +933,14 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               extent={{-10,-10},{10,10}},
               rotation=90,
               origin={20,-50})));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+          annotation (Placement(transformation(extent={{-20,-82},{0,-62}})));
+      initial equation
+        cStart.v=0;
+        cRun.v = 0;
+
+        aimc.idq_rr=zeros(2);
+
       equation
         connect(ground.p, sineVoltage.n)
           annotation (Line(points={{-80,90},{-70,90}}, color={0,0,255}));
@@ -796,8 +962,8 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
         connect(plugToPin_p1.pin_p,cStart. n)     annotation (Line(points={{10,-8},
                 {30,-8},{30,10}}, color={0,0,255}));
         connect(idealOpener.n, cStart.p)
-          annotation (Line(points={{30,40},{30,37.5},{30,37.5},{30,35},{30,30},
-                {30,30}},                            color={0,0,255}));
+          annotation (Line(points={{30,40},{30,37.5},{30,35},{30,30}},
+                                                     color={0,0,255}));
         connect(idealOpener.p, idealCloser.n)   annotation (Line(points={{30,60},
                 {30,90},{-10,90}}, color={0,0,255}));
         connect(greaterThreshold.y, idealOpener.control)  annotation (Line(points=
@@ -859,20 +1025,13 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
       model AIMC_withLosses
         "Test example: AsynchronousInductionMachineSquirrelCage with losses"
         extends Modelica.Icons.Example;
+        constant Integer m=3 "Number of phases";
         import Modelica.SIunits.Conversions.from_rpm;
         import Modelica.SIunits.Conversions.to_rpm;
         import Modelica.SIunits.Conversions.from_degC;
       protected
-        constant Modelica.SIunits.Angle pi=Modelica.Constants.pi;
-        constant Integer m=3 "Number of phases";
-        parameter Modelica.SIunits.Inertia J=0.12 "Moment of inertia";
         parameter Modelica.SIunits.Power PNominal=18500 "Nominal output";
         parameter Modelica.SIunits.Voltage VNominal=400 "Nominal RMS voltage";
-        parameter Modelica.SIunits.Power PcoreRef=410 "Nominal core losses";
-        parameter Modelica.SIunits.Voltage VcoreNominal=387.9
-          "Nominal inner RMS voltage";
-        parameter Modelica.SIunits.Power PfrictionRef=180
-          "Nominal friction losses";
         parameter Modelica.SIunits.Current INominal=32.85 "Nominal RMS current";
         parameter Real pfNominal=0.898 "Nominal power factor";
         parameter Modelica.SIunits.Frequency fNominal=50 "Nominal frequency";
@@ -909,32 +1068,28 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           "Simulated efficiency";
         output Modelica.SIunits.Current eff_meas=combiTable1Ds.y[4]
           "Measured efficiency";
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc(
-          Jr=J,
-          p=2,
-          fsNominal=fNominal,
-          TsOperational=TempNominal,
-          TrOperational=TempNominal,
-          statorCoreParameters(
-            PRef=PcoreRef,
-            VRef=VcoreNominal,
-            wRef=2*pi*fNominal),
-          strayLoadParameters(
-            PRef=0.005*sqrt(3)*VNominal*INominal*pfNominal,
-            IRef=INominal/sqrt(3),
-            wRef=wNominal),
-          Rs=0.56,
-          alpha20s(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Copper,
-          Lssigma=1.52/(2*pi*fNominal),
-          Lm=66.4/(2*pi*fNominal),
-          Lrsigma=2.31/(2*pi*fNominal),
-          Rr=0.42,
-          alpha20r(displayUnit="1/K") = Modelica.Electrical.Machines.Thermal.Constants.alpha20Aluminium,
-          frictionParameters(PRef=PfrictionRef, wRef=wNominal),
-          TsRef=293.15,
-          TrRef=293.15,
-          wMechanical(start=wNominal, fixed=true))
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          phiMechanical(fixed=true),
+          wMechanical(fixed=true),
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-40,0},{-20,20}},
                 rotation=0)));
 
@@ -970,7 +1125,7 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
               rotation=0)));
         Modelica.Mechanics.Rotational.Sensors.PowerSensor powerSensor
           annotation (Placement(transformation(extent={{-10,0},{10,20}})));
-        Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=J)
+        Modelica.Mechanics.Rotational.Components.Inertia loadInertia(J=aimcData.Jr)
           annotation (Placement(transformation(extent={{20,0},{40,20}},
                 rotation=0)));
         Modelica.Mechanics.Rotational.Sources.Torque torque
@@ -992,6 +1147,13 @@ Default machine parameters of model <i>AIM_SquirrelCage</i> are used.
           table={{Ptable[j],Itable[j],ntable[j],ctable[j],etable[j]} for j in 1:size(Ptable, 1)},
           smoothness=Modelica.Blocks.Types.Smoothness.ContinuousDerivative)
           annotation (Placement(transformation(extent={{20,-30},{40,-10}})));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData(
+            statorCoreParameters(PRef=410, VRef=387.9))
+          annotation (Placement(transformation(extent={{-40,-30},{-20,-10}})));
+      initial equation
+        aimc.is=zeros(3);
+        aimc.idq_rr=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,20},{-70,10}}, color={0,0,255}));
@@ -1127,8 +1289,26 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
           "Nominal load speed";
         parameter Modelica.SIunits.Inertia JLoad=0.29
           "Load's moment of inertia";
-        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage
-          aimc
+        Machines.BasicMachines.AsynchronousInductionMachines.AIM_SquirrelCage aimc(
+          p=aimcData.p,
+          fsNominal=aimcData.fsNominal,
+          Rs=aimcData.Rs,
+          TsRef=aimcData.TsRef,
+          alpha20s(displayUnit="1/K") = aimcData.alpha20s,
+          Lszero=aimcData.Lszero,
+          Lssigma=aimcData.Lssigma,
+          Jr=aimcData.Jr,
+          Js=aimcData.Js,
+          frictionParameters=aimcData.frictionParameters,
+          statorCoreParameters=aimcData.statorCoreParameters,
+          strayLoadParameters=aimcData.strayLoadParameters,
+          Lm=aimcData.Lm,
+          Lrsigma=aimcData.Lrsigma,
+          Rr=aimcData.Rr,
+          TrRef=aimcData.TrRef,
+          TsOperational=293.15,
+          alpha20r=aimcData.alpha20r,
+          TrOperational=293.15)
           annotation (Placement(transformation(extent={{-20,-50},{0,-30}},
                 rotation=0)));
         Machines.Sensors.CurrentQuasiRMSSensor currentQuasiRMSSensor
@@ -1166,11 +1346,14 @@ Modelica 2009, 7<sup>th</sup> International Modelica Conference</p>
         Machines.Utilities.TerminalBox terminalBox(terminalConnection="D")
           annotation (Placement(transformation(extent={{-20,-30},{0,-10}},
                 rotation=0)));
+        parameter Utilities.ParameterRecords.AIM_SquirrelCageData aimcData
+          annotation (Placement(transformation(extent={{-20,-80},{0,-60}})));
       initial equation
         aimc.wMechanical=wSync;
         der(aimc.wMechanical)=0;
         der(aimc.idq_sr)=zeros(2);
         der(aimc.idq_rr)=zeros(2);
+
       equation
         connect(star.pin_n, ground.p)
           annotation (Line(points={{-70,-30},{-70,-30},{-70,-40}},
@@ -12641,7 +12824,7 @@ One may also fix the the shaft and let rotate the stator; parameter Js is only o
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
         "Stator instantaneous currents";
-      output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i
+      output Modelica.SIunits.Current i_0_s(stateSelect=StateSelect.prefer) = spacePhasorS.zero.i
         "Stator zero-sequence current";
     // to be defined in model that extends from this partial (since airgap isn't included here)
       input Modelica.SIunits.Current idq_ss[2]
@@ -12834,7 +13017,7 @@ Partial model for induction machine models
         "Stator instantaneous voltages";
       output Modelica.SIunits.Current is[m] = plug_sp.pin.i
         "Stator instantaneous currents";
-      output Modelica.SIunits.Current i_0_s( stateSelect=StateSelect.prefer) = spacePhasorS.zero.i
+      output Modelica.SIunits.Current i_0_s(stateSelect=StateSelect.prefer) = spacePhasorS.zero.i
         "Stator zero-sequence current";
     // to be defined in model that extends from this partial (since airgap isn't included here)
       input Modelica.SIunits.Current idq_ss[2]
@@ -14408,7 +14591,113 @@ The icons can be utilized by inheriting them in the desired class using \"extend
     package ParameterRecords "Parameter records"
       extends Modelica.Icons.MaterialPropertiesPackage;
 
+      record InductionMachineData "Common parameters for induction machines"
+        extends Modelica.Icons.Record;
+        import Modelica.Constants.pi;
+        final parameter Integer m=3 "Number of phases";
+        parameter Modelica.SIunits.Inertia Jr=0.29 "Rotor's moment of inertia";
+        parameter Modelica.SIunits.Inertia Js=Jr "Stator's moment of inertia";
+        parameter Integer p(min=1)=2 "Number of pole pairs (Integer)";
+        parameter Modelica.SIunits.Frequency fsNominal=50 "Nominal frequency";
+        parameter Modelica.SIunits.Resistance Rs=0.03
+          "Stator resistance per phase at TRef"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TsRef=293.15
+          "Reference temperature of stator resistance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20s=0
+          "Temperature coefficient of stator resistance at 20 degC"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lszero=Lssigma
+          "Stator zero sequence inductance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lssigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)
+          "Stator stray inductance per phase"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
 
+        parameter Machines.Losses.FrictionParameters frictionParameters(
+          PRef=0, wRef=2*pi*fsNominal/p) "Friction losses"
+          annotation(Dialog(tab="Losses"));
+        parameter Machines.Losses.CoreParameters statorCoreParameters(
+          final m=m, PRef=0, VRef=100, wRef=2*pi*fsNominal)
+          "Stator core losses"
+          annotation(Dialog(tab="Losses"));
+        parameter Machines.Losses.StrayLoadParameters strayLoadParameters(
+          PRef=0, IRef=100, wRef=2*pi*fsNominal/p) "Stray load losses"
+          annotation(Dialog(tab="Losses"));
+
+        annotation(defaultComponentName="inductionMachineData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of induction machines are predefined with default values.</p>
+</HTML>"));
+      end InductionMachineData;
+
+      record AIM_SquirrelCageData
+        "Common parameters for asynchronous induction machines with squirrel cage"
+        extends InductionMachineData;
+        import Modelica.Constants.pi;
+        parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fsNominal)
+          "Main field inductance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)
+          "Rotor stray inductance (equivalent three phase winding)"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Resistance Rr=0.04
+          "Rotor resistance (equivalent three phase winding) at TRef"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TrRef=293.15
+          "Reference temperature of rotor resistance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+          "Temperature coefficient of rotor resistance at 20 degC"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        annotation(defaultComponentName="aimcData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of asynchronous induction machines with squirrel cage are predefined with default values.</p>
+</HTML>"));
+      end AIM_SquirrelCageData;
+
+      record AIM_SlipRingData
+        "Common parameters for asynchronous induction machines with slip ring"
+        extends InductionMachineData;
+        import Modelica.Constants.pi;
+         parameter Modelica.SIunits.Inductance Lm=3*sqrt(1 - 0.0667)/(2*pi*fsNominal)
+          "Main field inductance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lrsigma=3*(1 - sqrt(1 - 0.0667))/(2*pi*fsNominal)
+          "Rotor stray inductance per phase"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Inductance Lrzero=Lrsigma
+          "Rotor zero sequence inductance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Resistance Rr=0.04
+          "Rotor resistance per phase at TRef"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Modelica.SIunits.Temperature TrRef=293.15
+          "Reference temperature of rotor resistance"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Machines.Thermal.LinearTemperatureCoefficient20 alpha20r=0
+          "Temperature coefficient of rotor resistance at 20 degC"
+           annotation(Dialog(tab="Nominal resistances and inductances"));
+        parameter Boolean useTurnsRatio=true
+          "Use turnsRatio or calculate from locked-rotor voltage?";
+        parameter Real turnsRatio(final min=Modelica.Constants.small)=1
+          "Effective number of stator turns / effective number of rotor turns"
+          annotation(Dialog(enable=useTurnsRatio));
+        parameter Modelica.SIunits.Voltage VsNominal=100
+          "Nominal stator voltage per phase"
+          annotation(Dialog(enable=not useTurnsRatio));
+        parameter Modelica.SIunits.Voltage VrLockedRotor=100*(2*pi*fsNominal*Lm)/sqrt(Rs^2+(2*pi*fsNominal*(Lm+Lssigma))^2)
+          "Locked-rotor voltage per phase"
+          annotation(Dialog(enable=not useTurnsRatio));
+        parameter Machines.Losses.CoreParameters rotorCoreParameters(
+          final m=3,
+          PRef=0,
+          VRef=1,
+          wRef=1) "Rotor core losses"
+          annotation(Dialog(tab="Losses"));
+        annotation(defaultComponentName="aimsData", defaultComponentPrefixes="parameter", Documentation(info="<HTML>
+<p>Basic parameters of asynchronous induction machines with slip ring are predefined with default values.</p>
+</HTML>"));
+      end AIM_SlipRingData;
 
       record DcPermanentMagnetData "Common parameters for DC machines"
         extends Modelica.Icons.Record;
@@ -15120,7 +15409,6 @@ normally given in a technical description, according to the standard EN&nbsp;600
 <p>The parameters of the transformer models are calculated from parameters normally given in a technical description.</p>
 </HTML>"));
   end TransformerData;
-
 
     annotation (Documentation(info="<HTML>
 This package contains utility components for testing examples.
