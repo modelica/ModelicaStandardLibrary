@@ -274,10 +274,10 @@ simulation accuracy could be increased in order to avoid errors.
       height=1.1,
       portsData={Modelica.Fluid.Vessels.BaseClasses.VesselPortsData(diameter=
           0.1, height=0.5)},
-      level_start=0)
+      level_start=1.0e-10)
       annotation (Placement(transformation(extent={{0,-80},{40,-40}},
             rotation=0)));
-    inner Modelica.Fluid.System system
+    inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
                                      annotation (Placement(transformation(
             extent={{60,60},{80,80}}, rotation=0)));
   equation
