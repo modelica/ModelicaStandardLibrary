@@ -47,7 +47,7 @@ package DrumBoiler
         Medium =
           Modelica.Media.Water.StandardWater)
       annotation (Placement(transformation(extent={{10,14},{30,34}}, rotation=0)));
-    Modelica.Blocks.Continuous.PI controller(T=120, k=10)
+    Modelica.Blocks.Continuous.PI controller(T=120, k=10, initType=Modelica.Blocks.Types.Init.InitialState)
       annotation (Placement(transformation(extent={{-51,23},{-65,37}}, rotation=
              0)));
     Modelica.Fluid.Sources.MassFlowSource_h pump(nPorts=1,
