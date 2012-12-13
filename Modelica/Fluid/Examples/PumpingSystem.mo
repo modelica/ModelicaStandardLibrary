@@ -36,7 +36,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     m_flow_start=0,
     use_N_in=true,
     nParallel=1,
-    energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
+    energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     massDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
     annotation (Placement(transformation(extent={{-68,-80},{-48,-60}}, rotation=
            0)));
@@ -46,6 +46,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
     redeclare package Medium =
         Modelica.Media.Water.ConstantPropertyLiquidWater,
     T_start=Modelica.SIunits.Conversions.from_degC(20),
+    energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
     use_portsData=true,
     crossArea=50,
     level_start=2.2,
