@@ -428,13 +428,13 @@ and the issue discussed below is not present.
 For drive trains where the goal is to control the velocity of a load (e.g. the drive
 train of a vehicle or the crank angle of an engine),
 the absolute angles of the components are quickly increasing
-during operation. This is critical, because then the step size control of time 
-integrators might then no longer work appropriately: 
+during operation. This is critical, because then the step size control of time
+integrators might then no longer work appropriately:
 </p>
 
 <p>
 Integrators with step size control adjust their time step size automatically
-to meet user defined error bounds (“tolerances”).
+to meet user defined error bounds (\"tolerances\").
 Typically the local error estimate EST_i is compared with a mixed bound for absolute and relative errors.
 </p>
 
@@ -443,7 +443,7 @@ Typically the local error estimate EST_i is compared with a mixed bound for abso
 </pre>
 
 <p>
-Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively. This mixed error bound is used since it is more robust than a pure relative error based error bound if the nominal value x_i  is (very) close to 0. 
+Here, abstol_i and reltol_i denote the bounds for the absolute and relative error of state variable x_i, respectively. This mixed error bound is used since it is more robust than a pure relative error based error bound if the nominal value x_i  is (very) close to 0.
 In a Modelica simulation model, typically the same relative tolerance reltol is used for all
 states and the absolute tolerances are computed using the relative tolerance and the
 nominal values of the states:
@@ -451,7 +451,7 @@ nominal values of the states:
 
 <pre>
    reltol_i = reltol
-   abstol_i = reltol*x_i(nominal)*0.01  
+   abstol_i = reltol*x_i(nominal)*0.01
 </pre>
 
 <p>
@@ -465,11 +465,11 @@ variable and only use an absolute tolerance for the step size control.
 <p>
 Currently, in Modelica there is no possibility to provide this information.
 In order to reduce this effect, it is adviceable to not use absolute angles, but
-relative angles as states. A user can define relative variables as states 
-explicitely with component 
-<a href=\"Modelica.Mechanics.Rotational.Components.RelativeStates\">RelativeStates</a>.
+relative angles as states. A user can define relative variables as states
+explicitely with component
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.RelativeStates\">RelativeStates</a>.
 Furthermore, all compliant components, such as
-<a href=\"Modelica.Mechanics.Rotational.Components.SpringDamper\">SpringDamper</a> are
+<a href=\"modelica://Modelica.Mechanics.Rotational.Components.SpringDamper\">SpringDamper</a> are
 defining the relative angle and the relative angular velocity as preferred states.
 Therefore, a tool will select in most cases relative angles as states.
 </p>
@@ -482,9 +482,9 @@ that are so small (so often switching the error control off). The remedy is to d
 explicitly a nominal value on the relative angle. This definition is provided in the
 \"Advanced\" menu of the compliant components with parameter \"phi_nominal\".
 The default value is 1e-4 rad, to be in the order of a compliant deformation of a
-drive. For some components, like 
+drive. For some components, like
 a <a href=\"modelica://Modelica.Mechanics.Rotational.Components.Clutch\">Clutch</a>
-this might be too small and a value of phi_nominal=1 might be more appropriate 
+this might be too small and a value of phi_nominal=1 might be more appropriate
 (a value of phi_nominal = 1e-4 does not hurt, but just makes the error control
 unnecessarily stringent).
 </p>
@@ -1900,7 +1900,7 @@ between two inertia/gear elements.
 </p>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -1990,7 +1990,7 @@ to describe a coupling of the element with the housing via a spring/damper.
 </p>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -2260,7 +2260,7 @@ where the different effects are visualized:
 </p>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -2866,7 +2866,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 </dl>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -3033,7 +3033,7 @@ following references, especially (Armstrong and Canudas de Witt 1996):
 </dl>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -3225,7 +3225,7 @@ are dynamically coupled. The method is described in:
 </dl>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -4389,7 +4389,7 @@ velocity of model inertia1 or of model inertia2 as state variables.
 </p>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
@@ -6035,7 +6035,7 @@ and c are more meaningful for the user.
 </p>
 
 <p>
-See also the discussion 
+See also the discussion
 <a href=\"modelica://Modelica.Mechanics.Rotational.UsersGuide.StateSelection\">State Selection</a>
 in the User's Guide of the Rotational library.
 </p>
