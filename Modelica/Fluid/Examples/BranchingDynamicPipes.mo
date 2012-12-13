@@ -5,7 +5,8 @@ extends Modelica.Icons.Example;
 replaceable package Medium=Modelica.Media.Air.MoistAir;
 //replaceable package Medium=Modelica.Media.Water.StandardWater;
 
-  inner Modelica.Fluid.System system(momentumDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial)
+  inner Modelica.Fluid.System system(energyDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial,
+      momentumDynamics=Modelica.Fluid.Types.Dynamics.FixedInitial)
     annotation (Placement(transformation(extent={{-90,70},{-70,90}},  rotation=
             0)));
   Modelica.Fluid.Sources.Boundary_pT boundary1(nPorts=1,
@@ -37,7 +38,8 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     length=50,
     height_ab=25,
     p_a_start=130000,
-    p_b_start=120000)
+    p_b_start=120000,
+    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_v_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={-20,-10})));
@@ -51,7 +53,8 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
     length=25,
     p_a_start=130000,
     p_b_start=120000,
-    height_ab=25)
+    height_ab=25,
+    modelStructure=Modelica.Fluid.Types.ModelStructureReduced.a_v_b)
             annotation (Placement(transformation(extent={{-10,-10},{10,10}},
           rotation=90,
         origin={20,-10})));
@@ -78,7 +81,7 @@ replaceable package Medium=Modelica.Media.Air.MoistAir;
         origin={0,60})));
   Modelica.Blocks.Sources.Ramp ramp1(
     offset=1e5,
-    duration=0,
+    duration=0.001,
     startTime=2,
     height=1e5) annotation (Placement(transformation(extent={{-40,70},{-20,90}},
           rotation=0)));
