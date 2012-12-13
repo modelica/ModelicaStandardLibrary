@@ -33,6 +33,7 @@ model PumpingSystem "Model of a pumping system for drinking water"
           V_flow_nominal={0,0.25,0.5}, head_nominal={100,60,0}),
     V=50/1000,
     T_start=Modelica.SIunits.Conversions.from_degC(20),
+    m_flow_start=0,
     use_N_in=true,
     nParallel=1,
     energyDynamics=Modelica.Fluid.Types.Dynamics.DynamicFreeInitial,
